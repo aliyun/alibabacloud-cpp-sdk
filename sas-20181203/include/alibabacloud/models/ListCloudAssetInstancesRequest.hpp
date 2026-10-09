@@ -93,21 +93,21 @@ namespace Models
 
 
     protected:
-      // The subtype of the cloud service.
+      // The subtype of the cloud product.
       // 
-      // > For specific meanings, refer to the AssetSubType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+      // > For more information, see the AssetSubType field in [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~).
       shared_ptr<int32_t> assetSubType_ {};
       // The type of the cloud asset.
       // 
-      // > For specific meanings, refer to the AssetType parameter in the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+      // > For more information, see the AssetType field in [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~).
       shared_ptr<int32_t> assetType_ {};
       // The server vendor. Valid values:
       // 
       // - **0**: Alibaba Cloud asset
-      // - **1**: Non-cloud asset
+      // - **1**: off-cloud asset
       // - **2**: IDC asset
-      // - **3**, **4**, **5**, **7**: Third-party cloud asset
-      // - **8**: Lightweight asset
+      // - **3**, **4**, **5**, **7**: other cloud assets
+      // - **8**: lightweight asset
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
     protected:
       // The query content.
       shared_ptr<string> data_ {};
-      // The query operator. Currently, only INCLUDE is supported.
+      // The query operator. Only INCLUDE is supported.
       shared_ptr<string> operator_ {};
     };
 
@@ -226,35 +226,35 @@ namespace Models
 
 
   protected:
-    // The data list queried by keyword.
+    // The data list to query by keyword.
     shared_ptr<vector<ListCloudAssetInstancesRequest::CloudAssetQueryData>> cloudAssetQueryData_ {};
-    // The list of cloud asset instance types.
+    // The asset list of cloud asset instances.
     shared_ptr<vector<ListCloudAssetInstancesRequest::CloudAssetTypes>> cloudAssetTypes_ {};
-    // The search conditions for assets. This parameter is in JSON format and contains the following fields:
-    // - **name**: The search item.
-    // - **value**: The value of the search item.
-    // - **logicalExp**: The logical relationship between multiple search item values. Valid values:
-    //     - **OR**: The search item values are evaluated using the OR operator.
-    //     - **AND**: The search item values are evaluated using the AND operator.
-    // > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query the supported search conditions.
+    // The search criteria for assets. This parameter is in JSON format and contains the following fields:
+    // - **name**: The search field.
+    // - **value**: The value of the search field.
+    // - **logicalExp**: The logical relationship between multiple search field values. Valid values:
+    //     - **OR**: Multiple search field values are evaluated using an OR relationship.
+    //     - **AND**: Multiple search field values are evaluated using an AND relationship.
+    // > You can call [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) to query the supported search criteria.
     shared_ptr<string> criteria_ {};
-    // The page number of the current page in a paging query.
+    // The page number to return in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether to return sale-related data. Valid values:
     // - **true**: Returns sale-related data.
     // - **false**: Does not return sale-related data.
     shared_ptr<bool> isSaleData_ {};
-    // The logical relationship between multiple search conditions. Valid values:
+    // The logical relationship between multiple search criteria. Valid values:
     // 
-    // - **OR**: The search conditions are evaluated using the OR operator.
-    // - **AND**: The search conditions are evaluated using the AND operator.
+    // - **OR**: Multiple search criteria are evaluated using an OR relationship.
+    // - **AND**: Multiple search criteria are evaluated using an AND relationship.
     shared_ptr<string> logicalExp_ {};
-    // The maximum number of entries per page. Maximum value: 100. Default value: 20.
+    // The maximum number of rows per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance.
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud account of the resource folder member accounts.
-    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the main account of the resource folder member accounts.
+    // > Call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

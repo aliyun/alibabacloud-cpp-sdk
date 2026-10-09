@@ -130,18 +130,18 @@ namespace Models
 
 
       protected:
-        // The number of authorized cores assigned to the member.
+        // The number of core authorizations allocated to the member.
         shared_ptr<int64_t> coreCount_ {};
-        // The number of authorized instances assigned to the member.
+        // The number of instance authorizations allocated to the member.
         shared_ptr<int64_t> ecsCount_ {};
         // The Security Center edition of the member accounts. Valid values:  
-        // - **1**: Free Edition 
-        // - **3**: Enterprise Edition
-        // - **5**: Premium Edition
-        // - **6**: Anti-virus Edition    
-        // - **7**: Ultimate Edition   
-        // - **8**: multi-edition   
-        // - **10**: value-added services only
+        // - **1**: Free Edition. 
+        // - **3**: Enterprise Edition.
+        // - **5**: Premium Edition.
+        // - **6**: Anti-virus Edition.    
+        // - **7**: Ultimate Edition.   
+        // - **8**: multi-edition.   
+        // - **10**: value-added services only.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -281,50 +281,51 @@ namespace Models
     protected:
       // The Alibaba Cloud account UID of the member.
       shared_ptr<int64_t> aliUid_ {};
-      // The anti-ransomware capacity assigned to the member. Unit: GB.
+      // The anti-ransomware capacity allocated to the member, in GB.
       shared_ptr<int64_t> antiRansomwareCapacity_ {};
-      // The billing type. Valid values:
-      // * **PREPAID**: upfront.
+      // The billing method. Valid values:
+      // * **PREPAID**: subscription.
       // * **POSTPAID** (default): pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The number of cloud platform configuration check scans assigned to the member. Unit: scans per month.
+      // The number of Cloud Security Posture Management (CSPM) scans allocated to the member. Unit: scans per month.
       shared_ptr<int64_t> cspmCapacity_ {};
+      // The number of platform configuration check instance authorizations allocated to the member accounts.
       shared_ptr<int64_t> cspmInstanceCapacity_ {};
-      // The number of honeypot quotas assigned to the member.
+      // The number of cloud honeypot authorizations allocated to the member.
       shared_ptr<int64_t> honeypotCapacity_ {};
-      // The number of image scan quotas assigned to the member.
+      // The number of image scan authorizations allocated to the member.
       shared_ptr<int64_t> imageScanCapacity_ {};
-      // The Security Center instance ID purchased by the member accounts.
+      // The instance ID of the Security Center instance purchased by the member accounts.
       shared_ptr<string> instanceId_ {};
       // The operation type. Valid values:  
-      // - **ADD**: increase 
-      // - **CHANGE**: update
-      // - **DEL**: delete
+      // - **ADD**: adds an authorization. 
+      // - **CHANGE**: modifies an authorization.
+      // - **DEL**: deletes an authorization.
       shared_ptr<string> optType_ {};
-      // The number of application protection quotas assigned to the member. Unit: quotas per month.
+      // The number of application protection authorizations allocated to the member. Unit: instances per month.
       shared_ptr<int64_t> raspCapacity_ {};
-      // The number of malicious file detection SDK quotas assigned to the member.
+      // The number of malicious file detection SDK authorizations allocated to the member.
       shared_ptr<int64_t> sdkCapacity_ {};
-      // The log storage capacity assigned to the member. Unit: GB.
+      // The log storage capacity allocated to the member, in GB.
       shared_ptr<int64_t> slsCapacity_ {};
       // The instance status of the member accounts. Valid values:
       // - **1**: active.
       // - **2**: expired.
       shared_ptr<int32_t> status_ {};
-      // The threat analysis capacity assigned to the member. Unit: GB.
+      // The threat analysis capacity allocated to the member. Unit: GB.
       shared_ptr<int64_t> threatAnalysisCapacity_ {};
-      // The log ingestion traffic for threat detection and response assigned to the member. Unit: GB/day.
+      // The log ingestion traffic for threat detection and response allocated to the member. Unit: GB/day.
       shared_ptr<int64_t> threatAnalysisFlow_ {};
       // The Security Center edition to bind. Valid values:  
-      // - **1**: Free Edition 
-      // - **3**: Enterprise Edition
-      // - **5**: Advanced Edition
-      // - **6**: Anti-virus Edition    
-      // - **7**: Ultimate Edition
+      // - **1**: Free Edition. 
+      // - **3**: Enterprise Edition.
+      // - **5**: Advanced Edition.
+      // - **6**: Anti-virus Edition.    
+      // - **7**: Ultimate Edition.
       shared_ptr<string> version_ {};
       // The authorization usage information of the member accounts.
       shared_ptr<vector<MemberInstances::VersionSummary>> versionSummary_ {};
-      // The number of web tamper-proofing authorization quotas assigned to the member.
+      // The number of web tamper-proofing authorizations allocated to the member.
       shared_ptr<int64_t> webLockCapacity_ {};
     };
 

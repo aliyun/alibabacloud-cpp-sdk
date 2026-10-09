@@ -84,27 +84,23 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The Common Vulnerabilities and Exposures (CVE) ID of the vulnerability.
+    // The CVE ID of the vulnerability.
     shared_ptr<string> cveId_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to display per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Indicates whether the application protection feature is supported. Valid values:
-    // 
-    // - **0**: no.
-    // 
-    // - **1**: yes.
+    // Specifies whether runtime application self-protection (RASP) is supported. Valid values:
+    // - **0**: Not supported.
+    // - **1**: Supported.
     shared_ptr<int32_t> raspDefend_ {};
     // The name of the vulnerability.
     shared_ptr<string> vulNameLike_ {};
-    // The type of the vulnerabilities. Valid values:
+    // The type of vulnerability to query. Valid values:
     // 
-    // - **cve**: Linux software vulnerability.
-    // 
-    // - **sys**: Windows system vulnerability.
-    // 
-    // - **app**: Application vulnerability that is detected by using web scanner.
+    // - cve: Linux software vulnerability
+    // - sys: Windows system vulnerability
+    // - app: application vulnerability
     shared_ptr<string> vulType_ {};
   };
 

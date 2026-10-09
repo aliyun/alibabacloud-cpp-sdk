@@ -127,27 +127,25 @@ namespace Models
 
 
     protected:
-      // The common vulnerabilities and exposures (CVE) ID of the vulnerability.
+      // The CVE ID.
       shared_ptr<string> cveId_ {};
-      // The extended field for Server Guard.
+      // The Server Guard extended field.
       shared_ptr<string> extAegis_ {};
-      // The primary key ID of the database.
+      // The primary key ID in the database.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the vulnerability was detected based on version comparison. Valid values:
+      // Indicates whether version comparison is supported. Valid values:
       // 
-      // - 1: The vulnerability was detected based on version comparison.
-      // 
-      // - 0: The vulnerability was not detected based on version comparison.
+      // - 1: Yes.
+      // - 0: No.
       shared_ptr<int32_t> isAegis_ {};
-      // Indicates whether the vulnerability was detected based on proof of concept (POC) verification. Valid values:
+      // Indicates whether proof-of-concept (PoC) verification is supported. Valid values:
       // 
-      // - 1: The vulnerability was detected based on POC verification.
-      // 
-      // - 0: The vulnerability was not detected based on POC verification.
+      // - 1: Yes.
+      // - 0: No.
       shared_ptr<int32_t> isSas_ {};
-      // The ID of the vulnerability.
+      // The ID.
       shared_ptr<string> otherId_ {};
-      // The time when the vulnerability was disclosed.
+      // The release time in UTC (ISO 8601 format), for example, 2022-12-13T08:00Z.
       shared_ptr<int64_t> releaseTime_ {};
       // The name of the vulnerability.
       shared_ptr<string> title_ {};
@@ -181,9 +179,9 @@ namespace Models
   protected:
     // The response parameters.
     shared_ptr<vector<DescribeVulListPageResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

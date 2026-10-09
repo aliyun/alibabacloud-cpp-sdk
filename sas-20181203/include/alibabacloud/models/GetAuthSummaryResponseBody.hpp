@@ -184,49 +184,49 @@ namespace Models
 
 
     protected:
-      // The type of authorization consumed during binding. Valid values:
-      // - ASSET: consumes authorized asset count.
-      // - CORE: consumes authorized core count.
-      // - ASSET_AND_CORE: consumes both authorized asset count and authorized core count.
+      // The type of authorization consumed when binding. Valid values:
+      // - ASSET: consumes authorization units.
+      // - CORE: consumes authorization cores.
+      // - ASSET_AND_CORE: consumes both authorization units and authorization cores.
       shared_ptr<string> authBindType_ {};
-      // The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
+      // The index of the current edition. A higher value indicates a higher edition. This field is used for sorting. Valid values:
       // - **1**: Free Edition. 
       // - **2**: Anti-virus Edition.    
-      // - **3**: Premium Edition.
+      // - **3**: Advanced Edition.
       // - **4**: Enterprise Edition.
       // - **5**: Ultimate Edition.
       shared_ptr<int32_t> index_ {};
-      // The total number of authorized cores.
-      // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+      // The total number of authorization cores.
+      // > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int32_t> totalCoreAuthCount_ {};
-      // The total number of authorized assets for the current edition.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The total number of authorization units for the current edition.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> totalCount_ {};
-      // The total number of authorized assets.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The total number of authorization units.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> totalEcsAuthCount_ {};
-      // The number of unused authorized assets.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The number of unused authorization units.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> unUsedCount_ {};
-      // The number of unused authorized cores.
-      // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+      // The number of unused authorization cores.
+      // > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int32_t> unusedCoreAuthCount_ {};
-      // The number of unused authorized assets.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The number of unused authorization units.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> unusedEcsAuthCount_ {};
-      // The number of authorized cores that have been used.
-      // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+      // The number of authorization cores that have been used.
+      // > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int32_t> usedCoreCount_ {};
-      // The number of authorized assets that have been used.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The number of authorization units that have been used.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int32_t> usedEcsCount_ {};
-      // The purchased edition of Security Center. Valid values:  
+      // The edition of Security Center that you have purchased. Valid values:  
       // - **1**: Free Edition. 
       // - **3**: Enterprise Edition.
-      // - **5**: Premium Edition.
+      // - **5**: Advanced Edition.
       // - **6**: Anti-virus Edition.    
       // - **7**: Ultimate Edition.   
-      // - **8**: Multi-version.   
+      // - **8**: Multiple editions.   
       // - **10**: Value-added services only.
       shared_ptr<int32_t> version_ {};
     };
@@ -324,31 +324,34 @@ namespace Models
 
 
     protected:
-      // The type of authorization consumed during binding. Valid values:
-      // - **ASSET**: consumes authorized asset count.
-      // - **CORE**: consumes authorized core count.
-      // - **ASSET_AND_CORE**: consumes both authorized asset count and authorized core count.
+      // The type of authorization consumed when binding. Valid values:
+      // - **ASSET**: consumes authorization units.
+      // - **CORE**: consumes authorization cores.
+      // - **ASSET_AND_CORE**: consumes both authorization units and authorization cores.
       shared_ptr<string> authBindType_ {};
+      // The number of free authorization cores.
       shared_ptr<int32_t> freeCoreCount_ {};
+      // The number of free authorization units.
       shared_ptr<int32_t> freeEcsCount_ {};
+      // The type of free quota.
       shared_ptr<string> freeType_ {};
-      // The index of the current edition. A larger value indicates a higher edition. This field is used for sorting. Valid values:
+      // The index of the current edition. A higher value indicates a higher edition. This field is used for sorting. Valid values:
       // - **1**: Free Edition. 
       // - **2**: Anti-virus Edition.    
-      // - **3**: Premium Edition.
+      // - **3**: Advanced Edition.
       // - **4**: Enterprise Edition.
       // - **5**: Ultimate Edition.
       shared_ptr<int32_t> index_ {};
-      // The number of authorized cores that have been used.
-      // > This parameter is valid only when AuthBindType is set to CORE or ASSET_AND_CORE.
+      // The number of authorization cores that have been used.
+      // > This parameter is valid when AuthBindType is set to CORE or ASSET_AND_CORE.
       shared_ptr<int64_t> usedCoreCount_ {};
-      // The number of authorized assets that have been used.
-      // > This parameter is valid only when AuthBindType is set to ASSET or ASSET_AND_CORE.
+      // The number of authorization units that have been used.
+      // > This parameter is valid when AuthBindType is set to ASSET or ASSET_AND_CORE.
       shared_ptr<int64_t> usedEcsCount_ {};
-      // The pay-as-you-go edition bound to host assets. Valid values:  
+      // The pay-as-you-go edition bound to the host asset. Valid values:  
       // - **1**: Free Edition. 
       // - **3**: Enterprise Edition.
-      // - **5**: Premium Edition.
+      // - **5**: Advanced Edition.
       // - **6**: Anti-virus Edition.    
       // - **7**: Ultimate Edition.
       shared_ptr<int32_t> version_ {};
@@ -465,25 +468,25 @@ namespace Models
 
 
     protected:
-      // The number of cores of assets that are bound with authorization.
+      // The number of cores of assets that are bound to authorizations.
       shared_ptr<int32_t> bindCoreCount_ {};
-      // The number of bound assets.
+      // The number of assets that are bound to authorizations.
       shared_ptr<int32_t> bindEcsCount_ {};
-      // The number of cores of assets bound with pay-as-you-go authorization.
+      // The number of cores of assets that are bound to pay-as-you-go authorizations.
       shared_ptr<int32_t> postPaidBindCoreCount_ {};
-      // The number of assets bound with pay-as-you-go authorization.
+      // The number of assets that are bound to pay-as-you-go authorizations.
       shared_ptr<int32_t> postPaidBindEcsCount_ {};
       // The number of cores of assets that have security risks.
       shared_ptr<int32_t> riskCoreCount_ {};
       // The number of assets that have security risks.
       shared_ptr<int32_t> riskEcsCount_ {};
-      // The total number of asset cores.
+      // The total number of cores of all assets.
       shared_ptr<int32_t> totalCoreCount_ {};
       // The total number of assets.
       shared_ptr<int32_t> totalEcsCount_ {};
-      // The number of cores of unbound assets.
+      // The number of cores of assets that are not bound to authorizations.
       shared_ptr<int32_t> unBindCoreCount_ {};
-      // The number of unbound assets.
+      // The number of assets that are not bound to authorizations.
       shared_ptr<int32_t> unBindEcsCount_ {};
     };
 
@@ -534,8 +537,11 @@ namespace Models
 
 
     protected:
+      // The number of EDR authorizations that have been bound.
       shared_ptr<string> boundCount_ {};
+      // The automatic binding status of hybrid-paid EDR instances.
       shared_ptr<string> hybridPaidAutoBind_ {};
+      // The automatic binding status of pay-as-you-go EDR instances.
       shared_ptr<string> postPaidAutoBind_ {};
     };
 
@@ -679,76 +685,77 @@ namespace Models
 
 
   protected:
-    // Indicates whether on-demand authorization purchase is allowed during initial purchase. Valid values:
+    // Specifies whether pay-as-you-go authorization is allowed when purchasing. Valid values:
     // - **0**: Not allowed.
     // - **1**: Allowed.
     shared_ptr<int32_t> allowPartialBuy_ {};
-    // Indicates whether upgrading to on-demand authorization purchase is allowed during an upgrade. Valid values:
+    // Specifies whether upgrading to pay-as-you-go authorization is allowed during an upgrade. Valid values:
     // - **0**: Not allowed.
     // - **1**: Allowed.
     shared_ptr<int32_t> allowUpgradePartialBuy_ {};
-    // Indicates whether immediate unbinding of all bound assets is allowed. Valid values:
+    // Specifies whether immediately unbinding all bound assets is allowed. Valid values:
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> allowUserUnbind_ {};
-    // Indicates whether new subscription assets are automatically bound when the host and container security subscription service is activated. Valid values:
+    // Specifies whether newly added assets are automatically bound when you activate the subscription-based host and container security service. Valid values:
     // 
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
-    // Indicates whether cluster nodes require agent version verification. Valid values:
+    // Specifies whether cluster nodes require machine version verification. Valid values:
     // - **0**: Not required.
     // - **1**: Required.
     shared_ptr<int32_t> clusterNodeCheck_ {};
-    // Indicates whether all assets are authorized by default. Valid values:
+    // Specifies whether all assets are authorized by default. Valid values:
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> defaultAuthToAll_ {};
+    // The EDR authorization summary information.
     shared_ptr<GetAuthSummaryResponseBody::EdrSummary> edrSummary_ {};
-    // Indicates whether a pre-bindingasset configuration exists. Pre-binding refers to the asset binding configuration selected in advance during purchase. Valid values:
+    // Specifies whether a pre-binding asset configuration exists. Pre-binding refers to the asset binding configuration selected in advance at the time of purchase. Valid values:
     // - **0**: Does not exist.
     // - **1**: Exists.
     shared_ptr<bool> hasPreBindSetting_ {};
-    // The highest purchased edition of Security Center. Valid values:
+    // The highest edition of Security Center that you have purchased. Valid values:
     // - **1**: Free Edition.
     // - **3**: Enterprise Edition.
-    // - **5**: Premium Edition.
+    // - **5**: Advanced Edition.
     // - **6**: Anti-virus Edition.
     // - **7**: Ultimate Edition.
     // - **10**: Value-added services only.
-    // > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest sub-edition.
+    // > If you purchased a single edition, this value indicates that edition. If you purchased multiple editions, this value indicates the highest edition among all sub-editions.
     shared_ptr<int32_t> highestVersion_ {};
-    // The binding validity status. Valid values:
-    // - **NORMAL**: Valid.
-    // - **INVALID_NODE_VERSION**: Invalid.
+    // The binding effective status. Valid values:
+    // - **NORMAL**: valid.
+    // - **INVALID_NODE_VERSION**: invalid.
     shared_ptr<string> invalidBindStatus_ {};
-    // Indicates whether multiple versions exist. Valid values:
-    // - **0**: No.
-    // - **1**: Yes.
+    // Specifies whether multiple versions exist. Valid values:
+    // - **0**: Does not exist.
+    // - **1**: Exists.
     shared_ptr<int32_t> isMultiVersion_ {};
     // The asset authorization statistics information.
     shared_ptr<GetAuthSummaryResponseBody::Machine> machine_ {};
-    // The protection edition of the host and container security pay-as-you-go service. This is the highest protection edition among all bound hosts. Valid values:  
+    // The highest protection edition among all hosts bound to the pay-as-you-go host and container security service. Valid values:  
     // - **1**: Free Edition. 
     // - **3**: Enterprise Edition.
-    // - **5**: Premium Edition.
+    // - **5**: Advanced Edition.
     // - **6**: Anti-virus Edition.    
     // - **7**: Ultimate Edition.
     shared_ptr<string> postPaidHighestVersion_ {};
-    // Indicates whether automatic binding of new hosts is enabled for the host and container security pay-as-you-go service. Valid values:
+    // Specifies whether newly added hosts are automatically bound to the pay-as-you-go host and container security service. Valid values:
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<string> postPaidHostAutoBind_ {};
-    // The edition to which new assets are automatically bound for the host and container security pay-as-you-go service. Valid values:
+    // The edition to which newly added assets are automatically bound under the pay-as-you-go host and container security service. Valid values:
     // - **1**: Free Edition. 
     // - **3**: Enterprise Edition.
-    // - **5**: Premium Edition.
+    // - **5**: Advanced Edition.
     // - **6**: Anti-virus Edition.    
     // - **7**: Ultimate Edition.
     shared_ptr<string> postPaidHostAutoBindVersion_ {};
-    // The service authorization statistics for the host and container security pay-as-you-go service.
+    // The service authorization statistics for the pay-as-you-go host and container security service.
     shared_ptr<vector<GetAuthSummaryResponseBody::PostPaidVersionSummary>> postPaidVersionSummary_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
     // The authorization usage statistics information.
     shared_ptr<vector<GetAuthSummaryResponseBody::VersionSummary>> versionSummary_ {};

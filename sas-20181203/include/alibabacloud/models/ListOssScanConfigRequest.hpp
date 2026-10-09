@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query.
+    // The current page number for paged queries.
     shared_ptr<int32_t> currentPage_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // The number of entries per page in a paged query.
+    // The maximum number of entries to display on each page for paged queries.
     shared_ptr<int32_t> pageSize_ {};
     // The business source. Valid values:
     // - **OSS**: OSS

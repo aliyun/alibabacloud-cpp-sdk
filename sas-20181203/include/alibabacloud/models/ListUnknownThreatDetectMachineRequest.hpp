@@ -112,19 +112,19 @@ namespace Models
 
 
   protected:
-    // The page number of the current page when using paging.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<int32_t> eventStatus_ {};
-    // The maximum number of entries per page when using paging.
+    // The maximum number of entries to display per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The server name or IP address.
     shared_ptr<string> remark_ {};
-    // The running status of the machine. Valid values:
+    // The machine running status. Valid values:
     // 
-    // - **monitoring**: Warning.
-    // - **blocking**: Blocking.
-    // - **studying**: Learning.
-    // - **study_finish**: Learning completed.
+    // - **monitoring**: warning in progress
+    // - **blocking**: under control
+    // - **studying**: learning in progress
+    // - **study_finish**: learning completed
     shared_ptr<string> status_ {};
     // The whitelist mode. Valid values:
     // 

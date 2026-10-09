@@ -62,6 +62,7 @@ namespace Models
   protected:
     // The list of event IDs.
     shared_ptr<vector<string>> eventIdList_ {};
+    // The handling remarks.
     shared_ptr<string> handleRemark_ {};
     // The event handling status. Valid values:
     // 

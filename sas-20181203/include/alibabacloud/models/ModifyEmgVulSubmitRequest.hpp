@@ -84,26 +84,28 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token used to ensure the idempotence of the request. Use a different token for different requests. Only ASCII characters are supported. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values: true: performs a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+    // Specifies whether to perform only a dry run for this request. Valid values: true: performs only a dry run without executing the actual operation. false: executes the request normally. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The language type of the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
+    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the vulnerability to query.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the member account in the resource directory (Alibaba Cloud account).
-    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts in the resource directory (Alibaba Cloud account).
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Specifies whether to perform vulnerability detection. Valid values:
+    // Specifies whether to run vulnerability detection. Valid values:
     // 
-    // - **yes**: Perform vulnerability detection.
-    // - **no**: Do not perform vulnerability detection.
+    // - **yes**: Run.
+    // 
+    // - **no**: Do not run.
     // 
     // This parameter is required.
     shared_ptr<string> userAgreement_ {};

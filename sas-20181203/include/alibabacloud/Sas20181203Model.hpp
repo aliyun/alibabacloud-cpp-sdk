@@ -1891,6 +1891,7 @@
 #include <alibabacloud/models/ListAgentlessRiskUuidResponseBody.hpp>
 #include <alibabacloud/models/ListAgentlessRiskUuidResponse.hpp>
 #include <alibabacloud/models/ListAgentlessTaskRequest.hpp>
+#include <alibabacloud/models/ListAgentlessTaskShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentlessTaskResponseBody.hpp>
 #include <alibabacloud/models/ListAgentlessTaskResponse.hpp>
 #include <alibabacloud/models/ListAssetCleanConfigResponseBody.hpp>

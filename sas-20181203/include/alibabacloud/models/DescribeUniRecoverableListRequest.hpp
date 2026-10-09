@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: **1**, which indicates the first page.
+    // The number of the page from which query results start to be displayed. Default value: **1**. This value indicates that the results start from page 1.
     shared_ptr<int32_t> currentPage_ {};
     // The database name.
     shared_ptr<string> database_ {};
-    // The maximum number of entries per page when using paging. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
-    // > Do not leave PageSize empty.
+    // The maximum number of entries to display per page in a paged query. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
+    // > Set PageSize to a non-empty value.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the anti-ransomware backup policy for the database.
-    // >You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
+    // >Call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};

@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page in a paged query.
+      // The number of entries displayed on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
       // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of query results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -179,11 +179,11 @@ namespace Models
 
 
       protected:
-        // The type of the check description property. Valid values:
+        // The type of the check description attribute. Valid values:
         // 
         // - **text**: text
         shared_ptr<string> type_ {};
-        // The text content when the description type of the check item risk is text.
+        // The text content when the check item risk description type is text.
         shared_ptr<string> value_ {};
       };
 
@@ -254,9 +254,9 @@ namespace Models
       protected:
         // The default value string of the custom configuration item for the check item.
         shared_ptr<string> defaultValue_ {};
-        // The name of the custom check configuration.
+        // The name of the user-defined check configuration.
         shared_ptr<string> name_ {};
-        // The display name of the custom check configuration.
+        // The display name of the user-defined check configuration.
         shared_ptr<string> showName_ {};
         // The JSON string that defines the type of the custom configuration item for the check item.
         shared_ptr<string> typeDefine_ {};
@@ -359,59 +359,60 @@ namespace Models
 
 
     protected:
-      // The ID of the check item.
+      // The check item ID.
       shared_ptr<int64_t> checkId_ {};
-      // The name of the check item.
+      // The check item name.
       shared_ptr<string> checkShowName_ {};
       // The source type of the Threat Detection Service check item. Valid values:
       //  - **CUSTOM**: user-defined
       //  - **SYSTEM**: predefined by the Threat Detection Service platform
       shared_ptr<string> checkType_ {};
-      // The list of custom check configuration information.
+      // The list of user-defined check configuration information.
       shared_ptr<vector<CheckItems::CustomConfigs>> customConfigs_ {};
-      // The description of the check item.
+      // The check item description.
       shared_ptr<CheckItems::Description> description_ {};
-      // The estimated number of authorizations that the check item will consume.
+      // The estimated number of licenses that the check item will consume.
       shared_ptr<int32_t> estimatedCount_ {};
+      // The estimated number of instances affected by the check item.
       shared_ptr<int32_t> instanceEstimatedCount_ {};
       // The asset subtype of the cloud service. Valid values:
       // 
-      // - If **InstanceType** is set to **ECS**, valid values of this parameter:
+      // - When **InstanceType** is set to **ECS**, valid values are:
       //     - **INSTANCE**
       //     - **DISK**
       //     - **SECURITY_GROUP**
-      // - If **InstanceType** is set to **ACR**, valid values of this parameter:
+      // - When **InstanceType** is set to **ACR**, valid values are:
       //     - **REPOSITORY_ENTERPRISE**
       //     - **REPOSITORY_PERSON**
-      // - If **InstanceType** is set to **RAM**, valid values of this parameter:
+      // - When **InstanceType** is set to **RAM**, valid values are:
       //     - **ALIAS**
       //     - **USER**
       //     - **POLICY**
       //     - **GROUP**
-      // - If **InstanceType** is set to **WAF**, valid values of this parameter:
+      // - When **InstanceType** is set to **WAF**, valid values are:
       //     - **DOMAIN**
-      // - If **InstanceType** is set to other values, valid values of this parameter:
+      // - When **InstanceType** is set to other values, valid values are:
       //     - **INSTANCE**
       shared_ptr<string> instanceSubType_ {};
       // The asset type of the cloud service. Valid values:
       // 
       // - **ECS**: Elastic Compute Service server
       // - **SLB**: load balancing
-      // - **RDS**: ApsaraDB RDS database
-      // - **MONGODB**: ApsaraDB for MongoDB database
-      // - **KVSTORE**: ApsaraDB for Redis database
+      // - **RDS**: RDS database
+      // - **MONGODB**: MongoDB database
+      // - **KVSTORE**: Redis database
       // - **ACR**: ACR
       // - **CSK**: CSK
       // - **VPC**: VPC
       // - **ACTIONTRAIL**: ActionTrail
       // - **CDN**: CDN
-      // - **CAS**: Certificate Management Service (formerly SSL Certificates)
-      // - **RDC**: Apsara Devops
+      // - **CAS**: SSL Certificates Service (formerly Digital Certificate Management Service)
+      // - **RDC**: Yunxiao
       // - **RAM**: RAM
-      // - **DDOS**: distributed deny-of-service
+      // - **DDOS**: distributed denial of service
       // - **WAF**: WAF
-      // - **OSS**: Access Control
-      // - **POLARDB**: POLARDB
+      // - **OSS**: access control
+      // - **POLARDB**: PolarDB
       // - **POSTGRESQL**: PostgreSQL
       // - **MSE**: MSE
       // - **NAS**: NAS
@@ -419,16 +420,16 @@ namespace Models
       // - **EIP**: EIP
       shared_ptr<string> instanceType_ {};
       // The risk level of the check item. Valid values:
-      // - **HIGH**: high
-      // - **MEDIUM**: medium
-      // - **LOW**: low
+      // - **HIGH**: high risk
+      // - **MEDIUM**: medium risk
+      // - **LOW**: low risk
       shared_ptr<string> riskLevel_ {};
-      // The list of section IDs associated with the check item.
+      // The list of sections associated with the check item.
       shared_ptr<vector<int64_t>> sectionIds_ {};
       // The cloud asset vendor. Valid values:
       // 
       // - **0**: Alibaba Cloud asset
-      // - **1**: asset outside the cloud
+      // - **1**: non-cloud asset
       // - **2**: IDC asset
       // - **3**, **4**, **5**, **7**: other cloud assets
       // - **8**: simple application server
@@ -465,9 +466,9 @@ namespace Models
   protected:
     // The list of check item information.
     shared_ptr<vector<ListCheckItemResponseBody::CheckItems>> checkItems_ {};
-    // The page information in a paged query.
+    // The page information for a paged query.
     shared_ptr<ListCheckItemResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+    // The request ID. This is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

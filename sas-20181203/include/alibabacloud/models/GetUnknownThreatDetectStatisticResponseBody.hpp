@@ -105,16 +105,17 @@ namespace Models
 
 
     protected:
+      // The number of servers that have blocking events.
       shared_ptr<int32_t> blockEventMachineCount_ {};
       // The number of servers under control.
       shared_ptr<int32_t> blockMachineCount_ {};
       // The total number of servers.
       shared_ptr<int32_t> machineCount_ {};
-      // The number of servers in warning status.
+      // The number of servers in warning mode.
       shared_ptr<int32_t> monitorMachineCount_ {};
       // The number of servers with the service enabled.
       shared_ptr<int32_t> openMachineCount_ {};
-      // The number of servers in learning status.
+      // The number of servers in the learning state.
       shared_ptr<int32_t> studyingMachineCount_ {};
     };
 

@@ -1437,7 +1437,7 @@ AddUninstallClientsByUuidsResponse Client::addUninstallClientsByUuids(const AddU
 }
 
 /**
- * @summary Adds processes for intelligent behavior analytics.
+ * @summary Adds a process to behavior analytics.
  *
  * @param request AddUnknownThreatDetectProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1480,7 +1480,7 @@ AddUnknownThreatDetectProcessResponse Client::addUnknownThreatDetectProcessWithO
 }
 
 /**
- * @summary Adds processes for intelligent behavior analytics.
+ * @summary Adds a process to behavior analytics.
  *
  * @param request AddUnknownThreatDetectProcessRequest
  * @return AddUnknownThreatDetectProcessResponse
@@ -5571,7 +5571,9 @@ CreateRestoreJobResponse Client::createRestoreJob(const CreateRestoreJobRequest 
 }
 
 /**
- * @summary Starts a free trial of Security Center.
+ * @summary Starts a Security Center trial.
+ *
+ * @description Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
  *
  * @param tmpReq CreateSasTrialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5634,7 +5636,9 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
 }
 
 /**
- * @summary Starts a free trial of Security Center.
+ * @summary Starts a Security Center trial.
+ *
+ * @description Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
  *
  * @param request CreateSasTrialRequest
  * @return CreateSasTrialResponse
@@ -11725,9 +11729,9 @@ DescribeClientProblemTypeResponse Client::describeClientProblemType(const Descri
 }
 
 /**
- * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+ * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11806,9 +11810,9 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstancesWithOpt
 }
 
 /**
- * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+ * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+ * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @return DescribeCloudCenterInstancesResponse
@@ -22429,7 +22433,7 @@ DescribeSoarSubscribedStrategyResponse Client::describeSoarSubscribedStrategy(co
 }
 
 /**
- * @summary Queries the details about baseline check policies.
+ * @summary Queries baseline check policies.
  *
  * @param request DescribeStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22472,7 +22476,7 @@ DescribeStrategyResponse Client::describeStrategyWithOptions(const DescribeStrat
 }
 
 /**
- * @summary Queries the details about baseline check policies.
+ * @summary Queries baseline check policies.
  *
  * @param request DescribeStrategyRequest
  * @return DescribeStrategyResponse
@@ -24925,7 +24929,7 @@ DescribeVulListResponse Client::describeVulList(const DescribeVulListRequest &re
 }
 
 /**
- * @summary Queries the vulnerabilities that can be detected.
+ * @summary Queries the list of vulnerabilities supported for detection.
  *
  * @param request DescribeVulListPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24976,7 +24980,7 @@ DescribeVulListPageResponse Client::describeVulListPageWithOptions(const Describ
 }
 
 /**
- * @summary Queries the vulnerabilities that can be detected.
+ * @summary Queries the list of vulnerabilities supported for detection.
  *
  * @param request DescribeVulListPageRequest
  * @return DescribeVulListPageResponse
@@ -27843,9 +27847,9 @@ GetAgentlessTaskCountResponse Client::getAgentlessTaskCount(const GetAgentlessTa
 }
 
 /**
- * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+ * @summary Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
  *
- * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+ * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
  *
  * @param request GetAgentlessTaskCountBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27882,9 +27886,9 @@ GetAgentlessTaskCountBatchResponse Client::getAgentlessTaskCountBatchWithOptions
 }
 
 /**
- * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+ * @summary Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
  *
- * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+ * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
  *
  * @param request GetAgentlessTaskCountBatchRequest
  * @return GetAgentlessTaskCountBatchResponse
@@ -29017,7 +29021,7 @@ GetCheckRiskStatisticsResponse Client::getCheckRiskStatistics(const GetCheckRisk
 }
 
 /**
- * @summary Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+ * @summary Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
  *
  * @param request GetCheckSaleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29048,7 +29052,7 @@ GetCheckSaleResponse Client::getCheckSaleWithOptions(const GetCheckSaleRequest &
 }
 
 /**
- * @summary Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+ * @summary Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
  *
  * @param request GetCheckSaleRequest
  * @return GetCheckSaleResponse
@@ -33028,7 +33032,7 @@ GetTenantCheckAvailableResponse Client::getTenantCheckAvailable() {
 }
 
 /**
- * @summary Retrieves statistics information on intelligent behavior analytics.
+ * @summary Retrieves behavior analytics statistics information.
  *
  * @param request GetUnknownThreatDetectStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33052,7 +33056,7 @@ GetUnknownThreatDetectStatisticResponse Client::getUnknownThreatDetectStatisticW
 }
 
 /**
- * @summary Retrieves statistics information on intelligent behavior analytics.
+ * @summary Retrieves behavior analytics statistics information.
  *
  * @param request GetUnknownThreatDetectStatisticRequest
  * @return GetUnknownThreatDetectStatisticResponse
@@ -33691,7 +33695,7 @@ HandleSimilarSecurityEventsResponse Client::handleSimilarSecurityEvents(const Ha
 }
 
 /**
- * @summary Handles alerting from intelligent behavior analytics.
+ * @summary Handles alerts for behavior analytics.
  *
  * @param request HandleUnknownThreatDetectEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33730,7 +33734,7 @@ HandleUnknownThreatDetectEventResponse Client::handleUnknownThreatDetectEventWit
 }
 
 /**
- * @summary Handles alerting from intelligent behavior analytics.
+ * @summary Handles alerts for behavior analytics.
  *
  * @param request HandleUnknownThreatDetectEventRequest
  * @return HandleUnknownThreatDetectEventResponse
@@ -34421,7 +34425,9 @@ ListAegisForLingjunStatusResponse Client::listAegisForLingjunStatus(const ListAe
 }
 
 /**
- * @summary Query agentless detection assets.
+ * @summary Queries agentless detection assets.
+ *
+ * @description Queries the list of assets for agentless detection.
  *
  * @param request ListAgentlessAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34484,7 +34490,9 @@ ListAgentlessAssetResponse Client::listAgentlessAssetWithOptions(const ListAgent
 }
 
 /**
- * @summary Query agentless detection assets.
+ * @summary Queries agentless detection assets.
+ *
+ * @description Queries the list of assets for agentless detection.
  *
  * @param request ListAgentlessAssetRequest
  * @return ListAgentlessAssetResponse
@@ -34749,14 +34757,20 @@ ListAgentlessRiskUuidResponse Client::listAgentlessRiskUuid(const ListAgentlessR
 }
 
 /**
- * @summary Retrieves the list of agentless detection tasks.
+ * @summary Retrieves a list of agentless detection tasks.
  *
- * @param request ListAgentlessTaskRequest
+ * @param tmpReq ListAgentlessTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentlessTaskResponse
  */
-ListAgentlessTaskResponse Client::listAgentlessTaskWithOptions(const ListAgentlessTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListAgentlessTaskResponse Client::listAgentlessTaskWithOptions(const ListAgentlessTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAgentlessTaskShrinkRequest request = ListAgentlessTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIdList()) {
+    request.setTaskIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIdList(), "TaskIdList", "json"));
+  }
+
   json query = {};
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
@@ -34814,6 +34828,10 @@ ListAgentlessTaskResponse Client::listAgentlessTaskWithOptions(const ListAgentle
     query["TaskId"] = request.getTaskId();
   }
 
+  if (!!request.hasTaskIdListShrink()) {
+    query["TaskIdList"] = request.getTaskIdListShrink();
+  }
+
   if (!!request.hasUuid()) {
     query["Uuid"] = request.getUuid();
   }
@@ -34836,7 +34854,7 @@ ListAgentlessTaskResponse Client::listAgentlessTaskWithOptions(const ListAgentle
 }
 
 /**
- * @summary Retrieves the list of agentless detection tasks.
+ * @summary Retrieves a list of agentless detection tasks.
  *
  * @param request ListAgentlessTaskRequest
  * @return ListAgentlessTaskResponse
@@ -35631,7 +35649,7 @@ ListCheckInstanceResultResponse Client::listCheckInstanceResult(const ListCheckI
 }
 
 /**
- * @summary Retrieves the list of check items that can be configured with custom settings.
+ * @summary Retrieves the list of check items that support custom configuration.
  *
  * @param request ListCheckItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35674,7 +35692,7 @@ ListCheckItemResponse Client::listCheckItemWithOptions(const ListCheckItemReques
 }
 
 /**
- * @summary Retrieves the list of check items that can be configured with custom settings.
+ * @summary Retrieves the list of check items that support custom configuration.
  *
  * @param request ListCheckItemRequest
  * @return ListCheckItemResponse
@@ -36399,7 +36417,7 @@ ListClientUserDefineRulesResponse Client::listClientUserDefineRules(const ListCl
 }
 
 /**
- * @summary Retrieves the list of cloud service assets.
+ * @summary Retrieves the asset list of cloud products.
  *
  * @param request ListCloudAssetInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36462,7 +36480,7 @@ ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of cloud service assets.
+ * @summary Retrieves the asset list of cloud products.
  *
  * @param request ListCloudAssetInstancesRequest
  * @return ListCloudAssetInstancesResponse
@@ -42930,7 +42948,7 @@ ModifyDingTalkStatusResponse Client::modifyDingTalkStatus(const ModifyDingTalkSt
 }
 
 /**
- * @summary Performs emergency vulnerability detection.
+ * @summary Runs an emergency vulnerability detection.
  *
  * @param request ModifyEmgVulSubmitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42981,7 +42999,7 @@ ModifyEmgVulSubmitResponse Client::modifyEmgVulSubmitWithOptions(const ModifyEmg
 }
 
 /**
- * @summary Performs emergency vulnerability detection.
+ * @summary Runs an emergency vulnerability detection.
  *
  * @param request ModifyEmgVulSubmitRequest
  * @return ModifyEmgVulSubmitResponse
@@ -43856,7 +43874,7 @@ ModifyOpenLogShipperResponse Client::modifyOpenLogShipper(const ModifyOpenLogShi
 }
 
 /**
- * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+ * @summary Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
  *
  * @param request ModifyOperateVulRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -43915,7 +43933,7 @@ ModifyOperateVulResponse Client::modifyOperateVulWithOptions(const ModifyOperate
 }
 
 /**
- * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+ * @summary Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
  *
  * @param request ModifyOperateVulRequest
  * @return ModifyOperateVulResponse
@@ -46046,7 +46064,7 @@ OperateBucketScanTaskResponse Client::operateBucketScanTask(const OperateBucketS
 }
 
 /**
- * @summary Configures a global switch based on the specified type.
+ * @summary Sets the global switch based on the specified type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46097,7 +46115,7 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions
 }
 
 /**
- * @summary Configures a global switch based on the specified type.
+ * @summary Sets the global switch based on the specified type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @return OperateCommonOverallConfigResponse
@@ -51500,7 +51518,7 @@ UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistC
 }
 
 /**
- * @summary Manages authorization assignments for member accounts in multi-account authorization management.
+ * @summary Manages multi-account authorization by editing allocation assignments in the administrator account.
  *
  * @param request UpdateMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51531,7 +51549,7 @@ UpdateMultiUserInstancesResponse Client::updateMultiUserInstancesWithOptions(con
 }
 
 /**
- * @summary Manages authorization assignments for member accounts in multi-account authorization management.
+ * @summary Manages multi-account authorization by editing allocation assignments in the administrator account.
  *
  * @param request UpdateMultiUserInstancesRequest
  * @return UpdateMultiUserInstancesResponse
@@ -52012,7 +52030,7 @@ UpdatePublishGraySwitchResponse Client::updatePublishGraySwitch(const UpdatePubl
 }
 
 /**
- * @summary Modifies the key that corresponds to a specified type.
+ * @summary Modifies the key corresponding to the specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -52055,7 +52073,7 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByTypeWithOptions(con
 }
 
 /**
- * @summary Modifies the key that corresponds to a specified type.
+ * @summary Modifies the key corresponding to the specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @return UpdateSelectionKeyByTypeResponse

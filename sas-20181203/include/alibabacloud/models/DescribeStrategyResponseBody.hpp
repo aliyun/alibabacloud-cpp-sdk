@@ -130,17 +130,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether the baseline check policy is applied to the asset group. Valid values:
+        // Specifies whether the policy applies to the asset group. Valid values:
         // 
-        // *   **add**: The baseline check policy is applied to the asset group.
-        // *   **del**: the baseline check policy is not applied to the asset group.
+        // - **add**: the policy applies to the asset group.
+        // - **del**: the policy does not apply to the asset group.
         shared_ptr<string> flag_ {};
-        // The asset group ID or UUID of the asset to which the baseline check policy is applied.
+        // The group ID or UUID of the asset to which the policy applies.
         shared_ptr<string> target_ {};
-        // The condition by which the baseline check policy is applied to the asset. Valid values:
+        // The method used to add the assets to which the policy applies. Valid values:
         // 
-        // *   **groupId**: the ID of the asset group
-        // *   **uuid**: the UUID of the asset
+        // - **groupId**: assets are added by group.
+        // - **uuid**: assets are added individually.
         shared_ptr<string> targetType_ {};
       };
 
@@ -271,62 +271,61 @@ namespace Models
 
 
     protected:
-      // The details of the assets to which the baseline check policy is applied.
+      // The collection of information about the assets to which the policy applies.
       shared_ptr<vector<Strategies::ConfigTargets>> configTargets_ {};
-      // The type of the baseline check policy. Valid values:
+      // The type of the policy. Valid values:
       // 
-      // *   **common**
-      // *   **custom**
+      // - **common**: standard policy
+      // - **custom**: custom policy
       shared_ptr<string> customType_ {};
-      // The cycle of the baseline check. Valid values:
+      // The interval of the baseline check. Valid values:
       // 
-      // *   **1**: every 2 days
-      // *   **3**: every 4 days
-      // *   **7**: every 8 days
-      // *   30: every 31 days
+      // - **1**: every 1 day
+      // - **3**: every 3 days
+      // - **7**: every 7 days
+      // - **30**: every 30 days
       shared_ptr<int32_t> cycleDays_ {};
-      // The time when the baseline check starts. Valid values:
+      // The start time of the baseline check. Valid values:
       // 
-      // *   **0**: The baseline check starts within the time range from 00:00 to 06:00.
-      // *   **6**: The baseline check starts within the time range from 06:00 to 12:00.
-      // *   **12**: The baseline check starts within the time range from 12:00 to 18:00.
-      // *   **18**: The baseline check starts within the time range from 18:00 to 24:00.
+      // - **0**: the baseline check starts between 00:00 and 06:00.
+      // - **6**: the baseline check starts between 06:00 and 12:00.
+      // - **12**: the baseline check starts between 12:00 and 18:00.
+      // - **18**: the baseline check starts between 18:00 and 24:00.
       shared_ptr<int32_t> cycleStartTime_ {};
-      // The number of the assets to which the baseline check policy is applied.
+      // The number of assets to which the policy applies.
       shared_ptr<int32_t> ecsCount_ {};
-      // The end time of the baseline check policy.
+      // The end time of the baseline check policy execution. The value is in the HH:mm:ss format.
       shared_ptr<string> endTime_ {};
-      // The status of the baseline check policy. Valid values:
+      // The execution status of the baseline check policy. Valid values:
       // 
-      // *   **1**: not executed
-      // *   **2**: executing
+      // - **1**: not executed
+      // - **2**: executing
       shared_ptr<int32_t> execStatus_ {};
-      // The triggering method of baseline scanning. Value:
+      // The trigger method of the baseline scan. Valid values:
       // 
-      // - **Schedule** : Periodic configuration of task triggers
-      // 
-      // - **Manual** : Manually triggered
+      // - **Schedule**: triggered by a scheduled task.
+      // - **Manual**: triggered manually.
       shared_ptr<string> executionType_ {};
-      // The ID of the baseline check policy.
+      // The ID of the policy.
       shared_ptr<int32_t> id_ {};
-      // The name of the baseline check policy.
+      // The name of the policy.
       shared_ptr<string> name_ {};
-      // The proportion of risky baselines in the baseline check result.
+      // The proportion of baselines with risks detected during the execution of the baseline check policy.
       shared_ptr<int32_t> passRate_ {};
-      // The progress of the baseline check by using the baseline. This parameter is returned only if the value of the ExecStatus parameter is 2.
+      // The progress of the baseline check. This parameter is returned only for baselines where ExecStatus is set to 2.
       shared_ptr<string> percent_ {};
-      // The number of the assets on which the baseline check is complete.
+      // The number of assets on which the baseline check is complete.
       shared_ptr<int32_t> processRate_ {};
-      // The number of baseline check items in the baseline check policy.
+      // The number of baseline check items included in the policy.
       shared_ptr<int32_t> riskCount_ {};
-      // The start time of the baseline check policy.
+      // The start time of the baseline check policy execution. The value is in the HH:mm:ss format.
       shared_ptr<string> startTime_ {};
-      // The source type of the baseline check policy. Valid values:
+      // The source type of the policy. Valid values:
       // 
-      // *   **1**: indicates a built-in policy provided and performed by Security Center by default.
-      // *   **2**: indicates a user-defined policy. It can be a standard or custom baseline check policy.
+      // - **1**: a built-in policy, which is the default baseline check policy that Security Center executes.
+      // - **2**: a user-added policy, including standard policies and custom policies created by users.
       shared_ptr<int32_t> type_ {};
-      // The time when the baseline check policy was last modified.
+      // The last modification time of the baseline check policy. The value is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<int64_t> userModifyTime_ {};
     };
 
@@ -349,9 +348,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // The details of the baseline check policies.
+    // The collection of detailed information about the policies.
     shared_ptr<vector<DescribeStrategyResponseBody::Strategies>> strategies_ {};
   };
 

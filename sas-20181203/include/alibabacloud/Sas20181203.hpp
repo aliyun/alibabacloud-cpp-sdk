@@ -390,7 +390,7 @@ namespace Sas20181203
       Models::AddUninstallClientsByUuidsResponse addUninstallClientsByUuids(const Models::AddUninstallClientsByUuidsRequest &request);
 
       /**
-       * @summary Adds processes for intelligent behavior analytics.
+       * @summary Adds a process to behavior analytics.
        *
        * @param request AddUnknownThreatDetectProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,7 +399,7 @@ namespace Sas20181203
       Models::AddUnknownThreatDetectProcessResponse addUnknownThreatDetectProcessWithOptions(const Models::AddUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds processes for intelligent behavior analytics.
+       * @summary Adds a process to behavior analytics.
        *
        * @param request AddUnknownThreatDetectProcessRequest
        * @return AddUnknownThreatDetectProcessResponse
@@ -1604,7 +1604,9 @@ namespace Sas20181203
       Models::CreateRestoreJobResponse createRestoreJob(const Models::CreateRestoreJobRequest &request);
 
       /**
-       * @summary Starts a free trial of Security Center.
+       * @summary Starts a Security Center trial.
+       *
+       * @description Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
        *
        * @param tmpReq CreateSasTrialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1613,7 +1615,9 @@ namespace Sas20181203
       Models::CreateSasTrialResponse createSasTrialWithOptions(const Models::CreateSasTrialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a free trial of Security Center.
+       * @summary Starts a Security Center trial.
+       *
+       * @description Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
        *
        * @param request CreateSasTrialRequest
        * @return CreateSasTrialResponse
@@ -3710,9 +3714,9 @@ namespace Sas20181203
       Models::DescribeClientProblemTypeResponse describeClientProblemType(const Models::DescribeClientProblemTypeRequest &request);
 
       /**
-       * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+       * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
        *
        * @param request DescribeCloudCenterInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3721,9 +3725,9 @@ namespace Sas20181203
       Models::DescribeCloudCenterInstancesResponse describeCloudCenterInstancesWithOptions(const Models::DescribeCloudCenterInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+       * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
        *
        * @param request DescribeCloudCenterInstancesRequest
        * @return DescribeCloudCenterInstancesResponse
@@ -7091,7 +7095,7 @@ namespace Sas20181203
       Models::DescribeSoarSubscribedStrategyResponse describeSoarSubscribedStrategy(const Models::DescribeSoarSubscribedStrategyRequest &request);
 
       /**
-       * @summary Queries the details about baseline check policies.
+       * @summary Queries baseline check policies.
        *
        * @param request DescribeStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7100,7 +7104,7 @@ namespace Sas20181203
       Models::DescribeStrategyResponse describeStrategyWithOptions(const Models::DescribeStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about baseline check policies.
+       * @summary Queries baseline check policies.
        *
        * @param request DescribeStrategyRequest
        * @return DescribeStrategyResponse
@@ -7880,7 +7884,7 @@ namespace Sas20181203
       Models::DescribeVulListResponse describeVulList(const Models::DescribeVulListRequest &request);
 
       /**
-       * @summary Queries the vulnerabilities that can be detected.
+       * @summary Queries the list of vulnerabilities supported for detection.
        *
        * @param request DescribeVulListPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7889,7 +7893,7 @@ namespace Sas20181203
       Models::DescribeVulListPageResponse describeVulListPageWithOptions(const Models::DescribeVulListPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the vulnerabilities that can be detected.
+       * @summary Queries the list of vulnerabilities supported for detection.
        *
        * @param request DescribeVulListPageRequest
        * @return DescribeVulListPageResponse
@@ -8793,9 +8797,9 @@ namespace Sas20181203
       Models::GetAgentlessTaskCountResponse getAgentlessTaskCount(const Models::GetAgentlessTaskCountRequest &request);
 
       /**
-       * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+       * @summary Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
        *
-       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
        *
        * @param request GetAgentlessTaskCountBatchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8804,9 +8808,9 @@ namespace Sas20181203
       Models::GetAgentlessTaskCountBatchResponse getAgentlessTaskCountBatchWithOptions(const Models::GetAgentlessTaskCountBatchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+       * @summary Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
        *
-       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
        *
        * @param request GetAgentlessTaskCountBatchRequest
        * @return GetAgentlessTaskCountBatchResponse
@@ -9231,7 +9235,7 @@ namespace Sas20181203
       Models::GetCheckRiskStatisticsResponse getCheckRiskStatistics(const Models::GetCheckRiskStatisticsRequest &request);
 
       /**
-       * @summary Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+       * @summary Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
        *
        * @param request GetCheckSaleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9240,7 +9244,7 @@ namespace Sas20181203
       Models::GetCheckSaleResponse getCheckSaleWithOptions(const Models::GetCheckSaleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+       * @summary Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
        *
        * @param request GetCheckSaleRequest
        * @return GetCheckSaleResponse
@@ -10746,7 +10750,7 @@ namespace Sas20181203
       Models::GetTenantCheckAvailableResponse getTenantCheckAvailable();
 
       /**
-       * @summary Retrieves statistics information on intelligent behavior analytics.
+       * @summary Retrieves behavior analytics statistics information.
        *
        * @param request GetUnknownThreatDetectStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10755,7 +10759,7 @@ namespace Sas20181203
       Models::GetUnknownThreatDetectStatisticResponse getUnknownThreatDetectStatisticWithOptions(const Models::GetUnknownThreatDetectStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves statistics information on intelligent behavior analytics.
+       * @summary Retrieves behavior analytics statistics information.
        *
        * @param request GetUnknownThreatDetectStatisticRequest
        * @return GetUnknownThreatDetectStatisticResponse
@@ -10971,7 +10975,7 @@ namespace Sas20181203
       Models::HandleSimilarSecurityEventsResponse handleSimilarSecurityEvents(const Models::HandleSimilarSecurityEventsRequest &request);
 
       /**
-       * @summary Handles alerting from intelligent behavior analytics.
+       * @summary Handles alerts for behavior analytics.
        *
        * @param request HandleUnknownThreatDetectEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10980,7 +10984,7 @@ namespace Sas20181203
       Models::HandleUnknownThreatDetectEventResponse handleUnknownThreatDetectEventWithOptions(const Models::HandleUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles alerting from intelligent behavior analytics.
+       * @summary Handles alerts for behavior analytics.
        *
        * @param request HandleUnknownThreatDetectEventRequest
        * @return HandleUnknownThreatDetectEventResponse
@@ -11219,7 +11223,9 @@ namespace Sas20181203
       Models::ListAegisForLingjunStatusResponse listAegisForLingjunStatus(const Models::ListAegisForLingjunStatusRequest &request);
 
       /**
-       * @summary Query agentless detection assets.
+       * @summary Queries agentless detection assets.
+       *
+       * @description Queries the list of assets for agentless detection.
        *
        * @param request ListAgentlessAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11228,7 +11234,9 @@ namespace Sas20181203
       Models::ListAgentlessAssetResponse listAgentlessAssetWithOptions(const Models::ListAgentlessAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query agentless detection assets.
+       * @summary Queries agentless detection assets.
+       *
+       * @description Queries the list of assets for agentless detection.
        *
        * @param request ListAgentlessAssetRequest
        * @return ListAgentlessAssetResponse
@@ -11302,16 +11310,16 @@ namespace Sas20181203
       Models::ListAgentlessRiskUuidResponse listAgentlessRiskUuid(const Models::ListAgentlessRiskUuidRequest &request);
 
       /**
-       * @summary Retrieves the list of agentless detection tasks.
+       * @summary Retrieves a list of agentless detection tasks.
        *
-       * @param request ListAgentlessTaskRequest
+       * @param tmpReq ListAgentlessTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAgentlessTaskResponse
        */
-      Models::ListAgentlessTaskResponse listAgentlessTaskWithOptions(const Models::ListAgentlessTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListAgentlessTaskResponse listAgentlessTaskWithOptions(const Models::ListAgentlessTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of agentless detection tasks.
+       * @summary Retrieves a list of agentless detection tasks.
        *
        * @param request ListAgentlessTaskRequest
        * @return ListAgentlessTaskResponse
@@ -11555,7 +11563,7 @@ namespace Sas20181203
       Models::ListCheckInstanceResultResponse listCheckInstanceResult(const Models::ListCheckInstanceResultRequest &request);
 
       /**
-       * @summary Retrieves the list of check items that can be configured with custom settings.
+       * @summary Retrieves the list of check items that support custom configuration.
        *
        * @param request ListCheckItemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11564,7 +11572,7 @@ namespace Sas20181203
       Models::ListCheckItemResponse listCheckItemWithOptions(const Models::ListCheckItemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of check items that can be configured with custom settings.
+       * @summary Retrieves the list of check items that support custom configuration.
        *
        * @param request ListCheckItemRequest
        * @return ListCheckItemResponse
@@ -11774,7 +11782,7 @@ namespace Sas20181203
       Models::ListClientUserDefineRulesResponse listClientUserDefineRules(const Models::ListClientUserDefineRulesRequest &request);
 
       /**
-       * @summary Retrieves the list of cloud service assets.
+       * @summary Retrieves the asset list of cloud products.
        *
        * @param request ListCloudAssetInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11783,7 +11791,7 @@ namespace Sas20181203
       Models::ListCloudAssetInstancesResponse listCloudAssetInstancesWithOptions(const Models::ListCloudAssetInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of cloud service assets.
+       * @summary Retrieves the asset list of cloud products.
        *
        * @param request ListCloudAssetInstancesRequest
        * @return ListCloudAssetInstancesResponse
@@ -13808,7 +13816,7 @@ namespace Sas20181203
       Models::ModifyDingTalkStatusResponse modifyDingTalkStatus(const Models::ModifyDingTalkStatusRequest &request);
 
       /**
-       * @summary Performs emergency vulnerability detection.
+       * @summary Runs an emergency vulnerability detection.
        *
        * @param request ModifyEmgVulSubmitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13817,7 +13825,7 @@ namespace Sas20181203
       Models::ModifyEmgVulSubmitResponse modifyEmgVulSubmitWithOptions(const Models::ModifyEmgVulSubmitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs emergency vulnerability detection.
+       * @summary Runs an emergency vulnerability detection.
        *
        * @param request ModifyEmgVulSubmitRequest
        * @return ModifyEmgVulSubmitResponse
@@ -14094,7 +14102,7 @@ namespace Sas20181203
       Models::ModifyOpenLogShipperResponse modifyOpenLogShipper(const Models::ModifyOpenLogShipperRequest &request);
 
       /**
-       * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+       * @summary Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
        *
        * @param request ModifyOperateVulRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14103,7 +14111,7 @@ namespace Sas20181203
       Models::ModifyOperateVulResponse modifyOperateVulWithOptions(const Models::ModifyOperateVulRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+       * @summary Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
        *
        * @param request ModifyOperateVulRequest
        * @return ModifyOperateVulResponse
@@ -14765,7 +14773,7 @@ namespace Sas20181203
       Models::OperateBucketScanTaskResponse operateBucketScanTask(const Models::OperateBucketScanTaskRequest &request);
 
       /**
-       * @summary Configures a global switch based on the specified type.
+       * @summary Sets the global switch based on the specified type.
        *
        * @param request OperateCommonOverallConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14774,7 +14782,7 @@ namespace Sas20181203
       Models::OperateCommonOverallConfigResponse operateCommonOverallConfigWithOptions(const Models::OperateCommonOverallConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a global switch based on the specified type.
+       * @summary Sets the global switch based on the specified type.
        *
        * @param request OperateCommonOverallConfigRequest
        * @return OperateCommonOverallConfigResponse
@@ -16488,7 +16496,7 @@ namespace Sas20181203
       Models::UpdateMaliciousFileWhitelistConfigResponse updateMaliciousFileWhitelistConfig(const Models::UpdateMaliciousFileWhitelistConfigRequest &request);
 
       /**
-       * @summary Manages authorization assignments for member accounts in multi-account authorization management.
+       * @summary Manages multi-account authorization by editing allocation assignments in the administrator account.
        *
        * @param request UpdateMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16497,7 +16505,7 @@ namespace Sas20181203
       Models::UpdateMultiUserInstancesResponse updateMultiUserInstancesWithOptions(const Models::UpdateMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manages authorization assignments for member accounts in multi-account authorization management.
+       * @summary Manages multi-account authorization by editing allocation assignments in the administrator account.
        *
        * @param request UpdateMultiUserInstancesRequest
        * @return UpdateMultiUserInstancesResponse
@@ -16626,7 +16634,7 @@ namespace Sas20181203
       Models::UpdatePublishGraySwitchResponse updatePublishGraySwitch(const Models::UpdatePublishGraySwitchRequest &request);
 
       /**
-       * @summary Modifies the key that corresponds to a specified type.
+       * @summary Modifies the key corresponding to the specified type.
        *
        * @param request UpdateSelectionKeyByTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16635,7 +16643,7 @@ namespace Sas20181203
       Models::UpdateSelectionKeyByTypeResponse updateSelectionKeyByTypeWithOptions(const Models::UpdateSelectionKeyByTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the key that corresponds to a specified type.
+       * @summary Modifies the key corresponding to the specified type.
        *
        * @param request UpdateSelectionKeyByTypeRequest
        * @return UpdateSelectionKeyByTypeResponse

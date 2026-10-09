@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page when using paging.
+      // The number of entries displayed on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page when using paging.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page when using paging.
+      // The maximum number of entries to display per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -248,6 +248,7 @@ namespace Models
 
 
     protected:
+      // The number of days the policy has been in effect.
       shared_ptr<int64_t> effectDays_ {};
       // The instance name.
       shared_ptr<string> instanceName_ {};
@@ -255,23 +256,28 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address.
       shared_ptr<string> intranetIp_ {};
+      // The number of malicious processes.
       shared_ptr<int64_t> maliciousProcessCount_ {};
+      // The number of normal events.
       shared_ptr<int64_t> normalEventCount_ {};
+      // The plug-in status.
       shared_ptr<string> pluginStatus_ {};
       // The number of processes.
       shared_ptr<int32_t> processCount_ {};
+      // The number of recent deviation behaviors.
       shared_ptr<int64_t> recentDeviationBehaviorCount_ {};
-      // The running status of the machine. Valid values:
+      // The machine running status. Valid values:
       // 
-      // - **monitoring**: Warning.
-      // - **blocking**: Blocking.
-      // - **studying**: Learning.
+      // - **monitoring**: warning in progress
+      // - **blocking**: under control
+      // - **studying**: learning in progress
       shared_ptr<string> status_ {};
       // The whitelist mode. Valid values:
       // 
       // - **hash**: process hash
       // - **path**: process path
       shared_ptr<string> studyMode_ {};
+      // The number of remaining learning days.
       shared_ptr<int64_t> studyRemainDays_ {};
       // The timestamp when learning started.
       shared_ptr<int64_t> studyStartTime_ {};
