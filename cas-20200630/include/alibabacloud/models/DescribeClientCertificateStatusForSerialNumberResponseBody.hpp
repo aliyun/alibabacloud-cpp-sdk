@@ -79,18 +79,16 @@ namespace Models
 
 
     protected:
-      // The time when the certificate was revoked.
+      // The date when the certificate was revoked. This value is a UNIX timestamp in milliseconds.
       // 
-      // > This parameter is returned only when **Status** is **revoked**.
+      // > This parameter is returned only when **Status** is **revoked** (indicating that the certificate has been revoked).
       shared_ptr<int64_t> revokeTime_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
       // The current status of the certificate. Valid values:
       // 
-      // - **good**: The certificate is not revoked.
-      // 
-      // - **revoked**: The certificate is revoked.
-      // 
+      // - **good**: The certificate has not been revoked.
+      // - **revoked**: The certificate has been revoked.
       // - **unknown**: The server cannot determine the status of the certificate.
       shared_ptr<string> status_ {};
     };
@@ -114,7 +112,7 @@ namespace Models
 
 
   protected:
-    // An array of objects, where each object contains the status of a queried certificate.
+    // The certificate status details.
     shared_ptr<vector<DescribeClientCertificateStatusForSerialNumberResponseBody::CertificateStatus>> certificateStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

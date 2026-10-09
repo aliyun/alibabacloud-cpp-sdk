@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The CA certificate identifier.
     shared_ptr<string> caIdentifier_ {};
-    // The zone ID of the China CAS instance.
+    // The zone ID of the China Application Security (CAS) instance.
     shared_ptr<string> uuid_ {};
   };
 

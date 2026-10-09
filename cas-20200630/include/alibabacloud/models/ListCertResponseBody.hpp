@@ -240,61 +240,56 @@ namespace Models
 
 
     protected:
-      // The expiration time of the certificate.
+      // The expiration time of the certificate in UTC/GMT.
       shared_ptr<string> afterDate_ {};
-      // The expiration time of the client certificate. This value is a UNIX timestamp. Unit: milliseconds.
-      // 
-      // > The **BeforeTime** and **AfterTime** parameters must be both left empty or both specified.
+      // The service expiration time of the client certificate, in timestamp format. Unit: milliseconds.
+      // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
       shared_ptr<int64_t> afterTime_ {};
-      // The public key algorithm.
+      // The algorithm type.
       shared_ptr<string> algorithm_ {};
-      // The alias of the certificate.
+      // The name of the issued certificate.
       shared_ptr<string> aliasName_ {};
-      // The issuance time of the certificate.
+      // The issuance time of the certificate in UTC/GMT.
       shared_ptr<string> beforeDate_ {};
-      // The issuance time of the client certificate. This value is a UNIX timestamp. Unit: milliseconds.
+      // The issuance time of the client certificate, in timestamp format. The default value is the time when you call this operation. Unit: milliseconds.
       // 
-      // > The **BeforeTime** and **AfterTime** parameters must be both left empty or both specified.
+      // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
       shared_ptr<int64_t> beforeTime_ {};
-      // The type of the certificate. Valid values:
+      // The certificate type. Valid values:
       // 
-      // - `free`: Free certificate.
-      // 
-      // - `cas`: Alibaba Cloud Security certificate.
-      // 
-      // - `upload`: A user-uploaded certificate.
+      // - free: free certificate.
+      // - cas: China Security certificate.
+      // - upload: custom upload.
       shared_ptr<string> certificateType_ {};
-      // The primary domain name of the certificate.
+      // The primary domain name bound to the certificate.
       shared_ptr<string> commonName_ {};
-      // A unique, user-defined identifier for the certificate.
+      // The user-defined identifier, which serves as a unique key.
       shared_ptr<string> customIdentifier_ {};
-      // A JSON string containing extended attributes.
+      // The extended field.
       shared_ptr<string> extra_ {};
-      // The ID of the data source to which the certificate order belongs.
+      // The data source ID of the certificate order.
       shared_ptr<int64_t> id_ {};
-      // The unique identifier of the certificate.
+      // The certificate identifier.
       shared_ptr<string> identifier_ {};
-      // Specifies if the private key is exportable. Valid values:
+      // Indicates whether the certificate can be used. Valid values:
       // 
-      // - `true`: The private key is exportable.
-      // 
-      // - `false`: The private key is not exportable.
+      // - true: The certificate can be used.
+      // - false: The certificate cannot be used.
       shared_ptr<bool> keyExportable_ {};
-      // The organization specified in the certificate.
+      // The organization of the certificate.
       shared_ptr<string> organization_ {};
-      // The organizational unit (OU) specified in the certificate.
+      // The name of the company or organization to which the certificate purchaser belongs.
       shared_ptr<string> organizationUnit_ {};
       // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
-      // The status of the certificate. Valid values:
+      // The certificate status. Valid values:
       // 
-      // - `ISSUE`: Issued.
-      // 
-      // - `REVOKE`: Revoked.
+      // - ISSUE: Normal.
+      // - REVOKE: Revoked.
       shared_ptr<string> status_ {};
-      // The distinguished name (DN) of the certificate subject.
+      // The subscription relationship ID.
       shared_ptr<string> subjectDn_ {};
-      // The tags of the certificate.
+      // The certificate tags.
       shared_ptr<vector<string>> tags_ {};
     };
 
@@ -362,17 +357,17 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of certificates.
+    // The data source ID to which the certificates belong.
     shared_ptr<vector<ListCertResponseBody::List>> list_ {};
-    // The maximum number of entries returned.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // A token to retrieve the next page of results. If this value is empty, all results have been returned.
+    // The token for the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> pageCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The page size.
+    // The total size of the certificate. Unit: bytes.
     shared_ptr<int32_t> showSize_ {};
     // The total number of certificates.
     shared_ptr<int64_t> totalCount_ {};

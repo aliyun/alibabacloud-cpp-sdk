@@ -262,49 +262,62 @@ namespace Models
 
 
     protected:
-      // The expiration time of the certificate.
+      // The certificate expiration time. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The algorithm of the certificate.
+      // The certificate ID.
       shared_ptr<string> algorithm_ {};
-      // The time at which the certificate is issued.
+      // The certificate issuance time. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
-      // The type of the certificate.
+      // The certificate type.
       shared_ptr<string> certificateType_ {};
-      // The primary domain name that is bound to the certificate.
+      // The primary domain name bound to the certificate.
       shared_ptr<string> commonName_ {};
       // The country code of the certificate.
       shared_ptr<string> countryCode_ {};
-      // The ID of the certificate.
+      // The certificate ID.
       shared_ptr<string> identifier_ {};
-      // The key size of the certificate. Unit: bits.
+      // The size of the certificate key. Unit: GB.
       shared_ptr<int32_t> keySize_ {};
-      // The city in which the organization is located.
+      // The primary domain name bound to the certificate.
       shared_ptr<string> locality_ {};
-      // The MD5 value of the certificate.
+      // The MD5 value bound to the certificate.
       shared_ptr<string> md5_ {};
-      // The organization to which the certificate belongs.
+      // The certificate organization.
       shared_ptr<string> organization_ {};
-      // The certificate authority (CA) that issued the certificate.
+      // The certification authority that issued the certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The ID of the parent certificate.
+      // The parent certificate ID.
       shared_ptr<string> parentIdentifier_ {};
-      // All domain names that are bound to the certificate.
+      // All domain names bound to the certificate.
       shared_ptr<string> sans_ {};
-      // The serial number of the certificate.
+      // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
-      // The primary domain name that is bound to the certificate.
+      // The primary domain name bound to the certificate.
       shared_ptr<string> sha2_ {};
-      // The signature algorithm of the certificate. Valid values:
+      // The certificate signature algorithm. Valid values:
+      // - **prefix**: Prefix match.
+      // - **match**: Exact match.
+      // - **any**: Match all.
       shared_ptr<string> signAlgorithm_ {};
-      // The status of the certificate. Valid values:
+      // The certificate state. Valid values:
+      // - **success**: Effective.
+      // - **checking**: Checking whether the domain name is on Alibaba Cloud Dynamic Route for CDN.
+      // - **cname_error**: The domain name is not pointed to an Alibaba Cloud Global Accelerator (GA) instance.
+      // - **domain_invalid**: The domain name contains invalid characters.
+      // - **unsupport_wildcard**: Wildcard domain names are not supported.
       shared_ptr<string> state_ {};
-      // The status of the certificate. Valid values:
+      // The certificate status. Valid values:
+      // - **payed**: Paid.
+      // - **checking**: Being reviewed.
+      // - **issued**: Issued.
+      // - **revoked**: Revoked.
+      // - **checked_fail**: Review failed.
       shared_ptr<string> status_ {};
-      // The subject of the certificate.
+      // The certificate subject (owner), represented in DN format.
       shared_ptr<string> subjectDN_ {};
-      // The content of the X.509 certificate.
+      // The x.509 certificate.
       shared_ptr<string> x509Certificate_ {};
-      // The validity period of the certificate, in years.
+      // The number of years for which the certificate was purchased.
       shared_ptr<int32_t> years_ {};
     };
 
@@ -359,13 +372,13 @@ namespace Models
     shared_ptr<vector<DescribePcaAndExternalCACertificateListResponseBody::CertificateList>> certificateList_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries on the current page.
+    // The number of entries in the list.
     shared_ptr<int32_t> pageCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries to return on each page. Default value: 50.
+    // The number of records to display per page. Default value: 50.
     shared_ptr<int32_t> showSize_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

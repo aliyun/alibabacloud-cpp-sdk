@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // One or more certificate identifiers, separated by commas.
+    // The certificate identifiers. Separate multiple identifiers with commas (,).
     shared_ptr<string> identifiers_ {};
-    // The keyword for a fuzzy search on the name, domain name, and SAN fields.
+    // The search keyword. Fuzzy search by name, domain name, or SANs is supported.
     shared_ptr<string> keyWord_ {};
-    // The number of entries to return per page. The default value is 50.
+    // The number of records to display per page. Default value: 50.
     shared_ptr<int32_t> showSize_ {};
   };
 

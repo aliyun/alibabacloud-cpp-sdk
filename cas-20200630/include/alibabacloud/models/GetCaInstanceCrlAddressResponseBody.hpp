@@ -86,12 +86,13 @@ namespace Models
   protected:
     // The status of the CA instance.
     shared_ptr<string> caInstanceStatus_ {};
+    // The CA type.
     shared_ptr<string> caType_ {};
     // The CRL URL.
     shared_ptr<string> crlUrl_ {};
-    // The hash code used to identify whether the CRL contains new revoked certificates.
+    // The hash code used to identify whether new revoked certificates exist in the CRL.
     shared_ptr<string> hashCode_ {};
-    // The next update time of the CRL.
+    // The next update time of the CRL. The value is a UNIX timestamp in milliseconds.
     shared_ptr<string> nextUpdateTime_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

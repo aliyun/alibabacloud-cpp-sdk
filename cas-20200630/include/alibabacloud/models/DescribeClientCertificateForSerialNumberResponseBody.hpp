@@ -254,55 +254,48 @@ namespace Models
 
 
     protected:
-      // The expiration time of the certificate.
+      // The expiration date of the certificate. The format is YYYY-MM-DD.
       shared_ptr<string> afterDate_ {};
-      // The encryption algorithm of the certificate. Valid values:
+      // The encryption algorithm type of the certificate. Valid values:
       // 
-      // - **RSA**: The RSA algorithm.
-      // 
-      // - **ECC**: The ECC algorithm.
-      // 
-      // - **SM2**: The SM2 algorithm.
+      // - **RSA**: RSA algorithm.
+      // - **ECC**: ECC algorithm.
+      // - **SM2**: SM2 algorithm.
       shared_ptr<string> algorithm_ {};
-      // The issuance time of the certificate.
+      // The issuance date of the certificate. The format is YYYY-MM-DD.
       shared_ptr<string> beforeDate_ {};
       // The type of the certificate.
       shared_ptr<string> certificateType_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The two-letter country code of the issuer.
+      // The code of the country where the organization associated with the subordinate CA certificate that issued this certificate is located.
       // 
-      // For more information about country codes, see the **Country codes** section in [Manage company profiles](https://help.aliyun.com/document_detail/198289.html).
+      // For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
       // The unique identifier of the certificate.
       shared_ptr<string> identifier_ {};
       // The key length of the certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The city of the issuer.
+      // The name of the city where the organization associated with the subordinate CA certificate that issued this certificate is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the certificate.
       shared_ptr<string> md5_ {};
-      // The organization of the issuer.
+      // The name of the organization associated with the subordinate CA certificate that issued this certificate.
       shared_ptr<string> organization_ {};
-      // The organizational unit of the issuer.
+      // The name of the department in the organization associated with the subordinate CA certificate that issued this certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The identifier of the issuer. This parameter is returned only if the certificate is issued by Alibaba Cloud.
+      // If this parameter is not empty, the client certificate is issued by Alibaba Cloud.
       shared_ptr<string> parentIdentifier_ {};
-      // The subject alternative name (SAN) extension, which specifies identifiers such as email addresses, domain names, URIs, and IP addresses.
+      // The Subject Alternative Name (SAN) extension of the certificate, which indicates other domain names or IP addresses associated with the certificate.
       // 
-      // A JSON string that represents an array of SAN objects. Each object contains the following parameters:
+      // This parameter is represented as a string converted from a JSON array. Each element in the JSON array is a structure that corresponds to a SAN extension. Each SAN extension structure contains the following parameters:
       // 
-      // - **Type**: The type of the extension. This parameter is an integer. Valid values:
-      // 
-      //   - **1**: email address.
-      // 
-      //   - **2**: domain name.
-      // 
-      //   - **6**: uniform resource identifier (URI).
-      // 
-      //   - **7**: IP address.
-      // 
-      // - **Value**: The content of the extension. This parameter is a string.
+      // - **Type**: An Integer value that indicates the type of the extension. Valid values:
+      // 	- **1**: an email address.
+      // 	- **2**: a domain name.
+      // 	- **6**: a Uniform Resource Identifier (URI).
+      // 	- **7**: an IP address.
+      // - **Value**: A String value that indicates the content of the extension.
       shared_ptr<string> sans_ {};
       // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
@@ -310,44 +303,27 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // <props="china">The state or province of the issuer.
-      // <props="intl">The state or province of the issuer.
+      // <props="china">The name of the province, municipality, or autonomous region where the organization associated with the subordinate CA certificate that issued this certificate is located.
+      // <props="intl">The name of the province or state where the organization associated with the subordinate CA certificate that issued this certificate is located.
       shared_ptr<string> state_ {};
       // The status of the certificate. Valid values:
       // 
-      // - **ISSUE**: The certificate is issued.
-      // 
-      // - **REVOKE**: The certificate is revoked.
+      // - **ISSUE**: issued.
+      // - **REVOKE**: revoked.
       shared_ptr<string> status_ {};
-      // The distinguished name (DN) of the certificate. The DN contains information about the certificate subject, including:
+      // The distinguished name (DN) attribute of the certificate, which indicates the subject of the certificate. The DN contains the following information:
       // 
-      // - **C**: Country.
-      // 
-      // - **O**: Organization.
-      // 
-      // - **OU**: Organizational unit.
-      // 
-      // - **L**: City.
-      // 
-      // <props="china">
-      // 
-      // - **ST**: State or province.
-      // 
-      // 
-      // 
-      // 
-      // <props="intl">
-      // 
-      // - **ST**: State or province.
-      // 
-      // 
-      // 
-      // 
-      // - **CN**: Common name.
+      // - **C**: The country.
+      // - **O**: The organization.
+      // - **OU**: The department.
+      // - **L**: The city.
+      // <props="china">- **ST**: The province, municipality, or autonomous region.
+      // <props="intl">- **ST**: The province or state.
+      // - **CN**: The common name.
       shared_ptr<string> subjectDN_ {};
-      // The certificate content.
+      // The content of the certificate.
       shared_ptr<string> x509Certificate_ {};
-      // This parameter is deprecated.
+      // The validity period of the certificate. Unit: years.
       shared_ptr<int32_t> years_ {};
     };
 
@@ -370,9 +346,9 @@ namespace Models
 
 
   protected:
-    // Details of the client or server certificates.
+    // The details of the client certificates or server certificates.
     shared_ptr<vector<DescribeClientCertificateForSerialNumberResponseBody::CertificateList>> certificateList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

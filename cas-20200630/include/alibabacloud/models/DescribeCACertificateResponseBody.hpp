@@ -430,7 +430,7 @@ namespace Models
 
 
     protected:
-      // The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration date of the CA certificate. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> afterDate_ {};
       // The encryption algorithm type of the CA certificate. Valid values:
       // 
@@ -438,15 +438,15 @@ namespace Models
       // - **ECC**: ECC algorithm.
       // - **SM2**: SM2 (Chinese national cryptographic) algorithm.
       shared_ptr<string> algorithm_ {};
-      // The issuance date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
+      // The issuance date of the CA certificate. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // The complete certificate chain.
       shared_ptr<string> caCertChain_ {};
       // The number of certificates issued by the private CA instance.
       shared_ptr<int64_t> certIssuedCount_ {};
-      // The maximum validity period for certificates issued by the CA, as specified by the certMaxTime of the CA.
+      // The maximum validity period for certificates issued by the CA, specified by certMaxTime. Unit: days.
       shared_ptr<int32_t> certMaxTime_ {};
-      // The number of remaining certificate quotas that can be allocated.
+      // The number of remaining certificate quotas available for allocation.
       shared_ptr<int64_t> certRemainingCount_ {};
       // The total number of purchased certificate quotas.
       shared_ptr<int64_t> certTotalCount_ {};
@@ -455,7 +455,7 @@ namespace Models
       // - **ROOT**: root CA certificate.
       // - **SUB_ROOT**: sub-CA certificate.
       shared_ptr<string> certificateType_ {};
-      // The identifier of the hardware security module (HSM) cluster. (The CA is enabled through an HSM.)
+      // The identifier of the hardware security module (HSM) cluster. (The CA is enabled by using an HSM.)
       shared_ptr<string> clusterId_ {};
       // The common name or abbreviation of the organization associated with the CA certificate.
       shared_ptr<string> commonName_ {};
@@ -463,9 +463,9 @@ namespace Models
       // 
       // For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
-      // The validity period of the CRL, ranging from 1 to 365 days.
+      // The CRL validity period, ranging from 1 to 365 days.
       shared_ptr<int32_t> crlDay_ {};
-      // The certificate revocation list (CRL) status (enabled or disabled).
+      // The certificate revocation list (CRL) status (enabling status).
       shared_ptr<string> crlStatus_ {};
       // The CRL URL.
       shared_ptr<string> crlUrl_ {};
@@ -473,17 +473,17 @@ namespace Models
       shared_ptr<string> fullAlgorithm_ {};
       // The unique identifier of the CA certificate.
       shared_ptr<string> identifier_ {};
-      // The issuing authority of the CA. Valid values:
+      // The issuing CA authority. Valid values:
       // 
       // - local: private certificate.
       // - iTrusChina: compliant CA.
       // - external: externally imported.
       shared_ptr<string> issuerType_ {};
-      // The key index position in the HSM. (The CA is enabled through an HSM.)
+      // The key index position in the HSM. (The CA is enabled by using an HSM.)
       shared_ptr<int32_t> keyIndex_ {};
       // The key length of the CA certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The name of the city where the organization associated with the CA certificate is located.
+      // The city where the organization associated with the CA certificate is located.
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the CA certificate.
       shared_ptr<string> md5_ {};
@@ -497,7 +497,7 @@ namespace Models
       shared_ptr<string> parentIdentifier_ {};
       // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // This parameter is deprecated.
+      // **[Deprecated]** This parameter is deprecated.
       shared_ptr<string> sans_ {};
       // The serial number of the CA certificate.
       shared_ptr<string> serialNumber_ {};
@@ -505,8 +505,8 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the CA certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // <props="china">The name of the province, municipality, or autonomous region where the organization associated with the CA certificate is located.
-      // <props="intl">The name of the province or state where the organization associated with the CA certificate is located.
+      // <props="china">The province, municipality, or autonomous region where the organization associated with the CA certificate is located.
+      // <props="intl">The province or state where the organization associated with the CA certificate is located.
       shared_ptr<string> state_ {};
       // The status of the CA certificate. Valid values:
       // 
@@ -515,13 +515,13 @@ namespace Models
       shared_ptr<string> status_ {};
       // The subject attributes of the CA certificate, which include the following information:
       // 
-      // - **C**: the country code of the organization.
-      // - **O**: the name of the organization.
-      // - **OU**: the department of the organization.
-      // - **L**: the city where the organization is located.
-      // <props="china">- **ST**: the province, municipality, or autonomous region where the organization is located.
-      // <props="intl">- **ST**: the province or state where the organization is located.
-      // - **CN**: the common name or abbreviation of the organization.
+      // - **C**: The country code of the organization.
+      // - **O**: The name of the organization.
+      // - **OU**: The department of the organization.
+      // - **L**: The city where the organization is located.
+      // <props="china">- **ST**: The province, municipality, or autonomous region where the organization is located.
+      // <props="intl">- **ST**: The province or state where the organization is located.
+      // - **CN**: The common name or abbreviation of the organization.
       shared_ptr<string> subjectDN_ {};
       // The list of tags.
       shared_ptr<vector<Certificate::Tags>> tags_ {};

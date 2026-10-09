@@ -121,35 +121,32 @@ namespace Models
 
 
   protected:
-    // Filters certificates modified after this date.
+    // The host record bound to the certificate, in the YYYY-MM-DD format.
     shared_ptr<string> afterDate_ {};
-    // Filters certificates modified before this date.
+    // The modification time of the certificate, in the YYYY-MM-DD format.
     shared_ptr<string> beforeDate_ {};
-    // The page number. Default value: 1.
+    // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
     // The UUID of the instance.
     shared_ptr<string> instanceUuid_ {};
     // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. This is the NextToken value from a previous response. If unspecified, the first page is returned.
+    // The token for the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The identifier of the intermediate CA that issued the certificate.
+    // The identifier of the intermediate CA that issued the certificate. You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of a CA certificate.
     shared_ptr<string> parentIdentifier_ {};
-    // The page size. Default value: 50.
+    // The total size of the certificate. Unit: bytes.
     shared_ptr<int32_t> showSize_ {};
-    // The status of the certificate. Valid values:
+    // The certificate status. Valid values:
     // 
-    // - ISSUE: Active
-    // 
-    // - REVOKE: Revoked
+    // - ISSUE: Normal.
+    // - REVOKE: Revoked.
     shared_ptr<string> status_ {};
     // The certificate type. Valid values:
     // 
-    // - SERVER: Server certificate
-    // 
-    // - CLIENT: Client certificate
-    // 
-    // - END_ENTITY: End-entity certificate
+    // - SERVER: server certificate.
+    // - CLIENT: client certificate.
+    // - END_ENTITY: end-entity certificate.
     shared_ptr<string> type_ {};
   };
 

@@ -298,37 +298,33 @@ namespace Models
 
 
     protected:
-      // The expiration date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The encryption algorithm of the CA certificate. Valid values:
+      // The encryption algorithm type of the CA certificate. Valid values:
       // 
       // - **RSA**: RSA algorithm.
-      // 
       // - **ECC**: ECC algorithm.
-      // 
-      // - **SM2**: SM2 algorithm.
+      // - **SM2**: SM2 (Chinese national cryptographic) algorithm.
       shared_ptr<string> algorithm_ {};
-      // The alias of the instance.
+      // The instance alias.
       shared_ptr<string> alias_ {};
-      // The issuance date of the CA certificate. This value is a UNIX timestamp. Unit: milliseconds.
+      // The issuance date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // The type of the CA certificate. Valid values:
       // 
       // - **ROOT**: root CA certificate.
-      // 
-      // - **SUB_ROOT**: intermediate CA certificate.
+      // - **SUB_ROOT**: subordinate CA certificate.
       shared_ptr<string> certificateType_ {};
       // The common name or abbreviation of the organization associated with the CA certificate.
       shared_ptr<string> commonName_ {};
-      // The country code of the country where the organization associated with the CA certificate is located.
+      // The country code of the organization associated with the CA certificate.
       // 
-      // For more information about country codes, see the **Country codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
+      // For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
-      // Indicates whether the instance is a free instance. Valid values:
+      // Indicates whether the instance is a complimentary instance. Valid values:
       // 
-      // - 0: no.
-      // 
-      // - 1: yes.
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> gift_ {};
       // The unique identifier of the CA certificate.
       shared_ptr<string> identifier_ {};
@@ -340,15 +336,15 @@ namespace Models
       shared_ptr<string> md5_ {};
       // The name of the organization associated with the CA certificate.
       shared_ptr<string> organization_ {};
-      // The name of the department of the organization associated with the CA certificate.
+      // The name of the department within the organization associated with the CA certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The unique identifier of the root CA certificate that issued the CA certificate.
+      // The unique identifier of the root CA certificate that issued this CA certificate.
       // 
-      // > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates an intermediate CA certificate.
+      // > This parameter is returned only when **CertificateType** is **SUB_ROOT** (subordinate CA certificate).
       shared_ptr<string> parentIdentifier_ {};
       // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // This parameter is deprecated.
+      // The Subject Alternative Names (SANs) of the certificate.
       shared_ptr<string> sans_ {};
       // The serial number of the CA certificate.
       shared_ptr<string> serialNumber_ {};
@@ -356,35 +352,30 @@ namespace Models
       shared_ptr<string> sha2_ {};
       // The signature algorithm of the CA certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The name of the province or state where the organization associated with the CA certificate is located.
+      // <props="china">The name of the province, municipality, or autonomous region where the organization associated with the CA certificate is located.
+      // <props="intl">The name of the province or state where the organization associated with the CA certificate is located.
       shared_ptr<string> state_ {};
       // The status of the CA certificate. Valid values:
       // 
-      // - **ISSUE**: The certificate is issued.
-      // 
-      // - **REVOKE**: The certificate is revoked.
+      // - **ISSUE**: The certificate is issued normally.
+      // - **REVOKE**: The certificate has been revoked.
       shared_ptr<string> status_ {};
-      // The distinguished name (DN) of the CA certificate. The DN indicates the user of the certificate and contains the following information:
+      // The Distinguished Name (DN) attribute of the CA certificate, which represents the subject of the certificate. It contains the following information:
       // 
-      // - **C**: The country code where the organization is located.
-      // 
+      // - **C**: The country code of the organization.
       // - **O**: The name of the organization.
-      // 
-      // - **OU**: The department of the organization.
-      // 
+      // - **OU**: The department within the organization.
       // - **L**: The city where the organization is located.
-      // 
       // - **CN**: The common name or abbreviation of the organization.
       shared_ptr<string> subjectDN_ {};
       // Indicates whether the instance is a trial instance. Valid values:
       // 
-      // - 0: no.
-      // 
-      // - 1: yes.
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> trial_ {};
       // The content of the CA certificate.
       shared_ptr<string> x509Certificate_ {};
-      // The validity period of the CA certificate in years.
+      // The validity period of the CA certificate. Unit: years.
       shared_ptr<int32_t> years_ {};
     };
 
@@ -435,17 +426,17 @@ namespace Models
 
 
   protected:
-    // The details of the CA certificates.
+    // The list of CA certificate details.
     shared_ptr<vector<DescribeCACertificateListResponseBody::CertificateList>> certificateList_ {};
-    // The page number.
+    // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of pages returned.
+    // The total number of pages returned.
     shared_ptr<int32_t> pageCount_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of CA certificates on each page.
+    // The number of CA certificates per page.
     shared_ptr<int32_t> showSize_ {};
-    // The total number of root and intermediate CA certificates.
+    // The total number of root CA certificates and subordinate CA certificates.
     shared_ptr<int32_t> totalCount_ {};
   };
 

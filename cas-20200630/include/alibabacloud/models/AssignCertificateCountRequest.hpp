@@ -13,10 +13,12 @@ namespace Models
   class AssignCertificateCountRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AssignCertificateCountRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CaIdentifier, caIdentifier_);
       DARABONBA_PTR_TO_JSON(CertTotalCount, certTotalCount_);
       DARABONBA_PTR_TO_JSON(Id, id_);
     };
     friend void from_json(const Darabonba::Json& j, AssignCertificateCountRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CaIdentifier, caIdentifier_);
       DARABONBA_PTR_FROM_JSON(CertTotalCount, certTotalCount_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->certTotalCount_ == nullptr
-        && this->id_ == nullptr; };
+    virtual bool empty() const override { return this->caIdentifier_ == nullptr
+        && this->certTotalCount_ == nullptr && this->id_ == nullptr; };
+    // caIdentifier Field Functions 
+    bool hasCaIdentifier() const { return this->caIdentifier_ != nullptr;};
+    void deleteCaIdentifier() { this->caIdentifier_ = nullptr;};
+    inline string getCaIdentifier() const { DARABONBA_PTR_GET_DEFAULT(caIdentifier_, "") };
+    inline AssignCertificateCountRequest& setCaIdentifier(string caIdentifier) { DARABONBA_PTR_SET_VALUE(caIdentifier_, caIdentifier) };
+
+
     // certTotalCount Field Functions 
     bool hasCertTotalCount() const { return this->certTotalCount_ != nullptr;};
     void deleteCertTotalCount() { this->certTotalCount_ = nullptr;};
@@ -48,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The identifier of the CA certificate.
+    shared_ptr<string> caIdentifier_ {};
     // The total number of certificate records.
     shared_ptr<int32_t> certTotalCount_ {};
-    // The ID of the data source.
+    // The ID of the data source to which the certificate belongs.
     shared_ptr<int64_t> id_ {};
   };
 

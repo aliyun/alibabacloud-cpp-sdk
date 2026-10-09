@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> certificateChain_ {};
     // The unique identifier of the client certificate.
     shared_ptr<string> identifier_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
     shared_ptr<string> requestId_ {};
     // The certificate serial number.
     shared_ptr<string> serialNumber_ {};
