@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // Processing time in milliseconds
+    // The execution duration.
     shared_ptr<int64_t> cost_ {};
-    // Response data. This is the task ID.
+    // The response data, which is the task ID.
     shared_ptr<string> data_ {};
-    // Data type
+    // The data type.
     shared_ptr<string> dataType_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Timestamp
+    // The timestamp.
     shared_ptr<string> time_ {};
   };
 

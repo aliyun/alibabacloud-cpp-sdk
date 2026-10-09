@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // Document ID
+    // The document ID.
     // 
     // This parameter is required.
     shared_ptr<string> docId_ {};
-    // Domain knowledge used as reference during translation
+    // The domain knowledge referenced during translation.
     shared_ptr<string> knowledge_ {};
-    // Document library ID
+    // The document library ID.
     // 
     // This parameter is required.
     shared_ptr<string> libraryId_ {};
-    // Model ID
+    // The model ID.
     // 
     // This parameter is required.
     shared_ptr<string> modelId_ {};
-    // Target language. Default is Chinese
+    // The target language. Default value: Chinese.
     shared_ptr<string> translateTo_ {};
   };
 

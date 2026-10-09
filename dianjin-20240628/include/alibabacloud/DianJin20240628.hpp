@@ -40,12 +40,12 @@ namespace DianJin20240628
       Models::CommercializeFetchResponse commercializeFetch(const string &workspaceId, const string &cjfCode, const string &zjfCode, const Models::CommercializeFetchRequest &request);
 
       /**
-       * @summary Create a task to summarize documents by year.
+       * @summary Creates a task to summarize documents by year.
        *
-       * @description Before you use this operation, review the billing methods and pricing for Alibaba Cloud Tongyi Dianjin.
-       * Prerequisites
-       * You have activated Alibaba Cloud Model Studio and Tongyi Dianjin.
-       * Obtain your [workspace ID](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description Make sure that you fully understand the billing methods and pricing of the Tongyi Dianjin product before you call this operation.
+       * Before you begin
+       * Alibaba Cloud Model Studio and Tongyi Dianjin are activated.
+       * The workspace ID is obtained. For more information, see [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request CreateAnnualDocSummaryTaskRequest
        * @param headers map
@@ -55,12 +55,12 @@ namespace DianJin20240628
       Models::CreateAnnualDocSummaryTaskResponse createAnnualDocSummaryTaskWithOptions(const string &workspaceId, const Models::CreateAnnualDocSummaryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a task to summarize documents by year.
+       * @summary Creates a task to summarize documents by year.
        *
-       * @description Before you use this operation, review the billing methods and pricing for Alibaba Cloud Tongyi Dianjin.
-       * Prerequisites
-       * You have activated Alibaba Cloud Model Studio and Tongyi Dianjin.
-       * Obtain your [workspace ID](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description Make sure that you fully understand the billing methods and pricing of the Tongyi Dianjin product before you call this operation.
+       * Before you begin
+       * Alibaba Cloud Model Studio and Tongyi Dianjin are activated.
+       * The workspace ID is obtained. For more information, see [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request CreateAnnualDocSummaryTaskRequest
        * @return CreateAnnualDocSummaryTaskResponse
@@ -214,12 +214,12 @@ namespace DianJin20240628
       Models::CreateLibraryResponse createLibrary(const string &workspaceId, const Models::CreateLibraryRequest &request);
 
       /**
-       * @summary Create a PDF document translation task. Submit the task to start asynchronous translation.
+       * @summary Creates a PDF document translation task. Submits the translation task and executes the translation process asynchronously.
        *
-       * @description Before you use this operation, review the billing methods and pricing for Alibaba Cloud Tongyi Dianjin.
-       * **Prerequisites**
-       * - You have activated Alibaba Cloud Model Studio and Tongyi Dianjin.
-       * - You have obtained a workspace ID. To obtain your [workspace ID](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description Make sure that you fully understand the billing methods and pricing of the Tongyi Dianjin product before you call this operation.
+       * **Before you begin**
+       * - Alibaba Cloud Model Studio and Tongyi Dianjin are activated.
+       * - The workspace ID is obtained. For more information, see [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request CreatePdfTranslateTaskRequest
        * @param headers map
@@ -229,12 +229,12 @@ namespace DianJin20240628
       Models::CreatePdfTranslateTaskResponse createPdfTranslateTaskWithOptions(const string &workspaceId, const Models::CreatePdfTranslateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a PDF document translation task. Submit the task to start asynchronous translation.
+       * @summary Creates a PDF document translation task. Submits the translation task and executes the translation process asynchronously.
        *
-       * @description Before you use this operation, review the billing methods and pricing for Alibaba Cloud Tongyi Dianjin.
-       * **Prerequisites**
-       * - You have activated Alibaba Cloud Model Studio and Tongyi Dianjin.
-       * - You have obtained a workspace ID. To obtain your [workspace ID](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description Make sure that you fully understand the billing methods and pricing of the Tongyi Dianjin product before you call this operation.
+       * **Before you begin**
+       * - Alibaba Cloud Model Studio and Tongyi Dianjin are activated.
+       * - The workspace ID is obtained. For more information, see [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request CreatePdfTranslateTaskRequest
        * @return CreatePdfTranslateTaskResponse
@@ -360,11 +360,11 @@ namespace DianJin20240628
       Models::DeleteDocumentResponse deleteDocument(const string &workspaceId, const Models::DeleteDocumentRequest &request);
 
       /**
-       * @summary Delete a document library. ⚠️ This operation deletes the library and all its associated documents.
+       * @summary Deletes a document library. Warning: This operation deletes the document library and all associated documents.
        *
-       * @description **Prerequisites**
-       * - Activate Alibaba Cloud Model Studio and Tongyi Dianjin services.
-       * - Obtain your workspaceId. For more information, refer to the [workspace identifier](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description **Before you begin**
+       * - Alibaba Cloud Model Studio and Tongyi Dianjin services are activated.
+       * - The workspace ID is obtained: Obtain the [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request DeleteLibraryRequest
        * @param headers map
@@ -374,11 +374,11 @@ namespace DianJin20240628
       Models::DeleteLibraryResponse deleteLibraryWithOptions(const string &workspaceId, const Models::DeleteLibraryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a document library. ⚠️ This operation deletes the library and all its associated documents.
+       * @summary Deletes a document library. Warning: This operation deletes the document library and all associated documents.
        *
-       * @description **Prerequisites**
-       * - Activate Alibaba Cloud Model Studio and Tongyi Dianjin services.
-       * - Obtain your workspaceId. For more information, refer to the [workspace identifier](https://help.aliyun.com/zh/model-studio/developer-reference/get-app-id-and-workspace?spm=openapi-amp.newDocPublishment.0.0.2eb8281foUVd15#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
+       * @description **Before you begin**
+       * - Alibaba Cloud Model Studio and Tongyi Dianjin services are activated.
+       * - The workspace ID is obtained: Obtain the [workspace ID](https://www.alibabacloud.com/help/en/model-studio/developer-reference/get-app-id-and-workspace#2612f896detsz:~:text=%E6%9F%A5%E7%9C%8BAPI%2DKEY%E3%80%82-,%E8%8E%B7%E5%8F%96APP%2DID%E5%92%8CWORKSPACE,-%E8%BF%9B%E5%85%A5%E6%88%91%E7%9A%84%E5%BA%94%E7%94%A8).
        *
        * @param request DeleteLibraryRequest
        * @return DeleteLibraryResponse
@@ -790,7 +790,7 @@ namespace DianJin20240628
       Models::GetParseResultResponse getParseResult(const string &workspaceId, const Models::GetParseResultRequest &request);
 
       /**
-       * @summary Retrieve quality check results.
+       * @summary Retrieves the quality inspection results.
        *
        * @param request GetQualityCheckTaskResultRequest
        * @param headers map
@@ -800,7 +800,7 @@ namespace DianJin20240628
       Models::GetQualityCheckTaskResultResponse getQualityCheckTaskResultWithOptions(const string &workspaceId, const Models::GetQualityCheckTaskResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve quality check results.
+       * @summary Retrieves the quality inspection results.
        *
        * @param request GetQualityCheckTaskResultRequest
        * @return GetQualityCheckTaskResultResponse

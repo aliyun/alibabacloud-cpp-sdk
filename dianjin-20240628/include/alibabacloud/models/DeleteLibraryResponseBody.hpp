@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Error code
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -16,12 +16,12 @@ namespace Models
   class SentenceEnd : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SentenceEnd& obj) { 
-      DARABONBA_PTR_TO_JSON(messageId, messageId_);
       DARABONBA_PTR_TO_JSON(data, data_);
+      DARABONBA_PTR_TO_JSON(messageId, messageId_);
     };
     friend void from_json(const Darabonba::Json& j, SentenceEnd& obj) { 
-      DARABONBA_PTR_FROM_JSON(messageId, messageId_);
       DARABONBA_PTR_FROM_JSON(data, data_);
+      DARABONBA_PTR_FROM_JSON(messageId, messageId_);
     };
     SentenceEnd() = default ;
     SentenceEnd(const SentenceEnd &) = default ;
@@ -34,15 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->messageId_ == nullptr
-        && this->data_ == nullptr; };
-    // messageId Field Functions 
-    bool hasMessageId() const { return this->messageId_ != nullptr;};
-    void deleteMessageId() { this->messageId_ = nullptr;};
-    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
-    inline SentenceEnd& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
-
-
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->messageId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -52,9 +45,16 @@ namespace Models
     inline SentenceEnd& setData(vector<int64_t> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
+    // messageId Field Functions 
+    bool hasMessageId() const { return this->messageId_ != nullptr;};
+    void deleteMessageId() { this->messageId_ = nullptr;};
+    inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+    inline SentenceEnd& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
   protected:
-    shared_ptr<string> messageId_ {};
     shared_ptr<vector<int64_t>> data_ {};
+    shared_ptr<string> messageId_ {};
   };
 
   } // namespace Models
