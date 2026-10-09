@@ -81,12 +81,16 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Source& obj) { 
           DARABONBA_PTR_TO_JSON(dataset, dataset_);
+          DARABONBA_PTR_TO_JSON(inputFields, inputFields_);
           DARABONBA_PTR_TO_JSON(logstore, logstore_);
+          DARABONBA_PTR_TO_JSON(trajectory, trajectory_);
           DARABONBA_PTR_TO_JSON(type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Source& obj) { 
           DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+          DARABONBA_PTR_FROM_JSON(inputFields, inputFields_);
           DARABONBA_PTR_FROM_JSON(logstore, logstore_);
+          DARABONBA_PTR_FROM_JSON(trajectory, trajectory_);
           DARABONBA_PTR_FROM_JSON(type, type_);
         };
         Source() = default ;
@@ -100,6 +104,83 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Trajectory : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Trajectory& obj) { 
+            DARABONBA_PTR_TO_JSON(enrich, enrich_);
+          };
+          friend void from_json(const Darabonba::Json& j, Trajectory& obj) { 
+            DARABONBA_PTR_FROM_JSON(enrich, enrich_);
+          };
+          Trajectory() = default ;
+          Trajectory(const Trajectory &) = default ;
+          Trajectory(Trajectory &&) = default ;
+          Trajectory(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Trajectory() = default ;
+          Trajectory& operator=(const Trajectory &) = default ;
+          Trajectory& operator=(Trajectory &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Enrich : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Enrich& obj) { 
+              DARABONBA_PTR_TO_JSON(columns, columns_);
+              DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            };
+            friend void from_json(const Darabonba::Json& j, Enrich& obj) { 
+              DARABONBA_PTR_FROM_JSON(columns, columns_);
+              DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            };
+            Enrich() = default ;
+            Enrich(const Enrich &) = default ;
+            Enrich(Enrich &&) = default ;
+            Enrich(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Enrich() = default ;
+            Enrich& operator=(const Enrich &) = default ;
+            Enrich& operator=(Enrich &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->columns_ == nullptr
+        && this->enabled_ == nullptr; };
+            // columns Field Functions 
+            bool hasColumns() const { return this->columns_ != nullptr;};
+            void deleteColumns() { this->columns_ = nullptr;};
+            inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+            inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+            inline Enrich& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+            inline Enrich& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+            // enabled Field Functions 
+            bool hasEnabled() const { return this->enabled_ != nullptr;};
+            void deleteEnabled() { this->enabled_ = nullptr;};
+            inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+            inline Enrich& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          protected:
+            shared_ptr<vector<string>> columns_ {};
+            shared_ptr<bool> enabled_ {};
+          };
+
+          virtual bool empty() const override { return this->enrich_ == nullptr; };
+          // enrich Field Functions 
+          bool hasEnrich() const { return this->enrich_ != nullptr;};
+          void deleteEnrich() { this->enrich_ = nullptr;};
+          inline const Trajectory::Enrich & getEnrich() const { DARABONBA_PTR_GET_CONST(enrich_, Trajectory::Enrich) };
+          inline Trajectory::Enrich getEnrich() { DARABONBA_PTR_GET(enrich_, Trajectory::Enrich) };
+          inline Trajectory& setEnrich(const Trajectory::Enrich & enrich) { DARABONBA_PTR_SET_VALUE(enrich_, enrich) };
+          inline Trajectory& setEnrich(Trajectory::Enrich && enrich) { DARABONBA_PTR_SET_RVALUE(enrich_, enrich) };
+
+
+        protected:
+          shared_ptr<Trajectory::Enrich> enrich_ {};
+        };
+
         class Logstore : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Logstore& obj) { 
@@ -155,6 +236,48 @@ namespace Models
           shared_ptr<string> query_ {};
         };
 
+        class InputFields : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const InputFields& obj) { 
+            DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, InputFields& obj) { 
+            DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(type, type_);
+          };
+          InputFields() = default ;
+          InputFields(const InputFields &) = default ;
+          InputFields(InputFields &&) = default ;
+          InputFields(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~InputFields() = default ;
+          InputFields& operator=(const InputFields &) = default ;
+          InputFields& operator=(InputFields &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->name_ == nullptr
+        && this->type_ == nullptr; };
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline InputFields& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline InputFields& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          shared_ptr<string> name_ {};
+          shared_ptr<string> type_ {};
+        };
+
         class Dataset : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Dataset& obj) { 
@@ -200,7 +323,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->dataset_ == nullptr
-        && this->logstore_ == nullptr && this->type_ == nullptr; };
+        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr; };
         // dataset Field Functions 
         bool hasDataset() const { return this->dataset_ != nullptr;};
         void deleteDataset() { this->dataset_ = nullptr;};
@@ -210,6 +333,15 @@ namespace Models
         inline Source& setDataset(Source::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
 
 
+        // inputFields Field Functions 
+        bool hasInputFields() const { return this->inputFields_ != nullptr;};
+        void deleteInputFields() { this->inputFields_ = nullptr;};
+        inline const vector<Source::InputFields> & getInputFields() const { DARABONBA_PTR_GET_CONST(inputFields_, vector<Source::InputFields>) };
+        inline vector<Source::InputFields> getInputFields() { DARABONBA_PTR_GET(inputFields_, vector<Source::InputFields>) };
+        inline Source& setInputFields(const vector<Source::InputFields> & inputFields) { DARABONBA_PTR_SET_VALUE(inputFields_, inputFields) };
+        inline Source& setInputFields(vector<Source::InputFields> && inputFields) { DARABONBA_PTR_SET_RVALUE(inputFields_, inputFields) };
+
+
         // logstore Field Functions 
         bool hasLogstore() const { return this->logstore_ != nullptr;};
         void deleteLogstore() { this->logstore_ = nullptr;};
@@ -217,6 +349,15 @@ namespace Models
         inline Source::Logstore getLogstore() { DARABONBA_PTR_GET(logstore_, Source::Logstore) };
         inline Source& setLogstore(const Source::Logstore & logstore) { DARABONBA_PTR_SET_VALUE(logstore_, logstore) };
         inline Source& setLogstore(Source::Logstore && logstore) { DARABONBA_PTR_SET_RVALUE(logstore_, logstore) };
+
+
+        // trajectory Field Functions 
+        bool hasTrajectory() const { return this->trajectory_ != nullptr;};
+        void deleteTrajectory() { this->trajectory_ = nullptr;};
+        inline const Source::Trajectory & getTrajectory() const { DARABONBA_PTR_GET_CONST(trajectory_, Source::Trajectory) };
+        inline Source::Trajectory getTrajectory() { DARABONBA_PTR_GET(trajectory_, Source::Trajectory) };
+        inline Source& setTrajectory(const Source::Trajectory & trajectory) { DARABONBA_PTR_SET_VALUE(trajectory_, trajectory) };
+        inline Source& setTrajectory(Source::Trajectory && trajectory) { DARABONBA_PTR_SET_RVALUE(trajectory_, trajectory) };
 
 
         // type Field Functions 
@@ -229,8 +370,10 @@ namespace Models
       protected:
         // The dataset datasource config in the current AgentSpace.
         shared_ptr<Source::Dataset> dataset_ {};
+        shared_ptr<vector<Source::InputFields>> inputFields_ {};
         // The Simple Log Service (SLS) Logstore datasource config.
         shared_ptr<Source::Logstore> logstore_ {};
+        shared_ptr<Source::Trajectory> trajectory_ {};
         // The data source type. Valid values: logstore or dataset.
         shared_ptr<string> type_ {};
       };
@@ -637,11 +780,13 @@ namespace Models
       class ExecutePolicy : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ExecutePolicy& obj) { 
+          DARABONBA_PTR_TO_JSON(continuous, continuous_);
           DARABONBA_PTR_TO_JSON(mode, mode_);
           DARABONBA_PTR_TO_JSON(runOnce, runOnce_);
           DARABONBA_PTR_TO_JSON(scheduled, scheduled_);
         };
         friend void from_json(const Darabonba::Json& j, ExecutePolicy& obj) { 
+          DARABONBA_PTR_FROM_JSON(continuous, continuous_);
           DARABONBA_PTR_FROM_JSON(mode, mode_);
           DARABONBA_PTR_FROM_JSON(runOnce, runOnce_);
           DARABONBA_PTR_FROM_JSON(scheduled, scheduled_);
@@ -745,8 +890,48 @@ namespace Models
           shared_ptr<int64_t> toTime_ {};
         };
 
-        virtual bool empty() const override { return this->mode_ == nullptr
-        && this->runOnce_ == nullptr && this->scheduled_ == nullptr; };
+        class Continuous : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Continuous& obj) { 
+            DARABONBA_PTR_TO_JSON(fromTime, fromTime_);
+          };
+          friend void from_json(const Darabonba::Json& j, Continuous& obj) { 
+            DARABONBA_PTR_FROM_JSON(fromTime, fromTime_);
+          };
+          Continuous() = default ;
+          Continuous(const Continuous &) = default ;
+          Continuous(Continuous &&) = default ;
+          Continuous(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Continuous() = default ;
+          Continuous& operator=(const Continuous &) = default ;
+          Continuous& operator=(Continuous &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->fromTime_ == nullptr; };
+          // fromTime Field Functions 
+          bool hasFromTime() const { return this->fromTime_ != nullptr;};
+          void deleteFromTime() { this->fromTime_ = nullptr;};
+          inline int64_t getFromTime() const { DARABONBA_PTR_GET_DEFAULT(fromTime_, 0L) };
+          inline Continuous& setFromTime(int64_t fromTime) { DARABONBA_PTR_SET_VALUE(fromTime_, fromTime) };
+
+
+        protected:
+          shared_ptr<int64_t> fromTime_ {};
+        };
+
+        virtual bool empty() const override { return this->continuous_ == nullptr
+        && this->mode_ == nullptr && this->runOnce_ == nullptr && this->scheduled_ == nullptr; };
+        // continuous Field Functions 
+        bool hasContinuous() const { return this->continuous_ != nullptr;};
+        void deleteContinuous() { this->continuous_ = nullptr;};
+        inline const ExecutePolicy::Continuous & getContinuous() const { DARABONBA_PTR_GET_CONST(continuous_, ExecutePolicy::Continuous) };
+        inline ExecutePolicy::Continuous getContinuous() { DARABONBA_PTR_GET(continuous_, ExecutePolicy::Continuous) };
+        inline ExecutePolicy& setContinuous(const ExecutePolicy::Continuous & continuous) { DARABONBA_PTR_SET_VALUE(continuous_, continuous) };
+        inline ExecutePolicy& setContinuous(ExecutePolicy::Continuous && continuous) { DARABONBA_PTR_SET_RVALUE(continuous_, continuous) };
+
+
         // mode Field Functions 
         bool hasMode() const { return this->mode_ != nullptr;};
         void deleteMode() { this->mode_ = nullptr;};
@@ -773,6 +958,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<ExecutePolicy::Continuous> continuous_ {};
         // The scheduling mode. Valid values:
         // - RunOnce: one-time execution.
         // - Scheduled: periodic scheduling.

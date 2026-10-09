@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <map>
+#include <alibabacloud/models/MetaSchemaValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(processedRows, processedRows_);
         DARABONBA_PTR_TO_JSON(progress, progress_);
         DARABONBA_PTR_TO_JSON(scanBytes, scanBytes_);
+        DARABONBA_PTR_TO_JSON(schema, schema_);
         DARABONBA_PTR_TO_JSON(terms, terms_);
         DARABONBA_PTR_TO_JSON(whereQuery, whereQuery_);
       };
@@ -72,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(processedRows, processedRows_);
         DARABONBA_PTR_FROM_JSON(progress, progress_);
         DARABONBA_PTR_FROM_JSON(scanBytes, scanBytes_);
+        DARABONBA_PTR_FROM_JSON(schema, schema_);
         DARABONBA_PTR_FROM_JSON(terms, terms_);
         DARABONBA_PTR_FROM_JSON(whereQuery, whereQuery_);
       };
@@ -89,8 +92,8 @@ namespace Models
       virtual bool empty() const override { return this->aggQuery_ == nullptr
         && this->columnTypes_ == nullptr && this->count_ == nullptr && this->cpuCores_ == nullptr && this->cpuSec_ == nullptr && this->elapsedMillisecond_ == nullptr
         && this->hasSQL_ == nullptr && this->isAccurate_ == nullptr && this->keys_ == nullptr && this->limited_ == nullptr && this->mode_ == nullptr
-        && this->processedBytes_ == nullptr && this->processedRows_ == nullptr && this->progress_ == nullptr && this->scanBytes_ == nullptr && this->terms_ == nullptr
-        && this->whereQuery_ == nullptr; };
+        && this->processedBytes_ == nullptr && this->processedRows_ == nullptr && this->progress_ == nullptr && this->scanBytes_ == nullptr && this->schema_ == nullptr
+        && this->terms_ == nullptr && this->whereQuery_ == nullptr; };
       // aggQuery Field Functions 
       bool hasAggQuery() const { return this->aggQuery_ != nullptr;};
       void deleteAggQuery() { this->aggQuery_ = nullptr;};
@@ -200,6 +203,15 @@ namespace Models
       inline Meta& setScanBytes(int64_t scanBytes) { DARABONBA_PTR_SET_VALUE(scanBytes_, scanBytes) };
 
 
+      // schema Field Functions 
+      bool hasSchema() const { return this->schema_ != nullptr;};
+      void deleteSchema() { this->schema_ = nullptr;};
+      inline const map<string, MetaSchemaValue> & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, map<string, MetaSchemaValue>) };
+      inline map<string, MetaSchemaValue> getSchema() { DARABONBA_PTR_GET(schema_, map<string, MetaSchemaValue>) };
+      inline Meta& setSchema(const map<string, MetaSchemaValue> & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
+      inline Meta& setSchema(map<string, MetaSchemaValue> && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
+
+
       // terms Field Functions 
       bool hasTerms() const { return this->terms_ != nullptr;};
       void deleteTerms() { this->terms_ = nullptr;};
@@ -217,39 +229,41 @@ namespace Models
 
 
     protected:
-      // The aggregation analysis SPL statement.
+      // The SPL statement for aggregation analysis.
       shared_ptr<string> aggQuery_ {};
-      // `meta.columnTypes` provides the mapping from column names to data types (string / long / double / json).
+      // The list of data types for each column. This field provides a mapping from column names to data types, such as string, long, double, and json.
       shared_ptr<vector<string>> columnTypes_ {};
       // The number of matched log entries.
       shared_ptr<int32_t> count_ {};
-      // The number of CPU cores consumed.
+      // The number of consumed CPU cores.
       shared_ptr<int32_t> cpuCores_ {};
-      // The CPU time consumed, in seconds.
+      // The consumed CPU time in seconds.
       shared_ptr<double> cpuSec_ {};
-      // The query duration, in milliseconds.
+      // The query duration in milliseconds.
       shared_ptr<int64_t> elapsedMillisecond_ {};
-      // Indicates whether the query is an SQL query.
+      // Specifies whether an SQL query is used.
       shared_ptr<bool> hasSQL_ {};
-      // Indicates whether nanosecond-level ordering is enabled.
+      // Specifies whether nanosecond-level ordering is enabled.
       shared_ptr<bool> isAccurate_ {};
       // The list of result column names.
       shared_ptr<vector<string>> keys_ {};
-      // The maximum number of rows that can be returned.
+      // The maximum number of rows returned in the result.
       shared_ptr<int32_t> limited_ {};
-      // The query mode identifier.
+      // The identifier of the query mode.
       shared_ptr<int32_t> mode_ {};
-      // The number of data bytes processed.
+      // The number of bytes of processed data.
       shared_ptr<int64_t> processedBytes_ {};
       // The number of processed log rows.
       shared_ptr<int64_t> processedRows_ {};
-      // The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is complete.
+      // The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is completed.
       shared_ptr<string> progress_ {};
-      // The number of raw data bytes scanned.
+      // The number of bytes of scanned raw data.
       shared_ptr<int64_t> scanBytes_ {};
-      // The type and aggregation information of columns.
+      // The dataset schema of the final pipeline output. The keys are field names, and the type in the values supports text, long, double, and json. The field order is determined by the keys.
+      shared_ptr<map<string, MetaSchemaValue>> schema_ {};
+      // The column types and aggregation information.
       shared_ptr<vector<Darabonba::Json>> terms_ {};
-      // The filter condition SPL statement.
+      // The SPL statement for the filter condition.
       shared_ptr<string> whereQuery_ {};
     };
 
@@ -281,11 +295,11 @@ namespace Models
 
 
   protected:
-    // `data` is a collection of sample rows (maps within an array) that contains only the first N rows (up to 5 by default) and does not reflect the complete write plan.
+    // The collection of sample rows for the preview result. Each row is a key-value structure. The array contains only the first N rows, up to 5 rows by default, and does not reflect the complete write plan.
     shared_ptr<vector<map<string, string>>> data_ {};
     // The query metadata.
     shared_ptr<PreviewPipelineResponseBody::Meta> meta_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID. You can use this ID to locate the request when you troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

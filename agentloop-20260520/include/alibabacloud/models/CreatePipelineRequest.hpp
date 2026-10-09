@@ -48,12 +48,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(dataset, dataset_);
         DARABONBA_PTR_TO_JSON(inputFields, inputFields_);
         DARABONBA_PTR_TO_JSON(logstore, logstore_);
+        DARABONBA_PTR_TO_JSON(trajectory, trajectory_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Source& obj) { 
         DARABONBA_PTR_FROM_JSON(dataset, dataset_);
         DARABONBA_PTR_FROM_JSON(inputFields, inputFields_);
         DARABONBA_PTR_FROM_JSON(logstore, logstore_);
+        DARABONBA_PTR_FROM_JSON(trajectory, trajectory_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
       Source() = default ;
@@ -67,6 +69,86 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Trajectory : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Trajectory& obj) { 
+          DARABONBA_PTR_TO_JSON(enrich, enrich_);
+        };
+        friend void from_json(const Darabonba::Json& j, Trajectory& obj) { 
+          DARABONBA_PTR_FROM_JSON(enrich, enrich_);
+        };
+        Trajectory() = default ;
+        Trajectory(const Trajectory &) = default ;
+        Trajectory(Trajectory &&) = default ;
+        Trajectory(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Trajectory() = default ;
+        Trajectory& operator=(const Trajectory &) = default ;
+        Trajectory& operator=(Trajectory &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Enrich : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Enrich& obj) { 
+            DARABONBA_PTR_TO_JSON(columns, columns_);
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          };
+          friend void from_json(const Darabonba::Json& j, Enrich& obj) { 
+            DARABONBA_PTR_FROM_JSON(columns, columns_);
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          };
+          Enrich() = default ;
+          Enrich(const Enrich &) = default ;
+          Enrich(Enrich &&) = default ;
+          Enrich(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Enrich() = default ;
+          Enrich& operator=(const Enrich &) = default ;
+          Enrich& operator=(Enrich &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->columns_ == nullptr
+        && this->enabled_ == nullptr; };
+          // columns Field Functions 
+          bool hasColumns() const { return this->columns_ != nullptr;};
+          void deleteColumns() { this->columns_ = nullptr;};
+          inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+          inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+          inline Enrich& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+          inline Enrich& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Enrich& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        protected:
+          // The list of enrichment columns. This parameter is retained for backward compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+          shared_ptr<vector<string>> columns_ {};
+          // Specifies whether to enable trajectory enrichment.
+          shared_ptr<bool> enabled_ {};
+        };
+
+        virtual bool empty() const override { return this->enrich_ == nullptr; };
+        // enrich Field Functions 
+        bool hasEnrich() const { return this->enrich_ != nullptr;};
+        void deleteEnrich() { this->enrich_ = nullptr;};
+        inline const Trajectory::Enrich & getEnrich() const { DARABONBA_PTR_GET_CONST(enrich_, Trajectory::Enrich) };
+        inline Trajectory::Enrich getEnrich() { DARABONBA_PTR_GET(enrich_, Trajectory::Enrich) };
+        inline Trajectory& setEnrich(const Trajectory::Enrich & enrich) { DARABONBA_PTR_SET_VALUE(enrich_, enrich) };
+        inline Trajectory& setEnrich(Trajectory::Enrich && enrich) { DARABONBA_PTR_SET_RVALUE(enrich_, enrich) };
+
+
+      protected:
+        // The trajectory enrichment configuration. It mounts trajectory data into the scrubbing results based on the trace_id. When writing to a dataset, the data is stored in the fixed agent_trajectory column, where the column value is the trajectory JSON content.
+        shared_ptr<Trajectory::Enrich> enrich_ {};
+      };
+
       class Logstore : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Logstore& obj) { 
@@ -114,11 +196,11 @@ namespace Models
 
 
       protected:
-        // The name of the SLS Logstore.
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the SLS project.
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
-        // The data filtered query statement in SLS query/analysis syntax.
+        // The data filtered query statement, which uses the Simple Log Service query and analysis syntax.
         shared_ptr<string> query_ {};
       };
 
@@ -160,9 +242,9 @@ namespace Models
 
 
       protected:
-        // The field name.
+        // The name of the field.
         shared_ptr<string> name_ {};
-        // The field type. Valid values: text, long, double, and json.
+        // The data type of the field. Valid values: text, long, double, and json.
         shared_ptr<string> type_ {};
       };
 
@@ -206,12 +288,12 @@ namespace Models
       protected:
         // The name of the source dataset.
         shared_ptr<string> dataset_ {};
-        // The filter condition for the dataset data.
+        // The data filter condition for the dataset.
         shared_ptr<string> filter_ {};
       };
 
       virtual bool empty() const override { return this->dataset_ == nullptr
-        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->type_ == nullptr; };
+        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr; };
       // dataset Field Functions 
       bool hasDataset() const { return this->dataset_ != nullptr;};
       void deleteDataset() { this->dataset_ = nullptr;};
@@ -239,6 +321,15 @@ namespace Models
       inline Source& setLogstore(Source::Logstore && logstore) { DARABONBA_PTR_SET_RVALUE(logstore_, logstore) };
 
 
+      // trajectory Field Functions 
+      bool hasTrajectory() const { return this->trajectory_ != nullptr;};
+      void deleteTrajectory() { this->trajectory_ = nullptr;};
+      inline const Source::Trajectory & getTrajectory() const { DARABONBA_PTR_GET_CONST(trajectory_, Source::Trajectory) };
+      inline Source::Trajectory getTrajectory() { DARABONBA_PTR_GET(trajectory_, Source::Trajectory) };
+      inline Source& setTrajectory(const Source::Trajectory & trajectory) { DARABONBA_PTR_SET_VALUE(trajectory_, trajectory) };
+      inline Source& setTrajectory(Source::Trajectory && trajectory) { DARABONBA_PTR_SET_RVALUE(trajectory_, trajectory) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -247,13 +338,15 @@ namespace Models
 
 
     protected:
-      // The dataset datasource config under the current AgentSpace.
+      // The dataset datasource config under the current agent space.
       shared_ptr<Source::Dataset> dataset_ {};
-      // The input fields and field types. This parameter applies to all data source types.
+      // The input fields and their data types. This applies to all data source types.
       shared_ptr<vector<Source::InputFields>> inputFields_ {};
-      // The SLS Logstore datasource config.
+      // The Simple Log Service Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The data source type. Currently, SLS is supported.
+      // The trajectory data configuration. This is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory scrubbing service and extends it based on features.
+      shared_ptr<Source::Trajectory> trajectory_ {};
+      // The data source type. Currently, Simple Log Service is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -318,7 +411,7 @@ namespace Models
 
 
       protected:
-        // The name of the AgentSpace to which the destination dataset belongs.
+        // The name of the agent space to which the destination dataset belongs.
         shared_ptr<string> agentSpace_ {};
         // The name of the destination dataset.
         shared_ptr<string> dataset_ {};
@@ -429,7 +522,7 @@ namespace Models
 
 
             protected:
-              // The name of the AgentSpace to which the destination dataset belongs.
+              // The name of the agent space to which the destination dataset belongs.
               shared_ptr<string> agentSpace_ {};
               // The name of the destination dataset.
               shared_ptr<string> dataset_ {};
@@ -454,9 +547,9 @@ namespace Models
 
 
           protected:
-            // The route destination dataset.
+            // The destination dataset for the route.
             shared_ptr<Sink::Dataset> dataset_ {};
-            // The route destination type. Currently, only dataset is supported.
+            // The destination type for the route. Currently, only dataset is supported.
             shared_ptr<string> type_ {};
           };
 
@@ -486,11 +579,11 @@ namespace Models
 
 
         protected:
-          // The route expression in SPL. Only where, project, and extend are supported.
+          // The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
           shared_ptr<string> expression_ {};
           // The route ID.
           shared_ptr<string> id_ {};
-          // The route write destination.
+          // The write destination for the route.
           shared_ptr<Routes::Sink> sink_ {};
         };
 
@@ -553,7 +646,7 @@ namespace Models
 
 
           protected:
-            // The name of the AgentSpace to which the default destination dataset belongs.
+            // The name of the agent space to which the default destination dataset belongs.
             shared_ptr<string> agentSpace_ {};
             // The name of the default destination dataset.
             shared_ptr<string> dataset_ {};
@@ -648,11 +741,11 @@ namespace Models
 
 
     protected:
-      // The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+      // The conditional routing configuration. This is used only when sink.type is set to condition.
       shared_ptr<Sink::Condition> condition_ {};
-      // The destination dataset configuration.
+      // The destination dataset configuration for the dataset sink. This is used only when sink.type is set to dataset.
       shared_ptr<Sink::Dataset> dataset_ {};
-      // The sink type. Currently, only Dataset is supported.
+      // The destination type. Currently, dataset is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -724,11 +817,11 @@ namespace Models
 
 
       protected:
-        // The node ID.
+        // The ID of the node.
         shared_ptr<string> id_ {};
-        // The node parameters in key-value format. The parameters vary based on the node type.
+        // The parameters of the node. This is a key-value structure and varies based on the node type.
         Darabonba::Json parameters_ {};
-        // The node type.
+        // The type of the node.
         shared_ptr<string> type_ {};
       };
 
@@ -750,11 +843,13 @@ namespace Models
     class ExecutePolicy : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ExecutePolicy& obj) { 
+        DARABONBA_PTR_TO_JSON(continuous, continuous_);
         DARABONBA_PTR_TO_JSON(mode, mode_);
         DARABONBA_PTR_TO_JSON(runOnce, runOnce_);
         DARABONBA_PTR_TO_JSON(scheduled, scheduled_);
       };
       friend void from_json(const Darabonba::Json& j, ExecutePolicy& obj) { 
+        DARABONBA_PTR_FROM_JSON(continuous, continuous_);
         DARABONBA_PTR_FROM_JSON(mode, mode_);
         DARABONBA_PTR_FROM_JSON(runOnce, runOnce_);
         DARABONBA_PTR_FROM_JSON(scheduled, scheduled_);
@@ -808,7 +903,7 @@ namespace Models
 
 
       protected:
-        // The scheduling start time, in UNIX milliseconds.
+        // The start time of the scheduling in UNIX milliseconds.
         shared_ptr<int64_t> fromTime_ {};
         // The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
         shared_ptr<string> interval_ {};
@@ -852,14 +947,55 @@ namespace Models
 
 
       protected:
-        // The start time of the data processing window, in UNIX seconds. The value must be less than toTime.
+        // The start time of the data processing window in UNIX seconds. The value must be less than the toTime value.
         shared_ptr<int64_t> fromTime_ {};
-        // The end time of the data processing window, in UNIX seconds. The value must be greater than fromTime.
+        // The end time of the data processing window in UNIX seconds. The value must be greater than the fromTime value.
         shared_ptr<int64_t> toTime_ {};
       };
 
-      virtual bool empty() const override { return this->mode_ == nullptr
-        && this->runOnce_ == nullptr && this->scheduled_ == nullptr; };
+      class Continuous : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Continuous& obj) { 
+          DARABONBA_PTR_TO_JSON(fromTime, fromTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, Continuous& obj) { 
+          DARABONBA_PTR_FROM_JSON(fromTime, fromTime_);
+        };
+        Continuous() = default ;
+        Continuous(const Continuous &) = default ;
+        Continuous(Continuous &&) = default ;
+        Continuous(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Continuous() = default ;
+        Continuous& operator=(const Continuous &) = default ;
+        Continuous& operator=(Continuous &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->fromTime_ == nullptr; };
+        // fromTime Field Functions 
+        bool hasFromTime() const { return this->fromTime_ != nullptr;};
+        void deleteFromTime() { this->fromTime_ = nullptr;};
+        inline int64_t getFromTime() const { DARABONBA_PTR_GET_DEFAULT(fromTime_, 0L) };
+        inline Continuous& setFromTime(int64_t fromTime) { DARABONBA_PTR_SET_VALUE(fromTime_, fromTime) };
+
+
+      protected:
+        // The bootstrap start time in UNIX seconds. It has the same precision as runOnce or scheduled fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from this time aligned to the grid and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and processes only incremental data.
+        shared_ptr<int64_t> fromTime_ {};
+      };
+
+      virtual bool empty() const override { return this->continuous_ == nullptr
+        && this->mode_ == nullptr && this->runOnce_ == nullptr && this->scheduled_ == nullptr; };
+      // continuous Field Functions 
+      bool hasContinuous() const { return this->continuous_ != nullptr;};
+      void deleteContinuous() { this->continuous_ = nullptr;};
+      inline const ExecutePolicy::Continuous & getContinuous() const { DARABONBA_PTR_GET_CONST(continuous_, ExecutePolicy::Continuous) };
+      inline ExecutePolicy::Continuous getContinuous() { DARABONBA_PTR_GET(continuous_, ExecutePolicy::Continuous) };
+      inline ExecutePolicy& setContinuous(const ExecutePolicy::Continuous & continuous) { DARABONBA_PTR_SET_VALUE(continuous_, continuous) };
+      inline ExecutePolicy& setContinuous(ExecutePolicy::Continuous && continuous) { DARABONBA_PTR_SET_RVALUE(continuous_, continuous) };
+
+
       // mode Field Functions 
       bool hasMode() const { return this->mode_ != nullptr;};
       void deleteMode() { this->mode_ = nullptr;};
@@ -886,13 +1022,13 @@ namespace Models
 
 
     protected:
-      // The scheduling mode. Valid values:
-      // - RunOnce: one-time execution.
-      // - Scheduled: periodic scheduling.
+      // The continuous execution configuration. This is used when the type is trace. The processing frequency is a fixed value managed by the server.
+      shared_ptr<ExecutePolicy::Continuous> continuous_ {};
+      // The scheduling mode. Valid values: RunOnce (single execution) and Scheduled (periodic scheduling).
       shared_ptr<string> mode_ {};
-      // The one-time execution configuration. This parameter is required only when mode is set to RunOnce.
+      // The single execution configuration. This parameter is required only when the mode is RunOnce.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
-      // The periodic scheduling configuration. This parameter is required only when mode is set to Scheduled.
+      // The periodic scheduling configuration. This parameter is required only when the mode is Scheduled.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -957,19 +1093,19 @@ namespace Models
 
 
   protected:
-    // The pipeline description. The description can be up to 256 characters in length.
+    // The description of the pipeline. Maximum length: 256 characters.
     shared_ptr<string> description_ {};
-    // The scheduling policy.
+    // The scheduling method.
     shared_ptr<CreatePipelineRequest::ExecutePolicy> executePolicy_ {};
-    // The pipeline configuration for node orchestration.
+    // The pipeline configuration, including node orchestration.
     shared_ptr<CreatePipelineRequest::Pipeline> pipeline_ {};
-    // The pipeline name. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
+    // The name of the pipeline. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens (-).
     shared_ptr<string> pipelineName_ {};
-    // The pipeline sink (data write destination).
+    // The pipeline sink, which is the data write destination.
     shared_ptr<CreatePipelineRequest::Sink> sink_ {};
-    // The pipeline data source.
+    // The data source for the pipeline.
     shared_ptr<CreatePipelineRequest::Source> source_ {};
-    // The idempotency token. A unique string generated by the client to ensure the idempotency of the create operation.
+    // The idempotency token. This is a unique string generated by the client to ensure the idempotency of the create operation.
     shared_ptr<string> clientToken_ {};
   };
 

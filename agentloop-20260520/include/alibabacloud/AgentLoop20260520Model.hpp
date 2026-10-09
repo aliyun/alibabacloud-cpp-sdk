@@ -18,6 +18,7 @@
 #include <alibabacloud/models/IndexKey.hpp>
 #include <alibabacloud/models/OfflineExperimentConfig.hpp>
 #include <alibabacloud/models/RunStrategies.hpp>
+#include <alibabacloud/models/MetaSchemaValue.hpp>
 #include <alibabacloud/models/AddDatasetDataRequest.hpp>
 #include <alibabacloud/models/AddDatasetDataResponseBody.hpp>
 #include <alibabacloud/models/AddDatasetDataResponse.hpp>

@@ -987,14 +987,14 @@ namespace AgentLoop20260520
       Models::PausePipelineResponse pausePipeline(const string &agentSpace, const string &pipelineName, const Models::PausePipelineRequest &request);
 
       /**
-       * @summary Previews a pipeline. Without creating pipeline resources, this operation performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records to authenticate parameter settings and preview processing results.
+       * @summary Previews a pipeline. Runs a trial query based on the specified data source, node orchestration, and time range without creating pipeline resources, and returns a small amount of sample data to authenticate parameter settings and preview processing results.
        *
-       * @description ## Operation description
-       * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
-       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
-       * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+       * @description ## Request description
+       * - **agentSpace** must be an AgentSpace instance created under the current account.
+       * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+       * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
        * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
-       * - A maximum of 5 records are returned. Internal fields of the data source system are automatically filtered out.
+       * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.
        *
        * @param request PreviewPipelineRequest
        * @param headers map
@@ -1004,14 +1004,14 @@ namespace AgentLoop20260520
       Models::PreviewPipelineResponse previewPipelineWithOptions(const string &agentSpace, const Models::PreviewPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Previews a pipeline. Without creating pipeline resources, this operation performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records to authenticate parameter settings and preview processing results.
+       * @summary Previews a pipeline. Runs a trial query based on the specified data source, node orchestration, and time range without creating pipeline resources, and returns a small amount of sample data to authenticate parameter settings and preview processing results.
        *
-       * @description ## Operation description
-       * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
-       * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
-       * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+       * @description ## Request description
+       * - **agentSpace** must be an AgentSpace instance created under the current account.
+       * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+       * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
        * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
-       * - A maximum of 5 records are returned. Internal fields of the data source system are automatically filtered out.
+       * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.
        *
        * @param request PreviewPipelineRequest
        * @return PreviewPipelineResponse

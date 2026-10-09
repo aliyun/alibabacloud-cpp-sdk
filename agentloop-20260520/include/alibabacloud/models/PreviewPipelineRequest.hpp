@@ -42,12 +42,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(dataset, dataset_);
         DARABONBA_PTR_TO_JSON(inputFields, inputFields_);
         DARABONBA_PTR_TO_JSON(logstore, logstore_);
+        DARABONBA_PTR_TO_JSON(trajectory, trajectory_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Source& obj) { 
         DARABONBA_PTR_FROM_JSON(dataset, dataset_);
         DARABONBA_PTR_FROM_JSON(inputFields, inputFields_);
         DARABONBA_PTR_FROM_JSON(logstore, logstore_);
+        DARABONBA_PTR_FROM_JSON(trajectory, trajectory_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
       Source() = default ;
@@ -61,6 +63,86 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Trajectory : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Trajectory& obj) { 
+          DARABONBA_PTR_TO_JSON(enrich, enrich_);
+        };
+        friend void from_json(const Darabonba::Json& j, Trajectory& obj) { 
+          DARABONBA_PTR_FROM_JSON(enrich, enrich_);
+        };
+        Trajectory() = default ;
+        Trajectory(const Trajectory &) = default ;
+        Trajectory(Trajectory &&) = default ;
+        Trajectory(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Trajectory() = default ;
+        Trajectory& operator=(const Trajectory &) = default ;
+        Trajectory& operator=(Trajectory &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Enrich : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Enrich& obj) { 
+            DARABONBA_PTR_TO_JSON(columns, columns_);
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          };
+          friend void from_json(const Darabonba::Json& j, Enrich& obj) { 
+            DARABONBA_PTR_FROM_JSON(columns, columns_);
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          };
+          Enrich() = default ;
+          Enrich(const Enrich &) = default ;
+          Enrich(Enrich &&) = default ;
+          Enrich(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Enrich() = default ;
+          Enrich& operator=(const Enrich &) = default ;
+          Enrich& operator=(Enrich &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->columns_ == nullptr
+        && this->enabled_ == nullptr; };
+          // columns Field Functions 
+          bool hasColumns() const { return this->columns_ != nullptr;};
+          void deleteColumns() { this->columns_ = nullptr;};
+          inline const vector<string> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<string>) };
+          inline vector<string> getColumns() { DARABONBA_PTR_GET(columns_, vector<string>) };
+          inline Enrich& setColumns(const vector<string> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+          inline Enrich& setColumns(vector<string> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Enrich& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        protected:
+          // The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+          shared_ptr<vector<string>> columns_ {};
+          // Specifies whether to enable trajectory enrichment.
+          shared_ptr<bool> enabled_ {};
+        };
+
+        virtual bool empty() const override { return this->enrich_ == nullptr; };
+        // enrich Field Functions 
+        bool hasEnrich() const { return this->enrich_ != nullptr;};
+        void deleteEnrich() { this->enrich_ = nullptr;};
+        inline const Trajectory::Enrich & getEnrich() const { DARABONBA_PTR_GET_CONST(enrich_, Trajectory::Enrich) };
+        inline Trajectory::Enrich getEnrich() { DARABONBA_PTR_GET(enrich_, Trajectory::Enrich) };
+        inline Trajectory& setEnrich(const Trajectory::Enrich & enrich) { DARABONBA_PTR_SET_VALUE(enrich_, enrich) };
+        inline Trajectory& setEnrich(Trajectory::Enrich && enrich) { DARABONBA_PTR_SET_RVALUE(enrich_, enrich) };
+
+
+      protected:
+        // Trajectory enrichment: mounts trajectory data into the cleaning results based on the trace_id. When writing data to a dataset, the data is stored in the fixed agent_trajectory column, and the column value is the JSON content of the trajectory.
+        shared_ptr<Trajectory::Enrich> enrich_ {};
+      };
+
       class Logstore : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Logstore& obj) { 
@@ -108,11 +190,11 @@ namespace Models
 
 
       protected:
-        // The name of the SLS Logstore.
+        // The name of the Simple Log Service Logstore.
         shared_ptr<string> logstore_ {};
-        // The name of the SLS project.
+        // The name of the Simple Log Service project.
         shared_ptr<string> project_ {};
-        // The data filtered query statement in SLS query/analysis syntax.
+        // The filtered query statement (Simple Log Service query and analysis syntax).
         shared_ptr<string> query_ {};
       };
 
@@ -154,9 +236,9 @@ namespace Models
 
 
       protected:
-        // The field name.
+        // The name of the field.
         shared_ptr<string> name_ {};
-        // The field type. Valid values: text, long, double, and json.
+        // The type of the field. Valid values: text, long, double, and json.
         shared_ptr<string> type_ {};
       };
 
@@ -200,12 +282,12 @@ namespace Models
       protected:
         // The name of the source dataset.
         shared_ptr<string> dataset_ {};
-        // The filter condition for dataset data.
+        // The filter condition for the dataset data.
         shared_ptr<string> filter_ {};
       };
 
       virtual bool empty() const override { return this->dataset_ == nullptr
-        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->type_ == nullptr; };
+        && this->inputFields_ == nullptr && this->logstore_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr; };
       // dataset Field Functions 
       bool hasDataset() const { return this->dataset_ != nullptr;};
       void deleteDataset() { this->dataset_ = nullptr;};
@@ -233,6 +315,15 @@ namespace Models
       inline Source& setLogstore(Source::Logstore && logstore) { DARABONBA_PTR_SET_RVALUE(logstore_, logstore) };
 
 
+      // trajectory Field Functions 
+      bool hasTrajectory() const { return this->trajectory_ != nullptr;};
+      void deleteTrajectory() { this->trajectory_ = nullptr;};
+      inline const Source::Trajectory & getTrajectory() const { DARABONBA_PTR_GET_CONST(trajectory_, Source::Trajectory) };
+      inline Source::Trajectory getTrajectory() { DARABONBA_PTR_GET(trajectory_, Source::Trajectory) };
+      inline Source& setTrajectory(const Source::Trajectory & trajectory) { DARABONBA_PTR_SET_VALUE(trajectory_, trajectory) };
+      inline Source& setTrajectory(Source::Trajectory && trajectory) { DARABONBA_PTR_SET_RVALUE(trajectory_, trajectory) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -241,13 +332,15 @@ namespace Models
 
 
     protected:
-      // The Dataset datasource config under the current AgentSpace.
+      // The dataset datasource config in the current AgentSpace.
       shared_ptr<Source::Dataset> dataset_ {};
-      // The input fields and field types. This parameter applies to all data source types.
+      // The input fields and their data types. This applies to all data source types.
       shared_ptr<vector<Source::InputFields>> inputFields_ {};
-      // The SLS Logstore datasource config.
+      // The Simple Log Service Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
-      // The data source type. Currently, Simple Log Service (SLS) is supported.
+      // The configuration of trajectory data. This parameter is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory cleaning service and extends the data based on features.
+      shared_ptr<Source::Trajectory> trajectory_ {};
+      // The type of the data source. Simple Log Service is currently supported.
       shared_ptr<string> type_ {};
     };
 
@@ -319,11 +412,11 @@ namespace Models
 
 
       protected:
-        // The node ID.
+        // The ID of the node.
         shared_ptr<string> id_ {};
-        // The node parameters in key-value format. The parameters vary based on the node type.
+        // The parameters of the node. The parameters are in key-value format and vary based on the node type.
         Darabonba::Json parameters_ {};
-        // The node type.
+        // The type of the node.
         shared_ptr<string> type_ {};
       };
 
@@ -377,13 +470,13 @@ namespace Models
 
 
   protected:
-    // The start time of the preview data window, in UNIX seconds.
+    // The start time of the preview data window. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> fromTime_ {};
-    // The pipeline configuration, which defines the node orchestration.
+    // The pipeline configuration, including node orchestration.
     shared_ptr<PreviewPipelineRequest::Pipeline> pipeline_ {};
-    // The pipeline data source.
+    // The data source of the pipeline.
     shared_ptr<PreviewPipelineRequest::Source> source_ {};
-    // The end time of the preview data window, in UNIX seconds.
+    // The end time of the preview data window. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> toTime_ {};
   };
 
