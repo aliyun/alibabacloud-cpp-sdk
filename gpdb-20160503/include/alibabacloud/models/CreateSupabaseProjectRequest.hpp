@@ -16,7 +16,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateSupabaseProjectRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountPassword, accountPassword_);
       DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
+      DARABONBA_PTR_TO_JSON(BackupId, backupId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(CreateOptions, createOptions_);
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(Lightweight, lightweight_);
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProjectSpec, projectSpec_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_TO_JSON(SrcProjectId, srcProjectId_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -36,7 +39,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateSupabaseProjectRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountPassword, accountPassword_);
       DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
+      DARABONBA_PTR_FROM_JSON(BackupId, backupId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(CreateOptions, createOptions_);
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(Lightweight, lightweight_);
@@ -46,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProjectSpec, projectSpec_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
+      DARABONBA_PTR_FROM_JSON(SrcProjectId, srcProjectId_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -102,15 +108,21 @@ namespace Models
 
 
     protected:
+      // The tag key. Limits:
+      // 
+      // - It cannot be an empty string.
+      // - It can be up to 128 characters in length.
+      // - It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
+      // The tag value. The value can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->accountPassword_ == nullptr
-        && this->autoScale_ == nullptr && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->engineVersion_ == nullptr && this->lightweight_ == nullptr
-        && this->payType_ == nullptr && this->period_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr
-        && this->securityIPList_ == nullptr && this->storageSize_ == nullptr && this->tags_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoScale_ == nullptr && this->backupId_ == nullptr && this->clientToken_ == nullptr && this->createOptions_ == nullptr && this->diskPerformanceLevel_ == nullptr
+        && this->engineVersion_ == nullptr && this->lightweight_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->projectName_ == nullptr
+        && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr && this->srcProjectId_ == nullptr && this->storageSize_ == nullptr
+        && this->tags_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
@@ -125,11 +137,25 @@ namespace Models
     inline CreateSupabaseProjectRequest& setAutoScale(bool autoScale) { DARABONBA_PTR_SET_VALUE(autoScale_, autoScale) };
 
 
+    // backupId Field Functions 
+    bool hasBackupId() const { return this->backupId_ != nullptr;};
+    void deleteBackupId() { this->backupId_ = nullptr;};
+    inline string getBackupId() const { DARABONBA_PTR_GET_DEFAULT(backupId_, "") };
+    inline CreateSupabaseProjectRequest& setBackupId(string backupId) { DARABONBA_PTR_SET_VALUE(backupId_, backupId) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateSupabaseProjectRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // createOptions Field Functions 
+    bool hasCreateOptions() const { return this->createOptions_ != nullptr;};
+    void deleteCreateOptions() { this->createOptions_ = nullptr;};
+    inline string getCreateOptions() const { DARABONBA_PTR_GET_DEFAULT(createOptions_, "") };
+    inline CreateSupabaseProjectRequest& setCreateOptions(string createOptions) { DARABONBA_PTR_SET_VALUE(createOptions_, createOptions) };
 
 
     // diskPerformanceLevel Field Functions 
@@ -195,6 +221,13 @@ namespace Models
     inline CreateSupabaseProjectRequest& setSecurityIPList(string securityIPList) { DARABONBA_PTR_SET_VALUE(securityIPList_, securityIPList) };
 
 
+    // srcProjectId Field Functions 
+    bool hasSrcProjectId() const { return this->srcProjectId_ != nullptr;};
+    void deleteSrcProjectId() { this->srcProjectId_ = nullptr;};
+    inline string getSrcProjectId() const { DARABONBA_PTR_GET_DEFAULT(srcProjectId_, "") };
+    inline CreateSupabaseProjectRequest& setSrcProjectId(string srcProjectId) { DARABONBA_PTR_SET_VALUE(srcProjectId_, srcProjectId) };
+
+
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
@@ -240,7 +273,7 @@ namespace Models
 
 
   protected:
-    // The password of the initial account.
+    // The initial account password.
     // 
     // Password rules:
     // 
@@ -250,11 +283,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
+    // Specifies whether to enable auto-start and auto-stop. If you do not specify this parameter, the default value is false.
     shared_ptr<bool> autoScale_ {};
-    // The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
+    // The backup set ID.
+    // 
+    // > You can call [ListSupabaseDataBackups](https://help.aliyun.com/document_detail/3064623.html) to view the IDs of all backup sets under the target Supabase project.
+    shared_ptr<string> backupId_ {};
+    // The client token. It is used to ensure idempotence and prevent duplicate requests from executing the same operation.
     shared_ptr<string> clientToken_ {};
-    // The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
+    // The optional creation parameters. The default value is empty.
+    shared_ptr<string> createOptions_ {};
+    // The performance level of the cloud disk. If you do not specify this parameter, the default value is PL0.
     // 
     // Valid values:
     // 
@@ -263,23 +302,24 @@ namespace Models
     // - PL2
     // - PL3
     shared_ptr<string> diskPerformanceLevel_ {};
-    // The DPI engine version. If this parameter is not specified, the default value PG15 is used. PG17 and later versions support the data sandbox (branch) feature.
+    // The DPI engine version. If you do not specify this parameter, the default value is PG15. PostgreSQL 17 and later versions support the data sandbox (branch) feature.
     // 
     // Valid values:
     // 
     // - PG15: PostgreSQL 15.
     // - PG17: PostgreSQL 17, which supports the data sandbox feature.
     shared_ptr<string> engineVersion_ {};
+    // Specifies whether the project is the lightweight edition.
     shared_ptr<bool> lightweight_ {};
-    // The billing type. If this parameter is not specified, the default value Free is used.
+    // The billing method. If you do not specify this parameter, the default value is Free.
     // 
     // Valid values:
     // 
-    // - Free: Free tier.
-    // - Postpaid: Pay-as-you-go.
-    // - Prepaid: Subscription.
+    // - Free: the free billing method.
+    // - Postpaid: pay-as-you-go.
+    // - Prepaid: subscription.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value Month is used.
+    // The unit of the subscription duration. This parameter takes effect only when PayType is set to Prepaid. If you do not specify this parameter, the default value is Month.
     // 
     // Valid values:
     // 
@@ -291,25 +331,28 @@ namespace Models
     // Naming rules:
     // 
     // - The name must be 1 to 128 characters in length.
-    // - The name can contain letters, digits, hyphens (-), and underscores (_).
+    // - The name can contain only letters, digits, hyphens (-), and underscores (_).
     // - The name must start with a letter or an underscore (_).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The specifications of the Supabase project. The Free billing type uses free-tier specifications. For paid billing types, the specifications must match those available in the console.
+    // The specifications of the Supabase project. The free billing method uses the free specifications. For paid billing methods, the specifications must be consistent with those available in the console.
     // 
     // This parameter is required.
     shared_ptr<string> projectSpec_ {};
-    // The region ID. Specifies the region in which to create the project.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The IP address whitelist. Separate multiple IP addresses or CIDR blocks with commas (,). If this parameter is not specified, the default value 0.0.0.0/0 is used.
+    // The IP address whitelist. Separate multiple IP addresses or CIDR blocks with commas (,). If you do not specify this parameter, the default value 0.0.0.0/0 is used.
     // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};
-    // The storage size, in GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
+    // The ID of the Supabase project to which the backup set belongs.
+    shared_ptr<string> srcProjectId_ {};
+    // The storage capacity. Unit: GB. If you do not specify this parameter for a non-free billing method, the default value is 1.
     shared_ptr<int64_t> storageSize_ {};
+    // The list of tags.
     shared_ptr<vector<CreateSupabaseProjectRequest::Tags>> tags_ {};
-    // The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
+    // The subscription duration of the resource. This parameter takes effect only when PayType is set to Prepaid. If you do not specify this parameter, the default value is 1.
     shared_ptr<string> usedTime_ {};
     // The vSwitch ID. This parameter is required. The zone of the vSwitch must be the same as the value of ZoneId.
     // 
@@ -319,7 +362,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as this parameter value.
+    // The zone ID. The zone of the vSwitch specified by VSwitchId must be the same as the value of this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

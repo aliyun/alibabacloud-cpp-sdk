@@ -884,9 +884,30 @@ namespace Gpdb20160503
       Models::CreateStreamingJobResponse createStreamingJob(const Models::CreateStreamingJobRequest &request);
 
       /**
+       * @summary Creates a backup job for a specified Supabase instance and returns the backup job ID.
+       *
+       * @description The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+       *
+       * @param request CreateSupabaseBackupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSupabaseBackupResponse
+       */
+      Models::CreateSupabaseBackupResponse createSupabaseBackupWithOptions(const Models::CreateSupabaseBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a backup job for a specified Supabase instance and returns the backup job ID.
+       *
+       * @description The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+       *
+       * @param request CreateSupabaseBackupRequest
+       * @return CreateSupabaseBackupResponse
+       */
+      Models::CreateSupabaseBackupResponse createSupabaseBackup(const Models::CreateSupabaseBackupRequest &request);
+
+      /**
        * @summary Creates a Supabase project.
        *
-       * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+       * @description Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +918,7 @@ namespace Gpdb20160503
       /**
        * @summary Creates a Supabase project.
        *
-       * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+       * @description Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @return CreateSupabaseProjectResponse
@@ -2997,6 +3018,27 @@ namespace Gpdb20160503
       Models::DescribeStreamingJobResponse describeStreamingJob(const Models::DescribeStreamingJobRequest &request);
 
       /**
+       * @summary Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+       *
+       * @description To modify the policy, call ModifySupabaseBackupPolicy.
+       *
+       * @param request DescribeSupabaseBackupPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSupabaseBackupPolicyResponse
+       */
+      Models::DescribeSupabaseBackupPolicyResponse describeSupabaseBackupPolicyWithOptions(const Models::DescribeSupabaseBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+       *
+       * @description To modify the policy, call ModifySupabaseBackupPolicy.
+       *
+       * @param request DescribeSupabaseBackupPolicyRequest
+       * @return DescribeSupabaseBackupPolicyResponse
+       */
+      Models::DescribeSupabaseBackupPolicyResponse describeSupabaseBackupPolicy(const Models::DescribeSupabaseBackupPolicyRequest &request);
+
+      /**
        * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
        *
        * @param request DescribeSupportFeaturesRequest
@@ -3517,6 +3559,48 @@ namespace Gpdb20160503
        * @return GetSupabaseProjectDashboardAccountResponse
        */
       Models::GetSupabaseProjectDashboardAccountResponse getSupabaseProjectDashboardAccount(const Models::GetSupabaseProjectDashboardAccountRequest &request);
+
+      /**
+       * @summary Queries the available specifications for Supabase projects.
+       *
+       * @description Queries the specifications and zones available for creating Supabase projects in a specified region.
+       *
+       * @param request GetSupabaseProjectSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSupabaseProjectSpecResponse
+       */
+      Models::GetSupabaseProjectSpecResponse getSupabaseProjectSpecWithOptions(const Models::GetSupabaseProjectSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the available specifications for Supabase projects.
+       *
+       * @description Queries the specifications and zones available for creating Supabase projects in a specified region.
+       *
+       * @param request GetSupabaseProjectSpecRequest
+       * @return GetSupabaseProjectSpecResponse
+       */
+      Models::GetSupabaseProjectSpecResponse getSupabaseProjectSpec(const Models::GetSupabaseProjectSpecRequest &request);
+
+      /**
+       * @summary Queries the upgradable versions for a Supabase project.
+       *
+       * @description This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+       *
+       * @param request GetSupabaseUpdateVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSupabaseUpdateVersionResponse
+       */
+      Models::GetSupabaseUpdateVersionResponse getSupabaseUpdateVersionWithOptions(const Models::GetSupabaseUpdateVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the upgradable versions for a Supabase project.
+       *
+       * @description This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+       *
+       * @param request GetSupabaseUpdateVersionRequest
+       * @return GetSupabaseUpdateVersionResponse
+       */
+      Models::GetSupabaseUpdateVersionResponse getSupabaseUpdateVersion(const Models::GetSupabaseUpdateVersionRequest &request);
 
       /**
        * @summary Retrieves the progress and result of an asynchronous document upload task by job ID.
@@ -4166,6 +4250,40 @@ namespace Gpdb20160503
       Models::ListStreamingJobsResponse listStreamingJobs(const Models::ListStreamingJobsRequest &request);
 
       /**
+       * @summary Queries the backup tasks and task progress of a specified Supabase instance.
+       *
+       * @param request ListSupabaseBackupJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSupabaseBackupJobsResponse
+       */
+      Models::ListSupabaseBackupJobsResponse listSupabaseBackupJobsWithOptions(const Models::ListSupabaseBackupJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the backup tasks and task progress of a specified Supabase instance.
+       *
+       * @param request ListSupabaseBackupJobsRequest
+       * @return ListSupabaseBackupJobsResponse
+       */
+      Models::ListSupabaseBackupJobsResponse listSupabaseBackupJobs(const Models::ListSupabaseBackupJobsRequest &request);
+
+      /**
+       * @summary Queries the list of Supabase data backups.
+       *
+       * @param request ListSupabaseDataBackupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSupabaseDataBackupsResponse
+       */
+      Models::ListSupabaseDataBackupsResponse listSupabaseDataBackupsWithOptions(const Models::ListSupabaseDataBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Supabase data backups.
+       *
+       * @param request ListSupabaseDataBackupsRequest
+       * @return ListSupabaseDataBackupsResponse
+       */
+      Models::ListSupabaseDataBackupsResponse listSupabaseDataBackups(const Models::ListSupabaseDataBackupsRequest &request);
+
+      /**
        * @summary Queries the tags of a Supabase instance.
        *
        * @description - This operation queries the tag list of Supabase instances.
@@ -4811,6 +4929,27 @@ namespace Gpdb20160503
       Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicy(const Models::ModifySupabaseAutoScalePolicyRequest &request);
 
       /**
+       * @summary Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+       *
+       * @description You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+       *
+       * @param request ModifySupabaseBackupPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseBackupPolicyResponse
+       */
+      Models::ModifySupabaseBackupPolicyResponse modifySupabaseBackupPolicyWithOptions(const Models::ModifySupabaseBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+       *
+       * @description You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+       *
+       * @param request ModifySupabaseBackupPolicyRequest
+       * @return ModifySupabaseBackupPolicyResponse
+       */
+      Models::ModifySupabaseBackupPolicyResponse modifySupabaseBackupPolicy(const Models::ModifySupabaseBackupPolicyRequest &request);
+
+      /**
        * @summary Modifies the description of a Supabase project.
        *
        * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
@@ -4996,7 +5135,7 @@ namespace Gpdb20160503
       Models::QueryCollectionDataResponse queryCollectionData(const Models::QueryCollectionDataRequest &request);
 
       /**
-       * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
+       * @summary Retrieves vectors and metadata from a specified document collection by using natural language.
        *
        * @param tmpReq QueryContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5005,7 +5144,7 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentWithOptions(const Models::QueryContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
+       * @summary Retrieves vectors and metadata from a specified document collection by using natural language.
        *
        * @param request QueryContentRequest
        * @return QueryContentResponse
@@ -5661,6 +5800,27 @@ namespace Gpdb20160503
        * @return UpdateSaasServiceVersionResponse
        */
       Models::UpdateSaasServiceVersionResponse updateSaasServiceVersion(const Models::UpdateSaasServiceVersionRequest &request);
+
+      /**
+       * @summary Upgrades the version of a Supabase project.
+       *
+       * @description Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+       *
+       * @param request UpdateSupabaseVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSupabaseVersionResponse
+       */
+      Models::UpdateSupabaseVersionResponse updateSupabaseVersionWithOptions(const Models::UpdateSupabaseVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Upgrades the version of a Supabase project.
+       *
+       * @description Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+       *
+       * @param request UpdateSupabaseVersionRequest
+       * @return UpdateSupabaseVersionResponse
+       */
+      Models::UpdateSupabaseVersionResponse updateSupabaseVersion(const Models::UpdateSupabaseVersionRequest &request);
 
       /**
        * @summary Changes the specifications of an AnalyticDB for PostgreSQL instance.

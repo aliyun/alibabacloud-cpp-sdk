@@ -258,13 +258,13 @@ namespace Models
 
 
     protected:
-      // The number of entries used during vectorization.
+      // The number of entries used for vectorization.
       // 
-      // > An entry refers to the number of items processed during vectorization of text or images. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
+      // > An entry refers to the number of items processed when text or images are vectorized. For example, processing text once counts as 1 entry, and processing an image once counts as 2 entries.
       shared_ptr<string> embeddingEntries_ {};
-      // The number of tokens used during vectorization.
+      // The number of tokens used for vectorization.
       // 
-      // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
+      // > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
       shared_ptr<string> embeddingTokens_ {};
     };
 
@@ -748,9 +748,9 @@ namespace Models
 
 
   protected:
-    // The number of tokens used during vectorization.
+    // The number of tokens used for vectorization.
     // 
-    // > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
+    // > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
     shared_ptr<string> embeddingTokens_ {};
     shared_ptr<QueryContentResponseBody::Entities> entities_ {};
     shared_ptr<QueryContentResponseBody::Matches> matches_ {};
@@ -761,10 +761,10 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status. Valid values:
     // 
-    // - **success**: The operation is successful.
-    // - **fail**: The operation failed.
+    // - **success**: Successful.
+    // - **fail**: Failed.
     shared_ptr<string> status_ {};
-    // The resource usage of this query.
+    // The resource usage of the current query.
     shared_ptr<QueryContentResponseBody::Usage> usage_ {};
     shared_ptr<QueryContentResponseBody::WindowMatches> windowMatches_ {};
   };

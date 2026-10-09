@@ -143,6 +143,9 @@
 #include <alibabacloud/models/CreateStreamingJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateStreamingJobResponseBody.hpp>
 #include <alibabacloud/models/CreateStreamingJobResponse.hpp>
+#include <alibabacloud/models/CreateSupabaseBackupRequest.hpp>
+#include <alibabacloud/models/CreateSupabaseBackupResponseBody.hpp>
+#include <alibabacloud/models/CreateSupabaseBackupResponse.hpp>
 #include <alibabacloud/models/CreateSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/CreateSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/CreateSupabaseProjectResponse.hpp>
@@ -467,6 +470,9 @@
 #include <alibabacloud/models/DescribeStreamingJobRequest.hpp>
 #include <alibabacloud/models/DescribeStreamingJobResponseBody.hpp>
 #include <alibabacloud/models/DescribeStreamingJobResponse.hpp>
+#include <alibabacloud/models/DescribeSupabaseBackupPolicyRequest.hpp>
+#include <alibabacloud/models/DescribeSupabaseBackupPolicyResponseBody.hpp>
+#include <alibabacloud/models/DescribeSupabaseBackupPolicyResponse.hpp>
 #include <alibabacloud/models/DescribeSupportFeaturesRequest.hpp>
 #include <alibabacloud/models/DescribeSupportFeaturesResponseBody.hpp>
 #include <alibabacloud/models/DescribeSupportFeaturesResponse.hpp>
@@ -547,6 +553,12 @@
 #include <alibabacloud/models/GetSupabaseProjectDashboardAccountRequest.hpp>
 #include <alibabacloud/models/GetSupabaseProjectDashboardAccountResponseBody.hpp>
 #include <alibabacloud/models/GetSupabaseProjectDashboardAccountResponse.hpp>
+#include <alibabacloud/models/GetSupabaseProjectSpecRequest.hpp>
+#include <alibabacloud/models/GetSupabaseProjectSpecResponseBody.hpp>
+#include <alibabacloud/models/GetSupabaseProjectSpecResponse.hpp>
+#include <alibabacloud/models/GetSupabaseUpdateVersionRequest.hpp>
+#include <alibabacloud/models/GetSupabaseUpdateVersionResponseBody.hpp>
+#include <alibabacloud/models/GetSupabaseUpdateVersionResponse.hpp>
 #include <alibabacloud/models/GetUploadDocumentJobRequest.hpp>
 #include <alibabacloud/models/GetUploadDocumentJobResponseBody.hpp>
 #include <alibabacloud/models/GetUploadDocumentJobResponse.hpp>
@@ -653,6 +665,12 @@
 #include <alibabacloud/models/ListStreamingJobsRequest.hpp>
 #include <alibabacloud/models/ListStreamingJobsResponseBody.hpp>
 #include <alibabacloud/models/ListStreamingJobsResponse.hpp>
+#include <alibabacloud/models/ListSupabaseBackupJobsRequest.hpp>
+#include <alibabacloud/models/ListSupabaseBackupJobsResponseBody.hpp>
+#include <alibabacloud/models/ListSupabaseBackupJobsResponse.hpp>
+#include <alibabacloud/models/ListSupabaseDataBackupsRequest.hpp>
+#include <alibabacloud/models/ListSupabaseDataBackupsResponseBody.hpp>
+#include <alibabacloud/models/ListSupabaseDataBackupsResponse.hpp>
 #include <alibabacloud/models/ListSupabaseProjectTagsRequest.hpp>
 #include <alibabacloud/models/ListSupabaseProjectTagsResponseBody.hpp>
 #include <alibabacloud/models/ListSupabaseProjectTagsResponse.hpp>
@@ -754,6 +772,9 @@
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyRequest.hpp>
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponse.hpp>
+#include <alibabacloud/models/ModifySupabaseBackupPolicyRequest.hpp>
+#include <alibabacloud/models/ModifySupabaseBackupPolicyResponseBody.hpp>
+#include <alibabacloud/models/ModifySupabaseBackupPolicyResponse.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectDescriptionResponse.hpp>
@@ -890,6 +911,9 @@
 #include <alibabacloud/models/UpdateSaasServiceVersionRequest.hpp>
 #include <alibabacloud/models/UpdateSaasServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateSaasServiceVersionResponse.hpp>
+#include <alibabacloud/models/UpdateSupabaseVersionRequest.hpp>
+#include <alibabacloud/models/UpdateSupabaseVersionResponseBody.hpp>
+#include <alibabacloud/models/UpdateSupabaseVersionResponse.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceRequest.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceResponse.hpp>

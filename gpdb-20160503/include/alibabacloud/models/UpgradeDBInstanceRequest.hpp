@@ -189,25 +189,28 @@ namespace Models
     // The Serverless cache storage capacity. Unit: GB.
     // > This parameter is required only for Serverless Pro instances.
     shared_ptr<string> cacheStorageSize_ {};
-    // This parameter is deprecated. You do not need to specify this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> DBInstanceClass_ {};
-    // This parameter is deprecated. You do not need to specify this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> DBInstanceGroupCount_ {};
     // The instance ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The effective period. Valid values:
+    // * **Immediate** (default): The change takes effect immediately.
+    // * **MaintainTime**: The change takes effect during the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
     shared_ptr<string> effectiveTime_ {};
     // The specifications of segment nodes. For information about supported node specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
     // 
     // > This parameter is supported only for elastic storage mode instances.
     shared_ptr<string> instanceSpec_ {};
-    // This parameter is deprecated. You do not need to specify this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> masterNodeNum_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // This parameter is deprecated. You do not need to specify this parameter.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> payType_ {};
     // The region ID.
     // 
@@ -215,7 +218,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the instance belongs. For information about how to obtain the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The performance level (PL) of the cloud disk. Valid values:
+    // The performance level (PL) of the disk. Valid values:
     // 
     // - **pl0**: PL0.
     // - **pl1**: PL1.
@@ -223,24 +226,24 @@ namespace Models
     shared_ptr<string> segDiskPerformanceLevel_ {};
     // The number of segment nodes. The supported number of nodes varies based on the instance resource type and instance edition:
     // 
-    // - Elastic storage mode, High-availability Edition: Valid values: 4 to 512. The value must be a multiple of 4.
-    // - Elastic storage mode, <props="china">Basic Edition (formerly High-performance Edition)<props="intl">High-performance Edition: Valid values: 2 to 512. The value must be a multiple of 2.
-    // - Serverless manual scheduling mode: Valid values: 2 to 512. The value must be a multiple of 2.
+    // - Elastic storage mode, high-availability edition: valid values are 4 to 512, in increments of 4.
+    // - Elastic storage mode, <props="china">basic edition (formerly high-performance edition)<props="intl">high-performance edition: valid values are 2 to 512, in increments of 2.
+    // - Serverless manual scheduling mode: valid values are 2 to 512, in increments of 2.
     shared_ptr<string> segNodeNum_ {};
     // The cloud disk storage type after the change. Currently, only ESSD cloud disks are supported. Set the value to **cloud_essd**.
     shared_ptr<string> segStorageType_ {};
     // - Serverless instances:
-    // The compute resource threshold. Valid values: 8 to 32. The value must be a multiple of 8. Unit: ACU. Default value: 32.
+    // The compute resource threshold. Valid values: 8 to 32, in increments of 8. Unit: ACU. Default value: 32.
     // 
-    // - Serverless Pro instances: The reserved compute resources. Valid values: 16 to 1024. Unit: ACU. Default value: 16. The step size varies based on the value range:
-    //   - 16 to 32: step size of 4.
-    //   - 32 to 64: step size of 8.
-    //   - 64 to 128: step size of 16.
-    //   - 128 to 256: step size of 32.
-    //   - Greater than 256: step size of 64.
+    // - Serverless Pro instances: The reserved compute resources. Valid values: 16 to 1024. Unit: ACU. Default value: 16. The increment rules are as follows:
+    //   - Range 16 to 32: increments of 4.
+    //   - Range 32 to 64: increments of 8.
+    //   - Range 64 to 128: increments of 16.
+    //   - Range 128 to 256: increments of 32.
+    //   - Range greater than 256: increments of 64.
     // > This parameter is required only for Serverless automatic scheduling mode and Serverless Pro instances.
     shared_ptr<string> serverlessResource_ {};
-    // The storage capacity of segment nodes. Unit: GB. Valid values: 50 to <props="china">8000<props="intl">6000. The value must be a multiple of 50.
+    // The storage capacity of segment nodes. Unit: GB. Valid values: 50 to <props="china">8000<props="intl">6000, in increments of 50.
     // 
     // > This parameter is supported only for elastic storage mode instances.
     shared_ptr<string> storageSize_ {};

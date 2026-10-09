@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The associated order ID.
     shared_ptr<string> orderId_ {};
-    // The instance ID.
+    // The Supabase instance ID.
     shared_ptr<string> projectId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

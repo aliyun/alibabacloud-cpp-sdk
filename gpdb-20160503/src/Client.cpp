@@ -3417,9 +3417,59 @@ CreateStreamingJobResponse Client::createStreamingJob(const CreateStreamingJobRe
 }
 
 /**
+ * @summary Creates a backup job for a specified Supabase instance and returns the backup job ID.
+ *
+ * @description The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+ *
+ * @param request CreateSupabaseBackupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSupabaseBackupResponse
+ */
+CreateSupabaseBackupResponse Client::createSupabaseBackupWithOptions(const CreateSupabaseBackupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSupabaseBackup"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSupabaseBackupResponse>();
+}
+
+/**
+ * @summary Creates a backup job for a specified Supabase instance and returns the backup job ID.
+ *
+ * @description The instance must be in the Running state. After a successful call, you can call ListSupabaseBackupJobs to query the progress of the backup job and call ListSupabaseDataBackups to query backup sets.
+ *
+ * @param request CreateSupabaseBackupRequest
+ * @return CreateSupabaseBackupResponse
+ */
+CreateSupabaseBackupResponse Client::createSupabaseBackup(const CreateSupabaseBackupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSupabaseBackupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Supabase project.
  *
- * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+ * @description Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3436,8 +3486,16 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
     query["AutoScale"] = request.getAutoScale();
   }
 
+  if (!!request.hasBackupId()) {
+    query["BackupId"] = request.getBackupId();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCreateOptions()) {
+    query["CreateOptions"] = request.getCreateOptions();
   }
 
   if (!!request.hasDiskPerformanceLevel()) {
@@ -3474,6 +3532,10 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 
   if (!!request.hasSecurityIPList()) {
     query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  if (!!request.hasSrcProjectId()) {
+    query["SrcProjectId"] = request.getSrcProjectId();
   }
 
   if (!!request.hasStorageSize()) {
@@ -3520,7 +3582,7 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 /**
  * @summary Creates a Supabase project.
  *
- * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+ * @description Creates a Supabase project in a specified region and active zone. This operation supports the free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access whitelist, DPI engine version, and auto-start and auto-stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @return CreateSupabaseProjectResponse
@@ -9755,6 +9817,56 @@ DescribeStreamingJobResponse Client::describeStreamingJob(const DescribeStreamin
 }
 
 /**
+ * @summary Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+ *
+ * @description To modify the policy, call ModifySupabaseBackupPolicy.
+ *
+ * @param request DescribeSupabaseBackupPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSupabaseBackupPolicyResponse
+ */
+DescribeSupabaseBackupPolicyResponse Client::describeSupabaseBackupPolicyWithOptions(const DescribeSupabaseBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSupabaseBackupPolicy"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSupabaseBackupPolicyResponse>();
+}
+
+/**
+ * @summary Queries the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+ *
+ * @description To modify the policy, call ModifySupabaseBackupPolicy.
+ *
+ * @param request DescribeSupabaseBackupPolicyRequest
+ * @return DescribeSupabaseBackupPolicyResponse
+ */
+DescribeSupabaseBackupPolicyResponse Client::describeSupabaseBackupPolicy(const DescribeSupabaseBackupPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSupabaseBackupPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
  *
  * @param request DescribeSupportFeaturesRequest
@@ -11394,6 +11506,102 @@ GetSupabaseProjectDashboardAccountResponse Client::getSupabaseProjectDashboardAc
 GetSupabaseProjectDashboardAccountResponse Client::getSupabaseProjectDashboardAccount(const GetSupabaseProjectDashboardAccountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSupabaseProjectDashboardAccountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the available specifications for Supabase projects.
+ *
+ * @description Queries the specifications and zones available for creating Supabase projects in a specified region.
+ *
+ * @param request GetSupabaseProjectSpecRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSupabaseProjectSpecResponse
+ */
+GetSupabaseProjectSpecResponse Client::getSupabaseProjectSpecWithOptions(const GetSupabaseProjectSpecRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSupabaseProjectSpec"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSupabaseProjectSpecResponse>();
+}
+
+/**
+ * @summary Queries the available specifications for Supabase projects.
+ *
+ * @description Queries the specifications and zones available for creating Supabase projects in a specified region.
+ *
+ * @param request GetSupabaseProjectSpecRequest
+ * @return GetSupabaseProjectSpecResponse
+ */
+GetSupabaseProjectSpecResponse Client::getSupabaseProjectSpec(const GetSupabaseProjectSpecRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSupabaseProjectSpecWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the upgradable versions for a Supabase project.
+ *
+ * @description This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+ *
+ * @param request GetSupabaseUpdateVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSupabaseUpdateVersionResponse
+ */
+GetSupabaseUpdateVersionResponse Client::getSupabaseUpdateVersionWithOptions(const GetSupabaseUpdateVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSupabaseUpdateVersion"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSupabaseUpdateVersionResponse>();
+}
+
+/**
+ * @summary Queries the upgradable versions for a Supabase project.
+ *
+ * @description This operation queries the currently recommended stable version and the latest upgradable version for a specified Supabase project.
+ *
+ * @param request GetSupabaseUpdateVersionRequest
+ * @return GetSupabaseUpdateVersionResponse
+ */
+GetSupabaseUpdateVersionResponse Client::getSupabaseUpdateVersion(const GetSupabaseUpdateVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSupabaseUpdateVersionWithOptions(request, runtime);
 }
 
 /**
@@ -13510,6 +13718,150 @@ ListStreamingJobsResponse Client::listStreamingJobsWithOptions(const ListStreami
 ListStreamingJobsResponse Client::listStreamingJobs(const ListStreamingJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listStreamingJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the backup tasks and task progress of a specified Supabase instance.
+ *
+ * @param request ListSupabaseBackupJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSupabaseBackupJobsResponse
+ */
+ListSupabaseBackupJobsResponse Client::listSupabaseBackupJobsWithOptions(const ListSupabaseBackupJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupMode()) {
+    query["BackupMode"] = request.getBackupMode();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSupabaseBackupJobs"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSupabaseBackupJobsResponse>();
+}
+
+/**
+ * @summary Queries the backup tasks and task progress of a specified Supabase instance.
+ *
+ * @param request ListSupabaseBackupJobsRequest
+ * @return ListSupabaseBackupJobsResponse
+ */
+ListSupabaseBackupJobsResponse Client::listSupabaseBackupJobs(const ListSupabaseBackupJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSupabaseBackupJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of Supabase data backups.
+ *
+ * @param request ListSupabaseDataBackupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSupabaseDataBackupsResponse
+ */
+ListSupabaseDataBackupsResponse Client::listSupabaseDataBackupsWithOptions(const ListSupabaseDataBackupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupId()) {
+    query["BackupId"] = request.getBackupId();
+  }
+
+  if (!!request.hasBackupMode()) {
+    query["BackupMode"] = request.getBackupMode();
+  }
+
+  if (!!request.hasBackupStatus()) {
+    query["BackupStatus"] = request.getBackupStatus();
+  }
+
+  if (!!request.hasDataType()) {
+    query["DataType"] = request.getDataType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSupabaseDataBackups"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSupabaseDataBackupsResponse>();
+}
+
+/**
+ * @summary Queries the list of Supabase data backups.
+ *
+ * @param request ListSupabaseDataBackupsRequest
+ * @return ListSupabaseDataBackupsResponse
+ */
+ListSupabaseDataBackupsResponse Client::listSupabaseDataBackups(const ListSupabaseDataBackupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSupabaseDataBackupsWithOptions(request, runtime);
 }
 
 /**
@@ -15631,6 +15983,76 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicy(cons
 }
 
 /**
+ * @summary Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+ *
+ * @description You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+ *
+ * @param request ModifySupabaseBackupPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseBackupPolicyResponse
+ */
+ModifySupabaseBackupPolicyResponse Client::modifySupabaseBackupPolicyWithOptions(const ModifySupabaseBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupRetentionPeriod()) {
+    query["BackupRetentionPeriod"] = request.getBackupRetentionPeriod();
+  }
+
+  if (!!request.hasEnableRecoveryPoint()) {
+    query["EnableRecoveryPoint"] = request.getEnableRecoveryPoint();
+  }
+
+  if (!!request.hasPreferredBackupPeriod()) {
+    query["PreferredBackupPeriod"] = request.getPreferredBackupPeriod();
+  }
+
+  if (!!request.hasPreferredBackupTime()) {
+    query["PreferredBackupTime"] = request.getPreferredBackupTime();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRecoveryPointPeriod()) {
+    query["RecoveryPointPeriod"] = request.getRecoveryPointPeriod();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseBackupPolicy"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseBackupPolicyResponse>();
+}
+
+/**
+ * @summary Modifies the data backup cycle, backup time, backup retention period, and automatic recovery point configurations of a specified Supabase instance.
+ *
+ * @description You can call DescribeSupabaseBackupPolicy to query the current backup policy, and then call this operation again to confirm the configurations after the modification.
+ *
+ * @param request ModifySupabaseBackupPolicyRequest
+ * @return ModifySupabaseBackupPolicyResponse
+ */
+ModifySupabaseBackupPolicyResponse Client::modifySupabaseBackupPolicy(const ModifySupabaseBackupPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseBackupPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the description of a Supabase project.
  *
  * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
@@ -16205,7 +16627,7 @@ QueryCollectionDataResponse Client::queryCollectionData(const QueryCollectionDat
 }
 
 /**
- * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
+ * @summary Retrieves vectors and metadata from a specified document collection by using natural language.
  *
  * @param tmpReq QueryContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16246,10 +16668,6 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 
   if (!!request.hasFileUrl()) {
     query["FileUrl"] = request.getFileUrl();
-  }
-
-  if (!!request.hasFilter()) {
-    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasGraphEnhance()) {
@@ -16337,6 +16755,10 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
     body["Content"] = request.getContent();
   }
 
+  if (!!request.hasFilter()) {
+    body["Filter"] = request.getFilter();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -16356,7 +16778,7 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
 }
 
 /**
- * @summary Retrieves vectors and metadata from a specified document collection using natural language queries.
+ * @summary Retrieves vectors and metadata from a specified document collection by using natural language.
  *
  * @param request QueryContentRequest
  * @return QueryContentResponse
@@ -18424,6 +18846,60 @@ UpdateSaasServiceVersionResponse Client::updateSaasServiceVersionWithOptions(con
 UpdateSaasServiceVersionResponse Client::updateSaasServiceVersion(const UpdateSaasServiceVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSaasServiceVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Upgrades the version of a Supabase project.
+ *
+ * @description Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+ *
+ * @param request UpdateSupabaseVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSupabaseVersionResponse
+ */
+UpdateSupabaseVersionResponse Client::updateSupabaseVersionWithOptions(const UpdateSupabaseVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMinorVersion()) {
+    query["MinorVersion"] = request.getMinorVersion();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateSupabaseVersion"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSupabaseVersionResponse>();
+}
+
+/**
+ * @summary Upgrades the version of a Supabase project.
+ *
+ * @description Upgrades a specified Supabase project to a target minor version. You can query the supported target versions by calling GetSupabaseUpdateVersion.
+ *
+ * @param request UpdateSupabaseVersionRequest
+ * @return UpdateSupabaseVersionResponse
+ */
+UpdateSupabaseVersionResponse Client::updateSupabaseVersion(const UpdateSupabaseVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSupabaseVersionWithOptions(request, runtime);
 }
 
 /**
