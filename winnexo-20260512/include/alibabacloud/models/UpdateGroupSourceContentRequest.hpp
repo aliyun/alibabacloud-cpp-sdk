@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // 更新后的完整正文，可为空字符串；TEXT 存储时去首尾空白；支持 TEXT/本地 txt、md FILE，已有 skip_parse 资料沿用免解析与本地文件扩展名规则
+    // The returned content.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // 是否等待解析完成；默认 false 异步受理，true 同步等待，网关超时 300000ms
+    // Specifies whether to force synchronization.
     shared_ptr<bool> forceSync_ {};
-    // 资料所属协作空间 ID
+    // The project group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // 当前空间物理 GROUP 资料 ID；引用资料只读
+    // The original project ID.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // 是否等待解析完成；默认 false 异步受理，true 同步等待，网关超时 300000ms
+    // Specifies whether to synchronously wait for the re-parsing to complete. Default value: false, which indicates that the request is asynchronously queued.
     shared_ptr<bool> forceSync_ {};
-    // 资料所属协作空间 ID
+    // The project group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // 当前空间物理 GROUP 资料 ID；引用资料只读
+    // The unique identifier on the business system side, which is the business ID.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

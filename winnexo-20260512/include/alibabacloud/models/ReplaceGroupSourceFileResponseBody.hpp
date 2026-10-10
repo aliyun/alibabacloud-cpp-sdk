@@ -121,25 +121,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 替换后的文件 OSS 地址
+    // The OSS persistent storage path of the replacement file.
     shared_ptr<string> filePath_ {};
-    // 替换后的文件访问 URL
+    // The OSS persistent storage path of the replacement file.
     shared_ptr<string> filePublicUrl_ {};
-    // 替换后的文件记录 ID
+    // The file record ID of the replacement file.
     shared_ptr<string> fileRecordId_ {};
-    // 错误描述
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 操作后的资料名称，沿用已有名称维护规则
+    // The image name.
     shared_ptr<string> name_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 资料 ID；替换、编辑、重新解析均保持该 ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 资料类型
+    // The data source type. The value is fixed as FILE.
     shared_ptr<string> sourceType_ {};
-    // 当前资料状态；RUNNING 表示处理中，异步受理不代表解析完成
+    // The data source status. Valid values:
+    // - **1**: Online.
+    // - **0**: Offline.
     shared_ptr<string> status_ {};
   };
 

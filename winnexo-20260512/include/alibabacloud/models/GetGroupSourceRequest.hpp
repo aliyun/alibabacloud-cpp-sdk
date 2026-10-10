@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID
+    // The project group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // 空间内可读的资料ID，支持有效引用资料
+    // The ID of the personal FILE data source to be replaced. The ID is unique within the tenant.
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

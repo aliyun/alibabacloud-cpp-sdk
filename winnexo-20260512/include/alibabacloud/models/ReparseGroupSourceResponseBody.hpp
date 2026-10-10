@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The status code.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 操作后的资料名称，沿用已有名称维护规则
+    // The file name.
     shared_ptr<string> name_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 资料 ID；替换、编辑、重新解析均保持该 ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 资料类型
+    // The data source type.
     shared_ptr<string> sourceType_ {};
-    // 当前资料状态；RUNNING 表示处理中，异步受理不代表解析完成
+    // The status.
     shared_ptr<string> status_ {};
   };
 

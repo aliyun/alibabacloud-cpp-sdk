@@ -158,33 +158,40 @@ namespace Models
 
 
   protected:
-    // 业务状态码
+    // The error code.
     shared_ptr<string> code_ {};
-    // 资料描述
+    // The pipeline description.
     shared_ptr<string> description_ {};
-    // 创建时间，ISO8601格式
+    // The time when the resource was created.
     shared_ptr<string> gmtCreate_ {};
-    // 修改时间，ISO8601格式
+    // The time when the resource was last modified, in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 本次授权读取的协作空间ID
+    // The project group ID.
     shared_ptr<string> groupId_ {};
-    // 错误描述
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 资料名称
+    // The name.
     shared_ptr<string> name_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 资料实际范围；引用资料保留 PERSONAL 或 TENANT
+    // The permission scope.
     shared_ptr<string> scope_ {};
-    // 资料ID
+    // The data source ID.
     shared_ptr<string> sourceId_ {};
-    // 知识归属类型，沿用 Source 分类
+    // The knowledge base ownership type. Valid values:
+    // 
+    // - aliding_kb_doc: DingTalk knowledge base document.
+    // - normal: Common knowledge.
     shared_ptr<string> sourceKind_ {};
-    // 资料标签JSON字符串列表
+    // The resource tags. This parameter is optional. The value is a JSON string list, such as ["tagA","tagB"].
     shared_ptr<string> sourceTags_ {};
-    // 资料类型，例如 TEXT、FILE、ONLINE_DOC、FEISHU
+    // The type of the resource source. Valid values:
+    // 
+    // - ExportTaskId: The resource export ID.
+    // - TaskId: The module execution task ID.
+    // - StatePath: The OSS path where the resource state is stored.
     shared_ptr<string> sourceType_ {};
-    // 当前资料状态，例如 READY、RUNNING、FAILED
+    // The resource status. The initial status during the creation process is typically PENDING. If the on_create operation fails, the status is FAILED.
     shared_ptr<string> status_ {};
   };
 

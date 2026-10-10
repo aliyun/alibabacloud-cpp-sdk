@@ -121,25 +121,28 @@ namespace Models
 
 
   protected:
-    // 业务状态码，成功为200
+    // The error code.
     shared_ptr<string> code_ {};
-    // 解析并绑定的真实目录ID
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 创建时间，ISO8601格式
+    // The creation timestamp of the customer group, in milliseconds.
     shared_ptr<string> gmtCreate_ {};
-    // 协作空间ID
+    // The project group ID.
     shared_ptr<string> groupId_ {};
-    // 错误描述
+    // The error details.
     shared_ptr<string> message_ {};
-    // Provider处理后的实际资料名称
+    // The image name.
     shared_ptr<string> name_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 资料范围，固定GROUP
+    // The permission scope.
     shared_ptr<string> scope_ {};
-    // 新建资料ID
+    // The source ID.
     shared_ptr<string> sourceId_ {};
-    // 实际资料状态；RUNNING表示处理中，FAILED表示创建处理失败
+    // The signing status. Valid values:
+    // - CREATED: Created but not signed.
+    // - SUCCESS: Signed successfully.
+    // - STOP: Terminated.
     shared_ptr<string> status_ {};
   };
 

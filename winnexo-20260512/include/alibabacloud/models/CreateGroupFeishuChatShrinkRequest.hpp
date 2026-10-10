@@ -121,29 +121,29 @@ namespace Models
 
 
   protected:
-    // 飞书群聊ID，以oc_开头，需当前用户有权读取
+    // The DingTalk group chat session ID.
     // 
     // This parameter is required.
     shared_ptr<string> chatId_ {};
-    // 资料描述
+    // The pipeline description.
     shared_ptr<string> description_ {};
-    // 空间物理目录ID；省略/root使用空间根，首次可能初始化根目录
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // 协作空间 ID
+    // The project group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // 历史起始时间，YYYY-MM-DD或YYYY-MM-DD HH:MM:SS；省略读取全部可见历史
+    // The start time for historical messages. The value must be in the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format. If this parameter is not specified, all visible historical messages are retrieved.
     shared_ptr<string> historyStartTime_ {};
-    // 分析指令
+    // The meeting notes content (optional). The notes are used for auxiliary analysis.
     shared_ptr<string> notes_ {};
-    // 运营对象名称，用于来源追溯
+    // The digital employee name (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 资料标签JSON字符串列表
+    // The source tags.
     shared_ptr<string> sourceTags_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. You can pass it explicitly by using --tenant-id in winnexo-cli.
     shared_ptr<string> tenantId_ {};
-    // Source级同步配置
+    // The feature update frequency.
     shared_ptr<string> updateFrequencyShrink_ {};
   };
 

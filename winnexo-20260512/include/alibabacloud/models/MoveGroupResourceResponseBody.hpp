@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码，成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 协作空间 ID
+    // The collaboration space ID.
     shared_ptr<string> groupId_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 移动前的目录 ID
+    // The directory ID before the move.
     shared_ptr<string> sourceDirectoryId_ {};
-    // 移动的资料 ID，移动前后保持不变
+    // The ID of the moved resource. This value remains unchanged before and after the move.
     shared_ptr<string> sourceId_ {};
-    // 移动后的目录 ID
+    // The directory ID after the move.
     shared_ptr<string> targetDirectoryId_ {};
   };
 
