@@ -2055,12 +2055,20 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &tmp
   }
 
   json body = {};
+  if (!!request.hasBuilderType()) {
+    body["BuilderType"] = request.getBuilderType();
+  }
+
   if (!!request.hasInstanceId()) {
     body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNluEngine()) {
+    body["NluEngine"] = request.getNluEngine();
   }
 
   if (!!request.hasPageNumber()) {

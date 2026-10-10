@@ -14,16 +14,20 @@ namespace Models
   class ListScriptsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListScriptsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BuilderType, builderType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NluEngine, nluEngine_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PublishOnly, publishOnly_);
       DARABONBA_PTR_TO_JSON(ScriptIds, scriptIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListScriptsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BuilderType, builderType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NluEngine, nluEngine_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PublishOnly, publishOnly_);
@@ -40,8 +44,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->publishOnly_ == nullptr && this->scriptIds_ == nullptr; };
+    virtual bool empty() const override { return this->builderType_ == nullptr
+        && this->instanceId_ == nullptr && this->name_ == nullptr && this->nluEngine_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->publishOnly_ == nullptr && this->scriptIds_ == nullptr; };
+    // builderType Field Functions 
+    bool hasBuilderType() const { return this->builderType_ != nullptr;};
+    void deleteBuilderType() { this->builderType_ = nullptr;};
+    inline string getBuilderType() const { DARABONBA_PTR_GET_DEFAULT(builderType_, "") };
+    inline ListScriptsRequest& setBuilderType(string builderType) { DARABONBA_PTR_SET_VALUE(builderType_, builderType) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -54,6 +66,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListScriptsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nluEngine Field Functions 
+    bool hasNluEngine() const { return this->nluEngine_ != nullptr;};
+    void deleteNluEngine() { this->nluEngine_ = nullptr;};
+    inline string getNluEngine() const { DARABONBA_PTR_GET_DEFAULT(nluEngine_, "") };
+    inline ListScriptsRequest& setNluEngine(string nluEngine) { DARABONBA_PTR_SET_VALUE(nluEngine_, nluEngine) };
 
 
     // pageNumber Field Functions 
@@ -87,17 +106,21 @@ namespace Models
 
 
   protected:
+    // The chatbot builder type.
+    shared_ptr<string> builderType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The scenario name.
+    // The script name.
     shared_ptr<string> name_ {};
+    // The NLU engine type.
+    shared_ptr<string> nluEngine_ {};
     // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to return only published scenarios.
+    // Specifies whether to return only published scripts.
     shared_ptr<bool> publishOnly_ {};
-    // The list of scenario IDs.
+    // The list of script IDs.
     shared_ptr<vector<string>> scriptIds_ {};
   };
 

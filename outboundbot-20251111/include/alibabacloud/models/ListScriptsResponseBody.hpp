@@ -70,6 +70,8 @@ namespace Models
       class Scripts : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Scripts& obj) { 
+          DARABONBA_PTR_TO_JSON(BuilderType, builderType_);
+          DARABONBA_PTR_TO_JSON(ChatbotId, chatbotId_);
           DARABONBA_PTR_TO_JSON(Concurrency, concurrency_);
           DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -84,6 +86,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
         };
         friend void from_json(const Darabonba::Json& j, Scripts& obj) { 
+          DARABONBA_PTR_FROM_JSON(BuilderType, builderType_);
+          DARABONBA_PTR_FROM_JSON(ChatbotId, chatbotId_);
           DARABONBA_PTR_FROM_JSON(Concurrency, concurrency_);
           DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -108,10 +112,24 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->concurrency_ == nullptr
-        && this->createdTime_ == nullptr && this->description_ == nullptr && this->draftVersionId_ == nullptr && this->name_ == nullptr && this->nluAccessType_ == nullptr
-        && this->nluEngine_ == nullptr && this->number_ == nullptr && this->publishedVersionId_ == nullptr && this->scriptId_ == nullptr && this->status_ == nullptr
-        && this->updatedTime_ == nullptr; };
+        virtual bool empty() const override { return this->builderType_ == nullptr
+        && this->chatbotId_ == nullptr && this->concurrency_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->draftVersionId_ == nullptr
+        && this->name_ == nullptr && this->nluAccessType_ == nullptr && this->nluEngine_ == nullptr && this->number_ == nullptr && this->publishedVersionId_ == nullptr
+        && this->scriptId_ == nullptr && this->status_ == nullptr && this->updatedTime_ == nullptr; };
+        // builderType Field Functions 
+        bool hasBuilderType() const { return this->builderType_ != nullptr;};
+        void deleteBuilderType() { this->builderType_ = nullptr;};
+        inline string getBuilderType() const { DARABONBA_PTR_GET_DEFAULT(builderType_, "") };
+        inline Scripts& setBuilderType(string builderType) { DARABONBA_PTR_SET_VALUE(builderType_, builderType) };
+
+
+        // chatbotId Field Functions 
+        bool hasChatbotId() const { return this->chatbotId_ != nullptr;};
+        void deleteChatbotId() { this->chatbotId_ = nullptr;};
+        inline string getChatbotId() const { DARABONBA_PTR_GET_DEFAULT(chatbotId_, "") };
+        inline Scripts& setChatbotId(string chatbotId) { DARABONBA_PTR_SET_VALUE(chatbotId_, chatbotId) };
+
+
         // concurrency Field Functions 
         bool hasConcurrency() const { return this->concurrency_ != nullptr;};
         void deleteConcurrency() { this->concurrency_ = nullptr;};
@@ -197,9 +215,13 @@ namespace Models
 
 
       protected:
+        // The chatbot builder type.
+        shared_ptr<string> builderType_ {};
+        // The chatbot instance ID.
+        shared_ptr<string> chatbotId_ {};
         // The concurrency.
         shared_ptr<int32_t> concurrency_ {};
-        // The creation time, in millisecond-level timestamp.
+        // The creation time, in milliseconds.
         shared_ptr<int64_t> createdTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -211,15 +233,15 @@ namespace Models
         shared_ptr<string> nluAccessType_ {};
         // The NLU engine type.
         shared_ptr<string> nluEngine_ {};
-        // The phone number bound to the scenario.
+        // The phone number bound to the script.
         shared_ptr<string> number_ {};
         // The published version ID.
         shared_ptr<string> publishedVersionId_ {};
-        // The scenario ID.
+        // The script ID.
         shared_ptr<string> scriptId_ {};
-        // The scenario status.
+        // The script status.
         shared_ptr<string> status_ {};
-        // The update time, in millisecond-level timestamp.
+        // The update time, in milliseconds.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -258,11 +280,11 @@ namespace Models
     protected:
       // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The data list.
+      // The list of scripts.
       shared_ptr<vector<Data::Scripts>> scripts_ {};
-      // The total number of records that match the conditions.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -335,7 +357,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

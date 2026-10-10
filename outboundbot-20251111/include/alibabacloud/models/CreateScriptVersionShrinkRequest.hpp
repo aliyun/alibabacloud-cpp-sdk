@@ -115,9 +115,9 @@ namespace Models
     shared_ptr<string> scriptProfileShrink_ {};
     // The source version ID.
     shared_ptr<string> sourceVersionId_ {};
-    // The TTS configuration.
+    // The Text-to-Speech (TTS) configuration.
     shared_ptr<string> synthesizerConfigShrink_ {};
-    // The ASR configuration.
+    // The Automatic Speech Recognition (ASR) configuration.
     shared_ptr<string> transcriberConfigShrink_ {};
   };
 
