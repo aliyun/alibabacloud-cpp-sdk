@@ -914,7 +914,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+ * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,7 +939,7 @@ DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const 
 }
 
 /**
- * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+ * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
  *
  * @return DropCatalogResponse
  */
@@ -1094,7 +1094,7 @@ DropTableResponse Client::dropTable(const string &catalogId, const string &datab
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary Retrieves the details of a data catalog.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1119,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const ma
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary Retrieves the details of a data catalog.
  *
  * @return GetCatalogResponse
  */
@@ -1130,7 +1130,7 @@ GetCatalogResponse Client::getCatalog(const string &catalog) {
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary Retrieves the details of a data catalog.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1155,7 @@ GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const
 }
 
 /**
- * @summary Retrieves the details of a catalog.
+ * @summary Retrieves the details of a data catalog.
  *
  * @return GetCatalogByIdResponse
  */
@@ -2012,7 +2012,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsers(const GrantRoleToUsersRequest 
 }
 
 /**
- * @summary Lists catalogs.
+ * @summary Queries the list of data catalogs.
  *
  * @param request ListCatalogsRequest
  * @param headers map
@@ -2053,7 +2053,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
 }
 
 /**
- * @summary Lists catalogs.
+ * @summary Queries the list of data catalogs.
  *
  * @param request ListCatalogsRequest
  * @return ListCatalogsResponse
@@ -3565,6 +3565,73 @@ SubscribeResponse Client::subscribe() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return subscribeWithOptions(headers, runtime);
+}
+
+/**
+ * @summary Deletes tags from resources.
+ *
+ * @param tmpReq UntagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "resourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTagKey()) {
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "tagKey", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAll()) {
+    query["all"] = request.getAll();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["resourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKeyShrink()) {
+    query["tagKey"] = request.getTagKeyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/tags")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary Deletes tags from resources.
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
 /**

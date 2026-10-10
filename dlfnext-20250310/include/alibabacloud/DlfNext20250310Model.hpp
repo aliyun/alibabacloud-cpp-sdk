@@ -41,6 +41,7 @@
 #include <alibabacloud/models/PrepayResource.hpp>
 #include <alibabacloud/models/ReceivedShare.hpp>
 #include <alibabacloud/models/Receiver.hpp>
+#include <alibabacloud/models/ResourceTag.hpp>
 #include <alibabacloud/models/User.hpp>
 #include <alibabacloud/models/Role.hpp>
 #include <alibabacloud/models/Schema.hpp>
@@ -54,6 +55,7 @@
 #include <alibabacloud/models/TableCompactionHistory.hpp>
 #include <alibabacloud/models/TableSnapshot.hpp>
 #include <alibabacloud/models/TableSummary.hpp>
+#include <alibabacloud/models/TagResource.hpp>
 #include <alibabacloud/models/ViewSchema.hpp>
 #include <alibabacloud/models/View.hpp>
 #include <alibabacloud/models/ViewChange.hpp>
@@ -226,6 +228,9 @@
 #include <alibabacloud/models/SubmitQueryResponseBody.hpp>
 #include <alibabacloud/models/SubmitQueryResponse.hpp>
 #include <alibabacloud/models/SubscribeResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateRoleRequest.hpp>
 #include <alibabacloud/models/UpdateRoleResponse.hpp>
 #include <alibabacloud/models/UpdateRoleUsersRequest.hpp>

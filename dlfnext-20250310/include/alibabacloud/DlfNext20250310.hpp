@@ -343,7 +343,7 @@ namespace DlfNext20250310
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+       * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,7 +352,7 @@ namespace DlfNext20250310
       Models::DropCatalogResponse dropCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
+       * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
        *
        * @return DropCatalogResponse
        */
@@ -423,7 +423,7 @@ namespace DlfNext20250310
       Models::DropTableResponse dropTable(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary Retrieves the details of a catalog.
+       * @summary Retrieves the details of a data catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -432,14 +432,14 @@ namespace DlfNext20250310
       Models::GetCatalogResponse getCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a catalog.
+       * @summary Retrieves the details of a data catalog.
        *
        * @return GetCatalogResponse
        */
       Models::GetCatalogResponse getCatalog(const string &catalog);
 
       /**
-       * @summary Retrieves the details of a catalog.
+       * @summary Retrieves the details of a data catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +448,7 @@ namespace DlfNext20250310
       Models::GetCatalogByIdResponse getCatalogByIdWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a catalog.
+       * @summary Retrieves the details of a data catalog.
        *
        * @return GetCatalogByIdResponse
        */
@@ -815,7 +815,7 @@ namespace DlfNext20250310
       Models::GrantRoleToUsersResponse grantRoleToUsers(const Models::GrantRoleToUsersRequest &request);
 
       /**
-       * @summary Lists catalogs.
+       * @summary Queries the list of data catalogs.
        *
        * @param request ListCatalogsRequest
        * @param headers map
@@ -825,7 +825,7 @@ namespace DlfNext20250310
       Models::ListCatalogsResponse listCatalogsWithOptions(const Models::ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists catalogs.
+       * @summary Queries the list of data catalogs.
        *
        * @param request ListCatalogsRequest
        * @return ListCatalogsResponse
@@ -1349,6 +1349,24 @@ namespace DlfNext20250310
        * @return SubscribeResponse
        */
       Models::SubscribeResponse subscribe();
+
+      /**
+       * @summary Deletes tags from resources.
+       *
+       * @param tmpReq UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes tags from resources.
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary Updates a DLF role.

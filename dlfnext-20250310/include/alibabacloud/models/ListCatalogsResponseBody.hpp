@@ -64,11 +64,11 @@ namespace Models
 
 
   protected:
-    // A list of catalogs.
+    // The list of catalogs.
     shared_ptr<vector<Catalog>> catalogs_ {};
-    // The token to retrieve the next page of results. If this parameter is null, all results have been returned.
+    // The pagination token used to retrieve the next page of results. A null value indicates that the current query has reached the last page of results.
     shared_ptr<string> nextPageToken_ {};
-    // A list of subscription computing resources.
+    // The list of subscription compute resources.
     shared_ptr<vector<PrepayResource>> prepayResource_ {};
   };
 
