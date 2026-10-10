@@ -14,10 +14,14 @@ namespace Models
   class SearchContextResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchContextResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(auditStatus, auditStatus_);
+      DARABONBA_PTR_TO_JSON(recallEventId, recallEventId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(results, results_);
     };
     friend void from_json(const Darabonba::Json& j, SearchContextResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(auditStatus, auditStatus_);
+      DARABONBA_PTR_FROM_JSON(recallEventId, recallEventId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(results, results_);
     };
@@ -32,8 +36,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->results_ == nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && this->recallEventId_ == nullptr && this->requestId_ == nullptr && this->results_ == nullptr; };
+    // auditStatus Field Functions 
+    bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
+    void deleteAuditStatus() { this->auditStatus_ = nullptr;};
+    inline string getAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(auditStatus_, "") };
+    inline SearchContextResponseBody& setAuditStatus(string auditStatus) { DARABONBA_PTR_SET_VALUE(auditStatus_, auditStatus) };
+
+
+    // recallEventId Field Functions 
+    bool hasRecallEventId() const { return this->recallEventId_ != nullptr;};
+    void deleteRecallEventId() { this->recallEventId_ = nullptr;};
+    inline string getRecallEventId() const { DARABONBA_PTR_GET_DEFAULT(recallEventId_, "") };
+    inline SearchContextResponseBody& setRecallEventId(string recallEventId) { DARABONBA_PTR_SET_VALUE(recallEventId_, recallEventId) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -51,6 +69,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> auditStatus_ {};
+    shared_ptr<string> recallEventId_ {};
     // The request ID. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The list of retrieval results, sorted by similarity in descending order.

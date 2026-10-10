@@ -1109,7 +1109,7 @@ namespace AgentLoop20260520
       Models::UpdateAgentSpaceResponse updateAgentSpace(const string &agentSpace, const Models::UpdateAgentSpaceRequest &request);
 
       /**
-       * @summary Modifies the configuration of a context store.
+       * @summary Updates the context store configuration.
        *
        * @param request UpdateContextStoreRequest
        * @param headers map
@@ -1119,7 +1119,7 @@ namespace AgentLoop20260520
       Models::UpdateContextStoreResponse updateContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a context store.
+       * @summary Updates the context store configuration.
        *
        * @param request UpdateContextStoreRequest
        * @return UpdateContextStoreResponse

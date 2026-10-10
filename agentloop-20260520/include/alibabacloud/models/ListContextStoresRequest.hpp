@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contextType, contextType_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
     };
     friend void from_json(const Darabonba::Json& j, ListContextStoresRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(contextStoreName, contextStoreName_);
       DARABONBA_PTR_FROM_JSON(contextType, contextType_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
     };
     ListContextStoresRequest() = default ;
     ListContextStoresRequest(const ListContextStoresRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contextStoreName_ == nullptr
-        && this->contextType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr; };
+        && this->contextType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->sourceType_ == nullptr; };
     // contextStoreName Field Functions 
     bool hasContextStoreName() const { return this->contextStoreName_ != nullptr;};
     void deleteContextStoreName() { this->contextStoreName_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline ListContextStoresRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // sourceType Field Functions 
+    bool hasSourceType() const { return this->sourceType_ != nullptr;};
+    void deleteSourceType() { this->sourceType_ = nullptr;};
+    inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+    inline ListContextStoresRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
   protected:
     // Filters context stores by name. Exact match is supported. If this parameter is not specified, no filtering is applied.
     shared_ptr<string> contextStoreName_ {};
@@ -74,6 +83,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this parameter to the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    shared_ptr<string> sourceType_ {};
   };
 
   } // namespace Models

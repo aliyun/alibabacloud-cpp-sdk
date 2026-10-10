@@ -923,8 +923,14 @@ DeleteAgentSpaceResponse Client::deleteAgentSpace(const string &agentSpace, cons
  */
 DeleteContextStoreResponse Client::deleteContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const DeleteContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasDeleteOutputDataset()) {
+    query["deleteOutputDataset"] = request.getDeleteOutputDataset();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DeleteContextStore"},
@@ -2141,6 +2147,10 @@ ListContextStoresResponse Client::listContextStoresWithOptions(const string &age
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasSourceType()) {
+    query["sourceType"] = request.getSourceType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2985,6 +2995,10 @@ SearchContextResponse Client::searchContextWithOptions(const string &agentSpace,
     body["formatted"] = request.getFormatted();
   }
 
+  if (!!request.hasIncludeInactive()) {
+    body["includeInactive"] = request.getIncludeInactive();
+  }
+
   if (!!request.hasLimit()) {
     body["limit"] = request.getLimit();
   }
@@ -2995,6 +3009,10 @@ SearchContextResponse Client::searchContextWithOptions(const string &agentSpace,
 
   if (!!request.hasRetrievalOption()) {
     body["retrievalOption"] = request.getRetrievalOption();
+  }
+
+  if (!!request.hasScope()) {
+    body["scope"] = request.getScope();
   }
 
   if (!!request.hasThreshold()) {
@@ -3132,7 +3150,7 @@ UpdateAgentSpaceResponse Client::updateAgentSpace(const string &agentSpace, cons
 }
 
 /**
- * @summary Modifies the configuration of a context store.
+ * @summary Updates the context store configuration.
  *
  * @param request UpdateContextStoreRequest
  * @param headers map
@@ -3147,6 +3165,10 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &a
   }
 
   json body = {};
+  if (!!request.hasChangeNote()) {
+    body["changeNote"] = request.getChangeNote();
+  }
+
   if (!!request.hasConfig()) {
     body["config"] = request.getConfig();
   }
@@ -3183,7 +3205,7 @@ UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary Modifies the configuration of a context store.
+ * @summary Updates the context store configuration.
  *
  * @param request UpdateContextStoreRequest
  * @return UpdateContextStoreResponse

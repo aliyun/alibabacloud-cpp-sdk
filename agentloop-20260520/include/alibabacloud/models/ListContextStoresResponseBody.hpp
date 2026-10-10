@@ -48,7 +48,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(serviceNames, serviceNames_);
+        DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(storageMode, storageMode_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
@@ -59,7 +61,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(serviceNames, serviceNames_);
+        DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(storageMode, storageMode_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
       Results() = default ;
@@ -75,7 +79,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentSpace_ == nullptr
         && this->contextStoreName_ == nullptr && this->contextType_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->regionId_ == nullptr
-        && this->serviceNames_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->serviceNames_ == nullptr && this->sourceType_ == nullptr && this->status_ == nullptr && this->storageMode_ == nullptr && this->updateTime_ == nullptr; };
       // agentSpace Field Functions 
       bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
       void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -127,11 +131,25 @@ namespace Models
       inline Results& setServiceNames(vector<string> && serviceNames) { DARABONBA_PTR_SET_RVALUE(serviceNames_, serviceNames) };
 
 
+      // sourceType Field Functions 
+      bool hasSourceType() const { return this->sourceType_ != nullptr;};
+      void deleteSourceType() { this->sourceType_ = nullptr;};
+      inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+      inline Results& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
       inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
       inline Results& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // storageMode Field Functions 
+      bool hasStorageMode() const { return this->storageMode_ != nullptr;};
+      void deleteStorageMode() { this->storageMode_ = nullptr;};
+      inline string getStorageMode() const { DARABONBA_PTR_GET_DEFAULT(storageMode_, "") };
+      inline Results& setStorageMode(string storageMode) { DARABONBA_PTR_SET_VALUE(storageMode_, storageMode) };
 
 
       // updateTime Field Functions 
@@ -158,8 +176,10 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The list of service names. This parameter has a value only for context stores of the experience type. The service names are used together with the data source AgentSpace to locate trace data sources.
       shared_ptr<vector<string>> serviceNames_ {};
+      shared_ptr<string> sourceType_ {};
       // The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
       shared_ptr<string> status_ {};
+      shared_ptr<string> storageMode_ {};
       // The time when the context store was last updated, in ISO 8601 UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
