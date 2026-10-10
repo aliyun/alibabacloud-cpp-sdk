@@ -48,17 +48,13 @@ namespace Models
 
 
   protected:
-    // The detection services supported by Image Moderation Pro. Separate multiple services with commas. Valid values:
-    // 
-    // - baselineCheck: General baseline check
-    // 
-    // - baselineCheck_pro: General baseline check (Professional Edition)
-    // 
-    // - tonalityImprove: Content administration check
-    // 
-    // - aigcCheck: AIGC image check
+    // The detection types supported by Image Moderation Enhanced Edition. Separate multiple values with commas. Valid values:
+    // - baselineCheck: general baseline check
+    // - baselineCheck_pro: general baseline check professional edition
+    // - tonalityImprove: content governance detection
+    // - aigcCheck: AIGC image detection
     shared_ptr<string> service_ {};
-    // The parameters for the content to moderate.
+    // The parameter set for the content moderation object.
     shared_ptr<string> serviceParameters_ {};
   };
 

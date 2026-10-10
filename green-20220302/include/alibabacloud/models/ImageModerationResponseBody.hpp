@@ -42,6 +42,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccountId, accountId_);
         DARABONBA_PTR_TO_JSON(DataId, dataId_);
         DARABONBA_PTR_TO_JSON(Ext, ext_);
+        DARABONBA_PTR_TO_JSON(Frame, frame_);
+        DARABONBA_PTR_TO_JSON(FrameNum, frameNum_);
         DARABONBA_PTR_TO_JSON(ManualTaskId, manualTaskId_);
         DARABONBA_PTR_TO_JSON(Result, result_);
         DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
@@ -50,6 +52,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
         DARABONBA_PTR_FROM_JSON(DataId, dataId_);
         DARABONBA_PTR_FROM_JSON(Ext, ext_);
+        DARABONBA_PTR_FROM_JSON(Frame, frame_);
+        DARABONBA_PTR_FROM_JSON(FrameNum, frameNum_);
         DARABONBA_PTR_FROM_JSON(ManualTaskId, manualTaskId_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
         DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
@@ -121,13 +125,13 @@ namespace Models
 
 
       protected:
-        // The confidence level. The value ranges from 0 to 100, with two decimal places retained. Some labels do not have a confidence level.
+        // The confidence score, ranging from 0 to 100, rounded to two decimal places. Some labels do not have a confidence score.
         shared_ptr<float> confidence_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The label returned after the image content is moderated. Multiple labels and scores may be returned for a single image.
+        // The label returned after the image content detection operation. Multiple labels and scores may be detected for the same image.
         shared_ptr<string> label_ {};
-        // The threat level.
+        // The risk level.
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -298,13 +302,13 @@ namespace Models
 
 
             protected:
-              // The height of the text area. Unit: pixel.
+              // The height of the text area. Unit: pixels.
               shared_ptr<int32_t> h_ {};
-              // The width of the text area. Unit: pixel.
+              // The width of the text area. Unit: pixels.
               shared_ptr<int32_t> w_ {};
-              // The distance from the upper-left corner of the text area to the y-axis. The origin is the upper-left corner of the image. Unit: pixel.
+              // The distance from the upper-left corner of the text area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
               shared_ptr<int32_t> x_ {};
-              // The distance from the upper-left corner of the text area to the x-axis. The origin is the upper-left corner of the image. Unit: pixel.
+              // The distance from the upper-left corner of the text area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
               shared_ptr<int32_t> y_ {};
             };
 
@@ -327,9 +331,9 @@ namespace Models
 
 
           protected:
-            // The coordinates of the text line.
+            // The text line and coordinate information.
             shared_ptr<OcrResult::Location> location_ {};
-            // The text.
+            // The text information.
             shared_ptr<string> text_ {};
           };
 
@@ -382,7 +386,7 @@ namespace Models
           protected:
             // The custom words. Separate multiple words with commas.
             shared_ptr<string> keyWords_ {};
-            // The custom library ID.
+            // The ID of the custom library.
             shared_ptr<string> libId_ {};
             // The name of the custom library.
             shared_ptr<string> libName_ {};
@@ -418,11 +422,11 @@ namespace Models
 
 
         protected:
-          // If a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
+          // The custom library ID, custom library name, and custom words returned when a custom text library is matched.
           shared_ptr<vector<TextInImage::CustomText>> customText_ {};
-          // Each line of text recognized in the image.
+          // The text information for each line detected in the image.
           shared_ptr<vector<TextInImage::OcrResult>> ocrResult_ {};
-          // The hit threat keywords.
+          // The matched risk keywords.
           shared_ptr<vector<string>> riskWord_ {};
         };
 
@@ -464,9 +468,9 @@ namespace Models
 
 
         protected:
-          // The category of the recognized object in the image.
+          // The category for universal image recognition.
           shared_ptr<string> classification_ {};
-          // The confidence level. The value ranges from 0 to 100, with two decimal places retained. No confidence level is returned when the value is nonLabel.
+          // The confidence score, ranging from 0 to 100, rounded to two decimal places. No confidence score is returned when nonLabel is returned.
           shared_ptr<float> confidence_ {};
         };
 
@@ -549,13 +553,13 @@ namespace Models
 
 
           protected:
-            // The height of the detected area. Unit: pixel.
+            // The height of the recognized area. Unit: pixels.
             shared_ptr<int32_t> h_ {};
-            // The width of the detected area. Unit: pixel.
+            // The width of the recognized area. Unit: pixels.
             shared_ptr<int32_t> w_ {};
-            // The distance from the upper-left corner of the detected area to the y-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the recognized area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> x_ {};
-            // The distance from the upper-left corner of the detected area to the x-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the recognized area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -585,11 +589,11 @@ namespace Models
 
 
         protected:
-          // The ID of the detected public figure.
+          // The ID of the recognized public figure.
           shared_ptr<string> figureId_ {};
-          // The name of the detected public figure.
+          // The name of the recognized public figure.
           shared_ptr<string> figureName_ {};
-          // The location of the identity.
+          // The location information of the logo.
           shared_ptr<vector<PublicFigure::Location>> location_ {};
         };
 
@@ -670,13 +674,13 @@ namespace Models
 
 
           protected:
-            // The height of the text area. Unit: pixel.
+            // The height of the text area. Unit: pixels.
             shared_ptr<int32_t> h_ {};
-            // The width of the text area. Unit: pixel.
+            // The width of the text area. Unit: pixels.
             shared_ptr<int32_t> w_ {};
-            // The distance from the upper-left corner of the text area to the y-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the text area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> x_ {};
-            // The distance from the upper-left corner of the text area to the x-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the text area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -699,9 +703,9 @@ namespace Models
 
 
         protected:
-          // The coordinates of the text line.
+          // The text line and coordinate information.
           shared_ptr<OcrResult::Location> location_ {};
-          // A single line of recognized text.
+          // A single piece of recognized text.
           shared_ptr<string> text_ {};
         };
 
@@ -773,11 +777,11 @@ namespace Models
 
 
           protected:
-            // The confidence score. The value ranges from 0 to 100, with two decimal places retained.
+            // The confidence score. Valid values: 0 to 100. The score is accurate to two decimal places.
             shared_ptr<float> confidence_ {};
-            // The identity category.
+            // The logo category.
             shared_ptr<string> label_ {};
-            // The identity name.
+            // The logo name.
             shared_ptr<string> name_ {};
           };
 
@@ -837,13 +841,13 @@ namespace Models
 
 
           protected:
-            // The height of the detected area. Unit: pixel.
+            // The height of the recognized area. Unit: pixels.
             shared_ptr<int32_t> h_ {};
-            // The width of the detected area. Unit: pixel.
+            // The width of the recognized area. Unit: pixels.
             shared_ptr<int32_t> w_ {};
-            // The distance from the upper-left corner of the detected area to the y-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the recognized area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> x_ {};
-            // The distance from the upper-left corner of the detected area to the x-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the recognized area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -868,9 +872,9 @@ namespace Models
 
 
         protected:
-          // The location of the logo.
+          // The location information of the logo.
           shared_ptr<LogoData::Location> location_ {};
-          // The identity information.
+          // The logo information.
           shared_ptr<vector<LogoData::Logo>> logo_ {};
         };
 
@@ -978,25 +982,25 @@ namespace Models
 
 
           protected:
-            // The blurriness of the face image. The value ranges from 0 to 100. A higher score indicates a blurrier image.
+            // The blur level of the face image. Valid values: 0 to 100. A higher score indicates a blurrier image.
             // 
-            // A value from 0 to 25 is recommended.
+            // Recommended value range: 0 to 25.
             shared_ptr<float> blur_ {};
-            // The integrity of the face. The value ranges from 0 to 100. A higher score indicates a more complete face.
+            // The integrity level of the face. Valid values: 0 to 100. A higher score indicates a more complete face.
             // 
-            // A value from 80 to 100 is recommended.
+            // Recommended value range: 80 to 100.
             shared_ptr<float> integrity_ {};
             // The pitch angle of the face.
             // 
-            // A value from -30 to 30 is recommended.
+            // Recommended value range: -30 to 30.
             shared_ptr<float> pitch_ {};
             // The roll angle of the face.
             // 
-            // A value from -30 to 30 is recommended.
+            // Recommended value range: -30 to 30.
             shared_ptr<float> roll_ {};
             // The yaw angle of the face.
             // 
-            // A value from -30 to 30 is recommended.
+            // Recommended value range: -30 to 30.
             shared_ptr<float> yaw_ {};
           };
 
@@ -1038,13 +1042,13 @@ namespace Models
 
 
           protected:
-            // The confidence level of the mustache detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the mustache recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // Indicates whether a mustache is present. Valid values:
+            // The recognition result of whether the person has a mustache. Valid values:
             // 
-            // - Has: A mustache is present.
+            // - Has: The person has a mustache.
             // 
-            // - None: No mustache is present.
+            // - None: The person does not have a mustache.
             shared_ptr<string> value_ {};
           };
 
@@ -1086,13 +1090,13 @@ namespace Models
 
 
           protected:
-            // The confidence level of the mask detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the mask recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // Indicates whether a mask is worn. Valid values:
+            // The recognition result of whether the person is wearing a mask. Valid values:
             // 
-            // - Wear: A mask is worn.
+            // - Wear: Wearing a mask.
             // 
-            // - None: No mask is worn.
+            // - None: Not wearing a mask.
             shared_ptr<string> value_ {};
           };
 
@@ -1152,13 +1156,13 @@ namespace Models
 
 
           protected:
-            // The height of the face area. Unit: pixel.
+            // The height of the face area. Unit: pixels.
             shared_ptr<int32_t> h_ {};
-            // The width of the face area. Unit: pixel.
+            // The width of the face area. Unit: pixels.
             shared_ptr<int32_t> w_ {};
-            // The distance from the upper-left corner of the face area to the y-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the face area to the y-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> x_ {};
-            // The distance from the upper-left corner of the face area to the x-axis. The origin is the upper-left corner of the image. Unit: pixel.
+            // The distance from the upper-left corner of the face area to the x-axis, with the upper-left corner of the image as the origin. Unit: pixels.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -1200,13 +1204,13 @@ namespace Models
 
 
           protected:
-            // The confidence level of the hat detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the hat recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // Indicates whether a hat is detected. Valid values:
+            // The recognition result of whether the person is wearing a hat. Valid values:
             // 
-            // - Wear: A hat is worn.
+            // - Wear: Wearing a hat.
             // 
-            // - None: No hat is worn.
+            // - None: Not wearing a hat.
             shared_ptr<string> value_ {};
           };
 
@@ -1248,15 +1252,15 @@ namespace Models
 
 
           protected:
-            // The confidence level of the hairstyle detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the hairstyle recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // The detected hairstyle. Valid values:
+            // The hairstyle recognition result. Valid values:
             // 
-            // - Bald: bald
+            // - Bald: Bald.
             // 
-            // - Long: long hair
+            // - Long: Long hair.
             // 
-            // - Short: short hair
+            // - Short: Short hair.
             shared_ptr<string> value_ {};
           };
 
@@ -1298,13 +1302,13 @@ namespace Models
 
 
           protected:
-            // The confidence level of the gender detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the gender recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // The detected gender. Valid values:
+            // The gender recognition result. Valid values:
             // 
-            // - Male: male
+            // - Male: Male.
             // 
-            // - FeMale: female
+            // - FeMale: Female.
             shared_ptr<string> value_ {};
           };
 
@@ -1346,12 +1350,10 @@ namespace Models
 
 
           protected:
-            // The confidence level of the bangs detection. The value ranges from 0 to 100. A higher value indicates a more reliable result.
+            // The confidence level of the bangs recognition result. Valid values: 0 to 100. A higher value indicates a more reliable result.
             shared_ptr<float> confidence_ {};
-            // The detection result for bangs. Valid values:
-            // 
+            // The recognition result of whether the person has bangs. Valid values:
             // - Has: The person has bangs.
-            // 
             // - None: The person does not have bangs.
             shared_ptr<string> value_ {};
           };
@@ -1453,33 +1455,33 @@ namespace Models
 
 
         protected:
-          // The detected age.
+          // The age recognition result.
           shared_ptr<int32_t> age_ {};
-          // The detection result for bangs.
+          // The recognition result of whether the person has bangs.
           shared_ptr<FaceData::Bang> bang_ {};
-          // The gender detection result.
+          // The gender recognition result.
           shared_ptr<FaceData::Gender> gender_ {};
-          // Indicates whether the person is wearing glasses. Valid values:
+          // The recognition result of whether the person is wearing glasses. Valid values:
           // 
-          // - None: The person is not wearing glasses.
+          // - None: Not wearing glasses.
           // 
-          // - Common: The person is wearing regular glasses.
+          // - Common: Wearing regular glasses.
           // 
-          // - Sunglass: The person is wearing sunglasses.
+          // - Sunglass: Wearing sunglasses.
           shared_ptr<string> glasses_ {};
-          // The hairstyle detection result.
+          // The hairstyle recognition result.
           shared_ptr<FaceData::Hairstyle> hairstyle_ {};
-          // The result of hat detection.
+          // The recognition result of whether the person is wearing a hat.
           shared_ptr<FaceData::Hat> hat_ {};
-          // The location of the face.
+          // The face location information.
           shared_ptr<FaceData::Location> location_ {};
-          // The result of mask detection.
+          // The recognition result of whether the person is wearing a mask.
           shared_ptr<FaceData::Mask> mask_ {};
-          // The result of mustache detection.
+          // The recognition result of whether the person has a mustache.
           shared_ptr<FaceData::Mustache> mustache_ {};
-          // The quality of the face image.
+          // The quality information of the face image.
           shared_ptr<FaceData::Quality> quality_ {};
-          // The degree of the smile. The value ranges from 0 to 100. A higher score indicates a wider smile.
+          // The smile level of the face. Valid values: 0 to 100. A higher score indicates a bigger smile.
           shared_ptr<float> smile_ {};
         };
 
@@ -1641,29 +1643,29 @@ namespace Models
 
 
           protected:
-            // The code or name of the service provider, which identifies the content producer.
+            // The code or name of the service provider, which is used to identify the content producer.
             shared_ptr<string> contentProducer_ {};
-            // The name, ID, or code of the propagation platform. For services that provide AI-generated content, this can be the same as the value of ContentProducer.
+            // The name, number, or code of the distribution platform. For services that provide synthetic content generated by artificial intelligence, this value can be the same as ContentProducer.
             shared_ptr<string> contentPropagator_ {};
-            // Indicates whether the content is generated by artificial intelligence (AI). Valid values:
+            // Indicates whether the content is generated by artificial intelligence. Valid values:
             // 
-            // - 1: The content is generated by AI.
+            // - 1: The content is generated or synthesized through artificial intelligence content generation.
             // 
-            // - 2: (For distribution platforms only) The content may be generated by AI.
+            // - 2: (Distribution platform only) The content may be generated or synthesized through artificial intelligence content generation.
             // 
-            // - 3: (For distribution platforms only) The content is suspected to be generated by AI.
+            // - 3: (Distribution platform only) The content is suspected to be generated or synthesized through artificial intelligence content generation.
             shared_ptr<string> label_ {};
-            // The content production ID. This is a unique ID used on the production platform to trace the source of synthesized content.
+            // The content production ID, which is a unique identifier used by the production platform to trace the synthesized content.
             shared_ptr<string> produceID_ {};
-            // The content propagation ID. This is a unique ID that the propagation platform assigns to the distributed synthetic content.
+            // The content distribution ID, which is a unique identifier assigned by the distribution platform to the distributed synthesized content.
             shared_ptr<string> propagateID_ {};
-            // A reserved field.
+            // The reserved field.
             // 
-            // This field can store information that the generative service provider uses for security protection to ensure the integrity of content and identities. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify key information.
+            // This field can store information used by the synthetic content service provider to independently implement security protection and protect the integrity of the content and labels. You can implement secure storage and verification of key information through a hashing mechanism based on ContentProducer and ProduceID.
             shared_ptr<string> reservedCode1_ {};
-            // A reserved field.
+            // The reserved field.
             // 
-            // This field can be used by content distribution service providers for security protection to ensure the integrity of content and identities. A hashing mechanism based on ContentProducer and ProduceID can be used to securely store and verify key information.
+            // This field can be used by the content distribution service provider to independently implement security protection and protect the integrity of the content and labels. You can implement secure storage and verification of key information through a hashing mechanism based on ContentProducer and ProduceID.
             shared_ptr<string> reservedCode2_ {};
           };
 
@@ -1678,7 +1680,7 @@ namespace Models
 
 
         protected:
-          // The detection information for the implicit AIGC identity.
+          // The AIGC implicit label detection information.
           shared_ptr<AigcData::AIGC> AIGC_ {};
         };
 
@@ -1767,28 +1769,29 @@ namespace Models
 
 
       protected:
-        // The detection information for the implicit AIGC identity in the image.
+        // The AI-generated content (AIGC) implicit label detection information in the image.
         shared_ptr<Ext::AigcData> aigcData_ {};
-        // A list of hits from the custom image library.
+        // The list of hit information in custom image libraries.
         shared_ptr<vector<Ext::CustomImage>> customImage_ {};
-        // The facial attribute detection results.
+        // The face attribute detection results.
         shared_ptr<vector<Ext::FaceData>> faceData_ {};
-        // The identity information.
+        // The logo information.
         shared_ptr<vector<Ext::LogoData>> logoData_ {};
-        // The results of optical character recognition (OCR).
+        // The optical character recognition (OCR) results of the image.
         shared_ptr<vector<Ext::OcrResult>> ocrResult_ {};
-        // A list of public figures.
+        // The list of recognized public figures.
         shared_ptr<vector<Ext::PublicFigure>> publicFigure_ {};
-        // The results of image object recognition.
+        // The universal image recognition results.
         shared_ptr<vector<Ext::Recognition>> recognition_ {};
-        // The text information that is hit in the image.
+        // The text information detected in the image.
         shared_ptr<Ext::TextInImage> textInImage_ {};
         // The output content.
         shared_ptr<Ext::VlContent> vlContent_ {};
       };
 
       virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->dataId_ == nullptr && this->ext_ == nullptr && this->manualTaskId_ == nullptr && this->result_ == nullptr && this->riskLevel_ == nullptr; };
+        && this->dataId_ == nullptr && this->ext_ == nullptr && this->frame_ == nullptr && this->frameNum_ == nullptr && this->manualTaskId_ == nullptr
+        && this->result_ == nullptr && this->riskLevel_ == nullptr; };
       // accountId Field Functions 
       bool hasAccountId() const { return this->accountId_ != nullptr;};
       void deleteAccountId() { this->accountId_ = nullptr;};
@@ -1810,6 +1813,20 @@ namespace Models
       inline Data::Ext getExt() { DARABONBA_PTR_GET(ext_, Data::Ext) };
       inline Data& setExt(const Data::Ext & ext) { DARABONBA_PTR_SET_VALUE(ext_, ext) };
       inline Data& setExt(Data::Ext && ext) { DARABONBA_PTR_SET_RVALUE(ext_, ext) };
+
+
+      // frame Field Functions 
+      bool hasFrame() const { return this->frame_ != nullptr;};
+      void deleteFrame() { this->frame_ = nullptr;};
+      inline string getFrame() const { DARABONBA_PTR_GET_DEFAULT(frame_, "") };
+      inline Data& setFrame(string frame) { DARABONBA_PTR_SET_VALUE(frame_, frame) };
+
+
+      // frameNum Field Functions 
+      bool hasFrameNum() const { return this->frameNum_ != nullptr;};
+      void deleteFrameNum() { this->frameNum_ = nullptr;};
+      inline int32_t getFrameNum() const { DARABONBA_PTR_GET_DEFAULT(frameNum_, 0) };
+      inline Data& setFrameNum(int32_t frameNum) { DARABONBA_PTR_SET_VALUE(frameNum_, frameNum) };
 
 
       // manualTaskId Field Functions 
@@ -1836,19 +1853,23 @@ namespace Models
 
 
     protected:
-      // The AccountId specified in the request.
+      // The account ID passed in the request.
       shared_ptr<string> accountId_ {};
-      // The data ID of the detected object.
+      // The data ID of the moderated object.
       // 
-      // > If you specify the dataId parameter in the request, the corresponding dataId is returned.
+      // > If the dataId request parameter is passed in the moderation request, the corresponding dataId is returned here.
       shared_ptr<string> dataId_ {};
-      // Auxiliary reference information for the image.
+      // The auxiliary reference information of the image.
       shared_ptr<Data::Ext> ext_ {};
+      // The image frame information.
+      shared_ptr<string> frame_ {};
+      // The number of result frames.
+      shared_ptr<int32_t> frameNum_ {};
       // The ID of the manual review task.
       shared_ptr<string> manualTaskId_ {};
-      // The results of the image moderation, including the threat labels and confidence levels. The value is an array.
+      // The array of image detection results, including risk labels and confidence scores.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The threat level.
+      // The risk level.
       shared_ptr<string> riskLevel_ {};
     };
 
@@ -1885,13 +1906,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The results of the image content moderation.
+    // The image content moderation results.
     shared_ptr<ImageModerationResponseBody::Data> data_ {};
-    // The message returned for the request.
+    // The response message for the request.
     shared_ptr<string> msg_ {};
-    // The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 
