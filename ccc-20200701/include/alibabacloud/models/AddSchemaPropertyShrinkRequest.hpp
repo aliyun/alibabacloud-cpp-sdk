@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Field
+    // The property.
     shared_ptr<string> propertyShrink_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // schema id
     // 

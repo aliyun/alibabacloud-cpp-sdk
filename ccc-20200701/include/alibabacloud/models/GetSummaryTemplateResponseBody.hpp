@@ -285,15 +285,15 @@ namespace Models
       protected:
         // Indicates whether the field is an array.
         shared_ptr<bool> array_ {};
-        // The extended properties.
+        // The extended attributes.
         shared_ptr<string> attributes_ {};
-        // The time when the field was created.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The user who created the field.
+        // The creator.
         shared_ptr<string> creator_ {};
         // The data type.
         shared_ptr<string> dataType_ {};
-        // The description of the field.
+        // The field description.
         shared_ptr<string> description_ {};
         // Indicates whether the field is disabled.
         shared_ptr<bool> disabled_ {};
@@ -301,21 +301,21 @@ namespace Models
         shared_ptr<string> displayName_ {};
         // The display order in the list.
         shared_ptr<int32_t> displayOrder_ {};
-        // The type of the editor.
+        // The editor type.
         shared_ptr<string> editorType_ {};
         // The maximum length.
         shared_ptr<int32_t> maxLength_ {};
-        // The maximum value of the number.
+        // The maximum numeric value.
         shared_ptr<double> maximum_ {};
         // The minimum length.
         shared_ptr<int32_t> minLength_ {};
-        // The minimum value of the number.
+        // The minimum numeric value.
         shared_ptr<double> minimum_ {};
-        // The name of the field.
+        // The field name.
         shared_ptr<string> name_ {};
-        // The validation rule that is specified by a regular expression.
+        // The regular expression validation rule.
         shared_ptr<string> pattern_ {};
-        // The error message that is returned when the regular expression fails to pass the validation.
+        // The error message for regular expression validation.
         shared_ptr<string> patternErrorMessage_ {};
         // Indicates whether the field is read-only.
         shared_ptr<bool> readOnly_ {};
@@ -323,7 +323,7 @@ namespace Models
         shared_ptr<bool> required_ {};
         // Indicates whether the field is a system field.
         shared_ptr<bool> system_ {};
-        // The time when the field was last updated.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -384,19 +384,17 @@ namespace Models
     protected:
       // The ID of the summary category.
       shared_ptr<string> categoryId_ {};
-      // The user who edited the template.
+      // The template editor.
       shared_ptr<string> editor_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the template.
+      // The template name.
       shared_ptr<string> name_ {};
       // The list of template fields.
       shared_ptr<vector<Data::PropertyList>> propertyList_ {};
-      // The status code.
-      // 
-      // - Enabled: The template is enabled.
-      // 
-      // - Disabled: The template is disabled.
+      // The status code. Valid values:
+      // - Enabled: Enabled.
+      // - Disabled: Disabled.
       shared_ptr<string> state_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};

@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The ID of the delete task.
+    // The returned result, which is the ID of the deletion task.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

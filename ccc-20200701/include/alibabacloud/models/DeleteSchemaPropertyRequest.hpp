@@ -70,13 +70,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The field name.
+    // The property name.
     // 
     // This parameter is required.
     shared_ptr<string> propertyName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The schema ID.
+    // schema id
     // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};

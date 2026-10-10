@@ -211,43 +211,43 @@ namespace Models
 
 
     protected:
-      // Is array
+      // Specifies whether the property is an array.
       shared_ptr<bool> array_ {};
-      // Extension attributes
+      // The extended attributes.
       shared_ptr<string> attributes_ {};
-      // Data type
+      // The data type.
       // 
       // This parameter is required.
       shared_ptr<string> dataType_ {};
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Is disabled
+      // Specifies whether the property is disabled.
       shared_ptr<bool> disabled_ {};
-      // Name
+      // The display name.
       shared_ptr<string> displayName_ {};
-      // List display order
+      // The display order in the list.
       shared_ptr<int32_t> displayOrder_ {};
-      // Editor type
+      // The editor type.
       shared_ptr<string> editorType_ {};
-      // Maximum length
+      // The maximum length.
       shared_ptr<int32_t> maxLength_ {};
-      // Maximum numeric value
+      // The maximum numeric value.
       shared_ptr<double> maximum_ {};
-      // Minimum length
+      // The minimum length.
       shared_ptr<int32_t> minLength_ {};
-      // Minimum numeric value
+      // The minimum numeric value.
       shared_ptr<double> minimum_ {};
-      // Name
+      // The display name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // Regular expression validation rule
+      // The regular expression validation rule.
       shared_ptr<string> pattern_ {};
-      // Regular expression validation error message
+      // The error message for regular expression validation.
       shared_ptr<string> patternErrorMessage_ {};
-      // Is read-only
+      // Specifies whether the property is read-only.
       shared_ptr<bool> readOnly_ {};
-      // Is required
+      // Specifies whether the property is required.
       shared_ptr<bool> required_ {};
     };
 
@@ -284,13 +284,13 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Field
+    // The property.
     shared_ptr<AddSchemaPropertyRequest::Property> property_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // schema id
     // 

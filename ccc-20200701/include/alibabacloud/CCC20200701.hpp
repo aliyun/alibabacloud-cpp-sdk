@@ -174,6 +174,8 @@ namespace CCC20200701
       Models::AddPhoneNumbersResponse addPhoneNumbers(const Models::AddPhoneNumbersRequest &request);
 
       /**
+       * @summary Adds a property to the schema of a specified instance.
+       *
        * @param tmpReq AddSchemaPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddSchemaPropertyResponse
@@ -181,6 +183,8 @@ namespace CCC20200701
       Models::AddSchemaPropertyResponse addSchemaPropertyWithOptions(const Models::AddSchemaPropertyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Adds a property to the schema of a specified instance.
+       *
        * @param request AddSchemaPropertyRequest
        * @return AddSchemaPropertyResponse
        */
@@ -276,7 +280,7 @@ namespace CCC20200701
       Models::AnswerCallResponse answerCall(const Models::AnswerCallRequest &request);
 
       /**
-       * @summary Adds cases to a predictive campaign in a specified instance.
+       * @summary Appends outbound call cases to a specified predictive outbound campaign under an instance.
        *
        * @param tmpReq AppendCasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +289,7 @@ namespace CCC20200701
       Models::AppendCasesResponse appendCasesWithOptions(const Models::AppendCasesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds cases to a predictive campaign in a specified instance.
+       * @summary Appends outbound call cases to a specified predictive outbound campaign under an instance.
        *
        * @param request AppendCasesRequest
        * @return AppendCasesResponse
@@ -295,9 +299,9 @@ namespace CCC20200701
       /**
        * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
        *
-       * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+       * @summary Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
        *
-       * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+       * @description Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
        *
        * @param request AssignUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -308,9 +312,9 @@ namespace CCC20200701
       /**
        * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
        *
-       * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+       * @summary Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
        *
-       * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+       * @description Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
        *
        * @param request AssignUsersRequest
        * @return AssignUsersResponse
@@ -594,6 +598,8 @@ namespace CCC20200701
       Models::CreateCampaignResponse createCampaign(const Models::CreateCampaignRequest &request);
 
       /**
+       * @summary Retrieves the upload URL for chat message media files.
+       *
        * @param request CreateChatMediaUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateChatMediaUrlResponse
@@ -601,6 +607,8 @@ namespace CCC20200701
       Models::CreateChatMediaUrlResponse createChatMediaUrlWithOptions(const Models::CreateChatMediaUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the upload URL for chat message media files.
+       *
        * @param request CreateChatMediaUrlRequest
        * @return CreateChatMediaUrlResponse
        */
@@ -662,6 +670,8 @@ namespace CCC20200701
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
+       * @summary Creates a schema in a specified instance.
+       *
        * @param tmpReq CreateSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSchemaResponse
@@ -669,6 +679,8 @@ namespace CCC20200701
       Models::CreateSchemaResponse createSchemaWithOptions(const Models::CreateSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a schema in a specified instance.
+       *
        * @param request CreateSchemaRequest
        * @return CreateSchemaResponse
        */
@@ -764,7 +776,7 @@ namespace CCC20200701
       Models::DeleteCallTagResponse deleteCallTag(const Models::DeleteCallTagRequest &request);
 
       /**
-       * @summary Deletes the specified contact flow.
+       * @summary Deletes a specified contact flow.
        *
        * @param request DeleteContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -773,7 +785,7 @@ namespace CCC20200701
       Models::DeleteContactFlowResponse deleteContactFlowWithOptions(const Models::DeleteContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the specified contact flow.
+       * @summary Deletes a specified contact flow.
        *
        * @param request DeleteContactFlowRequest
        * @return DeleteContactFlowResponse
@@ -798,6 +810,8 @@ namespace CCC20200701
       Models::DeleteCustomCallTaggingResponse deleteCustomCallTagging(const Models::DeleteCustomCallTaggingRequest &request);
 
       /**
+       * @summary Deletes a single document from a specified instance.
+       *
        * @param request DeleteDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDocumentResponse
@@ -805,12 +819,16 @@ namespace CCC20200701
       Models::DeleteDocumentResponse deleteDocumentWithOptions(const Models::DeleteDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a single document from a specified instance.
+       *
        * @param request DeleteDocumentRequest
        * @return DeleteDocumentResponse
        */
       Models::DeleteDocumentResponse deleteDocument(const Models::DeleteDocumentRequest &request);
 
       /**
+       * @summary Deletes documents from a specified instance in batches.
+       *
        * @param tmpReq DeleteDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDocumentsResponse
@@ -818,12 +836,16 @@ namespace CCC20200701
       Models::DeleteDocumentsResponse deleteDocumentsWithOptions(const Models::DeleteDocumentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes documents from a specified instance in batches.
+       *
        * @param request DeleteDocumentsRequest
        * @return DeleteDocumentsResponse
        */
       Models::DeleteDocumentsResponse deleteDocuments(const Models::DeleteDocumentsRequest &request);
 
       /**
+       * @summary Deletes a specified Cloud Call Center instance.
+       *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteInstanceResponse
@@ -831,12 +853,16 @@ namespace CCC20200701
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a specified Cloud Call Center instance.
+       *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
        */
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
+       * @summary Deletes a schema from the specified instance.
+       *
        * @param request DeleteSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteSchemaResponse
@@ -844,12 +870,16 @@ namespace CCC20200701
       Models::DeleteSchemaResponse deleteSchemaWithOptions(const Models::DeleteSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a schema from the specified instance.
+       *
        * @param request DeleteSchemaRequest
        * @return DeleteSchemaResponse
        */
       Models::DeleteSchemaResponse deleteSchema(const Models::DeleteSchemaRequest &request);
 
       /**
+       * @summary Deletes a property in a specified schema.
+       *
        * @param request DeleteSchemaPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteSchemaPropertyResponse
@@ -857,6 +887,8 @@ namespace CCC20200701
       Models::DeleteSchemaPropertyResponse deleteSchemaPropertyWithOptions(const Models::DeleteSchemaPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a property in a specified schema.
+       *
        * @param request DeleteSchemaPropertyRequest
        * @return DeleteSchemaPropertyResponse
        */
@@ -914,6 +946,8 @@ namespace CCC20200701
       Models::DeleteTicketTemplateResponse deleteTicketTemplate(const Models::DeleteTicketTemplateRequest &request);
 
       /**
+       * @summary Disables a field in a specified schema.
+       *
        * @param request DisableSchemaPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableSchemaPropertyResponse
@@ -921,6 +955,8 @@ namespace CCC20200701
       Models::DisableSchemaPropertyResponse disableSchemaPropertyWithOptions(const Models::DisableSchemaPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Disables a field in a specified schema.
+       *
        * @param request DisableSchemaPropertyRequest
        * @return DisableSchemaPropertyResponse
        */
@@ -961,6 +997,8 @@ namespace CCC20200701
       Models::DiscardEditingContactFlowResponse discardEditingContactFlow(const Models::DiscardEditingContactFlowRequest &request);
 
       /**
+       * @summary Enables a property in a specified schema.
+       *
        * @param request EnableSchemaPropertyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableSchemaPropertyResponse
@@ -968,6 +1006,8 @@ namespace CCC20200701
       Models::EnableSchemaPropertyResponse enableSchemaPropertyWithOptions(const Models::EnableSchemaPropertyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Enables a property in a specified schema.
+       *
        * @param request EnableSchemaPropertyRequest
        * @return EnableSchemaPropertyResponse
        */
@@ -1008,6 +1048,8 @@ namespace CCC20200701
       Models::EndConferenceResponse endConference(const Models::EndConferenceRequest &request);
 
       /**
+       * @summary Exports the IVR contact flow of a specified instance.
+       *
        * @param request ExportContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExportContactFlowResponse
@@ -1015,6 +1057,8 @@ namespace CCC20200701
       Models::ExportContactFlowResponse exportContactFlowWithOptions(const Models::ExportContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Exports the IVR contact flow of a specified instance.
+       *
        * @param request ExportContactFlowRequest
        * @return ExportContactFlowResponse
        */
@@ -1042,7 +1086,7 @@ namespace CCC20200701
       Models::ExportCustomCallTaggingResponse exportCustomCallTagging(const Models::ExportCustomCallTaggingRequest &request);
 
       /**
-       * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+       * @summary Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
        *
        * @param request ExportDoNotCallNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1095,7 @@ namespace CCC20200701
       Models::ExportDoNotCallNumbersResponse exportDoNotCallNumbersWithOptions(const Models::ExportDoNotCallNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+       * @summary Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
        *
        * @param request ExportDoNotCallNumbersRequest
        * @return ExportDoNotCallNumbersResponse
@@ -1093,7 +1137,7 @@ namespace CCC20200701
       Models::GetAccessChannelOfStagingResponse getAccessChannelOfStaging(const Models::GetAccessChannelOfStagingRequest &request);
 
       /**
-       * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+       * @summary Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
        *
        * @param request GetAudioFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1102,7 +1146,7 @@ namespace CCC20200701
       Models::GetAudioFileResponse getAudioFileWithOptions(const Models::GetAudioFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+       * @summary Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
        *
        * @param request GetAudioFileRequest
        * @return GetAudioFileResponse
@@ -1144,7 +1188,7 @@ namespace CCC20200701
       Models::GetAudioFileUploadParametersResponse getAudioFileUploadParameters(const Models::GetAudioFileUploadParametersRequest &request);
 
       /**
-       * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+       * @summary Retrieves the details of a call specified by call ID for a specified instance.
        *
        * @param request GetCallDetailRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1153,7 +1197,7 @@ namespace CCC20200701
       Models::GetCallDetailRecordResponse getCallDetailRecordWithOptions(const Models::GetCallDetailRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+       * @summary Retrieves the details of a call specified by call ID for a specified instance.
        *
        * @param request GetCallDetailRecordRequest
        * @return GetCallDetailRecordResponse
@@ -1195,6 +1239,8 @@ namespace CCC20200701
       Models::GetCaseFileUploadUrlResponse getCaseFileUploadUrl(const Models::GetCaseFileUploadUrlRequest &request);
 
       /**
+       * @summary Retrieves the access URL for a media file in a chat message.
+       *
        * @param request GetChatMediaUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetChatMediaUrlResponse
@@ -1202,6 +1248,8 @@ namespace CCC20200701
       Models::GetChatMediaUrlResponse getChatMediaUrlWithOptions(const Models::GetChatMediaUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the access URL for a media file in a chat message.
+       *
        * @param request GetChatMediaUrlRequest
        * @return GetChatMediaUrlResponse
        */
@@ -1225,7 +1273,7 @@ namespace CCC20200701
       Models::GetChatRoutingProfileResponse getChatRoutingProfile(const Models::GetChatRoutingProfileRequest &request);
 
       /**
-       * @summary Retrieve a specified contact flow.
+       * @summary Retrieves a specified contact flow.
        *
        * @param request GetContactFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1234,7 +1282,7 @@ namespace CCC20200701
       Models::GetContactFlowResponse getContactFlowWithOptions(const Models::GetContactFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a specified contact flow.
+       * @summary Retrieves a specified contact flow.
        *
        * @param request GetContactFlowRequest
        * @return GetContactFlowResponse
@@ -1293,6 +1341,8 @@ namespace CCC20200701
       Models::GetDoNotCallFileUploadParametersResponse getDoNotCallFileUploadParameters(const Models::GetDoNotCallFileUploadParametersRequest &request);
 
       /**
+       * @summary Retrieves the upload parameters required to import a document.
+       *
        * @param request GetDocumentUploadParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDocumentUploadParametersResponse
@@ -1300,6 +1350,8 @@ namespace CCC20200701
       Models::GetDocumentUploadParametersResponse getDocumentUploadParametersWithOptions(const Models::GetDocumentUploadParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the upload parameters required to import a document.
+       *
        * @param request GetDocumentUploadParametersRequest
        * @return GetDocumentUploadParametersResponse
        */
@@ -1374,7 +1426,7 @@ namespace CCC20200701
       Models::GetHistoricalInstanceReportResponse getHistoricalInstanceReport(const Models::GetHistoricalInstanceReportRequest &request);
 
       /**
-       * @summary Retrieves the details of a Cloud Contact Center instance.
+       * @summary Queries the details of a Cloud Call Center instance based on the specified instance ID.
        *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1383,7 +1435,7 @@ namespace CCC20200701
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a Cloud Contact Center instance.
+       * @summary Queries the details of a Cloud Call Center instance based on the specified instance ID.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
@@ -1527,6 +1579,8 @@ namespace CCC20200701
       Models::GetRealtimeInstanceStatesResponse getRealtimeInstanceStates(const Models::GetRealtimeInstanceStatesRequest &request);
 
       /**
+       * @summary Retrieves the schema and its field definitions in a specified instance.
+       *
        * @param request GetSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSchemaResponse
@@ -1534,6 +1588,8 @@ namespace CCC20200701
       Models::GetSchemaResponse getSchemaWithOptions(const Models::GetSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the schema and its field definitions in a specified instance.
+       *
        * @param request GetSchemaRequest
        * @return GetSchemaResponse
        */
@@ -1574,7 +1630,7 @@ namespace CCC20200701
       Models::GetSummaryTemplateResponse getSummaryTemplate(const Models::GetSummaryTemplateRequest &request);
 
       /**
-       * @summary Retrieves information about a specific ticket.
+       * @summary Queries the details of a specified ticket.
        *
        * @param request GetTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1583,7 +1639,7 @@ namespace CCC20200701
       Models::GetTicketResponse getTicketWithOptions(const Models::GetTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about a specific ticket.
+       * @summary Queries the details of a specified ticket.
        *
        * @param request GetTicketRequest
        * @return GetTicketResponse
@@ -2400,6 +2456,27 @@ namespace CCC20200701
        * @return ListFlashSmsTemplatesResponse
        */
       Models::ListFlashSmsTemplatesResponse listFlashSmsTemplates(const Models::ListFlashSmsTemplatesRequest &request);
+
+      /**
+       * @summary 查询函数元数据
+       *
+       * @description 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+       *
+       * @param request ListFunctionMetasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFunctionMetasResponse
+       */
+      Models::ListFunctionMetasResponse listFunctionMetasWithOptions(const Models::ListFunctionMetasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询函数元数据
+       *
+       * @description 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+       *
+       * @param request ListFunctionMetasRequest
+       * @return ListFunctionMetasResponse
+       */
+      Models::ListFunctionMetasResponse listFunctionMetas(const Models::ListFunctionMetasRequest &request);
 
       /**
        * @summary Retrieves the records of group chat messages.

@@ -159,30 +159,30 @@ namespace Models
     protected:
       // The contact flow ID.
       shared_ptr<string> contactFlowId_ {};
-      // The time when the contact flow draft was created.
+      // The time when the contact flow draft was created. The format is YYYY-MM-DD HH:mm:ss.S.
       shared_ptr<string> createdTime_ {};
-      // IVR content.
+      // The IVR content.
       shared_ptr<string> definition_ {};
       // The version description.
       shared_ptr<string> description_ {};
-      // The draft ID. This is the ID of the editable draft version for the current contact flow.
+      // The draft ID, which is the ID of the editable draft version corresponding to the current contact flow.
       shared_ptr<string> draftId_ {};
-      // The agent login name of the current editor of this draft.
+      // The logon name of the agent currently editing this draft.
       shared_ptr<string> editor_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The IVR name.
       shared_ptr<string> name_ {};
-      // Indicates whether the contact flow is published.
-      // True: Published
-      // False: Not published
+      // Specifies whether the contact flow is published. Valid values:
+      // - True: Published.
+      // - False: Not published.
       shared_ptr<bool> published_ {};
-      // The flow type:<br>
-      // MAIN_FLOW (main flow)<br>
-      // SUB_FLOW (child flow)<br>
-      // SURVEY_FLOW (survey flow)<br><br><br>
+      // The flow type. Valid values:   
+      // - MAIN_FLOW: main flow  
+      // - SUB_FLOW: sub-flow  
+      // - SURVEY_FLOW: satisfaction survey flow
       shared_ptr<string> type_ {};
-      // The time when the contact flow was last updated.
+      // The time of the last modification. The format is YYYY-MM-DD HH:mm:ss.S.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -228,7 +228,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The data.
     shared_ptr<GetContactFlowResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

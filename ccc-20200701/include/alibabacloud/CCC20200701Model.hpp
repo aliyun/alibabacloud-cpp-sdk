@@ -436,6 +436,9 @@
 #include <alibabacloud/models/ListFlashSmsTemplatesRequest.hpp>
 #include <alibabacloud/models/ListFlashSmsTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListFlashSmsTemplatesResponse.hpp>
+#include <alibabacloud/models/ListFunctionMetasRequest.hpp>
+#include <alibabacloud/models/ListFunctionMetasResponseBody.hpp>
+#include <alibabacloud/models/ListFunctionMetasResponse.hpp>
 #include <alibabacloud/models/ListGroupChatMessagesRequest.hpp>
 #include <alibabacloud/models/ListGroupChatMessagesResponseBody.hpp>
 #include <alibabacloud/models/ListGroupChatMessagesResponse.hpp>

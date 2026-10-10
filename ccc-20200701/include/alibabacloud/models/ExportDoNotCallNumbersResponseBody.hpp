@@ -89,13 +89,13 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The OSS download link for the exported file. The link is valid for 24 hours.
+    // The data, which is the OSS download URL for the export result. The URL is valid for 24 hours.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The response parameters.
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

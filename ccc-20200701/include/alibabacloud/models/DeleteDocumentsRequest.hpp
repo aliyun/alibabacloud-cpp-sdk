@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // A list of document IDs.
+    // The list of document IDs.
     shared_ptr<vector<string>> documentIds_ {};
     // The instance ID.
     // 
@@ -77,7 +77,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The schema ID.
+    // schema id
     // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};

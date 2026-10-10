@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The custom variables of the contact, represented as a JSON string.
       shared_ptr<string> customVariables_ {};
+      // The phone number of the contact.
       shared_ptr<string> phoneNumber_ {};
+      // The unique identifier of the contact in the customer\\"s business system.
       shared_ptr<string> referenceId_ {};
     };
 
@@ -132,6 +135,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
+    // The list of processing results for appending outbound call cases.
     shared_ptr<vector<AppendCasesResponseBody::Data>> data_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};

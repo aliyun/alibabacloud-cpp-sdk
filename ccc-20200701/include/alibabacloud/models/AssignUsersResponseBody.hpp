@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The returned data, which is the same as the workflow ID.
+    // The data. The content is the same as the workflow ID.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

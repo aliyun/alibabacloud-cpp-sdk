@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // Response code
+    // The response code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Additional information
+    // The additional information.
     shared_ptr<string> message_ {};
-    // Parameter information
+    // The parameter information.
     shared_ptr<vector<string>> params_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The agent ID. If you specify this parameter, the system routes the call to the specified agent. If you leave this parameter empty, the system routes the call to an idle agent in the skill group.
+      // The agent ID of the specified agent to which the call is transferred. If this field is not empty, the system transfers the call to the specified agent. If this field is empty, the system assigns the call to an idle agent in the skill group.
       shared_ptr<string> agentId_ {};
-      // The caller number. If you specify this parameter, the system preferentially uses the specified number to initiate a call. If you leave this parameter empty, the system automatically selects a number to initiate a call.
+      // The caller number. If this field is not empty, the outbound call system preferentially uses the provided number as the caller to initiate the call. If this field is empty, the system automatically selects a caller number.
       shared_ptr<string> caller_ {};
-      // Custom variables in the format of a JSON object. The object can contain up to 10 properties, and the name and value of each property are custom.
+      // The custom variables defined by the customer. The value is a JSON object that contains up to 10 properties. The name and value of each property are defined by the customer.
       shared_ptr<string> customVariables_ {};
-      // The masked callee number. If this parameter is not empty, the callee number will be masked. You can define the masking rule and specify the masked callee number. In some cases, you can only view the masked callee number instead of the real one.
+      // The masked callee number. If this field is not empty, the callee number is masked based on custom rules defined by the customer. You only need to enter the masked callee number. If a masked callee number is used, the masked number is displayed in certain scenarios, and the actual callee number cannot be viewed.
       shared_ptr<string> maskedCallee_ {};
       // The phone number of the contact.
       shared_ptr<string> phoneNumber_ {};
-      // The business ID, which is a custom ID from your business system, used for integration purposes.
+      // The business ID, which is the identifier in the customer\\"s business system and is used for integration scenarios.
       shared_ptr<string> referenceId_ {};
     };
 
@@ -148,7 +148,7 @@ namespace Models
 
 
   protected:
-    // The predictive campaign ID.
+    // The predictive outbound campaign ID.
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
@@ -156,7 +156,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of cases to be added.
+    // The list of outbound call cases in the request body.
     shared_ptr<vector<AppendCasesRequest::Body>> body_ {};
   };
 

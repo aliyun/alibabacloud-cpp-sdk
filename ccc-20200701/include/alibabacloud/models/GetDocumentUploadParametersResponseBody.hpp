@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // AccessKeyId used for signing
+      // The AccessKey ID used for signing.
       shared_ptr<string> accessKeyId_ {};
-      // Expired At
+      // The expiration time. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> expireTime_ {};
-      // OSS file path
+      // The OSS file path.
       shared_ptr<string> filePath_ {};
-      // OSS host
+      // oss host
       shared_ptr<string> host_ {};
-      // Signature policy
+      // The signature policy.
       shared_ptr<string> policy_ {};
-      // Signature
+      // The signature.
       shared_ptr<string> signature_ {};
     };
 
@@ -177,17 +177,17 @@ namespace Models
 
 
   protected:
-    // Response code
+    // The response code.
     shared_ptr<string> code_ {};
-    // Data.
+    // The data.
     shared_ptr<GetDocumentUploadParametersResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Response parameters.
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -528,6 +528,8 @@ AddPhoneNumbersResponse Client::addPhoneNumbers(const AddPhoneNumbersRequest &re
 }
 
 /**
+ * @summary Adds a property to the schema of a specified instance.
+ *
  * @param tmpReq AddSchemaPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddSchemaPropertyResponse
@@ -575,6 +577,8 @@ AddSchemaPropertyResponse Client::addSchemaPropertyWithOptions(const AddSchemaPr
 }
 
 /**
+ * @summary Adds a property to the schema of a specified instance.
+ *
  * @param request AddSchemaPropertyRequest
  * @return AddSchemaPropertyResponse
  */
@@ -858,7 +862,7 @@ AnswerCallResponse Client::answerCall(const AnswerCallRequest &request) {
 }
 
 /**
- * @summary Adds cases to a predictive campaign in a specified instance.
+ * @summary Appends outbound call cases to a specified predictive outbound campaign under an instance.
  *
  * @param tmpReq AppendCasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +909,7 @@ AppendCasesResponse Client::appendCasesWithOptions(const AppendCasesRequest &tmp
 }
 
 /**
- * @summary Adds cases to a predictive campaign in a specified instance.
+ * @summary Appends outbound call cases to a specified predictive outbound campaign under an instance.
  *
  * @param request AppendCasesRequest
  * @return AppendCasesResponse
@@ -918,9 +922,9 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
- * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+ * @summary Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
  *
- * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+ * @description Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
  *
  * @param request AssignUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -973,9 +977,9 @@ AssignUsersResponse Client::assignUsersWithOptions(const AssignUsersRequest &req
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
- * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+ * @summary Imports one or more RAM users into a specified instance. After a successful import, the RAM users exist as agents in the instance.
  *
- * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
+ * @description Accounts with RAM permissions can query all Resource Access Management (RAM) users managed under the Alibaba Cloud account in the Resource Access Management (RAM) console. RAM console URL: https://ram.console.aliyun.com/users.
  *
  * @param request AssignUsersRequest
  * @return AssignUsersResponse
@@ -2012,6 +2016,8 @@ CreateCampaignResponse Client::createCampaign(const CreateCampaignRequest &reque
 }
 
 /**
+ * @summary Retrieves the upload URL for chat message media files.
+ *
  * @param request CreateChatMediaUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateChatMediaUrlResponse
@@ -2049,6 +2055,8 @@ CreateChatMediaUrlResponse Client::createChatMediaUrlWithOptions(const CreateCha
 }
 
 /**
+ * @summary Retrieves the upload URL for chat message media files.
+ *
  * @param request CreateChatMediaUrlRequest
  * @return CreateChatMediaUrlResponse
  */
@@ -2224,6 +2232,8 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary Creates a schema in a specified instance.
+ *
  * @param tmpReq CreateSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSchemaResponse
@@ -2275,6 +2285,8 @@ CreateSchemaResponse Client::createSchemaWithOptions(const CreateSchemaRequest &
 }
 
 /**
+ * @summary Creates a schema in a specified instance.
+ *
  * @param request CreateSchemaRequest
  * @return CreateSchemaResponse
  */
@@ -2594,7 +2606,7 @@ DeleteCallTagResponse Client::deleteCallTag(const DeleteCallTagRequest &request)
 }
 
 /**
- * @summary Deletes the specified contact flow.
+ * @summary Deletes a specified contact flow.
  *
  * @param request DeleteContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2633,7 +2645,7 @@ DeleteContactFlowResponse Client::deleteContactFlowWithOptions(const DeleteConta
 }
 
 /**
- * @summary Deletes the specified contact flow.
+ * @summary Deletes a specified contact flow.
  *
  * @param request DeleteContactFlowRequest
  * @return DeleteContactFlowResponse
@@ -2690,6 +2702,8 @@ DeleteCustomCallTaggingResponse Client::deleteCustomCallTagging(const DeleteCust
 }
 
 /**
+ * @summary Deletes a single document from a specified instance.
+ *
  * @param request DeleteDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDocumentResponse
@@ -2731,6 +2745,8 @@ DeleteDocumentResponse Client::deleteDocumentWithOptions(const DeleteDocumentReq
 }
 
 /**
+ * @summary Deletes a single document from a specified instance.
+ *
  * @param request DeleteDocumentRequest
  * @return DeleteDocumentResponse
  */
@@ -2740,6 +2756,8 @@ DeleteDocumentResponse Client::deleteDocument(const DeleteDocumentRequest &reque
 }
 
 /**
+ * @summary Deletes documents from a specified instance in batches.
+ *
  * @param tmpReq DeleteDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDocumentsResponse
@@ -2787,6 +2805,8 @@ DeleteDocumentsResponse Client::deleteDocumentsWithOptions(const DeleteDocuments
 }
 
 /**
+ * @summary Deletes documents from a specified instance in batches.
+ *
  * @param request DeleteDocumentsRequest
  * @return DeleteDocumentsResponse
  */
@@ -2796,6 +2816,8 @@ DeleteDocumentsResponse Client::deleteDocuments(const DeleteDocumentsRequest &re
 }
 
 /**
+ * @summary Deletes a specified Cloud Call Center instance.
+ *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteInstanceResponse
@@ -2825,6 +2847,8 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
+ * @summary Deletes a specified Cloud Call Center instance.
+ *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
  */
@@ -2834,6 +2858,8 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
+ * @summary Deletes a schema from the specified instance.
+ *
  * @param request DeleteSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteSchemaResponse
@@ -2871,6 +2897,8 @@ DeleteSchemaResponse Client::deleteSchemaWithOptions(const DeleteSchemaRequest &
 }
 
 /**
+ * @summary Deletes a schema from the specified instance.
+ *
  * @param request DeleteSchemaRequest
  * @return DeleteSchemaResponse
  */
@@ -2880,6 +2908,8 @@ DeleteSchemaResponse Client::deleteSchema(const DeleteSchemaRequest &request) {
 }
 
 /**
+ * @summary Deletes a property in a specified schema.
+ *
  * @param request DeleteSchemaPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteSchemaPropertyResponse
@@ -2921,6 +2951,8 @@ DeleteSchemaPropertyResponse Client::deleteSchemaPropertyWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a property in a specified schema.
+ *
  * @param request DeleteSchemaPropertyRequest
  * @return DeleteSchemaPropertyResponse
  */
@@ -3072,6 +3104,8 @@ DeleteTicketTemplateResponse Client::deleteTicketTemplate(const DeleteTicketTemp
 }
 
 /**
+ * @summary Disables a field in a specified schema.
+ *
  * @param request DisableSchemaPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableSchemaPropertyResponse
@@ -3113,6 +3147,8 @@ DisableSchemaPropertyResponse Client::disableSchemaPropertyWithOptions(const Dis
 }
 
 /**
+ * @summary Disables a field in a specified schema.
+ *
  * @param request DisableSchemaPropertyRequest
  * @return DisableSchemaPropertyResponse
  */
@@ -3218,6 +3254,8 @@ DiscardEditingContactFlowResponse Client::discardEditingContactFlow(const Discar
 }
 
 /**
+ * @summary Enables a property in a specified schema.
+ *
  * @param request EnableSchemaPropertyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableSchemaPropertyResponse
@@ -3259,6 +3297,8 @@ EnableSchemaPropertyResponse Client::enableSchemaPropertyWithOptions(const Enabl
 }
 
 /**
+ * @summary Enables a property in a specified schema.
+ *
  * @param request EnableSchemaPropertyRequest
  * @return EnableSchemaPropertyResponse
  */
@@ -3364,6 +3404,8 @@ EndConferenceResponse Client::endConference(const EndConferenceRequest &request)
 }
 
 /**
+ * @summary Exports the IVR contact flow of a specified instance.
+ *
  * @param request ExportContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExportContactFlowResponse
@@ -3401,6 +3443,8 @@ ExportContactFlowResponse Client::exportContactFlowWithOptions(const ExportConta
 }
 
 /**
+ * @summary Exports the IVR contact flow of a specified instance.
+ *
  * @param request ExportContactFlowRequest
  * @return ExportContactFlowResponse
  */
@@ -3456,7 +3500,7 @@ ExportCustomCallTaggingResponse Client::exportCustomCallTagging(const ExportCust
 }
 
 /**
- * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+ * @summary Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
  *
  * @param request ExportDoNotCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3495,7 +3539,7 @@ ExportDoNotCallNumbersResponse Client::exportDoNotCallNumbersWithOptions(const E
 }
 
 /**
- * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
+ * @summary Exports the list of do-not-call numbers filtered by the specified search conditions for a specified instance.
  *
  * @param request ExportDoNotCallNumbersRequest
  * @return ExportDoNotCallNumbersResponse
@@ -3598,7 +3642,7 @@ GetAccessChannelOfStagingResponse Client::getAccessChannelOfStaging(const GetAcc
 }
 
 /**
- * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+ * @summary Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
  *
  * @param request GetAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3633,7 +3677,7 @@ GetAudioFileResponse Client::getAudioFileWithOptions(const GetAudioFileRequest &
 }
 
 /**
- * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
+ * @summary Retrieves the information about an audio file for a specified audio resource ID in a specified instance.
  *
  * @param request GetAudioFileRequest
  * @return GetAudioFileResponse
@@ -3736,7 +3780,7 @@ GetAudioFileUploadParametersResponse Client::getAudioFileUploadParameters(const 
 }
 
 /**
- * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+ * @summary Retrieves the details of a call specified by call ID for a specified instance.
  *
  * @param request GetCallDetailRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3771,7 +3815,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 }
 
 /**
- * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
+ * @summary Retrieves the details of a call specified by call ID for a specified instance.
  *
  * @param request GetCallDetailRecordRequest
  * @return GetCallDetailRecordResponse
@@ -3874,6 +3918,8 @@ GetCaseFileUploadUrlResponse Client::getCaseFileUploadUrl(const GetCaseFileUploa
 }
 
 /**
+ * @summary Retrieves the access URL for a media file in a chat message.
+ *
  * @param request GetChatMediaUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetChatMediaUrlResponse
@@ -3911,6 +3957,8 @@ GetChatMediaUrlResponse Client::getChatMediaUrlWithOptions(const GetChatMediaUrl
 }
 
 /**
+ * @summary Retrieves the access URL for a media file in a chat message.
+ *
  * @param request GetChatMediaUrlRequest
  * @return GetChatMediaUrlResponse
  */
@@ -3962,7 +4010,7 @@ GetChatRoutingProfileResponse Client::getChatRoutingProfile(const GetChatRouting
 }
 
 /**
- * @summary Retrieve a specified contact flow.
+ * @summary Retrieves a specified contact flow.
  *
  * @param request GetContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4001,7 +4049,7 @@ GetContactFlowResponse Client::getContactFlowWithOptions(const GetContactFlowReq
 }
 
 /**
- * @summary Retrieve a specified contact flow.
+ * @summary Retrieves a specified contact flow.
  *
  * @param request GetContactFlowRequest
  * @return GetContactFlowResponse
@@ -4154,6 +4202,8 @@ GetDoNotCallFileUploadParametersResponse Client::getDoNotCallFileUploadParameter
 }
 
 /**
+ * @summary Retrieves the upload parameters required to import a document.
+ *
  * @param request GetDocumentUploadParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDocumentUploadParametersResponse
@@ -4191,6 +4241,8 @@ GetDocumentUploadParametersResponse Client::getDocumentUploadParametersWithOptio
 }
 
 /**
+ * @summary Retrieves the upload parameters required to import a document.
+ *
  * @param request GetDocumentUploadParametersRequest
  * @return GetDocumentUploadParametersResponse
  */
@@ -4392,7 +4444,7 @@ GetHistoricalInstanceReportResponse Client::getHistoricalInstanceReport(const Ge
 }
 
 /**
- * @summary Retrieves the details of a Cloud Contact Center instance.
+ * @summary Queries the details of a Cloud Call Center instance based on the specified instance ID.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4423,7 +4475,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary Retrieves the details of a Cloud Contact Center instance.
+ * @summary Queries the details of a Cloud Call Center instance based on the specified instance ID.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -4810,6 +4862,8 @@ GetRealtimeInstanceStatesResponse Client::getRealtimeInstanceStates(const GetRea
 }
 
 /**
+ * @summary Retrieves the schema and its field definitions in a specified instance.
+ *
  * @param request GetSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSchemaResponse
@@ -4847,6 +4901,8 @@ GetSchemaResponse Client::getSchemaWithOptions(const GetSchemaRequest &request, 
 }
 
 /**
+ * @summary Retrieves the schema and its field definitions in a specified instance.
+ *
  * @param request GetSchemaRequest
  * @return GetSchemaResponse
  */
@@ -4948,7 +5004,7 @@ GetSummaryTemplateResponse Client::getSummaryTemplate(const GetSummaryTemplateRe
 }
 
 /**
- * @summary Retrieves information about a specific ticket.
+ * @summary Queries the details of a specified ticket.
  *
  * @param request GetTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4983,7 +5039,7 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &request, 
 }
 
 /**
- * @summary Retrieves information about a specific ticket.
+ * @summary Queries the details of a specified ticket.
  *
  * @param request GetTicketRequest
  * @return GetTicketResponse
@@ -7747,6 +7803,64 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplatesWithOptions(const Lis
 ListFlashSmsTemplatesResponse Client::listFlashSmsTemplates(const ListFlashSmsTemplatesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFlashSmsTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询函数元数据
+ *
+ * @description 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+ *
+ * @param request ListFunctionMetasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFunctionMetasResponse
+ */
+ListFunctionMetasResponse Client::listFunctionMetasWithOptions(const ListFunctionMetasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHasHttpTrigger()) {
+    query["HasHttpTrigger"] = request.getHasHttpTrigger();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFunctionMetas"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFunctionMetasResponse>();
+}
+
+/**
+ * @summary 查询函数元数据
+ *
+ * @description 若RAM子账号需要调用该接口，则需具有“管理云呼叫中心(CCC)的权限”（AliyunCCCFullAccess）。
+ *
+ * @param request ListFunctionMetasRequest
+ * @return ListFunctionMetasResponse
+ */
+ListFunctionMetasResponse Client::listFunctionMetas(const ListFunctionMetasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFunctionMetasWithOptions(request, runtime);
 }
 
 /**

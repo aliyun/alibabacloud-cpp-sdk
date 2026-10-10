@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The predictive campaign ID.
+    // The predictive outbound campaign ID.
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of cases to be added.
+    // The list of outbound call cases in the request body.
     shared_ptr<string> bodyShrink_ {};
   };
 

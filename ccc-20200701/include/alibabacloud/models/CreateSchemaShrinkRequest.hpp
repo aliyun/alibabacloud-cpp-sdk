@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The schema ID.
+    // schema id
     shared_ptr<string> id_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of fields.
+    // The list of properties.
     shared_ptr<string> propertiesShrink_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

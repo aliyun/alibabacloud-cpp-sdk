@@ -230,17 +230,17 @@ namespace Models
     shared_ptr<string> name_ {};
     // The data type.
     shared_ptr<string> dataType_ {};
-    // The regular expression that is used for validation.
+    // The regular expression validation rule.
     shared_ptr<string> pattern_ {};
-    // The error message that is returned if the value does not match the regular expression.
+    // The error message for regular expression validation.
     shared_ptr<string> patternErrorMessage_ {};
     // The minimum length.
     shared_ptr<int32_t> minLength_ {};
     // The maximum length.
     shared_ptr<int32_t> maxLength_ {};
-    // The minimum value.
+    // The minimum numeric value.
     shared_ptr<double> minimum_ {};
-    // The maximum value.
+    // The maximum numeric value.
     shared_ptr<double> maximum_ {};
     // Indicates whether the field is required.
     shared_ptr<bool> required_ {};
@@ -252,17 +252,17 @@ namespace Models
     shared_ptr<bool> array_ {};
     // Indicates whether the field is read-only.
     shared_ptr<bool> readOnly_ {};
-    // The type of the editor.
+    // The editor type.
     shared_ptr<string> editorType_ {};
-    // The extended properties.
+    // The extended attributes.
     shared_ptr<string> attributes_ {};
-    // The display order.
+    // The display order in the list.
     shared_ptr<int32_t> displayOrder_ {};
-    // The time when the field was created.
+    // The creation time. Format: YYYY-MM-DD HH:mm:ss.S.
     shared_ptr<int64_t> createdTime_ {};
-    // The time when the field was last updated.
+    // The update time. Format: YYYY-MM-DD HH:mm:ss.S.
     shared_ptr<int64_t> updatedTime_ {};
-    // Creator
+    // The creator.
     shared_ptr<string> creator_ {};
   };
 

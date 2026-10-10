@@ -289,73 +289,64 @@ namespace Models
 
 
     protected:
-      // The ID of the assignee.
+      // The assignee ID.
       shared_ptr<string> assignee_ {};
-      // The name of the assignee.
+      // The assignee name.
       shared_ptr<string> assigneeName_ {};
       // The ticket category ID.
       shared_ptr<string> categoryId_ {};
-      // The name of the ticket category.
+      // The ticket category name.
       shared_ptr<string> categoryName_ {};
-      // The reason for closing the ticket.
-      // 
-      // - Completed
-      // 
-      // - Terminated
+      // The reason for closing the ticket. Valid values:
+      // - Completed: Completed.
+      // - Terminated: Canceled.
       shared_ptr<string> closeCode_ {};
-      // The comment.
+      // The handling comments.
       shared_ptr<string> comment_ {};
-      // The fields of the ticket.
+      // The ticket field information.
       shared_ptr<string> context_ {};
-      // The time when the ticket was created.
+      // The time when the ticket was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createdTime_ {};
-      // The ID of the creator.
+      // The creator ID.
       shared_ptr<string> creator_ {};
-      // The name of the creator.
+      // The creator name.
       shared_ptr<string> creatorName_ {};
-      // The ID of the current node.
+      // The current node ID.
       shared_ptr<string> currentTaskId_ {};
-      // The name of the current node.
+      // The current node name.
       shared_ptr<string> currentTaskName_ {};
-      // The time when the current node started.
+      // The start time of the current node. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> currentTaskStartTime_ {};
-      // The customer ID. This is the customer ID in the customer profile of Cloud Contact Center.
+      // The customer ID in the customer profile of Cloud Call Center.
       shared_ptr<string> customerId_ {};
-      // The time when the ticket processing was completed.
+      // The completion time of ticket processing. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The call ID.
       shared_ptr<string> jobId_ {};
-      // The source of the ticket.
-      // 
+      // The ticket source. Valid values:
       // - AUDIO: Voice service.
-      // 
-      // - CHAT: Web service.
-      // 
-      // - Console: Created in the ticket console.
+      // - CHAT: Online service.
+      // - Console: Created from the ticket console.
       shared_ptr<string> source_ {};
-      // The time when the ticket processing started.
+      // The start time of ticket processing. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The ticket status.
-      // 
-      // - Processing
-      // 
-      // - Withdrawal
-      // 
-      // - Rejected
-      // 
-      // - Closed
+      // The ticket status. Valid values:
+      // - Processing: Processing.
+      // - Withdrawal: Withdrawn.
+      // - Rejected: Rejected.
+      // - Closed: Closed.
       shared_ptr<string> state_ {};
       // The ticket template ID.
       shared_ptr<string> templateId_ {};
-      // The version of the ticket template.
+      // The ticket template version.
       shared_ptr<string> templateVersion_ {};
       // The ticket ID.
       shared_ptr<string> ticketId_ {};
       // The ticket title.
       shared_ptr<string> title_ {};
-      // The time of the last update.
+      // The time of the last update. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -416,7 +407,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The list of incorrect parameters.
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

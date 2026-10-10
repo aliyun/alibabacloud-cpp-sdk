@@ -214,19 +214,19 @@ namespace Models
 
 
     protected:
-      // Indicates whether the field is an array.
+      // Specifies whether the field is an array.
       shared_ptr<bool> array_ {};
-      // The extended properties.
+      // The extended attributes.
       shared_ptr<string> attributes_ {};
       // The data type.
       // 
       // This parameter is required.
       shared_ptr<string> dataType_ {};
-      // The description of the version.
+      // The version description.
       shared_ptr<string> description_ {};
-      // Indicates whether the field is disabled.
+      // Specifies whether the field is disabled.
       shared_ptr<bool> disabled_ {};
-      // The display name for agents.
+      // The display name of the agent.
       shared_ptr<string> displayName_ {};
       // The display order in the list.
       shared_ptr<int32_t> displayOrder_ {};
@@ -234,23 +234,23 @@ namespace Models
       shared_ptr<string> editorType_ {};
       // The maximum length.
       shared_ptr<int32_t> maxLength_ {};
-      // The maximum value of the number.
+      // The maximum numeric value.
       shared_ptr<double> maximum_ {};
       // The minimum length.
       shared_ptr<int32_t> minLength_ {};
-      // The minimum value of the number.
+      // The minimum numeric value.
       shared_ptr<double> minimum_ {};
       // The name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The regular expression that is used for validation.
+      // The regular expression validation rule.
       shared_ptr<string> pattern_ {};
-      // The error message that is returned when the regular expression fails to match.
+      // The error message for regular expression validation.
       shared_ptr<string> patternErrorMessage_ {};
-      // Indicates whether the field is read-only.
+      // Specifies whether the field is read-only.
       shared_ptr<bool> readOnly_ {};
-      // Indicates whether the field is required.
+      // Specifies whether the field is required.
       shared_ptr<bool> required_ {};
     };
 
@@ -296,13 +296,13 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
-    // The schema ID.
+    // schema id
     shared_ptr<string> id_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of fields.
+    // The list of properties.
     shared_ptr<vector<CreateSchemaRequest::Properties>> properties_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The response parameters.
     shared_ptr<vector<string>> params_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

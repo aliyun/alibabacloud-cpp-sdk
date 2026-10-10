@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Audio resource ID, the UUID of the audio file.
+    // The audio resource ID, which is the unique identifier of the audio file.
     // 
     // This parameter is required.
     shared_ptr<string> audioResourceId_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
