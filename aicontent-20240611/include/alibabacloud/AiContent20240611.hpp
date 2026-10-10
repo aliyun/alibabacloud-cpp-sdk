@@ -799,6 +799,24 @@ namespace AiContent20240611
       Models::ModelRouterBatchDisableMemberApiKeysResponse modelRouterBatchDisableMemberApiKeys(const string &id, const Models::ModelRouterBatchDisableMemberApiKeysRequest &request);
 
       /**
+       * @summary Renews member API keys in bulk in authorization management.
+       *
+       * @param request ModelRouterBatchRenewMemberApiKeysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchRenewMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchRenewMemberApiKeysResponse modelRouterBatchRenewMemberApiKeysWithOptions(const string &id, const Models::ModelRouterBatchRenewMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Renews member API keys in bulk in authorization management.
+       *
+       * @param request ModelRouterBatchRenewMemberApiKeysRequest
+       * @return ModelRouterBatchRenewMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchRenewMemberApiKeysResponse modelRouterBatchRenewMemberApiKeys(const string &id, const Models::ModelRouterBatchRenewMemberApiKeysRequest &request);
+
+      /**
        * @summary Batch resets member authorizations to inherit under a department in organization management.
        *
        * @param request ModelRouterBatchResetMemberAuthorizationRequest
@@ -2127,6 +2145,24 @@ namespace AiContent20240611
        * @return ModelRouterQueryUserListResponse
        */
       Models::ModelRouterQueryUserListResponse modelRouterQueryUserList(const Models::ModelRouterQueryUserListRequest &request);
+
+      /**
+       * @summary Manages authorization and renews an API key.
+       *
+       * @param request ModelRouterRenewApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterRenewApiKeyResponse
+       */
+      Models::ModelRouterRenewApiKeyResponse modelRouterRenewApiKeyWithOptions(const string &id, const Models::ModelRouterRenewApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manages authorization and renews an API key.
+       *
+       * @param request ModelRouterRenewApiKeyRequest
+       * @return ModelRouterRenewApiKeyResponse
+       */
+      Models::ModelRouterRenewApiKeyResponse modelRouterRenewApiKey(const string &id, const Models::ModelRouterRenewApiKeyRequest &request);
 
       /**
        * @summary Resets the authorization of a member to inherit from the organization.

@@ -250,29 +250,53 @@ namespace Models
 
 
   protected:
+    // The actual payment amount (after discount), rounded to 8 decimal places.
     shared_ptr<double> amount_ {};
+    // API Key ID
     shared_ptr<int64_t> apiKeyId_ {};
+    // The API key name.
     shared_ptr<string> apiKeyName_ {};
+    // The number of cache creation tokens (explicit cache writes).
     shared_ptr<double> cacheCreationTokens_ {};
+    // The number of tokens that hit the cache.
     shared_ptr<double> cachedTokens_ {};
+    // The department ID. A value of 0 indicates that no department is associated.
     shared_ptr<int64_t> clientId_ {};
+    // The department name.
     shared_ptr<string> clientName_ {};
+    // The discount coefficient. A value of 1.0 indicates no discount.
     shared_ptr<double> discount_ {};
+    // The number of input tokens, including cached tokens and cache creation tokens.
     shared_ptr<double> inputTokens_ {};
+    // The member user ID for a member row. The value is 0 for a department row.
     shared_ptr<int64_t> memberUserId_ {};
+    // The member name for a member row. The value is empty for a department row.
     shared_ptr<string> memberUserName_ {};
+    // The JSON of other metering field mapping, such as video duration and image count. Fields with a value of 0 are not included in the output.
     shared_ptr<string> metrics_ {};
+    // The model identifier.
     shared_ptr<string> modelCode_ {};
+    // The model ID.
     shared_ptr<int64_t> modelId_ {};
+    // The model name.
     shared_ptr<string> modelName_ {};
+    // The model symbol (provider identifier).
     shared_ptr<string> modelSymbol_ {};
+    // The model type.
     shared_ptr<string> modelType_ {};
+    // The model version number.
     shared_ptr<int32_t> modelVersion_ {};
+    // The number of output tokens.
     shared_ptr<double> outputTokens_ {};
+    // The number of reasoning tokens.
     shared_ptr<double> reasoningTokens_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // The request time as a UNIX timestamp in seconds.
     shared_ptr<int64_t> requestTime_ {};
+    // The total number of tokens.
     shared_ptr<double> totalTokens_ {};
+    // The raw JSON of the usage details.
     shared_ptr<string> usageDetail_ {};
   };
 

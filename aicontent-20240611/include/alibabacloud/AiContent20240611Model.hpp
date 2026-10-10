@@ -208,6 +208,9 @@
 #include <alibabacloud/models/ModelRouterBatchDisableMemberApiKeysRequest.hpp>
 #include <alibabacloud/models/ModelRouterBatchDisableMemberApiKeysResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterBatchDisableMemberApiKeysResponse.hpp>
+#include <alibabacloud/models/ModelRouterBatchRenewMemberApiKeysRequest.hpp>
+#include <alibabacloud/models/ModelRouterBatchRenewMemberApiKeysResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterBatchRenewMemberApiKeysResponse.hpp>
 #include <alibabacloud/models/ModelRouterBatchResetMemberAuthorizationRequest.hpp>
 #include <alibabacloud/models/ModelRouterBatchResetMemberAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterBatchResetMemberAuthorizationResponse.hpp>
@@ -410,6 +413,9 @@
 #include <alibabacloud/models/ModelRouterQueryUserListRequest.hpp>
 #include <alibabacloud/models/ModelRouterQueryUserListResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterQueryUserListResponse.hpp>
+#include <alibabacloud/models/ModelRouterRenewApiKeyRequest.hpp>
+#include <alibabacloud/models/ModelRouterRenewApiKeyResponseBody.hpp>
+#include <alibabacloud/models/ModelRouterRenewApiKeyResponse.hpp>
 #include <alibabacloud/models/ModelRouterResetMemberAuthorizationRequest.hpp>
 #include <alibabacloud/models/ModelRouterResetMemberAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/ModelRouterResetMemberAuthorizationResponse.hpp>

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The department ID.
     shared_ptr<int64_t> clientId_ {};
+    // The role code.
     shared_ptr<string> roleCode_ {};
   };
 

@@ -2666,6 +2666,55 @@ ModelRouterBatchDisableMemberApiKeysResponse Client::modelRouterBatchDisableMemb
 }
 
 /**
+ * @summary Renews member API keys in bulk in authorization management.
+ *
+ * @param request ModelRouterBatchRenewMemberApiKeysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchRenewMemberApiKeysResponse
+ */
+ModelRouterBatchRenewMemberApiKeysResponse Client::modelRouterBatchRenewMemberApiKeysWithOptions(const string &id, const ModelRouterBatchRenewMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
+  if (!!request.hasUserIds()) {
+    body["userIds"] = request.getUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchRenewMemberApiKeys"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/member-apikeys/renew")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchRenewMemberApiKeysResponse>();
+}
+
+/**
+ * @summary Renews member API keys in bulk in authorization management.
+ *
+ * @param request ModelRouterBatchRenewMemberApiKeysRequest
+ * @return ModelRouterBatchRenewMemberApiKeysResponse
+ */
+ModelRouterBatchRenewMemberApiKeysResponse Client::modelRouterBatchRenewMemberApiKeys(const string &id, const ModelRouterBatchRenewMemberApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchRenewMemberApiKeysWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary Batch resets member authorizations to inherit under a department in organization management.
  *
  * @param request ModelRouterBatchResetMemberAuthorizationRequest
@@ -6924,6 +6973,51 @@ ModelRouterQueryUserListResponse Client::modelRouterQueryUserList(const ModelRou
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryUserListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Manages authorization and renews an API key.
+ *
+ * @param request ModelRouterRenewApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterRenewApiKeyResponse
+ */
+ModelRouterRenewApiKeyResponse Client::modelRouterRenewApiKeyWithOptions(const string &id, const ModelRouterRenewApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterRenewApiKey"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/apikeys/" , Darabonba::Encode::Encoder::percentEncode(id) , "/renew")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterRenewApiKeyResponse>();
+}
+
+/**
+ * @summary Manages authorization and renews an API key.
+ *
+ * @param request ModelRouterRenewApiKeyRequest
+ * @return ModelRouterRenewApiKeyResponse
+ */
+ModelRouterRenewApiKeyResponse Client::modelRouterRenewApiKey(const string &id, const ModelRouterRenewApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterRenewApiKeyWithOptions(id, request, headers, runtime);
 }
 
 /**
