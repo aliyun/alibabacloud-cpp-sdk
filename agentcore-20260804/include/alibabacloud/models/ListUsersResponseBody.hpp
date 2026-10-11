@@ -168,23 +168,23 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
-      // The authentication method of the user. A value of password indicates local password authentication in the workspace. Values of dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
+      // The authentication method of the user. A value of password indicates that the user is authenticated by using the local password of the workspace. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
       shared_ptr<string> authMethod_ {};
-      // The creation time in UTC, formatted in RFC 3339.
+      // The creation time. The time is displayed in UTC and follows the RFC 3339 format.
       shared_ptr<string> createdAt_ {};
-      // The display name of the user. The value is 1 to 32 characters in length.
+      // The display name of the user. The name must be 1 to 32 characters in length.
       shared_ptr<string> displayName_ {};
-      // The email address of the user. The value can be up to 256 characters in length.
+      // The email address of the user. The email address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
-      // The username. The value must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The value is 1 to 32 characters in length.
+      // The username. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
-      // The remarks of the user. The value can be up to 1024 characters in length.
+      // The note of the user. The note can be up to 1,024 characters in length.
       shared_ptr<string> note_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The user status. Valid values: Creating, Active, Updating, Deleting, Failed, DeleteFailed.
+      // The status of the user. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
       shared_ptr<string> status_ {};
-      // The time of the last modification in UTC, formatted in RFC 3339.
+      // The time of the last modification. The time is displayed in UTC and follows the RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -263,19 +263,19 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of users.
+    // The user list.
     shared_ptr<vector<ListUsersResponseBody::Items>> items_ {};
-    // The maximum number of records per page that takes effect for this query.
+    // The maximum number of records per page that takes effect in the current query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. If the request fails, an error description is returned.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This value is empty if no more pages are available.
+    // The cursor for the next page. If no next page exists, this parameter is empty.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of users that match the query conditions.
+    // The total number of users that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

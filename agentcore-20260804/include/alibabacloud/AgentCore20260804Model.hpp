@@ -32,6 +32,10 @@
 #include <alibabacloud/models/CreateCredentialShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCredentialResponseBody.hpp>
 #include <alibabacloud/models/CreateCredentialResponse.hpp>
+#include <alibabacloud/models/CreateCustomAgentRequest.hpp>
+#include <alibabacloud/models/CreateCustomAgentShrinkRequest.hpp>
+#include <alibabacloud/models/CreateCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateCustomAgentResponse.hpp>
 #include <alibabacloud/models/CreateExternalAgentRequest.hpp>
 #include <alibabacloud/models/CreateExternalAgentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateExternalAgentResponseBody.hpp>
@@ -91,6 +95,9 @@
 #include <alibabacloud/models/DeleteCredentialRequest.hpp>
 #include <alibabacloud/models/DeleteCredentialResponseBody.hpp>
 #include <alibabacloud/models/DeleteCredentialResponse.hpp>
+#include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
+#include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
 #include <alibabacloud/models/DeleteExternalAgentRequest.hpp>
 #include <alibabacloud/models/DeleteExternalAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteExternalAgentResponse.hpp>
@@ -159,6 +166,9 @@
 #include <alibabacloud/models/GetCredentialRequest.hpp>
 #include <alibabacloud/models/GetCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetCredentialResponse.hpp>
+#include <alibabacloud/models/GetCustomAgentRequest.hpp>
+#include <alibabacloud/models/GetCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/GetCustomAgentResponse.hpp>
 #include <alibabacloud/models/GetExternalAgentRequest.hpp>
 #include <alibabacloud/models/GetExternalAgentResponseBody.hpp>
 #include <alibabacloud/models/GetExternalAgentResponse.hpp>
@@ -243,6 +253,9 @@
 #include <alibabacloud/models/ListCredentialsRequest.hpp>
 #include <alibabacloud/models/ListCredentialsResponseBody.hpp>
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
+#include <alibabacloud/models/ListCustomAgentsRequest.hpp>
+#include <alibabacloud/models/ListCustomAgentsResponseBody.hpp>
+#include <alibabacloud/models/ListCustomAgentsResponse.hpp>
 #include <alibabacloud/models/ListExternalAgentsRequest.hpp>
 #include <alibabacloud/models/ListExternalAgentsResponseBody.hpp>
 #include <alibabacloud/models/ListExternalAgentsResponse.hpp>
@@ -349,6 +362,10 @@
 #include <alibabacloud/models/UpdateCredentialShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCredentialResponseBody.hpp>
 #include <alibabacloud/models/UpdateCredentialResponse.hpp>
+#include <alibabacloud/models/UpdateCustomAgentRequest.hpp>
+#include <alibabacloud/models/UpdateCustomAgentShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateCustomAgentResponseBody.hpp>
+#include <alibabacloud/models/UpdateCustomAgentResponse.hpp>
 #include <alibabacloud/models/UpdateExternalAgentRequest.hpp>
 #include <alibabacloud/models/UpdateExternalAgentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateExternalAgentResponseBody.hpp>
