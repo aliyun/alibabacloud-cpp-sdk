@@ -149,19 +149,20 @@ namespace Models
 
 
   protected:
+    // The AB test ID.
     shared_ptr<string> abTestId_ {};
-    // The left boundary of the start time range.
+    // The lower bound of the start time range.
     shared_ptr<int64_t> beginTimeLeftRange_ {};
-    // The right boundary of the start time range.
+    // The upper bound of the start time range.
     shared_ptr<int64_t> beginTimeRightRange_ {};
     // The calling number.
     shared_ptr<string> callingNumber_ {};
     shared_ptr<int32_t> debugConversation_ {};
-    // The instance list.
+    // The instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the session is in a sandbox environment.
+    // Specifies whether the sandbox mode is enabled.
     shared_ptr<string> isSandBox_ {};
     // The page number.
     // 
@@ -171,13 +172,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition.
+    // The query conditions.
     shared_ptr<string> query_ {};
     // The result.
     shared_ptr<int64_t> result_ {};
-    // The left boundary of the rounds query range.
+    // The lower bound of the conversation rounds range.
     shared_ptr<int32_t> roundsLeftRange_ {};
-    // The right boundary of the rounds query range.
+    // The upper bound of the conversation rounds range.
     shared_ptr<int32_t> roundsRightRange_ {};
   };
 

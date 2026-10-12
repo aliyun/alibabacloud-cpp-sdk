@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SandBox, sandBox_);
         DARABONBA_PTR_TO_JSON(SkillGroup, skillGroup_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        DARABONBA_PTR_TO_JSON(Voice, voice_);
       };
       friend void from_json(const Darabonba::Json& j, Conversations& obj) { 
         DARABONBA_PTR_FROM_JSON(AbTestName, abTestName_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SandBox, sandBox_);
         DARABONBA_PTR_FROM_JSON(SkillGroup, skillGroup_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(Voice, voice_);
       };
       Conversations() = default ;
       Conversations(const Conversations &) = default ;
@@ -86,7 +88,7 @@ namespace Models
       virtual bool empty() const override { return this->abTestName_ == nullptr
         && this->calledNumber_ == nullptr && this->callingNumber_ == nullptr && this->conversationId_ == nullptr && this->dsReport_ == nullptr && this->dsReportTitles_ == nullptr
         && this->endReason_ == nullptr && this->endTime_ == nullptr && this->hasLastPlaybackCompleted_ == nullptr && this->hasToAgent_ == nullptr && this->rounds_ == nullptr
-        && this->sandBox_ == nullptr && this->skillGroup_ == nullptr && this->startTime_ == nullptr; };
+        && this->sandBox_ == nullptr && this->skillGroup_ == nullptr && this->startTime_ == nullptr && this->voice_ == nullptr; };
       // abTestName Field Functions 
       bool hasAbTestName() const { return this->abTestName_ != nullptr;};
       void deleteAbTestName() { this->abTestName_ = nullptr;};
@@ -187,6 +189,13 @@ namespace Models
       inline Conversations& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+      // voice Field Functions 
+      bool hasVoice() const { return this->voice_ != nullptr;};
+      void deleteVoice() { this->voice_ = nullptr;};
+      inline string getVoice() const { DARABONBA_PTR_GET_DEFAULT(voice_, "") };
+      inline Conversations& setVoice(string voice) { DARABONBA_PTR_SET_VALUE(voice_, voice) };
+
+
     protected:
       shared_ptr<string> abTestName_ {};
       // The called number.
@@ -197,33 +206,35 @@ namespace Models
       shared_ptr<string> conversationId_ {};
       shared_ptr<string> dsReport_ {};
       shared_ptr<vector<string>> dsReportTitles_ {};
-      // The reason for hanging up. Valid values:
-      //      1: Normal completion.
-      //      2: Bot hung up after unrecognized input.
-      //      3: Hung up due to silence timeout.
-      //      4: User hung up after unrecognized input.
-      //      5: User hung up without reason.
-      //      6: Transferred to human agent due to intent match.
-      //      7: Transferred to human agent due to unrecognized input.
-      //      8: No interaction from the user side.
-      //      9: System exception interruption.
-      //      10: Transferred to IVR due to intent match.
-      //      11: Transferred to IVR due to unrecognized input.
+      // The reason for ending the session. Valid values:
+      // 1. Normal completion.
+      // 2. Hangup by the bot after unrecognized input.
+      // 3. Hangup due to silence timeout.
+      // 4. Hangup by the user after unrecognized input.
+      // 5. Hangup by the user without a reason.
+      // 6. Transfer to a human agent due to matched intent.
+      // 7. Transfer to a human agent after unrecognized input.
+      // 8. No interaction from the user.
+      // 9. Interruption due to a system exception.
+      // 10. Transfer to IVR due to matched intent.
+      // 11. Transfer to IVR after unrecognized input.
       shared_ptr<int32_t> endReason_ {};
       // The end time.
       shared_ptr<int64_t> endTime_ {};
-      // Indicates whether the last playback was completed when the session ended.
+      // Specifies whether the last prompt was fully played before the session ended.
       shared_ptr<bool> hasLastPlaybackCompleted_ {};
-      // Indicates whether the session was transferred to a human agent.
+      // Specifies whether the session was transferred to a human agent.
       shared_ptr<bool> hasToAgent_ {};
       // The number of conversation rounds.
       shared_ptr<int32_t> rounds_ {};
-      // Indicates whether the session is in a sandbox environment.
+      // Specifies whether the sandbox mode is enabled.
       shared_ptr<bool> sandBox_ {};
       // The skill group.
       shared_ptr<string> skillGroup_ {};
       // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // The text-to-speech (TTS) voice used for the call.
+      shared_ptr<string> voice_ {};
     };
 
     virtual bool empty() const override { return this->conversations_ == nullptr
