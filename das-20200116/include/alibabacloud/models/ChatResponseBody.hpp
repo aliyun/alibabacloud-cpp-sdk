@@ -249,11 +249,11 @@ namespace Models
     shared_ptr<string> agentId_ {};
     // The response content.
     shared_ptr<string> content_ {};
-    // Indicates whether the content is incremental.
+    // Specifies whether the content is incremental.
     shared_ptr<string> delta_ {};
-    // The step type of STEP_STARTED, such as task.
+    // The step type for STEP_STARTED, such as task.
     shared_ptr<string> kind_ {};
-    // The display name of the sub-agent for STEP_STARTED.
+    // The display name of the child agent for STEP_STARTED.
     shared_ptr<string> label_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};
@@ -271,17 +271,17 @@ namespace Models
     shared_ptr<string> runId_ {};
     // The execution step name.
     shared_ptr<string> stepName_ {};
-    // The step status of STEP_FINISHED, such as completed.
+    // The step status for STEP_FINISHED, such as completed.
     shared_ptr<string> stepStatus_ {};
-    // The callback utility class.
+    // The callback tool class.
     shared_ptr<string> taskTrackerId_ {};
     // The thread ID.
     shared_ptr<string> threadId_ {};
     // The event timestamp.
     shared_ptr<int64_t> timestamp_ {};
-    // The error that occurred during tool invocation.
+    // The error that occurred when invoking the tool.
     shared_ptr<string> toolCallError_ {};
-    // The tool invocation ID.
+    // The tool call ID.
     shared_ptr<string> toolCallId_ {};
     // The tool name.
     shared_ptr<string> toolCallName_ {};

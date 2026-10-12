@@ -270,7 +270,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> asyncRequestId_ {};
-    // The IP address of the request client.
+    // The IP address of the client that sends the request.
     shared_ptr<string> clientIp_ {};
     // The client type.
     shared_ptr<string> clientUa_ {};
@@ -280,19 +280,19 @@ namespace Models
     shared_ptr<string> databaseName_ {};
     // The range of affected rows.
     shared_ptr<string> effectRowRange_ {};
-    // The end time of the alert log. The value is a UNIX timestamp in milliseconds.
+    // The end time of the alert logs. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The range of the execution time.
+    // The execution time range.
     shared_ptr<string> executeTimeRange_ {};
     // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
     // The network type. Valid values:
     // 
-    // - **default** (default): non-Alibaba Cloud service.
+    // - **default**: Non-Alibaba Cloud services. This is the default value.
     // 
-    // - **aliyun**: Alibaba Cloud service.
+    // - **aliyun**: Alibaba Cloud services.
     shared_ptr<string> ipType_ {};
-    // The language of the request and response. Default value: zh_cn. Valid values:
+    // The language type of the request and response messages. Default value: zh_cn. Valid values:
     // 
     // - zh_cn: Chinese.
     // - en_us: English.
@@ -304,13 +304,13 @@ namespace Models
     shared_ptr<string> logSource_ {};
     // The operation type.
     shared_ptr<string> operateType_ {};
-    // The key of the OSS storage object.
+    // The key of the OSS object.
     shared_ptr<string> ossObjectKey_ {};
-    // The maximum number of records per page. Default value: 10.
+    // The maximum number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the product to which the data asset belongs. Valid values: **RDS, PolarDB, PolarDB-X 2.0**, and others.
+    // The name of the product to which the data asset belongs. Valid values include **RDS**, **PolarDB**, and **PolarDB-X 2.0**.
     shared_ptr<string> productCode_ {};
-    // The ID that corresponds to the product name to which the data object belongs. Valid values:
+    // The ID of the product to which the data object belongs. Valid values:
     // 
     // - 3: ADB-MYSQL
     // - 5: RDS
@@ -320,17 +320,17 @@ namespace Models
     // - 11: MongoDB
     // - 25: Redis
     shared_ptr<int64_t> productId_ {};
-    // Specifies whether to use aggregate query.
+    // Specifies whether to perform an aggregate query.
     shared_ptr<bool> ruleAggQuery_ {};
     // The rule type.
     shared_ptr<string> ruleCategory_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The name of the audit policy.
+    // The name of the audit rule.
     shared_ptr<string> ruleName_ {};
     // The content of the SQL statement.
     shared_ptr<string> sqlText_ {};
-    // The start time of the alert log, in milliseconds.
+    // The start time of the alert logs. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The username.
     shared_ptr<string> userName_ {};

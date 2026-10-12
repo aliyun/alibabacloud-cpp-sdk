@@ -131,7 +131,7 @@ namespace Models
 
 
     protected:
-      // The end time of the analysis task range.
+      // The end time of the analysis task range. The time is a UNIX timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -139,13 +139,13 @@ namespace Models
       shared_ptr<int32_t> lockNumber_ {};
       // The node ID. This parameter is used for PolarDB for MySQL clusters.
       shared_ptr<string> nodeId_ {};
-      // The start time of the analysis task range.
+      // The start time of the analysis task range. The time is a UNIX timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
-      // - **SUCCESS**: The analysis is successful.
-      // - **FAILED**: The analysis failed or encountered an exception.
+      // - **SUCCESS**: The analysis was successful.
+      // - **FAILED**: The analysis is abnormal or failed.
       shared_ptr<string> status_ {};
-      // The full deadlock analysis task ID.
+      // The ID of the full deadlock analysis task.
       shared_ptr<string> taskId_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -201,9 +201,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request is successful.
+    // - **true**: The request was successful.
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

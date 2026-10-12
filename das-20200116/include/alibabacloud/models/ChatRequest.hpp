@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChatRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
+      DARABONBA_PTR_TO_JSON(ForwardedProps, forwardedProps_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(Resume, resume_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ChatRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
+      DARABONBA_PTR_FROM_JSON(ForwardedProps, forwardedProps_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(Resume, resume_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->message_ == nullptr && this->resume_ == nullptr && this->sessionId_ == nullptr && this->summary_ == nullptr; };
+        && this->forwardedProps_ == nullptr && this->message_ == nullptr && this->resume_ == nullptr && this->sessionId_ == nullptr && this->summary_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
     inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
     inline ChatRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+    // forwardedProps Field Functions 
+    bool hasForwardedProps() const { return this->forwardedProps_ != nullptr;};
+    void deleteForwardedProps() { this->forwardedProps_ = nullptr;};
+    inline string getForwardedProps() const { DARABONBA_PTR_GET_DEFAULT(forwardedProps_, "") };
+    inline ChatRequest& setForwardedProps(string forwardedProps) { DARABONBA_PTR_SET_VALUE(forwardedProps_, forwardedProps) };
 
 
     // message Field Functions 
@@ -75,13 +84,15 @@ namespace Models
 
 
   protected:
-    // The agent ID used for the service. This parameter is optional. You can specify an agent generated after DAS Agent is enabled or an agent that you manually created. If this parameter is not specified, the default agent is used.
+    // Optional. The agent ID used for the service. You can specify the agent generated after enabling the DAS Agent or a manually created agent. If not specified, the default agent is used.
     shared_ptr<string> agentId_ {};
+    // The forwarded properties.
+    shared_ptr<string> forwardedProps_ {};
     // The message.
     shared_ptr<string> message_ {};
     // The user interaction feedback.
     shared_ptr<string> resume_ {};
-    // The session ID in UUID string format. This parameter is optional. If this parameter is not specified, a new session is created by default. To maintain context across conversations, use the same session ID.
+    // Optional. The session ID, which is a UUID string. If not specified, a new session is created by default. The same session ID must be maintained for contextual conversations.
     shared_ptr<string> sessionId_ {};
     // Specifies whether to output summary information.
     shared_ptr<string> summary_ {};

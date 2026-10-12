@@ -139,30 +139,30 @@ namespace Models
 
 
     protected:
-      // The payment method.
+      // The billing method.
       shared_ptr<string> chargeType_ {};
-      // The Alibaba Cloud Managed Services instance ID.
+      // The instance ID of Alibaba Cloud Managed Services.
       shared_ptr<string> commodityInstanceId_ {};
-      // Indicates whether DAS Economy Edition is enabled.
+      // Indicates whether the DAS Economy Edition is enabled.
       shared_ptr<bool> ecoEnable_ {};
-      // Indicates whether the Alibaba Cloud Managed Services feature is enabled (including DAS Economy Edition).
+      // Indicates whether the Alibaba Cloud Managed Services feature (including DAS Economy Edition) is enabled.
       shared_ptr<bool> enable_ {};
       // The end time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // Indicates whether Alibaba Cloud Managed Services is enabled.
       shared_ptr<bool> opsEnable_ {};
-      // The order ID.
+      // The ID of the order.
       shared_ptr<int64_t> orderId_ {};
-      // The start time.
+      // The start time of Alibaba Cloud Managed Services. The format is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The task status. Valid values:
-      // - **INIT**: Pending scheduling.
+      // The status of the task. Valid values:
+      // - **INIT**: Pending.
       // - **RUNNING**: Running.
       // - **FAILED**: Failed.
       // - **CANCELED**: Canceled.
       // - **COMPLETED**: Completed.
       // 
-      // > When the task is in the **COMPLETED** state, you can view the task result.
+      // > When the task is in the **COMPLETED** state, you can view the task results.
       shared_ptr<string> status_ {};
     };
 
@@ -212,12 +212,12 @@ namespace Models
     shared_ptr<ModifyDasOpsConfigResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<string> success_ {};
   };
 

@@ -75,16 +75,16 @@ namespace Models
 
 
   protected:
-    // Optional. By default, the default Agent is used. You can also specify the Agent that was generated after DAS Agent was activated or that was manually created.
+    // Optional. By default, the default agent is used. You can also specify the ID of an agent that is generated after DAS Agent is activated or manually created.
     shared_ptr<string> agentId_ {};
-    // The end timestamp.
+    // The end time of the query. The time is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<string> groupId_ {};
     shared_ptr<string> reportType_ {};
-    // The start timestamp.
+    // The start time of the query. The time is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
