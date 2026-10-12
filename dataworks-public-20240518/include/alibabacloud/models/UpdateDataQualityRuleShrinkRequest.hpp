@@ -121,27 +121,27 @@ namespace Models
 
 
   protected:
-    // The sample verification settings.
+    // The sample check settings.
     shared_ptr<string> checkingConfigShrink_ {};
-    // The rule description. The maximum length is 500 characters.
+    // The description of the rule. It can be up to 500 characters in length.
     shared_ptr<string> description_ {};
     // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
-    // The list of issue handlers for data quality rule verification.
+    // The list of error handlers for quality rule check issues.
     shared_ptr<string> errorHandlersShrink_ {};
-    // The rule ID.
+    // The ID of the rule.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The rule name. The name can be a combination of digits, English letters, Chinese characters, and half-width or full-width punctuation. The maximum length is 255 characters.
+    // The name of the rule. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. It can be up to 255 characters in length.
     shared_ptr<string> name_ {};
-    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Settings page to obtain the workspace ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Configuration page to obtain the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The settings required for sample collection.
     shared_ptr<string> samplingConfigShrink_ {};
-    // The severity level of the rule for the business (corresponding to strong/weak rules on the page). Valid values:
+    // The severity level of the rule for the business, which corresponds to the strong or weak rule on the page. Valid values:
     // - Normal
     // - High
     shared_ptr<string> severity_ {};

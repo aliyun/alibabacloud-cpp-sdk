@@ -135,25 +135,25 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable lineage-based automatic backtracking.
+    // Specifies whether to enable automatic data lineage backtracking.
     shared_ptr<bool> autoTraceEnabled_ {};
-    // The data asset IDs.
+    // The list of unique IDs of the data assets. You can call the ListDataAssets operation to query the IDs of data assets to which tags can be attached.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> dataAssetIds_ {};
-    // The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
+    // The data asset type. Valid values:
+    // - DataWorks table (ACS::DataWorks::Table)
+    // - DataWorks scheduled task (ACS::DataWorks::Task)
     // 
     // This parameter is required.
     shared_ptr<string> dataAssetType_ {};
-    // The environment of the workspace to which the data asset belongs. Valid values:
-    // 
-    // - Dev: development environment
-    // 
-    // - Prod: production environment
+    // The workspace environment to which the data asset belongs. Valid values:
+    // - Dev (development environment)
+    // - Prod (production environment)
     shared_ptr<string> envType_ {};
-    // The DataWorks workspace ID.
+    // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The tags that you want to add to data assets.
+    // The list of data asset tags to attach.
     // 
     // This parameter is required.
     shared_ptr<vector<TagDataAssetsRequest::Tags>> tags_ {};

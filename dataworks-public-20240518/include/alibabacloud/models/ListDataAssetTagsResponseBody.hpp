@@ -172,31 +172,31 @@ namespace Models
 
 
       protected:
-        // The type of the tag.
-        // 
-        // Valid values:
-        // 
+        // The tag type.
         // - Normal
-        // 
         // - System
         shared_ptr<string> category_ {};
-        // The time when the tag was created.
+        // The creation time of the tag.
+        // 
+        // The value is a 13-digit number, such as `1735890003000`.
         shared_ptr<int64_t> createTime_ {};
         // The creator of the tag.
         shared_ptr<string> createUser_ {};
-        // The description of the tag.
+        // The description.
         shared_ptr<string> description_ {};
         // The tag key.
         shared_ptr<string> key_ {};
-        // The tag administrators.
+        // The list of tag administrators.
         shared_ptr<vector<string>> managers_ {};
-        // The time when the tag was last modified.
+        // The last modification time of the tag.
+        // 
+        // The value is a 13-digit number, such as `1735890003000`.
         shared_ptr<int64_t> modifyTime_ {};
         // The user who last modified the tag.
         shared_ptr<string> modifyUser_ {};
         // The type of the tag value.
         shared_ptr<string> valueType_ {};
-        // The tag values.
+        // The list of tag values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -233,13 +233,13 @@ namespace Models
 
 
     protected:
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<PagingInfo::DataAssetTags>> dataAssetTags_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -262,9 +262,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paginated query results for the tag list.
     shared_ptr<ListDataAssetTagsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

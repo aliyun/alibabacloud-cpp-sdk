@@ -126,23 +126,25 @@ namespace Models
 
 
   protected:
-    // The data asset IDs.
+    // The unique IDs of the data assets.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> dataAssetIds_ {};
-    // The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
+    // The type of the data asset. Valid values:
+    // - Data table (ACS::DataWorks::Table)
+    // - Scheduled task (ACS::DataWorks::Task)
     // 
     // This parameter is required.
     shared_ptr<string> dataAssetType_ {};
-    // The environment of the workspace to which the data asset belongs. Valid values:
+    // The workspace environment to which the data asset belongs. Valid values:
     // 
     // - Dev: development environment
     // 
     // - Prod: production environment
     shared_ptr<string> envType_ {};
-    // The DataWorks workspace ID.
+    // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The tags that you want to remove.
+    // The tags to disassociate.
     // 
     // This parameter is required.
     shared_ptr<vector<UnTagDataAssetsRequest::Tags>> tags_ {};

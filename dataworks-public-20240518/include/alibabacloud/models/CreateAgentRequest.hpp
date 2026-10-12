@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The list of project IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `PROJECT`.
+      // The list of visible project IDs. This parameter takes effect when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of user IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `USER`.
+      // The list of visible user IDs. This parameter takes effect when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -126,7 +126,7 @@ namespace Models
 
 
     protected:
-      // The McpServer name.
+      // The name of the McpServer.
       shared_ptr<string> name_ {};
     };
 
@@ -158,7 +158,7 @@ namespace Models
 
 
     protected:
-      // The skill name.
+      // The name of the skill.
       shared_ptr<string> name_ {};
     };
 
@@ -190,7 +190,7 @@ namespace Models
 
 
     protected:
-      // The Agent name.
+      // The name of the agent.
       shared_ptr<string> name_ {};
     };
 
@@ -287,17 +287,17 @@ namespace Models
 
 
   protected:
-    // The list of child Agents that can be called by this Agent.
+    // The list of child agents that can be called by this agent.
     shared_ptr<vector<CreateAgentRequest::CallableAgents>> callableAgents_ {};
-    // The description of the Agent.
+    // The description of the agent.
     shared_ptr<string> description_ {};
-    // The display name of the Agent.
+    // The display name of the agent.
     shared_ptr<string> displayName_ {};
-    // The extended metadata (key-value pairs).
+    // The extended metadata in key-value pairs.
     Darabonba::Json metadata_ {};
     // The model configuration.
     Darabonba::Json model_ {};
-    // The Agent name, which must be unique within the current account.
+    // The name of the agent. The name must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -309,10 +309,10 @@ namespace Models
     shared_ptr<vector<CreateAgentRequest::Tools>> tools_ {};
     // The visibility level.<br>
     // `TENANT`: Visible within the account.<br>
-    // `PROJECT`: Visible to a specified project.<br>
+    // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding field is determined by the Visibility parameter.
+    // The visibility scope. The corresponding field is used based on the visibility level.
     shared_ptr<CreateAgentRequest::VisibilityScope> visibilityScope_ {};
   };
 

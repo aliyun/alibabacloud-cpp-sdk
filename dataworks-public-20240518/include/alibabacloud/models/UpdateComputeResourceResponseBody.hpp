@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID. Used to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the computing resource was modified successfully:
-    // 
-    // - true: Yes
-    // 
-    // - false: No
+    // Specifies whether the compute resource is updated:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> success_ {};
   };
 

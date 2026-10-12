@@ -112,42 +112,33 @@ namespace Models
 
 
   protected:
-    // The earliest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
+    // The earliest start time of the data quality monitoring run.
     shared_ptr<int64_t> createTimeFrom_ {};
-    // The latest start time of a data quality scan run to include in the results. Specify the time as a UNIX timestamp in milliseconds.
+    // The latest start time of the data quality monitoring run.
     shared_ptr<int64_t> createTimeTo_ {};
-    // The ID of the data quality scan.
+    // The data quality monitoring ID.
     shared_ptr<int64_t> dataQualityScanId_ {};
-    // An object with advanced filter conditions. The following parameters are supported:
-    // 
-    // - `TaskInstanceId`: The ID of the task instance.
-    // 
-    // - `RunNumber`: The run number of the instance.
+    // The extension query filter. The following filter parameters are supported:
+    // - TaskInstanceId: the scheduled task instance ID.
+    // - RunNumber: the number of times the instance has run.
     shared_ptr<string> filterShrink_ {};
-    // The page number to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The sort field and order for the results. The format is `FieldName Order`. The default order is ascending (Asc). Supported fields:
-    // 
+    // The list of sort fields. Fields such as modification time and creation time are supported. The format is "SortField+SortOrder(Desc/Asc)". The default value is Asc, which can be omitted. Valid values for the sort field:
     // - CreateTime (Desc/Asc)
-    // 
     // - Id (Desc/Asc)
     shared_ptr<string> sortBy_ {};
-    // The status of the data quality scan run. Valid values:
-    // 
+    // The status of the data quality check result. Valid values:
     // - Pass
-    // 
     // - Running
-    // 
     // - Error
-    // 
     // - Fail
-    // 
     // - Warn
     shared_ptr<string> status_ {};
   };

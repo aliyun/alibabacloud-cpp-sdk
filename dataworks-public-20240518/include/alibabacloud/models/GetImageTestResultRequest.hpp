@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The test process ID.
+    // The ID of the test process.
     // 
     // This parameter is required.
     shared_ptr<string> processId_ {};

@@ -167,19 +167,24 @@ namespace Models
 
 
         protected:
-          // The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The cron expression. This parameter takes effect only when Type is set to Scheduler.
           shared_ptr<string> cron_ {};
-          // The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The expiration time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler.
+          // 
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
           shared_ptr<string> endTime_ {};
-          // The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
+          // The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler. Valid values:
+          // - Pause: Paused.
+          // - Skip: Dry run.
+          // - Normal: Normal execution.
           shared_ptr<string> recurrence_ {};
-          // The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+          // The effective period of the epoch trigger. This parameter takes effect only when Type is set to Scheduler.
+          // 
+          // The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
           shared_ptr<string> startTime_ {};
           // The trigger type. Valid values:
-          // 
-          // - Scheduler: scheduling cycle-based trigger
-          // 
-          // - Manual: manual trigger
+          // - Scheduler: Triggered by a scheduling cycle.
+          // - Manual: Triggered manually.
           shared_ptr<string> type_ {};
         };
 
@@ -221,9 +226,9 @@ namespace Models
 
 
         protected:
-          // The key of a tag.
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The value of a tag.
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -334,31 +339,35 @@ namespace Models
 
 
       protected:
-        // The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+        // The client unique code of the workflow, which is used to implement asynchronous processing and idempotence. If you do not specify this parameter when creating a workflow, the system automatically generates one and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting a resource, it must be the same as the client unique code used during creation.
         shared_ptr<string> clientUniqueCode_ {};
         // The creation time.
+        // 
+        // The value is a 13-digit timestamp, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The account ID of the creator.
+        // The account ID of the user who created the workflow.
         shared_ptr<string> createUser_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The environment of the workspace. Valid values: Prod (production) and Dev (development).
+        // The project environment.
         shared_ptr<string> envType_ {};
-        // The workflow ID.
+        // The unique identifier of the workflow.
         shared_ptr<int64_t> id_ {};
         // The modification time.
+        // 
+        // The value is a 13-digit timestamp, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the modifier.
+        // The account ID of the user who last modified the workflow.
         shared_ptr<string> modifyUser_ {};
         // The name.
         shared_ptr<string> name_ {};
         // The account ID of the owner.
         shared_ptr<string> owner_ {};
-        // The parameters.
+        // The list of parameters.
         shared_ptr<string> parameters_ {};
-        // The workspace ID.
+        // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The task tag.
+        // The task tags.
         shared_ptr<vector<Workflows::Tags>> tags_ {};
         // The trigger method.
         shared_ptr<Workflows::Trigger> trigger_ {};
@@ -401,9 +410,9 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
-      // The workflows.
+      // The list of workflows.
       shared_ptr<vector<PagingInfo::Workflows>> workflows_ {};
     };
 
@@ -426,9 +435,9 @@ namespace Models
 
 
   protected:
-    // Pagination information.
+    // The pagination information.
     shared_ptr<ListWorkflowsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

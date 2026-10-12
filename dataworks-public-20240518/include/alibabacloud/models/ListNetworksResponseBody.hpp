@@ -154,19 +154,19 @@ namespace Models
       protected:
         // The time when the network resource was created. The value is a 64-bit timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The ID of the user who creates the network resource.
+        // The ID of the user who created the network resource.
         shared_ptr<string> createUser_ {};
-        // The network ID.
+        // The ID of the network resource.
         shared_ptr<int64_t> id_ {};
-        // The ID of the serverless resource group.
+        // The unique identifier of the general resource group to which the network resource belongs.
         shared_ptr<string> resourceGroupId_ {};
-        // The security group ID.
+        // The security group ID of the network resource.
         shared_ptr<string> securityGroupId_ {};
-        // The status of the network resource. Valid values: Pending: waiting; Creating: being created; Running: running normally; Deleting: being deleted; Deleted: deleted.
+        // The current status of the network resource. A value of Pending indicates that the resource is waiting. A value of Creating indicates that the resource is being created. A value of Running indicates that the resource is running normally. A value of Deleting indicates that the resource is being deleted. A value of Deleted indicates that the resource is deleted.
         shared_ptr<string> status_ {};
-        // The ID of the virtual private cloud (VPC).
+        // The VPC ID of the network resource.
         shared_ptr<string> vpcId_ {};
-        // The VSwitch ID.
+        // The vSwitch ID of the network resource.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -203,13 +203,13 @@ namespace Models
 
 
     protected:
-      // The network resources of the serverless resource group.
+      // The list of detailed information about the network resources in the general resource group.
       shared_ptr<vector<PagingInfo::NetworkList>> networkList_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries that meet the conditions.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -241,9 +241,9 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListNetworksResponseBody::PagingInfo> pagingInfo_ {};
-    // The ID of the request. It is used to locate logs and troubleshoot problems.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

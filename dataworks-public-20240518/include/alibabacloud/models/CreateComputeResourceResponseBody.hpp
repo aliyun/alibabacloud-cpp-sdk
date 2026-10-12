@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the created compute resource.
     shared_ptr<int64_t> id_ {};
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

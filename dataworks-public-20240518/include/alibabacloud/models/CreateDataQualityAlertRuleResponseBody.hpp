@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom monitoring rule returned after the rule is created.
+    // The ID of the custom monitoring rule that is created.
     shared_ptr<int64_t> id_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

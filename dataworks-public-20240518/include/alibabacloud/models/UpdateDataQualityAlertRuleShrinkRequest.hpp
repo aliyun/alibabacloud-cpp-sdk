@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The alert condition of the data quality monitoring alert rule.
     shared_ptr<string> condition_ {};
-    // The alert rule ID.
+    // The ID of the alert rule.
     shared_ptr<int64_t> id_ {};
     // The alert notification configuration.
     shared_ptr<string> notificationShrink_ {};
-    // The project ID.
+    // The ID of the project.
     shared_ptr<int64_t> projectId_ {};
-    // The monitoring target of the data quality monitoring alert rule.
+    // The target of the data quality monitoring alert rule.
     shared_ptr<string> targetShrink_ {};
   };
 

@@ -146,18 +146,18 @@ namespace Models
         // The format is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
         // The object type. Valid values:
-        // - Task: node
-        // - TaskInstance: node instance
+        // - Task: task.
+        // - TaskInstance: task instance.
         shared_ptr<string> objectType_ {};
         // The operation content.
         shared_ptr<string> operationContent_ {};
         // The operation sequence number.
         shared_ptr<int64_t> operationSeq_ {};
-        // The ID of the node on which the operation was performed.
+        // The ID of the operated task.
         shared_ptr<int64_t> taskId_ {};
-        // The ID of the node instance on which the operation was performed.
+        // The ID of the operated task instance.
         shared_ptr<int64_t> taskInstanceId_ {};
-        // The account ID of the user who performed the operation.
+        // The account ID of the operator.
         shared_ptr<string> user_ {};
       };
 

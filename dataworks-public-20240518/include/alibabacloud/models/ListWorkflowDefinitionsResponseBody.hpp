@@ -143,7 +143,7 @@ namespace Models
 
 
           protected:
-            // Command
+            // The command.
             shared_ptr<string> command_ {};
           };
 
@@ -175,11 +175,11 @@ namespace Models
         protected:
           // The ID of the script.
           // 
-          // > This field is of type Long in SDK versions prior to 8.0.0, and of type String in SDK version 8.0.0 and later. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures due to the type change may occur only when upgrading the SDK across version 8.0.0, in which case users need to manually correct the data type.
+          // >Notice: Before SDK version 8.0.0, this field is of the Long type. In SDK version 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. However, if you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
           shared_ptr<string> id_ {};
-          // The script path.
+          // The path of the script.
           shared_ptr<string> path_ {};
-          // Runtime
+          // The runtime.
           shared_ptr<Script::Runtime> runtime_ {};
         };
 
@@ -254,17 +254,17 @@ namespace Models
       protected:
         // The timestamp when the workflow was created.
         shared_ptr<int64_t> createTime_ {};
-        // Description
+        // The description of the workflow.
         shared_ptr<string> description_ {};
         // The unique identifier of the workflow.
         // 
-        // > Prior to SDK version 8.0.0, this field is of type Long. In SDK version 8.0.0 and later, it is of type String. This change does not affect the normal use of the SDK. The parameter is returned based on the type defined in the SDK. Compilation failures caused by the type change may occur only when you upgrade the SDK across version 8.0.0. In this case, you must manually update the data type.
+        // >Notice: Before SDK version 8.0.0, this field is of the Long type. In SDK version 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. However, if you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
         shared_ptr<string> id_ {};
         // The timestamp when the workflow was last modified.
         shared_ptr<int64_t> modifyTime_ {};
         // The name of the workflow.
         shared_ptr<string> name_ {};
-        // Owner
+        // The owner of the workflow.
         shared_ptr<string> owner_ {};
         // The ID of the DataWorks workspace to which the workflow belongs.
         // 
@@ -272,12 +272,9 @@ namespace Models
         shared_ptr<int64_t> projectId_ {};
         // The script information.
         shared_ptr<WorkflowDefinitions::Script> script_ {};
-        // The type of the workflow.
-        // 
-        // Valid values:
+        // The type of the workflow. Valid values:
         // 
         // - CycleWorkflow
-        // 
         // - ManualWorkflow
         shared_ptr<string> type_ {};
       };
@@ -315,13 +312,13 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The number of the page to return.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries returned on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries that meet the conditions.
+      // The total number of entries that meet the specified conditions.
       shared_ptr<int32_t> totalCount_ {};
-      // The workflows.
+      // The list of queried workflows.
       shared_ptr<vector<PagingInfo::WorkflowDefinitions>> workflowDefinitions_ {};
     };
 
@@ -346,7 +343,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListWorkflowDefinitionsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

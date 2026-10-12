@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The ID of the created image.
     shared_ptr<string> imageId_ {};
-    // The request ID, which is used for locating logs and troubleshooting.
+    // The ID of the request. You can use the ID to query logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

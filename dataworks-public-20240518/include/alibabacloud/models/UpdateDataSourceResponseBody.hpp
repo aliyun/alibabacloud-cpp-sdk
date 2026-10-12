@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Whether the data source has been modified:
-    // 
-    // - true: Yes
-    // 
-    // - false: no
+    // Indicates whether the data source was updated. Valid values:
+    // - true: yes.
+    // - false: no.
     shared_ptr<bool> success_ {};
   };
 

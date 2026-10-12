@@ -128,29 +128,24 @@ namespace Models
     protected:
       // The time when the network resource was created. The value is a 64-bit timestamp.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the user who creates the network resource.
+      // The ID of the user who created the network resource.
       shared_ptr<string> createUser_ {};
-      // The network ID.
+      // The ID of the network resource.
       shared_ptr<int64_t> id_ {};
-      // The ID of the serverless resource group.
+      // The ID of the resource group to which the network resource belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The security group ID.
+      // The security group ID of the network resource.
       shared_ptr<string> securityGroupId_ {};
-      // The status of the network resource. Valid values:
-      // 
-      // - Pending: The network resource is waiting to be created.
-      // 
-      // - Creating: The network resource is being created.
-      // 
-      // - Running: The network resource is running as expected.
-      // 
-      // - Deleting: The network resource is being deleted.
-      // 
-      // - Deleted: The network resource is deleted.
+      // The current status of the network resource. Valid values:
+      // - Pending: The resource is pending.
+      // - Creating: The resource is being created.
+      // - Running: The resource is running.
+      // - Deleting: The resource is being deleted.
+      // - Deleted: The resource is deleted.
       shared_ptr<string> status_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC ID of the network resource.
       shared_ptr<string> vpcId_ {};
-      // The VSwitch ID.
+      // The vSwitch ID of the network resource.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -180,9 +175,9 @@ namespace Models
 
 
   protected:
-    // The information about the network resource.
+    // The details of the network resource.
     shared_ptr<GetNetworkResponseBody::Network> network_ {};
-    // The request ID.
+    // The ID of the request. You can use the ID to query logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

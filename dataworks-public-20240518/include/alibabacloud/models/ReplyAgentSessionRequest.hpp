@@ -97,11 +97,9 @@ namespace Models
 
 
       protected:
-        // Required and cannot be empty when Outcome is set to selected. Set this parameter to the optionId of an actual option in the event options. To submit an answer, typically select the option with kind=allow_once. Omit this parameter when Outcome is set to cancelled.
+        // Required and cannot be empty when Outcome is selected. It takes the optionId of the actual option in the options of the current event (when submitting an answer, the option with kind=allow_once is usually selected). Omit this parameter when Outcome is cancelled.
         shared_ptr<string> optionId_ {};
-        // The outcome type. Valid values:
-        // - selected: An option is selected.
-        // - cancelled: The user explicitly cancels the interaction.
+        // The processing type. selected indicates that an option is selected, and cancelled indicates that the user explicitly cancels the interaction.
         // 
         // This parameter is required.
         shared_ptr<string> outcome_ {};
@@ -142,17 +140,17 @@ namespace Models
 
 
     protected:
-      // The answers to ask_user_question. The key is a zero-based question index string, and the value is the answer text. Specify each answer for multiple questions. Omit this parameter for regular tool authorization or cancellation.
+      // The answers to ask_user_question. The key is a 0-based string index of the question, and the value is the answer text. Fill in each question one by one for multiple questions. Omit this parameter for general tool authorization or cancellation.
       shared_ptr<map<string, string>> answers_ {};
-      // The outcome of the user interaction.
+      // The processing result of the user for the current interaction.
       // 
       // This parameter is required.
       shared_ptr<Params::Outcome> outcome_ {};
-      // The ID of the current permission_request. Obtain this value from _qwen/notify.params.data.requestId in the original SSE. This is not a ToolCallId, HTTP RequestId, or the JSON-RPC Id of this request. The value cannot be . or ..
+      // The identifier of the current permission_request. It is obtained from _qwen/notify.params.data.requestId of the original SSE, and is not ToolCallId, HTTP RequestId, or the current JSON-RPC Id. It cannot be . or ..
       // 
       // This parameter is required.
       shared_ptr<string> permissionRequestId_ {};
-      // The LSP session ID. Use the SessionId returned by the create session operation, not the daemon internal session ID.
+      // The LSP session ID. Use the SessionId returned when creating the session, not the internal session ID of the daemon.
       // 
       // This parameter is required.
       shared_ptr<string> sessionId_ {};
@@ -184,11 +182,11 @@ namespace Models
 
 
   protected:
-    // The JSON-RPC correlation ID for this reply request. The response returns this value as-is. This is different from PermissionRequestId.
+    // The JSON-RPC correlation ID for the current reply request. It is returned as-is in the response and is different from PermissionRequestId.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The JSON-RPC protocol version. Fixed value: 2.0.
+    // The JSON-RPC protocol version. Fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The user interaction reply parameters.
     // 

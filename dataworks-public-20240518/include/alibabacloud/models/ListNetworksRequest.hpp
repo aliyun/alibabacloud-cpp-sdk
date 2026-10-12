@@ -70,22 +70,16 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group.
+    // The unique identifier of the general resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
-    // The fields used for sorting. Fields such as scheduled time and start time are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+    // The sort fields. Supports fields such as scheduled time and start time. The format is sort field + sort order (Desc/Asc), where Asc can be omitted. Valid values for sort fields:
     // 
-    // 
-    // 
-    // 
-    // - Id (Desc/Asc): the network ID
-    // - Status (Desc/Asc): the network status
-    // - CreateUser (Desc/Asc): the user who created the network
-    // - CreateTime (Desc/Asc): the time when the network was created
-    // 
-    // 
-    // 
+    // - Id (Desc/Asc): Network ID
+    // - Status (Desc/Asc): Network status
+    // - CreateUser (Desc/Asc): Creator
+    // - CreateTime (Desc/Asc): Creation time
     // 
     // Default value: CreateTime Asc.
     shared_ptr<string> sortBy_ {};

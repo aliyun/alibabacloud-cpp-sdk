@@ -97,7 +97,7 @@ namespace Models
       shared_ptr<vector<LineageRelationship>> lineageRelationships_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -131,9 +131,9 @@ namespace Models
   protected:
     // The pagination result.
     shared_ptr<ListLineageRelationshipsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. You can use this ID to locate and troubleshoot issues.
+    // The ID of the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

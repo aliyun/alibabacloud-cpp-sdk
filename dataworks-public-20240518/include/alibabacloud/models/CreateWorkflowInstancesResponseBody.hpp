@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The operation ID. You can use this value to call the GetCreateWorkflowInstancesResult operation to query the result of the creation operation.
+    // The operation ID. You can use this field to query the result of the creation operation by calling the GetCreateWorkflowInstancesResult API operation.
     shared_ptr<string> operationId_ {};
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The ID of the request. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

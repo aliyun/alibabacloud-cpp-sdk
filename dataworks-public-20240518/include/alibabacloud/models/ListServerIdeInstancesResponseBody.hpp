@@ -245,15 +245,15 @@ namespace Models
           protected:
             // The list of access types.
             shared_ptr<vector<string>> accessType_ {};
-            // The name of the target container.
+            // The name of the destination container.
             shared_ptr<string> containerName_ {};
             // The instance ID of the elastic IP address (EIP).
             shared_ptr<string> eipAllocationId_ {};
-            // Indicates whether the port forwarding configuration is enabled.
+            // Specifies whether the port forwarding configuration is enabled.
             shared_ptr<bool> enable_ {};
             // The mapped public port.
             shared_ptr<string> externalPort_ {};
-            // The target port in the instance container.
+            // The destination port in the instance container.
             shared_ptr<string> forwardPort_ {};
             // The name of the port forwarding configuration.
             shared_ptr<string> name_ {};
@@ -380,15 +380,15 @@ namespace Models
 
 
         protected:
-          // The custom mount properties of the dataset. The content is passed as mount options.
+          // The custom mount attributes of the dataset. The content is passed as mount options.
           shared_ptr<string> extOptions_ {};
           // The dataset identifier.
           shared_ptr<string> identifier_ {};
           // The mount path of the dataset in the instance.
           shared_ptr<string> mountPath_ {};
-          // Indicates whether the dataset is mounted in read-only mode.
+          // Specifies whether the dataset is mounted in read-only mode.
           shared_ptr<bool> readOnly_ {};
-          // The URI of the storage service directory for direct mounting.
+          // The URI of the storage service directory used for direct mounting.
           shared_ptr<string> uri_ {};
           // The dataset version number.
           shared_ptr<int32_t> version_ {};
@@ -525,14 +525,14 @@ namespace Models
               protected:
                 // The temporary AccessKey ID used for credential injection.
                 shared_ptr<string> accessKeyId_ {};
-                // The account ID of the delegated user.
+                // The account ID of the proxied user.
                 shared_ptr<string> id_ {};
                 // The temporary security token used for credential injection.
                 shared_ptr<string> securityToken_ {};
                 // The user type. Valid values:
-                // - customer: Alibaba Cloud account.
-                // - sub: RAM user.
-                // - AssumedRoleUser: RAM role.
+                // - customer: Alibaba Cloud account
+                // - sub: RAM user
+                // - AssumedRoleUser: RAM role
                 shared_ptr<string> type_ {};
               };
 
@@ -576,17 +576,17 @@ namespace Models
 
 
             protected:
-              // The Alibaba Cloud account ID of the entity that owns the role to be assumed.
+              // The Alibaba Cloud account ID of the entity to which the assumed role belongs.
               shared_ptr<string> assumeRoleFor_ {};
               // The policy used to further restrict the permissions of the role.
               shared_ptr<string> policy_ {};
               // The Alibaba Cloud Resource Name (ARN) of the RAM role.
               shared_ptr<string> roleArn_ {};
               // The role assumption type. Valid values:
-              // - service: assumed by a service.
-              // - user: assumed by a user.
+              // - service: assumed by a service
+              // - user: assumed by a user
               shared_ptr<string> roleType_ {};
-              // The information about the delegated user.
+              // The information about the proxied user.
               shared_ptr<Roles::UserInfo> userInfo_ {};
             };
 
@@ -618,11 +618,11 @@ namespace Models
           protected:
             // The identifier key of the credential configuration.
             shared_ptr<string> key_ {};
-            // The list of roles in the credential configuration.
+            // The roles in the credential configuration.
             shared_ptr<vector<Configs::Roles>> roles_ {};
             // The credential configuration type. Valid values:
-            // - Role: single role assumption.
-            // - RoleChain: role chain assumption.
+            // - Role: single role assumption
+            // - RoleChain: role chain assumption
             shared_ptr<string> type_ {};
           };
 
@@ -654,9 +654,9 @@ namespace Models
         protected:
           // The environment variable role key.
           shared_ptr<string> aliyunEnvRoleKey_ {};
-          // The list of credential configurations.
+          // The credential configurations.
           shared_ptr<vector<CredentialConfig::Configs>> configs_ {};
-          // Indicates whether credential injection is enabled.
+          // Specifies whether credential injection is enabled.
           shared_ptr<bool> enable_ {};
         };
 
@@ -800,39 +800,39 @@ namespace Models
       protected:
         // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The credential injection configuration of the instance. After this feature is enabled, you can use the default RAM role chain or specify a custom RAM role.
+        // The credential injection configuration of the instance. After this feature is enabled, you can use the default Resource Access Management (RAM) role chain or specify a custom RAM role.
         shared_ptr<Instances::CredentialConfig> credentialConfig_ {};
-        // The number of CUs used by the instance.
+        // The number of compute units (CUs) used by the instance.
         shared_ptr<int32_t> cu_ {};
-        // The list of datasets mounted to the instance.
+        // The datasets mounted to the instance.
         shared_ptr<vector<Instances::Datasets>> datasets_ {};
         // The reason why the instance entered the failed state.
         shared_ptr<string> failReason_ {};
         // The ID of the image used by the instance.
         shared_ptr<string> imageId_ {};
-        // The image name.
+        // The name of the image.
         shared_ptr<string> imageName_ {};
-        // The image URL.
+        // The URL of the image.
         shared_ptr<string> imageUrl_ {};
-        // The personal development environment instance ID.
+        // The ID of the personal development environment instance.
         shared_ptr<string> instanceId_ {};
-        // The personal development environment instance name.
+        // The name of the personal development environment instance.
         shared_ptr<string> instanceName_ {};
-        // The account ID of the user who owns the instance.
+        // The account ID of the user that owns the instance.
         shared_ptr<string> ownerId_ {};
         // The DataWorks workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // The DataWorks workspace name.
+        // The name of the DataWorks workspace.
         shared_ptr<string> projectName_ {};
         // The internal numeric ID of the resource group.
         shared_ptr<int64_t> resourceGroupId_ {};
-        // The resource group name.
+        // The name of the resource group.
         shared_ptr<string> resourceGroupName_ {};
         // The instance status. Valid values: Creating, Starting, Running, Stopping, Stopped, Updating, Deleting, DELETED, Failed, Arrearage, Saving, SaveFailed, and Saved.
         shared_ptr<string> status_ {};
         // The time when the instance was last updated. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
-        // The VPC configuration used by the instance.
+        // The virtual private cloud (VPC) configuration used by the instance.
         shared_ptr<Instances::UserVpc> userVpc_ {};
       };
 
@@ -873,9 +873,9 @@ namespace Models
       shared_ptr<vector<PagingInfo::Instances>> instances_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries returned on the current page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records that match the filter conditions.
+      // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -912,7 +912,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned in this response.
+    // The maximum number of entries returned in the current response.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};

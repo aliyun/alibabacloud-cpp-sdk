@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The network ID.
+    // The ID of the network resource.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

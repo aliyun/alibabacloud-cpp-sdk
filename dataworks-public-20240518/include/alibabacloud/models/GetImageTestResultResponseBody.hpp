@@ -121,32 +121,32 @@ namespace Models
       shared_ptr<string> imageId_ {};
       // The test result message.
       shared_ptr<string> message_ {};
-      // The operation time, represented as a 64-bit timestamp.
+      // The operation time. The value is a 64-bit timestamp.
       shared_ptr<int64_t> operateTime_ {};
-      // The process ID.
+      // The ID of the process.
       shared_ptr<string> processId_ {};
-      // The image publish status. Valid values:
+      // The publishing status of the image. Valid values:
       // - Untest: Not tested.
-      // - Testing: Testing in progress.
+      // - Testing: Testing.
       // - TestFailed: Test failed.
-      // - Unpublished: Not published.
-      // - Publishing: Publishing in progress.
+      // - Unpublished: Unpublished.
+      // - Publishing: Publishing.
       // - Published: Published.
-      // - PublishFailed: Publish failed.
-      // - Building: Building in progress.
+      // - PublishFailed: Publishing failed.
+      // - Building: Building.
       // - BuildSuccess: Build succeeded.
       // - BuildFailed: Build failed.
-      // - Accelerating: Acceleration in progress.
+      // - Accelerating: Accelerating.
       // - AccelerateSuccess: Acceleration succeeded.
       // - AccelerateFailed: Acceleration failed.
       shared_ptr<string> publishStage_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<int64_t> resourceGroupId_ {};
-      // The test process status. Valid values:
+      // The status of the test process. Valid values:
       // - running: Running.
       // - completed: Completed.
       // - failed: Failed.
-      // - cancelled: Cancelled.
+      // - cancelled: Canceled.
       shared_ptr<string> status_ {};
     };
 
@@ -176,9 +176,9 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The details of the image test result.
     shared_ptr<GetImageTestResultResponseBody::TestResult> testResult_ {};

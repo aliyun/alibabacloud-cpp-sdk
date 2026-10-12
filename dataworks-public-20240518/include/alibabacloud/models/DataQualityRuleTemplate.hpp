@@ -90,8 +90,11 @@ namespace Models
 
 
     protected:
+      // The name of the sampled metric.
       shared_ptr<string> metric_ {};
+      // The parameters required for sample collection.
       shared_ptr<string> metricParameters_ {};
+      // The runtime parameter setting statements inserted before the execution of the sampling statement. The maximum length is 1,000 characters. Currently, only MaxCompute is supported.
       shared_ptr<string> settingConfig_ {};
     };
 
@@ -133,7 +136,9 @@ namespace Models
 
 
     protected:
+      // The expression used to query referenced samples. Some threshold types require querying referenced samples and aggregating their values to derive the comparison threshold.
       shared_ptr<string> referencedSamplesFilter_ {};
+      // The threshold calculation method.
       shared_ptr<string> type_ {};
     };
 
@@ -201,13 +206,21 @@ namespace Models
 
 
   protected:
+    // The sample check settings.
     shared_ptr<DataQualityRuleTemplate::CheckingConfig> checkingConfig_ {};
+    // The globally unique code of the rule template.
     shared_ptr<string> code_ {};
+    // The category directory where the custom template is stored. Levels are separated by forward slashes.
     shared_ptr<string> directoryPath_ {};
+    // The name of the rule template.
     shared_ptr<string> name_ {};
+    // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
+    // The sample collection settings.
     shared_ptr<DataQualityRuleTemplate::SamplingConfig> samplingConfig_ {};
+    // The DataWorks tenant ID.
     shared_ptr<int64_t> tenantId_ {};
+    // The visibility scope of the template.
     shared_ptr<string> visibleScope_ {};
   };
 

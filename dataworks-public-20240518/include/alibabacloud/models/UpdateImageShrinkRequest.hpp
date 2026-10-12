@@ -141,12 +141,12 @@ namespace Models
 
   protected:
     // The image visibility. Valid values:
-    // - Public: visible to all users.
-    // - Private: visible only to the creator.
+    // - Public: Visible to all users.
+    // - Private: Visible only to the creator.
     shared_ptr<string> accessibility_ {};
-    // The VPC ID associated with the ACR instance. This parameter is required when referencing an ACR image.
+    // The ID of the VPC associated with the ACR instance. This parameter is required when you reference an ACR image.
     shared_ptr<string> acrAssociatedVpcId_ {};
-    // The Container Registry (ACR) instance ID. This parameter is required when referencing an ACR image.
+    // The ID of the Container Registry (ACR) instance. This parameter is required when you reference an ACR image.
     shared_ptr<string> acrInstanceId_ {};
     // The image build configuration.
     shared_ptr<string> buildConfigShrink_ {};
@@ -156,15 +156,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The image URI. This parameter is required when referencing an ACR image.
+    // The image URI. This parameter is required when you reference an ACR image.
     shared_ptr<string> imageUri_ {};
     // The image name.
     shared_ptr<string> name_ {};
-    // The image namespace. Set this parameter to DataWorks Default when referencing a DataWorks official image.
+    // The image namespace. If you reference an official DataWorks image, set this parameter to DataWorks Default.
     shared_ptr<string> namespace_ {};
-    // The provider image ID. This parameter is required when referencing a DataWorks official image.
+    // The ID of the image provided by the provider. This parameter is required when you reference an official DataWorks image.
     shared_ptr<string> providerImageId_ {};
-    // The image repository name. Set this parameter to DataWorks Default when referencing a DataWorks official image.
+    // The image repository name. If you reference an official DataWorks image, set this parameter to DataWorks Default.
     shared_ptr<string> repositoryName_ {};
     // The image sub-purpose.
     shared_ptr<string> supportedShrink_ {};

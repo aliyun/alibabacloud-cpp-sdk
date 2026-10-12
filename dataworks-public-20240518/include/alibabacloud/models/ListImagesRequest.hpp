@@ -162,34 +162,30 @@ namespace Models
 
 
   protected:
-    // The accessibility:
-    // 
-    // - Public: Visible to all members.
-    // 
-    // - Private: Visible only to the creator.
+    // The accessibility of the image. Valid values:
+    // - Public: The image is visible to all users.
+    // - Private: The image is visible only to the creator.
     shared_ptr<string> accessibility_ {};
-    // The image name, used for fuzzy search.
+    // The image name used for fuzzy match.
     shared_ptr<string> name_ {};
     // Specifies whether the image is an official image.
     shared_ptr<bool> official_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The list of workspace IDs.
     shared_ptr<vector<int64_t>> projectIds_ {};
-    // The list of image provider types.
+    // The list of image reference data types.
     shared_ptr<vector<string>> providerTypes_ {};
-    // Specifies whether to search all images.
+    // Specifies whether to search for all images.
     shared_ptr<bool> searchAll_ {};
-    // The list of sort fields. You can sort by scheduled time, start time, and other fields. The format is "SortField+SortOrder(Desc/Asc)", where Asc is the default and can be omitted. Valid values of sort fields:
-    // 
-    // - CreateTime (Desc/Asc): The creation time.
-    // 
-    // - Name (Desc/Asc): The image name.
-    //   Default value: CreateTime Asc.
+    // The list of sort fields. Fields such as scheduled time and start time are supported. The format is "sort field + sort order (Desc/Asc)". Asc can be omitted. Valid values for sort fields:
+    // - CreateTime (Desc/Asc): creation time.
+    // - Name (Desc/Asc): image name.
+    // Default value: CreateTime Asc.
     shared_ptr<string> sortBy_ {};
-    // The list of image publish stages to query.
+    // The list of image publishing stages to query.
     shared_ptr<vector<string>> stages_ {};
     // The list of image statuses to query.
     shared_ptr<vector<string>> statuses_ {};

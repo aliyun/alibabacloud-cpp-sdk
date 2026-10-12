@@ -150,25 +150,25 @@ namespace Models
 
 
       protected:
-        // The ID of the user who created the agent.
+        // **The creator ID.**
         shared_ptr<string> creatorId_ {};
-        // A description of the custom agent.
+        // **The description.**
         shared_ptr<string> description_ {};
-        // The display name of the custom agent.
+        // **The display name.**
         shared_ptr<string> displayName_ {};
-        // The time when the agent was created, provided in milliseconds since the Unix epoch.
+        // **The creation time (UNIX timestamp in milliseconds).**
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtCreateTime_ {};
-        // The time when the agent was last modified, provided in milliseconds since the Unix epoch.
+        // **The last modification time (UNIX timestamp in milliseconds).**
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mmZ
         shared_ptr<string> gmtModifiedTime_ {};
-        // The ID of the user who last modified the agent.
+        // **The last modifier ID.**
         shared_ptr<string> modifierId_ {};
-        // The name of the custom agent.
+        // **The agent name.**
         shared_ptr<string> name_ {};
-        // The visibility level of the custom agent.
+        // **The visibility level.**
         shared_ptr<string> visibility_ {};
       };
 
@@ -209,9 +209,9 @@ namespace Models
       shared_ptr<vector<PagingInfo::Agents>> agents_ {};
       // The maximum number of entries returned in this response.
       shared_ptr<int32_t> maxResults_ {};
-      // The token to retrieve the next page of results. This parameter is empty when there are no more results to return.
+      // The token for the next page. An empty value indicates that the last page is reached.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that meet the filter criteria.
+      // The total number of entries that meet the query conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -234,7 +234,7 @@ namespace Models
 
 
   protected:
-    // The paging information.
+    // The pagination information.
     shared_ptr<ListCustomAgentsResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

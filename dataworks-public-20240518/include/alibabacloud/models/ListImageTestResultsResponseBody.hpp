@@ -147,11 +147,11 @@ namespace Models
         shared_ptr<string> imageId_ {};
         // The test result message.
         shared_ptr<string> message_ {};
-        // The operation time, represented as a 64-bit timestamp.
+        // The operation time, which is a 64-bit timestamp.
         shared_ptr<int64_t> operateTime_ {};
         // The process ID.
         shared_ptr<string> processId_ {};
-        // The publish stage of the image.
+        // The image publishing stage.
         shared_ptr<string> publishStage_ {};
         // The resource group ID.
         shared_ptr<int64_t> resourceGroupId_ {};

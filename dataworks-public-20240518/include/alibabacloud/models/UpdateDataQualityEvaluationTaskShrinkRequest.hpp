@@ -130,36 +130,35 @@ namespace Models
 
 
   protected:
-    // List of data quality rules associated with the data quality monitoring.
+    // The list of data quality rules associated with data quality monitoring.
     shared_ptr<string> dataQualityRulesShrink_ {};
-    // Data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
+    // The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to obtain the data source ID.
     shared_ptr<int64_t> dataSourceId_ {};
-    // Description of the quality monitoring task
+    // The description of the quality monitoring task.
     shared_ptr<string> description_ {};
-    // Callback settings
+    // The hook settings.
     shared_ptr<string> hooksShrink_ {};
-    // Data quality monitoring ID.
+    // The ID of the data quality monitoring task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Name of the quality monitoring task
+    // The name of the quality monitoring task.
     shared_ptr<string> name_ {};
-    // Notification subscription configuration
+    // The notification subscription configuration.
     shared_ptr<string> notificationsShrink_ {};
-    // Workspace ID
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // Extended configuration. A JSON-formatted string. Takes effect only for EMR-type data quality monitoring.
-    // 
-    // - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
-    // - sqlEngine: The SQL engine used when executing EMR data validation.
+    // The extension configuration. This parameter is a character string in JSON format and takes effect only for EMR data quality monitoring.
+    // - queue: the YARN queue used when you execute EMR data validation. Default value: the queue configured for the current project.
+    // - sqlEngine: the SQL DPI engine used when you execute EMR data validation. Valid values:
     //   + HIVE_SQL
     //   + SPARK_SQL
     shared_ptr<string> runtimeConf_ {};
-    // Data quality monitoring object
+    // The monitored object for data quality monitoring.
     shared_ptr<string> targetShrink_ {};
-    // Trigger configuration of the data quality validation task
+    // The trigger configuration of the data quality check task.
     shared_ptr<string> triggerShrink_ {};
   };
 

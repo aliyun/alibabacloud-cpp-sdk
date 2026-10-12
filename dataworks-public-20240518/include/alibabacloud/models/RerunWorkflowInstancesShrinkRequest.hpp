@@ -130,31 +130,42 @@ namespace Models
 
 
   protected:
-    // The business date used for matching manual workflow instances.
+    // The data timestamp specified for the manual workflow instance run, used for matching.
+    // 
+    // The value is a 13-digit number, such as `1710239005403`.
     shared_ptr<int64_t> bizdate_ {};
-    // The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
+    // The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with StartTriggerTime.
+    // 
+    // The value is a 13-digit number, such as `1710239005403`.
     shared_ptr<int64_t> endTriggerTime_ {};
-    // The environment of the workspace. Valid values: Prod (production) and Dev (development).
+    // The project environment. Valid values:
+    // 
+    // - Prod: Production.
+    // - Dev: Development.
     shared_ptr<string> envType_ {};
-    // The match conditions for internal instances of manual workflow instances.
+    // The matching conditions for the internal instances of the manual workflow instance.
     shared_ptr<string> filterShrink_ {};
-    // The instance IDs used for matching manual workflow instances.
+    // The list of manual workflow instance IDs used for matching.
     shared_ptr<string> idsShrink_ {};
-    // The manual workflow name, used for fuzzy matching.
+    // The name of the manual workflow used for fuzzy matching.
     shared_ptr<string> name_ {};
     // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The start trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with EndTriggerTime.
+    // 
+    // The value is a 13-digit number, such as `1710239005403`.
     shared_ptr<int64_t> startTriggerTime_ {};
-    // The status used for matching manual workflow instances.
+    // The running status of the manual workflow instance used for matching.
     shared_ptr<string> status_ {};
-    // The type of the workflow instance. Valid value: ManualWorkflow (manual workflow).
+    // The type of the workflow instance. Valid values:
+    // 
+    // - ManualWorkflow: Manual workflow.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The workflow ID.
+    // The ID of the workflow.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};

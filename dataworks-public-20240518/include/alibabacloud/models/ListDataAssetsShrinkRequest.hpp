@@ -125,17 +125,17 @@ namespace Models
     shared_ptr<int64_t> assetDomainId_ {};
     // The ID of the asset category.
     shared_ptr<string> categoryUuid_ {};
-    // The list of unique data asset IDs.
+    // The list of unique IDs of the data assets.
     shared_ptr<string> dataAssetIdsShrink_ {};
-    // The Asset Type of the data asset. Valid values:
+    // The asset type of the data asset.
     // 
-    // - ACS::DataWorks::Table: data table.
+    // - DataWorks table (ACS::DataWorks::Table)
     // 
-    // - ACS::DataWorks::Task: scheduling node.
+    // - DataWorks scheduled task (ACS::DataWorks::Task)
     shared_ptr<string> dataAssetType_ {};
     // The workspace environment to which the data asset belongs. Valid values:
-    // - Dev: development environment.
-    // - Prod: production environment.
+    // - Dev: development environment
+    // - Prod: production environment
     shared_ptr<string> envType_ {};
     // The name of the asset. Fuzzy search by name is supported.
     shared_ptr<string> name_ {};
@@ -145,9 +145,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The list of tags associated with data assets. Tags are used as query filters:
-    // - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any one of the specified tags.
-    // - If this parameter is not specified or is left empty, no tag-based filtering is applied.
+    // The list of tags associated with the data assets. This parameter is used to filter query results based on tags:
+    // - Multiple values are evaluated with an OR logical operator. For example, if you specify `["key1:v1", "key2:v1", "key3:v1"]`, the system queries data assets that contain at least one of the specified tags.
+    // - If this parameter is not specified or is left empty, no tag-based filtering is performed.
     shared_ptr<string> tagsShrink_ {};
   };
 

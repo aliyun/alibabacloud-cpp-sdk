@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The new custom request headers (key-value pairs).
+    // The new custom request headers in key-value pairs.
     shared_ptr<string> customHeadersShrink_ {};
-    // The name of the MCP Server to update.
+    // The name of the MCP server to update.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<string> url_ {};
     // The new visibility level.
     shared_ptr<string> visibility_ {};
-    // The new visibility scope. Provide the corresponding field based on the Visibility setting.
+    // The new visibility scope. Specify the corresponding fields based on the `Visibility` value.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

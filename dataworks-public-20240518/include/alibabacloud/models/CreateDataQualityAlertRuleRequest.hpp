@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The list of monitored target IDs. Currently, only one ID can be specified.
+      // The list of monitored target IDs. Currently, only one ID is supported.
       // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> ids_ {};
@@ -156,13 +156,9 @@ namespace Models
 
 
       protected:
-        // The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to @ all members.
+        // The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to mention all members.
         shared_ptr<string> extension_ {};
-        // The alert recipient type.
-        // 
-        // 
-        // 
-        // 
+        // The type of the alert recipient.
         // - AliUid
         // - WebhookUrl
         // - DingdingUrl
@@ -199,7 +195,7 @@ namespace Models
 
 
     protected:
-      // The list of channels. You can set both `Email` and `Sms` at the same time. In other cases, only one channel can be set.
+      // The list of channels. You can specify both `Email` and `Sms` at the same time. For other types, you can specify only one channel.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> channels_ {};
@@ -244,7 +240,7 @@ namespace Models
 
 
   protected:
-    // The alert condition of the data quality monitoring alert rule.
+    // The alert condition for the data quality monitoring alert rule.
     // 
     // This parameter is required.
     shared_ptr<string> condition_ {};
@@ -256,7 +252,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The monitored target of the data quality monitoring alert rule.
+    // The target of the data quality monitoring alert rule.
     // 
     // This parameter is required.
     shared_ptr<CreateDataQualityAlertRuleRequest::Target> target_ {};

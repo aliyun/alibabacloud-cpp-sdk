@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The destination entity ID. You can use the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The ID of the destination entity. You can refer to the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     // 
     // This parameter is required.
     shared_ptr<string> dstEntityId_ {};
-    // The destination entity name. Fuzzy match is supported.
+    // The name of the destination entity. Fuzzy match is supported.
     shared_ptr<string> dstEntityName_ {};
     // The sort order. Default value: Asc. Valid values:
     // 
@@ -116,17 +116,17 @@ namespace Models
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field. Default value: Name.
+    // The field used for sorting. Default value: Name.
     shared_ptr<string> sortBy_ {};
-    // The source entity ID. You can use the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The ID of the source entity. You can refer to the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     // 
-    // To obtain a table or field entity ID, first call ListCrawlers to obtain the MetaEntityId of the metadata crawler. For types that contain a data catalog level, such as DLF and StarRocks, call ListCatalogs to obtain the catalog ID. Then call ListDatabases to obtain the database ID. If necessary, call ListSchemas to obtain the schema ID. Finally, call ListTables or ListColumns to obtain the table or field ID.
+    // To obtain the entity ID of a table or field, first call ListCrawlers to obtain the MetaEntityId of the metadata crawler. For types that include a data catalog hierarchy, such as DLF and StarRocks, call ListCatalogs to obtain the catalog ID. Then, call ListDatabases to obtain the database ID, and call ListSchemas to obtain the schema ID if necessary. Finally, call ListTables or ListColumns to obtain the table or field ID.
     // 
     // This parameter is required.
     shared_ptr<string> srcEntityId_ {};
-    // The source entity name. Fuzzy match is supported.
+    // The name of the source entity. Fuzzy match is supported.
     shared_ptr<string> srcEntityName_ {};
   };
 

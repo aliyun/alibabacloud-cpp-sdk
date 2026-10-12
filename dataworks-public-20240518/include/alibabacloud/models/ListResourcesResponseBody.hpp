@@ -181,9 +181,9 @@ namespace Models
 
 
         protected:
-          // The script ID.
+          // The ID of the script.
           // 
-          // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+          // >Notice: Before SDK 8.0.0, this field is of the Long type. In SDK 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK, and the parameter is still returned based on the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
           shared_ptr<string> id_ {};
           // The path of the script.
           shared_ptr<string> path_ {};
@@ -341,7 +341,7 @@ namespace Models
         shared_ptr<Resources::DataSource> dataSource_ {};
         // The unique identifier of the file resource.
         // 
-        // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK**. Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+        // >Notice: Before SDK 8.0.0, this field is of the Long type. In SDK 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK, and the parameter is still returned based on the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
         shared_ptr<string> id_ {};
         // The timestamp when the file resource was last modified.
         shared_ptr<int64_t> modifyTime_ {};
@@ -353,28 +353,22 @@ namespace Models
         shared_ptr<int64_t> projectId_ {};
         // The script information.
         shared_ptr<Resources::Script> script_ {};
-        // The source path of the file resource. This field is empty when the type is Local.
+        // The source path of the file resource. This parameter is empty when the type is local.
         shared_ptr<string> sourcePath_ {};
-        // The source storage type of the file resource.
+        // The source storage type of the file resource. Valid values:
         // 
-        // Valid values:
-        // 
-        // - Local: local storage.
-        // - Oss: Object Storage Service.
+        // - Local: local storage
+        // - Oss: Object Storage Service (OSS)
         shared_ptr<string> sourceType_ {};
-        // The target storage path of the file resource.
+        // The destination storage path of the file resource.
         shared_ptr<string> targetPath_ {};
-        // The target storage type of the file resource.
+        // The destination storage type of the file resource. Valid values:
         // 
-        // Valid values:
-        // 
-        // - Gateway: gateway.
-        // - Oss: Object Storage Service.
-        // - Hdfs: HDFS file storage system.
+        // - Gateway: gateway
+        // - Oss: Object Storage Service (OSS)
+        // - Hdfs: Hadoop Distributed File System (HDFS)
         shared_ptr<string> targetType_ {};
-        // The resource file type.
-        // 
-        // Valid values:
+        // The type of the resource. Valid values:
         // 
         // - Python
         // - Jar
@@ -416,13 +410,13 @@ namespace Models
 
 
     protected:
-      // The page number of the request, used for pagination.
+      // The number of the page to return.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of resources returned by the query.
+      // The resources returned by the query.
       shared_ptr<vector<PagingInfo::Resources>> resources_ {};
-      // The total number of entries that meet the filter conditions.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -447,7 +441,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListResourcesResponseBody::PagingInfo> pagingInfo_ {};
-    // The unique ID of this request. You can use this ID to troubleshoot issues.
+    // The ID of the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

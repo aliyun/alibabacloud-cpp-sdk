@@ -123,11 +123,11 @@ namespace Models
   protected:
     // The sample check settings.
     shared_ptr<string> checkingConfigShrink_ {};
-    // The description of the rule. The maximum length is 500 characters.
+    // The description of the rule. The description can be up to 500 characters in length.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the data quality rule.
+    // Specifies whether the quality rule is enabled.
     shared_ptr<bool> enabled_ {};
-    // The list of issue handlers for the data quality rule check.
+    // The list of handlers for quality rule check issues.
     shared_ptr<string> errorHandlersShrink_ {};
     // The name of the rule.
     // 
@@ -139,13 +139,13 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The settings required for sample collection.
     shared_ptr<string> samplingConfigShrink_ {};
-    // The severity of the rule for the business (corresponding to the strong/weak rule on the page). Valid values:
+    // The severity level of the rule for business operations, which corresponds to strong and weak rules on the page. Valid values:
     // - Normal
     // - High
     shared_ptr<string> severity_ {};
     // The object monitored by the rule.
     shared_ptr<string> targetShrink_ {};
-    // The unique identifier of the rule template that the rule references.
+    // The unique identifier of the rule template referenced by the rule.
     shared_ptr<string> templateCode_ {};
   };
 

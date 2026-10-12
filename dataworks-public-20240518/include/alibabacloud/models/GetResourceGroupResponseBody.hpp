@@ -278,13 +278,13 @@ namespace Models
       shared_ptr<string> aliyunResourceGroupId_ {};
       // The list of Alibaba Cloud tags.
       shared_ptr<vector<ResourceGroup::AliyunResourceTags>> aliyunResourceTags_ {};
-      // The creation time, represented as a 64-bit timestamp.
+      // The creation time, which is a 64-bit timestamp.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the user who created the resource group.
       shared_ptr<string> createUser_ {};
-      // The ID of the default VPC bound to the resource group.
+      // The ID of the default VPC associated with the general resource group.
       shared_ptr<string> defaultVpcId_ {};
-      // The ID of the default vSwitch bound to the resource group.
+      // The ID of the default vSwitch associated with the general resource group.
       shared_ptr<string> defaultVswitchId_ {};
       // The unique identifier of the resource group.
       shared_ptr<string> id_ {};
@@ -293,35 +293,29 @@ namespace Models
       // The order instance ID of the resource group.
       shared_ptr<string> orderInstanceId_ {};
       // The billing method of the resource group. Valid values:
-      // 
       // - PrePaid: subscription.
       // - PostPaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
-      // The remarks of the resource group.
+      // The remarks for the resource group.
       shared_ptr<string> remark_ {};
       // The type of the resource group. Valid values:
-      // 
-      // 
-      // 
-      // 
-      // - CommonV2: new-version general-purpose resource group.
+      // - CommonV2: general resource group V2.
       // - ExclusiveDataIntegration: exclusive data integration resource group.
       // - ExclusiveScheduler: exclusive scheduling resource group.
       // - ExclusiveDataService: exclusive data service resource group.
       shared_ptr<string> resourceGroupType_ {};
-      // The specifications of the resource group.
+      // The resource group specification.
       shared_ptr<ResourceGroup::Spec> spec_ {};
-      // The status of the resource group. Valid values:
-      // 
-      // - Normal: normal (running/in service).
+      // The status of the queried resource group. Valid values:
+      // - Normal: normal (running or in service).
       // - Stop: frozen (expired).
-      // - Deleted: deleted (released/destroyed).
-      // - Creating: being created.
+      // - Deleted: deleted (released or destroyed).
+      // - Creating: creating.
       // - CreateFailed: creation failed.
-      // - Updating: being updated (scaling out/scaling in/specification change in progress).
-      // - UpdateFailed: update failed (scale-out failed/upgrade failed).
-      // - Deleting: being deleted (being released/being destroyed).
-      // - DeleteFailed: deletion failed (release failed/destruction failed).
+      // - Updating: updating (scaling in, scaling out, or changing specifications).
+      // - UpdateFailed: update failed (scale-in failed or upgrade failed).
+      // - Deleting: deleting (releasing or destroying).
+      // - DeleteFailed: deletion failed (release failed or destruction failed).
       // - Timeout: operation timed out.
       // - Freezed: frozen.
       // - Starting: starting.
@@ -354,11 +348,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The detailed information of the resource group.
+    // The resource group details.
     shared_ptr<GetResourceGroupResponseBody::ResourceGroup> resourceGroup_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

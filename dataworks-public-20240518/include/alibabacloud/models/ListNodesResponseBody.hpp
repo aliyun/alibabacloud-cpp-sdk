@@ -184,25 +184,17 @@ namespace Models
         protected:
           // The cron expression for scheduling.
           shared_ptr<string> cron_ {};
-          // The end time of the trigger validity period.
-          // 
-          // The format is `yyyy-MM-dd HH:mm:ss`. For example, `9999-01-01 00:00:00`. This example does not include a time zone identifier.
+          // The end time of the trigger validity period. The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. This example does not include a time zone identifier.
           shared_ptr<string> endTime_ {};
           // The trigger ID.
-          // 
-          // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+          // >Notice: This field is of the Long type in SDK versions earlier than 8.0.0 and of the String type in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation to fail only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
           shared_ptr<string> id_ {};
-          // The start time of the validity period of the trigger.
-          // 
-          // The format is `yyyy-MM-dd HH:mm:ss`. Example: `1970-01-01 00:00:00`. This example does not include a time zone identifier.
+          // The start time of the trigger validity period. The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. This example does not include a time zone identifier.
           shared_ptr<string> startTime_ {};
           // The time zone.
           shared_ptr<string> timezone_ {};
-          // The trigger type.
-          // 
-          // Valid values:
-          // 
-          // - Scheduler: timed scheduling.
+          // The trigger type. Valid values:
+          // - Scheduler: periodic scheduling.
           // - Manual: manual trigger.
           // - Steaming: streaming task.
           shared_ptr<string> type_ {};
@@ -246,9 +238,9 @@ namespace Models
 
 
         protected:
-          // The tag key.
+          // The key of the tag.
           shared_ptr<string> key_ {};
-          // The tag value.
+          // The value of the tag.
           shared_ptr<string> value_ {};
         };
 
@@ -317,21 +309,16 @@ namespace Models
 
 
         protected:
-          // The mode for generating instances.
-          // 
-          // 
-          // 
-          // 
-          // Valid values: T+1 and Immediately.
+          // The mode for generating instances. Valid values:
+          // - T+1
+          // - Immediately
           shared_ptr<string> instanceMode_ {};
           // The retry time interval, in milliseconds.
           shared_ptr<int32_t> rerunInterval_ {};
-          // The mode that specifies whether reruns are allowed.
-          // 
-          // 
-          // 
-          // 
-          // Valid values: Allowed, Denied, and FailureAllowed.
+          // The rerun mode. Valid values:
+          // - Allowed
+          // - Denied
+          // - FailureAllowed
           shared_ptr<string> rerunMode_ {};
           // The number of retries.
           shared_ptr<int32_t> rerunTimes_ {};
@@ -390,7 +377,7 @@ namespace Models
 
 
           protected:
-            // The command, which is used to distinguish node types.
+            // The command used to distinguish node types.
             shared_ptr<string> command_ {};
           };
 
@@ -421,8 +408,7 @@ namespace Models
 
         protected:
           // The script ID.
-          // 
-          // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+          // >Notice: This field is of the Long type in SDK versions earlier than 8.0.0 and of the String type in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation to fail only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
           shared_ptr<string> id_ {};
           // The script path.
           shared_ptr<string> path_ {};
@@ -468,7 +454,7 @@ namespace Models
 
 
         protected:
-          // The identifier of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to obtain the resource group identifier.
+          // The identifier of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to obtain the identifier of the resource group.
           shared_ptr<string> resourceGroup_ {};
           // The resource group ID.
           shared_ptr<string> resourceGroupId_ {};
@@ -556,7 +542,7 @@ namespace Models
 
 
             protected:
-              // The node outputs.
+              // The node output.
               shared_ptr<string> output_ {};
             };
 
@@ -615,13 +601,13 @@ namespace Models
 
 
           protected:
-            // The artifact type.
+            // The type of the artifact.
             shared_ptr<string> artifactType_ {};
-            // The variable ID.
+            // The ID of the variable.
             // 
-            // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+            // >Notice: This field is of the Long type in SDK versions earlier than 8.0.0, and of the String type in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation failures only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
             shared_ptr<string> id_ {};
-            // The variable name.
+            // The name of the variable.
             shared_ptr<string> name_ {};
             // The node to which the variable belongs.
             shared_ptr<Variables::Node> node_ {};
@@ -631,14 +617,14 @@ namespace Models
             // - Workflow
             // - Workspace
             shared_ptr<string> scope_ {};
-            // The variable type. Valid values:
+            // The type of the variable. Valid values:
             // - NoKvVariableExpression
             // - Constant
             // - PassThrough
             // - System
             // - NodeOutput
             shared_ptr<string> type_ {};
-            // The variable value.
+            // The value of the variable.
             shared_ptr<string> value_ {};
           };
 
@@ -712,9 +698,9 @@ namespace Models
 
 
           protected:
-            // The node outputs.
+            // The node output.
             shared_ptr<string> data_ {};
-            // The target data table that identifies the node output. This field provides a semantic name that helps users quickly identify the output content. It is used only for display and annotation purposes and has no actual logical constraints.
+            // The name of the destination data table generated by the node. This field provides a semantic name that is easy to understand and helps users quickly identify the output content. It is used only for display and remarks, and has no actual logical constraints.
             shared_ptr<string> refTableName_ {};
           };
 
@@ -838,7 +824,7 @@ namespace Models
 
 
             protected:
-              // The node outputs.
+              // The node output.
               shared_ptr<string> output_ {};
             };
 
@@ -897,13 +883,13 @@ namespace Models
 
 
           protected:
-            // The artifact type.
+            // The type of the artifact.
             shared_ptr<string> artifactType_ {};
-            // The variable ID.
+            // The ID of the variable.
             // 
-            // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you need to manually correct the data type.
+            // >Notice: This field is of the Long type in SDK versions earlier than 8.0.0, and of the String type in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation failures only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
             shared_ptr<string> id_ {};
-            // The variable name.
+            // The name of the variable.
             shared_ptr<string> name_ {};
             // The node to which the variable belongs.
             shared_ptr<Variables::Node> node_ {};
@@ -920,7 +906,7 @@ namespace Models
             // - System
             // - NodeOutput
             shared_ptr<string> type_ {};
-            // The variable value.
+            // The value of the variable.
             shared_ptr<string> value_ {};
           };
 
@@ -994,9 +980,9 @@ namespace Models
 
 
           protected:
-            // The node outputs.
+            // The node output.
             shared_ptr<string> data_ {};
-            // The target data table that identifies the node output. This field provides a semantic name that helps users quickly identify the output content. It is used only for display and annotation purposes and has no actual logical constraints.
+            // The name of the destination data table generated by the node. This field provides a semantic name that is easy to understand and helps users quickly identify the output content. It is used only for display and remarks, and has no actual logical constraints.
             shared_ptr<string> refTableName_ {};
           };
 
@@ -1076,9 +1062,9 @@ namespace Models
 
 
         protected:
-          // The data source name.
+          // The name of the data source.
           shared_ptr<string> name_ {};
-          // The data source type.
+          // The type of the data source.
           shared_ptr<string> type_ {};
         };
 
@@ -1223,54 +1209,41 @@ namespace Models
 
 
       protected:
-        // The timestamp when the Data Studio node was created.
+        // The timestamp when the data development node was created.
         shared_ptr<int64_t> createTime_ {};
         // The data source.
         shared_ptr<Nodes::DataSource> dataSource_ {};
-        // The node description.
+        // The description of the node.
         shared_ptr<string> description_ {};
-        // The unique identifier of the Data Studio node.
-        // 
-        // 
-        // 
-        // 
-        // > &lt;notice&gt;This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.&gt;&lt;/notice&gt;
+        // The unique identifier of the data development node.
+        // >Notice: This field is of the Long type in SDK versions earlier than 8.0.0 and of the String type in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation to fail only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
         shared_ptr<string> id_ {};
-        // The node inputs.
+        // The node input.
         shared_ptr<Nodes::Inputs> inputs_ {};
-        // The timestamp when the Data Studio node was last modified.
+        // The timestamp when the data development node was last modified.
         shared_ptr<int64_t> modifyTime_ {};
-        // The node name.
+        // The name of the node.
         shared_ptr<string> name_ {};
-        // The node outputs.
+        // The node output.
         shared_ptr<Nodes::Outputs> outputs_ {};
-        // The owner of the Data Studio node.
+        // The owner of the data development node.
         shared_ptr<string> owner_ {};
-        // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to view the ID.
+        // The ID of the DataWorks workspace. You can logon to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace storage management page to view the ID.
         shared_ptr<int64_t> projectId_ {};
-        // The scheduling type.
-        // 
-        // 
-        // 
-        // 
-        // Valid values:
-        // 
-        // 
-        // 
-        // 
-        // - Normal: The task is executed normally.
-        // - Pause: The node is paused and blocks downstream nodes that depend on it.
-        // - Skip: The node performs a dry run. The system immediately returns success with a run duration of 0 seconds, does not block downstream nodes, and does not consume resources.
+        // The scheduling type. Valid values:
+        // - Normal: The node runs normally.
+        // - Pause: The node is paused, and the execution of downstream nodes that depend on the current node is blocked.
+        // - Skip: The node is set to dry run. The system directly returns a success response with an execution duration of 0 seconds. This does not block the execution of downstream nodes or consume resources.
         shared_ptr<string> recurrence_ {};
         // The resource group information.
         shared_ptr<Nodes::RuntimeResource> runtimeResource_ {};
         // The script information.
         shared_ptr<Nodes::Script> script_ {};
-        // The scheduling strategy.
+        // The scheduling policy.
         shared_ptr<Nodes::Strategy> strategy_ {};
-        // The tag information. Not currently in use.
+        // The tag information. This field is currently not used.
         shared_ptr<vector<Nodes::Tags>> tags_ {};
-        // The scheduling task ID.
+        // The ID of the scheduling task.
         shared_ptr<int64_t> taskId_ {};
         // The trigger.
         shared_ptr<Nodes::Trigger> trigger_ {};
@@ -1309,13 +1282,13 @@ namespace Models
 
 
     protected:
-      // The list of Data Studio nodes.
+      // The list of data development nodes.
       shared_ptr<vector<PagingInfo::Nodes>> nodes_ {};
-      // The page number for pagination.
+      // The page number of the requested data.
       shared_ptr<string> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries displayed per page.
       shared_ptr<string> pageSize_ {};
-      // The total number of records that meet the conditions.
+      // The total number of entries that meet the conditions.
       shared_ptr<string> totalCount_ {};
     };
 

@@ -117,36 +117,29 @@ namespace Models
 
 
   protected:
-    // A list of parameter IDs.
+    // The list of parameter IDs.
     shared_ptr<vector<int64_t>> ids_ {};
-    // A list of parameter names.
+    // The list of parameter names.
     shared_ptr<vector<string>> names_ {};
     // The account ID of the owner.
     shared_ptr<string> owner_ {};
-    // The page number. Default: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default: 20.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace ID. Call the ListProjects operation to get the workspace ID.
+    // The ID of the workspace. You can call the ListProjects operation to obtain the workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The scope of the parameter. The default value is Project. Other values are not supported.
+    // The scope of the parameter. Default value: Project. Other types are not supported.
     shared_ptr<string> scope_ {};
-    // The list of fields to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
-    // 
-    // 
-    // 
-    // 
+    // The list of fields by which to sort the results. Supported fields include modification time and creation time. The format is "SortField+SortOrder(Desc/Asc)". You can omit Asc. Valid values:
     // - ModifyTime (Desc/Asc)
     // - CreateTime (Desc/Asc)
     // - Name (Desc/Asc)
     shared_ptr<string> sortBy_ {};
-    // The type of the parameter. Valid values:
-    // 
-    // - PlainConstant: A plaintext constant.
-    // 
-    // - SecretConstant: A secret constant.
-    // 
-    // - Variable: A variable.
+    // The parameter type. Valid values:
+    // - PlainConstant: plaintext constant.
+    // - SecretConstant: ciphertext constant.
+    // - Variable: variable.
     shared_ptr<string> type_ {};
   };
 

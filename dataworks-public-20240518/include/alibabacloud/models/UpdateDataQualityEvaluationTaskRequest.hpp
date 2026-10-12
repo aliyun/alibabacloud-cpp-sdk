@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // List of scheduling task IDs. Valid when Type is ByScheduledTaskInstance.
+      // The list of scheduled task IDs. This parameter takes effect only when Type is set to ByScheduledTaskInstance.
       shared_ptr<vector<int64_t>> taskIds_ {};
-      // Trigger type of the quality monitoring task.
-      // - ByScheduledTaskInstance: Triggered by an associated scheduling task.
-      // - ByManual: Triggered manually.
+      // The trigger type of the quality monitoring task. Valid values:
+      // - ByScheduledTaskInstance: triggered by an associated scheduled task
+      // - ByManual: manually triggered
       shared_ptr<string> type_ {};
     };
 
@@ -145,7 +145,7 @@ namespace Models
 
 
     protected:
-      // Database type to which the table belongs
+      // The database type of the table. Valid values:
       // - maxcompute
       // - hologres
       // - cdh
@@ -154,9 +154,9 @@ namespace Models
       // - emr
       // - analyticdb_for_postgresql
       shared_ptr<string> databaseType_ {};
-      // Partition settings of the partitioned table
+      // The partition settings of the partitioned table.
       shared_ptr<string> partitionSpec_ {};
-      // Unique ID of the table in Data Map
+      // The unique ID of the table in DataWorks Data Map.
       shared_ptr<string> tableGuid_ {};
     };
 
@@ -251,13 +251,12 @@ namespace Models
 
 
         protected:
-          // Additional parameter settings when sending alerts. JSON format. The supported keys are as follows:
-          // 
-          // - atAll: Whether to @all members in the group when sending DingTalk alerts. Takes effect when ReceiverType is DingdingUrl.
+          // The additional parameter settings when an alert is sent. This parameter is in JSON format. Supported keys:
+          // - atAll: specifies whether to @all in the group when sending a DingTalk alert. This key takes effect only when ReceiverType is set to DingdingUrl.
           shared_ptr<string> extension_ {};
-          // Alert recipient type
+          // The alert recipient type.
           shared_ptr<string> receiverType_ {};
-          // Alert recipients
+          // The alert recipients.
           shared_ptr<vector<string>> receiverValues_ {};
         };
 
@@ -291,7 +290,7 @@ namespace Models
 
 
         protected:
-          // Notification method
+          // The notification methods.
           shared_ptr<vector<string>> channels_ {};
         };
 
@@ -316,9 +315,9 @@ namespace Models
 
 
       protected:
-        // Notification method
+        // The notification methods.
         shared_ptr<vector<NotificationsItem::NotificationChannels>> notificationChannels_ {};
-        // Alert recipient settings
+        // The alert recipient settings.
         shared_ptr<vector<NotificationsItem::NotificationReceivers>> notificationReceivers_ {};
       };
 
@@ -341,12 +340,11 @@ namespace Models
 
 
     protected:
-      // Notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two types of condition expressions are supported:
-      // 
-      // - Specify a single group of rule severity type and rule validation status, such as `${severity} == "High" AND ${status} == "Critical"`. This means the condition is met when any executed rule with severity High has a validation result of Critical.
-      // - Specify multiple groups of rule severity type and rule validation status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means the condition is met when any executed rule satisfies one of the following: severity High with validation result Critical, severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the condition expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
+      // The Cause of the notification. When this Cause is met, a message notification is triggered. Currently, only the following two types of conditional expressions are supported:
+      // - Specify only one group of rule severity levels and rule check statuses, such as `${severity} == "High" AND ${status} == "Critical"`. This indicates that if the check result of a rule you execute with the severity of High is Critical, the condition is met.
+      // - Specify multiple groups of rule severity levels and rule check statuses, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This indicates that if the check result of a rule you execute with the severity of High is Critical, the check result of a rule you execute with the severity of Normal is Critical, or the check result of a rule you execute with the severity of Normal is Error, the condition is met. The enum values of severity in the conditional expression are consistent with those in DataQualityRule, and the enum values of status are consistent with those in DataQualityResult.
       shared_ptr<string> condition_ {};
-      // Notification settings
+      // The notification settings.
       shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
     };
 
@@ -388,14 +386,12 @@ namespace Models
 
 
     protected:
-      // Hook trigger condition. When this condition is met, the hook action is triggered. Currently, only two types of condition expressions are supported:
-      // 
-      // - Specify a single group of rule severity type and rule validation status, such as `${severity} == "High" AND ${status} == "Critical"`. This means the condition is met when any executed rule with severity High has a validation result of Critical.
-      // - Specify multiple groups of rule severity type and rule validation status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means the condition is met when any executed rule satisfies one of the following: severity High with validation result Critical, severity Normal with validation result Critical, or severity Normal with validation result Error. The severity enum in the condition expression is consistent with the severity enum in DataQualityRule, and the status enum is consistent with the status in DataQualityResult.
+      // The Cause of the hook. When this Cause is met, the hook action is triggered. Currently, only the following two types of conditional expressions are supported:
+      // - Specify only one group of rule severity levels and rule check statuses, such as `${severity} == "High" AND ${status} == "Critical"`. This indicates that if the check result of a rule you execute with the severity of High is Critical, the condition is met.
+      // - Specify multiple groups of rule severity levels and rule check statuses, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This indicates that if the check result of a rule you execute with the severity of High is Critical, the check result of a rule you execute with the severity of Normal is Critical, or the check result of a rule you execute with the severity of Normal is Error, the condition is met. The enum values of severity in the conditional expression are consistent with those in DataQualityRule, and the enum values of status are consistent with those in DataQualityResult.
       shared_ptr<string> condition_ {};
-      // Hook actions executed after data quality validation completes.
-      // 
-      // - BlockTaskInstance: Block the scheduling task.
+      // The hook action executed after the data quality check is completed. Valid values:
+      // - BlockTaskInstance: blocks the scheduled task
       shared_ptr<string> type_ {};
     };
 
@@ -490,28 +486,28 @@ namespace Models
 
 
       protected:
-        // Name of the sampling metric
-        // - Count: Number of rows in the table
-        // - Min: Minimum value of the field
-        // - Max: Maximum value of the field
-        // - Avg: Average value of the field
-        // - DistinctCount: Number of distinct values of the field
-        // - DistinctPercent: Ratio of the number of distinct field values to the total number of rows
-        // - DuplicatedCount: Number of duplicate values of the field
-        // - DuplicatedPercent: Ratio of the number of duplicate field values to the total number of rows
-        // - TableSize: Size of the table
-        // - NullValueCount: Number of rows where the field is null
-        // - NullValuePercent: Proportion of rows where the field is null
-        // - GroupCount: After aggregating by field value, each value and its corresponding number of rows
-        // - CountNotIn: Number of rows whose enum values do not match
-        // - CountDistinctNotIn: Number of distinct values whose enum values do not match
-        // - UserDefinedSql: Sample collection via custom SQL
+        // The name of the sampled metric. Valid values:
+        // - Count: the number of rows in the table
+        // - Min: the minimum value of the field
+        // - Max: the maximum value of the field
+        // - Avg: the average value of the field
+        // - DistinctCount: the number of unique values in the field
+        // - DistinctPercent: the ratio of the number of unique values in the field to the total number of rows
+        // - DuplicatedCount: the number of duplicate values in the field
+        // - DuplicatedPercent: the ratio of the number of duplicate values in the field to the total number of rows
+        // - TableSize: the size of the table
+        // - NullValueCount: the number of rows where the field is null
+        // - NullValuePercent: the proportion of rows where the field is null
+        // - GroupCount: the number of rows corresponding to each value after aggregation by field value
+        // - CountNotIn: the number of rows that do not match the enumerated values
+        // - CountDistinctNotIn: the number of unique values that do not match the enumerated values
+        // - UserDefinedSql: sample collection by using custom SQL statements
         shared_ptr<string> metric_ {};
-        // Parameters required for sample collection
+        // The parameters required for sample collection.
         shared_ptr<string> metricParameters_ {};
-        // Conditions for further filtering of data not of concern during sampling. Maximum 16777215 characters.
+        // The conditions used to filter out unneeded data during sampling. The maximum length is 16,777,215 characters.
         shared_ptr<string> samplingFilter_ {};
-        // Runtime parameter setting statements to be inserted and executed before the actual sampling statement. Maximum 1000 characters. Currently only MaxCompute is supported.
+        // The runtime parameter setting statements inserted before the execution of sampling statements. The maximum length is 1,000 characters. Only MaxCompute is supported.
         shared_ptr<string> settingConfig_ {};
       };
 
@@ -553,11 +549,10 @@ namespace Models
 
 
       protected:
-        // For custom SQL rules, the user must specify the SQL to filter problematic data.
+        // The SQL statement used to filter error data. This parameter is required if the rule is a custom SQL rule.
         shared_ptr<string> errorDataFilter_ {};
-        // Handler type:
-        // 
-        // - SaveErrorData: Retain problematic data
+        // The handler type. Valid values:
+        // - SaveErrorData: retain error data
         shared_ptr<string> type_ {};
       };
 
@@ -654,26 +649,17 @@ namespace Models
 
 
           protected:
-            // Threshold expression.
+            // The threshold expression. 
             // 
+            // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
             // 
+            // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+            // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+            // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
             // 
-            // 
-            // Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
-            // 
-            // 
-            // 
-            // 
-            // - Fluctuation rises above 0.01: $checkValue &gt; 0.01
-            // - A decrease in the fluctuation rate of more than 0.01: $checkValue &lt; -0.01
-            // - Absolute fluctuation rate: abs($checkValue) &gt; 0.01
-            // 
-            // 
-            // 
-            // 
-            // Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
+            // Fixed value rules can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
-            // Comparison operator
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - \\<
@@ -681,7 +667,7 @@ namespace Models
             // - !=
             // - =
             shared_ptr<string> operator_ {};
-            // Threshold value
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -732,26 +718,17 @@ namespace Models
 
 
           protected:
-            // Threshold expression.
+            // The threshold expression. 
             // 
+            // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
             // 
+            // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+            // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+            // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
             // 
-            // 
-            // Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
-            // 
-            // 
-            // 
-            // 
-            // - Fluctuation rises above 0.01: $checkValue &gt; 0.01
-            // - A decrease in the fluctuation rate of more than 0.01: $checkValue &lt; -0.01
-            // - Absolute fluctuation rate: abs($checkValue) &gt; 0.01
-            // 
-            // 
-            // 
-            // 
-            // Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
+            // Fixed value rules can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
-            // Comparison operator
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - <
@@ -759,7 +736,7 @@ namespace Models
             // - !=
             // - =
             shared_ptr<string> operator_ {};
-            // Threshold value
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -810,26 +787,17 @@ namespace Models
 
 
           protected:
-            // Threshold expression.
+            // The threshold expression. 
             // 
+            // For fluctuation rules, you must use an expression to represent the fluctuation threshold. Examples:
             // 
+            // - Fluctuation increase greater than 0.01: $checkValue > 0.01 
+            // - Fluctuation decrease greater than 0.01: $checkValue < -0.01 
+            // - Absolute value of fluctuation rate: abs($checkValue) > 0.01
             // 
-            // 
-            // Fluctuation-type rules must use an expression to represent the fluctuation threshold. For example:
-            // 
-            // 
-            // 
-            // 
-            // - Fluctuation rises above 0.01: $checkValue &gt; 0.01
-            // - A decrease in the fluctuation rate of more than 0.01: $checkValue &lt; -0.01
-            // - Absolute fluctuation rate: abs($checkValue) &gt; 0.01
-            // 
-            // 
-            // 
-            // 
-            // Fixed-value-type rules can also use an expression to configure the threshold. If both are configured, the expression takes precedence over Operator and Value.
+            // Fixed value rules can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
-            // Comparison operator
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - <
@@ -837,7 +805,7 @@ namespace Models
             // - !=
             // - =
             shared_ptr<string> operator_ {};
-            // Threshold value.
+            // The threshold value.
             shared_ptr<string> value_ {};
           };
 
@@ -871,11 +839,11 @@ namespace Models
 
 
         protected:
-          // Threshold settings for critical warnings
+          // The threshold settings for critical warnings.
           shared_ptr<Thresholds::Critical> critical_ {};
-          // Expected threshold settings
+          // The expected threshold settings.
           shared_ptr<Thresholds::Expected> expected_ {};
-          // Threshold settings for normal warnings
+          // The threshold settings for normal warnings.
           shared_ptr<Thresholds::Warned> warned_ {};
         };
 
@@ -905,17 +873,16 @@ namespace Models
 
 
       protected:
-        // Some threshold types require querying reference samples and then aggregating their values to derive the comparison threshold. An expression is used here to indicate how the reference samples are queried.
+        // The expression used to specify the query method for reference samples. Some threshold types require querying reference samples and aggregating their values to derive the comparison threshold.
         shared_ptr<string> referencedSamplesFilter_ {};
-        // Validation threshold settings.
+        // The check threshold settings.
         shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
-        // Threshold calculation method
-        // 
-        // - Fluctation: Fluctuation range validation
-        // - Auto: Intelligent threshold validation
-        // - FluctationDiscreate: Discrete value fluctuation range validation
-        // - Average: Mean fluctuation range validation
-        // - Fixed: Fixed value validation
+        // The threshold calculation method. Valid values:
+        // - Fluctation: fluctuation range check
+        // - Auto: intelligent threshold check
+        // - FluctationDiscreate: discrete value fluctuation range check
+        // - Average: average fluctuation range check
+        // - Fixed: fixed value check
         shared_ptr<string> type_ {};
       };
 
@@ -992,25 +959,25 @@ namespace Models
 
 
     protected:
-      // Sample validation settings
+      // The sample check settings.
       shared_ptr<DataQualityRules::CheckingConfig> checkingConfig_ {};
-      // Description of the data quality rule.
+      // The description of the data quality rule.
       shared_ptr<string> description_ {};
-      // Whether the data quality rule is enabled.
+      // Specifies whether the data quality rule is enabled.
       shared_ptr<bool> enabled_ {};
-      // Quality rule validation issue handler
+      // The error handlers for quality rule check issues.
       shared_ptr<vector<DataQualityRules::ErrorHandlers>> errorHandlers_ {};
-      // ID of the validation rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the rule ID.
+      // The ID of the check rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the rule ID.
       shared_ptr<int64_t> id_ {};
-      // Name of the data quality rule.
+      // The name of the data quality rule.
       shared_ptr<string> name_ {};
-      // Parameters required for sample collection
+      // The parameters required for sample collection.
       shared_ptr<DataQualityRules::SamplingConfig> samplingConfig_ {};
-      // Severity level of the rule for the business (corresponds to strong/weak rules on the page). Optional enum values:
+      // The severity level of the rule for the business, which corresponds to the strong and weak rules on the page. Valid values:
       // - Normal
       // - High
       shared_ptr<string> severity_ {};
-      // Unique identifier of the rule template referenced by the rule.
+      // The unique identifier of the rule template referenced by the rule.
       shared_ptr<string> templateCode_ {};
     };
 
@@ -1105,36 +1072,35 @@ namespace Models
 
 
   protected:
-    // List of data quality rules associated with the data quality monitoring.
+    // The list of data quality rules associated with data quality monitoring.
     shared_ptr<vector<UpdateDataQualityEvaluationTaskRequest::DataQualityRules>> dataQualityRules_ {};
-    // Data source ID. You can call [ListDataSources](https://help.aliyun.com/document_detail/211431.html) to obtain the data source ID.
+    // The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to obtain the data source ID.
     shared_ptr<int64_t> dataSourceId_ {};
-    // Description of the quality monitoring task
+    // The description of the quality monitoring task.
     shared_ptr<string> description_ {};
-    // Callback settings
+    // The hook settings.
     shared_ptr<vector<UpdateDataQualityEvaluationTaskRequest::Hooks>> hooks_ {};
-    // Data quality monitoring ID.
+    // The ID of the data quality monitoring task.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Name of the quality monitoring task
+    // The name of the quality monitoring task.
     shared_ptr<string> name_ {};
-    // Notification subscription configuration
+    // The notification subscription configuration.
     shared_ptr<UpdateDataQualityEvaluationTaskRequest::Notifications> notifications_ {};
-    // Workspace ID
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // Extended configuration. A JSON-formatted string. Takes effect only for EMR-type data quality monitoring.
-    // 
-    // - queue: The YARN queue used when executing EMR data quality validation. Defaults to the queue configured for the current project.
-    // - sqlEngine: The SQL engine used when executing EMR data validation.
+    // The extension configuration. This parameter is a character string in JSON format and takes effect only for EMR data quality monitoring.
+    // - queue: the YARN queue used when you execute EMR data validation. Default value: the queue configured for the current project.
+    // - sqlEngine: the SQL DPI engine used when you execute EMR data validation. Valid values:
     //   + HIVE_SQL
     //   + SPARK_SQL
     shared_ptr<string> runtimeConf_ {};
-    // Data quality monitoring object
+    // The monitored object for data quality monitoring.
     shared_ptr<UpdateDataQualityEvaluationTaskRequest::Target> target_ {};
-    // Trigger configuration of the data quality validation task
+    // The trigger configuration of the data quality check task.
     shared_ptr<UpdateDataQualityEvaluationTaskRequest::Trigger> trigger_ {};
   };
 

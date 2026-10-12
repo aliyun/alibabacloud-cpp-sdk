@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The IDs of the projects in which the MCP Server is visible. This parameter takes effect when Visibility is set to `PROJECT`.
+      // The list of visible project IDs. This parameter takes effect when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The IDs of the users to whom the MCP Server is visible. This parameter takes effect when Visibility is set to `USER`.
+      // The list of visible user IDs. This parameter takes effect when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -133,11 +133,11 @@ namespace Models
 
 
     protected:
-      // The custom request headers (key-value pairs). Reserved headers cannot be overwritten.
+      // The custom request headers in key-value pairs. Reserved headers cannot be overwritten.
       Darabonba::Json customHeaders_ {};
       // The transport protocol.
       shared_ptr<string> transport_ {};
-      // The service URL of the MCP Server. The URL must start with `https://`.
+      // The service URL of the MCP server. It must start with `https://`.
       shared_ptr<string> url_ {};
     };
 
@@ -176,15 +176,15 @@ namespace Models
 
 
   protected:
-    // The connection configuration of the MCP Server.
+    // The connection configuration of the MCP server.
     shared_ptr<CreateMcpServerRequest::Config> config_ {};
-    // The name of the MCP Server. The name must be unique at the tenant level. It must start with a lowercase letter and can contain only `a-z`, `0-9`, `_`, and `-`.
+    // The name of the MCP server. It must be unique at the tenant level. It must start with a lowercase letter and can contain only lowercase letters (`a-z`), digits (`0-9`), underscores (`_`), and hyphens (`-`).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The visibility level.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding field is used based on the Visibility value.
+    // The visibility scope. Specify the corresponding fields based on the value of Visibility.
     shared_ptr<CreateMcpServerRequest::VisibilityScope> visibilityScope_ {};
   };
 

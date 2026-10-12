@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The list of visible project IDs. This parameter takes effect only when Visibility is set to `PROJECT`.
+      // The list of visible project IDs. This field takes effect when `Visibility` is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
+      // The list of visible user IDs. This field takes effect when `Visibility` is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -137,9 +137,9 @@ namespace Models
 
 
   protected:
-    // The new custom request headers (key-value pairs).
+    // The new custom request headers in key-value pairs.
     Darabonba::Json customHeaders_ {};
-    // The name of the MCP Server to update.
+    // The name of the MCP server to update.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -149,7 +149,7 @@ namespace Models
     shared_ptr<string> url_ {};
     // The new visibility level.
     shared_ptr<string> visibility_ {};
-    // The new visibility scope. Provide the corresponding field based on the Visibility setting.
+    // The new visibility scope. Specify the corresponding fields based on the `Visibility` value.
     shared_ptr<UpdateMcpServerRequest::VisibilityScope> visibilityScope_ {};
   };
 

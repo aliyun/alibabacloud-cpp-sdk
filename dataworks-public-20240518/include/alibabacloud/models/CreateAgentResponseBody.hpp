@@ -78,15 +78,15 @@ namespace Models
 
 
     protected:
-      // The creation time, in millisecond-precision UNIX timestamp.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time, in millisecond-precision UNIX timestamp.
+      // The last modification time. The value is a UNIX timestamp in milliseconds.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // The Agent name.
+      // The name of the agent.
       shared_ptr<string> name_ {};
     };
 
@@ -109,7 +109,7 @@ namespace Models
 
 
   protected:
-    // The details of the created Agent.
+    // The details of the created agent.
     shared_ptr<CreateAgentResponseBody::Agent> agent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

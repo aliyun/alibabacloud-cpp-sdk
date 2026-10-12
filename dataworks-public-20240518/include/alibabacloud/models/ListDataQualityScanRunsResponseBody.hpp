@@ -168,24 +168,23 @@ namespace Models
 
 
       protected:
-        // The start time of the data quality scan run.
+        // The start time of the data quality monitoring run.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The end time of the data quality scan run.
+        // The end time of the data quality monitoring run.
+        // 
+        // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> finishTime_ {};
-        // The ID of the data quality scan run.
+        // The ID of the data quality monitoring run record.
         shared_ptr<int64_t> id_ {};
-        // The parameters used for the run.
+        // The parameter settings used during the actual run.
         shared_ptr<vector<DataQualityScanRuns::Parameters>> parameters_ {};
-        // The status of the data quality scan run. Valid values:
-        // 
+        // The current run status. Valid values:
         // - Pass
-        // 
         // - Running
-        // 
         // - Error
-        // 
         // - Warn
-        // 
         // - Fail
         shared_ptr<string> status_ {};
       };
@@ -223,11 +222,11 @@ namespace Models
 
 
     protected:
-      // The list of data quality scan runs.
+      // The list of data quality monitoring run records.
       shared_ptr<vector<PageInfo::DataQualityScanRuns>> dataQualityScanRuns_ {};
-      // The page number. The default value is 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page. The default value is 10.
+      // The number of entries per page. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};

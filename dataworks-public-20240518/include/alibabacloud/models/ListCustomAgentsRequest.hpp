@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on a single page.
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Omit this parameter for the first request. For subsequent requests, use the `NextToken` value from the previous response to retrieve the next page.
+    // The pagination token. Do not specify this parameter for the first query. For subsequent queries, specify the `NextToken` value returned from the previous query to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The search keyword for a fuzzy match by agent name.
+    // The search keyword used to perform a fuzzy match on agent names.
     shared_ptr<string> q_ {};
-    // Filters the results by visibility level. You can specify multiple levels.
+    // The visibility levels used to filter results. You can specify multiple values.
     shared_ptr<vector<string>> visibility_ {};
   };
 

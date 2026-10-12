@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The JSON-RPC correlation ID for this reply request. The response returns this value as-is. This is different from PermissionRequestId.
+    // The JSON-RPC correlation ID for the current reply request. It is returned as-is in the response and is different from PermissionRequestId.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The JSON-RPC protocol version. Fixed value: 2.0.
+    // The JSON-RPC protocol version. Fixed to 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The user interaction reply parameters.
     // 

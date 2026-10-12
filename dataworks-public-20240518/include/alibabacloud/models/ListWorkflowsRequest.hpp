@@ -126,36 +126,34 @@ namespace Models
 
 
   protected:
-    // The environment of the workspace. Valid values:
-    // 
-    // - Prod: production environment
-    // 
-    // - Dev: development environment
+    // The project environment.
     shared_ptr<string> envType_ {};
-    // The IDs of the workflows. You can query multiple workflows at a time by workflow ID.
+    // The list of workflow IDs. You can specify multiple workflow IDs to query multiple workflows at a time.
     shared_ptr<vector<int64_t>> ids_ {};
-    // The name of the workflow. Fuzzy match is supported.
+    // The name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The account ID of the workflow owner.
+    // The account ID of the owner.
     shared_ptr<string> owner_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace ID.
+    // The project ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The field used for sorting. Fields such as ModifyTime and CreateTime are supported. Format: sort field + sort order (Desc/Asc). Asc can be omitted. Valid values: ModifyTime (Desc/Asc), CreateTime (Desc/Asc), and Id (Desc/Asc). Default value: Id Desc.
+    // The sort field. You can sort by fields such as modification time and creation time. The format is \\"SortField+SortOrder(Desc/Asc)\\", where Asc can be omitted. Valid values for the sort field:
+    // - ModifyTime (Desc/Asc)
+    // - CreateTime (Desc/Asc)
+    // - Id (Desc/Asc)
+    // 
+    // Default value: Id Desc.
     shared_ptr<string> sortBy_ {};
-    // List of tags. A result is returned if it matches any one of the specified tags.
+    // The list of tags. If a workflow matches any of the specified tags, it is returned in the result.
     shared_ptr<vector<string>> tags_ {};
-    // The trigger type.
-    // 
+    // The trigger type. Valid values:
     // - Scheduler
-    // 
     // - Manual
-    // 
     // - TriggerWorkflow
     shared_ptr<string> triggerType_ {};
   };

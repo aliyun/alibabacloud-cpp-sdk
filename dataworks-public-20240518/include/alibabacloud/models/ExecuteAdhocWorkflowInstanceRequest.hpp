@@ -170,11 +170,11 @@ namespace Models
 
 
       protected:
-        // The compute unit (CU) consumption configured for the task.
+        // The CU consumption configured for task execution.
         shared_ptr<string> cu_ {};
-        // The image ID configured for the task.
+        // The ID of the image configured for task execution.
         shared_ptr<string> image_ {};
-        // The identifier of the schedule resource group configured for the task.
+        // The identifier of the scheduling resource group configured for task execution.
         // 
         // This parameter is required.
         shared_ptr<string> resourceGroupId_ {};
@@ -288,7 +288,7 @@ namespace Models
 
 
         protected:
-          // The output identifier.
+          // The output identifier. Example: pre.odps_sql_demo_0.
           shared_ptr<string> output_ {};
         };
 
@@ -378,7 +378,7 @@ namespace Models
         protected:
           // The variable name.
           shared_ptr<string> name_ {};
-          // The variable value. Specify the value in the format of `Upstream task Output:Upstream task output variable name`.
+          // The variable value. Specify it in the `Upstream task Output:upstream task output variable name` format.
           shared_ptr<string> value_ {};
         };
 
@@ -425,7 +425,7 @@ namespace Models
 
 
       protected:
-        // The output identifier of the upstream task.
+        // The output identifier of the upstream task. Required when DependencyType is set to Normal.
         shared_ptr<string> upstreamOutput_ {};
       };
 
@@ -457,7 +457,7 @@ namespace Models
 
 
       protected:
-        // The data source name.
+        // The name of the data source.
         shared_ptr<string> name_ {};
       };
 
@@ -554,7 +554,7 @@ namespace Models
 
 
     protected:
-      // The client unique code of the task, which is used to uniquely identify a task.
+      // The client unique code of the task, which uniquely identifies the task.
       // 
       // This parameter is required.
       shared_ptr<string> clientUniqueCode_ {};
@@ -574,13 +574,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> owner_ {};
-      // The runtime environment configuration, such as resource group information.
+      // The runtime environment configurations, such as the resource group information.
       // 
       // This parameter is required.
       shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
-      // The script information for running the task.
+      // The script information.
       shared_ptr<Tasks::Script> script_ {};
-      // The timeout period for task execution. Unit: seconds.
+      // The timeout period for task execution, in seconds.
       shared_ptr<int32_t> timeout_ {};
       // The task type.
       // 
@@ -638,8 +638,8 @@ namespace Models
     // The business date. The value is a timestamp.
     shared_ptr<int64_t> bizDate_ {};
     // The project environment. Valid values:
-    // - Prod: production
-    // - Dev: development
+    // - Prod: production.
+    // - Dev: development.
     shared_ptr<string> envType_ {};
     // The name.
     // 

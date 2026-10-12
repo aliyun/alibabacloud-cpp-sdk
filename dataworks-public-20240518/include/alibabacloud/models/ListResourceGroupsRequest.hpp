@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -172,45 +172,37 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> aliyunResourceGroupId_ {};
-    // The list of Alibaba Cloud tags.
+    // The Alibaba Cloud tags.
     shared_ptr<vector<ListResourceGroupsRequest::AliyunResourceTags>> aliyunResourceTags_ {};
-    // The name of the resource group. Fuzzy search is supported.
+    // The name of the resource group for fuzzy match.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method of the resource group. Valid values include:
+    // The billing method of the resource group. Valid values:
     // 
-    // - `PrePaid`: subscription.
-    // 
-    // - `PostPaid`: pay-as-you-go.
+    // - PrePaid: Subscription.
+    // - PostPaid: Pay-as-you-go.
     shared_ptr<string> paymentType_ {};
-    // The ID of the workspace.
+    // The ID of the workspace to which the resource group belongs.
     shared_ptr<int64_t> projectId_ {};
-    // The types of the resource groups to query. **If this parameter is not specified, general-purpose resource groups are queried by default.**
+    // The types of the resource groups to query. **If this parameter is left empty, general-purpose resource groups are queried by default.**
     shared_ptr<vector<string>> resourceGroupTypes_ {};
-    // The sorting criterion for the results. The format is `FieldName SortOrder`. `SortOrder` can be `Asc` (ascending) or `Desc` (descending). If you do not specify `SortOrder`, the default is `Asc`. The following fields are supported:
+    // The fields by which to sort the results. You can sort the results by fields such as scheduled time and start time. The format is \\"Sort field+Sort order (Desc/Asc)\\". Asc can be omitted. Valid values for the sort field:
     // 
-    // - `Id`: Resource group ID
+    // - Id (Desc/Asc): The ID of the resource group.
+    // - Name (Desc/Asc): The name of the resource group.
+    // - Remark (Desc/Asc): The description of the resource group.
+    // - Type (Desc/Asc): The type of the resource group.
+    // - Status (Desc/Asc): The status of the resource group.
+    // - Spec (Desc/Asc): The specifications of the resource group.
+    // - CreateUser (Desc/Asc): The creator of the resource group.
+    // - CreateTime (Desc/Asc): The time when the resource group was created.
     // 
-    // - `Name`: Resource group name
-    // 
-    // - `Remark`: Resource group remarks
-    // 
-    // - `Type`: Resource group type
-    // 
-    // - `Status`: Resource group status
-    // 
-    // - `Spec`: Resource group specifications
-    // 
-    // - `CreateUser`: The user who created the resource group
-    // 
-    // - `CreateTime`: The time when the resource group was created
-    // 
-    // Default value: `CreateTime Asc`
+    // Default value: CreateTime Asc.
     shared_ptr<string> sortBy_ {};
     // The statuses of the resource groups to query.
     shared_ptr<vector<string>> statuses_ {};

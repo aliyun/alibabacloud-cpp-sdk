@@ -66,15 +66,13 @@ namespace Models
 
 
   protected:
-    // The type of the tag. Valid values:
-    // 
+    // The tag type.
     // - Normal
-    // 
     // - System
     shared_ptr<string> category_ {};
     // The tag key.
     shared_ptr<string> key_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};

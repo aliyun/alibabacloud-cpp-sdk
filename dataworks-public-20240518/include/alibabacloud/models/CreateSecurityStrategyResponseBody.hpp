@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The security strategy ID.
+    // The security policy ID.
     shared_ptr<int64_t> id_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

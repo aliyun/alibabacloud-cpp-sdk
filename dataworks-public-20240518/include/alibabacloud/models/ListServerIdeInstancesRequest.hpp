@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // The keyword for fuzzy match by instance ID or instance name.
+    // The keyword used to match the instance ID or instance name.
     shared_ptr<string> keyword_ {};
-    // The maximum number of records to return in a single request.
+    // The maximum number of entries to return for a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. You do not need to specify this parameter for the first request.
+    // The pagination token used to continue the query. You do not need to specify this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // The page number. Minimum value: 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The DataWorks workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The account ID of the user who owns the instance. Used to filter instances by owner.
+    // The account ID of the user that owns the instance.
     shared_ptr<string> relatedUserId_ {};
-    // The DataWorks resource group identifier. You can specify a numeric resource group ID or a full identifier in the format of Serverless_res_group_{tenantId}_{resgId}.
+    // The DataWorks resource group identifier. You can use the numeric ID of the resource group or the full identifier in the Serverless_res_group_{tenantId}_{resgId} format.
     shared_ptr<string> resourceGroupId_ {};
     // The instance subtype. Valid values:
-    // - PERSONAL_DEV: personal development environment.
-    // - DATA_AGENT: Data Agent.
+    // - PERSONAL_DEV: personal development environment
+    // - DATA_AGENT: Data Agent
     shared_ptr<string> subType_ {};
   };
 

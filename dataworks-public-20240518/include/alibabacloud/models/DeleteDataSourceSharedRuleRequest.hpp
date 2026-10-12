@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The sharing rule ID.
+    // The ID of the data source sharing rule. You can call the ListDataSourceSharedRules operation to query existing sharing rules and their IDs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The date of the operation, accurate to the day. Default value: the current day. You can query operation logs from the past 31 days. The value is a timestamp.
+    // The operation date, accurate to the day. Default value: the current day. Only operation logs from the past 31 days can be queried. The value is a timestamp.
     shared_ptr<int64_t> date_ {};
-    // The node ID.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
@@ -86,8 +86,8 @@ namespace Models
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The project environment. Valid values:
-    // - Prod: production
-    // - Dev: development
+    // - Prod: production.
+    // - Dev: development.
     shared_ptr<string> projectEnv_ {};
   };
 

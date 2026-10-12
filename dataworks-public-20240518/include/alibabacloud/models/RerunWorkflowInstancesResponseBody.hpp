@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The operation ID. You can use this value to query the creation result via the GetRerunWorkflowInstancesResult operation.
+    // The operation ID. You can use this field to call the GetRerunWorkflowInstancesResult operation to query the result of the operation.
     shared_ptr<string> operationId_ {};
-    // The request ID. Used for troubleshooting and log tracking.
+    // The ID of the request. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

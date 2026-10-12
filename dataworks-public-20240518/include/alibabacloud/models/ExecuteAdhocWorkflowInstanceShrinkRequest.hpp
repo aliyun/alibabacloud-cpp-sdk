@@ -87,8 +87,8 @@ namespace Models
     // The business date. The value is a timestamp.
     shared_ptr<int64_t> bizDate_ {};
     // The project environment. Valid values:
-    // - Prod: production
-    // - Dev: development
+    // - Prod: production.
+    // - Dev: development.
     shared_ptr<string> envType_ {};
     // The name.
     // 

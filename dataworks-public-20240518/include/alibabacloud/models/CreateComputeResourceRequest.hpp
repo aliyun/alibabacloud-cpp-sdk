@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The connection configuration of the compute resource, including the endpoint, access identity, and environment context. The EnvType field is a member property of this object and specifies the environment of the compute resource. Valid values: DEV (development environment) and PROD (production environment). The EnvType value is case-insensitive.
+    // The specific connection configuration information of the compute resource, including the endpoint, access identity, and environment context. The environment type (EnvType) of the compute resource is a member property of this object. Valid values include DEV (development environment) and PROD (production environment). The EnvType value is not case-sensitive.
     // 
     // This parameter is required.
     shared_ptr<string> connectionProperties_ {};
-    // The category for adding the compute resource. Different types have different subtypes with different parameter constraints. For example, a Hologres compute resource supports InstanceMode (instance mode) and UrlMode (connection string mode).
+    // The mode in which the compute resource is added. Different types have different subtypes and corresponding parameter constraints. For example, for a Hologres compute resource, valid values include InstanceMode (instance mode) and UrlMode (connection string mode).
     // 
     // This parameter is required.
     shared_ptr<string> connectionPropertiesMode_ {};
     // The description of the compute resource. The description can be up to 3,000 characters in length.
     shared_ptr<string> description_ {};
-    // The name of the compute resource. The name can contain letters, digits, and underscores (_), and cannot start with a digit or underscore. The name can be up to 255 characters in length.
+    // The name of the compute resource. The name can contain letters, digits, and underscores (_), and cannot start with a digit or an underscore. The name can be up to 255 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

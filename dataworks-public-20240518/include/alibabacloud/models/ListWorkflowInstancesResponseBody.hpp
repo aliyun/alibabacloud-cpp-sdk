@@ -305,23 +305,23 @@ namespace Models
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
-        // The account ID of the user who created the instance.
+        // The account ID of the user who created the workflow instance.
         shared_ptr<string> createUser_ {};
         // The project environment. Valid values:
-        // - Prod (production)
-        // - Dev (development)
+        // - Prod (Production)
+        // - Dev (Development)
         shared_ptr<string> envType_ {};
-        // The finish time.
+        // The completion time.
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> finishedTime_ {};
         // The unique identifier of the workflow instance.
         shared_ptr<int64_t> id_ {};
-        // The modification time.
+        // The update time.
         // 
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> modifyTime_ {};
-        // The account ID of the user who last modified the instance.
+        // The account ID of the user who updated the workflow instance.
         shared_ptr<string> modifyUser_ {};
         // The name.
         shared_ptr<string> name_ {};
@@ -334,32 +334,32 @@ namespace Models
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> startedTime_ {};
         // The running status of the workflow instance. Valid values:
-        // - NotRun: not run
-        // - Running: running
-        // - WaitTime: waiting for TriggerTime
-        // - CheckingCondition: checking branch conditions
-        // - WaitResource: waiting for resources
-        // - Failure: failed
-        // - Success: succeeded
-        // - Checking: submitted for data quality check
+        // - NotRun: Not run.
+        // - Running: Running.
+        // - WaitTime: Waiting for the trigger time.
+        // - CheckingCondition: Checking branch conditions.
+        // - WaitResource: Waiting for resources.
+        // - Failure: Failed.
+        // - Success: Successful.
+        // - Checking: Submitted for data quality check.
         shared_ptr<string> status_ {};
-        // The node tags.
+        // The task tags.
         shared_ptr<vector<WorkflowInstances::Tags>> tags_ {};
         // The type of the workflow instance. Valid values:
-        // - Normal: periodic scheduling
-        // - Manual: manual task
-        // - SmokeTest: test
-        // - SupplementData: data backfill
-        // - ManualWorkflow: manual workflow
-        // - TriggerWorkflow: trigger-based workflow
+        // - Normal: Periodic scheduling.
+        // - Manual: Manual task.
+        // - SmokeTest: Smoke test.
+        // - SupplementData: Data backfill.
+        // - ManualWorkflow: Manual workflow.
+        // - TriggerWorkflow: Triggered workflow.
         shared_ptr<string> type_ {};
-        // The unified workflow instance ID. All workflow instances within the same business date under a specific trigger share the same value for this field.
+        // The unified workflow instance ID. The value of this field is the same for all workflow instances within a specific business date under a single trigger.
         shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
         // The ID of the workflow to which the instance belongs.
         shared_ptr<int64_t> workflowId_ {};
         // The workflow parameters.
         shared_ptr<string> workflowParameters_ {};
-        // The task instance ID corresponding to the workflow instance.
+        // The ID of the task instance corresponding to the workflow instance.
         shared_ptr<int64_t> workflowTaskInstanceId_ {};
       };
 
@@ -427,7 +427,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListWorkflowInstancesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

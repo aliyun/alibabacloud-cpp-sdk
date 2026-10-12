@@ -115,17 +115,17 @@ namespace Models
 
 
     protected:
-      // The time when the file was created. This is a UNIX timestamp in milliseconds.
+      // The time when the certificate file was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the user who created the certificate file.
       shared_ptr<string> createUser_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The file size in bytes.
+      // The size of the file in bytes.
       shared_ptr<int64_t> fileSizeInBytes_ {};
-      // The unique ID of the certificate file.
+      // The ID of the certificate file, which is the unique identifier of the certificate file.
       shared_ptr<int64_t> id_ {};
-      // The file name.
+      // The name of the file.
       shared_ptr<string> name_ {};
       // The ID of the project to which the certificate file belongs.
       shared_ptr<int64_t> projectId_ {};
@@ -150,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The details of the certificate.
+    // The certificate details.
     shared_ptr<GetCertificateResponseBody::Certificate> certificate_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

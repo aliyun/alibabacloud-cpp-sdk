@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The list of monitoring target IDs. Currently, only one ID can be specified.
+      // The list of monitored target IDs. Currently, only one ID is supported.
       shared_ptr<vector<int64_t>> ids_ {};
       // The type of the monitored object. Only DataQualityScan is supported.
       shared_ptr<string> type_ {};
@@ -154,9 +154,9 @@ namespace Models
 
 
       protected:
-        // The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to @ all members.
+        // The additional configuration required for the alert recipient. When ReceiverType is set to DingdingUrl, you can set `{"atAll":true}` to mention all members.
         shared_ptr<string> extension_ {};
-        // The alerting accept object type. Valid values:
+        // The type of the alert recipient.
         // - AliUid
         // - WebhookUrl
         // - DingdingUrl
@@ -168,7 +168,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> receiverType_ {};
-        // The values of the alert recipients.
+        // The value of the alert recipient.
         shared_ptr<vector<string>> receiverValues_ {};
       };
 
@@ -193,7 +193,7 @@ namespace Models
 
 
     protected:
-      // The list of notification channels. You can set both Email and Sms at the same time. In other cases, only one channel can be specified.
+      // The list of notification channels. You can configure both Email and Sms simultaneously. For other cases, only one channel can be configured.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> channels_ {};
@@ -245,13 +245,13 @@ namespace Models
   protected:
     // The alert condition of the data quality monitoring alert rule.
     shared_ptr<string> condition_ {};
-    // The alert rule ID.
+    // The ID of the alert rule.
     shared_ptr<int64_t> id_ {};
     // The alert notification configuration.
     shared_ptr<UpdateDataQualityAlertRuleRequest::Notification> notification_ {};
-    // The project ID.
+    // The ID of the project.
     shared_ptr<int64_t> projectId_ {};
-    // The monitoring target of the data quality monitoring alert rule.
+    // The target of the data quality monitoring alert rule.
     shared_ptr<UpdateDataQualityAlertRuleRequest::Target> target_ {};
   };
 
