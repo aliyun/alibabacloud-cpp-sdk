@@ -1405,7 +1405,7 @@ namespace Ecd20200930
       /**
        * @summary Creates a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
        *
        * @param request CreateVirtualBridgeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1416,7 +1416,7 @@ namespace Ecd20200930
       /**
        * @summary Creates a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
        *
        * @param request CreateVirtualBridgeRequest
        * @return CreateVirtualBridgeResponse
@@ -1952,7 +1952,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the status of a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
        *
        * @param request DeleteVirtualBridgeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1963,7 +1963,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the status of a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
        *
        * @param request DeleteVirtualBridgeRequest
        * @return DeleteVirtualBridgeResponse
@@ -2221,6 +2221,37 @@ namespace Ecd20200930
       Models::DescribeConfigGroupResponse describeConfigGroup(const Models::DescribeConfigGroupRequest &request);
 
       /**
+       * @summary Queries WUYING Workspace management messages.
+       *
+       * @description Queries console messages and their configurations under the current Alibaba Cloud account. You can filter messages by message ID, business channel, message type, client type, message level, title or body keyword, and target audience. Returns the list of messages on the current page and the total number of messages that match the query conditions.
+       * - When multiple filter conditions are provided, all conditions are applied together to limit the query results.
+       * - Uses PageNum and PageSize for pagination. The default value of PageNum is 1, and the default and maximum values of PageSize are both 200.
+       * - When querying by a specified convenience user, the results include messages targeted at all convenience users, the user themselves, and the organization to which the user belongs. When querying by a specified AD user, the results also include messages targeted at all AD users, the user themselves, and the AD organization to which the user belongs.
+       * - Query results may include messages in the initializing, pushing, published, expired, deleting, and failed states. The Published state does not indicate that all target terminals have successfully received the message.
+       * - Image download URLs are temporary links. If a link expires, you can query again to obtain a new one.
+       *
+       * @param request DescribeConsoleMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeConsoleMessagesResponse
+       */
+      Models::DescribeConsoleMessagesResponse describeConsoleMessagesWithOptions(const Models::DescribeConsoleMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries WUYING Workspace management messages.
+       *
+       * @description Queries console messages and their configurations under the current Alibaba Cloud account. You can filter messages by message ID, business channel, message type, client type, message level, title or body keyword, and target audience. Returns the list of messages on the current page and the total number of messages that match the query conditions.
+       * - When multiple filter conditions are provided, all conditions are applied together to limit the query results.
+       * - Uses PageNum and PageSize for pagination. The default value of PageNum is 1, and the default and maximum values of PageSize are both 200.
+       * - When querying by a specified convenience user, the results include messages targeted at all convenience users, the user themselves, and the organization to which the user belongs. When querying by a specified AD user, the results also include messages targeted at all AD users, the user themselves, and the AD organization to which the user belongs.
+       * - Query results may include messages in the initializing, pushing, published, expired, deleting, and failed states. The Published state does not indicate that all target terminals have successfully received the message.
+       * - Image download URLs are temporary links. If a link expires, you can query again to obtain a new one.
+       *
+       * @param request DescribeConsoleMessagesRequest
+       * @return DescribeConsoleMessagesResponse
+       */
+      Models::DescribeConsoleMessagesResponse describeConsoleMessages(const Models::DescribeConsoleMessagesRequest &request);
+
+      /**
        * @summary Obtain the table header information of the WUYING Workspace list page.
        *
        * @param request DescribeCustomizedListHeadersRequest
@@ -2399,7 +2430,7 @@ namespace Ecd20200930
       Models::DescribeDesktopTypesResponse describeDesktopTypes(const Models::DescribeDesktopTypesRequest &request);
 
       /**
-       * @summary Queries the details of cloud computers.
+       * @summary Queries the details of a cloud computer.
        *
        * @param request DescribeDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2408,7 +2439,7 @@ namespace Ecd20200930
       Models::DescribeDesktopsResponse describeDesktopsWithOptions(const Models::DescribeDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of cloud computers.
+       * @summary Queries the details of a cloud computer.
        *
        * @param request DescribeDesktopsRequest
        * @return DescribeDesktopsResponse
@@ -3794,7 +3825,7 @@ namespace Ecd20200930
       Models::ExportDesktopListInfoResponse exportDesktopListInfo(const Models::ExportDesktopListInfoRequest &request);
 
       /**
-       * @summary Queries desktop data statistics by different dimensions.
+       * @summary Queries desktop statistics by different dimensions.
        *
        * @param request GetAggregatedDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3803,7 +3834,7 @@ namespace Ecd20200930
       Models::GetAggregatedDesktopsResponse getAggregatedDesktopsWithOptions(const Models::GetAggregatedDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries desktop data statistics by different dimensions.
+       * @summary Queries desktop statistics by different dimensions.
        *
        * @param request GetAggregatedDesktopsRequest
        * @return GetAggregatedDesktopsResponse
@@ -4108,9 +4139,9 @@ namespace Ecd20200930
       Models::ListUserAdOrganizationUnitsResponse listUserAdOrganizationUnits(const Models::ListUserAdOrganizationUnitsRequest &request);
 
       /**
-       * @summary Queries a list of virtual bridges.
+       * @summary Queries virtual bridges.
        *
-       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       * @description After an MFA device is locked, its status changes to LOCKED. The corresponding Active Directory (AD) account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
        *
        * @param request ListVirtualBridgesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4119,9 +4150,9 @@ namespace Ecd20200930
       Models::ListVirtualBridgesResponse listVirtualBridgesWithOptions(const Models::ListVirtualBridgesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of virtual bridges.
+       * @summary Queries virtual bridges.
        *
-       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       * @description After an MFA device is locked, its status changes to LOCKED. The corresponding Active Directory (AD) account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
        *
        * @param request ListVirtualBridgesRequest
        * @return ListVirtualBridgesResponse
@@ -5100,9 +5131,9 @@ namespace Ecd20200930
       Models::ModifyUserToDesktopGroupResponse modifyUserToDesktopGroup(const Models::ModifyUserToDesktopGroupRequest &request);
 
       /**
-       * @summary Changes the specifications of a virtual bridge.
+       * @summary Upgrades or downgrades the specifications of a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+       * @description Deleting an MFA device means unbinding the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
        *
        * @param request ModifyVirtualBridgeLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5111,9 +5142,9 @@ namespace Ecd20200930
       Models::ModifyVirtualBridgeLevelResponse modifyVirtualBridgeLevelWithOptions(const Models::ModifyVirtualBridgeLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the specifications of a virtual bridge.
+       * @summary Upgrades or downgrades the specifications of a virtual bridge.
        *
-       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+       * @description Deleting an MFA device means unbinding the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
        *
        * @param request ModifyVirtualBridgeLevelRequest
        * @return ModifyVirtualBridgeLevelResponse
@@ -5123,7 +5154,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the status of a virtual bridge.
        *
-       * @description Only custom images in the active (Available) state can be modified.
+       * @description Only custom images in the Available state can be modified.
        *
        * @param request ModifyVirtualBridgeStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5134,7 +5165,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the status of a virtual bridge.
        *
-       * @description Only custom images in the active (Available) state can be modified.
+       * @description Only custom images in the Available state can be modified.
        *
        * @param request ModifyVirtualBridgeStatusRequest
        * @return ModifyVirtualBridgeStatusResponse
@@ -5543,7 +5574,7 @@ namespace Ecd20200930
       /**
        * @summary Renews a virtual bridge.
        *
-       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       * @description After being locked, the status of the MFA device changes to Locked (LOCKED). The corresponding AD account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock it.
        *
        * @param request RenewVirtualBridgeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5554,7 +5585,7 @@ namespace Ecd20200930
       /**
        * @summary Renews a virtual bridge.
        *
-       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       * @description After being locked, the status of the MFA device changes to Locked (LOCKED). The corresponding AD account cannot log on to the Wuying terminal because it cannot authenticate the MFA device. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock it.
        *
        * @param request RenewVirtualBridgeRequest
        * @return RenewVirtualBridgeResponse
@@ -5663,6 +5694,35 @@ namespace Ecd20200930
        * @return RunCommandResponse
        */
       Models::RunCommandResponse runCommand(const Models::RunCommandRequest &request);
+
+      /**
+       * @summary Sends a created Elastic Desktop Service management message.
+       *
+       * @description This operation sends a created management message. The message body, client type, recipients, and business type all use the saved configurations. Each call processes only one MessageId.
+       * - The message must belong to the current Alibaba Cloud account. Messages in the Init, Pushing, Expired, Deleting, or Failed state cannot be sent. Only messages in the Published state can be sent.
+       * - Before the request is accepted, the system checks the number of Pushing messages of the same message type under the current account. If there are 5 or more such messages, the request is rejected. The count is not split by business channel.
+       * - Regular notifications and wallpaper messages are pushed through asynchronous tasks. For the OPERATIONAL type, only the publish status is updated. Messages configured for scheduled sending retain their original schedules and are not immediately triggered by this operation.
+       * - A Success value of true indicates that the request is accepted, but it does not mean that all recipients have received the message. Published indicates that the message is published or the server-side push processing is complete, and it is not a delivery confirmation for each individual target.
+       *
+       * @param request SendConsoleMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendConsoleMessageResponse
+       */
+      Models::SendConsoleMessageResponse sendConsoleMessageWithOptions(const Models::SendConsoleMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sends a created Elastic Desktop Service management message.
+       *
+       * @description This operation sends a created management message. The message body, client type, recipients, and business type all use the saved configurations. Each call processes only one MessageId.
+       * - The message must belong to the current Alibaba Cloud account. Messages in the Init, Pushing, Expired, Deleting, or Failed state cannot be sent. Only messages in the Published state can be sent.
+       * - Before the request is accepted, the system checks the number of Pushing messages of the same message type under the current account. If there are 5 or more such messages, the request is rejected. The count is not split by business channel.
+       * - Regular notifications and wallpaper messages are pushed through asynchronous tasks. For the OPERATIONAL type, only the publish status is updated. Messages configured for scheduled sending retain their original schedules and are not immediately triggered by this operation.
+       * - A Success value of true indicates that the request is accepted, but it does not mean that all recipients have received the message. Published indicates that the message is published or the server-side push processing is complete, and it is not a delivery confirmation for each individual target.
+       *
+       * @param request SendConsoleMessageRequest
+       * @return SendConsoleMessageResponse
+       */
+      Models::SendConsoleMessageResponse sendConsoleMessage(const Models::SendConsoleMessageRequest &request);
 
       /**
        * @summary Retrieves a verification code required when adding a premium office network to a Cloud Enterprise Network (CEN) instance that belongs to a different Alibaba Cloud account.

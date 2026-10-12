@@ -114,7 +114,7 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. This parameter takes effect and is optional only when the billing method is `PrePaid`.
+    // Specifies whether to enable auto-renewal. This parameter takes effect and is optional only when the billing method is set to `PrePaid`.
     shared_ptr<bool> autoRenew_ {};
     // The virtual bridge ID.
     // 
@@ -126,18 +126,18 @@ namespace Models
     shared_ptr<string> bridgeLevel_ {};
     // The payment callback URL.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+    // The renewal duration. The valid values depend on the value of the `PeriodUnit` parameter.
     // 
     // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
     // - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration for the prepaid cloud disk. This parameter takes effect and is required only when the `CdsChargeType` parameter is set to `PrePaid`.
+    // The unit of the subscription duration for the cloud disk. This parameter takes effect and is required only when the `CdsChargeType` parameter is set to `PrePaid`.
     shared_ptr<string> periodUnit_ {};
-    // The promotion ID. You can call the pricing query operation to obtain the list of matched promotion IDs.
+    // The promotion ID. You can call the pricing API operation to obtain the list of matched promotion IDs.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

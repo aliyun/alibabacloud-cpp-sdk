@@ -86,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The list of aggregation field information.
+    // The list of aggregated field information.
     // >Notice: When you use an aggregate query, only aggregation results are returned. The list of matched metadata is not returned.
     shared_ptr<GetAggregatedDesktopsResponseBody::Aggregations> aggregations_ {};
     // Id of the request

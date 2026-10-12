@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The virtual bridge ID.
+    // The ID of the virtual bridge.
     // 
     // This parameter is required.
     shared_ptr<string> bridgeId_ {};
-    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

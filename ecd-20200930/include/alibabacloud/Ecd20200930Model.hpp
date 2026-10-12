@@ -331,6 +331,9 @@
 #include <alibabacloud/models/DescribeConfigGroupRequest.hpp>
 #include <alibabacloud/models/DescribeConfigGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribeConfigGroupResponse.hpp>
+#include <alibabacloud/models/DescribeConsoleMessagesRequest.hpp>
+#include <alibabacloud/models/DescribeConsoleMessagesResponseBody.hpp>
+#include <alibabacloud/models/DescribeConsoleMessagesResponse.hpp>
 #include <alibabacloud/models/DescribeCustomizedListHeadersRequest.hpp>
 #include <alibabacloud/models/DescribeCustomizedListHeadersResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomizedListHeadersResponse.hpp>
@@ -856,6 +859,9 @@
 #include <alibabacloud/models/RunCommandRequest.hpp>
 #include <alibabacloud/models/RunCommandResponseBody.hpp>
 #include <alibabacloud/models/RunCommandResponse.hpp>
+#include <alibabacloud/models/SendConsoleMessageRequest.hpp>
+#include <alibabacloud/models/SendConsoleMessageResponseBody.hpp>
+#include <alibabacloud/models/SendConsoleMessageResponse.hpp>
 #include <alibabacloud/models/SendVerifyCodeRequest.hpp>
 #include <alibabacloud/models/SendVerifyCodeResponseBody.hpp>
 #include <alibabacloud/models/SendVerifyCodeResponse.hpp>

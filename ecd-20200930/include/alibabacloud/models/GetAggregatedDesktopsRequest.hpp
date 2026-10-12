@@ -57,7 +57,11 @@ namespace Models
 
 
   protected:
-    // The aggregation factor.
+    // The aggregation factor. Valid values:
+    // - directory_id: office network ID
+    // - region: region
+    // - policy_group_id: cloud desktop policy ID
+    // - status: cloud desktop status
     shared_ptr<string> aggregationFactor_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by WUYING Workspace.
     shared_ptr<string> regionId_ {};

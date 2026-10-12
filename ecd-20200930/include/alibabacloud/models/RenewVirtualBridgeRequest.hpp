@@ -107,13 +107,13 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The virtual bridge ID.
+    // The ID of the virtual bridge.
     // 
     // This parameter is required.
     shared_ptr<string> bridgeId_ {};
     // The payment callback URL.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The renewal duration. The valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+    // The renewal duration. The valid values depend on the value of the `PeriodUnit` parameter.
     // 
     // - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
     // - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
@@ -124,7 +124,7 @@ namespace Models
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Wuying Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -124,24 +124,24 @@ namespace Models
     shared_ptr<string> officeSiteId_ {};
     // The payment callback URL.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`.
+    // The subscription duration of the purchased resource. The unit is specified by `PeriodUnit`. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`.
     // 
     // - If `PeriodUnit` is set to `Month`, valid values:
     // 
     //      - 1
-    //     -  2
-    //     - 3
-    //     - 6
+    //      - 2
+    //      - 3
+    //      - 6
     // 
     // - If `PeriodUnit` is set to `Year`, valid values:
     // 
-    //     - 1
-    //     - 2
-    //     - 3
-    //     - 4
-    //     - 5
+    //      - 1
+    //      - 2
+    //      - 3
+    //      - 4
+    //      - 5
     shared_ptr<int32_t> period_ {};
-    // The unit of duration for the subscription billable methods.
+    // The billing time unit of the subscription Billable methods.
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};
