@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(agentId, agentId_);
+        DARABONBA_PTR_TO_JSON(configuredSkills, configuredSkills_);
         DARABONBA_PTR_TO_JSON(createMode, createMode_);
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
@@ -66,6 +67,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(agentId, agentId_);
+        DARABONBA_PTR_FROM_JSON(configuredSkills, configuredSkills_);
         DARABONBA_PTR_FROM_JSON(createMode, createMode_);
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
@@ -203,11 +205,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in AI Registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in AI Registry.
+          // The version of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> version_ {};
@@ -231,12 +233,22 @@ namespace Models
       class Skills : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Skills& obj) { 
+          DARABONBA_PTR_TO_JSON(appliedVersion, appliedVersion_);
+          DARABONBA_PTR_TO_JSON(fromTemplate, fromTemplate_);
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(resolvedVersion, resolvedVersion_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(version, version_);
+          DARABONBA_PTR_TO_JSON(versionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, Skills& obj) { 
+          DARABONBA_PTR_FROM_JSON(appliedVersion, appliedVersion_);
+          DARABONBA_PTR_FROM_JSON(fromTemplate, fromTemplate_);
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(resolvedVersion, resolvedVersion_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(version, version_);
+          DARABONBA_PTR_FROM_JSON(versionSelector, versionSelector_);
         };
         Skills() = default ;
         Skills(const Skills &) = default ;
@@ -249,13 +261,88 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->name_ == nullptr
-        && this->version_ == nullptr; };
+        class VersionSelector : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionSelector& obj) { 
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionSelector& obj) { 
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(value, value_);
+          };
+          VersionSelector() = default ;
+          VersionSelector(const VersionSelector &) = default ;
+          VersionSelector(VersionSelector &&) = default ;
+          VersionSelector(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionSelector() = default ;
+          VersionSelector& operator=(const VersionSelector &) = default ;
+          VersionSelector& operator=(VersionSelector &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->type_ == nullptr
+        && this->value_ == nullptr; };
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline VersionSelector& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline VersionSelector& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          // The type of the version selector. Valid values:
+          // - LABEL: By label.
+          // - VERSION: By specific version.
+          shared_ptr<string> type_ {};
+          // The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+          shared_ptr<string> value_ {};
+        };
+
+        virtual bool empty() const override { return this->appliedVersion_ == nullptr
+        && this->fromTemplate_ == nullptr && this->name_ == nullptr && this->resolvedVersion_ == nullptr && this->sourceType_ == nullptr && this->version_ == nullptr
+        && this->versionSelector_ == nullptr; };
+        // appliedVersion Field Functions 
+        bool hasAppliedVersion() const { return this->appliedVersion_ != nullptr;};
+        void deleteAppliedVersion() { this->appliedVersion_ = nullptr;};
+        inline string getAppliedVersion() const { DARABONBA_PTR_GET_DEFAULT(appliedVersion_, "") };
+        inline Skills& setAppliedVersion(string appliedVersion) { DARABONBA_PTR_SET_VALUE(appliedVersion_, appliedVersion) };
+
+
+        // fromTemplate Field Functions 
+        bool hasFromTemplate() const { return this->fromTemplate_ != nullptr;};
+        void deleteFromTemplate() { this->fromTemplate_ = nullptr;};
+        inline bool getFromTemplate() const { DARABONBA_PTR_GET_DEFAULT(fromTemplate_, false) };
+        inline Skills& setFromTemplate(bool fromTemplate) { DARABONBA_PTR_SET_VALUE(fromTemplate_, fromTemplate) };
+
+
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
         inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
         inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // resolvedVersion Field Functions 
+        bool hasResolvedVersion() const { return this->resolvedVersion_ != nullptr;};
+        void deleteResolvedVersion() { this->resolvedVersion_ = nullptr;};
+        inline string getResolvedVersion() const { DARABONBA_PTR_GET_DEFAULT(resolvedVersion_, "") };
+        inline Skills& setResolvedVersion(string resolvedVersion) { DARABONBA_PTR_SET_VALUE(resolvedVersion_, resolvedVersion) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline Skills& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
         // version Field Functions 
@@ -265,13 +352,32 @@ namespace Models
         inline Skills& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline const Skills::VersionSelector & getVersionSelector() const { DARABONBA_PTR_GET_CONST(versionSelector_, Skills::VersionSelector) };
+        inline Skills::VersionSelector getVersionSelector() { DARABONBA_PTR_GET(versionSelector_, Skills::VersionSelector) };
+        inline Skills& setVersionSelector(const Skills::VersionSelector & versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+        inline Skills& setVersionSelector(Skills::VersionSelector && versionSelector) { DARABONBA_PTR_SET_RVALUE(versionSelector_, versionSelector) };
+
+
       protected:
+        // The applied version in the runtime. This is a read-only field.
+        shared_ptr<string> appliedVersion_ {};
+        // Indicates whether the skill is from a fixed template. This is a read-only field. Template items cannot be removed.
+        shared_ptr<bool> fromTemplate_ {};
         // The skill name.
-        // 
-        // This parameter is required.
         shared_ptr<string> name_ {};
+        // The current target version. This is a read-only field.
+        shared_ptr<string> resolvedVersion_ {};
+        // The source type of the skill. Valid values:
+        // - REFERENCE: References the AI Registry.
+        // - STATIC: Statically provided with the package.
+        shared_ptr<string> sourceType_ {};
         // The skill version.
         shared_ptr<string> version_ {};
+        // The referenced version selector, which defaults to LABEL/latest if omitted.
+        shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
       class Model : public Darabonba::Model {
@@ -383,15 +489,15 @@ namespace Models
         protected:
           // Indicates whether the quota is enabled. This field is not returned if no quota is configured.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. Currently, only token is supported.
+          // The quota limit type. Only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota has been exceeded in the current cycle. This is a read-only field returned by the backend.
+          // Indicates whether the quota is exceeded for the current cycle. This is a read-only field returned by the backend.
           shared_ptr<bool> overLimit_ {};
-          // The quota statistical period. day indicates a daily period. month indicates a monthly period.
+          // The quota statistical period. A value of day indicates daily, and a value of month indicates monthly.
           shared_ptr<string> periodType_ {};
           // The gateway quota rule status. This is a read-only field returned by the backend.
           shared_ptr<string> ruleStatus_ {};
-          // The maximum number of tokens that can be consumed within a single cycle.
+          // The maximum number of tokens allowed to be consumed in a single cycle.
           shared_ptr<int64_t> usageLimit_ {};
           // The number of tokens consumed in the current cycle. This is a read-only field returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
@@ -427,7 +533,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and the quota usage status in the current cycle. This field is empty if no quota is configured.
+        // The model token quota configuration and usage status for the current cycle. This field is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -496,10 +602,10 @@ namespace Models
 
 
       protected:
-        // The heartbeat status. ONLINE indicates that the most recent heartbeat has not exceeded the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or has an invalid format. Valid values:
-        // - ONLINE: Online.
-        // - STALE: Heartbeat expired.
-        // - UNKNOWN: Unknown.
+        // The heartbeat status. ONLINE indicates that the latest heartbeat has not exceeded the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values:
+        // - ONLINE: online
+        // - STALE: heartbeat expired
+        // - UNKNOWN: unknown
         shared_ptr<string> heartbeatStatus_ {};
         // The last active time of the external agent in RFC 3339 format.
         shared_ptr<string> lastActiveAt_ {};
@@ -511,16 +617,143 @@ namespace Models
         shared_ptr<string> runtime_ {};
       };
 
+      class ConfiguredSkills : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ConfiguredSkills& obj) { 
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
+          DARABONBA_PTR_TO_JSON(version, version_);
+          DARABONBA_PTR_TO_JSON(versionSelector, versionSelector_);
+        };
+        friend void from_json(const Darabonba::Json& j, ConfiguredSkills& obj) { 
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
+          DARABONBA_PTR_FROM_JSON(version, version_);
+          DARABONBA_PTR_FROM_JSON(versionSelector, versionSelector_);
+        };
+        ConfiguredSkills() = default ;
+        ConfiguredSkills(const ConfiguredSkills &) = default ;
+        ConfiguredSkills(ConfiguredSkills &&) = default ;
+        ConfiguredSkills(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ConfiguredSkills() = default ;
+        ConfiguredSkills& operator=(const ConfiguredSkills &) = default ;
+        ConfiguredSkills& operator=(ConfiguredSkills &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VersionSelector : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionSelector& obj) { 
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionSelector& obj) { 
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(value, value_);
+          };
+          VersionSelector() = default ;
+          VersionSelector(const VersionSelector &) = default ;
+          VersionSelector(VersionSelector &&) = default ;
+          VersionSelector(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionSelector() = default ;
+          VersionSelector& operator=(const VersionSelector &) = default ;
+          VersionSelector& operator=(VersionSelector &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->type_ == nullptr
+        && this->value_ == nullptr; };
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline VersionSelector& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline VersionSelector& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          // The type of the version selector. Valid values:
+          // - LABEL: By label.
+          // - VERSION: By specific version.
+          shared_ptr<string> type_ {};
+          // The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+          shared_ptr<string> value_ {};
+        };
+
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->sourceType_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline ConfiguredSkills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline ConfiguredSkills& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline ConfiguredSkills& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline const ConfiguredSkills::VersionSelector & getVersionSelector() const { DARABONBA_PTR_GET_CONST(versionSelector_, ConfiguredSkills::VersionSelector) };
+        inline ConfiguredSkills::VersionSelector getVersionSelector() { DARABONBA_PTR_GET(versionSelector_, ConfiguredSkills::VersionSelector) };
+        inline ConfiguredSkills& setVersionSelector(const ConfiguredSkills::VersionSelector & versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+        inline ConfiguredSkills& setVersionSelector(ConfiguredSkills::VersionSelector && versionSelector) { DARABONBA_PTR_SET_RVALUE(versionSelector_, versionSelector) };
+
+
+      protected:
+        // The name of the skill in the Workspace AI Registry.
+        // 
+        // This parameter is required.
+        shared_ptr<string> name_ {};
+        // The source type of the skill. Valid values:
+        // - REFERENCE: References the AI Registry.
+        // - STATIC: Statically provided with the package.
+        shared_ptr<string> sourceType_ {};
+        // The legacy compatibility field. Use sourceType and versionSelector for new requests.
+        shared_ptr<string> version_ {};
+        // The referenced version selector. If omitted, the default is LABEL/latest. Currently, only LABEL/latest is supported.
+        shared_ptr<ConfiguredSkills::VersionSelector> versionSelector_ {};
+      };
+
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->externalAgentStatus_ == nullptr
-        && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->model_ == nullptr && this->modelSource_ == nullptr
-        && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr && this->status_ == nullptr
-        && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->configuredSkills_ == nullptr && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr
+        && this->externalAgentStatus_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->model_ == nullptr
+        && this->modelSource_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr
+        && this->status_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
       inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
       inline Data& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+
+
+      // configuredSkills Field Functions 
+      bool hasConfiguredSkills() const { return this->configuredSkills_ != nullptr;};
+      void deleteConfiguredSkills() { this->configuredSkills_ = nullptr;};
+      inline const vector<Data::ConfiguredSkills> & getConfiguredSkills() const { DARABONBA_PTR_GET_CONST(configuredSkills_, vector<Data::ConfiguredSkills>) };
+      inline vector<Data::ConfiguredSkills> getConfiguredSkills() { DARABONBA_PTR_GET(configuredSkills_, vector<Data::ConfiguredSkills>) };
+      inline Data& setConfiguredSkills(const vector<Data::ConfiguredSkills> & configuredSkills) { DARABONBA_PTR_SET_VALUE(configuredSkills_, configuredSkills) };
+      inline Data& setConfiguredSkills(vector<Data::ConfiguredSkills> && configuredSkills) { DARABONBA_PTR_SET_RVALUE(configuredSkills_, configuredSkills) };
 
 
       // createMode Field Functions 
@@ -669,6 +902,8 @@ namespace Models
     protected:
       // The external agent ID.
       shared_ptr<string> agentId_ {};
+      // Includes only the skills added or overridden by the user, excluding inherited items from templates. The resource model reads this field to preserve update semantics. Creation and update operations still use the skills in the request.
+      shared_ptr<vector<Data::ConfiguredSkills>> configuredSkills_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
       // The creation time in RFC 3339 format.
@@ -679,23 +914,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The runtime status information reported by the external agent.
       shared_ptr<Data::ExternalAgentStatus> externalAgentStatus_ {};
-      // The agent instruction that guides the behavior of the agent.
+      // The agent instructions used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
       // The processing status of the latest specification version. Valid values:
-      // - pending: Pending.
-      // - processing: Processing.
-      // - waiting_retry: Waiting for retry.
-      // - succeeded: Succeeded.
-      // - failed: Failed.
-      // - superseded: Superseded by a newer version.
+      // - pending: pending
+      // - processing: processing
+      // - waiting_retry: waiting for retry
+      // - succeeded: succeeded
+      // - failed: failed
+      // - superseded: superseded by a new version
       shared_ptr<string> latestVersionStatus_ {};
       // The model configuration. Available only when modelSource is set to PLATFORM.
       shared_ptr<Data::Model> model_ {};
-      // The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be specified at the same time. Valid values:
-      // - PLATFORM: platform model.
-      // - RUNTIME: runtime model.
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be passed at the same time. Valid values:
+      // - PLATFORM: Platform model.
+      // - RUNTIME: Runtime model.
       shared_ptr<string> modelSource_ {};
       // The name of the external agent.
       shared_ptr<string> name_ {};
@@ -705,13 +940,7 @@ namespace Models
       shared_ptr<string> runtime_ {};
       // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
-      // The external agent status. Valid values:
-      // - Creating: Being created.
-      // - Running: Running.
-      // - Failed: Failed.
-      // - Updating: Being updated.
-      // - Deleting: Being deleted.
-      // - Deleted: Deleted.
+      // The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The agent template configuration.
       shared_ptr<Data::Template> template_ {};
@@ -770,17 +999,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request succeeds.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The details of the updated external agent.
     shared_ptr<UpdateExternalAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request succeeds.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

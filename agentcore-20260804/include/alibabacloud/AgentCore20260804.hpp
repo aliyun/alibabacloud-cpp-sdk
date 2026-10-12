@@ -2005,7 +2005,7 @@ namespace AgentCore20260804
       Models::ListTeamsResponse listTeams(const string &workspaceId, const Models::ListTeamsRequest &request);
 
       /**
-       * @summary Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
+       * @summary Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
        *
        * @param request ListUsersRequest
        * @param headers map
@@ -2015,7 +2015,7 @@ namespace AgentCore20260804
       Models::ListUsersResponse listUsersWithOptions(const string &workspaceId, const Models::ListUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of users in a specified workspace. You can filter users by fuzzy match on the username by using nameLike, specify the maximum number of records per page for paging by using maxResults, and obtain the next page by using nextToken. If maxResults is not specified, the server returns 10 records by default.
+       * @summary Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse

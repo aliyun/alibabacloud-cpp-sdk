@@ -13,12 +13,14 @@ namespace Models
   class ListUsersRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListUsersRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(email, email_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(nameLike, nameLike_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
     };
     friend void from_json(const Darabonba::Json& j, ListUsersRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(email, email_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(nameLike, nameLike_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->name_ == nullptr && this->nameLike_ == nullptr && this->nextToken_ == nullptr; };
+    virtual bool empty() const override { return this->email_ == nullptr
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nameLike_ == nullptr && this->nextToken_ == nullptr; };
+    // email Field Functions 
+    bool hasEmail() const { return this->email_ != nullptr;};
+    void deleteEmail() { this->email_ = nullptr;};
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline ListUsersRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -66,11 +75,13 @@ namespace Models
 
 
   protected:
+    // The filter condition for exact match on the email address.
+    shared_ptr<string> email_ {};
     // The maximum number of records to return per page. Valid values: 1 to 100. If this parameter is not specified, 10 records are returned by default.
     shared_ptr<int32_t> maxResults_ {};
-    // The filter condition for exact match on the username.
+    // The filter condition for exact match on the user name.
     shared_ptr<string> name_ {};
-    // The filter condition for fuzzy match on the username. The value can be up to 128 characters in length.
+    // The filter condition for fuzzy match on the user name. The value can be up to 128 characters in length.
     shared_ptr<string> nameLike_ {};
     // The cursor for querying the next page. Do not specify this parameter in the first call. In subsequent calls, specify the nextToken value returned in the previous call.
     shared_ptr<string> nextToken_ {};

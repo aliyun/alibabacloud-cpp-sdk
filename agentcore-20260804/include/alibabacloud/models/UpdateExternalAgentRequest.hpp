@@ -171,11 +171,11 @@ namespace Models
 
 
         protected:
-          // The name of the template in AI Registry.
+          // The name of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The version of the template in AI Registry.
+          // The version of the template in the AI Registry.
           // 
           // This parameter is required.
           shared_ptr<string> version_ {};
@@ -200,11 +200,15 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Skills& obj) { 
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(version, version_);
+          DARABONBA_PTR_TO_JSON(versionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, Skills& obj) { 
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(version, version_);
+          DARABONBA_PTR_FROM_JSON(versionSelector, versionSelector_);
         };
         Skills() = default ;
         Skills(const Skills &) = default ;
@@ -217,13 +221,66 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VersionSelector : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionSelector& obj) { 
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionSelector& obj) { 
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(value, value_);
+          };
+          VersionSelector() = default ;
+          VersionSelector(const VersionSelector &) = default ;
+          VersionSelector(VersionSelector &&) = default ;
+          VersionSelector(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionSelector() = default ;
+          VersionSelector& operator=(const VersionSelector &) = default ;
+          VersionSelector& operator=(VersionSelector &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->type_ == nullptr
+        && this->value_ == nullptr; };
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline VersionSelector& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline VersionSelector& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          // The type of the version selector. Valid values:
+          // - LABEL: By label.
+          // - VERSION: By specific version.
+          shared_ptr<string> type_ {};
+          // The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+          shared_ptr<string> value_ {};
+        };
+
         virtual bool empty() const override { return this->name_ == nullptr
-        && this->version_ == nullptr; };
+        && this->sourceType_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
         inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
         inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline Skills& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
         // version Field Functions 
@@ -233,13 +290,28 @@ namespace Models
         inline Skills& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline const Skills::VersionSelector & getVersionSelector() const { DARABONBA_PTR_GET_CONST(versionSelector_, Skills::VersionSelector) };
+        inline Skills::VersionSelector getVersionSelector() { DARABONBA_PTR_GET(versionSelector_, Skills::VersionSelector) };
+        inline Skills& setVersionSelector(const Skills::VersionSelector & versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+        inline Skills& setVersionSelector(Skills::VersionSelector && versionSelector) { DARABONBA_PTR_SET_RVALUE(versionSelector_, versionSelector) };
+
+
       protected:
         // The skill name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The source type of the skill. Valid values:
+        // - REFERENCE: References the AI Registry.
+        // - STATIC: Statically provided with the package.
+        shared_ptr<string> sourceType_ {};
         // The skill version.
         shared_ptr<string> version_ {};
+        // The referenced version selector. If omitted, the default is LABEL/latest. Currently, only LABEL/latest is supported.
+        shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
       class Model : public Darabonba::Model {
@@ -321,13 +393,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable token quota. Defaults to true if not specified. Set to false to disable and delete existing quota rules.
+          // Specifies whether to enable the token quota. Default value: true. If set to false, the quota is disabled and existing quota rules are deleted.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. Required by backend validation when quota is enabled. Fixed value: token.
+          // The quota limit type. Required and validated by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
-          // The quota statistical period. Required by backend validation when quota is enabled. Valid values: day (daily) and month (monthly).
+          // The statistical period for the quota. Required and validated by the backend when the quota is enabled. Valid values:
+          // - day: Daily.
+          // - month: Monthly.
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens that can be consumed within a single period. Required by backend validation when quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens allowed to be consumed within a single period. Required and validated by the backend when the quota is enabled. The value must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -365,7 +439,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration. If not specified, no quota is configured.
+        // The model token quota configuration. If not passed, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -439,13 +513,13 @@ namespace Models
     protected:
       // The description of the external agent.
       shared_ptr<string> description_ {};
-      // The agent instruction that guides the behavior of the agent.
+      // The agent instructions used to guide the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The model configuration. Available only when modelSource is set to PLATFORM.
       shared_ptr<Body::Model> model_ {};
-      // The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be specified at the same time. Valid values:
-      // - PLATFORM: platform model.
-      // - RUNTIME: runtime model.
+      // The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be passed at the same time. Valid values:
+      // - PLATFORM: Platform model.
+      // - RUNTIME: Runtime model.
       shared_ptr<string> modelSource_ {};
       // The name of the external agent.
       shared_ptr<string> name_ {};
