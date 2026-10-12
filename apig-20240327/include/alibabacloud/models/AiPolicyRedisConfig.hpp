@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The Redis database number.
     shared_ptr<int32_t> databaseNumber_ {};
-    // The Redis host address.
+    // The Redis hostname.
     shared_ptr<string> host_ {};
     // The Redis password.
     shared_ptr<string> password_ {};

@@ -163,7 +163,7 @@ namespace Models
 
 
           protected:
-            // The key used to pass the parameter.
+            // The pass parameter key.
             shared_ptr<string> key_ {};
             // The display value.
             shared_ptr<string> label_ {};
@@ -288,14 +288,14 @@ namespace Models
           // The display name of the parameter.
           shared_ptr<string> displayName_ {};
           // The parameter group. Valid values:
-          // - Telemetry: observability-related parameter.
-          // - Engine: engine-related parameter.
+          // - Telemetry: An observability parameter.
+          // - Engine: An engine parameter.
           shared_ptr<string> group_ {};
           // The input type of the parameter. Valid values:
-          // - Trigger: toggle.
-          // - Input: text input.
-          // - SingleSelect: single-select.
-          // - MultiSelect: multi-select.
+          // - Trigger: Toggle.
+          // - Input: Text input.
+          // - SingleSelect: Single-select.
+          // - MultiSelect: Multi-select.
           shared_ptr<string> inputType_ {};
           // The maximum length supported by the parameter value. This is valid only when the value type is string.
           shared_ptr<int32_t> maxLength_ {};
@@ -354,7 +354,7 @@ namespace Models
 
 
         protected:
-          // The maximum body collection size per request in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
+          // The maximum body collection size per request, in bytes. This value is returned based on the managed form of the gateway deployment cluster. Only the log-request-response feature returns this field.
           shared_ptr<int32_t> bodyMaxSizeLimit_ {};
         };
 
@@ -386,7 +386,7 @@ namespace Models
 
 
       protected:
-        // The runtime constraints calculated based on the current gateway form. Only returned for certain features.
+        // The runtime constraints calculated based on the current gateway form. Only returned for specific features.
         shared_ptr<Items::Constraints> constraints_ {};
         // The parameter definition.
         shared_ptr<Items::Definition> definition_ {};

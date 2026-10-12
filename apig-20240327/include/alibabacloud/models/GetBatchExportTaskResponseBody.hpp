@@ -143,8 +143,11 @@ namespace Models
 
 
         protected:
+          // API ID。
           shared_ptr<string> apiId_ {};
+          // The API name.
           shared_ptr<string> apiName_ {};
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -195,8 +198,11 @@ namespace Models
 
 
         protected:
+          // API ID。
           shared_ptr<string> apiId_ {};
+          // The API name.
           shared_ptr<string> apiName_ {};
+          // The error message.
           shared_ptr<string> errorMessage_ {};
         };
 
@@ -242,10 +248,15 @@ namespace Models
 
 
       protected:
+        // The API type.
         shared_ptr<string> apiType_ {};
+        // The list of APIs that failed to be processed.
         shared_ptr<vector<Result::FailureItems>> failureItems_ {};
+        // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
+        // The Base64-encoded ZIP file content. After the frontend decodes the content, it can directly trigger a browser download.
         shared_ptr<string> specContentBase64_ {};
+        // The list of APIs that were processed successfully.
         shared_ptr<vector<Result::SuccessItems>> successItems_ {};
       };
 
@@ -311,13 +322,21 @@ namespace Models
 
 
     protected:
+      // The time when the task was created. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
       shared_ptr<string> createTime_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The number of processed items.
       shared_ptr<int32_t> processedCount_ {};
+      // The task result details.
       shared_ptr<Data::Result> result_ {};
+      // The task status. Valid values: Pending, Running, Success, PartialSuccess, and Failed.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task type.
       shared_ptr<string> taskType_ {};
+      // The total number of items.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -354,9 +373,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetBatchExportTaskResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

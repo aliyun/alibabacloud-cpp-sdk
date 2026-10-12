@@ -91,7 +91,7 @@ namespace Models
     shared_ptr<bool> enableGlobalRules_ {};
     // The list of global throttling rules. Only the LimitByGlobal type is allowed.
     shared_ptr<vector<AiTokenRateLimitConfigRule>> globalRules_ {};
-    // The running status of the plugin.
+    // The running status of the plug-in.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
     // The Redis configuration.
     shared_ptr<AiPolicyRedisConfig> redisConfig_ {};

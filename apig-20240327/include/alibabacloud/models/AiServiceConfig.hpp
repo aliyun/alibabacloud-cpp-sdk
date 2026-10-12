@@ -129,17 +129,17 @@ namespace Models
 
 
     protected:
-      // Gemini safety settings.
+      // The safety filtering level settings for the Gemini model.
       shared_ptr<map<string, string>> geminiSafetySetting_ {};
-      // Vertex AI authentication key.
+      // The authentication key for Vertex AI.
       shared_ptr<string> vertexAuthKey_ {};
-      // Vertex AI auth service name.
+      // The service name of the authentication service used by Vertex AI.
       shared_ptr<string> vertexAuthServiceName_ {};
-      // Vertex AI project ID.
+      // The Google Cloud project ID.
       shared_ptr<string> vertexProjectId_ {};
-      // Vertex AI region.
+      // The Google Cloud region where the Vertex AI service is located.
       shared_ptr<string> vertexRegion_ {};
-      // Vertex token refresh lead time.
+      // The number of seconds before the access token expires to refresh it in advance.
       shared_ptr<int32_t> vertexTokenRefreshAhead_ {};
     };
 
@@ -199,13 +199,13 @@ namespace Models
 
 
     protected:
-      // Type of endpoint.
+      // The connection type: private network (vpc) or public network (public).
       shared_ptr<string> endpointType_ {};
-      // Service identifier.
+      // The service ID.
       shared_ptr<string> serviceId_ {};
-      // Name of the service.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // Workspace identifier.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -256,11 +256,11 @@ namespace Models
 
 
     protected:
-      // AWS-AccessKey
+      // The AWS access key.
       shared_ptr<string> awsAccessKey_ {};
-      // AWS-Region
+      // The AWS region.
       shared_ptr<string> awsRegion_ {};
-      // AWS-SecretKey
+      // The AWS secret key.
       shared_ptr<string> awsSecretKey_ {};
     };
 
@@ -365,29 +365,29 @@ namespace Models
 
 
   protected:
-    // API key generation mode.
+    // The generation mode of the API key.
     shared_ptr<string> apiKeyGenerateMode_ {};
-    // The service endpoint.
+    // The service address.
     shared_ptr<string> address_ {};
-    // The API keys.
+    // The list of API keys.
     shared_ptr<vector<string>> apiKeys_ {};
-    // Bedrock service configuration.
+    // The configuration specific to the Bedrock service.
     shared_ptr<AiServiceConfig::BedrockServiceConfig> bedrockServiceConfig_ {};
-    // Supported compatible protocols.
+    // The list of compatible protocols supported by the service.
     shared_ptr<vector<string>> compatibleProtocols_ {};
-    // Default model name.
+    // The name of the default model.
     shared_ptr<string> defaultModelName_ {};
-    // Specifies whether to enable health check.
+    // Indicates whether health check is enabled.
     shared_ptr<bool> enableHealthCheck_ {};
-    // Enable outlier detection.
+    // Indicates whether outlier detection is enabled.
     shared_ptr<bool> enableOutlierDetection_ {};
-    // PAI-EAS service configuration settings.
+    // The configuration specific to the PAI-EAS service.
     shared_ptr<AiServiceConfig::PaiEASServiceConfig> paiEASServiceConfig_ {};
-    // The LLM protocols.
+    // The list of model protocols.
     shared_ptr<vector<string>> protocols_ {};
-    // The Large Language Model (LLM) provider.
+    // The large language model provider.
     shared_ptr<string> provider_ {};
-    // Vertex AI service configuration.
+    // The configuration of the Vertex AI service.
     shared_ptr<AiServiceConfig::VertexServiceConfig> vertexServiceConfig_ {};
   };
 

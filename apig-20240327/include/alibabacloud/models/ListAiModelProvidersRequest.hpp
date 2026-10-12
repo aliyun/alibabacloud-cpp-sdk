@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The fuzzy match condition for the model provider identifier. If left empty, all model providers under the current gateway are queried.
+    // The fuzzy match condition for the model provider identifier. If this parameter is left empty, all model providers under the current gateway are queried.
     shared_ptr<string> provider_ {};
   };
 

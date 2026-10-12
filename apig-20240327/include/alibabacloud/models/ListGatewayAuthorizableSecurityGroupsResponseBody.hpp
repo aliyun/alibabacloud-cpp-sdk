@@ -115,12 +115,11 @@ namespace Models
         shared_ptr<string> name_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The type of the security group. Valid values:
-        // 
-        // *   Normal: general security group
-        // *   Enterprise: enterprise security group
+        // The security group type. Valid values:
+        // - Normal: Custom security group.
+        // - Enterprise: Advanced security group.
         shared_ptr<string> type_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -135,7 +134,7 @@ namespace Models
 
 
     protected:
-      // The security groups.
+      // The list of security groups.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -172,11 +171,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListGatewayAuthorizableSecurityGroupsResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

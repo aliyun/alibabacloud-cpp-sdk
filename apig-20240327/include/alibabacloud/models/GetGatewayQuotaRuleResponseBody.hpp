@@ -132,7 +132,7 @@ namespace Models
         shared_ptr<string> id_ {};
         // The subject name.
         shared_ptr<string> name_ {};
-        // The subject type. Valid values: consumer or consumer_group.
+        // The subject type. Valid values: consumer and consumer_group.
         shared_ptr<string> subjectType_ {};
       };
 
@@ -307,9 +307,9 @@ namespace Models
       shared_ptr<string> ruleStatus_ {};
       // The number of associated subjects.
       shared_ptr<int64_t> subjectCount_ {};
-      // The rule subject type. Valid values: consumer or consumer_group.
+      // The rule subject type. Valid values: consumer and consumer_group.
       shared_ptr<string> subjectType_ {};
-      // The general subject list bound to this rule. Returned only when withSubjects is set to true.
+      // The list of general subjects bound to this rule. Returned only when withSubjects is set to true.
       shared_ptr<vector<Data::Subjects>> subjects_ {};
       // The time zone corresponding to the calendar period, in UTC+x format.
       shared_ptr<string> timezone_ {};

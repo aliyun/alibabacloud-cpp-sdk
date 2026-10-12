@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<bool> autoApproveDevelopers_ {};
     // Specifies whether to automatically approve API subscription requests.
     shared_ptr<bool> autoApproveSubscriptions_ {};
-    // Specifies whether to enable username-password authentication (built-in authentication).
+    // Specifies whether to enable username and password authentication (built-in authentication).
     shared_ptr<bool> builtinAuthEnabled_ {};
   };
 

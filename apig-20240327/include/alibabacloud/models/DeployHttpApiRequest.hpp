@@ -211,11 +211,11 @@ namespace Models
 
 
         protected:
-          // The match condition configuration for API publishing.
+          // The match condition configuration related to API publishing.
           shared_ptr<HttpApiBackendMatchConditions> match_ {};
           // The service port. Do not specify this parameter for dynamic ports.
           shared_ptr<int32_t> port_ {};
-          // The service protocol. Valid values:
+          // The Terms of Service. Valid values:
           // - HTTP.
           // - HTTPS.
           shared_ptr<string> protocol_ {};
@@ -223,7 +223,7 @@ namespace Models
           shared_ptr<string> serviceId_ {};
           // The service version.
           shared_ptr<string> version_ {};
-          // The weight. Valid values: 1 to 100. This parameter takes effect only in the ratio-based scenario.
+          // The weight. Valid values: 1 to 100. This parameter takes effect only in ratio-based scenarios.
           shared_ptr<int32_t> weight_ {};
         };
 
@@ -262,13 +262,13 @@ namespace Models
 
 
       protected:
-        // The API publish scenario. Backend configurations cannot be specified during publishing. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
+        // The API publish scenario. Backend configurations cannot be specified during publish. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
         shared_ptr<string> backendScene_ {};
         // The list of custom domain names.
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The existing service configurations. In the single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publishing. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
+        // The existing service configurations. In a single-service scenario, only one entry is allowed. In ratio-based or content-based scenarios, multiple entries are allowed. Backend configurations cannot be specified during publish. Configure them in advance by calling UpdateHttpApi or UpdateHttpApiOperation before publishing.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 
@@ -331,9 +331,9 @@ namespace Models
 
 
     protected:
-      // The description of the publish.
+      // The description of the publish operation.
       shared_ptr<string> description_ {};
-      // Specifies whether to enable REST API route compression. If this parameter is omitted or set to false, operations are published individually. If this parameter is set to true, the API is published as a single prefix route. This parameter is ignored for historical revision publishing, which uses the routing mode saved in the historical revision. When set to true, operationDeployments must not be specified because prefix route publishing supports only full publishing.
+      // Specifies whether to enable REST API route compression. If this parameter is omitted or set to false, operations are published individually. If this parameter is set to true, the API is published as a single prefix route. This parameter is ignored for historical revision publishing, which uses the route mode saved in the historical revision. When this parameter is set to true, operationDeployments must not be specified because prefix route publishing supports only full publishing.
       shared_ptr<bool> enableRouteCompression_ {};
       // The publish environment configuration.
       shared_ptr<RestApiConfig::Environment> environment_ {};
@@ -343,7 +343,7 @@ namespace Models
       shared_ptr<vector<RestApiConfig::OperationDeployments>> operationDeployments_ {};
       // The operation IDs.
       shared_ptr<vector<string>> operationIds_ {};
-      // The historical revision ID. If this parameter is specified, the publish uses the information from the historical revision.
+      // The historical revision ID. If this parameter is specified, the deployment uses the information from the historical revision.
       shared_ptr<string> revisionId_ {};
     };
 
@@ -423,9 +423,11 @@ namespace Models
   protected:
     // The HTTP API deployment configuration.
     shared_ptr<DeployHttpApiRequest::HttpApiConfig> httpApiConfig_ {};
-    // The REST API deployment configuration. This parameter is required when the HTTP API to be published is a REST API. At least one of revisionId, environment, or gatewayId must be specified to identify the publish target.
+    // The deployment configuration for a REST API. This parameter is required when the HTTP API to be published is a REST API. At least one of revisionId, environment, or gatewayId must be specified to identify the deployment target.
     shared_ptr<DeployHttpApiRequest::RestApiConfig> restApiConfig_ {};
-    // The route ID. This parameter is required when publishing a route of an HTTP API. Before deploying with routeId, make sure the target route is associated with a publishable domain name. If the domain name was not configured when the route was created, call UpdateHttpApiRoute to add domainIds.
+    // The route ID. This parameter is required when you publish a route of an HTTP API. Before deploying with routeId, make sure the target route is associated with a publishable domain name. If the domain name was not configured when the route was created, call UpdateHttpApiRoute to add domainIds.
+    // 
+    // A publishable domain name refers to the default subdomain of the environment and does not include custom Dedicated domain names. If the route is associated only with a Dedicated domain name, call UpdateHttpApiRoute to add the domainIds corresponding to the default subdomain of the environment before deployment.
     shared_ptr<string> routeId_ {};
   };
 

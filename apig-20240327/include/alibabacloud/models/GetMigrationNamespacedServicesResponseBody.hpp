@@ -114,7 +114,9 @@ namespace Models
 
 
         protected:
+          // The service name. After you select a Server Load Balancer (SLB) instance, the frontend populates this value into the serviceName field.
           shared_ptr<string> name_ {};
+          // The ID of the load balancing instance associated with the service.
           shared_ptr<string> slbId_ {};
         };
 
@@ -137,7 +139,9 @@ namespace Models
 
 
       protected:
+        // The Kubernetes namespace.
         shared_ptr<string> namespace_ {};
+        // The list of migratable services in the namespace.
         shared_ptr<vector<NamespacedServices::Services>> services_ {};
       };
 
@@ -152,6 +156,7 @@ namespace Models
 
 
     protected:
+      // The list of services grouped by namespace.
       shared_ptr<vector<Data::NamespacedServices>> namespacedServices_ {};
     };
 
@@ -188,10 +193,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetMigrationNamespacedServicesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

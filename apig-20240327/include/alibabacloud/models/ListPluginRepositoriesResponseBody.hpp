@@ -97,7 +97,9 @@ namespace Models
 
 
       protected:
+        // The Codeup repository ID (numeric string).
         shared_ptr<string> repositoryId_ {};
+        // The repository name.
         shared_ptr<string> repositoryName_ {};
       };
 
@@ -127,8 +129,11 @@ namespace Models
 
 
     protected:
+      // The Codeup organization ID.
       shared_ptr<string> organizationId_ {};
+      // The organization name.
       shared_ptr<string> organizationName_ {};
+      // The list of repositories under the organization.
       shared_ptr<vector<Data::Repositories>> repositories_ {};
     };
 
@@ -165,10 +170,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<vector<ListPluginRepositoriesResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

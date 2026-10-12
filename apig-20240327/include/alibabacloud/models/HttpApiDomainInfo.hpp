@@ -62,11 +62,6 @@ namespace Models
     // The domain name.
     shared_ptr<string> name_ {};
     // The protocol.
-    // 
-    // Valid values:
-    // 
-    // *   HTTPS
-    // *   HTTP
     shared_ptr<string> protocol_ {};
   };
 

@@ -174,9 +174,13 @@ namespace Models
 
 
         protected:
+          // The listener port. Valid values: 1 to 65535. This parameter is required in Step 3 of the frontend form.
           shared_ptr<int32_t> port_ {};
+          // The listener protocol. This parameter is required for CLB migration. During MSE migration validation, CLB requests without a protocol are directly rejected. See migrationtask.go#L95-L97. This parameter can be left empty for NLB scenarios.
           shared_ptr<string> protocol_ {};
+          // The virtual server group ID. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId. This parameter is required in Step 3 of the frontend form.
           shared_ptr<string> virtualServiceGroupId_ {};
+          // The name of the virtual server group.
           shared_ptr<string> virtualServiceGroupName_ {};
         };
 
@@ -218,7 +222,9 @@ namespace Models
 
 
         protected:
+          // The monitored Ingress Class.
           shared_ptr<string> ingressClass_ {};
+          // The monitored namespace.
           shared_ptr<string> watchNamespace_ {};
         };
 
@@ -372,25 +378,45 @@ namespace Models
 
 
       protected:
+        // The associated HTTP API.
         shared_ptr<string> apiId_ {};
+        // The associated HTTP API.
         shared_ptr<string> apiName_ {};
+        // The source ACK cluster. A hyphen (-) is displayed if the cluster name fails to be queried.
         shared_ptr<string> clusterId_ {};
+        // The cluster name.
         shared_ptr<string> clusterName_ {};
+        // The namespace for SLB traffic switching.
         shared_ptr<string> clusterNamespace_ {};
+        // The creation time, in Unix seconds.
         shared_ptr<int64_t> createTime_ {};
+        // The task description.
         shared_ptr<string> description_ {};
+        // The ID of the destination environment.
         shared_ptr<string> envId_ {};
+        // The ID of the destination gateway.
         shared_ptr<string> gatewayId_ {};
+        // The name of the gateway to which the rule belongs.
         shared_ptr<string> gatewayName_ {};
+        // The monitored Ingress Class configuration.
         shared_ptr<Items::IngressConfig> ingressConfig_ {};
+        // The migration type. Currently, only Nginx Ingress is supported.
         shared_ptr<string> migrationType_ {};
+        // The name of the SLB service.
         shared_ptr<string> serviceName_ {};
+        // The ID of the SLB instance used for traffic switching.
         shared_ptr<string> slbId_ {};
+        // The task status.
         shared_ptr<string> status_ {};
+        // The traffic switching method. Valid values: DNS and SLB.
         shared_ptr<string> switchType_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
+        // The ID of the user to whom the task belongs.
         shared_ptr<string> userId_ {};
+        // The list of virtual server groups.
         shared_ptr<vector<Items::VirtualServices>> virtualServices_ {};
+        // The weight of the service on the API gateway side in the legacy workflow. Valid values: 0 to 100.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -427,9 +453,13 @@ namespace Models
 
 
     protected:
+      // The list of migration tasks.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -466,8 +496,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListMigrationTasksResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

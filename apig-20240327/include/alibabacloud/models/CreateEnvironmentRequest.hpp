@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> alias_ {};
-    // The description of the environment. You can specify information such as the purpose and owner of the environment.
+    // The description of the environment. You can specify information such as the purpose of the environment and the owner.
     shared_ptr<string> description_ {};
     // The gateway ID.
     // 

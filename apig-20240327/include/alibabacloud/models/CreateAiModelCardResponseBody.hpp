@@ -216,7 +216,7 @@ namespace Models
         shared_ptr<float> inputCost_ {};
         // The output token cost, in Credits per million tokens.
         shared_ptr<float> outputCost_ {};
-        // The billing type. Currently, fixed is returned.
+        // The billing type. The current value is fixed.
         shared_ptr<string> type_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
       protected:
         // The model invocation path.
         shared_ptr<string> path_ {};
-        // The protocol type corresponding to the path.
+        // The protocol type of the path.
         shared_ptr<string> type_ {};
       };
 
@@ -362,9 +362,9 @@ namespace Models
       shared_ptr<string> modelName_ {};
       // The model provider identifier.
       shared_ptr<string> modelProvider_ {};
-      // The source of the model card. Currently, user is returned.
+      // The source of the model card. The current value is user.
       shared_ptr<string> source_ {};
-      // The last update time of the model card, in the format of yyyy-MM-dd HH:mm:ss.
+      // The last update time of the model card, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 

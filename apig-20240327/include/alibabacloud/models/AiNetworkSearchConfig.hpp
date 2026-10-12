@@ -113,13 +113,13 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable search query rewriting.
+      // Specifies whether to enable search term rewriting.
       shared_ptr<bool> enable_ {};
-      // The maximum number of search queries after rewriting.
+      // The maximum number of search terms after rewriting.
       shared_ptr<int32_t> maxCount_ {};
       // The name of the model used for rewriting.
       shared_ptr<string> modelName_ {};
-      // The ID of the rewriting service.
+      // The rewriting service ID.
       shared_ptr<string> serviceId_ {};
       // The timeout period for the rewriting request, in milliseconds.
       shared_ptr<int32_t> timeoutMillisecond_ {};
@@ -208,7 +208,7 @@ namespace Models
     shared_ptr<bool> needReference_ {};
     // The plug-in running status.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The format template for reference content. The template must contain at least one %s placeholder.
+    // The format template for reference content. Must contain at least one %s placeholder.
     shared_ptr<string> referenceFormat_ {};
     // The reference location.
     shared_ptr<string> referenceLocation_ {};

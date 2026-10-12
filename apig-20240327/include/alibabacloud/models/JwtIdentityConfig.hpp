@@ -102,7 +102,7 @@ namespace Models
       shared_ptr<string> key_ {};
       // Indicates whether the request is passed through.
       shared_ptr<bool> pass_ {};
-      // The location where the JWT is stored.
+      // The position where the JWT is stored.
       shared_ptr<string> position_ {};
       // The prefix configuration.
       shared_ptr<string> prefix_ {};

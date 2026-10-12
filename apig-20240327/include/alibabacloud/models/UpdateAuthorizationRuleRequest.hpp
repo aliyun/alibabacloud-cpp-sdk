@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The new list of authorized resources. In MCP Tool scenarios, this is a set of tool names. An empty array returns ErrInvalidParameterWithEmpty.
     shared_ptr<vector<string>> resources_ {};
   };
 

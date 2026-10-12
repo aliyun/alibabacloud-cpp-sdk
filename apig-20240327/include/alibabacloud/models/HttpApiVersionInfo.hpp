@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable versioning.
+    // Indicates whether versioning control is enabled.
     shared_ptr<bool> enable_ {};
-    // The key in the specified header when the header versioning solution is used.
+    // The key in the specified Header parameter for the Header versioning scheme.
     shared_ptr<string> headerName_ {};
-    // The key in the specified query parameter when the query versioning solution is used.
+    // The key in the specified query parameter for the Query versioning scheme.
     shared_ptr<string> queryName_ {};
-    // The versioning solution.
+    // The versioning scheme.
     shared_ptr<string> scheme_ {};
     // The version number.
     shared_ptr<string> version_ {};

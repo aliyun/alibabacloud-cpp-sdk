@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The certificate identity from SSL Certificates Service.
+    // The certificate identity in SSL Certificates Service.
     shared_ptr<string> certIdentifier_ {};
     // The client CA certificate.
     shared_ptr<string> clientCACert_ {};

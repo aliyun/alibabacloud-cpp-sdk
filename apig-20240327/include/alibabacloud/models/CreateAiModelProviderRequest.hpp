@@ -86,7 +86,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The model provider identifier.
+    // The identifier of the model provider.
     // 
     // This parameter is required.
     shared_ptr<string> provider_ {};

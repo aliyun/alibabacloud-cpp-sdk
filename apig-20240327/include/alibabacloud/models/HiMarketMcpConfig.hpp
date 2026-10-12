@@ -150,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The MCP Server configuration.
+    // The MCP server configuration.
     shared_ptr<HiMarketMcpConfig::McpServerConfig> mcpServerConfig_ {};
-    // The MCP Server name.
+    // The MCP server name.
     shared_ptr<string> mcpServerName_ {};
     // The metadata.
     shared_ptr<HiMarketMcpConfig::Meta> meta_ {};

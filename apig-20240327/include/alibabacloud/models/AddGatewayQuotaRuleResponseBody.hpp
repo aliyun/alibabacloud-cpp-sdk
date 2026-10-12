@@ -298,7 +298,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<AddGatewayQuotaRuleResponseBody::Data> data_ {};
-    // The message content.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

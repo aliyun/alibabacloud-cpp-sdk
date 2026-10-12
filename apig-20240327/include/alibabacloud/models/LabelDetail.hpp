@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The label key
+    // The label key.
     shared_ptr<string> key_ {};
-    // The list of available values for this label
+    // The list of label values.
     shared_ptr<vector<string>> values_ {};
   };
 

@@ -235,7 +235,7 @@ namespace Models
       protected:
         // The number of running gateways.
         shared_ptr<int64_t> runningCount_ {};
-        // The total number of gateway instances.
+        // The number of gateway instances.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -279,7 +279,7 @@ namespace Models
       protected:
         // The number of published APIs.
         shared_ptr<int64_t> publishedCount_ {};
-        // The total number of APIs.
+        // The number of APIs.
         shared_ptr<int64_t> totalCount_ {};
       };
 

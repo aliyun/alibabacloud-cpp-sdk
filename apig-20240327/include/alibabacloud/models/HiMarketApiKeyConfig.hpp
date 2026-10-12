@@ -106,7 +106,7 @@ namespace Models
   protected:
     // The list of credentials.
     shared_ptr<vector<HiMarketApiKeyConfig::Credentials>> credentials_ {};
-    // The name of the location from which the API key is extracted.
+    // The name of the location from which the API key is fetched.
     shared_ptr<string> key_ {};
     // The source type of the API key.
     shared_ptr<string> source_ {};

@@ -145,12 +145,19 @@ namespace Models
 
 
       protected:
+        // The database engine version of the gateway DPI engine.
         shared_ptr<string> engineVersion_ {};
+        // The gateway ID.
         shared_ptr<string> gatewayId_ {};
+        // The gateway status. The value is passed through from the GatewayPhase enumeration, such as Running or Creating.
         shared_ptr<string> gatewayPhase_ {};
+        // Indicates whether the plugin can be installed on the gateway.
         shared_ptr<bool> installable_ {};
+        // The reason why the plugin cannot be installed.
         shared_ptr<string> installableFalseReasonType_ {};
+        // The version number of another version of the same plugin class that is already installed on the gateway.
         shared_ptr<string> installedPluginVersion_ {};
+        // The gateway name.
         shared_ptr<string> name_ {};
       };
 
@@ -187,9 +194,13 @@ namespace Models
 
 
     protected:
+      // The list of gateways.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<string> pageNumber_ {};
+      // The page size.
       shared_ptr<string> pageSize_ {};
+      // The total number of entries.
       shared_ptr<string> totalSize_ {};
     };
 
@@ -226,8 +237,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListInstallableGatewaysResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

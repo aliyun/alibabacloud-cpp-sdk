@@ -169,9 +169,9 @@ namespace Models
 
         protected:
           // The period type of the existing conflicting rule on the subject. Valid values:
-          // - day: The period of the existing conflicting rule is daily.
-          // - week: The period of the existing conflicting rule is weekly.
-          // - month: The period of the existing conflicting rule is monthly.
+          // - day: daily.
+          // - week: weekly.
+          // - month: monthly.
           shared_ptr<string> conflictPeriodType_ {};
           // The type of the existing conflicting rule on the subject. Valid values:
           // - calendar: The existing conflicting rule uses a calendar period.
@@ -186,8 +186,8 @@ namespace Models
           // The name of the conflicting subject.
           shared_ptr<string> subjectName_ {};
           // The type of the conflicting subject. Valid values:
-          // - consumer
-          // - consumer_group
+          // - consumer: consumer.
+          // - consumer_group: consumer group.
           shared_ptr<string> subjectType_ {};
         };
 
@@ -217,7 +217,7 @@ namespace Models
 
 
       protected:
-        // The conflict hash.
+        // The hash of the conflict snapshot.
         shared_ptr<string> conflictHash_ {};
         // The list of conflicting subjects.
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
@@ -305,9 +305,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<ResetGatewayQuotaRuleResponseBody::Data> data_ {};
-    // The message.
+    // The message content.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

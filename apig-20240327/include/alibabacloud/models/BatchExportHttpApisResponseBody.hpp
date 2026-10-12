@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The asynchronous task ID. You can call the GetBatchExportTask operation to query the task progress.
       shared_ptr<string> taskId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<BatchExportHttpApisResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

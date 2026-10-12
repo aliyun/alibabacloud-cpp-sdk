@@ -116,11 +116,11 @@ namespace Models
     shared_ptr<string> authorizationEndpoint_ {};
     // The OAuth2 client ID.
     shared_ptr<string> clientId_ {};
-    // The OAuth2 client secret. The secret is AES-encrypted when stored.
+    // The OAuth2 client secret, which is AES-encrypted when stored.
     shared_ptr<string> clientSecret_ {};
     // The OIDC issuer URL.
     shared_ptr<string> issuer_ {};
-    // The JWKS public key set URI, used for token signature verification.
+    // The JWKS public key set URI, which is used for token signature verification.
     shared_ptr<string> jwkSetUri_ {};
     // The OAuth2 callback URL.
     shared_ptr<string> redirectUri_ {};

@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // The ID of the source ACK cluster. The value must be the same as the cluster specified in the IngressInfo of the API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty.
     shared_ptr<string> clusterId_ {};
+    // The description of the task. The description is stored only when the task is created.
     shared_ptr<string> description_ {};
+    // The ID of the destination environment. The value must be the same as the Ingress import environment of the API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty. You can call ListEnvironments to query existing environment IDs. CreateEnvironment has been deprecated.
     shared_ptr<string> environmentId_ {};
+    // The ID of the destination gateway to which traffic is migrated.
     shared_ptr<string> gatewayId_ {};
+    // The HTTP API ID. The API must have been imported as an Ingress type (HttpIngress) API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty.
     shared_ptr<string> httpApiId_ {};
+    // The Ingress class. If specified, the value must be the same as the API import configuration. Otherwise, an ingress class conflict error is returned.
     shared_ptr<string> ingressClass_ {};
+    // The migration type.
+    // [_single.params.body.props.migrationType.enum.Nginx Ingress]Nginx Ingress migration.
     shared_ptr<string> migrationType_ {};
+    // The watched namespace. If specified, the value must be the same as the API import configuration. Otherwise, a watchNamespace conflict error is returned.
     shared_ptr<string> watchNamespace_ {};
   };
 

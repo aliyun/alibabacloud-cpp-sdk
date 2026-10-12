@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The risk detection task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -99,8 +100,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreateRiskCheckTaskResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

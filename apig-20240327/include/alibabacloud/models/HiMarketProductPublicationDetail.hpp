@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The portal ID.
+    // Portal ID
     shared_ptr<string> portalId_ {};
     // The portal name.
     shared_ptr<string> portalName_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> productName_ {};
     // The product type.
     shared_ptr<string> productType_ {};
-    // The product publish ID.
+    // The product publication ID.
     shared_ptr<string> publicationId_ {};
   };
 

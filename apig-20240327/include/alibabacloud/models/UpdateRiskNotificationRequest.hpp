@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to mute notifications.
     shared_ptr<bool> isMute_ {};
+    // The risk item code. This parameter is required.
+    // 
+    // The value is a numeric string (for example, 60010010002 or 50010010009). Call GetRiskNotification to query the code of the current risk item.
     shared_ptr<string> riskCode_ {};
   };
 

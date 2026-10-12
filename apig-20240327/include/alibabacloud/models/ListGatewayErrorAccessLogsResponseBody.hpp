@@ -52,8 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of log entries. Each entry is a mapping from field names to field values.
     shared_ptr<vector<map<string, string>>> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

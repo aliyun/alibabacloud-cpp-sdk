@@ -66,19 +66,13 @@ namespace Models
 
 
   protected:
-    // The key of the matching condition.
+    // The match key.
     shared_ptr<string> key_ {};
-    // The operator. Exact match, prefix match, and regular expressions are supported.
-    // 
-    // Valid values:
-    // 
-    // *   equal
-    // *   regex
-    // *   prefix
+    // The operator. Three matching methods are supported: exact match, prefix match, and regular expression.
     shared_ptr<string> operator_ {};
-    // The match type. Query and Header parameters can be matched.
+    // The match type. Supports matching by query parameter or header parameter.
     shared_ptr<string> type_ {};
-    // The value of the matching condition.
+    // The match value.
     shared_ptr<string> value_ {};
   };
 

@@ -101,10 +101,10 @@ namespace Models
       shared_ptr<string> exposedUriPath_ {};
       // Specifies whether to enable MCP observability. Default value: false.
       shared_ptr<bool> mcpStatisticsEnable_ {};
-      // The Terms of Service. Valid values:
-      // - TCP.
-      // - HTTP.
-      // - DUBBO.
+      // The service protocol. Valid values:
+      // - TCP
+      // - HTTP
+      // - DUBBO
       shared_ptr<string> protocol_ {};
     };
 
@@ -252,15 +252,15 @@ namespace Models
         shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
-        // The Terms of Service. Valid values:
-        // - HTTP.
-        // - HTTPS.
+        // The service protocol. Valid values:
+        // - HTTP
+        // - HTTPS
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
         // The service source type. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> sourceType_ {};
-        // The service version. This parameter takes effect only in tag-based scenarios.
+        // The service version. This parameter takes effect only in the by-tag scenario.
         shared_ptr<string> version_ {};
         // The percentage value of the traffic ratio.
         shared_ptr<int32_t> weight_ {};
@@ -286,10 +286,10 @@ namespace Models
 
     protected:
       // The backend service scenario. Valid values:
-      // - SingleService: single service.
-      // - MultiServiceByRatio: multiple services with ratio-based canary release.
-      // - Mock: mock service.
-      // - Redirect: redirect service.
+      // - SingleService: Single service.
+      // - MultiServiceByRatio: Multi-service canary release by ratio.
+      // - Mock: Mock service.
+      // - Redirect: Redirect service.
       shared_ptr<string> scene_ {};
       // The list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};

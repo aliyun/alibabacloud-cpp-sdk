@@ -109,11 +109,17 @@ namespace Models
 
 
     protected:
+      // The Codeup organization ID.
       shared_ptr<string> organizationId_ {};
+      // The ID of the most recent pipeline run. This parameter is not returned if the plugin has never been built.
       shared_ptr<string> pipelineRunId_ {};
+      // The Codeup repository ID.
       shared_ptr<string> repoId_ {};
+      // The repository name (the English ID of the plugin).
       shared_ptr<string> repoName_ {};
+      // The OSS download URL of the compiled WASM build output. This parameter is returned only when the pipeline status is SUCCESS.
       shared_ptr<string> wasmUrl_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -150,10 +156,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetPluginWorkspaceResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

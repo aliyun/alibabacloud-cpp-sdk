@@ -536,7 +536,7 @@ namespace Models
 
 
   protected:
-    // The address information, including IP addresses or domain name lists.
+    // The address information, which is a list of IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
     // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
@@ -566,7 +566,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The configuration for removing abnormal instances.
+    // The outlier detection configuration for removing abnormal instances.
     shared_ptr<Service::OutlierDetection> outlierDetection_ {};
     // The circuit-broken endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
@@ -588,7 +588,7 @@ namespace Models
     shared_ptr<string> sourceType_ {};
     // The unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The time when the service was created.
+    // The time when the service was updated.
     shared_ptr<int64_t> updateTimestamp_ {};
     // The list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};

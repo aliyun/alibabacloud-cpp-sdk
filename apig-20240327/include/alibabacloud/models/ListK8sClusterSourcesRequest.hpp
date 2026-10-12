@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The VPC ID used to query clusters within the specified VPC. If this parameter is not specified, the VPC of the gateway is used.
     shared_ptr<string> vpcId_ {};
   };
 

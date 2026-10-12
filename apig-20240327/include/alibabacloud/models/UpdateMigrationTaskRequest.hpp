@@ -100,9 +100,13 @@ namespace Models
 
 
     protected:
+      // The port. Valid values: 1 to 65535.
       shared_ptr<int32_t> port_ {};
+      // The protocol. Required for CLB.
       shared_ptr<string> protocol_ {};
+      // CLB VServerGroupId / NLB ServerGroupId
       shared_ptr<string> virtualServiceGroupId_ {};
+      // The group name.
       shared_ptr<string> virtualServiceGroupName_ {};
     };
 
@@ -168,13 +172,21 @@ namespace Models
 
 
   protected:
+    // The namespace of the source cluster (for SLB traffic switching).
     shared_ptr<string> clusterNamespace_ {};
+    // The task description. For DNS-based Engine updates, only this field is modified.
     shared_ptr<string> description_ {};
+    // The SLB service name.
     shared_ptr<string> serviceName_ {};
+    // The SLB instance ID. Required when the task is in the Initial state with SLB traffic switching. The type is determined by the prefix (lb- or nlb-).
     shared_ptr<string> slbId_ {};
+    // The traffic switching method. Required when advancing from the Initial state.
     shared_ptr<string> switchType_ {};
+    // Required. The update target. Determines whether to advance the task status or perform an engine operation.
     shared_ptr<string> target_ {};
+    // The list of backend server group bindings.
     shared_ptr<vector<UpdateMigrationTaskRequest::VirtualServices>> virtualServices_ {};
+    // The traffic switching weight for the legacy flow. Valid values: 0 to 100. Takes effect when the target is set to Engine.
     shared_ptr<int32_t> weight_ {};
   };
 

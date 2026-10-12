@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The policy attachment ID.
+    // The policy mount ID.
     shared_ptr<string> policyAttachmentId_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};

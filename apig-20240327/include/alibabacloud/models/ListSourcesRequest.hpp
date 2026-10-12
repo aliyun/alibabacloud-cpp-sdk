@@ -75,19 +75,15 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The page number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID used to filter results. This parameter is also used for RAM authentication.
     shared_ptr<string> resourceGroupId_ {};
-    // The type by which you want to query sources.
-    // 
-    // Valid values:
-    // 
-    // *   K8S
-    // *   MSE_NACOS
+    // The source type used to filter the query results.
     shared_ptr<string> type_ {};
   };
 

@@ -121,13 +121,13 @@ namespace Models
 
 
   protected:
-    // The alias of the plugin class. This parameter is required. If this parameter is not specified, the service returns InvalidParameter.WithValue.
+    // The alias of the plugin class. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.WithValue error.
     shared_ptr<string> alias_ {};
     // The description of the plugin.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The execution priority of the plugin. This parameter is required when executeStage is specified. The default value 0 is invalid. Set this parameter to 200.
+    // The execution priority of the plugin. This parameter is required when executeStage is specified. The default value 0 is invalid. We recommend that you set this parameter to 200.
     shared_ptr<int32_t> executePriority_ {};
     // The execution stage of the plugin.
     // 
@@ -137,7 +137,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The minimum gateway version supported by the plugin.
+    // The minimum gateway version that the plugin is compatible with.
     shared_ptr<string> supportedMinGatewayVersion_ {};
     // The version number of the plugin.
     // 

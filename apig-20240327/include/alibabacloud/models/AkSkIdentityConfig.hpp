@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Access Key
+    // The AK configuration.
     shared_ptr<string> ak_ {};
-    // Generation mode
+    // The generation mode.
     shared_ptr<string> generateMode_ {};
-    // Secret Key
+    // The SK configuration.
     shared_ptr<string> sk_ {};
-    // Identity authentication type
+    // The type.
     shared_ptr<string> type_ {};
   };
 

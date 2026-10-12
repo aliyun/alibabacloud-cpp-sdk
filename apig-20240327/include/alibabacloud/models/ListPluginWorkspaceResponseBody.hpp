@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The Codeup organization ID.
       shared_ptr<string> organizationId_ {};
+      // The Codeup repository ID.
       shared_ptr<string> repoId_ {};
+      // The repository name (the English ID of the plugin).
       shared_ptr<string> repoName_ {};
+      // The workspace ID (prefixed with plw-).
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -131,8 +135,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<vector<ListPluginWorkspaceResponseBody::Data>> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

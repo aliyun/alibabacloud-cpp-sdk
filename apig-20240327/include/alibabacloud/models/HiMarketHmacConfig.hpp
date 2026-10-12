@@ -96,7 +96,7 @@ namespace Models
 
 
   protected:
-    // The list of credentials.
+    // The credential list.
     shared_ptr<vector<HiMarketHmacConfig::Credentials>> credentials_ {};
   };
 

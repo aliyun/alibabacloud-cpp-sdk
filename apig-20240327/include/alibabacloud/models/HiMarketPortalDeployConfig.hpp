@@ -134,7 +134,7 @@ namespace Models
       shared_ptr<string> namespaceId_ {};
       // The OIDC role name used for SAE to access other cloud resources.
       shared_ptr<string> oidcRoleName_ {};
-      // The region ID of SAE.
+      // The region ID where SAE is deployed.
       shared_ptr<string> regionId_ {};
       // The number of instance replicas.
       shared_ptr<string> replicas_ {};
@@ -183,7 +183,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The deployment platform type.
     shared_ptr<string> platform_ {};
-    // The SAE (Serverless App Engine) deployment configuration.
+    // The Serverless App Engine (SAE) deployment configuration.
     shared_ptr<HiMarketPortalDeployConfig::SaeConfig> saeConfig_ {};
     // The deployment status.
     shared_ptr<string> status_ {};

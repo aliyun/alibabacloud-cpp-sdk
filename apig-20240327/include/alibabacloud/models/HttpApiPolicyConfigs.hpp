@@ -202,9 +202,9 @@ namespace Models
     shared_ptr<AiTokenRateLimitConfig> aiTokenRateLimitConfig_ {};
     // The AI tool selection configuration.
     shared_ptr<AiToolSelectionConfig> aiToolSelectionConfig_ {};
-    // Indicates whether the policy is enabled.
+    // Indicates whether the feature is enabled.
     shared_ptr<bool> enable_ {};
-    // The read-only compatible reference. GetHttpApi returns policyId/policyAttachmentId for ModelAPI AiTokenRateLimit. This must be stripped before write path persistence and is not used as a bind/unbind instruction.
+    // The read-only compatible reference. GetHttpApi returns the policyId and policyAttachmentId for ModelAPI AiTokenRateLimit. This field must be stripped before write-path persistence and is not used as a bind or unbind instruction.
     shared_ptr<HttpApiPolicyReference> policyReference_ {};
     // The semantic routing configuration.
     shared_ptr<HttpApiPolicyConfigs::SemanticRouterConfig> semanticRouterConfig_ {};

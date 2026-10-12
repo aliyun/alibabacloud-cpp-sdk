@@ -600,13 +600,13 @@ namespace Models
       protected:
         // The load balancing address.
         shared_ptr<string> address_ {};
-        // The protocol version. Valid values:
+        // The IP version. Valid values:
         // - ipv4: IPv4.
         // - ipv6: IPv6.
         shared_ptr<string> addressIpVersion_ {};
         // The load balancing address type. Valid values:
-        // - Internet: public network.
-        // - Intranet: private network.
+        // - Internet: Public network.
+        // - Intranet: Private network.
         shared_ptr<string> addressType_ {};
         // Indicates whether this is the default ingress address of the gateway.
         shared_ptr<bool> gatewayDefault_ {};
@@ -617,7 +617,7 @@ namespace Models
         // The load balancing instance ID.
         shared_ptr<string> loadBalancerId_ {};
         // The load balancing mode of the gateway. Valid values:
-        // - Managed: managed by Cloud-native API Gateway.
+        // - Managed: Managed by Cloud-native API Gateway.
         shared_ptr<string> mode_ {};
         // The list of listening ports.
         shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
@@ -896,7 +896,7 @@ namespace Models
       // - PREPAY: subscription.
       shared_ptr<string> chargeType_ {};
       // The source from which the gateway was created. Valid values:
-      // - Console: the console.
+      // - Console: Console.
       shared_ptr<string> createFrom_ {};
       // The creation timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
@@ -906,13 +906,13 @@ namespace Models
       shared_ptr<int64_t> expireTimestamp_ {};
       // The gateway instance edition. Valid values:
       // 
-      // - Professional: standard instance.
+      // - Professional: Standard instance.
       // 
       // - Serverless: Serverless instance.
       shared_ptr<string> gatewayEdition_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
-      // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
+      // The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
       // - ENTERPRISE: default.
       // - STANDARD: allowed only for AI multi-tenant V2.
       shared_ptr<string> gatewayMode_ {};
@@ -935,22 +935,22 @@ namespace Models
       // The security group of the gateway.
       shared_ptr<Data::SecurityGroup> securityGroup_ {};
       // The gateway specification. Valid values:
-      // - apigw.small.x1: small specification.
+      // - apigw.small.x1: Small specification.
       shared_ptr<string> spec_ {};
       // The gateway status. Valid values:
-      // - Running: The gateway is running.
-      // - Creating: The gateway is being created.
-      // - CreateFailed: The gateway failed to be created.
-      // - Upgrading: The gateway is being upgraded.
-      // - UpgradeFailed: The gateway failed to be upgraded.
-      // - Restarting: The gateway is being restarted.
-      // - RestartFailed: The gateway failed to be restarted.
-      // - Deleting: The gateway is being released.
-      // - DeleteFailed: The gateway failed to be released.
+      // - Running: Running.
+      // - Creating: Being created.
+      // - CreateFailed: Creation failed.
+      // - Upgrading: Being upgraded.
+      // - UpgradeFailed: Upgrade failed.
+      // - Restarting: Being restarted.
+      // - RestartFailed: Restart failed.
+      // - Deleting: Being released.
+      // - DeleteFailed: Release failed.
       shared_ptr<string> status_ {};
       // The resource tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
+      // The target version of the gateway. If this value differs from version, a version upgrade can be performed.
       shared_ptr<string> targetVersion_ {};
       // The tenant ID returned in STANDARD mode.
       shared_ptr<string> tenantId_ {};

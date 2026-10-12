@@ -186,11 +186,11 @@ namespace Models
 
 
   protected:
-    // The plugin class alias.
+    // The alias of the plugin class.
     shared_ptr<string> alias_ {};
     // The configuration example (JSON string).
     shared_ptr<string> configExample_ {};
-    // The plugin class description.
+    // The description of the plugin class.
     shared_ptr<string> description_ {};
     // The execution priority.
     shared_ptr<int32_t> executePriority_ {};
@@ -202,7 +202,7 @@ namespace Models
     shared_ptr<bool> innerPlugin_ {};
     // The plugin running mode.
     shared_ptr<string> mode_ {};
-    // The plugin class name.
+    // The name of the plugin class.
     shared_ptr<string> name_ {};
     // The plugin class ID.
     shared_ptr<string> pluginClassId_ {};
@@ -218,7 +218,7 @@ namespace Models
     shared_ptr<string> versionDescription_ {};
     // The Wasm programming language.
     shared_ptr<string> wasmLanguage_ {};
-    // The Wasm file download URL.
+    // The download URL of the Wasm file.
     shared_ptr<string> wasmUrl_ {};
   };
 

@@ -139,8 +139,11 @@ namespace Models
 
 
         protected:
+          // The O&M end time in the HH:mm format.
           shared_ptr<string> endTime_ {};
+          // The O&M start time in the HH:mm format.
           shared_ptr<string> startTime_ {};
+          // The number of replicas.
           shared_ptr<int64_t> units_ {};
         };
 
@@ -182,7 +185,9 @@ namespace Models
 
 
         protected:
+          // The O&M end time in the HH:mm format.
           shared_ptr<string> endTime_ {};
+          // The O&M start time in the HH:mm format.
           shared_ptr<string> startTime_ {};
         };
 
@@ -224,7 +229,9 @@ namespace Models
 
 
         protected:
+          // The O&M end time in the HH:mm format.
           shared_ptr<string> endTime_ {};
+          // The O&M start time in the HH:mm format.
           shared_ptr<string> startTime_ {};
         };
 
@@ -287,12 +294,19 @@ namespace Models
 
 
       protected:
+        // The time periods during which AutoHPA scale-out is prohibited.
         shared_ptr<vector<ElasticPolicy::DisableScaleTimePolicyList>> disableScaleTimePolicyList_ {};
+        // Indicates whether elastic scaling is enabled.
         shared_ptr<bool> elasticEnabled_ {};
+        // The policy type.
         shared_ptr<string> elasticType_ {};
+        // The time periods during which AutoHPA scale-out is allowed.
         shared_ptr<vector<ElasticPolicy::EnableScaleTimePolicyList>> enableScaleTimePolicyList_ {};
+        // The load alert threshold switch for AutoHPA.
         shared_ptr<bool> loadWarningThreshold_ {};
+        // The maximum number of replicas for AutoHPA.
         shared_ptr<int32_t> maxUnits_ {};
+        // The list of CronHPA scheduled policies. Each entry includes units (number of replicas), startTime, and endTime.
         shared_ptr<vector<ElasticPolicy::TimePolicyList>> timePolicyList_ {};
       };
 
@@ -329,9 +343,13 @@ namespace Models
 
 
     protected:
+      // The elastic policy configuration, deserialized from the elastic_config JSON field in the database.
       shared_ptr<Data::ElasticPolicy> elasticPolicy_ {};
+      // The KubeOne AutoScaleStrategy instance ID.
       shared_ptr<string> elasticStrategyId_ {};
+      // The elastic policy type.
       shared_ptr<string> elasticType_ {};
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
     };
 
@@ -368,8 +386,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetGatewayElasticPolicyResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

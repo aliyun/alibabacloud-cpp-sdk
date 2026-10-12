@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<vector<string>> failedConsumerIds_ {};
       // The list of consumer IDs that already exist in the consumer group and were skipped.
       shared_ptr<vector<string>> skippedConsumerIds_ {};
-      // The list of consumer IDs successfully added to the consumer group.
+      // The list of consumer IDs that were successfully added to the consumer group.
       shared_ptr<vector<string>> successConsumerIds_ {};
     };
 

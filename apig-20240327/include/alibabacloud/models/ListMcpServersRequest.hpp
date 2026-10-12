@@ -102,9 +102,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // Fuzzy searches for MCP servers by API name.
+    // The keyword used to fuzzy match MCP servers by name.
     shared_ptr<string> nameLike_ {};
-    // The page number, starting from 1. Default value: 1.
+    // The page number. Pages start from page 1. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};

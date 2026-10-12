@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<bool> importableOnly_ {};
     // The maximum number of results to return. Valid range: (0, 100]. Default value: 10.
     shared_ptr<int32_t> limit_ {};
-    // Fuzzy search by API name.
+    // Fuzzy match by API name.
     shared_ptr<string> nameLike_ {};
     // The workspace ID of the PAI-EAS service.
     shared_ptr<string> paiWorkspaceId_ {};

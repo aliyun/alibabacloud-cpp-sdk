@@ -248,11 +248,11 @@ namespace Models
 
 
         protected:
-          // The cost of cache-hit tokens, in Credits per million tokens.
+          // The cost of cache-hit tokens. Unit: Credits per million tokens.
           shared_ptr<float> cacheCost_ {};
-          // The cost of input tokens, in Credits per million tokens.
+          // The cost of input tokens. Unit: Credits per million tokens.
           shared_ptr<float> inputCost_ {};
-          // The cost of output tokens, in Credits per million tokens.
+          // The cost of output tokens. Unit: Credits per million tokens.
           shared_ptr<float> outputCost_ {};
           // The billing type. Only fixed is supported.
           shared_ptr<string> type_ {};
@@ -298,7 +298,7 @@ namespace Models
         protected:
           // The model invocation path. The path can be up to 2048 characters in length.
           shared_ptr<string> path_ {};
-          // The protocol type corresponding to the path. The value can be up to 64 characters in length.
+          // The protocol type of the path. The value can be up to 64 characters in length.
           shared_ptr<string> type_ {};
         };
 
@@ -405,13 +405,13 @@ namespace Models
         shared_ptr<string> modelCardId_ {};
         // The model name.
         shared_ptr<string> modelName_ {};
-        // The model provider identifier.
+        // The identifier of the model provider.
         shared_ptr<string> modelProvider_ {};
-        // The source of the model card. Instance-level model cards return user.
+        // The source of the model card. user is returned for instance-level model cards.
         shared_ptr<string> source_ {};
         // The URL of the model metadata.
         shared_ptr<string> sourceURL_ {};
-        // The last update time of the model card, in the format of yyyy-MM-dd HH:mm:ss.
+        // The last update time of the model card. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -502,7 +502,7 @@ namespace Models
       shared_ptr<string> provider_ {};
       // The source of the model provider. Valid values: user and builtin.
       shared_ptr<string> source_ {};
-      // The last update time of the model provider, in the format of yyyy-MM-dd HH:mm:ss.
+      // The last update time of the model provider. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> updateTime_ {};
     };
 

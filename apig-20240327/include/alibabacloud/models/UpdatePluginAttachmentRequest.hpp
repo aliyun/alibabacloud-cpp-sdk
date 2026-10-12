@@ -64,7 +64,7 @@ namespace Models
     shared_ptr<vector<string>> attachResourceIds_ {};
     // Specifies whether to enable the plugin mount.
     shared_ptr<bool> enable_ {};
-    // The Base64-encoded content of the raw plugin configuration.
+    // The Base64-encoded content of the original plugin configuration.
     shared_ptr<string> pluginConfig_ {};
   };
 

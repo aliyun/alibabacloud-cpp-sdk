@@ -185,11 +185,11 @@ namespace Models
           shared_ptr<string> executePriority_ {};
           // The execution stage.
           shared_ptr<string> executeStage_ {};
-          // The plugin name.
+          // The plug-in name.
           shared_ptr<string> name_ {};
-          // The plugin type ID.
+          // The plug-in type ID.
           shared_ptr<string> pluginClassId_ {};
-          // The plugin source.
+          // The plug-in source.
           shared_ptr<string> source_ {};
           // The version.
           shared_ptr<string> version_ {};
@@ -279,9 +279,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether the plugin is enabled.
+          // Indicates whether the plug-in is enabled.
           shared_ptr<string> enable_ {};
-          // The plugin attachment ID.
+          // The plug-in mounting ID.
           shared_ptr<string> pluginAttachmentId_ {};
         };
 
@@ -322,13 +322,13 @@ namespace Models
 
 
       protected:
-        // The plugin attachment information.
+        // The plug-in mounting information.
         shared_ptr<Items::AttachmentInfo> attachmentInfo_ {};
         // The gateway information.
         shared_ptr<Items::GatewayInfo> gatewayInfo_ {};
-        // The plugin type information.
+        // The plug-in type information.
         shared_ptr<Items::PluginClassInfo> pluginClassInfo_ {};
-        // The plugin ID.
+        // The plug-in ID.
         shared_ptr<string> pluginId_ {};
       };
 
@@ -365,11 +365,11 @@ namespace Models
 
 
     protected:
-      // The plugin list.
+      // The list of plug-ins.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};

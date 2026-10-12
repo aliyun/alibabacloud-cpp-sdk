@@ -93,7 +93,9 @@ namespace Models
 
 
       protected:
+        // The container service cluster ID.
         shared_ptr<string> clusterId_ {};
+        // The container service cluster name.
         shared_ptr<string> name_ {};
       };
 
@@ -108,6 +110,7 @@ namespace Models
 
 
     protected:
+      // The list of Kubernetes clusters that can be added.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -144,9 +147,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListK8sClusterSourcesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

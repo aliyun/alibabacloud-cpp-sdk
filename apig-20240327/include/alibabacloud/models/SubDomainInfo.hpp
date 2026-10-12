@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The network type.
     shared_ptr<string> networkType_ {};
-    // The protocol type supported by the subdomain. Valid values: HTTP, HTTPS.
+    // The protocol type supported by the subdomain. Valid values: HTTP and HTTPS.
     shared_ptr<string> protocol_ {};
   };
 

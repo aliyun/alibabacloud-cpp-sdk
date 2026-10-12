@@ -90,11 +90,11 @@ namespace Models
     protected:
       // The authentication type of the Agent access entry. Specify this parameter only when enabled is set to true.
       shared_ptr<string> authType_ {};
-      // Specifies whether to enable consumer authorization. If set to true, authType must be specified and at least one principal must be provided. If set to false, no principals can be specified.
+      // Specifies whether to enable consumer authorization. If this parameter is set to true, you must specify authType and at least one authorization principal. If this parameter is set to false, you cannot specify authorization principals.
       // 
       // This parameter is required.
       shared_ptr<bool> enabled_ {};
-      // The list of consumers or consumer groups that are granted Agent access permissions. At least one principal must be specified when enabled is set to true.
+      // The list of consumers or consumer groups that are granted Agent access permissions. At least one authorization principal must be specified when enabled is set to true.
       shared_ptr<vector<AgentAuthorizationPrincipal>> principals_ {};
     };
 
@@ -140,9 +140,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable AI request logging. Default value if omitted: true.
+    // Specifies whether to enable AI request logging. If this parameter is not specified, the server uses true by default.
     shared_ptr<bool> aiRequestLogEnabled_ {};
-    // The consumer authorization configuration for Agent access. If omitted, consumer authorization is not enabled.
+    // The consumer authorization configuration for Agent access. If this parameter is not specified, consumer authorization is not enabled.
     shared_ptr<AgentAccessConfig::Authorization> authorization_ {};
     // The base path of the Agent access entry. The path must start with a forward slash (/).
     // 
@@ -152,7 +152,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> domainIds_ {};
-    // Specifies whether to remove the base path when forwarding requests to the backend. Default value if omitted: false.
+    // Specifies whether to remove the base path when forwarding requests to the backend. If this parameter is not specified, the server uses false by default.
     shared_ptr<bool> removeBasePathOnForward_ {};
   };
 

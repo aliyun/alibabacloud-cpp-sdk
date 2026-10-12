@@ -159,13 +159,12 @@ namespace Models
 
 
       protected:
-        // The list of authorized CIDR blocks.
+        // The list of authorized CIDR block addresses.
         shared_ptr<vector<string>> authCidrs_ {};
         // The rule description.
         shared_ptr<string> description_ {};
-        // The protocol. Valid values:
-        // 
-        // *   TCP
+        // The protocol:
+        // - TCP
         shared_ptr<string> ipProtocol_ {};
         // The port range.
         shared_ptr<string> portRange_ {};
@@ -173,11 +172,11 @@ namespace Models
         shared_ptr<string> securityGroupId_ {};
         // The security group name.
         shared_ptr<string> securityGroupName_ {};
-        // The rule ID.
+        // The security rule ID of the cloud-native API gateway.
         shared_ptr<string> securityGroupRuleId_ {};
-        // The ID of the source security group.
+        // The source security group ID.
         shared_ptr<string> sourceSecurityGroupId_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -192,7 +191,7 @@ namespace Models
 
 
     protected:
-      // The security group rules.
+      // The list of security group rules.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -229,11 +228,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListGatewayAuthorizedSecurityGroupRulesResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

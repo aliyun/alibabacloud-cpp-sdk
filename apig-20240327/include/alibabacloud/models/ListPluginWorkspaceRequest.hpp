@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The gateway type used to filter workspaces. Default value: API.
     shared_ptr<string> gatewayType_ {};
   };
 

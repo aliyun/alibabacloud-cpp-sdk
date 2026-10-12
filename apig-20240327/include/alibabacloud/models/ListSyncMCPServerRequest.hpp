@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The AI gateway ID. This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
     shared_ptr<string> gatewayId_ {};
+    // The Nacos namespace ID. This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
     shared_ptr<string> namespace_ {};
+    // The Nacos service source ID. In a single Nacos source scenario, this parameter can be omitted because the server automatically populates the unique source. In a multi-Nacos source scenario, this parameter is required. Otherwise, a parameter error indicating that sourceId is empty is returned. If the gateway has no Nacos source, the error ErrServiceSourceNotFound is returned.
     shared_ptr<string> sourceId_ {};
   };
 

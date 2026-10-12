@@ -99,7 +99,7 @@ namespace Models
       shared_ptr<vector<HttpRoute>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};

@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // The namespaced name of the incompatible Ingress.
         shared_ptr<string> name_ {};
+        // The summary of the incompatible rule, in the format of request URI → destination service.
         shared_ptr<string> rule_ {};
+        // The list of unsupported annotations on the Ingress.
         shared_ptr<vector<string>> unSupportedAnnotations_ {};
       };
 
@@ -148,9 +151,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether all routes are compatible and can be migrated.
       shared_ptr<bool> isSupported_ {};
+      // The description of the check result, such as the failure reason or incompatibility summary. This value is from the Istio validation Reason.
       shared_ptr<string> message_ {};
+      // Indicates whether the check is successful, which means whether the Istiod query link is working properly.
       shared_ptr<bool> success_ {};
+      // The list of incompatible routes.
       shared_ptr<vector<Data::UnSupportedRouteRules>> unSupportedRouteRules_ {};
     };
 
@@ -187,8 +194,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<VerifyMigrationTaskResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

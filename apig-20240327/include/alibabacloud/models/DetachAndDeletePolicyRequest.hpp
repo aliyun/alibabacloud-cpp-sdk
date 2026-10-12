@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The policy association ID.
+    // The policy attachment ID.
     shared_ptr<string> policyAttachmentId_ {};
   };
 

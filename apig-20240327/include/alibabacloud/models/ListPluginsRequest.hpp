@@ -121,33 +121,33 @@ namespace Models
 
 
   protected:
-    // The ID of the attached resource.
+    // The ID of the mounted resource.
     shared_ptr<string> attachResourceId_ {};
-    // The type of the attachment point supported by the policy.
+    // The type of mount point supported by the policy.
     // 
     // - HttpApi: HttpApi.
     // - Operation: Operation of HttpApi.
-    // - GatewayRoute: gateway route.
-    // - GatewayService: gateway service.
-    // - GatewayServicePort: gateway service port.
-    // - Domain: gateway domain name.
-    // - Gateway: gateway.
+    // - GatewayRoute: Gateway route.
+    // - GatewayService: Gateway service.
+    // - GatewayServicePort: Gateway service port.
+    // - Domain: Gateway domain name.
+    // - Gateway: Gateway.
     shared_ptr<string> attachResourceType_ {};
     // The ID of the gateway instance used to filter results.
     shared_ptr<string> gatewayId_ {};
     // The gateway type used to filter results. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
-    // Specifies whether the response includes built-in AI plugins installed by the system. Default value: false.
+    // Specifies whether the response includes built-in AI plug-ins installed by the system. Default value: false.
     shared_ptr<bool> includeBuiltinAiGateway_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the plugin type used to filter results.
+    // The ID of the plug-in type used to filter results.
     shared_ptr<string> pluginClassId_ {};
-    // The name of the plugin type used to filter results.
+    // The name of the plug-in type used to filter results.
     shared_ptr<string> pluginClassName_ {};
-    // Specifies whether the response includes the plugin attachment information corresponding to attachResourceId.
+    // Specifies whether the response includes the plug-in mounting information corresponding to attachResourceId.
     shared_ptr<bool> withAttachmentInfo_ {};
   };
 

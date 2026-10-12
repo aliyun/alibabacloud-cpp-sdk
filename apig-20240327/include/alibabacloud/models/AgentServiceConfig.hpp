@@ -282,11 +282,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> address_ {};
-    // The custom configuration. Required when provider is set to custom.
+    // The custom configuration. This parameter is required when provider is set to custom.
     shared_ptr<AgentServiceConfig::CustomConfig> customConfig_ {};
-    // The DashScope service configuration. Required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
+    // The DashScope service configuration. This parameter is required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
     shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
-    // The Dify service configuration. Required when provider is set to dify. The botType and apiKey parameters cannot be empty.
+    // The Dify service configuration. This parameter is required when provider is set to dify. The botType and apiKey parameters cannot be empty.
     shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
     // Specifies whether to enable health check.
     shared_ptr<bool> enableHealthCheck_ {};

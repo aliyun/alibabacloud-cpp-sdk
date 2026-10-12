@@ -172,7 +172,7 @@ namespace Models
         protected:
           // The Nacos instance.
           shared_ptr<string> importInstanceId_ {};
-          // The synced MCP server ID.
+          // The ID of the synced MCP server.
           shared_ptr<string> importMcpServerId_ {};
           // The Nacos namespace.
           shared_ptr<string> importNamespace_ {};
@@ -402,17 +402,17 @@ namespace Models
       protected:
         // API ID。
         shared_ptr<string> apiId_ {};
-        // The list of assembled sources. This parameter is required when type is AssemblyMCP.
+        // The list of assembly sources. This parameter is required when type is AssemblyMCP.
         shared_ptr<vector<Items::AssembledSources>> assembledSources_ {};
         // The backend service of the route.
         shared_ptr<Backend> backend_ {};
-        // The creation source type. Valid values:
+        // The creation source type.
         // 
-        // - ApiGatewayHttpToMCP: gateway-managed HTTP-to-MCP.
-        // - ApiGatewayMcpHosting: gateway-managed MCP direct proxy.
-        // - ApiGatewayAssembly: gateway MCP assembly.
-        // - NacosHttpToMCP: gateway-managed Nacos-synced HTTP-to-MCP.
-        // - NacosMcpHosting: gateway-managed Nacos-synced MCP direct proxy.
+        // - ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP.
+        // - ApiGatewayMcpHosting: Gateway-managed MCP direct proxy.
+        // - ApiGatewayAssembly: Gateway MCP assembly.
+        // - NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP.
+        // - NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
         shared_ptr<string> createFromType_ {};
         // The deployment status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
@@ -483,7 +483,7 @@ namespace Models
 
 
     protected:
-      // The MCP server list information.
+      // The list of MCP servers.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

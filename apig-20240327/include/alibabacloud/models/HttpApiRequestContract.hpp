@@ -95,11 +95,11 @@ namespace Models
     protected:
       // The content type of the request body.
       shared_ptr<string> contentType_ {};
-      // The parameter description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The sample value.
+      // The example value.
       shared_ptr<string> example_ {};
-      // The JSON definition description of the request body.
+      // The JSON schema definition of the request body.
       shared_ptr<string> jsonSchema_ {};
     };
 
@@ -142,13 +142,13 @@ namespace Models
 
 
   protected:
-    // The body parameters.
+    // The request body parameter definitions.
     shared_ptr<HttpApiRequestContract::Body> body_ {};
-    // The request header parameters.
+    // The request header parameter definitions.
     shared_ptr<vector<HttpApiParameter>> headerParameters_ {};
-    // The path parameters.
+    // The path parameter definitions.
     shared_ptr<vector<HttpApiParameter>> pathParameters_ {};
-    // The query parameters.
+    // The query parameter definitions.
     shared_ptr<vector<HttpApiParameter>> queryParameters_ {};
   };
 

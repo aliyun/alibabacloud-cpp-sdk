@@ -131,7 +131,7 @@ namespace Models
       shared_ptr<string> publishStatus_ {};
       // The plug-in type.
       shared_ptr<string> type_ {};
-      // The Wasm plug-in programming language.
+      // The programming language of the Wasm plug-in.
       shared_ptr<string> wasmLanguage_ {};
     };
 

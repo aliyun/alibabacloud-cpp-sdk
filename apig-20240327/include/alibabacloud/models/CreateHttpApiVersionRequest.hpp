@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
   };
 

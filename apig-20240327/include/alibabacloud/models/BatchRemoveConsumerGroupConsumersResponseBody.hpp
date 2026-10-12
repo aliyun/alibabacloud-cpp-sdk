@@ -91,9 +91,9 @@ namespace Models
     protected:
       // The list of consumer IDs that failed to be removed.
       shared_ptr<vector<string>> failedConsumerIds_ {};
-      // The list of consumer IDs skipped because they are not in the consumer group.
+      // The list of consumer IDs that were skipped because they are not in the consumer group.
       shared_ptr<vector<string>> skippedConsumerIds_ {};
-      // The list of consumer IDs successfully removed from the consumer group.
+      // The list of consumer IDs that were successfully removed from the consumer group.
       shared_ptr<vector<string>> successConsumerIds_ {};
     };
 

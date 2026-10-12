@@ -129,9 +129,13 @@ namespace Models
 
 
       protected:
+        // The port. When an NLB instance is associated, two placeholder entries with ports 80 and 443 are returned.
         shared_ptr<string> port_ {};
+        // The protocol. When an NLB instance is associated, HTTP and HTTPS are returned as placeholders. For CLB, the value is deserialized from the stored vServerGroupMetaInfo.
         shared_ptr<string> protocol_ {};
+        // The VServerGroup or ServerGroup ID. When an NLB instance is associated, this field is an empty string placeholder.
         shared_ptr<string> virtualServiceGroupId_ {};
+        // The group name. When an NLB instance is associated, this field is an empty string placeholder.
         shared_ptr<string> virtualServiceGroupName_ {};
       };
 
@@ -213,15 +217,25 @@ namespace Models
 
 
     protected:
+      // Indicates whether the load balancer can be edited. This serves as the edit toggle for a load balancer that is being migrated.
       shared_ptr<bool> editEnable_ {};
+      // The load balancer address.
       shared_ptr<string> loadBalancerAddress_ {};
+      // The load balancer instance ID.
       shared_ptr<string> loadBalancerId_ {};
+      // The load balancer name.
       shared_ptr<string> loadBalancerName_ {};
+      // The load balancer type.
       shared_ptr<string> loadBalancerType_ {};
+      // The network type.
       shared_ptr<string> networkType_ {};
+      // The port information.
       shared_ptr<vector<int32_t>> ports_ {};
+      // The gateway service weight for traffic shifting during migration. Valid values: 0 to 100.
       shared_ptr<int64_t> serviceWeight_ {};
+      // The status description.
       shared_ptr<string> statusDescription_ {};
+      // The backend server group bindings.
       shared_ptr<vector<Data::VirtualServiceList>> virtualServiceList_ {};
     };
 
@@ -258,8 +272,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<UpdateGatewayLoadBalancerResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

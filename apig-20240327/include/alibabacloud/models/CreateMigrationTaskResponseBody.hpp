@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -99,10 +100,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreateMigrationTaskResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

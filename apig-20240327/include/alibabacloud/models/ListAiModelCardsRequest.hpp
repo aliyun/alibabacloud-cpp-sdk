@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The fuzzy match keyword for the model provider identifier or model name. If left empty, all model cards under the current gateway are queried.
+    // The keyword for fuzzy match against the model provider identifier or model name. If this parameter is left empty, all model cards under the current gateway are queried.
     shared_ptr<string> keyword_ {};
     // The page number. Default value: 1. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};

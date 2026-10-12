@@ -57,7 +57,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to activate Simple Log Service.
+      // Indicates whether SLS logging is enabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -72,7 +72,7 @@ namespace Models
 
 
   protected:
-    // The Simple Log Service configurations.
+    // The Simple Log Service (SLS) log configuration.
     shared_ptr<GatewayLogConfig::SlsConfig> slsConfig_ {};
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The code of the risk item, such as the code for version risk or capacity risk.
+    // 
     // This parameter is required.
     shared_ptr<string> riskCode_ {};
   };

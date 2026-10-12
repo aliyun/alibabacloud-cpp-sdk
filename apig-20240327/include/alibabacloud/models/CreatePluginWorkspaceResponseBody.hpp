@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The Codeup repository ID, which is a numeric string.
       shared_ptr<string> repoId_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -110,10 +112,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreatePluginWorkspaceResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -393,11 +393,11 @@ namespace Models
       protected:
         // The list of available paths for the model.
         shared_ptr<vector<ModelCards::AvailablePaths>> availablePaths_ {};
-        // The model credits consumption configuration.
+        // The credits consumption configuration of the model.
         shared_ptr<ModelCards::Credit> credit_ {};
-        // The model capability features.
+        // The capability features of the model.
         Darabonba::Json features_ {};
-        // The gateway instance ID to which the model card belongs.
+        // The instance ID of the gateway to which the model card belongs.
         shared_ptr<string> gatewayId_ {};
         // The model metadata.
         shared_ptr<ModelCards::Meta> meta_ {};
@@ -405,7 +405,7 @@ namespace Models
         shared_ptr<string> modelCardId_ {};
         // The model name.
         shared_ptr<string> modelName_ {};
-        // The model provider identifier to which the model card belongs.
+        // The identifier of the model provider to which the model card belongs.
         shared_ptr<string> modelProvider_ {};
         // The model source.
         shared_ptr<string> source_ {};
@@ -498,9 +498,9 @@ namespace Models
       shared_ptr<int32_t> modelCount_ {};
       // The model provider ID.
       shared_ptr<string> modelProviderId_ {};
-      // The model provider identifier.
+      // The identifier of the model provider.
       shared_ptr<string> provider_ {};
-      // The provider source type.
+      // The source type of the provider.
       shared_ptr<string> source_ {};
       // The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};

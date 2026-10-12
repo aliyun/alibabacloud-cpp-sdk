@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The gateway type used for filtering.
     shared_ptr<string> gatewayType_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

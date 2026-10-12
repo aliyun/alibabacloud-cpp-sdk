@@ -103,8 +103,8 @@ namespace Models
 
     protected:
       // Indicates whether Tracing Analysis is enabled. Valid values:
-      // - true: enabled.
-      // - false: shutdown.
+      // - true: Enabled.
+      // - false: Shutdown.
       shared_ptr<bool> enable_ {};
       // The sampling ratio.
       shared_ptr<int32_t> sampleRatio_ {};

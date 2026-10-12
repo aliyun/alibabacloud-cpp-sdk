@@ -94,9 +94,9 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The label key.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
-      // The label value.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The token for the next query. An empty NextToken indicates that no more results exist.
+    // The token used to start the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of tagged resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

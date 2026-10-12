@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // The list of risk detection results.
       shared_ptr<vector<RiskCheckResults>> items_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -152,10 +156,15 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The risk detection results.
     shared_ptr<ListRiskCheckResultsResponseBody::Data> data_ {};
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

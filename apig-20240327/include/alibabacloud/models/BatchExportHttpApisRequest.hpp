@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to export the consumer authorization configuration.
       shared_ptr<bool> withAuthConfig_ {};
+      // Specifies whether to export the authorized consumers.
       shared_ptr<bool> withAuthConsumer_ {};
+      // Specifies whether to export the plugin configuration.
       shared_ptr<bool> withPlugin_ {};
+      // Specifies whether to export the policy configuration.
       shared_ptr<bool> withPolicy_ {};
+      // Specifies whether to export the backend service.
       shared_ptr<bool> withService_ {};
     };
 
@@ -152,12 +157,19 @@ namespace Models
 
 
   protected:
+    // The list of API IDs to export.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> apiIds_ {};
+    // The API type.
+    // 
     // This parameter is required.
     shared_ptr<string> apiType_ {};
+    // The export extension configuration. When this configuration is specified for a REST API, gatewayId is required. This configuration is required for batch export of HTTP APIs.
     shared_ptr<BatchExportHttpApisRequest::ExtensionConfig> extensionConfig_ {};
+    // The export format. Valid values: json and yaml. Default value: yaml.
     shared_ptr<string> format_ {};
+    // The gateway instance ID. This parameter is required when extensionConfig is specified for a REST API. This parameter is required for batch export of HTTP APIs.
     shared_ptr<string> gatewayId_ {};
   };
 

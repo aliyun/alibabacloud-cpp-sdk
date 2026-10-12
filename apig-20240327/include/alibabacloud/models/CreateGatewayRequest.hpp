@@ -276,7 +276,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable log collection.
+        // Specifies whether to enable SLS log collection.
         shared_ptr<bool> enable_ {};
       };
 
@@ -404,15 +404,15 @@ namespace Models
     // 
     // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
-    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter is allowed only when gatewayType is AI and gatewayEdition is MultiTenantServerless.
+    // The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is set to AI and gatewayEdition is set to MultiTenantServerless.
     shared_ptr<string> gatewayMode_ {};
-    // The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant gateways.
+    // The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant editions.
     shared_ptr<string> gatewayType_ {};
     // The gateway log configuration.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};
-    // The gateway name. This parameter is required for all gateway editions.
+    // The gateway name. This parameter is required for all editions.
     shared_ptr<string> name_ {};
-    // The network access configuration. This parameter is required. If not provided, the service returns InvalidParameter.IsEmpty (400).
+    // The network access configuration. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.IsEmpty (400) error.
     shared_ptr<CreateGatewayRequest::NetworkAccessConfig> networkAccessConfig_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -420,9 +420,9 @@ namespace Models
     shared_ptr<string> spec_ {};
     // The list of tags.
     shared_ptr<vector<CreateGatewayRequest::Tag>> tag_ {};
-    // The VPC ID. This parameter is required for all gateway editions.
+    // The virtual private cloud (VPC) ID. This parameter is required for all editions.
     shared_ptr<string> vpcId_ {};
-    // The zone configuration. This parameter is required for all gateway editions.
+    // The zone configuration. This parameter is required for all editions.
     shared_ptr<CreateGatewayRequest::ZoneConfig> zoneConfig_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The identity field name that corresponds to the mailbox.
+    // The name of the identity field that corresponds to the email address.
     shared_ptr<string> emailField_ {};
-    // The identity field name that corresponds to the user ID.
+    // The name of the identity field that corresponds to the user ID.
     shared_ptr<string> userIdField_ {};
-    // The identity field name that corresponds to the username.
+    // The name of the identity field that corresponds to the username.
     shared_ptr<string> userNameField_ {};
   };
 

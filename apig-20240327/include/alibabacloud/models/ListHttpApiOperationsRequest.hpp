@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // Filters the API operation list by a specific consumer authorization rule ID. Only authorized API operations are included in the response.
+    // The consumer authorization rule ID used to filter the API operation list. When specified, the response includes only authorized API operations.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
-    // The authentication enable filter.
+    // Specifies whether to filter by authentication enablement status.
     shared_ptr<bool> enableAuth_ {};
     // Specifies whether the request is for a deployment scenario.
     shared_ptr<bool> forDeploy_ {};
-    // The gateway ID filter.
+    // The gateway ID used to filter results.
     shared_ptr<string> gatewayId_ {};
-    // Filters API operations by HTTP method.
+    // Lists API operations by HTTP method.
     shared_ptr<string> method_ {};
-    // Filters API operations by exact name match.
+    // Searches for API operations by exact name match.
     shared_ptr<string> name_ {};
-    // Filters API operations by name prefix.
+    // Searches for API operations by name prefix.
     shared_ptr<string> nameLike_ {};
-    // The page number. Starts from 1. Default value: 1.
+    // The page number to return. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters API operations by path prefix match.
+    // Searches for API operations by path prefix match.
     shared_ptr<string> pathLike_ {};
-    // Includes the authorization rule list for the specified consumer in the specified environment ID in each API operation\\"s information in the response. You must also specify the withConsumerInfoById field.
+    // The environment ID. When specified together with withConsumerInfoById, the response includes the authorization rule list of the specified consumer in the specified environment for each API operation.
     shared_ptr<string> withConsumerInEnvironmentId_ {};
-    // Includes the authorization rule list for the specified consumer in the specified environment ID in each API operation\\"s information in the response. You must also specify the withConsumerInEnvironmentId field.
+    // The consumer ID. When specified together with withConsumerInEnvironmentId, the response includes the authorization rule list of the specified consumer in the specified environment for each API operation.
     shared_ptr<string> withConsumerInfoById_ {};
-    // The plug-in ID. Retrieves plug-in publish information based on this plug-in ID.
+    // The plug-in ID used to retrieve plug-in deployment information.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
   };
 

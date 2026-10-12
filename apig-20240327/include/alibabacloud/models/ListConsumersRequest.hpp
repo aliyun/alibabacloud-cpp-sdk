@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // Filters by gateway type. Valid values: **AI** and **API**.
+    // The gateway type used to filter results. Valid values: **AI** and **API**.
     shared_ptr<string> gatewayType_ {};
     // Fuzzy matches APIs by API name.
     shared_ptr<string> nameLike_ {};
-    // The page number, starting from 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

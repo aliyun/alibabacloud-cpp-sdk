@@ -194,13 +194,13 @@ namespace Models
     shared_ptr<string> gatewayType_ {};
     // The search keyword. Supports fuzzy match by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // Searches for an HTTP API by exact name match.
+    // Searches for an exact match by name.
     shared_ptr<string> name_ {};
     // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The type of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
     // - Http
@@ -222,7 +222,7 @@ namespace Models
     shared_ptr<string> withEnvironmentInfoById_ {};
     // Specifies whether to include ingress information.
     shared_ptr<bool> withIngressInfo_ {};
-    // The plug-in ID. If specified, the response includes plug-in publishing information for the specified plug-in.
+    // The plug-in ID. If specified, the response includes plug-in publishing information based on this plug-in ID.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
     // Specifies whether to include policy information.
     shared_ptr<bool> withPolicyConfigs_ {};

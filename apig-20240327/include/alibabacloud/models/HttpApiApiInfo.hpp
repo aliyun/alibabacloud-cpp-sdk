@@ -215,15 +215,15 @@ namespace Models
     protected:
       // The environment context.
       shared_ptr<IngressInfo::EnvironmentInfo> environmentInfo_ {};
-      // The monitored Ingress Class.
+      // The Ingress Class to listen on.
       shared_ptr<string> ingressClass_ {};
       // The Kubernetes cluster information.
       shared_ptr<IngressInfo::K8sClusterInfo> k8sClusterInfo_ {};
-      // Specifies whether to update the address in Ingress Status.
+      // Specifies whether to update the address in the Ingress Status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
-      // The monitored namespace.
+      // The namespace to listen on.
       shared_ptr<string> watchNamespace_ {};
     };
 
@@ -490,6 +490,7 @@ namespace Models
 
 
       protected:
+        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway instance ID.
         shared_ptr<string> gatewayId_ {};
@@ -581,13 +582,13 @@ namespace Models
     protected:
       // The environment alias.
       shared_ptr<string> alias_ {};
-      // The deployment scenario.
+      // The publish scenario.
       shared_ptr<string> backendScene_ {};
       // The backend type.
       shared_ptr<string> backendType_ {};
-      // The domain name information published by the user.
+      // The custom domain information published by the user.
       shared_ptr<vector<HttpApiDomainInfo>> customDomains_ {};
-      // The deployment status of the API in the current environment.
+      // The publish status of the API in the current environment.
       shared_ptr<string> deployStatus_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
@@ -751,7 +752,7 @@ namespace Models
 
 
   protected:
-    // The list of agent protocols.
+    // The list of Agent protocols.
     shared_ptr<vector<string>> agentProtocols_ {};
     // The list of AI protocols.
     shared_ptr<vector<string>> aiProtocols_ {};
@@ -759,12 +760,13 @@ namespace Models
     shared_ptr<AuthConfig> authConfig_ {};
     // The API base path.
     shared_ptr<string> basePath_ {};
-    // The API operation deployment status.
+    // The API operation publish status.
     shared_ptr<map<string, HttpApiApiInfoDeployCntMapValue>> deployCntMap_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The API description.
     shared_ptr<string> description_ {};
+    // Indicates whether authentication is enabled.
     shared_ptr<bool> enableAuth_ {};
     // The publish environment context of the API.
     shared_ptr<vector<HttpApiApiInfo::Environments>> environments_ {};

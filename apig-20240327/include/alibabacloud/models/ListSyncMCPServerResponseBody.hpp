@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The list of domain name IDs bound to the Nacos MCP export of the gateway, excluding the default domain name. If no configuration exists, an empty array [] is returned.
       shared_ptr<vector<string>> domainIds_ {};
+      // The list of synchronized (whitelisted) MCP server names, obtained from the AllowMcpServers field in the MCP Bridge registration configuration. If no configuration exists, an empty array [] is returned.
       shared_ptr<vector<string>> mcpServers_ {};
     };
 
@@ -115,10 +117,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListSyncMCPServerResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

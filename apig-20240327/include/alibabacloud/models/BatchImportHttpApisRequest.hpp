@@ -94,10 +94,16 @@ namespace Models
 
 
     protected:
+      // The OSS bucket name.
+      // 
       // This parameter is required.
       shared_ptr<string> bucketName_ {};
+      // OSS Object Key。
+      // 
       // This parameter is required.
       shared_ptr<string> objectKey_ {};
+      // The region ID of the OSS bucket.
+      // 
       // This parameter is required.
       shared_ptr<string> regionId_ {};
     };
@@ -178,16 +184,27 @@ namespace Models
 
 
   protected:
+    // Specifies whether to overwrite existing APIs. If set to true, gatewayId is required.
     shared_ptr<bool> allowUpdate_ {};
+    // The API type.
+    // 
     // This parameter is required.
     shared_ptr<string> apiType_ {};
+    // Enables the dry run feature, which validates the definition without performing the actual import.
     shared_ptr<bool> dryRun_ {};
+    // The gateway instance ID. For REST APIs, this parameter is required when withGatewayExtension is set to true or allowUpdate is set to true. For batch import of HTTP APIs, this parameter is always required.
     shared_ptr<string> gatewayId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The standard Base64 encoding of the raw bytes of the OAS ZIP package. The decoded size cannot exceed 10 MiB. This parameter cannot be specified together with specFileUrl or specOssConfig. Dry run is supported and returns validation results, but the dry run task result does not return a replayable importRequest.
     shared_ptr<string> specContentBase64_ {};
+    // The download URL of the OAS ZIP file. The URL must support unauthenticated downloads. OSS URLs and whitelisted backend domain names are supported. At least one of specFileUrl and specOssConfig must be specified.
     shared_ptr<string> specFileUrl_ {};
+    // The OSS configuration for the OAS file in ZIP format. At least one of specFileUrl and specOssConfig must be specified.
     shared_ptr<BatchImportHttpApisRequest::SpecOssConfig> specOssConfig_ {};
+    // The conflict merge strategy during import. Default value: ExistFirst.
     shared_ptr<string> strategy_ {};
+    // Specifies whether to import with gateway extension configurations. This parameter must be set to true for batch import of HTTP APIs.
     shared_ptr<bool> withGatewayExtension_ {};
   };
 

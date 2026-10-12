@@ -99,15 +99,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether to export the consumer authorization configuration for operations or routes.
+      // Specifies whether to export consumer authorization configurations for operations or routes.
       shared_ptr<bool> withAuthConfig_ {};
-      // Specifies whether to export the authorized consumers.
+      // Specifies whether to export authorized consumers.
       shared_ptr<bool> withAuthConsumer_ {};
-      // Specifies whether to export the plug-in configuration.
+      // Specifies whether to export plug-in configurations.
       shared_ptr<bool> withPlugin_ {};
-      // Specifies whether to export the policy configuration.
+      // Specifies whether to export policy configurations.
       shared_ptr<bool> withPolicy_ {};
-      // Specifies whether to export the backend service.
+      // Specifies whether to export backend services.
       shared_ptr<bool> withService_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to export the plug-in configuration.
+    // Specifies whether to export plug-in configurations.
     shared_ptr<ExportHttpApiRequest::ExtensionConfig> extensionConfig_ {};
     // The gateway instance ID. This parameter is required when you export gateway extension information.
     shared_ptr<string> gatewayId_ {};

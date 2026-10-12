@@ -188,13 +188,13 @@ namespace Models
       shared_ptr<string> consumerGroupId_ {};
       // The consumer ID.
       shared_ptr<string> consumerId_ {};
-      // The expiration mode. Currently only LongTerm is supported.
+      // The expiration mode. Currently, only LongTerm is supported.
       shared_ptr<string> expireMode_ {};
       // The expiration timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTimestamp_ {};
       // The principal type.
       shared_ptr<string> principalType_ {};
-      // The resource identifier. Serves as a unique identifier for space reuse by non-standard code sources.
+      // The resource identifier, which serves as a unique identifier for space reuse by non-standard code sources.
       shared_ptr<AuthorizationRules::ResourceIdentifier> resourceIdentifier_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};

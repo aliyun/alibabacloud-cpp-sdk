@@ -168,9 +168,9 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), month (monthly).
+          // The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), and month (monthly).
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer subject. Valid values: calendar (calendar period) and epoch (custom period).
+          // The type of the existing conflicting rule on the consumer subject. A value of calendar indicates a calendar-period rule. A value of epoch indicates a custom-period rule.
           shared_ptr<string> conflictType_ {};
           // The consumer ID. Use subjectId instead.
           shared_ptr<string> consumerId_ {};
@@ -255,7 +255,7 @@ namespace Models
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
-      // Indicates whether this is a dry run.
+      // Indicates whether the request is a dry run.
       shared_ptr<bool> dryRun_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};

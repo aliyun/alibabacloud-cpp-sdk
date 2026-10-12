@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the attachment point.
+    // The attachment point ID.
     shared_ptr<string> attachResourceId_ {};
     // The type of attachment point supported by the policy.
     // 
-    // - HttpApi: HttpApi.
-    // - Operation: Operation of HttpApi.
-    // - GatewayRoute: gateway route.
-    // - GatewayService: gateway service.
-    // - GatewayServicePort: gateway service port.
-    // - Domain: gateway domain name.
-    // - Gateway: gateway.
+    // - HttpApi: HTTP API.
+    // - Operation: Operation of an HTTP API.
+    // - GatewayRoute: Gateway route.
+    // - GatewayService: Gateway service.
+    // - GatewayServicePort: Gateway service port.
+    // - Domain: Gateway domain name.
+    // - Gateway: Gateway.
     shared_ptr<string> attachResourceType_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};

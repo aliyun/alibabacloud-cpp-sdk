@@ -121,21 +121,21 @@ namespace Models
 
 
   protected:
-    // The secondary business category of the field. Optional. Valid values: conversation (conversation content), config (configuration parameters), tools (tool calling), usage (usage statistics), metadata (metadata), choices (candidate results), identity (identity identifier), cache (cache information), media (multimedia content), logprobs (log probabilities), and custom (custom field). Set custom fields to custom.
+    // The secondary business category of the field. This parameter is optional. Valid values: conversation (conversation content), config (configuration parameters), tools (tool calling), usage (usage statistics), metadata (metadata), choices (candidate results), identity (identity), cache (cache information), media (multimedia content), logprobs (log probabilities), and custom (custom fields). Set custom fields to custom.
     shared_ptr<string> category_ {};
     // The field description.
     shared_ptr<string> description_ {};
     // The log key (field name).
     shared_ptr<string> fieldKey_ {};
-    // The request or response attribution. The backend normalizes this to request or response based on source.
+    // The request or response attribution. The backend normalizes this to request or response based on the source value.
     shared_ptr<string> io_ {};
     // The corresponding jsonPath (gjson syntax).
     shared_ptr<string> jsonPath_ {};
     // The annotation for the field key name.
     shared_ptr<string> name_ {};
-    // Indicates whether collection is enabled to create a log record for the corresponding field in AI request logs.
+    // Indicates whether collection is enabled to include the corresponding field in AI request log records.
     shared_ptr<bool> recordEnabled_ {};
-    // The aggregation rule for streaming response fields. Valid values: append, first, and replace. append: appends the matched values from each streaming chunk in sequence. first: retains the first matched value. replace: uses the last matched value. When source is response_streaming_body and rule is not specified, first is used by default. This field is not required for non-streaming scenarios.
+    // The aggregation rule for streaming response fields. Valid values: append, first, and replace. append: appends the matched values from each streaming chunk in sequence. first: retains the first matched value. replace: uses the last matched value. When source is set to response_streaming_body and rule is not specified, the default value is first. This field is not required for non-streaming scenarios.
     shared_ptr<string> rule_ {};
     // Specifies whether the field is sensitive.
     shared_ptr<bool> sensitive_ {};

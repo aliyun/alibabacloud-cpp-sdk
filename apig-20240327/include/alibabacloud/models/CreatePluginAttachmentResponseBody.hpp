@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The plug-in mount ID.
+      // The plug-in attachment ID.
       shared_ptr<string> pluginAttachmentId_ {};
     };
 

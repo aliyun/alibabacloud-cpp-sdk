@@ -181,16 +181,31 @@ namespace Models
 
 
       protected:
+        // The ID of the gateway.
         shared_ptr<string> gatewayId_ {};
+        // The name of the gateway. Falls back to the gateway ID if the name is unavailable.
         shared_ptr<string> gatewayName_ {};
+        // The period multiplier, which specifies the number of days before the quota resets. A positive integer is returned for custom periods. This field is not returned for calendar-based periods.
         shared_ptr<int64_t> periodMultiplier_ {};
+        // The period type.
         shared_ptr<string> periodType_ {};
+        // The quota dimension.
         shared_ptr<string> quotaDimension_ {};
+        // The quota limit.
         shared_ptr<int64_t> quotaLimit_ {};
+        // The ID of the rule.
         shared_ptr<string> ruleId_ {};
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
+        // The status of the rule. Valid values:
+        // - enabled
+        // - disabled
         shared_ptr<string> ruleStatus_ {};
+        // The time zone.
         shared_ptr<string> timezone_ {};
+        // The window alignment type. Valid values:
+        // - calendar: calendar-based period.
+        // - epoch: custom period.
         shared_ptr<string> windowAlignment_ {};
       };
 
@@ -227,9 +242,13 @@ namespace Models
 
 
     protected:
+      // The list of rules.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The current page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -266,9 +285,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListConsumerGroupQuotaRulesResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

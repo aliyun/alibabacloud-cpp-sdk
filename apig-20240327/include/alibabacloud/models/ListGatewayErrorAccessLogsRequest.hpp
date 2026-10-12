@@ -94,13 +94,22 @@ namespace Models
 
 
   protected:
+    // The domain name filter. This parameter performs an exact match against the authority field in Simple Log Service (SLS).
     shared_ptr<string> authority_ {};
+    // The end of the query window, in UNIX seconds. The value cannot be later than the current time, and the time span cannot exceed 24 hours.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The gateway request ID (x-acs-request-id) for exact match filtering.
     shared_ptr<string> gatewayRequestId_ {};
+    // The request path filter.
     shared_ptr<string> path_ {};
+    // The HTTP error code. Only three-digit numbers in the 400–599 range are accepted. This parameter is required. If you do not specify this parameter, the API returns InvalidParameter.WithDetail (400).
     shared_ptr<string> responseCode_ {};
+    // The route name filter.
     shared_ptr<string> routeName_ {};
+    // The start of the query window, in UNIX seconds. The value must be no earlier than 24 hours before the current time.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

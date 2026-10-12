@@ -234,29 +234,29 @@ namespace Models
 
 
         protected:
-          // The cached token consumption.
+          // The consumption of cached tokens.
           shared_ptr<int64_t> cachedAmount_ {};
-          // The exact value of cached consumption. Decimals are supported in credit scenarios.
+          // The exact value of the cached consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> cachedAmountDecimal_ {};
-          // The consumer name.
+          // The name of the consumer.
           shared_ptr<string> consumer_ {};
-          // The input token consumption.
+          // The consumption of input tokens.
           shared_ptr<int64_t> inputAmount_ {};
-          // The exact value of input consumption. Decimals are supported in credit scenarios.
+          // The exact value of the input consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> inputAmountDecimal_ {};
-          // The model name.
+          // The name of the model.
           shared_ptr<string> model_ {};
-          // The output token consumption.
+          // The consumption of output tokens.
           shared_ptr<int64_t> outputAmount_ {};
-          // The exact value of output consumption. Decimals are supported in credit scenarios.
+          // The exact value of the output consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> outputAmountDecimal_ {};
           // The request ID.
           shared_ptr<string> requestId_ {};
-          // The consumption (request) time in the format of YYYY-MM-DD.
+          // The consumption or request time in YYYY-MM-DD format.
           shared_ptr<string> startTime_ {};
           // The total consumption.
           shared_ptr<int64_t> usedAmount_ {};
-          // The exact value of total consumption. Decimals are supported in credit scenarios.
+          // The exact value of the total consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> usedAmountDecimal_ {};
         };
 
@@ -401,21 +401,21 @@ namespace Models
 
 
     protected:
-      // The total cached token consumption.
+      // The total consumption of cached tokens.
       shared_ptr<int64_t> cachedAmount_ {};
-      // The exact value of total cached consumption. Decimals are supported in credit scenarios.
+      // The exact value of the total cached consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> cachedAmountDecimal_ {};
-      // The paginated consumption details.
+      // The pagination of consumption details.
       shared_ptr<Data::Details> details_ {};
-      // The total input token consumption.
+      // The total consumption of input tokens.
       shared_ptr<int64_t> inputAmount_ {};
-      // The exact value of total input consumption. Decimals are supported in credit scenarios.
+      // The exact value of the total input consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> inputAmountDecimal_ {};
-      // The total output token consumption.
+      // The total consumption of output tokens.
       shared_ptr<int64_t> outputAmount_ {};
-      // The exact value of total output consumption. Decimals are supported in credit scenarios.
+      // The exact value of the total output consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> outputAmountDecimal_ {};
-      // Indicates whether the quota limit is exceeded.
+      // Indicates whether the limit is exceeded.
       shared_ptr<bool> overLimit_ {};
       // The quota dimension. Valid values: token and credit.
       shared_ptr<string> quotaDimension_ {};
@@ -423,9 +423,9 @@ namespace Models
       shared_ptr<string> subjectType_ {};
       // The total quota of the subject.
       shared_ptr<int64_t> totalQuota_ {};
-      // The total used amount of the subject.
+      // The total used quota of the subject.
       shared_ptr<int64_t> usedAmount_ {};
-      // The exact value of the total used amount of the subject. Decimals are supported in credit scenarios.
+      // The exact value of the total used quota of the subject. Decimals are supported in credit scenarios.
       shared_ptr<double> usedAmountDecimal_ {};
     };
 

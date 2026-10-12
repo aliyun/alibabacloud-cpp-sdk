@@ -177,11 +177,11 @@ namespace Models
 
 
     protected:
-      // The cache hit token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of cache-hit tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> cacheCost_ {};
-      // The input token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of input tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> inputCost_ {};
-      // The output token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+      // The cost of output tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> outputCost_ {};
       // The billing type. Only fixed is supported. Default value: fixed.
       shared_ptr<string> type_ {};
@@ -284,7 +284,7 @@ namespace Models
 
 
   protected:
-    // The list of invocation paths supported by the model. Each item must include both path and type. The list is overwritten as a whole during updates.
+    // The list of invocation paths supported by the model. Each item must include both path and type. The entire list is overwritten during an update.
     shared_ptr<vector<UpdateAiModelCardRequest::AvailablePaths>> availablePaths_ {};
     // The credit billing information of the model. Only the fixed type is supported. The unit is Credits per million tokens. If not specified, all cost values default to 0.
     shared_ptr<UpdateAiModelCardRequest::Credit> credit_ {};
@@ -292,7 +292,7 @@ namespace Models
     Darabonba::Json features_ {};
     // The token limits and input/output modality information of the model.
     shared_ptr<UpdateAiModelCardRequest::Meta> meta_ {};
-    // The model name. The name must be unique within the same AI gateway instance and model provider. Maximum length: 256 characters.
+    // The model name. The name must be unique within the same AI gateway instance and the same model provider. Maximum length: 256 characters.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};

@@ -67,7 +67,9 @@ namespace Models
 
 
     protected:
+      // The O&M end time (HH:mm).
       shared_ptr<string> endTime_ {};
+      // The O&M start time (HH:mm).
       shared_ptr<string> startTime_ {};
     };
 
@@ -82,6 +84,7 @@ namespace Models
 
 
   protected:
+    // The O&M window.
     shared_ptr<UpdateGatewayMaintenancePeriodRequest::MaintenancePeriod> maintenancePeriod_ {};
   };
 

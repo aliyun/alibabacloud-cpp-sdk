@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> model_ {};
     // Indicates whether streaming output is supported.
     shared_ptr<bool> streaming_ {};
-    // The temperature parameter that controls the randomness of generation.
+    // The temperature parameter that controls the randomness of the generated output.
     shared_ptr<float> temperature_ {};
     // Indicates whether web search is supported.
     shared_ptr<bool> webSearch_ {};

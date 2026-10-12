@@ -143,9 +143,9 @@ namespace Models
 
 
         protected:
-          // The endpoint of the Nacos instance.
+          // The access address of the Nacos instance.
           shared_ptr<string> address_ {};
-          // The registry ID.
+          // The NACOS registry cluster ID.
           shared_ptr<string> clusterId_ {};
           // The Nacos instance ID.
           shared_ptr<string> instanceId_ {};
@@ -179,7 +179,7 @@ namespace Models
 
 
         protected:
-          // The cluster ID.
+          // The container service cluster ID.
           shared_ptr<string> clusterId_ {};
         };
 
@@ -254,16 +254,19 @@ namespace Models
 
 
       protected:
+        // The reason for the association status
         shared_ptr<string> associationReason_ {};
+        // The association status of the source
         shared_ptr<string> associationStatus_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The source information when the source type is K8S.
+        // The container service source information.
         shared_ptr<Items::K8sSourceInfo> k8sSourceInfo_ {};
-        // The source information when the source type is MSE_NACOS.
+        // The MSE Nacos source information.
         shared_ptr<Items::NacosSourceInfo> nacosSourceInfo_ {};
-        // The source name. If the source type is K8S, the name is the container cluster name. If the source type is MSE_NACOS, the name is the Nacos instance name.
+        // The source name. If the source type is container service, the name is the container service cluster name. If the source type is MSE Nacos, the name is the Nacos instance name.
         shared_ptr<string> name_ {};
+        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
         // The source ID.
         shared_ptr<string> sourceId_ {};
@@ -306,11 +309,11 @@ namespace Models
     protected:
       // The list of sources.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -347,11 +350,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListSourcesResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

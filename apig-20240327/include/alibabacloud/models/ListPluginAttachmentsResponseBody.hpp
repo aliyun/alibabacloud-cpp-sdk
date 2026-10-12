@@ -175,9 +175,9 @@ namespace Models
 
 
       protected:
-        // The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, Operation.
+        // The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
         shared_ptr<string> attachResourceType_ {};
-        // Specifies whether the plug-in is enabled.
+        // Indicates whether the plug-in is enabled.
         shared_ptr<bool> enable_ {};
         // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
@@ -185,7 +185,7 @@ namespace Models
         shared_ptr<ParentResourceInfo> parentResourceInfo_ {};
         // The plug-in mount ID.
         shared_ptr<string> pluginAttachmentId_ {};
-        // The plug-in type information.
+        // The plug-in class information.
         shared_ptr<PluginClassInfo> pluginClassInfo_ {};
         // The Base64-encoded content of the original plug-in configuration.
         shared_ptr<string> pluginConfig_ {};
@@ -232,7 +232,7 @@ namespace Models
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalSize_ {};

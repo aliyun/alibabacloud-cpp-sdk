@@ -79,14 +79,15 @@ namespace Models
 
 
   protected:
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The API name.
     shared_ptr<string> name_ {};
-    // The API type.
+    // The type of the HTTP API.
     shared_ptr<string> type_ {};
-    // Specifies whether to enable versioning.
+    // Indicates whether version management is enabled.
     shared_ptr<bool> versionEnabled_ {};
-    // The information about the versioned API.
+    // The versioned API version information.
     shared_ptr<vector<HttpApiApiInfo>> versionedHttpApis_ {};
   };
 

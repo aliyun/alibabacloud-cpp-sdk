@@ -117,11 +117,11 @@ namespace Models
 
 
     protected:
-      // The API key of the vector database.
+      // The vector database API key.
       shared_ptr<string> apiKey_ {};
       // The vector collection ID.
       shared_ptr<string> collectionId_ {};
-      // The service address of the vector database.
+      // The vector database service address.
       shared_ptr<string> serviceHost_ {};
       // The similarity threshold.
       shared_ptr<float> threshold_ {};

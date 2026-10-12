@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The end of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
     shared_ptr<string> endTime_ {};
+    // The gateway instance ID. If specified, only tasks under this gateway are returned.
     shared_ptr<string> gatewayId_ {};
+    // The maximum number of tasks to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The paging token that indicates the start position of the next query.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The start of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
     shared_ptr<string> startTime_ {};
+    // The list of task statuses. Separate multiple statuses with commas (,).
     shared_ptr<string> statuses_ {};
   };
 

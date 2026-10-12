@@ -145,7 +145,7 @@ namespace Models
 
 
       protected:
-        // The consumer ID.
+        // The API consumer ID.
         shared_ptr<string> consumerId_ {};
         // The creation timestamp.
         shared_ptr<int64_t> createTimestamp_ {};
@@ -153,9 +153,9 @@ namespace Models
         shared_ptr<string> deployStatus_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // Indicates whether the consumer is enabled.
+        // Indicates whether the API consumer is enabled.
         shared_ptr<bool> enable_ {};
-        // The consumer name.
+        // The API consumer name.
         shared_ptr<string> name_ {};
         // The update timestamp.
         shared_ptr<int64_t> updateTimestamp_ {};
@@ -194,7 +194,7 @@ namespace Models
 
 
     protected:
-      // The list of consumers.
+      // The list of API consumer information.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

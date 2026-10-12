@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The O&M end time in the HH:mm format.
         shared_ptr<string> endTime_ {};
+        // The O&M start time in the HH:mm format.
         shared_ptr<string> startTime_ {};
+        // The number of replicas.
         shared_ptr<int32_t> units_ {};
       };
 
@@ -149,7 +152,9 @@ namespace Models
 
 
       protected:
+        // The O&M end time in the HH:mm format.
         shared_ptr<string> endTime_ {};
+        // The O&M start time in the HH:mm format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -202,11 +207,17 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the elastic policy. A value of false indicates that the elastic policy is disabled. When the elastic policy is disabled, other fields are not validated and the system directly proceeds with the disabling process.
       shared_ptr<bool> elasticEnabled_ {};
+      // The policy type.
       shared_ptr<string> elasticType_ {};
+      // The time periods during which AutoHPA is allowed to scale out, specified by startTime and endTime.
       shared_ptr<vector<ElasticPolicy::EnableScaleTimePolicyList>> enableScaleTimePolicyList_ {};
+      // Specifies whether to enable the AutoHPA load alert threshold.
       shared_ptr<bool> loadWarningThreshold_ {};
+      // The maximum number of replicas. This parameter is required for AutoHPA.
       shared_ptr<int32_t> maxUnits_ {};
+      // The list of scheduled policies.
       shared_ptr<vector<ElasticPolicy::TimePolicyList>> timePolicyList_ {};
     };
 
@@ -221,6 +232,7 @@ namespace Models
 
 
   protected:
+    // The elastic policy object.
     shared_ptr<UpdateGatewayElasticPolicyRequest::ElasticPolicy> elasticPolicy_ {};
   };
 

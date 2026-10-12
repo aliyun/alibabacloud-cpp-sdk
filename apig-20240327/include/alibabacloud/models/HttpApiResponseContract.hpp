@@ -90,11 +90,11 @@ namespace Models
     protected:
       // The response code.
       shared_ptr<int32_t> code_ {};
-      // The response description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The sample value.
+      // The example value.
       shared_ptr<string> example_ {};
-      // The JSON definition description of the response body.
+      // The JSON schema definition of the response body.
       shared_ptr<string> jsonSchema_ {};
     };
 
@@ -117,11 +117,11 @@ namespace Models
 
 
   protected:
-    // The content type.
+    // The response content type.
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The response definition.
+    // The response definitions.
     shared_ptr<vector<HttpApiResponseContract::Items>> items_ {};
   };
 

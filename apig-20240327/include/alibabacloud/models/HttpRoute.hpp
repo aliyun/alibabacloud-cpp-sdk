@@ -331,7 +331,7 @@ namespace Models
 
 
       protected:
-        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
+        // The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, Unknown.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
@@ -389,7 +389,7 @@ namespace Models
       shared_ptr<EnvironmentInfo::GatewayInfo> gatewayInfo_ {};
       // The environment name.
       shared_ptr<string> name_ {};
-      // The list of default second-level domain names of the environment.
+      // The list of default subdomain names for the environment.
       shared_ptr<vector<EnvironmentInfo::SubDomains>> subDomains_ {};
     };
 
@@ -560,7 +560,7 @@ namespace Models
     shared_ptr<Backend> backend_ {};
     // Indicates whether the route is a system built-in route.
     shared_ptr<string> builtin_ {};
-    // The creation time, in ms.
+    // The creation time, in milliseconds.
     shared_ptr<int64_t> createTimestamp_ {};
     // The deployment status.
     shared_ptr<string> deployStatus_ {};
@@ -572,7 +572,7 @@ namespace Models
     shared_ptr<HttpRoute::EnvironmentInfo> environmentInfo_ {};
     // The route publish status.
     shared_ptr<map<string, string>> gatewayStatus_ {};
-    // The route matching rule.
+    // The route matching rules.
     shared_ptr<HttpRouteMatch> match_ {};
     // The MCP server information.
     shared_ptr<HttpRoute::McpServerInfo> mcpServerInfo_ {};
@@ -580,7 +580,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The HttpApi route ID.
     shared_ptr<string> routeId_ {};
-    // The update time, in ms.
+    // The update time, in milliseconds.
     shared_ptr<int64_t> updateTimestamp_ {};
   };
 

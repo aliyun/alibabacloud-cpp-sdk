@@ -48,14 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of online resources.
+    // The online resource count.
     shared_ptr<int32_t> resourceCount_ {};
     // The resource type.
-    // 
-    // Valid values:
-    // 
-    // *   HttpApi
-    // *   GatewayRoute
     shared_ptr<string> resourceType_ {};
   };
 

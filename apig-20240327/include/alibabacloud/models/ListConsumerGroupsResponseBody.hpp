@@ -188,7 +188,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of consumer groups that match the conditions.
+      // The total number of consumer groups that match the specified conditions.
       shared_ptr<int32_t> totalSize_ {};
     };
 

@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The label key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The label value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -115,13 +115,13 @@ namespace Models
 
 
   protected:
-    // The token for the next query.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The resource IDs. Up to 50 items are supported. You must specify at least one of ResourceId or Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
+    // The resource IDs. You can specify up to 50 resource IDs. You must specify at least one of ResourceId and Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Although the documentation indicates a default value of Gateway, you must explicitly pass this parameter when calling the API. Otherwise, the API returns InvalidParameter.UnsupportedTagResourceType(400). Valid values: Gateway.
+    // The resource type. Note: Although the documentation indicates a default value of Gateway, you must explicitly specify this parameter when you call the API. Otherwise, the API returns InvalidParameter.UnsupportedTagResourceType(400). Valid values: Gateway.
     shared_ptr<string> resourceType_ {};
-    // The label list. Up to 20 items are supported. You must specify at least one of ResourceId or Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
+    // The list of tags. You can specify up to 20 tags. You must specify at least one of ResourceId and Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

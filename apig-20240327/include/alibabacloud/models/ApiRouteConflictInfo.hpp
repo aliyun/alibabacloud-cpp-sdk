@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The domain name ID.
+      // The domain ID.
       shared_ptr<string> domainId_ {};
       // The domain name.
       shared_ptr<string> name_ {};
@@ -303,9 +303,9 @@ namespace Models
 
 
         protected:
-          // The matching rule information of the object being detected.
+          // The matching rule information of the detected target.
           shared_ptr<HttpRouteMatch> match_ {};
-          // If the object is an API, the conflicting operation information needs to be returned.
+          // When the detected target is an API, the conflicting operation information is returned.
           shared_ptr<DetectedMatch::OperationInfo> operationInfo_ {};
         };
 
@@ -397,7 +397,7 @@ namespace Models
         protected:
           // The matching rule.
           shared_ptr<HttpRouteMatch> match_ {};
-          // The corresponding operation information if the conflicting target is an API.
+          // When the conflicting target is an API, this indicates the corresponding operation information.
           shared_ptr<ConflictingMatch::OperationInfo> operationInfo_ {};
         };
 
@@ -431,9 +431,15 @@ namespace Models
       protected:
         // The matching rule information of the conflicting target.
         shared_ptr<Details::ConflictingMatch> conflictingMatch_ {};
-        // The matching rule information of the object being detected.
+        // The matching rule information of the detected target.
         shared_ptr<Details::DetectedMatch> detectedMatch_ {};
-        // The conflict level. Valid values: Critical, Warning, and Informational.
+        // The conflict level. Valid values:
+        // 
+        // - Critical
+        // 
+        // - Warning
+        // 
+        // - Informational
         shared_ptr<string> level_ {};
       };
 
@@ -488,20 +494,18 @@ namespace Models
 
 
     protected:
-      // The details about the conflicts.
+      // The list of conflict details.
       shared_ptr<vector<Conflicts::Details>> details_ {};
-      // For APIs, conflicts exist in the specific environment. If the conflict object is a route, ignore.
+      // For an API, the conflict exists in a specific environment. If the conflicting object is a route, this field is ignored.
       shared_ptr<Conflicts::EnvironmentInfo> environmentInfo_ {};
-      // The conflicting resource ID.
+      // The conflicting resource ID, which is the API ID.
       shared_ptr<string> resourceId_ {};
-      // The conflicting resource name.
+      // The conflicting resource name, which is the API name.
       shared_ptr<string> resourceName_ {};
-      // The type of the conflicting resource.
+      // The conflicting resource type. Valid values:
       // 
-      // Valid values:
-      // 
-      // *   RestApi
-      // *   HttpApiRoute
+      // - RestApi
+      // - HttpApiRoute
       shared_ptr<string> resourceType_ {};
       // The route information.
       shared_ptr<Conflicts::RouteInfo> routeInfo_ {};
@@ -528,9 +532,9 @@ namespace Models
 
 
   protected:
-    // The conflicts.
+    // The list of conflict information.
     shared_ptr<vector<ApiRouteConflictInfo::Conflicts>> conflicts_ {};
-    // The conflicting routes.
+    // The conflicting domain information.
     shared_ptr<ApiRouteConflictInfo::DomainInfo> domainInfo_ {};
   };
 

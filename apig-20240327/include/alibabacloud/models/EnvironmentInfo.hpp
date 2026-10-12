@@ -128,23 +128,23 @@ namespace Models
 
 
   protected:
-    // The environment alias.
+    // The alias.
     shared_ptr<string> alias_ {};
     // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // Specifies whether the environment is the default environment.
+    // Indicates whether the environment is the default environment.
     shared_ptr<bool> default_ {};
-    // The environment descriptiont.
+    // The environment description.
     shared_ptr<string> description_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The instance information.
+    // The gateway information.
     shared_ptr<GatewayInfo> gatewayInfo_ {};
     // The environment name.
     shared_ptr<string> name_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The subdomains.
+    // The subdomain list.
     shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};
     // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};

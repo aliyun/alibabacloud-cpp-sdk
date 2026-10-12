@@ -424,7 +424,9 @@ namespace Models
           protected:
             // The port number.
             shared_ptr<int32_t> port_ {};
-            // The protocol.
+            // The protocol. Valid values:
+            // - TCP.
+            // - UDP.
             shared_ptr<string> protocol_ {};
           };
 
@@ -518,10 +520,14 @@ namespace Models
           // The load balancing address.
           shared_ptr<string> address_ {};
           // The protocol version. Valid values:
+          // - ipv4: IPv4.
+          // - ipv6: IPv6.
           shared_ptr<string> addressIpVersion_ {};
           // The load balancing address type. Valid values:
+          // - Internet: public network.
+          // - Intranet: private network.
           shared_ptr<string> addressType_ {};
-          // Indicates whether this is the default entry address of the gateway.
+          // Indicates whether this is the default ingress address of the gateway.
           shared_ptr<bool> gatewayDefault_ {};
           // The list of IPv4 addresses.
           shared_ptr<vector<string>> ipv4Addresses_ {};
@@ -530,12 +536,17 @@ namespace Models
           // The load balancing instance ID.
           shared_ptr<string> loadBalancerId_ {};
           // The load balancing provisioning pattern of the gateway. Valid values:
+          // - Managed: managed by the cloud-native API gateway.
           shared_ptr<string> mode_ {};
           // The list of listening ports.
           shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
-          // The status of the load balancing instance.
+          // The status of the load balancing instance. Valid values:
+          // - Ready: active.
+          // - NotCreate: No instance is associated.
           shared_ptr<string> status_ {};
           // The load balancing type of the gateway. Valid values:
+          // - NLB: Network Load Balancer (NLB).
+          // - CLB: Classic Load Balancer (CLB).
           shared_ptr<string> type_ {};
         };
 
@@ -729,14 +740,22 @@ namespace Models
 
       protected:
         // The billing method. Valid values:
+        // 
+        // - POSTPAY: pay-as-you-go.
+        // - PREPAY: subscription.
         shared_ptr<string> chargeType_ {};
         // The source from which the gateway was created. Valid values:
+        // - Console: the console.
         shared_ptr<string> createFrom_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
         // The expiration timestamp for subscription instances. Unit: milliseconds.
         shared_ptr<int64_t> expireTimestamp_ {};
-        // The gateway instance edition.
+        // The gateway instance edition. Valid values:
+        // 
+        // - Professional: standard instance.
+        // 
+        // - Serverless: Serverless instance.
         shared_ptr<string> gatewayEdition_ {};
         // The gateway ID.
         shared_ptr<string> gatewayId_ {};
@@ -748,9 +767,9 @@ namespace Models
         shared_ptr<string> gatewayMode_ {};
         // The gateway type.
         shared_ptr<string> gatewayType_ {};
-        // Indicates whether the gateway instance was created before the AI gateway was released.
+        // Indicates whether the gateway instance was created before the AI gateway feature was released.
         shared_ptr<bool> legacy_ {};
-        // The list of gateway entry addresses.
+        // The list of gateway ingress addresses.
         shared_ptr<vector<Items::LoadBalancers>> loadBalancers_ {};
         // The gateway name.
         shared_ptr<string> name_ {};
@@ -760,9 +779,19 @@ namespace Models
         shared_ptr<string> resourceGroupId_ {};
         // The security group information of the gateway.
         shared_ptr<Items::SecurityGroup> securityGroup_ {};
-        // The gateway specification.
+        // The gateway specification. Valid values:
+        // - apigw.small.x1: small specification.
         shared_ptr<string> spec_ {};
         // The gateway status. Valid values:
+        // - Running: The gateway is running.
+        // - Creating: The gateway is being created.
+        // - CreateFailed: The gateway failed to be created.
+        // - Upgrading: The gateway is being upgraded.
+        // - UpgradeFailed: The gateway failed to be upgraded.
+        // - Restarting: The gateway is being restarted.
+        // - RestartFailed: The gateway failed to be restarted.
+        // - Deleting: The gateway is being released.
+        // - DeleteFailed: The gateway failed to be released.
         shared_ptr<string> status_ {};
         // The list of second-level domain names.
         shared_ptr<vector<SubDomainInfo>> subDomainInfos_ {};

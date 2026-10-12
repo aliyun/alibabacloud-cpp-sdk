@@ -344,7 +344,7 @@ namespace Models
 
 
     protected:
-      // The capability tier for intelligent routing candidates. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
+      // The capability tier of the intelligent routing candidate. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
       shared_ptr<string> capabilityTier_ {};
       // The gateway service ID.
       shared_ptr<string> gatewayServiceId_ {};
@@ -657,7 +657,7 @@ namespace Models
     shared_ptr<vector<string>> customDomainIds_ {};
     // The list of custom domain name information.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
-    // Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This field is used for backward compatibility with older clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
+    // Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This parameter is used for backward compatibility with earlier clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
     shared_ptr<bool> enableSystemModels_ {};
     // The list of environment domain name IDs. If not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
     shared_ptr<vector<string>> envDomainIds_ {};
@@ -675,7 +675,7 @@ namespace Models
     shared_ptr<HttpApiMockContract> mock_ {};
     // The list of policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
-    // The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+    // The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This parameter is not returned for non-REST APIs.
     shared_ptr<string> restApiRouteMode_ {};
     // The backend service information.
     shared_ptr<Backend> routeBackend_ {};

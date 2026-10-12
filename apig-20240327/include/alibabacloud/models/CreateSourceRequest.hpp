@@ -169,7 +169,7 @@ namespace Models
     protected:
       // The list of gateway security group authorization rule configurations.
       shared_ptr<vector<K8sSourceConfig::AuthorizeSecurityGroupRules>> authorizeSecurityGroupRules_ {};
-      // The Container Service cluster ID.
+      // The container service cluster ID.
       shared_ptr<string> clusterId_ {};
     };
 
@@ -216,16 +216,17 @@ namespace Models
 
   protected:
     // The gateway ID.
+    // > Note: This parameter is required. If this parameter is not specified, the API returns a 400 InvalidParameter.IsEmpty error.
     shared_ptr<string> gatewayId_ {};
-    // The Container Service source configuration.
+    // The container service source configuration.
     shared_ptr<CreateSourceRequest::K8sSourceConfig> k8sSourceConfig_ {};
     // The MSE Nacos source configuration.
     shared_ptr<CreateSourceRequest::NacosSourceConfig> nacosSourceConfig_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The source type. Valid values:
-    // - MSE_NACOS: Microservices Engine (MSE) Nacos.
-    // - K8S: Container Service.
+    // - MSE_NACOS: MSE Nacos.
+    // - K8S: container service.
     shared_ptr<string> type_ {};
   };
 

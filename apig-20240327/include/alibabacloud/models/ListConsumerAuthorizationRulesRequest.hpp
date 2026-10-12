@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The API name used for fuzzy match.
+    // The fuzzy match parameter for the API name.
     shared_ptr<string> apiNameLike_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

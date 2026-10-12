@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The message content.
     shared_ptr<string> message_ {};
-    // The unique identifier of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -86,24 +86,17 @@ namespace Models
   protected:
     // The default value of the parameter.
     shared_ptr<string> defaultValue_ {};
-    // The parameter description.
+    // The description.
     shared_ptr<string> description_ {};
-    // The sample value of the parameter.
+    // The example value of the parameter.
     shared_ptr<string> exampleValue_ {};
-    // The parameter name.
+    // The name of the parameter.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Specifies whether the parameter is required.
+    // Indicates whether the parameter is required.
     shared_ptr<bool> required_ {};
-    // The parameter type.
-    // 
-    // Valid values:
-    // 
-    // *   Integer
-    // *   Number
-    // *   String
-    // *   Boolean
+    // The type of the parameter.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

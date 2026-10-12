@@ -412,7 +412,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the route is a built-in route.
+    // Indicates whether this is a built-in route.
     shared_ptr<bool> builtin_ {};
     // The route description.
     shared_ptr<string> description_ {};

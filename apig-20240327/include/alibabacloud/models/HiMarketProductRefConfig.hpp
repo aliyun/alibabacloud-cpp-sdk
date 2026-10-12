@@ -115,19 +115,19 @@ namespace Models
 
 
     protected:
-      // The associated Agent API ID.
+      // The ID of the associated Agent API.
       shared_ptr<string> agentApiId_ {};
-      // The Agent API name.
+      // The name of the Agent API.
       shared_ptr<string> agentApiName_ {};
-      // The associated MCP route ID.
+      // The ID of the associated MCP route.
       shared_ptr<string> mcpRouteId_ {};
-      // The associated MCP Server ID.
+      // The ID of the associated MCP Server.
       shared_ptr<string> mcpServerId_ {};
-      // The MCP Server name.
+      // The name of the MCP Server.
       shared_ptr<string> mcpServerName_ {};
-      // The associated Model API ID.
+      // The ID of the associated Model API.
       shared_ptr<string> modelApiId_ {};
-      // The Model API name.
+      // The name of the Model API.
       shared_ptr<string> modelApiName_ {};
     };
 

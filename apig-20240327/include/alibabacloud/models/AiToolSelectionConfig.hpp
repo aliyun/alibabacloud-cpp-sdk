@@ -240,7 +240,7 @@ namespace Models
 
 
       protected:
-        // The number of conversation turns after which rewriting is triggered.
+        // The conversation turn threshold. Rewriting is triggered when the number of conversation turns exceeds this value.
         shared_ptr<int32_t> messageCountThreshold_ {};
       };
 
@@ -450,11 +450,11 @@ namespace Models
     protected:
       // The context selection configuration.
       shared_ptr<QueryRewriting::ContextSelection> contextSelection_ {};
-      // Specifies whether query rewrite is enabled.
+      // Indicates whether query rewrite is enabled.
       shared_ptr<bool> enabled_ {};
       // The fallback strategy.
       shared_ptr<string> fallbackStrategy_ {};
-      // The maximum number of output tokens for rewriting.
+      // The maximum number of output tokens for the rewriting result.
       shared_ptr<int32_t> maxOutputTokens_ {};
       // The rewriting model service configuration.
       shared_ptr<QueryRewriting::ModelService> modelService_ {};
@@ -535,13 +535,13 @@ namespace Models
 
 
   protected:
-    // The enable conditions configuration. Controls when the overall feature is triggered.
+    // The enable condition configuration that controls when the overall feature is triggered.
     shared_ptr<AiToolSelectionConfig::EnableConditions> enableConditions_ {};
     // The plug-in running status.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
-    // The query rewrite configuration. Rewrites user queries before tool reranking to improve matching precision.
+    // The query rewrite configuration that rewrites user queries before tool reranking to improve matching precision.
     shared_ptr<AiToolSelectionConfig::QueryRewriting> queryRewriting_ {};
-    // The tool reranking configuration. Uses a model to rank and filter candidate tools.
+    // The tool reranking configuration that uses a model to sort and filter candidate tools.
     shared_ptr<AiToolSelectionConfig::ToolReranking> toolReranking_ {};
   };
 

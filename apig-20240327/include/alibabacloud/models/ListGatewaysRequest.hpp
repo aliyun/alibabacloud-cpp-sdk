@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The keyword for full match search. Case-insensitive.
+    // The keyword for full match search. The search is case-insensitive.
     shared_ptr<string> keyword_ {};
     // The gateway name for exact match query.
     shared_ptr<string> name_ {};

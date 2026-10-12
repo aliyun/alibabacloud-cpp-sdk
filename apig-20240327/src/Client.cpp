@@ -45,8 +45,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  * >  Recommended call sequence:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains conflictHash.
- * > - Step 2: Submit the rule after confirmation.
+ * > - - The response returns a conflict preview that contains the conflictHash value.
+ * > - Step 2: Submit the request after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -136,8 +136,8 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
  * >  Recommended call sequence:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains conflictHash.
- * > - Step 2: Submit the rule after confirmation.
+ * > - - The response returns a conflict preview that contains the conflictHash value.
+ * > - Step 2: Submit the request after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -151,7 +151,7 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary Authorizes a security group to allow gateway access to services.
+ * @summary Authorizes a security group for gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -192,7 +192,7 @@ AddGatewaySecurityGroupRuleResponse Client::addGatewaySecurityGroupRuleWithOptio
 }
 
 /**
- * @summary Authorizes a security group to allow gateway access to services.
+ * @summary Authorizes a security group for gateway access to services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
  * @return AddGatewaySecurityGroupRuleResponse
@@ -249,7 +249,7 @@ BatchAddConsumerGroupConsumersResponse Client::batchAddConsumerGroupConsumers(co
 }
 
 /**
- * @summary Revokes consumer authorization rules in batches.
+ * @summary Revokes API consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @param headers map
@@ -282,7 +282,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary Revokes consumer authorization rules in batches.
+ * @summary Revokes API consumer authorization rules in batches.
  *
  * @param request BatchDeleteConsumerAuthorizationRuleRequest
  * @return BatchDeleteConsumerAuthorizationRuleResponse
@@ -294,7 +294,7 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
 }
 
 /**
- * @summary 批量导出HTTP API
+ * @summary Batch exports HTTP APIs.
  *
  * @param request BatchExportHttpApisRequest
  * @param headers map
@@ -343,7 +343,7 @@ BatchExportHttpApisResponse Client::batchExportHttpApisWithOptions(const BatchEx
 }
 
 /**
- * @summary 批量导出HTTP API
+ * @summary Batch exports HTTP APIs.
  *
  * @param request BatchExportHttpApisRequest
  * @return BatchExportHttpApisResponse
@@ -355,7 +355,7 @@ BatchExportHttpApisResponse Client::batchExportHttpApis(const BatchExportHttpApi
 }
 
 /**
- * @summary 批量导入HTTP API
+ * @summary Imports HTTP APIs in batches.
  *
  * @param request BatchImportHttpApisRequest
  * @param headers map
@@ -424,7 +424,7 @@ BatchImportHttpApisResponse Client::batchImportHttpApisWithOptions(const BatchIm
 }
 
 /**
- * @summary 批量导入HTTP API
+ * @summary Imports HTTP APIs in batches.
  *
  * @param request BatchImportHttpApisRequest
  * @return BatchImportHttpApisResponse
@@ -481,7 +481,7 @@ BatchRemoveConsumerGroupConsumersResponse Client::batchRemoveConsumerGroupConsum
 }
 
 /**
- * @summary 批量更新消费者鉴权
+ * @summary Updates HTTP API operations in batches.
  *
  * @param request BatchUpdateHttpApiOperationRequest
  * @param headers map
@@ -522,7 +522,7 @@ BatchUpdateHttpApiOperationResponse Client::batchUpdateHttpApiOperationWithOptio
 }
 
 /**
- * @summary 批量更新消费者鉴权
+ * @summary Updates HTTP API operations in batches.
  *
  * @param request BatchUpdateHttpApiOperationRequest
  * @return BatchUpdateHttpApiOperationResponse
@@ -591,10 +591,49 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary Queries the activation status of the API management service.
+ *
+ * @param request CheckCommodityStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckCommodityStatusResponse
+ */
+CheckCommodityStatusResponse Client::checkCommodityStatusWithOptions(const CheckCommodityStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckCommodityStatus"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/sales/commodity-status")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckCommodityStatusResponse>();
+}
+
+/**
+ * @summary Queries the activation status of the API management service.
+ *
+ * @param request CheckCommodityStatusRequest
+ * @return CheckCommodityStatusResponse
+ */
+CheckCommodityStatusResponse Client::checkCommodityStatus(const CheckCommodityStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkCommodityStatusWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates an AI model card.
  *
- * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
- * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
+ * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
+ * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @param headers map
@@ -653,8 +692,8 @@ CreateAiModelCardResponse Client::createAiModelCardWithOptions(const CreateAiMod
 /**
  * @summary Creates an AI model card.
  *
- * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
- * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
+ * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
+ * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
  *
  * @param request CreateAiModelCardRequest
  * @return CreateAiModelCardResponse
@@ -802,7 +841,60 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicy(const CreateAndAttac
 }
 
 /**
- * @summary Creates a consumer.
+ * @summary Creates a HiMarket chat session with a specified conversation type and associated products, and returns the ID of the newly created session.
+ *
+ * @param request CreateChatSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateChatSessionResponse
+ */
+CreateChatSessionResponse Client::createChatSessionWithOptions(const CreateChatSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasProducts()) {
+    body["products"] = request.getProducts();
+  }
+
+  if (!!request.hasTalkType()) {
+    body["talkType"] = request.getTalkType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateChatSession"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/sessions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateChatSessionResponse>();
+}
+
+/**
+ * @summary Creates a HiMarket chat session with a specified conversation type and associated products, and returns the ID of the newly created session.
+ *
+ * @param request CreateChatSessionRequest
+ * @return CreateChatSessionResponse
+ */
+CreateChatSessionResponse Client::createChatSession(const CreateChatSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createChatSessionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates an API consumer.
  *
  * @param request CreateConsumerRequest
  * @param headers map
@@ -869,7 +961,7 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
 }
 
 /**
- * @summary Creates a consumer.
+ * @summary Creates an API consumer.
  *
  * @param request CreateConsumerRequest
  * @return CreateConsumerResponse
@@ -944,12 +1036,12 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRule(
 /**
  * @summary Creates consumer authorization rules.
  *
- * @description Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+ * @description Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
  * Gateway instance (CreateGateway → gatewayId, gw- prefix)
- * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+ * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
  * HTTP API (CreateHttpApi → httpApiId, api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
- * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+ * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @param headers map
@@ -984,12 +1076,12 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 /**
  * @summary Creates consumer authorization rules.
  *
- * @description Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+ * @description Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
  * Gateway instance (CreateGateway → gatewayId, gw- prefix)
- * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+ * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
  * HTTP API (CreateHttpApi → httpApiId, api- prefix)
- * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
- * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+ * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
+ * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @return CreateConsumerAuthorizationRulesResponse
@@ -1055,6 +1147,55 @@ CreateConsumerGroupResponse Client::createConsumerGroup(const CreateConsumerGrou
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createConsumerGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Registers a HiMarket developer account and returns the ID of the new developer.
+ *
+ * @param request CreateDeveloperRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDeveloperResponse
+ */
+CreateDeveloperResponse Client::createDeveloperWithOptions(const CreateDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPassword()) {
+    body["password"] = request.getPassword();
+  }
+
+  if (!!request.hasUsername()) {
+    body["username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDeveloper"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDeveloperResponse>();
+}
+
+/**
+ * @summary Registers a HiMarket developer account and returns the ID of the new developer.
+ *
+ * @param request CreateDeveloperRequest
+ * @return CreateDeveloperResponse
+ */
+CreateDeveloperResponse Client::createDeveloper(const CreateDeveloperRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDeveloperWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1564,9 +1705,9 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
 }
 
 /**
- * @summary 创建API版本
+ * @summary Creates an API version.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @param request CreateHttpApiVersionRequest
  * @param headers map
@@ -1599,9 +1740,9 @@ CreateHttpApiVersionResponse Client::createHttpApiVersionWithOptions(const strin
 }
 
 /**
- * @summary 创建API版本
+ * @summary Creates an API version.
  *
- * @description 接口支持创建多个服务。
+ * @description The operation supports creating multiple services.
  *
  * @param request CreateHttpApiVersionRequest
  * @return CreateHttpApiVersionResponse
@@ -1710,7 +1851,7 @@ CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &re
 }
 
 /**
- * @summary 创建迁移任务
+ * @summary Creates a migration task.
  *
  * @param request CreateMigrationTaskRequest
  * @param headers map
@@ -1771,7 +1912,7 @@ CreateMigrationTaskResponse Client::createMigrationTaskWithOptions(const CreateM
 }
 
 /**
- * @summary 创建迁移任务
+ * @summary Creates a migration task.
  *
  * @param request CreateMigrationTaskRequest
  * @return CreateMigrationTaskResponse
@@ -1933,7 +2074,7 @@ CreatePluginClassResponse Client::createPluginClass(const CreatePluginClassReque
 }
 
 /**
- * @summary 创建插件webide工作空间
+ * @summary Creates a WebIDE workspace for a plugin.
  *
  * @param request CreatePluginWorkspaceRequest
  * @param headers map
@@ -1978,7 +2119,7 @@ CreatePluginWorkspaceResponse Client::createPluginWorkspaceWithOptions(const Cre
 }
 
 /**
- * @summary 创建插件webide工作空间
+ * @summary Creates a WebIDE workspace for a plugin.
  *
  * @param request CreatePluginWorkspaceRequest
  * @return CreatePluginWorkspaceResponse
@@ -2047,7 +2188,7 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Creates a policy resource mount.
+ * @summary Creates a policy attachment to a resource.
  *
  * @param request CreatePolicyAttachmentRequest
  * @param headers map
@@ -2096,7 +2237,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachmentWithOptions(const C
 }
 
 /**
- * @summary Creates a policy resource mount.
+ * @summary Creates a policy attachment to a resource.
  *
  * @param request CreatePolicyAttachmentRequest
  * @return CreatePolicyAttachmentResponse
@@ -2108,7 +2249,109 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
 }
 
 /**
- * @summary 创建风险检查任务
+ * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
+ *
+ * @param request CreateProductCategoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProductCategoryResponse
+ */
+CreateProductCategoryResponse Client::createProductCategoryWithOptions(const CreateProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasIcon()) {
+    body["icon"] = request.getIcon();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateProductCategory"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProductCategoryResponse>();
+}
+
+/**
+ * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
+ *
+ * @param request CreateProductCategoryRequest
+ * @return CreateProductCategoryResponse
+ */
+CreateProductCategoryResponse Client::createProductCategory(const CreateProductCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createProductCategoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+ *
+ * @param request CreateProductRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProductRefResponse
+ */
+CreateProductRefResponse Client::createProductRefWithOptions(const string &productId, const CreateProductRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApigRefConfig()) {
+    body["apigRefConfig"] = request.getApigRefConfig();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateProductRef"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/ref")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProductRefResponse>();
+}
+
+/**
+ * @summary Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+ *
+ * @param request CreateProductRefRequest
+ * @return CreateProductRefResponse
+ */
+CreateProductRefResponse Client::createProductRef(const string &productId, const CreateProductRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createProductRefWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Creates a risk check task.
  *
  * @param request CreateRiskCheckTaskRequest
  * @param headers map
@@ -2135,7 +2378,7 @@ CreateRiskCheckTaskResponse Client::createRiskCheckTaskWithOptions(const string 
 }
 
 /**
- * @summary 创建风险检查任务
+ * @summary Creates a risk check task.
  *
  * @param request CreateRiskCheckTaskRequest
  * @return CreateRiskCheckTaskResponse
@@ -2330,6 +2573,8 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
 /**
  * @summary Creates a source.
  *
+ * @description Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+ *
  * @param request CreateSourceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2378,6 +2623,8 @@ CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &
 
 /**
  * @summary Creates a source.
+ *
+ * @description Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
  *
  * @param request CreateSourceRequest
  * @return CreateSourceResponse
@@ -2467,7 +2714,7 @@ DeleteAiModelProviderResponse Client::deleteAiModelProvider(const string &modelP
 }
 
 /**
- * @summary Deletes an API consumer.
+ * @summary Deletes a consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2492,7 +2739,7 @@ DeleteConsumerResponse Client::deleteConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary Deletes an API consumer.
+ * @summary Deletes a consumer.
  *
  * @return DeleteConsumerResponse
  */
@@ -2690,9 +2937,9 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Deletes a quota throttling rule for a gateway.
+ * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+ * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -2719,9 +2966,9 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Deletes a quota throttling rule for a gateway.
+ * @summary Deletes a quota throttling rule from a gateway.
  *
- * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+ * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -2733,7 +2980,7 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRule(const string &gate
 }
 
 /**
- * @summary Deletes a security group rule from a gateway.
+ * @summary Deletes a gateway security group rule.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @param headers map
@@ -2766,7 +3013,7 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRuleWit
 }
 
 /**
- * @summary Deletes a security group rule from a gateway.
+ * @summary Deletes a gateway security group rule.
  *
  * @param request DeleteGatewaySecurityGroupRuleRequest
  * @return DeleteGatewaySecurityGroupRuleResponse
@@ -2827,7 +3074,7 @@ DeleteHttpApiResponse Client::deleteHttpApi(const string &httpApiId, const Delet
 }
 
 /**
- * @summary Deletes a specified operation.
+ * @summary Deletes a specified API operation.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2852,7 +3099,7 @@ DeleteHttpApiOperationResponse Client::deleteHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Deletes a specified operation.
+ * @summary Deletes a specified API operation.
  *
  * @return DeleteHttpApiOperationResponse
  */
@@ -2935,7 +3182,7 @@ DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary 删除迁移任务
+ * @summary Deletes a data migration task.
  *
  * @param request DeleteMigrationTaskRequest
  * @param headers map
@@ -2962,7 +3209,7 @@ DeleteMigrationTaskResponse Client::deleteMigrationTaskWithOptions(const string 
 }
 
 /**
- * @summary 删除迁移任务
+ * @summary Deletes a data migration task.
  *
  * @param request DeleteMigrationTaskRequest
  * @return DeleteMigrationTaskResponse
@@ -3010,7 +3257,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachment(const string &plug
 }
 
 /**
- * @summary DeletePluginClass
+ * @summary Deletes a custom plugin class.
  *
  * @param request DeletePluginClassRequest
  * @param headers map
@@ -3037,7 +3284,7 @@ DeletePluginClassResponse Client::deletePluginClassWithOptions(const string &plu
 }
 
 /**
- * @summary DeletePluginClass
+ * @summary Deletes a custom plugin class.
  *
  * @param request DeletePluginClassRequest
  * @return DeletePluginClassResponse
@@ -3118,6 +3365,162 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deletePolicyAttachmentWithOptions(policyAttachmentId, headers, runtime);
+}
+
+/**
+ * @summary Deletes a specified HiMarket developer portal by portal ID.
+ *
+ * @param request DeletePortalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePortalResponse
+ */
+DeletePortalResponse Client::deletePortalWithOptions(const string &portalId, const DeletePortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePortal"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals/" , Darabonba::Encode::Encoder::percentEncode(portalId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePortalResponse>();
+}
+
+/**
+ * @summary Deletes a specified HiMarket developer portal by portal ID.
+ *
+ * @param request DeletePortalRequest
+ * @return DeletePortalResponse
+ */
+DeletePortalResponse Client::deletePortal(const string &portalId, const DeletePortalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePortalWithOptions(portalId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a specified API product by API product ID.
+ *
+ * @param request DeleteProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProductResponse
+ */
+DeleteProductResponse Client::deleteProductWithOptions(const string &productId, const DeleteProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProductResponse>();
+}
+
+/**
+ * @summary Deletes a specified API product by API product ID.
+ *
+ * @param request DeleteProductRequest
+ * @return DeleteProductResponse
+ */
+DeleteProductResponse Client::deleteProduct(const string &productId, const DeleteProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteProductWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a specified product category by product category ID.
+ *
+ * @param request DeleteProductCategoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProductCategoryResponse
+ */
+DeleteProductCategoryResponse Client::deleteProductCategoryWithOptions(const string &categoryId, const DeleteProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProductCategory"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories/" , Darabonba::Encode::Encoder::percentEncode(categoryId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProductCategoryResponse>();
+}
+
+/**
+ * @summary Deletes a specified product category by product category ID.
+ *
+ * @param request DeleteProductCategoryRequest
+ * @return DeleteProductCategoryResponse
+ */
+DeleteProductCategoryResponse Client::deleteProductCategory(const string &categoryId, const DeleteProductCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteProductCategoryWithOptions(categoryId, request, headers, runtime);
+}
+
+/**
+ * @summary Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+ *
+ * @param request DeleteProductRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProductRefResponse
+ */
+DeleteProductRefResponse Client::deleteProductRefWithOptions(const string &productId, const DeleteProductRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProductRef"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/ref")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProductRefResponse>();
+}
+
+/**
+ * @summary Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+ *
+ * @param request DeleteProductRefRequest
+ * @return DeleteProductRefResponse
+ */
+DeleteProductRefResponse Client::deleteProductRef(const string &productId, const DeleteProductRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteProductRefWithOptions(productId, request, headers, runtime);
 }
 
 /**
@@ -3271,6 +3674,8 @@ DeleteSourceResponse Client::deleteSource(const string &sourceId) {
 /**
  * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
  *
+ * @description Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+ *
  * @param request DeployHttpApiRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3312,6 +3717,8 @@ DeployHttpApiResponse Client::deployHttpApiWithOptions(const string &httpApiId, 
 /**
  * @summary Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
  *
+ * @description Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+ *
  * @param request DeployHttpApiRequest
  * @return DeployHttpApiResponse
  */
@@ -3324,7 +3731,7 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 /**
  * @summary Publishes an MCP server.
  *
- * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+ * @description Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3351,7 +3758,7 @@ DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Publishes an MCP server.
  *
- * @description Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+ * @description Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
  *
  * @return DeployMcpServerResponse
  */
@@ -3407,7 +3814,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Disassociates and deletes a policy.
+ * @summary Detaches and deletes a policy.
  *
  * @param request DetachAndDeletePolicyRequest
  * @param headers map
@@ -3440,7 +3847,7 @@ DetachAndDeletePolicyResponse Client::detachAndDeletePolicyWithOptions(const str
 }
 
 /**
- * @summary Disassociates and deletes a policy.
+ * @summary Detaches and deletes a policy.
  *
  * @param request DetachAndDeletePolicyRequest
  * @return DetachAndDeletePolicyResponse
@@ -3583,7 +3990,101 @@ GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProvide
 }
 
 /**
- * @summary 查询批量导出任务
+ * @summary Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+ *
+ * @param request GetApiPathFieldConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiPathFieldConfigResponse
+ */
+GetApiPathFieldConfigResponse Client::getApiPathFieldConfigWithOptions(const GetApiPathFieldConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasHttpApiId()) {
+    query["httpApiId"] = request.getHttpApiId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApiPathFieldConfig"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/api-path-fields/configs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiPathFieldConfigResponse>();
+}
+
+/**
+ * @summary Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+ *
+ * @param request GetApiPathFieldConfigRequest
+ * @return GetApiPathFieldConfigResponse
+ */
+GetApiPathFieldConfigResponse Client::getApiPathFieldConfig(const GetApiPathFieldConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getApiPathFieldConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ *
+ * @param request GetApiPathFieldTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiPathFieldTemplateResponse
+ */
+GetApiPathFieldTemplateResponse Client::getApiPathFieldTemplateWithOptions(const GetApiPathFieldTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["path"] = request.getPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApiPathFieldTemplate"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/api-path-fields/template")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiPathFieldTemplateResponse>();
+}
+
+/**
+ * @summary Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+ *
+ * @param request GetApiPathFieldTemplateRequest
+ * @return GetApiPathFieldTemplateResponse
+ */
+GetApiPathFieldTemplateResponse Client::getApiPathFieldTemplate(const GetApiPathFieldTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getApiPathFieldTemplateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a batch export task.
  *
  * @param request GetBatchExportTaskRequest
  * @param headers map
@@ -3610,7 +4111,7 @@ GetBatchExportTaskResponse Client::getBatchExportTaskWithOptions(const string &t
 }
 
 /**
- * @summary 查询批量导出任务
+ * @summary Queries a batch export task.
  *
  * @param request GetBatchExportTaskRequest
  * @return GetBatchExportTaskResponse
@@ -3622,7 +4123,7 @@ GetBatchExportTaskResponse Client::getBatchExportTask(const string &taskId, cons
 }
 
 /**
- * @summary 查询批量操作任务
+ * @summary Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
  *
  * @param request GetBatchImportTaskRequest
  * @param headers map
@@ -3649,7 +4150,7 @@ GetBatchImportTaskResponse Client::getBatchImportTaskWithOptions(const string &t
 }
 
 /**
- * @summary 查询批量操作任务
+ * @summary Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
  *
  * @param request GetBatchImportTaskRequest
  * @return GetBatchImportTaskResponse
@@ -3855,6 +4356,45 @@ GetDashboardResponse Client::getDashboard(const string &gatewayId, const GetDash
 }
 
 /**
+ * @summary Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
+ *
+ * @param request GetDeveloperRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeveloperResponse
+ */
+GetDeveloperResponse Client::getDeveloperWithOptions(const GetDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeveloper"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers/profile")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeveloperResponse>();
+}
+
+/**
+ * @summary Queries the account information of the currently logged-on developer and returns the developer ID, portal ID, username, and status.
+ *
+ * @param request GetDeveloperRequest
+ * @return GetDeveloperResponse
+ */
+GetDeveloperResponse Client::getDeveloper(const GetDeveloperRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDeveloperWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a domain name.
  *
  * @param request GetDomainRequest
@@ -3989,7 +4529,7 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 }
 
 /**
- * @summary 获取网关弹性策略
+ * @summary Retrieves the elastic scaling rule of a gateway.
  *
  * @param request GetGatewayElasticPolicyRequest
  * @param headers map
@@ -4016,7 +4556,7 @@ GetGatewayElasticPolicyResponse Client::getGatewayElasticPolicyWithOptions(const
 }
 
 /**
- * @summary 获取网关弹性策略
+ * @summary Retrieves the elastic scaling rule of a gateway.
  *
  * @param request GetGatewayElasticPolicyRequest
  * @return GetGatewayElasticPolicyResponse
@@ -4089,10 +4629,10 @@ GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId,
 }
 
 /**
- * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+ * @summary Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
  *
- * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
- * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
+ * @description This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
+ * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @param headers map
@@ -4141,10 +4681,10 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageW
 }
 
 /**
- * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+ * @summary Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
  *
- * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
- * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
+ * @description This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
+ * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
  *
  * @param request GetGatewayQuotaRuleSubjectUsageRequest
  * @return GetGatewayQuotaRuleSubjectUsageResponse
@@ -4156,9 +4696,9 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
 }
 
 /**
- * @summary 查询网关资源配额与用量
+ * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @param headers map
@@ -4185,9 +4725,9 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsageWithOpt
 }
 
 /**
- * @summary 查询网关资源配额与用量
+ * @summary Queries the resource quotas and usage of a gateway.
  *
- * @description 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+ * @description Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
  *
  * @param request GetGatewayResourceQuotaUsageRequest
  * @return GetGatewayResourceQuotaUsageResponse
@@ -4199,7 +4739,85 @@ GetGatewayResourceQuotaUsageResponse Client::getGatewayResourceQuotaUsage(const 
 }
 
 /**
- * @summary Retrieves the information of an HTTP API.
+ * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+ *
+ * @param request GetHiMarketConsumerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHiMarketConsumerResponse
+ */
+GetHiMarketConsumerResponse Client::getHiMarketConsumerWithOptions(const string &consumerId, const GetHiMarketConsumerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHiMarketConsumer"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHiMarketConsumerResponse>();
+}
+
+/**
+ * @summary Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+ *
+ * @param request GetHiMarketConsumerRequest
+ * @return GetHiMarketConsumerResponse
+ */
+GetHiMarketConsumerResponse Client::getHiMarketConsumer(const string &consumerId, const GetHiMarketConsumerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getHiMarketConsumerWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+ *
+ * @param request GetHiMarketConsumerCredentialRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHiMarketConsumerCredentialResponse
+ */
+GetHiMarketConsumerCredentialResponse Client::getHiMarketConsumerCredentialWithOptions(const string &consumerId, const GetHiMarketConsumerCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHiMarketConsumerCredential"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId) , "/credentials")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHiMarketConsumerCredentialResponse>();
+}
+
+/**
+ * @summary Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+ *
+ * @param request GetHiMarketConsumerCredentialRequest
+ * @return GetHiMarketConsumerCredentialResponse
+ */
+GetHiMarketConsumerCredentialResponse Client::getHiMarketConsumerCredential(const string &consumerId, const GetHiMarketConsumerCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getHiMarketConsumerCredentialWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves HTTP API information.
  *
  * @param request GetHttpApiRequest
  * @param headers map
@@ -4232,7 +4850,7 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
 }
 
 /**
- * @summary Retrieves the information of an HTTP API.
+ * @summary Retrieves HTTP API information.
  *
  * @param request GetHttpApiRequest
  * @return GetHttpApiResponse
@@ -4318,7 +4936,7 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 /**
  * @summary Retrieves an MCP server.
  *
- * @description This operation supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4345,7 +4963,7 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 /**
  * @summary Retrieves an MCP server.
  *
- * @description This operation supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -4356,7 +4974,7 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary 获取迁移任务中的命名空间和服务映射
+ * @summary Retrieves the namespaced services for a migration task.
  *
  * @param request GetMigrationNamespacedServicesRequest
  * @param headers map
@@ -4383,7 +5001,7 @@ GetMigrationNamespacedServicesResponse Client::getMigrationNamespacedServicesWit
 }
 
 /**
- * @summary 获取迁移任务中的命名空间和服务映射
+ * @summary Retrieves the namespaced services for a migration task.
  *
  * @param request GetMigrationNamespacedServicesRequest
  * @return GetMigrationNamespacedServicesResponse
@@ -4395,7 +5013,7 @@ GetMigrationNamespacedServicesResponse Client::getMigrationNamespacedServices(co
 }
 
 /**
- * @summary 获取迁移任务详情
+ * @summary Retrieves a migration task.
  *
  * @param request GetMigrationTaskRequest
  * @param headers map
@@ -4422,7 +5040,7 @@ GetMigrationTaskResponse Client::getMigrationTaskWithOptions(const string &taskI
 }
 
 /**
- * @summary 获取迁移任务详情
+ * @summary Retrieves a migration task.
  *
  * @param request GetMigrationTaskRequest
  * @return GetMigrationTaskResponse
@@ -4509,7 +5127,7 @@ GetPluginClassResponse Client::getPluginClass(const string &pluginClassId, const
 }
 
 /**
- * @summary 查询插件webide工作空间
+ * @summary Queries the WebIDE workspace of a plugin.
  *
  * @param request GetPluginWorkspaceRequest
  * @param headers map
@@ -4536,7 +5154,7 @@ GetPluginWorkspaceResponse Client::getPluginWorkspaceWithOptions(const string &w
 }
 
 /**
- * @summary 查询插件webide工作空间
+ * @summary Queries the WebIDE workspace of a plugin.
  *
  * @param request GetPluginWorkspaceRequest
  * @return GetPluginWorkspaceResponse
@@ -4620,7 +5238,7 @@ GetPolicyAttachmentResponse Client::getPolicyAttachment(const string &policyAtta
 }
 
 /**
- * @summary Retrieves resource overview information.
+ * @summary Retrieves the resource overview information.
  *
  * @param request GetResourceOverviewRequest
  * @param headers map
@@ -4653,7 +5271,7 @@ GetResourceOverviewResponse Client::getResourceOverviewWithOptions(const GetReso
 }
 
 /**
- * @summary Retrieves resource overview information.
+ * @summary Retrieves the resource overview information.
  *
  * @param request GetResourceOverviewRequest
  * @return GetResourceOverviewResponse
@@ -4665,7 +5283,7 @@ GetResourceOverviewResponse Client::getResourceOverview(const GetResourceOvervie
 }
 
 /**
- * @summary 获取风险项通知配置
+ * @summary Retrieves the notification configuration for a risk item.
  *
  * @param request GetRiskNotificationRequest
  * @param headers map
@@ -4698,7 +5316,7 @@ GetRiskNotificationResponse Client::getRiskNotificationWithOptions(const string 
 }
 
 /**
- * @summary 获取风险项通知配置
+ * @summary Retrieves the notification configuration for a risk item.
  *
  * @param request GetRiskNotificationRequest
  * @return GetRiskNotificationResponse
@@ -4750,7 +5368,7 @@ GetSecretResponse Client::getSecret(const string &secretId) {
 }
 
 /**
- * @summary Retrieves the value of a key.
+ * @summary Retrieves the value of a secret.
  *
  * @description The operation supports creating multiple services.
  *
@@ -4777,7 +5395,7 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, con
 }
 
 /**
- * @summary Retrieves the value of a key.
+ * @summary Retrieves the value of a secret.
  *
  * @description The operation supports creating multiple services.
  *
@@ -4790,7 +5408,7 @@ GetSecretValueResponse Client::getSecretValue(const string &name) {
 }
 
 /**
- * @summary Gets service details.
+ * @summary Retrieves the details of a service.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4815,7 +5433,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &serviceId, const 
 }
 
 /**
- * @summary Gets service details.
+ * @summary Retrieves the details of a service.
  *
  * @return GetServiceResponse
  */
@@ -4907,7 +5525,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+ * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
  *
  * @param request ImportHttpApiRequest
  * @param headers map
@@ -4992,7 +5610,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 }
 
 /**
- * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+ * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
  *
  * @param request ImportHttpApiRequest
  * @return ImportHttpApiResponse
@@ -5053,7 +5671,7 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
- * @summary 调用AIAgent
+ * @summary Calls an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @param headers map
@@ -5116,7 +5734,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 调用AIAgent
+ * @summary Calls an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @param headers map
@@ -5165,7 +5783,7 @@ InvokeAIAgentResponse Client::invokeAIAgentWithOptions(const InvokeAIAgentReques
 }
 
 /**
- * @summary 调用AIAgent
+ * @summary Calls an AI agent.
  *
  * @param request InvokeAIAgentRequest
  * @return InvokeAIAgentResponse
@@ -5177,7 +5795,7 @@ InvokeAIAgentResponse Client::invokeAIAgent(const InvokeAIAgentRequest &request)
 }
 
 /**
- * @summary Queries the list of AI model cards.
+ * @summary Queries a list of AI model cards.
  *
  * @param request ListAiModelCardsRequest
  * @param headers map
@@ -5222,7 +5840,7 @@ ListAiModelCardsResponse Client::listAiModelCardsWithOptions(const ListAiModelCa
 }
 
 /**
- * @summary Queries the list of AI model cards.
+ * @summary Queries a list of AI model cards.
  *
  * @param request ListAiModelCardsRequest
  * @return ListAiModelCardsResponse
@@ -5291,7 +5909,7 @@ ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvi
 }
 
 /**
- * @summary 查询批量导出任务列表
+ * @summary Queries a list of batch export tasks.
  *
  * @param request ListBatchExportTasksRequest
  * @param headers map
@@ -5352,7 +5970,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasksWithOptions(const ListB
 }
 
 /**
- * @summary 查询批量导出任务列表
+ * @summary Queries a list of batch export tasks.
  *
  * @param request ListBatchExportTasksRequest
  * @return ListBatchExportTasksResponse
@@ -5364,7 +5982,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
 }
 
 /**
- * @summary Retrieves a list of consumer authorization rules.
+ * @summary Retrieves the list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @param headers map
@@ -5405,7 +6023,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
- * @summary Retrieves a list of consumer authorization rules.
+ * @summary Retrieves the list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @return ListConsumerAuthorizationRulesResponse
@@ -5470,9 +6088,9 @@ ListConsumerGroupConsumersResponse Client::listConsumerGroupConsumers(const stri
 }
 
 /**
- * @summary 查询消费者组配额限流规则列表
+ * @summary Queries the list of quota throttling rules for a consumer group.
  *
- * @description 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+ * @description Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @param headers map
@@ -5517,9 +6135,9 @@ ListConsumerGroupQuotaRulesResponse Client::listConsumerGroupQuotaRulesWithOptio
 }
 
 /**
- * @summary 查询消费者组配额限流规则列表
+ * @summary Queries the list of quota throttling rules for a consumer group.
  *
- * @description 查询指定消费者组直接绑定的配额规则，不展开组内消费者个人绑定的规则；无直接绑定关系时返回空列表。
+ * @description Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
  *
  * @param request ListConsumerGroupQuotaRulesRequest
  * @return ListConsumerGroupQuotaRulesResponse
@@ -5645,7 +6263,7 @@ ListConsumerQuotaRulesResponse Client::listConsumerQuotaRules(const string &cons
 }
 
 /**
- * @summary Retrieves a list of consumers.
+ * @summary Retrieves a list of API consumers.
  *
  * @param request ListConsumersRequest
  * @param headers map
@@ -5690,7 +6308,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
 }
 
 /**
- * @summary Retrieves a list of consumers.
+ * @summary Retrieves a list of API consumers.
  *
  * @param request ListConsumersRequest
  * @return ListConsumersResponse
@@ -5913,7 +6531,7 @@ ListExternalServicesResponse Client::listExternalServices(const string &gatewayI
 }
 
 /**
- * @summary Queries the security groups of an instance that can be used for authorization.
+ * @summary Queries the list of security groups that can be authorized for a gateway.
  *
  * @param request ListGatewayAuthorizableSecurityGroupsRequest
  * @param headers map
@@ -5946,7 +6564,7 @@ ListGatewayAuthorizableSecurityGroupsResponse Client::listGatewayAuthorizableSec
 }
 
 /**
- * @summary Queries the security groups of an instance that can be used for authorization.
+ * @summary Queries the list of security groups that can be authorized for a gateway.
  *
  * @param request ListGatewayAuthorizableSecurityGroupsRequest
  * @return ListGatewayAuthorizableSecurityGroupsResponse
@@ -5958,7 +6576,7 @@ ListGatewayAuthorizableSecurityGroupsResponse Client::listGatewayAuthorizableSec
 }
 
 /**
- * @summary Queries the security group rules of an instance that are in effect.
+ * @summary Queries the list of security group rules authorized for a gateway.
  *
  * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
  * @param headers map
@@ -5985,7 +6603,7 @@ ListGatewayAuthorizedSecurityGroupRulesResponse Client::listGatewayAuthorizedSec
 }
 
 /**
- * @summary Queries the security group rules of an instance that are in effect.
+ * @summary Queries the list of security group rules authorized for a gateway.
  *
  * @param request ListGatewayAuthorizedSecurityGroupRulesRequest
  * @return ListGatewayAuthorizedSecurityGroupRulesResponse
@@ -5997,7 +6615,7 @@ ListGatewayAuthorizedSecurityGroupRulesResponse Client::listGatewayAuthorizedSec
 }
 
 /**
- * @summary 获取网关的错误访问日志
+ * @summary Lists gateway error access logs.
  *
  * @param request ListGatewayErrorAccessLogsRequest
  * @param headers map
@@ -6054,7 +6672,7 @@ ListGatewayErrorAccessLogsResponse Client::listGatewayErrorAccessLogsWithOptions
 }
 
 /**
- * @summary 获取网关的错误访问日志
+ * @summary Lists gateway error access logs.
  *
  * @param request ListGatewayErrorAccessLogsRequest
  * @return ListGatewayErrorAccessLogsResponse
@@ -6102,7 +6720,7 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
 }
 
 /**
- * @summary 获取网关负载均衡器列表
+ * @summary Retrieves the list of load balancers for a gateway.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @param headers map
@@ -6155,7 +6773,7 @@ ListGatewayLoadBalancersResponse Client::listGatewayLoadBalancersWithOptions(con
 }
 
 /**
- * @summary 获取网关负载均衡器列表
+ * @summary Retrieves the list of load balancers for a gateway.
  *
  * @param request ListGatewayLoadBalancersRequest
  * @return ListGatewayLoadBalancersResponse
@@ -6315,7 +6933,7 @@ ListGatewaysResponse Client::listGateways(const ListGatewaysRequest &request) {
 }
 
 /**
- * @summary ListGlobalPolicies
+ * @summary Retrieves global policies.
  *
  * @param request ListGlobalPoliciesRequest
  * @param headers map
@@ -6396,7 +7014,7 @@ ListGlobalPoliciesResponse Client::listGlobalPoliciesWithOptions(const ListGloba
 }
 
 /**
- * @summary ListGlobalPolicies
+ * @summary Retrieves global policies.
  *
  * @param request ListGlobalPoliciesRequest
  * @return ListGlobalPoliciesResponse
@@ -6408,7 +7026,7 @@ ListGlobalPoliciesResponse Client::listGlobalPolicies(const ListGlobalPoliciesRe
 }
 
 /**
- * @summary Retrieves the list of API operations.
+ * @summary Retrieves a list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @param headers map
@@ -6489,7 +7107,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
 }
 
 /**
- * @summary Retrieves the list of API operations.
+ * @summary Retrieves a list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @return ListHttpApiOperationsResponse
@@ -6711,7 +7329,7 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 }
 
 /**
- * @summary ListInstallableGateways
+ * @summary Retrieves gateways on which a plugin can be installed.
  *
  * @param request ListInstallableGatewaysRequest
  * @param headers map
@@ -6752,7 +7370,7 @@ ListInstallableGatewaysResponse Client::listInstallableGatewaysWithOptions(const
 }
 
 /**
- * @summary ListInstallableGateways
+ * @summary Retrieves gateways on which a plugin can be installed.
  *
  * @param request ListInstallableGatewaysRequest
  * @return ListInstallableGatewaysResponse
@@ -6764,7 +7382,7 @@ ListInstallableGatewaysResponse Client::listInstallableGateways(const string &pl
 }
 
 /**
- * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+ * @summary Queries the list of clusters that can be added as Kubernetes sources.
  *
  * @param request ListK8sClusterSourcesRequest
  * @param headers map
@@ -6797,7 +7415,7 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSourcesWithOptions(const str
 }
 
 /**
- * @summary Queries the Kubernetes (K8s) clusters that can be added as sources.
+ * @summary Queries the list of clusters that can be added as Kubernetes sources.
  *
  * @param request ListK8sClusterSourcesRequest
  * @return ListK8sClusterSourcesResponse
@@ -6809,7 +7427,7 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewa
 }
 
 /**
- * @summary Retrieves the list of MCP servers.
+ * @summary Retrieves a list of MCP servers.
  *
  * @description The operation supports creating multiple services.
  *
@@ -6868,7 +7486,7 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
 }
 
 /**
- * @summary Retrieves the list of MCP servers.
+ * @summary Retrieves a list of MCP servers.
  *
  * @description The operation supports creating multiple services.
  *
@@ -6882,7 +7500,7 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
 }
 
 /**
- * @summary 获取迁移任务列表
+ * @summary Lists migration tasks.
  *
  * @param request ListMigrationTasksRequest
  * @param headers map
@@ -6919,7 +7537,7 @@ ListMigrationTasksResponse Client::listMigrationTasksWithOptions(const ListMigra
 }
 
 /**
- * @summary 获取迁移任务列表
+ * @summary Lists migration tasks.
  *
  * @param request ListMigrationTasksRequest
  * @return ListMigrationTasksResponse
@@ -6931,7 +7549,7 @@ ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRe
 }
 
 /**
- * @summary Queries the MSE Nacos instances that can be added as sources.
+ * @summary Queries the list of instances that can be added as Nacos sources.
  *
  * @param request ListMseNacosSourcesRequest
  * @param headers map
@@ -6958,7 +7576,7 @@ ListMseNacosSourcesResponse Client::listMseNacosSourcesWithOptions(const string 
 }
 
 /**
- * @summary Queries the MSE Nacos instances that can be added as sources.
+ * @summary Queries the list of instances that can be added as Nacos sources.
  *
  * @param request ListMseNacosSourcesRequest
  * @return ListMseNacosSourcesResponse
@@ -6970,7 +7588,7 @@ ListMseNacosSourcesResponse Client::listMseNacosSources(const string &gatewayId,
 }
 
 /**
- * @summary Retrieves the plug-in mount list.
+ * @summary Retrieves the list of plug-in mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -7035,7 +7653,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the plug-in mount list.
+ * @summary Retrieves the list of plug-in mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -7136,7 +7754,7 @@ ListPluginClassesResponse Client::listPluginClasses(const ListPluginClassesReque
 }
 
 /**
- * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+ * @summary Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @param headers map
@@ -7163,7 +7781,7 @@ ListPluginRepositoriesResponse Client::listPluginRepositoriesWithOptions(const L
 }
 
 /**
- * @summary 查询自定义插件托管在云效上的仓库列表和组织信息
+ * @summary Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
  *
  * @param request ListPluginRepositoriesRequest
  * @return ListPluginRepositoriesResponse
@@ -7175,7 +7793,7 @@ ListPluginRepositoriesResponse Client::listPluginRepositories(const ListPluginRe
 }
 
 /**
- * @summary 获取用户插件webide工作空间列表
+ * @summary Retrieves the list of plugin WebIDE workspaces for the current user.
  *
  * @param request ListPluginWorkspaceRequest
  * @param headers map
@@ -7208,7 +7826,7 @@ ListPluginWorkspaceResponse Client::listPluginWorkspaceWithOptions(const ListPlu
 }
 
 /**
- * @summary 获取用户插件webide工作空间列表
+ * @summary Retrieves the list of plugin WebIDE workspaces for the current user.
  *
  * @param request ListPluginWorkspaceRequest
  * @return ListPluginWorkspaceResponse
@@ -7220,7 +7838,7 @@ ListPluginWorkspaceResponse Client::listPluginWorkspace(const ListPluginWorkspac
 }
 
 /**
- * @summary Retrieves a list of plugins.
+ * @summary Retrieves a list of plug-ins.
  *
  * @param request ListPluginsRequest
  * @param headers map
@@ -7289,7 +7907,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const ListPluginsRequest &req
 }
 
 /**
- * @summary Retrieves a list of plugins.
+ * @summary Retrieves a list of plug-ins.
  *
  * @param request ListPluginsRequest
  * @return ListPluginsResponse
@@ -7435,7 +8053,7 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
 }
 
 /**
- * @summary 查询风险检测结果
+ * @summary Queries risk detection results.
  *
  * @param request ListRiskCheckResultsRequest
  * @param headers map
@@ -7480,7 +8098,7 @@ ListRiskCheckResultsResponse Client::listRiskCheckResultsWithOptions(const strin
 }
 
 /**
- * @summary 查询风险检测结果
+ * @summary Queries risk detection results.
  *
  * @param request ListRiskCheckResultsRequest
  * @return ListRiskCheckResultsResponse
@@ -7494,7 +8112,7 @@ ListRiskCheckResultsResponse Client::listRiskCheckResults(const string &gatewayI
 /**
  * @summary Lists secret references.
  *
- * @description This operation supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListSecretReferencesRequest
  * @param headers map
@@ -7533,7 +8151,7 @@ ListSecretReferencesResponse Client::listSecretReferencesWithOptions(const strin
 /**
  * @summary Lists secret references.
  *
- * @description This operation supports creating multiple services.
+ * @description The operation supports creating multiple services.
  *
  * @param request ListSecretReferencesRequest
  * @return ListSecretReferencesResponse
@@ -7675,7 +8293,7 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary Queries sources.
+ * @summary Retrieves a list of sources.
  *
  * @param request ListSourcesRequest
  * @param headers map
@@ -7724,7 +8342,7 @@ ListSourcesResponse Client::listSourcesWithOptions(const ListSourcesRequest &req
 }
 
 /**
- * @summary Queries sources.
+ * @summary Retrieves a list of sources.
  *
  * @param request ListSourcesRequest
  * @return ListSourcesResponse
@@ -7793,7 +8411,7 @@ ListSslCertsResponse Client::listSslCerts(const ListSslCertsRequest &request) {
 }
 
 /**
- * @summary 查询已同步的MCP Server列表
+ * @summary Lists MCP servers that are pending synchronization.
  *
  * @param request ListSyncMCPServerRequest
  * @param headers map
@@ -7834,7 +8452,7 @@ ListSyncMCPServerResponse Client::listSyncMCPServerWithOptions(const ListSyncMCP
 }
 
 /**
- * @summary 查询已同步的MCP Server列表
+ * @summary Lists MCP servers that are pending synchronization.
  *
  * @param request ListSyncMCPServerRequest
  * @return ListSyncMCPServerResponse
@@ -7846,7 +8464,7 @@ ListSyncMCPServerResponse Client::listSyncMCPServer(const ListSyncMCPServerReque
 }
 
 /**
- * @summary Retrieves the list of resource labels.
+ * @summary Retrieves a list of resource tags.
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -7901,7 +8519,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Retrieves the list of resource labels.
+ * @summary Retrieves a list of resource tags.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -7913,7 +8531,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Retrieves the zones available for a cloud-native API gateway in a specific region.
+ * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
  *
  * @param request ListZonesRequest
  * @param headers map
@@ -7946,7 +8564,7 @@ ListZonesResponse Client::listZonesWithOptions(const ListZonesRequest &request, 
 }
 
 /**
- * @summary Retrieves the zones available for a cloud-native API gateway in a specific region.
+ * @summary Retrieves the zones available for a cloud-native API gateway in a specified region.
  *
  * @param request ListZonesRequest
  * @return ListZonesResponse
@@ -8055,7 +8673,7 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRules(
 }
 
 /**
- * @summary 刷新插件托管仓库的oauth code
+ * @summary Refreshes the OAuth code for the plugin-managed repository.
  *
  * @param request RefreshPluginOAuthCodeRequest
  * @param headers map
@@ -8088,7 +8706,7 @@ RefreshPluginOAuthCodeResponse Client::refreshPluginOAuthCodeWithOptions(const R
 }
 
 /**
- * @summary 刷新插件托管仓库的oauth code
+ * @summary Refreshes the OAuth code for the plugin-managed repository.
  *
  * @param request RefreshPluginOAuthCodeRequest
  * @return RefreshPluginOAuthCodeResponse
@@ -8143,8 +8761,8 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
  * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - 2. Confirm and submit the request.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -8214,8 +8832,8 @@ ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const str
  * >  Recommended call logic:
  * > - 1. Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response contains a conflict preview with a conflictHash value.
- * > - 2. Confirm and submit the request.
+ * > - - The response contains a conflict preview with conflictHash.
+ * > - 2. Submit the request after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -8265,7 +8883,7 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
- * @summary 插件工作空间运行流水线
+ * @summary Runs a pipeline in a plug-in workspace.
  *
  * @param request RunPluginPipelineRequest
  * @param headers map
@@ -8292,7 +8910,7 @@ RunPluginPipelineResponse Client::runPluginPipelineWithOptions(const string &wor
 }
 
 /**
- * @summary 插件工作空间运行流水线
+ * @summary Runs a pipeline in a plug-in workspace.
  *
  * @param request RunPluginPipelineRequest
  * @return RunPluginPipelineResponse
@@ -8418,7 +9036,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Cancels the publication of an MCP server.
+ * @summary Cancels the publishing of an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -8443,7 +9061,7 @@ UnDeployMcpServerResponse Client::unDeployMcpServerWithOptions(const string &mcp
 }
 
 /**
- * @summary Cancels the publication of an MCP server.
+ * @summary Cancels the publishing of an MCP server.
  *
  * @return UnDeployMcpServerResponse
  */
@@ -8797,7 +9415,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicy(const string &policy
 }
 
 /**
- * @summary 更新消费者授权规则
+ * @summary Updates an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @param headers map
@@ -8830,7 +9448,7 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRuleWithOptions(const
 }
 
 /**
- * @summary 更新消费者授权规则
+ * @summary Updates an authorization rule.
  *
  * @param request UpdateAuthorizationRuleRequest
  * @return UpdateAuthorizationRuleResponse
@@ -8905,7 +9523,7 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 /**
  * @summary Updates a consumer authorization rule.
  *
- * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+ * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @param headers map
@@ -8948,7 +9566,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 /**
  * @summary Updates a consumer authorization rule.
  *
- * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+ * @description This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @return UpdateConsumerAuthorizationRuleResponse
@@ -9011,7 +9629,7 @@ UpdateConsumerGroupResponse Client::updateConsumerGroup(const string &consumerGr
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
+ * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @param headers map
@@ -9086,7 +9704,7 @@ UpdateDomainResponse Client::updateDomainWithOptions(const string &domainId, con
 /**
  * @summary Updates a domain name.
  *
- * @description Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
+ * @description Only sources of the **Container Service** type can update the listener Ingress configuration.
  *
  * @param request UpdateDomainRequest
  * @return UpdateDomainResponse
@@ -9151,7 +9769,7 @@ UpdateEnvironmentResponse Client::updateEnvironment(const string &environmentId,
 }
 
 /**
- * @summary 更新网关弹性策略
+ * @summary Updates the elastic policy of a gateway.
  *
  * @param request UpdateGatewayElasticPolicyRequest
  * @param headers map
@@ -9184,7 +9802,7 @@ UpdateGatewayElasticPolicyResponse Client::updateGatewayElasticPolicyWithOptions
 }
 
 /**
- * @summary 更新网关弹性策略
+ * @summary Updates the elastic policy of a gateway.
  *
  * @param request UpdateGatewayElasticPolicyRequest
  * @return UpdateGatewayElasticPolicyResponse
@@ -9241,7 +9859,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 }
 
 /**
- * @summary 更新网关负载均衡器
+ * @summary Updates a Gateway Load Balancer (GWLB).
  *
  * @param request UpdateGatewayLoadBalancerRequest
  * @param headers map
@@ -9282,7 +9900,7 @@ UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancerWithOptions(c
 }
 
 /**
- * @summary 更新网关负载均衡器
+ * @summary Updates a Gateway Load Balancer (GWLB).
  *
  * @param request UpdateGatewayLoadBalancerRequest
  * @return UpdateGatewayLoadBalancerResponse
@@ -9294,7 +9912,9 @@ UpdateGatewayLoadBalancerResponse Client::updateGatewayLoadBalancer(const string
 }
 
 /**
- * @summary 修改网关运维时间
+ * @summary Modifies the O&M window of a gateway.
+ *
+ * @description Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
  *
  * @param request UpdateGatewayMaintenancePeriodRequest
  * @param headers map
@@ -9327,7 +9947,9 @@ UpdateGatewayMaintenancePeriodResponse Client::updateGatewayMaintenancePeriodWit
 }
 
 /**
- * @summary 修改网关运维时间
+ * @summary Modifies the O&M window of a gateway.
+ *
+ * @description Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
  *
  * @param request UpdateGatewayMaintenancePeriodRequest
  * @return UpdateGatewayMaintenancePeriodResponse
@@ -9391,13 +10013,13 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
  * @summary Edits a quota throttling rule on a gateway.
  *
  * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
- * >  Recommended call sequence:
+ * >  Recommended call logic:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
  * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Confirm and submit the changes.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - Step 2: Confirm and submit the request.
+ * > - - No conflict: Set dryRun to false and overwrite to false.
+ * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @param headers map
@@ -9461,13 +10083,13 @@ UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const s
  * @summary Edits a quota throttling rule on a gateway.
  *
  * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
- * >  Recommended call sequence:
+ * >  Recommended call logic:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
  * > - - The response contains a conflict preview with a conflictHash value.
- * > - Step 2: Confirm and submit the changes.
- * > - - No conflicts: Set dryRun to false and overwrite to false.
- * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+ * > - Step 2: Confirm and submit the request.
+ * > - - No conflict: Set dryRun to false and overwrite to false.
+ * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
  * @param request UpdateGatewayQuotaRuleRequest
  * @return UpdateGatewayQuotaRuleResponse
@@ -9751,7 +10373,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -9830,7 +10452,7 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 /**
  * @summary Updates an MCP server.
  *
- * @description Only sources of the **Container Service** type are allowed to update the Ingress listener configuration.
+ * @description Only sources of the **Container Service** type can update the Ingress listener configuration.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -9842,7 +10464,7 @@ UpdateMcpServerResponse Client::updateMcpServer(const string &mcpServerId, const
 }
 
 /**
- * @summary 更新迁移任务
+ * @summary Updates a migration task.
  *
  * @param request UpdateMigrationTaskRequest
  * @param headers map
@@ -9903,7 +10525,7 @@ UpdateMigrationTaskResponse Client::updateMigrationTaskWithOptions(const string 
 }
 
 /**
- * @summary 更新迁移任务
+ * @summary Updates a migration task.
  *
  * @param request UpdateMigrationTaskRequest
  * @return UpdateMigrationTaskResponse
@@ -9915,7 +10537,7 @@ UpdateMigrationTaskResponse Client::updateMigrationTask(const string &taskId, co
 }
 
 /**
- * @summary 更改网关网络访问类型
+ * @summary Changes the network access type of a gateway.
  *
  * @param request UpdateNetworkAccessRequest
  * @param headers map
@@ -9948,7 +10570,7 @@ UpdateNetworkAccessResponse Client::updateNetworkAccessWithOptions(const string 
 }
 
 /**
- * @summary 更改网关网络访问类型
+ * @summary Changes the network access type of a gateway.
  *
  * @param request UpdateNetworkAccessRequest
  * @return UpdateNetworkAccessResponse
@@ -10066,7 +10688,7 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary 更新风险项通知配置
+ * @summary Updates the notification configuration for risk items.
  *
  * @param request UpdateRiskNotificationRequest
  * @param headers map
@@ -10103,7 +10725,7 @@ UpdateRiskNotificationResponse Client::updateRiskNotificationWithOptions(const s
 }
 
 /**
- * @summary 更新风险项通知配置
+ * @summary Updates the notification configuration for risk items.
  *
  * @param request UpdateRiskNotificationRequest
  * @return UpdateRiskNotificationResponse
@@ -10115,9 +10737,9 @@ UpdateRiskNotificationResponse Client::updateRiskNotification(const string &gate
 }
 
 /**
- * @summary Updates a key pair.
+ * @summary Updates a secret.
  *
- * @description Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
+ * @description Only sources of the **container service** type allow you to update the listener Ingress configuration.
  *
  * @param request UpdateSecretRequest
  * @param headers map
@@ -10150,9 +10772,9 @@ UpdateSecretResponse Client::updateSecretWithOptions(const string &secretId, con
 }
 
 /**
- * @summary Updates a key pair.
+ * @summary Updates a secret.
  *
- * @description Only sources of the **container service** type allow you to update the configuration for listening to Ingress.
+ * @description Only sources of the **container service** type allow you to update the listener Ingress configuration.
  *
  * @param request UpdateSecretRequest
  * @return UpdateSecretResponse
@@ -10335,7 +10957,7 @@ UpgradeGatewayResponse Client::upgradeGateway(const string &gatewayId, const Upg
 }
 
 /**
- * @summary 检查迁移任务
+ * @summary Validates a migration task.
  *
  * @param request VerifyMigrationTaskRequest
  * @param headers map
@@ -10362,7 +10984,7 @@ VerifyMigrationTaskResponse Client::verifyMigrationTaskWithOptions(const string 
 }
 
 /**
- * @summary 检查迁移任务
+ * @summary Validates a migration task.
  *
  * @param request VerifyMigrationTaskRequest
  * @return VerifyMigrationTaskResponse

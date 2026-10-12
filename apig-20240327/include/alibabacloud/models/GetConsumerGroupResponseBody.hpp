@@ -127,7 +127,7 @@ namespace Models
       shared_ptr<int64_t> createTimestamp_ {};
       // The consumer group description.
       shared_ptr<string> description_ {};
-      // The gateway type. Valid values: API or AI.
+      // The gateway type. Valid values: API and AI.
       shared_ptr<string> gatewayType_ {};
       // The consumer group name.
       shared_ptr<string> name_ {};

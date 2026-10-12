@@ -73,9 +73,9 @@ namespace Models
 
 
     protected:
-      // The list of agent protocols.
+      // The agent protocol list.
       shared_ptr<vector<string>> agentProtocols_ {};
-      // The list of agent API routing configurations.
+      // The agent API routing configuration list.
       shared_ptr<vector<HiMarketHttpRoute>> routes_ {};
     };
 

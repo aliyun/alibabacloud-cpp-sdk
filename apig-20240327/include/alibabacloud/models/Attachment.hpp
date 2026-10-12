@@ -115,7 +115,7 @@ namespace Models
     // - Domain: gateway domain name.
     // - Gateway: gateway.
     shared_ptr<string> attachResourceType_ {};
-    // The environment to which the mounted resource belongs. If the environment ID is *, the mounted resource of the policy is not associated with any environment.
+    // The environment to which the mounted resource belongs. If the environment ID is returned as *, the mounted resource of the policy is not associated with any environment.
     shared_ptr<string> environmentId_ {};
     // The gateway to which the mounted resource belongs.
     shared_ptr<string> gatewayId_ {};

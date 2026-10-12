@@ -100,7 +100,7 @@ namespace Models
 
 
     protected:
-      // The custom field mappings.
+      // The custom field mapping.
       shared_ptr<map<string, string>> customFields_ {};
       // The identity field name that corresponds to the email address.
       shared_ptr<string> emailField_ {};
@@ -291,7 +291,7 @@ namespace Models
   protected:
     // The OAuth2 Authorization Code configuration.
     shared_ptr<HiMarketOidcConfig::AuthCodeConfig> authCodeConfig_ {};
-    // Indicates whether the OIDC configuration is enabled.
+    // Specifies whether to enable the OIDC configuration.
     shared_ptr<bool> enabled_ {};
     // The authorization type.
     shared_ptr<string> grantType_ {};

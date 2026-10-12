@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // Indicates whether the notification for the risk item is muted.
       shared_ptr<bool> isMute_ {};
+      // The code of the risk item.
       shared_ptr<string> riskCode_ {};
     };
 
@@ -120,8 +123,11 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The risk detection result.
     shared_ptr<GetRiskNotificationResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
