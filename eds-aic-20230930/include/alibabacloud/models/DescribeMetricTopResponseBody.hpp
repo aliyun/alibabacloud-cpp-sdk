@@ -165,26 +165,22 @@ namespace Models
 
         protected:
           // The average value. Unit: %.
-          // 
-          // > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+          // > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
           shared_ptr<double> average_ {};
           // The ID.
           shared_ptr<string> id_ {};
           // The maximum value. Unit: %.
-          // 
-          // > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+          // > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
           shared_ptr<double> maximum_ {};
           // The minimum value.
-          // 
-          // > The unit is bps when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+          // > If the monitoring metric is instance_in_traffic or instance_out_traffic, the unit is bps.
           shared_ptr<double> minimum_ {};
           // The name.
           shared_ptr<string> name_ {};
-          // The properties.
-          // 
-          // > A JSON string that contains the extension properties.
+          // The property information.
+          // > The extended property information string in JSON format is returned.
           shared_ptr<string> properties_ {};
-          // The timestamp of the data point. Unit: milliseconds.
+          // The statistical timestamp. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -207,9 +203,9 @@ namespace Models
 
 
       protected:
-        // The monitoring data points.
+        // The monitoring statistical data points.
         shared_ptr<vector<MetricModelList::DataPoints>> dataPoints_ {};
-        // The name of the metric.
+        // The name of the monitoring metric.
         shared_ptr<string> metricName_ {};
       };
 
@@ -239,12 +235,12 @@ namespace Models
 
 
     protected:
-      // For instance-level monitoring, this is the cloud phone instance ID.
-      // <props="china">For matrix-level monitoring, this is the matrix ID.
+      // For instance-level monitoring, the cloud phone instance ID is returned. 
+      // <props="china">For matrix-level monitoring, the matrix ID is returned.
       shared_ptr<string> androidInstanceId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The monitoring data of metrics.
+      // The list of metric monitoring results.
       shared_ptr<vector<MetricTotalModel::MetricModelList>> metricModelList_ {};
     };
 
@@ -281,11 +277,11 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The instance monitoring data.
+    // The list of instance monitoring results.
     shared_ptr<vector<DescribeMetricTopResponseBody::MetricTotalModel>> metricTotalModel_ {};
-    // The token to retrieve the next page of results. If the results are not fully returned in a single query, this parameter is not empty. You can use this token in a subsequent query to retrieve the next page of results.
+    // The token for the next query. If a single query does not return all results, the returned NextToken is not empty. You can use the returned NextToken in subsequent queries to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

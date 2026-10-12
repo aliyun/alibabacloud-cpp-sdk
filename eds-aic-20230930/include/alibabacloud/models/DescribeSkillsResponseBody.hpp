@@ -243,15 +243,15 @@ namespace Models
     protected:
       // The skill category.
       shared_ptr<string> category_ {};
-      // The creation time.
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The skill description.
       shared_ptr<string> description_ {};
       // The OSS download URL of the skill icon.
       shared_ptr<string> iconOssUrl_ {};
-      // The number of instances that have the skill installed.
+      // The number of instances on which the skill is installed.
       shared_ptr<int32_t> installedCount_ {};
-      // The information about the installed instances.
+      // The information about the instances on which the skill is installed.
       shared_ptr<vector<SkillInfo::InstalledInstances>> installedInstances_ {};
       // The skill summary.
       shared_ptr<string> instruction_ {};
@@ -261,15 +261,15 @@ namespace Models
       shared_ptr<string> skillName_ {};
       // The skill source.
       shared_ptr<string> skillSource_ {};
-      // The skill lifecycle status.
+      // The lifecycle status of the skill.
       shared_ptr<string> skillStatus_ {};
-      // The source node ID of the skill created from a conversation. This value is empty for user-uploaded skills.
+      // The source node ID of the skill created from a conversation. This parameter is empty if the skill is uploaded by a user.
       shared_ptr<string> sourceInstanceId_ {};
       // The skill status.
       shared_ptr<string> status_ {};
       // The skill type.
       shared_ptr<string> type_ {};
-      // The skill version.
+      // The skill version number.
       shared_ptr<string> version_ {};
     };
 

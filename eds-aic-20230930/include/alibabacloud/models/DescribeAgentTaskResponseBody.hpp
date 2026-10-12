@@ -148,7 +148,7 @@ namespace Models
       protected:
         // The MIME type.
         shared_ptr<string> contentType_ {};
-        // The OSS pre-signed download URL.
+        // The presigned OSS download URL.
         shared_ptr<string> downloadUrl_ {};
         // The file name.
         shared_ptr<string> name_ {};
@@ -261,7 +261,6 @@ namespace Models
       // The list of uploaded task artifacts.
       shared_ptr<vector<Tasks::Artifacts>> artifacts_ {};
       // The current status of the task. Valid values:
-      // 
       // - PENDING: The task is being created.
       // - RUNNING: The task is running.
       // - COMPLETED: The task is completed.
@@ -269,27 +268,26 @@ namespace Models
       // - TIMEOUT: The task execution timed out.
       shared_ptr<string> currentStatus_ {};
       // The source of the digest. Valid values:
-      // 
-      // - PROMPT_AUTO: auto-generated.
-      // - RESULT_AUTO: result refinement.
-      // - USER: user-edited.
+      // - PROMPT_AUTO: Automatically generated.
+      // - RESULT_AUTO: Refined from the result.
+      // - USER: Edited by the user.
       shared_ptr<string> digestSource_ {};
-      // The Mobile node ID.
+      // The ID of the mobile node.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> reason_ {};
       // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
-      // The number of steps executed.
+      // The number of executed steps.
       shared_ptr<string> steps_ {};
-      // The task digest text, up to 25 characters.
+      // The task digest text, with a maximum of 25 characters.
       shared_ptr<string> taskDigest_ {};
-      // The task duration. This field is returned only when CurrentStatus is FAILED or COMPLETED.
+      // The time consumed by the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
       shared_ptr<string> taskDuration_ {};
-      // The task ID, which is globally unique.
+      // The globally unique task ID.
       shared_ptr<string> taskId_ {};
-      // The task result in the desired state. This field is returned only when CurrentStatus is COMPLETED or FAILED.
+      // The node task result (desired state). This field is returned only when CurrentStatus is COMPLETED or FAILED.
       shared_ptr<string> taskResult_ {};
-      // The user instruction in natural language. The Agent performs operations based on this instruction.
+      // The user instruction in natural language based on which the agent performs operations.
       shared_ptr<string> userPrompt_ {};
     };
 

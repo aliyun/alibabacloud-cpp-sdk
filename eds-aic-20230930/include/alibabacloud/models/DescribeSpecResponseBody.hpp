@@ -151,11 +151,11 @@ namespace Models
       shared_ptr<int32_t> core_ {};
       // The maximum number of instances.
       shared_ptr<string> maxPhoneCount_ {};
-      // The memory size in GB.
+      // The memory size.
       shared_ptr<int32_t> memory_ {};
       // The minimum number of instances.
       shared_ptr<string> minPhoneCount_ {};
-      // The number of instances.
+      // The number of cloud phone instances.
       shared_ptr<string> phoneCount_ {};
       // The resolution of the cloud phone instance.
       shared_ptr<string> resolution_ {};
@@ -165,7 +165,7 @@ namespace Models
       shared_ptr<string> specStatus_ {};
       // The specification type.
       shared_ptr<string> specType_ {};
-      // The size of the system disk, in GB.
+      // The system cloud disk size. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -202,7 +202,7 @@ namespace Models
 
 
   protected:
-    // The token to use for the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+    // The token that indicates the position up to which the data is retrieved. An empty value indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

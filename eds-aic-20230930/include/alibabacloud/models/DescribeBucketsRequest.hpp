@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The type of the OSS file.
+    // The OSS file type.
     // 
     // > This parameter is not yet available.
     shared_ptr<string> fileType_ {};

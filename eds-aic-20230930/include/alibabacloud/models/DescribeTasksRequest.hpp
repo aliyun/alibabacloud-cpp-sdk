@@ -167,33 +167,33 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud phone instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The name of the cloud phone instance.
+    // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The ID of the command execution. You can set the value to the last returned request ID.
+    // The command execution ID. You can enter the requestId returned by the previous operation.
     shared_ptr<string> invokeId_ {};
-    // The level of the task. A value of 1 specifies a batch task. A value of 2 specifies an instance-level task.
+    // The task level. A value of 1 indicates a batch task. A value of 2 indicates an instance-level task.
     shared_ptr<int32_t> level_ {};
-    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
+    // The token that specifies the starting position for reading. If this parameter is left empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The extension field.
+    // The extended field.
     shared_ptr<string> param_ {};
-    // The ID of the parent task.
+    // The parent task ID.
     shared_ptr<string> parentTaskId_ {};
-    // The IDs of the resources.
+    // The list of resource IDs.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The IDs of the tasks.
+    // The list of task IDs.
     shared_ptr<vector<string>> taskIds_ {};
-    // The state of the task.
+    // The task status.
     shared_ptr<string> taskStatus_ {};
-    // The status of the tasks.
+    // The list of task statuses.
     shared_ptr<vector<string>> taskStatuses_ {};
-    // The type of the task.
+    // The task type.
     shared_ptr<string> taskType_ {};
-    // The types of the tasks.
+    // The list of task types.
     shared_ptr<vector<string>> taskTypes_ {};
   };
 

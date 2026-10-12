@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The device type filter. Valid values: BOX, PHONE, PAD, and OTHER.
+    // The device class filter. Valid values: BOX, PHONE, PAD, and OTHER.
     shared_ptr<string> deviceClass_ {};
     // The list of license keys. Separate multiple keys with commas.
     shared_ptr<string> licenseKeys_ {};
-    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Leave this parameter empty for the first query. For subsequent queries, use the value returned in the previous response.
+    // The pagination token. Leave this parameter empty for the first query. For subsequent queries, obtain the token from the previous response.
     shared_ptr<string> nextToken_ {};
     // The list of package IDs. Separate multiple IDs with commas.
     shared_ptr<string> packageIds_ {};

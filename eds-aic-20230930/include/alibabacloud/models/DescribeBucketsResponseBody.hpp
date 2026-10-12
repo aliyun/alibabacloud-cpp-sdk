@@ -219,43 +219,37 @@ namespace Models
 
 
       protected:
-        // The name of the bucket.
+        // The bucket name.
         shared_ptr<string> bucketName_ {};
-        // The Entity Tag (ETag) is created when an object is generated. It is used to identify the content of an object.
+        // The ETag (Entity Tag) is created when an object is generated and is used to identify the content of the object.
         // 
-        // - For an object created by a PutObject request, the ETag value is the MD5 hash of the object content.
+        // - For an object created by a PutObject request, the ETag is the MD5 hash of the object content.
         // 
-        // - For an object created by other methods, the ETag value is a unique value generated based on specific calculation rules. It is not the MD5 hash of the object content.
+        // - For an object created by other methods, the ETag is a unique value generated based on specific calculation rules, but it is not the MD5 hash of the object content.
         // 
-        // - The ETag value can be used to check if the object content has changed. Do not use the ETag value as the MD5 hash to verify the data integrity of the object.
+        // - You can use the ETag to check whether the object content has changed. Do not use the ETag as the MD5 hash to verify the data integrity of the object content.
         shared_ptr<string> ETag_ {};
         // The tag key.
         shared_ptr<string> key_ {};
         // The time when the object was last modified.
         shared_ptr<string> lastModified_ {};
-        // The information about the bucket owner.
+        // The bucket owner information.
         shared_ptr<OssObjectList::Owner> owner_ {};
-        // The information about database recovery if the database type is MSSQL. The value is a JSON string that contains the following parameters:
-        // 
-        // - **name**: The name of the database.
-        // 
-        // - **files**: The path of the database file.
+        // The database restoration information when the restored database type is MSSQL. The value is a JSON string that contains the following fields:
+        // - **name**: The database name.
+        // - **files**: The database file path.
         shared_ptr<string> restoreInfo_ {};
-        // The size of the file. Unit: KB.
+        // The file size. Unit: KB.
         shared_ptr<int64_t> size_ {};
         // The storage class of the bucket. Valid values:
         // 
-        // - Standard (default): Standard
-        // 
-        // - IA: Infrequent Access
-        // 
-        // - Archive: Archive Storage
-        // 
-        // - ColdArchive: Cold Archive
-        // 
-        // - DeepColdArchive: Deep Cold Archive
+        // - Standard: Standard storage (default).
+        // - IA: Infrequent Access.
+        // - Archive: Archive.
+        // - ColdArchive: Cold Archive.
+        // - DeepColdArchive: Deep Cold Archive.
         shared_ptr<string> storageClass_ {};
-        // The type of the trigger method.
+        // The trigger type.
         shared_ptr<string> type_ {};
       };
 
@@ -314,17 +308,17 @@ namespace Models
 
 
     protected:
-      // The name of the bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The public endpoint that is used to access the bucket.
+      // The public endpoint used to access the bucket.
       shared_ptr<string> extranetEndpoint_ {};
-      // The time when the bucket was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The internal endpoint that is used by a same-region ECS instance to access the bucket.
+      // The internal endpoint used by ECS instances in the same region to access the bucket.
       shared_ptr<string> intranetEndpoint_ {};
-      // The storage path, such as a path in Hadoop Distributed File System (HDFS) or OSS.
+      // The storage path, such as HDFS or OSS.
       shared_ptr<string> location_ {};
-      // The information about the objects in the bucket.
+      // The information about objects in the bucket.
       shared_ptr<vector<Data::OssObjectList>> ossObjectList_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -379,17 +373,17 @@ namespace Models
   protected:
     // The error code.
     // 
-    // > This parameter is returned only when the call fails.
+    // > This parameter is returned only when an error occurs during the API call.
     shared_ptr<string> code_ {};
     // The returned result object.
     shared_ptr<vector<DescribeBucketsResponseBody::Data>> data_ {};
-    // The return status code of the request.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the request.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

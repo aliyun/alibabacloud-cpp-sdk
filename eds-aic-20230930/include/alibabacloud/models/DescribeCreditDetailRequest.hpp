@@ -119,23 +119,23 @@ namespace Models
 
 
   protected:
-    // The list of agent types, used to filter credit change details by specified agent types.
+    // The agent types. This parameter is used to filter credit change details by agent type.
     shared_ptr<vector<string>> agentTypes_ {};
-    // The end time.
+    // The end time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The list of instance IDs.
+    // The instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The maximum number of entries to read in this request.
+    // The maximum number of entries to return for this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
+    // The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The list of package or credit booster pack IDs.
+    // The package IDs.
     shared_ptr<vector<string>> packageIds_ {};
-    // The page number for pagination. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<string> pageNum_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The start time.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

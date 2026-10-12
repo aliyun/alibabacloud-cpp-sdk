@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The ID of the Internet Shared Bandwidth instance.
+      // The ID of the Internet Shared Bandwidth.
       shared_ptr<string> bandwidthPackageId_ {};
       // The bandwidth plan order ID.
       shared_ptr<string> bandwidthPackageOrderId_ {};

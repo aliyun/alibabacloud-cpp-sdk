@@ -108,17 +108,17 @@ namespace Models
 
 
     protected:
-      // The time when the command finished running.
+      // The end time of the command execution. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> finishTime_ {};
-      // The ID of the instance where the command was run.
+      // The instance ID on which the current command is executed.
       shared_ptr<string> instanceId_ {};
-      // The ID of the command execution.
+      // The command execution ID.
       shared_ptr<string> invocationId_ {};
-      // The status of the command execution.
+      // The execution status of the command.
       shared_ptr<string> invocationStatus_ {};
       // The output of the command execution.
       shared_ptr<string> output_ {};
-      // The time when the command started to run.
+      // The start time of the command execution. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
     };
 

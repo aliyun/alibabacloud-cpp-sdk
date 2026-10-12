@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud phone instances. A single request can query the execution results for up to 50 instances.
+    // The list of cloud phone instance IDs. You can query the execution results of up to 50 instances in a single request.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The ID of the command execution. Use this ID and the cloud phone instance ID to query the result of a command execution.
+    // The command execution ID. You can use this ID and the cloud phone instance ID to query the result of a command execution.
     // 
     // This parameter is required.
     shared_ptr<string> invocationId_ {};

@@ -163,28 +163,29 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> androidInstanceId_ {};
-    // The instance name. Fuzzy match is supported.
+    // The name of the instance. Fuzzy match is supported.
     shared_ptr<string> androidInstanceName_ {};
-    // Specifies whether to perform a full device backup.
+    // Specifies whether the backup is a full-device backup.
     shared_ptr<bool> backupAll_ {};
-    // The backup file ID.
+    // The ID of the backup file.
     shared_ptr<string> backupFileId_ {};
-    // The backup file name. Fuzzy match is supported.
+    // The name of the backup file. Fuzzy match is supported.
     shared_ptr<string> backupFileName_ {};
     // The description. Fuzzy match is supported.
     shared_ptr<string> description_ {};
-    // Queries backup files created before the specified time.
+    // The end time to query backup files. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The owner of the backup file.
     shared_ptr<string> endUserId_ {};
-    // The instance group ID.
+    // The ID of the instance group.
     shared_ptr<string> instanceGroupId_ {};
-    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries per page for a paging query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
+    // The token that specifies the position from which the query starts. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The sales mode. Valid values: Instance (cloud phone instance mode) and Node (cloud phone matrix mode).
     shared_ptr<string> saleMode_ {};
-    // Queries backup files created after the specified time.
+    // The start time to query backup files. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};
     // The list of backup file statuses.
     shared_ptr<vector<string>> statusList_ {};

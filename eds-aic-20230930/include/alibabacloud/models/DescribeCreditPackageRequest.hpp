@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the credit booster package.
+    // The ID of the credit boost package.
     shared_ptr<string> creditPackageId_ {};
-    // The status of the credit booster package.
+    // The status of the credit boost package.
     shared_ptr<string> creditPackageStatus_ {};
   };
 

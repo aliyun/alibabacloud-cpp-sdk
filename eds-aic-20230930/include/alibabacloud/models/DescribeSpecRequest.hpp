@@ -117,16 +117,17 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
+    // The billing method. A value of PrePaid indicates subscription. A value of PostPaid indicates pay-as-you-go.
     shared_ptr<string> chargeType_ {};
     // The cloud phone matrix specification.
     shared_ptr<string> matrixSpec_ {};
-    // The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which to start the query. Leave this parameter empty to query from the beginning.
+    // The token that specifies the position from which the query starts. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The purchase mode of the cloud phone.
+    // The purchase mode for cloud phones.
     shared_ptr<string> saleMode_ {};
-    // A list of specification IDs.
+    // The list of specification IDs.
     shared_ptr<vector<string>> specIds_ {};
     // The specification status.
     shared_ptr<string> specStatus_ {};

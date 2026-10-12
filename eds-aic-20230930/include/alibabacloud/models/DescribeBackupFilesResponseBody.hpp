@@ -256,16 +256,17 @@ namespace Models
     protected:
       // The instance ID.
       shared_ptr<string> androidInstanceId_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> androidInstanceName_ {};
-      // Specifies whether to perform a full device backup.
+      // Specifies whether the backup is a full-device backup.
       shared_ptr<bool> backupAll_ {};
-      // The backup file ID.
+      // The ID of the backup file.
       shared_ptr<string> backupFileId_ {};
-      // The backup file name.
+      // The name of the backup file.
       shared_ptr<string> backupFileName_ {};
-      // The directory where the backup file is stored.
+      // The directory where the backup file is saved.
       shared_ptr<string> backupFilePath_ {};
+      // The order source. A value of CLOUDPHONE indicates AI cloud phone.
       shared_ptr<string> channel_ {};
       // The description of the backup file.
       shared_ptr<string> description_ {};
@@ -275,20 +276,21 @@ namespace Models
       shared_ptr<int64_t> fileSize_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The instance ID.
       shared_ptr<string> instanceGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The list of backed-up application package names.
+      // The list of package names of the backed-up applications.
       shared_ptr<vector<string>> sourceAppInfoList_ {};
-      // The list of source backup file directories.
+      // The list of directories of the source backup files.
       shared_ptr<vector<string>> sourceFilePathList_ {};
-      // The backup file status.
+      // The status of the backup file.
       shared_ptr<string> status_ {};
+      // The Android system version.
       shared_ptr<string> systemVersion_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
       // The domain name of the upload endpoint.
       shared_ptr<string> uploadEndpoint_ {};
@@ -338,11 +340,11 @@ namespace Models
   protected:
     // The list of returned result objects.
     shared_ptr<vector<DescribeBackupFilesResponseBody::Data>> data_ {};
-    // The maximum number of entries returned in this call.
+    // The maximum number of entries returned in this query.
     shared_ptr<string> maxResults_ {};
-    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+    // The token that specifies the position from which the next query starts. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The request ID. If you encounter an issue, provide this request ID for troubleshooting.
+    // The unique ID of the request. If you encounter any issues, provide this request ID to the technical support team for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

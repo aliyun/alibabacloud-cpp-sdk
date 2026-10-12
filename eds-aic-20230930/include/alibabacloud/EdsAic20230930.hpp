@@ -201,7 +201,7 @@ namespace EdsAic20230930
       Models::CancelAgentTaskResponse cancelAgentTask(const Models::CancelAgentTaskRequest &request);
 
       /**
-       * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
+       * @summary Modifies the configuration of a cloud phone matrix. Currently, only instance type changes and cloud phone instance count changes are supported (the instance count refers to the number of instances in the cloud phone matrix).
        *
        * @param request ChangeCloudPhoneNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -210,7 +210,7 @@ namespace EdsAic20230930
       Models::ChangeCloudPhoneNodeResponse changeCloudPhoneNodeWithOptions(const Models::ChangeCloudPhoneNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
+       * @summary Modifies the configuration of a cloud phone matrix. Currently, only instance type changes and cloud phone instance count changes are supported (the instance count refers to the number of instances in the cloud phone matrix).
        *
        * @param request ChangeCloudPhoneNodeRequest
        * @return ChangeCloudPhoneNodeResponse
@@ -337,8 +337,7 @@ namespace EdsAic20230930
       Models::CreateAppResponse createApp(const Models::CreateAppRequest &request);
 
       /**
-       * @summary Creates a cloud phone matrix.
-       * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
+       * @summary Creates a cloud phone matrix. In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create the corresponding cloud phone instances. The number of cloud phone instances varies based on the configuration.
        *
        * @param tmpReq CreateCloudPhoneNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,8 +346,7 @@ namespace EdsAic20230930
       Models::CreateCloudPhoneNodeResponse createCloudPhoneNodeWithOptions(const Models::CreateCloudPhoneNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud phone matrix.
-       * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
+       * @summary Creates a cloud phone matrix. In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create the corresponding cloud phone instances. The number of cloud phone instances varies based on the configuration.
        *
        * @param request CreateCloudPhoneNodeRequest
        * @return CreateCloudPhoneNodeResponse
@@ -356,9 +354,9 @@ namespace EdsAic20230930
       Models::CreateCloudPhoneNodeResponse createCloudPhoneNode(const Models::CreateCloudPhoneNodeRequest &request);
 
       /**
-       * @summary Purchases a credit booster pack.
+       * @summary Places an order to purchase a credit top-up package.
        *
-       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+       * @description This API operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
        *
        * @param request CreateCreditPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -367,9 +365,9 @@ namespace EdsAic20230930
       Models::CreateCreditPackageResponse createCreditPackageWithOptions(const Models::CreateCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases a credit booster pack.
+       * @summary Places an order to purchase a credit top-up package.
        *
-       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+       * @description This API operation involves billing. Make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone before you call this operation.
        *
        * @param request CreateCreditPackageRequest
        * @return CreateCreditPackageResponse
@@ -438,9 +436,9 @@ namespace EdsAic20230930
       Models::CreateKeyPairResponse createKeyPair(const Models::CreateKeyPairRequest &request);
 
       /**
-       * @summary Purchases a resource plan by placing an order.
+       * @summary Purchases a resource plan.
        *
-       * @description This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
        *
        * @param request CreateMobileAgentPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,14 +447,31 @@ namespace EdsAic20230930
       Models::CreateMobileAgentPackageResponse createMobileAgentPackageWithOptions(const Models::CreateMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases a resource plan by placing an order.
+       * @summary Purchases a resource plan.
        *
-       * @description This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
+       * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of WUYING Cloud Phone.
        *
        * @param request CreateMobileAgentPackageRequest
        * @return CreateMobileAgentPackageResponse
        */
       Models::CreateMobileAgentPackageResponse createMobileAgentPackage(const Models::CreateMobileAgentPackageRequest &request);
+
+      /**
+       * @summary Creates an agent task.
+       *
+       * @param request CreateMobileAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMobileAgentTaskResponse
+       */
+      Models::CreateMobileAgentTaskResponse createMobileAgentTaskWithOptions(const Models::CreateMobileAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an agent task.
+       *
+       * @param request CreateMobileAgentTaskRequest
+       * @return CreateMobileAgentTaskResponse
+       */
+      Models::CreateMobileAgentTaskResponse createMobileAgentTask(const Models::CreateMobileAgentTaskRequest &request);
 
       /**
        * @summary Creates a policy that applies unified settings to cloud phones. These settings include features such as network redirection, watermarks, resolution, and the clipboard.
@@ -746,7 +761,7 @@ namespace EdsAic20230930
       Models::DeleteSystemPropertyTemplatesResponse deleteSystemPropertyTemplates(const Models::DeleteSystemPropertyTemplatesRequest &request);
 
       /**
-       * @summary Queries information about Agent Tasks.
+       * @summary Queries the information about agent tasks.
        *
        * @param request DescribeAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -755,7 +770,7 @@ namespace EdsAic20230930
       Models::DescribeAgentTaskResponse describeAgentTaskWithOptions(const Models::DescribeAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about Agent Tasks.
+       * @summary Queries the information about agent tasks.
        *
        * @param request DescribeAgentTaskRequest
        * @return DescribeAgentTaskResponse
@@ -816,7 +831,7 @@ namespace EdsAic20230930
       /**
        * @summary Queries a list of backup files.
        *
-       * @description Currently, only backup files generated by cloud phones can be stored in Object Storage Service (OSS).
+       * @description Currently, only backup files generated by cloud phones can be saved in Object Storage Service (OSS).
        *
        * @param request DescribeBackupFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +842,7 @@ namespace EdsAic20230930
       /**
        * @summary Queries a list of backup files.
        *
-       * @description Currently, only backup files generated by cloud phones can be stored in Object Storage Service (OSS).
+       * @description Currently, only backup files generated by cloud phones can be saved in Object Storage Service (OSS).
        *
        * @param request DescribeBackupFilesRequest
        * @return DescribeBackupFilesResponse
@@ -835,9 +850,9 @@ namespace EdsAic20230930
       Models::DescribeBackupFilesResponse describeBackupFiles(const Models::DescribeBackupFilesRequest &request);
 
       /**
-       * @summary Queries information about buckets. This operation returns only the buckets whose names start with `cloudphone-saved-bucket-`.
+       * @summary Queries the list of buckets whose names start with cloudphone-saved-bucket-.
        *
-       * @description Currently, you can save backup files generated by Cloud Phone only to Object Storage Service (OSS).
+       * @description Currently, only backup files generated by Cloud Phone can be stored in Object Storage Service (OSS).
        *
        * @param request DescribeBucketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,9 +861,9 @@ namespace EdsAic20230930
       Models::DescribeBucketsResponse describeBucketsWithOptions(const Models::DescribeBucketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about buckets. This operation returns only the buckets whose names start with `cloudphone-saved-bucket-`.
+       * @summary Queries the list of buckets whose names start with cloudphone-saved-bucket-.
        *
-       * @description Currently, you can save backup files generated by Cloud Phone only to Object Storage Service (OSS).
+       * @description Currently, only backup files generated by Cloud Phone can be stored in Object Storage Service (OSS).
        *
        * @param request DescribeBucketsRequest
        * @return DescribeBucketsResponse
@@ -892,7 +907,7 @@ namespace EdsAic20230930
       Models::DescribeCreditDetailResponse describeCreditDetail(const Models::DescribeCreditDetailRequest &request);
 
       /**
-       * @summary Queries credit booster packages.
+       * @summary Queries credit boost packages.
        *
        * @param request DescribeCreditPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -901,7 +916,7 @@ namespace EdsAic20230930
       Models::DescribeCreditPackageResponse describeCreditPackageWithOptions(const Models::DescribeCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries credit booster packages.
+       * @summary Queries credit boost packages.
        *
        * @param request DescribeCreditPackageRequest
        * @return DescribeCreditPackageResponse
@@ -943,7 +958,7 @@ namespace EdsAic20230930
       Models::DescribeEdgeMobileAgentPackagesResponse describeEdgeMobileAgentPackages(const Models::DescribeEdgeMobileAgentPackagesRequest &request);
 
       /**
-       * @summary Queries a list of available images.
+       * @summary Queries a list of images.
        *
        * @param request DescribeImageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -952,7 +967,7 @@ namespace EdsAic20230930
       Models::DescribeImageListResponse describeImageListWithOptions(const Models::DescribeImageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of available images.
+       * @summary Queries a list of images.
        *
        * @param request DescribeImageListRequest
        * @return DescribeImageListResponse
@@ -960,9 +975,9 @@ namespace EdsAic20230930
       Models::DescribeImageListResponse describeImageList(const Models::DescribeImageListRequest &request);
 
       /**
-       * @summary Queries the execution results of a command run by calling the RunCommand operation.
+       * @summary Queries the command execution results of the RunCommand operation.
        *
-       * @description This operation is being deprecated. Use the [](t2740507.xdita#)operation to query the progress and results of a command execution.
+       * @description This operation will be deprecated soon. Use the [DescribeTasks](https://help.aliyun.com/document_detail/2833926.html) operation to query the progress and results of command execution.
        *
        * @param request DescribeInvocationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -971,9 +986,9 @@ namespace EdsAic20230930
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution results of a command run by calling the RunCommand operation.
+       * @summary Queries the command execution results of the RunCommand operation.
        *
-       * @description This operation is being deprecated. Use the [](t2740507.xdita#)operation to query the progress and results of a command execution.
+       * @description This operation will be deprecated soon. Use the [DescribeTasks](https://help.aliyun.com/document_detail/2833926.html) operation to query the progress and results of command execution.
        *
        * @param request DescribeInvocationsRequest
        * @return DescribeInvocationsResponse
@@ -981,7 +996,7 @@ namespace EdsAic20230930
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
-       * @summary Queries JVS instance information.
+       * @summary Queries the details of JVS instances.
        *
        * @param request DescribeJVSInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -990,7 +1005,7 @@ namespace EdsAic20230930
       Models::DescribeJVSInstanceResponse describeJVSInstanceWithOptions(const Models::DescribeJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries JVS instance information.
+       * @summary Queries the details of JVS instances.
        *
        * @param request DescribeJVSInstanceRequest
        * @return DescribeJVSInstanceResponse
@@ -1015,7 +1030,7 @@ namespace EdsAic20230930
       Models::DescribeKeyPairsResponse describeKeyPairs(const Models::DescribeKeyPairsRequest &request);
 
       /**
-       * @summary Queries the latest monitoring data for an instance or a matrix. You can query metrics such as CPU, memory, disk, and network.
+       * @summary Queries the latest monitoring data of instances or matrices. Supports querying monitoring data such as CPU, memory, disk, and network.
        *
        * @param request DescribeMetricLastRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1024,7 +1039,7 @@ namespace EdsAic20230930
       Models::DescribeMetricLastResponse describeMetricLastWithOptions(const Models::DescribeMetricLastRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the latest monitoring data for an instance or a matrix. You can query metrics such as CPU, memory, disk, and network.
+       * @summary Queries the latest monitoring data of instances or matrices. Supports querying monitoring data such as CPU, memory, disk, and network.
        *
        * @param request DescribeMetricLastRequest
        * @return DescribeMetricLastResponse
@@ -1032,7 +1047,7 @@ namespace EdsAic20230930
       Models::DescribeMetricLastResponse describeMetricLast(const Models::DescribeMetricLastRequest &request);
 
       /**
-       * @summary Queries monitoring data for specified metrics, such as network bandwidth.
+       * @summary Queries the monitoring data of specified metrics, such as network bandwidth.
        *
        * @param request DescribeMetricListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1041,7 +1056,7 @@ namespace EdsAic20230930
       Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries monitoring data for specified metrics, such as network bandwidth.
+       * @summary Queries the monitoring data of specified metrics, such as network bandwidth.
        *
        * @param request DescribeMetricListRequest
        * @return DescribeMetricListResponse
@@ -1049,7 +1064,7 @@ namespace EdsAic20230930
       Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
 
       /**
-       * @summary Queries the latest monitoring data for metrics such as instance network bandwidth and returns the results in a sorted list.
+       * @summary Queries the latest sorted monitoring data and supports querying monitoring data such as instance network bandwidth.
        *
        * @param request DescribeMetricTopRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1058,7 +1073,7 @@ namespace EdsAic20230930
       Models::DescribeMetricTopResponse describeMetricTopWithOptions(const Models::DescribeMetricTopRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the latest monitoring data for metrics such as instance network bandwidth and returns the results in a sorted list.
+       * @summary Queries the latest sorted monitoring data and supports querying monitoring data such as instance network bandwidth.
        *
        * @param request DescribeMetricTopRequest
        * @return DescribeMetricTopResponse
@@ -1151,7 +1166,7 @@ namespace EdsAic20230930
       Models::DescribeSkillsResponse describeSkills(const Models::DescribeSkillsRequest &request);
 
       /**
-       * @summary Queries the available specifications for cloud phones. This information is required to create an instance. For the cloud phone matrix mode, this operation also returns the minimum and maximum number of instances allowed per matrix.
+       * @summary Queries the available specifications for cloud phones. You must specify a specification when you create an instance. You can call this operation to retrieve all specification information. For matrix creation, this operation retrieves the maximum and minimum limits on the number of instances that can be created in a single matrix.
        *
        * @param request DescribeSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1160,7 +1175,7 @@ namespace EdsAic20230930
       Models::DescribeSpecResponse describeSpecWithOptions(const Models::DescribeSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available specifications for cloud phones. This information is required to create an instance. For the cloud phone matrix mode, this operation also returns the minimum and maximum number of instances allowed per matrix.
+       * @summary Queries the available specifications for cloud phones. You must specify a specification when you create an instance. You can call this operation to retrieve all specification information. For matrix creation, this operation retrieves the maximum and minimum limits on the number of instances that can be created in a single matrix.
        *
        * @param request DescribeSpecRequest
        * @return DescribeSpecResponse
@@ -1185,13 +1200,13 @@ namespace EdsAic20230930
       Models::DescribeSystemPropertyTemplatesResponse describeSystemPropertyTemplates(const Models::DescribeSystemPropertyTemplatesRequest &request);
 
       /**
-       * @summary Queries tasks created for a cloud phone instance. Many operations on cloud phones—such as creating, starting, or stopping them—are asynchronous. When you initiate an operation, the system returns a `Task ID` that you can use to track its progress and final result. You can call this API to retrieve a list of all tasks and their execution statuses.
+       * @summary Queries the current task list of cloud phone instances. Many operations on cloud phones, such as creation and power-on or power-off, are performed asynchronously. The system generates a task ID for you to query the operation progress and results. You can call this operation to query the complete task list and execution status.
        *
-       * @description - You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
-       * - The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
-       * - You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
-       * **Example**
-       * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
+       * @description - You can call the DescribeTasks operation to query the operation status of one or more cloud phone instances.
+       * - Task queries are currently supported for operations such as power-on, power-off, restart, reset, backup or restoration, application installation, and remote commands.
+       * - The Level field distinguishes task levels. If Level is set to 1, the task is a batch task. If Level is set to 2, the task is an instance-level task.
+       * **Examples:**
+       * Assume that you restart two cloud phone instances whose instance IDs are acp-25nt4kk9whhok**** and acp-j2taq887orj8l****. The requestId returned for this operation is B8ED2BA9-0C6A-5643-818F-B5D60A64****. To check the result of this batch operation, you can call DescribeTasks and set InvokeId to B8ED2BA9-0C6A-5643-818F-B5D60A64****. To obtain the restart result for the instance whose ID is acp-25nt4kk9whhok****, you can call DescribeTasks and set ParentTaskId to the batch task ID and AndroidInstanceId to acp-25nt4kk9whhok****.
        *
        * @param request DescribeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,13 +1215,13 @@ namespace EdsAic20230930
       Models::DescribeTasksResponse describeTasksWithOptions(const Models::DescribeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tasks created for a cloud phone instance. Many operations on cloud phones—such as creating, starting, or stopping them—are asynchronous. When you initiate an operation, the system returns a `Task ID` that you can use to track its progress and final result. You can call this API to retrieve a list of all tasks and their execution statuses.
+       * @summary Queries the current task list of cloud phone instances. Many operations on cloud phones, such as creation and power-on or power-off, are performed asynchronously. The system generates a task ID for you to query the operation progress and results. You can call this operation to query the complete task list and execution status.
        *
-       * @description - You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
-       * - The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
-       * - You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
-       * **Example**
-       * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
+       * @description - You can call the DescribeTasks operation to query the operation status of one or more cloud phone instances.
+       * - Task queries are currently supported for operations such as power-on, power-off, restart, reset, backup or restoration, application installation, and remote commands.
+       * - The Level field distinguishes task levels. If Level is set to 1, the task is a batch task. If Level is set to 2, the task is an instance-level task.
+       * **Examples:**
+       * Assume that you restart two cloud phone instances whose instance IDs are acp-25nt4kk9whhok**** and acp-j2taq887orj8l****. The requestId returned for this operation is B8ED2BA9-0C6A-5643-818F-B5D60A64****. To check the result of this batch operation, you can call DescribeTasks and set InvokeId to B8ED2BA9-0C6A-5643-818F-B5D60A64****. To obtain the restart result for the instance whose ID is acp-25nt4kk9whhok****, you can call DescribeTasks and set ParentTaskId to the batch task ID and AndroidInstanceId to acp-25nt4kk9whhok****.
        *
        * @param request DescribeTasksRequest
        * @return DescribeTasksResponse
@@ -1317,9 +1332,9 @@ namespace EdsAic20230930
       Models::EndCoordinationResponse endCoordination(const Models::EndCoordinationRequest &request);
 
       /**
-       * @summary Expands the storage of a cloud phone matrix. You can expand shared storage for matrix-level files such as images, and instance storage. Expanding the storage incurs new fees, and the API response returns an order ID.
+       * @summary Expands the storage of a cloud phone matrix. You can expand the shared device storage used to store matrix-level files such as images, as well as the independent device storage. Storage capacity expansion incurs additional fees. The response parameters returned when you invoke the API operation include the order ID for the new fees.
        *
-       * @description This operation is only available on the china site (aliyun.com).
+       * @description This API operation is available only on the China site.
        *
        * @param request ExpandDataVolumeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1328,9 +1343,9 @@ namespace EdsAic20230930
       Models::ExpandDataVolumeResponse expandDataVolumeWithOptions(const Models::ExpandDataVolumeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Expands the storage of a cloud phone matrix. You can expand shared storage for matrix-level files such as images, and instance storage. Expanding the storage incurs new fees, and the API response returns an order ID.
+       * @summary Expands the storage of a cloud phone matrix. You can expand the shared device storage used to store matrix-level files such as images, as well as the independent device storage. Storage capacity expansion incurs additional fees. The response parameters returned when you invoke the API operation include the order ID for the new fees.
        *
-       * @description This operation is only available on the china site (aliyun.com).
+       * @description This API operation is available only on the China site.
        *
        * @param request ExpandDataVolumeRequest
        * @return ExpandDataVolumeResponse
@@ -1735,7 +1750,7 @@ namespace EdsAic20230930
       Models::ModifyInstanceGroupSpecResponse modifyInstanceGroupSpec(const Models::ModifyInstanceGroupSpecRequest &request);
 
       /**
-       * @summary Modifies the configuration of a JVS instance.
+       * @summary Modifies the configurations of JVS instances.
        *
        * @param request ModifyJVSInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1744,7 +1759,7 @@ namespace EdsAic20230930
       Models::ModifyJVSInstanceResponse modifyJVSInstanceWithOptions(const Models::ModifyJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a JVS instance.
+       * @summary Modifies the configurations of JVS instances.
        *
        * @param request ModifyJVSInstanceRequest
        * @return ModifyJVSInstanceResponse
@@ -1767,6 +1782,23 @@ namespace EdsAic20230930
        * @return ModifyKeyPairNameResponse
        */
       Models::ModifyKeyPairNameResponse modifyKeyPairName(const Models::ModifyKeyPairNameRequest &request);
+
+      /**
+       * @summary Modifies a package.
+       *
+       * @param request ModifyMobileAgentPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMobileAgentPackageResponse
+       */
+      Models::ModifyMobileAgentPackageResponse modifyMobileAgentPackageWithOptions(const Models::ModifyMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a package.
+       *
+       * @param request ModifyMobileAgentPackageRequest
+       * @return ModifyMobileAgentPackageResponse
+       */
+      Models::ModifyMobileAgentPackageResponse modifyMobileAgentPackage(const Models::ModifyMobileAgentPackageRequest &request);
 
       /**
        * @summary Modifies the information of a policy group.
@@ -1986,7 +2018,7 @@ namespace EdsAic20230930
       Models::RenewAndroidInstanceGroupsResponse renewAndroidInstanceGroups(const Models::RenewAndroidInstanceGroupsRequest &request);
 
       /**
-       * @summary Renews the specified cloud phone matrices.
+       * @summary Renews a cloud phone matrix.
        *
        * @param request RenewCloudPhoneNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1995,7 +2027,7 @@ namespace EdsAic20230930
       Models::RenewCloudPhoneNodesResponse renewCloudPhoneNodesWithOptions(const Models::RenewCloudPhoneNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews the specified cloud phone matrices.
+       * @summary Renews a cloud phone matrix.
        *
        * @param request RenewCloudPhoneNodesRequest
        * @return RenewCloudPhoneNodesResponse
@@ -2058,7 +2090,7 @@ namespace EdsAic20230930
       Models::ResumeAgentTaskResponse resumeAgentTask(const Models::ResumeAgentTaskRequest &request);
 
       /**
-       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+       * @summary Triggers an agent on a Mobile node to execute AI automation tasks.
        *
        * @param tmpReq RunAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2067,7 +2099,7 @@ namespace EdsAic20230930
       Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
+       * @summary Triggers an agent on a Mobile node to execute AI automation tasks.
        *
        * @param request RunAgentTaskRequest
        * @return RunAgentTaskResponse
@@ -2092,9 +2124,9 @@ namespace EdsAic20230930
       Models::RunCommandResponse runCommand(const Models::RunCommandRequest &request);
 
       /**
-       * @summary Runs a synchronous command on one or more Cloud Phone instances and returns the execution result.
+       * @summary Executes a command on a cloud phone and attempts to return the result.
        *
-       * @description The `RunSyncCommand` operation is designed for commands that return a result quickly, typically within milliseconds. For longer-running commands that may take several seconds, we recommend using the asynchronous [](t2729835.xdita#)operation.
+       * @description `RunSyncCommand` is suitable for commands that return results quickly, typically within milliseconds. For commands that take longer to execute, typically within seconds, use the [RunCommand](~~RunCommand~~) operation.
        *
        * @param request RunSyncCommandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2103,9 +2135,9 @@ namespace EdsAic20230930
       Models::RunSyncCommandResponse runSyncCommandWithOptions(const Models::RunSyncCommandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a synchronous command on one or more Cloud Phone instances and returns the execution result.
+       * @summary Executes a command on a cloud phone and attempts to return the result.
        *
-       * @description The `RunSyncCommand` operation is designed for commands that return a result quickly, typically within milliseconds. For longer-running commands that may take several seconds, we recommend using the asynchronous [](t2729835.xdita#)operation.
+       * @description `RunSyncCommand` is suitable for commands that return results quickly, typically within milliseconds. For commands that take longer to execute, typically within seconds, use the [RunCommand](~~RunCommand~~) operation.
        *
        * @param request RunSyncCommandRequest
        * @return RunSyncCommandResponse
@@ -2450,7 +2482,7 @@ namespace EdsAic20230930
       Models::UpdateInstanceImageResponse updateInstanceImage(const Models::UpdateInstanceImageRequest &request);
 
       /**
-       * @summary Upgrades an instance group. This operation only supports scaling out an instance group, which increases the number of instances.
+       * @summary Upgrades an instance group. Currently, only scaling out the instance group by increasing the number of instances is supported.
        *
        * @param request UpgradeAndroidInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2459,7 +2491,7 @@ namespace EdsAic20230930
       Models::UpgradeAndroidInstanceGroupResponse upgradeAndroidInstanceGroupWithOptions(const Models::UpgradeAndroidInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades an instance group. This operation only supports scaling out an instance group, which increases the number of instances.
+       * @summary Upgrades an instance group. Currently, only scaling out the instance group by increasing the number of instances is supported.
        *
        * @param request UpgradeAndroidInstanceGroupRequest
        * @return UpgradeAndroidInstanceGroupResponse

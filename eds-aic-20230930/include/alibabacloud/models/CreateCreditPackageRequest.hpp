@@ -96,27 +96,25 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: enables automatic payment. Make sure that your account balance is sufficient.
-    // - **false** (default): generates an order without charging your account.
+    // - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
+    // - **false** (default): Generates an order without deducting payment.
     // 
     // 
     // 
     // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the Elastic Cloud Phone console to complete the payment.
+    // > If the balance of your payment method is insufficient, set this parameter to false. An unpaid order is generated. You can log on to the WUYING Cloud Phone console to complete the payment.
     shared_ptr<bool> autoPay_ {};
     shared_ptr<string> channelCookie_ {};
     // The number of credits.
     shared_ptr<string> creditAmount_ {};
     shared_ptr<string> packageAmount_ {};
-    // The duration for which you want to purchase the resource. The unit is specified by PeriodUnit.
+    // The subscription duration of the purchased resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The unit of the duration for which you want to purchase the resource.
-    // 
-    // Valid values:
-    // - **Month**: month.
-    // - **Year**: year.
+    // The unit of the subscription duration for the purchased resource. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the promotional campaign.
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

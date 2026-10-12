@@ -66,6 +66,9 @@
 #include <alibabacloud/models/CreateMobileAgentPackageRequest.hpp>
 #include <alibabacloud/models/CreateMobileAgentPackageResponseBody.hpp>
 #include <alibabacloud/models/CreateMobileAgentPackageResponse.hpp>
+#include <alibabacloud/models/CreateMobileAgentTaskRequest.hpp>
+#include <alibabacloud/models/CreateMobileAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateMobileAgentTaskResponse.hpp>
 #include <alibabacloud/models/CreatePolicyGroupRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponseBody.hpp>
@@ -281,6 +284,9 @@
 #include <alibabacloud/models/ModifyKeyPairNameRequest.hpp>
 #include <alibabacloud/models/ModifyKeyPairNameResponseBody.hpp>
 #include <alibabacloud/models/ModifyKeyPairNameResponse.hpp>
+#include <alibabacloud/models/ModifyMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/ModifyMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/ModifyMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupRequest.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyPolicyGroupResponseBody.hpp>

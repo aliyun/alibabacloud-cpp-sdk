@@ -97,14 +97,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment. The default value is false.
+    // Specifies whether to enable automatic payment. Default value: false.
     shared_ptr<bool> autoPay_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The IDs of the cloud phone matrices.
+    // The list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The size of the instance storage. Unit: GiB.
+    // The size of the device storage for the instance. Unit: GiB.
     shared_ptr<int32_t> phoneDataVolume_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};

@@ -254,21 +254,21 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The time when the image was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the image was last modified.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // An array of tag objects.
+      // The array of tag objects.
       shared_ptr<vector<Data::ImageBizTags>> imageBizTags_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The image distribution information by region. The key is the region and the value is the distribution information.
+      // The image distribution region information. The key is the region and the value is the distribution information.
       shared_ptr<map<string, DataImageRegionDistributeMapValue>> imageRegionDistributeMap_ {};
       // The list of available regions.
       shared_ptr<vector<string>> imageRegionList_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<string> imageVersion_ {};
       // The language.
       shared_ptr<string> language_ {};
-      // The time when the image was published.
+      // The release time. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> releaseTime_ {};
       // The rendering type.
       shared_ptr<string> renderingType_ {};
@@ -323,7 +323,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<DescribeImageListResponseBody::Data>> data_ {};
-    // The token that is used to start the next query. An empty value indicates that all data has been returned.
+    // The position from which the current call returns the read data. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

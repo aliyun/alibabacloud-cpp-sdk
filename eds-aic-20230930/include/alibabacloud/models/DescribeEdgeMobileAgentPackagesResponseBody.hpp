@@ -114,9 +114,9 @@ namespace Models
 
 
     protected:
-      // The device type.
+      // The device class.
       shared_ptr<string> deviceClass_ {};
-      // The expiration time.
+      // The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> expireDate_ {};
       // The list of license keys.
       shared_ptr<vector<string>> licenseKeys_ {};
@@ -170,13 +170,13 @@ namespace Models
   protected:
     // The actual number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An empty value indicates that no more data exists.
+    // The pagination token for the next page. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
     // The list of packages.
     shared_ptr<vector<DescribeEdgeMobileAgentPackagesResponseBody::Packages>> packages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

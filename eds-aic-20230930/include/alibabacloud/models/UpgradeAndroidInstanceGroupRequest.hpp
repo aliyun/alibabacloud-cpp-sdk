@@ -81,8 +81,9 @@ namespace Models
     shared_ptr<int32_t> increaseNumberOfInstance_ {};
     // The ID of the instance group.
     shared_ptr<string> instanceGroupId_ {};
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The promotion ID.
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

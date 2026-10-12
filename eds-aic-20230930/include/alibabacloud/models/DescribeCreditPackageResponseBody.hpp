@@ -133,20 +133,20 @@ namespace Models
 
 
     protected:
-      // The number of available credits in the current credit booster package.
+      // The number of available credits in the current credit boost package.
       shared_ptr<string> availableCredits_ {};
       shared_ptr<string> createTime_ {};
-      // The ID of the credit booster package.
+      // The ID of the credit boost package.
       shared_ptr<string> creditPackageId_ {};
-      // The status of the credit booster package.
+      // The status of the credit boost package.
       shared_ptr<string> creditPackageStatus_ {};
-      // The effective period of the credit booster package.
+      // The effective period of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> effectiveTime_ {};
-      // The number of consumed credits in the current credit booster package.
+      // The number of consumed credits in the current credit boost package.
       shared_ptr<string> exhaustedCredits_ {};
-      // The expiration time of the credit booster package.
+      // The expiration time of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> expiredTime_ {};
-      // The total number of credits in the current credit booster package.
+      // The total number of credits in the current credit boost package.
       shared_ptr<string> totalCredits_ {};
     };
 
@@ -197,11 +197,11 @@ namespace Models
 
 
   protected:
-    // The credit booster package information.
+    // The information about the credit boost packages.
     shared_ptr<vector<DescribeCreditPackageResponseBody::CreditsPackageInfos>> creditsPackageInfos_ {};
     // Indicates whether this is the first purchase.
     shared_ptr<bool> isFirstPurchase_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of available credits.
     shared_ptr<string> totalAvailableCredits_ {};

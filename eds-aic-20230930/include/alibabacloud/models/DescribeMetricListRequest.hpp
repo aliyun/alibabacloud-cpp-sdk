@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // A list of process IDs.
+      // The list of process IDs.
       shared_ptr<vector<int32_t>> processIds_ {};
-      // The process name.
+      // The name of the process.
       shared_ptr<string> processName_ {};
     };
 
@@ -167,35 +167,32 @@ namespace Models
 
 
   protected:
-    // For instance-level monitoring, enter a list of Cloud Phone instance IDs.
-    // 
-    // <props="china">
-    // 
-    // For matrix-level monitoring, enter a list of matrix IDs.
+    // For instance-level monitoring, specify a list of cloud phone instance IDs.
+    // <props="china">For matrix-level monitoring, specify a list of matrix IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // The end time for the query.
+    // The end time of the query. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
-    // A list of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of entries to return on each page for a paged query.
+    // The number of monitoring data entries to return on each page for paging in a paged query.
     // 
-    // Default value: 1000. This means that 1000 monitoring data records are returned per page.
+    // Default value: 1000, which means 1,000 monitoring data entries per page.
     shared_ptr<string> length_ {};
-    // The monitoring metrics.
+    // The list of monitoring metrics.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> metricNames_ {};
-    // A token that marks the position from which the query starts. Leave it empty to start from the beginning.
+    // The token that marks the position from which the query starts. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The statistic period of the monitoring data.
+    // The statistical period of the monitoring data.
     // 
     // Valid values: 60, 900, and 3600.
     // 
     // Unit: seconds.
     shared_ptr<int32_t> period_ {};
-    // A list of process monitoring metrics.
+    // The list of process monitoring metrics.
     shared_ptr<vector<DescribeMetricListRequest::ProcessInfos>> processInfos_ {};
-    // The start time for the query.
+    // The start time of the query. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

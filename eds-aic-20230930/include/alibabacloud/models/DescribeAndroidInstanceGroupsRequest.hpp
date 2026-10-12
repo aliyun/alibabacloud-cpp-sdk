@@ -95,10 +95,10 @@ namespace Models
 
     protected:
       // The tag key. You can specify 1 to 20 tag keys.
-      // >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+      // >Notice: A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
       // The tag value.
-      // >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // >Notice: A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -211,29 +211,32 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The billing type.
-    // [_single.params.ChargeType.enum. PrePaid]subscription
+    // The billing method.
+    // [_single.params.ChargeType.enum. PrePaid]Subscription.
     shared_ptr<string> chargeType_ {};
-    // The list of instance group IDs.
+    // The IDs of the instance groups.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The instance group name. Fuzzy match is supported.
+    // The name of the instance group. Fuzzy match is supported.
     shared_ptr<string> instanceGroupName_ {};
+    // The instance version. A value of basic indicates a Wuying Cloud Phone instance, and a value of EnterpriseAi indicates a JVS Mobile instance.
     shared_ptr<string> instanceVersion_ {};
     // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries to return on each page in a paging query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the position from which to start reading. An empty value indicates reading from the beginning.
+    // The token that indicates the starting position for the query. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The policy ID.
+    // The ID of the policy.
     shared_ptr<string> policyGroupId_ {};
     // The purchase mode of the cloud phone.
     shared_ptr<string> saleMode_ {};
+    // The sort field. A value of CreationTime indicates the creation time, and a value of ExpiredTime indicates the expiration time.
     shared_ptr<string> sortKey_ {};
+    // The sort order. A value of ASC indicates ascending order, and a value of DESC indicates descending order.
     shared_ptr<string> sortType_ {};
-    // The instance group status.
+    // The status of the instance group.
     shared_ptr<string> status_ {};
-    // The tags of the instance group. You can bind up to 20 tags to each instance.
+    // The tags of the instance group. You can add up to 20 tags to each instance.
     shared_ptr<vector<DescribeAndroidInstanceGroupsRequest::Tags>> tags_ {};
   };
 

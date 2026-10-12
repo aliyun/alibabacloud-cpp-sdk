@@ -215,7 +215,7 @@ namespace Models
 
 
       protected:
-        // The disk size (unit: GB).
+        // The disk size. Unit: GB.
         shared_ptr<int32_t> diskSize_ {};
         // The disk type.
         shared_ptr<string> diskType_ {};
@@ -282,7 +282,7 @@ namespace Models
         protected:
           // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the public network bandwidth limit rule (applies only to premium bandwidth).
+          // The ID of the Internet bandwidth throttling rule (applies only to premium bandwidth).
           shared_ptr<string> qosRuleId_ {};
         };
 
@@ -305,9 +305,9 @@ namespace Models
 
 
       protected:
-        // The public network bandwidth limit rule bound to the instance.
+        // The Internet bandwidth throttling rules bound to the instances.
         shared_ptr<vector<BindQosRules::InstanceQosRule>> instanceQosRule_ {};
-        // The total number of public network bandwidth limit rules for the instance group.
+        // The total number of Internet bandwidth throttling rules for the instance group.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -612,24 +612,24 @@ namespace Models
       // The architecture type.
       shared_ptr<string> architectureType_ {};
       // The number of available instances.
-      // 
-      // > Available means the instance status is not "being deleted" or "deleted".
+      // > Available indicates that the instance status is neither Deleting nor Deleted.
       shared_ptr<int32_t> availableInstanceAmount_ {};
-      // The ID of the bandwidth package.
+      // The ID of the bandwidth plan.
       shared_ptr<string> bandwidthPackageId_ {};
-      // The status of the bandwidth package.
+      // The status of the bandwidth plan.
       // Valid values:
-      // - Creating: being created.
-      // - Releasing: being released.
-      // - InUse: in use.
-      // - Failed: failed.
-      // - Expired: expired.
-      // - Available: unbound and being billed.
+      // - Creating: creating
+      // - Releasing: releasing
+      // - InUse: in use
+      // - Failed: failed
+      // - Expired: expired
+      // - Available: available and unbound, billing in progress
       shared_ptr<string> bandwidthPackageStatus_ {};
-      // The type of the bandwidth package.
+      // The type of the bandwidth plan.
       shared_ptr<string> bandwidthPackageType_ {};
-      // The public network bandwidth limit rules for the instance group.
+      // The Internet bandwidth throttling rules for the instance group.
       shared_ptr<InstanceGroupModel::BindQosRules> bindQosRules_ {};
+      // The order source. CLOUDPHONE indicates AI Cloud Phone.
       shared_ptr<string> channel_ {};
       // The billing method.
       shared_ptr<string> chargeType_ {};
@@ -637,9 +637,9 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The disk information.
       shared_ptr<vector<InstanceGroupModel::Disks>> disks_ {};
-      // > This parameter is not publicly available.
+      // > This parameter is not available for public use.
       shared_ptr<bool> enableIpv6_ {};
-      // The reason for the creation failure.
+      // The cause of the creation failure.
       shared_ptr<string> errorCode_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -653,38 +653,38 @@ namespace Models
       shared_ptr<string> imageVersion_ {};
       // The list of installed applications.
       shared_ptr<string> installedAppList_ {};
-      // The instance group ID.
+      // The ID of the instance group.
       shared_ptr<string> instanceGroupId_ {};
-      // The instance group name.
+      // The name of the instance group.
       shared_ptr<string> instanceGroupName_ {};
       // The instance group specifications.
       shared_ptr<string> instanceGroupSpec_ {};
       // The description of the instance group specifications.
       shared_ptr<string> instanceGroupSpecDescribe_ {};
-      // The instance group status.
+      // The status of the instance group.
       shared_ptr<string> instanceGroupStatus_ {};
-      // > This parameter is not publicly available.
+      // > This parameter is not available for public use.
       shared_ptr<int32_t> ipv6Bandwidth_ {};
       // The memory size.
       shared_ptr<int32_t> memory_ {};
       // The network type of the instance.
-      // 
-      // > This field is returned only for instance groups with standard networking.
+      // > Currently, this field is returned only for instance groups in the standard network.
       shared_ptr<string> networkType_ {};
       // The number of instances in the instance group.
       shared_ptr<string> numberOfInstances_ {};
       // The network ID.
       shared_ptr<string> officeSiteId_ {};
+      // The ID of the plan package for the AI Cloud Phone.
       shared_ptr<string> packageId_ {};
-      // The policy ID.
+      // The ID of the policy.
       shared_ptr<string> policyGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The rendering method of the instance group.
       shared_ptr<string> renderingType_ {};
-      // The height of the resolution.
+      // The resolution height.
       shared_ptr<int32_t> resolutionHeight_ {};
-      // The width of the resolution.
+      // The resolution width.
       shared_ptr<int32_t> resolutionWidth_ {};
       // The sales mode.
       shared_ptr<string> saleMode_ {};
@@ -731,9 +731,9 @@ namespace Models
 
 
   protected:
-    // The details of the instance groups.
+    // The details of the instance group.
     shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBody::InstanceGroupModel>> instanceGroupModel_ {};
-    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+    // The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -96,10 +96,7 @@ namespace Models
   protected:
     // The keyword in the skill name or skill description.
     shared_ptr<string> keyword_ {};
-    // The language type. The skill description is returned in this language.
-    // 
-    // Valid values:
-    // 
+    // The language type. The skill description is returned in the specified language. Valid values:
     // - en: English.
     // - zh-CN: Chinese.
     shared_ptr<string> language_ {};

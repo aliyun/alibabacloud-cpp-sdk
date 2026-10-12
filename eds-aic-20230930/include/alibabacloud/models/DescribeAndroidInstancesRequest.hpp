@@ -298,45 +298,57 @@ namespace Models
   protected:
     // The list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // The instance name.
+    // The name of the instance.
     shared_ptr<string> androidInstanceName_ {};
-    // The application management policy ID.
+    // The ID of the application control rule.
     shared_ptr<string> appManagePolicyId_ {};
-    // The user ID assigned to the instance, which is the China Wuying convenience account ID.
+    // The ID of the user assigned to the instance, which is the Wuying convenience user ID.
     shared_ptr<string> authorizedUserId_ {};
-    // <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition or Matrix Edition).
+    // <props="china">The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the list of regions where different versions of cloud phones (instance edition and matrix edition) are available for purchase.
+    // 
+    // <props="intl">The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) operation to query the list of regions where cloud phones are available for purchase.
     shared_ptr<string> bizRegionId_ {};
-    // The billing type.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The instance group ID.
+    // The ID of the instance group.
     shared_ptr<string> instanceGroupId_ {};
     // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The instance group name.
+    // The name of the instance group.
     shared_ptr<string> instanceGroupName_ {};
     // The instance version. Default value: basic, which queries Wuying cloud phone instances.
     shared_ptr<string> instanceVersion_ {};
-    // The ID of the bound key pair.
+    // The ID of the associated key pair.
     shared_ptr<string> keyPairId_ {};
-    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries per page for paging. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+    // The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // <props="china">The matrix ID.
+    // <props="intl">This parameter is not publicly available.
     shared_ptr<string> nodeId_ {};
     // <props="china">The name of the matrix.
+    // <props="intl">This parameter is not publicly available.
     shared_ptr<string> nodeName_ {};
-    // The cloud phone network IDs.
+    // The ID of the cloud phone network.
     shared_ptr<vector<string>> officeSiteIds_ {};
     // The private IP address of the instance.
     shared_ptr<string> privateIpAddress_ {};
-    // The IDs of the public network rate limiting rule groups. These are rate limiting rules for instances in the basic shared network.
+    // The ID of the public network throttling rule group. This specifies the throttling rules for instances in the basic shared network.
     shared_ptr<vector<string>> qosRuleIds_ {};
-    // The sales mode.
+    // The sale mode.
     shared_ptr<string> saleMode_ {};
     // The sort key used when querying resources.
+    // 
+    // This parameter must be used together with SortType. Valid values: CreationTime and ExpiredTime.
+    // 
+    // If you set this parameter to CreationTime, the resources are sorted by creation time. If you set this parameter to ExpiredTime, the resources are sorted by expiration time.
+    // 
+    // By default, resources are sorted in descending order of creation time.
     shared_ptr<string> sortKey_ {};
-    // The sort order. Default value: descending order. Valid values:
+    // The sort order. Default value: DESC. Valid values:
+    // - ASC: ascending order
+    // - DESC: descending order
     shared_ptr<string> sortType_ {};
     // The instance status.
     shared_ptr<string> status_ {};

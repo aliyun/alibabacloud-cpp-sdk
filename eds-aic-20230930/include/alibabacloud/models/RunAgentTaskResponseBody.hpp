@@ -113,40 +113,28 @@ namespace Models
 
     protected:
       // The current status of the task. Valid values:
-      // 
-      // PENDING: The task is being created.
-      // 
-      // RUNNING: The task is running.
-      // 
-      // COMPLETED: The task is completed.
-      // 
-      // FAILED: The task failed.
-      // 
-      // TIMEOUT: The task timed out.
-      // 
-      // CALL_FOR_USER: Waiting for user action.
-      // 
-      // PAUSING: The task is being paused.
-      // 
-      // PAUSED: The task is paused.
-      // 
-      // CANCELLING: The task is being canceled.
-      // 
-      // CANCELED: The task is canceled.
-      // 
-      // STOPPED: The task is stopped.
-      // 
-      // TIMEOUT: The task timed out.
+      // - PENDING: The task is being created.
+      // - RUNNING: The task is running.
+      // - COMPLETED: The task is completed.
+      // - FAILED: The task failed.
+      // - TIMEOUT: The task execution timed out.
+      // - CALL_FOR_USER: The task is waiting for user operations.
+      // - PAUSING: The task is being paused.
+      // - PAUSED: The task is paused.
+      // - CANCELLING: The task is being canceled.
+      // - CANCELED: The task is canceled.
+      // - STOPPED: The task is stopped.
+      // - TIMEOUT: The task timed out.
       shared_ptr<string> currentStatus_ {};
-      // The Mobile node ID.
+      // The ID of the Mobile node.
       shared_ptr<string> instanceId_ {};
-      // The time when the task was created, in ISO 8601 format.
+      // The time when the task was created. The time is in the ISO 8601 format.
       shared_ptr<string> runningAt_ {};
-      // The session ID. Tasks with the same session ID share context.
+      // The session ID. Tasks with the same session ID share the context.
       shared_ptr<string> sessionId_ {};
-      // The task ID, which is globally unique.
+      // The globally unique ID of the task.
       shared_ptr<string> taskId_ {};
-      // The user instruction in natural language. The Agent performs operations based on this instruction.
+      // The user prompt in natural language. The agent performs operations based on this prompt.
       shared_ptr<string> userPrompt_ {};
     };
 
@@ -190,13 +178,13 @@ namespace Models
 
 
   protected:
-    // The status code of the operation.
+    // The status code of the API operation.
     shared_ptr<string> code_ {};
     // The number of tasks.
     shared_ptr<int32_t> count_ {};
-    // The response message.
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of tasks.
     shared_ptr<vector<RunAgentTaskResponseBody::Tasks>> tasks_ {};

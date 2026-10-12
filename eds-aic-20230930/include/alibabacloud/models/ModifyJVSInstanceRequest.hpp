@@ -80,11 +80,7 @@ namespace Models
     protected:
       // The quota limit.
       shared_ptr<int64_t> creditLimit_ {};
-      // The dimension of the current credit. Valid values:
-      // 
-      // - total: Total usage limit.
-      // - month: Monthly. The quota resets based on the resource activation time cycle.
-      // - day: Daily. The quota resets at 00:00.
+      // The period of the current credit.
       shared_ptr<string> limitPeriod_ {};
     };
 
@@ -137,12 +133,13 @@ namespace Models
 
 
   protected:
-    // The target version, such as 2607W1. Set this parameter to latest to automatically resolve to the latest available version.
+    // The target version of AI Engine, such as 2607W1. You can also set this parameter to latest to automatically resolve to the latest available version.
     shared_ptr<string> agentVersion_ {};
     // Specifies whether to apply the configuration to all instances.
     shared_ptr<bool> applyToAll_ {};
-    // The credit quota configuration. If you submit the configuration multiple times, the latest configuration overwrites the previous one.
+    // The credit limit configuration. Subsequent quota configurations overwrite previous ones.
     shared_ptr<vector<ModifyJVSInstanceRequest::CreditConfig>> creditConfig_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};

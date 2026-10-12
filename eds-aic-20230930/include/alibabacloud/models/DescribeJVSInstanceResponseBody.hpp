@@ -241,15 +241,9 @@ namespace Models
 
 
       protected:
-        // The quota limit. Valid values:
-        // - 0: not available for use.
-        // - >0: the quota is configured based on the numeric value.
-        // - -1: unlimited.
+        // The limit value.
         shared_ptr<int64_t> creditLimit_ {};
-        // The quota period. Valid values:
-        // - total: The total usage limit.
-        // - month: Monthly. The quota resets based on the resource activation time as one cycle.
-        // - day: Daily. The quota resets at 00:00.
+        // The limit period.
         shared_ptr<string> limitPeriod_ {};
       };
 
@@ -378,22 +372,22 @@ namespace Models
 
     protected:
       shared_ptr<Data::AgentVersion> agentVersion_ {};
-      // The creation time.
+      // The creation time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
-      // The credit quota configuration. Subsequent quota configurations overwrite previous configurations.
+      // The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
       shared_ptr<vector<Data::CreditConfig>> creditConfig_ {};
-      // The expiration time.
+      // The expiration time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> expireTime_ {};
       shared_ptr<vector<Data::InstalledSkills>> installedSkills_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // This parameter is not supported.
       shared_ptr<string> jvsPackageId_ {};
-      // The modification time.
+      // The modification time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> modifyTime_ {};
       // The instance status.
       shared_ptr<string> status_ {};
-      // The used credits.
+      // The used credit.
       shared_ptr<vector<Data::UsedCredit>> usedCredit_ {};
     };
 
@@ -446,9 +440,9 @@ namespace Models
   protected:
     // The returned result object.
     shared_ptr<vector<DescribeJVSInstanceResponseBody::Data>> data_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of results returned in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that indicates the current position from which to start reading. An empty value indicates reading from the beginning.
+    // The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> pendingUpgradeCount_ {};
     // The request ID.

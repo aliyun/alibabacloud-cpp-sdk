@@ -393,9 +393,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> channelCookie_ {};
-    // The billing type. Only subscription is supported.
+    // The billing method. Only subscription is supported.
     shared_ptr<string> chargeType_ {};
-    // The number of cloud phone matrices to purchase.
+    // The Quantity of the cloud phone matrix.
     shared_ptr<string> count_ {};
     // The display settings.
     shared_ptr<string> displayConfigShrink_ {};
@@ -403,8 +403,7 @@ namespace Models
     shared_ptr<int32_t> downBandwidthLimit_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The instance type.
-    // > To purchase more instance types, [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
+    // The instance type. > To purchase more instance types, you can [contact pre-sales support](https://smartservice.console.aliyun.com/service/pre-sales-chat?spm=5176.6d6ecb63.0.0.729adda2VqVQx7).
     shared_ptr<string> instanceType_ {};
     shared_ptr<bool> isSingleImgDisk_ {};
     // The office network ID.
@@ -415,18 +414,20 @@ namespace Models
     shared_ptr<string> networkType_ {};
     // The name of the cloud phone matrix.
     shared_ptr<string> nodeName_ {};
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription duration. The unit is specified by PeriodUnit.
+    // The subscription period of the resource. The unit is specified by `PeriodUnit`.
     // 
-    // - If PeriodUnit is set to **year**, the value can only be 1.
-    // - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
+    // - If `PeriodUnit` is set to **year**, the only valid value is 1.
+    // - If `PeriodUnit` is set to **month**, valid values are 1, 2, 3, and 6.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration.
+    // The unit of the subscription period.
     shared_ptr<string> periodUnit_ {};
     // The number of cloud phone instances to create in a single matrix.
     shared_ptr<int32_t> phoneCount_ {};
     // The size of the independent device storage. Unit: GiB.
     shared_ptr<int32_t> phoneDataVolume_ {};
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
     // The height of the resolution. Unit: pixels.
     shared_ptr<int32_t> resolutionHeight_ {};
@@ -434,9 +435,9 @@ namespace Models
     shared_ptr<int32_t> resolutionWidth_ {};
     // The size of the shared device storage. Unit: GiB.
     // 
-    // > The minimum value of the shared device storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
+    // > The minimum size of the shared device storage must be greater than the number of instances in the matrix multiplied by 10 GiB.
     shared_ptr<int32_t> serverShareDataVolume_ {};
-    // The specifications of the cloud phone matrix.
+    // The specification of the cloud phone matrix.
     // 
     // This parameter is required.
     shared_ptr<string> serverType_ {};
@@ -447,7 +448,7 @@ namespace Models
     shared_ptr<vector<CreateCloudPhoneNodeShrinkRequest::Tag>> tag_ {};
     // The upstream bandwidth throttling. Unit: Mbit/s.
     shared_ptr<int32_t> upBandwidthLimit_ {};
-    // Specifies whether to use a template during creation. Set this parameter to `Random` to use a random template from the template list. Alternatively, specify a template ID to use that template.
+    // Specifies whether to use a template during creation. If you want to use a random template from the template list, set the value to `Random`. If you specify a template ID, the specified template is used.
     shared_ptr<string> useTemplate_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

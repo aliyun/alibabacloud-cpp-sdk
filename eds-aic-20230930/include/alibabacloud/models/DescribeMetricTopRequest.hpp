@@ -111,29 +111,25 @@ namespace Models
 
   protected:
     // For instance-level monitoring, specify a list of cloud phone instance IDs.
-    // 
-    // <props="china">
-    // 
-    // For matrix-level monitoring, specify a list of matrix IDs.
+    // <props="china">For matrix-level monitoring, specify a list of matrix IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // The end time of the query.
+    // The end time of the query for the monitoring metric. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of entries to return on each page. This parameter is used for paged queries.
-    // 
-    // > The maximum value is 100 when the metric is \\`instance_in_traffic\\` or \\`instance_out_traffic\\`.
+    // The number of entries to return on each page for the monitoring data. This parameter is used for paging in a paged query.
+    // > If the monitoring metric is instance_in_traffic or instance_out_traffic, the maximum value is 100.
     shared_ptr<string> length_ {};
-    // The list of metrics.
+    // The list of monitoring metrics.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> metricNames_ {};
-    // The token that marks the start of the next page of results. If you leave this parameter empty, the query starts from the beginning.
+    // The token that marks the position from which to start reading. If this parameter is left empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The statistical period of the monitoring data.
     // Unit: seconds.
     shared_ptr<int32_t> period_ {};
-    // The start time of the query.
+    // The start time of the query for the monitoring metric. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};
   };
 

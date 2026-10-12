@@ -147,7 +147,7 @@ namespace Models
 
 
         protected:
-          // The CPU utilization. Unit: %.
+          // The CPU usage. Unit: %.
           shared_ptr<double> cpuUsage_ {};
           // The memory usage. Unit: %.
           shared_ptr<double> memoryUsage_ {};
@@ -155,7 +155,7 @@ namespace Models
           shared_ptr<string> name_ {};
           // The list of process IDs.
           shared_ptr<vector<int32_t>> processIds_ {};
-          // The timestamp of the statistics. Unit: milliseconds.
+          // The statistical timestamp. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -225,20 +225,17 @@ namespace Models
 
         protected:
           // The average value. Unit: %.
-          // 
-          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+          // > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
           shared_ptr<double> average_ {};
           // The GPU ID.
           shared_ptr<string> gpuId_ {};
           // The maximum value. Unit: %.
-          // 
-          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+          // > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
           shared_ptr<double> maximum_ {};
           // The minimum value. Unit: %.
-          // 
-          // > The unit is bps when the metric is \\`bandwidth_package_usage_out\\` or \\`bandwidth_package_usage_in\\`.
+          // > The unit is bps when the monitoring metric is bandwidth_package_usage_out or bandwidth_package_usage_in.
           shared_ptr<double> minimum_ {};
-          // The timestamp of the statistics. Unit: milliseconds.
+          // The statistical timestamp. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -270,13 +267,13 @@ namespace Models
 
 
       protected:
-        // The monitoring data points.
+        // The list of monitoring statistics data points.
         shared_ptr<vector<MetricModelList::DataPoints>> dataPoints_ {};
-        // The name of the metric.
+        // The name of the monitoring metric.
         shared_ptr<string> metricName_ {};
-        // The process monitoring metrics.
+        // The list of process monitoring metrics.
         // 
-        // > This parameter is returned when the metric is \\`process_cpu\\` or \\`process_memory\\`.
+        // > This parameter is returned when the monitoring metric is process_cpu or process_memory.
         shared_ptr<vector<MetricModelList::ProcessLastInfos>> processLastInfos_ {};
       };
 
@@ -299,10 +296,10 @@ namespace Models
 
 
     protected:
-      // For instance-level monitoring, the Cloud Phone instance ID is returned.
-      // <props="china">For matrix-level monitoring, the matrix ID is returned.
+      // The cloud phone instance ID returned for instance-level monitoring. 
+      // <props="china">The matrix ID returned for matrix-level monitoring.
       shared_ptr<string> androidInstanceId_ {};
-      // The monitoring data for metrics.
+      // The list of metric monitoring results.
       shared_ptr<vector<MetricTotalModel::MetricModelList>> metricModelList_ {};
     };
 
@@ -339,11 +336,11 @@ namespace Models
 
 
   protected:
-    // The number of records.
+    // The total count.
     shared_ptr<int32_t> count_ {};
-    // The instance monitoring data.
+    // The list of instance monitoring results.
     shared_ptr<vector<DescribeMetricLastResponseBody::MetricTotalModel>> metricTotalModel_ {};
-    // The token for the next query. If not all results are returned in a single query, the returned NextToken is not empty. You can use the returned NextToken in the next query to query the next page.
+    // The token for the next query. If a single query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue querying.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

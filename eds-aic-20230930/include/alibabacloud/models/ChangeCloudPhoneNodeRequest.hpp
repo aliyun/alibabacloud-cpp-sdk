@@ -139,12 +139,13 @@ namespace Models
     shared_ptr<string> instanceType_ {};
     // The cloud phone matrix ID.
     shared_ptr<string> nodeId_ {};
-    // The number of cloud phone instances. Call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the maximum and minimum instance count limits.
+    // The number of cloud phone instances. You can call [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) to query the maximum and minimum instance count limits.
     shared_ptr<int32_t> phoneCount_ {};
-    // The device storage size. Valid values: 10 GiB to 4000 GiB. If this parameter is left empty, the current size is retained.
+    // The device storage size. Valid range: 10 GiB to 4000 GiB. If this parameter is left empty, the original size is retained.
     shared_ptr<int32_t> phoneDataVolume_ {};
-    // The promotion ID.
+    // The promotional activity ID.
     shared_ptr<string> promotionId_ {};
+    // The shared storage size. Unit: GiB.
     shared_ptr<int32_t> shareDataVolume_ {};
     shared_ptr<int32_t> swapSize_ {};
     // The upstream bandwidth throttling. Unit: Mbit/s.

@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // An array of tag objects.
+    // The array of tag objects.
     shared_ptr<vector<DescribeImageListRequest::ImageBizTags>> imageBizTags_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // > This parameter is not yet available.
+    // > This parameter is not yet available for public use.
     shared_ptr<string> imagePackageType_ {};
     // The image type.
     // 
@@ -182,12 +182,13 @@ namespace Models
     shared_ptr<string> imageType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The maximum number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position from which to start the query. If you leave this parameter empty, the query starts from the beginning.
+    // The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The status of the image.
     shared_ptr<string> status_ {};
+    // The operating system type.
     shared_ptr<string> systemType_ {};
   };
 

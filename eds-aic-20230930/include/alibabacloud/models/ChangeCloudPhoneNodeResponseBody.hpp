@@ -97,7 +97,7 @@ namespace Models
       protected:
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The dedicated device storage capacity.
+        // The independent device storage capacity.
         shared_ptr<int32_t> phoneDataVolume_ {};
       };
 
@@ -131,7 +131,7 @@ namespace Models
       shared_ptr<vector<NodeInfos::InstanceInfos>> instanceInfos_ {};
       // The cloud phone matrix ID.
       shared_ptr<string> nodeId_ {};
-      // When the matrix uses dedicated device storage, a 64 GiB shared storage space is allocated by default (not modifiable) for storing images and other matrix-wide files. When the matrix uses shared device storage (with the size specified at purchase), this storage space is shared by all instances.
+      // When the matrix uses independent device storage, 64 GiB of shared storage space is allocated by default (not modifiable) for storing images and other matrix-wide files. When the matrix uses shared device storage (with the size set at purchase), this storage space is shared among all instances.
       shared_ptr<int32_t> shareDataVolume_ {};
     };
 

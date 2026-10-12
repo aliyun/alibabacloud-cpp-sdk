@@ -93,7 +93,7 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The list of packages.
     shared_ptr<vector<string>> packageIds_ {};
-    // The package specification.
+    // The package specifications.
     shared_ptr<string> packageSpec_ {};
     // The package status.
     shared_ptr<string> packageStatus_ {};

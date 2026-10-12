@@ -237,19 +237,19 @@ namespace Models
 
 
       protected:
-        // The agent type. This field is populated only when querying by a single agent type.
+        // The agent type. This field is populated only when you query by a single agent type.
         shared_ptr<string> agentType_ {};
         // The API key name.
         shared_ptr<string> apiKeyName_ {};
         // The number of cached tokens.
         shared_ptr<int64_t> cachedTokens_ {};
-        // The time when the change occurred.
+        // The time when the change occurred. The time is in UTC and follows the ISO 8601 standard.
         shared_ptr<string> changeTime_ {};
         // The credit change amount.
         shared_ptr<string> creditChange_ {};
         // The task description.
         shared_ptr<string> description_ {};
-        // The model inference duration, in milliseconds.
+        // The model inference duration in milliseconds.
         shared_ptr<int64_t> durationMs_ {};
         // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
@@ -269,7 +269,7 @@ namespace Models
         shared_ptr<string> taskId_ {};
         // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
-        // The response time of the first token, in milliseconds.
+        // The first token response time, in milliseconds.
         shared_ptr<int64_t> ttftMs_ {};
       };
 
@@ -324,11 +324,11 @@ namespace Models
       shared_ptr<vector<Data::Details>> details_ {};
       // The token for the next query.
       shared_ptr<string> nextToken_ {};
-      // The page number for pagination. Default value: 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of detail records.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
       // The total credit change.
       shared_ptr<string> totalCreditChange_ {};
@@ -353,7 +353,7 @@ namespace Models
 
 
   protected:
-    // The response object.
+    // The returned data object.
     shared_ptr<DescribeCreditDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -262,45 +262,45 @@ namespace Models
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The total number of failed subtasks.
+      // The total number of failed child tasks.
       shared_ptr<int32_t> failedChildCount_ {};
-      // The end time of the task.
+      // The end time of the task. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> finishTime_ {};
-      // The ID of the cloud phone instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the cloud phone instance.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The state of the cloud phone instance.
+      // The instance status.
       shared_ptr<string> instanceStatus_ {};
-      // The ID of the command execution.
+      // The command execution ID.
       shared_ptr<string> invokeId_ {};
-      // The level of the task.
+      // The task level.
       shared_ptr<int32_t> level_ {};
       // The operator.
       shared_ptr<string> operator_ {};
-      // The parameters of the task.
+      // The task parameters.
       shared_ptr<string> param_ {};
-      // The ID of the parent task.
+      // The parent task ID.
       shared_ptr<string> parentTaskId_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The execution result of the task.
+      // The task execution result.
       shared_ptr<string> result_ {};
-      // The total number of the subtasks that are running.
+      // The total number of running child tasks.
       shared_ptr<int32_t> runningChildCount_ {};
-      // The start time of the task.
+      // The start time of the task. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> startTime_ {};
-      // The total number of successfully executed subtasks.
+      // The total number of successful child tasks.
       shared_ptr<int32_t> successChildCount_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The state of the task.
+      // The task status.
       shared_ptr<string> taskStatus_ {};
-      // The type of the task.
+      // The task type.
       shared_ptr<string> taskType_ {};
-      // The total number of subtasks of the current batch task.
+      // The total number of child tasks for the current batch task.
       shared_ptr<int32_t> totalChildCount_ {};
     };
 
@@ -337,13 +337,13 @@ namespace Models
 
 
   protected:
-    // The objects that are returned.
+    // The list of returned result objects.
     shared_ptr<vector<DescribeTasksResponseBody::Data>> data_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that specifies the starting position for reading. If this parameter is left empty, the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

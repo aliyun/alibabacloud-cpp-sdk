@@ -228,43 +228,42 @@ namespace Models
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-    // - **false** (default): Only an order is generated. No payment is made.
+    // - **false** (default): Only an order is generated and no payment is deducted.
     // 
     // 
     // 
     // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the Elastic Cloud Phone console to complete the payment.
+    // > If the balance of your payment method is insufficient, you can set this parameter to false. In this case, an unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // * **true**: Auto-renewal is enabled.
-    // * **false** (default): Auto-renewal is disabled.
+    // * **true**: Yes.
+    // * **false** (default): No.
     shared_ptr<bool> autoRenew_ {};
-    // The region where the instance resides. Currently, only cn-hangzhou is supported.
+    // The region where the instance resides. Only cn-hangzhou is supported.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> channelCookie_ {};
-    // The credit quota.
+    // The credit amount.
     shared_ptr<string> creditAmount_ {};
     // The credit limit configuration.
     shared_ptr<string> creditConfig_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
     // The name of the node instance.
     shared_ptr<string> instanceName_ {};
-    // The resource plan specification.
+    // The specification of the resource plan.
     shared_ptr<string> mobileAgentPackageSpec_ {};
     shared_ptr<int64_t> packageSpecId_ {};
-    // The redirect URL after a successful payment.
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallbackUrl_ {};
-    // The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`.
+    // The subscription duration of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The unit of the duration for which you want to purchase the resource.
-    // 
-    // Valid values:
-    // - **Month**: month.
-    // - **Year**: year.
+    // The unit of the subscription duration of the resource. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the promotional campaign.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
     // The tags.
     shared_ptr<vector<CreateMobileAgentPackageRequest::Tag>> tag_ {};

@@ -110,33 +110,30 @@ namespace Models
 
 
   protected:
-    // For instance-level monitoring, specify a list of Cloud Phone instance IDs.
-    // 
-    // <props="china">
-    // 
-    // For matrix-level monitoring, specify a list of matrix IDs.
+    // The list of cloud phone instance IDs for instance-level monitoring.
+    // <props="china">The list of matrix IDs for matrix-level monitoring.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // The end time for the query.
+    // The end time for querying the monitoring metric. The time format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of monitoring data records to return on each page for a paged query.
+    // The page size of the returned monitoring data, used for paged query.
     // 
-    // The default value is 1000. This means that 1000 monitoring data records are returned per page.
+    // Default value: 1000, indicating 1,000 monitoring data entries per page.
     shared_ptr<string> length_ {};
     // The list of monitoring metrics.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> metricNames_ {};
-    // The token that marks the start of the current read position. If you leave this parameter empty, the query starts from the beginning.
+    // The token that marks the position from which to start reading. An empty value indicates that the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The statistic period for monitoring data.
+    // The statistical period for the monitoring data.
     // 
     // Valid values: 60, 900, and 3600.
     // 
     // Unit: seconds.
     shared_ptr<int32_t> period_ {};
-    // The start time for the query.
+    // The start time for querying the monitoring metric. The time format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 
