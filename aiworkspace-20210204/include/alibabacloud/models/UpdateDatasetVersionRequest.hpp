@@ -96,8 +96,10 @@ namespace Models
     shared_ptr<string> datasetTaskRamRole_ {};
     // The custom description of the dataset, which is used to distinguish different datasets.
     shared_ptr<string> description_ {};
-    // The extended field in JsonString format. When DLC uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
+    // The extended field in JsonString format.
+    // When Deep Learning Containers (DLC) uses the dataset, you can specify the default mount path of the dataset by configuring the mountPath field.
     shared_ptr<string> options_ {};
+    // The list of user metric collection endpoints.
     shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
   };
 

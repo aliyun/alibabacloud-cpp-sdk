@@ -167,27 +167,27 @@ namespace Models
 
 
   protected:
-    // The visibility of the code source configuration.
+    // The visibility of the code configuration.
     shared_ptr<string> accessibility_ {};
     // The clone mode. Valid values:
-    // - 0: Create a new subdirectory.
+    // - 0: Create a subdirectory.
     // - 1: Tile to the current directory.
     shared_ptr<int32_t> cloneType_ {};
     // The code branch.
     shared_ptr<string> codeBranch_ {};
     // The code commit ID.
     shared_ptr<string> codeCommit_ {};
-    // The code repository URL.
+    // The address of the code repository.
     shared_ptr<string> codeRepo_ {};
-    // The token used as the access code for the code repository.
+    // The token used to access code in the repository.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username used as the access code for the code repository.
+    // The username used to access code in the repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The code source configuration ID.
+    // The code configuration ID.
     shared_ptr<string> codeSourceId_ {};
     // The detailed description.
     shared_ptr<string> description_ {};
-    // The display name of the code source configuration.
+    // The name of the code source configuration.
     shared_ptr<string> displayName_ {};
     // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<string> gmtModifyTime_ {};
     // The local mount path of the code.
     shared_ptr<string> mountPath_ {};
-    // The creator ID.
+    // The ID of the creator.
     shared_ptr<string> userId_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

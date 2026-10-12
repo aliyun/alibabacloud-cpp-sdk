@@ -125,7 +125,7 @@ namespace Models
 
 
     protected:
-      // The list of sharing configuration relationships.
+      // The list of sharing configurations.
       shared_ptr<vector<DatasetShareRelationship>> sharedTo_ {};
     };
 
@@ -375,15 +375,15 @@ namespace Models
 
   protected:
     // The workspace visibility. Valid values:
-    // - PRIVATE: Only the dataset owner and administrators in the workspace can access the dataset.
-    // - PUBLIC: All members in the workspace can access the dataset.
+    // - PRIVATE: Only the dataset owner and administrators within the workspace can access the dataset.
+    // - PUBLIC: All members of the workspace can access the dataset.
     // - ROLE_PUBLIC: Only specified workspace roles can access the dataset. For the role list, see AccessibleRoleIdList. The dataset owner and administrators always have access under this condition.
     shared_ptr<string> accessibility_ {};
-    // The list of workspace role names that can access the dataset. This field takes effect when Accessibility is ROLE_PUBLIC. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs.
+    // The list of workspace role names that can access the dataset. This parameter takes effect only when Accessibility is set to ROLE_PUBLIC. Role IDs starting with PAI are basic role IDs, and role IDs starting with role- are custom role IDs.
     shared_ptr<vector<string>> accessibleRoleIdList_ {};
     // The data source type. Valid values:
-    // - OSS: Alibaba Cloud Object Storage Service (OSS).
-    // - NAS: Alibaba Cloud Apsara File Storage NAS (NAS).
+    // - OSS: Object Storage Service (OSS).
+    // - NAS: Apsara File Storage NAS (NAS).
     shared_ptr<string> dataSourceType_ {};
     // The data type of the dataset. Valid values:
     // 
@@ -405,9 +405,9 @@ namespace Models
     // 
     // - ADVANCED: Advanced. Only supported for OSS type. Each version supports metadata management for up to 1 million files.
     shared_ptr<string> edition_ {};
-    // The creation time.
+    // The creation time, in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ss.sssZ.
     shared_ptr<string> gmtCreateTime_ {};
-    // The update time.
+    // The update time, in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ss.sssZ.
     shared_ptr<string> gmtModifiedTime_ {};
     // The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
     // 
@@ -447,8 +447,8 @@ namespace Models
     // "region": "${region}",//Region ID<BR>
     // "fileSystemId": "${file_system_id}", //File system ID<BR>
     // "path": "${path}", //File system path<BR>
-    // "mountTarget": "${mount_target}" //File system mount target, specific to Lingjun edition<BR>
-    // "isVpcMount": boolean, //Whether it is a VPC mount target, specific to Lingjun edition<BR>
+    // "mountTarget": "${mount_target}" //File system mount target, specific to Lingjun<BR>
+    // "isVpcMount": boolean, //Specifies whether the mount target is a VPC mount target, specific to Lingjun<BR>
     // }<BR>
     // </details>
     shared_ptr<string> importInfo_ {};
@@ -458,11 +458,11 @@ namespace Models
     shared_ptr<vector<Label>> labels_ {};
     // The latest version of the dataset.
     shared_ptr<DatasetVersion> latestVersion_ {};
-    // The permission when the dataset is mounted. Valid values:
+    // The permission when the dataset is mounted.
     // - RO: read-only mount.
-    // - RW: read-write mount.
+    // - RW: read/write mount.
     shared_ptr<string> mountAccess_ {};
-    // The list of workspace role names that have read and write permission on the dataset. IDs starting with PAI are basic role IDs, and IDs starting with role- are custom role IDs. If the list contains "*", all roles have read and write permission.
+    // The list of workspace role names that have read and write permission on the dataset. Role IDs starting with PAI are basic role IDs, and role IDs starting with role- are custom role IDs. If the list contains "*", all roles have read and write permission.
     shared_ptr<vector<string>> mountAccessReadWriteRoleIdList_ {};
     // The dataset name.
     shared_ptr<string> name_ {};
@@ -483,22 +483,22 @@ namespace Models
     shared_ptr<string> providerType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The source relationship of the shared dataset. This field is valid only when IsShared is true.
+    // The source relationship of the shared dataset. This parameter is valid only when IsShared is true.
     shared_ptr<DatasetShareRelationship> sharedFrom_ {};
     // The sharing configuration of the current dataset.
     shared_ptr<GetDatasetResponseBody::SharingConfig> sharingConfig_ {};
-    // The source dataset ID of the iTag labeling dataset.
+    // The source dataset ID of the iTAG annotation dataset.
     shared_ptr<string> sourceDatasetId_ {};
-    // The source dataset version of the labeling dataset.
+    // The source dataset version of the annotation dataset.
     shared_ptr<string> sourceDatasetVersion_ {};
     // The source ID of the initial version v1. Valid values:
     // - If SourceType is USER, SourceId can be customized.
-    // - If SourceType is ITAG, which indicates a dataset generated from iTAG labeling results, SourceId is the iTAG task ID.
+    // - If SourceType is ITAG, which indicates a dataset generated from iTAG annotation results, SourceId is the iTAG task ID.
     // - If SourceType is PAI_PUBLIC_DATASET, which indicates a dataset created from a PAI public dataset, SourceId is empty by default.
     shared_ptr<string> sourceId_ {};
     // The source type of the initial version v1.
     shared_ptr<string> sourceType_ {};
-    // The labeling template of the iTag labeling dataset.
+    // The annotation template of the iTAG annotation dataset.
     shared_ptr<string> tagTemplateType_ {};
     // The URI of the initial version v1. Example formats:
     // - If the data source type is OSS: `oss://bucket.endpoint/object`.

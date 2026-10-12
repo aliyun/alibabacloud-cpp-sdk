@@ -60,27 +60,7 @@ AlibabaCloud::AIWorkSpace20210204::Client::Client(Config &config): OpenApiClient
     {"eu-west-1-oxs" , "aiworkspace.aliyuncs.com"},
     {"me-east-1" , "aiworkspace.aliyuncs.com"},
     {"rus-west-1-pop" , "aiworkspace.aliyuncs.com"},
-    {"cn-wulanchabu" , "aiworkspace.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "aiworkspace.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "aiworkspace.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "aiworkspace.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "aiworkspace.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou" , "aiworkspace.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "aiworkspace.cn-guangzhou.aliyuncs.com	"},
-    {"cn-beijing" , "aiworkspace.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "aiworkspace.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "aiworkspace.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-3" , "aiworkspace.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "aiworkspace.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "aiworkspace.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "aiworkspace.ap-northeast-1.aliyuncs.com"},
-    {"eu-central-1" , "aiworkspace.eu-central-1.aliyuncs.com"},
-    {"na-south-1" , "aiworkspace.na-south-1.aliyuncs.com"},
-    {"us-east-1" , "aiworkspace.us-east-1.aliyuncs.com"},
-    {"us-southeast-1" , "aiworkspace.us-southeast-1.aliyuncs.com"},
-    {"us-west-1" , "aiworkspace.us-west-1.aliyuncs.com"},
-    {"ap-south-1" , "aiworkspace.ap-south-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "aiworkspace.cn-shanghai-finance-1.aliyuncs.com"}
+    {"cn-guangzhou" , "aiworkspace.cn-guangzhou.aliyuncs.com	"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aiworkspace", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -579,6 +559,10 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
     body["Description"] = request.getDescription();
   }
 
+  if (!!request.hasDryRun()) {
+    body["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasEdition()) {
     body["Edition"] = request.getEdition();
   }
@@ -916,6 +900,8 @@ CreateDatasetLabelsResponse Client::createDatasetLabels(const string &DatasetId,
 /**
  * @summary Creates a dataset version.
  *
+ * @description Creates a dataset version.
+ *
  * @param request CreateDatasetVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -942,6 +928,10 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const strin
 
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasImportInfo()) {
@@ -996,6 +986,8 @@ CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const strin
 
 /**
  * @summary Creates a dataset version.
+ *
+ * @description Creates a dataset version.
  *
  * @param request CreateDatasetVersionRequest
  * @return CreateDatasetVersionResponse
@@ -1545,7 +1537,7 @@ CreateModelVersionLabelsResponse Client::createModelVersionLabels(const string &
 }
 
 /**
- * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+ * @summary Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
  *
  * @param request CreateProductOrdersRequest
  * @param headers map
@@ -1582,7 +1574,7 @@ CreateProductOrdersResponse Client::createProductOrdersWithOptions(const CreateP
 }
 
 /**
- * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+ * @summary Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
  *
  * @param request CreateProductOrdersRequest
  * @return CreateProductOrdersResponse
@@ -1838,7 +1830,7 @@ CreateWorkspaceResourceResponse Client::createWorkspaceResource(const string &Wo
 }
 
 /**
- * @summary Adds a workspace role.
+ * @summary Adds a role to a workspace.
  *
  * @param request CreateWorkspaceRoleRequest
  * @param headers map
@@ -1883,7 +1875,7 @@ CreateWorkspaceRoleResponse Client::createWorkspaceRoleWithOptions(const string 
 }
 
 /**
- * @summary Adds a workspace role.
+ * @summary Adds a role to a workspace.
  *
  * @param request CreateWorkspaceRoleRequest
  * @return CreateWorkspaceRoleResponse
@@ -3278,7 +3270,7 @@ GetDatasetJobResponse Client::getDatasetJob(const string &DatasetId, const strin
 }
 
 /**
- * @summary Retrieves the configuration of a dataset job.
+ * @summary Retrieves the configuration of a dataset task.
  *
  * @param request GetDatasetJobConfigRequest
  * @param headers map
@@ -3311,7 +3303,7 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfigWithOptions(const string 
 }
 
 /**
- * @summary Retrieves the configuration of a dataset job.
+ * @summary Retrieves the configuration of a dataset task.
  *
  * @param request GetDatasetJobConfigRequest
  * @return GetDatasetJobConfigResponse
@@ -3323,7 +3315,9 @@ GetDatasetJobConfigResponse Client::getDatasetJobConfig(const string &DatasetId,
 }
 
 /**
- * @summary Retrieves the information of a specified dataset version.
+ * @summary Retrieves the details of a specified dataset version.
+ *
+ * @description Retrieves the details of a specified dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @param headers map
@@ -3350,7 +3344,9 @@ GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const string &Dat
 }
 
 /**
- * @summary Retrieves the information of a specified dataset version.
+ * @summary Retrieves the details of a specified dataset version.
+ *
+ * @description Retrieves the details of a specified dataset version.
  *
  * @param request GetDatasetVersionRequest
  * @return GetDatasetVersionResponse
@@ -3536,7 +3532,7 @@ GetInstanceJobResponse Client::getInstanceJob(const string &InstanceJobId, const
 }
 
 /**
- * @summary Retrieves a member of a workspace.
+ * @summary Retrieves the members of a workspace.
  *
  * @param request GetMemberRequest
  * @param headers map
@@ -3573,7 +3569,7 @@ GetMemberResponse Client::getMemberWithOptions(const string &WorkspaceId, const 
 }
 
 /**
- * @summary Retrieves a member of a workspace.
+ * @summary Retrieves the members of a workspace.
  *
  * @param request GetMemberRequest
  * @return GetMemberResponse
@@ -3585,7 +3581,7 @@ GetMemberResponse Client::getMember(const string &WorkspaceId, const GetMemberRe
 }
 
 /**
- * @summary Gets the details of a specified model.
+ * @summary Retrieves the details of a specified model.
  *
  * @param request GetModelRequest
  * @param headers map
@@ -3612,7 +3608,7 @@ GetModelResponse Client::getModelWithOptions(const string &ModelId, const GetMod
 }
 
 /**
- * @summary Gets the details of a specified model.
+ * @summary Retrieves the details of a specified model.
  *
  * @param request GetModelRequest
  * @return GetModelResponse
@@ -4865,7 +4861,7 @@ ListImageLabelsResponse Client::listImageLabels(const ListImageLabelsRequest &re
 }
 
 /**
- * @summary Queries a list of images.
+ * @summary Retrieves a list of images.
  *
  * @param request ListImagesRequest
  * @param headers map
@@ -4942,7 +4938,7 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &reques
 }
 
 /**
- * @summary Queries a list of images.
+ * @summary Retrieves a list of images.
  *
  * @param request ListImagesRequest
  * @return ListImagesResponse
@@ -4954,7 +4950,7 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Lists members in a workspace.
+ * @summary Lists the members of a workspace.
  *
  * @param request ListMembersRequest
  * @param headers map
@@ -5003,7 +4999,7 @@ ListMembersResponse Client::listMembersWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Lists members in a workspace.
+ * @summary Lists the members of a workspace.
  *
  * @param request ListMembersRequest
  * @return ListMembersResponse
@@ -5835,9 +5831,9 @@ ListWorkspaceUsersResponse Client::listWorkspaceUsers(const string &WorkspaceId,
 }
 
 /**
- * @summary Retrieves the list of workspaces in a specified region.
+ * @summary Retrieves the list of workspaces in a region.
  *
- * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
+ * @description Use the Option parameter to specify different query options and retrieve different workspace-related information.
  *
  * @param request ListWorkspacesRequest
  * @param headers map
@@ -5918,9 +5914,9 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Retrieves the list of workspaces in a specified region.
+ * @summary Retrieves the list of workspaces in a region.
  *
- * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
+ * @description Use the Option parameter to specify different query options and retrieve different workspace-related information.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -6824,6 +6820,8 @@ UpdateDatasetJobConfigResponse Client::updateDatasetJobConfig(const string &Data
 /**
  * @summary Updates the information of a specified dataset version.
  *
+ * @description Updates the information of a specified dataset version.
+ *
  * @param request UpdateDatasetVersionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6876,6 +6874,8 @@ UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const strin
 
 /**
  * @summary Updates the information of a specified dataset version.
+ *
+ * @description Updates the information of a specified dataset version.
  *
  * @param request UpdateDatasetVersionRequest
  * @return UpdateDatasetVersionResponse

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The label key, which must be 1 to 128 characters long.
+    // The key of the dataset label.
     shared_ptr<string> key_ {};
-    // The label value, which can be 0 to 128 characters long.
+    // The value of the dataset label.
     shared_ptr<string> value_ {};
   };
 

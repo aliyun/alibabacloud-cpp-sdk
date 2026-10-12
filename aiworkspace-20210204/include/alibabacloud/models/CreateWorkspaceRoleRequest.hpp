@@ -268,8 +268,9 @@ namespace Models
     shared_ptr<vector<CreateWorkspaceRoleRequest::ModulePermissions>> modulePermissions_ {};
     // (Required) The custom role name. The name must be unique within the same workspace. The name can contain letters, digits, underscores (_), and hyphens (-), and cannot exceed 64 characters in length.
     shared_ptr<string> roleName_ {};
-    // The role type. Valid values: custom (custom role). Only custom roles are supported. This is the default value.
+    // The role type. Valid values: custom: custom role. Only custom roles are supported. This is the default value.
     shared_ptr<string> roleType_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

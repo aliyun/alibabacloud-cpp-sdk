@@ -149,43 +149,42 @@ namespace Models
 
 
   protected:
-    // The list of return fields for workspace details. This parameter limits the workspace properties returned in the result.
-    // Separate multiple properties with commas (,). Currently, only Id is supported, which indicates the workspace ID.
+    // The list of fields to return in the workspace details. Use this parameter to limit the workspace properties included in the response. Separate multiple properties with commas (,). Currently, only Id (workspace ID) is supported.
     shared_ptr<string> fields_ {};
-    // The comma-separated list of modules. Default value: PAI.
+    // The comma-separated module list. Default value: PAI.
     shared_ptr<string> moduleList_ {};
-    // The query option. Valid values:
-    // * GetWorkspaces (default): retrieves the workspace list. The Workspaces parameter is returned.
-    // * GetResourceLimits: retrieves resource limits. The ResourceLimits parameter is returned.
+    // The query options. Valid values:
+    // * GetWorkspaces (default): retrieves the workspace list and returns Workspaces.
+    // * GetResourceLimits: retrieves resource limits and returns ResourceLimits.
     shared_ptr<string> option_ {};
-    // The sorting order for the specified sorting field during paging. Valid values:
+    // The sort order applied to the specified sort field in a paged query. Valid values:
     // * ASC (default): ascending order.
     // * DESC: descending order.
     shared_ptr<string> order_ {};
     // The page number of the workspace list. Minimum value: 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page for paging. Default value: 20.
+    // The number of entries per page for a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group ID. For information about how to view the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The resource group ID. For information about how to view the resource group ID, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The sorting field for paging. Default value: GmtCreateTime. Valid values:
+    // The sort field for a paged query. Default value: GmtCreateTime. Valid values:
     // * GmtCreateTime (default): sorts by creation time.
     // * GmtModifiedTime: sorts by modification time.
     shared_ptr<string> sortBy_ {};
     // The workspace status. Valid values:
     // 
-    // - ENABLED: Normal.
-    // - INITIALIZING: Being initialized.
-    // - FAILURE: Failed.
-    // - DISABLED: Manually disabled.
-    // - FROZEN: Frozen due to overdue payment.
-    // - UPDATING: Being updated.
+    // - ENABLED: normal.
+    // - INITIALIZING: initializing.
+    // - FAILURE: failed.
+    // - DISABLED: manually disabled.
+    // - FROZEN: frozen due to overdue payment.
+    // - UPDATING: updating.
     shared_ptr<string> status_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
-    // Specifies whether to display detailed workspace information. Valid values:
-    // - false (default): does not display detailed information.
-    // - true: displays detailed information.
+    // Specifies whether to display workspace details. Valid values:
+    // - false (default): does not display details.
+    // - true: displays details.
     shared_ptr<bool> verbose_ {};
     // The list of workspace IDs. Separate multiple workspace IDs with commas (,).
     shared_ptr<string> workspaceIds_ {};

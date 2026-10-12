@@ -187,17 +187,17 @@ namespace Models
       shared_ptr<string> creator_ {};
       // The workspace description.
       shared_ptr<string> description_ {};
-      // The display name of the workspace.
+      // The workspace display name.
       shared_ptr<string> displayName_ {};
-      // The list of environments contained in the workspace.
+      // The list of environments included in the workspace.
       shared_ptr<vector<string>> envTypes_ {};
-      // The extended information. Currently includes TenantId, which indicates the tenant ID.
+      // The extended information. Currently includes TenantId, which represents the tenant ID.
       Darabonba::Json extraInfos_ {};
-      // The time when the workspace was created. The time is in the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
+      // The time when the workspace was created. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the workspace was last modified. The time is in the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
+      // The time when the workspace was last modified. The time follows the ISO 8601 standard in UTC+0. Format: yyyy-MM-ddTHH:mmZ.
       shared_ptr<string> gmtModifiedTime_ {};
-      // Indicates whether the workspace is the default workspace.
+      // Indicates whether this is the default workspace.
       shared_ptr<bool> isDefault_ {};
       // The workspace status.
       shared_ptr<string> status_ {};
@@ -246,8 +246,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource types and quantity limits that a user can activate within a workspace. This list is returned when Option is set to GetResourceLimits.
-    // Currently supported resource types include:
+    // The types and quantity limits of resources that a user can activate within a workspace. This list is returned when Option is set to GetResourceLimits. Currently supported resource types:
     // * MaxCompute_share: MaxCompute pay-as-you-go.
     // * MaxCompute_isolate: MaxCompute subscription.
     // * DLC_share: DLC pay-as-you-go.

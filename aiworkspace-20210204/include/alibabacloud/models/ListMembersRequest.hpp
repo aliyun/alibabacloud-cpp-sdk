@@ -75,28 +75,23 @@ namespace Models
 
 
   protected:
-    // Username. Fuzzy match is supported.
+    // The member name. Fuzzy match is supported.
     shared_ptr<string> memberName_ {};
-    // Page number. Pages start at 1. Default value: 1.
+    // The page number of the workspace list. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of entries per page. Default value: 20.
+    // The paging Settings for the number of entries per page in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Roles used to filter members. Separate multiple roles with commas (,). Valid values:
-    // 
-    // - PAI.AlgoDeveloper: Algorithm developer
-    // 
-    // - PAI.AlgoOperator: Algorithm O\\&M engineer
-    // 
-    // - PAI.LabelManager: Annotation administrator
-    // 
-    // - PAI.MaxComputeDeveloper: MaxCompute developer
-    // 
-    // - PAI.WorkspaceAdmin: Workspace administrator
-    // 
-    // - PAI.WorkspaceGuest: Guest
-    // 
-    // - PAI.WorkspaceOwner: Workspace owner
+    // Filters members by role. Separate multiple roles with commas (,).
+    // Valid values:
+    // - PAI.AlgoDeveloper: Algorithm developer.
+    // - PAI.AlgoOperator: Algorithm O&M.
+    // - PAI.LabelManager: Labeling administrator.
+    // - PAI.MaxComputeDeveloper: MaxCompute developer.
+    // - PAI.WorkspaceAdmin: Administrator.
+    // - PAI.WorkspaceGuest: Guest.
+    // - PAI.WorkspaceOwner: Owner.
     shared_ptr<string> roles_ {};
+    // The ID of the user to query.
     shared_ptr<string> userId_ {};
   };
 

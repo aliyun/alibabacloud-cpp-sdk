@@ -106,10 +106,11 @@ namespace Models
 
 
   protected:
+    // The account type of the member. Valid values: 1: primary account. 5: sub-account. 6: role account.
     shared_ptr<string> accountType_ {};
     // The display name of the member.
     shared_ptr<string> displayName_ {};
-    // The time when the member was created. The time is in Coordinated Universal Time (UTC) and the format is ISO 8601.
+    // The creation time in UTC, in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
     // The member ID.
     shared_ptr<string> memberId_ {};

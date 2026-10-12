@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // The entity\\"s attributes.
+    // Attributes
     Darabonba::Json attributes_ {};
-    // The entity type.
+    // The type of the data lineage entity.
     shared_ptr<string> entityType_ {};
-    // The entity\\"s name.
+    // The name of the data lineage entity.
     shared_ptr<string> name_ {};
-    // The entity\\"s qualified name.
+    // The unique qualified name of the data lineage entity.
     shared_ptr<string> qualifiedName_ {};
   };
 

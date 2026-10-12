@@ -68,13 +68,13 @@ namespace Models
 
 
   protected:
-    // A collection of key-value pairs providing additional details about the relationship.
+    // Attributes
     Darabonba::Json attributes_ {};
-    // The channel or system through which the relationship is established.
+    // The data channel to which the lineage relationship belongs.
     shared_ptr<string> dataChannel_ {};
-    // The globally unique identifier (GUID) for the relationship.
+    // The globally unique identifier of the lineage relationship.
     shared_ptr<string> relationshipGuid_ {};
-    // Specifies the type of relationship.
+    // The type of the lineage relationship.
     shared_ptr<string> relationshipType_ {};
   };
 

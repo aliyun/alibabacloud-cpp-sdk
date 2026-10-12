@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // If the call is asynchronous, the API returns a JobId.
+    // The ID of the experiment. If the creation operation is asynchronous, a specific job ID is returned.
     shared_ptr<string> experimentId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

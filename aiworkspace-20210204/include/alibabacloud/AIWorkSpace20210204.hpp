@@ -251,6 +251,8 @@ namespace AIWorkSpace20210204
       /**
        * @summary Creates a dataset version.
        *
+       * @description Creates a dataset version.
+       *
        * @param request CreateDatasetVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,6 +262,8 @@ namespace AIWorkSpace20210204
 
       /**
        * @summary Creates a dataset version.
+       *
+       * @description Creates a dataset version.
        *
        * @param request CreateDatasetVersionRequest
        * @return CreateDatasetVersionResponse
@@ -415,7 +419,7 @@ namespace AIWorkSpace20210204
       Models::CreateModelVersionLabelsResponse createModelVersionLabels(const string &ModelId, const string &VersionName, const Models::CreateModelVersionLabelsRequest &request);
 
       /**
-       * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+       * @summary Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
        *
        * @param request CreateProductOrdersRequest
        * @param headers map
@@ -425,7 +429,7 @@ namespace AIWorkSpace20210204
       Models::CreateProductOrdersResponse createProductOrdersWithOptions(const Models::CreateProductOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
+       * @summary Purchases products. Currently, only pay-as-you-go DataWorks, OSS, PAI, and MaxCompute are supported.
        *
        * @param request CreateProductOrdersRequest
        * @return CreateProductOrdersResponse
@@ -509,7 +513,7 @@ namespace AIWorkSpace20210204
       Models::CreateWorkspaceResourceResponse createWorkspaceResource(const string &WorkspaceId, const Models::CreateWorkspaceResourceRequest &request);
 
       /**
-       * @summary Adds a workspace role.
+       * @summary Adds a role to a workspace.
        *
        * @param request CreateWorkspaceRoleRequest
        * @param headers map
@@ -519,7 +523,7 @@ namespace AIWorkSpace20210204
       Models::CreateWorkspaceRoleResponse createWorkspaceRoleWithOptions(const string &WorkspaceId, const Models::CreateWorkspaceRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a workspace role.
+       * @summary Adds a role to a workspace.
        *
        * @param request CreateWorkspaceRoleRequest
        * @return CreateWorkspaceRoleResponse
@@ -1093,7 +1097,7 @@ namespace AIWorkSpace20210204
       Models::GetDatasetJobResponse getDatasetJob(const string &DatasetId, const string &DatasetJobId, const Models::GetDatasetJobRequest &request);
 
       /**
-       * @summary Retrieves the configuration of a dataset job.
+       * @summary Retrieves the configuration of a dataset task.
        *
        * @param request GetDatasetJobConfigRequest
        * @param headers map
@@ -1103,7 +1107,7 @@ namespace AIWorkSpace20210204
       Models::GetDatasetJobConfigResponse getDatasetJobConfigWithOptions(const string &DatasetId, const string &DatasetJobConfigId, const Models::GetDatasetJobConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configuration of a dataset job.
+       * @summary Retrieves the configuration of a dataset task.
        *
        * @param request GetDatasetJobConfigRequest
        * @return GetDatasetJobConfigResponse
@@ -1111,7 +1115,9 @@ namespace AIWorkSpace20210204
       Models::GetDatasetJobConfigResponse getDatasetJobConfig(const string &DatasetId, const string &DatasetJobConfigId, const Models::GetDatasetJobConfigRequest &request);
 
       /**
-       * @summary Retrieves the information of a specified dataset version.
+       * @summary Retrieves the details of a specified dataset version.
+       *
+       * @description Retrieves the details of a specified dataset version.
        *
        * @param request GetDatasetVersionRequest
        * @param headers map
@@ -1121,7 +1127,9 @@ namespace AIWorkSpace20210204
       Models::GetDatasetVersionResponse getDatasetVersionWithOptions(const string &DatasetId, const string &VersionName, const Models::GetDatasetVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the information of a specified dataset version.
+       * @summary Retrieves the details of a specified dataset version.
+       *
+       * @description Retrieves the details of a specified dataset version.
        *
        * @param request GetDatasetVersionRequest
        * @return GetDatasetVersionResponse
@@ -1201,7 +1209,7 @@ namespace AIWorkSpace20210204
       Models::GetInstanceJobResponse getInstanceJob(const string &InstanceJobId, const Models::GetInstanceJobRequest &request);
 
       /**
-       * @summary Retrieves a member of a workspace.
+       * @summary Retrieves the members of a workspace.
        *
        * @param request GetMemberRequest
        * @param headers map
@@ -1211,7 +1219,7 @@ namespace AIWorkSpace20210204
       Models::GetMemberResponse getMemberWithOptions(const string &WorkspaceId, const Models::GetMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a member of a workspace.
+       * @summary Retrieves the members of a workspace.
        *
        * @param request GetMemberRequest
        * @return GetMemberResponse
@@ -1219,7 +1227,7 @@ namespace AIWorkSpace20210204
       Models::GetMemberResponse getMember(const string &WorkspaceId, const Models::GetMemberRequest &request);
 
       /**
-       * @summary Gets the details of a specified model.
+       * @summary Retrieves the details of a specified model.
        *
        * @param request GetModelRequest
        * @param headers map
@@ -1229,7 +1237,7 @@ namespace AIWorkSpace20210204
       Models::GetModelResponse getModelWithOptions(const string &ModelId, const Models::GetModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a specified model.
+       * @summary Retrieves the details of a specified model.
        *
        * @param request GetModelRequest
        * @return GetModelResponse
@@ -1543,7 +1551,7 @@ namespace AIWorkSpace20210204
       Models::ListImageLabelsResponse listImageLabels(const Models::ListImageLabelsRequest &request);
 
       /**
-       * @summary Queries a list of images.
+       * @summary Retrieves a list of images.
        *
        * @param request ListImagesRequest
        * @param headers map
@@ -1553,7 +1561,7 @@ namespace AIWorkSpace20210204
       Models::ListImagesResponse listImagesWithOptions(const Models::ListImagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of images.
+       * @summary Retrieves a list of images.
        *
        * @param request ListImagesRequest
        * @return ListImagesResponse
@@ -1561,7 +1569,7 @@ namespace AIWorkSpace20210204
       Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
 
       /**
-       * @summary Lists members in a workspace.
+       * @summary Lists the members of a workspace.
        *
        * @param request ListMembersRequest
        * @param headers map
@@ -1571,7 +1579,7 @@ namespace AIWorkSpace20210204
       Models::ListMembersResponse listMembersWithOptions(const string &WorkspaceId, const Models::ListMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists members in a workspace.
+       * @summary Lists the members of a workspace.
        *
        * @param request ListMembersRequest
        * @return ListMembersResponse
@@ -1795,9 +1803,9 @@ namespace AIWorkSpace20210204
       Models::ListWorkspaceUsersResponse listWorkspaceUsers(const string &WorkspaceId, const Models::ListWorkspaceUsersRequest &request);
 
       /**
-       * @summary Retrieves the list of workspaces in a specified region.
+       * @summary Retrieves the list of workspaces in a region.
        *
-       * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
+       * @description Use the Option parameter to specify different query options and retrieve different workspace-related information.
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -1807,9 +1815,9 @@ namespace AIWorkSpace20210204
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of workspaces in a specified region.
+       * @summary Retrieves the list of workspaces in a region.
        *
-       * @description You can specify different query options by using the option parameter to retrieve different workspace-related information.
+       * @description Use the Option parameter to specify different query options and retrieve different workspace-related information.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -2143,6 +2151,8 @@ namespace AIWorkSpace20210204
       /**
        * @summary Updates the information of a specified dataset version.
        *
+       * @description Updates the information of a specified dataset version.
+       *
        * @param request UpdateDatasetVersionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2152,6 +2162,8 @@ namespace AIWorkSpace20210204
 
       /**
        * @summary Updates the information of a specified dataset version.
+       *
+       * @description Updates the information of a specified dataset version.
        *
        * @param request UpdateDatasetVersionRequest
        * @return UpdateDatasetVersionResponse

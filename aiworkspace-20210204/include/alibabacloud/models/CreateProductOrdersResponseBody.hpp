@@ -84,6 +84,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the purchase order.
     shared_ptr<string> orderId_ {};
+    // The list of IDs of the successfully purchased products.
     shared_ptr<vector<string>> productIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

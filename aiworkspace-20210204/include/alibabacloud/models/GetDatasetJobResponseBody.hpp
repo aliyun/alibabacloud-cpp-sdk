@@ -145,27 +145,27 @@ namespace Models
   protected:
     // The total number of completed files.
     shared_ptr<int64_t> completedFileCount_ {};
-    // The time when the task was started.
+    // The time when the job was started, in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> createTime_ {};
-    // The task description.
+    // The job description.
     shared_ptr<string> description_ {};
     // The total number of failed files.
     shared_ptr<int64_t> failedFileCount_ {};
-    // The time when the task was finished.
+    // The time when the job ended, in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> finishTime_ {};
-    // The task operation.
+    // The job action.
     shared_ptr<string> jobAction_ {};
-    // The task pattern.
+    // The job mode.
     shared_ptr<string> jobMode_ {};
-    // The task details.
+    // The job details.
     shared_ptr<string> jobSpec_ {};
     // The list of task logs.
     shared_ptr<vector<string>> logs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task status.
+    // The job status.
     shared_ptr<string> status_ {};
-    // The total number of files for the task.
+    // The total number of files in the job.
     shared_ptr<int64_t> totalFileCount_ {};
   };
 

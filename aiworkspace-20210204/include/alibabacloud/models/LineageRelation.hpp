@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The fully qualified name of the target entity in the relationship.
+    // The unique qualified name of the destination data lineage entity.
     shared_ptr<string> destEntityQualifiedName_ {};
-    // The system-assigned unique identifier (GUID) for the relationship.
+    // The globally unique identifier of the data lineage relationship.
     shared_ptr<string> relationshipGuid_ {};
-    // The fully qualified name of the source entity in the relationship.
+    // The unique qualified name of the source data lineage entity.
     shared_ptr<string> srcEntityQualifiedName_ {};
   };
 

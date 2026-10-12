@@ -206,33 +206,31 @@ namespace Models
 
   protected:
     // The visibility of the image. Valid values:
-    // 
-    // - PUBLIC: All members in the current workspace can perform operations on the image.
-    // 
-    // - PRIVATE: Only the creator can perform operations on the image.
+    // - PUBLIC: All members of the current workspace can access the image.
+    // - PRIVATE: Only the creator can access the image.
     shared_ptr<string> accessibility_ {};
-    // The description of the image.
+    // The image description.
     shared_ptr<string> description_ {};
-    // The time when the image was created. The time is in UTC and the format is ISO 8601.
+    // The creation time of the image in UTC, in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the image was last modified. The time is in UTC and the format is ISO 8601.
+    // The modification time of the image in UTC, in ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The URL of the image, including the version number.
+    // The image address, including the version number.
     shared_ptr<string> imageUri_ {};
-    // A list of image labels. This is an array. Each item in the array contains a Key and a Value field.
-    // Official images have the following label: the key is system.official and the value is true.
+    // The list of image labels. This is an array in which each element contains the Key and Value fields.
+    // Official images have the following label: Key is system.official and Value is true.
     shared_ptr<vector<GetImageResponseBody::Labels>> labels_ {};
-    // The name of the image.
+    // The image name.
     shared_ptr<string> name_ {};
     // The Alibaba Cloud account of the creator.
     shared_ptr<string> parentUserId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The size of the image in bytes.
+    // The image size, in bytes.
     shared_ptr<int64_t> size_ {};
-    // The ID of the image source.
+    // The image source ID.
     shared_ptr<string> sourceId_ {};
-    // The type of the image source.
+    // The image source type.
     shared_ptr<string> sourceType_ {};
     // The UID of the user who created the image.
     shared_ptr<string> userId_ {};

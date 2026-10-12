@@ -211,32 +211,35 @@ namespace Models
 
 
   protected:
-    // The data volume.
+    // The data count.
     shared_ptr<int64_t> dataCount_ {};
     // The dataset size.
     shared_ptr<int64_t> dataSize_ {};
-    // The data source type.
+    // The data source type. Valid values:
+    // - NAS: File Storage NAS.
+    // - CPFS: Cloud Parallel File Storage.
+    // - OSS: Object Storage Service (OSS).
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The primary resource ID.
+    // The primary ID of the resource.
     shared_ptr<string> datasetId_ {};
     // DatasetTaskRamRole
     shared_ptr<string> datasetTaskRamRole_ {};
     // The version description.
     shared_ptr<string> description_ {};
-    // The creation time.
+    // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.sssZ format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The last modification time.
+    // The last modification time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.sssZ format.
     shared_ptr<string> gmtModifiedTime_ {};
     // The storage import configuration of the dataset. OSS, NAS, and CPFS are supported.
     // 
     // <details>
     // <summary>OSS</summary>
     // {
-    // "region": "${region}",//The region ID.
-    // "bucket": "${bucket}",//The bucket name.
-    // "path": "${path}" //The file path.
+    // "region": "${region}",// The region ID
+    // "bucket": "${bucket}",// The bucket name
+    // "path": "${path}" // The file path
     // }
     // </details>
     // 
@@ -252,32 +255,38 @@ namespace Models
     // 
     // 
     // <details>
-    // <summary>Intelligent computing CPFS</summary>
+    // <summary>AI CPFS</summary>
     // Block content
     // </details>
     shared_ptr<string> importInfo_ {};
-    // The resource labels.
+    // The resource tags.
     shared_ptr<vector<Label>> labels_ {};
-    // The permission when the dataset is mounted. Valid values:
-    // - RO: read-only mount
-    // - RW: read and write mount
+    // The permissions when the dataset is mounted. Valid values:
+    // - RO: Read-only mount.
+    // - RW: Read/write mount.
     shared_ptr<string> mountAccess_ {};
-    // The extension field.
+    // The extended fields.
     shared_ptr<string> options_ {};
-    // The property of the dataset.
+    // The property of the dataset. Valid values:
+    // - DIRECTORY: Directory.
+    // - FILE: File.
     // 
     // This parameter is required.
     shared_ptr<string> property_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The dataset source ID.
+    // The source ID of the dataset.
     shared_ptr<string> sourceId_ {};
-    // The data source type.
+    // The source type. Valid values:
+    // - ENHANCE: Data augmentation.
+    // - ADDVERSION: Added version.
+    // - CLEANING: Data cleaning.
     shared_ptr<string> sourceType_ {};
     // The URI configuration example.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
+    // The list of user metric collection endpoints.
     shared_ptr<vector<UserMetricsEndpoint>> userMetricsEndpoints_ {};
     // The dataset version.
     shared_ptr<string> versionName_ {};

@@ -79,19 +79,22 @@ namespace Models
 
 
   protected:
-    // The visibility of the experiment. It can be PRIVATE (visible only to the creator and the creator\\"s Alibaba Cloud account) or PUBLIC (visible to all users). This parameter is optional. The default value is PRIVATE.
+    // The visibility of the experiment. Valid values:
+    // 
+    // - PUBLIC: Visible to all users.
+    // - PRIVATE: Visible only to the creator and the Alibaba Cloud account.
+    // 
+    // Default value: PRIVATE.
     shared_ptr<string> accessibility_ {};
-    // The default output path of artifacts for all tasks that are associated with the experiment. Only Object Storage Service (OSS) paths are supported.
+    // The default artifact output path for all tasks associated with the experiment. Currently, only OSS paths are supported.
     shared_ptr<string> artifactUri_ {};
     // The labels.
     shared_ptr<vector<LabelInfo>> labels_ {};
-    // The name of the experiment. The name must meet the following requirements:
+    // The name of the experiment. The name must meet the following rules:
     // 
-    // - Start with an uppercase or lowercase letter.
-    // 
-    // - Contain uppercase letters, lowercase letters, digits, underscores (_), and hyphens (-).
-    // 
-    // - Be 1 to 63 characters in length.
+    // - The name must start with a lowercase or uppercase letter.
+    // - The name can contain uppercase letters, lowercase letters, digits, underscores (_), or hyphens (-).
+    // - The name must be 1 to 63 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

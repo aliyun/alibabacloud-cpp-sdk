@@ -108,17 +108,17 @@ namespace Models
     // - PUBLIC: All members in the current workspace can access the prompt.
     // - PRIVATE: Only the creator can access the prompt.
     shared_ptr<string> accessibility_ {};
-    // The creation time.
+    // The creation time in UTC, formatted as YYYY-MM-DDTHH:mm:ssZ in the ISO 8601 standard.
     shared_ptr<string> createTime_ {};
-    // The prompt description.
+    // The description of the prompt.
     shared_ptr<string> description_ {};
-    // The prompt content.
+    // The content of the prompt.
     shared_ptr<string> frameworkContent_ {};
-    // The prompt template framework type.
+    // The framework type of the prompt template.
     shared_ptr<string> frameworkType_ {};
-    // The modification time.
+    // The modification time in UTC, formatted as YYYY-MM-DDTHH:mm:ssZ in the ISO 8601 standard.
     shared_ptr<string> modifyTime_ {};
-    // The prompt name.
+    // The name of the prompt.
     shared_ptr<string> promptName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

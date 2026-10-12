@@ -184,7 +184,7 @@ namespace Models
     shared_ptr<string> accessibility_ {};
     // The description of the image.
     shared_ptr<string> description_ {};
-    // The image ID. If this parameter is not specified, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
+    // The image ID. If you do not specify this parameter, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
     shared_ptr<string> imageId_ {};
     // The image URI, which can be duplicated. For information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
     // 
@@ -222,12 +222,13 @@ namespace Models
     shared_ptr<string> name_ {};
     // The image size, in GB.
     shared_ptr<int64_t> size_ {};
-    // The image source ID. When the image source type is Build, the source ID corresponds to the image build ID.
+    // The image source ID. If the image source type is Build, the source ID corresponds to the image build ID.
     shared_ptr<string> sourceId_ {};
     // The image source type. Valid values:
     // - Import: import.
     // - Build: generate.
     shared_ptr<string> sourceType_ {};
+    // The user ID (UID) of the image creator.
     shared_ptr<string> userId_ {};
     // The ID of the workspace to which the image belongs. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};

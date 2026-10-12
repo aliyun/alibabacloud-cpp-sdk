@@ -48,9 +48,10 @@ namespace Models
 
 
   protected:
-    // The member UID. You must specify either UserId or MemberId. You cannot specify both.
+    // The member UID. You must specify either UserId or MemberId. You cannot specify both at the same time.
     shared_ptr<string> memberId_ {};
-    // The user UID. For more information about how to view the user UID, see [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html). You must specify either UserId or MemberId. You cannot specify both.
+    // The user UID. For information about how to view the user UID, see [ListWorkspaceUsers](https://help.aliyun.com/document_detail/449133.html).
+    // You must specify either UserId or MemberId. You cannot specify both at the same time.
     shared_ptr<string> userId_ {};
   };
 

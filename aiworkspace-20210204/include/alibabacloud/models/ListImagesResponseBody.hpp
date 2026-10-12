@@ -229,34 +229,32 @@ namespace Models
 
     protected:
       // The visibility of the image. Valid values:
-      // 
-      // - PUBLIC: All members in the current workspace can perform operations on the image.
-      // 
-      // - PRIVATE: Only the creator can perform operations on the image.
+      // - PUBLIC: All members of the current workspace can operate on the image.
+      // - PRIVATE: Only the creator can operate on the image.
       shared_ptr<string> accessibility_ {};
       // The image description.
       shared_ptr<string> description_ {};
-      // The time when the image was created. The time is in UTC and the format is ISO 8601.
+      // The creation time in UTC, in ISO 8601 format.
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the image was last modified. The time is in UTC and the format is ISO 8601.
+      // The modification time in UTC, in ISO 8601 format.
       shared_ptr<string> gmtModifiedTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The image URL, which includes the version number.
+      // The image URI, including the version number.
       shared_ptr<string> imageUri_ {};
-      // The list of image labels.
+      // The image label list.
       shared_ptr<vector<Images::Labels>> labels_ {};
       // The image name.
       shared_ptr<string> name_ {};
-      // The UID of the Alibaba Cloud account that created the image.
+      // The UID of the Alibaba Cloud account of the creator.
       shared_ptr<string> parentUserId_ {};
-      // The image size in bytes.
+      // The image size, in bytes.
       shared_ptr<int64_t> size_ {};
-      // The ID of the image source.
+      // The image source ID.
       shared_ptr<string> sourceId_ {};
-      // The type of the image source.
+      // The image source type.
       shared_ptr<string> sourceType_ {};
-      // The UID of the Alibaba Cloud account that created the image.
+      // The UID of the Alibaba Cloud account of the creator.
       shared_ptr<string> userId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -288,11 +286,11 @@ namespace Models
 
 
   protected:
-    // The list of images.
+    // The image list.
     shared_ptr<vector<ListImagesResponseBody::Images>> images_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned images.
+    // The total number of images returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

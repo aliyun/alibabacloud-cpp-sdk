@@ -156,31 +156,31 @@ namespace Models
 
 
   protected:
-    // Accessibility
+    // The visibility of the experiment. PRIVATE indicates that the experiment is visible only to the creator and their Alibaba Cloud account. PUBLIC indicates that the experiment is visible to all users.
     shared_ptr<string> accessibility_ {};
-    // ArtifactUri
+    // The default artifact output path for tasks associated with the experiment. Currently, only OSS paths are supported.
     shared_ptr<string> artifactUri_ {};
-    // ExperimentId
+    // The experiment ID.
     shared_ptr<string> experimentId_ {};
-    // GmtCreatedTime
+    // The time when the experiment was created.
     shared_ptr<string> gmtCreateTime_ {};
-    // GmtModifiedTime
+    // The time when the experiment was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
-    // Labels
+    // The list of labels for the experiment.
     shared_ptr<vector<ExperimentLabel>> labels_ {};
     // LatestRun
     shared_ptr<Run> latestRun_ {};
-    // Name
+    // The name of the experiment.
     shared_ptr<string> name_ {};
-    // OwnerId
+    // The Alibaba Cloud account ID of the experiment owner.
     shared_ptr<string> ownerId_ {};
-    // RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // TensorboardLogUri
+    // The default OSS storage path for TensorBoard logs of each trial in the experiment.
     shared_ptr<string> tensorboardLogUri_ {};
-    // UserId
+    // The user ID of the experiment creator.
     shared_ptr<string> userId_ {};
-    // WorkspaceId
+    // The ID of the workspace to which the experiment belongs.
     shared_ptr<string> workspaceId_ {};
   };
 
