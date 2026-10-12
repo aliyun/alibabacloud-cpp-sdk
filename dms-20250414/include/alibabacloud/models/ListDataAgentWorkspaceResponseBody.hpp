@@ -217,22 +217,25 @@ namespace Models
 
 
       protected:
-        // The creation time of the workspace, in milliseconds (UNIX timestamp).
+        // The time when the workspace was created. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The UID of the workspace creator.
         shared_ptr<string> creator_ {};
+        // The name of the workspace creator.
         shared_ptr<string> creatorName_ {};
         // The description of the workspace.
         shared_ptr<string> description_ {};
         // Indicates whether session sharing is enabled for the workspace.
         shared_ptr<bool> isSessionShareEnabled_ {};
-        // The most recent modification time of the workspace, in milliseconds (UNIX timestamp).
+        // The time when the workspace was last modified. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> modifyTime_ {};
-        // The role name of the user in the workspace.
+        // The name of the user\\"s role in the workspace.
         shared_ptr<string> roleName_ {};
+        // The number of running sessions in the workspace.
         shared_ptr<int32_t> runningSessionCount_ {};
-        // The number of members in the workspace.
+        // The total number of members in the workspace.
         shared_ptr<int64_t> totalMember_ {};
+        // The total number of sessions in the workspace.
         shared_ptr<int32_t> totalSessionCount_ {};
         // The workspace type.
         shared_ptr<string> type_ {};
@@ -355,11 +358,11 @@ namespace Models
     shared_ptr<ListDataAgentWorkspaceResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
-    // The maximum number of entries per page.
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

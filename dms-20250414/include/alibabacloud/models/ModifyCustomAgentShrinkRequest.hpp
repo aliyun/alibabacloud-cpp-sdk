@@ -196,24 +196,24 @@ namespace Models
 
   protected:
     shared_ptr<string> callbackConfigShrink_ {};
-    // The custom agent ID.
+    // The ID of the custom agent.
     // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
     // The specified data scope in **JSON character string format**.
-    // - Common parameter description
-    //   - tableFlag: true indicates a specified data scope.
+    // - General parameter description
+    //   - tableFlag: true specifies the data scope.
     //   - scope: personal is a fixed value.
-    //   - personal: pass parameters for file or database types.
+    //   - personal: parameters for file and database types.
     // 
-    // **File type**. Pass parameters in the following format:
+    // **File type**: pass parameters in the following format:
     // - DataSourceType: remote_data_center is a fixed value.
     // - FileId: the file ID.
-    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name.
-    // - Tables: the table name returned by the ListDataCenterTable operation.
-    // - TableIds: the TableId returned by the ListDataCenterTable operation.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: the table names returned by the ListDataCenterTable operation.
+    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
     // - RegionId: the current region.
     // ```
     // {
@@ -234,16 +234,16 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**. Pass parameters as follows:
+    // **Database type**: pass parameters as follows:
     // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: the DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: the DMS database ID returned by the data center operation.
-    // - FileId: the instance name (deprecated).
-    // - DbName: the database name returned by the data center operation.
-    // - Database: the database name returned by the data center operation.
-    // - Tables: the table name returned by the data center operation.
-    // - TableIds: the TableId returned by the data center operation.
-    // - Engine: the engine type (mysql or postgresql).
+    // - DmsInstanceId: the DMS instance ID returned by the Data Center operation.
+    // - DmsDatabaseId: the DMS database ID returned by the Data Center operation.
+    // - FileId: the instance name. **[Deprecated]**
+    // - DbName: the database name returned by the Data Center operation.
+    // - Database: the database name returned by the Data Center operation.
+    // - Tables: the table names returned by the Data Center operation.
+    // - TableIds: the table IDs returned by the Data Center operation.
+    // - Engine: the engine type, such as mysql or postgresql.
     // - RegionId: the current region.
     // ```
     // {
@@ -272,13 +272,13 @@ namespace Models
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
-    // The instruction.
+    // The instructions.
     // - Input limit: up to 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
     // - Input limit: up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
-    // The external knowledge base list.
+    // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};
     shared_ptr<string> knowledgeSemanticConfigListShrink_ {};
     // The name of the custom agent.
@@ -288,12 +288,19 @@ namespace Models
     // The scheduled task configuration.
     shared_ptr<string> scheduleTaskConfigShrink_ {};
     // The text report format.
-    //  - Input limit: up to 10,000 characters.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> textReportConfig_ {};
+    // The list of user-specified skills.
     shared_ptr<string> userSpecifiedSkillListShrink_ {};
     // The web report format.
     // - Input limit: up to 50,000 characters.
     shared_ptr<string> webReportConfig_ {};
+    // The web report theme. Valid values:
+    // - default: default.
+    // - journal: journal.
+    // - legacy: classic.
+    // - neobrutalism: stylized.
+    // - infographic: infographic.
     shared_ptr<string> webReportTheme_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

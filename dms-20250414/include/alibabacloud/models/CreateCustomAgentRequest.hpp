@@ -109,9 +109,9 @@ namespace Models
 
 
     protected:
-      // The cron expression for time-based scheduling.
+      // The cron expression for periodic scheduling.
       shared_ptr<string> cronExpression_ {};
-      // The query for the scheduled task.
+      // The query for the periodic task.
       shared_ptr<string> query_ {};
       // The ID of the referenced historical session.
       shared_ptr<string> relatedSessionId_ {};
@@ -226,12 +226,13 @@ namespace Models
 
 
     protected:
-      // The access type.
-      // 
-      // - mcp: access through MCP.
+      // The access type. If you do not specify this parameter, the default value is mcp. Valid values:
+      // - mcp: Access through MCP. The McpServerId parameter is required.
+      // - dms_kb: Access through a DMS knowledge base. The KbUuid parameter is required.
       shared_ptr<string> accessType_ {};
+      // The knowledge base ID.
       shared_ptr<string> kbUuid_ {};
-      // The ID of the MCP Server.
+      // The ID of the MCP server.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -300,6 +301,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to prohibit appending data sources during a session.
       shared_ptr<bool> forbiddenAppendDataSource_ {};
       // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
@@ -523,19 +525,19 @@ namespace Models
     shared_ptr<CreateCustomAgentRequest::CallbackConfig> callbackConfig_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON character string format**.
-    // - Common metric description
-    //   - tableFlag: true indicates that a data scope is specified.
+    // The specified data scope, in **JSON character string format**.
+    // - Common parameter description
+    //   - tableFlag: true specifies the data scope.
     //   - scope: personal is a fixed value.
-    //   - personal: pass parameters for file or database types.
+    //   - personal: the parameters for file and database types.
     // 
-    // **File type**. Pass parameters in the following format:
+    // **File type**: Pass parameters in the following format:
     // - DataSourceType: remote_data_center is a fixed value.
-    // - FileId: the file ID.
-    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name.
-    // - Tables: the table name returned by the ListDataCenterTable operation.
-    // - TableIds: the TableId returned by the ListDataCenterTable operation.
-    // - RegionId: the current region.
+    // - FileId: The file ID.
+    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: The table names returned by the ListDataCenterTable operation.
+    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -555,17 +557,17 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**. Pass parameters as follows:
+    // **Database type**: Pass parameters as follows:
     // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: the DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: the DMS database ID returned by the data center operation.
-    // - FileId: the instance name (deprecated).
-    // - DbName: the database name returned by the data center operation.
-    // - Database: the database name returned by the data center operation.
-    // - Tables: the table name returned by the data center operation.
-    // - TableIds: the TableId returned by the data center operation.
-    // - Engine: the DPI engine type (mysql or postgresql).
-    // - RegionId: the current region.
+    // - DmsInstanceId: The DMS instance ID returned by the Data Center API.
+    // - DmsDatabaseId: The DMS database ID returned by the Data Center API.
+    // - FileId: The instance name. **[Deprecated]**
+    // - DbName: The database name returned by the Data Center API.
+    // - Database: The database name returned by the Data Center API.
+    // - Tables: The table names returned by the Data Center API.
+    // - TableIds: The table IDs returned by the Data Center API.
+    // - Engine: The engine type, such as mysql or postgresql.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -593,13 +595,13 @@ namespace Models
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<CreateCustomAgentRequest::ExecutionConfig> executionConfig_ {};
-    // The instruction.
-    // - Input limit: a maximum of 10000 characters.
+    // The instructions.
+    // - Input limit: A maximum of 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: a maximum of 10000 characters.
+    // - Input limit: A maximum of 10,000 characters.
     shared_ptr<string> knowledge_ {};
-    // The external knowledge base.
+    // The external knowledge bases.
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
     // The name of the custom agent.
@@ -610,9 +612,11 @@ namespace Models
     shared_ptr<CreateCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
     // The text report format.
     shared_ptr<string> textReportConfig_ {};
+    // The list of user-specified skills.
     shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     // The web report format.
     shared_ptr<string> webReportConfig_ {};
+    // The web report theme.
     shared_ptr<string> webReportTheme_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

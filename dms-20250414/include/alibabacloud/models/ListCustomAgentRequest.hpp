@@ -86,11 +86,11 @@ namespace Models
   protected:
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page. Default value: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to query all custom agents in the published state. Default value: false.
+    // Specifies whether to query all published custom agents. Default value: false.
     shared_ptr<bool> queryAllReleased_ {};
-    // The search keyword. Supports fuzzy search by custom agent name and description.
+    // The search keyword. Fuzzy search is supported for custom agent names and descriptions.
     shared_ptr<string> searchKey_ {};
     // The status of the custom agent.
     shared_ptr<string> status_ {};

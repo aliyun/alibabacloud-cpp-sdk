@@ -168,7 +168,7 @@ namespace Models
 
 
       protected:
-        // The cron expression for timed scheduling.
+        // The cron expression for time-based scheduling.
         shared_ptr<string> cronExpression_ {};
         // The query for the scheduled task.
         shared_ptr<string> query_ {};
@@ -285,8 +285,13 @@ namespace Models
 
 
       protected:
+        // The access type. Valid values:
+        // - mcp: Accessed through MCP.
+        // - dms_kb: Accessed through DMS knowledge base.
         shared_ptr<string> accessType_ {};
+        // The knowledge base ID.
         shared_ptr<string> kbUuid_ {};
+        // The MCP server ID.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -355,14 +360,15 @@ namespace Models
 
 
       protected:
+        // Specifies whether to prohibit appending data sources during a session.
         shared_ptr<bool> forbiddenAppendDataSource_ {};
-        // Specifies whether to disable user inquiries during the process.
+        // Specifies whether to prohibit user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
         // Specifies whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip the web report rendering confirmation.
+        // Specifies whether to skip the confirmation for generating a web report.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -690,7 +696,7 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud primary account ID.
+      // The primary Alibaba Cloud account ID.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
@@ -703,6 +709,7 @@ namespace Models
       shared_ptr<string> DMSUnit_ {};
       // The specified data scope in JSON string format.
       shared_ptr<string> dataJson_ {};
+      // Indicates whether the agent is displayed by default.
       shared_ptr<int32_t> defaultAgent_ {};
       // The description of the custom agent.
       shared_ptr<string> description_ {};
@@ -714,12 +721,13 @@ namespace Models
       shared_ptr<string> gmtCreated_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The instruction.
+      // The instructions.
       shared_ptr<string> instruction_ {};
-      // Specifies whether a scheduled task is configured.
+      // Indicates whether a scheduled task is configured.
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
+      // The external knowledge bases.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
       shared_ptr<vector<Data::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
       // The modifier.
@@ -736,7 +744,7 @@ namespace Models
       shared_ptr<string> region_ {};
       // The referenced historical session ID.
       shared_ptr<string> relatedSessionId_ {};
-      // The publish time.
+      // The release time.
       shared_ptr<string> releaseTime_ {};
       // The scheduled task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
@@ -744,9 +752,16 @@ namespace Models
       shared_ptr<string> status_ {};
       // The text report format.
       shared_ptr<string> textReportConfig_ {};
+      // The list of user-specified skills.
       shared_ptr<vector<string>> userSpecifiedSkillList_ {};
       // The web report format.
       shared_ptr<string> webReportConfig_ {};
+      // The web report theme. Valid values:
+      // - default: Default.
+      // - journal: Journal.
+      // - legacy: Classic.
+      // - neobrutalism: Stylized.
+      // - infographic: Infographic.
       shared_ptr<string> webReportTheme_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -796,14 +811,14 @@ namespace Models
     shared_ptr<DescribeCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.                                 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

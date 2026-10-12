@@ -195,9 +195,9 @@ namespace Models
 
 
         protected:
-          // The cron expression for the timed scheduling.
+          // The cron expression for time-based scheduling.
           shared_ptr<string> cronExpression_ {};
-          // The query of the periodic task.
+          // The query for the scheduled task.
           shared_ptr<string> query_ {};
           // The ID of the referenced historical session.
           shared_ptr<string> relatedSessionId_ {};
@@ -312,8 +312,13 @@ namespace Models
 
 
         protected:
+          // The access type. Valid values:
+          // - mcp: MCP access.
+          // - dms_kb: DMS knowledge base access.
           shared_ptr<string> accessType_ {};
+          // The knowledge base ID.
           shared_ptr<string> kbUuid_ {};
+          // The ID of the MCP server.
           shared_ptr<string> mcpServerId_ {};
         };
 
@@ -382,14 +387,15 @@ namespace Models
 
 
         protected:
+          // Specifies whether to prohibit appending data sources during the session.
           shared_ptr<bool> forbiddenAppendDataSource_ {};
-          // Specifies whether to disable user inquiries during the process.
+          // Specifies whether to prohibit user inquiries during the process.
           shared_ptr<bool> skipAskHuman_ {};
           // Specifies whether to skip the plan confirmation step.
           shared_ptr<bool> skipPlan_ {};
           // Specifies whether to skip all SQL confirmations.
           shared_ptr<bool> skipSqlConfirm_ {};
-          // Specifies whether to skip the web report rendering confirmation.
+          // Specifies whether to skip the web report generation confirmation.
           shared_ptr<bool> skipWebReportConfirm_ {};
         };
 
@@ -458,10 +464,15 @@ namespace Models
 
 
         protected:
+          // The parameters to invoke the callback during tool calling.
           shared_ptr<string> callbackArgs_ {};
+          // The prompt for generating parameters to invoke the callback during tool calling.
           shared_ptr<string> callbackPrompt_ {};
+          // The time to invoke the callback during tool calling.
           shared_ptr<int32_t> callbackTime_ {};
+          // The callback tool identifier.
           shared_ptr<string> toolId_ {};
+          // The callback tool type.
           shared_ptr<string> type_ {};
         };
 
@@ -717,18 +728,21 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud primary account ID.
+        // The Alibaba Cloud parent account ID.
         shared_ptr<string> aliyunParentId_ {};
         // The Alibaba Cloud account ID.
         shared_ptr<string> aliyunUid_ {};
+        // The callback configuration.
         shared_ptr<Content::CallbackConfig> callbackConfig_ {};
         // The name of the creator.
         shared_ptr<string> creatorUserName_ {};
         // The ID of the custom agent.
         shared_ptr<string> customAgentId_ {};
+        // The current DMS unit.
         shared_ptr<string> DMSUnit_ {};
         // The specified data scope in JSON string format.
         shared_ptr<string> dataJson_ {};
+        // Specifies whether the agent is displayed by default.
         shared_ptr<int32_t> defaultAgent_ {};
         // The description of the custom agent.
         shared_ptr<string> description_ {};
@@ -740,12 +754,13 @@ namespace Models
         shared_ptr<string> gmtCreated_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The instruction.
+        // The instructions.
         shared_ptr<string> instruction_ {};
-        // Indicates whether a periodic task is configured.
+        // Specifies whether a scheduled task is configured.
         shared_ptr<bool> isScheduleTask_ {};
         // The knowledge.
         shared_ptr<string> knowledge_ {};
+        // The external knowledge bases.
         shared_ptr<vector<Content::KnowledgeConfigList>> knowledgeConfigList_ {};
         shared_ptr<vector<Content::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
         // The modifier.
@@ -754,23 +769,32 @@ namespace Models
         shared_ptr<string> modifierUserName_ {};
         // The name of the custom agent.
         shared_ptr<string> name_ {};
-        // The next run time of the periodic task.
+        // The next run time of the scheduled task.
         shared_ptr<int64_t> nextRuntime_ {};
         // The offline time.
         shared_ptr<string> offlineTime_ {};
         // The region.
         shared_ptr<string> region_ {};
+        // The ID of the referenced historical session.
         shared_ptr<string> relatedSessionId_ {};
-        // The publish time.
+        // The release time.
         shared_ptr<string> releaseTime_ {};
+        // The scheduled task configuration.
         shared_ptr<Content::ScheduleTaskConfig> scheduleTaskConfig_ {};
         // The status of the custom agent.
         shared_ptr<string> status_ {};
         // The text report format.
         shared_ptr<string> textReportConfig_ {};
+        // The list of user-specified skills.
         shared_ptr<vector<string>> userSpecifiedSkillList_ {};
         // The web report format.
         shared_ptr<string> webReportConfig_ {};
+        // The web report theme. Valid values:
+        // - default: Default.
+        // - journal: Journal.
+        // - legacy: Legacy.
+        // - neobrutalism: Neobrutalism.
+        // - infographic: Infographic.
         shared_ptr<string> webReportTheme_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
@@ -820,9 +844,9 @@ namespace Models
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of records per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int64_t> totalElements_ {};
       // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
@@ -868,18 +892,18 @@ namespace Models
 
 
   protected:
-    // The response struct.
+    // The returned struct.
     shared_ptr<ListCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.                                 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -1921,7 +1921,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Queries the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +1956,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Queries the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -1964,6 +1964,68 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 DescribeCustomAgentResponse Client::describeCustomAgent(const DescribeCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+ *
+ * @param request DescribeCustomAgentMonitorMetricsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCustomAgentMonitorMetricsResponse
+ */
+DescribeCustomAgentMonitorMetricsResponse Client::describeCustomAgentMonitorMetricsWithOptions(const DescribeCustomAgentMonitorMetricsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranularity()) {
+    query["Granularity"] = request.getGranularity();
+  }
+
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCustomAgentMonitorMetrics"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCustomAgentMonitorMetricsResponse>();
+}
+
+/**
+ * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+ *
+ * @param request DescribeCustomAgentMonitorMetricsRequest
+ * @return DescribeCustomAgentMonitorMetricsResponse
+ */
+DescribeCustomAgentMonitorMetricsResponse Client::describeCustomAgentMonitorMetrics(const DescribeCustomAgentMonitorMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCustomAgentMonitorMetricsWithOptions(request, runtime);
 }
 
 /**
@@ -3666,7 +3728,7 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 }
 
 /**
- * @summary Lists all custom agents in a personal space or workspace.
+ * @summary Lists all custom agents in personal spaces and workspaces.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3717,7 +3779,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary Lists all custom agents in a personal space or workspace.
+ * @summary Lists all custom agents in personal spaces and workspaces.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -3725,6 +3787,72 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+ *
+ * @param request ListCustomAgentMonitorSessionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomAgentMonitorSessionsResponse
+ */
+ListCustomAgentMonitorSessionsResponse Client::listCustomAgentMonitorSessionsWithOptions(const ListCustomAgentMonitorSessionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomAgentId()) {
+    query["CustomAgentId"] = request.getCustomAgentId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryType()) {
+    query["QueryType"] = request.getQueryType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomAgentMonitorSessions"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomAgentMonitorSessionsResponse>();
+}
+
+/**
+ * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+ *
+ * @param request ListCustomAgentMonitorSessionsRequest
+ * @return ListCustomAgentMonitorSessionsResponse
+ */
+ListCustomAgentMonitorSessionsResponse Client::listCustomAgentMonitorSessions(const ListCustomAgentMonitorSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomAgentMonitorSessionsWithOptions(request, runtime);
 }
 
 /**
@@ -4312,7 +4440,7 @@ ListDataAgentThemeResponse Client::listDataAgentTheme(const ListDataAgentThemeRe
 }
 
 /**
- * @summary Retrieves the workspaces under the primary account with pagination.
+ * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4379,7 +4507,7 @@ ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const L
 }
 
 /**
- * @summary Retrieves the workspaces under the primary account with pagination.
+ * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @return ListDataAgentWorkspaceResponse
@@ -5062,7 +5190,7 @@ ListWorkspaceCodeResponse Client::listWorkspaceCode(const ListWorkspaceCodeReque
 }
 
 /**
- * @summary Modifies a custom agent in a personal space or workspace.
+ * @summary Modifies a custom agent in a personal or shared workspace.
  *
  * @param tmpReq ModifyCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5187,7 +5315,7 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 }
 
 /**
- * @summary Modifies a custom agent in a personal space or workspace.
+ * @summary Modifies a custom agent in a personal or shared workspace.
  *
  * @param request ModifyCustomAgentRequest
  * @return ModifyCustomAgentResponse

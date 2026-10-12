@@ -121,28 +121,29 @@ namespace Models
 
 
   protected:
+    // The ID of the creator used to search for workspaces.
     shared_ptr<string> creator_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The maximum number of entries per page.
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The name of the field by which to sort.
+    // The sort field name.
     shared_ptr<string> orderBy_ {};
     // The page number.
     // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
-    // The type of workspace to query.
+    // The workspace type.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceType_ {};

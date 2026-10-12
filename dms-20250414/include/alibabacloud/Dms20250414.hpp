@@ -581,7 +581,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Queries the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -590,12 +590,29 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Queries the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
        */
       Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
+
+      /**
+       * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+       *
+       * @param request DescribeCustomAgentMonitorMetricsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomAgentMonitorMetricsResponse
+       */
+      Models::DescribeCustomAgentMonitorMetricsResponse describeCustomAgentMonitorMetricsWithOptions(const Models::DescribeCustomAgentMonitorMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+       *
+       * @param request DescribeCustomAgentMonitorMetricsRequest
+       * @return DescribeCustomAgentMonitorMetricsResponse
+       */
+      Models::DescribeCustomAgentMonitorMetricsResponse describeCustomAgentMonitorMetrics(const Models::DescribeCustomAgentMonitorMetricsRequest &request);
 
       /**
        * @summary Queries DataAgent metrics.
@@ -1180,7 +1197,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
 
       /**
-       * @summary Lists all custom agents in a personal space or workspace.
+       * @summary Lists all custom agents in personal spaces and workspaces.
        *
        * @param request ListCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1189,12 +1206,29 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom agents in a personal space or workspace.
+       * @summary Lists all custom agents in personal spaces and workspaces.
        *
        * @param request ListCustomAgentRequest
        * @return ListCustomAgentResponse
        */
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
+
+      /**
+       * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+       *
+       * @param request ListCustomAgentMonitorSessionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentMonitorSessionsResponse
+       */
+      Models::ListCustomAgentMonitorSessionsResponse listCustomAgentMonitorSessionsWithOptions(const Models::ListCustomAgentMonitorSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+       *
+       * @param request ListCustomAgentMonitorSessionsRequest
+       * @return ListCustomAgentMonitorSessionsResponse
+       */
+      Models::ListCustomAgentMonitorSessionsResponse listCustomAgentMonitorSessions(const Models::ListCustomAgentMonitorSessionsRequest &request);
 
       /**
        * @summary Lists accuracy test configuration items that meet the specified conditions.
@@ -1345,7 +1379,7 @@ namespace Dms20250414
       Models::ListDataAgentThemeResponse listDataAgentTheme(const Models::ListDataAgentThemeRequest &request);
 
       /**
-       * @summary Retrieves the workspaces under the primary account with pagination.
+       * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1354,7 +1388,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the workspaces under the primary account with pagination.
+       * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @return ListDataAgentWorkspaceResponse
@@ -1536,7 +1570,7 @@ namespace Dms20250414
       Models::ListWorkspaceCodeResponse listWorkspaceCode(const Models::ListWorkspaceCodeRequest &request);
 
       /**
-       * @summary Modifies a custom agent in a personal space or workspace.
+       * @summary Modifies a custom agent in a personal or shared workspace.
        *
        * @param tmpReq ModifyCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1545,7 +1579,7 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgentWithOptions(const Models::ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a custom agent in a personal space or workspace.
+       * @summary Modifies a custom agent in a personal or shared workspace.
        *
        * @param request ModifyCustomAgentRequest
        * @return ModifyCustomAgentResponse
