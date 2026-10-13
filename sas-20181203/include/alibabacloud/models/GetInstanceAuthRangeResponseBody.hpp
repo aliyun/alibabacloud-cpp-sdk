@@ -207,84 +207,85 @@ namespace Models
 
 
     protected:
-      // The number of instances for the Advanced Edition. Valid values:
+      // The number of servers for Advanced Edition. Valid values:
       // 
-      // - **1-2000000000**: range
-      // - **1**: step
+      // - **1-2000000000**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> advancedCount_ {};
       // The anti-ransomware capacity. Valid values:
       // 
-      // - **1-9000000000**: range
-      // - **10**: step
+      // - **1-9000000000**: The value range.
+      // - **10**: The step size.
       shared_ptr<string> antiRansomwareCapacity_ {};
-      // The anti-ransomware managed service. Valid values:
+      // The Anti-ransomware service. Valid values:
       // - **0**: Not activated.
       // - **1**: Activated.
       shared_ptr<int32_t> antiRansomwareService_ {};
       // The number of cores for Anti-virus Edition. Valid values:
       // 
-      // - **1-2000000000**: range
-      // - **1**: step
+      // - **1-2000000000**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> antiVirusCore_ {};
-      // The number of cores for the Ultimate Edition. Valid values:
+      // The number of cores for Ultimate Edition. Valid values:
       // 
-      // - **1-2000000000**: range
-      // - **1**: step
+      // - **1-2000000000**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> containerCore_ {};
-      // The number of instances for the Ultimate Edition. Valid values:
+      // The number of servers for Ultimate Edition. Valid values:
       // 
-      // - **1-2000000000**: range
-      // - **1**: step
+      // - **1-2000000000**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> containerCount_ {};
-      // The number of cloud platform configuration check scans. Valid values:
+      // The Cloud Security Posture Management (CSPM) scan quota. Valid values:
       // 
-      // - **15000-9999999999**: range
-      // - **55000**: step
+      // - **15000-9999999999**: The value range.
+      // - **55000**: The step size.
       shared_ptr<string> cspmCapacity_ {};
+      // The Cloud Security Posture Management (CSPM) instance authorization capacity.
       shared_ptr<string> cspmInstanceCapacity_ {};
-      // The number of instances for the Enterprise Edition. Valid values:
+      // The value range for the number of servers for Enterprise Edition. Valid values:
       // - **Value**: 1-2000000000
-      // - **Step**: 1
+      // - **Step size**: 1
       shared_ptr<string> enterpriseCount_ {};
-      // The number of honeypot authorizations. Valid values:
+      // The cloud honeypot quota. Valid values:
       // 
-      // - **20-500**: range
-      // - **1**: step
+      // - **20-500**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> honeypotCapacity_ {};
-      // The number of image scan authorizations. Valid values:
+      // The image scan quota. Valid values:
       // 
-      // - **1-200000**: range
-      // - **20**: step
+      // - **1-200000**: The value range.
+      // - **20**: The step size.
       shared_ptr<string> imageScanCapacity_ {};
-      // The number of application protection authorizations. Valid values:
+      // The Application Protection quota. Valid values:
       // 
-      // - **1-100000000**: range
-      // - **1**: step
+      // - **1-100000000**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> raspCapacity_ {};
-      // The number of malicious file detection SDK authorizations. Valid values:
+      // The malicious file detection SDK quota. Valid values:
       // 
-      // - **10-9999999999**: range
-      // - **10**: step
+      // - **10-9999999999**: The value range.
+      // - **10**: The step size.
       shared_ptr<string> sdkCapacity_ {};
       // The log storage capacity. Valid values:
       // 
-      // - **1-600000000**: range
-      // - **10**: step
+      // - **1-600000000**: The value range.
+      // - **10**: The step size.
       shared_ptr<string> slsCapacity_ {};
       // The threat analysis capacity. Valid values:
       // 
-      // - **1-9999999999**: range
-      // - **1000**: step
+      // - **1-9999999999**: The value range.
+      // - **1000**: The step size.
       shared_ptr<string> threatAnalysisCapacity_ {};
-      // The log ingestion traffic for threat detection and response. Valid values:
+      // The log ingestion traffic for Cloud Threat Detection and Response (CTDR). Valid values:
       // 
-      // - **1-9999999999**: range
-      // - **100**: step
+      // - **1-9999999999**: The value range.
+      // - **100**: The step size.
       shared_ptr<string> threatAnalysisFlow_ {};
-      // The number of web tamper-proofing authorizations. Valid values:
+      // The web tamper-proofing authorization quota. Valid values:
       // 
-      // - **1-9999**: range
-      // - **1**: step
+      // - **1-9999**: The value range.
+      // - **1**: The step size.
       shared_ptr<string> webLockCapacity_ {};
     };
 
@@ -307,9 +308,9 @@ namespace Models
 
 
   protected:
-    // The instance authorization range validation.
+    // The instance authorization ranges.
     shared_ptr<GetInstanceAuthRangeResponseBody::InstanceAuthRange> instanceAuthRange_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+    // The ID of the request. This ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

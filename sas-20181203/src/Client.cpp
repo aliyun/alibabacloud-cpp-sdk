@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Sas20181203::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -1043,7 +1044,9 @@ AddInstallCodeResponse Client::addInstallCode(const AddInstallCodeRequest &reque
 }
 
 /**
- * @summary Adds a self-managed image repository.
+ * @summary Connects to a self-managed image registry.
+ *
+ * @description When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
  *
  * @param request AddPrivateRegistryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,7 +1125,9 @@ AddPrivateRegistryResponse Client::addPrivateRegistryWithOptions(const AddPrivat
 }
 
 /**
- * @summary Adds a self-managed image repository.
+ * @summary Connects to a self-managed image registry.
+ *
+ * @description When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
  *
  * @param request AddPrivateRegistryRequest
  * @return AddPrivateRegistryResponse
@@ -3673,6 +3678,164 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
 }
 
 /**
+ * @summary Initiates deep analysis for a malicious file.
+ *
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * - accepted: The request is accepted.
+ * - authorized: The purchase verification for the source is passed.
+ * - alertResolved: The file hash is parsed from the alert or input parameters.
+ * - fileReady: The file download link is ready.
+ * - dispatched: The file is delivered to the detection engine, including the requestId.
+ * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+ * - done: The current analysis process is completed.
+ * - error: A processing exception occurs, including the error code and message.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ *
+ * @param request CreateFileDeepAnalyzeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFileDeepAnalyzeResponse
+ */
+FutureGenerator<CreateFileDeepAnalyzeResponse> Client::createFileDeepAnalyzeWithSSE(const CreateFileDeepAnalyzeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContext()) {
+    query["Context"] = request.getContext();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasHash()) {
+    query["Hash"] = request.getHash();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.getSourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateFileDeepAnalyze"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CreateFileDeepAnalyzeResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Initiates deep analysis for a malicious file.
+ *
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * - accepted: The request is accepted.
+ * - authorized: The purchase verification for the source is passed.
+ * - alertResolved: The file hash is parsed from the alert or input parameters.
+ * - fileReady: The file download link is ready.
+ * - dispatched: The file is delivered to the detection engine, including the requestId.
+ * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+ * - done: The current analysis process is completed.
+ * - error: A processing exception occurs, including the error code and message.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ *
+ * @param request CreateFileDeepAnalyzeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFileDeepAnalyzeResponse
+ */
+CreateFileDeepAnalyzeResponse Client::createFileDeepAnalyzeWithOptions(const CreateFileDeepAnalyzeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContext()) {
+    query["Context"] = request.getContext();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasHash()) {
+    query["Hash"] = request.getHash();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.getSourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateFileDeepAnalyze"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFileDeepAnalyzeResponse>();
+}
+
+/**
+ * @summary Initiates deep analysis for a malicious file.
+ *
+ * @description Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+ * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+ * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+ * - accepted: The request is accepted.
+ * - authorized: The purchase verification for the source is passed.
+ * - alertResolved: The file hash is parsed from the alert or input parameters.
+ * - fileReady: The file download link is ready.
+ * - dispatched: The file is delivered to the detection engine, including the requestId.
+ * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+ * - done: The current analysis process is completed.
+ * - error: A processing exception occurs, including the error code and message.
+ * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+ *
+ * @param request CreateFileDeepAnalyzeRequest
+ * @return CreateFileDeepAnalyzeResponse
+ */
+CreateFileDeepAnalyzeResponse Client::createFileDeepAnalyze(const CreateFileDeepAnalyzeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createFileDeepAnalyzeWithOptions(request, runtime);
+}
+
+/**
  * @summary Pushes a file to the cloud for detection.
  *
  * @description Pushes a file to the cloud for detection.
@@ -5821,9 +5984,9 @@ CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEvents
 }
 
 /**
- * @summary Creates a task under My Policies in the task center.
+ * @summary Creates a task under My Policies in Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request CreateSoarStrategyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5870,9 +6033,9 @@ CreateSoarStrategyTaskResponse Client::createSoarStrategyTaskWithOptions(const C
 }
 
 /**
- * @summary Creates a task under My Policies in the task center.
+ * @summary Creates a task under My Policies in Task Center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API operation.
  *
  * @param request CreateSoarStrategyTaskRequest
  * @return CreateSoarStrategyTaskResponse
@@ -11729,9 +11892,9 @@ DescribeClientProblemTypeResponse Client::describeClientProblemType(const Descri
 }
 
 /**
- * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
+ * @summary Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
+ * @description You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11810,9 +11973,9 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstancesWithOpt
 }
 
 /**
- * @summary Queries assets that match specified search criteria by using conditional query settings such as asset instance name and region. Supports both paging and NextToken methods. The NextToken method is recommended.
+ * @summary Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other criteria. You can also set logical relationships between different search criteria to find assets that match multiple conditions.
+ * @description You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @return DescribeCloudCenterInstancesResponse
@@ -12295,7 +12458,7 @@ DescribeClusterNetworkResponse Client::describeClusterNetwork(const DescribeClus
 }
 
 /**
- * @summary Queries the scanner status information of a Kubernetes cluster.
+ * @summary Queries the status information of Kubernetes cluster scanners.
  *
  * @param request DescribeClusterScannerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12334,7 +12497,7 @@ DescribeClusterScannerListResponse Client::describeClusterScannerListWithOptions
 }
 
 /**
- * @summary Queries the scanner status information of a Kubernetes cluster.
+ * @summary Queries the status information of Kubernetes cluster scanners.
  *
  * @param request DescribeClusterScannerListRequest
  * @return DescribeClusterScannerListResponse
@@ -22847,7 +23010,7 @@ DescribeSuspEventDetailResponse Client::describeSuspEventDetail(const DescribeSu
 }
 
 /**
- * @summary Queries the information about an export task of exceptions.
+ * @summary Queries the export information of security alert events.
  *
  * @param request DescribeSuspEventExportInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22878,7 +23041,7 @@ DescribeSuspEventExportInfoResponse Client::describeSuspEventExportInfoWithOptio
 }
 
 /**
- * @summary Queries the information about an export task of exceptions.
+ * @summary Queries the export information of security alert events.
  *
  * @param request DescribeSuspEventExportInfoRequest
  * @return DescribeSuspEventExportInfoResponse
@@ -22889,7 +23052,7 @@ DescribeSuspEventExportInfoResponse Client::describeSuspEventExportInfo(const De
 }
 
 /**
- * @summary Queries quarantined files in the file quarantine box by paging.
+ * @summary Performs a paged query of quarantined files in the file quarantine box by using paging.
  *
  * @param request DescribeSuspEventQuaraFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22948,7 +23111,7 @@ DescribeSuspEventQuaraFilesResponse Client::describeSuspEventQuaraFilesWithOptio
 }
 
 /**
- * @summary Queries quarantined files in the file quarantine box by paging.
+ * @summary Performs a paged query of quarantined files in the file quarantine box by using paging.
  *
  * @param request DescribeSuspEventQuaraFilesRequest
  * @return DescribeSuspEventQuaraFilesResponse
@@ -23009,7 +23172,7 @@ DescribeSuspEventUserSettingResponse Client::describeSuspEventUserSetting(const 
 }
 
 /**
- * @summary Queries a list of security alert events that have not been aggregated.
+ * @summary Queries a list of unaggregated security alert events.
  *
  * @param tmpReq DescribeSuspEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23192,7 +23355,7 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
 }
 
 /**
- * @summary Queries a list of security alert events that have not been aggregated.
+ * @summary Queries a list of unaggregated security alert events.
  *
  * @param request DescribeSuspEventsRequest
  * @return DescribeSuspEventsResponse
@@ -30289,7 +30452,7 @@ GetFileDetectResultResponse Client::getFileDetectResult(const GetFileDetectResul
 }
 
 /**
- * @summary Retrieves the details of a file protection event.
+ * @summary Retrieves file tamper-proofing events.
  *
  * @param request GetFileProtectClientEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30316,7 +30479,7 @@ GetFileProtectClientEventResponse Client::getFileProtectClientEventWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a file protection event.
+ * @summary Retrieves file tamper-proofing events.
  *
  * @param request GetFileProtectClientEventRequest
  * @return GetFileProtectClientEventResponse
@@ -30906,7 +31069,7 @@ GetHoneypotNodeResponse Client::getHoneypotNode(const GetHoneypotNodeRequest &re
 }
 
 /**
- * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+ * @summary Queries the monitoring data of cloud honeypot management nodes.
  *
  * @param request GetHoneypotNodeMetricListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30965,7 +31128,7 @@ GetHoneypotNodeMetricListResponse Client::getHoneypotNodeMetricListWithOptions(c
 }
 
 /**
- * @summary Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+ * @summary Queries the monitoring data of cloud honeypot management nodes.
  *
  * @param request GetHoneypotNodeMetricListRequest
  * @return GetHoneypotNodeMetricListResponse
@@ -31022,7 +31185,9 @@ GetHoneypotPresetResponse Client::getHoneypotPreset(const GetHoneypotPresetReque
 }
 
 /**
- * @summary Queries the details about a specified probe.
+ * @summary Queries the details of a specified honeypot probe.
+ *
+ * @description Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
  *
  * @param request GetHoneypotProbeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31057,7 +31222,9 @@ GetHoneypotProbeResponse Client::getHoneypotProbeWithOptions(const GetHoneypotPr
 }
 
 /**
- * @summary Queries the details about a specified probe.
+ * @summary Queries the details of a specified honeypot probe.
+ *
+ * @description Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
  *
  * @param request GetHoneypotProbeRequest
  * @return GetHoneypotProbeResponse
@@ -31290,7 +31457,7 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatistics(const GetI
 }
 
 /**
- * @summary Retrieves the valid value ranges for instance authorization.
+ * @summary Retrieves the valid value ranges for instance authorizations.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceAuthRangeResponse
@@ -31312,7 +31479,7 @@ GetInstanceAuthRangeResponse Client::getInstanceAuthRangeWithOptions(const Darab
 }
 
 /**
- * @summary Retrieves the valid value ranges for instance authorization.
+ * @summary Retrieves the valid value ranges for instance authorizations.
  *
  * @return GetInstanceAuthRangeResponse
  */
@@ -34425,9 +34592,9 @@ ListAegisForLingjunStatusResponse Client::listAegisForLingjunStatus(const ListAe
 }
 
 /**
- * @summary Queries agentless detection assets.
+ * @summary Queries agentless scan assets.
  *
- * @description Queries the list of assets for agentless detection.
+ * @description Queries the list of assets for agentless scanning.
  *
  * @param request ListAgentlessAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34490,9 +34657,9 @@ ListAgentlessAssetResponse Client::listAgentlessAssetWithOptions(const ListAgent
 }
 
 /**
- * @summary Queries agentless detection assets.
+ * @summary Queries agentless scan assets.
  *
- * @description Queries the list of assets for agentless detection.
+ * @description Queries the list of assets for agentless scanning.
  *
  * @param request ListAgentlessAssetRequest
  * @return ListAgentlessAssetResponse
@@ -36417,7 +36584,7 @@ ListClientUserDefineRulesResponse Client::listClientUserDefineRules(const ListCl
 }
 
 /**
- * @summary Retrieves the asset list of cloud products.
+ * @summary Retrieves the list of cloud product assets.
  *
  * @param request ListCloudAssetInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36480,7 +36647,7 @@ ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const
 }
 
 /**
- * @summary Retrieves the asset list of cloud products.
+ * @summary Retrieves the list of cloud product assets.
  *
  * @param request ListCloudAssetInstancesRequest
  * @return ListCloudAssetInstancesResponse
@@ -43944,7 +44111,7 @@ ModifyOperateVulResponse Client::modifyOperateVul(const ModifyOperateVulRequest 
 }
 
 /**
- * @summary Enables or disables pay-as-you-go billing for a specified feature.
+ * @summary Enables or disables the pay-as-you-go billing method for specified features.
  *
  * @param tmpReq ModifyPostPayModuleSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44013,7 +44180,7 @@ ModifyPostPayModuleSwitchResponse Client::modifyPostPayModuleSwitchWithOptions(c
 }
 
 /**
- * @summary Enables or disables pay-as-you-go billing for a specified feature.
+ * @summary Enables or disables the pay-as-you-go billing method for specified features.
  *
  * @param request ModifyPostPayModuleSwitchRequest
  * @return ModifyPostPayModuleSwitchResponse
@@ -44462,7 +44629,7 @@ ModifySecurityEventMarkMissIndividuallyResponse Client::modifySecurityEventMarkM
 }
 
 /**
- * @summary Manages Serverless asset authorization.
+ * @summary Manages Serverless asset authorizations.
  *
  * @param request ModifyServerlessAuthToMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44557,7 +44724,7 @@ ModifyServerlessAuthToMachineResponse Client::modifyServerlessAuthToMachineWithO
 }
 
 /**
- * @summary Manages Serverless asset authorization.
+ * @summary Manages Serverless asset authorizations.
  *
  * @param request ModifyServerlessAuthToMachineRequest
  * @return ModifyServerlessAuthToMachineResponse
@@ -50314,7 +50481,7 @@ UpdateCustomizeReportStatusResponse Client::updateCustomizeReportStatus(const Up
 }
 
 /**
- * @summary Updates the status of a file protection event.
+ * @summary Updates the status of file tamper-proofing events.
  *
  * @param request UpdateFileProtectClientEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50413,7 +50580,7 @@ UpdateFileProtectClientEventResponse Client::updateFileProtectClientEventWithOpt
 }
 
 /**
- * @summary Updates the status of a file protection event.
+ * @summary Updates the status of file tamper-proofing events.
  *
  * @param request UpdateFileProtectClientEventRequest
  * @return UpdateFileProtectClientEventResponse
@@ -51766,7 +51933,7 @@ UpdateOssScanConfigResponse Client::updateOssScanConfig(const UpdateOssScanConfi
 }
 
 /**
- * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+ * @summary Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51821,7 +51988,7 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
 }
 
 /**
- * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+ * @summary Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @return UpdatePostPaidBindRelResponse

@@ -264,52 +264,55 @@ namespace Models
     protected:
       // The alert notification level. Valid values:
       // 
-      // - 0: no alert
-      // - 1: reminder
-      // - 2: suspicious
-      // - 3: high-risk.
+      // - 0: No alert.
+      // 
+      // - 1: Reminder.
+      // 
+      // - 2: Suspicious.
+      // 
+      // - 3: High-risk.
       shared_ptr<int32_t> alertLevel_ {};
       // The command line of the event.
       shared_ptr<string> cmdLine_ {};
       // The number of times the alert occurred.
       shared_ptr<int32_t> count_ {};
-      // The file path.
+      // The path of the file.
       shared_ptr<string> filePath_ {};
-      // The process permissions.
+      // The permissions of the process.
       shared_ptr<string> filePermission_ {};
       // The timestamp when the event first occurred.
       shared_ptr<int64_t> firstTime_ {};
-      // The time when the event was handled.
+      // The time when the event was handled. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> handleTime_ {};
-      // The event ID.
+      // The ID of the event.
       shared_ptr<int64_t> id_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the associated instance.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The time when the event most recently occurred.
+      // The time when the event last occurred. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> latestTime_ {};
       // The operation that the process performed on the file.
       shared_ptr<string> operation_ {};
-      // The operating system type.
+      // The type of the operating system.
       shared_ptr<string> platform_ {};
-      // The process path.
+      // The path of the process.
       shared_ptr<string> procPath_ {};
       // The process ID of the event.
       shared_ptr<string> processId_ {};
       // The remarks.
       shared_ptr<string> remark_ {};
-      // The action of the blocking rule.
+      // The action of the interception rule.
       shared_ptr<string> ruleAction_ {};
-      // The rule name.
+      // The name of the rule.
       shared_ptr<string> ruleName_ {};
-      // The event status. Valid values:
+      // The status of the event. Valid values:
       // 
-      // - 0: unhandled 
-      // - 1: handled
-      // - 2: whitelisted.
+      // - 0: Unhandled. 
+      // - 1: Handled.
+      // - 2: Whitelisted.
       shared_ptr<int32_t> status_ {};
       // The user ID of the event.
       shared_ptr<string> userId_ {};

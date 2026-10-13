@@ -60,9 +60,11 @@ namespace Models
     // The ID of the container cluster.
     // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The container ID.
+    // The container IDs.
+    // 
+    // This parameter is required. A scan task cannot be created if no container ID is provided.
     shared_ptr<string> containerIds_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // Specifies the language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};

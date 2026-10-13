@@ -130,32 +130,31 @@ namespace Models
 
 
   protected:
-    // The handling status for the exception. Valid values:
-    // 
-    // *   **exporting**: in progress
-    // *   **success**: successful
-    // *   **failed**: failed
-    // *   **pending**: pending
+    // The processing status of anomalous events. Valid values:
+    // - **exporting**: Processing.
+    // - **success**: Succeeded.
+    // - **failed**: Failed.
+    // - **pending**: Pending.
     shared_ptr<string> exportStatus_ {};
     // The name of the exported file.
     shared_ptr<string> fileName_ {};
-    // The time when the export task was created.
+    // The creation time.
     shared_ptr<int64_t> gmtCreate_ {};
-    // The time when the export task was modified.
+    // The modification time.
     shared_ptr<int64_t> gmtModified_ {};
-    // The ID of the export task.
+    // The ID of the export task for anomalous events.
     shared_ptr<int32_t> id_ {};
-    // The URL at which you can download the exported Excel file.
+    // The download URL of the exported Excel file.
     shared_ptr<string> link_ {};
-    // The progress percentage of the export task.
+    // The export progress of anomalous events, in percentage.
     shared_ptr<int32_t> progress_ {};
-    // The exported parameters of exceptions.
+    // The export parameters for anomalous events.
     shared_ptr<string> properties_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of exceptions exported.
+    // The total number of anomalous events.
     shared_ptr<int32_t> totalCount_ {};
-    // The type of the export task. The value is fixed as suspiciousEvent.
+    // The type of the export task. The value is fixed to suspiciousEvent.
     shared_ptr<string> type_ {};
   };
 

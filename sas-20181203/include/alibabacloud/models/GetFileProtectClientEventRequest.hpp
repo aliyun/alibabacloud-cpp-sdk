@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the alert event.
+    // The unique ID of the alert event. This parameter is required. If it is not provided, the API returns an HTTP 400 error.
     shared_ptr<int64_t> id_ {};
   };
 

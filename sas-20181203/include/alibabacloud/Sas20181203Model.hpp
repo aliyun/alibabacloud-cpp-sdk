@@ -188,6 +188,9 @@
 #include <alibabacloud/models/CreateDynamicDictRequest.hpp>
 #include <alibabacloud/models/CreateDynamicDictResponseBody.hpp>
 #include <alibabacloud/models/CreateDynamicDictResponse.hpp>
+#include <alibabacloud/models/CreateFileDeepAnalyzeRequest.hpp>
+#include <alibabacloud/models/CreateFileDeepAnalyzeResponseBody.hpp>
+#include <alibabacloud/models/CreateFileDeepAnalyzeResponse.hpp>
 #include <alibabacloud/models/CreateFileDetectRequest.hpp>
 #include <alibabacloud/models/CreateFileDetectResponseBody.hpp>
 #include <alibabacloud/models/CreateFileDetectResponse.hpp>

@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The page number in a paged query.
+    // The page number of the current page for paging in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The type of the cloud disk. Valid values:
     // 
@@ -125,21 +125,21 @@ namespace Models
     shared_ptr<string> diskType_ {};
     // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The list of asset instance IDs to query.
+    // The IDs of the asset instances to query.
     shared_ptr<vector<string>> instanceIds_ {};
     // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
-    // The maximum number of entries per page in a paged query.
+    // The maximum number of entries to return on each page for paging in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The type of the operating system.
     shared_ptr<string> platform_ {};
     // The region ID.
     shared_ptr<string> scanRegionId_ {};
-    // The object type of the detection target. Valid values:
+    // The object type to scan. Valid values:
     // 
     // - **3**: user snapshot
     // 
-    // - **4**: user-defined image
+    // - **4**: custom image
     shared_ptr<int32_t> targetType_ {};
   };
 

@@ -92,11 +92,11 @@ namespace Models
 
 
     protected:
-      // The number of data entries displayed on the current page.
+      // The number of entries returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The current page number in a paged query.
+      // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of cloud assets.
       shared_ptr<int32_t> totalCount_ {};
@@ -299,35 +299,35 @@ namespace Models
 
     protected:
       // Indicates whether the cloud asset has security alerts. Valid values:
-      // - **YES**: The asset has security alerts.
-      // - **NO**: The asset has no security alerts.
+      // - **YES**: The cloud asset has security alerts.
+      // - **NO**: The cloud asset does not have security alerts.
       shared_ptr<string> alarmStatus_ {};
-      // The subtype of the cloud product. The asset type-subtype mapping. Valid values:
+      // The subtype of the cloud product, which corresponds to the asset type. Valid values:
       // 
-      // - **0**: ECS
+      // - **0**: ECS server 
       // 
       //     * **0**: instance
       //     * **1**: cloud disk (storage)
       //     * **2**: security group
-      // - **1**: load balancing
-      //     * **0**: Classic Load Balancer
-      //     * **1**: Application Load Balancer
+      // - **1**: Server Load Balancer (SLB)
+      //     * **0**: Server Load Balancer (SLB)
+      //     * **1**: Application Load Balancer (ALB)
       // - **3**: ApsaraDB RDS
       //     * **0**: instance
       // - **4**: ApsaraDB for MongoDB
       //     * **0**: instance
-      // - **5**: Tair (Redis® OSS-Compatible)
+      // - **5**: ApsaraDB for Tair (Redis-compatible)
       //     * **0**: instance
       // - **6**: Container Registry
       //     * **1**: Enterprise Edition
       //     * **2**: Personal Edition
-      // - **8**: Container Service for Kubernetes
+      // - **8**: Container Service for Kubernetes (ACK)
       //     * **0**: cluster
       // - **9**: Virtual Private Cloud (VPC)
       //     * **0**: NAT gateway
       //     * **1**: EIP
       //     * **2**: VPN
-      //     * **3**: FLOW_LOG
+      //     * **3**: flow log
       // - **11**: ActionTrail
       //     * **0**: trail
       // - **12**: CDN
@@ -338,22 +338,22 @@ namespace Models
       //     * **0**: organization
       // - **16**: Anti-DDoS
       //     * **0**: instance
-      // - **17**: Web Application Firewall
+      // - **17**: Web Application Firewall (WAF)
       //      * **0**: domain name
-      // - **18**: Object Storage Service
+      // - **18**: OSS
       //     * **0**: bucket
-      // - **19**: cloud-native relational database PolarDB
+      // - **19**: PolarDB
       //     * **0**: cluster
-      // - **20**: ApsaraDB RDS for PostgreSQL
+      // - **20**: ApsaraDB for PostgreSQL
       //     * **0**: instance
       // - **21**: Microservices Engine (MSE)
       //     * **0**: cluster
       // - **22**: Apsara File Storage NAS
       //     * **0**: file system
-      // - **23**: Data Security Center
+      // - **23**: Data Security Center (DSC)
       //     * **0**: instance
-      // - **24**: Elastic IP Address
-      //     * **0**: anycast elastic IP address
+      // - **24**: EIP
+      //     * **0**: Anycast EIP
       // - **25**: EIAM
       //     * **0**: instance
       // - **26**: PolarDB-X
@@ -361,32 +361,32 @@ namespace Models
       // - **27**: Elasticsearch
       //     * **0**: instance
       shared_ptr<string> assetSubType_ {};
-      // The subtype name of the cloud asset.
+      // The name of the cloud asset subtype.
       shared_ptr<string> assetSubTypeName_ {};
       // The type of the asset. Valid values:
       // 
-      // - **0**: Elastic Compute Service (ECS)
-      // - **1**: load balancing
+      // - **0**: ECS server
+      // - **1**: Server Load Balancer (SLB)
       // - **3**: ApsaraDB RDS
       // - **4**: ApsaraDB for MongoDB
-      // - **5**: Tair (Redis® OSS-Compatible)
+      // - **5**: ApsaraDB for Tair (Redis-compatible)
       // - **6**: Container Registry
-      // - **8**: Container Service for Kubernetes
+      // - **8**: Container Service for Kubernetes (ACK)
       // - **9**: Virtual Private Cloud (VPC)
       // - **11**: ActionTrail
-      // - **12**: CDN
-      // - **13**: SSL Certificates Service (formerly Digital Certificate Management Service)
+      // - **12**: Content Delivery Network (CDN)
+      // - **13**: SSL Certificates Service
       // - **14**: Yunxiao
       // - **16**: Anti-DDoS
-      // - **17**: Web Application Firewall
-      // - **18**: Object Storage Service
-      // - **19**: cloud-native relational database PolarDB
-      // - **20**: ApsaraDB RDS for PostgreSQL
+      // - **17**: Web Application Firewall (WAF)
+      // - **18**: Object Storage Service (OSS)
+      // - **19**: PolarDB
+      // - **20**: ApsaraDB for PostgreSQL
       // - **21**: Microservices Engine (MSE)
       // - **22**: Apsara File Storage NAS
-      // - **23**: Data Security Center
-      // - **24**: Elastic IP Address
-      // - **25**: EIAM
+      // - **23**: Data Security Center (DSC)
+      // - **24**: Elastic IP Address (EIP)
+      // - **25**: Elastic Identity and Access Management (EIAM)
       // - **26**: PolarDB-X
       // - **27**: Elasticsearch
       shared_ptr<int32_t> assetType_ {};
@@ -405,12 +405,12 @@ namespace Models
       // The ID of the region where the asset instance resides.
       shared_ptr<string> regionId_ {};
       // Indicates whether the cloud asset has security risks. Valid values:
-      // - **YES**: The asset has security risks.
-      // - **NO**: The asset has no security risks.
+      // - **YES**: The cloud asset has security risks.
+      // - **NO**: The cloud asset does not have security risks.
       shared_ptr<string> riskStatus_ {};
-      // The Cloud Security Posture Management (CSPM) sale identifier.
+      // The CSPM sales identifier.
       shared_ptr<int32_t> saleCspm_ {};
-      // The sale type.
+      // The sales type.
       shared_ptr<int32_t> saleType_ {};
       // The security information of the cloud asset.
       shared_ptr<string> securityInfo_ {};
@@ -419,9 +419,9 @@ namespace Models
       // The asset vendor. Valid values:
       // 
       // - **0**: Alibaba Cloud asset
-      // - **1**: off-cloud asset
+      // - **1**: non-Alibaba Cloud asset
       // - **2**: IDC asset
-      // - **3**, **4**, **5**, **7**: other cloud assets
+      // - **3**, **4**, **5**, and **7**: other cloud asset
       // - **8**: lightweight asset
       shared_ptr<int32_t> vendor_ {};
       // The account ID of the multi-cloud instance.
@@ -465,16 +465,16 @@ namespace Models
 
 
   protected:
-    // The list of detailed information about cloud assets.
+    // The list of cloud asset details.
     shared_ptr<vector<ListCloudAssetInstancesResponseBody::Instances>> instances_ {};
     // The pagination information.
     shared_ptr<ListCloudAssetInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The request ID. This is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot and locate issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

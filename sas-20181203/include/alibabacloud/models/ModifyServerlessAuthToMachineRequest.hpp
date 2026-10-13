@@ -195,43 +195,45 @@ namespace Models
 
 
   protected:
-    // The application query conditions.
+    // The query conditions for applications.
     shared_ptr<string> appCriteria_ {};
     // The instance type. Valid values:
-    // - **SERVERLESS**: Serverless asset.
+    // - **SERVERLESS**: Serverless assets.
     shared_ptr<string> authItem_ {};
     // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Disable automatic binding.
-    // - **1**: Enable automatic binding.
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
     // Specifies whether to bind all assets. Default value: **false**. Valid values:
     // 
-    // - **true**: Bind all assets.
-    // - **false**: Do not bind all assets.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> bindAll_ {};
     // The list of application IDs to bind.
     // 
-    // > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+    // > You can obtain the application IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> bindAppList_ {};
-    // The Asset Type for the operation. Valid values:
+    // The Asset Type to operate. Valid values:
     // - **INSTANCE**: Instance.
     // - **APP**: Application.
+    // 
+    // This parameter is required when you manage Serverless asset authorizations.
     shared_ptr<string> bindAssetType_ {};
     // The list of asset UUIDs to bind.
     shared_ptr<vector<string>> bindUuidList_ {};
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
-    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // Specifies the conditions for searching assets. The value must be in JSON format and is case-sensitive.
+    // > You can search for assets by using conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // Specifies whether to perform a dry run. true: performs only a check without executing the actual operation. false: performs the actual operation. Default value: false.
+    // Specifies whether to only precheck the request. A value of true indicates that only the request is prechecked and no actual operation is performed. A value of false indicates that the request is executed. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The logical relationship among multiple search conditions. Valid values:
-    // - **OR**: Multiple conditions are evaluated using a logical OR.
-    // - **AND**: Multiple conditions are evaluated using a logical AND.
+    // Specifies the logical relationship among multiple search conditions. Valid values:
+    // - **OR**: The conditions have an OR relationship.
+    // - **AND**: The conditions have an AND relationship.
     shared_ptr<string> logicalExp_ {};
-    // The NTM version code for pre-binding.
+    // The NTM version code used for pre-binding.
     shared_ptr<string> ntmVersion_ {};
     // Specifies whether to perform a pre-binding operation. Valid values:
     // 
@@ -239,15 +241,15 @@ namespace Models
     // - **1**: Yes.
     // 
     // 
-    // > After pre-binding is enabled, the corresponding number of authorization licenses are automatically bound to the specified servers after the purchase is completed.
+    // > After you enable pre-binding, the system automatically binds the corresponding version of authorizations to the specified server after the purchase is completed.
     shared_ptr<int32_t> preBind_ {};
-    // The pre-binding order ID.
+    // The ID of the pre-binding order.
     shared_ptr<int64_t> preBindOrderId_ {};
-    // The UID of the resource directory.
+    // The UID of the associated resource directory.
     shared_ptr<int64_t> resourceDirectoryUid_ {};
     // The list of application IDs to unbind.
     // 
-    // > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
+    // > You can obtain the application IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> unBindAppList_ {};
     // The list of asset UUIDs to unbind.
     shared_ptr<vector<string>> unBindUuidList_ {};

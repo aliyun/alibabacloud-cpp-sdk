@@ -101,15 +101,15 @@ namespace Models
 
 
     protected:
-      // The number of assets displayed on the current page.
+      // The number of assets returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The current page number in a paged query.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The NextToken value returned when NextToken-based pagination is used.
+      // The NextToken value returned when the NextToken pagination method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of assets displayed per page in a paged query. Default value: **20**. This means 20 assets are displayed per page.
+      // The number of assets returned per page in a paging query. Default value: **20**, which indicates that 20 assets are displayed on each page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of assets returned by the query.
+      // The total number of queried assets.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -703,36 +703,36 @@ namespace Models
 
 
     protected:
-      // Indicates whether the asset has security alerts. Valid values:
-      // - **YES**: The asset has security alerts.
-      // - **NO**: The asset has no security alerts.
+      // Indicates whether security alerts exist on the asset. Valid values:
+      // - **YES**: Security alerts exist.
+      // - **NO**: No security alerts exist.
       shared_ptr<string> alarmStatus_ {};
       // The application ID.
-      // > This field is available only when **Vendor** is set to 9.
+      // > This field is returned only when **Vendor** is set to 9.
       shared_ptr<string> appId_ {};
       // The application name.
-      // > This field is available only when **Vendor** is set to 9.
+      // > This field is returned only when **Vendor** is set to 9.
       shared_ptr<string> appName_ {};
       // The type of the asset. Valid values:
       // 
       // - **0**: Cloud server.
       // - **1**: Load balancing.
       // - **2**: NAT gateway.
-      // - **3**: ApsaraDB RDS database.
-      // - **4**: ApsaraDB for MongoDB database.
-      // - **5**: ApsaraDB for Redis database.
+      // - **3**: RDS database.
+      // - **4**: MongoDB database.
+      // - **5**: Redis database.
       // - **6**: Container image.
       // - **7**: Container.
       shared_ptr<string> assetType_ {};
       // The type name of the asset.
       shared_ptr<string> assetTypeName_ {};
-      // The timestamp when the license was bound to the asset, in milliseconds.
+      // The timestamp when the authorization was bound to the asset. Unit: milliseconds.
       shared_ptr<int64_t> authModifyTime_ {};
-      // The license version of the asset. Valid values:
+      // The authorization version of the asset. Valid values:
       // <props="china">
       // - **1**: Free Edition
       // - **6**: Anti-virus Edition
-      // - **5**: Advanced Edition
+      // - **5**: Advanced
       // - **3**: Enterprise Edition
       // - **7**: Ultimate Edition
       // 
@@ -744,53 +744,53 @@ namespace Models
       // - **3**: Enterprise Edition
       // - **7**: Ultimate Edition
       shared_ptr<int32_t> authVersion_ {};
-      // The license version name of the asset. Valid values:
+      // The specific name of the authorization version of the asset. Valid values:
       // 
       // - Free Edition
       // - Anti-virus Edition
-      // - Advanced Edition
+      // - Advanced
       // - Enterprise Edition
       // - Ultimate Edition
       shared_ptr<string> authVersionName_ {};
-      // Indicates whether the asset is bound to a license. Valid values:
+      // Indicates whether the asset is bound to an authorization. Valid values:
       // 
-      // - **true**: The asset is bound to a license.
-      // - **false**: The asset is not bound to a license.
+      // - **true**: Bound.
+      // - **false**: Unbound.
       shared_ptr<bool> bind_ {};
-      // Indicates whether the asset is bound to a tamper-proofing license. Valid values:
+      // Indicates whether the tamper-proofing authorization is bound. Valid values:
       // 
       // - **block**: Yes.
       // - **none**: No.
       shared_ptr<string> bindFileProtectType_ {};
       // The online status of the client on the instance. Valid values:
       // 
-      // - **online**: Online. The Agent client of the asset is **enabled**.
-      // - **offline**: Offline. The Agent client of the asset is **disabled**.
-      // - **pause**: Paused. The Agent client of the asset has **protection paused**.
+      // - **online**: Online, which indicates that the Security Center agent on the asset is enabled.
+      // - **offline**: Offline, which indicates that the Security Center agent on the asset is disabled.
+      // - **pause**: Paused, which indicates that the Security Center agent on the asset is paused.
       shared_ptr<string> clientStatus_ {};
       // The sub-status of the client on the instance. Valid values:
       // 
-      // - **online**: Online. The Agent client of the asset is **enabled**.
-      // - **offline**: Offline. The Agent client of the asset is **disabled**.
-      // - **pause**: Paused. The Agent client of the asset has **protection paused**.
-      // - **uninstalled**: Not installed. The Agent client of the asset is **not installed**.
-      // - **stopped**: Server stopped. The Agent client status indicates the **server is stopped**.
+      // - **online**: Online, which indicates that the Security Center agent on the asset is enabled.
+      // - **offline**: Offline, which indicates that the Security Center agent on the asset is disabled.
+      // - **pause**: Paused, which indicates that the Security Center agent on the asset is paused.
+      // - **uninstalled**: Uninstalled, which indicates that the Security Center agent on the asset is not installed.
+      // - **stopped**: Stopped, which indicates that the server is shut down and the Security Center agent is stopped.
       shared_ptr<string> clientSubStatus_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The cluster name.
+      // The name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The number of CPU cores of the asset.
       shared_ptr<int32_t> cores_ {};
       // The CPU information of the asset.
       shared_ptr<string> cpuInfo_ {};
-      // The timestamp when the cluster was created, in milliseconds.
+      // The timestamp when the cluster was created. Unit: milliseconds.
       shared_ptr<int64_t> createdTime_ {};
-      // The EDR license version.
+      // The identifier of the EDR authorization version currently used by the asset.
       shared_ptr<string> edrAuthVersion_ {};
       // The exposure status of the asset. Valid values:
       // 
-      // - **0**: Not exposed.
+      // - **0**: Unexposed.
       // - **1**: Exposed.
       shared_ptr<int32_t> exposedStatus_ {};
       // Indicates whether the instance is an Alibaba Cloud asset. Valid values:
@@ -798,7 +798,7 @@ namespace Models
       // - **0**: Alibaba Cloud asset.
       // - **1**: Non-Alibaba Cloud asset.
       shared_ptr<int32_t> flag_ {};
-      // The asset vendor. Valid values:
+      // The vendor of the asset. Valid values:
       // - **ALIYUN**
       // - **OUT**
       // - **IDC**
@@ -813,16 +813,16 @@ namespace Models
       // - **google**
       // - **VOLCENGINE**
       shared_ptr<string> flagName_ {};
-      // The free quota type.
+      // The type of free quota used by the asset.
       shared_ptr<string> freeType_ {};
       // The ID of the group to which the instance belongs.
       shared_ptr<int64_t> groupId_ {};
       // The name of the group to which the asset belongs.
       shared_ptr<string> groupTrace_ {};
-      // Indicates whether the instance contains containers. Valid values:
+      // Indicates whether the asset contains containers. Valid values:
       // 
-      // - **YES**: The instance contains containers.
-      // - **NO**: The instance does not contain containers.
+      // - **YES**: Yes.
+      // - **NO**: No.
       shared_ptr<string> hasContainer_ {};
       // Indicates whether baseline risks are detected on the instance. Valid values:
       // - **YES**: Baseline risks are detected.
@@ -849,11 +849,11 @@ namespace Models
       shared_ptr<string> ipListString_ {};
       // The kernel version information.
       shared_ptr<string> kernel_ {};
-      // The timestamp of the last time the client came online, in milliseconds.
+      // The timestamp when the client was last online. Unit: milliseconds.
       shared_ptr<int64_t> lastLoginTimestamp_ {};
       // The MAC address of the system.
       shared_ptr<string> macListString_ {};
-      // The memory size, in MB.
+      // The memory size. Unit: MB.
       shared_ptr<int32_t> mem_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
@@ -863,7 +863,7 @@ namespace Models
       shared_ptr<string> osName_ {};
       // The number of pods.
       shared_ptr<int32_t> podCount_ {};
-      // The billing method of the protection edition attached to the current asset. Valid values:
+      // The billing method of the protection version attached to the asset. Valid values:
       // - **0**: Subscription.
       // - **1**: Pay-as-you-go.
       shared_ptr<int32_t> postPaidFlag_ {};
@@ -871,95 +871,97 @@ namespace Models
       shared_ptr<string> region_ {};
       // The ID of the region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The region name of the asset.
+      // The name of the region where the asset resides.
       shared_ptr<string> regionName_ {};
       // The statistics of risk items on the asset. The value is in JSON format and contains the following fields:
       // 
-      // - **account**: The number of accounts with unusual logons or successful brute-force attacks.
+      // - **account**: The number of accounts with unusual logons and successful brute-force attacks.
       // - **appNum**: The number of scanner vulnerabilities.
-      // - **asapVulCount**: The total number of high-priority vulnerabilities.
+      // - **asapVulCount**: The total number of high-severity vulnerabilities.
       // - **baselineHigh**: The number of high-risk baseline risks.
       // - **baselineLow**: The number of low-risk baseline risks.
       // - **baselineMedium**: The number of medium-risk baseline risks.
-      // - **baselineNum**: The total number of cloud product configuration risks.
+      // - **baselineNum**: The total number of cloud service configuration risks.
       // - **cmsNum**: The number of Web-CMS vulnerabilities.
-      // - **containerAsap**: The number of high-priority container vulnerabilities.
-      // - **containerLater**: The number of medium-priority container vulnerabilities.
-      // - **containerNntf**: The number of low-priority container vulnerabilities.
-      // - **containerRemind**: The number of container reminder alerts.
-      // - **containerSerious**: The number of critical container alerts.
-      // - **containerSuspicious**: The number of suspicious container alerts.
+      // - **containerAsap**: The number of high-severity container vulnerabilities.
+      // - **containerLater**: The number of medium-severity container vulnerabilities.
+      // - **containerNntf**: The number of low-severity container vulnerabilities.
+      // - **containerRemind**: The number of reminder alerting for containers.
+      // - **containerSerious**: The number of urgent alerting for containers.
+      // - **containerSuspicious**: The number of suspicious alerting for containers.
       // - **cveNum**: The number of Linux software vulnerabilities.
       // - **emgNum**: The number of emergency vulnerabilities.
-      // - **health**: The number of unhandled baseline alerts.
-      // - **imageBaselineHigh**: The number of high-risk baseline risks in images.
-      // - **imageBaselineLow**: The number of low-risk baseline risks in images.
-      // - **imageBaselineMedium**: The number of medium-risk baseline risks in images.
-      // - **imageBaselineNum**: The total number of baseline risks in images.
+      // - **health**: The number of unhandled baseline alerting.
+      // - **imageBaselineHigh**: The number of high-risk image baseline risks.
+      // - **imageBaselineLow**: The number of low-risk image baseline risks.
+      // - **imageBaselineMedium**: The number of medium-risk image baseline risks.
+      // - **imageBaselineNum**: The total number of image baseline risks.
       // - **imageMaliciousFileRemind**: The number of reminder malicious files in images.
-      // - **imageMaliciousFileSerious**: The number of critical malicious files in images.
+      // - **imageMaliciousFileSerious**: The number of urgent malicious files in images.
       // - **imageMaliciousFileSuspicious**: The number of suspicious malicious files in images.
-      // - **imageVulAsap**: The number of high-priority vulnerabilities in images.
-      // - **imageVulLater**: The number of medium-priority vulnerabilities in images.
-      // - **imageVulNntf**: The number of low-priority vulnerabilities in images.
-      // - **laterVulCount**: The number of medium-priority vulnerabilities.
-      // - **newSuspicious**: The number of alerting events.
-      // - **nntfVulCount**: The number of low-priority vulnerabilities.
-      // - **remindNum**: The number of reminder alerts.
+      // - **imageVulAsap**: The number of high-severity image vulnerabilities.
+      // - **imageVulLater**: The number of medium-severity image vulnerabilities.
+      // - **imageVulNntf**: The number of low-severity image vulnerabilities.
+      // - **laterVulCount**: The number of medium-severity vulnerabilities.
+      // - **newSuspicious**: The number of alerting.
+      // - **nntfVulCount**: The number of low-severity vulnerabilities.
+      // - **remindNum**: The number of reminder alerting.
       // - **scaNum**: The number of software constituency parsing vulnerabilities.
-      // - **seriousNum**: The number of critical alerts.
-      // - **suspNum**: The number of suspicious alerts.
-      // - **suspicious**: The total number of alerting events.
+      // - **seriousNum**: The number of urgent alerting.
+      // - **suspNum**: The number of suspicious alerting.
+      // - **suspicious**: The total number of alerting.
       // - **sysNum**: The number of Windows system vulnerabilities.
       // - **trojan**: The number of trojans.
       // - **uuid**: The UUID of the asset.
       // - **vul**: The number of vulnerabilities.
       // - **weakPWNum**: The number of weak passwords.
       shared_ptr<string> riskCount_ {};
-      // Indicates whether the asset has security risks. Valid values:
-      // - **YES**: The asset has security risks.
-      // - **NO**: The asset has no security risks.
+      // Indicates whether security risks exist on the asset. Valid values:
+      // - **YES**: Yes.
+      // - **NO**: No.
       shared_ptr<string> riskStatus_ {};
       // The number of security alerts on the asset.
       shared_ptr<int32_t> safeEventCount_ {};
-      // The service ID. This field has a value only when the instance is a serverless instance that belongs to the PAI platform.
+      // The service ID. This field has a value only when the instance is a serverless instance and belongs to the Machine Learning Platform for AI (PAI).
       shared_ptr<string> serviceId_ {};
       // The running status of the instance. Valid values:
       // 
-      // - **Running**: The instance is running.
-      // - **notRunning**: The instance is stopped.
+      // - **Running**: Running.
+      // - **notRunning**: Stopped.
       shared_ptr<string> status_ {};
       // The tag name of the asset instance.
       shared_ptr<string> tag_ {};
       // The tag ID of the asset.
       shared_ptr<string> tagId_ {};
-      // The custom tags of Lingjun nodes. This field returns a value only when the instance is a Lingjun instance.
+      // The custom tags of the Lingjun node. This field is returned only when the instance is a Lingjun instance.
       shared_ptr<string> tagResources_ {};
       // The UUID of the instance.
       shared_ptr<string> uuid_ {};
-      // The asset vendor. Valid values:
+      // The vendor of the asset. Valid values:
       // 
-      // - **0**: Alibaba Cloud asset.
-      // - **1**: Off-cloud asset.
-      // - **2**: IDC asset.
-      // - **3**, **4**, **5**, **7**, **14**, **16**: Other cloud assets.
-      // - **8**: Lightweight asset.
-      // - **9**: SAE.
-      // - **10**: PAI.
+      // - **0**: Alibaba Cloud.
+      // - **1**: Non-Alibaba Cloud.
+      // - **2**: IDC.
+      // - **3**, **4**, **5**, **7**, **14**, **16**: Other cloud providers.
+      // - **8**: Simple Application Server.
+      // - **9**: Serverless App Engine (SAE).
+      // - **10**: Machine Learning Platform for AI (PAI).
       shared_ptr<int32_t> vendor_ {};
-      // The service provider name of the asset. Valid values:
+      // The name of the service provider for the asset.
+      // 
+      // Valid values:
       // - **ALIYUN**: Alibaba Cloud.
-      // - **OUT**: Off-cloud asset.
+      // - **OUT**: Third-party.
       // - **IDC**: IDC.
-      // - **TENCENT**: Other cloud.
-      // - **HUAWEICLOUD**: Other cloud.
-      // - **Microsoft**: Other cloud.
-      // - **AWS**: Other cloud.
-      // - **TRIPARTITE**: Lightweight server.
+      // - **TENCENT**: Tencent Cloud.
+      // - **HUAWEICLOUD**: Huawei Cloud.
+      // - **Microsoft**: Microsoft Azure.
+      // - **AWS**: AWS.
+      // - **TRIPARTITE**: Simple Application Server.
       // - **SAE**: SAE.
       // - **PAI**: PAI.
-      // - **VOLCENGINE**: Other cloud.
-      // - **google**: Other cloud.
+      // - **VOLCENGINE**: Volcengine.
+      // - **google**: Google Cloud.
       shared_ptr<string> vendorName_ {};
       // The account ID of the multi-cloud instance.
       shared_ptr<string> vendorUid_ {};
@@ -969,9 +971,9 @@ namespace Models
       shared_ptr<string> vpcInstanceId_ {};
       // The number of vulnerabilities on the instance.
       shared_ptr<int32_t> vulCount_ {};
-      // Indicates whether the instance has vulnerabilities. Valid values:
-      // - **YES**: The instance has vulnerabilities.
-      // - **NO**: The instance has no vulnerabilities.
+      // Indicates whether vulnerabilities exist on the instance. Valid values:
+      // - **YES**: Vulnerabilities exist.
+      // - **NO**: No vulnerabilities exist.
       shared_ptr<string> vulStatus_ {};
     };
 
@@ -1014,11 +1016,11 @@ namespace Models
     shared_ptr<vector<DescribeCloudCenterInstancesResponseBody::Instances>> instances_ {};
     // The pagination information.
     shared_ptr<DescribeCloudCenterInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request. Alibaba Cloud generates this unique identifier for each request. You can use this ID to troubleshoot and locate issues.
+    // The ID of the request. This unique identifier is generated by Alibaba Cloud for the request and can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The result of the API call. Valid values:
-    // - **true**: The call succeeded.
-    // - **false**: The call failed.
+    // The result status of the API call. Valid values:
+    // - **true**: The API call succeeded.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

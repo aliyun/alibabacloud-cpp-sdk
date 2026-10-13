@@ -58,15 +58,15 @@ namespace Models
 
   protected:
     // The event ID.
-    // > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query event IDs.
+    // > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query the event ID.
     shared_ptr<int64_t> eventId_ {};
     // The data source. Default value: **default**. Valid values:
-    // - **caasm**: attack surface
-    // - **default**: attack path
+    // - **caasm**: Attack surface.
+    // - **default**: Attack path.
     shared_ptr<string> eventSource_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
   };
 

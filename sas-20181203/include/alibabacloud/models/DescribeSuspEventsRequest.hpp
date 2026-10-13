@@ -381,50 +381,50 @@ namespace Models
   protected:
     // The unique ID of the alert event.
     // 
-    // > To query the exception information of a single alert event, provide the unique ID of the alert event. You can obtain this ID by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
+    // > To query the exception event information of a single alert event, you must provide the unique ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID.
     shared_ptr<string> alarmUniqueInfo_ {};
-    // The collection of asset types.
+    // The list of asset types.
     shared_ptr<vector<string>> assetsTypeList_ {};
-    // The cluster ID for which you want to query alert events.
+    // The ID of the cluster for which you want to query alert events.
     shared_ptr<string> clusterId_ {};
     // The container search field. Valid values:
     // 
-    // - **instanceId**: instance ID
-    // - **appName**: application name
-    // - **clusterId**: cluster ID
-    // - **regionId**: region
-    // - **nodeName**: node name
-    // - **namespace**: namespace
-    // - **clusterName**: cluster name
-    // - **image**: image name
-    // - **imageRepoName**: image repository name
-    // - **imageRepoNamespace**: image repository namespace
-    // - **imageRepoTag**: image tag
-    // - **imageDigest**: image digest
+    // - **instanceId**: Instance ID.
+    // - **appName**: Application name.
+    // - **clusterId**: Cluster ID.
+    // - **regionId**: Region ID.
+    // - **nodeName**: Node name.
+    // - **namespace**: Namespace.
+    // - **clusterName**: Cluster name.
+    // - **image**: Image name.
+    // - **imageRepoName**: Image repository name.
+    // - **imageRepoNamespace**: Image repository namespace.
+    // - **imageRepoTag**: Image tag.
+    // - **imageDigest**: Image digest.
     shared_ptr<string> containerFieldName_ {};
     // The value of the container search field.
     shared_ptr<string> containerFieldValue_ {};
-    // The page number of the page to return in a paged query. Default value: **1**, which indicates that the results start from page 1.
+    // The page number of the page to return. Default value: **1**.
     shared_ptr<string> currentPage_ {};
-    // Specifies whether the alert events to query have been handled. Valid values:
-    // - **N**: Unhandled.
+    // Specifies whether the alert events to query are handled. Valid values:
+    // - **N**: Pending.
     // - **Y**: Handled.
     shared_ptr<string> dealed_ {};
-    // The discovery source. This is an invalid field.
+    // The detection source. This field is invalid.
     shared_ptr<string> detectSource_ {};
     // The subtypes of the alert events. Separate multiple subtypes with commas (,).
     shared_ptr<string> eventNames_ {};
-    // The data source identifier of the alert event. The value is fixed as sas.
+    // The identifier of the data source to which the alert event belongs. Set the value to sas.
     shared_ptr<string> from_ {};
-    // The group ID of the asset affected by the alert event.
+    // The ID of the asset group affected by the alert event.
     shared_ptr<int64_t> groupId_ {};
-    // The unique ID that identifies the alert event record.
+    // The unique ID of the alert event record.
     shared_ptr<int64_t> id_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The severity levels of the alert events to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
+    // The urgency levels of the alert events to query. Separate multiple urgency levels with commas (,). The urgency levels are listed in descending order. Valid values:
     // - **serious**: Urgent.
     // - **suspicious**: Suspicious.
     // - **remind**: Reminder.
@@ -435,46 +435,46 @@ namespace Models
     shared_ptr<int32_t> multiAccountActionType_ {};
     // The name of the asset affected by the alert event.
     shared_ptr<string> name_ {};
-    // The collection of alert event handling result codes.
+    // The list of alert event handling result codes.
     shared_ptr<vector<string>> operateErrorCodeList_ {};
     // The end timestamp of the handling time.
     shared_ptr<string> operateTimeEnd_ {};
     // The start timestamp of the handling time.
     shared_ptr<string> operateTimeStart_ {};
-    // The number of alert events to display on each page in a paged query. Default value: **20**, which indicates that 20 alert events are displayed on each page. Maximum value: 100.
+    // The settings for the paged query, specifying the number of alert events to return on each page. Default value: **20**, which indicates that 20 alert events are returned on each page. Maximum value: 100.
     shared_ptr<string> pageSize_ {};
-    // The alerting type of the alert events to query. Valid values:
+    // The Alarm Metric of the alert events to query. Valid values:
     // 
     // - **Abnormal process behavior**
     // - **Web shell**
     // - **Unusual logon**
-    // - **Abnormal event**
+    // - **Abnormal events**
     // - **Sensitive file tampering**
     // - **Malicious process (cloud scan)**
-    // - **Suspicious network connectivity**
-    // - **Abnormal account**
-    // - **Application intrusion event**
+    // - **Suspicious network connection**
+    // - **Abnormal accounts**
+    // - **Application intrusion events**
     // - **Cloud service threat detection**
     // - **Precise defense**
     // - **Application whitelist**
     // - **Persistent backdoor**
     // - **Web application threat detection**
-    // - **Malicious script**
+    // - **Malicious scripts**
     // - **Threat intelligence**
     // - **Malicious network behavior**
-    // - **Container cluster exception**
+    // - **Container cluster anomalies**
     // - **Web shell (local scan)**
     // - **Vulnerability exploits**
     // - **Malicious process (local scan)**
-    // - **Trusted exception**
-    // - **Other**
+    // - **Trusted exceptions**
+    // - **Others**
     shared_ptr<string> parentEventTypes_ {};
     // The alert name or asset information to query.
     // 
-    // > Fuzzy match is supported. Asset information includes the asset name, public IP address, and private IP address.
+    // > Fuzzy match is supported. Asset information includes the asset name, public IP address, and internal IP address.
     shared_ptr<string> remark_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the Alibaba Cloud account to which the resource folder member accounts belong.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The custom sort field. Default value: **operateTime**. Valid values:
     // 
@@ -490,24 +490,24 @@ namespace Models
     // 
     // > This field takes effect only when **Dealed** is set to Y.
     shared_ptr<string> sortType_ {};
-    // The alert source.
+    // The source of the alert.
     shared_ptr<string> source_ {};
     // The list of Alibaba Cloud account IDs that generated the alerts.
     shared_ptr<vector<int64_t>> sourceAliUids_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
     // The status of the alert events to query. Valid values:
     // - **0**: All.
-    // - **1**: Unhandled.
+    // - **1**: Pending.
     // - **2**: Ignored.
     // - **4**: Confirmed.
     // - **8**: Marked as false positive.
-    // - **16**: Handling.
+    // - **16**: Processing.
     // - **32**: Handled.
     // - **64**: Expired.
     // - **128**: Deleted.
-    // - **512**: Automatic blocking in progress.
-    // - **513**: Automatic blocking completed.
+    // - **512**: Automatically blocking.
+    // - **513**: Automatically blocked.
     shared_ptr<string> status_ {};
     // Specifies whether the alert is in strict mode. Valid values:
     // - N: No.
@@ -517,10 +517,10 @@ namespace Models
     shared_ptr<vector<string>> supportOperateCodeList_ {};
     // The ATT&CK tactic ID.
     shared_ptr<string> tacticId_ {};
-    // The target type for container search. Valid values:
-    // - **containerId**: container ID
-    // - **uuid**: server UUID
-    // - **imageUuid**: image UUID
+    // The container search target type. Valid values:
+    // - **containerId**: Container ID.
+    // - **uuid**: Server UUID.
+    // - **imageUuid**: Image UUID.
     shared_ptr<string> targetType_ {};
     // The end time of the latest occurrence. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> timeEnd_ {};

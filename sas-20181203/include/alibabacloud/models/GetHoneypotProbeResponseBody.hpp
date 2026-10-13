@@ -237,26 +237,25 @@ namespace Models
 
 
         protected:
-          // Indicates whether the port is bound.
+          // Specifies whether the port is bound.
           shared_ptr<bool> bindPort_ {};
-          // The end port on which the probe monitors.
+          // The ending listening port of the probe.
           shared_ptr<int32_t> endPort_ {};
-          // The error that is returned if an error occurred in the port of the honeypot that is bound to the probe.
+          // The bound service port error.
           shared_ptr<string> err_ {};
-          // Indicates whether the port is a fixed port.
+          // Specifies whether the port is fixed.
           shared_ptr<bool> fixed_ {};
-          // The unique ID of the port binding record.
+          // The unique ID of the bound port record.
           shared_ptr<int64_t> id_ {};
-          // The error message that is returned if an error occurred in the port of the honeypot that is bound to the probe.
+          // The error details of the bound service port.
           shared_ptr<string> msg_ {};
-          // The type of the protocol.
+          // The protocol type.
           shared_ptr<string> proto_ {};
-          // The start port on which the probe monitors.
+          // The starting listening port of the probe.
           shared_ptr<int32_t> startPort_ {};
-          // The status of the port of the honeypot that is bound to the probe. Valid values:
-          // 
-          // *   **1**: abnormal
-          // *   **3**: normal
+          // The status of the bound service port. Valid values:
+          // - **1**: Service exception.
+          // - **3**: Normal.
           shared_ptr<int32_t> status_ {};
           // The destination port.
           shared_ptr<int32_t> targetPort_ {};
@@ -304,18 +303,17 @@ namespace Models
 
 
       protected:
-        // The unique ID of the honeypot that is bound to the probe.
+        // The unique ID of the bound service.
         shared_ptr<string> bindId_ {};
-        // The ports that are bound to the probe.
+        // The list of bound ports.
         shared_ptr<vector<HoneypotProbeBindList::BindPortList>> bindPortList_ {};
         // The honeypot ID.
         shared_ptr<string> honeypotId_ {};
-        // The IP addresses that are monitored.
+        // The list of listening IP addresses.
         shared_ptr<vector<string>> serviceIpList_ {};
-        // The status of the honeypot that is bound to the probe. Valid values:
-        // 
-        // *   **1**: abnormal
-        // *   **3**: normal
+        // The status of the bound honeypot service. Valid values:
+        // - **1**: Service exception.
+        // - **3**: Normal.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -386,18 +384,17 @@ namespace Models
 
 
       protected:
-        // The unique ID of the service that is monitored.
+        // The unique ID of the listening service.
         shared_ptr<int64_t> id_ {};
-        // The ports that are monitored.
+        // The listening ports.
         shared_ptr<string> ports_ {};
-        // The ID of the probe.
+        // The unique ID of the probe.
         shared_ptr<string> probeId_ {};
-        // The IP addresses that are monitored.
+        // The list of listening IP addresses.
         shared_ptr<vector<string>> serviceIpList_ {};
-        // The monitoring status. Valid values:
-        // 
-        // *   **1**: abnormal
-        // *   **3**: normal
+        // The status of the listening service. Valid values:
+        // - **1**: Service exception.
+        // - **3**: Normal.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -450,9 +447,9 @@ namespace Models
       protected:
         // The instance ID of the management node.
         shared_ptr<string> ecsInstanceId_ {};
-        // The ID of the management node.
+        // The management node ID.
         shared_ptr<string> nodeId_ {};
-        // The name of the management node.
+        // The management node name.
         shared_ptr<string> nodeName_ {};
       };
 
@@ -621,64 +618,61 @@ namespace Models
 
 
     protected:
-      // Indicates whether address resolution protocol (ARP) is enabled for the check type.
+      // The ARP check item.
       shared_ptr<bool> arp_ {};
-      // An array consisting of the IP addresses that can be monitored.
+      // The list of listenable IP addresses.
       shared_ptr<vector<string>> canListenIpList_ {};
-      // The CIDR blocks of the probe deployed in a virtual private cloud (VPC).
+      // The list of CIDR blocks covered by the VPC probe.
       shared_ptr<vector<string>> cidrList_ {};
-      // The information about the management node.
+      // The management node.
       shared_ptr<Data::ControlNode> controlNode_ {};
-      // The CPU utilization.
+      // The CPU usage.
       shared_ptr<double> cpuLoad_ {};
-      // The time when the probe was deployed.
+      // The deployment time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> deployTime_ {};
-      // The name of the probe.
+      // The probe name.
       shared_ptr<string> displayName_ {};
-      // The ports that the honeypot monitors.
+      // The list of honeypot listening port scanning services.
       shared_ptr<Data::HoneyPotProbeScanPort> honeyPotProbeScanPort_ {};
-      // The honeypots that are bound to the probe.
+      // The list of honeypot services bound to the probe.
       shared_ptr<vector<Data::HoneypotProbeBindList>> honeypotProbeBindList_ {};
-      // The IP address of the server on which the probe is deployed.
+      // The local address bound to the probe.
       shared_ptr<string> hostIp_ {};
-      // An array consisting of the IP addresses that can be monitored.
+      // The list of listenable IP addresses.
       shared_ptr<vector<string>> listenIpList_ {};
       // The memory usage.
       shared_ptr<double> memoryLoad_ {};
-      // The operating system of the server on which the probe is deployed. Valid values:
-      // 
-      // *   windows
-      // *   linux
+      // The operating system type of the probe instance. Valid values:
+      // - windows: Windows.
+      // - linux: Linux.
       shared_ptr<string> osType_ {};
-      // Indicates whether ping is enabled for the check type.
+      // The ping check item.
       shared_ptr<bool> ping_ {};
-      // The ID of the probe.
+      // The probe ID.
       shared_ptr<string> probeId_ {};
-      // The type of the probe. Valid values:
-      // 
-      // *   **host_probe**: host probe
-      // *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+      // The probe type. Valid values:
+      // - **host_probe**: Host probe.
+      // - **vpc_black_hole_probe**: VPC blackhole probe.
       shared_ptr<string> probeType_ {};
-      // The version of the probe.
+      // The probe version.
       shared_ptr<string> probeVersion_ {};
-      // The IP address of the proxy server.
+      // The proxy IP address deployed in the IDC.
       shared_ptr<string> proxyIp_ {};
-      // The status of the probe. Valid values:
-      // 
-      // *   **installed**: installed
-      // *   **install_failed**: installation failed
-      // *   **online**: online
-      // *   **offline**: offline
-      // *   **unnormal**: abnormal
-      // *   **unprobe**: unauthorized
-      // *   **uninstalling**: being uninstalled
-      // *   **uninstalled**: uninstalled
-      // *   **uninstall_failed**: uninstallation failed
-      // *   **not_exist**: not installed
+      // The probe status. Valid values:
+      // - **installed**: Installed successfully.
+      // - **install_failed**: Installation failed.
+      // - **online**: Normal.
+      // - **offline**: Offline.
+      // - **unnormal**: Service exception.
+      // - **unprobe**: Unauthorized.
+      // - **uninstalling**: Uninstalling.
+      // - **uninstalled**: Uninstalled successfully.
+      // - **uninstall_failed**: Uninstallation failed.
+      // - **not_exist**: Not installed.
       shared_ptr<int32_t> status_ {};
-      // The UUID of the asset on which the host probe is deployed.
+      // The UUID of the asset instance where the host probe is located.
       shared_ptr<string> uuid_ {};
-      // The ID of the VPC in which the probe is deployed.
+      // The ID of the VPC-connected instance where the VPC probe is located.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -729,20 +723,19 @@ namespace Models
 
 
   protected:
-    // The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The result code. A value of **200** indicates success, whereas any other value indicates failure. You can use this field to identify the cause of the failure.
     shared_ptr<string> code_ {};
-    // The information about the probe.
+    // The probe data.
     shared_ptr<GetHoneypotProbeResponseBody::Data> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code of the response.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message returned by the API request.
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // Indicates whether the API call is successful. Valid values:
+    // - **true**: The API call is successful.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

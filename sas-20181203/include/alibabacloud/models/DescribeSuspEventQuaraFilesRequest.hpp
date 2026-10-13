@@ -103,27 +103,27 @@ namespace Models
 
 
   protected:
-    // The page number of the file list to view.
+    // The page number of the file list to return.
     shared_ptr<string> currentPage_ {};
-    // The identifier of the request source. Set the value to **sas**.
+    // The source identifier of the request. Set the value to **sas**.
     shared_ptr<string> from_ {};
     // The ID of the asset group.
     shared_ptr<string> groupId_ {};
-    // The ID of the server group where the quarantined file is located.
+    // The ID of the server group to which the quarantined file belongs.
     shared_ptr<int64_t> groupingId_ {};
-    // The maximum number of entries per page in a paged query.
+    // The maximum number of entries to return on each page during paging in a paged query.
     shared_ptr<string> pageSize_ {};
     // The unique identifier of the quarantined file.
     shared_ptr<string> quaraTag_ {};
-    // The IP address of the access source.
+    // The source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The status of the quarantined files to query. Valid values:  
+    // The status of the quarantined files that you want to query. Valid values:  
     // - **quaraFailed**: Quarantine failed.
     // - **quaraDone**: Quarantine succeeded.
-    // - **quaraing**: Quarantine in progress.
-    // - **rollbackFailed**: Quarantine rollback failed.
-    // - **rollbackDone**: Quarantine rollback succeeded.
-    // - **rollbacking**: Quarantine rollback in progress.
+    // - **quaraing**: Quarantining.
+    // - **rollbackFailed**: Restore failed.
+    // - **rollbackDone**: Restore succeeded.
+    // - **rollbacking**: Restoring.
     shared_ptr<string> status_ {};
   };
 

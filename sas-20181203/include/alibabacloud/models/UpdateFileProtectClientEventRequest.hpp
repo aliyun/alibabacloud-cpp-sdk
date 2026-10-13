@@ -206,7 +206,7 @@ namespace Models
   protected:
     // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
-    // The timestamp of the end time.
+    // The end time. The value is a UNIX timestamp.
     shared_ptr<int64_t> endTime_ {};
     // The list of excluded event IDs.
     shared_ptr<vector<int64_t>> excludeIdList_ {};
@@ -230,19 +230,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> newStatus_ {};
-    // The type of the operation.
+    // The type of the current operation.
     shared_ptr<string> operation_ {};
     // The process path.
     shared_ptr<string> procPath_ {};
-    // The remarks.
+    // The remark. This parameter is required when SelectAll is set to true. If this parameter is not provided, the service returns HTTP 500 with the error code -100.
     shared_ptr<vector<string>> remark_ {};
-    // The rule name.
+    // The name of the rule.
     shared_ptr<string> ruleName_ {};
-    // Specifies whether to select all.
+    // Specifies whether to select all events.
     // 
     // This parameter is required.
     shared_ptr<bool> selectAll_ {};
-    // The start time.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The event status. Valid values:
     // - **0**: Unhandled.

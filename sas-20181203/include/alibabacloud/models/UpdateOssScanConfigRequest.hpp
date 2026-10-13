@@ -199,40 +199,43 @@ namespace Models
   protected:
     // Specifies whether to match all file prefixes.
     shared_ptr<bool> allKeyPrefix_ {};
+    // Specifies whether to automatically add new buckets to the scan policy. Valid values:
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoAdd_ {};
     // The list of bucket names.
     shared_ptr<vector<string>> bucketNameList_ {};
-    // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+    // The maximum number of files to decompress. Valid values: 1 to 1000. If the number of files exceeds the maximum value, the decompression stops. The scan of the decompressed files is not affected.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
-    // The maximum number of decompression layers when multiple levels of nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+    // The maximum number of decompression layers for nested compressed files. Valid values: 1 to 5. If the number of layers exceeds the maximum value, the decompression stops. The scan of the decompressed files is not affected.
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
-    // Specifies whether to enable the policy. Valid values:
+    // Specifies whether to enable the feature. Valid values:
     // - **1**: Enabled.
     // - **0**: Disabled.
     shared_ptr<int32_t> enable_ {};
-    // The scan stop time in the HH:mm:ss format.
+    // The end time of the scan. Format: HH:mm:ss.
     shared_ptr<string> endTime_ {};
-    // The scan policy ID.
+    // The ID of the scan policy.
     shared_ptr<string> id_ {};
-    // The prefix list of files.
+    // The file prefix list.
     shared_ptr<vector<string>> keyPrefixList_ {};
-    // The list of file suffixes.
+    // The list of file name extensions.
     shared_ptr<vector<string>> keySuffixList_ {};
-    // Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
+    // The start timestamp for the last modification time of the files to be scanned. Unit: milliseconds.
     shared_ptr<int64_t> lastModifiedStartTime_ {};
-    // The scan policy name.
+    // The configuration policy name.
     shared_ptr<string> name_ {};
-    // Specifies whether to enable real-time incremental detection. When this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+    // Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
     shared_ptr<bool> realTimeIncr_ {};
-    // The scan days. The number indicates the day of the week.
+    // The days of the week when scans are performed. A number represents a day of the week.
     shared_ptr<vector<int32_t>> scanDayList_ {};
-    // The business source. Valid values:
-    // - **OSS**: OSS
-    // - **NAS**: NAS
+    // The service source. Valid values:
+    // - **OSS**: OSS.
+    // - **NAS**: NAS.
     shared_ptr<string> source_ {};
-    // The scan start time in the HH:mm:ss format.
+    // The start time of the scan. Format: HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 
