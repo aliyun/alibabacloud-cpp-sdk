@@ -38,9 +38,9 @@ namespace EfloController20221215
       Models::ApproveOperationResponse approveOperation(const Models::ApproveOperationRequest &request);
 
       /**
-       * @summary Changes the node group of a node.
+       * @summary Modifies the node group of nodes.
        *
-       * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+       * @description Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
        *
        * @param tmpReq ChangeNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,9 +49,9 @@ namespace EfloController20221215
       Models::ChangeNodeGroupResponse changeNodeGroupWithOptions(const Models::ChangeNodeGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the node group of a node.
+       * @summary Modifies the node group of nodes.
        *
-       * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+       * @description Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
        *
        * @param request ChangeNodeGroupRequest
        * @return ChangeNodeGroupResponse
@@ -313,9 +313,9 @@ namespace EfloController20221215
       Models::DeleteVscResponse deleteVsc(const Models::DeleteVscRequest &request);
 
       /**
-       * @summary Queries the details of a cluster.
+       * @summary Queries the details of a Lingjun AI Computing Service cluster.
        *
-       * @description Queries the details of a specified cluster.
+       * @description Closes a remote session.
        *
        * @param request DescribeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -324,9 +324,9 @@ namespace EfloController20221215
       Models::DescribeClusterResponse describeClusterWithOptions(const Models::DescribeClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a cluster.
+       * @summary Queries the details of a Lingjun AI Computing Service cluster.
        *
-       * @description Queries the details of a specified cluster.
+       * @description Closes a remote session.
        *
        * @param request DescribeClusterRequest
        * @return DescribeClusterResponse
@@ -335,8 +335,6 @@ namespace EfloController20221215
 
       /**
        * @summary Queries the results of a diagnostic task.
-       *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
        *
        * @param request DescribeDiagnosticResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,17 +345,36 @@ namespace EfloController20221215
       /**
        * @summary Queries the results of a diagnostic task.
        *
-       * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-       *
        * @param request DescribeDiagnosticResultRequest
        * @return DescribeDiagnosticResultResponse
        */
       Models::DescribeDiagnosticResultResponse describeDiagnosticResult(const Models::DescribeDiagnosticResultRequest &request);
 
       /**
-       * @summary Queries the details of a hyper node.
+       * @summary Queries the details of a fault report after a user submits one.
        *
-       * @description Queries the details of a specified hyper node.
+       * @description Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+       *
+       * @param request DescribeFaultReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeFaultReportResponse
+       */
+      Models::DescribeFaultReportResponse describeFaultReportWithOptions(const Models::DescribeFaultReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a fault report after a user submits one.
+       *
+       * @description Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+       *
+       * @param request DescribeFaultReportRequest
+       * @return DescribeFaultReportResponse
+       */
+      Models::DescribeFaultReportResponse describeFaultReport(const Models::DescribeFaultReportRequest &request);
+
+      /**
+       * @summary Queries the details of a hypernode.
+       *
+       * @description Queries the details of a hypernode.
        *
        * @param request DescribeHyperNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,9 +383,9 @@ namespace EfloController20221215
       Models::DescribeHyperNodeResponse describeHyperNodeWithOptions(const Models::DescribeHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a hyper node.
+       * @summary Queries the details of a hypernode.
        *
-       * @description Queries the details of a specified hyper node.
+       * @description Queries the details of a hypernode.
        *
        * @param request DescribeHyperNodeRequest
        * @return DescribeHyperNodeResponse
@@ -376,7 +393,7 @@ namespace EfloController20221215
       Models::DescribeHyperNodeResponse describeHyperNode(const Models::DescribeHyperNodeRequest &request);
 
       /**
-       * @summary Queries the execution history and status of Cloud Assistant commands.
+       * @summary Queries the execution list and status of O&M Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -385,7 +402,7 @@ namespace EfloController20221215
       Models::DescribeInvocationsResponse describeInvocationsWithOptions(const Models::DescribeInvocationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution history and status of Cloud Assistant commands.
+       * @summary Queries the execution list and status of O&M Assistant commands.
        *
        * @param request DescribeInvocationsRequest
        * @return DescribeInvocationsResponse
@@ -393,7 +410,7 @@ namespace EfloController20221215
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
-       * @summary Queries the results of a network test.
+       * @summary Queries network test results.
        *
        * @param request DescribeNetTestResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -402,7 +419,7 @@ namespace EfloController20221215
       Models::DescribeNetTestResultResponse describeNetTestResultWithOptions(const Models::DescribeNetTestResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the results of a network test.
+       * @summary Queries network test results.
        *
        * @param request DescribeNetTestResultRequest
        * @return DescribeNetTestResultResponse
@@ -410,9 +427,9 @@ namespace EfloController20221215
       Models::DescribeNetTestResultResponse describeNetTestResult(const Models::DescribeNetTestResultRequest &request);
 
       /**
-       * @summary Queries the list of nodes.
+       * @summary Queries a list of nodes.
        *
-       * @description Queries the detailed information of a hyper node.
+       * @description Queries the details of a supernode.
        *
        * @param request DescribeNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,9 +438,9 @@ namespace EfloController20221215
       Models::DescribeNodeResponse describeNodeWithOptions(const Models::DescribeNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of nodes.
+       * @summary Queries a list of nodes.
        *
-       * @description Queries the detailed information of a hyper node.
+       * @description Queries the details of a supernode.
        *
        * @param request DescribeNodeRequest
        * @return DescribeNodeResponse
@@ -431,9 +448,9 @@ namespace EfloController20221215
       Models::DescribeNodeResponse describeNode(const Models::DescribeNodeRequest &request);
 
       /**
-       * @summary Queries the details of a node group.
+       * @summary Queries node groups.
        *
-       * @description This operation queries the details of a node group.
+       * @description Queries the details of a supernode.
        *
        * @param request DescribeNodeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,9 +459,9 @@ namespace EfloController20221215
       Models::DescribeNodeGroupResponse describeNodeGroupWithOptions(const Models::DescribeNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a node group.
+       * @summary Queries node groups.
        *
-       * @description This operation queries the details of a node group.
+       * @description Queries the details of a supernode.
        *
        * @param request DescribeNodeGroupRequest
        * @return DescribeNodeGroupResponse
@@ -454,10 +471,10 @@ namespace EfloController20221215
       /**
        * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
        *
-       * @description The returned results contain the following information:
-       * - The processing status of each node with configuration drift
-       * - The processing result, status, and reason for each node
-       * - The refreshed and skipped properties for each node
+       * @description The returned results include the following:
+       * - The processing status of each node with configuration drift.
+       * - The processing result, status, and reason for each node.
+       * - The refreshed and skipped properties for each node.
        *
        * @param tmpReq DescribeNodeGroupRefreshTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,10 +485,10 @@ namespace EfloController20221215
       /**
        * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
        *
-       * @description The returned results contain the following information:
-       * - The processing status of each node with configuration drift
-       * - The processing result, status, and reason for each node
-       * - The refreshed and skipped properties for each node
+       * @description The returned results include the following:
+       * - The processing status of each node with configuration drift.
+       * - The processing result, status, and reason for each node.
+       * - The refreshed and skipped properties for each node.
        *
        * @param request DescribeNodeGroupRefreshTaskRequest
        * @return DescribeNodeGroupRefreshTaskResponse
@@ -479,7 +496,7 @@ namespace EfloController20221215
       Models::DescribeNodeGroupRefreshTaskResponse describeNodeGroupRefreshTask(const Models::DescribeNodeGroupRefreshTaskRequest &request);
 
       /**
-       * @summary Describes the constraints for a node type.
+       * @summary Queries the constraints for a node type.
        *
        * @param request DescribeNodeTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -488,7 +505,7 @@ namespace EfloController20221215
       Models::DescribeNodeTypeResponse describeNodeTypeWithOptions(const Models::DescribeNodeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes the constraints for a node type.
+       * @summary Queries the constraints for a node type.
        *
        * @param request DescribeNodeTypeRequest
        * @return DescribeNodeTypeResponse
@@ -513,7 +530,7 @@ namespace EfloController20221215
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+       * @summary Queries the list and status of files sent by O&M Assistant.
        *
        * @param request DescribeSendFileResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -522,7 +539,7 @@ namespace EfloController20221215
       Models::DescribeSendFileResultsResponse describeSendFileResultsWithOptions(const Models::DescribeSendFileResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+       * @summary Queries the list and status of files sent by O&M Assistant.
        *
        * @param request DescribeSendFileResultsRequest
        * @return DescribeSendFileResultsResponse
@@ -530,7 +547,7 @@ namespace EfloController20221215
       Models::DescribeSendFileResultsResponse describeSendFileResults(const Models::DescribeSendFileResultsRequest &request);
 
       /**
-       * @summary Queries the details of a task.
+       * @summary Queries the details of a node.
        *
        * @param request DescribeTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -539,7 +556,7 @@ namespace EfloController20221215
       Models::DescribeTaskResponse describeTaskWithOptions(const Models::DescribeTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a task.
+       * @summary Queries the details of a node.
        *
        * @param request DescribeTaskRequest
        * @return DescribeTaskResponse
@@ -602,7 +619,7 @@ namespace EfloController20221215
       Models::ExtendClusterResponse extendCluster(const Models::ExtendClusterRequest &request);
 
       /**
-       * @summary Lists the node groups of a cluster and the nodes in each group.
+       * @summary Queries the host group list under a cluster and the host list under each group.
        *
        * @param request ListClusterHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -611,7 +628,7 @@ namespace EfloController20221215
       Models::ListClusterHyperNodesResponse listClusterHyperNodesWithOptions(const Models::ListClusterHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the node groups of a cluster and the nodes in each group.
+       * @summary Queries the host group list under a cluster and the host list under each group.
        *
        * @param request ListClusterHyperNodesRequest
        * @return ListClusterHyperNodesResponse
@@ -619,7 +636,7 @@ namespace EfloController20221215
       Models::ListClusterHyperNodesResponse listClusterHyperNodes(const Models::ListClusterHyperNodesRequest &request);
 
       /**
-       * @summary Queries the nodes in a cluster.
+       * @summary Queries the list of nodes in a cluster.
        *
        * @param request ListClusterNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -628,7 +645,7 @@ namespace EfloController20221215
       Models::ListClusterNodesResponse listClusterNodesWithOptions(const Models::ListClusterNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the nodes in a cluster.
+       * @summary Queries the list of nodes in a cluster.
        *
        * @param request ListClusterNodesRequest
        * @return ListClusterNodesResponse
@@ -636,7 +653,7 @@ namespace EfloController20221215
       Models::ListClusterNodesResponse listClusterNodes(const Models::ListClusterNodesRequest &request);
 
       /**
-       * @summary Query cluster instances with optional filtering by resource group and tags.
+       * @summary Queries a list of cluster instances.
        *
        * @param request ListClustersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -645,7 +662,7 @@ namespace EfloController20221215
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query cluster instances with optional filtering by resource group and tags.
+       * @summary Queries a list of cluster instances.
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -653,9 +670,7 @@ namespace EfloController20221215
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
 
       /**
-       * @summary List of Diagnostic Tasks
-       *
-       * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+       * @summary Queries a list of diagnostic tasks.
        *
        * @param request ListDiagnosticResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -664,9 +679,7 @@ namespace EfloController20221215
       Models::ListDiagnosticResultsResponse listDiagnosticResultsWithOptions(const Models::ListDiagnosticResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List of Diagnostic Tasks
-       *
-       * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+       * @summary Queries a list of diagnostic tasks.
        *
        * @param request ListDiagnosticResultsRequest
        * @return ListDiagnosticResultsResponse
@@ -674,7 +687,28 @@ namespace EfloController20221215
       Models::ListDiagnosticResultsResponse listDiagnosticResults(const Models::ListDiagnosticResultsRequest &request);
 
       /**
-       * @summary Lists the active physical servers in the rack.
+       * @summary Queries the list of historical fault reports.
+       *
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       *
+       * @param tmpReq ListFaultReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFaultReportsResponse
+       */
+      Models::ListFaultReportsResponse listFaultReportsWithOptions(const Models::ListFaultReportsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of historical fault reports.
+       *
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       *
+       * @param request ListFaultReportsRequest
+       * @return ListFaultReportsResponse
+       */
+      Models::ListFaultReportsResponse listFaultReports(const Models::ListFaultReportsRequest &request);
+
+      /**
+       * @summary Queries the list of available rack physical machines.
        *
        * @param request ListFreeHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -683,7 +717,7 @@ namespace EfloController20221215
       Models::ListFreeHyperNodesResponse listFreeHyperNodesWithOptions(const Models::ListFreeHyperNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the active physical servers in the rack.
+       * @summary Queries the list of available rack physical machines.
        *
        * @param request ListFreeHyperNodesRequest
        * @return ListFreeHyperNodesResponse
@@ -691,7 +725,7 @@ namespace EfloController20221215
       Models::ListFreeHyperNodesResponse listFreeHyperNodes(const Models::ListFreeHyperNodesRequest &request);
 
       /**
-       * @summary Lists all unused nodes.
+       * @summary Queries the list of unused nodes.
        *
        * @param request ListFreeNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -700,7 +734,7 @@ namespace EfloController20221215
       Models::ListFreeNodesResponse listFreeNodesWithOptions(const Models::ListFreeNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all unused nodes.
+       * @summary Queries the list of unused nodes.
        *
        * @param request ListFreeNodesRequest
        * @return ListFreeNodesResponse
@@ -708,9 +742,9 @@ namespace EfloController20221215
       Models::ListFreeNodesResponse listFreeNodes(const Models::ListFreeNodesRequest &request);
 
       /**
-       * @summary Machines
+       * @summary Queries a list of machines.
        *
-       * @description Queries the details of hypernodes.
+       * @description Queries the details of hyper nodes.
        *
        * @param tmpReq ListHyperNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -719,9 +753,9 @@ namespace EfloController20221215
       Models::ListHyperNodesResponse listHyperNodesWithOptions(const Models::ListHyperNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Machines
+       * @summary Queries a list of machines.
        *
-       * @description Queries the details of hypernodes.
+       * @description Queries the details of hyper nodes.
        *
        * @param request ListHyperNodesRequest
        * @return ListHyperNodesResponse
@@ -763,7 +797,7 @@ namespace EfloController20221215
       Models::ListMachineNetworkInfoResponse listMachineNetworkInfo(const Models::ListMachineNetworkInfoRequest &request);
 
       /**
-       * @summary Queries a list of available machine types.
+       * @summary Queries the list of available machine types.
        *
        * @param request ListMachineTypesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -772,7 +806,7 @@ namespace EfloController20221215
       Models::ListMachineTypesResponse listMachineTypesWithOptions(const Models::ListMachineTypesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of available machine types.
+       * @summary Queries the list of available machine types.
        *
        * @param request ListMachineTypesRequest
        * @return ListMachineTypesResponse
@@ -780,7 +814,7 @@ namespace EfloController20221215
       Models::ListMachineTypesResponse listMachineTypes(const Models::ListMachineTypesRequest &request);
 
       /**
-       * @summary Lists network test results.
+       * @summary Queries the list of network tests.
        *
        * @param request ListNetTestResultsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -789,7 +823,7 @@ namespace EfloController20221215
       Models::ListNetTestResultsResponse listNetTestResultsWithOptions(const Models::ListNetTestResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists network test results.
+       * @summary Queries the list of network tests.
        *
        * @param request ListNetTestResultsRequest
        * @return ListNetTestResultsResponse
@@ -799,7 +833,7 @@ namespace EfloController20221215
       /**
        * @summary Queries nodes with configuration drift within a node group and the drift details.
        *
-       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
        *
        * @param tmpReq ListNodeGroupDriftedNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,7 +844,7 @@ namespace EfloController20221215
       /**
        * @summary Queries nodes with configuration drift within a node group and the drift details.
        *
-       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
        *
        * @param request ListNodeGroupDriftedNodesRequest
        * @return ListNodeGroupDriftedNodesResponse
@@ -818,7 +852,7 @@ namespace EfloController20221215
       Models::ListNodeGroupDriftedNodesResponse listNodeGroupDriftedNodes(const Models::ListNodeGroupDriftedNodesRequest &request);
 
       /**
-       * @summary Queries the list of node group configuration refresh tasks with paging.
+       * @summary Queries the list of node group configuration refresh tasks by paging.
        *
        * @description If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
        *
@@ -829,7 +863,7 @@ namespace EfloController20221215
       Models::ListNodeGroupRefreshTasksResponse listNodeGroupRefreshTasksWithOptions(const Models::ListNodeGroupRefreshTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of node group configuration refresh tasks with paging.
+       * @summary Queries the list of node group configuration refresh tasks by paging.
        *
        * @description If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
        *
@@ -839,7 +873,7 @@ namespace EfloController20221215
       Models::ListNodeGroupRefreshTasksResponse listNodeGroupRefreshTasks(const Models::ListNodeGroupRefreshTasksRequest &request);
 
       /**
-       * @summary Query Node Group Information Under the Cluster
+       * @summary Queries node group information in a cluster.
        *
        * @param request ListNodeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -848,7 +882,7 @@ namespace EfloController20221215
       Models::ListNodeGroupsResponse listNodeGroupsWithOptions(const Models::ListNodeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Node Group Information Under the Cluster
+       * @summary Queries node group information in a cluster.
        *
        * @param request ListNodeGroupsRequest
        * @return ListNodeGroupsResponse
@@ -943,11 +977,11 @@ namespace EfloController20221215
       Models::RebootNodesResponse rebootNodes(const Models::RebootNodesRequest &request);
 
       /**
-       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
        *
-       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
        * Limits:
-       * - Only one node group configuration refresh task can be running at a time for a node group.
+       * - A node group can have only one running node group configuration refresh task at a time.
        * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
        * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
        *
@@ -958,11 +992,11 @@ namespace EfloController20221215
       Models::RefreshNodeGroupNodesResponse refreshNodeGroupNodesWithOptions(const Models::RefreshNodeGroupNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
        *
-       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
        * Limits:
-       * - Only one node group configuration refresh task can be running at a time for a node group.
+       * - A node group can have only one running node group configuration refresh task at a time.
        * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
        * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
        *
@@ -987,6 +1021,27 @@ namespace EfloController20221215
        * @return ReimageNodesResponse
        */
       Models::ReimageNodesResponse reimageNodes(const Models::ReimageNodesRequest &request);
+
+      /**
+       * @summary Reports a fault for an abnormal node.
+       *
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       *
+       * @param request ReportNodeStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReportNodeStatusResponse
+       */
+      Models::ReportNodeStatusResponse reportNodeStatusWithOptions(const Models::ReportNodeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Reports a fault for an abnormal node.
+       *
+       * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+       *
+       * @param request ReportNodeStatusRequest
+       * @return ReportNodeStatusResponse
+       */
+      Models::ReportNodeStatusResponse reportNodeStatus(const Models::ReportNodeStatusRequest &request);
 
       /**
        * @summary Reports issues with abnormal nodes.
@@ -1076,6 +1131,27 @@ namespace EfloController20221215
        * @return StopInvocationResponse
        */
       Models::StopInvocationResponse stopInvocation(const Models::StopInvocationRequest &request);
+
+      /**
+       * @summary Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+       *
+       * @description Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+       *
+       * @param request StopNodeDiagnosticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopNodeDiagnosticResponse
+       */
+      Models::StopNodeDiagnosticResponse stopNodeDiagnosticWithOptions(const Models::StopNodeDiagnosticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+       *
+       * @description Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+       *
+       * @param request StopNodeDiagnosticRequest
+       * @return StopNodeDiagnosticResponse
+       */
+      Models::StopNodeDiagnosticResponse stopNodeDiagnostic(const Models::StopNodeDiagnosticRequest &request);
 
       /**
        * @summary Stops nodes.

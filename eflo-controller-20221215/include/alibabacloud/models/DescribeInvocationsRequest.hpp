@@ -66,23 +66,19 @@ namespace Models
 
 
   protected:
-    // The encoding mode of the `CommandContent` and `Output` fields in the response. Valid values:
-    // 
+    // The encoding method for the CommandContent and Output fields in the response. Valid values:
     // - PlainText: Returns the original command content and output.
-    // 
     // - Base64 (default): Returns the Base64-encoded command content and output.
     shared_ptr<string> contentEncoding_ {};
-    // Specifies whether to include the command output in the response.
-    // 
-    // - true: Returns the output. You must specify the `InvokeId` or `NodeId` parameter.
-    // 
+    // Specifies whether to return the command output in the results.
+    // - true: Returns the output. In this case, specify at least the InvokeId or InstanceId parameter.
     // - false (default): Does not return the output.
     shared_ptr<bool> includeOutput_ {};
-    // The ID of the command execution.
+    // The command execution ID.
     // 
     // This parameter is required.
     shared_ptr<string> invokeId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> nodeId_ {};
   };
 

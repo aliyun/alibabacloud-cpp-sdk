@@ -115,7 +115,7 @@ namespace Models
       protected:
         // The current value of the node property. Complex types are serialized as JSON strings.
         shared_ptr<string> actualValue_ {};
-        // The minimum action required to apply the TargetValue: Refresh / Reboot / Reimage. For more information, refer to the MaxDisruptiveAction parameter description in the RefreshNodeGroupNodes operation.
+        // The minimum action required to apply the TargetValue: Refresh, Reboot, or Reimage. For more information, refer to the MaxDisruptiveAction parameter of the RefreshNodeGroupNodes operation.
         shared_ptr<string> minRequiredAction_ {};
         // The property path in dot notation (such as a.b.c), compatible with both flat and nested properties.
         shared_ptr<string> propertyPath_ {};
@@ -142,7 +142,7 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> nodeId_ {};
       // The list of inconsistent properties for this node.
       shared_ptr<vector<Nodes::PropertyDrifts>> propertyDrifts_ {};
@@ -181,9 +181,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page for a single query.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call. An empty value indicates that no more pages are available.
+    // The pagination token returned by this call. An empty value indicates that no more pages exist.
     shared_ptr<string> nextToken_ {};
     // The list of nodes that are inconsistent with the node group configuration (paginated).
     shared_ptr<vector<ListNodeGroupDriftedNodesResponseBody::Nodes>> nodes_ {};

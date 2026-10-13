@@ -155,35 +155,17 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time. The Z in the example indicates UTC.
         shared_ptr<string> createTime_ {};
-        // The error message returned for failed sub tasks.
+        // The subtask failure message.
         shared_ptr<string> message_ {};
-        // The task ID.
+        // The node ID.
         shared_ptr<string> taskId_ {};
-        // The task status.
+        // The task execution state.
         shared_ptr<string> taskState_ {};
         // The task type.
-        // 
-        // Valid values:
-        // 
-        // *   reclone_node_sub_task
-        // *   initialize_bare_cluster
-        // *   extend_bare_cluster
-        // *   reclone_node
-        // *   reboot_node
-        // *   extend_ack_edge_cluster
-        // *   extend_cluster
-        // *   initialize_ack_edge_cluster
-        // *   cut_node_sub_task
-        // *   reboot_node_sub_task
-        // *   reclone_ack_edge_node
-        // *   initialize_cluster
-        // *   cut_cluster
-        // *   reclone_bare_node
-        // *   cut_bare_cluster
         shared_ptr<string> taskType_ {};
-        // The update time.
+        // The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -249,48 +231,21 @@ namespace Models
 
 
     protected:
-      // The error message of the step.
+      // The step failure message.
       shared_ptr<string> message_ {};
-      // The stage marker.
-      // 
-      // Valid values:
-      // 
-      // *   机器释放: Machine release.
-      // *   节点并发初始化: Node concurrent initialization.
-      // *   节点释放: Node release.
-      // *   机器替换: Machine replacement.
-      // *   节点缩容: Node scale-in.
-      // *   提前续费: Early renewal.
-      // *   物理机清理: Physical machine cleanup.
-      // *   节点清理: Node cleanup.
-      // *   创建K8s集群: Create Kubernetes cluster.
-      // *   网络初始化: Network initialization.
-      // *   节点重启: Node restart.
-      // *   节点退订: Node unsubscribe.
-      // *   集群扩容: Cluster scale-out.
-      // *   异常机器释放: Abnormal machine release.
+      // The stage tag.
       shared_ptr<string> stageTag_ {};
-      // The start time.
+      // The start time. Z in the example indicates UTC.
       shared_ptr<string> startTime_ {};
-      // The name of the step.
+      // The step name.
       shared_ptr<string> stepName_ {};
-      // The step status.
-      // 
-      // Valid values:
-      // 
-      // *   execution_success
-      // *   execution_failed
+      // The step execution state.
       shared_ptr<string> stepState_ {};
-      // The type of the step.
-      // 
-      // Valid values:
-      // 
-      // *   normal: A normal step has only one successor step.
-      // *   dispersive: A dispersive step has multiple successor steps.
+      // The step type.
       shared_ptr<string> stepType_ {};
-      // The sub tasks.
+      // The subtasks.
       shared_ptr<vector<Steps::SubTasks>> subTasks_ {};
-      // The update time.
+      // The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -376,46 +331,21 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The create time.
+    // The start time. The value is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> createTime_ {};
-    // The error message returned for failed tasks.
+    // The task failure message.
     shared_ptr<string> message_ {};
-    // The IDs of the nodes.
+    // The list of node IDs.
     shared_ptr<vector<string>> nodeIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The steps.
+    // The execution steps.
     shared_ptr<vector<DescribeTaskResponseBody::Steps>> steps_ {};
-    // The task status.
-    // 
-    // Valid values:
-    // 
-    // *   running
-    // *   execution_success
-    // *   execution_fail
-    // *   waiting_to_run
+    // The task state.
     shared_ptr<string> taskState_ {};
     // The task type.
-    // 
-    // Valid values:
-    // 
-    // *   reclone_node_sub_task
-    // *   initialize_bare_cluster
-    // *   extend_bare_cluster
-    // *   reclone_node
-    // *   reboot_node
-    // *   extend_ack_edge_cluster
-    // *   extend_cluster
-    // *   initialize_ack_edge_cluster
-    // *   cut_node_sub_task
-    // *   reboot_node_sub_task
-    // *   reclone_ack_edge_node
-    // *   initialize_cluster
-    // *   cut_cluster
-    // *   reclone_bare_node
-    // *   cut_bare_cluster
     shared_ptr<string> taskType_ {};
-    // The update time.
+    // The update time. Uses ISO 8601 format. The Z in the example indicates UTC.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -272,161 +272,102 @@ namespace Models
 
 
           protected:
-            // The start time of the command execution.
+            // The start time of the command execution. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
             shared_ptr<string> creationTime_ {};
-            // The number of characters that are truncated and discarded because the \\`Output\\` value exceeds 24 KB in size.
+            // The length of the truncated and discarded text after the text length in the Output field exceeds 24 KB.
             shared_ptr<int32_t> dropped_ {};
-            // The error code for a file sending failure. Valid values:
+            // The error code for the file delivery failure. Valid values:
             // 
-            // - Empty: The file was sent as expected.
-            // 
+            // - Empty: The file was delivered normally.
             // - NodeNotExists: The specified instance does not exist or has been released.
-            // 
-            // - NodeReleased: The instance was released while the file was being sent.
-            // 
-            // - NodeNotRunning: The instance was not in the Running state when the file sending task was created.
-            // 
+            // - NodeReleased: The instance was released during file delivery.
+            // - NodeNotRunning: The instance was not running when the file delivery task was created.
             // - AccountNotExists: The specified account does not exist.
-            // 
-            // - ClientNotRunning: Cloud Assistant Agent is not running.
-            // 
-            // - ClientNotResponse: Cloud Assistant Agent is not responding.
-            // 
-            // - ClientIsUpgrading: Cloud Assistant Agent is being upgraded.
-            // 
-            // - ClientNeedUpgrade: Cloud Assistant Agent needs to be upgraded.
-            // 
-            // - DeliveryTimeout: The file failed to be sent due to a timeout.
-            // 
-            // - FileCreateFail: The file failed to be created.
-            // 
-            // - FileAlreadyExists: A file with the same name exists in the same path.
-            // 
+            // - ClientNotRunning: The Cloud Assistant Agent is not running.
+            // - ClientNotResponse: The Cloud Assistant Agent is not responding.
+            // - ClientIsUpgrading: The Cloud Assistant Agent is being upgraded.
+            // - ClientNeedUpgrade: The Cloud Assistant Agent needs to be upgraded.
+            // - DeliveryTimeout: The file delivery timed out.
+            // - FileCreateFail: The file creation failed.
+            // - FileAlreadyExists: A file with the same name already exists in the same path.
             // - FileContentInvalid: The file content is invalid.
-            // 
             // - FileNameInvalid: The file name is invalid.
-            // 
             // - FilePathInvalid: The file path is invalid.
-            // 
             // - FileAuthorityInvalid: The file permissions are invalid.
-            // 
-            // - UserGroupNotExists: The user group specified for sending the file does not exist.
+            // - UserGroupNotExists: The user group specified during file delivery does not exist.
             shared_ptr<string> errorCode_ {};
-            // The details about the cause of a command sending or execution failure. Valid values:
-            // 
-            // - Empty: The command was executed as expected.
-            // 
-            // - the specified node does not exist: The specified instance does not exist or has been released.
-            // 
-            // - the instance was released during the command execution: The instance was released during the command execution.
-            // 
-            // - the instance is not running when create task: The instance was not in the Running state during the command execution.
-            // 
+            // The details of the command delivery failure or execution failure. Valid values:
+            // - Empty: The command executed normally.
+            // - the specified node does not exists: The specified instance does not exist or has been released.
+            // - the node has node when create task: The instance was released during command execution.
+            // - the node is not running when create task: The instance was not running when the command was executed.
             // - the command is not applicable: The command is not applicable to the specified instance.
-            // 
-            // - the specified account does not exist: The specified account does not exist.
-            // 
-            // - the specified directory does not exist: The specified directory does not exist.
-            // 
-            // - the cron job expression is invalid: The specified cron expression is invalid.
-            // 
-            // - Cloud Assistant Agent is not running: Cloud Assistant Agent is not running.
-            // 
-            // - Cloud Assistant Agent is not responding: Cloud Assistant Agent is not responding.
-            // 
-            // - Cloud Assistant Agent is being upgraded: Cloud Assistant Agent is being upgraded.
-            // 
-            // - Cloud Assistant Agent needs to be upgraded: Cloud Assistant Agent needs to be upgraded.
-            // 
-            // - The command failed to be sent due to a timeout: The command failed to be sent due to a timeout.
-            // 
-            // - The command execution timed out: The command execution timed out.
-            // 
-            // - An exception occurred during the command execution: An exception occurred during the command execution.
-            // 
-            // - The command execution was interrupted: The command execution was interrupted.
-            // 
-            // - The command execution is complete, but the exit code is not 0: The command execution is complete, but the exit code is not 0.
-            // 
-            // - The instance was released while the file was being sent: The instance was released while the file was being sent.
+            // - the specified account does not exists: The specified account does not exist.
+            // - the specified directory does not exists: The specified directory does not exist.
+            // - the cron job expression is invalid: The specified execution schedule expression is invalid.
+            // - the aliyun service is not running on the instance: The Cloud Assistant Agent is not running.
+            // - the aliyun service in the instance does not response: The Cloud Assistant Agent is not responding.
+            // - the aliyun service in the node is upgrading now: The Cloud Assistant Agent is being upgraded.
+            // - the aliyun service in the node need upgrade: The Cloud Assistant Agent needs to be upgraded.
+            // - the command delivery has been timeout: The command delivery timed out.
+            // - the command execution has been timeout: The command execution timed out.
+            // - the command execution got an exception: An exception occurred during command execution.
+            // - the command execution has been interrupted: The command execution was interrupted.
+            // - the command execution exit code is not zero: The command execution completed with a non-zero exit code.
+            // - the specified node has been released: The instance was released during file delivery.
             shared_ptr<string> errorInfo_ {};
             // The exit code of the command process. Valid values:
             // 
-            // - On a Linux instance, this is the exit code of the Shell process.
-            // 
-            // - On a Windows instance, this is the exit code of the Batch or PowerShell process.
+            // - For Linux instances, the value is the exit code of the Shell process.
+            // - For Windows instances, the value is the exit code of the Bat or PowerShell process.
             shared_ptr<int32_t> exitCode_ {};
-            // The time when the execution was complete.
+            // The completion time. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
             shared_ptr<string> finishTime_ {};
-            // The execution status of the command on a single instance. Valid values:
-            // 
-            // - Pending: The system is verifying or sending the command.
-            // 
-            // - Invalid: The specified command type or parameter is incorrect.
-            // 
-            // - Aborted: Failed to send the command to the instance. The instance must be in the Running state and the command must be sent within 1 minute.
-            // 
-            // - Running: The command is running on the instance.
-            // 
-            // - Success:
-            // 
-            //   - For a one-time command: The execution is complete and the exit code is 0.
-            // 
-            //   - For a scheduled command: The last execution was successful with an exit code of 0, and the specified period is over.
-            // 
-            // - Failed:
-            // 
-            //   - For a one-time command: The execution is complete, but the exit code is not 0.
-            // 
-            //   - For a scheduled command: The last execution was successful, but the exit code was not 0. The scheduled execution will be aborted.
-            // 
-            // - Error: An exception occurred during the command execution and the execution cannot continue.
-            // 
-            // - Timeout: The command execution timed out.
-            // 
-            // - Cancelled: The command execution was canceled. The command was not started.
-            // 
-            // - Stopping: The task is being stopped.
-            // 
-            // - Terminated: The command was terminated during execution.
-            // 
-            // - Scheduled:
-            // 
-            //   - For a one-time command: This status is not applicable and will not occur.
-            // 
-            //   - For a scheduled command: The command is waiting to run.
+            // The command execution status on a single instance. Valid values:
+            // -  Pending: The system is validating or sending the command.
+            // -  Invalid: The specified command type or parameters are invalid.
+            // -  Aborted: Failed to send the command to the instance. The instance must be running, and the command must be deliverable within one minute.
+            // -  Running: The command is running on the instance.
+            // -  Success:
+            //     -  One-time command: The command execution is complete and the exit code is 0.
+            //     -  Scheduled command: The last execution was successful with an exit code of 0, and the specified schedule has ended.
+            // -  Failed:
+            //     -  One-time command: The command execution is complete and the exit code is non-zero.
+            //     -  Scheduled command: The last execution was successful with a non-zero exit code, and the specified schedule will be aborted.
+            // -  Error: An exception occurred during command execution and the command cannot continue.
+            // -  Timeout: The command execution timed out.
+            // -  Cancelled: The command execution action was canceled and the command was never started.
+            // -  Stopping: The task is being stopped.
+            // -  Terminated: The command was terminated during execution.
+            // -  Scheduled:
+            //     -  One-time command: Not applicable. This status does not occur.
+            //     -  Scheduled command: Waiting to run.
             shared_ptr<string> invocationStatus_ {};
-            // The ID of the node.
+            // The node ID.
             shared_ptr<string> nodeId_ {};
-            // The execution status of the command on a single instance.
+            // The command execution status on a single instance.
             shared_ptr<string> nodeInvokeStatus_ {};
-            // The output of the command.
+            // The command output.
             // 
-            // - If \\`ContentEncoding\\` is set to \\`PlainText\\`, the original output is returned.
-            // 
-            // - If \\`ContentEncoding\\` is set to \\`Base64\\`, the Base64-encoded output is returned.
+            // - If ContentEncoding is set to PlainText, the original output is returned.
+            // - If ContentEncoding is set to Base64, the Base64-encoded output is returned.
             shared_ptr<string> output_ {};
-            // The number of times the command has been executed on the instance.
-            // 
-            // - If the command is a one-time execution, the value is 0 or 1.
-            // 
-            // - If the command is a scheduled execution, the value is the number of times the command has been executed.
+            // The number of times the command was executed on the instance.
+            // -  If the execution mode is one-time execution, the value is 0 or 1.
+            // -  If the execution mode is scheduled execution, the value is the number of times the command has been executed.
             shared_ptr<int32_t> repeats_ {};
-            // The start time.
+            // The start time. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
             shared_ptr<string> startTime_ {};
-            // The time when \\`StopInvocation\\` was called to stop the command execution.
+            // The time when StopInvocation was called to stop the command execution. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
             shared_ptr<string> stopTime_ {};
-            // Indicates whether the command will be automatically run in the future. Valid values:
+            // Indicates whether the queried command will be automatically executed in the future. Valid values:
             // 
-            // - true: The command is a scheduled command. The `RepeatMode` parameter was set to `Period`, `NextRebootOnly`, or `EveryReboot` when `RunCommand` or `InvokeCommand` was called.
-            // 
-            // - false (default): The command is a one-time command or has finished.
-            // 
-            //   - The `RepeatMode` parameter was set to `Once` when `RunCommand` or `InvokeCommand` was called.
-            // 
-            //   - The command was canceled, stopped, or has finished running.
+            // - true: The command was executed by calling RunCommand or InvokeCommand with the RepeatMode parameter set to Period, NextRebootOnly, or EveryReboot.
+            // - false (default): The queried command is in one of the following states:
+            //     - The command was executed by calling RunCommand or InvokeCommand with the RepeatMode parameter set to Once.
+            //     - The command has been canceled, stopped, or has completed execution.
             shared_ptr<string> timed_ {};
-            // The time when the record was updated.
+            // The update time. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
             shared_ptr<string> updateTime_ {};
           };
 
@@ -441,7 +382,7 @@ namespace Models
 
 
         protected:
-          // The command execution records on the nodes.
+          // The command execution record on a node.
           shared_ptr<vector<InvokeNodes::InvokeNode>> invokeNode_ {};
         };
 
@@ -550,105 +491,72 @@ namespace Models
 
 
       protected:
-        // The content of the command.
+        // The command content.
         // 
-        // - If \\`ContentEncoding\\` is set to \\`PlainText\\`, the original script content is returned.
-        // 
-        // - If \\`ContentEncoding\\` is set to \\`Base64\\`, the Base64-encoded script content is returned.
+        // - If ContentEncoding is set to PlainText, the original script content is returned.
+        // - If ContentEncoding is set to Base64, the Base64-encoded script content is returned.
         shared_ptr<string> commandContent_ {};
-        // The description of the command.
+        // The command description.
         shared_ptr<string> commandDescription_ {};
-        // The name of the command.
+        // The command name.
         shared_ptr<string> commandName_ {};
-        // The time when the task was created.
+        // The time when the task was created. The time is displayed in ISO 8601 format. Z in the example indicates UTC.
         shared_ptr<string> creationTime_ {};
-        // The cron expression for the scheduled command.
+        // The execution time of the scheduled command.
         shared_ptr<string> frequency_ {};
-        // The overall execution status of the command. This status is determined by the execution status on all involved instances. Valid values:
+        // The overall execution status of the command. The overall execution status depends on the common execution status across all instances in this invocation. Valid values:
+        // - Pending: The system is validating or sending the command. When the command execution status on at least one instance is Pending, the overall execution status is Pending.
+        // - Scheduled: The scheduled command has been sent and is waiting to run. When the command execution status on at least one instance is Scheduled, the overall execution status is Scheduled.
+        // - Running: The command is running on the instance. When the command execution status on at least one instance is Running, the overall execution status is Running.
+        // - Success: The command execution status on each instance is Stopped or Success, and the command execution status on at least one instance is Success. The overall execution status is Success.
+        //     - One-time task: The command execution is complete and the exit code is 0.
+        //     - Scheduled task: The last execution was successful with an exit code of 0, and all specified schedules have been completed.
+        // - Failed: The command execution status on each instance is Stopped or Failed. The overall execution status is Failed. The return value is Failed when the command execution status on an instance is one or more of the following:
+        //     - Command validation failed (Invalid).
+        //     - Command delivery failed (Aborted).
+        //     - Command execution completed with a non-zero exit code (Failed).
+        //     - Command execution timed out (Timeout).
+        //     - Command execution encountered an exception (Error).
+        // - Stopping: The task is being stopped. When the command execution status on at least one instance is Stopping, the overall execution status is Stopping.
+        // - Stopped: The task has been stopped. When the command execution status on all instances is Stopped, the overall execution status is Stopped. The return value is Stopped when the command execution status on an instance is one of the following:
+        //     - The task was canceled (Cancelled).
+        //     - The task was terminated (Terminated).
+        // - PartialFailed: Some instances executed successfully while others failed. When the command execution status on each instance is Success, Failed, or Stopped, the overall execution status is PartialFailed.
         // 
-        // - Pending: The system is verifying or sending the command. If the command is in the Pending state on at least one instance, the overall status is Pending.
-        // 
-        // - Scheduled: The scheduled command is sent and is waiting to run. If the command is in the Scheduled state on at least one instance, the overall status is Scheduled.
-        // 
-        // - Running: The command is running on the instances. If the command is in the Running state on at least one instance, the overall status is Running.
-        // 
-        // - Success: The command was successfully executed. The command status on each instance is Stopped or Success, and the status on at least one instance is Success.
-        // 
-        //   - For one-time tasks: The command execution is complete and the exit code is 0.
-        // 
-        //   - For scheduled tasks: The last execution was successful with an exit code of 0, and all scheduled executions are complete.
-        // 
-        // - Failed: The command execution failed. The command status on each instance is Stopped or Failed. The overall status is Failed if the command status on one or more instances is one of the following:
-        // 
-        //   - The command failed to be verified (Invalid).
-        // 
-        //   - The command failed to be sent (Aborted).
-        // 
-        //   - The command execution is complete, but the exit code is not 0 (Failed).
-        // 
-        //   - The command timed out (Timeout).
-        // 
-        //   - An error occurred during the command execution (Error).
-        // 
-        // - Stopping: The task is being stopped. If the command is in the Stopping state on at least one instance, the overall status is Stopping.
-        // 
-        // - Stopped: The task was stopped. The overall status is Stopped if the command is in the Stopped state on all instances. The overall status is Stopped if the command status on the instances is one of the following:
-        // 
-        //   - The task was canceled (Cancelled).
-        // 
-        //   - The task was terminated (Terminated).
-        // 
-        // - PartialFailed: The command was successfully executed on some instances but failed on others. The overall status is PartialFailed if the command status on the instances is Success, Failed, or Stopped.
-        // 
-        // > The `InvokeStatus` parameter has a similar meaning. However, check the value of this parameter.
+        // > The InvokeStatus parameter in the response has a similar meaning, but we recommend that you check this parameter instead.
         shared_ptr<string> invocationStatus_ {};
-        // The ID of the command execution.
+        // The command execution ID.
         shared_ptr<string> invokeId_ {};
         // The command execution records.
         shared_ptr<Invocation::InvokeNodes> invokeNodes_ {};
-        // The overall execution status of the command. This status is determined by the execution status on one or more instances. Valid values:
-        // 
+        // The overall execution status of the command. The overall execution status depends on the common execution status of one or more instances in the invocation. Valid values: 
+        //          
         // - Running:
-        // 
-        //   - Scheduled execution: The status is always Running before you manually stop the scheduled command.
-        // 
-        //   - One-time execution: The overall status is Running if a command process is in progress.
-        // 
+        //     - Scheduled execution: The execution status remains Running until you manually stop the scheduled command.
+        //     - One-time execution: The overall execution status is Running if the command process is running on any instance.
         // - Finished:
-        // 
-        //   - Scheduled execution: A command process cannot be in the Finished state.
-        // 
-        //   - One-time execution: The execution is complete on all instances. Alternatively, the command process is manually stopped on some instances and the execution is complete on the other instances.
-        // 
+        //     - Scheduled execution: The command process cannot have a status of Finished.
+        //     - One-time execution: All instances have completed execution, or the command process was manually stopped on some instances while the remaining instances completed execution.
         // - Failed:
-        // 
-        //   - Scheduled execution: A command process cannot be in the Failed state.
-        // 
-        //   - One-time execution: The execution failed on all instances.
-        // 
-        // - Stopped: The command is stopped.
-        // 
+        //     - Scheduled execution: The command process cannot have a status of Failed.
+        //     - One-time execution: All instances failed to execute the command.
+        // - Stopped: The command was stopped.
         // - Stopping: The command is being stopped.
-        // 
-        // - PartialFailed: The execution failed on some instances. This value is not returned if you specify the `NodeId` parameter.
+        // - PartialFailed: Partial failure. This value does not take effect if the InstanceId parameter is also specified.
         shared_ptr<string> invokeStatus_ {};
         // The custom parameters in the command.
         shared_ptr<string> parameters_ {};
         // The execution mode of the command. Valid values:
-        // 
-        // - Once: The command is immediately executed.
-        // 
-        // - Period: The command is executed on a schedule.
-        // 
-        // - NextRebootOnly: The command is automatically executed the next time the instance starts.
-        // 
-        // - EveryReboot: The command is automatically executed every time the instance starts.
+        // - Once: Immediately executes the command.
+        // - Period: Executes the command on a schedule.
+        // - NextRebootOnly: Automatically executes the command the next time the instance starts.
+        // - EveryReboot: Automatically executes the command every time the instance starts.
         shared_ptr<string> repeatMode_ {};
         // The timeout period for the command execution. Unit: seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The name of the user who runs the command.
+        // The username used to execute the command.
         shared_ptr<string> username_ {};
-        // The directory where the command is run on the instance.
+        // The working directory of the command on the instance.
         shared_ptr<string> workingDir_ {};
       };
 
@@ -663,7 +571,7 @@ namespace Models
 
 
     protected:
-      // The command execution records.
+      // The file delivery record.
       shared_ptr<vector<Invocations::Invocation>> invocation_ {};
     };
 
@@ -686,9 +594,9 @@ namespace Models
 
 
   protected:
-    // The object that contains the script execution records.
+    // The script execution records.
     shared_ptr<DescribeInvocationsResponseBody::Invocations> invocations_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

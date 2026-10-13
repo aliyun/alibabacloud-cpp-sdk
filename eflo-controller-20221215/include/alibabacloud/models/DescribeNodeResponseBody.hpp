@@ -152,7 +152,7 @@ namespace Models
     protected:
       // The NIC port information.
       shared_ptr<string> bondName_ {};
-      // The machine IP address.
+      // The IP address of the machine.
       shared_ptr<string> ip_ {};
       // The security group ID.
       shared_ptr<string> securityGroupId_ {};
@@ -229,22 +229,22 @@ namespace Models
 
 
     protected:
-      // The disk type. Valid values:
+      // The disk category. Valid values:
       // 
       //  - cloud_essd: ESSD cloud disk.
       shared_ptr<string> category_ {};
       // The disk ID.
       shared_ptr<string> diskId_ {};
-      // The performance level of the cloud disk when an ESSD cloud disk is created as a system disk. Valid values:
-      // - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
-      // - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+      // The performance level (PL) of the ESSD cloud disk when it is used as the system cloud disk. Valid values:
+      // - PL0: a maximum of 10,000 random read/write IOPS per disk.
+      // - PL1: a maximum of 50,000 random read/write IOPS per disk.
       shared_ptr<string> performanceLevel_ {};
       // The disk size. Unit: GiB.
       shared_ptr<int32_t> size_ {};
       // The disk type. Valid values:
       // 
-      // - system: system disk.
-      // - data: data disk.
+      // - system: system cloud disk.
+      // - data: data cloud disk.
       shared_ptr<string> type_ {};
     };
 
@@ -431,19 +431,19 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The creation time.
+    // The creation time. The time is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> createTime_ {};
     // The list of disk information.
     shared_ptr<vector<DescribeNodeResponseBody::Disks>> disks_ {};
-    // The expiration time.
+    // The expiration time. The time is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> expiredTime_ {};
-    // Indicates whether file system mounting is supported.
+    // Indicates whether file storage mounting is supported.
     shared_ptr<bool> fileSystemMountEnabled_ {};
     // The hostname.
     shared_ptr<string> hostname_ {};
     // The cluster number.
     shared_ptr<string> hpnZone_ {};
-    // The hyper node ID.
+    // The HyperNode ID.
     shared_ptr<string> hyperNodeId_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
@@ -475,7 +475,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The savings plan ID.
     shared_ptr<string> savingsPlanId_ {};
-    // The unique machine identifier.
+    // The unique identifier of the machine.
     shared_ptr<string> sn_ {};
     // The user-defined script.
     shared_ptr<string> userData_ {};

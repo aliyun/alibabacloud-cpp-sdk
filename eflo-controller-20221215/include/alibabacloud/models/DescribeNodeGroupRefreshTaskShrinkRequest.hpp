@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page for a paged query. Valid values: 1 to 500. Default value: 100. For more information about paging, set this parameter together with NextToken.
+    // The maximum number of entries per page for a paged query. Valid values: 1 to 500. Default value: 100. For more information about paging, see the NextToken parameter.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. This parameter is used to paginate through the node list in the current refresh task.
     shared_ptr<string> nextToken_ {};
-    // The ID of the refresh task.
+    // The ID of the node group configuration refresh task. After you call RefreshNodeGroupNodes to trigger a node group configuration refresh, obtain this value from the NodeGroupRefreshTaskId response parameter. Before you call this operation, the node group must contain nodes with configuration drift.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupRefreshTaskId_ {};
-    // The node refresh statuses to filter by. Valid values:
+    // The node refresh statuses to filter by:
     // - Pending: the node is waiting to be refreshed.
     // - InProgress: the node is being refreshed.
     // - Success: the node is refreshed.

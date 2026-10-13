@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The node scale-out pattern.
+    // The node scaling mode.
     shared_ptr<string> nodeType_ {};
   };
 

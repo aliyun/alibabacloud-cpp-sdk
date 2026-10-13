@@ -212,11 +212,11 @@ namespace Models
     protected:
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
-      // The creation time.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the machine.
+      // The expiration time of the machine. The time is in ISO 8601 format.
       shared_ptr<string> expiredTime_ {};
-      // The cluster ID.
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
       // The hyper node ID.
       shared_ptr<string> hyperNodeId_ {};
@@ -262,7 +262,7 @@ namespace Models
 
 
   protected:
-    // The token returned for the next query.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The list of nodes.
     shared_ptr<vector<ListFreeNodesResponseBody::Nodes>> nodes_ {};

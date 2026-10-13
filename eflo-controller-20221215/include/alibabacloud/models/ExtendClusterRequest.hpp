@@ -192,17 +192,17 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable burst (I/O burst).
+          // Specifies whether to enable burst (performance burst).
           shared_ptr<bool> burstingEnabled_ {};
           // The type.
           shared_ptr<string> category_ {};
           // Specifies whether the data cloud disk is deleted when the node is unsubscribed.
           shared_ptr<bool> deleteWithNode_ {};
-          // The performance metric of the data cloud disk.
+          // The performance parameter of the data cloud disk.
           shared_ptr<string> performanceLevel_ {};
           // The provisioned performance (IOPS). Valid values: 0 to 50000.
           shared_ptr<int64_t> provisionedIops_ {};
-          // The cloud disk size.
+          // The disk size.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -426,21 +426,21 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable burst (I/O burst).
+          // Specifies whether to enable burst (performance burst).
           shared_ptr<bool> burstingEnabled_ {};
           // The cloud disk type. Valid values:
           // 
-          //  - cloud_essd: ESSD.
+          //  - cloud_essd: Enterprise SSD (ESSD) cloud disk.
           shared_ptr<string> category_ {};
           // Specifies whether the data cloud disk is deleted when the node is unsubscribed.
           shared_ptr<bool> deleteWithNode_ {};
-          // The performance level (PL) when an ESSD is used as a system cloud disk. Valid values:
-          // - PL0: a maximum of 10,000 random read/write IOPS per disk.
-          // - PL1: a maximum of 50,000 random read/write IOPS per disk.
+          // The performance level (PL) of the ESSD cloud disk used as a system cloud disk. Valid values:
+          // - PL0: A maximum of 10,000 random read/write IOPS per disk.
+          // - PL1: A maximum of 50,000 random read/write IOPS per disk.
           shared_ptr<string> performanceLevel_ {};
-          // The provisioned performance (read/write IOPS) of a single ESSD AutoPL cloud disk.
+          // The provisioned performance of read/write IOPS for the ESSD AutoPL cloud disk (per disk).
           shared_ptr<int64_t> provisionedIops_ {};
-          // The cloud disk size. Unit: GiB.
+          // The disk size. Unit: GiB.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -499,7 +499,7 @@ namespace Models
 
 
       protected:
-        // The list of cloud disk information.
+        // The list of disk information.
         shared_ptr<vector<HyperNodes::DataDisk>> dataDisk_ {};
         // The hostname.
         shared_ptr<string> hostname_ {};
@@ -633,7 +633,7 @@ namespace Models
 
 
     protected:
-      // The number of nodes to purchase. Valid values: 0 to 500. If Amount is set to 0, no nodes are purchased and existing nodes are used for scale-out. If Amount is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0
+      // The number of nodes to purchase. Valid values: 0 to 500. If Amount is set to 0, no nodes are purchased and existing nodes are used for scale-out. If Amount is set to a value from 1 to 500, the specified number of nodes are purchased and used for scale-out. Default value: 0.
       shared_ptr<int64_t> amount_ {};
       // Specifies whether to enable auto-renewal for the purchased nodes. This parameter takes effect when Amount is not 0 and ChargeType is set to PREPAY or POSTPAY. Valid values: True: Enable auto-renewal. False: Disable auto-renewal. Default value: False.
       shared_ptr<bool> autoRenew_ {};
@@ -649,13 +649,13 @@ namespace Models
       shared_ptr<string> nodeGroupId_ {};
       // The node tags.
       shared_ptr<vector<NodeGroups::NodeTag>> nodeTag_ {};
-      // The node list.
+      // The list of nodes.
       shared_ptr<vector<NodeGroups::Nodes>> nodes_ {};
       // The subscription duration of the purchased nodes. Unit: months. Valid values: 1, 6, 12, 24, 36, and 48. This parameter takes effect when Amount is not 0 and ChargeType is set to PREPAY.
       shared_ptr<int64_t> period_ {};
       // The savings plan ID.
       shared_ptr<string> savingsPlanId_ {};
-      // The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
+      // The custom executable shell script. The script must be in Base64 encoding. The maximum size of the raw data is 16 KB.
       shared_ptr<string> userData_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -1062,9 +1062,9 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // Specifies whether to skip failed nodes. Default value: False.
     shared_ptr<bool> ignoreFailedNodeTasks_ {};
-    // The combined IP allocation policy. Each policy can use only one policy type, and multiple policies can be combined.
+    // The combined policy for IP allocation. Each policy can use only one policy type, and multiple policies can be combined.
     shared_ptr<vector<ExtendClusterRequest::IpAllocationPolicy>> ipAllocationPolicy_ {};
-    // The node groups.
+    // The node group.
     shared_ptr<vector<ExtendClusterRequest::NodeGroups>> nodeGroups_ {};
     // The zone ID of the vSwitch.
     shared_ptr<string> vSwitchZoneId_ {};

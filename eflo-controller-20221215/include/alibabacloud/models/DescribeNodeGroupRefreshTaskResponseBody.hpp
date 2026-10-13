@@ -150,7 +150,7 @@ namespace Models
       protected:
         // The current value of the node property. Complex types are serialized as JSON strings.
         shared_ptr<string> actualValue_ {};
-        // The minimum action required to apply the target value: Refresh / Reboot / Reimage. For more information, see the MaxDisruptiveAction parameter description in the RefreshNodeGroupNodes operation.
+        // The minimum action required to apply the target value: Refresh, Reboot, or Reimage. For more information, see the MaxDisruptiveAction parameter of the RefreshNodeGroupNodes operation.
         shared_ptr<string> minRequiredAction_ {};
         // The property path in dot notation.
         shared_ptr<string> propertyPath_ {};
@@ -207,7 +207,7 @@ namespace Models
 
 
     protected:
-      // The action level actually executed on the node. If multiple properties are refreshed on the node, the highest required action level is used. Valid values:
+      // The action level actually performed on the node. If multiple properties are refreshed on the node, the highest required action level is used. Valid values:
       // - Refresh: in-place refresh.
       // - Reboot: restart.
       // - Reimage: reimage.
@@ -217,9 +217,9 @@ namespace Models
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMessage_ {};
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The list of property drifts for the node, including both executed and skipped properties.
+      // The property drift list for the node, including both executed and skipped properties.
       shared_ptr<vector<Nodes::PropertyDrifts>> propertyDrifts_ {};
       // The node refresh status. Valid values:
       // - Pending: the node is waiting to be refreshed.
@@ -338,11 +338,11 @@ namespace Models
     shared_ptr<string> maxDisruptiveAction_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. An empty value of NextToken indicates that no more results exist.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The ID of the node group.
+    // The node group ID.
     shared_ptr<string> nodeGroupId_ {};
-    // The ID of the refresh task.
+    // The refresh task ID.
     shared_ptr<string> nodeGroupRefreshTaskId_ {};
     // The list of nodes.
     shared_ptr<vector<DescribeNodeGroupRefreshTaskResponseBody::Nodes>> nodes_ {};

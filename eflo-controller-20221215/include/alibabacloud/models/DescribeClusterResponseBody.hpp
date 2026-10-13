@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The ID of the virtual private datacenter (VPD).
+      // The cluster CIDR block ID.
       shared_ptr<string> vpdId_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
     protected:
       // The component ID.
       shared_ptr<string> componentId_ {};
-      // The type of the component.
+      // The component type.
       shared_ptr<string> componentType_ {};
     };
 
@@ -294,21 +294,21 @@ namespace Models
 
 
   protected:
-    // The description of the cluster.
+    // The cluster description.
     shared_ptr<string> clusterDescription_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The type of the cluster.
+    // The cluster type.
     shared_ptr<string> clusterType_ {};
     // The component information.
     shared_ptr<vector<DescribeClusterResponseBody::Components>> components_ {};
     // The IP version of the computing network.
     shared_ptr<string> computingIpVersion_ {};
-    // The time when the cluster was created.
+    // The creation time. The time is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> createTime_ {};
-    // The zone of the cluster.
+    // The cluster number.
     shared_ptr<string> hpnZone_ {};
     // The network information.
     shared_ptr<DescribeClusterResponseBody::Networks> networks_ {};
@@ -318,7 +318,7 @@ namespace Models
     shared_ptr<int64_t> nodeGroupCount_ {};
     // The jumbo frame setting for the network interface.
     shared_ptr<string> openEniJumboFrame_ {};
-    // The state of the cluster.
+    // The cluster status.
     shared_ptr<string> operatingState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -328,11 +328,11 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
-    // The time when the cluster was last updated.
+    // The update time. The time is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> updateTime_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC).
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

@@ -62,6 +62,9 @@
 #include <alibabacloud/models/DescribeDiagnosticResultRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnosticResultResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnosticResultResponse.hpp>
+#include <alibabacloud/models/DescribeFaultReportRequest.hpp>
+#include <alibabacloud/models/DescribeFaultReportResponseBody.hpp>
+#include <alibabacloud/models/DescribeFaultReportResponse.hpp>
 #include <alibabacloud/models/DescribeHyperNodeRequest.hpp>
 #include <alibabacloud/models/DescribeHyperNodeResponseBody.hpp>
 #include <alibabacloud/models/DescribeHyperNodeResponse.hpp>
@@ -115,6 +118,10 @@
 #include <alibabacloud/models/ListDiagnosticResultsRequest.hpp>
 #include <alibabacloud/models/ListDiagnosticResultsResponseBody.hpp>
 #include <alibabacloud/models/ListDiagnosticResultsResponse.hpp>
+#include <alibabacloud/models/ListFaultReportsRequest.hpp>
+#include <alibabacloud/models/ListFaultReportsShrinkRequest.hpp>
+#include <alibabacloud/models/ListFaultReportsResponseBody.hpp>
+#include <alibabacloud/models/ListFaultReportsResponse.hpp>
 #include <alibabacloud/models/ListFreeHyperNodesRequest.hpp>
 #include <alibabacloud/models/ListFreeHyperNodesResponseBody.hpp>
 #include <alibabacloud/models/ListFreeHyperNodesResponse.hpp>
@@ -173,6 +180,9 @@
 #include <alibabacloud/models/ReimageNodesShrinkRequest.hpp>
 #include <alibabacloud/models/ReimageNodesResponseBody.hpp>
 #include <alibabacloud/models/ReimageNodesResponse.hpp>
+#include <alibabacloud/models/ReportNodeStatusRequest.hpp>
+#include <alibabacloud/models/ReportNodeStatusResponseBody.hpp>
+#include <alibabacloud/models/ReportNodeStatusResponse.hpp>
 #include <alibabacloud/models/ReportNodesStatusRequest.hpp>
 #include <alibabacloud/models/ReportNodesStatusShrinkRequest.hpp>
 #include <alibabacloud/models/ReportNodesStatusResponseBody.hpp>
@@ -193,6 +203,9 @@
 #include <alibabacloud/models/StopInvocationShrinkRequest.hpp>
 #include <alibabacloud/models/StopInvocationResponseBody.hpp>
 #include <alibabacloud/models/StopInvocationResponse.hpp>
+#include <alibabacloud/models/StopNodeDiagnosticRequest.hpp>
+#include <alibabacloud/models/StopNodeDiagnosticResponseBody.hpp>
+#include <alibabacloud/models/StopNodeDiagnosticResponse.hpp>
 #include <alibabacloud/models/StopNodesRequest.hpp>
 #include <alibabacloud/models/StopNodesShrinkRequest.hpp>
 #include <alibabacloud/models/StopNodesResponseBody.hpp>

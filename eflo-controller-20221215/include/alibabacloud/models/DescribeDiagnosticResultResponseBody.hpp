@@ -119,19 +119,19 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The creation time.
+    // The time when the device was created. The time is in ISO 8601 format.
     shared_ptr<string> createdTime_ {};
-    // The diagnostic task ID.
+    // The diagnostic ID.
     shared_ptr<string> diagnosticId_ {};
     // The diagnostic information.
     shared_ptr<vector<Darabonba::Json>> diagnosticResults_ {};
     // The diagnostic status.
     shared_ptr<string> diagnosticState_ {};
-    // The type of the diagnostic task.
+    // The diagnostic type.
     shared_ptr<string> diagnosticType_ {};
-    // The end time of the instance exception. The time format with time zone based on the ISO8601 standard. The format is yyyy-MM-ddTHH:mm:ss +0800.
+    // The time when the node exception ended. The time is in ISO 8601 format with a time zone, in the yyyy-MM-ddTHH:mm:ss+0800 format.
     shared_ptr<string> endTime_ {};
-    // The node IDs.
+    // The list of node IDs.
     shared_ptr<vector<string>> nodeIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -114,21 +114,21 @@ namespace Models
   protected:
     // Specifies whether file storage mounting is supported.
     shared_ptr<bool> fileSystemMountEnabled_ {};
-    // The default image ID of the node group. If this parameter is not specified, the image remains unchanged.
+    // The default image ID of the node group. If you do not specify this parameter, the image ID remains unchanged.
     shared_ptr<string> imageId_ {};
-    // The key pair name.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
-    // The logon password of the machines in the node group.
+    // The logon password for the machines in the node group.
     shared_ptr<string> loginPassword_ {};
-    // The node group name.
+    // The name of the node group.
     shared_ptr<string> newNodeGroupName_ {};
-    // The node group ID.
+    // The ID of the node group.
     shared_ptr<string> nodeGroupId_ {};
-    // The RAM role name of the node. You can call the RAM API ListRoles to query the node RAM roles that you have created. The trusted entity of the role must be set to Lingjun AI Computing Service.
-    // Note: Clearing an existing role is not supported.
+    // The name of the RAM role for the node. You can call the ListRoles API operation of RAM to query the RAM roles that you have created. The trusted entity of the role must be Lingjun AI Computing Service. <warning>Submitting an empty string "" clears the RAM role of the node group.</warning>
     shared_ptr<string> ramRoleName_ {};
+    // The system cloud disk configuration.
     shared_ptr<string> systemDiskShrink_ {};
-    // The custom executable shell script. The script must be Base64-encoded. The maximum size of the raw data is 16 KB.
+    // The custom executable shell script. It must be Base64-encoded, and the maximum size of the raw data is 16 KB.
     shared_ptr<string> userData_ {};
   };
 

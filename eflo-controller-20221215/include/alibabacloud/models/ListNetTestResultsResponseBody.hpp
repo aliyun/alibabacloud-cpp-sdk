@@ -164,9 +164,9 @@ namespace Models
 
 
         protected:
-          // The bonded port of the network interface card.
+          // The NIC bond interface.
           shared_ptr<string> bond_ {};
-          // The IP address of the node.
+          // The node IP address.
           shared_ptr<string> IP_ {};
           // The resource ID.
           shared_ptr<string> resourceId_ {};
@@ -230,7 +230,7 @@ namespace Models
 
 
         protected:
-          // The bonded port of the network interface card.
+          // The NIC bond interface.
           shared_ptr<string> bond_ {};
           // The IP address.
           shared_ptr<string> IP_ {};
@@ -297,19 +297,19 @@ namespace Models
 
 
       protected:
-        // The client.
+        // The clients.
         shared_ptr<vector<TrafficTest::Clients>> clients_ {};
-        // The runtime of the flow task, in seconds.
+        // The duration of the workflow task. Unit: seconds.
         shared_ptr<int64_t> duration_ {};
-        // If the protocol is RDMA, specify True or False. If the protocol is TCP, this field is empty.
+        // Specifies whether GPUDirect RDMA is enabled. Valid values: True and False. This parameter is returned only when the protocol is RDMA. This field is empty when the protocol is TCP.
         shared_ptr<string> GDR_ {};
-        // The network protocol. Valid values are RDMA and TCP.
+        // The network protocol. Valid values: RDMA or TCP.
         shared_ptr<string> protocol_ {};
-        // If the protocol is TCP, this parameter specifies the number of concurrent connections for the test. If the protocol is RDMA, this parameter specifies the QP value.
+        // The number of concurrent connections for TCP tests, or the QP value for RDMA tests.
         shared_ptr<int64_t> QP_ {};
-        // This field is empty if \\`TrafficModel\\` is set to \\`Fullmesh\\`.
+        // The servers. This field is empty when the traffic model (TrafficModel) is Fullmesh.
         shared_ptr<vector<TrafficTest::Servers>> servers_ {};
-        // The traffic model. Valid values are MTON and Fullmesh.
+        // The traffic model. Valid values: MTON or Fullmesh.
         shared_ptr<string> trafficModel_ {};
       };
 
@@ -388,9 +388,9 @@ namespace Models
 
 
         protected:
-          // The bonded port of the network interface card.
+          // The NIC bond interface.
           shared_ptr<string> bond_ {};
-          // The IP address of the node.
+          // The node IP address.
           shared_ptr<string> IP_ {};
           // The resource ID.
           shared_ptr<string> resourceId_ {};
@@ -409,7 +409,7 @@ namespace Models
 
 
       protected:
-        // The list of resources.
+        // The resources.
         shared_ptr<vector<DelayTest::Hosts>> hosts_ {};
       };
 
@@ -485,7 +485,7 @@ namespace Models
 
 
         protected:
-          // The IP address of the node.
+          // The node IP address.
           shared_ptr<string> IP_ {};
           // The resource ID.
           shared_ptr<string> resourceId_ {};
@@ -532,7 +532,7 @@ namespace Models
         shared_ptr<vector<CommTest::Hosts>> hosts_ {};
         // The communication library model.
         shared_ptr<string> model_ {};
-        // The type of the communication library test. Valid values: ACCL or NCCL.
+        // The communication library test category. Valid values: ACCL or NCCL.
         shared_ptr<string> type_ {};
       };
 
@@ -635,25 +635,28 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The details of the communication library test. This object is returned if the value of \\`NetTestType\\` is \\`CommTest\\`.
+      // The communication library test information. This parameter is required when the test type is communication library test.
       shared_ptr<NetTestResults::CommTest> commTest_ {};
-      // The time when the task was created.
+      // The creation time. The time is in ISO 8601 format. Z in the example indicates UTC.
       shared_ptr<string> creationTime_ {};
-      // The details of the delay test. This object is returned if the value of \\`NetTestType\\` is \\`DelayTest\\`.
+      // The latency test information. This parameter is returned when the network test type is latency test.
       shared_ptr<NetTestResults::DelayTest> delayTest_ {};
-      // The time when the task was completed.
+      // The completion time. The time is in ISO 8601 format. Z in the example indicates UTC.
       shared_ptr<string> finishedTime_ {};
-      // The type of the network test.
+      // The network test type.
       shared_ptr<string> netTestType_ {};
       // The network mode.
       shared_ptr<string> networkMode_ {};
-      // The test port.
+      // The test port number.
       shared_ptr<string> port_ {};
-      // The status of the network test task. Valid values: ● InProgress: The test is in progress. ● Finished: The test is complete. ● Failed: The test failed.
+      // The network test task status. Valid values:</br>
+      // ● InProgress: The test is in progress.</br>
+      // ● Finished: The test is complete.</br>
+      // ● Failed: The test failed.
       shared_ptr<string> status_ {};
-      // The test ID. It is the unique identifier of the resource test task.
+      // The test ID. The unique identifier of the resource test task.
       shared_ptr<string> testId_ {};
-      // The details of the traffic test. This object is returned if the value of \\`NetTestType\\` is \\`TrafficTest\\`.
+      // The traffic test information. This parameter is returned when the network test type is traffic test.
       shared_ptr<NetTestResults::TrafficTest> trafficTest_ {};
     };
 
@@ -690,16 +693,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned on each page. Maximum value: 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // - If you do not set this parameter or you set it to a value less than 20, the default value is 20.
-    // - If you set the value to greater than 100, the default value is 100.
+    // - If this parameter is not specified or is set to a value less than 20, the default value is 20.
+    // 
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The list of nodes.
+    // The node list.
     shared_ptr<vector<ListNetTestResultsResponseBody::NetTestResults>> netTestResults_ {};
-    // The token that is used to retrieve the next page of results. If this parameter is not returned, it indicates that all results have been returned.
+    // The NextToken for the next page. Include this value when requesting the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

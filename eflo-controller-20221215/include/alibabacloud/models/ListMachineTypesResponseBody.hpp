@@ -88,10 +88,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const RdmaInfoDetail& obj) { 
           DARABONBA_PTR_TO_JSON(BackendRdmaNicBwInGbps, backendRdmaNicBwInGbps_);
           DARABONBA_PTR_TO_JSON(BackendRdmaNicCount, backendRdmaNicCount_);
+          DARABONBA_PTR_TO_JSON(BackendRdmaSupported, backendRdmaSupported_);
         };
         friend void from_json(const Darabonba::Json& j, RdmaInfoDetail& obj) { 
           DARABONBA_PTR_FROM_JSON(BackendRdmaNicBwInGbps, backendRdmaNicBwInGbps_);
           DARABONBA_PTR_FROM_JSON(BackendRdmaNicCount, backendRdmaNicCount_);
+          DARABONBA_PTR_FROM_JSON(BackendRdmaSupported, backendRdmaSupported_);
         };
         RdmaInfoDetail() = default ;
         RdmaInfoDetail(const RdmaInfoDetail &) = default ;
@@ -105,7 +107,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->backendRdmaNicBwInGbps_ == nullptr
-        && this->backendRdmaNicCount_ == nullptr; };
+        && this->backendRdmaNicCount_ == nullptr && this->backendRdmaSupported_ == nullptr; };
         // backendRdmaNicBwInGbps Field Functions 
         bool hasBackendRdmaNicBwInGbps() const { return this->backendRdmaNicBwInGbps_ != nullptr;};
         void deleteBackendRdmaNicBwInGbps() { this->backendRdmaNicBwInGbps_ = nullptr;};
@@ -120,9 +122,22 @@ namespace Models
         inline RdmaInfoDetail& setBackendRdmaNicCount(int32_t backendRdmaNicCount) { DARABONBA_PTR_SET_VALUE(backendRdmaNicCount_, backendRdmaNicCount) };
 
 
+        // backendRdmaSupported Field Functions 
+        bool hasBackendRdmaSupported() const { return this->backendRdmaSupported_ != nullptr;};
+        void deleteBackendRdmaSupported() { this->backendRdmaSupported_ = nullptr;};
+        inline bool getBackendRdmaSupported() const { DARABONBA_PTR_GET_DEFAULT(backendRdmaSupported_, false) };
+        inline RdmaInfoDetail& setBackendRdmaSupported(bool backendRdmaSupported) { DARABONBA_PTR_SET_VALUE(backendRdmaSupported_, backendRdmaSupported) };
+
+
       protected:
+        // The bandwidth per backend RDMA NIC, in Gbps.
         shared_ptr<int32_t> backendRdmaNicBwInGbps_ {};
+        // The number of backend RDMA NICs.
         shared_ptr<int32_t> backendRdmaNicCount_ {};
+        // Indicates whether backend RDMA is supported. Valid values:
+        // - true: The current machine type supports backend RDMA.
+        // - false: The current machine type does not support backend RDMA.
+        shared_ptr<bool> backendRdmaSupported_ {};
       };
 
       class MemoryInfoDetail : public Darabonba::Model {
@@ -153,6 +168,7 @@ namespace Models
 
 
       protected:
+        // The memory size, in GB.
         shared_ptr<int32_t> memorySizeInGB_ {};
       };
 
@@ -221,10 +237,15 @@ namespace Models
 
 
       protected:
+        // The number of GPUs.
         shared_ptr<int32_t> gpuCount_ {};
+        // The GPU memory per card, in GB.
         shared_ptr<int32_t> gpuMemoryInGB_ {};
+        // The GPU name.
         shared_ptr<string> gpuName_ {};
+        // The GPU vendor.
         shared_ptr<string> gpuVendor_ {};
+        // The total GPU memory, in GB.
         shared_ptr<int32_t> totalGpuMemoryInGB_ {};
       };
 
@@ -266,7 +287,9 @@ namespace Models
 
 
       protected:
+        // The frontend network type.
         shared_ptr<string> frontendNetworkType_ {};
+        // Indicates whether jumbo frames are supported.
         shared_ptr<bool> jumboFrameSupported_ {};
       };
 
@@ -317,8 +340,11 @@ namespace Models
 
 
       protected:
+        // The number of disks.
         shared_ptr<int32_t> localDiskCount_ {};
+        // The capacity per disk, in TB.
         shared_ptr<float> localDiskSizeInTB_ {};
+        // The disk type.
         shared_ptr<string> localDiskType_ {};
       };
 
@@ -369,8 +395,11 @@ namespace Models
 
 
       protected:
+        // The CPU architecture.
         shared_ptr<string> cpuArch_ {};
+        // The number of CPU sockets.
         shared_ptr<int32_t> cpuSockets_ {};
+        // The number of vCPU cores.
         shared_ptr<int32_t> VCpuCores_ {};
       };
 
@@ -505,29 +534,35 @@ namespace Models
     protected:
       // The number of bonds.
       shared_ptr<int32_t> bondNum_ {};
-      // CPU information.
+      // The CPU information.
       shared_ptr<string> cpuInfo_ {};
+      // The structured CPU specifications.
       shared_ptr<MachineTypes::CpuInfoDetail> cpuInfoDetail_ {};
-      // Disk information.
+      // The disk information.
       shared_ptr<string> diskInfo_ {};
+      // The disk information.
       shared_ptr<MachineTypes::DiskInfoDetail> diskInfoDetail_ {};
+      // The frontend network information.
       shared_ptr<MachineTypes::FrontendNetworkDetail> frontendNetworkDetail_ {};
-      // GPU information.
+      // The GPU information.
       shared_ptr<string> gpuInfo_ {};
+      // The GPU information.
       shared_ptr<MachineTypes::GpuInfoDetail> gpuInfoDetail_ {};
-      // Memory information.
+      // The memory information.
       shared_ptr<string> memoryInfo_ {};
+      // The memory information.
       shared_ptr<MachineTypes::MemoryInfoDetail> memoryInfoDetail_ {};
       // The name of the machine type.
       shared_ptr<string> name_ {};
-      // Network information.
+      // The network information.
       shared_ptr<string> networkInfo_ {};
       // The number of nodes.
       shared_ptr<string> nodeCount_ {};
+      // The RDMA information.
       shared_ptr<MachineTypes::RdmaInfoDetail> rdmaInfoDetail_ {};
       // The number of CPU cores.
       shared_ptr<int32_t> totalCpuCore_ {};
-      // The type of the machine type.
+      // The machine type.
       shared_ptr<string> type_ {};
     };
 
@@ -557,9 +592,9 @@ namespace Models
 
 
   protected:
-    // Details of the machine types.
+    // The details of the machine types.
     shared_ptr<vector<ListMachineTypesResponseBody::MachineTypes>> machineTypes_ {};
-    // The token to request the next page of results. Include this token in your next request to retrieve the next page.
+    // The next token for pagination. Include this value in the request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

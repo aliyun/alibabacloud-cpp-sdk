@@ -114,33 +114,24 @@ namespace Models
 
 
     protected:
-      // The category of the disk.
+      // The category of the cloud disk.
       shared_ptr<string> category_ {};
-      // The performance level of the ESSD. Valid values:
-      // 
+      // The performance level (PL) of the ESSD used as the system cloud disk. Valid values:
       // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // 
       // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
-      // The size of the system disk. Unit: GiB. Valid values:
+      // The size of the system cloud disk. Unit: GiB. Valid values:
       // 
-      // - Basic disk: 20–500.
-      // 
+      // - Premium performance disk: 20 to 500.
       // - ESSD:
+      //   - PL0: 1 to 2048.
+      //   - PL1: 20 to 2048.
+      //   - PL2: 461 to 2048.
+      //   - PL3: 1261 to 2048.
+      // - ESSD AutoPL: 1 to 2048.
+      // - Other cloud disk types: 20 to 2048.
       // 
-      //   - PL0: 1–2,048.
-      // 
-      //   - PL1: 20–2,048.
-      // 
-      //   - PL2: 461–2,048.
-      // 
-      //   - PL3: 1,261–2,048.
-      // 
-      // - ESSD AutoPL disk: 1–2,048.
-      // 
-      // - Other disk categories: 20–2,048.
-      // 
-      // Default value: the larger value between 20 and the size of the image that is specified by `ImageId`.
+      // Default value: max{20, size of the image specified by the parameter ImageId}.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -292,50 +283,50 @@ namespace Models
 
 
   protected:
-    // The zone ID.
+    // The zone.
     shared_ptr<string> az_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The creation time.
+    // The creation time. The time is in ISO 8601 format.
     shared_ptr<string> createTime_ {};
-    // Indicates whether file storage can be mounted.
+    // Indicates whether file storage mounting is supported.
     shared_ptr<bool> fileSystemMountEnabled_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
-    // The name of the image.
+    // The image name.
     shared_ptr<string> imageName_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
     // Valid values:
-    // • password: The node group supports only password-based logon.
-    // • keypair: The node group supports only key pair-based logon.
-    // • both: The node group supports password-based and key pair-based logon.
+    // • password: The group supports only password-based logon. 
+    // • keypair: The group supports only key pair-based logon. 
+    // • both: The group supports both password-based and key pair-based logon.
     // 
-    // If this parameter is not returned, no logon method is configured for the node group.
+    // If the value is empty, no logon method is configured for the group.
     shared_ptr<string> loginType_ {};
-    // The instance type.
+    // The machine type.
     shared_ptr<string> machineType_ {};
     // The number of nodes.
     shared_ptr<string> nodeCount_ {};
-    // The description of the node group.
+    // The node group description.
     shared_ptr<string> nodeGroupDescription_ {};
-    // The ID of the node group.
+    // The node group ID.
     shared_ptr<string> nodeGroupId_ {};
-    // The name of the node group.
+    // The node group name.
     shared_ptr<string> nodeGroupName_ {};
-    // The name of the RAM role. You can call the ListRoles operation of the RAM API to query the RAM roles that you created.
+    // The name of the RAM role for the node. You can call the RAM API ListRoles to query the RAM roles that you have created.
     shared_ptr<string> ramRoleName_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The system disk information.
+    // The system cloud disk information.
     shared_ptr<DescribeNodeGroupResponseBody::SystemDisk> systemDisk_ {};
-    // The time when the node group was last updated.
+    // The update time. The time is in ISO 8601 format.
     shared_ptr<string> updateTime_ {};
-    // The user data.
+    // The user-defined script.
     shared_ptr<string> userData_ {};
-    // Indicates whether the node group supports GPU virtualization.
+    // Indicates whether GPU virtualization slicing is supported.
     shared_ptr<bool> virtualGpuEnabled_ {};
   };
 

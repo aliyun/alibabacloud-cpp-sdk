@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // Tag key.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -248,37 +248,37 @@ namespace Models
 
 
     protected:
-      // Cluster description.
+      // The cluster description.
       shared_ptr<string> clusterDescription_ {};
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Cluster name.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // Cluster type.
+      // The cluster type.
       shared_ptr<string> clusterType_ {};
-      // Component information.
+      // The component information.
       Darabonba::Json components_ {};
-      // IP version of computing network.
+      // The IP version of the computing network.
       shared_ptr<string> computingIpVersion_ {};
-      // Cluster creation time.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // Cluster zone identifier.
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
-      // Number of nodes.
+      // The number of nodes.
       shared_ptr<int64_t> nodeCount_ {};
-      // Number of node groups.
+      // The number of node groups.
       shared_ptr<int64_t> nodeGroupCount_ {};
-      // Cluster status.
+      // The cluster status.
       shared_ptr<string> operatingState_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Tag information.
+      // The tag information.
       shared_ptr<vector<Clusters::Tags>> tags_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Last update time.
+      // The update time. The time is in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
-      // VPC ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -308,11 +308,11 @@ namespace Models
 
 
   protected:
-    // Cluster information.
+    // The cluster information.
     shared_ptr<vector<ListClustersResponseBody::Clusters>> clusters_ {};
-    // Token returned by this call for retrieving next page.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

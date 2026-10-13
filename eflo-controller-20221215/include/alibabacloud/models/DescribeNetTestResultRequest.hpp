@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the test task.
+    // The test task ID.
     shared_ptr<string> testId_ {};
   };
 

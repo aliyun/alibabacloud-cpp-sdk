@@ -223,37 +223,37 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The security domain of the client.
       shared_ptr<string> domain_ {};
-      // A standard field in Linux syslog.
+      // The Linux syslog standard field.
       shared_ptr<string> facility_ {};
       // The hostname of the client.
       shared_ptr<string> hostname_ {};
       // The IP address of the client.
       shared_ptr<string> ip_ {};
-      // The content of the syslog.
+      // The syslog content.
       shared_ptr<string> msg_ {};
       // The node ID.
       shared_ptr<string> nodeId_ {};
-      // A standard field in Linux syslog.
+      // The Linux syslog standard field.
       shared_ptr<string> severity_ {};
       // The unique identifier of the machine.
       shared_ptr<string> sn_ {};
       // The hostname of the syslog server.
       shared_ptr<string> source_ {};
-      // A standard field in Linux syslog.
+      // The Linux syslog standard field.
       shared_ptr<string> syslogtag_ {};
-      // Tag: Hostname.
+      // The tag for the hostname.
       shared_ptr<string> tagHostname_ {};
-      // Tag: Package ID.
+      // The tag for the pack ID.
       shared_ptr<string> tagPackId_ {};
-      // Tag: Path.
+      // The tag for the path.
       shared_ptr<string> tagPath_ {};
-      // Tag: Receive time.
+      // The tag for the receive time. Specify a UNIX timestamp in seconds.
       shared_ptr<string> tagReceiveTime_ {};
-      // Tag: User-defined ID.
+      // The tag for the user-defined ID.
       shared_ptr<string> tagUserDefinedId_ {};
-      // The time in UNIX format.
+      // The time in UNIX timestamp format.
       shared_ptr<string> time_ {};
-      // The topic. Valid values are \\`logserver\\` and \\`log2sls\\`. Note: Both are syslog servers. \\`logserver\\` collects data over TCP. \\`log2sls\\` collects data over UDP.
+      // The topic, which is logserver or log2sls. Both are syslog servers. logserver collects logs over TCP, and log2sls collects logs over UDP.
       shared_ptr<string> topic_ {};
     };
 
@@ -283,11 +283,11 @@ namespace Models
 
 
   protected:
-    // The object that contains the paginated list of logs.
+    // The paginated list of log objects.
     shared_ptr<vector<ListSyslogsResponseBody::Logs>> logs_ {};
-    // The \\`NextToken\\` for the next page. To retrieve the next page of results, include this return value in the next request.
+    // The NextToken for the next page. Include this value in the request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

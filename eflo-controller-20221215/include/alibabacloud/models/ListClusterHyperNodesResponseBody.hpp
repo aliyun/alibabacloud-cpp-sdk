@@ -258,15 +258,15 @@ namespace Models
     protected:
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
-      // The time when the node was created.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the machine.
+      // The machine expiration time. The time is in ISO 8601 format. The Z in the example indicates UTC.
       shared_ptr<string> expireTime_ {};
       // Indicates whether file storage mounting is supported.
       shared_ptr<bool> fileSystemMountEnabled_ {};
       // The hostname.
       shared_ptr<string> hostname_ {};
-      // The cluster ID.
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
       // The node ID.
       shared_ptr<string> hyperNodeId_ {};
@@ -274,11 +274,11 @@ namespace Models
       shared_ptr<string> machineType_ {};
       // The node group ID.
       shared_ptr<string> nodeGroupId_ {};
-      // The name of the node group.
+      // The node group name.
       shared_ptr<string> nodeGroupName_ {};
-      // The status of the hyper node.
+      // The hypernode status.
       shared_ptr<string> operatingState_ {};
-      // The status of the node.
+      // The node status.
       shared_ptr<string> status_ {};
       // The tag information.
       shared_ptr<vector<HyperNodes::Tags>> tags_ {};
@@ -286,7 +286,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -318,11 +318,11 @@ namespace Models
 
 
   protected:
-    // The list of nodes.
+    // The node list.
     shared_ptr<vector<ListClusterHyperNodesResponseBody::HyperNodes>> hyperNodes_ {};
-    // The query token returned from this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

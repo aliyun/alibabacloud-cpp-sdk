@@ -158,7 +158,7 @@ namespace Models
       // - Success: The refresh task is executed.
       // - Failed: The refresh task failed.
       shared_ptr<string> status_ {};
-      // The total number of nodes to refresh in this task.
+      // The total number of nodes to be refreshed by the task.
       shared_ptr<int64_t> totalNodeCount_ {};
     };
 
@@ -197,7 +197,7 @@ namespace Models
   protected:
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. An empty value indicates that no more results exist.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The list of node group refresh tasks.
     shared_ptr<vector<ListNodeGroupRefreshTasksResponseBody::NodeGroupRefreshTasks>> nodeGroupRefreshTasks_ {};

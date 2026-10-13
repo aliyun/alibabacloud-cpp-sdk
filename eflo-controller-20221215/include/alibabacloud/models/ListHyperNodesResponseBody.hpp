@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The key of the node tag.
+        // The tag key of the node.
         shared_ptr<string> key_ {};
-        // The value of the node tag.
+        // The tag value of the node.
         shared_ptr<string> value_ {};
       };
 
@@ -258,39 +258,39 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The product code.
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
-      // The time when the node was created.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The expiration time.
+      // The expiration time. The time is in ISO 8601 format. The Z in the example indicates UTC.
       shared_ptr<string> expireTime_ {};
       // The hostname.
       shared_ptr<string> hostname_ {};
       // The cluster number.
       shared_ptr<string> hpnZone_ {};
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> hyperNodeId_ {};
       // The machine type.
       shared_ptr<string> machineType_ {};
-      // The ID of the node group.
+      // The node group ID.
       shared_ptr<string> nodeGroupId_ {};
-      // The name of the node group.
+      // The node group.
       shared_ptr<string> nodeGroupName_ {};
-      // The status of the hypernode.
+      // The hyper node status.
       shared_ptr<string> operatingState_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the node.
+      // The node status.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<HyperNodes::Tags>> tags_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The ID of the zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -329,17 +329,17 @@ namespace Models
   protected:
     // The list of nodes.
     shared_ptr<vector<ListHyperNodesResponseBody::HyperNodes>> hyperNodes_ {};
-    // The number of entries to return on each page. The maximum value is 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // 
-    // Default values:
+    // Default value:
     // 
-    // • If you do not specify this parameter or you specify a value that is less than 20, the default value is 20.
+    // - If this parameter is not specified or is set to a value less than 20, the default value is 20.
     // 
-    // • If you specify a value that is greater than 100, the default value is 100.
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this parameter is not returned, no more results are available.
+    // The NextToken for the next page. Include this value when requesting the next page.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

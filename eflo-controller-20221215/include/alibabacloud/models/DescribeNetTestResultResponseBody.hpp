@@ -141,9 +141,9 @@ namespace Models
 
 
       protected:
-        // The bonded port of the NIC.
+        // The NIC bond interface.
         shared_ptr<string> bond_ {};
-        // The IP address of the node.
+        // The node IP address.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
@@ -207,9 +207,9 @@ namespace Models
 
 
       protected:
-        // The bonded port of the network interface card (NIC).
+        // The NIC bond interface.
         shared_ptr<string> bond_ {};
-        // The IP address of the node.
+        // The node IP address.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
@@ -274,15 +274,15 @@ namespace Models
 
 
     protected:
-      // The client nodes.
+      // The resource IDs.
       shared_ptr<vector<TrafficTest::Clients>> clients_ {};
-      // The runtime of the flow task in seconds.
+      // The duration of the workflow task. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
-      // Indicates whether GPUDirect RDMA (GDR) is enabled. This parameter is returned only if the protocol is RDMA. Valid values: True and False. If the protocol is TCP, this field is empty.
+      // If Protocol is set to RDMA, specify True or False. If Protocol is set to TCP, this field is empty.
       shared_ptr<string> GDR_ {};
-      // The network protocol. Valid values: Remote Direct Memory Access (RDMA) and Transmission Control Protocol (TCP).
+      // The network protocol. Valid values: RDMA and TCP.
       shared_ptr<string> protocol_ {};
-      // If the protocol is TCP, this is the number of concurrent connections for the test. If the protocol is RDMA, this is the Queue Pair (QP) value.
+      // If Protocol is set to TCP, specify the number of test Concurrent Connections. If Protocol is set to RDMA, specify the QP value.
       shared_ptr<int64_t> QP_ {};
       // The list of servers.
       shared_ptr<vector<TrafficTest::Servers>> servers_ {};
@@ -365,9 +365,9 @@ namespace Models
 
 
       protected:
-        // The bonded port of the NIC.
+        // The NIC bond interface.
         shared_ptr<string> bond_ {};
-        // The IP address of the node.
+        // The node IP address.
         shared_ptr<string> IP_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
@@ -505,11 +505,11 @@ namespace Models
     protected:
       // The number of GPUs.
       shared_ptr<string> GPUNum_ {};
-      // The hosts for the test.
+      // The resource ID.
       shared_ptr<vector<CommTest::Hosts>> hosts_ {};
       // The communication library model.
       shared_ptr<string> model_ {};
-      // The type of the communication library test. Valid values: Alibaba Cloud Collective Communication Library (ACCL) and NVIDIA Collective Communication Library (NCCL).
+      // The communication library test category. Valid values: ACCL and NCCL.
       shared_ptr<string> type_ {};
     };
 
@@ -619,33 +619,31 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The configuration for the communication library test. This parameter is returned when the network test type is a communication library test.
+    // The communication library test configuration. This field is required when the traffic test type is communication library test.
     shared_ptr<DescribeNetTestResultResponseBody::CommTest> commTest_ {};
-    // The time when the diagnostic task was created.
+    // The time when the diagnostic task was created. The time is in ISO 8601 format and includes the time zone offset.
     shared_ptr<string> creationTime_ {};
-    // The configuration for the delay test. This parameter is returned when the network test type is a delay test.
+    // The latency test configuration. This field is required when the network test type is latency test.
     shared_ptr<DescribeNetTestResultResponseBody::DelayTest> delayTest_ {};
-    // The time when the diagnostic task was completed.
+    // The time when the diagnostic task was completed. The time is in ISO 8601 format. Z in the example indicates UTC.
     shared_ptr<string> finishedTime_ {};
-    // The type of the network test.
+    // The network test type.
     shared_ptr<string> netTestType_ {};
     // The test port number.
     shared_ptr<string> port_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the diagnostic result. The value is a JSON string.
+    // The details of the diagnostic result. The value is returned as a JSON string.
     shared_ptr<string> resultDetial_ {};
     // The status of the diagnostic task. Valid values:
     // 
-    // - InProgress: The task is in progress.
-    // 
-    // - Finished: The task is complete.
-    // 
-    // - Failed: The task failed.
+    // - InProgress: The diagnostic task is in progress.
+    // - Finished: The diagnostic task is complete.
+    // - Failed: The diagnostic task failed.
     shared_ptr<string> status_ {};
-    // The ID of the test task. This ID uniquely identifies the network test task.
+    // The ID of the test task. This is the unique identifier of the network test task.
     shared_ptr<string> testId_ {};
-    // The configuration for the traffic test. This parameter is returned when the network test type is a traffic test.
+    // If TrafficModel is set to Fullmesh, this field is empty.
     shared_ptr<DescribeNetTestResultResponseBody::TrafficTest> trafficTest_ {};
   };
 

@@ -135,15 +135,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The number of entries to return on each page. The maximum value is 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // • If this parameter is not set or is set to a value less than 20, the default value is 20.
+    // - If this parameter is not set or is set to a value less than 20, the default value is 20.
     // 
-    // • If this parameter is set to a value greater than 100, the default value is 100.
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The token used to start the query. Set this parameter to the NextToken value returned from a previous call.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The node group ID.
     shared_ptr<string> nodeGroupId_ {};

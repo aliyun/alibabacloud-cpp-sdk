@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Maximum value: 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // - If you do not set this parameter or you set it to a value less than 20, the default value is 20.
-    // - If you set the value to greater than 100, the default value is 100.
+    // - If this parameter is not specified or is set to a value less than 20, the default value is 20.
+    // 
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The type of the network test.
+    // The network test type.
     shared_ptr<string> netTestType_ {};
-    // The token that is used to retrieve the next page of results. Set this parameter to the value of \\`NextToken\\` that is returned in the last response.
+    // The pagination token. Set this parameter to the value of NextToken that is returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

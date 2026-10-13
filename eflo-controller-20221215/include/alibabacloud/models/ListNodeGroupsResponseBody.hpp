@@ -186,7 +186,7 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The creation time.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -200,13 +200,13 @@ namespace Models
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The instance type.
+      // The machine type.
       shared_ptr<string> machineType_ {};
       // The number of nodes.
       shared_ptr<int64_t> nodeCount_ {};
-      // The update time.
+      // The update time. The time is in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
-      // Whether to enable gpu virtualization or not
+      // Indicates whether GPU virtualization splitting is supported.
       shared_ptr<bool> virtualGpuEnabled_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -238,11 +238,11 @@ namespace Models
 
 
   protected:
-    // The node groups.
+    // The cluster group information.
     shared_ptr<vector<ListNodeGroupsResponseBody::Groups>> groups_ {};
-    // The token that is used in the next request to retrieve a new page of results.
+    // The NextToken for the next page. Include this return value when requesting the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

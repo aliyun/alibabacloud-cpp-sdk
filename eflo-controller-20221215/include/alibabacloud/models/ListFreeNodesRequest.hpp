@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The cluster number.
     shared_ptr<string> hpnZone_ {};
     // The machine type.
     shared_ptr<string> machineType_ {};
-    // The number of entries to return on each page for a paged query. The default value is 20.
+    // The number of entries per page for a paged query. Default value: 20.
     shared_ptr<int64_t> maxResults_ {};
-    // The query token. Set it to the NextToken value returned from the previous API call.
+    // The pagination token. Set this parameter to the value of NextToken that is returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The type of unused nodes to be returned.
+    // The type of unused nodes to return.
     shared_ptr<vector<string>> operatingStates_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

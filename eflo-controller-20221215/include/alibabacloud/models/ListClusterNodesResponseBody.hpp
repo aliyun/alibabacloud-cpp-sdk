@@ -195,13 +195,13 @@ namespace Models
 
 
       protected:
-        // The name of the network interface.
+        // The name of the network interface on the machine.
         shared_ptr<string> bondName_ {};
-        // The IP address of the node in the VPC.
+        // The IP address of the machine in the virtual private cloud (VPC).
         shared_ptr<string> ip_ {};
-        // The subnet ID.
+        // The subnet ID of the VPC.
         shared_ptr<string> subnetId_ {};
-        // The ID of the VPC to which the network interface belongs.
+        // The VPC ID.
         shared_ptr<string> vpdId_ {};
       };
 
@@ -370,27 +370,27 @@ namespace Models
 
 
     protected:
-      // The unique code that identifies the cloud product or service.
+      // The commodity code, which is a unique identifier for a specific cloud product or service.
       shared_ptr<string> commodityCode_ {};
-      // The creation time.
+      // The creation time. The time is in ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the node.
+      // The expiration time of the machine. The time is in ISO 8601 format.
       shared_ptr<string> expiredTime_ {};
-      // Indicates whether the node supports mounting file storage.
+      // Indicates whether file storage mounting is supported.
       shared_ptr<bool> fileSystemMountEnabled_ {};
       // The hostname.
       shared_ptr<string> hostname_ {};
-      // The ID of the HPN zone.
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
       // The hyper node ID.
       shared_ptr<string> hyperNodeId_ {};
-      // The image ID.
+      // The system image ID.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
       // The machine type.
       shared_ptr<string> machineType_ {};
-      // Network details.
+      // The network information.
       shared_ptr<vector<Nodes::Networks>> networks_ {};
       // The node group ID.
       shared_ptr<string> nodeGroupId_ {};
@@ -398,21 +398,21 @@ namespace Models
       shared_ptr<string> nodeGroupName_ {};
       // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The type of the node.
+      // The node specifications.
       shared_ptr<string> nodeType_ {};
-      // The status of the node.
+      // The node status.
       shared_ptr<string> operatingState_ {};
-      // The serial number (SN) of the node.
+      // The serial number (SN) of the machine.
       shared_ptr<string> sn_ {};
-      // The list of tags attached to the node.
+      // The tag information.
       shared_ptr<vector<Nodes::Tags>> tags_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC where the node is located.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The availability zone ID.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -442,7 +442,7 @@ namespace Models
 
 
   protected:
-    // The token to retrieve the next page of results. If this parameter is empty, no more results are available.
+    // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The list of nodes.
     shared_ptr<vector<ListClusterNodesResponseBody::Nodes>> nodes_ {};

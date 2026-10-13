@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the node.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};

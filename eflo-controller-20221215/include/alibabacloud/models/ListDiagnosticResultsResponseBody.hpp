@@ -149,26 +149,23 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // Cluster Name
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // Creation time of the diagnostic task.
+      // The time when the diagnostic task was created. The time is in ISO 8601 format. Z in the example indicates UTC.
       shared_ptr<string> creationTime_ {};
-      // Diagnostic content. For example, in network diagnostics, there are static configuration checks, dynamic operation checks, and other diagnostic contents.
+      // The diagnostic content. For example, in the network diagnostic type, the diagnostic content includes static configuration checks and dynamic runtime checks.
       shared_ptr<string> diagContent_ {};
-      // Diagnosis ID
+      // The diagnostic ID.
       shared_ptr<string> diagId_ {};
-      // Diagnostic result, either success or failure.
+      // The diagnostic result, which indicates success or failure.
       shared_ptr<string> diagResult_ {};
-      // Completion time of the diagnostic task.
+      // The time when the diagnostic task was completed. The time is in ISO 8601 format. Z in the example indicates UTC.
       shared_ptr<string> finishedTime_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // Server name.
+      // The service name.
       shared_ptr<string> serverName_ {};
-      // Status of the diagnostic task. Possible values:
-      // - InProgress: Diagnosing.
-      // - Finished: Diagnosis completed.
-      // - Failed: Diagnosis failed.
+      // The governance status.
       shared_ptr<string> status_ {};
     };
 
@@ -207,14 +204,15 @@ namespace Models
   protected:
     // The diagnostic information.
     shared_ptr<vector<ListDiagnosticResultsResponseBody::DiagnosticResults>> diagnosticResults_ {};
-    // Number of items per page in a paginated query. The maximum value is 100.
+    // The number of entries per page in a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // - If no value is set or the set value is less than 20, the default value is 20.
-    // - If the set value is greater than 100, the default value is 100.
+    // - If this parameter is not specified or is set to a value less than 20, the default value is 20.
+    // 
+    // - If this parameter is set to a value greater than 100, the default value is 100.
     shared_ptr<int64_t> maxResults_ {};
-    // NextToken for the next page. Include this value when requesting the next page.
+    // The NextToken for the next page. Include this value when you request the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

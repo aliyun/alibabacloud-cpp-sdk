@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The start time.
+    // The start time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> fromTime_ {};
-    // The token for the next page. To retrieve the next page of results, include the token in the next request.
+    // The token for the next page. Include this token when you retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The node ID.
     // 
@@ -96,9 +96,9 @@ namespace Models
     shared_ptr<string> nodeId_ {};
     // The query condition.
     shared_ptr<string> query_ {};
-    // Specifies whether to sort the results by time in descending order.
+    // Specifies whether to query logs in reverse chronological order.
     shared_ptr<bool> reverse_ {};
-    // The end time.
+    // The end time. Specify a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<string> toTime_ {};

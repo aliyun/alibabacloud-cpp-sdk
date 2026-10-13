@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The diagnostic task ID.
+    // The diagnostic ID.
     shared_ptr<string> diagnosticId_ {};
   };
 

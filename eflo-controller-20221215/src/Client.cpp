@@ -18,26 +18,6 @@ namespace EfloController20221215
 
 AlibabaCloud::EfloController20221215::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-wulanchabu" , "eflo-controller.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "eflo-controller.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "eflo-controller.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "eflo-controller.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "eflo-controller.cn-heyuan.aliyuncs.com"},
-    {"cn-zhangjiakou" , "eflo-controller.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen" , "eflo-controller.cn-shenzhen.aliyuncs.com"},
-    {"ap-northeast-1" , "eflo-controller.ap-northeast-1.aliyuncs.com"},
-    {"cn-guangzhou" , "eflo-controller.cn-guangzhou.aliyuncs.com"},
-    {"ap-southeast-1" , "eflo-controller.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "eflo-controller.ap-southeast-3.aliyuncs.com"},
-    {"cn-huhehaote" , "eflo-controller.cn-huhehaote.aliyuncs.com"},
-    {"ap-southeast-7" , "eflo-controller.ap-southeast-7.aliyuncs.com"},
-    {"cn-hangzhou" , "eflo-controller.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-8" , "eflo-controller.ap-southeast-8.aliyuncs.com"},
-    {"eu-central-1" , "eflo-controller.eu-central-1.aliyuncs.com"},
-    {"me-east-1" , "eflo-controller.me-east-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "eflo-controller.cn-shanghai-finance-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eflo-controller", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -102,9 +82,9 @@ ApproveOperationResponse Client::approveOperation(const ApproveOperationRequest 
 }
 
 /**
- * @summary Changes the node group of a node.
+ * @summary Modifies the node group of nodes.
  *
- * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+ * @description Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
  *
  * @param tmpReq ChangeNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -151,9 +131,9 @@ ChangeNodeGroupResponse Client::changeNodeGroupWithOptions(const ChangeNodeGroup
 }
 
 /**
- * @summary Changes the node group of a node.
+ * @summary Modifies the node group of nodes.
  *
- * @description Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+ * @description Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
  *
  * @param request ChangeNodeGroupRequest
  * @return ChangeNodeGroupResponse
@@ -980,9 +960,9 @@ DeleteVscResponse Client::deleteVsc(const DeleteVscRequest &request) {
 }
 
 /**
- * @summary Queries the details of a cluster.
+ * @summary Queries the details of a Lingjun AI Computing Service cluster.
  *
- * @description Queries the details of a specified cluster.
+ * @description Closes a remote session.
  *
  * @param request DescribeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1013,9 +993,9 @@ DescribeClusterResponse Client::describeClusterWithOptions(const DescribeCluster
 }
 
 /**
- * @summary Queries the details of a cluster.
+ * @summary Queries the details of a Lingjun AI Computing Service cluster.
  *
- * @description Queries the details of a specified cluster.
+ * @description Closes a remote session.
  *
  * @param request DescribeClusterRequest
  * @return DescribeClusterResponse
@@ -1027,8 +1007,6 @@ DescribeClusterResponse Client::describeCluster(const DescribeClusterRequest &re
 
 /**
  * @summary Queries the results of a diagnostic task.
- *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
  *
  * @param request DescribeDiagnosticResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1061,8 +1039,6 @@ DescribeDiagnosticResultResponse Client::describeDiagnosticResultWithOptions(con
 /**
  * @summary Queries the results of a diagnostic task.
  *
- * @description The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
- *
  * @param request DescribeDiagnosticResultRequest
  * @return DescribeDiagnosticResultResponse
  */
@@ -1072,9 +1048,55 @@ DescribeDiagnosticResultResponse Client::describeDiagnosticResult(const Describe
 }
 
 /**
- * @summary Queries the details of a hyper node.
+ * @summary Queries the details of a fault report after a user submits one.
  *
- * @description Queries the details of a specified hyper node.
+ * @description Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+ *
+ * @param request DescribeFaultReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFaultReportResponse
+ */
+DescribeFaultReportResponse Client::describeFaultReportWithOptions(const DescribeFaultReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasReportId()) {
+    body["ReportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeFaultReport"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFaultReportResponse>();
+}
+
+/**
+ * @summary Queries the details of a fault report after a user submits one.
+ *
+ * @description Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+ *
+ * @param request DescribeFaultReportRequest
+ * @return DescribeFaultReportResponse
+ */
+DescribeFaultReportResponse Client::describeFaultReport(const DescribeFaultReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFaultReportWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a hypernode.
+ *
+ * @description Queries the details of a hypernode.
  *
  * @param request DescribeHyperNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1105,9 +1127,9 @@ DescribeHyperNodeResponse Client::describeHyperNodeWithOptions(const DescribeHyp
 }
 
 /**
- * @summary Queries the details of a hyper node.
+ * @summary Queries the details of a hypernode.
  *
- * @description Queries the details of a specified hyper node.
+ * @description Queries the details of a hypernode.
  *
  * @param request DescribeHyperNodeRequest
  * @return DescribeHyperNodeResponse
@@ -1118,7 +1140,7 @@ DescribeHyperNodeResponse Client::describeHyperNode(const DescribeHyperNodeReque
 }
 
 /**
- * @summary Queries the execution history and status of Cloud Assistant commands.
+ * @summary Queries the execution list and status of O&M Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1183,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @summary Queries the execution history and status of Cloud Assistant commands.
+ * @summary Queries the execution list and status of O&M Assistant commands.
  *
  * @param request DescribeInvocationsRequest
  * @return DescribeInvocationsResponse
@@ -1172,7 +1194,7 @@ DescribeInvocationsResponse Client::describeInvocations(const DescribeInvocation
 }
 
 /**
- * @summary Queries the results of a network test.
+ * @summary Queries network test results.
  *
  * @param request DescribeNetTestResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1225,7 @@ DescribeNetTestResultResponse Client::describeNetTestResultWithOptions(const Des
 }
 
 /**
- * @summary Queries the results of a network test.
+ * @summary Queries network test results.
  *
  * @param request DescribeNetTestResultRequest
  * @return DescribeNetTestResultResponse
@@ -1214,9 +1236,9 @@ DescribeNetTestResultResponse Client::describeNetTestResult(const DescribeNetTes
 }
 
 /**
- * @summary Queries the list of nodes.
+ * @summary Queries a list of nodes.
  *
- * @description Queries the detailed information of a hyper node.
+ * @description Queries the details of a supernode.
  *
  * @param request DescribeNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,9 +1269,9 @@ DescribeNodeResponse Client::describeNodeWithOptions(const DescribeNodeRequest &
 }
 
 /**
- * @summary Queries the list of nodes.
+ * @summary Queries a list of nodes.
  *
- * @description Queries the detailed information of a hyper node.
+ * @description Queries the details of a supernode.
  *
  * @param request DescribeNodeRequest
  * @return DescribeNodeResponse
@@ -1260,9 +1282,9 @@ DescribeNodeResponse Client::describeNode(const DescribeNodeRequest &request) {
 }
 
 /**
- * @summary Queries the details of a node group.
+ * @summary Queries node groups.
  *
- * @description This operation queries the details of a node group.
+ * @description Queries the details of a supernode.
  *
  * @param request DescribeNodeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1293,9 +1315,9 @@ DescribeNodeGroupResponse Client::describeNodeGroupWithOptions(const DescribeNod
 }
 
 /**
- * @summary Queries the details of a node group.
+ * @summary Queries node groups.
  *
- * @description This operation queries the details of a node group.
+ * @description Queries the details of a supernode.
  *
  * @param request DescribeNodeGroupRequest
  * @return DescribeNodeGroupResponse
@@ -1308,10 +1330,10 @@ DescribeNodeGroupResponse Client::describeNodeGroup(const DescribeNodeGroupReque
 /**
  * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
  *
- * @description The returned results contain the following information:
- * - The processing status of each node with configuration drift
- * - The processing result, status, and reason for each node
- * - The refreshed and skipped properties for each node
+ * @description The returned results include the following:
+ * - The processing status of each node with configuration drift.
+ * - The processing result, status, and reason for each node.
+ * - The refreshed and skipped properties for each node.
  *
  * @param tmpReq DescribeNodeGroupRefreshTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1362,10 +1384,10 @@ DescribeNodeGroupRefreshTaskResponse Client::describeNodeGroupRefreshTaskWithOpt
 /**
  * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
  *
- * @description The returned results contain the following information:
- * - The processing status of each node with configuration drift
- * - The processing result, status, and reason for each node
- * - The refreshed and skipped properties for each node
+ * @description The returned results include the following:
+ * - The processing status of each node with configuration drift.
+ * - The processing result, status, and reason for each node.
+ * - The refreshed and skipped properties for each node.
  *
  * @param request DescribeNodeGroupRefreshTaskRequest
  * @return DescribeNodeGroupRefreshTaskResponse
@@ -1376,7 +1398,7 @@ DescribeNodeGroupRefreshTaskResponse Client::describeNodeGroupRefreshTask(const 
 }
 
 /**
- * @summary Describes the constraints for a node type.
+ * @summary Queries the constraints for a node type.
  *
  * @param request DescribeNodeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1429,7 @@ DescribeNodeTypeResponse Client::describeNodeTypeWithOptions(const DescribeNodeT
 }
 
 /**
- * @summary Describes the constraints for a node type.
+ * @summary Queries the constraints for a node type.
  *
  * @param request DescribeNodeTypeRequest
  * @return DescribeNodeTypeResponse
@@ -1460,7 +1482,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+ * @summary Queries the list and status of files sent by O&M Assistant.
  *
  * @param request DescribeSendFileResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1495,7 +1517,7 @@ DescribeSendFileResultsResponse Client::describeSendFileResultsWithOptions(const
 }
 
 /**
- * @summary Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+ * @summary Queries the list and status of files sent by O&M Assistant.
  *
  * @param request DescribeSendFileResultsRequest
  * @return DescribeSendFileResultsResponse
@@ -1506,7 +1528,7 @@ DescribeSendFileResultsResponse Client::describeSendFileResults(const DescribeSe
 }
 
 /**
- * @summary Queries the details of a task.
+ * @summary Queries the details of a node.
  *
  * @param request DescribeTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1537,7 +1559,7 @@ DescribeTaskResponse Client::describeTaskWithOptions(const DescribeTaskRequest &
 }
 
 /**
- * @summary Queries the details of a task.
+ * @summary Queries the details of a node.
  *
  * @param request DescribeTaskRequest
  * @return DescribeTaskResponse
@@ -1712,7 +1734,7 @@ ExtendClusterResponse Client::extendCluster(const ExtendClusterRequest &request)
 }
 
 /**
- * @summary Lists the node groups of a cluster and the nodes in each group.
+ * @summary Queries the host group list under a cluster and the host list under each group.
  *
  * @param request ListClusterHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1765,7 +1787,7 @@ ListClusterHyperNodesResponse Client::listClusterHyperNodesWithOptions(const Lis
 }
 
 /**
- * @summary Lists the node groups of a cluster and the nodes in each group.
+ * @summary Queries the host group list under a cluster and the host list under each group.
  *
  * @param request ListClusterHyperNodesRequest
  * @return ListClusterHyperNodesResponse
@@ -1776,7 +1798,7 @@ ListClusterHyperNodesResponse Client::listClusterHyperNodes(const ListClusterHyp
 }
 
 /**
- * @summary Queries the nodes in a cluster.
+ * @summary Queries the list of nodes in a cluster.
  *
  * @param request ListClusterNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1833,7 +1855,7 @@ ListClusterNodesResponse Client::listClusterNodesWithOptions(const ListClusterNo
 }
 
 /**
- * @summary Queries the nodes in a cluster.
+ * @summary Queries the list of nodes in a cluster.
  *
  * @param request ListClusterNodesRequest
  * @return ListClusterNodesResponse
@@ -1844,7 +1866,7 @@ ListClusterNodesResponse Client::listClusterNodes(const ListClusterNodesRequest 
 }
 
 /**
- * @summary Query cluster instances with optional filtering by resource group and tags.
+ * @summary Queries a list of cluster instances.
  *
  * @param request ListClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1889,7 +1911,7 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 }
 
 /**
- * @summary Query cluster instances with optional filtering by resource group and tags.
+ * @summary Queries a list of cluster instances.
  *
  * @param request ListClustersRequest
  * @return ListClustersResponse
@@ -1900,9 +1922,7 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 }
 
 /**
- * @summary List of Diagnostic Tasks
- *
- * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+ * @summary Queries a list of diagnostic tasks.
  *
  * @param request ListDiagnosticResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1945,9 +1965,7 @@ ListDiagnosticResultsResponse Client::listDiagnosticResultsWithOptions(const Lis
 }
 
 /**
- * @summary List of Diagnostic Tasks
- *
- * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+ * @summary Queries a list of diagnostic tasks.
  *
  * @param request ListDiagnosticResultsRequest
  * @return ListDiagnosticResultsResponse
@@ -1958,7 +1976,71 @@ ListDiagnosticResultsResponse Client::listDiagnosticResults(const ListDiagnostic
 }
 
 /**
- * @summary Lists the active physical servers in the rack.
+ * @summary Queries the list of historical fault reports.
+ *
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ *
+ * @param tmpReq ListFaultReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFaultReportsResponse
+ */
+ListFaultReportsResponse Client::listFaultReportsWithOptions(const ListFaultReportsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListFaultReportsShrinkRequest request = ListFaultReportsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodes()) {
+    request.setNodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodes(), "Nodes", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNodesShrink()) {
+    body["Nodes"] = request.getNodesShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListFaultReports"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFaultReportsResponse>();
+}
+
+/**
+ * @summary Queries the list of historical fault reports.
+ *
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ *
+ * @param request ListFaultReportsRequest
+ * @return ListFaultReportsResponse
+ */
+ListFaultReportsResponse Client::listFaultReports(const ListFaultReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFaultReportsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of available rack physical machines.
  *
  * @param request ListFreeHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +2095,7 @@ ListFreeHyperNodesResponse Client::listFreeHyperNodesWithOptions(const ListFreeH
 }
 
 /**
- * @summary Lists the active physical servers in the rack.
+ * @summary Queries the list of available rack physical machines.
  *
  * @param request ListFreeHyperNodesRequest
  * @return ListFreeHyperNodesResponse
@@ -2024,7 +2106,7 @@ ListFreeHyperNodesResponse Client::listFreeHyperNodes(const ListFreeHyperNodesRe
 }
 
 /**
- * @summary Lists all unused nodes.
+ * @summary Queries the list of unused nodes.
  *
  * @param request ListFreeNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2081,7 +2163,7 @@ ListFreeNodesResponse Client::listFreeNodesWithOptions(const ListFreeNodesReques
 }
 
 /**
- * @summary Lists all unused nodes.
+ * @summary Queries the list of unused nodes.
  *
  * @param request ListFreeNodesRequest
  * @return ListFreeNodesResponse
@@ -2092,9 +2174,9 @@ ListFreeNodesResponse Client::listFreeNodes(const ListFreeNodesRequest &request)
 }
 
 /**
- * @summary Machines
+ * @summary Queries a list of machines.
  *
- * @description Queries the details of hypernodes.
+ * @description Queries the details of hyper nodes.
  *
  * @param tmpReq ListHyperNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2185,9 +2267,9 @@ ListHyperNodesResponse Client::listHyperNodesWithOptions(const ListHyperNodesReq
 }
 
 /**
- * @summary Machines
+ * @summary Queries a list of machines.
  *
- * @description Queries the details of hypernodes.
+ * @description Queries the details of hyper nodes.
  *
  * @param request ListHyperNodesRequest
  * @return ListHyperNodesResponse
@@ -2296,7 +2378,7 @@ ListMachineNetworkInfoResponse Client::listMachineNetworkInfo(const ListMachineN
 }
 
 /**
- * @summary Queries a list of available machine types.
+ * @summary Queries the list of available machine types.
  *
  * @param request ListMachineTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2327,7 +2409,7 @@ ListMachineTypesResponse Client::listMachineTypesWithOptions(const ListMachineTy
 }
 
 /**
- * @summary Queries a list of available machine types.
+ * @summary Queries the list of available machine types.
  *
  * @param request ListMachineTypesRequest
  * @return ListMachineTypesResponse
@@ -2338,7 +2420,7 @@ ListMachineTypesResponse Client::listMachineTypes(const ListMachineTypesRequest 
 }
 
 /**
- * @summary Lists network test results.
+ * @summary Queries the list of network tests.
  *
  * @param request ListNetTestResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2381,7 +2463,7 @@ ListNetTestResultsResponse Client::listNetTestResultsWithOptions(const ListNetTe
 }
 
 /**
- * @summary Lists network test results.
+ * @summary Queries the list of network tests.
  *
  * @param request ListNetTestResultsRequest
  * @return ListNetTestResultsResponse
@@ -2394,7 +2476,7 @@ ListNetTestResultsResponse Client::listNetTestResults(const ListNetTestResultsRe
 /**
  * @summary Queries nodes with configuration drift within a node group and the drift details.
  *
- * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+ * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
  *
  * @param tmpReq ListNodeGroupDriftedNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2445,7 +2527,7 @@ ListNodeGroupDriftedNodesResponse Client::listNodeGroupDriftedNodesWithOptions(c
 /**
  * @summary Queries nodes with configuration drift within a node group and the drift details.
  *
- * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+ * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
  *
  * @param request ListNodeGroupDriftedNodesRequest
  * @return ListNodeGroupDriftedNodesResponse
@@ -2456,7 +2538,7 @@ ListNodeGroupDriftedNodesResponse Client::listNodeGroupDriftedNodes(const ListNo
 }
 
 /**
- * @summary Queries the list of node group configuration refresh tasks with paging.
+ * @summary Queries the list of node group configuration refresh tasks by paging.
  *
  * @description If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
  *
@@ -2511,7 +2593,7 @@ ListNodeGroupRefreshTasksResponse Client::listNodeGroupRefreshTasksWithOptions(c
 }
 
 /**
- * @summary Queries the list of node group configuration refresh tasks with paging.
+ * @summary Queries the list of node group configuration refresh tasks by paging.
  *
  * @description If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
  *
@@ -2524,7 +2606,7 @@ ListNodeGroupRefreshTasksResponse Client::listNodeGroupRefreshTasks(const ListNo
 }
 
 /**
- * @summary Query Node Group Information Under the Cluster
+ * @summary Queries node group information in a cluster.
  *
  * @param request ListNodeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2567,7 +2649,7 @@ ListNodeGroupsResponse Client::listNodeGroupsWithOptions(const ListNodeGroupsReq
 }
 
 /**
- * @summary Query Node Group Information Under the Cluster
+ * @summary Queries node group information in a cluster.
  *
  * @param request ListNodeGroupsRequest
  * @return ListNodeGroupsResponse
@@ -2860,11 +2942,11 @@ RebootNodesResponse Client::rebootNodes(const RebootNodesRequest &request) {
 }
 
 /**
- * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+ * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
  *
- * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+ * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
  * Limits:
- * - Only one node group configuration refresh task can be running at a time for a node group.
+ * - A node group can have only one running node group configuration refresh task at a time.
  * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
  * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
  *
@@ -2911,11 +2993,11 @@ RefreshNodeGroupNodesResponse Client::refreshNodeGroupNodesWithOptions(const Ref
 }
 
 /**
- * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+ * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
  *
- * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+ * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
  * Limits:
- * - Only one node group configuration refresh task can be running at a time for a node group.
+ * - A node group can have only one running node group configuration refresh task at a time.
  * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
  * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
  *
@@ -2985,6 +3067,60 @@ ReimageNodesResponse Client::reimageNodesWithOptions(const ReimageNodesRequest &
 ReimageNodesResponse Client::reimageNodes(const ReimageNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return reimageNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Reports a fault for an abnormal node.
+ *
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ *
+ * @param request ReportNodeStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReportNodeStatusResponse
+ */
+ReportNodeStatusResponse Client::reportNodeStatusWithOptions(const ReportNodeStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDiagnosisType()) {
+    body["DiagnosisType"] = request.getDiagnosisType();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ReportNodeStatus"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReportNodeStatusResponse>();
+}
+
+/**
+ * @summary Reports a fault for an abnormal node.
+ *
+ * @description Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+ *
+ * @param request ReportNodeStatusRequest
+ * @return ReportNodeStatusResponse
+ */
+ReportNodeStatusResponse Client::reportNodeStatus(const ReportNodeStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return reportNodeStatusWithOptions(request, runtime);
 }
 
 /**
@@ -3365,6 +3501,52 @@ StopInvocationResponse Client::stopInvocationWithOptions(const StopInvocationReq
 StopInvocationResponse Client::stopInvocation(const StopInvocationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopInvocationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+ *
+ * @description Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+ *
+ * @param request StopNodeDiagnosticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopNodeDiagnosticResponse
+ */
+StopNodeDiagnosticResponse Client::stopNodeDiagnosticWithOptions(const StopNodeDiagnosticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasReportId()) {
+    body["ReportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StopNodeDiagnostic"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopNodeDiagnosticResponse>();
+}
+
+/**
+ * @summary Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+ *
+ * @description Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+ *
+ * @param request StopNodeDiagnosticRequest
+ * @return StopNodeDiagnosticResponse
+ */
+StopNodeDiagnosticResponse Client::stopNodeDiagnostic(const StopNodeDiagnosticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopNodeDiagnosticWithOptions(request, runtime);
 }
 
 /**
