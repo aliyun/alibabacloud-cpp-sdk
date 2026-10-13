@@ -144,7 +144,7 @@ namespace Models
       protected:
         // Indicates whether session reuse is enabled.
         shared_ptr<string> activeSessionReuseStatus_ {};
-        // The decision action of the conditional access policy.
+        // The decision action effect of the conditional access policy.
         shared_ptr<string> effect_ {};
         // The re-authentication interval of the conditional access policy, in seconds.
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
@@ -513,13 +513,13 @@ namespace Models
     protected:
       // The conditional access policy ID.
       shared_ptr<string> conditionalAccessPolicyId_ {};
-      // The conditional access policy name.
+      // The Policy Name of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyName_ {};
       // The type of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyType_ {};
       // The conditions configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::ConditionsConfig> conditionsConfig_ {};
-      // The creation time.
+      // The time when the policy was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The decision action configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::DecisionConfig> decisionConfig_ {};
@@ -531,9 +531,9 @@ namespace Models
       shared_ptr<string> evaluateAt_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last updated time.
+      // The time when the policy was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUpdatedTime_ {};
-      // The priority.
+      // The priority of the conditional access policy.
       shared_ptr<int32_t> priority_ {};
       // The enabled or disabled status of the conditional access policy.
       shared_ptr<string> status_ {};

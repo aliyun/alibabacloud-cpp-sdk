@@ -96,12 +96,13 @@ namespace Models
 
 
     protected:
-      // Access Token。
+      // The access token.
       shared_ptr<string> accessToken_ {};
       // The expiration time, in UNIX timestamp format, in seconds.
       shared_ptr<int64_t> expiresAt_ {};
       // The validity period, in seconds.
       shared_ptr<int64_t> expiresIn_ {};
+      // The issued token type.
       shared_ptr<string> issuedTokenType_ {};
       // The token type. Currently, only Bearer is supported.
       shared_ptr<string> tokenType_ {};

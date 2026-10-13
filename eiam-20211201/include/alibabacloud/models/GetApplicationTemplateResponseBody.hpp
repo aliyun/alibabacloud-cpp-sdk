@@ -198,29 +198,29 @@ namespace Models
 
 
     protected:
-      // The application template ID.
+      // The ID of the application template.
       shared_ptr<string> applicationTemplateId_ {};
-      // The application template name.
+      // The name of the application template.
       shared_ptr<string> applicationTemplateName_ {};
-      // The time when the application template was created.
+      // The creation time of the application template. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The application template description.
+      // The description of the application template.
       shared_ptr<string> description_ {};
       // The help document URL of the application template.
       shared_ptr<string> helpDocumentUrl_ {};
       // The logo URL of the application template.
       shared_ptr<string> logoUrl_ {};
-      // The service code of the Alibaba Cloud service that manages the application template.
+      // The service code of the cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
       // The sale information of the application template.
       shared_ptr<ApplicationTemplate::SaleInfo> saleInfo_ {};
-      // The console URL of the Alibaba Cloud service that manages the application template.
+      // The console URL of the cloud service that manages the application template.
       shared_ptr<string> serviceConsoleUrl_ {};
-      // Indicates whether the application template is managed by an Alibaba Cloud service.
+      // Indicates whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
       // The supported SSO protocols.
       shared_ptr<vector<string>> ssoTypes_ {};
-      // The time when the application template was last updated.
+      // The update time of the application template. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

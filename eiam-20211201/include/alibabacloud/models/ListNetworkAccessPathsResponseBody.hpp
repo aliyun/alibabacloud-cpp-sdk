@@ -162,31 +162,34 @@ namespace Models
 
 
     protected:
-      // The creation time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
+      // The time when the dedicated network access endpoint access path was created, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The role of the network access endpoint path.
       shared_ptr<string> crossRegionReplicationRole_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The ID of the dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The ID of the dedicated network access endpoint path.
+      // The ID of the dedicated network access endpoint access path.
       shared_ptr<string> networkAccessPathId_ {};
-      // The ID of the ENI used by the dedicated network access endpoint path.
+      // The ID of the ENI used by the dedicated network access endpoint access path.
       shared_ptr<string> networkInterfaceId_ {};
-      // The private endpoint of the ENI used by the dedicated network access endpoint path.
+      // The private endpoint of the ENI on the private network used by the dedicated network access endpoint access path.
       shared_ptr<string> privateIpAddress_ {};
-      // The status of the dedicated network access endpoint path. Valid values:
+      // The status of the dedicated network access endpoint access path. Valid values:
       //  
       // - pending: Pending initialization.
       // - creating: Being created.
       // - running: Running.
       // - deleting: Being deleted.
       shared_ptr<string> status_ {};
-      // The last update time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
+      // The time when the dedicated network access endpoint access path was last updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of the vSwitch to which the ENI of the dedicated network access endpoint path belongs.
+      // The ID of the vSwitch to which the ENI of the dedicated network access endpoint access path belongs.
       shared_ptr<string> vSwitchId_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The VPC region information.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -209,7 +212,7 @@ namespace Models
 
 
   protected:
-    // The list of network access endpoint paths.
+    // The list of network access endpoint access paths.
     shared_ptr<vector<ListNetworkAccessPathsResponseBody::NetworkAccessPaths>> networkAccessPaths_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

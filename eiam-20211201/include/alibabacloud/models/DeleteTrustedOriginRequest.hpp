@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // A client token that is used to ensure the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique among different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
-    // The ID of the IDaaS EIAM instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the trusted origin.
+    // The trusted origin ID.
     // 
     // This parameter is required.
     shared_ptr<string> trustedOriginId_ {};

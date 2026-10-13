@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // The scope ID.
+        // The scope permission ID.
         shared_ptr<string> resourceServerScopeId_ {};
-        // The scope name.
+        // The scope permission name.
         shared_ptr<string> resourceServerScopeName_ {};
       };
 
@@ -135,7 +135,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The organizational unit ID.
       shared_ptr<string> organizationalUnitId_ {};
-      // A list of scopes.
+      // The list of scope permissions.
       shared_ptr<vector<OrganizationalUnits::ResourceServerScopes>> resourceServerScopes_ {};
     };
 
@@ -179,15 +179,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of results per page.
+    // The number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // A token to retrieve the next page of results.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // A list of organizational units.
+    // The list of organizational units.
     shared_ptr<vector<ListOrganizationalUnitsForResourceServerResponseBody::OrganizationalUnits>> organizationalUnits_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of results.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

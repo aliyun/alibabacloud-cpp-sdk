@@ -114,7 +114,7 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The application account name.
       shared_ptr<string> applicationUsername_ {};
-      // The creation time.
+      // The time when the application account was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};

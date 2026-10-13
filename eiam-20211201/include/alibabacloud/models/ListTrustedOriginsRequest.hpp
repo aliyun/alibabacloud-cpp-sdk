@@ -97,21 +97,24 @@ namespace Models
 
 
   protected:
-    // The ID of the IDaaS EIAM instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page. Default value: 20. Maximum value: 100. If you set this parameter to 0, the default value is used.
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The NextToken returned by the previous call.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // Filters by the exact normalized origin.
+    // The origin filter.
     shared_ptr<string> origin_ {};
-    // Filters by exact status. Valid values: Enabled or Disabled.
+    // The status filter. Valid values:
+    // 
+    // - Enabled: Enabled.
+    // - Disabled: Disabled.
     shared_ptr<string> status_ {};
-    // Filters by exact name.
+    // The name filter.
     shared_ptr<string> trustOriginName_ {};
-    // Filters by exact trusted origin scene. You can specify at most one value.
+    // The trusted origin scene filter.
     shared_ptr<vector<string>> trustedOriginScene_ {};
   };
 

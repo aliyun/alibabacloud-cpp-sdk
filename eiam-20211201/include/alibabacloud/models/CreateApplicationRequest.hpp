@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The identifier of the application extension field.
       shared_ptr<string> fieldName_ {};
+      // The value of the application extension field. When FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. When FieldName is set to agentExternalId, enter the relevant value.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -132,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The list of group IDs.
       shared_ptr<vector<string>> groupIds_ {};
+      // The list of user IDs.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -222,6 +226,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
+    // The application owner.
     shared_ptr<CreateApplicationRequest::ApplicationOwner> applicationOwner_ {};
     // The source from which the application is created. Valid values:
     // - urn:alibaba:idaas:app:source:template: application template.
@@ -229,8 +234,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationSourceType_ {};
-    // The application template ID. This parameter is required when ApplicationSourceType is set to urn:alibaba:idaas:app:source:template.
+    // The application template ID. This parameter is required when the ApplicationSourceType parameter is set to urn:alibaba:idaas:app:source:template.
     shared_ptr<string> applicationTemplateId_ {};
+    // The list of application extension fields.
     shared_ptr<vector<CreateApplicationRequest::CustomFields>> customFields_ {};
     // The application description.
     shared_ptr<string> description_ {};
@@ -240,7 +246,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
-    // The single sign-on protocol. Valid values:
+    // The single sign-on (SSO) protocol. Valid values:
     // - saml2: SAML 2.0 protocol.
     // - oidc: OpenID Connect protocol.
     // 

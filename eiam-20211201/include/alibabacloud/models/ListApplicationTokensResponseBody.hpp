@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // aliUid。
+      // The Alibaba Cloud account UID.
       shared_ptr<int64_t> aliUid_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
@@ -162,15 +162,15 @@ namespace Models
       shared_ptr<string> applicationTokenId_ {};
       // The application token type.
       shared_ptr<string> applicationTokenType_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The application token description.
       shared_ptr<string> description_ {};
-      // The expiration time.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
       // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last used time.
+      // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The enabling status.
       shared_ptr<string> status_ {};

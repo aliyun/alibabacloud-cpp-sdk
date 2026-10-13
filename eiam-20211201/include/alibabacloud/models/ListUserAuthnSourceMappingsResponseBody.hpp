@@ -133,17 +133,17 @@ namespace Models
 
 
     protected:
-      // The authentication source type.
+      // The authentication source type of the source IdP.
       shared_ptr<string> authnSourceType_ {};
-      // The time when the binding was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Information about the associated third-party account.
+      // The association information of the third-party account.
       shared_ptr<string> externalData_ {};
       // The source IdP ID.
       shared_ptr<string> identityProviderId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the binding was last updated.
+      // The last update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The external ID.
       shared_ptr<string> userExternalId_ {};
@@ -198,17 +198,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned on each page.
+    // The maximum number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The token to retrieve the previous page of results.
+    // The pagination token returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of bindings for third-party account logons.
+    // The list of third-party account login bindings.
     shared_ptr<vector<ListUserAuthnSourceMappingsResponseBody::UserAuthnSourceMappings>> userAuthnSourceMappings_ {};
   };
 

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The network zone ID associated with the conditional access policy.
+    // The ID of the application associated with the conditional access policy.
     // 
     // This parameter is required.
     shared_ptr<string> networkZoneId_ {};

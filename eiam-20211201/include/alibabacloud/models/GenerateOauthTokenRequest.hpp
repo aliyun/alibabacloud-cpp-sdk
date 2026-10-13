@@ -114,17 +114,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> audience_ {};
+    // The grant type.
     shared_ptr<string> grantType_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The requested token type.
     shared_ptr<string> requestedTokenType_ {};
-    // The permission scopes.
+    // The permission scope.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> scopeValues_ {};
+    // The subject token.
     shared_ptr<string> subjectToken_ {};
+    // The subject token type.
     shared_ptr<string> subjectTokenType_ {};
   };
 

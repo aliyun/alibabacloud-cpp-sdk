@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationTokenId_ {};
-    // The expiration time.
+    // The expiration time. Specify a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expirationTime_ {};

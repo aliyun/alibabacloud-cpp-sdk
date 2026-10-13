@@ -286,9 +286,9 @@ namespace Models
         protected:
           // The list of VM instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The GCP project ID.
+          // The GCP project ID to which the resource belongs.
           shared_ptr<string> projectId_ {};
-          // The sub claim corresponding to the service account.
+          // The subject (sub) that corresponds to the service account.
           shared_ptr<string> serviceAccountId_ {};
         };
 
@@ -544,7 +544,7 @@ namespace Models
       shared_ptr<string> applicationFederatedCredentialType_ {};
       // The application ID.
       shared_ptr<string> applicationId_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The application federated credential description.
       shared_ptr<string> description_ {};
@@ -552,7 +552,7 @@ namespace Models
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last used time.
+      // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The OIDC structured configuration.
       shared_ptr<ApplicationFederatedCredentials::OidcVerificationConfig> oidcVerificationConfig_ {};
@@ -560,13 +560,13 @@ namespace Models
       shared_ptr<ApplicationFederatedCredentials::Pkcs7VerificationConfig> pkcs7VerificationConfig_ {};
       // The application federated credential status.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The verification condition.
       shared_ptr<string> verificationCondition_ {};
       // The verification mode. Valid values:
-      // - freedom: free mode.
-      // - structured: structured mode.
+      // - freedom: Free mode.
+      // - structured: Structured mode.
       shared_ptr<string> verificationMode_ {};
     };
 

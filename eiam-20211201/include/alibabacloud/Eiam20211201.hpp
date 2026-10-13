@@ -344,9 +344,9 @@ namespace Eiam20211201
       Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatus(const Models::CheckInstanceModuleStatusRequest &request);
 
       /**
-       * @summary Creates an application resource in a specified EIAM instance.
+       * @summary Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
        *
-       * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+       * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
        *
        * @param request CreateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -355,9 +355,9 @@ namespace Eiam20211201
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application resource in a specified EIAM instance.
+       * @summary Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
        *
-       * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+       * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse
@@ -524,7 +524,7 @@ namespace Eiam20211201
       Models::CreateCloudAccountResponse createCloudAccount(const Models::CreateCloudAccountRequest &request);
 
       /**
-       * @summary Creates a cloud role for a specified Alibaba Cloud account.
+       * @summary Creates a cloud role resource under the specified cloud account resource.
        *
        * @param request CreateCloudAccountRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -533,7 +533,7 @@ namespace Eiam20211201
       Models::CreateCloudAccountRoleResponse createCloudAccountRoleWithOptions(const Models::CreateCloudAccountRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud role for a specified Alibaba Cloud account.
+       * @summary Creates a cloud role resource under the specified cloud account resource.
        *
        * @param request CreateCloudAccountRoleRequest
        * @return CreateCloudAccountRoleResponse
@@ -1343,7 +1343,9 @@ namespace Eiam20211201
       Models::DeleteResourceServerScopeResponse deleteResourceServerScope(const Models::DeleteResourceServerScopeRequest &request);
 
       /**
-       * @summary Deletes a trusted origin.
+       * @summary Deletes a trusted origin from a specified EIAM instance.
+       *
+       * @description Deletes a trusted origin from a specified EIAM instance.
        *
        * @param request DeleteTrustedOriginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1352,7 +1354,9 @@ namespace Eiam20211201
       Models::DeleteTrustedOriginResponse deleteTrustedOriginWithOptions(const Models::DeleteTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a trusted origin.
+       * @summary Deletes a trusted origin from a specified EIAM instance.
+       *
+       * @description Deletes a trusted origin from a specified EIAM instance.
        *
        * @param request DeleteTrustedOriginRequest
        * @return DeleteTrustedOriginResponse
@@ -1869,7 +1873,9 @@ namespace Eiam20211201
       Models::DisableResourceServerCustomSubjectResponse disableResourceServerCustomSubject(const Models::DisableResourceServerCustomSubjectRequest &request);
 
       /**
-       * @summary Disables a trusted origin.
+       * @summary Disables a trusted origin in a specified EIAM instance.
+       *
+       * @description Disables a trusted origin in a specified EIAM instance.
        *
        * @param request DisableTrustedOriginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1878,7 +1884,9 @@ namespace Eiam20211201
       Models::DisableTrustedOriginResponse disableTrustedOriginWithOptions(const Models::DisableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a trusted origin.
+       * @summary Disables a trusted origin in a specified EIAM instance.
+       *
+       * @description Disables a trusted origin in a specified EIAM instance.
        *
        * @param request DisableTrustedOriginRequest
        * @return DisableTrustedOriginResponse
@@ -2359,7 +2367,9 @@ namespace Eiam20211201
       Models::EnableResourceServerCustomSubjectResponse enableResourceServerCustomSubject(const Models::EnableResourceServerCustomSubjectRequest &request);
 
       /**
-       * @summary Enables a trusted origin.
+       * @summary Enables a trusted origin in a specified EIAM instance.
+       *
+       * @description Enables a trusted origin in a specified EIAM instance.
        *
        * @param request EnableTrustedOriginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2368,7 +2378,9 @@ namespace Eiam20211201
       Models::EnableTrustedOriginResponse enableTrustedOriginWithOptions(const Models::EnableTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a trusted origin.
+       * @summary Enables a trusted origin in a specified EIAM instance.
+       *
+       * @description Enables a trusted origin in a specified EIAM instance.
        *
        * @param request EnableTrustedOriginRequest
        * @return EnableTrustedOriginResponse
@@ -2393,7 +2405,7 @@ namespace Eiam20211201
       Models::EnableUserResponse enableUser(const Models::EnableUserRequest &request);
 
       /**
-       * @summary Resolves the metadata for an identity provider.
+       * @summary Parses IdP metadata information.
        *
        * @param request ExecIdentityProviderMetadataUrlResolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2402,7 +2414,7 @@ namespace Eiam20211201
       Models::ExecIdentityProviderMetadataUrlResolutionResponse execIdentityProviderMetadataUrlResolutionWithOptions(const Models::ExecIdentityProviderMetadataUrlResolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resolves the metadata for an identity provider.
+       * @summary Parses IdP metadata information.
        *
        * @param request ExecIdentityProviderMetadataUrlResolutionRequest
        * @return ExecIdentityProviderMetadataUrlResolutionResponse
@@ -2514,6 +2526,8 @@ namespace Eiam20211201
       /**
        * @summary Retrieves the details of a specified EIAM application.
        *
+       * @description Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
+       *
        * @param request GetApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetApplicationResponse
@@ -2522,6 +2536,8 @@ namespace Eiam20211201
 
       /**
        * @summary Retrieves the details of a specified EIAM application.
+       *
+       * @description Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -2546,7 +2562,7 @@ namespace Eiam20211201
       Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfig(const Models::GetApplicationAdvancedConfigRequest &request);
 
       /**
-       * @summary Retrieves an application federated identity credential.
+       * @summary Retrieves the federated identity credential of an application.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2555,7 +2571,7 @@ namespace Eiam20211201
       Models::GetApplicationFederatedCredentialResponse getApplicationFederatedCredentialWithOptions(const Models::GetApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves an application federated identity credential.
+       * @summary Retrieves the federated identity credential of an application.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @return GetApplicationFederatedCredentialResponse
@@ -2801,9 +2817,9 @@ namespace Eiam20211201
       Models::GetCloudAccountRoleResponse getCloudAccountRole(const Models::GetCloudAccountRoleRequest &request);
 
       /**
-       * @summary Get a conditional access policy.
+       * @summary Retrieves a conditional access policy.
        *
-       * @description Query a conditional access policy.
+       * @description Queries a conditional access policy.
        *
        * @param request GetConditionalAccessPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2812,9 +2828,9 @@ namespace Eiam20211201
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicyWithOptions(const Models::GetConditionalAccessPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get a conditional access policy.
+       * @summary Retrieves a conditional access policy.
        *
-       * @description Query a conditional access policy.
+       * @description Queries a conditional access policy.
        *
        * @param request GetConditionalAccessPolicyRequest
        * @return GetConditionalAccessPolicyResponse
@@ -2924,7 +2940,7 @@ namespace Eiam20211201
       Models::GetDomainDnsChallengeResponse getDomainDnsChallenge(const Models::GetDomainDnsChallengeRequest &request);
 
       /**
-       * @summary Retrieve a federated credential provider.
+       * @summary Retrieves a federated trust source.
        *
        * @param request GetFederatedCredentialProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2933,7 +2949,7 @@ namespace Eiam20211201
       Models::GetFederatedCredentialProviderResponse getFederatedCredentialProviderWithOptions(const Models::GetFederatedCredentialProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a federated credential provider.
+       * @summary Retrieves a federated trust source.
        *
        * @param request GetFederatedCredentialProviderRequest
        * @return GetFederatedCredentialProviderResponse
@@ -2941,7 +2957,7 @@ namespace Eiam20211201
       Models::GetFederatedCredentialProviderResponse getFederatedCredentialProvider(const Models::GetFederatedCredentialProviderRequest &request);
 
       /**
-       * @summary Queries the forgot password policy of a specified EIAM instance.
+       * @summary Queries the forgot password policy for a specified EIAM instance.
        *
        * @param request GetForgetPasswordConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2950,7 +2966,7 @@ namespace Eiam20211201
       Models::GetForgetPasswordConfigurationResponse getForgetPasswordConfigurationWithOptions(const Models::GetForgetPasswordConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the forgot password policy of a specified EIAM instance.
+       * @summary Queries the forgot password policy for a specified EIAM instance.
        *
        * @param request GetForgetPasswordConfigurationRequest
        * @return GetForgetPasswordConfigurationResponse
@@ -3009,7 +3025,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderAdvancedConfigurationResponse getIdentityProviderAdvancedConfiguration(const Models::GetIdentityProviderAdvancedConfigurationRequest &request);
 
       /**
-       * @summary Retrieves an IdP check task.
+       * @summary Retrieves an IdP status check job.
        *
        * @param request GetIdentityProviderStatusCheckJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3018,7 +3034,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderStatusCheckJobResponse getIdentityProviderStatusCheckJobWithOptions(const Models::GetIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves an IdP check task.
+       * @summary Retrieves an IdP status check job.
        *
        * @param request GetIdentityProviderStatusCheckJobRequest
        * @return GetIdentityProviderStatusCheckJobResponse
@@ -3026,7 +3042,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderStatusCheckJobResponse getIdentityProviderStatusCheckJob(const Models::GetIdentityProviderStatusCheckJobRequest &request);
 
       /**
-       * @summary Retrieves the inbound synchronization configuration of an identity provider (IdP).
+       * @summary Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
        *
        * @param request GetIdentityProviderUdPullConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3035,7 +3051,7 @@ namespace Eiam20211201
       Models::GetIdentityProviderUdPullConfigurationResponse getIdentityProviderUdPullConfigurationWithOptions(const Models::GetIdentityProviderUdPullConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the inbound synchronization configuration of an identity provider (IdP).
+       * @summary Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
        *
        * @param request GetIdentityProviderUdPullConfigurationRequest
        * @return GetIdentityProviderUdPullConfigurationResponse
@@ -3113,7 +3129,7 @@ namespace Eiam20211201
       /**
        * @summary Queries the license information that is currently effective for an instance.
        *
-       * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+       * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
        *
        * @param request GetInstanceLicenseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3124,7 +3140,7 @@ namespace Eiam20211201
       /**
        * @summary Queries the license information that is currently effective for an instance.
        *
-       * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+       * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
        *
        * @param request GetInstanceLicenseRequest
        * @return GetInstanceLicenseResponse
@@ -3387,7 +3403,9 @@ namespace Eiam20211201
       Models::GetSynchronizationJobResponse getSynchronizationJob(const Models::GetSynchronizationJobRequest &request);
 
       /**
-       * @summary Queries the details of a trusted origin.
+       * @summary Queries a trusted origin in a specified EIAM instance.
+       *
+       * @description Queries a trusted origin in a specified EIAM instance.
        *
        * @param request GetTrustedOriginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3396,7 +3414,9 @@ namespace Eiam20211201
       Models::GetTrustedOriginResponse getTrustedOriginWithOptions(const Models::GetTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a trusted origin.
+       * @summary Queries a trusted origin in a specified EIAM instance.
+       *
+       * @description Queries a trusted origin in a specified EIAM instance.
        *
        * @param request GetTrustedOriginRequest
        * @return GetTrustedOriginResponse
@@ -3438,7 +3458,7 @@ namespace Eiam20211201
       Models::ListActionTrackEventTypesResponse listActionTrackEventTypes(const Models::ListActionTrackEventTypesRequest &request);
 
       /**
-       * @summary Queries the application accounts of an application by paging.
+       * @summary Queries application accounts under an application by paging.
        *
        * @param request ListApplicationAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3447,7 +3467,7 @@ namespace Eiam20211201
       Models::ListApplicationAccountsResponse listApplicationAccountsWithOptions(const Models::ListApplicationAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the application accounts of an application by paging.
+       * @summary Queries application accounts under an application by paging.
        *
        * @param request ListApplicationAccountsRequest
        * @return ListApplicationAccountsResponse
@@ -3455,9 +3475,9 @@ namespace Eiam20211201
       Models::ListApplicationAccountsResponse listApplicationAccounts(const Models::ListApplicationAccountsRequest &request);
 
       /**
-       * @summary Queries all accounts that belong to a specified user in an application.
+       * @summary Queries all accounts of a specified user in the current application.
        *
-       * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+       * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListApplicationAccountsForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3466,9 +3486,9 @@ namespace Eiam20211201
       Models::ListApplicationAccountsForUserResponse listApplicationAccountsForUserWithOptions(const Models::ListApplicationAccountsForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all accounts that belong to a specified user in an application.
+       * @summary Queries all accounts of a specified user in the current application.
        *
-       * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+       * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListApplicationAccountsForUserRequest
        * @return ListApplicationAccountsForUserResponse
@@ -3493,7 +3513,7 @@ namespace Eiam20211201
       Models::ListApplicationClientSecretsResponse listApplicationClientSecrets(const Models::ListApplicationClientSecretsRequest &request);
 
       /**
-       * @summary Queries the list of application federated identity credentials.
+       * @summary Queries a list of application federated identity credentials.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3502,7 +3522,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsResponse listApplicationFederatedCredentialsWithOptions(const Models::ListApplicationFederatedCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of application federated identity credentials.
+       * @summary Queries a list of application federated identity credentials.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @return ListApplicationFederatedCredentialsResponse
@@ -3824,7 +3844,7 @@ namespace Eiam20211201
       Models::ListBrandsResponse listBrands(const Models::ListBrandsRequest &request);
 
       /**
-       * @summary Lists the client public keys for a specified application using a cursor.
+       * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
        *
        * @param request ListClientPublicKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3833,7 +3853,7 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeysWithOptions(const Models::ListClientPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the client public keys for a specified application using a cursor.
+       * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
        *
        * @param request ListClientPublicKeysRequest
        * @return ListClientPublicKeysResponse
@@ -3875,9 +3895,9 @@ namespace Eiam20211201
       Models::ListCloudAccountsResponse listCloudAccounts(const Models::ListCloudAccountsRequest &request);
 
       /**
-       * @summary List conditional access policies.
+       * @summary Lists conditional access policies.
        *
-       * @description Query the list of conditional access policies with pagination.
+       * @description Queries conditional access policies by page.
        *
        * @param request ListConditionalAccessPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3886,9 +3906,9 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesResponse listConditionalAccessPoliciesWithOptions(const Models::ListConditionalAccessPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List conditional access policies.
+       * @summary Lists conditional access policies.
        *
-       * @description Query the list of conditional access policies with pagination.
+       * @description Queries conditional access policies by page.
        *
        * @param request ListConditionalAccessPoliciesRequest
        * @return ListConditionalAccessPoliciesResponse
@@ -3896,7 +3916,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesResponse listConditionalAccessPolicies(const Models::ListConditionalAccessPoliciesRequest &request);
 
       /**
-       * @summary List conditional access policies associated with an application.
+       * @summary Retrieves the list of conditional access policies associated with an application.
        *
        * @param request ListConditionalAccessPoliciesForApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3905,7 +3925,7 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForApplicationResponse listConditionalAccessPoliciesForApplicationWithOptions(const Models::ListConditionalAccessPoliciesForApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List conditional access policies associated with an application.
+       * @summary Retrieves the list of conditional access policies associated with an application.
        *
        * @param request ListConditionalAccessPoliciesForApplicationRequest
        * @return ListConditionalAccessPoliciesForApplicationResponse
@@ -4389,7 +4409,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsForApplicationResponse listOrganizationalUnitsForApplication(const Models::ListOrganizationalUnitsForApplicationRequest &request);
 
       /**
-       * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+       * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
        *
        * @param request ListOrganizationalUnitsForResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4398,7 +4418,7 @@ namespace Eiam20211201
       Models::ListOrganizationalUnitsForResourceServerResponse listOrganizationalUnitsForResourceServerWithOptions(const Models::ListOrganizationalUnitsForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+       * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
        *
        * @param request ListOrganizationalUnitsForResourceServerRequest
        * @return ListOrganizationalUnitsForResourceServerResponse
@@ -4482,7 +4502,9 @@ namespace Eiam20211201
       Models::ListSynchronizationJobsResponse listSynchronizationJobs(const Models::ListSynchronizationJobsRequest &request);
 
       /**
-       * @summary Queries the list of trusted origins.
+       * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+       *
+       * @description Queries the list of trusted origins in a specified EIAM instance.
        *
        * @param request ListTrustedOriginsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4491,7 +4513,9 @@ namespace Eiam20211201
       Models::ListTrustedOriginsResponse listTrustedOriginsWithOptions(const Models::ListTrustedOriginsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of trusted origins.
+       * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+       *
+       * @description Queries the list of trusted origins in a specified EIAM instance.
        *
        * @param request ListTrustedOriginsRequest
        * @return ListTrustedOriginsResponse
@@ -4499,9 +4523,9 @@ namespace Eiam20211201
       Models::ListTrustedOriginsResponse listTrustedOrigins(const Models::ListTrustedOriginsRequest &request);
 
       /**
-       * @summary Lists the mappings for third-party logon accounts.
+       * @summary Queries the binding relationships of third-party login accounts.
        *
-       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListUserAuthnSourceMappingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4510,9 +4534,9 @@ namespace Eiam20211201
       Models::ListUserAuthnSourceMappingsResponse listUserAuthnSourceMappingsWithOptions(const Models::ListUserAuthnSourceMappingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the mappings for third-party logon accounts.
+       * @summary Queries the binding relationships of third-party login accounts.
        *
-       * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListUserAuthnSourceMappingsRequest
        * @return ListUserAuthnSourceMappingsResponse
@@ -4592,7 +4616,7 @@ namespace Eiam20211201
       Models::ListUsersForGroupResponse listUsersForGroup(const Models::ListUsersForGroupRequest &request);
 
       /**
-       * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+       * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
        *
        * @param request ListUsersForResourceServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4601,7 +4625,7 @@ namespace Eiam20211201
       Models::ListUsersForResourceServerResponse listUsersForResourceServerWithOptions(const Models::ListUsersForResourceServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+       * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
        *
        * @param request ListUsersForResourceServerRequest
        * @return ListUsersForResourceServerResponse
@@ -4628,7 +4652,7 @@ namespace Eiam20211201
       /**
        * @summary Queries a specified application token.
        *
-       * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+       * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
        *
        * @param request ObtainApplicationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4639,7 +4663,7 @@ namespace Eiam20211201
       /**
        * @summary Queries a specified application token.
        *
-       * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+       * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
        *
        * @param request ObtainApplicationTokenRequest
        * @return ObtainApplicationTokenResponse
@@ -4957,7 +4981,7 @@ namespace Eiam20211201
       Models::RevokeResourceServerScopesFromUserResponse revokeResourceServerScopesFromUser(const Models::RevokeResourceServerScopesFromUserRequest &request);
 
       /**
-       * @summary Creates and immediately runs a new synchronization task.
+       * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
        *
        * @param request RunSynchronizationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4966,7 +4990,7 @@ namespace Eiam20211201
       Models::RunSynchronizationJobResponse runSynchronizationJobWithOptions(const Models::RunSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and immediately runs a new synchronization task.
+       * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
        *
        * @param request RunSynchronizationJobRequest
        * @return RunSynchronizationJobResponse
@@ -5560,7 +5584,7 @@ namespace Eiam20211201
       Models::UpdateApplicationSsoFormParamsResponse updateApplicationSsoFormParams(const Models::UpdateApplicationSsoFormParamsRequest &request);
 
       /**
-       * @summary Updates the expiration time of an application token.
+       * @summary Updates the expiration time of an ApplicationToken.
        *
        * @param request UpdateApplicationTokenExpirationTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5569,7 +5593,7 @@ namespace Eiam20211201
       Models::UpdateApplicationTokenExpirationTimeResponse updateApplicationTokenExpirationTimeWithOptions(const Models::UpdateApplicationTokenExpirationTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the expiration time of an application token.
+       * @summary Updates the expiration time of an ApplicationToken.
        *
        * @param request UpdateApplicationTokenExpirationTimeRequest
        * @return UpdateApplicationTokenExpirationTimeResponse
@@ -6146,7 +6170,9 @@ namespace Eiam20211201
       Models::UpdateResourceServerScopeResponse updateResourceServerScope(const Models::UpdateResourceServerScopeRequest &request);
 
       /**
-       * @summary Modifies a trusted origin.
+       * @summary Updates a trusted origin in a specified EIAM instance.
+       *
+       * @description Updates a trusted origin in a specified EIAM instance.
        *
        * @param request UpdateTrustedOriginRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6155,7 +6181,9 @@ namespace Eiam20211201
       Models::UpdateTrustedOriginResponse updateTrustedOriginWithOptions(const Models::UpdateTrustedOriginRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a trusted origin.
+       * @summary Updates a trusted origin in a specified EIAM instance.
+       *
+       * @description Updates a trusted origin in a specified EIAM instance.
        *
        * @param request UpdateTrustedOriginRequest
        * @return UpdateTrustedOriginResponse

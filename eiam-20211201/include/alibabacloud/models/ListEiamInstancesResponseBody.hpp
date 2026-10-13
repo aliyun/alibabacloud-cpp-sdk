@@ -153,7 +153,12 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The instance status.
       shared_ptr<string> instanceStatus_ {};
-      // The instance version.
+      // The instance version. Valid values:
+      // 
+      // - EIAM 2~0: EIAM 2.0.
+      // - EIAM 1~0: EIAM 1.0.
+      // [_single.resp.200.props.Instances.items.InstanceVersion.enum.EIAM 2~0]EIAM 2.0
+      // [_single.resp.200.props.Instances.items.InstanceVersion.enum.EIAM 1~0]EIAM 1.0
       shared_ptr<string> instanceVersion_ {};
       // The private domain name of the OpenAPI for the instance.
       shared_ptr<string> openAPIPrivateDomain_ {};
@@ -161,7 +166,7 @@ namespace Models
       shared_ptr<string> openAPIPublicDomain_ {};
       // The SSO domain name of the instance.
       shared_ptr<string> SSODomain_ {};
-      // The time when the instance was created.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 

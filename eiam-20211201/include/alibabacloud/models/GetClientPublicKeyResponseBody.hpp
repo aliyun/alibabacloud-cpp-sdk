@@ -139,11 +139,11 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The ID of the application ClientPublicKey.
       shared_ptr<string> clientPublicKeyId_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last time the key pair was used.
+      // The last used time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // Indicates whether the key pair is used with priority.
       shared_ptr<bool> primary_ {};

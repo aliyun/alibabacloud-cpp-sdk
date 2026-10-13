@@ -201,9 +201,9 @@ namespace Models
         protected:
           // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The root certificate content.
+          // The content of the root certificate.
           shared_ptr<string> content_ {};
-          // The root certificate fingerprint.
+          // The fingerprint of the root certificate.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -422,9 +422,9 @@ namespace Models
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
         // The CMS verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // The signature effective time.
+        // The signature effective time. The value indicates the duration for which the signature is valid, in seconds.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
-        // The expression used to retrieve the signing time.
+        // The expression used to obtain the signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
         // The certificate trust anchor source.
         shared_ptr<string> trustAnchorSource_ {};
@@ -531,9 +531,9 @@ namespace Models
         shared_ptr<vector<string>> audiences_ {};
         // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // Issuer
+        // The token issuer identifier (Issuer).
         shared_ptr<string> issuer_ {};
-        // The time when the JWKS was last obtained.
+        // The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
         // The JWKS source.
         shared_ptr<string> jwksSource_ {};
@@ -573,6 +573,7 @@ namespace Models
 
 
       protected:
+        // The ID of the identity provider.
         shared_ptr<string> identityProviderId_ {};
       };
 
@@ -680,12 +681,13 @@ namespace Models
 
 
     protected:
+      // The configuration of the cloud identity provider for federated credentials.
       shared_ptr<FederatedCredentialProviders::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The federated trust source ID.
+      // The federated credential provider ID.
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The name of the federated trust source.
       shared_ptr<string> federatedCredentialProviderName_ {};
@@ -703,7 +705,7 @@ namespace Models
       shared_ptr<FederatedCredentialProviders::PrivateCaProviderConfig> privateCaProviderConfig_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -754,13 +756,13 @@ namespace Models
 
 
   protected:
-    // The list of federated trust sources.
+    // The list of federated credential providers.
     shared_ptr<vector<ListFederatedCredentialProvidersResponseBody::FederatedCredentialProviders>> federatedCredentialProviders_ {};
     // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call.
+    // The query token (Token) value returned by this call.
     shared_ptr<string> nextToken_ {};
-    // The pagination token returned by this call.
+    // The query token (Token) value returned by this call.
     shared_ptr<string> previousToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

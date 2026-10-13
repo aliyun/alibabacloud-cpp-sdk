@@ -148,7 +148,7 @@ namespace Models
         shared_ptr<string> effect_ {};
         // The re-authentication interval of the conditional access policy, in seconds.
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
-        // The MFA methods allowed by the conditional access policy.
+        // The MFA types allowed by the conditional access policy.
         shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
         // The MFA type of the conditional access policy.
         shared_ptr<string> mfaType_ {};
@@ -515,23 +515,23 @@ namespace Models
       shared_ptr<string> conditionalAccessPolicyId_ {};
       // The conditional access policy name.
       shared_ptr<string> conditionalAccessPolicyName_ {};
-      // The type of the conditional access policy.
+      // The conditional access policy type.
       shared_ptr<string> conditionalAccessPolicyType_ {};
       // The conditional access policy conditions.
       shared_ptr<ConditionalAccessPolicies::ConditionsConfig> conditionsConfig_ {};
-      // The creation time.
+      // The time when the policy was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The execution configuration of the conditional access policy.
+      // The decision configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::DecisionConfig> decisionConfig_ {};
-      // The execution type of the conditional access policy.
+      // The decision type of the conditional access policy.
       shared_ptr<string> decisionType_ {};
-      // The description of the conditional access policy.
+      // The conditional access policy description.
       shared_ptr<string> description_ {};
       // The evaluation point of the conditional access policy.
       shared_ptr<string> evaluateAt_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last updated time.
+      // The time when the policy was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUpdatedTime_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};

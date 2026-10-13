@@ -141,13 +141,13 @@ namespace Models
       shared_ptr<string> applicationTokenId_ {};
       // The application token type.
       shared_ptr<string> applicationTokenType_ {};
-      // The time when the application token was created.
+      // The time when the application token was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The expiration time.
+      // The expiration time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
       // The IDaaS EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last used time.
+      // The last used time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The enabling status.
       shared_ptr<string> status_ {};

@@ -183,7 +183,7 @@ namespace Models
         shared_ptr<string> agentId_ {};
         // The authorization callback domain.
         shared_ptr<string> authorizeCallbackDomain_ {};
-        // The WeCom contacts secret.
+        // The WeCom contact secret.
         shared_ptr<string> contactSecret_ {};
         // The corpId of the WeCom self-built application.
         shared_ptr<string> corpId_ {};
@@ -281,7 +281,7 @@ namespace Models
       protected:
         // This field is not in use. Ignore it.
         shared_ptr<string> incrementalCallbackStatus_ {};
-        // The list of sync scope configurations.
+        // The list of synchronization scope configurations.
         shared_ptr<vector<UdPushConfig::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
       };
 
@@ -382,17 +382,17 @@ namespace Models
       protected:
         // Indicates whether group synchronization is enabled. Valid values:
         // 
-        // - disabled: Disabled.
+        // - disabled
         // 
-        // - enabled: Enabled.
+        // - enabled
         shared_ptr<string> groupSyncStatus_ {};
         // The incremental callback status, which indicates whether incremental callback data from the IdP is processed. Valid values:
         // 
-        // - disabled: Disabled.
+        // - disabled
         // 
-        // - enabled: Enabled.
+        // - enabled
         shared_ptr<string> incrementalCallbackStatus_ {};
-        // The sync scope configuration.
+        // The synchronization scope configuration.
         shared_ptr<UdPullConfig::UdSyncScopeConfig> udSyncScopeConfig_ {};
       };
 
@@ -490,7 +490,7 @@ namespace Models
           protected:
             // The date after which the certificate is no longer valid.
             shared_ptr<int64_t> notAfter_ {};
-            // The date before which the certificate is not valid.
+            // The date before which the certificate is not yet valid.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -595,7 +595,7 @@ namespace Models
         shared_ptr<bool> requireRequestSigned_ {};
         // Indicates whether the external IdP is required to sign assertions.
         shared_ptr<bool> wantAssertionsSigned_ {};
-        // Indicates whether the external IdP is required to sign the Response.
+        // Indicates whether the external IdP is required to sign responses.
         shared_ptr<bool> wantResponseSigned_ {};
       };
 
@@ -819,11 +819,11 @@ namespace Models
         shared_ptr<vector<string>> grantScopes_ {};
         // The OIDC grant type.
         shared_ptr<string> grantType_ {};
-        // The PKCE algorithm. Valid values:
+        // The PKCE challenge method. Valid values:
         // 
         // - S256: SHA-256.
         // 
-        // - plain: plaintext.
+        // - plain: Plaintext.
         shared_ptr<string> pkceChallengeMethod_ {};
         // Indicates whether PKCE is used in the AuthorizationCode grant mode.
         shared_ptr<bool> pkceRequired_ {};
@@ -1620,7 +1620,7 @@ namespace Models
       shared_ptr<string> identityProviderId_ {};
       // The name of the identity provider.
       shared_ptr<string> identityProviderName_ {};
-      // The synchronization type of the identity provider. Valid values:
+      // The sync type of the identity provider. Valid values:
       // 
       // - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: Inbound DingTalk.
       // 
@@ -1656,21 +1656,21 @@ namespace Models
       shared_ptr<IdentityProviderDetail::OidcConfig> oidcConfig_ {};
       // The SAML IdP configuration.
       shared_ptr<IdentityProviderDetail::SamlConfig> samlConfig_ {};
-      // The inbound sync configuration.
+      // The inbound synchronization configuration.
       shared_ptr<IdentityProviderDetail::UdPullConfig> udPullConfig_ {};
-      // Indicates whether the inbound sync feature is supported. Valid values:
+      // Indicates whether the inbound synchronization feature is supported. Valid values:
       // 
-      // - disabled: Disabled.
+      // - disabled
       // 
-      // - enabled: Enabled.
+      // - enabled
       shared_ptr<string> udPullStatus_ {};
-      // The outbound sync configuration.
+      // The outbound synchronization configuration.
       shared_ptr<IdentityProviderDetail::UdPushConfig> udPushConfig_ {};
-      // Indicates whether the outbound sync capability is enabled. Valid values:
+      // Indicates whether the outbound synchronization capability is enabled. Valid values:
       // 
-      // - disabled: Disabled.
+      // - disabled
       // 
-      // - enabled: Enabled.
+      // - enabled
       shared_ptr<string> udPushStatus_ {};
       // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};

@@ -161,7 +161,7 @@ namespace Models
           protected:
             // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // The time when the certificate becomes valid.
+            // The effective period of the certificate.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -193,9 +193,9 @@ namespace Models
         protected:
           // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The content of the root certificate.
+          // The root certificate content.
           shared_ptr<string> content_ {};
-          // The fingerprint of the root certificate.
+          // The root certificate fingerprint.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -225,11 +225,11 @@ namespace Models
 
 
       protected:
-        // A list of root certificates.
+        // The root certificate.
         shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
-        // The method for obtaining the root certificate.
+        // The method used to retrieve the root certificate.
         shared_ptr<string> trustAnchorSource_ {};
-        // The trust condition for the root certificate.
+        // The trust condition of the root certificate.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -325,7 +325,7 @@ namespace Models
           protected:
             // The time when the certificate expires.
             shared_ptr<int64_t> notAfter_ {};
-            // The time when the certificate becomes valid.
+            // The effective period of the certificate.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -357,9 +357,9 @@ namespace Models
         protected:
           // The certificate metadata.
           shared_ptr<Certificates::CertificateMetadata> certificateMetadata_ {};
-          // The content of the certificate.
+          // The root certificate content.
           shared_ptr<string> content_ {};
-          // The fingerprint of the certificate.
+          // The root certificate fingerprint.
           shared_ptr<string> fingerprint_ {};
         };
 
@@ -410,17 +410,17 @@ namespace Models
 
 
       protected:
-        // A list of PKCS#7 certificates.
+        // The PKCS7 certificate list.
         shared_ptr<vector<Pkcs7ProviderConfig::Certificates>> certificates_ {};
-        // The Cryptographic Message Syntax (CMS) verification mode.
+        // The CMS verification mode.
         shared_ptr<string> cmsVerificationMode_ {};
-        // The validity period of the signature, in seconds.
+        // The signature effective time. The value indicates the duration for which the signature is valid. Unit: seconds.
         shared_ptr<int64_t> signatureEffectiveTime_ {};
-        // An expression that specifies the signing time.
+        // The signing time.
         shared_ptr<string> signingTimeValueExpression_ {};
-        // The source of the certificate trust anchor.
+        // The certificate trust anchor source.
         shared_ptr<string> trustAnchorSource_ {};
-        // The trust condition for the PKCS#7 provider.
+        // The trust condition.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -519,21 +519,21 @@ namespace Models
 
 
       protected:
-        // A list of audiences for the OIDC credential.
+        // The audience list of the OIDC credential.
         shared_ptr<vector<string>> audiences_ {};
         // The dynamically obtained JWKS.
         shared_ptr<string> dynamicJwks_ {};
-        // The issuer of the OIDC credential.
+        // The token issuer identifier (Issuer).
         shared_ptr<string> issuer_ {};
-        // The time of the last JWKS retrieval.
+        // The time when the JWKS was last obtained. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> jwksLastObtainedTime_ {};
-        // The source of the JSON Web Key Set (JWKS).
+        // The JWKS source.
         shared_ptr<string> jwksSource_ {};
         // The JWKS endpoint.
         shared_ptr<string> jwksUri_ {};
-        // The static JWKS content.
+        // The statically obtained JWKS.
         shared_ptr<string> staticJwks_ {};
-        // The trust condition for the OIDC provider.
+        // The trust condition.
         shared_ptr<string> trustCondition_ {};
       };
 
@@ -565,6 +565,7 @@ namespace Models
 
 
       protected:
+        // The identity provider ID.
         shared_ptr<string> identityProviderId_ {};
       };
 
@@ -672,30 +673,31 @@ namespace Models
 
 
     protected:
+      // The cloud identity provider configuration.
       shared_ptr<FederatedCredentialProvider::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
-      // The time when the provider was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The ID of the federated credential provider.
+      // The federated trust source ID.
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The name of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderName_ {};
       // The type of the federated credential provider.
       shared_ptr<string> federatedCredentialProviderType_ {};
-      // The ID of the EIAM instance.
+      // The EIAM instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the network access endpoint.
+      // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The OpenID Connect (OIDC) configuration.
+      // The OIDC configuration.
       shared_ptr<FederatedCredentialProvider::OidcProviderConfig> oidcProviderConfig_ {};
-      // The PKCS#7 configuration.
+      // The PKCS7 configuration.
       shared_ptr<FederatedCredentialProvider::Pkcs7ProviderConfig> pkcs7ProviderConfig_ {};
-      // The private certificate authority (CA) configuration.
+      // The private CA configuration.
       shared_ptr<FederatedCredentialProvider::PrivateCaProviderConfig> privateCaProviderConfig_ {};
-      // The status of the federated credential provider.
+      // The status.
       shared_ptr<string> status_ {};
-      // The time when the provider was last updated.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -718,7 +720,7 @@ namespace Models
 
 
   protected:
-    // The federated credential provider.
+    // The federated credential provider object.
     shared_ptr<GetFederatedCredentialProviderResponseBody::FederatedCredentialProvider> federatedCredentialProvider_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

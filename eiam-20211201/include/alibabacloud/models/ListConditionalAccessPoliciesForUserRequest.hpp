@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The user ID associated with the conditional access policy.
+    // The ID of the user associated with the conditional access policies.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

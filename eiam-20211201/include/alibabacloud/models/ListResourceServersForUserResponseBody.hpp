@@ -120,8 +120,8 @@ namespace Models
 
       protected:
         // Indicates whether direct authorization exists. Valid values:
-        // - true: Direct authorization exists.
-        // - false: Direct authorization does not exist.
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> hasDirectAuthorization_ {};
         // Indicates whether inherited authorization exists.
         shared_ptr<bool> hasInheritAuthorization_ {};
@@ -214,7 +214,7 @@ namespace Models
 
 
   protected:
-    // The number of entries per page in a paged query.
+    // The number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};

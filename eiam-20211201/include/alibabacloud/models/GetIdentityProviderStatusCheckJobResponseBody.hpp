@@ -178,7 +178,7 @@ namespace Models
 
 
       protected:
-        // The reason for the error.
+        // The error reason.
         shared_ptr<JobCheckItems::ErrorReason> errorReason_ {};
         // The major check item.
         shared_ptr<string> majorCheckItem_ {};
@@ -250,21 +250,21 @@ namespace Models
 
 
     protected:
-      // The result of the check task.
+      // The job check result.
       shared_ptr<string> checkResult_ {};
-      // The end time.
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The ID of the IdP.
+      // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
-      // The ID of the IdP status check job.
+      // The IdP status check job ID.
       shared_ptr<string> identityProviderStatusCheckJobId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The results of the status check subtasks.
+      // The status check sub-item task result information.
       shared_ptr<vector<IdentityProviderStatusCheckJob::JobCheckItems>> jobCheckItems_ {};
-      // The start time.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the check task.
+      // The job check status.
       shared_ptr<string> status_ {};
     };
 
@@ -287,7 +287,7 @@ namespace Models
 
 
   protected:
-    // The information about the IdP status check job.
+    // The IdP status check job information.
     shared_ptr<GetIdentityProviderStatusCheckJobResponseBody::IdentityProviderStatusCheckJob> identityProviderStatusCheckJob_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

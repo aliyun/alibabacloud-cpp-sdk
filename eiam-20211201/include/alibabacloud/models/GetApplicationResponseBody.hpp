@@ -143,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The identifier of the application custom field.
         shared_ptr<string> fieldName_ {};
+        // The value of the application custom field. When FieldName is set to agentType, valid values are bailian, pai, dify, and volcano. When FieldName is set to agentExternalId, enter the corresponding value.
         shared_ptr<string> fieldValue_ {};
       };
 
@@ -189,7 +191,9 @@ namespace Models
 
 
       protected:
+        // The list of group scopes for synchronization authorization.
         shared_ptr<vector<string>> groupIds_ {};
+        // The list of user IDs.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -405,7 +409,7 @@ namespace Models
 
 
     protected:
-      // The status of the Developer API feature for the application. Valid values:
+      // The Developer API feature status of the application. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> apiInvokeStatus_ {};
@@ -419,12 +423,13 @@ namespace Models
       shared_ptr<string> applicationIdentityType_ {};
       // The application name.
       shared_ptr<string> applicationName_ {};
+      // The application owner.
       shared_ptr<Application::ApplicationOwner> applicationOwner_ {};
       // The source from which the application was created. Valid values:
       // - urn:alibaba:idaas:app:source:template: Application template.
       // - urn:alibaba:idaas:app:source:standard: Standard protocol.
       shared_ptr<string> applicationSourceType_ {};
-      // The ID of the application template associated during creation. This value is returned only when the application was created from an application template.
+      // The application template ID associated during creation. This value is returned only when the application was created from an application template.
       shared_ptr<string> applicationTemplateId_ {};
       // The application visibility.
       shared_ptr<vector<string>> applicationVisibility_ {};
@@ -434,10 +439,11 @@ namespace Models
       shared_ptr<string> authorizationType_ {};
       // The client ID of the application.
       shared_ptr<string> clientId_ {};
-      // The time when the application was created. The value is a UNIX timestamp in milliseconds.
+      // The time when the application was created, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The list of application custom fields.
       shared_ptr<vector<Application::CustomFields>> customFields_ {};
-      // Indicates whether the custom Subject field in the token is enabled. After this feature is enabled, the issued Access Token changes from \\<clientId\\> to \\<clientId\\>:\\<client.activeSubjectUrn\\>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential of the application.
+      // Indicates whether the custom Subject field in the token is enabled. After this feature is enabled, the issued Access Token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential of the application.
       shared_ptr<string> customSubjectStatus_ {};
       // The application description.
       shared_ptr<string> description_ {};
@@ -454,7 +460,7 @@ namespace Models
       shared_ptr<string> m2MClientStatus_ {};
       // The ServiceCode of the cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
-      // The unique identifier of the ResourceServer, which corresponds to the ResourceServer audience.
+      // The unique identifier of the ResourceServer, corresponding to the ResourceServer audience.
       shared_ptr<string> resourceServerIdentifier_ {};
       // The resource server source type.
       shared_ptr<string> resourceServerSourceType_ {};
@@ -462,6 +468,7 @@ namespace Models
       shared_ptr<string> resourceServerStatus_ {};
       // Indicates whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
+      // The list of capabilities configured through smart configuration.
       shared_ptr<vector<string>> smartConfigCapabilities_ {};
       // The single sign-on protocol. Valid values:
       // - saml2: SAML 2.0 protocol.
@@ -473,7 +480,7 @@ namespace Models
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The time when the application was last updated. The value is a UNIX timestamp in milliseconds.
+      // The time when the application was last updated, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

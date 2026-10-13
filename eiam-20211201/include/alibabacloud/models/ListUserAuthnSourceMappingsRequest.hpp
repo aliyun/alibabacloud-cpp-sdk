@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the source identity provider (IdP).
+    // The source identity provider (IdP) ID.
     shared_ptr<string> identityProviderId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The token for the previous page of results.
+    // The token used to query the previous page.
     shared_ptr<string> previousToken_ {};
-    // The external ID.
+    // The external association ID.
     shared_ptr<string> userExternalId_ {};
     // The user ID.
     // 

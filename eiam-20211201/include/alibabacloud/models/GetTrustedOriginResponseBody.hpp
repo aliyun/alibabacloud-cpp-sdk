@@ -127,7 +127,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time is in RFC 3339 format and in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> createTime_ {};
@@ -141,9 +141,9 @@ namespace Models
       shared_ptr<string> trustOriginName_ {};
       // The ID of the trusted origin.
       shared_ptr<string> trustedOriginId_ {};
-      // The trusted origin scene.
+      // The trusted origin scenes.
       shared_ptr<vector<string>> trustedOriginScene_ {};
-      // The update time.
+      // The update time. The time is in RFC 3339 format and in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> updateTime_ {};

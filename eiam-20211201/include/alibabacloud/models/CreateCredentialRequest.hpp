@@ -146,7 +146,7 @@ namespace Models
 
 
       protected:
-        // The API key content.
+        // The content of the API key.
         shared_ptr<string> apiKey_ {};
       };
 
@@ -275,14 +275,15 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
-    // The credential content.
+    // The content of the credential.
     // 
     // This parameter is required.
     shared_ptr<CreateCredentialRequest::CredentialContent> credentialContent_ {};
+    // The external unique identifier of the credential.
     shared_ptr<string> credentialExternalId_ {};
     // The credential identifier.
     // 
@@ -296,10 +297,11 @@ namespace Models
     // - llm: large language model.
     // - saas: third-party SaaS service.
     shared_ptr<string> credentialScenarioLabel_ {};
+    // The sharing scope of the credential.
     shared_ptr<string> credentialSharingScope_ {};
-    // The subject ID of the credential.
+    // The subject ID to which the credential belongs.
     shared_ptr<string> credentialSubjectId_ {};
-    // The subject type of the credential. Valid values:
+    // The subject type to which the credential belongs. Valid values:
     // - authentication_token_provider: authentication token provider.
     shared_ptr<string> credentialSubjectType_ {};
     // The credential type. Valid values:
@@ -308,8 +310,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> credentialType_ {};
-    // The credential description.
+    // The description of the credential.
     shared_ptr<string> description_ {};
+    // The exclusive user ID of the credential.
     shared_ptr<string> exclusiveUserId_ {};
     // The instance ID.
     // 

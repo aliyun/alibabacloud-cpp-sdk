@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> origin_ {};
-    // The name of the trusted origin used for management, display, and auditing. If not specified, the value is empty.
+    // The name of the trusted origin used for management, display, and auditing. If this parameter is not specified, the value is empty.
     shared_ptr<string> trustOriginName_ {};
     // The trusted origin scenes. Only iframe_embed and cors are supported. At least one value is required.
     // 

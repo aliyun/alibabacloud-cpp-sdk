@@ -99,15 +99,23 @@ namespace Models
 
 
     protected:
-      // The list of authentication channels for forgot password. This parameter is required when ForgetPasswordStatus is set to enabled. Valid values: email, sms (SMS), totp (OTP), and web_authn (WebAuthn).
+      // The list of forgot password authentication channels. Required when ForgetPasswordStatus is set to enabled. Valid values:
+      // 
+      // - email: Email.
+      // - sms: SMS.
+      // - totp: OTP dynamic password.
+      // - web_authn: WebAuthn.
       shared_ptr<vector<string>> authenticationChannels_ {};
-      // Indicates whether the forgot password feature is enabled. This parameter is deprecated. Use the ForgetPasswordStatus parameter instead.
+      // **[Deprecated]** Indicates whether the forgot password feature is enabled. This parameter is deprecated. Use the ForgetPasswordStatus parameter instead.
       shared_ptr<bool> enable_ {};
-      // Indicates whether email is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+      // **[Deprecated]** Indicates whether email is enabled as a forgot password authentication method. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
       shared_ptr<bool> enableEmail_ {};
-      // Indicates whether SMS is enabled as an authentication method for forgot password. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
+      // **[Deprecated]** Indicates whether SMS is enabled as a forgot password authentication method. This parameter is deprecated. Use the AuthenticationChannels parameter instead.
       shared_ptr<bool> enableSms_ {};
-      // The status of the forgot password configuration. Valid values: enabled and disabled.
+      // The forgot password configuration status. Valid values:
+      // 
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> forgetPasswordStatus_ {};
     };
 

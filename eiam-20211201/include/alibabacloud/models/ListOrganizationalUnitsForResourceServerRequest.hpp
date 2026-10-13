@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The filter key.
+      // The name of the filter condition.
       shared_ptr<string> name_ {};
-      // The list of filter values.
+      // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The resource server application ID.
+    // The ResourceServer application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
@@ -143,11 +143,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries to return on each page.
+    // The number of rows per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. To retrieve the next page of results, set this parameter to the NextToken value from the previous response.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource server scope.
+    // The permission ID.
     shared_ptr<string> resourceServerScopeId_ {};
   };
 

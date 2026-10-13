@@ -280,9 +280,9 @@ namespace Models
         protected:
           // The list of VM instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The GCP project ID.
+          // The GCP project ID to which the resource belongs.
           shared_ptr<string> projectId_ {};
-          // The subject corresponding to the service account.
+          // The sub claim that corresponds to the service account.
           shared_ptr<string> serviceAccountId_ {};
         };
 
@@ -344,7 +344,7 @@ namespace Models
 
 
         protected:
-          // The principal ID.
+          // The identity identifier.
           shared_ptr<string> principalId_ {};
           // The Azure resource group name.
           shared_ptr<string> resourceGroupName_ {};
@@ -593,7 +593,7 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The attribute mappings.
       shared_ptr<vector<ApplicationFederatedCredential::AttributeMappings>> attributeMappings_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The application federated credential description.
       shared_ptr<string> description_ {};
@@ -601,7 +601,7 @@ namespace Models
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last used time.
+      // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
       // The OIDC structured configuration.
       shared_ptr<ApplicationFederatedCredential::OidcVerificationConfig> oidcVerificationConfig_ {};
@@ -609,7 +609,7 @@ namespace Models
       shared_ptr<ApplicationFederatedCredential::Pkcs7VerificationConfig> pkcs7VerificationConfig_ {};
       // The application federated credential status.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The verification condition.
       shared_ptr<string> verificationCondition_ {};

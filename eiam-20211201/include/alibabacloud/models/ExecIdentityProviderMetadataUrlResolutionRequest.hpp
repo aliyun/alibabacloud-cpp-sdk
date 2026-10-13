@@ -75,16 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the identity provider in IDaaS.
+    // The identity provider ID in IDaaS.
     shared_ptr<string> identityProviderId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The network access endpoint ID.
+    // The network endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
     // The OIDC issuer URL.
     shared_ptr<string> oidcIssuer_ {};
+    // The SAML metadata URL.
     shared_ptr<string> samlMetadataUrl_ {};
   };
 

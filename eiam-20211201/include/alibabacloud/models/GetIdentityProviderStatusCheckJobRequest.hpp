@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The identity provider (IdP) ID.
+    // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // The task ID.
+    // The job ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderStatusCheckJobId_ {};

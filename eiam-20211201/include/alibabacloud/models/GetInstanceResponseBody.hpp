@@ -140,10 +140,15 @@ namespace Models
 
 
       protected:
+        // The instance ID of the backup instance.
         shared_ptr<string> backupInstanceId_ {};
+        // The region ID of the backup instance.
         shared_ptr<string> backupInstanceRegionId_ {};
+        // The instance ID of the primary instance.
         shared_ptr<string> primaryInstanceId_ {};
+        // The region ID of the primary instance.
         shared_ptr<string> primaryInstanceRegionId_ {};
+        // The time when the disaster recovery data replication was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> replicationCreateTime_ {};
       };
 
@@ -198,7 +203,7 @@ namespace Models
         shared_ptr<string> defaultDomain_ {};
         // The initialization domain name of the instance.
         shared_ptr<string> initDomain_ {};
-        // The automatic redirect status of the initialization domain name. Valid values:
+        // The auto-redirect status of the initialization domain name. Valid values:
         // - enabled: Enabled.
         // 
         // - disabled: Disabled.
@@ -243,7 +248,7 @@ namespace Models
 
 
       protected:
-        // The domain name of the instance.
+        // The domain name address of the instance.
         shared_ptr<string> endpoint_ {};
         // The status of the instance domain name. Valid values:
         // - resolved: Resolved.
@@ -355,23 +360,27 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // Indicates whether cross-region replication is enabled. Valid values: enabled or disabled.
       shared_ptr<string> crossRegionReplication_ {};
+      // The cross-region replication role. Valid values: primary indicates the primary instance, and backup indicates the backup instance.
       shared_ptr<string> crossRegionReplicationRole_ {};
-      // The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the query domain name list operation instead.
+      // The default domain name of the instance. This field is no longer maintained. Use the DomainConfig fields or refer to the domain name list query operation instead.
       shared_ptr<Instance::DefaultEndpoint> defaultEndpoint_ {};
-      // The description of the instance.
+      // The instance description.
       shared_ptr<string> description_ {};
       // The domain name configuration of the instance.
       shared_ptr<Instance::DomainConfig> domainConfig_ {};
-      // The public egress CIDR blocks of the instance. For example, during Active Directory (AD) account synchronization, the EIAM instance accesses your AD server through these public CIDR blocks.
+      // The egress public IP address ranges of the instance. For example, during AD account synchronization, the EIAM instance accesses your AD server through these public IP address ranges.
       shared_ptr<vector<string>> egressAddresses_ {};
+      // The failover activation status of the instance. Valid values: active indicates activated, and inactive indicates not activated.
       shared_ptr<string> instanceFailoverStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ServiceCode of the Alibaba Cloud service that manages the instance.
+      // The service code of the Alibaba Cloud service that manages the instance.
       shared_ptr<string> managedServiceCode_ {};
+      // The cross-region replication configuration. This parameter is returned only when CrossRegionReplication is set to enabled.
       shared_ptr<Instance::ReplicationConfiguration> replicationConfiguration_ {};
       // Indicates whether the instance is managed by an Alibaba Cloud service.
       shared_ptr<bool> serviceManaged_ {};

@@ -157,11 +157,17 @@ namespace Models
 
 
       protected:
+        // The private egress IP address list of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPrivateIpAddresses_ {};
+        // The public egress IP address range of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
+        // The ID of the backup security group.
         shared_ptr<string> backupSecurityGroupId_ {};
+        // The list of backup vSwitches.
         shared_ptr<vector<string>> backupVSwitchIds_ {};
+        // The ID of the backup VPC.
         shared_ptr<string> backupVpcId_ {};
+        // The region of the backup VPC.
         shared_ptr<string> backupVpcRegionId_ {};
       };
 
@@ -276,6 +282,7 @@ namespace Models
 
 
     protected:
+      // The backup VPC endpoint configuration.
       shared_ptr<NetworkAccessEndpoint::BackupVpcEndpoint> backupVpcEndpoint_ {};
       // The time when the network access endpoint was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -294,7 +301,7 @@ namespace Models
       // - shared: Shared network access endpoint.
       // - private: Dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
-      // The ID of the security group used by the dedicated network access endpoint.
+      // The security group ID used by the dedicated network access endpoint.
       shared_ptr<string> securityGroupId_ {};
       // The status of the network access endpoint. Valid values:
       // 
@@ -305,11 +312,11 @@ namespace Models
       shared_ptr<string> status_ {};
       // The time when the dedicated network access endpoint was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The list of vSwitches to which the dedicated network access endpoint is connected.
+      // The list of vSwitches associated with the dedicated network access endpoint.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The ID of the VPC to which the dedicated network access endpoint is connected.
+      // The VPC ID associated with the dedicated network access endpoint.
       shared_ptr<string> vpcId_ {};
-      // The region of the VPC to which the dedicated network access endpoint is connected.
+      // The region of the VPC associated with the dedicated network access endpoint.
       shared_ptr<string> vpcRegionId_ {};
     };
 

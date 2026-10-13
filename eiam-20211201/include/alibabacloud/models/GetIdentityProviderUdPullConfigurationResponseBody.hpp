@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // The list of source nodes for synchronization.
+        // The list of source scope nodes.
         shared_ptr<vector<string>> sourceScopes_ {};
-        // The target node for synchronization.
+        // The target scope node.
         shared_ptr<string> targetScope_ {};
       };
 
@@ -217,7 +217,7 @@ namespace Models
       protected:
         // The cron expression.
         shared_ptr<string> periodicSyncCron_ {};
-        // The execution time points. For example, [3, 5] indicates that synchronization runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
+        // The execution time points. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
         shared_ptr<int32_t> periodicSyncTimes_ {};
         // The periodic synchronization type.
         shared_ptr<string> periodicSyncType_ {};
@@ -297,13 +297,13 @@ namespace Models
 
 
       protected:
-        // The group member identifier attribute.
+        // The group member attribute name.
         shared_ptr<string> groupMemberAttributeName_ {};
         // The group ObjectClass.
         shared_ptr<string> groupObjectClass_ {};
         // The custom filter for groups.
         shared_ptr<string> groupObjectClassCustomFilter_ {};
-        // The organizational unit ObjectClass.
+        // The organization ObjectClass.
         shared_ptr<string> organizationUnitObjectClass_ {};
         // The user ObjectClass.
         shared_ptr<string> userObjectClass_ {};
@@ -388,15 +388,17 @@ namespace Models
     protected:
       // The group synchronization status. Valid values:
       // 
-      // - disabled
-      // - enabled.
+      // - disabled: Disabled.
+      // 
+      // - enabled: Enabled.
       shared_ptr<string> groupSyncStatus_ {};
       // The identity provider ID.
       shared_ptr<string> identityProviderId_ {};
       // The incremental callback status, which specifies whether to process incremental callback data from the IdP. Valid values:
       // 
-      // - disabled
-      // - enabled.
+      // - disabled: Disabled.
+      // 
+      // - enabled: Enabled.
       shared_ptr<string> incrementalCallbackStatus_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -406,8 +408,9 @@ namespace Models
       shared_ptr<UdPullConfiguration::PeriodicSyncConfig> periodicSyncConfig_ {};
       // The periodic verification status, which specifies whether to periodically verify data differences between IDaaS and the identity provider. Valid values:
       // 
-      // - disabled
-      // - enabled.
+      // - disabled: Disabled.
+      // 
+      // - enabled: Enabled.
       shared_ptr<string> periodicSyncStatus_ {};
       // The inbound synchronization protection rule configuration.
       shared_ptr<UdPullConfiguration::PullProtectedRule> pullProtectedRule_ {};

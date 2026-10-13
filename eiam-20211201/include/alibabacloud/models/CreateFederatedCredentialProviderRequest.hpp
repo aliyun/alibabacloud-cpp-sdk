@@ -131,7 +131,7 @@ namespace Models
       shared_ptr<vector<PrivateCaProviderConfig::Certificates>> certificates_ {};
       // The method used to retrieve the root certificate.
       shared_ptr<string> trustAnchorSource_ {};
-      // The trust condition for the root certificate.
+      // The trust condition of the root certificate.
       shared_ptr<string> trustCondition_ {};
     };
 
@@ -335,7 +335,7 @@ namespace Models
     protected:
       // The list of audiences.
       shared_ptr<vector<string>> audiences_ {};
-      // Issuer
+      // The token issuer identifier (Issuer).
       shared_ptr<string> issuer_ {};
       // The source of the JWKS.
       shared_ptr<string> jwksSource_ {};
@@ -375,6 +375,7 @@ namespace Models
 
 
     protected:
+      // The ID of the identity provider.
       shared_ptr<string> identityProviderId_ {};
     };
 
@@ -453,6 +454,7 @@ namespace Models
 
 
   protected:
+    // The identity provider configuration.
     shared_ptr<CreateFederatedCredentialProviderRequest::CloudIdPProviderConfig> cloudIdPProviderConfig_ {};
     // The description of the federated trust source.
     shared_ptr<string> description_ {};

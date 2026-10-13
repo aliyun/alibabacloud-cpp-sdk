@@ -121,10 +121,11 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The authorization callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
+      // The WeCom contacts secret.
       shared_ptr<string> contactSecret_ {};
       // The CorpSecret of the WeCom self-built application.
       shared_ptr<string> corpSecret_ {};
-      // The trusted domain name.
+      // The trusted domain.
       shared_ptr<string> trustableDomain_ {};
     };
 
@@ -189,7 +190,7 @@ namespace Models
 
 
       protected:
-        // The certificate content.
+        // The content of the certificate.
         shared_ptr<string> content_ {};
       };
 
@@ -257,7 +258,7 @@ namespace Models
     protected:
       // The binding type.
       shared_ptr<string> bindingMethod_ {};
-      // The certificate list of the IdP.
+      // The list of IdP certificates.
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
       // The EntityId of the IdP.
       shared_ptr<string> idPEntityId_ {};

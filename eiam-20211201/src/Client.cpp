@@ -1080,9 +1080,9 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatus(const CheckI
 }
 
 /**
- * @summary Creates an application resource in a specified EIAM instance.
+ * @summary Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
  *
- * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+ * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
  *
  * @param request CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1149,9 +1149,9 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Creates an application resource in a specified EIAM instance.
+ * @summary Creates an application resource in a specified Employee Identity and Access Management (EIAM) instance.
  *
- * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your business scenario.
+ * @description EIAM supports two standard SSO protocols for application access: SAML 2.0 and OIDC. This parameter cannot be changed after it is specified. Create the application based on the SSO protocol type used in your actual business scenario.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -1718,7 +1718,7 @@ CreateCloudAccountResponse Client::createCloudAccount(const CreateCloudAccountRe
 }
 
 /**
- * @summary Creates a cloud role for a specified Alibaba Cloud account.
+ * @summary Creates a cloud role resource under the specified cloud account resource.
  *
  * @param request CreateCloudAccountRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1769,7 +1769,7 @@ CreateCloudAccountRoleResponse Client::createCloudAccountRoleWithOptions(const C
 }
 
 /**
- * @summary Creates a cloud role for a specified Alibaba Cloud account.
+ * @summary Creates a cloud role resource under the specified cloud account resource.
  *
  * @param request CreateCloudAccountRoleRequest
  * @return CreateCloudAccountRoleResponse
@@ -4344,7 +4344,9 @@ DeleteResourceServerScopeResponse Client::deleteResourceServerScope(const Delete
 }
 
 /**
- * @summary Deletes a trusted origin.
+ * @summary Deletes a trusted origin from a specified EIAM instance.
+ *
+ * @description Deletes a trusted origin from a specified EIAM instance.
  *
  * @param request DeleteTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4383,7 +4385,9 @@ DeleteTrustedOriginResponse Client::deleteTrustedOriginWithOptions(const DeleteT
 }
 
 /**
- * @summary Deletes a trusted origin.
+ * @summary Deletes a trusted origin from a specified EIAM instance.
+ *
+ * @description Deletes a trusted origin from a specified EIAM instance.
  *
  * @param request DeleteTrustedOriginRequest
  * @return DeleteTrustedOriginResponse
@@ -5786,7 +5790,9 @@ DisableResourceServerCustomSubjectResponse Client::disableResourceServerCustomSu
 }
 
 /**
- * @summary Disables a trusted origin.
+ * @summary Disables a trusted origin in a specified EIAM instance.
+ *
+ * @description Disables a trusted origin in a specified EIAM instance.
  *
  * @param request DisableTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5821,7 +5827,9 @@ DisableTrustedOriginResponse Client::disableTrustedOriginWithOptions(const Disab
 }
 
 /**
- * @summary Disables a trusted origin.
+ * @summary Disables a trusted origin in a specified EIAM instance.
+ *
+ * @description Disables a trusted origin in a specified EIAM instance.
  *
  * @param request DisableTrustedOriginRequest
  * @return DisableTrustedOriginResponse
@@ -7126,7 +7134,9 @@ EnableResourceServerCustomSubjectResponse Client::enableResourceServerCustomSubj
 }
 
 /**
- * @summary Enables a trusted origin.
+ * @summary Enables a trusted origin in a specified EIAM instance.
+ *
+ * @description Enables a trusted origin in a specified EIAM instance.
  *
  * @param request EnableTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7161,7 +7171,9 @@ EnableTrustedOriginResponse Client::enableTrustedOriginWithOptions(const EnableT
 }
 
 /**
- * @summary Enables a trusted origin.
+ * @summary Enables a trusted origin in a specified EIAM instance.
+ *
+ * @description Enables a trusted origin in a specified EIAM instance.
  *
  * @param request EnableTrustedOriginRequest
  * @return EnableTrustedOriginResponse
@@ -7218,7 +7230,7 @@ EnableUserResponse Client::enableUser(const EnableUserRequest &request) {
 }
 
 /**
- * @summary Resolves the metadata for an identity provider.
+ * @summary Parses IdP metadata information.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7265,7 +7277,7 @@ ExecIdentityProviderMetadataUrlResolutionResponse Client::execIdentityProviderMe
 }
 
 /**
- * @summary Resolves the metadata for an identity provider.
+ * @summary Parses IdP metadata information.
  *
  * @param request ExecIdentityProviderMetadataUrlResolutionRequest
  * @return ExecIdentityProviderMetadataUrlResolutionResponse
@@ -7586,6 +7598,8 @@ GenerateWebAuthnAuthenticatorRegistrationUrlResponse Client::generateWebAuthnAut
 /**
  * @summary Retrieves the details of a specified EIAM application.
  *
+ * @description Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
+ *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetApplicationResponse
@@ -7620,6 +7634,8 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 
 /**
  * @summary Retrieves the details of a specified EIAM application.
+ *
+ * @description Before you delete a specified EIAM application, make sure that the application is no longer in use. After the application is deleted, all configuration data is permanently removed and cannot be recovered.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -7676,7 +7692,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const 
 }
 
 /**
- * @summary Retrieves an application federated identity credential.
+ * @summary Retrieves the federated identity credential of an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7715,7 +7731,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Retrieves an application federated identity credential.
+ * @summary Retrieves the federated identity credential of an application.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @return GetApplicationFederatedCredentialResponse
@@ -8382,9 +8398,9 @@ GetCloudAccountRoleResponse Client::getCloudAccountRole(const GetCloudAccountRol
 }
 
 /**
- * @summary Get a conditional access policy.
+ * @summary Retrieves a conditional access policy.
  *
- * @description Query a conditional access policy.
+ * @description Queries a conditional access policy.
  *
  * @param request GetConditionalAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8419,9 +8435,9 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicyWithOptions
 }
 
 /**
- * @summary Get a conditional access policy.
+ * @summary Retrieves a conditional access policy.
  *
- * @description Query a conditional access policy.
+ * @description Queries a conditional access policy.
  *
  * @param request GetConditionalAccessPolicyRequest
  * @return GetConditionalAccessPolicyResponse
@@ -8708,7 +8724,7 @@ GetDomainDnsChallengeResponse Client::getDomainDnsChallenge(const GetDomainDnsCh
 }
 
 /**
- * @summary Retrieve a federated credential provider.
+ * @summary Retrieves a federated trust source.
  *
  * @param request GetFederatedCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8743,7 +8759,7 @@ GetFederatedCredentialProviderResponse Client::getFederatedCredentialProviderWit
 }
 
 /**
- * @summary Retrieve a federated credential provider.
+ * @summary Retrieves a federated trust source.
  *
  * @param request GetFederatedCredentialProviderRequest
  * @return GetFederatedCredentialProviderResponse
@@ -8754,7 +8770,7 @@ GetFederatedCredentialProviderResponse Client::getFederatedCredentialProvider(co
 }
 
 /**
- * @summary Queries the forgot password policy of a specified EIAM instance.
+ * @summary Queries the forgot password policy for a specified EIAM instance.
  *
  * @param request GetForgetPasswordConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8785,7 +8801,7 @@ GetForgetPasswordConfigurationResponse Client::getForgetPasswordConfigurationWit
 }
 
 /**
- * @summary Queries the forgot password policy of a specified EIAM instance.
+ * @summary Queries the forgot password policy for a specified EIAM instance.
  *
  * @param request GetForgetPasswordConfigurationRequest
  * @return GetForgetPasswordConfigurationResponse
@@ -8934,7 +8950,7 @@ GetIdentityProviderAdvancedConfigurationResponse Client::getIdentityProviderAdva
 }
 
 /**
- * @summary Retrieves an IdP check task.
+ * @summary Retrieves an IdP status check job.
  *
  * @param request GetIdentityProviderStatusCheckJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8973,7 +8989,7 @@ GetIdentityProviderStatusCheckJobResponse Client::getIdentityProviderStatusCheck
 }
 
 /**
- * @summary Retrieves an IdP check task.
+ * @summary Retrieves an IdP status check job.
  *
  * @param request GetIdentityProviderStatusCheckJobRequest
  * @return GetIdentityProviderStatusCheckJobResponse
@@ -8984,7 +9000,7 @@ GetIdentityProviderStatusCheckJobResponse Client::getIdentityProviderStatusCheck
 }
 
 /**
- * @summary Retrieves the inbound synchronization configuration of an identity provider (IdP).
+ * @summary Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
  *
  * @param request GetIdentityProviderUdPullConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9019,7 +9035,7 @@ GetIdentityProviderUdPullConfigurationResponse Client::getIdentityProviderUdPull
 }
 
 /**
- * @summary Retrieves the inbound synchronization configuration of an identity provider (IdP).
+ * @summary Retrieves the inbound synchronization configuration of an Identity Provider (IdP).
  *
  * @param request GetIdentityProviderUdPullConfigurationRequest
  * @return GetIdentityProviderUdPullConfigurationResponse
@@ -9208,7 +9224,7 @@ GetInstanceGlobalizationConfigResponse Client::getInstanceGlobalizationConfig(co
 /**
  * @summary Queries the license information that is currently effective for an instance.
  *
- * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9241,7 +9257,7 @@ GetInstanceLicenseResponse Client::getInstanceLicenseWithOptions(const GetInstan
 /**
  * @summary Queries the license information that is currently effective for an instance.
  *
- * @description Make sure that your instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+ * @description Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
  *
  * @param request GetInstanceLicenseRequest
  * @return GetInstanceLicenseResponse
@@ -9918,7 +9934,9 @@ GetSynchronizationJobResponse Client::getSynchronizationJob(const GetSynchroniza
 }
 
 /**
- * @summary Queries the details of a trusted origin.
+ * @summary Queries a trusted origin in a specified EIAM instance.
+ *
+ * @description Queries a trusted origin in a specified EIAM instance.
  *
  * @param request GetTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9953,7 +9971,9 @@ GetTrustedOriginResponse Client::getTrustedOriginWithOptions(const GetTrustedOri
 }
 
 /**
- * @summary Queries the details of a trusted origin.
+ * @summary Queries a trusted origin in a specified EIAM instance.
+ *
+ * @description Queries a trusted origin in a specified EIAM instance.
  *
  * @param request GetTrustedOriginRequest
  * @return GetTrustedOriginResponse
@@ -10064,7 +10084,7 @@ ListActionTrackEventTypesResponse Client::listActionTrackEventTypes(const ListAc
 }
 
 /**
- * @summary Queries the application accounts of an application by paging.
+ * @summary Queries application accounts under an application by paging.
  *
  * @param request ListApplicationAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10107,7 +10127,7 @@ ListApplicationAccountsResponse Client::listApplicationAccountsWithOptions(const
 }
 
 /**
- * @summary Queries the application accounts of an application by paging.
+ * @summary Queries application accounts under an application by paging.
  *
  * @param request ListApplicationAccountsRequest
  * @return ListApplicationAccountsResponse
@@ -10118,9 +10138,9 @@ ListApplicationAccountsResponse Client::listApplicationAccounts(const ListApplic
 }
 
 /**
- * @summary Queries all accounts that belong to a specified user in an application.
+ * @summary Queries all accounts of a specified user in the current application.
  *
- * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10159,9 +10179,9 @@ ListApplicationAccountsForUserResponse Client::listApplicationAccountsForUserWit
 }
 
 /**
- * @summary Queries all accounts that belong to a specified user in an application.
+ * @summary Queries all accounts of a specified user in the current application.
  *
- * @description This operation queries only applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation queries only the direct permissions of the organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListApplicationAccountsForUserRequest
  * @return ListApplicationAccountsForUserResponse
@@ -10218,7 +10238,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const 
 }
 
 /**
- * @summary Queries the list of application federated identity credentials.
+ * @summary Queries a list of application federated identity credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10269,7 +10289,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Queries the list of application federated identity credentials.
+ * @summary Queries a list of application federated identity credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @return ListApplicationFederatedCredentialsResponse
@@ -11328,7 +11348,7 @@ ListBrandsResponse Client::listBrands(const ListBrandsRequest &request) {
 }
 
 /**
- * @summary Lists the client public keys for a specified application using a cursor.
+ * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11371,7 +11391,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeysWithOptions(const ListC
 }
 
 /**
- * @summary Lists the client public keys for a specified application using a cursor.
+ * @summary Queries the list of ClientPublicKeys for a specified application by using a cursor.
  *
  * @param request ListClientPublicKeysRequest
  * @return ListClientPublicKeysResponse
@@ -11494,9 +11514,9 @@ ListCloudAccountsResponse Client::listCloudAccounts(const ListCloudAccountsReque
 }
 
 /**
- * @summary List conditional access policies.
+ * @summary Lists conditional access policies.
  *
- * @description Query the list of conditional access policies with pagination.
+ * @description Queries conditional access policies by page.
  *
  * @param request ListConditionalAccessPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11539,9 +11559,9 @@ ListConditionalAccessPoliciesResponse Client::listConditionalAccessPoliciesWithO
 }
 
 /**
- * @summary List conditional access policies.
+ * @summary Lists conditional access policies.
  *
- * @description Query the list of conditional access policies with pagination.
+ * @description Queries conditional access policies by page.
  *
  * @param request ListConditionalAccessPoliciesRequest
  * @return ListConditionalAccessPoliciesResponse
@@ -11552,7 +11572,7 @@ ListConditionalAccessPoliciesResponse Client::listConditionalAccessPolicies(cons
 }
 
 /**
- * @summary List conditional access policies associated with an application.
+ * @summary Retrieves the list of conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11587,7 +11607,7 @@ ListConditionalAccessPoliciesForApplicationResponse Client::listConditionalAcces
 }
 
 /**
- * @summary List conditional access policies associated with an application.
+ * @summary Retrieves the list of conditional access policies associated with an application.
  *
  * @param request ListConditionalAccessPoliciesForApplicationRequest
  * @return ListConditionalAccessPoliciesForApplicationResponse
@@ -13126,7 +13146,7 @@ ListOrganizationalUnitsForApplicationResponse Client::listOrganizationalUnitsFor
 }
 
 /**
- * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+ * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13177,7 +13197,7 @@ ListOrganizationalUnitsForResourceServerResponse Client::listOrganizationalUnits
 }
 
 /**
- * @summary Retrieves a cursor-paginated list of scopes that the current resource server has granted to an organization.
+ * @summary Queries the list of scope permissions that the current ResourceServer has authorized to organizational units by using a cursor-based pagination method.
  *
  * @param request ListOrganizationalUnitsForResourceServerRequest
  * @return ListOrganizationalUnitsForResourceServerResponse
@@ -13452,7 +13472,9 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobs(const ListSynchr
 }
 
 /**
- * @summary Queries the list of trusted origins.
+ * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+ *
+ * @description Queries the list of trusted origins in a specified EIAM instance.
  *
  * @param request ListTrustedOriginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13507,7 +13529,9 @@ ListTrustedOriginsResponse Client::listTrustedOriginsWithOptions(const ListTrust
 }
 
 /**
- * @summary Queries the list of trusted origins.
+ * @summary Queries the list of trusted origins in a specified Employees Identity and Access Management (EIAM) instance.
+ *
+ * @description Queries the list of trusted origins in a specified EIAM instance.
  *
  * @param request ListTrustedOriginsRequest
  * @return ListTrustedOriginsResponse
@@ -13518,9 +13542,9 @@ ListTrustedOriginsResponse Client::listTrustedOrigins(const ListTrustedOriginsRe
 }
 
 /**
- * @summary Lists the mappings for third-party logon accounts.
+ * @summary Queries the binding relationships of third-party login accounts.
  *
- * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13575,9 +13599,9 @@ ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappingsWithOptio
 }
 
 /**
- * @summary Lists the mappings for third-party logon accounts.
+ * @summary Queries the binding relationships of third-party login accounts.
  *
- * @description This operation queries only the applications that are directly assigned to an organization. You can use the **ApplicationIds** parameter to filter the applications.
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListUserAuthnSourceMappingsRequest
  * @return ListUserAuthnSourceMappingsResponse
@@ -13872,7 +13896,7 @@ ListUsersForGroupResponse Client::listUsersForGroup(const ListUsersForGroupReque
 }
 
 /**
- * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+ * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
  *
  * @param request ListUsersForResourceServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13923,7 +13947,7 @@ ListUsersForResourceServerResponse Client::listUsersForResourceServerWithOptions
 }
 
 /**
- * @summary List the scope permissions granted by a Resource Server to user accounts using cursor-based pagination.
+ * @summary Queries the list of scope permissions that the current ResourceServer has granted to accounts by using a cursor-based pagination method.
  *
  * @param request ListUsersForResourceServerRequest
  * @return ListUsersForResourceServerResponse
@@ -13986,7 +14010,7 @@ ObtainApplicationClientSecretResponse Client::obtainApplicationClientSecret(cons
 /**
  * @summary Queries a specified application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14027,7 +14051,7 @@ ObtainApplicationTokenResponse Client::obtainApplicationTokenWithOptions(const O
 /**
  * @summary Queries a specified application token.
  *
- * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may result from this operation.
+ * @description When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that may be caused by this operation.
  *
  * @param request ObtainApplicationTokenRequest
  * @return ObtainApplicationTokenResponse
@@ -14962,7 +14986,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary Creates and immediately runs a new synchronization task.
+ * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
  *
  * @param request RunSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15017,7 +15041,7 @@ RunSynchronizationJobResponse Client::runSynchronizationJobWithOptions(const Run
 }
 
 /**
- * @summary Creates and immediately runs a new synchronization task.
+ * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
  *
  * @param request RunSynchronizationJobRequest
  * @return RunSynchronizationJobResponse
@@ -16920,7 +16944,7 @@ UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParams(co
 }
 
 /**
- * @summary Updates the expiration time of an application token.
+ * @summary Updates the expiration time of an ApplicationToken.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16963,7 +16987,7 @@ UpdateApplicationTokenExpirationTimeResponse Client::updateApplicationTokenExpir
 }
 
 /**
- * @summary Updates the expiration time of an application token.
+ * @summary Updates the expiration time of an ApplicationToken.
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
  * @return UpdateApplicationTokenExpirationTimeResponse
@@ -18858,7 +18882,9 @@ UpdateResourceServerScopeResponse Client::updateResourceServerScope(const Update
 }
 
 /**
- * @summary Modifies a trusted origin.
+ * @summary Updates a trusted origin in a specified EIAM instance.
+ *
+ * @description Updates a trusted origin in a specified EIAM instance.
  *
  * @param request UpdateTrustedOriginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18905,7 +18931,9 @@ UpdateTrustedOriginResponse Client::updateTrustedOriginWithOptions(const UpdateT
 }
 
 /**
- * @summary Modifies a trusted origin.
+ * @summary Updates a trusted origin in a specified EIAM instance.
+ *
+ * @description Updates a trusted origin in a specified EIAM instance.
  *
  * @param request UpdateTrustedOriginRequest
  * @return UpdateTrustedOriginResponse

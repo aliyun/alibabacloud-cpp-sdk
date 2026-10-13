@@ -104,7 +104,7 @@ namespace Models
 
 
         protected:
-          // The content of the certificate.
+          // The certificate content.
           shared_ptr<string> content_ {};
         };
 
@@ -134,11 +134,11 @@ namespace Models
 
 
       protected:
-        // The certificates.
+        // The list of IdP certificates.
         shared_ptr<vector<SamlMetadataConfiguration::Certificates>> certificates_ {};
-        // The entity ID of the SAML identity provider.
+        // The entity ID of the IdP.
         shared_ptr<string> idPEntityId_ {};
-        // The SSO URL of the SAML identity provider.
+        // The single sign-on URL of the IdP.
         shared_ptr<string> idPSsoUrl_ {};
       };
 
@@ -207,15 +207,15 @@ namespace Models
 
 
       protected:
-        // The OAuth 2.0 authorization endpoint.
+        // The OAuth2 authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
-        // The OIDC issuer.
+        // The OIDC issuer information.
         shared_ptr<string> issuer_ {};
-        // The OIDC JSON Web Key Set (JWKS) URI.
+        // The OIDC JWKS URI.
         shared_ptr<string> jwksUri_ {};
-        // The OAuth 2.0 token endpoint.
+        // The OAuth2 token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // The OIDC userinfo endpoint.
+        // The OIDC UserInfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -240,9 +240,9 @@ namespace Models
 
 
     protected:
-      // The OIDC identity provider metadata.
+      // The metadata of the OIDC IdP.
       shared_ptr<IdentityProviderMetadata::OidcOpenIdConfiguration> oidcOpenIdConfiguration_ {};
-      // The SAML identity provider metadata.
+      // The metadata of the SAML IdP.
       shared_ptr<IdentityProviderMetadata::SamlMetadataConfiguration> samlMetadataConfiguration_ {};
     };
 
@@ -265,7 +265,7 @@ namespace Models
 
 
   protected:
-    // The identity provider metadata.
+    // The metadata of the identity provider.
     shared_ptr<ExecIdentityProviderMetadataUrlResolutionResponseBody::IdentityProviderMetadata> identityProviderMetadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

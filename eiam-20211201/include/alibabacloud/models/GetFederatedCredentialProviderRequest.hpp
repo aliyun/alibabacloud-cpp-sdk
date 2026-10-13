@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The federated credential provider ID.
+    // The federated trust source ID.
     // 
     // This parameter is required.
     shared_ptr<string> federatedCredentialProviderId_ {};

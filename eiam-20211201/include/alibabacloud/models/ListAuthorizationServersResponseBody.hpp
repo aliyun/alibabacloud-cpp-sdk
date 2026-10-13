@@ -162,7 +162,7 @@ namespace Models
       shared_ptr<string> authorizationServerId_ {};
       // The name of the authorization server.
       shared_ptr<string> authorizationServerName_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The creation type.
       shared_ptr<string> creationType_ {};
@@ -178,7 +178,7 @@ namespace Models
       shared_ptr<string> issuerMode_ {};
       // The status.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -224,9 +224,9 @@ namespace Models
   protected:
     // The list of authorization servers.
     shared_ptr<vector<ListAuthorizationServersResponseBody::AuthorizationServers>> authorizationServers_ {};
-    // The number of entries per page for a paged query.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

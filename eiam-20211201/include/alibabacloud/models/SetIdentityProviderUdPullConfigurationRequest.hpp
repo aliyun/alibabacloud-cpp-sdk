@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The list of source nodes for synchronization.
+      // The list of source scope nodes.
       shared_ptr<vector<string>> sourceScopes_ {};
-      // The target node for synchronization.
+      // The target scope node.
       shared_ptr<string> targetScope_ {};
     };
 
@@ -141,7 +141,7 @@ namespace Models
     protected:
       // The threshold for the number of deleted groups. If the number of deleted groups exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> groupDeletedThreshold_ {};
-      // The threshold for the number of deleted organizational units. If the number of deleted organizational units exceeds this value, the synchronization task is terminated.
+      // The threshold for the number of deleted organizations. If the number of deleted organizations exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> organizationalUnitDeletedThreshold_ {};
       // The threshold for the number of deleted accounts. If the number of deleted users exceeds this value, the synchronization task is terminated.
       shared_ptr<int32_t> userDeletedThreshold_ {};
@@ -198,9 +198,9 @@ namespace Models
     protected:
       // The cron expression. This parameter is required when periodicSyncType is set to cron.
       shared_ptr<string> periodicSyncCron_ {};
-      // The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the task runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
+      // The execution time points. This parameter is required when periodicSyncType is set to time. For example, [3, 5] indicates that the synchronization runs once between 3:00 and 4:00 and once between 5:00 and 6:00.
       shared_ptr<vector<int32_t>> periodicSyncTimes_ {};
-      // The type of periodic synchronization.
+      // The periodic synchronization type.
       shared_ptr<string> periodicSyncType_ {};
     };
 
@@ -278,13 +278,13 @@ namespace Models
 
 
     protected:
-      // The group member identifier.
+      // The group member attribute name.
       shared_ptr<string> groupMemberAttributeName_ {};
       // The group ObjectClass.
       shared_ptr<string> groupObjectClass_ {};
       // The custom filter for groups.
       shared_ptr<string> groupObjectClassCustomFilter_ {};
-      // The organizational unit ObjectClass.
+      // The organization ObjectClass.
       shared_ptr<string> organizationUnitObjectClass_ {};
       // The user ObjectClass.
       shared_ptr<string> userObjectClass_ {};
@@ -400,7 +400,7 @@ namespace Models
     shared_ptr<string> periodicSyncStatus_ {};
     // The inbound synchronization protection rule.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::PullProtectedRule> pullProtectedRule_ {};
-    // The inbound synchronization scope configuration.
+    // The inbound synchronization configuration.
     shared_ptr<SetIdentityProviderUdPullConfigurationRequest::UdSyncScopeConfig> udSyncScopeConfig_ {};
   };
 

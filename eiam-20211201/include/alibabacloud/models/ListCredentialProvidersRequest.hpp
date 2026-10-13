@@ -83,6 +83,9 @@ namespace Models
 
     protected:
       // The filter condition name. Valid values:
+      // 
+      // - CredentialProviderName: the credential provider name.
+      // - CredentialProviderIdentifier: the credential provider identifier.
       shared_ptr<string> name_ {};
       // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};
@@ -159,7 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page for a paged query.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

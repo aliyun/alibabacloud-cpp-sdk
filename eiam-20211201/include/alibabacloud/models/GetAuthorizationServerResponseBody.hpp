@@ -209,27 +209,27 @@ namespace Models
     protected:
       // The authorization server ID.
       shared_ptr<string> authorizationServerId_ {};
-      // The name of the authorization server.
+      // The authorization server name.
       shared_ptr<string> authorizationServerName_ {};
-      // The time when the authorization server was created.
+      // The time when the authorization server was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The creation type.
       shared_ptr<string> creationType_ {};
-      // The description of the authorization server.
+      // The authorization server description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The issuer of the authorization token.
+      // The authorization token issuer.
       shared_ptr<string> issuer_ {};
       // The domain name used by the issuer.
       shared_ptr<string> issuerDomain_ {};
       // The issuer mode.
       shared_ptr<string> issuerMode_ {};
-      // The time when the authorization server was last updated.
+      // The time when the authorization server was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUpdateTime_ {};
-      // The endpoint configuration of the authorization server.
+      // The authorization server endpoint configuration.
       shared_ptr<AuthorizationServer::ProtocolEndpoint> protocolEndpoint_ {};
-      // The status of the authorization server.
+      // The authorization server status.
       shared_ptr<string> status_ {};
     };
 

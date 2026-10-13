@@ -144,7 +144,7 @@ namespace Models
 
 
       protected:
-        // The content of the OAuth client credential.
+        // The credential content of the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -277,12 +277,13 @@ namespace Models
     protected:
       // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The content of the credential.
+      // The credential content.
       shared_ptr<Credential::CredentialContent> credentialContent_ {};
       // The creation type of the credential. Valid values:
       // - system_init: Created by the system.
       // - user_custom: Created by the user.
       shared_ptr<string> credentialCreationType_ {};
+      // The external unique identifier of the credential.
       shared_ptr<string> credentialExternalId_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
@@ -294,18 +295,20 @@ namespace Models
       // - llm: Large language model.
       // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
+      // The credential sharing scope.
       shared_ptr<string> credentialSharingScope_ {};
-      // The ID of the subject to which the credential belongs.
+      // The subject ID to which the credential belongs.
       shared_ptr<string> credentialSubjectId_ {};
-      // The type of the subject to which the credential belongs. Valid values:
+      // The subject type to which the credential belongs. Valid values:
       // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
-      // - api_key: API key credential.
-      // - oauth_client: OAuth client credential.
+      // - api_key: API key authentication credential.
+      // - oauth_client: OAuth client authentication credential.
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
+      // The exclusive account ID of the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

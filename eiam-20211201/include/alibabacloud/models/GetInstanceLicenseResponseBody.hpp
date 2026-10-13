@@ -175,9 +175,9 @@ namespace Models
         shared_ptr<string> mimApplicationLicenseStatus_ {};
         // The network access endpoint quota of the license.
         shared_ptr<int64_t> networkAccessEndpointQuota_ {};
-        // The PAM privileged management license status. Valid values: enabled and disabled.
+        // The PAM privileged access management license status.
         shared_ptr<string> pamLicenseStatus_ {};
-        // The number of prepaid active accounts.
+        // The number of prepaid active users.
         shared_ptr<int64_t> prepaidActiveUserNumber_ {};
         // The user quota of the license.
         shared_ptr<int64_t> userQuota_ {};
@@ -282,7 +282,7 @@ namespace Models
       shared_ptr<License::InstanceLicenseDetail> instanceLicenseDetail_ {};
       // The billing type of the license.
       shared_ptr<string> licenseChargeType_ {};
-      // The detailed license configuration in JSON string format.
+      // The detailed license configuration as a JSON string.
       shared_ptr<string> licenseConfigJson_ {};
       // The creation time of the license, in timestamp format.
       shared_ptr<int64_t> licenseCreateTime_ {};
@@ -292,7 +292,7 @@ namespace Models
       shared_ptr<string> licenseStatus_ {};
       // The purchase channel of the license.
       shared_ptr<string> purchaseChannel_ {};
-      // The unique identifier of the external product associated with the license.
+      // The unique identifier of the external commodity associated with the license.
       shared_ptr<string> purchaseInstanceId_ {};
       // The start date of the license validity period, in timestamp format.
       shared_ptr<int64_t> startTime_ {};
@@ -319,7 +319,7 @@ namespace Models
 
 
   protected:
-    // The response result.
+    // The returned result.
     shared_ptr<GetInstanceLicenseResponseBody::License> license_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

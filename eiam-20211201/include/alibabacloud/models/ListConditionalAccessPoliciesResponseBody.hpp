@@ -148,17 +148,17 @@ namespace Models
 
 
       protected:
-        // Whether to enable secondary authentication session reuse.
+        // Indicates whether secondary authentication session reuse is enabled.
         shared_ptr<string> activeSessionReuseStatus_ {};
-        // Conditional access policy decision action:
-        // deny: Deny access.
-        // allow: Allow access.
+        // The decision action of the conditional access policy. Valid values:
+        // - deny: Deny.
+        // - allow: Allow.
         shared_ptr<string> effect_ {};
-        // Conditional access policy re-authentication interval (seconds), ranging from 300 to 86400.
+        // The MFA re-authentication interval of the conditional access policy, in seconds. Valid values: 300 to 86400.
         shared_ptr<int64_t> mfaAuthenticationIntervalSeconds_ {};
-        // MFA types allowed by the conditional access policy.
+        // The MFA methods allowed by the conditional access policy.
         shared_ptr<vector<string>> mfaAuthenticationMethods_ {};
-        // Conditional access policy MFA type.
+        // The MFA type of the conditional access policy.
         shared_ptr<string> mfaType_ {};
       };
 
@@ -271,17 +271,17 @@ namespace Models
 
 
         protected:
-          // Excluded user groups.
+          // The excluded user groups.
           shared_ptr<vector<string>> excludeGroups_ {};
-          // Excluded organizational units.
+          // The excluded organizational units.
           shared_ptr<vector<string>> excludeOrganizationalUnits_ {};
-          // Excluded users.
+          // The excluded users.
           shared_ptr<vector<string>> excludeUsers_ {};
-          // Included user groups.
+          // The included user groups.
           shared_ptr<vector<string>> includeGroups_ {};
-          // Included organizational units.
+          // The included organizational units.
           shared_ptr<vector<string>> includeOrganizationalUnits_ {};
-          // Included users.
+          // The included users.
           shared_ptr<vector<string>> includeUsers_ {};
         };
 
@@ -327,9 +327,9 @@ namespace Models
 
 
         protected:
-          // Excluded network zones.
+          // The excluded network zones.
           shared_ptr<vector<string>> excludeNetworkZones_ {};
-          // Included network zones.
+          // The included network zones.
           shared_ptr<vector<string>> includeNetworkZones_ {};
         };
 
@@ -375,9 +375,9 @@ namespace Models
 
 
         protected:
-          // Excluded applications.
+          // The excluded applications.
           shared_ptr<vector<string>> excludeApplications_ {};
-          // Included applications.
+          // The included applications.
           shared_ptr<vector<string>> includeApplications_ {};
         };
 
@@ -411,11 +411,11 @@ namespace Models
 
 
       protected:
-        // Conditional access policy target applications.
+        // The target applications of the conditional access policy.
         shared_ptr<ConditionsConfig::Applications> applications_ {};
-        // Conditional access policy network zones.
+        // The network zones of the conditional access policy.
         shared_ptr<ConditionsConfig::NetworkZones> networkZones_ {};
-        // Conditional access policy target users.
+        // The target users of the conditional access policy.
         shared_ptr<ConditionsConfig::Users> users_ {};
       };
 
@@ -519,31 +519,31 @@ namespace Models
 
 
     protected:
-      // Conditional access policy ID.
+      // The conditional access policy ID.
       shared_ptr<string> conditionalAccessPolicyId_ {};
-      // Conditional access policy name.
+      // The Policy Name of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyName_ {};
-      // Conditional access policy type.
+      // The type of the conditional access policy.
       shared_ptr<string> conditionalAccessPolicyType_ {};
-      // Conditional access policy conditions.
+      // The conditions configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::ConditionsConfig> conditionsConfig_ {};
-      // Creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Conditional access policy execution action.
+      // The decision action configuration of the conditional access policy.
       shared_ptr<ConditionalAccessPolicies::DecisionConfig> decisionConfig_ {};
-      // Conditional access policy execution type.
+      // The decision type of the conditional access policy.
       shared_ptr<string> decisionType_ {};
-      // Conditional access policy description.
+      // The description of the conditional access policy.
       shared_ptr<string> description_ {};
-      // Conditional access policy evaluation point.
+      // The evaluation point of the conditional access policy.
       shared_ptr<string> evaluateAt_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Update time.
+      // The update time. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastUpdatedTime_ {};
-      // Priority, ranging from 1 to 100.
+      // The priority. Valid values: 1 to 100.
       shared_ptr<int32_t> priority_ {};
-      // Conditional access policy enabled/disabled status.
+      // The enabled or disabled status of the conditional access policy.
       shared_ptr<string> status_ {};
     };
 
@@ -587,15 +587,15 @@ namespace Models
 
 
   protected:
-    // Collection of conditional access policies.
+    // The collection of conditional access policies.
     shared_ptr<vector<ListConditionalAccessPoliciesResponseBody::ConditionalAccessPolicies>> conditionalAccessPolicies_ {};
-    // The query token value returned by this call.
+    // The query token (Token) value returned by this call.
     shared_ptr<string> nextToken_ {};
-    // Previous page query token.
+    // The pagination token for the previous page.
     shared_ptr<string> previousToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of items in the list.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

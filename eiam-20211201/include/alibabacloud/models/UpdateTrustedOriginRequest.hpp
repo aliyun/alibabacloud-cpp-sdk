@@ -78,19 +78,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
-    // The ID of the IDaaS EIAM instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // If this parameter is not specified, the trusted origin name is not modified.
+    // The trusted origin name.
     shared_ptr<string> trustOriginName_ {};
-    // The ID of the trusted origin.
+    // The trusted origin ID.
     // 
     // This parameter is required.
     shared_ptr<string> trustedOriginId_ {};
-    // When specified, the existing values are entirely replaced. Only iframe_embed and cors are supported.
+    // The trusted origin scenario.
     shared_ptr<vector<string>> trustedOriginScene_ {};
   };
 

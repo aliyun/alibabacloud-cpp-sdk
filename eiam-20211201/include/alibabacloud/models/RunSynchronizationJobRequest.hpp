@@ -168,17 +168,16 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Specifies whether to initialize the password.
     shared_ptr<bool> passwordInitialization_ {};
-    // The configuration of the synchronization scope.
+    // The synchronization scope configuration.
     shared_ptr<RunSynchronizationJobRequest::SynchronizationScopeConfig> synchronizationScopeConfig_ {};
-    // The ID of the synchronization target.
+    // The synchronization target ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetId_ {};
-    // The type of the synchronization target. Valid values:
+    // The synchronization target type. Valid values:
     // 
-    // - identity_provider: The identity provider.
-    // 
-    // - application: The application.
+    // - identity_provider: identity provider
+    // - application: application
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

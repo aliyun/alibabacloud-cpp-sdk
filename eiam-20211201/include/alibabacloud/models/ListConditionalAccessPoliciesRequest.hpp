@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Number of rows per page in paginated queries.
+    // The number of rows per page in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // Next page query token.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // Previous page query token.
+    // The pagination token for the previous page.
     shared_ptr<string> previousToken_ {};
   };
 
