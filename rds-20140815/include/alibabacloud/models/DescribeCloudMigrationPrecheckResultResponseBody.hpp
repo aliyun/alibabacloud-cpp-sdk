@@ -168,7 +168,7 @@ namespace Models
 
 
     protected:
-      // The content of the assessment report.
+      // The content of the pre-check report for cloud migration.
       shared_ptr<string> detail_ {};
       // The time when the task was created.
       shared_ptr<string> gmtCreated_ {};
@@ -176,24 +176,24 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The username.
       shared_ptr<string> sourceAccount_ {};
-      // The environment in which the self-managed PostgreSQL instance runs.
+      // The type of the self-managed PostgreSQL database. Valid values:
       // 
-      // *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-      // *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+      // - **idcOnVpc**: a self-managed PostgreSQL database in an on-premises data center that is connected to a VPC.
+      // - **ecsOnVpc**: a self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
       shared_ptr<string> sourceCategory_ {};
-      // The private IP address that is used to connect to the self-managed PostgreSQL instance.
+      // The internal IP address of the self-managed PostgreSQL database.
       shared_ptr<string> sourceIpAddress_ {};
       // The password.
       shared_ptr<string> sourcePassword_ {};
-      // The port number that is used to connect to the self-managed PostgreSQL instance.
+      // The port of the self-managed PostgreSQL database.
       shared_ptr<int64_t> sourcePort_ {};
-      // A reserved parameter. The return value of this parameter is empty.
+      // A reserved parameter. The query result is empty.
       shared_ptr<string> targetEip_ {};
-      // The instance ID.
+      // The instance ID of the target instance.
       shared_ptr<string> targetInstanceName_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<int64_t> taskId_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -237,15 +237,15 @@ namespace Models
 
 
   protected:
-    // The details about the assessment report.
+    // The list of pre-check reports for one-click cloud migration.
     shared_ptr<vector<DescribeCloudMigrationPrecheckResultResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of queried entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

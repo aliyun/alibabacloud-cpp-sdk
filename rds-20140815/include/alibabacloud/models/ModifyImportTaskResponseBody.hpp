@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The status of the data import task.
     shared_ptr<string> status_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<int64_t> taskId_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

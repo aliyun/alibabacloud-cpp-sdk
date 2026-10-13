@@ -134,7 +134,7 @@ namespace Models
 
 
     protected:
-      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1 to 20**. The tag key cannot be an empty string.
+      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
       shared_ptr<string> key_ {};
       // The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1** to **20**. The tag value can be an empty string.
       shared_ptr<string> value_ {};
@@ -389,51 +389,50 @@ namespace Models
 
 
   protected:
-    // The number of RDS Custom instances to create. This parameter is applicable only to batch creation of RDS Custom instances.
+    // Specifies the number of RDS Custom instances to create. This parameter is applicable only when you create multiple RDS Custom instances at a time.
     // 
     // Valid values: **1** to **5**. Default value: **1**.
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable automatic payment.
-    // Valid values:
+    // Specifies whether to enable automatic payment. Valid values:
     // 
     // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-    // - **false**: Only an order is generated. No payment is made.
+    // - **false**: Only an order is generated and no payment is made.
     // 
     // 
-    // > The default value is true. If your payment method has an insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+    // > Default value: **true**. If the balance of your payment method is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. This parameter is valid only when you create subscription instances. Valid values:
-    // * **true**
-    // * **false**
+    // Specifies whether to enable auto-renewal for the instance. This parameter is valid only when you create a subscription instance. Valid values:
+    // * **true**: yes.
+    // * **false**: no.
     // 
-    // > * If you purchase on a monthly basis, the auto-renewal epoch is 1 month.
-    // > * If you purchase on a yearly basis, the auto-renewal epoch is 1 year.
+    // > * If the subscription duration is one month, the auto-renewal cycle is 1 month.
+    // > * If the subscription duration is one year, the auto-renewal cycle is 1 year.
     shared_ptr<bool> autoRenew_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the RDS Custom container cluster.
+    // The RDS Custom container cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to allow the instance to join an ACK cluster. If this parameter settings is set to **1**, the created instance can be added to an ACK cluster for efficient container application management.
+    // Specifies whether the instance is allowed to join an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster for efficient management of containerized applications.
     // 
-    // - **1**: Yes.
-    // - **0** (default): No.
+    // - **1**: yes.
+    // - **0** (default): no.
     shared_ptr<string> createMode_ {};
-    // The list of data cloud disks.
+    // The data cloud disks.
     shared_ptr<string> dataDiskShrink_ {};
     // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
-    // The instance description. The description must be 2 to 256 characters in length and can contain letters and Chinese characters. The description cannot start with http:// or https://.
+    // The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run for this request. Valid values:
-    // * **true**: performs a dry run without creating the instance. The system checks the request parameters, request format, service limits, and available stock.
-    // * **false** (default): sends the request. If the request passes the check, the instance is created.
+    // Specifies whether to perform a dry run before creating the instance. Valid values:
+    // * **true**: A dry run is performed and no instance is created. The system checks the request parameters, request format, service limits, and available resources.
+    // * **false** (default): A normal request is sent and the instance is created if the request passes the dry run.
     shared_ptr<bool> dryRun_ {};
     // The hostname of the instance.
     shared_ptr<string> hostName_ {};
-    // The image ID used by the instance.
+    // The image ID of the instance.
     shared_ptr<string> imageId_ {};
     // The billing method. Valid values:
     // * **Prepaid**: subscription.
@@ -441,27 +440,27 @@ namespace Models
     shared_ptr<string> instanceChargeType_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The instance type. For the instance types supported by RDS Custom instances, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
+    // The instance type. For the instance types supported by RDS Custom, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> internetChargeType_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> ioOptimized_ {};
-    // The name of the key pair. Only a single name is supported.
+    // The key pair name. Only one key pair name is supported.
     shared_ptr<string> keyPairName_ {};
-    // The name of the node pool.
+    // The node pool name.
     shared_ptr<string> nodePoolName_ {};
-    // The password of the root account of the instance.
+    // The password of the root account for the instance.
     shared_ptr<string> password_ {};
     // The subscription duration of the resource. Default value: **1**.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration for the subscription billable methods. Valid values:
-    // - **Year**
-    // - **Month** (default)
+    // The time unit of the subscription billing method. Valid values:
+    // - **Year**: year.
+    // - **Month** (default): month.
     shared_ptr<string> periodUnit_ {};
     // The region ID.
     // 
@@ -469,28 +468,28 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> securityEnhancementStrategy_ {};
-    // The security group ID. You can specify an existing security group ID. If the security group does not exist, automatic creation of a security group is performed.
+    // The security group ID. You can specify an existing security group ID. If the specified security group does not exist, a security group is automatically created.
     shared_ptr<string> securityGroupId_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> spotStrategy_ {};
-    // The supported scenario. This parameter is required when **createMode** is set to **1**. Currently, only **edge** is supported.
+    // The supported scenario. This parameter is required when the **createMode** parameter is set to **1**. Only **edge** is supported.
     shared_ptr<string> supportCase_ {};
-    // The system cloud disk specifications.
+    // The system cloud disk.
     shared_ptr<string> systemDiskShrink_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<CreateRCNodePoolShrinkRequest::Tag>> tag_ {};
-    // A reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> userData_ {};
     // The vSwitch ID.
     // 
-    // > The vSwitch must be in the same zone as the ApsaraDB RDS instance.
+    // > The vSwitch must be in the same zone as the RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
     // The zone ID of the instance.
-    // > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the specified vSwitch. You can also leave this parameter empty, and the system automatically selects the zone of the specified vSwitch.
+    // > If you specify the VSwitchId parameter, the ZoneId parameter must be set to the zone where the vSwitch resides. You can also leave the ZoneId parameter empty, and the system automatically selects the zone where the specified vSwitch resides.
     shared_ptr<string> zoneId_ {};
   };
 

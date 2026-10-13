@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The list of instance IDs.
+    // The instance IDs.
     shared_ptr<vector<string>> instanceIdSets_ {};
     // The node pool ID.
     shared_ptr<string> nodePoolId_ {};

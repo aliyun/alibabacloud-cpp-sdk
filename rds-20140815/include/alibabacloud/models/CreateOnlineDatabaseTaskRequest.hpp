@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
+      DARABONBA_PTR_TO_JSON(KeepCDC, keepCDC_);
       DARABONBA_PTR_TO_JSON(MigrateTaskId, migrateTaskId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
+      DARABONBA_PTR_FROM_JSON(KeepCDC, keepCDC_);
       DARABONBA_PTR_FROM_JSON(MigrateTaskId, migrateTaskId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkDBMode_ == nullptr
-        && this->clientToken_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->migrateTaskId_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->clientToken_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->keepCDC_ == nullptr && this->migrateTaskId_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // checkDBMode Field Functions 
     bool hasCheckDBMode() const { return this->checkDBMode_ != nullptr;};
     void deleteCheckDBMode() { this->checkDBMode_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteDBName() { this->DBName_ = nullptr;};
     inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline CreateOnlineDatabaseTaskRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
+
+
+    // keepCDC Field Functions 
+    bool hasKeepCDC() const { return this->keepCDC_ != nullptr;};
+    void deleteKeepCDC() { this->keepCDC_ = nullptr;};
+    inline bool getKeepCDC() const { DARABONBA_PTR_GET_DEFAULT(keepCDC_, false) };
+    inline CreateOnlineDatabaseTaskRequest& setKeepCDC(bool keepCDC) { DARABONBA_PTR_SET_VALUE(keepCDC_, keepCDC) };
 
 
     // migrateTaskId Field Functions 
@@ -112,25 +121,27 @@ namespace Models
 
 
   protected:
-    // The consistency check method after the database is open. Valid values:
-    // * **SyncExecuteDBCheck**: synchronous database check.
-    // * **AsyncExecuteDBCheck**: asynchronous database check.
+    // The consistency check method used after the database is opened. Valid values:
+    // * **SyncExecuteDBCheck**: Executes the database check synchronously.
+    // * **AsyncExecuteDBCheck**: Executes the database check asynchronously.
     // 
-    // >Compatible with SQL Server 2008 R2.
+    // > Compatible with SQL Server 2008 R2.
     // 
     // This parameter is required.
     shared_ptr<string> checkDBMode_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can contain a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database name.
+    // The name of the database.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
-    // The migration task ID.
+    // Specifies whether to retain the database-level and table-level Change Data Capture (CDC) settings and the data in change tables. Regardless of the value of this parameter, CDC jobs are not rebuilt.
+    shared_ptr<bool> keepCDC_ {};
+    // The ID of the migration task.
     // 
     // This parameter is required.
     shared_ptr<string> migrateTaskId_ {};

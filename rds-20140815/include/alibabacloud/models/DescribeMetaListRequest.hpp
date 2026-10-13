@@ -149,39 +149,39 @@ namespace Models
 
 
   protected:
-    // The ID of the backup set used for the query. You can call DescribeBackups to query the backup set ID.
+    // The ID of the backup set that is used to query data when the restore method is based on a backup set. You can call the DescribeBackups operation to query the ID.
     // > This parameter is required when **RestoreType** is set to **BackupSetID**.
     shared_ptr<int64_t> backupSetID_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database to query. This parameter supports exact match and returns the specified database name and all tables in the database.
-    // > If you leave this parameter empty, a list of all databases is returned.
+    // The name of the database to query. Exact match is used. The specific database name and all tables in the database are returned.
+    // > If this parameter is left empty, a list of all databases is returned.
     shared_ptr<string> getDbName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: greater than **0** and up to the maximum value of Integer. Default value: **1**.
-    // > This parameter takes effect only when it is specified together with **PageSize**.
+    // The page number. Valid values: any integer greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
+    // > This parameter takes effect only when it is used together with **PageSize**.
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries per page. Default value: **1**.
-    // > This parameter takes effect only when it is specified together with **PageIndex**.
+    // > This parameter takes effect only when it is used together with **PageIndex**.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the database to query. This parameter supports fuzzy match and returns only the matched database names without table names.
-    // > For example, if you specify `test`, the databases `testdb1` and `testdb2` are matched. After you identify the target database, specify the exact database name by using the **GetDbName** parameter to query all tables in the database.
+    // The name of the database to query. Fuzzy match is used. Only the matched database names are returned, and table names are not returned.
+    // > For example, if you specify `test`, `testdb1` and `testdb2` are matched. After you determine the name of the target database, you can specify the exact database name in the **GetDbName** parameter to view the information about all tables in the target database.
     shared_ptr<string> pattern_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time used for the query. The value must be earlier than the current time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC). You can call DescribeBackups to query available time points.
+    // The point in time to which you want to restore data. The time must be earlier than the current time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC. You can call the DescribeBackups operation to query the time.
     // > This parameter is required when **RestoreType** is set to **RestoreTime**.
     shared_ptr<string> restoreTime_ {};
-    // The restoration method. Valid values:
+    // The restore method. Valid values:
     // 
-    // * **BackupSetID**: Restores data from a backup set. You must also specify the **BackupSetID** parameter.
-    // * **RestoreTime**: Restores data to a point in time. You must also specify the **RestoreTime** parameter.
+    // * **BackupSetID**: restores data from a backup set. If you set this parameter to BackupSetID, you must also specify the **BackupSetID** parameter.
+    // * **RestoreTime**: restores data to a specific point in time. If you set this parameter to RestoreTime, you must also specify the **RestoreTime** parameter.
     // 
     // Default value: **BackupSetID**.
     shared_ptr<string> restoreType_ {};

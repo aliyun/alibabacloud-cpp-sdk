@@ -136,23 +136,23 @@ namespace Models
     protected:
       // The instance family.
       shared_ptr<string> classGroup_ {};
-      // The number of CPU cores for the instance type. Unit: cores.
+      // The number of CPU cores that correspond to the instance specifications. Unit: cores.
       shared_ptr<string> cpu_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
       // The effective period. Valid values:
-      // * **Immediate** (default): The specification change takes effect immediately.
-      // * **MaintainTime**: The specification change takes effect during the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
+      // * **Immediate** (default): The changes take effect immediately.
+      // * **MaintainTime**: The changes take effect within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
       shared_ptr<string> effectiveTime_ {};
       // The mark.
       shared_ptr<string> mark_ {};
-      // The memory capacity for the instance type. Unit: GB.
+      // The memory capacity that corresponds to the instance specifications. Unit: GB.
       shared_ptr<string> memoryClass_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The storage description.
+      // The storage information.
       shared_ptr<string> storage_ {};
-      // The target instance type for the specification change.
+      // The target instance specifications for the specification change.
       shared_ptr<string> targetDBInstanceClass_ {};
     };
 

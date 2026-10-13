@@ -1777,19 +1777,19 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRole(const CheckService
 }
 
 /**
- * @summary Restores historical data to a new instance (clone instance).
+ * @summary Restores historical data to a new instance, also known as a clone instance.
  *
- * @description ### Supported engines
+ * @description ### Supported database engines
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * - ApsaraDB RDS for SQL Server
  * - ApsaraDB RDS for MariaDB
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
- * - [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
- * - [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
- * - [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
- * - [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
+ * - [Restore data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96147.html)
+ * - [Restore data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96776.html)
+ * - [Restore data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95722.html)
+ * - [Restore data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97151.html)
  *
  * @param tmpReq CloneDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1958,19 +1958,19 @@ CloneDBInstanceResponse Client::cloneDBInstanceWithOptions(const CloneDBInstance
 }
 
 /**
- * @summary Restores historical data to a new instance (clone instance).
+ * @summary Restores historical data to a new instance, also known as a clone instance.
  *
- * @description ### Supported engines
+ * @description ### Supported database engines
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * - ApsaraDB RDS for SQL Server
  * - ApsaraDB RDS for MariaDB
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation before you proceed.
- * - [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
- * - [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
- * - [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
- * - [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
+ * - [Restore data for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96147.html)
+ * - [Restore data for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/96776.html)
+ * - [Restore data for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95722.html)
+ * - [Restore data for ApsaraDB RDS for MariaDB](https://help.aliyun.com/document_detail/97151.html)
  *
  * @param request CloneDBInstanceRequest
  * @return CloneDBInstanceResponse
@@ -2671,21 +2671,21 @@ CreateCloudMigrationTaskResponse Client::createCloudMigrationTask(const CreateCl
 /**
  * @summary Creates an ApsaraDB RDS instance.
  *
- * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * - RDS SQL Server
- * - RDS MariaDB
- * ### Related feature documentation
- * >Warning: This API operation involves fees. Read the related feature documentation carefully before you call this operation.
- * If an error is returned when you call this operation, search for the error message to find the cause.
+ * @description ### Supported engines
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * - ApsaraDB RDS for SQL Server
+ * - ApsaraDB RDS for MariaDB
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you proceed.
+ * If an error occurs when you call the API operation, you can search for the error message to identify the cause.
  * - [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
- * - [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+ * - [Create an ApsaraDB RDS for MySQL Serverless instance](https://help.aliyun.com/document_detail/412231.html)
  * - [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
- * - [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+ * - [Create an ApsaraDB RDS for PostgreSQL Serverless instance](https://help.aliyun.com/document_detail/607753.html)
  * - [Create a Babelfish for ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
  * - [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
- * - [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+ * - [Create an ApsaraDB RDS for SQL Server Serverless instance](https://help.aliyun.com/document_detail/603465.html)
  * - [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
  *
  * @param tmpReq CreateDBInstanceRequest
@@ -2969,21 +2969,21 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 /**
  * @summary Creates an ApsaraDB RDS instance.
  *
- * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * - RDS SQL Server
- * - RDS MariaDB
- * ### Related feature documentation
- * >Warning: This API operation involves fees. Read the related feature documentation carefully before you call this operation.
- * If an error is returned when you call this operation, search for the error message to find the cause.
+ * @description ### Supported engines
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * - ApsaraDB RDS for SQL Server
+ * - ApsaraDB RDS for MariaDB
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you proceed.
+ * If an error occurs when you call the API operation, you can search for the error message to identify the cause.
  * - [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
- * - [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+ * - [Create an ApsaraDB RDS for MySQL Serverless instance](https://help.aliyun.com/document_detail/412231.html)
  * - [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
- * - [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+ * - [Create an ApsaraDB RDS for PostgreSQL Serverless instance](https://help.aliyun.com/document_detail/607753.html)
  * - [Create a Babelfish for ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
  * - [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
- * - [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+ * - [Create an ApsaraDB RDS for SQL Server Serverless instance](https://help.aliyun.com/document_detail/603465.html)
  * - [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
  *
  * @param request CreateDBInstanceRequest
@@ -4349,18 +4349,18 @@ CreateMaskingRulesResponse Client::createMaskingRules(const CreateMaskingRulesRe
 }
 
 /**
- * @summary Restores a self-managed SQL Server backup file from Object Storage Service (OSS) to an ApsaraDB RDS for SQL Server instance to migrate data to the cloud.
+ * @summary Restores self-managed SQL Server backup files from Object Storage Service (OSS) to an ApsaraDB RDS for SQL Server instance to migrate data to the cloud.
  *
- * @description ### Applicable DPI engine
+ * @description ### Supported DPI engines
  * ApsaraDB RDS for SQL Server
  * ### Before you begin
  * [Upload self-managed SQL Server backup data to OSS](https://help.aliyun.com/document_detail/100019.html).
  * ### Limits
- * - Cross-account data replication is not supported. For example, you cannot migrate a backup file from OSS under Alibaba Cloud account A to an ApsaraDB RDS for SQL Server instance under Alibaba Cloud account B.
- * - To migrate data across accounts, first [copy the OSS data from source account A to an OSS bucket under target account B](https://help.aliyun.com/document_detail/2401486.html). Make sure that the OSS data and the ApsaraDB RDS for SQL Server instance belong to the same Alibaba Cloud account before you call the operation described in this topic to create a migration node.
- * ### Related feature documentation
- * >Notice: Before you call this operation, read the following feature documentation carefully. Make sure that you fully understand the **prerequisites**, **preparations**, and potential impacts of this operation.
- * [Migrate data to an ApsaraDB RDS for SQL Server instance at the instance level](https://help.aliyun.com/document_detail/100019.html)
+ * - Cross-account data migration is not supported. For example, you cannot migrate backup files from OSS under Alibaba Cloud Account A to an ApsaraDB RDS for SQL Server instance under Alibaba Cloud Account B.
+ * - To migrate data across accounts, first [perform data replication to transfer the OSS data from source Account A to the OSS bucket of destination Account B](https://help.aliyun.com/document_detail/2401486.html). Make sure that the OSS data and the ApsaraDB RDS for SQL Server instance belong to the same Alibaba Cloud account before you use the API operation in this topic to create a migration task.
+ * ### Related documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the **prerequisites**, **preparations**, and impacts of the operation.
+ * [Migrate data at the instance level to the cloud](https://help.aliyun.com/document_detail/100019.html)
  *
  * @param request CreateMigrateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4387,6 +4387,10 @@ CreateMigrateTaskResponse Client::createMigrateTaskWithOptions(const CreateMigra
 
   if (!!request.hasIsOnlineDB()) {
     query["IsOnlineDB"] = request.getIsOnlineDB();
+  }
+
+  if (!!request.hasKeepCDC()) {
+    query["KeepCDC"] = request.getKeepCDC();
   }
 
   if (!!request.hasMigrateTaskId()) {
@@ -4431,18 +4435,18 @@ CreateMigrateTaskResponse Client::createMigrateTaskWithOptions(const CreateMigra
 }
 
 /**
- * @summary Restores a self-managed SQL Server backup file from Object Storage Service (OSS) to an ApsaraDB RDS for SQL Server instance to migrate data to the cloud.
+ * @summary Restores self-managed SQL Server backup files from Object Storage Service (OSS) to an ApsaraDB RDS for SQL Server instance to migrate data to the cloud.
  *
- * @description ### Applicable DPI engine
+ * @description ### Supported DPI engines
  * ApsaraDB RDS for SQL Server
  * ### Before you begin
  * [Upload self-managed SQL Server backup data to OSS](https://help.aliyun.com/document_detail/100019.html).
  * ### Limits
- * - Cross-account data replication is not supported. For example, you cannot migrate a backup file from OSS under Alibaba Cloud account A to an ApsaraDB RDS for SQL Server instance under Alibaba Cloud account B.
- * - To migrate data across accounts, first [copy the OSS data from source account A to an OSS bucket under target account B](https://help.aliyun.com/document_detail/2401486.html). Make sure that the OSS data and the ApsaraDB RDS for SQL Server instance belong to the same Alibaba Cloud account before you call the operation described in this topic to create a migration node.
- * ### Related feature documentation
- * >Notice: Before you call this operation, read the following feature documentation carefully. Make sure that you fully understand the **prerequisites**, **preparations**, and potential impacts of this operation.
- * [Migrate data to an ApsaraDB RDS for SQL Server instance at the instance level](https://help.aliyun.com/document_detail/100019.html)
+ * - Cross-account data migration is not supported. For example, you cannot migrate backup files from OSS under Alibaba Cloud Account A to an ApsaraDB RDS for SQL Server instance under Alibaba Cloud Account B.
+ * - To migrate data across accounts, first [perform data replication to transfer the OSS data from source Account A to the OSS bucket of destination Account B](https://help.aliyun.com/document_detail/2401486.html). Make sure that the OSS data and the ApsaraDB RDS for SQL Server instance belong to the same Alibaba Cloud account before you use the API operation in this topic to create a migration task.
+ * ### Related documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the **prerequisites**, **preparations**, and impacts of the operation.
+ * [Migrate data at the instance level to the cloud](https://help.aliyun.com/document_detail/100019.html)
  *
  * @param request CreateMigrateTaskRequest
  * @return CreateMigrateTaskResponse
@@ -4453,16 +4457,16 @@ CreateMigrateTaskResponse Client::createMigrateTask(const CreateMigrateTaskReque
 }
 
 /**
- * @summary Opens a database for a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+ * @summary Opens the database for a backup data migration task in ApsaraDB RDS for SQL Server.
  *
- * @description ### Applicable engine
+ * @description ### Supported database engines
  * - ApsaraDB RDS for SQL Server
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
- * This operation is used for backup data migration to the cloud. Read the following documentation before you call this operation:
- * - [Migrate full backup data to ApsaraDB RDS for SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
- * - [Migrate full backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, and 2019](https://help.aliyun.com/document_detail/95738.html)
- * - [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, and 2019](https://help.aliyun.com/document_detail/95736.html)
+ * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
+ * This operation migrates backup data to the cloud. Read the following documents before you call this operation:
+ * - [Migrate full backup data to the cloud (SQL Server 2008 R2)](https://help.aliyun.com/document_detail/95737.html)
+ * - [Migrate full backup data to the cloud (SQL Server 2012, 2014, 2016, 2017, and 2019)](https://help.aliyun.com/document_detail/95738.html)
+ * - [Migrate incremental backup data to the cloud (SQL Server 2012, 2014, 2016, 2017, and 2019)](https://help.aliyun.com/document_detail/95736.html)
  *
  * @param request CreateOnlineDatabaseTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4485,6 +4489,10 @@ CreateOnlineDatabaseTaskResponse Client::createOnlineDatabaseTaskWithOptions(con
 
   if (!!request.hasDBName()) {
     query["DBName"] = request.getDBName();
+  }
+
+  if (!!request.hasKeepCDC()) {
+    query["KeepCDC"] = request.getKeepCDC();
   }
 
   if (!!request.hasMigrateTaskId()) {
@@ -4525,16 +4533,16 @@ CreateOnlineDatabaseTaskResponse Client::createOnlineDatabaseTaskWithOptions(con
 }
 
 /**
- * @summary Opens a database for a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+ * @summary Opens the database for a backup data migration task in ApsaraDB RDS for SQL Server.
  *
- * @description ### Applicable engine
+ * @description ### Supported database engines
  * - ApsaraDB RDS for SQL Server
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
- * This operation is used for backup data migration to the cloud. Read the following documentation before you call this operation:
- * - [Migrate full backup data to ApsaraDB RDS for SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
- * - [Migrate full backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, and 2019](https://help.aliyun.com/document_detail/95738.html)
- * - [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, and 2019](https://help.aliyun.com/document_detail/95736.html)
+ * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and impacts.
+ * This operation migrates backup data to the cloud. Read the following documents before you call this operation:
+ * - [Migrate full backup data to the cloud (SQL Server 2008 R2)](https://help.aliyun.com/document_detail/95737.html)
+ * - [Migrate full backup data to the cloud (SQL Server 2012, 2014, 2016, 2017, and 2019)](https://help.aliyun.com/document_detail/95738.html)
+ * - [Migrate incremental backup data to the cloud (SQL Server 2012, 2014, 2016, 2017, and 2019)](https://help.aliyun.com/document_detail/95736.html)
  *
  * @param request CreateOnlineDatabaseTaskRequest
  * @return CreateOnlineDatabaseTaskResponse
@@ -5123,7 +5131,7 @@ CreateRCImageResponse Client::createRCImage(const CreateRCImageRequest &request)
 }
 
 /**
- * @summary Creates an edge node pool in the ACK Edge cluster of an RDS Custom instance.
+ * @summary Creates an edge node pool in an ACK Edge cluster for RDS Custom.
  *
  * @param tmpReq CreateRCNodePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5296,7 +5304,7 @@ CreateRCNodePoolResponse Client::createRCNodePoolWithOptions(const CreateRCNodeP
 }
 
 /**
- * @summary Creates an edge node pool in the ACK Edge cluster of an RDS Custom instance.
+ * @summary Creates an edge node pool in an ACK Edge cluster for RDS Custom.
  *
  * @param request CreateRCNodePoolRequest
  * @return CreateRCNodePoolResponse
@@ -9329,7 +9337,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary Queries the backup task list of an ApsaraDB RDS instance.
+ * @summary Queries the backup tasks of an ApsaraDB RDS instance.
  *
  * @description ### Supported engines
  * - RDS MySQL
@@ -9402,7 +9410,7 @@ DescribeBackupTasksResponse Client::describeBackupTasksWithOptions(const Describ
 }
 
 /**
- * @summary Queries the backup task list of an ApsaraDB RDS instance.
+ * @summary Queries the backup tasks of an ApsaraDB RDS instance.
  *
  * @description ### Supported engines
  * - RDS MySQL
@@ -9771,10 +9779,10 @@ DescribeClassDetailsResponse Client::describeClassDetails(const DescribeClassDet
 }
 
 /**
- * @summary Query the details about the assessment report for cloud migration to an instance.
+ * @summary Queries the details of the pre-check report for one-click cloud migration.
  *
- * @description ### [](#)Supported database engines
- * *   PostgreSQL
+ * @description ### Supported engines
+ * - ApsaraDB RDS for PostgreSQL
  *
  * @param request DescribeCloudMigrationPrecheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9833,10 +9841,10 @@ DescribeCloudMigrationPrecheckResultResponse Client::describeCloudMigrationPrech
 }
 
 /**
- * @summary Query the details about the assessment report for cloud migration to an instance.
+ * @summary Queries the details of the pre-check report for one-click cloud migration.
  *
- * @description ### [](#)Supported database engines
- * *   PostgreSQL
+ * @description ### Supported engines
+ * - ApsaraDB RDS for PostgreSQL
  *
  * @param request DescribeCloudMigrationPrecheckResultRequest
  * @return DescribeCloudMigrationPrecheckResultResponse
@@ -12768,10 +12776,10 @@ DescribeDBInstancesForCloneResponse Client::describeDBInstancesForClone(const De
  * @summary Queries the list of available minor engine versions for MySQL or PostgreSQL.
  *
  * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * ### Description
- * This operation is used to query the details of minor engine versions before you purchase or upgrade an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance, so that you can select a version as needed.
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * ### Feature description
+ * This operation queries the details of minor engine versions before you purchase or upgrade an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance. This helps you select a minor engine version based on your business requirements.
  *
  * @param request DescribeDBMiniEngineVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12837,10 +12845,10 @@ DescribeDBMiniEngineVersionsResponse Client::describeDBMiniEngineVersionsWithOpt
  * @summary Queries the list of available minor engine versions for MySQL or PostgreSQL.
  *
  * @description ### Applicable engines
- * - RDS MySQL
- * - RDS PostgreSQL
- * ### Description
- * This operation is used to query the details of minor engine versions before you purchase or upgrade an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance, so that you can select a version as needed.
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * ### Feature description
+ * This operation queries the details of minor engine versions before you purchase or upgrade an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance. This helps you select a minor engine version based on your business requirements.
  *
  * @param request DescribeDBMiniEngineVersionsRequest
  * @return DescribeDBMiniEngineVersionsResponse
@@ -15253,13 +15261,13 @@ DescribeMaskingRulesResponse Client::describeMaskingRules(const DescribeMaskingR
 }
 
 /**
- * @summary Queries the databases and tables that can be restored from a specified backup set.
+ * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * ApsaraDB RDS for MySQL
- * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition (local SSD) are supported.
- * ### Description
- * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to perform [individual database and table restoration for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the databases and tables that can be restored.
+ * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition instances with local SSDs are supported.
+ * ### Feature description
+ * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore individual databases and tables in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about the databases and tables that can be restored.
  *
  * @param request DescribeMetaListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15338,13 +15346,13 @@ DescribeMetaListResponse Client::describeMetaListWithOptions(const DescribeMetaL
 }
 
 /**
- * @summary Queries the databases and tables that can be restored from a specified backup set.
+ * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
  *
- * @description ### Applicable engine
+ * @description ### Supported engines
  * ApsaraDB RDS for MySQL
- * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition (local SSD) are supported.
- * ### Description
- * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to perform [individual database and table restoration for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the databases and tables that can be restored.
+ * > Only MySQL 8.0, 5.7, and 5.6 High-availability Edition instances with local SSDs are supported.
+ * ### Feature description
+ * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to [restore individual databases and tables in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/103175.html), you can call this operation to query the information about the databases and tables that can be restored.
  *
  * @param request DescribeMetaListRequest
  * @return DescribeMetaListResponse
@@ -25095,7 +25103,18 @@ ModifyDBInstanceSecurityGroupRuleResponse Client::modifyDBInstanceSecurityGroupR
 /**
  * @summary Modifies the specifications and storage capacity of an ApsaraDB RDS instance.
  *
- * @description ### Supported engines.
+ * @description ### Supported engines
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * - ApsaraDB RDS for SQL Server
+ * - ApsaraDB RDS for MariaDB
+ * ### Billing
+ * This API operation incurs [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
+ * ### Relevant feature documentation
+ * - [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+ * - [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+ * - [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+ * - [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
  *
  * @param tmpReq ModifyDBInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25262,7 +25281,18 @@ ModifyDBInstanceSpecResponse Client::modifyDBInstanceSpecWithOptions(const Modif
 /**
  * @summary Modifies the specifications and storage capacity of an ApsaraDB RDS instance.
  *
- * @description ### Supported engines.
+ * @description ### Supported engines
+ * - ApsaraDB RDS for MySQL
+ * - ApsaraDB RDS for PostgreSQL
+ * - ApsaraDB RDS for SQL Server
+ * - ApsaraDB RDS for MariaDB
+ * ### Billing
+ * This API operation incurs [specification change fees](https://help.aliyun.com/document_detail/57178.html). Read the relevant feature documentation before you proceed.
+ * ### Relevant feature documentation
+ * - [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+ * - [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+ * - [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+ * - [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
  *
  * @param request ModifyDBInstanceSpecRequest
  * @return ModifyDBInstanceSpecResponse
@@ -25383,13 +25413,13 @@ ModifyDBInstanceTDEResponse Client::modifyDBInstanceTDE(const ModifyDBInstanceTD
 }
 
 /**
- * @summary Enables or disables the vector storage feature for an ApsaraDB RDS for MySQL instance.
+ * @summary Enables or disables vector storage for an ApsaraDB RDS for MySQL instance.
  *
- * @description ### Applicable engine
- * - RDS MySQL
- * ### Related feature documentation
- * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of this operation.
- * - [RDS MySQL vector storage](https://help.aliyun.com/document_detail/2998661.html)
+ * @description ### Applicable engines
+ * - ApsaraDB RDS for MySQL
+ * ### Related documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+ * - [Vector storage for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2998661.html)
  *
  * @param request ModifyDBInstanceVectorSupportStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25424,13 +25454,13 @@ ModifyDBInstanceVectorSupportStatusResponse Client::modifyDBInstanceVectorSuppor
 }
 
 /**
- * @summary Enables or disables the vector storage feature for an ApsaraDB RDS for MySQL instance.
+ * @summary Enables or disables vector storage for an ApsaraDB RDS for MySQL instance.
  *
- * @description ### Applicable engine
- * - RDS MySQL
- * ### Related feature documentation
- * >Notice: Before you call this operation, carefully read the feature documentation to fully understand the prerequisites and impacts of this operation.
- * - [RDS MySQL vector storage](https://help.aliyun.com/document_detail/2998661.html)
+ * @description ### Applicable engines
+ * - ApsaraDB RDS for MySQL
+ * ### Related documentation
+ * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+ * - [Vector storage for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/2998661.html)
  *
  * @param request ModifyDBInstanceVectorSupportStatusRequest
  * @return ModifyDBInstanceVectorSupportStatusResponse
@@ -26126,7 +26156,7 @@ ModifyDTCSecurityIpHostsForSQLServerResponse Client::modifyDTCSecurityIpHostsFor
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
  * <props="china">
  * - [Automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
  * - [Automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
@@ -26203,7 +26233,7 @@ ModifyDasInstanceConfigResponse Client::modifyDasInstanceConfigWithOptions(const
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+ * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.</notice>
  * <props="china">
  * - [Automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
  * - [Automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
@@ -26609,9 +26639,9 @@ ModifyHASwitchConfigResponse Client::modifyHASwitchConfig(const ModifyHASwitchCo
 }
 
 /**
- * @summary Modifies a data import task for an ApsaraDB RDS for MySQL native replication instance.
+ * @summary Modifies the data import task for an ApsaraDB RDS for MySQL instance that uses native replication.
  *
- * @description Modifies a data import task for an ApsaraDB RDS for MySQL native replication instance.
+ * @description Modifies the data import task for an ApsaraDB RDS for MySQL instance that uses native replication.
  *
  * @param request ModifyImportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26658,9 +26688,9 @@ ModifyImportTaskResponse Client::modifyImportTaskWithOptions(const ModifyImportT
 }
 
 /**
- * @summary Modifies a data import task for an ApsaraDB RDS for MySQL native replication instance.
+ * @summary Modifies the data import task for an ApsaraDB RDS for MySQL instance that uses native replication.
  *
- * @description Modifies a data import task for an ApsaraDB RDS for MySQL native replication instance.
+ * @description Modifies the data import task for an ApsaraDB RDS for MySQL instance that uses native replication.
  *
  * @param request ModifyImportTaskRequest
  * @return ModifyImportTaskResponse
@@ -27149,9 +27179,9 @@ ModifyParameterResponse Client::modifyParameter(const ModifyParameterRequest &re
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
- * - [Use a parameter template for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
- * - [Use a parameter template for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+ * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and the impacts of the operation.
+ * - [Use parameter templates in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/130565.html)
+ * - [Use parameter templates in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/457176.html)
  *
  * @param request ModifyParameterGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27224,9 +27254,9 @@ ModifyParameterGroupResponse Client::modifyParameterGroupWithOptions(const Modif
  * - ApsaraDB RDS for MySQL
  * - ApsaraDB RDS for PostgreSQL
  * ### Related documentation
- * >Notice: Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts of this operation.
- * - [Use a parameter template for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
- * - [Use a parameter template for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+ * >Notice: Before you call this operation, read the documentation to fully understand the prerequisites and the impacts of the operation.
+ * - [Use parameter templates in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/130565.html)
+ * - [Use parameter templates in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/457176.html)
  *
  * @param request ModifyParameterGroupRequest
  * @return ModifyParameterGroupResponse
@@ -27643,15 +27673,16 @@ ModifyRCElasticScalingResponse Client::modifyRCElasticScaling(const ModifyRCElas
 }
 
 /**
- * @summary Calls the ModifyRCInstance operation to upgrade or downgrade the instance type of an RDS Custom instance.
+ * @summary Upgrades or downgrades the instance type of an RDS Custom instance.
  *
- * @description Before you invoke this operation, make sure that you fully understand the billing methods, pricing, and refund rules for downgrading RDS Custom instances.
- * When you invoke this operation, take note of the following items:
- * - You cannot modify the instance type of an expired instance. Complete the renewal and try again.
- * - Only **Standard Edition cloud disk instances** support instance type changes.
+ * @description Before you call this operation, make sure that you fully understand the billing methods, pricing, and refund rules for downgrades of RDS Custom instances.
+ * When you call this operation, take note of the following items:
+ * - You cannot modify the instance type of an expired instance. You can try again after you renew the instance.
+ * - Only **standard cloud disk instances** support instance type changes.
  * - When you upgrade or downgrade the instance type, take note of the following items:
- *   - The instance must be in the **Running** or **Paused** (Stopped) state.
- *   - The price difference after you decrease the quota is refunded to your original payment method. Coupons that have been used are not refunded. The payer receives the refund.
+ *   - The instance must be in the **Running** or **Stopped** state.
+ *   - The price difference for the downgrade is refunded to your original payment method. Vouchers that have been used are not refunded.
+ * - Before you change the instance type or system cloud disk type, call the DescribeRCResourcesModification operation to query the available inventory in the destination zone.
  *
  * @param request ModifyRCInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27722,15 +27753,16 @@ ModifyRCInstanceResponse Client::modifyRCInstanceWithOptions(const ModifyRCInsta
 }
 
 /**
- * @summary Calls the ModifyRCInstance operation to upgrade or downgrade the instance type of an RDS Custom instance.
+ * @summary Upgrades or downgrades the instance type of an RDS Custom instance.
  *
- * @description Before you invoke this operation, make sure that you fully understand the billing methods, pricing, and refund rules for downgrading RDS Custom instances.
- * When you invoke this operation, take note of the following items:
- * - You cannot modify the instance type of an expired instance. Complete the renewal and try again.
- * - Only **Standard Edition cloud disk instances** support instance type changes.
+ * @description Before you call this operation, make sure that you fully understand the billing methods, pricing, and refund rules for downgrades of RDS Custom instances.
+ * When you call this operation, take note of the following items:
+ * - You cannot modify the instance type of an expired instance. You can try again after you renew the instance.
+ * - Only **standard cloud disk instances** support instance type changes.
  * - When you upgrade or downgrade the instance type, take note of the following items:
- *   - The instance must be in the **Running** or **Paused** (Stopped) state.
- *   - The price difference after you decrease the quota is refunded to your original payment method. Coupons that have been used are not refunded. The payer receives the refund.
+ *   - The instance must be in the **Running** or **Stopped** state.
+ *   - The price difference for the downgrade is refunded to your original payment method. Vouchers that have been used are not refunded.
+ * - Before you change the instance type or system cloud disk type, call the DescribeRCResourcesModification operation to query the available inventory in the destination zone.
  *
  * @param request ModifyRCInstanceRequest
  * @return ModifyRCInstanceResponse

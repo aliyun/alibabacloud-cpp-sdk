@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
       DARABONBA_PTR_TO_JSON(IsOnlineDB, isOnlineDB_);
+      DARABONBA_PTR_TO_JSON(KeepCDC, keepCDC_);
       DARABONBA_PTR_TO_JSON(MigrateTaskId, migrateTaskId_);
       DARABONBA_PTR_TO_JSON(OSSUrls, OSSUrls_);
       DARABONBA_PTR_TO_JSON(OssObjectPositions, ossObjectPositions_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
       DARABONBA_PTR_FROM_JSON(IsOnlineDB, isOnlineDB_);
+      DARABONBA_PTR_FROM_JSON(KeepCDC, keepCDC_);
       DARABONBA_PTR_FROM_JSON(MigrateTaskId, migrateTaskId_);
       DARABONBA_PTR_FROM_JSON(OSSUrls, OSSUrls_);
       DARABONBA_PTR_FROM_JSON(OssObjectPositions, ossObjectPositions_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupMode_ == nullptr
-        && this->checkDBMode_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->isOnlineDB_ == nullptr && this->migrateTaskId_ == nullptr
-        && this->OSSUrls_ == nullptr && this->ossObjectPositions_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->checkDBMode_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->isOnlineDB_ == nullptr && this->keepCDC_ == nullptr
+        && this->migrateTaskId_ == nullptr && this->OSSUrls_ == nullptr && this->ossObjectPositions_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr; };
     // backupMode Field Functions 
     bool hasBackupMode() const { return this->backupMode_ != nullptr;};
     void deleteBackupMode() { this->backupMode_ = nullptr;};
@@ -85,6 +88,13 @@ namespace Models
     void deleteIsOnlineDB() { this->isOnlineDB_ = nullptr;};
     inline string getIsOnlineDB() const { DARABONBA_PTR_GET_DEFAULT(isOnlineDB_, "") };
     inline CreateMigrateTaskRequest& setIsOnlineDB(string isOnlineDB) { DARABONBA_PTR_SET_VALUE(isOnlineDB_, isOnlineDB) };
+
+
+    // keepCDC Field Functions 
+    bool hasKeepCDC() const { return this->keepCDC_ != nullptr;};
+    void deleteKeepCDC() { this->keepCDC_ = nullptr;};
+    inline bool getKeepCDC() const { DARABONBA_PTR_GET_DEFAULT(keepCDC_, false) };
+    inline CreateMigrateTaskRequest& setKeepCDC(bool keepCDC) { DARABONBA_PTR_SET_VALUE(keepCDC_, keepCDC) };
 
 
     // migrateTaskId Field Functions 
@@ -131,19 +141,19 @@ namespace Models
 
   protected:
     // The type of the cloud migration task. Valid values:
-    // * **FULL**: performs a restore operation by using a full backup file. This value is applicable to first-time migrations or full data recovery scenarios.
-    // * **UPDF**: restores incremental data by using an incremental backup file or log file. This value is applicable to incremental synchronization scenarios where a full backup already exists.
+    // * **FULL**: restores data by using a full backup file. This value is applicable to the first migration or full data recovery scenarios.
+    // * **UPDF**: restores incremental data by using an incremental backup file or log file. This value is applicable to incremental synchronization scenarios based on an existing full backup.
     // 
     // This parameter is required.
     shared_ptr<string> backupMode_ {};
-    // The consistency check method after the database is brought online. This parameter takes effect only when IsOnlineDB is set to True. Valid values:
+    // The consistency check method used after the database is opened. This parameter takes effect only when IsOnlineDB is set to True. Valid values:
     // 
-    // - **SyncExecuteDBCheck**: performs a synchronous database check. This value is applicable to scenarios that require high data consistency.
-    // - **AsyncExecuteDBCheck**: performs an asynchronous database check. This value provides higher performance but may delay the detection of potential issues.
+    // - **SyncExecuteDBCheck**: synchronously executes the database check. This value is applicable to scenarios that require high data consistency.
+    // - **AsyncExecuteDBCheck**: asynchronously executes the database check. This value provides higher performance but may delay the discovery of potential issues.
     // 
     // Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2).
     shared_ptr<string> checkDBMode_ {};
-    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // The instance ID. You can call the DescribeDBInstances operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -151,32 +161,34 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};
-    // Specifies whether to bring the restored database online so that users can access it. Valid values:
+    // Specifies whether to bring the restored database online for user access. Valid values:
     // 
-    // * **True**: Brings the database online.
-    // * **False**: Does not bring the database online.
+    // * **True**: brings the database online.
+    // * **False**: does not bring the database online.
     // 
     // > * For SQL Server 2008 R2, this value is always True.
-    // > * When **IsOnlineDB** is set to **True**, **BackupMode** must be set to **FULL**.
-    // > * When **IsOnlineDB** is set to **False**, **BackupMode** must be set to **UPDF**.
+    // > * If **IsOnlineDB** is set to **True**, **BackupMode** must be set to **FULL**.
+    // > * If **IsOnlineDB** is set to **False**, **BackupMode** must be set to **UPDF**.
     // 
     // This parameter is required.
     shared_ptr<string> isOnlineDB_ {};
-    // The migration task ID. Valid values:
+    // Specifies whether to retain the database- and table-level Change Data Capture (CDC) switches and change table data. This parameter takes effect only when IsOnlineDB is set to True. Regardless of the value of this parameter, CDC jobs are not rebuilt.
+    shared_ptr<bool> keepCDC_ {};
+    // The ID of the migration task. Valid values:
     // 
-    // - When **BackupMode** is set to **FULL**, leave this parameter empty (compatible with SQL Server 2008 R2).
-    // - When **BackupMode** is set to **UPDF**, set this parameter to the ID of the corresponding FULL task. You can call DescribeMigrateTasks to query the task ID.
+    // - If **BackupMode** is set to **FULL**, leave this parameter empty. This ensures compatibility with SQL Server 2008 R2.
+    // - If **BackupMode** is set to **UPDF**, set this parameter to the ID of the corresponding FULL task. You can call the DescribeMigrateTasks operation to query the ID.
     shared_ptr<string> migrateTaskId_ {};
-    // The shared URL of the backup file on OSS (URL-encoded). If multiple URLs exist, separate them with vertical bars (|) before encoding, and then pass the encoded value.
+    // The shared URL of the backup file in OSS. The URL must be encoded. If multiple URLs exist, separate them with vertical bars (|) and then encode the string before passing it as the parameter value.
     // 
     // > This parameter is required for SQL Server 2008 R2.
     shared_ptr<string> OSSUrls_ {};
-    // The OSS file information, which consists of the following three parts separated by colons (:):
+    // The components of the OSS file. The value consists of the following three parts separated by colons (:):
     // - **OSS endpoint**: oss-ap-southeast-1.aliyuncs.com.
     // - **OSS bucket name**: rdsmssqlsingapore.
-    // - **Backup file name on OSS**: autotest_2008R2_TestMigration_FULL.bak.
+    // - **Backup file name in OSS**: autotest_2008R2_TestMigration_FULL.bak.
     // 
-    // > This parameter is required for SQL Server versions later than SQL Server 2008 R2.
+    // > This parameter is required for SQL Server versions later than 2008 R2.
     shared_ptr<string> ossObjectPositions_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -170,48 +170,48 @@ namespace Models
 
 
     protected:
-      // The community minor version that corresponds to the minor engine version.
+      // The community minor engine version that corresponds to the minor engine version.
       shared_ptr<string> communityMinorVersion_ {};
-      // The database engine that corresponds to the minor version.
+      // The database engine that corresponds to the minor engine version.
       shared_ptr<string> engine_ {};
-      // The database engine version that corresponds to the minor version.
+      // The database engine version that corresponds to the minor engine version.
       shared_ptr<string> engineVersion_ {};
-      // The expiration time of the minor engine version.
+      // The expiration date of the minor engine version. The date is in the YYYYMMDD format.
       shared_ptr<string> expireDate_ {};
-      // The expiration status of the minor engine version. Valid values:
+      // The expiration status of the minor Milvus version. Valid values:
       // 
-      // - **vaild**: Milvus version is valid.
-      // - **expired**: Milvus version has expired.
+      // - **vaild**: The minor Milvus version is valid.
+      // - **expired**: The minor Milvus version has expired.
       // 
-      // > If the offline status is Offline, Milvus version has been taken offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, Milvus version has exceeded its lifecycle. If the offline status is Online and the expiration status is vaild, Milvus version is still within its lifecycle.
+      // > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
       shared_ptr<string> expireStatus_ {};
       // An internal parameter. You can ignore this parameter.
       shared_ptr<bool> isHotfixVersion_ {};
-      // The version number of the minor engine version.
+      // The minor engine version number.
       shared_ptr<string> minorVersion_ {};
-      // The instance edition that corresponds to the minor version. Valid values:
+      // The instance edition that corresponds to the minor engine version. Valid values:
       // * **Basic**: Basic Edition.
-      // * **HighAvailability**: high-availability series.
+      // * **HighAvailability**: High-availability Edition.
       // * **Finance**: RDS Enterprise Edition.
       shared_ptr<string> nodeType_ {};
-      // The URL of the release notes for the minor version.
+      // The URL of the release notes for the minor engine version.
       shared_ptr<string> releaseNote_ {};
       // The release type. Valid values:
-      // * **LTS**: Long-term support version.
-      // * **BETA**: Preview version.
+      // * **LTS**: Long-term support (LTS) version.
+      // * **BETA**: Beta version.
       shared_ptr<string> releaseType_ {};
-      // The offline status of the minor engine version. Valid values:
-      // - **Offline**: Milvus version has been taken offline.
-      // - **Online**: Milvus version is online.
+      // The offline status of the minor Milvus version. Valid values:
+      // - **Offline**: The minor Milvus version is offline.
+      // - **Online**: The minor Milvus version is online.
       // 
-      // > If the offline status is Offline, Milvus version has been taken offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, Milvus version has exceeded its lifecycle. If the offline status is Online and the expiration status is vaild, Milvus version is still within its lifecycle.
+      // > If the offline status is Offline, the minor Milvus version is offline and the expiration status is ignored. If the offline status is Online and the expiration status is expired, the minor Milvus version has reached its end of life. If the offline status is Online and the expiration status is vaild, the minor Milvus version is still within its lifecycle.
       shared_ptr<string> statusDesc_ {};
-      // The tag that corresponds to the minor engine version. Valid values:
+      // Instance tag that corresponds to the minor engine version. Valid values:
       // 
-      // - **pgsql_docker_image**: general instance tag.
-      // - **pgsql_babelfish_image**: Babelfish instance tag.
+      // - **pgsql_docker_image**: Instance tag for general instances.
+      // - **pgsql_babelfish_image**: Instance tag for Babelfish-enabled instances.
       // 
-      // > This value is returned only for **PostgreSQL**.
+      // > This parameter is returned only for **PostgreSQL**.
       shared_ptr<string> tag_ {};
     };
 
@@ -264,15 +264,15 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The number of records per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxRecordsPerPage_ {};
     // The list of minor engine versions.
     shared_ptr<vector<DescribeDBMiniEngineVersionsResponseBody::MinorVersionItems>> minorVersionItems_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumbers_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 
