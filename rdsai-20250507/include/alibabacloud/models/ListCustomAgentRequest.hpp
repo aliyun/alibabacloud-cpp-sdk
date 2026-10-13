@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

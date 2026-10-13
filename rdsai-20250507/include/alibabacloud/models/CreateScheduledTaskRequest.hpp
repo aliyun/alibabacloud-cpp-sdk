@@ -143,15 +143,15 @@ namespace Models
     // The description of the scheduled inspection task.
     shared_ptr<string> description_ {};
     // The inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
-    // * DAILY: every day
-    // * Monday: Monday
-    // * Tuesday: Tuesday
-    // * Wednesday: Wednesday
-    // * Thursday: Thursday
-    // * Friday: Friday
-    // * Saturday: Saturday
-    // * Sunday: Sunday
-    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the system uses DAILY as the inspection frequency.
+    // * DAILY: every day.
+    // * Monday: Monday.
+    // * Tuesday: Tuesday.
+    // * Wednesday: Wednesday.
+    // * Thursday: Thursday.
+    // * Friday: Friday.
+    // * Saturday: Saturday.
+    // * Sunday: Sunday.
+    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
     // The list of associated instance IDs. Separate multiple IDs with commas (,).
@@ -168,7 +168,7 @@ namespace Models
     // The time at which the inspection task is executed. Format: HH:mm:ssZ (UTC). Default value: 02:00:00Z.
     shared_ptr<string> startTime_ {};
     shared_ptr<string> templateId_ {};
-    // The time range for the inspection. Default value: 24 (the last 24 hours). Valid values: 1 to 168 (up to 7 days).
+    // The time range for the inspection. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
     shared_ptr<string> timeRange_ {};
   };
 

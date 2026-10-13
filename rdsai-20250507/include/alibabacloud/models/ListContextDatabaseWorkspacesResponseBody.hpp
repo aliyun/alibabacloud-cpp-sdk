@@ -101,7 +101,7 @@ namespace Models
 
 
     protected:
-      // The time when the workspace was created, in ISO-8601 format.
+      // The time when the workspace was created, in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
       // The workspace status.
       shared_ptr<string> status_ {};

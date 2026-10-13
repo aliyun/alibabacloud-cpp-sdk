@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The context window size of the model.
       shared_ptr<int64_t> contextWindow_ {};
+      // Indicates whether this is the default model.
       shared_ptr<bool> default_ {};
+      // The list of supported modalities.
       shared_ptr<vector<string>> features_ {};
+      // The model ID.
       shared_ptr<string> modelId_ {};
+      // The list of thinking depth levels for the model.
       shared_ptr<vector<string>> thinkingLevels_ {};
     };
 
@@ -127,7 +132,9 @@ namespace Models
 
 
   protected:
+    // The query result.
     shared_ptr<vector<GetChatModelResponseBody::Data>> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

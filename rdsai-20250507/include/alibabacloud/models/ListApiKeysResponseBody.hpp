@@ -181,18 +181,18 @@ namespace Models
         shared_ptr<bool> isRateLimited_ {};
         // The API key name.
         shared_ptr<string> keyName_ {};
-        // The quota limit ratio.
+        // The quota ratio.
         shared_ptr<float> limitRate_ {};
-        // The quota limit method. Valid values:
+        // The quota type. Valid values:
         // 
         // - **fixed**: Fixed value.
         // - **ratio**: Percentage.
         // - **auto**: Automatic allocation.
         shared_ptr<string> limitType_ {};
         shared_ptr<string> roleArn_ {};
-        // The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
+        // The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
         shared_ptr<int32_t> thresholdPercent_ {};
-        // The quota limit of the current key.
+        // The quota of the current key.
         shared_ptr<int64_t> tokenQuota_ {};
       };
 
@@ -265,7 +265,7 @@ namespace Models
 
 
     protected:
-      // The URL for model invocation.
+      // The URL for model calls.
       shared_ptr<string> baseUrl_ {};
       // The list of custom API keys.
       shared_ptr<vector<Data::CustomKeyList>> customKeyList_ {};
@@ -279,7 +279,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // The system-generated key.
       shared_ptr<string> systemApiKey_ {};
-      // The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
+      // The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
       shared_ptr<int32_t> thresholdPercent_ {};
       // The total number of records.
       shared_ptr<int32_t> total_ {};

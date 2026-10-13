@@ -188,7 +188,7 @@ namespace Models
         shared_ptr<int64_t> keyId_ {};
         // The prefix of the API key.
         shared_ptr<string> keyPrefix_ {};
-        // The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have never been used.
+        // The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have not been used.
         shared_ptr<string> lastUsedAt_ {};
         // The API key name.
         shared_ptr<string> name_ {};

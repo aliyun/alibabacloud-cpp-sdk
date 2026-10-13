@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the custom agent.
+    // The ID of the dedicated agent.
     shared_ptr<string> customAgentId_ {};
   };
 

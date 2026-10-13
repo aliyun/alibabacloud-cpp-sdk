@@ -149,15 +149,15 @@ namespace Models
 
 
     protected:
-      // Reserved parameter.
+      // A reserved parameter.
       shared_ptr<bool> isSystemKey_ {};
-      // Reserved parameter.
+      // A reserved parameter.
       shared_ptr<string> remark_ {};
-      // Reserved parameter.
+      // A reserved parameter.
       shared_ptr<int64_t> slsStorageBytes_ {};
-      // Reserved parameter.
+      // A reserved parameter.
       shared_ptr<string> status_ {};
-      // Reserved parameter.
+      // A reserved parameter.
       shared_ptr<string> uploadKey_ {};
     };
 
@@ -417,19 +417,19 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
     shared_ptr<string> appType_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchName_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> branchingEnabled_ {};
     // The list of components.
     shared_ptr<vector<DescribeAppInstanceAttributeResponseBody::Components>> components_ {};
-    // The ID of the RDS PostgreSQL database instance that the AI application is connected to.
+    // The instance ID of the RDS PostgreSQL database instance connected to the AI application.
     shared_ptr<string> DBInstanceName_ {};
     // The instance ID of the EIP.
     shared_ptr<string> eipId_ {};
     // The activation status of the EIP.
     shared_ptr<string> eipStatus_ {};
-    // The instance class of the AI application.
+    // The instance type of the AI application.
     shared_ptr<string> instanceClass_ {};
     // The latest minor version of the RDS AI application instance.
     shared_ptr<string> instanceLatestVersion_ {};
@@ -437,35 +437,35 @@ namespace Models
     shared_ptr<string> instanceMinorVersion_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> loginToken_ {};
-    // The minor version details of each component of the RDS AI application instance.
+    // The minor versions of individual components of the RDS AI application instance.
     shared_ptr<string> minorVersionDetail_ {};
     // The creator of the NAT gateway.
     shared_ptr<string> natCreatedBy_ {};
-    // The ID of the NAT gateway.
+    // The NAT gateway ID.
     shared_ptr<string> natGatewayId_ {};
     // The activation status of the NAT gateway.
     shared_ptr<string> natStatus_ {};
-    // The public connection string of the AI application.
+    // The public endpoint of the AI application.
     shared_ptr<string> publicConnectionString_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> retentionHours_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> sqlExtendMoInstanceId_ {};
-    // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/2623972.html).
+    // The instance status. For more information, see [Instance status](https://help.aliyun.com/document_detail/2623972.html).
     shared_ptr<string> status_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> uploadKey_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<vector<DescribeAppInstanceAttributeResponseBody::UploadKeyList>> uploadKeyList_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The internal connection string of the AI application.
+    // The internal endpoint of the AI application.
     shared_ptr<string> vpcConnectionString_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

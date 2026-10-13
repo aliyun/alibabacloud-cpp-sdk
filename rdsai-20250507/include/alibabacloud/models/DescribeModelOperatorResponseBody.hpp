@@ -152,7 +152,7 @@ namespace Models
 
 
         protected:
-          // The date (accurate to the day).
+          // The date, accurate to the day.
           shared_ptr<string> date_ {};
           // The number of tokens used.
           shared_ptr<string> usage_ {};
@@ -267,7 +267,7 @@ namespace Models
 
 
       protected:
-        // The date (accurate to the day).
+        // The date, accurate to the day.
         shared_ptr<string> date_ {};
         // The token usage.
         shared_ptr<int64_t> usage_ {};
@@ -408,7 +408,7 @@ namespace Models
       shared_ptr<string> instanceClass_ {};
       // The instance name.
       shared_ptr<string> instanceId_ {};
-      // The usage of each key (including deleted keys).
+      // The usage of each key, including deleted keys.
       shared_ptr<vector<Data::KeyUsageList>> keyUsageList_ {};
       // Indicates whether the prefix routing persistence feature is enabled.
       shared_ptr<bool> prefixCacheEnabled_ {};
@@ -418,9 +418,9 @@ namespace Models
       shared_ptr<int64_t> startTime_ {};
       // The module status.
       shared_ptr<string> status_ {};
-      // The total quota for the current cycle (such as the monthly total).
+      // The total quota for the current cycle, such as the monthly quota.
       shared_ptr<int64_t> totalQuota_ {};
-      // The used quota for the current cycle (such as the monthly usage).
+      // The used quota for the current cycle, such as the monthly usage.
       shared_ptr<int64_t> usedQuota_ {};
     };
 

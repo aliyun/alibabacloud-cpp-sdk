@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // A list of API keys.
+    // The list of API keys.
     // 
     // This parameter is required.
     shared_ptr<string> apikeyShrink_ {};
-    // The instance ID.
+    // The instance name.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

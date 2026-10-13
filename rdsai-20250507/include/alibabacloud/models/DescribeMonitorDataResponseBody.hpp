@@ -97,7 +97,7 @@ namespace Models
       protected:
         // The point in time.
         shared_ptr<string> time_ {};
-        // The returned value.
+        // The return value.
         shared_ptr<double> value_ {};
       };
 
@@ -161,7 +161,7 @@ namespace Models
   protected:
     // The result.
     shared_ptr<vector<DescribeMonitorDataResponseBody::Data>> data_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

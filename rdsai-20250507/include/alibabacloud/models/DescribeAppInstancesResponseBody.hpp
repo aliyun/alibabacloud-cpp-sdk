@@ -119,9 +119,7 @@ namespace Models
 
 
       protected:
-        // The component status.
         shared_ptr<string> status_ {};
-        // The component type.
         shared_ptr<string> type_ {};
       };
 
@@ -216,29 +214,28 @@ namespace Models
 
 
     protected:
-      // The application name.
+      // The name of the AI application.
       shared_ptr<string> appName_ {};
-      // The application type. The only supported value is **supabase**, which represents [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+      // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
       shared_ptr<string> appType_ {};
-      // The components of the instance.
       shared_ptr<vector<Instances::Components>> components_ {};
-      // The DB instance ID of the connected ApsaraDB RDS for PostgreSQL instance.
+      // The instance ID of the ApsaraDB RDS for PostgreSQL database that is connected to the AI application.
       shared_ptr<string> DBInstanceName_ {};
       // The instance type.
       shared_ptr<string> instanceClass_ {};
-      // The minor version of the AI application.
+      // The minor version of the AI application instance.
       shared_ptr<string> instanceMinorVersion_ {};
-      // The ID of the application instance.
+      // The instance ID of the AI application.
       shared_ptr<string> instanceName_ {};
-      // The public connection string.
+      // The public endpoint of the AI application.
       shared_ptr<string> publicConnectionString_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The instance status. For more information, see [Instance status table](https://help.aliyun.com/document_detail/2623972.html).
       shared_ptr<string> status_ {};
-      // The VSwitch ID.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The VPC connection string.
+      // The internal endpoint of the AI application.
       shared_ptr<string> vpcConnectionString_ {};
     };
 
@@ -289,9 +286,9 @@ namespace Models
 
 
   protected:
-    // A list of instances.
+    // The list of instances.
     shared_ptr<vector<DescribeAppInstancesResponseBody::Instances>> instances_ {};
-    // This parameter is reserved for future use.
+    // A reserved parameter. You can ignore this parameter.
     shared_ptr<int64_t> maxResults_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

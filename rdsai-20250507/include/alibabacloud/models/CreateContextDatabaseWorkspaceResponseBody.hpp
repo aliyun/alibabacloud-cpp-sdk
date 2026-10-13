@@ -145,7 +145,7 @@ namespace Models
     // The role of the first member. The value is fixed as owner.
     shared_ptr<string> role_ {};
     // The workspace status. Valid values:
-    // - Active: running normally.
+    // - Active: running as expected.
     // - Locked: locked due to overdue payment or expiration.
     shared_ptr<string> status_ {};
     // The workspace type. Valid values:

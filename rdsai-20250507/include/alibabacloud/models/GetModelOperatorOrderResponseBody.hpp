@@ -205,7 +205,7 @@ namespace Models
   protected:
     // The query result.
     shared_ptr<GetModelOperatorOrderResponseBody::Data> data_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

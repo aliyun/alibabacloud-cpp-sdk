@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The description in English.
+      // The English description.
       shared_ptr<string> en_ {};
-      // The description in Japanese.
+      // The Japanese description.
       shared_ptr<string> ja_ {};
       // The tool name.
       shared_ptr<string> name_ {};
-      // The description in Traditional Chinese.
+      // The Traditional Chinese description.
       shared_ptr<string> tc_ {};
       // The read/write type of the tool.
       shared_ptr<string> type_ {};
-      // The description in Simplified Chinese.
+      // The Chinese description.
       shared_ptr<string> zh_ {};
     };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned data object.
     shared_ptr<vector<ListCustomAgentToolsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

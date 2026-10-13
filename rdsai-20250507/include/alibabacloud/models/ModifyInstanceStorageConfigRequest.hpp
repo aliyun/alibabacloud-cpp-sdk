@@ -82,7 +82,7 @@ namespace Models
       // - **AWS_ACCESS_KEY_ID**: the AccessKey ID for OSS.
       // - **AWS_SECRET_ACCESS_KEY**: the AccessKey Secret for OSS.
       // - **GLOBAL_S3_BUCKET**: the bucket name of OSS.
-      // - **TENANT_ID**: the OSS directory name. You do not need to create it in advance.
+      // - **TENANT_ID**: the OSS directory name. You do not need to create it.
       // - **GLOBAL_S3_ENDPOINT**: the endpoint of OSS.
       // - **REGION**: the region of OSS.
       shared_ptr<string> name_ {};
@@ -131,7 +131,7 @@ namespace Models
 
   protected:
     shared_ptr<string> branchName_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which prevents repeated submissions of requests.
     shared_ptr<string> clientToken_ {};
     // The list of storage configurations.
     shared_ptr<vector<ModifyInstanceStorageConfigRequest::ConfigList>> configList_ {};

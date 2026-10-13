@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The time when the workspace was created, in ISO-8601 format.
+    // The time when the workspace was created, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> type_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The modified name of the workspace.
+    // The updated name of the workspace.
     shared_ptr<string> workspaceName_ {};
   };
 

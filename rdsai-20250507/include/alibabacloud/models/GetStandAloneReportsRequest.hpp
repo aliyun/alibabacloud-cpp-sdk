@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The end time filter in the format of YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no end time filter is applied.
+    // The end time filter in the YYYY-MM-DDTHH:mm:ssZ format. If this parameter is not specified, no filtering is applied based on the end time.
     shared_ptr<string> endTime_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> reportType_ {};
-    // The start time filter in the format of YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no start time filter is applied.
+    // The start time filter in the YYYY-MM-DDTHH:mm:ssZ format. If this parameter is not specified, no filtering is applied based on the start time.
     shared_ptr<string> startTime_ {};
   };
 

@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The number of input tokens that hit the cache.
       shared_ptr<double> cacheTokens_ {};
+      // The input token usage.
       shared_ptr<double> inputTokens_ {};
+      // The output token usage.
       shared_ptr<double> outputTokens_ {};
+      // The total number of tokens.
       shared_ptr<double> totalTokens_ {};
     };
 
@@ -213,15 +217,25 @@ namespace Models
 
 
     protected:
+      // The API key used.
       shared_ptr<string> apiKey_ {};
+      // The number of input tokens that hit the cache.
       shared_ptr<double> cacheTokens_ {};
+      // The date, accurate to the day.
       shared_ptr<string> date_ {};
+      // The input token usage.
       shared_ptr<double> inputTokens_ {};
+      // The API key name.
       shared_ptr<string> keyName_ {};
+      // The model called.
       shared_ptr<string> model_ {};
+      // The output token usage.
       shared_ptr<double> outputTokens_ {};
+      // The number of requests.
       shared_ptr<int64_t> requestCount_ {};
+      // The total number of tokens.
       shared_ptr<double> totalTokens_ {};
+      // The query type.
       shared_ptr<string> usageType_ {};
     };
 
@@ -274,11 +288,17 @@ namespace Models
 
 
   protected:
+    // The response message.
     shared_ptr<string> message_ {};
+    // The token usage records.
     shared_ptr<vector<DescribeMOTokenUsageSummaryResponseBody::Records>> records_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The request result.
     shared_ptr<bool> success_ {};
+    // The usage summary information.
     shared_ptr<DescribeMOTokenUsageSummaryResponseBody::Summary> summary_ {};
+    // The type.
     shared_ptr<string> usageType_ {};
   };
 

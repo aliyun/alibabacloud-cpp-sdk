@@ -139,10 +139,15 @@ namespace Models
 
 
       protected:
+        // The API key to use.
         shared_ptr<string> apiKey_ {};
+        // The inspection end time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> endTime_ {};
+        // The instance name.
         shared_ptr<string> instanceId_ {};
+        // The model to call.
         shared_ptr<string> model_ {};
+        // The inspection start time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -229,18 +234,27 @@ namespace Models
 
 
     protected:
+      // The completion time.
       shared_ptr<string> completedAt_ {};
+      // The creation time.
       shared_ptr<string> createdAt_ {};
+      // The download URL.
       shared_ptr<string> downloadUrl_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
-      // 下载 URL 失效时间（UTC ISO8601）
+      // The expiration time in ISO 8601 format.
       shared_ptr<string> expiresAt_ {};
+      // The file size in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The query filter conditions.
       shared_ptr<Data::Filters> filters_ {};
+      // The target conversion format.
       shared_ptr<string> format_ {};
+      // The OssKey passed when calling the operation. (This field is deprecated)
       shared_ptr<string> ossKey_ {};
+      // The total number of data rows.
       shared_ptr<int64_t> rowCount_ {};
-      // pending / processing / completed / failed / expired
+      // The module status.
       shared_ptr<string> status_ {};
     };
 
@@ -277,9 +291,13 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CreateMOUsageDetailExportResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

@@ -115,9 +115,9 @@ namespace Models
 
 
   protected:
-    // The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
+    // The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
     shared_ptr<string> defaultCpu_ {};
-    // The memory size for sandboxes created by using this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+    // The memory size for sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
     shared_ptr<string> defaultMemory_ {};
     // The description of the sandbox template. The description must be unique within the VPC.
     shared_ptr<string> description_ {};

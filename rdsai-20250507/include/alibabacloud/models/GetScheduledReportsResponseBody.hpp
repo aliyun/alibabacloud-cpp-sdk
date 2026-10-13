@@ -146,13 +146,13 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdTime_ {};
-      // The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The inspection end time. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> endTime_ {};
       shared_ptr<string> inspectionItems_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};
-      // The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
+      // The inspection start time. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
       // The status.
       shared_ptr<string> status_ {};

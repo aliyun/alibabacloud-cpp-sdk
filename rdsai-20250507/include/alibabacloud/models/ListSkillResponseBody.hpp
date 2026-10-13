@@ -41,6 +41,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_ANY_TO_JSON(ActiveVersion, activeVersion_);
         DARABONBA_PTR_TO_JSON(ActiveVersionId, activeVersionId_);
         DARABONBA_PTR_TO_JSON(Category, category_);
         DARABONBA_ANY_TO_JSON(Content, content_);
@@ -56,8 +57,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SkillType, skillType_);
         DARABONBA_PTR_TO_JSON(Slug, slug_);
         DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
+        DARABONBA_PTR_TO_JSON(Visibility, visibility_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_ANY_FROM_JSON(ActiveVersion, activeVersion_);
         DARABONBA_PTR_FROM_JSON(ActiveVersionId, activeVersionId_);
         DARABONBA_PTR_FROM_JSON(Category, category_);
         DARABONBA_ANY_FROM_JSON(Content, content_);
@@ -73,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SkillType, skillType_);
         DARABONBA_PTR_FROM_JSON(Slug, slug_);
         DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
+        DARABONBA_PTR_FROM_JSON(Visibility, visibility_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -85,10 +89,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->activeVersionId_ == nullptr
-        && this->category_ == nullptr && this->content_ == nullptr && this->createdAt_ == nullptr && this->dbtypes_ == nullptr && this->description_ == nullptr
-        && this->displayName_ == nullptr && this->icon_ == nullptr && this->id_ == nullptr && this->isDeleted_ == nullptr && this->name_ == nullptr
-        && this->scope_ == nullptr && this->skillType_ == nullptr && this->slug_ == nullptr && this->updatedAt_ == nullptr; };
+      virtual bool empty() const override { return this->activeVersion_ == nullptr
+        && this->activeVersionId_ == nullptr && this->category_ == nullptr && this->content_ == nullptr && this->createdAt_ == nullptr && this->dbtypes_ == nullptr
+        && this->description_ == nullptr && this->displayName_ == nullptr && this->icon_ == nullptr && this->id_ == nullptr && this->isDeleted_ == nullptr
+        && this->name_ == nullptr && this->scope_ == nullptr && this->skillType_ == nullptr && this->slug_ == nullptr && this->updatedAt_ == nullptr
+        && this->visibility_ == nullptr; };
+      // activeVersion Field Functions 
+      bool hasActiveVersion() const { return this->activeVersion_ != nullptr;};
+      void deleteActiveVersion() { this->activeVersion_ = nullptr;};
+      inline       const Darabonba::Json & getActiveVersion() const { DARABONBA_GET(activeVersion_) };
+      Darabonba::Json & getActiveVersion() { DARABONBA_GET(activeVersion_) };
+      inline Data& setActiveVersion(const Darabonba::Json & activeVersion) { DARABONBA_SET_VALUE(activeVersion_, activeVersion) };
+      inline Data& setActiveVersion(Darabonba::Json && activeVersion) { DARABONBA_SET_RVALUE(activeVersion_, activeVersion) };
+
+
       // activeVersionId Field Functions 
       bool hasActiveVersionId() const { return this->activeVersionId_ != nullptr;};
       void deleteActiveVersionId() { this->activeVersionId_ = nullptr;};
@@ -198,8 +212,17 @@ namespace Models
       inline Data& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
 
 
+      // visibility Field Functions 
+      bool hasVisibility() const { return this->visibility_ != nullptr;};
+      void deleteVisibility() { this->visibility_ = nullptr;};
+      inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+      inline Data& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
+
+
     protected:
-      // The ID of the currently active version.
+      // The currently active skill version information.
+      Darabonba::Json activeVersion_ {};
+      // The currently active version ID.
       shared_ptr<string> activeVersionId_ {};
       // The skill category.
       shared_ptr<string> category_ {};
@@ -211,7 +234,7 @@ namespace Models
       shared_ptr<vector<string>> dbtypes_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The display name of the skill.
+      // The skill display name.
       shared_ptr<string> displayName_ {};
       // The public HTTPS URL of the current icon. Empty if not configured.
       shared_ptr<string> icon_ {};
@@ -221,14 +244,16 @@ namespace Models
       shared_ptr<bool> isDeleted_ {};
       // The skill name.
       shared_ptr<string> name_ {};
-      // The visibility scope of the skill.
+      // The skill visibility scope.
       shared_ptr<string> scope_ {};
       // The skill type.
       shared_ptr<string> skillType_ {};
-      // The stable identifier of the skill.
+      // The skill stable identifier.
       shared_ptr<string> slug_ {};
       // The update time.
       shared_ptr<string> updatedAt_ {};
+      // The skill visibility for the current user.
+      shared_ptr<string> visibility_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
@@ -277,7 +302,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The unique request identifier.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

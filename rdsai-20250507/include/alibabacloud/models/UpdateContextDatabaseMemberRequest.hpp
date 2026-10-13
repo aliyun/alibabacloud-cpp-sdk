@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> memberId_ {};
-    // The new role. Valid values: owner, admin, and member. If not specified, the current role is retained.
+    // The new role. Valid values: owner, admin, and member. If this parameter is not specified, the current role is retained.
     shared_ptr<string> role_ {};
-    // The new status. Valid values: active, disabled, and deleted. If not specified, the current status is retained.
+    // The new status. Valid values: active, disabled, and deleted. If this parameter is not specified, the current status is retained.
     shared_ptr<string> status_ {};
     // The workspace ID.
     // 

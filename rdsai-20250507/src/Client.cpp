@@ -45,6 +45,172 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Adds an exclusion item to an import task.
+ *
+ * @description Adds a job exclusion item.
+ *
+ * @param request AddContextDatabaseSyncJobExclusionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddContextDatabaseSyncJobExclusionResponse
+ */
+AddContextDatabaseSyncJobExclusionResponse Client::addContextDatabaseSyncJobExclusionWithOptions(const AddContextDatabaseSyncJobExclusionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDocumentId()) {
+    query["DocumentId"] = request.getDocumentId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddContextDatabaseSyncJobExclusion"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddContextDatabaseSyncJobExclusionResponse>();
+}
+
+/**
+ * @summary Adds an exclusion item to an import task.
+ *
+ * @description Adds a job exclusion item.
+ *
+ * @param request AddContextDatabaseSyncJobExclusionRequest
+ * @return AddContextDatabaseSyncJobExclusionResponse
+ */
+AddContextDatabaseSyncJobExclusionResponse Client::addContextDatabaseSyncJobExclusion(const AddContextDatabaseSyncJobExclusionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addContextDatabaseSyncJobExclusionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels an in-progress discovery task by task ID.
+ *
+ * @description You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+ *
+ * @param request CancelContextDatabaseSyncDiscoveryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelContextDatabaseSyncDiscoveryResponse
+ */
+CancelContextDatabaseSyncDiscoveryResponse Client::cancelContextDatabaseSyncDiscoveryWithOptions(const CancelContextDatabaseSyncDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelContextDatabaseSyncDiscovery"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelContextDatabaseSyncDiscoveryResponse>();
+}
+
+/**
+ * @summary Cancels an in-progress discovery task by task ID.
+ *
+ * @description You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+ *
+ * @param request CancelContextDatabaseSyncDiscoveryRequest
+ * @return CancelContextDatabaseSyncDiscoveryResponse
+ */
+CancelContextDatabaseSyncDiscoveryResponse Client::cancelContextDatabaseSyncDiscovery(const CancelContextDatabaseSyncDiscoveryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelContextDatabaseSyncDiscoveryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancels a run.
+ *
+ * @description Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+ *
+ * @param request CancelContextDatabaseSyncRunRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelContextDatabaseSyncRunResponse
+ */
+CancelContextDatabaseSyncRunResponse Client::cancelContextDatabaseSyncRunWithOptions(const CancelContextDatabaseSyncRunRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasRunId()) {
+    query["RunId"] = request.getRunId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelContextDatabaseSyncRun"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelContextDatabaseSyncRunResponse>();
+}
+
+/**
+ * @summary Cancels a run.
+ *
+ * @description Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+ *
+ * @param request CancelContextDatabaseSyncRunRequest
+ * @return CancelContextDatabaseSyncRunResponse
+ */
+CancelContextDatabaseSyncRunResponse Client::cancelContextDatabaseSyncRun(const CancelContextDatabaseSyncRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelContextDatabaseSyncRunWithOptions(request, runtime);
+}
+
+/**
  * @summary Sends a conversation message.
  *
  * @param tmpReq ChatMessagesRequest
@@ -318,12 +484,13 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary Creates an RDS Supabase instance.
+ * @summary Creates an RDS AI application instance.
  *
- * @description ### Supported Engine  
- * RDS PostgreSQL  
- * ### Related Function Documentation  
- * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+ * @description ### Applicable engine
+ * RDS PostgreSQL
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq CreateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -428,12 +595,13 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 }
 
 /**
- * @summary Creates an RDS Supabase instance.
+ * @summary Creates an RDS AI application instance.
  *
- * @description ### Supported Engine  
- * RDS PostgreSQL  
- * ### Related Function Documentation  
- * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+ * @description ### Applicable engine
+ * RDS PostgreSQL
+ * ### Related documentation
+ * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+ * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateAppInstanceRequest
  * @return CreateAppInstanceResponse
@@ -500,7 +668,7 @@ CreateContextDatabaseApiKeyResponse Client::createContextDatabaseApiKey(const Cr
 /**
  * @summary Creates a ContextDB member.
  *
- * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+ * @description Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
  *
  * @param request CreateContextDatabaseMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -549,7 +717,7 @@ CreateContextDatabaseMemberResponse Client::createContextDatabaseMemberWithOptio
 /**
  * @summary Creates a ContextDB member.
  *
- * @description Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+ * @description Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
  *
  * @param request CreateContextDatabaseMemberRequest
  * @return CreateContextDatabaseMemberResponse
@@ -560,9 +728,227 @@ CreateContextDatabaseMemberResponse Client::createContextDatabaseMember(const Cr
 }
 
 /**
- * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+ * @summary Creates a synchronization connection.
  *
- * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+ * @description For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+ *
+ * @param request CreateContextDatabaseSyncConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseSyncConnectionResponse
+ */
+CreateContextDatabaseSyncConnectionResponse Client::createContextDatabaseSyncConnectionWithOptions(const CreateContextDatabaseSyncConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthKind()) {
+    query["AuthKind"] = request.getAuthKind();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseSyncConnection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseSyncConnectionResponse>();
+}
+
+/**
+ * @summary Creates a synchronization connection.
+ *
+ * @description For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+ *
+ * @param request CreateContextDatabaseSyncConnectionRequest
+ * @return CreateContextDatabaseSyncConnectionResponse
+ */
+CreateContextDatabaseSyncConnectionResponse Client::createContextDatabaseSyncConnection(const CreateContextDatabaseSyncConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseSyncConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an import task.
+ *
+ * @description Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+ * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+ *
+ * @param tmpReq CreateContextDatabaseSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseSyncJobResponse
+ */
+CreateContextDatabaseSyncJobResponse Client::createContextDatabaseSyncJobWithOptions(const CreateContextDatabaseSyncJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateContextDatabaseSyncJobShrinkRequest request = CreateContextDatabaseSyncJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilters()) {
+    request.setFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilters(), "Filters", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasFiltersShrink()) {
+    query["Filters"] = request.getFiltersShrink();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasTargetId()) {
+    query["TargetId"] = request.getTargetId();
+  }
+
+  if (!!request.hasTargetKnowledgeBaseId()) {
+    query["TargetKnowledgeBaseId"] = request.getTargetKnowledgeBaseId();
+  }
+
+  if (!!request.hasTargetKnowledgeBaseName()) {
+    query["TargetKnowledgeBaseName"] = request.getTargetKnowledgeBaseName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseSyncJob"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseSyncJobResponse>();
+}
+
+/**
+ * @summary Creates an import task.
+ *
+ * @description Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+ * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+ *
+ * @param request CreateContextDatabaseSyncJobRequest
+ * @return CreateContextDatabaseSyncJobResponse
+ */
+CreateContextDatabaseSyncJobResponse Client::createContextDatabaseSyncJob(const CreateContextDatabaseSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseSyncJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a data selection scope.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+ * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+ *
+ * @param tmpReq CreateContextDatabaseSyncSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseSyncSourceResponse
+ */
+CreateContextDatabaseSyncSourceResponse Client::createContextDatabaseSyncSourceWithOptions(const CreateContextDatabaseSyncSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateContextDatabaseSyncSourceShrinkRequest request = CreateContextDatabaseSyncSourceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSourceConfig()) {
+    request.setSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceConfig(), "SourceConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasSourceConfigShrink()) {
+    query["SourceConfig"] = request.getSourceConfigShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseSyncSource"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseSyncSourceResponse>();
+}
+
+/**
+ * @summary Creates a data selection scope.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+ * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+ *
+ * @param request CreateContextDatabaseSyncSourceRequest
+ * @return CreateContextDatabaseSyncSourceResponse
+ */
+CreateContextDatabaseSyncSourceResponse Client::createContextDatabaseSyncSource(const CreateContextDatabaseSyncSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseSyncSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+ *
+ * @description Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -597,9 +983,9 @@ CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspaceWit
 }
 
 /**
- * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+ * @summary Creates a workspace, the first member, and the first API key in a one-time onboarding process.
  *
- * @description Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+ * @description Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
  *
  * @param request CreateContextDatabaseWorkspaceRequest
  * @return CreateContextDatabaseWorkspaceResponse
@@ -752,10 +1138,10 @@ CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspection
 }
 
 /**
- * @summary 触发 MO 用量明细 CSV 异步导出任务
+ * @summary Triggers an asynchronous export task for MO usage details in CSV format.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateMOUsageDetailExportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -806,10 +1192,10 @@ CreateMOUsageDetailExportResponse Client::createMOUsageDetailExportWithOptions(c
 }
 
 /**
- * @summary 触发 MO 用量明细 CSV 异步导出任务
+ * @summary Triggers an asynchronous export task for MO usage details in CSV format.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request CreateMOUsageDetailExportRequest
  * @return CreateMOUsageDetailExportResponse
@@ -914,8 +1300,8 @@ CreateSandboxTemplateResponse Client::createSandboxTemplate(const CreateSandboxT
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related documentation
- * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+ * ### Related feature documentation
+ * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -995,8 +1381,8 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related documentation
- * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+ * ### Related feature documentation
+ * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -1008,7 +1394,7 @@ CreateScheduledTaskResponse Client::createScheduledTask(const CreateScheduledTas
 }
 
 /**
- * @summary Creates a user-defined Skill.
+ * @summary Creates a user-defined skill.
  *
  * @param tmpReq CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1043,6 +1429,10 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasUpdateNote()) {
+    query["UpdateNote"] = request.getUpdateNote();
+  }
+
   if (!!request.hasUploadId()) {
     query["UploadId"] = request.getUploadId();
   }
@@ -1073,7 +1463,7 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
 }
 
 /**
- * @summary Creates a user-defined Skill.
+ * @summary Creates a user-defined skill.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -1143,7 +1533,7 @@ DeleteApiKeyResponse Client::deleteApiKey(const DeleteApiKeyRequest &request) {
  * ### Related feature documentation
  * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+ * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
  *
  * @param request DeleteAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1583,7 @@ DeleteAppInstanceResponse Client::deleteAppInstanceWithOptions(const DeleteAppIn
  * ### Related feature documentation
  * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+ * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
  *
  * @param request DeleteAppInstanceRequest
  * @return DeleteAppInstanceResponse
@@ -1204,9 +1594,9 @@ DeleteAppInstanceResponse Client::deleteAppInstance(const DeleteAppInstanceReque
 }
 
 /**
- * @summary Deletes a ContextDB member.
+ * @summary Deletes a context database member.
  *
- * @description Deletes a member (hard delete, not recoverable).
+ * @description Deletes a member. This is a hard delete and cannot be undone.
  *
  * @param request DeleteContextDatabaseMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,9 +1631,9 @@ DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMemberWithOptio
 }
 
 /**
- * @summary Deletes a ContextDB member.
+ * @summary Deletes a context database member.
  *
- * @description Deletes a member (hard delete, not recoverable).
+ * @description Deletes a member. This is a hard delete and cannot be undone.
  *
  * @param request DeleteContextDatabaseMemberRequest
  * @return DeleteContextDatabaseMemberResponse
@@ -1254,9 +1644,171 @@ DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMember(const De
 }
 
 /**
+ * @summary Deletes a data source.
+ *
+ * @description For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+ *
+ * @param request DeleteContextDatabaseSyncConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextDatabaseSyncConnectionResponse
+ */
+DeleteContextDatabaseSyncConnectionResponse Client::deleteContextDatabaseSyncConnectionWithOptions(const DeleteContextDatabaseSyncConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextDatabaseSyncConnection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextDatabaseSyncConnectionResponse>();
+}
+
+/**
+ * @summary Deletes a data source.
+ *
+ * @description For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+ *
+ * @param request DeleteContextDatabaseSyncConnectionRequest
+ * @return DeleteContextDatabaseSyncConnectionResponse
+ */
+DeleteContextDatabaseSyncConnectionResponse Client::deleteContextDatabaseSyncConnection(const DeleteContextDatabaseSyncConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContextDatabaseSyncConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an import task.
+ *
+ * @description You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+ *
+ * @param request DeleteContextDatabaseSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextDatabaseSyncJobResponse
+ */
+DeleteContextDatabaseSyncJobResponse Client::deleteContextDatabaseSyncJobWithOptions(const DeleteContextDatabaseSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextDatabaseSyncJob"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextDatabaseSyncJobResponse>();
+}
+
+/**
+ * @summary Deletes an import task.
+ *
+ * @description You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+ *
+ * @param request DeleteContextDatabaseSyncJobRequest
+ * @return DeleteContextDatabaseSyncJobResponse
+ */
+DeleteContextDatabaseSyncJobResponse Client::deleteContextDatabaseSyncJob(const DeleteContextDatabaseSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContextDatabaseSyncJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a data selection scope.
+ *
+ * @description Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+ *
+ * @param request DeleteContextDatabaseSyncSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextDatabaseSyncSourceResponse
+ */
+DeleteContextDatabaseSyncSourceResponse Client::deleteContextDatabaseSyncSourceWithOptions(const DeleteContextDatabaseSyncSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextDatabaseSyncSource"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextDatabaseSyncSourceResponse>();
+}
+
+/**
+ * @summary Deletes a data selection scope.
+ *
+ * @description Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+ *
+ * @param request DeleteContextDatabaseSyncSourceRequest
+ * @return DeleteContextDatabaseSyncSourceResponse
+ */
+DeleteContextDatabaseSyncSourceResponse Client::deleteContextDatabaseSyncSource(const DeleteContextDatabaseSyncSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContextDatabaseSyncSourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a ContextDB workspace.
  *
- * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+ * @description Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1289,7 +1841,7 @@ DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspaceWit
 /**
  * @summary Deletes a ContextDB workspace.
  *
- * @description Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+ * @description Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
  *
  * @param request DeleteContextDatabaseWorkspaceRequest
  * @return DeleteContextDatabaseWorkspaceResponse
@@ -1344,7 +1896,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 /**
  * @summary Deletes a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1388,7 +1940,7 @@ DeleteSandboxTemplateResponse Client::deleteSandboxTemplateWithOptions(const Del
 /**
  * @summary Deletes a sandbox template.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS Supabase
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1550,9 +2102,9 @@ DescribeAppInstanceAttributeResponse Client::describeAppInstanceAttribute(const 
 }
 
 /**
- * @summary This API retrieves a list of RDS AI application instances.
+ * @summary Queries a list of RDS AI application instances.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1602,9 +2154,9 @@ DescribeAppInstancesResponse Client::describeAppInstancesWithOptions(const Descr
 }
 
 /**
- * @summary This API retrieves a list of RDS AI application instances.
+ * @summary Queries a list of RDS AI application instances.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1678,7 +2230,7 @@ DescribeCommonSandboxTemplatesResponse Client::describeCommonSandboxTemplates(co
 }
 
 /**
- * @summary This API retrieves the list of events.
+ * @summary Queries a list of events.
  *
  * @param request DescribeEventsListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1729,7 +2281,7 @@ DescribeEventsListResponse Client::describeEventsListWithOptions(const DescribeE
 }
 
 /**
- * @summary This API retrieves the list of events.
+ * @summary Queries a list of events.
  *
  * @param request DescribeEventsListRequest
  * @return DescribeEventsListResponse
@@ -1860,9 +2412,9 @@ DescribeInstanceEndpointsResponse Client::describeInstanceEndpoints(const Descri
 }
 
 /**
- * @summary Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+ * @summary Queries the IP whitelist of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1908,9 +2460,9 @@ DescribeInstanceIpWhitelistResponse Client::describeInstanceIpWhitelistWithOptio
 }
 
 /**
- * @summary Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+ * @summary Queries the IP whitelist of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2184,10 +2736,10 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetail(const Desc
 }
 
 /**
- * @summary 查看 model operator 实例具体 token 汇总情况
+ * @summary Queries the token usage summary for a model operator instance.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeMOTokenUsageSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2238,10 +2790,10 @@ DescribeMOTokenUsageSummaryResponse Client::describeMOTokenUsageSummaryWithOptio
 }
 
 /**
- * @summary 查看 model operator 实例具体 token 汇总情况
+ * @summary Queries the token usage summary for a model operator instance.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeMOTokenUsageSummaryRequest
  * @return DescribeMOTokenUsageSummaryResponse
@@ -2252,10 +2804,10 @@ DescribeMOTokenUsageSummaryResponse Client::describeMOTokenUsageSummary(const De
 }
 
 /**
- * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+ * @summary Queries the status or download link of an asynchronous CSV export task for MO usage details.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeMOUsageDetailExportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2286,10 +2838,10 @@ DescribeMOUsageDetailExportResponse Client::describeMOUsageDetailExportWithOptio
 }
 
 /**
- * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+ * @summary Queries the status or download link of an asynchronous CSV export task for MO usage details.
  *
- * @description ### 适用引擎
- * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeMOUsageDetailExportRequest
  * @return DescribeMOUsageDetailExportResponse
@@ -2300,7 +2852,7 @@ DescribeMOUsageDetailExportResponse Client::describeMOUsageDetailExport(const De
 }
 
 /**
- * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+ * @summary Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -2338,7 +2890,7 @@ DescribeModelOperatorResponse Client::describeModelOperatorWithOptions(const Des
 }
 
 /**
- * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+ * @summary Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -2352,7 +2904,7 @@ DescribeModelOperatorResponse Client::describeModelOperator(const DescribeModelO
 }
 
 /**
- * @summary Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+ * @summary Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -2412,7 +2964,7 @@ DescribeMonitorDataResponse Client::describeMonitorDataWithOptions(const Describ
 }
 
 /**
- * @summary Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+ * @summary Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -2426,7 +2978,7 @@ DescribeMonitorDataResponse Client::describeMonitorData(const DescribeMonitorDat
 }
 
 /**
- * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
+ * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
  *
  * @description ### Applicable engine
  * RDS Supabase
@@ -2490,7 +3042,7 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplatesWithOptions(con
 }
 
 /**
- * @summary Queries the list of sandbox templates available for creating a Supabase sandbox.
+ * @summary Queries the list of sandbox templates used to create Supabase sandboxes.
  *
  * @description ### Applicable engine
  * RDS Supabase
@@ -2506,10 +3058,10 @@ DescribeSandboxTemplatesResponse Client::describeSandboxTemplates(const Describe
 }
 
 /**
- * @summary Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+ * @summary Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
  *
- * @description ### Supported engine
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeWhitelistIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2540,10 +3092,10 @@ DescribeWhitelistIpsResponse Client::describeWhitelistIpsWithOptions(const Descr
 }
 
 /**
- * @summary Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+ * @summary Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
  *
- * @description ### Supported engine
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeWhitelistIpsRequest
  * @return DescribeWhitelistIpsResponse
@@ -2554,10 +3106,10 @@ DescribeWhitelistIpsResponse Client::describeWhitelistIps(const DescribeWhitelis
 }
 
 /**
- * @summary Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+ * @summary Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
  *
- * @description Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
- * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+ * @description Disables the sandbox and Edge Routine capabilities of a Supabase instance.
+ * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
  *
  * @param request DisableAgentRuntimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2600,10 +3152,10 @@ DisableAgentRuntimeResponse Client::disableAgentRuntimeWithOptions(const Disable
 }
 
 /**
- * @summary Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+ * @summary Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
  *
- * @description Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
- * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+ * @description Disables the sandbox and Edge Routine capabilities of a Supabase instance.
+ * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
  *
  * @param request DisableAgentRuntimeRequest
  * @return DisableAgentRuntimeResponse
@@ -2618,7 +3170,7 @@ DisableAgentRuntimeResponse Client::disableAgentRuntime(const DisableAgentRuntim
  *
  * @description During the public preview, the sandbox and Edge Routine features are free of charge.
  * ### Before you begin
- * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+ * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
  *
  * @param request EnableAgentRuntimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2673,7 +3225,7 @@ EnableAgentRuntimeResponse Client::enableAgentRuntimeWithOptions(const EnableAge
  *
  * @description During the public preview, the sandbox and Edge Routine features are free of charge.
  * ### Before you begin
- * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+ * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
  *
  * @param request EnableAgentRuntimeRequest
  * @return EnableAgentRuntimeResponse
@@ -2684,10 +3236,10 @@ EnableAgentRuntimeResponse Client::enableAgentRuntime(const EnableAgentRuntimeRe
 }
 
 /**
- * @summary GetAvailableLLMModels
+ * @summary Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
  *
- * @description ### 适用引擎
- * RDS SUPABASE
+ * @description ### Applicable engine
+ * RDS Supabase.
  *
  * @param request GetAvailableLLMModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2726,10 +3278,10 @@ GetAvailableLLMModelsResponse Client::getAvailableLLMModelsWithOptions(const Get
 }
 
 /**
- * @summary GetAvailableLLMModels
+ * @summary Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
  *
- * @description ### 适用引擎
- * RDS SUPABASE
+ * @description ### Applicable engine
+ * RDS Supabase.
  *
  * @param request GetAvailableLLMModelsRequest
  * @return GetAvailableLLMModelsResponse
@@ -2740,7 +3292,7 @@ GetAvailableLLMModelsResponse Client::getAvailableLLMModels(const GetAvailableLL
 }
 
 /**
- * @summary 获取会话可选模型
+ * @summary Retrieves the available models for a session.
  *
  * @param request GetChatModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2764,7 +3316,7 @@ GetChatModelResponse Client::getChatModelWithOptions(const GetChatModelRequest &
 }
 
 /**
- * @summary 获取会话可选模型
+ * @summary Retrieves the available models for a session.
  *
  * @param request GetChatModelRequest
  * @return GetChatModelResponse
@@ -2772,6 +3324,456 @@ GetChatModelResponse Client::getChatModelWithOptions(const GetChatModelRequest &
 GetChatModelResponse Client::getChatModel(const GetChatModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getChatModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a datasource configuration.
+ *
+ * @description Retrieves the details of a connection.
+ *
+ * @param request GetContextDatabaseSyncConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncConnectionResponse
+ */
+GetContextDatabaseSyncConnectionResponse Client::getContextDatabaseSyncConnectionWithOptions(const GetContextDatabaseSyncConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncConnection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncConnectionResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a datasource configuration.
+ *
+ * @description Retrieves the details of a connection.
+ *
+ * @param request GetContextDatabaseSyncConnectionRequest
+ * @return GetContextDatabaseSyncConnectionResponse
+ */
+GetContextDatabaseSyncConnectionResponse Client::getContextDatabaseSyncConnection(const GetContextDatabaseSyncConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the authorization scope of a data source.
+ *
+ * @description Queries the authorization scope of a connection.
+ *
+ * @param request GetContextDatabaseSyncConnectionAuthorizationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncConnectionAuthorizationResponse
+ */
+GetContextDatabaseSyncConnectionAuthorizationResponse Client::getContextDatabaseSyncConnectionAuthorizationWithOptions(const GetContextDatabaseSyncConnectionAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncConnectionAuthorization"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncConnectionAuthorizationResponse>();
+}
+
+/**
+ * @summary Queries the authorization scope of a data source.
+ *
+ * @description Queries the authorization scope of a connection.
+ *
+ * @param request GetContextDatabaseSyncConnectionAuthorizationRequest
+ * @return GetContextDatabaseSyncConnectionAuthorizationResponse
+ */
+GetContextDatabaseSyncConnectionAuthorizationResponse Client::getContextDatabaseSyncConnectionAuthorization(const GetContextDatabaseSyncConnectionAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncConnectionAuthorizationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the status of a discovery task by task ID.
+ *
+ * @description Queries the status of a discovery task by task ID.
+ *
+ * @param request GetContextDatabaseSyncDiscoveryTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncDiscoveryTaskResponse
+ */
+GetContextDatabaseSyncDiscoveryTaskResponse Client::getContextDatabaseSyncDiscoveryTaskWithOptions(const GetContextDatabaseSyncDiscoveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncDiscoveryTask"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncDiscoveryTaskResponse>();
+}
+
+/**
+ * @summary Queries the status of a discovery task by task ID.
+ *
+ * @description Queries the status of a discovery task by task ID.
+ *
+ * @param request GetContextDatabaseSyncDiscoveryTaskRequest
+ * @return GetContextDatabaseSyncDiscoveryTaskResponse
+ */
+GetContextDatabaseSyncDiscoveryTaskResponse Client::getContextDatabaseSyncDiscoveryTask(const GetContextDatabaseSyncDiscoveryTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncDiscoveryTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an import job.
+ *
+ * @description Retrieves the details of a job.
+ *
+ * @param request GetContextDatabaseSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncJobResponse
+ */
+GetContextDatabaseSyncJobResponse Client::getContextDatabaseSyncJobWithOptions(const GetContextDatabaseSyncJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncJob"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncJobResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an import job.
+ *
+ * @description Retrieves the details of a job.
+ *
+ * @param request GetContextDatabaseSyncJobRequest
+ * @return GetContextDatabaseSyncJobResponse
+ */
+GetContextDatabaseSyncJobResponse Client::getContextDatabaseSyncJob(const GetContextDatabaseSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries whether an import task can be started.
+ *
+ * @description Queries whether a job can be started.
+ *
+ * @param request GetContextDatabaseSyncJobReadinessRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncJobReadinessResponse
+ */
+GetContextDatabaseSyncJobReadinessResponse Client::getContextDatabaseSyncJobReadinessWithOptions(const GetContextDatabaseSyncJobReadinessRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncJobReadiness"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncJobReadinessResponse>();
+}
+
+/**
+ * @summary Queries whether an import task can be started.
+ *
+ * @description Queries whether a job can be started.
+ *
+ * @param request GetContextDatabaseSyncJobReadinessRequest
+ * @return GetContextDatabaseSyncJobReadinessResponse
+ */
+GetContextDatabaseSyncJobReadinessResponse Client::getContextDatabaseSyncJobReadiness(const GetContextDatabaseSyncJobReadinessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncJobReadinessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the scheduling configuration of an import task.
+ *
+ * @description Queries the scheduling configuration of a job.
+ *
+ * @param request GetContextDatabaseSyncJobScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncJobScheduleResponse
+ */
+GetContextDatabaseSyncJobScheduleResponse Client::getContextDatabaseSyncJobScheduleWithOptions(const GetContextDatabaseSyncJobScheduleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncJobSchedule"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncJobScheduleResponse>();
+}
+
+/**
+ * @summary Queries the scheduling configuration of an import task.
+ *
+ * @description Queries the scheduling configuration of a job.
+ *
+ * @param request GetContextDatabaseSyncJobScheduleRequest
+ * @return GetContextDatabaseSyncJobScheduleResponse
+ */
+GetContextDatabaseSyncJobScheduleResponse Client::getContextDatabaseSyncJobSchedule(const GetContextDatabaseSyncJobScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncJobScheduleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a run.
+ *
+ * @description Retrieves the details of a run.
+ *
+ * @param request GetContextDatabaseSyncRunRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncRunResponse
+ */
+GetContextDatabaseSyncRunResponse Client::getContextDatabaseSyncRunWithOptions(const GetContextDatabaseSyncRunRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRunId()) {
+    query["RunId"] = request.getRunId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncRun"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncRunResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a run.
+ *
+ * @description Retrieves the details of a run.
+ *
+ * @param request GetContextDatabaseSyncRunRequest
+ * @return GetContextDatabaseSyncRunResponse
+ */
+GetContextDatabaseSyncRunResponse Client::getContextDatabaseSyncRun(const GetContextDatabaseSyncRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncRunWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a data selection scope.
+ *
+ * @description Retrieves the details of a source.
+ *
+ * @param request GetContextDatabaseSyncSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncSourceResponse
+ */
+GetContextDatabaseSyncSourceResponse Client::getContextDatabaseSyncSourceWithOptions(const GetContextDatabaseSyncSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncSource"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncSourceResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a data selection scope.
+ *
+ * @description Retrieves the details of a source.
+ *
+ * @param request GetContextDatabaseSyncSourceRequest
+ * @return GetContextDatabaseSyncSourceResponse
+ */
+GetContextDatabaseSyncSourceResponse Client::getContextDatabaseSyncSource(const GetContextDatabaseSyncSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the current node selection in the data selection scope.
+ *
+ * @description Queries the current node selection of the source.
+ *
+ * @param request GetContextDatabaseSyncSourceSelectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextDatabaseSyncSourceSelectionResponse
+ */
+GetContextDatabaseSyncSourceSelectionResponse Client::getContextDatabaseSyncSourceSelectionWithOptions(const GetContextDatabaseSyncSourceSelectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextDatabaseSyncSourceSelection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextDatabaseSyncSourceSelectionResponse>();
+}
+
+/**
+ * @summary Queries the current node selection in the data selection scope.
+ *
+ * @description Queries the current node selection of the source.
+ *
+ * @param request GetContextDatabaseSyncSourceSelectionRequest
+ * @return GetContextDatabaseSyncSourceSelectionResponse
+ */
+GetContextDatabaseSyncSourceSelectionResponse Client::getContextDatabaseSyncSourceSelection(const GetContextDatabaseSyncSourceSelectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getContextDatabaseSyncSourceSelectionWithOptions(request, runtime);
 }
 
 /**
@@ -2833,7 +3835,7 @@ GetConversationsResponse Client::getConversations(const GetConversationsRequest 
 }
 
 /**
- * @summary Retrieves details for a specified custom agent.
+ * @summary Queries a dedicated agent created by the user.
  *
  * @param request GetCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2864,7 +3866,7 @@ GetCustomAgentResponse Client::getCustomAgentWithOptions(const GetCustomAgentReq
 }
 
 /**
- * @summary Retrieves details for a specified custom agent.
+ * @summary Queries a dedicated agent created by the user.
  *
  * @param request GetCustomAgentRequest
  * @return GetCustomAgentResponse
@@ -2983,7 +3985,7 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 }
 
 /**
- * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
+ * @summary Retrieves order information for RDS AI Assistant Ultimate Edition.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -3017,7 +4019,7 @@ GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const Get
 }
 
 /**
- * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
+ * @summary Retrieves order information for RDS AI Assistant Ultimate Edition.
  *
  * @description ### Applicable engine
  * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
@@ -3139,7 +4141,7 @@ GetScheduledReportsResponse Client::getScheduledReports(const GetScheduledReport
 }
 
 /**
- * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+ * @summary Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3148,12 +4150,24 @@ GetScheduledReportsResponse Client::getScheduledReports(const GetScheduledReport
 GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDownload()) {
+    query["Download"] = request.getDownload();
+  }
+
   if (!!request.hasLanguage()) {
     query["Language"] = request.getLanguage();
   }
 
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
   if (!!request.hasSkillId()) {
     query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasVersionId()) {
+    query["VersionId"] = request.getVersionId();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -3178,7 +4192,7 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 }
 
 /**
- * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+ * @summary Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -3361,9 +4375,9 @@ ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeys(const List
 }
 
 /**
- * @summary Lists the members of a context database.
+ * @summary Lists context database members.
  *
- * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+ * @description Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
  *
  * @param request ListContextDatabaseMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3402,9 +4416,9 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembersWithOptions
 }
 
 /**
- * @summary Lists the members of a context database.
+ * @summary Lists context database members.
  *
- * @description Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+ * @description Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
  *
  * @param request ListContextDatabaseMembersRequest
  * @return ListContextDatabaseMembersResponse
@@ -3412,6 +4426,568 @@ ListContextDatabaseMembersResponse Client::listContextDatabaseMembersWithOptions
 ListContextDatabaseMembersResponse Client::listContextDatabaseMembers(const ListContextDatabaseMembersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listContextDatabaseMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the datasource configurations in a workspace.
+ *
+ * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncConnectionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncConnectionsResponse
+ */
+ListContextDatabaseSyncConnectionsResponse Client::listContextDatabaseSyncConnectionsWithOptions(const ListContextDatabaseSyncConnectionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPluginId()) {
+    query["PluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncConnections"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncConnectionsResponse>();
+}
+
+/**
+ * @summary Lists the datasource configurations in a workspace.
+ *
+ * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncConnectionsRequest
+ * @return ListContextDatabaseSyncConnectionsResponse
+ */
+ListContextDatabaseSyncConnectionsResponse Client::listContextDatabaseSyncConnections(const ListContextDatabaseSyncConnectionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncConnectionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the documents associated with an import task.
+ *
+ * @description By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+ *
+ * @param request ListContextDatabaseSyncJobDocumentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncJobDocumentsResponse
+ */
+ListContextDatabaseSyncJobDocumentsResponse Client::listContextDatabaseSyncJobDocumentsWithOptions(const ListContextDatabaseSyncJobDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncJobDocuments"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncJobDocumentsResponse>();
+}
+
+/**
+ * @summary Lists the documents associated with an import task.
+ *
+ * @description By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+ *
+ * @param request ListContextDatabaseSyncJobDocumentsRequest
+ * @return ListContextDatabaseSyncJobDocumentsResponse
+ */
+ListContextDatabaseSyncJobDocumentsResponse Client::listContextDatabaseSyncJobDocuments(const ListContextDatabaseSyncJobDocumentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncJobDocumentsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the exclusions of an import task.
+ *
+ * @description This operation uses pagination by default. Page and PageSize are optional parameters.
+ * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncJobExclusionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncJobExclusionsResponse
+ */
+ListContextDatabaseSyncJobExclusionsResponse Client::listContextDatabaseSyncJobExclusionsWithOptions(const ListContextDatabaseSyncJobExclusionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncJobExclusions"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncJobExclusionsResponse>();
+}
+
+/**
+ * @summary Lists the exclusions of an import task.
+ *
+ * @description This operation uses pagination by default. Page and PageSize are optional parameters.
+ * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncJobExclusionsRequest
+ * @return ListContextDatabaseSyncJobExclusionsResponse
+ */
+ListContextDatabaseSyncJobExclusionsResponse Client::listContextDatabaseSyncJobExclusions(const ListContextDatabaseSyncJobExclusionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncJobExclusionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists import tasks.
+ *
+ * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncJobsResponse
+ */
+ListContextDatabaseSyncJobsResponse Client::listContextDatabaseSyncJobsWithOptions(const ListContextDatabaseSyncJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncJobs"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncJobsResponse>();
+}
+
+/**
+ * @summary Lists import tasks.
+ *
+ * @description The list operation returns paginated results by default. Page and PageSize are optional parameters.
+ * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+ *
+ * @param request ListContextDatabaseSyncJobsRequest
+ * @return ListContextDatabaseSyncJobsResponse
+ */
+ListContextDatabaseSyncJobsResponse Client::listContextDatabaseSyncJobs(const ListContextDatabaseSyncJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists available synchronization plugins.
+ *
+ * @description This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncPluginsResponse
+ */
+ListContextDatabaseSyncPluginsResponse Client::listContextDatabaseSyncPluginsWithOptions(const ListContextDatabaseSyncPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncPlugins"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncPluginsResponse>();
+}
+
+/**
+ * @summary Lists available synchronization plugins.
+ *
+ * @description This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncPluginsRequest
+ * @return ListContextDatabaseSyncPluginsResponse
+ */
+ListContextDatabaseSyncPluginsResponse Client::listContextDatabaseSyncPlugins(const ListContextDatabaseSyncPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the run records.
+ *
+ * @description The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncRunItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncRunItemsResponse
+ */
+ListContextDatabaseSyncRunItemsResponse Client::listContextDatabaseSyncRunItemsWithOptions(const ListContextDatabaseSyncRunItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRunId()) {
+    query["RunId"] = request.getRunId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncRunItems"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncRunItemsResponse>();
+}
+
+/**
+ * @summary Lists the run records.
+ *
+ * @description The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+ * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncRunItemsRequest
+ * @return ListContextDatabaseSyncRunItemsResponse
+ */
+ListContextDatabaseSyncRunItemsResponse Client::listContextDatabaseSyncRunItems(const ListContextDatabaseSyncRunItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncRunItemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列出 Run 日志
+ *
+ * @description 列表接口默认分页返回，Page 与 PageSize 为可选参数。
+ * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+ *
+ * @param request ListContextDatabaseSyncRunLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncRunLogsResponse
+ */
+ListContextDatabaseSyncRunLogsResponse Client::listContextDatabaseSyncRunLogsWithOptions(const ListContextDatabaseSyncRunLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRunId()) {
+    query["RunId"] = request.getRunId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncRunLogs"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncRunLogsResponse>();
+}
+
+/**
+ * @summary 列出 Run 日志
+ *
+ * @description 列表接口默认分页返回，Page 与 PageSize 为可选参数。
+ * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+ *
+ * @param request ListContextDatabaseSyncRunLogsRequest
+ * @return ListContextDatabaseSyncRunLogsResponse
+ */
+ListContextDatabaseSyncRunLogsResponse Client::listContextDatabaseSyncRunLogs(const ListContextDatabaseSyncRunLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncRunLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the runs.
+ *
+ * @description By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+ * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+ *
+ * @param request ListContextDatabaseSyncRunsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncRunsResponse
+ */
+ListContextDatabaseSyncRunsResponse Client::listContextDatabaseSyncRunsWithOptions(const ListContextDatabaseSyncRunsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncRuns"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncRunsResponse>();
+}
+
+/**
+ * @summary Lists the runs.
+ *
+ * @description By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+ * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+ *
+ * @param request ListContextDatabaseSyncRunsRequest
+ * @return ListContextDatabaseSyncRunsResponse
+ */
+ListContextDatabaseSyncRunsResponse Client::listContextDatabaseSyncRuns(const ListContextDatabaseSyncRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncRunsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the discovered tree nodes for the data selection scope.
+ *
+ * @description List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncSourceTreeNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncSourceTreeNodesResponse
+ */
+ListContextDatabaseSyncSourceTreeNodesResponse Client::listContextDatabaseSyncSourceTreeNodesWithOptions(const ListContextDatabaseSyncSourceTreeNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncSourceTreeNodes"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncSourceTreeNodesResponse>();
+}
+
+/**
+ * @summary Lists the discovered tree nodes for the data selection scope.
+ *
+ * @description List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncSourceTreeNodesRequest
+ * @return ListContextDatabaseSyncSourceTreeNodesResponse
+ */
+ListContextDatabaseSyncSourceTreeNodesResponse Client::listContextDatabaseSyncSourceTreeNodes(const ListContextDatabaseSyncSourceTreeNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncSourceTreeNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists the data selection scopes.
+ *
+ * @description By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncSourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseSyncSourcesResponse
+ */
+ListContextDatabaseSyncSourcesResponse Client::listContextDatabaseSyncSourcesWithOptions(const ListContextDatabaseSyncSourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseSyncSources"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseSyncSourcesResponse>();
+}
+
+/**
+ * @summary Lists the data selection scopes.
+ *
+ * @description By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+ *
+ * @param request ListContextDatabaseSyncSourcesRequest
+ * @return ListContextDatabaseSyncSourcesResponse
+ */
+ListContextDatabaseSyncSourcesResponse Client::listContextDatabaseSyncSources(const ListContextDatabaseSyncSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseSyncSourcesWithOptions(request, runtime);
 }
 
 /**
@@ -3473,7 +5049,7 @@ ListContextDatabaseWorkspacesResponse Client::listContextDatabaseWorkspaces(cons
 }
 
 /**
- * @summary Lists your custom agents.
+ * @summary Queries the list of dedicated agents created by the user.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3508,7 +5084,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary Lists your custom agents.
+ * @summary Queries the list of dedicated agents created by the user.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -3519,7 +5095,7 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
- * @summary Queries the custom agent tools of the user.
+ * @summary Queries the list of Agent tools for a user.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomAgentToolsResponse
@@ -3541,7 +5117,7 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darab
 }
 
 /**
- * @summary Queries the custom agent tools of the user.
+ * @summary Queries the list of Agent tools for a user.
  *
  * @return ListCustomAgentToolsResponse
  */
@@ -3551,10 +5127,10 @@ ListCustomAgentToolsResponse Client::listCustomAgentTools() {
 }
 
 /**
- * @summary ListLLMTokenUsage
+ * @summary Retrieves the AI gateway token usage for an RDS Supabase instance.
  *
- * @description ### 适用引擎
- * RDS SUPABASE
+ * @description ### Applicable engine
+ * RDS Supabase.
  *
  * @param request ListLLMTokenUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3601,10 +5177,10 @@ ListLLMTokenUsageResponse Client::listLLMTokenUsageWithOptions(const ListLLMToke
 }
 
 /**
- * @summary ListLLMTokenUsage
+ * @summary Retrieves the AI gateway token usage for an RDS Supabase instance.
  *
- * @description ### 适用引擎
- * RDS SUPABASE
+ * @description ### Applicable engine
+ * RDS Supabase.
  *
  * @param request ListLLMTokenUsageRequest
  * @return ListLLMTokenUsageResponse
@@ -3684,6 +5260,22 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasScope()) {
+    query["Scope"] = request.getScope();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.getSort();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -3933,9 +5525,9 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 }
 
 /**
- * @summary Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+ * @summary Modifies the IP whitelist of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3993,9 +5585,9 @@ ModifyInstanceIpWhitelistResponse Client::modifyInstanceIpWhitelistWithOptions(c
 }
 
 /**
- * @summary Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+ * @summary Modifies the IP whitelist of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4525,10 +6117,10 @@ ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTas
 }
 
 /**
- * @summary Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+ * @summary Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ModifyWhitelistIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4563,10 +6155,10 @@ ModifyWhitelistIpsResponse Client::modifyWhitelistIpsWithOptions(const ModifyWhi
 }
 
 /**
- * @summary Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+ * @summary Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ModifyWhitelistIpsRequest
  * @return ModifyWhitelistIpsResponse
@@ -4574,6 +6166,64 @@ ModifyWhitelistIpsResponse Client::modifyWhitelistIpsWithOptions(const ModifyWhi
 ModifyWhitelistIpsResponse Client::modifyWhitelistIps(const ModifyWhitelistIpsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyWhitelistIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an exclusion item for an import job.
+ *
+ * @description Deletes an exclusion item for a job.
+ *
+ * @param request RemoveContextDatabaseSyncJobExclusionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveContextDatabaseSyncJobExclusionResponse
+ */
+RemoveContextDatabaseSyncJobExclusionResponse Client::removeContextDatabaseSyncJobExclusionWithOptions(const RemoveContextDatabaseSyncJobExclusionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDocumentId()) {
+    query["DocumentId"] = request.getDocumentId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveContextDatabaseSyncJobExclusion"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveContextDatabaseSyncJobExclusionResponse>();
+}
+
+/**
+ * @summary Deletes an exclusion item for an import job.
+ *
+ * @description Deletes an exclusion item for a job.
+ *
+ * @param request RemoveContextDatabaseSyncJobExclusionRequest
+ * @return RemoveContextDatabaseSyncJobExclusionResponse
+ */
+RemoveContextDatabaseSyncJobExclusionResponse Client::removeContextDatabaseSyncJobExclusion(const RemoveContextDatabaseSyncJobExclusionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeContextDatabaseSyncJobExclusionWithOptions(request, runtime);
 }
 
 /**
@@ -4641,10 +6291,10 @@ RenameApiKeyResponse Client::renameApiKey(const RenameApiKeyRequest &request) {
 }
 
 /**
- * @summary Resets an API key.
+ * @summary Resets the API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ResetApiKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4679,10 +6329,10 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const ResetApiKeyRequest &req
 }
 
 /**
- * @summary Resets an API key.
+ * @summary Resets the API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -4693,7 +6343,7 @@ ResetApiKeyResponse Client::resetApiKey(const ResetApiKeyRequest &request) {
 }
 
 /**
- * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+ * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
@@ -4733,7 +6383,7 @@ ResetInstanceKeysResponse Client::resetInstanceKeysWithOptions(const ResetInstan
 }
 
 /**
- * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+ * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
@@ -4749,13 +6399,13 @@ ResetInstanceKeysResponse Client::resetInstanceKeys(const ResetInstanceKeysReque
 }
 
 /**
- * @summary Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+ * @summary Resets the logon password and database access password of an RDS AI application instance.
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+ * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
  *
  * @param request ResetInstancePasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4802,13 +6452,13 @@ ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const Res
 }
 
 /**
- * @summary Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+ * @summary Resets the logon password and database access password of an RDS AI application instance.
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
- * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+ * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
  *
  * @param request ResetInstancePasswordRequest
  * @return ResetInstancePasswordResponse
@@ -4879,7 +6529,61 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary Revokes a context database API key.
+ * @summary 基于快照重试失败明细
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+ *
+ * @param request RetryFailedContextDatabaseSyncRunRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryFailedContextDatabaseSyncRunResponse
+ */
+RetryFailedContextDatabaseSyncRunResponse Client::retryFailedContextDatabaseSyncRunWithOptions(const RetryFailedContextDatabaseSyncRunRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasRunId()) {
+    query["RunId"] = request.getRunId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryFailedContextDatabaseSyncRun"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryFailedContextDatabaseSyncRunResponse>();
+}
+
+/**
+ * @summary 基于快照重试失败明细
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+ *
+ * @param request RetryFailedContextDatabaseSyncRunRequest
+ * @return RetryFailedContextDatabaseSyncRunResponse
+ */
+RetryFailedContextDatabaseSyncRunResponse Client::retryFailedContextDatabaseSyncRun(const RetryFailedContextDatabaseSyncRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retryFailedContextDatabaseSyncRunWithOptions(request, runtime);
+}
+
+/**
+ * @summary Revokes an API key for a context database.
  *
  * @description Revokes an API key.
  *
@@ -4920,7 +6624,7 @@ RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKeyWithOptio
 }
 
 /**
- * @summary Revokes a context database API key.
+ * @summary Revokes an API key for a context database.
  *
  * @description Revokes an API key.
  *
@@ -4930,6 +6634,118 @@ RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKeyWithOptio
 RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKey(const RevokeContextDatabaseApiKeyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeContextDatabaseApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Manually triggers a run.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+ *
+ * @param request StartContextDatabaseSyncRunRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartContextDatabaseSyncRunResponse
+ */
+StartContextDatabaseSyncRunResponse Client::startContextDatabaseSyncRunWithOptions(const StartContextDatabaseSyncRunRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartContextDatabaseSyncRun"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartContextDatabaseSyncRunResponse>();
+}
+
+/**
+ * @summary Manually triggers a run.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+ *
+ * @param request StartContextDatabaseSyncRunRequest
+ * @return StartContextDatabaseSyncRunResponse
+ */
+StartContextDatabaseSyncRunResponse Client::startContextDatabaseSyncRun(const StartContextDatabaseSyncRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startContextDatabaseSyncRunWithOptions(request, runtime);
+}
+
+/**
+ * @summary Initiates a snapshot discovery task for data selection scope configuration.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+ *
+ * @param request StartContextDatabaseSyncSourceDiscoveryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartContextDatabaseSyncSourceDiscoveryResponse
+ */
+StartContextDatabaseSyncSourceDiscoveryResponse Client::startContextDatabaseSyncSourceDiscoveryWithOptions(const StartContextDatabaseSyncSourceDiscoveryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartContextDatabaseSyncSourceDiscovery"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartContextDatabaseSyncSourceDiscoveryResponse>();
+}
+
+/**
+ * @summary Initiates a snapshot discovery task for data selection scope configuration.
+ *
+ * @description Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+ *
+ * @param request StartContextDatabaseSyncSourceDiscoveryRequest
+ * @return StartContextDatabaseSyncSourceDiscoveryResponse
+ */
+StartContextDatabaseSyncSourceDiscoveryResponse Client::startContextDatabaseSyncSourceDiscovery(const StartContextDatabaseSyncSourceDiscoveryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startContextDatabaseSyncSourceDiscoveryWithOptions(request, runtime);
 }
 
 /**
@@ -4997,7 +6813,7 @@ StartInstanceResponse Client::startInstance(const StartInstanceRequest &request)
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
@@ -5045,7 +6861,7 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
  *
  * @description ### Applicable engine
  * RDS PostgreSQL
- * ### Related documentation
+ * ### Related feature documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request StopInstanceRequest
@@ -5057,10 +6873,10 @@ StopInstanceResponse Client::stopInstance(const StopInstanceRequest &request) {
 }
 
 /**
- * @summary Modify the API KEY Quota
+ * @summary Modifies the quota of an API key.
  *
- * @description ### Supported engine
- * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param tmpReq UpdateApiKeyQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5101,10 +6917,10 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuotaWithOptions(const UpdateApiKe
 }
 
 /**
- * @summary Modify the API KEY Quota
+ * @summary Modifies the quota of an API key.
  *
- * @description ### Supported engine
- * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request UpdateApiKeyQuotaRequest
  * @return UpdateApiKeyQuotaResponse
@@ -5115,7 +6931,7 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuota(const UpdateApiKeyQuotaReque
 }
 
 /**
- * @summary Updates the display metadata of a ContextDB API key.
+ * @summary Updates the API key of a context database.
  *
  * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
  *
@@ -5164,7 +6980,7 @@ UpdateContextDatabaseApiKeyResponse Client::updateContextDatabaseApiKeyWithOptio
 }
 
 /**
- * @summary Updates the display metadata of a ContextDB API key.
+ * @summary Updates the API key of a context database.
  *
  * @description Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
  *
@@ -5235,6 +7051,420 @@ UpdateContextDatabaseMemberResponse Client::updateContextDatabaseMember(const Up
 }
 
 /**
+ * @summary 更新连接元数据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param request UpdateContextDatabaseSyncConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncConnectionResponse
+ */
+UpdateContextDatabaseSyncConnectionResponse Client::updateContextDatabaseSyncConnectionWithOptions(const UpdateContextDatabaseSyncConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncConnection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncConnectionResponse>();
+}
+
+/**
+ * @summary 更新连接元数据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param request UpdateContextDatabaseSyncConnectionRequest
+ * @return UpdateContextDatabaseSyncConnectionResponse
+ */
+UpdateContextDatabaseSyncConnectionResponse Client::updateContextDatabaseSyncConnection(const UpdateContextDatabaseSyncConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 单独轮换连接凭据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param tmpReq UpdateContextDatabaseSyncConnectionCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncConnectionCredentialResponse
+ */
+UpdateContextDatabaseSyncConnectionCredentialResponse Client::updateContextDatabaseSyncConnectionCredentialWithOptions(const UpdateContextDatabaseSyncConnectionCredentialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateContextDatabaseSyncConnectionCredentialShrinkRequest request = UpdateContextDatabaseSyncConnectionCredentialShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCredentials()) {
+    request.setCredentialsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCredentials(), "Credentials", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasCredentialsShrink()) {
+    query["Credentials"] = request.getCredentialsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncConnectionCredential"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncConnectionCredentialResponse>();
+}
+
+/**
+ * @summary 单独轮换连接凭据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param request UpdateContextDatabaseSyncConnectionCredentialRequest
+ * @return UpdateContextDatabaseSyncConnectionCredentialResponse
+ */
+UpdateContextDatabaseSyncConnectionCredentialResponse Client::updateContextDatabaseSyncConnectionCredential(const UpdateContextDatabaseSyncConnectionCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncConnectionCredentialWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新 Job 元数据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+ *
+ * @param tmpReq UpdateContextDatabaseSyncJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncJobResponse
+ */
+UpdateContextDatabaseSyncJobResponse Client::updateContextDatabaseSyncJobWithOptions(const UpdateContextDatabaseSyncJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateContextDatabaseSyncJobShrinkRequest request = UpdateContextDatabaseSyncJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilters()) {
+    request.setFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilters(), "Filters", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasFiltersShrink()) {
+    query["Filters"] = request.getFiltersShrink();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasTargetKnowledgeBaseId()) {
+    query["TargetKnowledgeBaseId"] = request.getTargetKnowledgeBaseId();
+  }
+
+  if (!!request.hasTargetKnowledgeBaseName()) {
+    query["TargetKnowledgeBaseName"] = request.getTargetKnowledgeBaseName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncJob"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncJobResponse>();
+}
+
+/**
+ * @summary 更新 Job 元数据
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+ *
+ * @param request UpdateContextDatabaseSyncJobRequest
+ * @return UpdateContextDatabaseSyncJobResponse
+ */
+UpdateContextDatabaseSyncJobResponse Client::updateContextDatabaseSyncJob(const UpdateContextDatabaseSyncJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新 Job 调度配置
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param tmpReq UpdateContextDatabaseSyncJobScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncJobScheduleResponse
+ */
+UpdateContextDatabaseSyncJobScheduleResponse Client::updateContextDatabaseSyncJobScheduleWithOptions(const UpdateContextDatabaseSyncJobScheduleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateContextDatabaseSyncJobScheduleShrinkRequest request = UpdateContextDatabaseSyncJobScheduleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDailyTimes()) {
+    request.setDailyTimesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDailyTimes(), "DailyTimes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDailyTimesShrink()) {
+    query["DailyTimes"] = request.getDailyTimesShrink();
+  }
+
+  if (!!request.hasIntervalMinutes()) {
+    query["IntervalMinutes"] = request.getIntervalMinutes();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasMissedPolicy()) {
+    query["MissedPolicy"] = request.getMissedPolicy();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncJobSchedule"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncJobScheduleResponse>();
+}
+
+/**
+ * @summary 更新 Job 调度配置
+ *
+ * @description 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+ *
+ * @param request UpdateContextDatabaseSyncJobScheduleRequest
+ * @return UpdateContextDatabaseSyncJobScheduleResponse
+ */
+UpdateContextDatabaseSyncJobScheduleResponse Client::updateContextDatabaseSyncJobSchedule(const UpdateContextDatabaseSyncJobScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncJobScheduleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the metadata of a data selection scope.
+ *
+ * @description Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+ *
+ * @param tmpReq UpdateContextDatabaseSyncSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncSourceResponse
+ */
+UpdateContextDatabaseSyncSourceResponse Client::updateContextDatabaseSyncSourceWithOptions(const UpdateContextDatabaseSyncSourceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateContextDatabaseSyncSourceShrinkRequest request = UpdateContextDatabaseSyncSourceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSourceConfig()) {
+    request.setSourceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceConfig(), "SourceConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasSourceConfigShrink()) {
+    query["SourceConfig"] = request.getSourceConfigShrink();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncSource"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncSourceResponse>();
+}
+
+/**
+ * @summary Updates the metadata of a data selection scope.
+ *
+ * @description Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+ *
+ * @param request UpdateContextDatabaseSyncSourceRequest
+ * @return UpdateContextDatabaseSyncSourceResponse
+ */
+UpdateContextDatabaseSyncSourceResponse Client::updateContextDatabaseSyncSource(const UpdateContextDatabaseSyncSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the explicit node selection for the data selection scope.
+ *
+ * @description For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+ *
+ * @param tmpReq UpdateContextDatabaseSyncSourceSelectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseSyncSourceSelectionResponse
+ */
+UpdateContextDatabaseSyncSourceSelectionResponse Client::updateContextDatabaseSyncSourceSelectionWithOptions(const UpdateContextDatabaseSyncSourceSelectionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateContextDatabaseSyncSourceSelectionShrinkRequest request = UpdateContextDatabaseSyncSourceSelectionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSelectedNodeKeys()) {
+    request.setSelectedNodeKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedNodeKeys(), "SelectedNodeKeys", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasSelectedNodeKeysShrink()) {
+    query["SelectedNodeKeys"] = request.getSelectedNodeKeysShrink();
+  }
+
+  if (!!request.hasSelectionPolicy()) {
+    query["SelectionPolicy"] = request.getSelectionPolicy();
+  }
+
+  if (!!request.hasSourceId()) {
+    query["SourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseSyncSourceSelection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseSyncSourceSelectionResponse>();
+}
+
+/**
+ * @summary Updates the explicit node selection for the data selection scope.
+ *
+ * @description For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+ *
+ * @param request UpdateContextDatabaseSyncSourceSelectionRequest
+ * @return UpdateContextDatabaseSyncSourceSelectionResponse
+ */
+UpdateContextDatabaseSyncSourceSelectionResponse Client::updateContextDatabaseSyncSourceSelection(const UpdateContextDatabaseSyncSourceSelectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseSyncSourceSelectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates a ContextDB workspace.
  *
  * @description Modifies the name of a workspace.
@@ -5285,7 +7515,7 @@ UpdateContextDatabaseWorkspaceResponse Client::updateContextDatabaseWorkspace(co
 }
 
 /**
- * @summary Updates a custom agent.
+ * @summary Updates a Custom Agent.
  *
  * @param tmpReq UpdateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5346,7 +7576,7 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
 }
 
 /**
- * @summary Updates a custom agent.
+ * @summary Updates a Custom Agent.
  *
  * @param request UpdateCustomAgentRequest
  * @return UpdateCustomAgentResponse
@@ -5357,10 +7587,10 @@ UpdateCustomAgentResponse Client::updateCustomAgent(const UpdateCustomAgentReque
 }
 
 /**
- * @summary Updates the alert threshold percentage for API keys.
+ * @summary Updates the alert threshold percentage for an API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param tmpReq UpdateMOQuotaAlertThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5401,10 +7631,10 @@ UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThresholdWithOptio
 }
 
 /**
- * @summary Updates the alert threshold percentage for API keys.
+ * @summary Updates the alert threshold percentage for an API key.
  *
- * @description ### Applicable engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request UpdateMOQuotaAlertThresholdRequest
  * @return UpdateMOQuotaAlertThresholdResponse
@@ -5415,7 +7645,7 @@ UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThreshold(const Up
 }
 
 /**
- * @summary Updates the information of a specified skill.
+ * @summary Updates the information of a specified Skill.
  *
  * @param tmpReq UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5454,6 +7684,22 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmp
     query["SkillId"] = request.getSkillId();
   }
 
+  if (!!request.hasUpdateNote()) {
+    query["UpdateNote"] = request.getUpdateNote();
+  }
+
+  if (!!request.hasUploadId()) {
+    query["UploadId"] = request.getUploadId();
+  }
+
+  if (!!request.hasUploadToken()) {
+    query["UploadToken"] = request.getUploadToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -5472,7 +7718,7 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmp
 }
 
 /**
- * @summary Updates the information of a specified skill.
+ * @summary Updates the information of a specified Skill.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse
@@ -5480,6 +7726,60 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmp
 UpdateSkillResponse Client::updateSkill(const UpdateSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary Validates datasource credentials and authorization.
+ *
+ * @description Validates the connection credentials and authorization.
+ *
+ * @param request VerifyContextDatabaseSyncConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyContextDatabaseSyncConnectionResponse
+ */
+VerifyContextDatabaseSyncConnectionResponse Client::verifyContextDatabaseSyncConnectionWithOptions(const VerifyContextDatabaseSyncConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConnectionId()) {
+    query["ConnectionId"] = request.getConnectionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyContextDatabaseSyncConnection"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyContextDatabaseSyncConnectionResponse>();
+}
+
+/**
+ * @summary Validates datasource credentials and authorization.
+ *
+ * @description Validates the connection credentials and authorization.
+ *
+ * @param request VerifyContextDatabaseSyncConnectionRequest
+ * @return VerifyContextDatabaseSyncConnectionResponse
+ */
+VerifyContextDatabaseSyncConnectionResponse Client::verifyContextDatabaseSyncConnection(const VerifyContextDatabaseSyncConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return verifyContextDatabaseSyncConnectionWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace RdsAi20250507

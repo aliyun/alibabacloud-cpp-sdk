@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The statistical period. Default value: 15s.
     shared_ptr<int32_t> interval_ {};
-    // The metric to query.
+    // The metric to query. Valid values:
     // 
     // - pv
     // - uv

@@ -157,20 +157,20 @@ namespace Models
 
     protected:
       shared_ptr<string> createdBy_ {};
-      // The number of CPUs for the sandbox created with this template.
+      // The number of CPUs for the sandbox created by using this template.
       shared_ptr<string> defaultCpu_ {};
-      // The memory size of the sandbox created with this template.
+      // The memory size of the sandbox created by using this template.
       shared_ptr<string> defaultMemory_ {};
       // The sandbox template description.
       shared_ptr<string> description_ {};
-      // Indicates whether the sandbox created with this template can access resources in the VPC where Supabase resides.
+      // Indicates whether the sandbox created by using this template can access resources in the VPC where Supabase resides.
       shared_ptr<string> enableVpcAccess_ {};
       shared_ptr<string> image_ {};
       // The sandbox template name.
       shared_ptr<string> name_ {};
       shared_ptr<int64_t> replicas_ {};
       shared_ptr<map<string, string>> tags_ {};
-      // The sandbox template ID. Specify this ID when creating a sandbox with this template.
+      // The sandbox template ID. Specify this ID when you create a sandbox by using this template.
       shared_ptr<string> templateId_ {};
     };
 
@@ -229,7 +229,7 @@ namespace Models
 
 
   protected:
-    // A reserved parameter. You do not need to specify this parameter.
+    // A reserved parameter. You can ignore this parameter.
     shared_ptr<int32_t> maxResults_ {};
     // The token that indicates the position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
@@ -241,7 +241,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The list of sandbox templates.
     shared_ptr<vector<DescribeSandboxTemplatesResponseBody::SandboxTemplates>> sandboxTemplates_ {};
-    // The total number of records that match the request conditions.
+    // The total number of records that meet the request conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

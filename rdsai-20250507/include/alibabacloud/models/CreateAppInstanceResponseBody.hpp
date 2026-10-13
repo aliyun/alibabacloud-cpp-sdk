@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS Supabase instance.
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -137,10 +137,15 @@ namespace Models
 
 
       protected:
+        // The API key that is used.
         shared_ptr<string> apiKey_ {};
+        // The end time of the instance in ISO 8601 format. The interval between EndTime and StartTime cannot exceed 30 days.
         shared_ptr<string> endTime_ {};
+        // The instance name.
         shared_ptr<string> instanceId_ {};
+        // The model that is called.
         shared_ptr<string> model_ {};
+        // The start time of the instance in ISO 8601 format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -220,18 +225,25 @@ namespace Models
 
 
     protected:
+      // The completion time.
       shared_ptr<string> completedAt_ {};
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // OSS 预签名下载 URL；status=expired 时为 null
+      // The download URL.
       shared_ptr<string> downloadUrl_ {};
+      // The error message. Read this message to determine the error when the final value of Status is not SUCCESSED.
       shared_ptr<string> errorMessage_ {};
-      // 下载 URL 失效时间（UTC ISO8601）
+      // The expiration time in ISO 8601 format.
       shared_ptr<string> expiresAt_ {};
+      // The total size of the source backup file.
       shared_ptr<int64_t> fileSize_ {};
+      // The query filter conditions.
       shared_ptr<Data::Filters> filters_ {};
+      // The target conversion format.
       shared_ptr<string> format_ {};
+      // The total number of data rows.
       shared_ptr<int64_t> rowCount_ {};
-      // none / pending / processing / completed / failed / expired
+      // The module status.
       shared_ptr<string> status_ {};
     };
 
@@ -268,9 +280,13 @@ namespace Models
 
 
   protected:
+    // The result.
     shared_ptr<DescribeMOUsageDetailExportResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

@@ -62,7 +62,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> regionId_ {};
   };
 

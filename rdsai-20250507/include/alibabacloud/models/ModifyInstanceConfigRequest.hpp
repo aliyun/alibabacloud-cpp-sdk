@@ -85,7 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<string> branchName_ {};
-    // The idempotency parameter.
+    // The idempotence parameter.
     shared_ptr<string> clientToken_ {};
     // The name of the configuration item to modify. This parameter is used together with ConfigValue.
     shared_ptr<string> configName_ {};

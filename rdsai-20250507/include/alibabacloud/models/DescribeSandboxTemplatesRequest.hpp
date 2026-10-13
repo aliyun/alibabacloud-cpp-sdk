@@ -108,7 +108,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // A reserved parameter. You can ignore this parameter.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

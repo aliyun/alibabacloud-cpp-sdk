@@ -71,7 +71,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The RAG Agent status. Valid values:
+    // The RAG Agent status.
     // 
     // - **true**: Enabled.
     // - **false**: Disabled.

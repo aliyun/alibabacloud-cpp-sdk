@@ -240,7 +240,7 @@ namespace Models
     shared_ptr<vector<DescribeMOTokenUsageDetailResponseBody::Records>> records_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query conditions. This parameter is optional and may not be returned by default.
+    // The total number of records that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
     // The usage type.
     shared_ptr<string> usageType_ {};

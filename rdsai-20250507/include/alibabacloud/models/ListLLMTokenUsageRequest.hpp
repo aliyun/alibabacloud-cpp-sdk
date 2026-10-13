@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The end time of the inspection in UTC. Specify the time in the ISO 8601 standard. Format: YYYY-MM-DDTHH:mm:ssZ. The end time must be at least 2 hours later than the start time.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The instance ID of the AI application.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The model to query.
     shared_ptr<string> model_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time of the inspection in UTC. Specify the time in the ISO 8601 standard. Format: YYYY-MM-DDTHH:mm:ssZ.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

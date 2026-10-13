@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The API key.
+    // Api Key
     shared_ptr<string> apiKey_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -179,22 +179,22 @@ namespace Models
 
 
   protected:
-    // The time when the custom agent was created.
+    // The time when the dedicated agent was created.
     shared_ptr<string> createdAt_ {};
     // Indicates whether tools are enabled.
     shared_ptr<bool> enableTools_ {};
-    // The ID of the custom agent.
+    // The backup set ID.
     shared_ptr<string> id_ {};
-    // The name of the custom agent.
+    // The name of the dedicated agent.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<GetCustomAgentResponseBody::Skills>> skills_ {};
-    // The system prompt for the agent.
+    // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // A list of tools enabled for the agent.
+    // The tool details.
     shared_ptr<vector<string>> tools_ {};
-    // The time when the custom agent was last updated.
+    // The time when the dedicated agent was last modified.
     shared_ptr<string> updatedAt_ {};
   };
 

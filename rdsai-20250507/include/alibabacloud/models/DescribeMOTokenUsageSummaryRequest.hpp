@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The API key used.
     shared_ptr<string> apiKey_ {};
+    // The end time of the instance. Format: YYYY-MM-DD. The interval between EndTime and StartTime cannot exceed 31 days.
     shared_ptr<string> endTime_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The model called.
     shared_ptr<string> model_ {};
+    // The start time of the instance. Format: YYYY-MM-DD.
     shared_ptr<string> startTime_ {};
+    // The query type.
     shared_ptr<string> usageType_ {};
   };
 

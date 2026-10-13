@@ -116,11 +116,11 @@ namespace Models
     shared_ptr<int64_t> dailyTokenQuota_ {};
     // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The API key name.
+    // The name of the API key.
     shared_ptr<string> keyName_ {};
     // The quota percentage.
     shared_ptr<double> limitRate_ {};
-    // The quota allocation method. Valid values:
+    // The quota type. Valid values:
     // 
     // - ratio: by percentage.
     // - fixed: by fixed value.

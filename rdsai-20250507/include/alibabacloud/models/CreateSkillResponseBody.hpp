@@ -14,6 +14,8 @@ namespace Models
   class CreateSkillResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSkillResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Action, action_);
+      DARABONBA_PTR_TO_JSON(BundleHash, bundleHash_);
       DARABONBA_PTR_TO_JSON(CatalogRevision, catalogRevision_);
       DARABONBA_ANY_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
@@ -23,10 +25,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Skill, skill_);
+      DARABONBA_PTR_TO_JSON(SkillId, skillId_);
       DARABONBA_PTR_TO_JSON(SkillType, skillType_);
       DARABONBA_PTR_TO_JSON(Version, version_);
+      DARABONBA_PTR_TO_JSON(VersionId, versionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSkillResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Action, action_);
+      DARABONBA_PTR_FROM_JSON(BundleHash, bundleHash_);
       DARABONBA_PTR_FROM_JSON(CatalogRevision, catalogRevision_);
       DARABONBA_ANY_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
@@ -36,8 +42,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Skill, skill_);
+      DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
       DARABONBA_PTR_FROM_JSON(SkillType, skillType_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
+      DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
     };
     CreateSkillResponseBody() = default ;
     CreateSkillResponseBody(const CreateSkillResponseBody &) = default ;
@@ -176,21 +184,21 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // Indicates whether the Skill requires a credential.
       shared_ptr<bool> credentialRequired_ {};
-      // The Skill version ID.
+      // The ID of the Skill version.
       shared_ptr<string> id_ {};
-      // The Skill package size, in bytes.
+      // The size of the Skill package, in bytes.
       shared_ptr<int64_t> packageSize_ {};
-      // The revocation reason of the Skill version.
+      // The reason for revoking the Skill version.
       shared_ptr<string> revokeReason_ {};
       // The revocation time of the Skill version.
       shared_ptr<string> revokedAt_ {};
       // The SHA-256 digest of the Skill package.
       shared_ptr<string> sha256_ {};
-      // The ID of the parent Skill.
+      // The ID of the Skill to which this version belongs.
       shared_ptr<string> skillId_ {};
       // The status of the Skill version.
       shared_ptr<string> status_ {};
-      // The Skill version number.
+      // The version number of the Skill.
       shared_ptr<string> version_ {};
     };
 
@@ -318,11 +326,11 @@ namespace Models
       shared_ptr<string> activeVersionId_ {};
       // The Skill category.
       shared_ptr<string> category_ {};
-      // The Skill creation time.
+      // The creation time of the Skill.
       shared_ptr<string> createdAt_ {};
       // The Skill description.
       shared_ptr<string> description_ {};
-      // The Skill display name.
+      // The display name of the Skill.
       shared_ptr<string> displayName_ {};
       // The public HTTPS URL of the current icon. This value is empty if no icon is configured.
       shared_ptr<string> icon_ {};
@@ -334,13 +342,28 @@ namespace Models
       shared_ptr<string> scope_ {};
       // The stable identifier of the Skill.
       shared_ptr<string> slug_ {};
-      // The Skill update time.
+      // The update time of the Skill.
       shared_ptr<string> updatedAt_ {};
     };
 
-    virtual bool empty() const override { return this->catalogRevision_ == nullptr
-        && this->content_ == nullptr && this->createdAt_ == nullptr && this->dbtypes_ == nullptr && this->description_ == nullptr && this->id_ == nullptr
-        && this->name_ == nullptr && this->requestId_ == nullptr && this->skill_ == nullptr && this->skillType_ == nullptr && this->version_ == nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && this->bundleHash_ == nullptr && this->catalogRevision_ == nullptr && this->content_ == nullptr && this->createdAt_ == nullptr && this->dbtypes_ == nullptr
+        && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->skill_ == nullptr
+        && this->skillId_ == nullptr && this->skillType_ == nullptr && this->version_ == nullptr && this->versionId_ == nullptr; };
+    // action Field Functions 
+    bool hasAction() const { return this->action_ != nullptr;};
+    void deleteAction() { this->action_ = nullptr;};
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline CreateSkillResponseBody& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+    // bundleHash Field Functions 
+    bool hasBundleHash() const { return this->bundleHash_ != nullptr;};
+    void deleteBundleHash() { this->bundleHash_ = nullptr;};
+    inline string getBundleHash() const { DARABONBA_PTR_GET_DEFAULT(bundleHash_, "") };
+    inline CreateSkillResponseBody& setBundleHash(string bundleHash) { DARABONBA_PTR_SET_VALUE(bundleHash_, bundleHash) };
+
+
     // catalogRevision Field Functions 
     bool hasCatalogRevision() const { return this->catalogRevision_ != nullptr;};
     void deleteCatalogRevision() { this->catalogRevision_ = nullptr;};
@@ -410,6 +433,13 @@ namespace Models
     inline CreateSkillResponseBody& setSkill(CreateSkillResponseBody::Skill && skill) { DARABONBA_PTR_SET_RVALUE(skill_, skill) };
 
 
+    // skillId Field Functions 
+    bool hasSkillId() const { return this->skillId_ != nullptr;};
+    void deleteSkillId() { this->skillId_ = nullptr;};
+    inline string getSkillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
+    inline CreateSkillResponseBody& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
+
+
     // skillType Field Functions 
     bool hasSkillType() const { return this->skillType_ != nullptr;};
     void deleteSkillType() { this->skillType_ = nullptr;};
@@ -426,7 +456,18 @@ namespace Models
     inline CreateSkillResponseBody& setVersion(CreateSkillResponseBody::Version && version) { DARABONBA_PTR_SET_RVALUE(version_, version) };
 
 
+    // versionId Field Functions 
+    bool hasVersionId() const { return this->versionId_ != nullptr;};
+    void deleteVersionId() { this->versionId_ = nullptr;};
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline CreateSkillResponseBody& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
+
+
   protected:
+    // The publish action for this release.
+    shared_ptr<string> action_ {};
+    // The content digest of the Skill package.
+    shared_ptr<string> bundleHash_ {};
     // The Skill catalog revision number.
     shared_ptr<int64_t> catalogRevision_ {};
     // The content grouped by database type.
@@ -445,10 +486,14 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The created Skill.
     shared_ptr<CreateSkillResponseBody::Skill> skill_ {};
+    // The ID of the created Skill.
+    shared_ptr<string> skillId_ {};
     // The Skill type.
     shared_ptr<string> skillType_ {};
     // The created Skill version.
     shared_ptr<CreateSkillResponseBody::Version> version_ {};
+    // The ID of the created Skill version.
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

@@ -134,15 +134,14 @@ namespace Models
       shared_ptr<string> eventCode_ {};
       // The event status.
       shared_ptr<string> eventStatus_ {};
-      // A list of event times.
+      // The list of event times.
       shared_ptr<vector<string>> eventTimeList_ {};
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The recovery time.
       shared_ptr<string> recoveryTime_ {};
-      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -208,19 +207,19 @@ namespace Models
 
 
   protected:
-    // The count for each event code.
+    // The total number of events.
     shared_ptr<string> eventCodeCounts_ {};
-    // A list of events.
+    // The list of events.
     shared_ptr<vector<DescribeEventsListResponseBody::Events>> events_ {};
-    // The number of pages returned.
+    // The total number of pages.
     shared_ptr<int64_t> pageCount_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int64_t> totalPages_ {};

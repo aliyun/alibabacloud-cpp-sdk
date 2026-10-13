@@ -83,11 +83,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> memberName_ {};
-    // The member role. Valid values:
-    // 
-    // - owner
-    // - admin
-    // - member
+    // The member role. Valid values: owner, admin, and member.
     // 
     // This parameter is required.
     shared_ptr<string> role_ {};

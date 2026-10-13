@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Dbtypes, dbtypes_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(UpdateNote, updateNote_);
       DARABONBA_PTR_TO_JSON(UploadId, uploadId_);
       DARABONBA_PTR_TO_JSON(UploadToken, uploadToken_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Dbtypes, dbtypes_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(UpdateNote, updateNote_);
       DARABONBA_PTR_FROM_JSON(UploadId, uploadId_);
       DARABONBA_PTR_FROM_JSON(UploadToken, uploadToken_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->dbtypes_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->uploadId_ == nullptr && this->uploadToken_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->dbtypes_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->updateNote_ == nullptr && this->uploadId_ == nullptr
+        && this->uploadToken_ == nullptr && this->workspaceId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     inline CreateSkillRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // updateNote Field Functions 
+    bool hasUpdateNote() const { return this->updateNote_ != nullptr;};
+    void deleteUpdateNote() { this->updateNote_ = nullptr;};
+    inline string getUpdateNote() const { DARABONBA_PTR_GET_DEFAULT(updateNote_, "") };
+    inline CreateSkillRequest& setUpdateNote(string updateNote) { DARABONBA_PTR_SET_VALUE(updateNote_, updateNote) };
+
+
     // uploadId Field Functions 
     bool hasUploadId() const { return this->uploadId_ != nullptr;};
     void deleteUploadId() { this->uploadId_ = nullptr;};
@@ -103,13 +112,15 @@ namespace Models
     Darabonba::Json content_ {};
     // The list of database types.
     shared_ptr<vector<string>> dbtypes_ {};
-    // The Skill description. The description can be up to 1000 characters in length.
+    // The skill description. The description can be up to 1000 characters in length.
     shared_ptr<string> description_ {};
-    // The Skill name. The name can contain only lowercase letters, digits, and hyphens.
+    // The skill name. The name can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> name_ {};
-    // The Skill upload session ID.
+    // The ContextDB skill version update note. Provide this value when confirming storage after validation passes. The note can be up to 1000 characters in length.
+    shared_ptr<string> updateNote_ {};
+    // The skill upload session ID.
     shared_ptr<string> uploadId_ {};
-    // The Skill upload session token.
+    // The skill upload session token.
     shared_ptr<string> uploadToken_ {};
     // The ContextDB workspace ID.
     shared_ptr<string> workspaceId_ {};

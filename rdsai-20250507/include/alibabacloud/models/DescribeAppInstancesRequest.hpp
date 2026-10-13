@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The application type. The only supported value is **supabase**, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+    // The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
     shared_ptr<string> appType_ {};
-    // The ID of an RDS PostgreSQL instance to return only the associated AI application instances.
+    // The instance ID of the ApsaraDB RDS for PostgreSQL database that is connected to the AI application. If you specify this parameter, the AI application instances associated with the specified ApsaraDB RDS for PostgreSQL instance are queried.
     shared_ptr<string> DBInstanceName_ {};
-    // The page number of the results to return. The value must be greater than 0.
+    // The page number. Valid values: a value greater than 0 that does not exceed the maximum value of Integer.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of AI application instances to return on each page. Valid values: **1 to 50**.
+    // The number of entries per page. Valid values: **1 to 50**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> regionId_ {};
   };
 

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no end time filter is applied.
+    // The end time for filtering. Format: YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no end time filter is applied.
     shared_ptr<string> endTime_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no start time filter is applied.
+    // The start time for filtering. Format: YYYY-MM-DDTHH:mm:ssZ. If this parameter is not specified, no start time filter is applied.
     shared_ptr<string> startTime_ {};
   };
 

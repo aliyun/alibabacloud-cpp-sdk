@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
+    // The end time.
     shared_ptr<string> endTime_ {};
-    // The instance IDs. You can specify one or more instance IDs.
+    // The list of instances.
     shared_ptr<string> instanceIdList_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
+    // The start time.
     shared_ptr<string> startTime_ {};
   };
 

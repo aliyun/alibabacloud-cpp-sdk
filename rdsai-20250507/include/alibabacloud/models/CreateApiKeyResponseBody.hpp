@@ -147,11 +147,11 @@ namespace Models
         shared_ptr<string> apiKey_ {};
         // The daily quota of the API key.
         shared_ptr<int64_t> dailyTokenQuota_ {};
-        // The API key name.
+        // The name of the API key.
         shared_ptr<string> keyName_ {};
         // The quota percentage.
         shared_ptr<float> limitRate_ {};
-        // The quota allocation method. Valid values:
+        // The quota type. Valid values:
         // 
         // - **fixed**: By fixed value.
         // 
@@ -231,9 +231,9 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<CreateApiKeyResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

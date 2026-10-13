@@ -84,18 +84,23 @@ namespace Models
 
 
   protected:
+    // The API key to use.
     shared_ptr<string> apiKey_ {};
-    // 结束时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ；与 StartTime 跨度不超过 30 天
+    // The inspection end time in the YYYY-MM-DDTHH:mm:ssZ format. The time range between StartTime and EndTime cannot exceed 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The model to call.
     shared_ptr<string> model_ {};
-    // 起始时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ
+    // The inspection start time in the YYYY-MM-DDTHH:mm:ssZ format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The view type.
     shared_ptr<string> usageType_ {};
   };
 

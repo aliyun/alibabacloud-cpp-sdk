@@ -71,7 +71,7 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> regionId_ {};
   };
 
