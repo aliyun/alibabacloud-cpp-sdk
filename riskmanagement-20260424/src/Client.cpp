@@ -625,6 +625,48 @@ DownloadResourceControlEventsResponse Client::downloadResourceControlEvents(cons
 }
 
 /**
+ * @summary Immediately ends a penetration test.
+ *
+ * @param request EndPenetrationTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EndPenetrationTestResponse
+ */
+EndPenetrationTestResponse Client::endPenetrationTestWithOptions(const EndPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EndPenetrationTest"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EndPenetrationTestResponse>();
+}
+
+/**
+ * @summary Immediately ends a penetration test.
+ *
+ * @param request EndPenetrationTestRequest
+ * @return EndPenetrationTestResponse
+ */
+EndPenetrationTestResponse Client::endPenetrationTest(const EndPenetrationTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return endPenetrationTestWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the analysis results of alert records.
  *
  * @param tmpReq GetAlertRecordAnalysisResultRequest
@@ -1649,6 +1691,94 @@ QueryGuideSubStatusResponse Client::queryGuideSubStatus(const QueryGuideSubStatu
 }
 
 /**
+ * @summary Queries the details of a penetration test application.
+ *
+ * @param request QueryPenetrationTestDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPenetrationTestDetailResponse
+ */
+QueryPenetrationTestDetailResponse Client::queryPenetrationTestDetailWithOptions(const QueryPenetrationTestDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPenetrationTestDetail"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPenetrationTestDetailResponse>();
+}
+
+/**
+ * @summary Queries the details of a penetration test application.
+ *
+ * @param request QueryPenetrationTestDetailRequest
+ * @return QueryPenetrationTestDetailResponse
+ */
+QueryPenetrationTestDetailResponse Client::queryPenetrationTestDetail(const QueryPenetrationTestDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPenetrationTestDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询渗透测试申请列表
+ *
+ * @param request QueryPenetrationTestListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPenetrationTestListResponse
+ */
+QueryPenetrationTestListResponse Client::queryPenetrationTestListWithOptions(const QueryPenetrationTestListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPenetrationTestList"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPenetrationTestListResponse>();
+}
+
+/**
+ * @summary 查询渗透测试申请列表
+ *
+ * @param request QueryPenetrationTestListRequest
+ * @return QueryPenetrationTestListResponse
+ */
+QueryPenetrationTestListResponse Client::queryPenetrationTestList(const QueryPenetrationTestListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPenetrationTestListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries cloud resource control events.
  *
  * @param tmpReq QueryResourceControlEventsRequest
@@ -2014,6 +2144,84 @@ SubmitApplyRecordResponse Client::submitApplyRecordWithOptions(const SubmitApply
 SubmitApplyRecordResponse Client::submitApplyRecord(const SubmitApplyRecordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitApplyRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a penetration test application.
+ *
+ * @param request SubmitPenetrationTestRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitPenetrationTestResponse
+ */
+SubmitPenetrationTestResponse Client::submitPenetrationTestWithOptions(const SubmitPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetList()) {
+    query["AssetList"] = request.getAssetList();
+  }
+
+  if (!!request.hasIsThirdpartyTest()) {
+    query["IsThirdpartyTest"] = request.getIsThirdpartyTest();
+  }
+
+  if (!!request.hasTestContent()) {
+    query["TestContent"] = request.getTestContent();
+  }
+
+  if (!!request.hasTestEndDate()) {
+    query["TestEndDate"] = request.getTestEndDate();
+  }
+
+  if (!!request.hasTestSourceIps()) {
+    query["TestSourceIps"] = request.getTestSourceIps();
+  }
+
+  if (!!request.hasTestStartDate()) {
+    query["TestStartDate"] = request.getTestStartDate();
+  }
+
+  if (!!request.hasTestSteps()) {
+    query["TestSteps"] = request.getTestSteps();
+  }
+
+  if (!!request.hasThirdpartyEmail()) {
+    query["ThirdpartyEmail"] = request.getThirdpartyEmail();
+  }
+
+  if (!!request.hasThirdpartyMobile()) {
+    query["ThirdpartyMobile"] = request.getThirdpartyMobile();
+  }
+
+  if (!!request.hasThirdpartyTester()) {
+    query["ThirdpartyTester"] = request.getThirdpartyTester();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitPenetrationTest"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitPenetrationTestResponse>();
+}
+
+/**
+ * @summary Submits a penetration test application.
+ *
+ * @param request SubmitPenetrationTestRequest
+ * @return SubmitPenetrationTestResponse
+ */
+SubmitPenetrationTestResponse Client::submitPenetrationTest(const SubmitPenetrationTestRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitPenetrationTestWithOptions(request, runtime);
 }
 
 /**

@@ -174,6 +174,23 @@ namespace RiskManagement20260424
       Models::DownloadResourceControlEventsResponse downloadResourceControlEvents(const Models::DownloadResourceControlEventsRequest &request);
 
       /**
+       * @summary Immediately ends a penetration test.
+       *
+       * @param request EndPenetrationTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EndPenetrationTestResponse
+       */
+      Models::EndPenetrationTestResponse endPenetrationTestWithOptions(const Models::EndPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Immediately ends a penetration test.
+       *
+       * @param request EndPenetrationTestRequest
+       * @return EndPenetrationTestResponse
+       */
+      Models::EndPenetrationTestResponse endPenetrationTest(const Models::EndPenetrationTestRequest &request);
+
+      /**
        * @summary Retrieves the analysis results of alert records.
        *
        * @param tmpReq GetAlertRecordAnalysisResultRequest
@@ -514,6 +531,40 @@ namespace RiskManagement20260424
       Models::QueryGuideSubStatusResponse queryGuideSubStatus(const Models::QueryGuideSubStatusRequest &request);
 
       /**
+       * @summary Queries the details of a penetration test application.
+       *
+       * @param request QueryPenetrationTestDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPenetrationTestDetailResponse
+       */
+      Models::QueryPenetrationTestDetailResponse queryPenetrationTestDetailWithOptions(const Models::QueryPenetrationTestDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a penetration test application.
+       *
+       * @param request QueryPenetrationTestDetailRequest
+       * @return QueryPenetrationTestDetailResponse
+       */
+      Models::QueryPenetrationTestDetailResponse queryPenetrationTestDetail(const Models::QueryPenetrationTestDetailRequest &request);
+
+      /**
+       * @summary 查询渗透测试申请列表
+       *
+       * @param request QueryPenetrationTestListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPenetrationTestListResponse
+       */
+      Models::QueryPenetrationTestListResponse queryPenetrationTestListWithOptions(const Models::QueryPenetrationTestListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询渗透测试申请列表
+       *
+       * @param request QueryPenetrationTestListRequest
+       * @return QueryPenetrationTestListResponse
+       */
+      Models::QueryPenetrationTestListResponse queryPenetrationTestList(const Models::QueryPenetrationTestListRequest &request);
+
+      /**
        * @summary Queries cloud resource control events.
        *
        * @param tmpReq QueryResourceControlEventsRequest
@@ -597,6 +648,23 @@ namespace RiskManagement20260424
        * @return SubmitApplyRecordResponse
        */
       Models::SubmitApplyRecordResponse submitApplyRecord(const Models::SubmitApplyRecordRequest &request);
+
+      /**
+       * @summary Submits a penetration test application.
+       *
+       * @param request SubmitPenetrationTestRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitPenetrationTestResponse
+       */
+      Models::SubmitPenetrationTestResponse submitPenetrationTestWithOptions(const Models::SubmitPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a penetration test application.
+       *
+       * @param request SubmitPenetrationTestRequest
+       * @return SubmitPenetrationTestResponse
+       */
+      Models::SubmitPenetrationTestResponse submitPenetrationTest(const Models::SubmitPenetrationTestRequest &request);
 
       /**
        * @summary Updates the pay-as-you-go binding relationship for Security Center.

@@ -37,6 +37,9 @@
 #include <alibabacloud/models/DownloadResourceControlEventsShrinkRequest.hpp>
 #include <alibabacloud/models/DownloadResourceControlEventsResponseBody.hpp>
 #include <alibabacloud/models/DownloadResourceControlEventsResponse.hpp>
+#include <alibabacloud/models/EndPenetrationTestRequest.hpp>
+#include <alibabacloud/models/EndPenetrationTestResponseBody.hpp>
+#include <alibabacloud/models/EndPenetrationTestResponse.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultRequest.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultShrinkRequest.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultResponseBody.hpp>
@@ -105,6 +108,12 @@
 #include <alibabacloud/models/QueryGuideSubStatusRequest.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusResponseBody.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusResponse.hpp>
+#include <alibabacloud/models/QueryPenetrationTestDetailRequest.hpp>
+#include <alibabacloud/models/QueryPenetrationTestDetailResponseBody.hpp>
+#include <alibabacloud/models/QueryPenetrationTestDetailResponse.hpp>
+#include <alibabacloud/models/QueryPenetrationTestListRequest.hpp>
+#include <alibabacloud/models/QueryPenetrationTestListResponseBody.hpp>
+#include <alibabacloud/models/QueryPenetrationTestListResponse.hpp>
 #include <alibabacloud/models/QueryResourceControlEventsRequest.hpp>
 #include <alibabacloud/models/QueryResourceControlEventsShrinkRequest.hpp>
 #include <alibabacloud/models/QueryResourceControlEventsResponseBody.hpp>
@@ -122,6 +131,9 @@
 #include <alibabacloud/models/SubmitApplyRecordShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitApplyRecordResponseBody.hpp>
 #include <alibabacloud/models/SubmitApplyRecordResponse.hpp>
+#include <alibabacloud/models/SubmitPenetrationTestRequest.hpp>
+#include <alibabacloud/models/SubmitPenetrationTestResponseBody.hpp>
+#include <alibabacloud/models/SubmitPenetrationTestResponse.hpp>
 #include <alibabacloud/models/UpdatePostPaidBindRelRequest.hpp>
 #include <alibabacloud/models/UpdatePostPaidBindRelShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePostPaidBindRelResponseBody.hpp>
