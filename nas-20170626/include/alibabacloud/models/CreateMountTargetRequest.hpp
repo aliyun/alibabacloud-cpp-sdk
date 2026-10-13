@@ -105,16 +105,16 @@ namespace Models
   protected:
     // The name of the permission group.
     // 
-    // This parameter is required if the file system is a General-purpose NAS or Extreme NAS file system.
+    // This parameter is required if the file system is a General-purpose NAS file system or an Extreme NAS file system.
     // 
     // Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
     shared_ptr<string> accessGroupName_ {};
     // Specifies whether to check for existing mount targets. Only CPFS file systems are supported.
     // 
-    // A dry run checks parameter validity and inventory without actually creating a mount target or incurring fees.
+    // A dry run checks the validity of parameters and inventory without actually creating a mount target or incurring fees.
     // 
     // - true: sends a dry run request without creating a mount target. The check items include required parameters, request format, business limits, and CPFS inventory. If the check fails, the corresponding error is returned. If the check passes, `200 HttpCode` is returned, but `MountTargetDomain` is empty.
-    // - false (default): sends a normal request. After the check passes, a mount target is created.
+    // - false (default): sends a normal request and creates a mount target after the check passes.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to create an IPv6 mount target.
     // 
@@ -123,15 +123,15 @@ namespace Models
     // - true: creates an IPv6 mount target.
     // - false (default): does not create an IPv6 mount target.
     // 
-    // > IPv6 is supported only by Extreme NAS file systems in all regions in the Chinese mainland. The file system must have IPv6 enabled.
+    // > Currently, only Extreme NAS file systems in regions in the Chinese mainland support IPv6. The file system must have IPv6 enabled.
     shared_ptr<bool> enableIpv6_ {};
     // The file system ID.
     // 
     // - General-purpose NAS: 31a8e4\\*\\*\\*\\*.
     // 
-    // - Extreme NAS: The ID must start with `extreme-`, such as extreme-0015\\*\\*\\*\\*.
+    // - Extreme NAS: must start with `extreme-`, such as extreme-0015\\*\\*\\*\\*.
     // 
-    // - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+    // - Cloud Parallel File System (CPFS): must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
@@ -143,13 +143,13 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The vSwitch ID.
     // 
-    // This parameter is required and valid only when the network type is VPC.
+    // This parameter is required and valid when the network type is VPC.
     // For example:
     // If NetworkType is set to VPC, VSwitchId is required.
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
     // 
-    // This parameter is required and valid only when the network type is VPC.
+    // This parameter is required and valid when the network type is VPC.
     // For example:
     // If NetworkType is set to VPC, VpcId is required.
     shared_ptr<string> vpcId_ {};

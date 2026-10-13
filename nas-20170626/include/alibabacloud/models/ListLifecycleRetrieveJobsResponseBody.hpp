@@ -154,7 +154,7 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The execution paths of the data retrieval task.
       shared_ptr<vector<string>> paths_ {};
-      // The number of files that are successfully retrieved by the data retrieval task.
+      // The number of files successfully retrieved by the data retrieval task.
       shared_ptr<int64_t> retrievedFileCount_ {};
       // The status of the data retrieval task. Valid values:
       // - active: Running.
@@ -164,7 +164,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The storage class. Valid values:
       // - InfrequentAccess: IA storage class.
-      // - Archive: Archive storage.
+      // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
       // The time when the task was last updated.
       // 

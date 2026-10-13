@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The file system type.
     // 
-    // Valid values: extreme (Extreme NAS file system)
+    // Valid value: extreme (Extreme NAS file system).
     shared_ptr<string> fileSystemType_ {};
     // The page number of the snapshot list.
     // 

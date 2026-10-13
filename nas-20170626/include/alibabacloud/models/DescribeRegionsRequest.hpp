@@ -63,7 +63,7 @@ namespace Models
     // - all: all types.
     // - standard (default): General-purpose NAS.
     // - extreme: Extreme NAS.
-    // - cpfs: CPFS.
+    // - cpfs: Cloud Parallel File Storage (CPFS).
     shared_ptr<string> fileSystemType_ {};
     // The page number of the list.
     // 

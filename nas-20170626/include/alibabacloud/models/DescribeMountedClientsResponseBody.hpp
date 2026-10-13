@@ -143,13 +143,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMountedClientsResponseBody::Clients> clients_ {};
-    // The page number.
+    // The page number of the client list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of IP addresses returned per page.
+    // The number of client IP addresses on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of IP addresses.
+    // The total number of client IP addresses returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

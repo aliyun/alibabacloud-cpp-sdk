@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The IP address of the client.
+    // The client IP address.
     shared_ptr<string> clientIP_ {};
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The ID of the region where the file system resides.
+    // The region ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -129,7 +129,7 @@ namespace Models
     protected:
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The Virtual Storage Channel (VSC) ID. You can call the ListVscs operation of Lingjun eflo-controller/2022-12-15 to query VSC IDs. If no VSC has been created, call the CreateVsc operation to create one.
+      // The Virtual Storage Channel (VSC) ID. You can call the ListVscs operation of Lingjun Intelligent Computing eflo-controller/2022-12-15 to query VSC IDs. If no VSC has been created, call the CreateVsc operation to create one.
       shared_ptr<string> vscId_ {};
     };
 

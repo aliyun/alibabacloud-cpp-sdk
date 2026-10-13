@@ -274,7 +274,7 @@ namespace Models
       // 
       // > You can mount the file system only when the status is Active.
       shared_ptr<string> status_ {};
-      // The list of CPFS access point tags.
+      // The list of tags for the CPFS access point.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
     };
 

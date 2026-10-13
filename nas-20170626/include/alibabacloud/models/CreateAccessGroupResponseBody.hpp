@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The name of the permission group.
+    // The permission group name.
     shared_ptr<string> accessGroupName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

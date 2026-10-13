@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The request ID.
     // 
-    // The request ID is returned regardless of whether the request is successful.
+    // A request ID is returned regardless of whether the operation is successful.
     shared_ptr<string> requestId_ {};
   };
 

@@ -205,11 +205,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeStoragePackagesResponseBody::Packages> packages_ {};
-    // The page number of the returned page.
+    // The page number of the storage plan list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of storage plans returned per page.
+    // The number of storage plans on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The number of storage plans.
     shared_ptr<int32_t> totalCount_ {};

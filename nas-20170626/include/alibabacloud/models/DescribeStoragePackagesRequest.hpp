@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of storage plans to return on each page.
+    // The number of storage plans on each page during a paged query.
     // 
     // Valid values: 1 to 100.
     // 
@@ -80,12 +80,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether the time to return is in UTC.
+    // Specifies whether the returned time is in UTC format.
     // 
     // Valid values:
     // 
-    // *   true (default): returns UTC time.
-    // *   false: returns UNIX timestamp.
+    // - true (default): The returned time is in UTC format.
+    // - false: A UNIX timestamp is returned.
     shared_ptr<bool> useUTCDateTime_ {};
   };
 

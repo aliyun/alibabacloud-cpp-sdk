@@ -49,10 +49,9 @@ namespace Models
 
   protected:
     // The collection of file system IDs.
-    // 
-    // >  The maximum number of elements in the set must be less than or equal to 20.
+    // > The maximum number of elements in the collection must be less than or equal to 20.
     shared_ptr<string> filesystemsShrink_ {};
-    // The ID of the region where the file system resides.
+    // The region ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

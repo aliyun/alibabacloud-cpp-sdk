@@ -48,15 +48,16 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
+    // - General-purpose NAS: 31a8e4\\*\\*\\*\\*.
     // 
-    // *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
-    // *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
-    // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+    // - Extreme NAS: must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
+    // 
+    // - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The domain name of the mount target.
+    // The mount target.
     // 
     // This parameter is required.
     shared_ptr<string> mountTargetDomain_ {};

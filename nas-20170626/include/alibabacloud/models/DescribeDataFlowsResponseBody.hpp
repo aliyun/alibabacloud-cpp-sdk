@@ -356,7 +356,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDataFlowsResponseBody::DataFlowInfo> dataFlowInfo_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to obtain content starting from the truncation point.
+    // The token that determines the start point of the next query. If the returned results are truncated, you can use NextToken to initiate another request to retrieve the results after the truncation point.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

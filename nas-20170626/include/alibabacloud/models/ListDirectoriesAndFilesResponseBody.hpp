@@ -193,30 +193,30 @@ namespace Models
     protected:
       // The query time.
       // 
-      // The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       shared_ptr<string> atime_ {};
       // The time when the metadata was modified.
       // 
-      // The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       shared_ptr<string> ctime_ {};
       // The FileId of the directory or file.
       shared_ptr<string> fileId_ {};
-      // Indicates whether the directory contains archive storage class files.
+      // Indicates whether the directory contains archive storage files.
       // 
-      // This parameter is returned and meaningful only when Type is set to Directory.
+      // This parameter is returned and meaningful only when Type is Directory.
       // 
       // Valid values:
       // 
-      // - true: The directory contains archive storage class files.
-      // - false: The directory does not contain archive storage class files.
+      // - true: The directory contains archive storage files.
+      // - false: The directory does not contain archive storage files.
       shared_ptr<string> hasArchiveFile_ {};
       // Indicates whether the directory contains IA storage class files.
       // 
-      // This parameter is returned and meaningful only when Type is set to Directory.
+      // This parameter is returned and meaningful only when Type is Directory.
       // 
       // Valid values:
       // 
@@ -227,9 +227,9 @@ namespace Models
       shared_ptr<string> inode_ {};
       // The time when the file was modified.
       // 
-      // The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       shared_ptr<string> mtime_ {};
       // The file name or directory name.
       shared_ptr<string> name_ {};
@@ -240,21 +240,21 @@ namespace Models
       // The portable account ID.
       // This parameter is meaningful only when ProtocolType is set to SMB and access control is enabled.
       shared_ptr<string> owner_ {};
-      // The time when the most recent data retrieval task was run.
+      // The time when the most recent data retrieval task was executed.
       // 
-      // The time follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The value follows the ISO 8601 standard and is returned in the format: `yyyy-MM-ddTHH:mm:ssZ`.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       shared_ptr<string> retrieveTime_ {};
       // The size of the file.
       // 
       // Unit: bytes.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       shared_ptr<int64_t> size_ {};
       // The storage class type of the returned file.
       // 
-      // This parameter is returned and meaningful only when Type is set to File.
+      // This parameter is returned and meaningful only when Type is File.
       // 
       // Valid values:
       // - InfrequentAccess: IA storage class.
@@ -297,7 +297,7 @@ namespace Models
   protected:
     // The collection of directory or file information.
     shared_ptr<vector<ListDirectoriesAndFilesResponseBody::Entries>> entries_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation position.
+    // If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

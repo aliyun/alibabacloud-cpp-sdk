@@ -77,8 +77,8 @@ namespace Models
       // The name of the filter key. Valid values:
       // - AgenticSpaceIds
       shared_ptr<string> key_ {};
-      // The value of the filter key. Wildcards are not supported.
-      // - AgenticSpaceIds: Only a single ID can be specified.
+      // The value of the filter key. This parameter does not support wildcards.
+      // - AgenticSpaceIds: You can specify only one ID.
       shared_ptr<string> value_ {};
     };
 
@@ -115,17 +115,17 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The collection of filter conditions.
+    // The collection of filter key information.
     shared_ptr<vector<DescribeAgenticSpacesRequest::Filters>> filters_ {};
-    // The number of results per query.
+    // The number of entries to return for each query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Set this parameter to the value of NextToken that is returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
   };
 

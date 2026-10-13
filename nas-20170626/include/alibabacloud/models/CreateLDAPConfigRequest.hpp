@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // An LDAP entry.
+    // The distinguished name (DN) of the entry to bind to the LDAP directory.
     shared_ptr<string> bindDN_ {};
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // An LDAP search base.
+    // The LDAP search base.
     // 
     // This parameter is required.
     shared_ptr<string> searchBase_ {};
-    // An LDAP URI.
+    // The LDAP server address.
     // 
     // This parameter is required.
     shared_ptr<string> URI_ {};

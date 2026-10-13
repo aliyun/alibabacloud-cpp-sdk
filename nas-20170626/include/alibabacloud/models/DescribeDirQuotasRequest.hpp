@@ -66,21 +66,21 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of directories on each page. Default value: 10.
     // 
     // Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The absolute path of a directory.
+    // The absolute path of the directory in the file system.
     // 
-    // If you do not specify this parameter, all directories for which quotas are created are returned.
+    // If this parameter is left empty, all directories that have quotas configured in the file system are returned.
     shared_ptr<string> path_ {};
   };
 

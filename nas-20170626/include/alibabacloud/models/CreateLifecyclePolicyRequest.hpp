@@ -91,7 +91,7 @@ namespace Models
       // The rule attribute.
       // 
       // Valid values:
-      // - Atime: the last access time of the file.
+      // - Atime: the access time of the file.
       shared_ptr<string> attribute_ {};
       // The rule threshold.
       // 
@@ -189,7 +189,7 @@ namespace Models
       // The rule attribute.
       // 
       // Valid values:
-      // - Atime: the last access time of the file.
+      // - Atime: the access time of the file.
       shared_ptr<string> attribute_ {};
       // The rule threshold.
       // 
@@ -287,7 +287,7 @@ namespace Models
 
 
   protected:
-    // The file data expiration and deletion rules. You can configure up to one rule.
+    // The data expiration and deletion rules. You can configure up to one rule.
     shared_ptr<vector<CreateLifecyclePolicyRequest::DeleteRules>> deleteRules_ {};
     // The lifecycle policy description.
     // 
@@ -311,11 +311,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // - DEFAULT_ATIME_14: files that have not been accessed for 14 days.
-    // - DEFAULT_ATIME_30: files that have not been accessed for 30 days.
-    // - DEFAULT_ATIME_60: files that have not been accessed for 60 days.
-    // - DEFAULT_ATIME_90: files that have not been accessed for 90 days.
-    // - DEFAULT_ATIME_180: files that have not been accessed for 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
+    // - DEFAULT_ATIME_14: files not accessed in the last 14 days.
+    // - DEFAULT_ATIME_30: files not accessed in the last 30 days.
+    // - DEFAULT_ATIME_60: files not accessed in the last 60 days.
+    // - DEFAULT_ATIME_90: files not accessed in the last 90 days.
+    // - DEFAULT_ATIME_180: files not accessed in the last 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
     // >- If an IA storage class policy has already been configured for the directory, the archive policy duration must be longer than the IA storage class policy duration.
     // > - Only General-purpose NAS supports this parameter.
     shared_ptr<string> lifecycleRuleName_ {};
@@ -328,20 +328,20 @@ namespace Models
     shared_ptr<string> path_ {};
     // The absolute paths of directories associated with the lifecycle management policy.
     shared_ptr<vector<string>> paths_ {};
-    // The file data retrieval rules. You can configure up to one rule.
+    // The data retrieval rules. You can configure up to one rule.
     // >Only CPFS for Lingjun file systems are supported.
     // 
     // >When LifecyclePolicyType is set to OnDemand, at least one of TransitRules or RetrieveRules must be specified.
     shared_ptr<vector<CreateLifecyclePolicyRequest::RetrieveRules>> retrieveRules_ {};
     // The storage tiering type.
     // - InfrequentAccess: IA storage class.
-    // - Archive: Archive storage class.
+    // - Archive: Archive storage.
     // 
     // >General-purpose NAS supports InfrequentAccess and Archive. CPFS for Lingjun supports only InfrequentAccess.
     // 
     // This parameter is required.
     shared_ptr<string> storageType_ {};
-    // The file data transit rules. You can configure up to one rule.
+    // The data transit rules. You can configure up to one rule.
     // 
     // >Supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
     shared_ptr<vector<CreateLifecyclePolicyRequest::TransitRules>> transitRules_ {};

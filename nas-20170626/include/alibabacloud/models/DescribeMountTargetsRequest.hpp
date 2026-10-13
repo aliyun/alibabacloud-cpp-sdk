@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The IPv4 and IPv6 dual-stack mount target.
+    // The dual-stack (IPv4 and IPv6) mount target domain.
     // 
-    // > Currently, only Extreme NAS in regions in the Chinese mainland supports IPv6.
+    // > IPv6 is currently supported only in the Chinese mainland regions for Extreme NAS file systems.
     shared_ptr<string> dualStackMountTargetDomain_ {};
     // The file system ID.
     // 
@@ -85,7 +85,7 @@ namespace Models
     // 
     // - Extreme NAS: must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
     // 
-    // - CPFS: must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+    // - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

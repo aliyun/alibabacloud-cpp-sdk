@@ -119,12 +119,12 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The ID of the lifecycle policy.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The lifecycle policy name. Naming rules:
+    // The lifecycle policy name. The naming rules are as follows:
     // 
     // 
-    // The name must be 3 to 64 characters in length, must start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
+    // The name must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
     // 
-    // >Optional for General-purpose NAS file systems. If specified, this parameter takes precedence. If not specified, LifecyclePolicyId is used instead.
+    // >This parameter is optional for General-purpose NAS file systems. If specified, this parameter takes precedence. If not specified, LifecyclePolicyId is used instead.
     shared_ptr<string> lifecyclePolicyName_ {};
     // The policy type.
     // 
@@ -146,7 +146,7 @@ namespace Models
     // Filters results by path.
     // >Only CPFS for Lingjun supports this parameter.
     shared_ptr<string> path_ {};
-    // The storage type. Valid values:
+    // The storage tiering type. Valid values:
     // - InfrequentAccess: IA storage class.
     // - Archive: Archive storage class.
     // > If StorageType is not specified, all lifecycle policies are returned.

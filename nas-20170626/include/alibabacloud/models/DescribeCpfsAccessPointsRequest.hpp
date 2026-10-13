@@ -151,7 +151,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of CPFS access point tags.
+    // The list of tags for the CPFS access point.
     shared_ptr<vector<DescribeCpfsAccessPointsRequest::Tag>> tag_ {};
   };
 

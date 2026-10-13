@@ -500,13 +500,13 @@ namespace Models
   protected:
     shared_ptr<DescribeFileSystemStatisticsResponseBody::FileSystemStatistics> fileSystemStatistics_ {};
     shared_ptr<DescribeFileSystemStatisticsResponseBody::FileSystems> fileSystems_ {};
-    // The page number.
+    // The page number of the file system statistics information list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of file system statistics information entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of file system entries.
+    // The total number of file system statistics information entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

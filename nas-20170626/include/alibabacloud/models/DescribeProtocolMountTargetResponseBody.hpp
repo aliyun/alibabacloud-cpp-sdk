@@ -185,7 +185,7 @@ namespace Models
       shared_ptr<string> exportId_ {};
       // The fileset ID of the protocol service export directory.
       shared_ptr<string> fsetId_ {};
-      // The exported directory of the protocol service.
+      // The export directory of the protocol service.
       shared_ptr<string> path_ {};
       // The domain name of the protocol service export directory.
       shared_ptr<string> protocolMountTargetDomain_ {};

@@ -374,7 +374,7 @@ namespace Models
 
 
     protected:
-      // The access point ARN.
+      // The Alibaba Cloud Resource Name (ARN) of the access point.
       shared_ptr<string> ARN_ {};
       // The permission group name.
       shared_ptr<string> accessGroup_ {};
@@ -384,7 +384,7 @@ namespace Models
       shared_ptr<string> accessPointName_ {};
       // The time when the access point was created. Format: Unix/POSIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The access point domain name.
+      // The domain name of the access point.
       shared_ptr<string> domainName_ {};
       // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
@@ -396,7 +396,7 @@ namespace Models
       shared_ptr<AccessPoints::PosixUser> posixUser_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The root directory permission.
+      // The root directory permissions.
       shared_ptr<AccessPoints::RootPathPermission> rootPathPermission_ {};
       // The current root directory status.
       // 
@@ -410,12 +410,12 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - Active: available.
-      // - Inactive: unavailable.
+      // - Active: active.
+      // - Inactive: inactive.
       // - Pending: being created.
       // - Deleting: being deleted.
       // 
-      // > You can mount the file system only when the status is Active.
+      // > You can mount a file system only when the status is Active.
       shared_ptr<string> status_ {};
       // The list of access point tags.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};

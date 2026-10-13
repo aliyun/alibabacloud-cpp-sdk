@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The name of the access group to delete.
+    // The name of the permission group to delete.
     // 
     // This parameter is required.
     shared_ptr<string> accessGroupName_ {};
-    // The type of the file system.
+    // The file system type.
     // 
     // Valid values:
     // - standard (default): General-purpose NAS

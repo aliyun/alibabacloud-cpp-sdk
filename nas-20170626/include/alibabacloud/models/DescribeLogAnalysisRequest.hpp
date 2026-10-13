@@ -72,11 +72,15 @@ namespace Models
     // 
     // - standard: General-purpose NAS
     // - extreme: Extreme NAS
-    // - all (default): all types.
+    // - all (default): all types
     shared_ptr<string> fileSystemType_ {};
     // The page number of the file system list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of file systems on each page in a paging query. Valid values: 1 to 100. Default value: 10.
+    // The number of file systems on each page during a paged query.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

@@ -174,17 +174,17 @@ namespace Models
       // 
       // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       shared_ptr<string> ATime_ {};
       // The time when the metadata was modified.
       // 
       // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       shared_ptr<string> CTime_ {};
       // Indicates whether the directory contains Archive storage class files.
       // 
-      // This parameter is returned only when Type is Directory.
+      // This parameter is returned only when Type is set to Directory.
       // 
       // Valid values:
       // 
@@ -193,7 +193,7 @@ namespace Models
       shared_ptr<bool> hasArchiveFile_ {};
       // Indicates whether the directory contains IA storage class files.
       // 
-      // This parameter is returned only when Type is Directory.
+      // This parameter is returned only when Type is set to Directory.
       // 
       // Valid values:
       // 
@@ -206,7 +206,7 @@ namespace Models
       // 
       // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       shared_ptr<string> MTime_ {};
       // The file name or directory name.
       shared_ptr<string> name_ {};
@@ -214,21 +214,21 @@ namespace Models
       shared_ptr<int64_t> offlineDuration_ {};
       // The total duration for which the file has remained unchanged since it was stored as an Archive file. Unit: seconds.
       shared_ptr<int64_t> offlineUnchangedDuration_ {};
-      // The time when the most recent data retrieval task was executed.
+      // The time when the most recent data retrieval task was run.
       // 
       // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       shared_ptr<string> retrieveTime_ {};
       // The size of the file.
       // 
       // Unit: bytes.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       shared_ptr<int64_t> size_ {};
       // The storage type of the returned file.
       // 
-      // This parameter is returned only when Type is File.
+      // This parameter is returned only when Type is set to File.
       // 
       // Valid values:
       // 

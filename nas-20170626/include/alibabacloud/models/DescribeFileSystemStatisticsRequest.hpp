@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of file system statistics entries per page in a paging query.
     // 
     // Valid values: 1 to 100.
     // 

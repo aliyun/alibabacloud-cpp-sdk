@@ -184,9 +184,9 @@ namespace Models
 
 
       protected:
-        // The owner group ID.
+        // The file group ID of the owner.
         shared_ptr<int64_t> ownerGroupId_ {};
-        // The owner user ID.
+        // The user ID of the owner.
         shared_ptr<int64_t> ownerUserId_ {};
         // The POSIX permission.
         shared_ptr<string> permission_ {};
@@ -241,9 +241,9 @@ namespace Models
 
 
       protected:
-        // The POSIX group ID.
+        // The POSIX user group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The secondary group ID.
+        // The secondary user group ID.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
         // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
@@ -411,17 +411,17 @@ namespace Models
       shared_ptr<string> accessPointName_ {};
       // AgenticSpace Id。
       shared_ptr<string> agenticSpaceId_ {};
-      // The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the access point was created. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The time when the agentic space was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTimeUtc_ {};
-      // The access point domain name.
+      // The domain name of the access point.
       shared_ptr<string> domainName_ {};
       // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the access point was last modified. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTime_ {};
       // The time when the agentic space was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTimeUtc_ {};
@@ -443,10 +443,10 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - Active: Available.
-      // - Inactive: Unavailable.
-      // - Pending: Being created.
-      // - Deleting: Being deleted.
+      // - Active: The access point is available.
+      // - Inactive: The access point is unavailable.
+      // - Pending: The access point is being created.
+      // - Deleting: The access point is being deleted.
       // 
       // > You can mount a file system only when the status is Active.
       shared_ptr<string> status_ {};

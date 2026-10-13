@@ -192,9 +192,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - NFS: NFS protocol
-      // - SMB: SMB protocol
-      // - cpfs: the protocol type supported by CPFS file systems
+      // - NFS: NFS protocol.
+      // - SMB: SMB protocol.
+      // - cpfs: the protocol type supported by the CPFS file system.
       shared_ptr<string> protocolType_ {};
       // The status of the protocol service export directory. Valid values:
       // - CREATING: Being created.
@@ -207,7 +207,7 @@ namespace Models
       shared_ptr<string> vSwitchId_ {};
       // The list of vSwitch IDs of the protocol service export.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The virtual private cloud (VPC) ID of the protocol service export.
+      // The VPC ID of the protocol service export.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -237,7 +237,7 @@ namespace Models
 
 
   protected:
-    // If the response is truncated, you can use NextToken to send a subsequent request to retrieve the content after the current truncation point.
+    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to initiate another request to retrieve the content after the current truncation position.
     shared_ptr<string> nextToken_ {};
     // The export directory information of the protocol service.
     shared_ptr<GetProtocolMountTargetResponseBody::ProtocolMountTarget> protocolMountTarget_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The retention period of the files in the recycle bin. Unit: days.
+    // The retention period of files in the recycle bin. Unit: days.
     // 
     // Valid values: 1 to 180.
     // 

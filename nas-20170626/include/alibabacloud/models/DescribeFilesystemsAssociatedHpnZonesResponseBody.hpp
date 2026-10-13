@@ -108,9 +108,9 @@ namespace Models
 
 
   protected:
-    // The list of HpnZones associated with the file system.
+    // The list of HpnZones associated with the file systems.
     shared_ptr<vector<DescribeFilesystemsAssociatedHpnZonesResponseBody::Filesystems>> filesystems_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

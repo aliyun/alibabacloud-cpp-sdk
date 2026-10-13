@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The name of the permission group.
+    // The permission group name.
     // 
     // Limits:
     // 
@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accessGroupName_ {};
-    // The type of the permission group. Set the value to **Vpc**, which indicates VPC.
+    // The type of the permission group. Set the value to **Vpc**, which indicates a virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> accessGroupType_ {};
@@ -90,7 +90,7 @@ namespace Models
     // - The description must start with a letter and cannot start with `http://` or `https://`.
     // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> description_ {};
-    // The type of the file system.
+    // The file system type.
     // 
     // Valid values:
     // 

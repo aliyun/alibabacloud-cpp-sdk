@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The lifecycle policy ID.
+    // The ID of the lifecycle management policy.
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};

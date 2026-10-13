@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The order ID for enabling the service.
+    // The order ID for activating the service.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

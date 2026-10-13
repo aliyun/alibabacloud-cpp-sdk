@@ -108,17 +108,19 @@ namespace Models
 
 
       protected:
-        // The file quantity quota. Valid values:
+        // The file count limit of the quota. Value range:
         // 
-        // *   Minimum value: 10,000.
-        // *   Maximum value: 10,000,000,000.
+        // - Minimum value: 10,000.
+        // 
+        // - Maximum value: 10,000,000,000.
         shared_ptr<int64_t> fileCountLimit_ {};
-        // The total quota capacity limit. Unit: bytes.
+        // The total capacity limit of the quota. Unit: bytes.
         // 
-        // Valid values:
+        // Value range:
         // 
-        // *   Minimum value: 10,737,418,240 (10 GiB).
-        // *   Step size: 1,073,741,824 (1 GiB).
+        // - Minimum value: 10,737,418,240 (10 GiB).
+        // 
+        // - Increment: 1,073,741,824 (1 GiB).
         shared_ptr<int64_t> sizeLimit_ {};
       };
 
@@ -205,52 +207,49 @@ namespace Models
 
 
     protected:
-      // The time when the fileset was created.
+      // The time when the Fileset was created.
       // 
-      // Return format: `yyyy-MM-dd HH:mm:ss`
+      // Format: `yyyy-MM-dd HH:mm:ss`.
       shared_ptr<string> createTime_ {};
-      // Specifies whether the fileset is protected from being released through the console or the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+      // The release protection property of the instance. Specifies whether the instance can be released from the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
       // 
-      // *   true: Enables release protection. The fileset cannot be released.
-      // *   false (default): Disables release protection. The fileset can be released.
+      // -   true: Release protection is enabled.
+      // -   false (default): Release protection is disabled.
       // 
-      // >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+      // > This property applies only to manual release operations and does not apply to system-initiated release operations.
       shared_ptr<bool> deletionProtection_ {};
-      // The description of the fileset.
+      // The description of the Fileset.
       shared_ptr<string> description_ {};
-      // The usage of the file quantity.
-      // 
-      // >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+      // The file count usage.
+      // > Only CPFS for Lingjun 2.7.0 and later support this parameter.
       shared_ptr<int64_t> fileCountUsage_ {};
-      // The ID of the file system.
+      // The file system ID.
       // 
-      // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-      // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+      // - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+      // 
+      // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
       shared_ptr<string> fileSystemId_ {};
-      // The directory of the fileset in the CPFS file system.
+      // The path of the Fileset in the CPFS file system.
       shared_ptr<string> fileSystemPath_ {};
-      // The fileset ID.
-      // 
-      // >  This parameter is required for CPFS file systems.
+      // The Fileset ID.
+      // > This parameter is required if the file system type is CPFS.
       shared_ptr<string> fsetId_ {};
       // The quota information.
-      // 
-      // >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
+      // > Only CPFS for Lingjun 2.7.0 and later support this parameter.
       shared_ptr<Data::Quota> quota_ {};
       // The capacity usage. Unit: bytes.
-      // 
-      // >  Only CPFS for Lingjun V2.7.0 and later support this parameter.
+      // > Only CPFS for Lingjun 2.7.0 and later support this parameter.
       shared_ptr<int64_t> spaceUsage_ {};
-      // The fileset status. Valid values:
+      // The status of the Fileset. Valid values:
       // 
-      // *   CREATING: The fileset is being created.
-      // *   CREATED: The fileset has been created and is running properly.
-      // *   RELEASING: The fileset is being released.
-      // *   RELEASED: The fileset has been deleted.
+      // - CREATING: The Fileset is being created.
+      // - CREATED: The Fileset is created and running as expected. 
+      // - RELEASING: The Fileset is being released.
+      // - RELEASED: The Fileset is deleted.
       shared_ptr<string> status_ {};
-      // The time when the fileset was last updated.
+      // The time when the Fileset was last updated.
       // 
-      // Return format: `yyyy-MM-dd HH:mm:ss`
+      // Format: `yyyy-MM-dd HH:mm:ss`.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -273,7 +272,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The data details.
     shared_ptr<GetFilesetResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

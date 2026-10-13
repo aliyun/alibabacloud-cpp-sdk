@@ -271,7 +271,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAgenticSpacesResponseBody::AgenticSpaces> agenticSpaces_ {};
-    // The pagination token. Set this parameter to the value of NextToken that is returned in the previous API call.
+    // The query token. Set the value to the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -73,7 +73,7 @@ namespace Models
     // Limits:
     // 
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter. It cannot start with `http://` or `https://`.
+    // - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
     // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> description_ {};
     // The file system ID.

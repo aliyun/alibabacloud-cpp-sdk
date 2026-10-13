@@ -113,7 +113,7 @@ namespace Models
       // 
       // If the recycle bin is disabled, this parameter returns 0.
       shared_ptr<int64_t> reservedDays_ {};
-      // The storage usage of Infrequent Access (IA) data in the recycle bin. Unit: bytes.
+      // The storage usage of IA storage class data in the recycle bin. Unit: bytes.
       shared_ptr<int64_t> secondarySize_ {};
       // The storage usage of files in the recycle bin. Unit: bytes.
       shared_ptr<int64_t> size_ {};

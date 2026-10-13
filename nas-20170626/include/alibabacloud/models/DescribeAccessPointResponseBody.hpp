@@ -182,11 +182,11 @@ namespace Models
 
 
       protected:
-        // The file group ID of the owner.
+        // The file group ID.
         shared_ptr<int32_t> ownerGroupId_ {};
-        // The user ID of the owner.
+        // The file owner ID.
         shared_ptr<int32_t> ownerUserId_ {};
-        // The POSIX permission.
+        // The POSIX permissions.
         shared_ptr<string> permission_ {};
       };
 
@@ -239,9 +239,9 @@ namespace Models
 
 
       protected:
-        // The POSIX group ID.
+        // The POSIX user group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The secondary group IDs.
+        // The secondary user group IDs.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
         // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
@@ -418,7 +418,7 @@ namespace Models
       shared_ptr<string> agenticSpaceId_ {};
       // The time when the access point was created. Format: Unix/POSIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The time when the access point was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The time when the access point was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTimeUtc_ {};
       // The access point domain name.
       shared_ptr<string> domainName_ {};
@@ -428,7 +428,7 @@ namespace Models
       shared_ptr<string> fileSystemId_ {};
       // The time when the access point was last modified. Format: Unix/POSIX timestamp.
       shared_ptr<string> modifyTime_ {};
-      // The time when the access point was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The time when the access point was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTimeUtc_ {};
       // The POSIX user.
       shared_ptr<AccessPoint::PosixUser> posixUser_ {};
@@ -450,10 +450,10 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - Active: available.
-      // - Inactive: unavailable.
-      // - Pending: being created.
-      // - Deleting: being deleted.
+      // - Active: active
+      // - Inactive: inactive
+      // - Pending: being created
+      // - Deleting: being deleted
       shared_ptr<string> status_ {};
       // The list of access point tags.
       shared_ptr<vector<AccessPoint::Tags>> tags_ {};

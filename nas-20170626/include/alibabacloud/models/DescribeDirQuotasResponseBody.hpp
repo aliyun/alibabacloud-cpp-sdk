@@ -156,24 +156,23 @@ namespace Models
 
 
       protected:
-        // The maximum number of files that a user can create in the directory.
+        // The maximum number of files that the user can create in the directory.
         shared_ptr<int64_t> fileCountLimit_ {};
-        // The total number of files that a user has created in the directory.
+        // The actual number of files owned by the user in the directory.
         shared_ptr<int64_t> fileCountReal_ {};
-        // The type of the quota. Valid values: Accounting and Enforcement.
+        // The quota type. Valid values: Accounting (statistical quota) and Enforcement (restrictive quota).
         shared_ptr<string> quotaType_ {};
-        // The maximum size of files that a user can create in the directory. Unit: GiB.
+        // The maximum total size of files that the user can store in the directory. Unit: GiB.
         shared_ptr<int64_t> sizeLimit_ {};
-        // The total size of files that a user has created in the directory. Unit: GiB.
+        // The actual total size of files owned by the user in the directory. Unit: GiB.
         shared_ptr<int64_t> sizeReal_ {};
-        // The total size of files that a user has created in the directory. Unit: bytes.
+        // The actual total size of files owned by the user in the directory. Unit: bytes.
         shared_ptr<int64_t> sizeRealInByte_ {};
-        // The ID of the user that you specify to create a quota for the directory. The value depends on the value of the UserType parameter. Valid values: Uid and Gid.
+        // The UID or GID to be restricted, depending on the value of UserType.
         shared_ptr<string> userId_ {};
-        // The type of user. Valid values: Uid, Gid, and AllUsers.
-        // 
-        // *   If Uid or Gid is returned, a value is returned for UserId.
-        // *   If AllUsers is returned, UserId is empty.
+        // The type of the UserId. Valid values: Uid, Gid, and AllUsers.
+        // - If the value is Uid or Gid, UserId has a return value.
+        // - If the value is AllUsers, UserId is empty.
         shared_ptr<string> userType_ {};
       };
 
@@ -212,11 +211,11 @@ namespace Models
     protected:
       // The inode number of the directory.
       shared_ptr<string> dirInode_ {};
-      // The absolute path of a directory.
+      // The absolute path of the directory in the file system.
       shared_ptr<string> path_ {};
-      // The status of the quota created for the directory. Valid values: Initializing and Normal. The Initializing state indicates that the quota is being created. The Normal state indicates that the quota is created.
+      // The statistical status of the directory. The value is Initializing during initialization and Normal when the status is normal.
       shared_ptr<string> status_ {};
-      // The information about quotas for all users.
+      // The collection of quota information for each user.
       shared_ptr<vector<DirQuotaInfos::UserQuotaInfos>> userQuotaInfos_ {};
     };
 
@@ -260,11 +259,11 @@ namespace Models
 
 
   protected:
-    // The queried directory quotas.
+    // The collection of quota information for each directory.
     shared_ptr<vector<DescribeDirQuotasResponseBody::DirQuotaInfos>> dirQuotaInfos_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of directories on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

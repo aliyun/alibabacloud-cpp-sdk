@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The Base64-encoded content of the Keytab file. When using Kerberos authentication mode (default mode), the Keytab parameter is required.
+    // The Base64-encoded content of the keytab file. When you use the Kerberos authentication mode (default mode), the Keytab parameter is required.
     shared_ptr<string> keytab_ {};
-    // The MD5-encrypted string of the Keytab file content.
+    // The MD5-encrypted string of the keytab file content.
     shared_ptr<string> keytabMd5_ {};
   };
 

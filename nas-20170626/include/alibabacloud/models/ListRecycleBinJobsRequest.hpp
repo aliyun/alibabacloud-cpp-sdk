@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The task ID.
+    // The ID of the task.
     shared_ptr<string> jobId_ {};
-    // The page number of the current page in a paged query.
+    // The current page number for paging.
     // 
     // Start value (default value): 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries per page for paging.
     // 
     // Valid values: 1 to 100.
     // 

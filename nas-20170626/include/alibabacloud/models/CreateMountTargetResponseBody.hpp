@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The dual-stack mount target that supports both IPv4 and IPv6.
+      // The IPv4 and IPv6 dual-stack mount target.
       shared_ptr<string> dualStackMountTargetDomain_ {};
     };
 

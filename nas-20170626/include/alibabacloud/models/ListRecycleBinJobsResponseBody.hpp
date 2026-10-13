@@ -150,13 +150,13 @@ namespace Models
       // 
       // This value is valid only when JobStatus is Fail or PartialSuccess.
       shared_ptr<string> errorMessage_ {};
-      // The FileId of the file or directory associated with the task.
+      // The file ID of the file or directory associated with the task.
       shared_ptr<string> fileId_ {};
       // The name of the file or directory associated with the task.
       shared_ptr<string> fileName_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> id_ {};
-      // The execution progress of the task.
+      // The progress of the task.
       // 
       // Valid values: 1 to 100.
       shared_ptr<string> progress_ {};
@@ -218,7 +218,7 @@ namespace Models
   protected:
     // The collection of task information in the recycle bin.
     shared_ptr<vector<ListRecycleBinJobsResponseBody::Jobs>> jobs_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of tasks per page.
     shared_ptr<int64_t> pageSize_ {};

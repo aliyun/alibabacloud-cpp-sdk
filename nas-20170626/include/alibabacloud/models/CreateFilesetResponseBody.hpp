@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The fileset ID.
+    // Fileset ID。
     shared_ptr<string> fsetId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

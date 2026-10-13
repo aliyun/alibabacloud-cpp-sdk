@@ -13,6 +13,7 @@ namespace Models
   class ModifyLifecyclePolicyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyLifecyclePolicyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(LifecyclePolicyId, lifecyclePolicyId_);
       DARABONBA_PTR_TO_JSON(LifecyclePolicyName, lifecyclePolicyName_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyLifecyclePolicyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(LifecyclePolicyId, lifecyclePolicyId_);
       DARABONBA_PTR_FROM_JSON(LifecyclePolicyName, lifecyclePolicyName_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && this->lifecyclePolicyId_ == nullptr && this->lifecyclePolicyName_ == nullptr && this->lifecycleRuleName_ == nullptr && this->path_ == nullptr && this->storageType_ == nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && this->fileSystemId_ == nullptr && this->lifecyclePolicyId_ == nullptr && this->lifecyclePolicyName_ == nullptr && this->lifecycleRuleName_ == nullptr && this->path_ == nullptr
+        && this->storageType_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline ModifyLifecyclePolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
@@ -84,32 +94,37 @@ namespace Models
 
 
   protected:
-    // The file system ID.
+    // The description.
+    shared_ptr<string> description_ {};
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The ID of the lifecycle policy.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The Policy Name of the lifecycle management policy.
+    // The lifecycle management Policy Name.
     // 
-    // The name must be 3 to 64 characters in length, must start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
+    // The name must be 3 to 64 characters in length. It must start with an uppercase letter or a lowercase letter, and can contain letters, digits, underscores (_), and hyphens (-).
     shared_ptr<string> lifecyclePolicyName_ {};
     // The management rule associated with the lifecycle management policy.
     // 
     // Valid values:
     // 
-    // - DEFAULT_ATIME_14: files that have not been accessed for 14 days.
-    // - DEFAULT_ATIME_30: files that have not been accessed for 30 days.
-    // - DEFAULT_ATIME_60: files that have not been accessed for 60 days.
-    // - DEFAULT_ATIME_90: files that have not been accessed for 90 days.
-    // - DEFAULT_ATIME_180: files that have not been accessed for 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
-    // > If an IA storage class policy has already been configured for the directory, the time period specified for the archive policy must be longer than that of the IA storage class policy.
+    // - DEFAULT_ATIME_14: Files that have not been accessed for 14 days.
+    // - DEFAULT_ATIME_30: Files that have not been accessed for 30 days.
+    // - DEFAULT_ATIME_60: Files that have not been accessed for 60 days.
+    // - DEFAULT_ATIME_90: Files that have not been accessed for 90 days.
+    // - DEFAULT_ATIME_180: Files that have not been accessed for 180 days. DEFAULT_ATIME_180 is supported only when StorageType is set to Archive.
+    // > If an IA storage class policy is already configured for the directory, the time threshold for the Archive storage class policy must be longer than that of the IA storage class policy.
     shared_ptr<string> lifecycleRuleName_ {};
-    // The absolute path of a single directory configured in the lifecycle management policy.
+    // The absolute path of a single directory configured for the lifecycle management policy.
     // 
-    // The path must start with a forward slash (/) and must be an existing path in the mount target.
+    // The path must start with a forward slash (/) and must be a valid path in the mount target.
     shared_ptr<string> path_ {};
-    // The storage type.
+    // The tiered storage class.
+    // 
+    // Valid values:
+    // 
     // - InfrequentAccess: IA storage class.
     // - Archive: Archive storage class.
     shared_ptr<string> storageType_ {};

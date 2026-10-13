@@ -114,12 +114,12 @@ namespace Models
         // The attribute of the rule.
         // 
         // Valid values:
-        // - Atime: the last access time of the file.
+        // - Atime: The last access time of the file.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule.
         // 
         // Valid values:
-        // - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+        // - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -162,12 +162,12 @@ namespace Models
 
       protected:
         // The attribute of the rule. Valid values:
-        // - RetrieveType: the retrieval method.
+        // - RetrieveType: The retrieval method.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule. Valid values:
-        // - RetrieveType
-        //     - AfterVisit: Supported when LifecyclePolicyType=Auto. Indicates best-effort recall on visit.
-        //     - All: Supported when LifecyclePolicyType=OnDemand. Indicates retrieving all data.
+        // - RetrieveType:
+        //   - AfterVisit: Supported when LifecyclePolicyType is set to Auto. This value indicates best-effort recall on visit.
+        //   - All: Supported when LifecyclePolicyType is set to OnDemand. This value indicates that all data is retrieved.
         shared_ptr<string> threshold_ {};
       };
 
@@ -212,12 +212,12 @@ namespace Models
         // The attribute of the rule.
         // 
         // Valid values:
-        // - Atime: the last access time of the file.
+        // - Atime: The last access time of the file.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule.
         // 
         // Valid values:
-        // - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+        // - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -289,28 +289,28 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The file data expiration and deletion rules. A maximum of one rule can be configured.
+      // The expiration and deletion rules for file data. You can configure up to one rule.
       shared_ptr<vector<LifecyclePolicyLogs::DeleteRules>> deleteRules_ {};
-      // The execution paths of the specified retrieval task.
+      // The execution paths specified for the retrieval task.
       shared_ptr<vector<string>> paths_ {};
       // The file data retrieval rules.
       shared_ptr<vector<LifecyclePolicyLogs::RetrieveRules>> retrieveRules_ {};
       // The status of the data retrieval task. Valid values:
-      // - PENDING: Being created.
-      // - RUNNING: Running.
-      // - STOPPED: Stopped.
-      // - FINISHED: Finished.
-      // - FAILED: Failed.
+      // - PENDING: The task is being created.
+      // - RUNNING: The task is running.
+      // - STOPPED: The task is stopped.
+      // - FINISHED: The task is completed.
+      // - FAILED: The task fails.
       shared_ptr<string> status_ {};
       // The tiered storage type. Valid values:
-      // - InfrequentAccess: IA storage class (default).
-      // - Archive: Archive storage.
+      // - InfrequentAccess: IA storage class. This is the default value.
+      // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
-      // The task overview.
+      // The task summary.
       shared_ptr<string> summary_ {};
-      // The file data transit rules.
+      // The file data transition rules.
       shared_ptr<vector<LifecyclePolicyLogs::TransitRules>> transitRules_ {};
     };
 
@@ -361,18 +361,19 @@ namespace Models
 
 
   protected:
-    // The execution logs of the lifecycle management policy.
+    // The execution logs of the lifecycle policy.
     shared_ptr<vector<DescribeLifecyclePolicyLogsResponseBody::LifecyclePolicyLogs>> lifecyclePolicyLogs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries per page.
+    // The number of log entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The request status. Valid values:
+    // Indicates whether the request is successful.
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Valid values:
+    // - true: The request is successful.
+    // - false: The request fails.
     shared_ptr<bool> success_ {};
     // The total number of log entries.
     shared_ptr<int32_t> totalCount_ {};

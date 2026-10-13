@@ -191,56 +191,52 @@ namespace Models
 
 
     protected:
-      // The time when the protocol service was created. The time is displayed in UTC.
+      // The time when the protocol service was created, in UTC.
       shared_ptr<string> createTime_ {};
       // The description of the protocol service.
       // 
       // Limits:
-      // 
-      // *   The description must be 2 to 128 characters in length.
-      // *   The description must start with a letter and cannot start with `http://` or `https://`.
-      // *   The description can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+      // - The description must be 2 to 128 characters in length.
+      // - The description must start with a letter and cannot start with `http://` or `https://`.
+      // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
       shared_ptr<string> description_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The base throughput of the protocol service. Unit: MB/s.
+      // The base throughput of the protocol node. Unit: MB/s.
       shared_ptr<int32_t> instanceBaseThroughput_ {};
-      // The burst throughput of the protocol service. Unit: MB/s.
+      // The burst throughput of the protocol node. Unit: MB/s.
       shared_ptr<int32_t> instanceBurstThroughput_ {};
-      // The memory cache size of the protocol service. Unit: GiB.
+      // The memory cache size of the protocol node. Unit: GiB.
       shared_ptr<int32_t> instanceRAM_ {};
-      // The time when the protocol service was modified. The time is displayed in UTC.
+      // The time when the protocol service was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The total number of CPFS directories and filesets exported in the protocol service.
+      // The total number of CPFS directories and filesets exported in this protocol service.
       shared_ptr<int32_t> mountTargetCount_ {};
-      // The ID of the protocol service.
+      // The protocol service ID.
       shared_ptr<string> protocolServiceId_ {};
-      // The specification of the protocol service.
-      // 
-      // *   Valid value: General.
-      // *   Default value: General.
+      // The specification of the protocol service cluster.
+      // - Valid values: General
+      // - Default value: General
       shared_ptr<string> protocolSpec_ {};
       // The throughput of the protocol service. Unit: MB/s.
       shared_ptr<int32_t> protocolThroughput_ {};
       // The protocol type supported by the protocol service.
       // 
       // Valid values:
-      // 
-      // *   NFS: The protocol service supports access over the Network File System (NFS) protocol.
+      //  - NFS: The protocol service supports NFS protocol access.
       shared_ptr<string> protocolType_ {};
       // The status of the protocol service.
       // 
       // Valid values:
-      // 
-      // *   Creating: The protocol service is being created.
-      // *   Starting: The protocol service is being started.
-      // *   Running: The protocol service is running.
-      // *   Updating: The protocol service is being updated.
-      // *   Deleting: The protocol service is being deleted.
-      // *   Stopping: The protocol service is being stopped.
-      // *   Stopped: The protocol service is stopped.
+      // - Creating: The protocol service is being created.
+      // - Starting: The protocol service is being started.
+      // - Running: The protocol service is available.
+      // - Updating: The protocol service is being updated.
+      // - Deleting: The protocol service is being deleted.
+      // - Stopping: The protocol service is being stopped.
+      // - Stopped: The protocol service is stopped.
       shared_ptr<string> status_ {};
-      // The VSW ID associated with the protocol service.
+      // The vSwitch ID associated with the protocol service.
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID associated with the protocol service.
       shared_ptr<string> vpcId_ {};
@@ -272,9 +268,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The marker used to retrieve the remaining protocol services.
     shared_ptr<string> nextToken_ {};
-    // The information about protocol service list.
+    // The list of protocol service information.
     shared_ptr<vector<DescribeProtocolServiceResponseBody::ProtocolServices>> protocolServices_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

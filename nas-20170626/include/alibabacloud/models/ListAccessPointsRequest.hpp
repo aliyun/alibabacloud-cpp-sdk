@@ -120,7 +120,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The filter information.
+    // The filter key information.
     shared_ptr<vector<ListAccessPointsRequest::Filters>> filters_ {};
     // The maximum number of results to return per query.
     // 

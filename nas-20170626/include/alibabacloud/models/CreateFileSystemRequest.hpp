@@ -278,46 +278,46 @@ namespace Models
     // 
     // Unit: MB/s.
     // 
-    // For available specification values, refer to the actual specifications on the purchase page.
+    // For available specification values, see the actual specifications on the buy page.
     // 
     // <props="china">
     // 
-    // [Parallel file system CPFS pay-as-you-go purchase page](https://common-buy.aliyun.com/?commodityCode=nas_cpfs_post#/buy)
+    // [Parallel file system CPFS pay-as-you-go buy page](https://common-buy.aliyun.com/?commodityCode=nas_cpfs_post#/buy)
     // 
     // 
     // 
     // <props="intl">
     // 
-    // [Parallel file system CPFS pay-as-you-go purchase page](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui&commodityCode=nas_cpfspost_public_intl#/buy)
+    // [Parallel file system CPFS pay-as-you-go buy page](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui&commodityCode=nas_cpfspost_public_intl#/buy)
     shared_ptr<int64_t> bandwidth_ {};
     // The capacity of the file system. Unit: GiB.
     // This parameter is required and takes effect only when FileSystemType is set to extreme, cpfs, or cpfsse.
     // 
-    // For available values, refer to the actual specifications on the purchase page:
+    // For available values, see the actual specifications on the buy page:
     // 
     // <props="china">
     // 
-    // -  [Extreme NAS pay-as-you-go purchase page](https://common-buy.aliyun.com/?commodityCode=nas_extreme_post#/buy)
-    // - [Parallel file system CPFS pay-as-you-go purchase page](https://common-buy.aliyun.com/?commodityCode=nas_cpfs_post#/buy)
+    // - [Extreme NAS pay-as-you-go buy page](https://common-buy.aliyun.com/?commodityCode=nas_extreme_post#/buy)
+    // - [Parallel file system CPFS pay-as-you-go buy page](https://common-buy.aliyun.com/?commodityCode=nas_cpfs_post#/buy)
     // 
     // 
     // 
     // <props="intl">
     // 
-    // - [Extreme NAS pay-as-you-go purchase page](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
+    // - [Extreme NAS pay-as-you-go buy page](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
     // 
-    // - [Parallel file system CPFS pay-as-you-go purchase page](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui&commodityCode=nas_cpfspost_public_intl#/buy)
+    // - [Parallel file system CPFS pay-as-you-go buy page](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui&commodityCode=nas_cpfspost_public_intl#/buy)
     shared_ptr<int64_t> capacity_ {};
     // The billing method.
     // 
     // Valid values:
     // 
-    // - PayAsYouGo (default): Pay-as-you-go.
-    // - Subscription: Subscription.
+    // - PayAsYouGo (default): pay-as-you-go.
+    // - Subscription: subscription.
     shared_ptr<string> chargeType_ {};
     // Ensures the idempotence of the request. Generate a unique parameter value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     //  
-    // > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may vary for each API request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the file system.
     // 
@@ -333,17 +333,17 @@ namespace Models
     // 
     // Valid values:  
     // - true: Sends a dry run request without creating the instance. The check items include required parameters, request format, service limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FileSystemId is empty.  
-    // - false (default): Sends a normal request. After the check succeeds, the instance is created.
+    // - false (default): Sends a normal request. After the check succeeds, the instance is directly created.
     shared_ptr<bool> dryRun_ {};
     // The subscription duration.
     // 
     // Unit: months. This parameter is required and takes effect only when ChargeType is set to Subscription.
     // 
-    // If a subscription instance is not renewed before the instance expires, the instance is automatically released upon expiration. For more information about renewal, see the renewal documentation.
+    // If a subscription instance is not renewed upon instance expiration, the instance expires and is automatically released.
     shared_ptr<int32_t> duration_ {};
     // Specifies whether to encrypt the file system.
     // 
-    // Uses keys managed by Key Management Service (KMS) to encrypt data stored on the file system. Decryption is not required when you read or write encrypted data.
+    // Uses keys managed by Key Management Service (KMS) to encrypt data stored on the file system. Encrypted data does not need decryption when it is read or written.
     // 
     // Valid values:
     // 
@@ -351,16 +351,16 @@ namespace Models
     // - 1: NAS-managed key. Supported when FileSystemType is set to standard or extreme.
     // - 2: Custom Key (KMS). Supported when FileSystemType is set to standard or extreme.
     // 
-    // > - Extreme NAS: Custom Key (KMS) is supported in all regions except China East 1 Finance.
-    // > - General-purpose NAS: Custom Key (KMS) is supported in all regions.
+    // > - Extreme NAS: The Custom Key (KMS) feature is supported in all regions except China East 1 Alibaba Finance Cloud.
+    // > - General-purpose NAS: The Custom Key (KMS) feature is supported in all regions.
     shared_ptr<int32_t> encryptType_ {};
     // The type of the file system.
     // 
     // Valid values:
     // - standard (default): General-purpose NAS.
     // - extreme: Extreme NAS.
-    // - cpfs: Cloud Parallel File Storage (CPFS) (locally redundant).
-    // - cpfsse: CPFS SE (zone-redundant).
+    // - cpfs: Cloud Parallel File Storage (CPFS) with locally redundant storage (LRS).
+    // - cpfsse: CPFS SE with zone-redundant storage (ZRS).
     shared_ptr<string> fileSystemType_ {};
     // The KMS key ID.
     // 
@@ -379,7 +379,7 @@ namespace Models
     // Valid values: ZRS.
     shared_ptr<string> redundancyType_ {};
     // The list of zone-redundant vSwitch IDs.
-    // If RedundancyType is set to ZRS, this parameter is required. You must specify three vSwitch IDs from three different zones.
+    // If RedundancyType is set to ZRS, this parameter is required. You must specify three vSwitch IDs, each from a different zone.
     shared_ptr<vector<string>> redundancyVSwitchIds_ {};
     // The resource group ID.
     // 
@@ -387,7 +387,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The snapshot ID.
     // 
-    // This parameter is supported only for Extreme NAS file systems with the advanced storage type.
+    // This parameter is supported only for Extreme NAS file systems with the Advanced storage type.
     // > A file system created from a snapshot has the same version as the source file system of the snapshot. For example, if the source file system version is 1 and you want to create a version 2 file system, first create file system A from the snapshot, then create file system B that meets the version 2 configuration, copy the data from file system A to file system B, and migrate your workloads to file system B after the copy is complete.
     shared_ptr<string> snapshotId_ {};
     // The storage type.
@@ -417,11 +417,11 @@ namespace Models
     // 
     // A zone is a physical area with independent power grids and networks within a region.
     // 
-    // If FileSystemType is set to standard, this parameter is optional. By default, an active zone that meets the conditional ProtocolType and StorageType configurations is randomly selected.
+    // If FileSystemType is set to standard, this parameter is optional. By default, a conditional active zone is randomly selected based on the values of ProtocolType and StorageType.
     // 
     // If FileSystemType is set to extreme or cpfs, this parameter is required.
     // 
-    // > - File systems and Elastic Computing Service (ECS) servers in different zones within the same region can communicate with each other.
+    // > - File systems and Elastic Computing Service (ECS) server instances in different zones of the same region can communicate with each other.
     // > - Place the file system and the Elastic Computing Service (ECS) server in the same zone to avoid cross-zone latency.
     shared_ptr<string> zoneId_ {};
   };

@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The permission group name.
     // 
-    // This parameter is required when the file system is a General-purpose NAS file system.
+    // This parameter is required if the file system is a General-purpose NAS file system.
     // 
     // Default permission group: DEFAULT_VPC_GROUP_NAME (the default VPC permission group).
     // > Agentic file systems do not support this parameter.
@@ -93,7 +93,7 @@ namespace Models
     // - true: Enabled.
     // - false (default): Not enabled.
     // 
-    // > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must grant the corresponding access permissions through authorization and mount and access data through the access point. After you disable the RAM policy, the access point allows anonymity mounting.
+    // > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must perform authorization to grant the corresponding access permissions to the accounts and then mount and access data through the access point. After you disable the RAM policy, the access point allows anonymity mounting.
     // 
     // > Agentic file systems do not support this parameter.
     shared_ptr<bool> enabledRam_ {};

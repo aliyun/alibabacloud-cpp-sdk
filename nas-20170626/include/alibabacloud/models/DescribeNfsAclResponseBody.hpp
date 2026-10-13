@@ -59,10 +59,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the NFS ACL feature is enabled.
+      // Indicates whether the NFS ACL feature is enabled. Valid values:
       // 
-      // *   true: The NFS ACL feature is enabled.
-      // *   false: The NFS ACL feature is disabled.
+      // - true: The NFS ACL feature is enabled.
+      // 
+      // - false: The NFS ACL feature is not enabled.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -85,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The information about the ACL feature.
+    // The ACL information.
     shared_ptr<DescribeNfsAclResponseBody::Acl> acl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

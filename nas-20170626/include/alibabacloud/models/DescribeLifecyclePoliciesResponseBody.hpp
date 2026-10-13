@@ -215,7 +215,7 @@ namespace Models
         // The threshold of the rule.
         // 
         // Valid values:
-        // - When Attribute is set to Atime, the value indicates the number of days since the file was last accessed. Valid values: 1 to 365.
+        // - If Attribute is set to Atime, this value indicates the number of days since the file was last accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -325,7 +325,7 @@ namespace Models
     protected:
       // The time when the lifecycle management policy was created.
       // 
-      // The time follows the ISO 8601 standard in the format: `yyyy-MM-ddTHH:mm:ssZ`.
+      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
       // The file data expiration and deletion rules. A maximum of one rule can be configured.
       shared_ptr<vector<LifecyclePolicies::DeleteRules>> deleteRules_ {};
@@ -353,7 +353,7 @@ namespace Models
       shared_ptr<vector<string>> paths_ {};
       // The file data retrieval rules.
       shared_ptr<vector<LifecyclePolicies::RetrieveRules>> retrieveRules_ {};
-      // The storage type. Valid values:
+      // The storage tiering type. Valid values:
       // - InfrequentAccess: IA storage class.
       // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};

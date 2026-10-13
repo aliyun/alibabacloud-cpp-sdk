@@ -107,9 +107,9 @@ namespace Models
     shared_ptr<string> fileSystemType_ {};
     // The source IPv6 CIDR block.
     // 
-    // The value supports CIDR format and IPv6 format address range.
+    // CIDR blocks and IPv6 address ranges are supported.
     // 
-    // > - The IPv6 feature is supported only by Extreme NAS file systems in regions in the Chinese mainland, and IPv6 must be enabled for the file system.
+    // > - IPv6 is supported only by Extreme NAS file systems in regions in the Chinese mainland, and IPv6 must be enabled for the file system.
     // >- Only VPC networks are supported.
     // >- IPv4 and IPv6 are mutually exclusive.
     shared_ptr<string> ipv6SourceCidrIp_ {};
@@ -122,22 +122,22 @@ namespace Models
     // The read and write permissions of the authorized address on the file system.
     // 
     // Valid values:
-    // - RDWR (default): read and write.
-    // - RDONLY: read-only.
+    // - RDWR (default): Read and write.
+    // - RDONLY: Read-only.
     shared_ptr<string> RWAccessType_ {};
     // The IP address or CIDR block of the authorized address.
     // 
     // The value must be a single IP address or a CIDR block.
     // > Permission groups of the classic network type support only IP addresses.
     shared_ptr<string> sourceCidrIp_ {};
-    // The access permissions of the system user of the authorized address on the file system.
+    // The authorization of the system user of the authorized address on the file system.
     // 
     // Valid values:
-    // - no_squash (default): allows access to the file system as the root user.
-    // - root_squash: maps the root user to the nobody user when the root user accesses the file system.
-    // - all_squash: maps all users to the nobody user regardless of the user identity.
+    // - no_squash (default): Allows access to the file system as the root user.
+    // - root_squash: Maps the root user to the nobody user when the file system is accessed as the root user.
+    // - all_squash: Maps all users to the nobody user regardless of the user identity used to access the file system.
     // 
-    // The nobody user is a default user in Linux. The nobody user can access only public content on the server and has low privileges and high security. Authorization is required for the system user to access the file system.
+    // The nobody user is the default user in Linux. The nobody user can access only public content on the server and has low privileges and high security.
     shared_ptr<string> userAccessType_ {};
   };
 

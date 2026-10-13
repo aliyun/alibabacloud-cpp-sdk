@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> fileSystemIds_ {};
     // The type of the file system.
     // 
-    // Valid values: extreme (Extreme NAS file system)
+    // Valid values: extreme (Extreme NAS file system).
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemType_ {};
@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page number of the automatic snapshot task list.
     // 
-    // Start value (default value): 1
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageSize_ {};
   };
 

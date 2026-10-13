@@ -90,7 +90,7 @@ namespace Models
     // 
     // - false (default): No. Both directories and files can be queried.
     // - true: Yes. Only directories are queried.
-    // > When StorageType is set to All, DirectoryOnly must be set to true and cannot be set to false.
+    // > If StorageType is set to All, DirectoryOnly must be set to true and cannot be set to false.
     shared_ptr<bool> directoryOnly_ {};
     // The file system ID.
     // 
@@ -102,7 +102,7 @@ namespace Models
     // 
     // Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation position.
+    // If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
     shared_ptr<string> nextToken_ {};
     // The absolute path of the specified directory.
     // 
@@ -114,7 +114,7 @@ namespace Models
     // - InfrequentAccess: IA storage class.
     // - Archive: Archive storage class.
     // - All: queries data of all storage classes.
-    // > When StorageType is set to All, you must set DirectoryOnly to true.
+    // > If StorageType is set to All, you must set DirectoryOnly to true.
     // 
     // This parameter is required.
     shared_ptr<string> storageType_ {};
