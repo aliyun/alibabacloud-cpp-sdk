@@ -663,6 +663,42 @@ namespace APIG20240327
       Models::CreatePolicyAttachmentResponse createPolicyAttachment(const Models::CreatePolicyAttachmentRequest &request);
 
       /**
+       * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+       *
+       * @param request CreatePortalRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePortalResponse
+       */
+      Models::CreatePortalResponse createPortalWithOptions(const Models::CreatePortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+       *
+       * @param request CreatePortalRequest
+       * @return CreatePortalResponse
+       */
+      Models::CreatePortalResponse createPortal(const Models::CreatePortalRequest &request);
+
+      /**
+       * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+       *
+       * @param request CreateProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProductResponse
+       */
+      Models::CreateProductResponse createProductWithOptions(const Models::CreateProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+       *
+       * @param request CreateProductRequest
+       * @return CreateProductResponse
+       */
+      Models::CreateProductResponse createProduct(const Models::CreateProductRequest &request);
+
+      /**
        * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
        *
        * @param request CreateProductCategoryRequest
@@ -1923,6 +1959,78 @@ namespace APIG20240327
       Models::GetPolicyAttachmentResponse getPolicyAttachment(const string &policyAttachmentId);
 
       /**
+       * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+       *
+       * @param request GetPortalRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPortalResponse
+       */
+      Models::GetPortalResponse getPortalWithOptions(const string &portalId, const Models::GetPortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+       *
+       * @param request GetPortalRequest
+       * @return GetPortalResponse
+       */
+      Models::GetPortalResponse getPortal(const string &portalId, const Models::GetPortalRequest &request);
+
+      /**
+       * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+       *
+       * @param request GetProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProductResponse
+       */
+      Models::GetProductResponse getProductWithOptions(const string &productId, const Models::GetProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+       *
+       * @param request GetProductRequest
+       * @return GetProductResponse
+       */
+      Models::GetProductResponse getProduct(const string &productId, const Models::GetProductRequest &request);
+
+      /**
+       * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+       *
+       * @param request GetProductCategoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProductCategoryResponse
+       */
+      Models::GetProductCategoryResponse getProductCategoryWithOptions(const string &categoryId, const Models::GetProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+       *
+       * @param request GetProductCategoryRequest
+       * @return GetProductCategoryResponse
+       */
+      Models::GetProductCategoryResponse getProductCategory(const string &categoryId, const Models::GetProductCategoryRequest &request);
+
+      /**
+       * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+       *
+       * @param request GetProductRefRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProductRefResponse
+       */
+      Models::GetProductRefResponse getProductRefWithOptions(const string &productId, const Models::GetProductRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+       *
+       * @param request GetProductRefRequest
+       * @return GetProductRefResponse
+       */
+      Models::GetProductRefResponse getProductRef(const string &productId, const Models::GetProductRefRequest &request);
+
+      /**
        * @summary Retrieves the resource overview information.
        *
        * @param request GetResourceOverviewRequest
@@ -2049,6 +2157,24 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
+       * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+       *
+       * @param request HandleOidcCallbackRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HandleOidcCallbackResponse
+       */
+      Models::HandleOidcCallbackResponse handleOidcCallbackWithOptions(const Models::HandleOidcCallbackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+       *
+       * @param request HandleOidcCallbackRequest
+       * @return HandleOidcCallbackResponse
+       */
+      Models::HandleOidcCallbackResponse handleOidcCallback(const Models::HandleOidcCallbackRequest &request);
+
+      /**
        * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
        *
        * @param request ImportHttpApiRequest
@@ -2065,6 +2191,24 @@ namespace APIG20240327
        * @return ImportHttpApiResponse
        */
       Models::ImportHttpApiResponse importHttpApi(const Models::ImportHttpApiRequest &request);
+
+      /**
+       * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+       *
+       * @param request InitiateOidcAuthRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitiateOidcAuthResponse
+       */
+      Models::InitiateOidcAuthResponse initiateOidcAuthWithOptions(const Models::InitiateOidcAuthRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+       *
+       * @param request InitiateOidcAuthRequest
+       * @return InitiateOidcAuthResponse
+       */
+      Models::InitiateOidcAuthResponse initiateOidcAuth(const Models::InitiateOidcAuthRequest &request);
 
       /**
        * @summary Installs a plug-in.
@@ -2149,6 +2293,24 @@ namespace APIG20240327
       Models::ListAiModelProvidersResponse listAiModelProviders(const Models::ListAiModelProvidersRequest &request);
 
       /**
+       * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+       *
+       * @param request ListApiPathFieldTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListApiPathFieldTemplatesResponse
+       */
+      Models::ListApiPathFieldTemplatesResponse listApiPathFieldTemplatesWithOptions(const Models::ListApiPathFieldTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+       *
+       * @param request ListApiPathFieldTemplatesRequest
+       * @return ListApiPathFieldTemplatesResponse
+       */
+      Models::ListApiPathFieldTemplatesResponse listApiPathFieldTemplates(const Models::ListApiPathFieldTemplatesRequest &request);
+
+      /**
        * @summary Queries a list of batch export tasks.
        *
        * @param request ListBatchExportTasksRequest
@@ -2165,6 +2327,24 @@ namespace APIG20240327
        * @return ListBatchExportTasksResponse
        */
       Models::ListBatchExportTasksResponse listBatchExportTasks(const Models::ListBatchExportTasksRequest &request);
+
+      /**
+       * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+       *
+       * @param request ListChatSessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListChatSessionsResponse
+       */
+      Models::ListChatSessionsResponse listChatSessionsWithOptions(const Models::ListChatSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+       *
+       * @param request ListChatSessionsRequest
+       * @return ListChatSessionsResponse
+       */
+      Models::ListChatSessionsResponse listChatSessions(const Models::ListChatSessionsRequest &request);
 
       /**
        * @summary Retrieves the list of consumer authorization rules.
@@ -2277,6 +2457,24 @@ namespace APIG20240327
        * @return ListConsumersResponse
        */
       Models::ListConsumersResponse listConsumers(const Models::ListConsumersRequest &request);
+
+      /**
+       * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+       *
+       * @param request ListDevelopersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDevelopersResponse
+       */
+      Models::ListDevelopersResponse listDevelopersWithOptions(const Models::ListDevelopersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+       *
+       * @param request ListDevelopersRequest
+       * @return ListDevelopersResponse
+       */
+      Models::ListDevelopersResponse listDevelopers(const Models::ListDevelopersRequest &request);
 
       /**
        * @summary Queries a list of domain names.
@@ -2487,6 +2685,42 @@ namespace APIG20240327
       Models::ListGlobalPoliciesResponse listGlobalPolicies(const Models::ListGlobalPoliciesRequest &request);
 
       /**
+       * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+       *
+       * @param request ListHiMarketConsumerSubscriptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHiMarketConsumerSubscriptionsResponse
+       */
+      Models::ListHiMarketConsumerSubscriptionsResponse listHiMarketConsumerSubscriptionsWithOptions(const string &consumerId, const Models::ListHiMarketConsumerSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+       *
+       * @param request ListHiMarketConsumerSubscriptionsRequest
+       * @return ListHiMarketConsumerSubscriptionsResponse
+       */
+      Models::ListHiMarketConsumerSubscriptionsResponse listHiMarketConsumerSubscriptions(const string &consumerId, const Models::ListHiMarketConsumerSubscriptionsRequest &request);
+
+      /**
+       * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+       *
+       * @param request ListHiMarketConsumersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHiMarketConsumersResponse
+       */
+      Models::ListHiMarketConsumersResponse listHiMarketConsumersWithOptions(const Models::ListHiMarketConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+       *
+       * @param request ListHiMarketConsumersRequest
+       * @return ListHiMarketConsumersResponse
+       */
+      Models::ListHiMarketConsumersResponse listHiMarketConsumers(const Models::ListHiMarketConsumersRequest &request);
+
+      /**
        * @summary Retrieves a list of API operations.
        *
        * @param request ListHttpApiOperationsRequest
@@ -2577,6 +2811,24 @@ namespace APIG20240327
       Models::ListK8sClusterSourcesResponse listK8sClusterSources(const string &gatewayId, const Models::ListK8sClusterSourcesRequest &request);
 
       /**
+       * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+       *
+       * @param request ListMcpProductToolsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcpProductToolsResponse
+       */
+      Models::ListMcpProductToolsResponse listMcpProductToolsWithOptions(const string &productId, const Models::ListMcpProductToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+       *
+       * @param request ListMcpProductToolsRequest
+       * @return ListMcpProductToolsResponse
+       */
+      Models::ListMcpProductToolsResponse listMcpProductTools(const string &productId, const Models::ListMcpProductToolsRequest &request);
+
+      /**
        * @summary Retrieves a list of MCP servers.
        *
        * @description The operation supports creating multiple services.
@@ -2615,6 +2867,24 @@ namespace APIG20240327
        * @return ListMigrationTasksResponse
        */
       Models::ListMigrationTasksResponse listMigrationTasks(const Models::ListMigrationTasksRequest &request);
+
+      /**
+       * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+       *
+       * @param request ListModelCardsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelCardsResponse
+       */
+      Models::ListModelCardsResponse listModelCardsWithOptions(const Models::ListModelCardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+       *
+       * @param request ListModelCardsRequest
+       * @return ListModelCardsResponse
+       */
+      Models::ListModelCardsResponse listModelCards(const Models::ListModelCardsRequest &request);
 
       /**
        * @summary Queries the list of instances that can be added as Nacos sources.
@@ -2763,6 +3033,132 @@ namespace APIG20240327
        * @return ListPolicyClassesResponse
        */
       Models::ListPolicyClassesResponse listPolicyClasses(const Models::ListPolicyClassesRequest &request);
+
+      /**
+       * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+       *
+       * @param request ListPortalPublicationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPortalPublicationsResponse
+       */
+      Models::ListPortalPublicationsResponse listPortalPublicationsWithOptions(const string &portalId, const Models::ListPortalPublicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+       *
+       * @param request ListPortalPublicationsRequest
+       * @return ListPortalPublicationsResponse
+       */
+      Models::ListPortalPublicationsResponse listPortalPublications(const string &portalId, const Models::ListPortalPublicationsRequest &request);
+
+      /**
+       * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+       *
+       * @param request ListPortalsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPortalsResponse
+       */
+      Models::ListPortalsResponse listPortalsWithOptions(const Models::ListPortalsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+       *
+       * @param request ListPortalsRequest
+       * @return ListPortalsResponse
+       */
+      Models::ListPortalsResponse listPortals(const Models::ListPortalsRequest &request);
+
+      /**
+       * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+       *
+       * @param request ListProductCategoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProductCategoriesResponse
+       */
+      Models::ListProductCategoriesResponse listProductCategoriesWithOptions(const Models::ListProductCategoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+       *
+       * @param request ListProductCategoriesRequest
+       * @return ListProductCategoriesResponse
+       */
+      Models::ListProductCategoriesResponse listProductCategories(const Models::ListProductCategoriesRequest &request);
+
+      /**
+       * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+       *
+       * @param request ListProductPublicationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProductPublicationsResponse
+       */
+      Models::ListProductPublicationsResponse listProductPublicationsWithOptions(const string &productId, const Models::ListProductPublicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+       *
+       * @param request ListProductPublicationsRequest
+       * @return ListProductPublicationsResponse
+       */
+      Models::ListProductPublicationsResponse listProductPublications(const string &productId, const Models::ListProductPublicationsRequest &request);
+
+      /**
+       * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+       *
+       * @param request ListProductSubscriptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProductSubscriptionsResponse
+       */
+      Models::ListProductSubscriptionsResponse listProductSubscriptionsWithOptions(const string &productId, const Models::ListProductSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+       *
+       * @param request ListProductSubscriptionsRequest
+       * @return ListProductSubscriptionsResponse
+       */
+      Models::ListProductSubscriptionsResponse listProductSubscriptions(const string &productId, const Models::ListProductSubscriptionsRequest &request);
+
+      /**
+       * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+       *
+       * @param request ListProductsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProductsResponse
+       */
+      Models::ListProductsResponse listProductsWithOptions(const Models::ListProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+       *
+       * @param request ListProductsRequest
+       * @return ListProductsResponse
+       */
+      Models::ListProductsResponse listProducts(const Models::ListProductsRequest &request);
+
+      /**
+       * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+       *
+       * @param request ListPublishableProductsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPublishableProductsResponse
+       */
+      Models::ListPublishableProductsResponse listPublishableProductsWithOptions(const string &portalId, const Models::ListPublishableProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+       *
+       * @param request ListPublishableProductsRequest
+       * @return ListPublishableProductsResponse
+       */
+      Models::ListPublishableProductsResponse listPublishableProducts(const string &portalId, const Models::ListPublishableProductsRequest &request);
 
       /**
        * @summary Queries risk detection results.
@@ -2935,6 +3331,60 @@ namespace APIG20240327
       Models::ListZonesResponse listZones(const Models::ListZonesRequest &request);
 
       /**
+       * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+       *
+       * @param request LoginDeveloperRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LoginDeveloperResponse
+       */
+      Models::LoginDeveloperResponse loginDeveloperWithOptions(const Models::LoginDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+       *
+       * @param request LoginDeveloperRequest
+       * @return LoginDeveloperResponse
+       */
+      Models::LoginDeveloperResponse loginDeveloper(const Models::LoginDeveloperRequest &request);
+
+      /**
+       * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+       *
+       * @param request LogoutDeveloperRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LogoutDeveloperResponse
+       */
+      Models::LogoutDeveloperResponse logoutDeveloperWithOptions(const Models::LogoutDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+       *
+       * @param request LogoutDeveloperRequest
+       * @return LogoutDeveloperResponse
+       */
+      Models::LogoutDeveloperResponse logoutDeveloper(const Models::LogoutDeveloperRequest &request);
+
+      /**
+       * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+       *
+       * @param request PublishProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishProductResponse
+       */
+      Models::PublishProductResponse publishProductWithOptions(const string &productId, const Models::PublishProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+       *
+       * @param request PublishProductRequest
+       * @return PublishProductResponse
+       */
+      Models::PublishProductResponse publishProduct(const string &productId, const Models::PublishProductRequest &request);
+
+      /**
        * @summary Queries the list of consumer authorization rules.
        *
        * @param request QueryConsumerAuthorizationRulesRequest
@@ -3059,6 +3509,24 @@ namespace APIG20240327
       Models::RunPluginPipelineResponse runPluginPipeline(const string &workspaceId, const Models::RunPluginPipelineRequest &request);
 
       /**
+       * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+       *
+       * @param request SubscribeProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubscribeProductResponse
+       */
+      Models::SubscribeProductResponse subscribeProductWithOptions(const string &consumerId, const Models::SubscribeProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+       *
+       * @param request SubscribeProductRequest
+       * @return SubscribeProductResponse
+       */
+      Models::SubscribeProductResponse subscribeProduct(const string &consumerId, const Models::SubscribeProductRequest &request);
+
+      /**
        * @summary Syncs an external MCP server.
        *
        * @param request SyncMCPServersRequest
@@ -3143,6 +3611,24 @@ namespace APIG20240327
        * @return UninstallPluginResponse
        */
       Models::UninstallPluginResponse uninstallPlugin(const string &pluginId);
+
+      /**
+       * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+       *
+       * @param request UnpublishProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnpublishProductResponse
+       */
+      Models::UnpublishProductResponse unpublishProductWithOptions(const string &productId, const string &publicationId, const Models::UnpublishProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+       *
+       * @param request UnpublishProductRequest
+       * @return UnpublishProductResponse
+       */
+      Models::UnpublishProductResponse unpublishProduct(const string &productId, const string &publicationId, const Models::UnpublishProductRequest &request);
 
       /**
        * @summary Removes tags from resources.
@@ -3235,6 +3721,24 @@ namespace APIG20240327
       Models::UpdateAuthorizationRuleResponse updateAuthorizationRule(const string &consumerAuthorizationRuleId, const Models::UpdateAuthorizationRuleRequest &request);
 
       /**
+       * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+       *
+       * @param request UpdateCategoryProductsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCategoryProductsResponse
+       */
+      Models::UpdateCategoryProductsResponse updateCategoryProductsWithOptions(const string &categoryId, const Models::UpdateCategoryProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+       *
+       * @param request UpdateCategoryProductsRequest
+       * @return UpdateCategoryProductsResponse
+       */
+      Models::UpdateCategoryProductsResponse updateCategoryProducts(const string &categoryId, const Models::UpdateCategoryProductsRequest &request);
+
+      /**
        * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
@@ -3291,6 +3795,24 @@ namespace APIG20240327
        * @return UpdateConsumerGroupResponse
        */
       Models::UpdateConsumerGroupResponse updateConsumerGroup(const string &consumerGroupId, const Models::UpdateConsumerGroupRequest &request);
+
+      /**
+       * @summary Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+       *
+       * @param request UpdateDeveloperStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDeveloperStatusResponse
+       */
+      Models::UpdateDeveloperStatusResponse updateDeveloperStatusWithOptions(const string &developerId, const Models::UpdateDeveloperStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+       *
+       * @param request UpdateDeveloperStatusRequest
+       * @return UpdateDeveloperStatusResponse
+       */
+      Models::UpdateDeveloperStatusResponse updateDeveloperStatus(const string &developerId, const Models::UpdateDeveloperStatusRequest &request);
 
       /**
        * @summary Updates a domain name.
@@ -3639,6 +4161,60 @@ namespace APIG20240327
        * @return UpdatePolicyResponse
        */
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
+
+      /**
+       * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+       *
+       * @param request UpdatePortalRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePortalResponse
+       */
+      Models::UpdatePortalResponse updatePortalWithOptions(const string &portalId, const Models::UpdatePortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+       *
+       * @param request UpdatePortalRequest
+       * @return UpdatePortalResponse
+       */
+      Models::UpdatePortalResponse updatePortal(const string &portalId, const Models::UpdatePortalRequest &request);
+
+      /**
+       * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+       *
+       * @param request UpdateProductRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProductResponse
+       */
+      Models::UpdateProductResponse updateProductWithOptions(const string &productId, const Models::UpdateProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+       *
+       * @param request UpdateProductRequest
+       * @return UpdateProductResponse
+       */
+      Models::UpdateProductResponse updateProduct(const string &productId, const Models::UpdateProductRequest &request);
+
+      /**
+       * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+       *
+       * @param request UpdateProductCategoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProductCategoryResponse
+       */
+      Models::UpdateProductCategoryResponse updateProductCategoryWithOptions(const string &categoryId, const Models::UpdateProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+       *
+       * @param request UpdateProductCategoryRequest
+       * @return UpdateProductCategoryResponse
+       */
+      Models::UpdateProductCategoryResponse updateProductCategory(const string &categoryId, const Models::UpdateProductCategoryRequest &request);
 
       /**
        * @summary Updates the notification configuration for risk items.

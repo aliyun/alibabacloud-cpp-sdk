@@ -2249,6 +2249,140 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachment(const CreatePolicy
 }
 
 /**
+ * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+ *
+ * @param request CreatePortalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePortalResponse
+ */
+CreatePortalResponse Client::createPortalWithOptions(const CreatePortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePortal"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePortalResponse>();
+}
+
+/**
+ * @summary Creates a HiMarket developer portal and returns the ID of the newly created portal.
+ *
+ * @param request CreatePortalRequest
+ * @return CreatePortalResponse
+ */
+CreatePortalResponse Client::createPortal(const CreatePortalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPortalWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+ *
+ * @param request CreateProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProductResponse
+ */
+CreateProductResponse Client::createProductWithOptions(const CreateProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAutoApprove()) {
+    body["autoApprove"] = request.getAutoApprove();
+  }
+
+  if (!!request.hasCategories()) {
+    body["categories"] = request.getCategories();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDocument()) {
+    body["document"] = request.getDocument();
+  }
+
+  if (!!request.hasFeature()) {
+    body["feature"] = request.getFeature();
+  }
+
+  if (!!request.hasIcon()) {
+    body["icon"] = request.getIcon();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProductResponse>();
+}
+
+/**
+ * @summary Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+ *
+ * @param request CreateProductRequest
+ * @return CreateProductResponse
+ */
+CreateProductResponse Client::createProduct(const CreateProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createProductWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a product category for an API product and returns the ID and name of the new category upon success.
  *
  * @param request CreateProductCategoryRequest
@@ -5238,6 +5372,162 @@ GetPolicyAttachmentResponse Client::getPolicyAttachment(const string &policyAtta
 }
 
 /**
+ * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+ *
+ * @param request GetPortalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPortalResponse
+ */
+GetPortalResponse Client::getPortalWithOptions(const string &portalId, const GetPortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPortal"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals/" , Darabonba::Encode::Encoder::percentEncode(portalId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPortalResponse>();
+}
+
+/**
+ * @summary Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+ *
+ * @param request GetPortalRequest
+ * @return GetPortalResponse
+ */
+GetPortalResponse Client::getPortal(const string &portalId, const GetPortalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPortalWithOptions(portalId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+ *
+ * @param request GetProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProductResponse
+ */
+GetProductResponse Client::getProductWithOptions(const string &productId, const GetProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProductResponse>();
+}
+
+/**
+ * @summary Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+ *
+ * @param request GetProductRequest
+ * @return GetProductResponse
+ */
+GetProductResponse Client::getProduct(const string &productId, const GetProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getProductWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+ *
+ * @param request GetProductCategoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProductCategoryResponse
+ */
+GetProductCategoryResponse Client::getProductCategoryWithOptions(const string &categoryId, const GetProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProductCategory"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories/" , Darabonba::Encode::Encoder::percentEncode(categoryId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProductCategoryResponse>();
+}
+
+/**
+ * @summary Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+ *
+ * @param request GetProductCategoryRequest
+ * @return GetProductCategoryResponse
+ */
+GetProductCategoryResponse Client::getProductCategory(const string &categoryId, const GetProductCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getProductCategoryWithOptions(categoryId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+ *
+ * @param request GetProductRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProductRefResponse
+ */
+GetProductRefResponse Client::getProductRefWithOptions(const string &productId, const GetProductRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProductRef"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/ref")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProductRefResponse>();
+}
+
+/**
+ * @summary Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+ *
+ * @param request GetProductRefRequest
+ * @return GetProductRefResponse
+ */
+GetProductRefResponse Client::getProductRef(const string &productId, const GetProductRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getProductRefWithOptions(productId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the resource overview information.
  *
  * @param request GetResourceOverviewRequest
@@ -5525,6 +5815,55 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
+ * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+ *
+ * @param request HandleOidcCallbackRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HandleOidcCallbackResponse
+ */
+HandleOidcCallbackResponse Client::handleOidcCallbackWithOptions(const HandleOidcCallbackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCode()) {
+    query["code"] = request.getCode();
+  }
+
+  if (!!request.hasState()) {
+    query["state"] = request.getState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "HandleOidcCallback"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/oidc/callback")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HandleOidcCallbackResponse>();
+}
+
+/**
+ * @summary Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+ *
+ * @param request HandleOidcCallbackRequest
+ * @return HandleOidcCallbackResponse
+ */
+HandleOidcCallbackResponse Client::handleOidcCallback(const HandleOidcCallbackRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return handleOidcCallbackWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
  *
  * @param request ImportHttpApiRequest
@@ -5619,6 +5958,51 @@ ImportHttpApiResponse Client::importHttpApi(const ImportHttpApiRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return importHttpApiWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+ *
+ * @param request InitiateOidcAuthRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitiateOidcAuthResponse
+ */
+InitiateOidcAuthResponse Client::initiateOidcAuthWithOptions(const InitiateOidcAuthRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InitiateOidcAuth"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/oidc/authorize")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitiateOidcAuthResponse>();
+}
+
+/**
+ * @summary Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+ *
+ * @param request InitiateOidcAuthRequest
+ * @return InitiateOidcAuthResponse
+ */
+InitiateOidcAuthResponse Client::initiateOidcAuth(const InitiateOidcAuthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return initiateOidcAuthWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5909,6 +6293,55 @@ ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvi
 }
 
 /**
+ * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+ *
+ * @param request ListApiPathFieldTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListApiPathFieldTemplatesResponse
+ */
+ListApiPathFieldTemplatesResponse Client::listApiPathFieldTemplatesWithOptions(const ListApiPathFieldTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListApiPathFieldTemplates"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/api-path-fields/templates")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListApiPathFieldTemplatesResponse>();
+}
+
+/**
+ * @summary Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+ *
+ * @param request ListApiPathFieldTemplatesRequest
+ * @return ListApiPathFieldTemplatesResponse
+ */
+ListApiPathFieldTemplatesResponse Client::listApiPathFieldTemplates(const ListApiPathFieldTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listApiPathFieldTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of batch export tasks.
  *
  * @param request ListBatchExportTasksRequest
@@ -5979,6 +6412,63 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBatchExportTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+ *
+ * @param request ListChatSessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListChatSessionsResponse
+ */
+ListChatSessionsResponse Client::listChatSessionsWithOptions(const ListChatSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListChatSessions"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/sessions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListChatSessionsResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+ *
+ * @param request ListChatSessionsRequest
+ * @return ListChatSessionsResponse
+ */
+ListChatSessionsResponse Client::listChatSessions(const ListChatSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listChatSessionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6317,6 +6807,75 @@ ListConsumersResponse Client::listConsumers(const ListConsumersRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listConsumersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ *
+ * @param request ListDevelopersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDevelopersResponse
+ */
+ListDevelopersResponse Client::listDevelopersWithOptions(const ListDevelopersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPortalId()) {
+    query["portalId"] = request.getPortalId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasUsername()) {
+    query["username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDevelopers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDevelopersResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+ *
+ * @param request ListDevelopersRequest
+ * @return ListDevelopersResponse
+ */
+ListDevelopersResponse Client::listDevelopers(const ListDevelopersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDevelopersWithOptions(request, headers, runtime);
 }
 
 /**
@@ -7026,6 +7585,136 @@ ListGlobalPoliciesResponse Client::listGlobalPolicies(const ListGlobalPoliciesRe
 }
 
 /**
+ * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ *
+ * @param request ListHiMarketConsumerSubscriptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHiMarketConsumerSubscriptionsResponse
+ */
+ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscriptionsWithOptions(const string &consumerId, const ListHiMarketConsumerSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListHiMarketConsumerSubscriptions"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId) , "/subscriptions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHiMarketConsumerSubscriptionsResponse>();
+}
+
+/**
+ * @summary Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+ *
+ * @param request ListHiMarketConsumerSubscriptionsRequest
+ * @return ListHiMarketConsumerSubscriptionsResponse
+ */
+ListHiMarketConsumerSubscriptionsResponse Client::listHiMarketConsumerSubscriptions(const string &consumerId, const ListHiMarketConsumerSubscriptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listHiMarketConsumerSubscriptionsWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+ *
+ * @param request ListHiMarketConsumersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHiMarketConsumersResponse
+ */
+ListHiMarketConsumersResponse Client::listHiMarketConsumersWithOptions(const ListHiMarketConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeveloperId()) {
+    query["developerId"] = request.getDeveloperId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPortalId()) {
+    query["portalId"] = request.getPortalId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListHiMarketConsumers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/consumers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHiMarketConsumersResponse>();
+}
+
+/**
+ * @summary Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+ *
+ * @param request ListHiMarketConsumersRequest
+ * @return ListHiMarketConsumersResponse
+ */
+ListHiMarketConsumersResponse Client::listHiMarketConsumers(const ListHiMarketConsumersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listHiMarketConsumersWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
@@ -7427,6 +8116,45 @@ ListK8sClusterSourcesResponse Client::listK8sClusterSources(const string &gatewa
 }
 
 /**
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+ *
+ * @param request ListMcpProductToolsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMcpProductToolsResponse
+ */
+ListMcpProductToolsResponse Client::listMcpProductToolsWithOptions(const string &productId, const ListMcpProductToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMcpProductTools"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/tools")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMcpProductToolsResponse>();
+}
+
+/**
+ * @summary Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+ *
+ * @param request ListMcpProductToolsRequest
+ * @return ListMcpProductToolsResponse
+ */
+ListMcpProductToolsResponse Client::listMcpProductTools(const string &productId, const ListMcpProductToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMcpProductToolsWithOptions(productId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a list of MCP servers.
  *
  * @description The operation supports creating multiple services.
@@ -7546,6 +8274,51 @@ ListMigrationTasksResponse Client::listMigrationTasks(const ListMigrationTasksRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMigrationTasksWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ *
+ * @param request ListModelCardsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelCardsResponse
+ */
+ListModelCardsResponse Client::listModelCardsWithOptions(const ListModelCardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelCards"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/model-cards")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelCardsResponse>();
+}
+
+/**
+ * @summary Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+ *
+ * @param request ListModelCardsRequest
+ * @return ListModelCardsResponse
+ */
+ListModelCardsResponse Client::listModelCards(const ListModelCardsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelCardsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8050,6 +8823,413 @@ ListPolicyClassesResponse Client::listPolicyClasses(const ListPolicyClassesReque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPolicyClassesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+ *
+ * @param request ListPortalPublicationsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPortalPublicationsResponse
+ */
+ListPortalPublicationsResponse Client::listPortalPublicationsWithOptions(const string &portalId, const ListPortalPublicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductName()) {
+    query["productName"] = request.getProductName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPortalPublications"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals/" , Darabonba::Encode::Encoder::percentEncode(portalId) , "/publications")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPortalPublicationsResponse>();
+}
+
+/**
+ * @summary Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+ *
+ * @param request ListPortalPublicationsRequest
+ * @return ListPortalPublicationsResponse
+ */
+ListPortalPublicationsResponse Client::listPortalPublications(const string &portalId, const ListPortalPublicationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPortalPublicationsWithOptions(portalId, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ *
+ * @param request ListPortalsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPortalsResponse
+ */
+ListPortalsResponse Client::listPortalsWithOptions(const ListPortalsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPortals"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPortalsResponse>();
+}
+
+/**
+ * @summary Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+ *
+ * @param request ListPortalsRequest
+ * @return ListPortalsResponse
+ */
+ListPortalsResponse Client::listPortals(const ListPortalsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPortalsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+ *
+ * @param request ListProductCategoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProductCategoriesResponse
+ */
+ListProductCategoriesResponse Client::listProductCategoriesWithOptions(const ListProductCategoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProductCategories"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProductCategoriesResponse>();
+}
+
+/**
+ * @summary Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+ *
+ * @param request ListProductCategoriesRequest
+ * @return ListProductCategoriesResponse
+ */
+ListProductCategoriesResponse Client::listProductCategories(const ListProductCategoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listProductCategoriesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ *
+ * @param request ListProductPublicationsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProductPublicationsResponse
+ */
+ListProductPublicationsResponse Client::listProductPublicationsWithOptions(const string &productId, const ListProductPublicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPortalName()) {
+    query["portalName"] = request.getPortalName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProductPublications"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/publications")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProductPublicationsResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+ *
+ * @param request ListProductPublicationsRequest
+ * @return ListProductPublicationsResponse
+ */
+ListProductPublicationsResponse Client::listProductPublications(const string &productId, const ListProductPublicationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listProductPublicationsWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ *
+ * @param request ListProductSubscriptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProductSubscriptionsResponse
+ */
+ListProductSubscriptionsResponse Client::listProductSubscriptionsWithOptions(const string &productId, const ListProductSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerName()) {
+    query["consumerName"] = request.getConsumerName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProductSubscriptions"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/subscriptions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProductSubscriptionsResponse>();
+}
+
+/**
+ * @summary Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+ *
+ * @param request ListProductSubscriptionsRequest
+ * @return ListProductSubscriptionsResponse
+ */
+ListProductSubscriptionsResponse Client::listProductSubscriptions(const string &productId, const ListProductSubscriptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listProductSubscriptionsWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+ *
+ * @param request ListProductsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProductsResponse
+ */
+ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryIds()) {
+    query["categoryIds"] = request.getCategoryIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPortalId()) {
+    query["portalId"] = request.getPortalId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProducts"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProductsResponse>();
+}
+
+/**
+ * @summary Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+ *
+ * @param request ListProductsRequest
+ * @return ListProductsResponse
+ */
+ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listProductsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ *
+ * @param request ListPublishableProductsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPublishableProductsResponse
+ */
+ListPublishableProductsResponse Client::listPublishableProductsWithOptions(const string &portalId, const ListPublishableProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPublishableProducts"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals/" , Darabonba::Encode::Encoder::percentEncode(portalId) , "/publishable-products")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPublishableProductsResponse>();
+}
+
+/**
+ * @summary Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+ *
+ * @param request ListPublishableProductsRequest
+ * @return ListPublishableProductsResponse
+ */
+ListPublishableProductsResponse Client::listPublishableProducts(const string &portalId, const ListPublishableProductsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPublishableProductsWithOptions(portalId, request, headers, runtime);
 }
 
 /**
@@ -8576,6 +9756,139 @@ ListZonesResponse Client::listZones(const ListZonesRequest &request) {
 }
 
 /**
+ * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ *
+ * @param request LoginDeveloperRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LoginDeveloperResponse
+ */
+LoginDeveloperResponse Client::loginDeveloperWithOptions(const LoginDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPassword()) {
+    body["password"] = request.getPassword();
+  }
+
+  if (!!request.hasUsername()) {
+    body["username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "LoginDeveloper"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers/login")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LoginDeveloperResponse>();
+}
+
+/**
+ * @summary Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+ *
+ * @param request LoginDeveloperRequest
+ * @return LoginDeveloperResponse
+ */
+LoginDeveloperResponse Client::loginDeveloper(const LoginDeveloperRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return loginDeveloperWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+ *
+ * @param request LogoutDeveloperRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LogoutDeveloperResponse
+ */
+LogoutDeveloperResponse Client::logoutDeveloperWithOptions(const LogoutDeveloperRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LogoutDeveloper"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers/logout")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LogoutDeveloperResponse>();
+}
+
+/**
+ * @summary Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+ *
+ * @param request LogoutDeveloperRequest
+ * @return LogoutDeveloperResponse
+ */
+LogoutDeveloperResponse Client::logoutDeveloper(const LogoutDeveloperRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return logoutDeveloperWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ *
+ * @param request PublishProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishProductResponse
+ */
+PublishProductResponse Client::publishProductWithOptions(const string &productId, const PublishProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPortalId()) {
+    body["portalId"] = request.getPortalId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PublishProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/publications")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishProductResponse>();
+}
+
+/**
+ * @summary Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+ *
+ * @param request PublishProductRequest
+ * @return PublishProductResponse
+ */
+PublishProductResponse Client::publishProduct(const string &productId, const PublishProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return publishProductWithOptions(productId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the list of consumer authorization rules.
  *
  * @param request QueryConsumerAuthorizationRulesRequest
@@ -8922,6 +10235,51 @@ RunPluginPipelineResponse Client::runPluginPipeline(const string &workspaceId, c
 }
 
 /**
+ * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+ *
+ * @param request SubscribeProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubscribeProductResponse
+ */
+SubscribeProductResponse Client::subscribeProductWithOptions(const string &consumerId, const SubscribeProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasProductId()) {
+    body["productId"] = request.getProductId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubscribeProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/consumers/" , Darabonba::Encode::Encoder::percentEncode(consumerId) , "/subscriptions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubscribeProductResponse>();
+}
+
+/**
+ * @summary Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+ *
+ * @param request SubscribeProductRequest
+ * @return SubscribeProductResponse
+ */
+SubscribeProductResponse Client::subscribeProduct(const string &consumerId, const SubscribeProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return subscribeProductWithOptions(consumerId, request, headers, runtime);
+}
+
+/**
  * @summary Syncs an external MCP server.
  *
  * @param request SyncMCPServersRequest
@@ -9162,6 +10520,45 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return uninstallPluginWithOptions(pluginId, headers, runtime);
+}
+
+/**
+ * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+ *
+ * @param request UnpublishProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnpublishProductResponse
+ */
+UnpublishProductResponse Client::unpublishProductWithOptions(const string &productId, const string &publicationId, const UnpublishProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnpublishProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId) , "/publications/" , Darabonba::Encode::Encoder::percentEncode(publicationId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnpublishProductResponse>();
+}
+
+/**
+ * @summary Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+ *
+ * @param request UnpublishProductRequest
+ * @return UnpublishProductResponse
+ */
+UnpublishProductResponse Client::unpublishProduct(const string &productId, const string &publicationId, const UnpublishProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return unpublishProductWithOptions(productId, publicationId, request, headers, runtime);
 }
 
 /**
@@ -9460,6 +10857,55 @@ UpdateAuthorizationRuleResponse Client::updateAuthorizationRule(const string &co
 }
 
 /**
+ * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+ *
+ * @param request UpdateCategoryProductsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCategoryProductsResponse
+ */
+UpdateCategoryProductsResponse Client::updateCategoryProductsWithOptions(const string &categoryId, const UpdateCategoryProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.getAction();
+  }
+
+  if (!!request.hasProductIds()) {
+    body["productIds"] = request.getProductIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCategoryProducts"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories/" , Darabonba::Encode::Encoder::percentEncode(categoryId) , "/products")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCategoryProductsResponse>();
+}
+
+/**
+ * @summary Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+ *
+ * @param request UpdateCategoryProductsRequest
+ * @return UpdateCategoryProductsResponse
+ */
+UpdateCategoryProductsResponse Client::updateCategoryProducts(const string &categoryId, const UpdateCategoryProductsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateCategoryProductsWithOptions(categoryId, request, headers, runtime);
+}
+
+/**
  * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
@@ -9624,6 +11070,55 @@ UpdateConsumerGroupResponse Client::updateConsumerGroup(const string &consumerGr
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+ *
+ * @param request UpdateDeveloperStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDeveloperStatusResponse
+ */
+UpdateDeveloperStatusResponse Client::updateDeveloperStatusWithOptions(const string &developerId, const UpdateDeveloperStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPortalId()) {
+    body["portalId"] = request.getPortalId();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDeveloperStatus"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/developers/" , Darabonba::Encode::Encoder::percentEncode(developerId) , "/status")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDeveloperStatusResponse>();
+}
+
+/**
+ * @summary Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+ *
+ * @param request UpdateDeveloperStatusRequest
+ * @return UpdateDeveloperStatusResponse
+ */
+UpdateDeveloperStatusResponse Client::updateDeveloperStatus(const string &developerId, const UpdateDeveloperStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDeveloperStatusWithOptions(developerId, request, headers, runtime);
 }
 
 /**
@@ -10685,6 +12180,197 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+ *
+ * @param request UpdatePortalRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePortalResponse
+ */
+UpdatePortalResponse Client::updatePortalWithOptions(const string &portalId, const UpdatePortalRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPortalSettingConfig()) {
+    body["portalSettingConfig"] = request.getPortalSettingConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePortal"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/portals/" , Darabonba::Encode::Encoder::percentEncode(portalId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePortalResponse>();
+}
+
+/**
+ * @summary Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+ *
+ * @param request UpdatePortalRequest
+ * @return UpdatePortalResponse
+ */
+UpdatePortalResponse Client::updatePortal(const string &portalId, const UpdatePortalRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePortalWithOptions(portalId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+ *
+ * @param request UpdateProductRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProductResponse
+ */
+UpdateProductResponse Client::updateProductWithOptions(const string &productId, const UpdateProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAutoApprove()) {
+    body["autoApprove"] = request.getAutoApprove();
+  }
+
+  if (!!request.hasCategories()) {
+    body["categories"] = request.getCategories();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDocument()) {
+    body["document"] = request.getDocument();
+  }
+
+  if (!!request.hasFeature()) {
+    body["feature"] = request.getFeature();
+  }
+
+  if (!!request.hasIcon()) {
+    body["icon"] = request.getIcon();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateProduct"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/products/" , Darabonba::Encode::Encoder::percentEncode(productId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProductResponse>();
+}
+
+/**
+ * @summary Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+ *
+ * @param request UpdateProductRequest
+ * @return UpdateProductResponse
+ */
+UpdateProductResponse Client::updateProduct(const string &productId, const UpdateProductRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateProductWithOptions(productId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+ *
+ * @param request UpdateProductCategoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProductCategoryResponse
+ */
+UpdateProductCategoryResponse Client::updateProductCategoryWithOptions(const string &categoryId, const UpdateProductCategoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasIcon()) {
+    body["icon"] = request.getIcon();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateProductCategory"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/himarket/v1/product-categories/" , Darabonba::Encode::Encoder::percentEncode(categoryId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProductCategoryResponse>();
+}
+
+/**
+ * @summary Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+ *
+ * @param request UpdateProductCategoryRequest
+ * @return UpdateProductCategoryResponse
+ */
+UpdateProductCategoryResponse Client::updateProductCategory(const string &categoryId, const UpdateProductCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateProductCategoryWithOptions(categoryId, request, headers, runtime);
 }
 
 /**
