@@ -78,13 +78,13 @@ namespace Models
 
 
   protected:
-    // A list of calling numbers.
+    // The list of caller numbers.
     // 
-    // > This parameter is optional.
+    // > By default, this parameter is left empty.
     shared_ptr<vector<string>> callingNumber_ {};
     // The description of the instance.
     shared_ptr<string> instanceDescription_ {};
-    // The ID of the Outbound Bot instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

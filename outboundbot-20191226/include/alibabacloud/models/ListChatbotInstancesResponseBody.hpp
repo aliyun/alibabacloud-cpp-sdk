@@ -130,19 +130,19 @@ namespace Models
 
 
     protected:
-      // Profile picture URL.
+      // The URL of the avatar.
       shared_ptr<string> avatar_ {};
-      // Creation time.
+      // The creation time. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Chatbot description.
+      // The description of the chatbot.
       shared_ptr<string> introduction_ {};
-      // Language used by the chatbot, such as zh-cn or en-us.
+      // The language of the chatbot service, such as zh-cn and en-us.
       shared_ptr<string> languageCode_ {};
-      // Chatbot name.
+      // The name of the chatbot.
       shared_ptr<string> name_ {};
-      // Time zone of the chatbot. See Common Time Zone Codes.
+      // The time zone of the chatbot. For more information, see Public - Time Zone Codes.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -215,23 +215,23 @@ namespace Models
 
 
   protected:
-    // Chatbot list details
+    // The list of chatbots.
     shared_ptr<vector<ListChatbotInstancesResponseBody::Bots>> bots_ {};
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
-    // Page number.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of items per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Total number of items.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

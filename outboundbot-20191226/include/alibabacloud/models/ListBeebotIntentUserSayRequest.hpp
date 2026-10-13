@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The keyword in the user utterance.
+    // The keyword in the utterance content.
     shared_ptr<string> content_ {};
     // The instance ID.
     // 
@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to display on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

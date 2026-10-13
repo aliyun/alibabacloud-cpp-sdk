@@ -160,21 +160,21 @@ namespace Models
 
 
       protected:
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Instance name
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // Job ID
+        // The job ID.
         shared_ptr<string> jobGroupId_ {};
-        // Job name.
+        // The job name.
         shared_ptr<string> jobGroupName_ {};
-        // Maximum configured concurrency limit
+        // The configured maximum concurrency limit.
         shared_ptr<int64_t> maxConcurrencyLimit_ {};
-        // Minimum concurrency limit for the job
+        // The minimum concurrency limit for the job.
         shared_ptr<int64_t> minConcurrencyLimit_ {};
-        // Occupied concurrency value
+        // The occupied concurrency.
         shared_ptr<int64_t> occupiedConcurrencyCount_ {};
-        // Report generation time
+        // The time when the report was generated. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> reportDate_ {};
       };
 
@@ -211,13 +211,13 @@ namespace Models
 
 
     protected:
-      // Report collection data
+      // The list of reports.
       shared_ptr<vector<Reports::List>> list_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -276,19 +276,19 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Report generation time
+    // The time when the report was generated. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> reportDate_ {};
-    // Report details.
+    // The report details.
     shared_ptr<GetRealtimeConcurrencyReportResponseBody::Reports> reports_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Is successful
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

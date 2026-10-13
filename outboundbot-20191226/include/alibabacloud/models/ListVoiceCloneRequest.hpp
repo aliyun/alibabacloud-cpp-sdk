@@ -1,0 +1,88 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTVOICECLONEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTVOICECLONEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace OutboundBot20191226
+{
+namespace Models
+{
+  class ListVoiceCloneRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListVoiceCloneRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListVoiceCloneRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
+    };
+    ListVoiceCloneRequest() = default ;
+    ListVoiceCloneRequest(const ListVoiceCloneRequest &) = default ;
+    ListVoiceCloneRequest(ListVoiceCloneRequest &&) = default ;
+    ListVoiceCloneRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListVoiceCloneRequest() = default ;
+    ListVoiceCloneRequest& operator=(const ListVoiceCloneRequest &) = default ;
+    ListVoiceCloneRequest& operator=(ListVoiceCloneRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ListVoiceCloneRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline ListVoiceCloneRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListVoiceCloneRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListVoiceCloneRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+  protected:
+    // The instance ID.
+    // 
+    // This parameter is required.
+    shared_ptr<string> instanceId_ {};
+    // The page number. Pages start from 1.
+    // 
+    // This parameter is required.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 100.
+    // 
+    // This parameter is required.
+    shared_ptr<int32_t> pageSize_ {};
+    // The filter condition for the voice status. Valid values: Enabled (available) and Disabled (unavailable).
+    shared_ptr<string> status_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace OutboundBot20191226
+#endif

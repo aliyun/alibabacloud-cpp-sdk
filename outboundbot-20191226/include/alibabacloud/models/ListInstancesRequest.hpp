@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance.
+      // The key of the instance tag.
       shared_ptr<string> key_ {};
-      // The tag value of the instance.
+      // The value of the instance tag.
       shared_ptr<string> value_ {};
     };
 
@@ -122,17 +122,17 @@ namespace Models
 
 
   protected:
-    // The name of the Outbound Bot instance.
+    // The name of the outbound robot instance.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
-    // > You can obtain the source API from the Resource Management documentation. For more information, see: https://api.aliyun.com/document/ResourceManager/2020-03-31/ListResourceGroups
+    // > You can obtain the source API from the Resource Management documentation. Related link: https://api.aliyun.com/document/ResourceManager/2020-03-31/ListResourceGroups
     shared_ptr<string> resourceGroupId_ {};
-    // The list of tags for the service instances.
-    // > You can call the ListResourceTags operation to obtain tags.
+    // The tags of the outbound robot instances.
+    // > You can obtain the tags by calling the ListResourceTags operation.
     shared_ptr<vector<ListInstancesRequest::Tag>> tag_ {};
   };
 

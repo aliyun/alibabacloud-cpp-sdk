@@ -148,25 +148,19 @@ namespace Models
 
 
         protected:
-          // File ID
+          // The file ID.
           shared_ptr<string> fileId_ {};
-          // Completion progress [Deprecated]
+          // **[Deprecated]** The completion progress.
           shared_ptr<int32_t> progress_ {};
-          // File status
-          // 
-          // - Pending: Pending
-          // 
-          // - InProgress: In progress
-          // 
-          // - Finished: Completed
-          // 
-          // - Failed: Failed
-          // 
-          // - Expired: Expired
-          // 
-          // - Cancelled: Canceled
+          // The file status. Valid values:
+          // - Pending: Pending.
+          // - InProgress: In progress.
+          // - Finished: Finished.
+          // - Failed: Failed.
+          // - Expired: Expired.
+          // - Cancelled: Cancelled.
           shared_ptr<string> status_ {};
-          // Title
+          // The title.
           shared_ptr<string> title_ {};
         };
 
@@ -210,27 +204,21 @@ namespace Models
 
 
       protected:
-        // Download task file list
+        // The list of files for the download task.
         shared_ptr<vector<List::DownloadTaskFiles>> downloadTaskFiles_ {};
-        // The expiration time.
+        // The expiration time. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> expireTime_ {};
-        // Export status.
-        // 
-        // - Pending: Pending
-        // 
-        // - InProgress: In progress
-        // 
-        // - Finished: Completed
-        // 
-        // - Failed: Failed
-        // 
-        // - Expired: Expired
-        // 
-        // - Cancelled: Canceled
+        // The export status. Valid values:
+        // - Pending: Pending.
+        // - InProgress: In progress.
+        // - Finished: Finished.
+        // - Failed: Failed.
+        // - Expired: Expired.
+        // - Cancelled: Cancelled.
         shared_ptr<string> status_ {};
-        // Task ID
+        // The task ID.
         shared_ptr<string> taskId_ {};
-        // Title
+        // The title.
         shared_ptr<string> title_ {};
       };
 
@@ -267,13 +255,13 @@ namespace Models
 
 
     protected:
-      // Download task array
+      // The array of download tasks.
       shared_ptr<vector<DownloadTasks::List>> list_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Count
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -324,17 +312,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Download task list
+    // The list of download tasks.
     shared_ptr<ListDownloadTasksResponseBody::DownloadTasks> downloadTasks_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // The message returned by the API.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Success
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

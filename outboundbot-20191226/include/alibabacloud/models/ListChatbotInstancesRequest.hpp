@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // Workspace access key for the chatbot.
+    // The access key of the chatbot workspace.
     // 
-    // > Get this key by calling ListChatbotAgents. If you omit this parameter, the API returns instances from all workspaces.
+    // > You can obtain the value by calling the ListChatbotAgents operation. If you leave this parameter empty, chatbots in all workspaces are queried.
     shared_ptr<string> agentKey_ {};
-    // Page number.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page.
+    // The number of entries per page.
     // 
-    // > The value must be less than or equal to 50.
+    // > The value of this parameter must be less than or equal to 50.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

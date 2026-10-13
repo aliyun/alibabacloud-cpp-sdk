@@ -233,53 +233,49 @@ namespace Models
 
 
     protected:
-      // Agent configuration ID
+      // The agent profile ID.
       shared_ptr<string> agentProfileId_ {};
       // Agent Template ID
       shared_ptr<string> agentProfileTemplateId_ {};
       // Agent Type
       shared_ptr<string> agentType_ {};
-      // API plug-in configuration
+      // The API plugin configuration.
       shared_ptr<string> apiPluginJson_ {};
-      // Creation time
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Instruction configuration
+      // The instruction configuration.
       shared_ptr<string> instructionJson_ {};
-      // Label description
+      // The label description.
       shared_ptr<string> labelsJson_ {};
-      // Model ID
+      // The model ID.
       shared_ptr<string> model_ {};
-      // Model configuration
+      // The model configuration.
       shared_ptr<string> modelConfig_ {};
-      // NLU configuration, parameter settings:
+      // The NLU configuration. Parameter settings:
       // 
-      // - chatbotInstanceId Xiaomi Large Language Model (LLM) robot instance ID
-      // 
-      // - faqCategoryIds bound FAQ category ID
-      // 
-      // - llmAgentId Xiaomi Large Language Model (LLM) workspace ID
-      // 
-      // - llmAgentKey Xiaomi Large Language Model (LLM) workspace key
-      // 
-      // - llmAgentInstanceId Xiaomi Large Language Model (LLM) workspace instance ID
+      // - chatbotInstanceId: the Chatbot large model robot instance ID.
+      // - faqCategoryIds: the attached FAQ category IDs.
+      // - llmAgentId: the Chatbot large model workspace ID.
+      // - llmAgentKey: the Chatbot large model workspace key.
+      // - llmAgentInstanceId: the Chatbot large model workspace instance ID.
       shared_ptr<string> nluConfigJson_ {};
-      // Prompt (Professional Mode)
+      // The prompt in professional mode.
       shared_ptr<string> prompt_ {};
-      // Agent configuration
+      // The agent configuration.
       shared_ptr<string> promptJson_ {};
-      // Scenario
+      // The scenario.
       shared_ptr<string> scenario_ {};
-      // Scenario ID
+      // The scenario ID.
       shared_ptr<string> scriptId_ {};
-      // Is it a system template?
+      // Indicates whether the template is a system template.
       shared_ptr<bool> system_ {};
-      // Modification time
+      // The update time. The value is a UNIX timestamp in seconds.
       shared_ptr<string> updateTime_ {};
-      // Variable configuration
+      // The variable configuration.
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -330,15 +326,15 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Returned data
+    // The returned data.
     shared_ptr<ModifyAgentProfileResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // Error message.
+      // The error message.
       shared_ptr<string> message_ {};
-      // Indicates whether the operation succeeded.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -130,17 +130,19 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Response data.
+    // The returned data.
     shared_ptr<ModifyAnnotationMissionResponseBody::Data> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. true: The call succeeded. false: The call failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

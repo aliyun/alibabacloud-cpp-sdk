@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the account that owns the instance.
+    // The ID of the account to which the instance belongs.
     shared_ptr<int64_t> instanceOwnerId_ {};
-    // The job ID.
+    // The node ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

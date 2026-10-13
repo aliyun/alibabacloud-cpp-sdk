@@ -57,11 +57,15 @@ namespace Models
 
 
   protected:
-    // The instance ID (also referred to as the business ID).
+    // The instance ID (also known as the business ID).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // Specifies whether the environment is a test environment.
+    // 
+    // - true: Test environment.
+    // - false: Production environment after release.
+    // - Default value: false.
     shared_ptr<bool> sandbox_ {};
     // The scenario ID.
     // 

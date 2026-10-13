@@ -212,19 +212,19 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
       // The ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
       // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The description of the Outbound Bot service instance.
+      // The description of the outbound robot instance.
       shared_ptr<string> instanceDescription_ {};
-      // The service instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the Outbound Bot service instance.
+      // The name of the outbound robot instance.
       shared_ptr<string> instanceName_ {};
-      // Indicates whether the instance is a system preset instance.
+      // Indicates whether the instance is a system-preset instance.
       shared_ptr<bool> isPreset_ {};
       // The maximum number of concurrent outbound calls allowed.
       shared_ptr<int32_t> maxConcurrentConversation_ {};
@@ -309,9 +309,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of service instances.
+    // The list of outbound robot instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -319,7 +319,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

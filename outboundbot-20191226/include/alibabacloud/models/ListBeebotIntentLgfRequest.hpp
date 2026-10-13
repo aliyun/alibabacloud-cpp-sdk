@@ -92,13 +92,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> intentId_ {};
-    // The utterance template.
+    // The utterance template for the intent.
     shared_ptr<string> lgfText_ {};
     // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

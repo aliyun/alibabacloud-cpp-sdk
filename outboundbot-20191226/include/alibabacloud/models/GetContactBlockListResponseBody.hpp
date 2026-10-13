@@ -158,9 +158,9 @@ namespace Models
 
 
       protected:
-        // The unique business key of the outbound call blocklist entry.
+        // The unique business key of the outbound call blocklist.
         shared_ptr<string> contactBlockListId_ {};
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> creationTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> operator_ {};
         // The phone number.
         shared_ptr<string> phoneNumber_ {};
-        // The remarks.
+        // The remark.
         shared_ptr<string> remark_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
 
 
     protected:
-      // The array data.
+      // The data array.
       shared_ptr<vector<ContactBlocklistList::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

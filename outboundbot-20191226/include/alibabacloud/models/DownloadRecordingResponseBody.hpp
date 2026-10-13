@@ -95,12 +95,13 @@ namespace Models
 
 
     protected:
+      // The signed download URL for the early media recording file.
       shared_ptr<string> earlyMediaSignatureUrl_ {};
-      // The recording file name, which is typically a UUID.
+      // The name of the recording file, which is typically a UUID.
       shared_ptr<string> fileName_ {};
-      // A URL that points to the recording file. Use HTTP to download the file.
+      // The URL used to download the recording file over HTTP.
       shared_ptr<string> signatureUrl_ {};
-      // The list of segmented recordings, including file names and file URLs.
+      // The list of segmented recordings, including the file names and file URLs.
       shared_ptr<string> voiceSliceRecordingListJson_ {};
     };
 
@@ -151,13 +152,13 @@ namespace Models
 
 
   protected:
-    // The interface status code.
+    // The API status code.
     shared_ptr<string> code_ {};
-    // The download URL of the file.
+    // The download URL.
     shared_ptr<DownloadRecordingResponseBody::DownloadParams> downloadParams_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The interface prompt message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

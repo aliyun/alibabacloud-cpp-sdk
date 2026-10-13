@@ -132,13 +132,13 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
       // The ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
       // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The instance description.
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -203,7 +203,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The instance information.
     shared_ptr<ModifyInstanceResponseBody::Instance> instance_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

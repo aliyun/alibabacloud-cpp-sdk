@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Annotation task ID.
+    // The annotation task ID.
     shared_ptr<string> annotationMissionId_ {};
-    // Annotation task name.
+    // The annotation task name.
     shared_ptr<string> annotationMissionName_ {};
-    // Annotation task status.
+    // The annotation task status.
     shared_ptr<int32_t> annotationStatus_ {};
-    // Delete the task.
+    // Specifies whether to delete the task.
     shared_ptr<bool> delete_ {};
   };
 

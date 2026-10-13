@@ -103,45 +103,39 @@ namespace Models
 
 
   protected:
-    // Call start time
+    // The start time of the call. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> actualTime_ {};
-    // Call ID
+    // The call ID.
     // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
-    // Called number
+    // The called number.
     // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
-    // Calling number
+    // The calling number.
     // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
-    // Failure reason.
-    // 
-    // - Nonexistent number (NotExists)
-    // 
-    // - Busy (Busy)
-    // 
-    // - No answer (NotAnswered)
+    // The cause of the failure. Valid values:
+    // - NotExists: nonexistent number.
+    // - Busy: busy.
+    // - NotAnswered: not answered.
     // 
     // This parameter is required.
     shared_ptr<string> dispositionCode_ {};
-    // Error code when the outbound call fails.
-    // 
-    // - Nonexistent number (NotExists)
-    // 
-    // - Busy (Busy)
-    // 
-    // - No answer (NotAnswered)
+    // The error codes that occur when the outbound call fails. Valid values:
+    // - NotExists: nonexistent number.
+    // - Busy: busy.
+    // - NotAnswered: not answered.
     shared_ptr<string> exceptionCodes_ {};
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Task ID
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

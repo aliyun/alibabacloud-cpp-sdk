@@ -96,9 +96,9 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The JSON string that defines the dialogue flow.
+    // The dialog flow data.
     shared_ptr<string> dialogueFlowDefinition_ {};
-    // The dialogue flow ID.
+    // The dialog flow ID.
     shared_ptr<string> dialogueFlowId_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

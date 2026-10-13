@@ -317,33 +317,33 @@ namespace Models
 
 
           protected:
-            // The chat ID.
+            // ChatID
             shared_ptr<string> annotationMissionChatId_ {};
-            // The ID.
+            // ID
             shared_ptr<string> annotationMissionChatVocabularyInfoId_ {};
             // The task ID.
             shared_ptr<string> annotationMissionId_ {};
             // The session ID.
             shared_ptr<string> annotationMissionSessionId_ {};
-            // Created
+            // Indicates whether the item is created.
             shared_ptr<bool> create_ {};
-            // The time when the resource was created.
+            // The creation time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> createTime_ {};
-            // Deleted
+            // Indicates whether the item is deleted.
             shared_ptr<bool> delete_ {};
             // The instance ID.
             shared_ptr<string> instanceId_ {};
-            // The time when the hotword was last modified.
+            // The modification time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> modifiedTime_ {};
-            // The content of the hotword annotation.
+            // The hot word annotation content.
             shared_ptr<string> vocabulary_ {};
             // The description.
             shared_ptr<string> vocabularyDescription_ {};
-            // The hotword ID.
+            // The hot word ID.
             shared_ptr<string> vocabularyId_ {};
-            // The name of the vocabulary.
+            // The vocabulary name.
             shared_ptr<string> vocabularyName_ {};
-            // The weight of the hotword. The value ranges from -6 to 5.
+            // The hot word weight. Valid values: -6 to 5.
             shared_ptr<int32_t> vocabularyWeight_ {};
           };
 
@@ -467,27 +467,27 @@ namespace Models
 
 
           protected:
-            // The chat ID.
+            // ChatID
             shared_ptr<string> annotationMissionChatId_ {};
-            // The ID of the chat tag information for the comment.
+            // The ID of the annotation chat tag.
             shared_ptr<string> annotationMissionChatTagInfoId_ {};
             // The task ID.
             shared_ptr<string> annotationMissionId_ {};
             // The session ID.
             shared_ptr<string> annotationMissionSessionId_ {};
-            // The tag ID.
+            // TagID
             shared_ptr<string> annotationMissionTagInfoId_ {};
-            // The tag name.
+            // The name of the tag.
             shared_ptr<string> annotationMissionTagInfoName_ {};
-            // Create
+            // Indicates whether the item is created.
             shared_ptr<bool> create_ {};
-            // The time when the tag was created.
+            // The creation time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> createTime_ {};
-            // Delete.
+            // Indicates whether the item is deleted.
             shared_ptr<bool> delete_ {};
             // The instance ID.
             shared_ptr<string> instanceId_ {};
-            // The time when the tag was last modified.
+            // The modification time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> modifiedTime_ {};
           };
 
@@ -630,23 +630,23 @@ namespace Models
 
 
           protected:
-            // The chat ID.
+            // ChatID
             shared_ptr<string> annotationMissionChatId_ {};
-            // The ID.
+            // ID
             shared_ptr<string> annotationMissionChatIntentUserSayInfoId_ {};
             // The annotation task ID.
             shared_ptr<string> annotationMissionId_ {};
             // The session ID.
             shared_ptr<string> annotationMissionSessionId_ {};
-            // The bot ID.
+            // The robot ID.
             shared_ptr<string> botId_ {};
-            // The modified query.
+            // The modified question.
             shared_ptr<string> content_ {};
-            // Created.
+            // Indicates whether the item is created.
             shared_ptr<bool> create_ {};
-            // The time when the intent was created.
+            // The creation time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> createTime_ {};
-            // Deleted
+            // Indicates whether the item is deleted.
             shared_ptr<bool> delete_ {};
             // The dialog ID.
             shared_ptr<int64_t> dialogId_ {};
@@ -654,7 +654,7 @@ namespace Models
             shared_ptr<string> instanceId_ {};
             // The intent ID.
             shared_ptr<int64_t> intentId_ {};
-            // The time when the intent was last modified.
+            // The modification time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> modifiedTime_ {};
           };
 
@@ -806,19 +806,19 @@ namespace Models
 
 
           protected:
-            // The ID.
+            // ID
             shared_ptr<string> annotationMissionChatCustomizationDataInfoId_ {};
-            // The chat ID.
+            // ChatID
             shared_ptr<string> annotationMissionChatId_ {};
             // The task ID.
             shared_ptr<string> annotationMissionId_ {};
             // The session ID.
             shared_ptr<string> annotationMissionSessionId_ {};
-            // The text of the voice annotation.
+            // The speech annotation text.
             shared_ptr<string> content_ {};
-            // Indicates whether the data is created.
+            // Indicates whether the item is created.
             shared_ptr<bool> create_ {};
-            // The time when the information was created.
+            // The creation time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> createTime_ {};
             // The description.
             shared_ptr<string> customizationDataDescription_ {};
@@ -828,11 +828,11 @@ namespace Models
             shared_ptr<string> customizationDataName_ {};
             // The weight of the language model data.
             shared_ptr<int32_t> customizationDataWeight_ {};
-            // Indicates whether the data is deleted.
+            // Indicates whether the item is deleted.
             shared_ptr<bool> delete_ {};
             // The instance ID.
             shared_ptr<string> instanceId_ {};
-            // The time when the information was last modified.
+            // The modification time. The value is a UNIX timestamp in milliseconds.
             shared_ptr<int64_t> modifiedTime_ {};
           };
 
@@ -997,83 +997,70 @@ namespace Models
 
 
         protected:
-          // The result of manual ASR annotation, used to calculate character accuracy.
+          // The manual ASR annotation text result, which is used to calculate the character accuracy rate.
           shared_ptr<string> annotationAsrResult_ {};
-          // The table of language model annotation information for the annotation task chat.
+          // The language model annotation information list for the chat annotation task.
           shared_ptr<vector<AnnotationMissionChatList::AnnotationMissionChatCustomizationDataInfoList>> annotationMissionChatCustomizationDataInfoList_ {};
-          // The chat ID.
+          // chat id
           shared_ptr<string> annotationMissionChatId_ {};
-          // The list of chat intents.
+          // The chat intent list.
           shared_ptr<vector<AnnotationMissionChatList::AnnotationMissionChatIntentUserSayInfoList>> annotationMissionChatIntentUserSayInfoList_ {};
-          // The list of mappings between chat annotation information and attached tags.
+          // The list of tag mappings bound to the annotation chat.
           shared_ptr<vector<AnnotationMissionChatList::AnnotationMissionChatTagInfoList>> annotationMissionChatTagInfoList_ {};
-          // The table of hotword annotation information for the annotation task chat.
+          // The hot word annotation information list for the chat annotation task.
           shared_ptr<vector<AnnotationMissionChatList::AnnotationMissionChatVocabularyInfoList>> annotationMissionChatVocabularyInfoList_ {};
-          // The task ID.
+          // The annotation mission ID.
           shared_ptr<string> annotationMissionId_ {};
           // The session ID.
           shared_ptr<string> annotationMissionSessionId_ {};
-          // The annotation status of the chat.
-          // 
-          // - 0: UNDO
-          // 
-          // - 1: DOING
-          // 
-          // - 2: DONE
-          // 
-          // - 3: CLOSED
+          // The chat annotation status. Valid values:
+          // - 0: Pending (UNDO).
+          // - 1: In progress (DOING).
+          // - 2: Completed (DONE).
+          // - 3: Canceled (CLOSED).
           shared_ptr<int32_t> annotationStatus_ {};
-          // The content of the bot\\"s reply.
+          // The reply content of the robot.
           shared_ptr<string> answer_ {};
-          // The status of Automatic Speech Recognition (ASR) annotation.
-          // 
-          // - 0: UNDO
-          // 
-          // - 1: DOING
-          // 
-          // - 2: DONE
-          // 
-          // - 3: CLOSED
+          // The ASR annotation status. Valid values:
+          // - 0: Pending (UNDO).
+          // - 1: In progress (DOING).
+          // - 2: Completed (DONE).
+          // - 3: Canceled (CLOSED).
           shared_ptr<int32_t> asrAnnotationStatus_ {};
-          // The time when the chat was created.
+          // The creation time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> createTime_ {};
           // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The status of semantic tagging.
-          // 
-          // - 0: UNDO
-          // 
-          // - 1: DOING
-          // 
-          // - 2: DONE
-          // 
-          // - 3: CLOSED
+          // The semantic annotation status. Valid values:
+          // - 0: Pending (UNDO).
+          // - 1: In progress (DOING).
+          // - 2: Completed (DONE).
+          // - 3: Canceled (CLOSED).
           shared_ptr<int32_t> intentAnnotationStatus_ {};
-          // The time when the chat was last modified.
+          // The modification time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> modifiedTime_ {};
-          // The time when the chat was triggered.
+          // The trigger time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> occurTime_ {};
-          // The ASR result.
+          // The ASR recognition result.
           shared_ptr<string> originalAsrResult_ {};
           // The sequence ID.
           shared_ptr<string> sequenceId_ {};
-          // The annotation action. 1: Correct. 20: Matching error, not optimized. 21: Matching error, optimized. 3: Uncovered. 4: Invalid.
+          // The annotation action. Valid values:
+          // - 1: Correct.
+          // - 20: Matching error, not optimized.
+          // - 21: Matching error, optimized.
+          // - 3: Not covered.
+          // - 4: Invalid.
           shared_ptr<int32_t> subStatus_ {};
-          // The status of tag annotation.
-          // 
-          // - 0: UNDO
-          // 
-          // - 1: DOING
-          // 
-          // - 2: DONE
-          // 
-          // - 3: CLOSED
+          // The tag annotation status. Valid values:
+          // - 0: Pending (UNDO).
+          // - 1: In progress (DOING).
+          // - 2: Completed (DONE).
+          // - 3: Canceled (CLOSED).
           shared_ptr<int32_t> tagAnnotationStatus_ {};
-          // Indicates a transcription error.
-          // 
-          // - 0: No
-          // 
-          // - 1: Yes
+          // Indicates whether a transcription error occurred. Valid values:
+          // - 0: No.
+          // - 1: Yes.
           shared_ptr<int32_t> translationError_ {};
         };
 
@@ -1175,37 +1162,33 @@ namespace Models
 
 
       protected:
-        // The list of chats.
+        // The chat list.
         shared_ptr<vector<AnnotationMissionSessionList::AnnotationMissionChatList>> annotationMissionChatList_ {};
-        // The task ID.
+        // The annotation mission ID.
         shared_ptr<string> annotationMissionId_ {};
         // The session ID.
         shared_ptr<string> annotationMissionSessionId_ {};
-        // The annotation status.
-        // 
-        // - 0: UNDO
-        // 
-        // - 1: DOING
-        // 
-        // - 2: DONE
-        // 
-        // - 3: CLOSED
+        // The annotation status. Valid values:
+        // - 0: Pending (UNDO).
+        // - 1: In progress (DOING).
+        // - 2: Completed (DONE).
+        // - 3: Canceled (CLOSED).
         shared_ptr<int32_t> annotationStatus_ {};
-        // The time when the session was created.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // Debug conversation
+        // The debug conversation.
         shared_ptr<bool> debugConversation_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The task group ID.
+        // The job group ID.
         shared_ptr<string> jobGroupId_ {};
         // The task ID.
         shared_ptr<string> jobId_ {};
-        // The time when the session was last modified.
+        // The modification time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> modifiedTime_ {};
         // The scenario ID.
         shared_ptr<string> scriptId_ {};
-        // The ID of the task in the outbound call system, or the ID of the conversation in the navigation system.
+        // The session ID. This is the task ID for outbound robots and the conversation ID for voice navigator robots.
         shared_ptr<string> sessionId_ {};
         // The version number.
         shared_ptr<int32_t> version_ {};
@@ -1253,13 +1236,15 @@ namespace Models
     protected:
       // The task ID.
       shared_ptr<string> annotationMissionId_ {};
-      // The list of sessions.
+      // The session list.
       shared_ptr<vector<Data::AnnotationMissionSessionList>> annotationMissionSessionList_ {};
-      // Additional information. If the call is successful, \\`success\\` is returned. If the call fails, a specific error code is returned.
+      // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
       shared_ptr<string> message_ {};
-      // Indicates whether the call was successful. \\`true\\` indicates success. \\`false\\` indicates failure.
+      // Indicates whether the call is successful. Valid values:
+      // - true: The call is successful.
+      // - false: The call fails.
       shared_ptr<bool> success_ {};
-      // The total number of entries.
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -1310,17 +1295,19 @@ namespace Models
 
 
   protected:
-    // The status code of the API call.
+    // The API status code.
     shared_ptr<string> code_ {};
     // The data.
     shared_ptr<ListAnnotationMissionSessionResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Additional information. If the call is successful, \\`success\\` is returned. If the call fails, a specific error code is returned.
+    // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. A value of \\`true\\` indicates success. A value of \\`false\\` indicates failure.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -81,10 +81,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. This parameter is required.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. This parameter is required.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The search criteria for the outbound call blocklist.
     shared_ptr<string> searchPattern_ {};
   };
 

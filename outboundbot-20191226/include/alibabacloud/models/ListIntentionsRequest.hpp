@@ -112,41 +112,34 @@ namespace Models
 
 
   protected:
-    // >Notice: 
+    // >Notice: This parameter is required. Select a value based on the scenario.
     // 
-    // This parameter is required. Select based on the scenario.
-    // 
-    // 
-    // 
-    // Annotation data source.
-    // 
-    // - 1: Outbound Call
-    // 
-    // - 2: Navigation
+    // The annotation data source. Valid values:
+    // - 1: outbound call
+    // - 2: navigation
     shared_ptr<int64_t> annotationMissionDataSourceType_ {};
-    // Bot ID
+    // The robot ID.
     // 
-    // > Get this from the DescribeScript API. The corresponding parameter is ChatbotId.
+    // > You can obtain this value from the DescribeScript operation, which corresponds to the ChatbotId parameter.
     shared_ptr<string> botId_ {};
-    // Environment
+    // The environment. Valid values:
     // 
-    // - 1: Private Cloud
-    // 
-    // - 2: Public Cloud
+    // - 1: private cloud
+    // - 2: public cloud
     shared_ptr<int64_t> environment_ {};
-    // Instance ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Intent ID
+    // The intent ID.
     shared_ptr<int64_t> intentId_ {};
-    // Page Number
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // Number.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Scenario ID
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // Intent Name
+    // The intent name.
     // 
-    // > Use this for fuzzy queries based on keywords.
+    // > Supports fuzzy match by keyword as a filter condition.
     shared_ptr<string> userNick_ {};
   };
 

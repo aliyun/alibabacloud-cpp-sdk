@@ -152,23 +152,22 @@ namespace Models
     protected:
       // The intent alias.
       shared_ptr<string> aliasName_ {};
-      // The time when the intent was created.
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> createTime_ {};
       // The ID of the user who created the intent.
       shared_ptr<string> createUserId_ {};
-      // The name of the account that created the intent.
+      // The name of the user who created the intent.
       shared_ptr<string> createUserName_ {};
       // The intent ID.
       shared_ptr<int64_t> intentId_ {};
       // The intent name.
-      // 
-      // > This is the intent code. It uniquely identifies the intent.
+      // > The intent code, which is a unique identifier.
       shared_ptr<string> intentName_ {};
-      // The time when the intent was last modified.
+      // The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> modifyTime_ {};
-      // Modify User ID
+      // The ID of the user who modified the intent.
       shared_ptr<string> modifyUserId_ {};
-      // Modify the account name.
+      // The name of the user who modified the intent.
       shared_ptr<string> modifyUserName_ {};
     };
 
@@ -256,15 +255,15 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of intents.
     shared_ptr<vector<ListBeebotIntentResponseBody::Intents>> intents_ {};
-    // The message returned by the operation.
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

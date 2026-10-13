@@ -162,12 +162,15 @@ namespace Models
 
 
       protected:
-        // Function service name
+        // The function service name.
         shared_ptr<string> fcFunction_ {};
-        // Function service trigger URL
+        // The HTTP trigger URL of the function.
         shared_ptr<string> fcHttpTriggerUrl_ {};
-        // Function service region
+        // The region of the function.
         shared_ptr<string> fcRegion_ {};
+        // Indicates whether Chatbot prompts are supported. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> supportBeebotPrompts_ {};
       };
 
@@ -348,56 +351,56 @@ namespace Models
 
 
     protected:
-      // Robot workspace access key
+      // The access key of the chatbot workspace.
       shared_ptr<int64_t> agentId_ {};
-      // Robot workspace access key
+      // The access key of the chatbot workspace.
       shared_ptr<string> agentKey_ {};
-      // Indicates whether the robot workspace uses a Large Language Model (LLM)
+      // Indicates whether the chatbot workspace is a large language model (LLM) workspace.
       shared_ptr<bool> agentLlm_ {};
-      // ASR configuration
+      // The automatic speech recognition (ASR) configuration.
       shared_ptr<string> asrConfig_ {};
-      // Call configuration
+      // The call configuration.
       shared_ptr<string> chatConfig_ {};
-      // Chatbot ID
+      // The chatbot ID.
       shared_ptr<string> chatbotId_ {};
-      // Status of the debug script
+      // The debug status of the script.
       shared_ptr<string> debugStatus_ {};
-      // Enables emotion detection
+      // Specifies whether the emotion recognition feature is enabled.
       shared_ptr<bool> emotionEnable_ {};
-      // Industry
+      // The industry.
       shared_ptr<string> industry_ {};
-      // Indicates whether the debug version is in draft status
+      // Indicates whether the debug version is in the draft state.
       shared_ptr<bool> isDebugDrafted_ {};
-      // Indicates whether the script is in draft status
+      // Indicates whether the script is in the draft state.
       shared_ptr<bool> isDrafted_ {};
+      // The custom label configuration.
       shared_ptr<string> labelConfig_ {};
-      // Enables intelligent sentence break
+      // Specifies whether the intelligent sentence segmentation feature is enabled.
       shared_ptr<bool> longWaitEnable_ {};
-      // Enables tone continuity
+      // Specifies whether the mini playback feature is enabled.
       shared_ptr<bool> miniPlaybackEnable_ {};
-      // Enables graceful barge-in
+      // Specifies whether the graceful barge-in feature is enabled.
       shared_ptr<bool> newBargeInEnable_ {};
-      // NLU engine (applies only to LLM scenarios)
+      // The natural language understanding (NLU) engine. This parameter applies only to large language model (LLM) scenarios. Valid values:
       // 
-      // - Prompts — Text entry mode
-      // 
-      // - SSE_FUNCTION — Function Compute service mode
+      // - Prompts: text input mode. 
+      // - SSE_FUNCTION: Function Compute service mode.
       shared_ptr<string> nluEngine_ {};
-      // Function Compute service mode configuration
+      // The configuration of the Function Compute service mode.
       shared_ptr<Script::NluProfile> nluProfile_ {};
-      // Scenario
+      // The scenario.
       shared_ptr<string> scene_ {};
-      // Script description
+      // The description of the script.
       shared_ptr<string> scriptDescription_ {};
-      // Script ID
+      // The script ID.
       shared_ptr<string> scriptId_ {};
-      // Script name
+      // The name of the script.
       shared_ptr<string> scriptName_ {};
-      // Script status
+      // The status of the script.
       shared_ptr<string> status_ {};
-      // TTS configuration for the script
+      // The text-to-speech (TTS) configuration of the script.
       shared_ptr<string> ttsConfig_ {};
-      // Time when the script was last updated
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -456,19 +459,19 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // The API message.
     shared_ptr<string> message_ {};
-    // Deprecated
+    // **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> nlsConfig_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Script details
+    // The script.
     shared_ptr<DescribeScriptResponseBody::Script> script_ {};
-    // Indicates whether the call succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

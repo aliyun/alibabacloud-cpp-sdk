@@ -145,23 +145,23 @@ namespace Models
 
 
     protected:
-      // Intent alias
+      // The intent alias.
       shared_ptr<string> aliasName_ {};
-      // Creation time
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> createTime_ {};
-      // Creator user ID
+      // The ID of the creator.
       shared_ptr<string> createUserId_ {};
-      // Creator account name
+      // The username of the creator.
       shared_ptr<string> createUserName_ {};
-      // Intent ID
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
-      // Intent name
+      // The intent name.
       shared_ptr<string> intentName_ {};
-      // Modification time
+      // The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> modifyTime_ {};
-      // Modifier user ID
+      // The ID of the modifier.
       shared_ptr<string> modifyUserId_ {};
-      // Modifier account name
+      // The username of the modifier.
       shared_ptr<string> modifyUserName_ {};
     };
 
@@ -227,21 +227,21 @@ namespace Models
 
 
   protected:
-    // Internal request ID
+    // The internal request ID.
     shared_ptr<string> beebotRequestId_ {};
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Intent information
+    // The intent information.
     shared_ptr<DescribeBeebotIntentResponseBody::Intent> intent_ {};
-    // Intent ID
+    // The intent ID.
     shared_ptr<int64_t> intentId_ {};
-    // API message
+    // The API message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -192,9 +192,9 @@ namespace Models
 
 
         protected:
-          // End time
+          // The start time. The format is HH:mm:ss.
           shared_ptr<string> beginTime_ {};
-          // End time.
+          // The end time. The format is HH:mm:ss.
           shared_ptr<string> endTime_ {};
         };
 
@@ -319,41 +319,39 @@ namespace Models
 
 
       protected:
-        // Custom data for the strategy. This is a legacy parameter and is no longer used.
+        // The custom data of the strategy. This is a legacy parameter and is no longer used.
         shared_ptr<string> customized_ {};
-        // End time of the scheduling strategy.
+        // The overall end time of the scheduling strategy. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // Action to take after the execution period ends. This is a legacy parameter and is no longer used.
+        // The processing method after the execution cycle ends. This is a legacy parameter and is no longer used.
         shared_ptr<string> followUpStrategy_ {};
-        // Indicates whether this is a template.
+        // Indicates whether the strategy is a template.
         shared_ptr<bool> isTemplate_ {};
-        // Maximum number of calls per day when the call is not answered.
+        // The maximum number of calls per day when the call is not answered.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
-        // Minimum interval between retry attempts.
+        // The interval for redialing.
         shared_ptr<int32_t> minAttemptInterval_ {};
-        // Job repetition method.
+        // The repetition method of the job.
         shared_ptr<string> repeatBy_ {};
-        // Days on which the job repeats. Use with RepeatBy.
-        // 
-        // - If the recurrence is weekly, 0 means Sunday, and 1–6 mean Monday through Saturday.
-        // 
-        // - If the recurrence is monthly, 1–31 mean the 1st through 31st days of the month. Months without the specified day skip the job. For example, if you select the 30th, February skips it.
+        // The days for repeated execution. This parameter is used in combination with RepeatBy.
+        // - If the repetition cycle is weekly, 0 indicates Sunday, and 1 to 6 indicate Monday to Saturday.  
+        // - If the repetition cycle is monthly, 1 to 31 indicate the 1st to the 31st day of the month. The job is not executed in months that do not have the specified day. For example, if the 30th day is selected, the job is not executed in February.
         shared_ptr<vector<string>> repeatDays_ {};
-        // Indicates whether this is a recurring job.
+        // Indicates whether the job is a recurring task.
         shared_ptr<bool> repeatable_ {};
-        // Phone number routing policy.
+        // The number routing strategy.
         shared_ptr<string> routingStrategy_ {};
-        // Start time of the strategy.
+        // The overall start time of the strategy. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
-        // Strategy description.
+        // The description of the strategy.
         shared_ptr<string> strategyDescription_ {};
-        // Strategy ID.
+        // The ID of the strategy.
         shared_ptr<string> strategyId_ {};
-        // Strategy name.
+        // The name of the strategy.
         shared_ptr<string> strategyName_ {};
-        // Strategy type.
+        // The strategy type.
         shared_ptr<string> type_ {};
-        // Working hours.
+        // The working hours.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -422,15 +420,15 @@ namespace Models
 
 
       protected:
-        // Number of calls hung up by the customer. This field is deprecated.
+        // **[Deprecated]** The number of hang-ups by the customer.
         shared_ptr<int32_t> clientHangupNum_ {};
-        // Number of completed jobs. This field is deprecated.
+        // **[Deprecated]** The number of completed jobs.
         shared_ptr<int32_t> finishedNum_ {};
-        // Number of calls with no interaction. This field is deprecated.
+        // **[Deprecated]** The number of jobs without interaction.
         shared_ptr<int32_t> noInteractNum_ {};
-        // Number of calls hung up due to timeout. This field is deprecated.
+        // **[Deprecated]** The number of hang-ups due to timeout.
         shared_ptr<int32_t> timeoutHangupNum_ {};
-        // Number of unrecognized responses. This field is deprecated.
+        // **[Deprecated]** The number of unrecognized utterances.
         shared_ptr<int32_t> unrecognizedNum_ {};
       };
 
@@ -481,11 +479,11 @@ namespace Models
 
 
       protected:
-        // Do not dial nonexistent numbers.
+        // Specifies whether to stop calling nonexistent numbers.
         shared_ptr<bool> emptyNumberIgnore_ {};
-        // Do not dial numbers with overdue payments.
+        // Specifies whether to stop calling numbers with overdue payments.
         shared_ptr<bool> inArrearsIgnore_ {};
-        // Do not dial out-of-service numbers.
+        // Specifies whether to stop calling out-of-service numbers.
         shared_ptr<bool> outOfServiceIgnore_ {};
       };
 
@@ -570,9 +568,9 @@ namespace Models
 
 
         protected:
-          // Custom statistics field name.
+          // The name of the custom statistics information field.
           shared_ptr<string> key_ {};
-          // Custom statistics value.
+          // The custom statistics information value (IV).
           shared_ptr<string> value_ {};
         };
 
@@ -614,9 +612,9 @@ namespace Models
 
 
         protected:
-          // Business result name.
+          // The name of the business result.
           shared_ptr<string> key_ {};
-          // Business result value.
+          // The value of the business result.
           shared_ptr<string> value_ {};
         };
 
@@ -720,31 +718,31 @@ namespace Models
 
 
       protected:
-        // Business result information. This field is deprecated.
+        // **[Deprecated]** The business result information.
         shared_ptr<vector<Progress::Briefs>> briefs_ {};
-        // Number of cancelled jobs.
+        // The number of canceled jobs.
         shared_ptr<int32_t> cancelled_ {};
-        // Statistics in key-value format. This field is deprecated.
+        // **[Deprecated]** The statistics information in key-value format.
         shared_ptr<vector<Progress::Categories>> categories_ {};
-        // Job execution time. This field is deprecated.
+        // **[Deprecated]** The execution duration of the job.
         shared_ptr<int32_t> duration_ {};
-        // Number of jobs in execution.
+        // The number of executing jobs.
         shared_ptr<int32_t> executing_ {};
-        // Number of failed jobs.
+        // The number of failed jobs.
         shared_ptr<int32_t> failed_ {};
-        // Number of paused jobs.
+        // The number of paused jobs.
         shared_ptr<int32_t> paused_ {};
-        // Number of jobs being scheduled.
+        // The number of jobs being scheduled.
         shared_ptr<int32_t> scheduling_ {};
-        // Start time of execution. This field is deprecated.
+        // **[Deprecated]** The start time of the execution. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
-        // Overall job execution status. This field is deprecated.
+        // **[Deprecated]** The overall execution status of the job.
         shared_ptr<string> status_ {};
-        // Total number of completed jobs.
+        // The total number of completed jobs.
         shared_ptr<int32_t> totalCompleted_ {};
-        // Total number of jobs.
+        // The total number of jobs.
         shared_ptr<int32_t> totalJobs_ {};
-        // This field is deprecated.
+        // **[Deprecated]** The total number of unanswered jobs.
         shared_ptr<int32_t> totalNotAnswered_ {};
       };
 
@@ -786,9 +784,9 @@ namespace Models
 
 
       protected:
-        // Flash SMS configuration ID.
+        // The ID of the flash SMS configuration.
         shared_ptr<string> configId_ {};
-        // Flash SMS template ID.
+        // The ID of the flash SMS template.
         shared_ptr<string> templateId_ {};
       };
 
@@ -839,11 +837,11 @@ namespace Models
 
 
       protected:
-        // File URL. This field is deprecated.
+        // **[Deprecated]** The file URL.
         shared_ptr<string> fileHttpUrl_ {};
-        // Export progress. This field is deprecated.
+        // **[Deprecated]** The export progress.
         shared_ptr<string> progress_ {};
-        // Export status. This field is deprecated.
+        // **[Deprecated]** The export status.
         shared_ptr<string> status_ {};
       };
 
@@ -1038,54 +1036,55 @@ namespace Models
 
 
     protected:
-      // Caller number list.
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
-      // Creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // Export progress. This field is deprecated.
+      // **[Deprecated]** The export progress.
       // 
-      // > Get this information from the ListJobGroups API instead.
+      // > This information is obtained from the ListJobGroups operation.
       shared_ptr<JobGroup::ExportProgress> exportProgress_ {};
-      // Configuration parameters for flash SMS delivery. This is a JSON object that contains third-party flash SMS configuration details.
+      // The configuration parameters for flash SMS push in JSON format, including the configuration information of third-party flash SMS.
       shared_ptr<JobGroup::FlashSmsExtras> flashSmsExtras_ {};
-      // Job list parsing task ID. This parameter is deprecated.
+      // **[Deprecated]** The ID of the job list parsing operation.
       shared_ptr<string> jobDataParsingTaskId_ {};
-      // OSS file key for the uploaded job list. This parameter is deprecated.
+      // **[Deprecated]** The OSS file key of the uploaded job list.
       shared_ptr<string> jobFilePath_ {};
-      // Job description.
+      // The description of the job group.
       shared_ptr<string> jobGroupDescription_ {};
-      // Job group ID.
+      // The ID of the job group.
       shared_ptr<string> jobGroupId_ {};
-      // Job group name.
+      // The name of the job group.
       shared_ptr<string> jobGroupName_ {};
-      // Minimum concurrency.
+      // The minimum concurrency.
       shared_ptr<int64_t> minConcurrency_ {};
-      // Modification time.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> modifyTime_ {};
-      // Priority.
+      // The priority.
       shared_ptr<string> priority_ {};
-      // Job progress.
+      // The job progress.
       shared_ptr<JobGroup::Progress> progress_ {};
-      // Caller number list for redials. These numbers are used only when the first call fails. If not specified, the system uses the main caller number list.
+      // The list of calling numbers used for recall calls when the initial call fails. If not specified, it defaults to the primary calling number list.
       shared_ptr<vector<string>> recallCallingNumbers_ {};
-      // Redial strategy.
+      // The redial strategy.
       shared_ptr<JobGroup::RecallStrategy> recallStrategy_ {};
-      // Statistics. This is a legacy parameter and is no longer provided. This field is deprecated.
+      // **[Deprecated]** The statistics information. This is a legacy parameter and is no longer provided.
       shared_ptr<JobGroup::Result> result_ {};
-      // Ringing duration.
+      // The ringing duration.
       shared_ptr<int64_t> ringingDuration_ {};
-      // Scenario ID. This is a legacy canvas parameter. For new canvases, this value is the same as ScriptId.
+      // The scenario ID. This is a legacy canvas parameter. For the new canvas, the scenario ID is the same as the ScriptId.
       shared_ptr<string> scenarioId_ {};
-      // Script scenario ID.
+      // The ID of the script scenario.
       shared_ptr<string> scriptId_ {};
-      // Script scenario name.
+      // The name of the script scenario.
       shared_ptr<string> scriptName_ {};
+      // The natural language understanding (NLU) engine used by the script.
       shared_ptr<string> scriptNluEngine_ {};
-      // Script scenario version number.
+      // The version number of the script scenario.
       shared_ptr<string> scriptVersion_ {};
-      // Job status.
+      // The job status.
       shared_ptr<string> status_ {};
-      // Job execution strategy.
+      // The execution strategy of the job.
       shared_ptr<JobGroup::Strategy> strategy_ {};
     };
 
@@ -1136,17 +1135,17 @@ namespace Models
 
 
   protected:
-    // API status code.
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Job information.
+    // The job group information.
     shared_ptr<DescribeJobGroupResponseBody::JobGroup> jobGroup_ {};
-    // API message.
+    // The API message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

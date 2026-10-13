@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Task ID
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // Include conversation details
+    // Specifies whether to include conversation information.
     // 
-    // > The default value is false.
+    // > Default value: false.
     shared_ptr<bool> withConversations_ {};
   };
 

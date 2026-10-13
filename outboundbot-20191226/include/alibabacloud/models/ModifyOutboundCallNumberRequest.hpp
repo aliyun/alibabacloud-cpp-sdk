@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> rateLimitCount_ {};
-    // The rate limit period. Unit: seconds.
+    // The rate limit period, in seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> rateLimitPeriod_ {};

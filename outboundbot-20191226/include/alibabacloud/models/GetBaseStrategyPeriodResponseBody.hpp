@@ -100,13 +100,13 @@ namespace Models
 
 
     protected:
-      // Start time
+      // The start time. Format: HH:mm:ss.
       shared_ptr<string> beginTime_ {};
-      // Daily start time, in milliseconds
+      // The daily start time in milliseconds.
       shared_ptr<int64_t> beginTimeMillis_ {};
-      // End time
+      // The end time. Format: HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // Daily end time, in milliseconds
+      // The daily end time in milliseconds.
       shared_ptr<int64_t> endTimeMillis_ {};
     };
 
@@ -172,21 +172,21 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the period applies only to weekends
+    // Indicates whether the time periods apply only to weekends.
     shared_ptr<bool> onlyWeekdays_ {};
-    // Indicates whether the period applies only to weekdays
+    // Indicates whether the time periods apply only to workdays.
     shared_ptr<bool> onlyWorkdays_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Time periods when the strategy runs
+    // The execution time periods of the policy.
     shared_ptr<vector<GetBaseStrategyPeriodResponseBody::WorkingTime>> workingTime_ {};
   };
 

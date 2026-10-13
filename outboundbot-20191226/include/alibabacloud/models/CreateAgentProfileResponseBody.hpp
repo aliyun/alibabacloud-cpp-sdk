@@ -215,39 +215,39 @@ namespace Models
 
 
     protected:
-      // Agent profile ID
+      // The agent profile ID.
       shared_ptr<string> agentProfileId_ {};
-      // Agent profile template ID
+      // The agent profile template ID.
       shared_ptr<string> agentProfileTemplateId_ {};
-      // Agent type
+      // agent type
       shared_ptr<string> agentType_ {};
-      // Creation time
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
-      // Description
+      // The description.
       shared_ptr<string> description_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Instruction configuration
+      // The instruction configuration.
       shared_ptr<string> instructionJson_ {};
-      // Label description
+      // The label descriptions.
       shared_ptr<string> labelsJson_ {};
-      // Model ID
+      // The model ID.
       shared_ptr<string> model_ {};
-      // Model configuration
+      // The model configuration.
       shared_ptr<string> modelConfig_ {};
-      // Prompt (professional mode)
+      // The prompt in professional mode.
       shared_ptr<string> prompt_ {};
-      // Agent configuration
+      // The agent configuration.
       shared_ptr<string> promptJson_ {};
-      // Scenario
+      // The scenario.
       shared_ptr<string> scenario_ {};
-      // Scenario ID
+      // The scenario ID.
       shared_ptr<string> scriptId_ {};
-      // Indicates whether this is a system template
+      // Indicates whether the template is a system template.
       shared_ptr<bool> system_ {};
-      // Last update time
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> updateTime_ {};
-      // Variable configuration
+      // The variable configuration.
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -298,17 +298,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The status code.
     shared_ptr<string> code_ {};
-    // Response data
+    // The returned data.
     shared_ptr<CreateAgentProfileResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

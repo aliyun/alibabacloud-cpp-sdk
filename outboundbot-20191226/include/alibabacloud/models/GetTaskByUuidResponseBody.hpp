@@ -146,43 +146,30 @@ namespace Models
 
 
       protected:
-        // Action type
-        // 
-        // - Dialogue: Dialogue
-        // 
-        // - AbortDialogue: Abort a dialogue
-        // 
-        // - SilenceTimeout: Silence timeout
-        // 
-        // - CollectedNumber: Collected number
-        // 
-        // - EndDialogue: End a dialogue
-        // 
-        // - Broadcast: Greeting message
-        // 
-        // - HangUp: Hang up
-        // 
-        // - Authorize: Authorization
-        // 
-        // - TransferToAgent: Transfer to an agent
-        // 
-        // - TransferToIVR: Transfer to an IVR system
-        // 
-        // - RedirectToPage: Redirect to a page
-        // 
-        // - CollectNumber: Collect a number
-        // 
-        // - WaitOnAsyncTask: Wait for an asynchronous task
-        // 
-        // - Error: Error
+        // The instruction. Valid values:
+        // - BeginDialogue: starts the conversation.
+        // - Dialogue: indicates a conversation.
+        // - AbortDialogue: aborts the conversation.
+        // - SilenceTimeout: indicates a silence timeout.
+        // - CollectedNumber: indicates a collected number.
+        // - EndDialogue: ends the conversation.
+        // - Broadcast: indicates an opening remark.
+        // - HangUp: hangs up the call.
+        // - Authorize: grants authorization.
+        // - TransferToAgent: transfers the call to an agent.
+        // - TransferToIVR: transfers the call to an IVR.
+        // - RedirectToPage: redirects to a page.
+        // - CollectNumber: collects a number.
+        // - WaitOnAsyncTask: waits for an asynchronous task.
+        // - Error: indicates an error.
         shared_ptr<string> action_ {};
-        // Conversation text.
+        // The conversation text.
         shared_ptr<string> script_ {};
-        // Session ID
+        // The session ID.
         shared_ptr<string> sequenceId_ {};
-        // Who spoke in the conversation. Valid values: Robot or Contact.
+        // The speaker of the conversation. Valid values: Robot and Contact.
         shared_ptr<string> speaker_ {};
-        // Timestamp when the summary was created.
+        // The time when the summary was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -277,55 +264,42 @@ namespace Models
 
 
     protected:
-      // Actual execution time
+      // The actual execution time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> actualTime_ {};
-      // Call ID
+      // The call ID.
       shared_ptr<string> callId_ {};
-      // Callee number
+      // The called number.
       shared_ptr<string> calledNumber_ {};
-      // Caller number
+      // The calling number.
       shared_ptr<string> callingNumber_ {};
-      // List of conversations
+      // The list of conversation information.
       shared_ptr<vector<Task::Conversations>> conversations_ {};
-      // Reason the task ended
+      // The end reason. Valid values:
+      // - FINISHED: normal completion.
+      // - CHATBOT_HANGUP_AFTER_NOANSWER: the robot hangs up after unrecognized input.
+      // - CHATBOT_HANGUP_AFTER_SILENCE: the robot hangs up after a silence timeout.
+      // - CLIENT_HANGUP_AFTER_NOANSWER: the user hangs up after unrecognized input.
+      // - CLIENT_HANGUP: the user hangs up without a reason.
+      // - TRANSFER_BY_INTENT: the call is transferred to a human agent due to intent matching.
+      // - TRANSFER_AFTER_NOANSWER: the call is transferred to a human agent after unrecognized input.
+      // - INO_INTERACTION: no interaction from the user.
+      // - ERROR: the system is interrupted due to an exception.
+      // - SPECIAL_INTERCEPT_VOICE_ASSISTANT: intercepted due to special circumstances - voice assistant.
+      // - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER: intercepted due to special circumstances - extension number transfer.
       // 
-      // - FINISHED: Task completed normally
-      // 
-      // - CHATBOT_HANGUP_AFTER_NOANSWER: Bot hung up after no answer
-      // 
-      // - CHATBOT_HANGUP_AFTER_SILENCE: Bot hung up after silence timeout
-      // 
-      // - CLIENT_HANGUP_AFTER_NOANSWER: Client hung up after no answer
-      // 
-      // - CLIENT_HANGUP: Client hung up without reason
-      // 
-      // - TRANSFER_BY_INTENT: Transferred to agent after intent match
-      // 
-      // - TRANSFER_AFTER_NOANSWER: Transferred to agent after no answer
-      // 
-      // - INO_INTERACTION: No interaction from client
-      // 
-      // - ERROR: System error interrupted the task
-      // 
-      // - SPECIAL_INTERCEPT_VOICE_ASSISTANT: Intercepted due to voice assistant
-      // 
-      // - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER: Intercepted due to extension number transfer
-      // 
-      // >Notice: 
-      // 
-      // This parameter is a string that returns an enumeration value such as FINISHED.
+      // >Notice: The data type of this parameter is String. The returned value is an enumerated value such as FINISHED.</notice>
       shared_ptr<string> endReason_ {};
-      // End time
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // Task ID
+      // The task ID.
       shared_ptr<string> id_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Job group ID
+      // The job group ID.
       shared_ptr<string> jobGroupId_ {};
-      // Job ID
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // Planned execution time (deprecated)
+      // **[Deprecated]** The planned execution time of the task. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> plannedTime_ {};
     };
 
@@ -376,17 +350,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Task information
+    // The task information.
     shared_ptr<GetTaskByUuidResponseBody::Task> task_ {};
   };
 

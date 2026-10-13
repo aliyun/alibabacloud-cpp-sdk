@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Task group ID
+    // The job group ID.
     shared_ptr<string> jobGroupId_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

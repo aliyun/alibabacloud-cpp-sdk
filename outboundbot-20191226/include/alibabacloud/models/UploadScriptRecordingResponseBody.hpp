@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Return code
+    // The return code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Interface message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Is successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Unique recording ID
+    // The unique ID of the recording.
     shared_ptr<string> uuid_ {};
   };
 

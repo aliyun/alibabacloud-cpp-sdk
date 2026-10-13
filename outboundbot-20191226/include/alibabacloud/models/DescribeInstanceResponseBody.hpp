@@ -141,21 +141,21 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
       // The name of the creator.
       shared_ptr<string> creatorName_ {};
-      // The description of the business instance.
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // The business instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The name of the business instance.
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
-      // The maximum concurrency of the instance.
+      // The maximum number of concurrent conversations for the instance.
       shared_ptr<int32_t> maxConcurrentConversation_ {};
-      // The name of the business instance owner.
+      // The name of the instance owner.
       shared_ptr<string> ownerName_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -212,13 +212,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The business instance information.
+    // The instance information.
     shared_ptr<DescribeInstanceResponseBody::Instance> instance_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -152,9 +152,9 @@ namespace Models
 
 
         protected:
-          // The end time of the calling window.
+          // The end time of the strategy. This value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> endTime_ {};
-          // The start time of the calling window.
+          // The start time of the strategy. This value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> startTime_ {};
         };
 
@@ -278,45 +278,38 @@ namespace Models
 
 
         protected:
-          // The number of canceled jobs.
+          // The number of cancelled jobs.
           shared_ptr<int32_t> cancelledNum_ {};
-          // The total runtime. This parameter is deprecated.
+          // **[Deprecated]** The total execution duration up to the current time.
           shared_ptr<int32_t> duration_ {};
-          // The number of running jobs.
+          // The number of executing jobs.
           shared_ptr<int32_t> executingNum_ {};
           // The number of failed jobs.
           shared_ptr<int32_t> failedNum_ {};
           // The number of paused jobs.
           shared_ptr<int32_t> pausedNum_ {};
-          // The number of jobs that are being scheduled.
+          // The number of jobs being scheduled.
           shared_ptr<int32_t> scheduling_ {};
-          // The start time. This parameter is deprecated.
+          // **[Deprecated]** The start time. This value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> startTime_ {};
           // > This parameter is no longer returned.
           // 
-          // The status of the job. Valid values:
+          // The execution status. Valid values:
           // 
-          // - **Draft**: The job is a draft.
-          // 
-          // - **Scheduling**: The job is being scheduled.
-          // 
-          // - **Executing**: The job is running.
-          // 
-          // - **Completed**: The job is completed.
-          // 
-          // - **Paused**: The job is paused.
-          // 
-          // - **Failed**: The job failed.
-          // 
-          // - **Cancelled**: The job is canceled.
-          // 
-          // - **Initializing**: The job is being initialized.
+          // - **Draft**: Draft.
+          // - **Scheduling**: Scheduling.
+          // - **Executing**: Executing.
+          // - **Completed**: Completed.
+          // - **Paused**: Paused.
+          // - **Failed**: Failed.
+          // - **Cancelled**: Cancelled.
+          // - **Initializing**: Initializing.
           shared_ptr<string> status_ {};
-          // The number of completed jobs.
+          // The number of completed jobs up to the current time.
           shared_ptr<int32_t> totalCompleted_ {};
           // The total number of jobs.
           shared_ptr<int32_t> totalJobs_ {};
-          // This parameter is deprecated.
+          // **[Deprecated]**
           shared_ptr<int32_t> totalNotAnswered_ {};
         };
 
@@ -367,19 +360,16 @@ namespace Models
 
 
         protected:
-          // This parameter is deprecated.
+          // **[Deprecated]**
           shared_ptr<string> fileHttpUrl_ {};
-          // The progress of the export task.
+          // The progress.
           shared_ptr<string> progress_ {};
           // The status of the export task. Valid values:
           // 
-          // - **PENDING**: The task is pending.
-          // 
-          // - **IN_PROGRESS**: The task is in progress.
-          // 
-          // - **FINISHED**: The task is finished.
-          // 
-          // - **FAILED**: The task failed.
+          // - **PENDING**: Pending.
+          // - **IN_PROGRESS**: In progress.
+          // - **FINISHED**: Finished.
+          // - **FAILED**: Failed.
           shared_ptr<string> status_ {};
         };
 
@@ -499,51 +489,44 @@ namespace Models
 
 
       protected:
-        // The time when the job group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The creation time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> creationTime_ {};
-        // The progress of the export task.
+        // The export progress.
         shared_ptr<List::ExportProgress> exportProgress_ {};
-        // The ID of the task that parses the job data file. This parameter is deprecated.
+        // **[Deprecated]** The ID of the jobFile parsing task.
         shared_ptr<string> jobDataParsingTaskId_ {};
-        // The description of the job group.
+        // The job group description.
         shared_ptr<string> jobGroupDescription_ {};
-        // The ID of the job group.
+        // The job group ID.
         shared_ptr<string> jobGroupId_ {};
-        // The name of the job group.
+        // The job group name.
         shared_ptr<string> jobGroupName_ {};
-        // The minimum number of concurrent calls.
+        // The number of valid tasks with a minimum concurrency guarantee.
         shared_ptr<int32_t> minConcurrency_ {};
-        // The time when the job group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The modification time in milliseconds.
         shared_ptr<string> modifyTime_ {};
-        // The progress of the job group.
+        // The node statistics information.
         shared_ptr<List::Progress> progress_ {};
-        // The ID of the script.
+        // The script ID.
         shared_ptr<string> scriptId_ {};
-        // The name of the script.
+        // The script name.
         shared_ptr<string> scriptName_ {};
         // The script version.
         shared_ptr<string> scriptVersion_ {};
-        // The status of the job group. Valid values:
+        // The execution status. Valid values:
         // 
-        // - **Draft**: The job group is a draft.
-        // 
-        // - **Scheduling**: The job group is being scheduled.
-        // 
-        // - **Executing**: The job group is running.
-        // 
-        // - **Completed**: The job group is completed.
-        // 
-        // - **Paused**: The job group is paused.
-        // 
-        // - **Failed**: The job group failed.
-        // 
-        // - **Cancelled**: The job group is canceled.
-        // 
-        // - **Initializing**: The job group is being initialized.
+        // - **Draft**: Draft.
+        // - **Scheduling**: Scheduling.
+        // - **Executing**: Executing.
+        // - **Completed**: Completed.
+        // - **Paused**: Paused.
+        // - **Failed**: Failed.
+        // - **Cancelled**: Cancelled.
+        // - **Initializing**: Initializing.
         shared_ptr<string> status_ {};
-        // The calling strategy. This parameter is deprecated.
+        // **[Deprecated]** The strategy.
         // 
-        // > To view the strategy for a job group, call the `DescribeJobGroup` operation.
+        // > To view the job strategy information, call the DescribeJobGroup operation.
         shared_ptr<List::Strategy> strategy_ {};
         // The total number of calls.
         shared_ptr<int32_t> totalCallNum_ {};
@@ -582,13 +565,13 @@ namespace Models
 
 
     protected:
-      // The list of job groups.
+      // The array.
       shared_ptr<vector<JobGroups::List>> list_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -647,7 +630,7 @@ namespace Models
 
 
   protected:
-    // The ID of the asynchronous task. You can use this ID to query the status of the task.
+    // The ID of the asynchronous query. If the query is asynchronous, you can use this ID to obtain the query results.
     shared_ptr<string> asyncTaskId_ {};
     // The response code.
     shared_ptr<string> code_ {};
@@ -655,11 +638,13 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of job groups.
     shared_ptr<ListJobGroupsResponseBody::JobGroups> jobGroups_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: `true` and `false`.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

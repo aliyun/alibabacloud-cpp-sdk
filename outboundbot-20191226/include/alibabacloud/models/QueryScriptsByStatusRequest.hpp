@@ -77,7 +77,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

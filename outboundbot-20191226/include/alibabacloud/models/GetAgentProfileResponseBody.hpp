@@ -233,15 +233,15 @@ namespace Models
 
 
     protected:
-      // The ID of the agent configuration.
+      // The agent profile ID.
       shared_ptr<string> agentProfileId_ {};
-      // The ID of the agent configuration template.
+      // The agent profile template ID.
       shared_ptr<string> agentProfileTemplateId_ {};
-      // The agent type.
+      // agent type
       shared_ptr<string> agentType_ {};
       // The API plugin configuration.
       shared_ptr<string> apiPluginJson_ {};
-      // The time when the configuration was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -249,25 +249,20 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The instruction configuration.
       shared_ptr<string> instructionJson_ {};
-      // The description of the labels.
+      // The label descriptions.
       shared_ptr<string> labelsJson_ {};
       // The model ID.
       shared_ptr<string> model_ {};
       // The model configuration.
       shared_ptr<string> modelConfig_ {};
-      // The Natural Language Understanding (NLU) configuration. The parameters are described as follows:
-      // 
-      // - chatbotInstanceId: The instance ID of the ChatMe LLM agent.
-      // 
-      // - faqCategoryIds: The IDs of the attached FAQ categories.
-      // 
-      // - llmAgentId: The ID of the ChatMe LLM workspace.
-      // 
-      // - llmAgentKey: The key of the ChatMe LLM workspace.
-      // 
-      // - llmAgentInstanceId: The instance ID of the ChatMe LLM workspace.
+      // The NLU configuration. Parameter settings:
+      // - chatbotInstanceId: the instance ID of the Chatbot large language model.
+      // - faqCategoryIds: the IDs of the attached FAQ categories.
+      // - llmAgentId: the workspace ID of the Chatbot large language model.
+      // - llmAgentKey: the workspace key of the Chatbot large language model.
+      // - llmAgentInstanceId: the workspace instance ID of the Chatbot large language model.
       shared_ptr<string> nluConfigJson_ {};
-      // The prompt for the professional pattern.
+      // The prompt in professional mode.
       shared_ptr<string> prompt_ {};
       // The agent configuration.
       shared_ptr<string> promptJson_ {};
@@ -277,7 +272,7 @@ namespace Models
       shared_ptr<string> scriptId_ {};
       // Indicates whether the template is a system template.
       shared_ptr<bool> system_ {};
-      // The time when the configuration was last modified.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> updateTime_ {};
       // The variable configuration.
       shared_ptr<string> variablesJson_ {};
@@ -340,7 +335,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -160,7 +160,7 @@ namespace Models
       protected:
         // The whitelist ID.
         shared_ptr<string> contactWhiteListId_ {};
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> creationTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
@@ -172,7 +172,7 @@ namespace Models
         shared_ptr<string> operator_ {};
         // The phone number.
         shared_ptr<string> phoneNumber_ {};
-        // The remarks.
+        // The remark.
         shared_ptr<string> remark_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
 
 
     protected:
-      // The contact list.
+      // The contact whitelist.
       shared_ptr<vector<ContactWhitelistList::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -268,11 +268,11 @@ namespace Models
   protected:
     // The API status code.
     shared_ptr<string> code_ {};
-    // The contact list.
+    // The contact whitelist.
     shared_ptr<GetContactWhiteListResponseBody::ContactWhitelistList> contactWhitelistList_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The API response message.
+    // The API message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

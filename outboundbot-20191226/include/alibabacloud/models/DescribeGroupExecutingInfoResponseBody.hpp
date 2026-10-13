@@ -181,21 +181,21 @@ namespace Models
 
 
       protected:
-        // Number of canceled tasks
+        // The number of canceled jobs.
         shared_ptr<int32_t> cancelledNum_ {};
-        // Number of executing jobs
+        // The number of executing jobs.
         shared_ptr<int32_t> executingNum_ {};
-        // Number of failed tasks
+        // The number of failed jobs.
         shared_ptr<int32_t> failedNum_ {};
-        // Number of paused tasks
+        // The number of paused jobs.
         shared_ptr<int32_t> pausedNum_ {};
-        // Number of tasks being scheduled
+        // The number of jobs being scheduled.
         shared_ptr<int32_t> schedulingNum_ {};
-        // Total number of completed tasks
+        // The total number of completed jobs.
         shared_ptr<int32_t> totalCompletedNum_ {};
-        // Total number of jobs
+        // The total number of jobs.
         shared_ptr<int32_t> totalJobs_ {};
-        // Number of unanswered calls
+        // The total number of unanswered calls.
         shared_ptr<int32_t> totalNotAnsweredNum_ {};
       };
 
@@ -304,39 +304,38 @@ namespace Models
 
 
     protected:
-      // Average talk time
+      // The average call duration.
       shared_ptr<int32_t> avgTalkTime_ {};
-      // Number of failed calls
+      // The number of failed calls.
       shared_ptr<int32_t> callFailedNum_ {};
-      // Number of outbound calls
+      // The number of outbound calls.
       shared_ptr<int32_t> callNum_ {};
-      // Deprecated
+      // **[Deprecated]**
       shared_ptr<string> creatorName_ {};
-      // Call duration distribution
+      // The distribution of call durations.
       shared_ptr<string> durationDistribution_ {};
-      // End time
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // Number of completed executions
+      // The number of completed jobs.
       shared_ptr<int32_t> finishedNum_ {};
-      // Number of calls hung up by customers
+      // The number of customer-initiated hang-ups.
       shared_ptr<int32_t> hangUpByClientNum_ {};
-      // Execution progress
+      // The execution progress.
       shared_ptr<ExecutingInfo::JobsProgress> jobsProgress_ {};
-      // Number of calls with no interaction
+      // The number of calls with no interaction.
       shared_ptr<int32_t> noInteractionNum_ {};
-      // Start time
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // Distribution of conversation rounds
+      // The distribution of talk turns.
       // 
-      // - total: total number of conversation rounds involved
+      // - total: The total number of talk turns involved.
+      // - Number: The corresponding turn count.
       // 
-      // - number: specific round number
-      // 
-      // > * Example: {"total":"5","5":"1"} means 5 conversation rounds were involved, and 1 call had 5 user turns.
+      // > - Example: {"total":"5","5":"1"} indicates that the total number of talk turns involved is 5, and there is 1 call with 5 user turns.
       shared_ptr<string> talkTurnsDistribution_ {};
-      // Intent recognition
+      // The number of intent recognitions.
       shared_ptr<int32_t> transferByIntentNum_ {};
-      // No answer
+      // The number of unanswered calls.
       shared_ptr<int32_t> transferByNoAnswer_ {};
     };
 
@@ -402,21 +401,21 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // Execution information
+    // The execution information.
     shared_ptr<DescribeGroupExecutingInfoResponseBody::ExecutingInfo> executingInfo_ {};
-    // Task group ID
+    // The job group ID.
     shared_ptr<string> groupId_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Instance ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // API message
+    // The API response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

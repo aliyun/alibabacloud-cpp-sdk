@@ -158,69 +158,64 @@ namespace Models
 
 
   protected:
-    // The AccessKey (AK) for this namespace.
-    // > When the engine is set to xunfei, you must enter the AK.
+    // The AccessKey (AK) of the namespace.
+    // > When the engine is xunfei, enter the AK here.
     shared_ptr<string> accessKey_ {};
-    // Alibaba Cloud customized voice, which is the voice call ID.
+    // The Alibaba Cloud custom voice, which is the voice invocation ID.
     shared_ptr<string> aliCustomizedVoice_ {};
-    // Voice service type.
+    // The speech service type.
     // 
-    // - When using **ali** as the custom service, this field stores the appKey of the Intelligent Speech Interaction product project.
+    // - When you use **ali** as the custom service, this field stores the appKey of the interactive voice response product project.
     // 
-    // - When using **xunfei** as the custom service provider, this field stores the corresponding appKey.
+    // - When you use **xunfei** as the custom service provider, this field stores the corresponding appKey.
     shared_ptr<string> appKey_ {};
-    // Storage engine. Valid values: ali, volc, and xunfei.
+    // The storage engine. Valid values: ali, volc, xunfei.
     // 
-    // - When using the default service or selecting Alibaba Cloud as the custom service, set this parameter to **ali**.
-    // 
-    // - When using the Doubao service, set this parameter to **volc**.
-    // - When using xunfei as the service provider, set this parameter to **xunfei**. This value can only be used in small model scenarios.
+    // - When using traditional voices, CosyVoice, or selecting Alibaba Cloud as the custom service, set this to **ali**.
+    // - When using the doubao service, set this to **volc**.
+    // - When using xunfei as the service provider, set this to **xunfei** (can only be used in small model scenarios).
+    // - When using your own service, set this to **dock**, and set NlsServiceType to Authorized.
+    // - When using CV-v3-flash and Qwen voices, set this to **bailian**.
     shared_ptr<string> engine_ {};
+    // The extended parameter. When Engine is set to **dock**, enter the configuration ID.
     shared_ptr<string> extParams_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Service type.
-    // Managed: The default Intelligent Speech Interaction product service of the Outbound Bot product (public service).
-    // Authorized: The Intelligent Speech Interaction product service purchased by the public cloud customer (customer\\"s private service), authorized through Script Management > Edit > Call Service > Custom Service.
+    // The service type.
+    // Managed: the default service (public service) of the outbound robot product.
+    // Authorized: the interactive voice response service purchased by the public cloud customer (custom service), configured through system administration > Third-party Voice Configuration.
     // 
-    // > When using Alibaba Cloud Intelligent Speech Interaction, that is, when using Alibaba Cloud as the custom service provider, set this parameter to Authorized.
+    // > When using Alibaba Cloud interactive voice response as the custom service provider, set this to Authorized.
     shared_ptr<string> nlsServiceType_ {};
-    // Pitch.
-    // An integer between [-500, 500]. Default value: 0.
-    // 
-    // A value greater than 0 indicates a higher pitch.
-    // 
-    // A value less than 0 indicates a lower pitch.
+    // The pitch.
     shared_ptr<int32_t> pitchRate_ {};
-    // Script ID.
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // The AccessKey Secret (SK) for this namespace.
+    // The AccessKey Secret (SK) of the namespace.
     // 
-    // > When the engine is set to xunfei, you must enter the SK.
+    // > When the engine is xunfei, enter the SK here.
     shared_ptr<string> secretKey_ {};
-    // Speech rate.
-    // An integer between [-500, 500]. Default value: 0.
+    // The speech rate. The value is an integer in the range of [-500, 500]. Default value: 0.
     // 
-    // A value greater than 0 indicates a faster speech rate.
+    // A value greater than 0 increases the pitch.
     // 
-    // A value less than 0 indicates a slower speech rate.
+    // A value less than 0 decreases the pitch.
     shared_ptr<int32_t> speechRate_ {};
-    // Text content.
+    // The text content.
     // 
     // This parameter is required.
     shared_ptr<string> text_ {};
-    // Voice information, such as aixia, siyue, or xiaoyun. For the complete list of available voices, refer to the voice list below.
+    // The voice information, such as aixia, siyue, or xiaoyun. For the complete list of available voices, refer to the voice list below.
     // 
-    // > Because the Voice value of a cloned voice is a unique, non-fixed value generated during voice cloning, the specific Voice value cannot be provided at this stage. You must obtain the specific VoiceID from the voice cloning page by calling the ListVoiceClone API.
+    // > Because the Voice value for cloned voices is a non-fixed value generated during voice cloning, a specific Voice value cannot be provided at this stage. You can obtain the specific VoiceID from the voice cloning page by calling the ListVoiceClone operation.
     shared_ptr<string> voice_ {};
-    // Volume.
-    // An integer between [0, 100]. Default value: 50.
+    // The volume. The value is an integer in the range of [0, 100]. Default value: 50.
     // 
-    // A value greater than 50 indicates a higher volume.
+    // A value greater than 50 increases the volume.
     // 
-    // A value less than 50 indicates a lower volume.
+    // A value less than 50 decreases the volume.
     shared_ptr<int32_t> volume_ {};
   };
 

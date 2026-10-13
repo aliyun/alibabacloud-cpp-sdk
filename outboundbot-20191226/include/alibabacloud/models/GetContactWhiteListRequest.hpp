@@ -85,6 +85,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The search condition for the outbound whitelist.
     shared_ptr<string> searchPattern_ {};
   };
 

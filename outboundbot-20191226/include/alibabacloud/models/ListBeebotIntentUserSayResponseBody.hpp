@@ -113,13 +113,13 @@ namespace Models
 
 
     protected:
-      // The content of the utterance.
+      // The utterance content.
       shared_ptr<string> content_ {};
-      // The time when the utterance was created.
+      // The creation time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> createTime_ {};
       // The intent ID.
       shared_ptr<int64_t> intentId_ {};
-      // The time when the utterance was last modified.
+      // The modification time. The format is YYYY-MM-DD HH:mm:ss.+ZZZZ, where +ZZZZ indicates the time zone offset.
       shared_ptr<string> modifyTime_ {};
       // The utterance ID.
       shared_ptr<string> userSayId_ {};
@@ -203,19 +203,19 @@ namespace Models
   protected:
     // The internal request ID.
     shared_ptr<string> beebotRequestId_ {};
-    // The status code of the API.
+    // The API status code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned for the API call.
+    // The API message.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries displayed per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

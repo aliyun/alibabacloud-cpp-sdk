@@ -137,17 +137,17 @@ namespace Models
 
 
       protected:
-        // Tag description
+        // The tag description.
         shared_ptr<string> annotationMissionTagInfoDescription_ {};
-        // Tag ID
+        // The tag ID.
         shared_ptr<string> annotationMissionTagInfoId_ {};
-        // Tag name
+        // The tag name.
         shared_ptr<string> annotationMissionTagInfoName_ {};
-        // Indicates whether the tag is deleted. A value of true indicates that the tag is deleted.
+        // Indicates whether the tag is deleted.
         shared_ptr<bool> delete_ {};
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Tenant ID
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
       };
 
@@ -177,11 +177,11 @@ namespace Models
 
 
     protected:
-      // Tag list
+      // The list of tags.
       shared_ptr<vector<Data::AnnotationMissionTagInfoList>> annotationMissionTagInfoList_ {};
-      // Response message
+      // The message returned by the API.
       shared_ptr<string> message_ {};
-      // Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+      // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -232,17 +232,17 @@ namespace Models
 
 
   protected:
-    // Status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // Response data
+    // The returned data.
     shared_ptr<GetAnnotationMissionTagInfoListResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The message returned by the API.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

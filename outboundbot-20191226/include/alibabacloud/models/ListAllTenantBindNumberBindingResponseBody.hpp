@@ -135,16 +135,17 @@ namespace Models
 
 
       protected:
+        // The billing method of the number.
         shared_ptr<string> billingType_ {};
-        // Binding ID.
+        // The binding ID.
         shared_ptr<string> bindingId_ {};
-        // List of instance names.
+        // The list of instance names.
         shared_ptr<vector<string>> instanceNameList_ {};
-        // Phone number.
+        // The number.
         shared_ptr<string> number_ {};
-        // Policy.
+        // The policy.
         shared_ptr<string> serializedParams_ {};
-        // Trunk name.
+        // The trunk name.
         shared_ptr<string> trunkName_ {};
       };
 
@@ -159,7 +160,7 @@ namespace Models
 
 
     protected:
-      // Array.
+      // The list.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -210,17 +211,17 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Data.
+    // The data.
     shared_ptr<ListAllTenantBindNumberBindingResponseBody::Data> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

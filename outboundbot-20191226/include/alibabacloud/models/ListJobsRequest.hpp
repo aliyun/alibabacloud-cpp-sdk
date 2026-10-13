@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The list of job IDs. A maximum of 99 child items are allowed.
+    // The list of job IDs. Note: A maximum of 99 job IDs can be specified.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> jobId_ {};

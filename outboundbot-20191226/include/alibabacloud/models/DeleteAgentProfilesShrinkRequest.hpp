@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Collection of agent profile IDs
+    // The collection of agent configuration IDs.
     shared_ptr<string> agentProfileIdsShrink_ {};
-    // app_ip (system field, optional)
+    // The app_ip (system field, optional).
     shared_ptr<string> appIp_ {};
   };
 

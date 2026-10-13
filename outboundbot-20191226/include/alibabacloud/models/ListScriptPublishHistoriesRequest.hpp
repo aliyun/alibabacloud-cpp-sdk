@@ -74,11 +74,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The script ID.
+    // The scenario ID.
     // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};

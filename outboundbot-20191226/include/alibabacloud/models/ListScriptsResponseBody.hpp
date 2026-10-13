@@ -179,9 +179,9 @@ namespace Models
         protected:
           // The function service name.
           shared_ptr<string> fcFunction_ {};
-          // The function service trigger URL.
+          // The function service trigger.
           shared_ptr<string> fcHttpTriggerUrl_ {};
-          // The function service region.
+          // The region of the function service.
           shared_ptr<string> fcRegion_ {};
         };
 
@@ -362,38 +362,39 @@ namespace Models
 
 
       protected:
-        // The access key of the robot business workspace.
+        // The access key of the robot workspace.
         shared_ptr<string> agentKey_ {};
-        // Indicates whether the robot business workspace is a large model workspace.
+        // Indicates whether the robot workspace is a large model workspace.
         shared_ptr<bool> agentLlm_ {};
+        // The chatbot ID.
         shared_ptr<string> chatBotId_ {};
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The debug status.
         shared_ptr<string> debugStatus_ {};
-        // Indicates whether the emotion recognition feature is enabled. This parameter is set to false for all large model scenarios.
+        // Indicates whether the emotion recognition configuration is enabled. This value is always false for large models.
         shared_ptr<bool> emotionEnable_ {};
         // The industry.
         shared_ptr<string> industry_ {};
-        // Indicates whether the debug version is in draft state.
+        // Indicates whether the debug version is in the draft state.
         shared_ptr<bool> isDebugDrafted_ {};
         // Indicates whether the script is a draft.
         shared_ptr<bool> isDrafted_ {};
         // Indicates whether the scenario is a preset scenario.
         shared_ptr<bool> isPreset_ {};
-        // Indicates whether the long pause detection feature is enabled. This parameter is set to false for all large model scenarios.
+        // Indicates whether the long pause configuration is enabled. This value is always false for large models.
         shared_ptr<bool> longWaitEnable_ {};
-        // Indicates whether the filler phrase feature is enabled.
+        // Indicates whether the filler word configuration is enabled.
         shared_ptr<bool> miniPlaybackEnable_ {};
-        // Indicates whether the graceful barge-in feature is enabled. This parameter is set to false for all large model scenarios.
+        // Indicates whether the graceful barge-in configuration is enabled. This value is always false for large models.
         shared_ptr<bool> newBargeInEnable_ {};
-        // The robot access type. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Managed.
+        // The robot access type. If the scenario is a small model scenario, this field is empty. If the scenario is a large model scenario, this field is Managed.
         shared_ptr<string> nluAccessType_ {};
-        // The robot engine. If the scenario uses a small model, this field is empty. If the scenario uses a large model, this field is set to Prompts.
+        // The robot engine. If the scenario is a small model scenario, this field is empty. If the scenario is a large model scenario, this field is Prompts.
         shared_ptr<string> nluEngine_ {};
-        // The function computing service mode configuration.
+        // The Function Compute service mode configuration.
         shared_ptr<List::NluProfile> nluProfile_ {};
-        // The reason for review rejection.
+        // The reason for rejection.
         shared_ptr<string> rejectReason_ {};
         // The scenario.
         shared_ptr<string> scene_ {};
@@ -405,9 +406,9 @@ namespace Models
         shared_ptr<string> scriptName_ {};
         // The script status.
         shared_ptr<string> status_ {};
-        // The update time.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
-        // The robot business workspace ID.
+        // The robot workspace ID.
         shared_ptr<int64_t> agentId_ {};
       };
 
@@ -444,7 +445,7 @@ namespace Models
 
 
     protected:
-      // The script array.
+      // The array of scripts.
       shared_ptr<vector<Scripts::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -505,11 +506,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The script list.
+    // The list of scripts.
     shared_ptr<ListScriptsResponseBody::Scripts> scripts_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

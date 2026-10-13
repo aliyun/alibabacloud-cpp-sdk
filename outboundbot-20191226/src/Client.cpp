@@ -18,9 +18,6 @@ namespace OutboundBot20191226
 
 AlibabaCloud::OutboundBot20191226::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "outboundbot.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("outboundbot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -239,7 +236,7 @@ CancelJobsResponse Client::cancelJobs(const CancelJobsRequest &request) {
 }
 
 /**
- * @summary Changes the resource group of a resource.
+ * @summary Changes the resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -274,7 +271,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group of a resource.
+ * @summary Changes the resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -285,7 +282,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary You can create an intelligent configuration.
+ * @summary Creates an agent configuration.
  *
  * @param request CreateAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -368,7 +365,7 @@ CreateAgentProfileResponse Client::createAgentProfileWithOptions(const CreateAge
 }
 
 /**
- * @summary You can create an intelligent configuration.
+ * @summary Creates an agent configuration.
  *
  * @param request CreateAgentProfileRequest
  * @return CreateAgentProfileResponse
@@ -495,7 +492,7 @@ CreateAnnotationMissionResponse Client::createAnnotationMission(const CreateAnno
 }
 
 /**
- * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
+ * @summary **[Deprecated]** Creates outbound jobs in batches.
  *
  * @param request CreateBatchJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -558,7 +555,7 @@ CreateBatchJobsResponse Client::createBatchJobsWithOptions(const CreateBatchJobs
 }
 
 /**
- * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
+ * @summary **[Deprecated]** Creates outbound jobs in batches.
  *
  * @param request CreateBatchJobsRequest
  * @return CreateBatchJobsResponse
@@ -828,6 +825,76 @@ CreateBeebotIntentUserSayResponse Client::createBeebotIntentUserSayWithOptions(c
 CreateBeebotIntentUserSayResponse Client::createBeebotIntentUserSay(const CreateBeebotIntentUserSayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createBeebotIntentUserSayWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a custom script template for a specified script.
+ *
+ * @param request CreateCustomScriptTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomScriptTemplateResponse
+ */
+CreateCustomScriptTemplateResponse Client::createCustomScriptTemplateWithOptions(const CreateCustomScriptTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasLabelsJson()) {
+    body["LabelsJson"] = request.getLabelsJson();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasPromptJson()) {
+    body["PromptJson"] = request.getPromptJson();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomScriptTemplate"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomScriptTemplateResponse>();
+}
+
+/**
+ * @summary Creates a custom script template for a specified script.
+ *
+ * @param request CreateCustomScriptTemplateRequest
+ * @return CreateCustomScriptTemplateResponse
+ */
+CreateCustomScriptTemplateResponse Client::createCustomScriptTemplate(const CreateCustomScriptTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomScriptTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1341,6 +1408,52 @@ CreateJobGroupExportTaskResponse Client::createJobGroupExportTask(const CreateJo
 }
 
 /**
+ * @summary Creates a phone number and associates it with the current tenant.
+ *
+ * @param request CreateNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNumberResponse
+ */
+CreateNumberResponse Client::createNumberWithOptions(const CreateNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNumbers()) {
+    query["Numbers"] = request.getNumbers();
+  }
+
+  if (!!request.hasTrunkId()) {
+    query["TrunkId"] = request.getTrunkId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateNumber"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNumberResponse>();
+}
+
+/**
+ * @summary Creates a phone number and associates it with the current tenant.
+ *
+ * @param request CreateNumberRequest
+ * @return CreateNumberResponse
+ */
+CreateNumberResponse Client::createNumber(const CreateNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createNumberWithOptions(request, runtime);
+}
+
+/**
  * @summary Create a scenario.
  *
  * @param request CreateScriptRequest
@@ -1648,7 +1761,61 @@ CreateTenantKeyResponse Client::createTenantKey(const CreateTenantKeyRequest &re
 }
 
 /**
- * @summary Deletes Large Language Model (LLM) agents.
+ * @summary Creates a cloned voice.
+ *
+ * @param request CreateVoiceCloneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVoiceCloneResponse
+ */
+CreateVoiceCloneResponse Client::createVoiceCloneWithOptions(const CreateVoiceCloneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.getFileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasVoiceName()) {
+    query["VoiceName"] = request.getVoiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateVoiceClone"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVoiceCloneResponse>();
+}
+
+/**
+ * @summary Creates a cloned voice.
+ *
+ * @param request CreateVoiceCloneRequest
+ * @return CreateVoiceCloneResponse
+ */
+CreateVoiceCloneResponse Client::createVoiceClone(const CreateVoiceCloneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVoiceCloneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a foundation model robot.
  *
  * @param tmpReq DeleteAgentProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1689,7 +1856,7 @@ DeleteAgentProfilesResponse Client::deleteAgentProfilesWithOptions(const DeleteA
 }
 
 /**
- * @summary Deletes Large Language Model (LLM) agents.
+ * @summary Deletes a foundation model robot.
  *
  * @param request DeleteAgentProfilesRequest
  * @return DeleteAgentProfilesResponse
@@ -1700,7 +1867,7 @@ DeleteAgentProfilesResponse Client::deleteAgentProfiles(const DeleteAgentProfile
 }
 
 /**
- * @summary Deletes all entries from the number district database. This operation is deprecated.
+ * @summary Clears the number attribution database. This operation is deprecated.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAllNumberDistrictInfoResponse
@@ -1722,7 +1889,7 @@ DeleteAllNumberDistrictInfoResponse Client::deleteAllNumberDistrictInfoWithOptio
 }
 
 /**
- * @summary Deletes all entries from the number district database. This operation is deprecated.
+ * @summary Clears the number attribution database. This operation is deprecated.
  *
  * @return DeleteAllNumberDistrictInfoResponse
  */
@@ -1987,6 +2154,52 @@ DeleteContactWhiteListResponse Client::deleteContactWhiteListWithOptions(const D
 DeleteContactWhiteListResponse Client::deleteContactWhiteList(const DeleteContactWhiteListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteContactWhiteListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a specified custom script template.
+ *
+ * @param request DeleteCustomScriptTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomScriptTemplateResponse
+ */
+DeleteCustomScriptTemplateResponse Client::deleteCustomScriptTemplateWithOptions(const DeleteCustomScriptTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentProfileId()) {
+    body["AgentProfileId"] = request.getAgentProfileId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomScriptTemplate"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomScriptTemplateResponse>();
+}
+
+/**
+ * @summary Deletes a specified custom script template.
+ *
+ * @param request DeleteCustomScriptTemplateRequest
+ * @return DeleteCustomScriptTemplateResponse
+ */
+DeleteCustomScriptTemplateResponse Client::deleteCustomScriptTemplate(const DeleteCustomScriptTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomScriptTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2420,9 +2633,55 @@ DeleteScriptWaveformResponse Client::deleteScriptWaveform(const DeleteScriptWave
 }
 
 /**
- * @summary Retrieves the intent in the small model scenario.
+ * @summary Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
  *
- * @description ***
+ * @param request DeleteVoiceCloneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVoiceCloneResponse
+ */
+DeleteVoiceCloneResponse Client::deleteVoiceCloneWithOptions(const DeleteVoiceCloneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasVoiceId()) {
+    query["VoiceId"] = request.getVoiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVoiceClone"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVoiceCloneResponse>();
+}
+
+/**
+ * @summary Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
+ *
+ * @param request DeleteVoiceCloneRequest
+ * @return DeleteVoiceCloneResponse
+ */
+DeleteVoiceCloneResponse Client::deleteVoiceClone(const DeleteVoiceCloneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVoiceCloneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the intent in a small model scenario.
+ *
+ * @description ****
  *
  * @param request DescribeBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2461,9 +2720,9 @@ DescribeBeebotIntentResponse Client::describeBeebotIntentWithOptions(const Descr
 }
 
 /**
- * @summary Retrieves the intent in the small model scenario.
+ * @summary Retrieves the intent in a small model scenario.
  *
- * @description ***
+ * @description ****
  *
  * @param request DescribeBeebotIntentRequest
  * @return DescribeBeebotIntentResponse
@@ -2524,7 +2783,7 @@ DescribeDialogueNodeStatisticsResponse Client::describeDialogueNodeStatistics(co
 }
 
 /**
- * @summary Queries the tag statistics of hits for a job group.
+ * @summary Queries the label hit statistics of a job group.
  *
  * @param request DescribeDsReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2559,7 +2818,7 @@ DescribeDsReportsResponse Client::describeDsReportsWithOptions(const DescribeDsR
 }
 
 /**
- * @summary Queries the tag statistics of hits for a job group.
+ * @summary Queries the label hit statistics of a job group.
  *
  * @param request DescribeDsReportsRequest
  * @return DescribeDsReportsResponse
@@ -2624,7 +2883,7 @@ DescribeGlobalQuestionResponse Client::describeGlobalQuestion(const DescribeGlob
 }
 
 /**
- * @summary Returns the execution status of tasks in a task group.
+ * @summary Retrieves the execution status of jobs in a job group.
  *
  * @param request DescribeGroupExecutingInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2659,7 +2918,7 @@ DescribeGroupExecutingInfoResponse Client::describeGroupExecutingInfoWithOptions
 }
 
 /**
- * @summary Returns the execution status of tasks in a task group.
+ * @summary Retrieves the execution status of jobs in a job group.
  *
  * @param request DescribeGroupExecutingInfoRequest
  * @return DescribeGroupExecutingInfoResponse
@@ -2670,7 +2929,7 @@ DescribeGroupExecutingInfoResponse Client::describeGroupExecutingInfo(const Desc
 }
 
 /**
- * @summary Queries the information of an outbound robot business instance.
+ * @summary Queries the details of an outbound robot instance.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2701,7 +2960,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Queries the information of an outbound robot business instance.
+ * @summary Queries the details of an outbound robot instance.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -2908,7 +3167,7 @@ DescribeJobDataParsingTaskProgressResponse Client::describeJobDataParsingTaskPro
 }
 
 /**
- * @summary Retrieves data for intelligent outbound call job groups.
+ * @summary Queries outbound robot task data.
  *
  * @param request DescribeJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2947,7 +3206,7 @@ DescribeJobGroupResponse Client::describeJobGroupWithOptions(const DescribeJobGr
 }
 
 /**
- * @summary Retrieves data for intelligent outbound call job groups.
+ * @summary Queries outbound robot task data.
  *
  * @param request DescribeJobGroupRequest
  * @return DescribeJobGroupResponse
@@ -3004,7 +3263,7 @@ DescribeJobGroupExportTaskProgressResponse Client::describeJobGroupExportTaskPro
 }
 
 /**
- * @summary Returns information about a script.
+ * @summary Retrieves the details of a script.
  *
  * @param request DescribeScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3039,7 +3298,7 @@ DescribeScriptResponse Client::describeScriptWithOptions(const DescribeScriptReq
 }
 
 /**
- * @summary Returns information about a script.
+ * @summary Retrieves the details of a script.
  *
  * @param request DescribeScriptRequest
  * @return DescribeScriptResponse
@@ -3146,7 +3405,7 @@ DescribeTTSConfigResponse Client::describeTTSConfig(const DescribeTTSConfigReque
 }
 
 /**
- * @summary TTS preview.
+ * @summary Previews text-to-speech (TTS) audio.
  *
  * @param request DescribeTTSDemoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3229,7 +3488,7 @@ DescribeTTSDemoResponse Client::describeTTSDemoWithOptions(const DescribeTTSDemo
 }
 
 /**
- * @summary TTS preview.
+ * @summary Previews text-to-speech (TTS) audio.
  *
  * @param request DescribeTTSDemoRequest
  * @return DescribeTTSDemoResponse
@@ -3410,7 +3669,7 @@ DialogueResponse Client::dialogue(const DialogueRequest &request) {
 }
 
 /**
- * @summary Downloads a call recording.
+ * @summary Downloads call recordings.
  *
  * @param request DownloadRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3453,7 +3712,7 @@ DownloadRecordingResponse Client::downloadRecordingWithOptions(const DownloadRec
 }
 
 /**
- * @summary Downloads a call recording.
+ * @summary Downloads call recordings.
  *
  * @param request DownloadRecordingRequest
  * @return DownloadRecordingResponse
@@ -3610,8 +3869,6 @@ ExportScriptResponse Client::exportScript(const ExportScriptRequest &request) {
 }
 
 /**
- * @summary Upload a hotword list file.
- *
  * @param request GenerateUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateUploadUrlResponse
@@ -3645,8 +3902,6 @@ GenerateUploadUrlResponse Client::generateUploadUrlWithOptions(const GenerateUpl
 }
 
 /**
- * @summary Upload a hotword list file.
- *
  * @param request GenerateUploadUrlRequest
  * @return GenerateUploadUrlResponse
  */
@@ -3702,7 +3957,7 @@ GetAfterAnswerDelayPlaybackResponse Client::getAfterAnswerDelayPlayback(const Ge
 }
 
 /**
- * @summary Retrieves the configuration of an agent.
+ * @summary Retrieves the agent configuration.
  *
  * @param request GetAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3741,7 +3996,7 @@ GetAgentProfileResponse Client::getAgentProfileWithOptions(const GetAgentProfile
 }
 
 /**
- * @summary Retrieves the configuration of an agent.
+ * @summary Retrieves the agent configuration.
  *
  * @param request GetAgentProfileRequest
  * @return GetAgentProfileResponse
@@ -3798,7 +4053,7 @@ GetAgentProfileTemplateResponse Client::getAgentProfileTemplate(const GetAgentPr
 }
 
 /**
- * @summary null
+ * @summary null.
  *
  * @param request GetAnnotationMissionSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3829,7 +4084,7 @@ GetAnnotationMissionSummaryResponse Client::getAnnotationMissionSummaryWithOptio
 }
 
 /**
- * @summary null
+ * @summary null.
  *
  * @param request GetAnnotationMissionSummaryRequest
  * @return GetAnnotationMissionSummaryResponse
@@ -3840,6 +4095,8 @@ GetAnnotationMissionSummaryResponse Client::getAnnotationMissionSummary(const Ge
 }
 
 /**
+ * @summary Retrieves the list of annotation tags.
+ *
  * @param request GetAnnotationMissionTagInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAnnotationMissionTagInfoListResponse
@@ -3877,6 +4134,8 @@ GetAnnotationMissionTagInfoListResponse Client::getAnnotationMissionTagInfoListW
 }
 
 /**
+ * @summary Retrieves the list of annotation tags.
+ *
  * @param request GetAnnotationMissionTagInfoListRequest
  * @return GetAnnotationMissionTagInfoListResponse
  */
@@ -3974,7 +4233,7 @@ GetAssignJobsAsyncResultResponse Client::getAssignJobsAsyncResult(const GetAssig
 }
 
 /**
- * @summary Retrieve the global outbound time periods for the outbound calling system.
+ * @summary Retrieves the global outbound calling time periods in the outbound system.
  *
  * @param request GetBaseStrategyPeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4009,7 +4268,7 @@ GetBaseStrategyPeriodResponse Client::getBaseStrategyPeriodWithOptions(const Get
 }
 
 /**
- * @summary Retrieve the global outbound time periods for the outbound calling system.
+ * @summary Retrieves the global outbound calling time periods in the outbound system.
  *
  * @param request GetBaseStrategyPeriodRequest
  * @return GetBaseStrategyPeriodResponse
@@ -4110,7 +4369,7 @@ GetContactBlockListResponse Client::getContactBlockList(const GetContactBlockLis
 }
 
 /**
- * @summary Retrieves the global outbound call policy whitelist.
+ * @summary Queries the global outbound whitelist.
  *
  * @param request GetContactWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4157,7 +4416,7 @@ GetContactWhiteListResponse Client::getContactWhiteListWithOptions(const GetCont
 }
 
 /**
- * @summary Retrieves the global outbound call policy whitelist.
+ * @summary Queries the global outbound whitelist.
  *
  * @param request GetContactWhiteListRequest
  * @return GetContactWhiteListResponse
@@ -4360,7 +4619,7 @@ GetMaxAttemptsPerDayResponse Client::getMaxAttemptsPerDay(const GetMaxAttemptsPe
 }
 
 /**
- * @summary Retrieves the download URL for the number library template. This API is deprecated.
+ * @summary Retrieves the download URL for a number library template. This operation is deprecated.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -4382,7 +4641,7 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
- * @summary Retrieves the download URL for the number library template. This API is deprecated.
+ * @summary Retrieves the download URL for a number library template. This operation is deprecated.
  *
  * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
  */
@@ -4392,7 +4651,7 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
- * @summary Obtains the public key of the asymmetric encryption algorithm.
+ * @summary Retrieves the public key of an asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4416,7 +4675,7 @@ GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &
 }
 
 /**
- * @summary Obtains the public key of the asymmetric encryption algorithm.
+ * @summary Retrieves the public key of an asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @return GetPublicKeyResponse
@@ -4507,7 +4766,7 @@ GetSummaryInfoResponse Client::getSummaryInfo(const GetSummaryInfoRequest &reque
 }
 
 /**
- * @summary Retrieve a task by its UUID.
+ * @summary Retrieves a task by UUID.
  *
  * @param request GetTaskByUuidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4534,7 +4793,7 @@ GetTaskByUuidResponse Client::getTaskByUuidWithOptions(const GetTaskByUuidReques
 }
 
 /**
- * @summary Retrieve a task by its UUID.
+ * @summary Retrieves a task by UUID.
  *
  * @param request GetTaskByUuidRequest
  * @return GetTaskByUuidResponse
@@ -4727,7 +4986,7 @@ ListAgentProfilesResponse Client::listAgentProfiles(const ListAgentProfilesReque
 }
 
 /**
- * @summary Lists the phone numbers bound to the tenant.
+ * @summary Queries the numbers bound to a tenant.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAllTenantBindNumberBindingResponse
@@ -4749,7 +5008,7 @@ ListAllTenantBindNumberBindingResponse Client::listAllTenantBindNumberBindingWit
 }
 
 /**
- * @summary Lists the phone numbers bound to the tenant.
+ * @summary Queries the numbers bound to a tenant.
  *
  * @return ListAllTenantBindNumberBindingResponse
  */
@@ -4759,7 +5018,7 @@ ListAllTenantBindNumberBindingResponse Client::listAllTenantBindNumberBinding() 
 }
 
 /**
- * @summary Lists annotation missions.
+ * @summary Retrieves a list of annotation tasks.
  *
  * @param request ListAnnotationMissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4822,7 +5081,7 @@ ListAnnotationMissionResponse Client::listAnnotationMissionWithOptions(const Lis
 }
 
 /**
- * @summary Lists annotation missions.
+ * @summary Retrieves a list of annotation tasks.
  *
  * @param request ListAnnotationMissionRequest
  * @return ListAnnotationMissionResponse
@@ -4833,7 +5092,7 @@ ListAnnotationMissionResponse Client::listAnnotationMission(const ListAnnotation
 }
 
 /**
- * @summary ListAnnotationMissionSession
+ * @summary Lists annotation mission sessions.
  *
  * @param request ListAnnotationMissionSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4884,7 +5143,7 @@ ListAnnotationMissionSessionResponse Client::listAnnotationMissionSessionWithOpt
 }
 
 /**
- * @summary ListAnnotationMissionSession
+ * @summary Lists annotation mission sessions.
  *
  * @param request ListAnnotationMissionSessionRequest
  * @return ListAnnotationMissionSessionResponse
@@ -4949,7 +5208,7 @@ ListApiPluginsResponse Client::listApiPlugins(const ListApiPluginsRequest &reque
 }
 
 /**
- * @summary Lists intents for small-model scenarios.
+ * @summary Queries the list of intents in small model scenarios.
  *
  * @param request ListBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4996,7 +5255,7 @@ ListBeebotIntentResponse Client::listBeebotIntentWithOptions(const ListBeebotInt
 }
 
 /**
- * @summary Lists intents for small-model scenarios.
+ * @summary Queries the list of intents in small model scenarios.
  *
  * @param request ListBeebotIntentRequest
  * @return ListBeebotIntentResponse
@@ -5007,7 +5266,7 @@ ListBeebotIntentResponse Client::listBeebotIntent(const ListBeebotIntentRequest 
 }
 
 /**
- * @summary Lists the utterance templates for a specified intent in a scenario.
+ * @summary Queries the utterance templates for Chatbot intents in small model scenarios.
  *
  * @param request ListBeebotIntentLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5058,7 +5317,7 @@ ListBeebotIntentLgfResponse Client::listBeebotIntentLgfWithOptions(const ListBee
 }
 
 /**
- * @summary Lists the utterance templates for a specified intent in a scenario.
+ * @summary Queries the utterance templates for Chatbot intents in small model scenarios.
  *
  * @param request ListBeebotIntentLgfRequest
  * @return ListBeebotIntentLgfResponse
@@ -5131,7 +5390,7 @@ ListBeebotIntentUserSayResponse Client::listBeebotIntentUserSay(const ListBeebot
 }
 
 /**
- * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+ * @summary Queries a list of Chatbot instances in the public cloud edition.
  *
  * @param request ListChatbotInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5170,7 +5429,7 @@ ListChatbotInstancesResponse Client::listChatbotInstancesWithOptions(const ListC
 }
 
 /**
- * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+ * @summary Queries a list of Chatbot instances in the public cloud edition.
  *
  * @param request ListChatbotInstancesRequest
  * @return ListChatbotInstancesResponse
@@ -5178,6 +5437,56 @@ ListChatbotInstancesResponse Client::listChatbotInstancesWithOptions(const ListC
 ListChatbotInstancesResponse Client::listChatbotInstances(const ListChatbotInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listChatbotInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询自定义场景模板列表
+ *
+ * @param request ListCustomScriptTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomScriptTemplatesResponse
+ */
+ListCustomScriptTemplatesResponse Client::listCustomScriptTemplatesWithOptions(const ListCustomScriptTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCustomScriptTemplates"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomScriptTemplatesResponse>();
+}
+
+/**
+ * @summary 查询自定义场景模板列表
+ *
+ * @param request ListCustomScriptTemplatesRequest
+ * @return ListCustomScriptTemplatesResponse
+ */
+ListCustomScriptTemplatesResponse Client::listCustomScriptTemplates(const ListCustomScriptTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomScriptTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -5227,7 +5536,7 @@ ListDialogueFlowsResponse Client::listDialogueFlows(const ListDialogueFlowsReque
 }
 
 /**
- * @summary Queries the list of download tasks in Download Hub.
+ * @summary Queries the download center list.
  *
  * @param request ListDownloadTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5254,7 +5563,7 @@ ListDownloadTasksResponse Client::listDownloadTasksWithOptions(const ListDownloa
 }
 
 /**
- * @summary Queries the list of download tasks in Download Hub.
+ * @summary Queries the download center list.
  *
  * @param request ListDownloadTasksRequest
  * @return ListDownloadTasksResponse
@@ -5357,7 +5666,7 @@ ListGlobalQuestionsResponse Client::listGlobalQuestions(const ListGlobalQuestion
 }
 
 /**
- * @summary Queries the list of Outbound Bot service instances.
+ * @summary Queries a list of outbound robot instances.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5404,7 +5713,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Queries the list of Outbound Bot service instances.
+ * @summary Queries a list of outbound robot instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -5415,7 +5724,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Query intent for the Annotation Center list.
+ * @summary Queries intents in the annotation center list.
  *
  * @param request ListIntentionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5478,7 +5787,7 @@ ListIntentionsResponse Client::listIntentionsWithOptions(const ListIntentionsReq
 }
 
 /**
- * @summary Query intent for the Annotation Center list.
+ * @summary Queries intents in the annotation center list.
  *
  * @param request ListIntentionsRequest
  * @return ListIntentionsResponse
@@ -5547,7 +5856,7 @@ ListIntentsResponse Client::listIntents(const ListIntentsRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of outbound call task groups.
+ * @summary Queries the list of outbound job groups.
  *
  * @param request ListJobGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5610,7 +5919,7 @@ ListJobGroupsResponse Client::listJobGroupsWithOptions(const ListJobGroupsReques
 }
 
 /**
- * @summary Retrieves the list of outbound call task groups.
+ * @summary Queries the list of outbound job groups.
  *
  * @param request ListJobGroupsRequest
  * @return ListJobGroupsResponse
@@ -5621,7 +5930,7 @@ ListJobGroupsResponse Client::listJobGroups(const ListJobGroupsRequest &request)
 }
 
 /**
- * @summary Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+ * @summary Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
  *
  * @param request ListJobGroupsAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5648,7 +5957,7 @@ ListJobGroupsAsyncResponse Client::listJobGroupsAsyncWithOptions(const ListJobGr
 }
 
 /**
- * @summary Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+ * @summary Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
  *
  * @param request ListJobGroupsAsyncRequest
  * @return ListJobGroupsAsyncResponse
@@ -5867,7 +6176,7 @@ ListResourceTagsResponse Client::listResourceTags(const ListResourceTagsRequest 
 }
 
 /**
- * @summary Retrieves the publication history of the small model for outbound calls.
+ * @summary Queries the publish history list for small model outbound calls.
  *
  * @param request ListScriptPublishHistoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5910,7 +6219,7 @@ ListScriptPublishHistoriesResponse Client::listScriptPublishHistoriesWithOptions
 }
 
 /**
- * @summary Retrieves the publication history of the small model for outbound calls.
+ * @summary Queries the publish history list for small model outbound calls.
  *
  * @param request ListScriptPublishHistoriesRequest
  * @return ListScriptPublishHistoriesResponse
@@ -5991,7 +6300,7 @@ ListScriptRecordingResponse Client::listScriptRecording(const ListScriptRecordin
 }
 
 /**
- * @summary Queries the variables that are currently used in a scenario.
+ * @summary Retrieves the variables currently used in the scenario.
  *
  * @param request ListScriptVariablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6030,7 +6339,7 @@ ListScriptVariablesResponse Client::listScriptVariablesWithOptions(const ListScr
 }
 
 /**
- * @summary Queries the variables that are currently used in a scenario.
+ * @summary Retrieves the variables currently used in the scenario.
  *
  * @param request ListScriptVariablesRequest
  * @return ListScriptVariablesResponse
@@ -6157,7 +6466,42 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
- * @summary Query the tag relationships for resources.
+ * @summary Queries the list of SIP trunks.
+ *
+ * @param request ListSipTrunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSipTrunksResponse
+ */
+ListSipTrunksResponse Client::listSipTrunksWithOptions(const ListSipTrunksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListSipTrunks"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSipTrunksResponse>();
+}
+
+/**
+ * @summary Queries the list of SIP trunks.
+ *
+ * @param request ListSipTrunksRequest
+ * @return ListSipTrunksResponse
+ */
+ListSipTrunksResponse Client::listSipTrunks(const ListSipTrunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSipTrunksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries resource tag relationships.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6204,7 +6548,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Query the tag relationships for resources.
+ * @summary Queries resource tag relationships.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -6261,7 +6605,61 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
- * @summary Modify the agent configuration.
+ * @summary Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+ *
+ * @param request ListVoiceCloneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVoiceCloneResponse
+ */
+ListVoiceCloneResponse Client::listVoiceCloneWithOptions(const ListVoiceCloneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVoiceClone"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVoiceCloneResponse>();
+}
+
+/**
+ * @summary Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+ *
+ * @param request ListVoiceCloneRequest
+ * @return ListVoiceCloneResponse
+ */
+ListVoiceCloneResponse Client::listVoiceClone(const ListVoiceCloneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVoiceCloneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the agent configuration.
  *
  * @param tmpReq ModifyAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6346,7 +6744,7 @@ ModifyAgentProfileResponse Client::modifyAgentProfileWithOptions(const ModifyAge
 }
 
 /**
- * @summary Modify the agent configuration.
+ * @summary Modifies the agent configuration.
  *
  * @param request ModifyAgentProfileRequest
  * @return ModifyAgentProfileResponse
@@ -6357,7 +6755,7 @@ ModifyAgentProfileResponse Client::modifyAgentProfile(const ModifyAgentProfileRe
 }
 
 /**
- * @summary Updates the status and name of an annotation task.
+ * @summary Modifies the status and name of an annotation task.
  *
  * @param request ModifyAnnotationMissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6400,7 +6798,7 @@ ModifyAnnotationMissionResponse Client::modifyAnnotationMissionWithOptions(const
 }
 
 /**
- * @summary Updates the status and name of an annotation task.
+ * @summary Modifies the status and name of an annotation task.
  *
  * @param request ModifyAnnotationMissionRequest
  * @return ModifyAnnotationMissionResponse
@@ -6669,7 +7067,7 @@ ModifyBeebotIntentUserSayResponse Client::modifyBeebotIntentUserSay(const Modify
 }
 
 /**
- * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+ * @summary Modifies a dialog flow. This is a legacy canvas operation.
  *
  * @param request ModifyDialogueFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6716,7 +7114,7 @@ ModifyDialogueFlowResponse Client::modifyDialogueFlowWithOptions(const ModifyDia
 }
 
 /**
- * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+ * @summary Modifies a dialog flow. This is a legacy canvas operation.
  *
  * @param request ModifyDialogueFlowRequest
  * @return ModifyDialogueFlowResponse
@@ -6843,7 +7241,7 @@ ModifyGlobalQuestionResponse Client::modifyGlobalQuestion(const ModifyGlobalQues
 }
 
 /**
- * @summary Modifies an Outbound Bot instance.
+ * @summary Modifies an outbound robot instance.
  *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6890,7 +7288,7 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
- * @summary Modifies an Outbound Bot instance.
+ * @summary Modifies an outbound robot instance.
  *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
@@ -6967,7 +7365,7 @@ ModifyIntentResponse Client::modifyIntent(const ModifyIntentRequest &request) {
 }
 
 /**
- * @summary Modify an intelligent outbound call task group.
+ * @summary Modifies an outbound robot job group.
  *
  * @param request ModifyJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7054,7 +7452,7 @@ ModifyJobGroupResponse Client::modifyJobGroupWithOptions(const ModifyJobGroupReq
 }
 
 /**
- * @summary Modify an intelligent outbound call task group.
+ * @summary Modifies an outbound robot job group.
  *
  * @param request ModifyJobGroupRequest
  * @return ModifyJobGroupResponse
@@ -7443,6 +7841,60 @@ ModifyTagGroupsResponse Client::modifyTagGroups(const ModifyTagGroupsRequest &re
 }
 
 /**
+ * @summary 修改声音克隆
+ *
+ * @param request ModifyVoiceCloneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyVoiceCloneResponse
+ */
+ModifyVoiceCloneResponse Client::modifyVoiceCloneWithOptions(const ModifyVoiceCloneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasVoiceId()) {
+    query["VoiceId"] = request.getVoiceId();
+  }
+
+  if (!!request.hasVoiceName()) {
+    query["VoiceName"] = request.getVoiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyVoiceClone"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyVoiceCloneResponse>();
+}
+
+/**
+ * @summary 修改声音克隆
+ *
+ * @param request ModifyVoiceCloneRequest
+ * @return ModifyVoiceCloneResponse
+ */
+ModifyVoiceCloneResponse Client::modifyVoiceClone(const ModifyVoiceCloneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyVoiceCloneWithOptions(request, runtime);
+}
+
+/**
  * @summary Publishing a scenario
  *
  * @param request PublishScriptRequest
@@ -7761,7 +8213,7 @@ QueryScriptWaveformsResponse Client::queryScriptWaveforms(const QueryScriptWavef
 }
 
 /**
- * @summary Queries scenario information by status.
+ * @summary Queries scenario information based on the scenario status.
  *
  * @param request QueryScriptsByStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7804,7 +8256,7 @@ QueryScriptsByStatusResponse Client::queryScriptsByStatusWithOptions(const Query
 }
 
 /**
- * @summary Queries scenario information by status.
+ * @summary Queries scenario information based on the scenario status.
  *
  * @param request QueryScriptsByStatusRequest
  * @return QueryScriptsByStatusResponse
@@ -7815,7 +8267,7 @@ QueryScriptsByStatusResponse Client::queryScriptsByStatus(const QueryScriptsBySt
 }
 
 /**
- * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+ * @summary **[Deprecated]** Submits the cause of a call failure to the outbound call business system.
  *
  * @param request RecordFailureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7874,7 +8326,7 @@ RecordFailureResponse Client::recordFailureWithOptions(const RecordFailureReques
 }
 
 /**
- * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+ * @summary **[Deprecated]** Submits the cause of a call failure to the outbound call business system.
  *
  * @param request RecordFailureRequest
  * @return RecordFailureResponse
@@ -8047,7 +8499,7 @@ SaveAfterAnswerDelayPlaybackResponse Client::saveAfterAnswerDelayPlayback(const 
 }
 
 /**
- * @summary You can save a list of annotation chat instances.
+ * @summary Saves the list of annotated chat instances.
  *
  * @param request SaveAnnotationMissionSessionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8102,7 +8554,7 @@ SaveAnnotationMissionSessionListResponse Client::saveAnnotationMissionSessionLis
 }
 
 /**
- * @summary You can save a list of annotation chat instances.
+ * @summary Saves the list of annotated chat instances.
  *
  * @param request SaveAnnotationMissionSessionListRequest
  * @return SaveAnnotationMissionSessionListResponse
@@ -8113,7 +8565,7 @@ SaveAnnotationMissionSessionListResponse Client::saveAnnotationMissionSessionLis
 }
 
 /**
- * @summary Saves instance tags in a batch.
+ * @summary Saves instance tag information in batches.
  *
  * @param request SaveAnnotationMissionTagInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8156,7 +8608,7 @@ SaveAnnotationMissionTagInfoListResponse Client::saveAnnotationMissionTagInfoLis
 }
 
 /**
- * @summary Saves instance tags in a batch.
+ * @summary Saves instance tag information in batches.
  *
  * @param request SaveAnnotationMissionTagInfoListRequest
  * @return SaveAnnotationMissionTagInfoListResponse
@@ -8429,7 +8881,7 @@ SaveMaxAttemptsPerDayResponse Client::saveMaxAttemptsPerDay(const SaveMaxAttempt
 }
 
 /**
- * @summary Search for tasks.
+ * @summary Queries tasks.
  *
  * @param request SearchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8456,7 +8908,7 @@ SearchTaskResponse Client::searchTaskWithOptions(const SearchTaskRequest &reques
 }
 
 /**
- * @summary Search for tasks.
+ * @summary Queries tasks.
  *
  * @param request SearchTaskRequest
  * @return SearchTaskResponse
@@ -8626,6 +9078,60 @@ SubmitRecordingResponse Client::submitRecordingWithOptions(const SubmitRecording
 SubmitRecordingResponse Client::submitRecording(const SubmitRecordingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitRecordingWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+ *
+ * @param request SubmitScriptPreReviewResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitScriptPreReviewResultResponse
+ */
+SubmitScriptPreReviewResultResponse Client::submitScriptPreReviewResultWithOptions(const SubmitScriptPreReviewResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRecordId()) {
+    query["RecordId"] = request.getRecordId();
+  }
+
+  if (!!request.hasRejectReason()) {
+    query["RejectReason"] = request.getRejectReason();
+  }
+
+  if (!!request.hasReviewResult()) {
+    query["ReviewResult"] = request.getReviewResult();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitScriptPreReviewResult"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitScriptPreReviewResultResponse>();
+}
+
+/**
+ * @summary Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+ *
+ * @param request SubmitScriptPreReviewResultRequest
+ * @return SubmitScriptPreReviewResultResponse
+ */
+SubmitScriptPreReviewResultResponse Client::submitScriptPreReviewResult(const SubmitScriptPreReviewResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitScriptPreReviewResultWithOptions(request, runtime);
 }
 
 /**
@@ -8903,7 +9409,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Prepares a task for execution.
+ * @summary Prepares a node for execution.
  *
  * @param request TaskPreparingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8942,7 +9448,7 @@ TaskPreparingResponse Client::taskPreparingWithOptions(const TaskPreparingReques
 }
 
 /**
- * @summary Prepares a task for execution.
+ * @summary Prepares a node for execution.
  *
  * @param request TaskPreparingRequest
  * @return TaskPreparingResponse
@@ -9057,7 +9563,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Upload recording files.
+ * @summary Uploads a recording file.
  *
  * @param request UploadScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9104,7 +9610,7 @@ UploadScriptRecordingResponse Client::uploadScriptRecordingWithOptions(const Upl
 }
 
 /**
- * @summary Upload recording files.
+ * @summary Uploads a recording file.
  *
  * @param request UploadScriptRecordingRequest
  * @return UploadScriptRecordingResponse

@@ -128,7 +128,7 @@ namespace Models
         protected:
           // The number of tags.
           shared_ptr<int32_t> count_ {};
-          // The name of the tag.
+          // The tag name.
           shared_ptr<string> name_ {};
         };
 
@@ -242,7 +242,7 @@ namespace Models
       protected:
         // The number of correct chats.
         shared_ptr<int32_t> annotationCorrectCount_ {};
-        // Invalid data
+        // The number of invalid data entries.
         shared_ptr<int32_t> annotationInvalid_ {};
         // The total number of chats.
         shared_ptr<int32_t> chatTotalCount_ {};
@@ -250,11 +250,11 @@ namespace Models
         shared_ptr<int32_t> intentUserSayCount_ {};
         // The number of uncovered intents.
         shared_ptr<int32_t> intentionNotCoveredCount_ {};
-        // The number of detection errors.
+        // The number of recognition errors.
         shared_ptr<int32_t> matchErrorCount_ {};
-        // Not annotated.
+        // The number of unannotated entries.
         shared_ptr<int32_t> noAnnotation_ {};
-        // The number of translations that were not recognized.
+        // The number of unrecognized translation attempts.
         shared_ptr<int32_t> translationUnrecognizedCount_ {};
       };
 
@@ -362,21 +362,21 @@ namespace Models
       protected:
         // The number of times language model data was added.
         shared_ptr<int32_t> addCustomizationDataCount_ {};
-        // The number of times hotwords were added.
+        // The number of times hot words were added.
         shared_ptr<int32_t> addVocabularyDataCount_ {};
-        // Data is invalid.
+        // The number of invalid data entries.
         shared_ptr<int32_t> annotationInvalid_ {};
-        // The character accuracy rate. Unit: 0.01%.
+        // The character accuracy rate, in units of 0.01%.
         shared_ptr<int32_t> characterCorrectRate_ {};
-        // The character error rate. Unit: 0.01%.
+        // The character error rate, in units of 0.01%.
         shared_ptr<int32_t> characterErrorRate_ {};
         // The total number of chats.
         shared_ptr<int32_t> chatTotalCount_ {};
-        // Not annotated.
+        // The number of unannotated entries.
         shared_ptr<int32_t> noAnnotation_ {};
-        // The sentence error rate. Unit: 0.01%.
+        // The sentence error rate, in units of 0.01%.
         shared_ptr<int32_t> sentenceErrorRate_ {};
-        // The word error rate. Unit: 0.01%. This parameter is typically used for English.
+        // The word error rate, in units of 0.01%. Generally used for English.
         shared_ptr<int32_t> wordErrorRate_ {};
       };
 
@@ -433,15 +433,15 @@ namespace Models
     protected:
       // The ID of the annotation task.
       shared_ptr<string> annotationMissionId_ {};
-      // The statistics of speech annotation.
+      // The speech annotate statistics information.
       shared_ptr<Data::AsrSummaryInfo> asrSummaryInfo_ {};
-      // The statistics of semantic tagging.
+      // The semantics annotate statistics information.
       shared_ptr<Data::IntentSummaryInfo> intentSummaryInfo_ {};
-      // The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
+      // The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
       shared_ptr<string> message_ {};
-      // Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
+      // Indicates whether the call was successful. true: The call was successful. false: The call failed.
       shared_ptr<bool> success_ {};
-      // The custom tags and their quantities.
+      // The custom tags and their counts.
       shared_ptr<Data::TagSummaryInfo> tagSummaryInfo_ {};
     };
 
@@ -498,11 +498,11 @@ namespace Models
     shared_ptr<GetAnnotationMissionSummaryResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
+    // The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
+    // Indicates whether the call was successful. true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -130,13 +130,13 @@ namespace Models
 
 
       protected:
-        // The description of this published version.
+        // The publish description.
         shared_ptr<string> description_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The publish time.
+        // The publish time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> publishTime_ {};
-        // The script ID.
+        // The scenario ID.
         shared_ptr<string> scriptId_ {};
         // The script version.
         shared_ptr<string> scriptVersion_ {};
@@ -175,13 +175,13 @@ namespace Models
 
 
     protected:
-      // The data list.
+      // The data array.
       shared_ptr<vector<ScriptPublishHistories::List>> list_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -236,11 +236,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The API message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The script publishing histories.
+    // The publish history list.
     shared_ptr<ListScriptPublishHistoriesResponseBody::ScriptPublishHistories> scriptPublishHistories_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

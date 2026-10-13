@@ -48,17 +48,14 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
-    // Strategy level. Default value is 2.
-    // 
-    // - 0: System
-    // 
-    // - 1: Tenant
-    // 
-    // - 2: Instance
+    // The policy level. Default value: 2. Valid values:
+    // - 0: System.
+    // - 1: Tenant.
+    // - 2: Instance.
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

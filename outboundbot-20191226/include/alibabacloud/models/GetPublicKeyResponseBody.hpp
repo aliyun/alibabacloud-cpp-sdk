@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The status code of the API.
+    // The API status code.
     shared_ptr<string> code_ {};
     // The public key.
     shared_ptr<string> data_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

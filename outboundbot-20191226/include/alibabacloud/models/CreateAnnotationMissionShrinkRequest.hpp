@@ -200,99 +200,81 @@ namespace Models
   protected:
     // The agent ID.
     // 
-    // > You can obtain this ID from the \\`DescribeInstance\\` operation.
+    // > You can obtain this value from the DescribeInstance operation.
     shared_ptr<string> agentId_ {};
-    // The workspace key.
+    // The business space key.
     // 
-    // > You can obtain this key from the \\`DescribeInstance\\` operation.
+    // > You can obtain this value from the DescribeInstance operation.
     shared_ptr<string> agentKey_ {};
     // The data type of the annotation task.
     // 
-    // - 1: Outbound call
+    // - 1: outbound call
     shared_ptr<int32_t> annotationMissionDataSourceType_ {};
-    // The list of annotation data sources.
+    // The annotation data source list.
     // 
-    // > This parameter has the same function as \\`AnnotationMissionDebugDataSourceListJsonString\\`. You can specify either of them.
+    // > This parameter has the same function as AnnotationMissionDebugDataSourceListJsonString. Specify either one of them.
     shared_ptr<string> annotationMissionDebugDataSourceListShrink_ {};
-    // The JSON string for the test data.
+    // The debug data in JSON format.
+    // > This parameter has the same function as AnnotationMissionDebugDataSourceList. Specify either one of them. The format is [1], [2], or [1,2]. You can specify multiple filter conditions in the array. The enum values for the filter conditions are as follows.
     // 
-    // > This parameter has the same function as \\`AnnotationMissionDebugDataSourceList\\`. You can specify either of them. The format is \\`[1]\\`, \\`[2]\\`, or \\`[1,2]\\`. You can specify multiple filter conditions in the array. The enumeration values are as follows:
-    // 
-    // - 1: Outbound call task
-    // 
-    // - 2: Test task
+    // - 1: outbound call task
+    // - 2: test task
     shared_ptr<string> annotationMissionDebugDataSourceListJsonString_ {};
     // The name of the annotation task.
     shared_ptr<string> annotationMissionName_ {};
-    // The bot ID.
+    // The robot ID.
     // 
-    // > You can obtain this ID from the \\`DescribeScript\\` operation.
+    // > You can obtain this value from the DescribeScript operation.
     shared_ptr<string> chatbotId_ {};
-    // The end time for filtering calls.
+    // The end time for the call time filter.
     shared_ptr<int64_t> conversationTimeEndFilter_ {};
-    // The start time for filtering calls.
+    // The start time for the call time filter.
     shared_ptr<int64_t> conversationTimeStartFilter_ {};
-    // Specifies whether to exclude call records that have been annotated in other tasks. If you do not specify this parameter, the default value is \\`false\\`.
+    // Specifies whether to exclude call records that have been annotated by other tasks. Default value: false.
     shared_ptr<bool> excludeOtherSession_ {};
-    // Indicates whether the business process ended normally.
+    // Specifies whether the business ended normally.
     // 
-    // > This parameter takes effect only when \\`SessionEndReasonFilterList\\` is not specified.
-    // >
-    // > - \\`true\\`: The call record is normal.
-    // >
-    // > - \\`false\\`: The call did not end normally.
+    // > This parameter takes effect only when SessionEndReasonFilterList is not specified.
+    // > - true: normal call records
+    // > - false: abnormal call records
     shared_ptr<bool> finished_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The custom sampling amount.
-    // 
-    // > This parameter is required and takes effect only when \\`SamplingType\\` is set to 3. Otherwise, the task fails to be created.
+    // The custom sampling quantity.
+    // > This parameter takes effect only when SamplingType is set to 3. This parameter is required in that case. Otherwise, the creation fails.
     shared_ptr<int32_t> samplingCount_ {};
-    // The sampling percentage.
+    // The sampling ratio.
     // 
-    // > This parameter is required and takes effect only when \\`SamplingType\\` is set to 2. Otherwise, the task fails to be created.
+    // > This parameter takes effect only when SamplingType is set to 2. This parameter is required in that case. Otherwise, the creation fails.
     shared_ptr<int32_t> samplingRate_ {};
     // The sampling type.
     // 
-    // - 1: Full data
-    // 
-    // - 2: Percentage
-    // 
-    // - 3: Custom amount
+    // - 1: full
+    // - 2: percentage
+    // - 3: custom quantity
     shared_ptr<int32_t> samplingType_ {};
-    // The outbound scenario ID.
+    // The outbound call scenario ID.
     shared_ptr<string> scriptId_ {};
-    // The filter condition for call completion statuses.
+    // The call result status filter conditions.
     // 
-    // > This parameter has the same function as \\`SessionEndReasonFilterListJsonString\\`. You can specify either of them.
+    // > This parameter has the same function as SessionEndReasonFilterListJsonString. Specify either one of them.
     shared_ptr<vector<int32_t>> sessionEndReasonFilterList_ {};
-    // The filter condition for call completion statuses.
+    // The call result status filter conditions.
     // 
-    // > This parameter has the same function as \\`SessionEndReasonFilterList\\`. You can specify either of them. The format is \\`[1]\\` or \\`[1,2]\\`. You can specify multiple filter conditions in the array. The enumeration values for the filter conditions are as follows.
+    // > This parameter has the same function as SessionEndReasonFilterList. Specify either one of them. The format is [1], [1,2], etc. You can specify multiple filter conditions in the array. The enum values for the filter conditions are as follows.
     // 
-    // **Enumeration values for filtering call records**
-    // 
-    // - 1: The call ended normally.
-    // 
-    // - 2: The bot hung up after a recognition failure.
-    // 
-    // - 3: The call was hung up due to a silence timeout.
-    // 
-    // - 4: The user hung up after a recognition failure.
-    // 
-    // - 5: The user hung up for no reason.
-    // 
-    // - 6: The call was transferred to a manual agent after an intent was hit.
-    // 
-    // - 7: The call was transferred to a manual agent after a recognition failure.
-    // 
-    // - 8: No interaction from the user.
-    // 
-    // - 9: The call was interrupted by a system exception.
-    // 
-    // - 10: The call was transferred to an IVR after an intent was hit.
-    // 
-    // - 11: The call was transferred to an IVR after a recognition failure.
+    // **Call record filter enum values**
+    // - 1: normal completion
+    // - 2: robot hung up after recognition rejection
+    // - 3: hung up due to silence timeout
+    // - 4: user hung up after recognition rejection
+    // - 5: user hung up without reason
+    // - 6: transferred to agent by intent match
+    // - 7: transferred to agent by recognition rejection
+    // - 8: no interaction on user side
+    // - 9: system exception interruption
+    // - 10: transferred to IVR by intent match
+    // - 11: transferred to IVR by recognition rejection
     shared_ptr<string> sessionEndReasonFilterListJsonString_ {};
   };
 

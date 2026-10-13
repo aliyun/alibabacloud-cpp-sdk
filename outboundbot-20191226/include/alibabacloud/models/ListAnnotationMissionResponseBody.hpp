@@ -260,71 +260,57 @@ namespace Models
 
 
       protected:
-        // Annotation data source type. 1: Outbound call. 2: Navigation.
+        // The data source of the annotation task. Valid values: 1: Outbound call. 2: Navigation.
         shared_ptr<int32_t> annotationMissionDataSourceType_ {};
-        // Annotation debug data source list
+        // The list of debug data sources for the annotation task.
         // 
-        // > The response includes an extra 0. Valid responses are [0,1], [0,2], or [0,1,2].
+        // > Note: An additional 0 is included in the response. The return values are [0,1], [0,2], or [0,1,2].
         shared_ptr<vector<int32_t>> annotationMissionDebugDataSourceList_ {};
-        // Mission ID
+        // The task ID.
         shared_ptr<string> annotationMissionId_ {};
-        // Mission name
+        // The task name.
         shared_ptr<string> annotationMissionName_ {};
-        // Annotation status
-        // 
-        // - 1: In progress
-        // 
-        // - 2: Completed
-        // 
-        // - 3: Closed
+        // The annotation status. Valid values:
+        // - 1: In progress.
+        // - 2: Completed.
+        // - 3: Closed.
         shared_ptr<int32_t> annotationStatus_ {};
-        // End time of the conversation time query condition for the annotation mission
+        // The end time of the conversation time query condition for the annotation task.
         shared_ptr<int64_t> conversationTimeEndFilter_ {};
-        // Start time of the conversation time query condition for the annotation mission
+        // The start time of the conversation time query condition for the annotation task.
         shared_ptr<int64_t> conversationTimeStartFilter_ {};
-        // Creation time
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // Indicates whether to exclude call records already annotated in other missions
+        // Indicates whether to exclude call records that have been annotated in other tasks.
         shared_ptr<bool> excludeOtherMissionSession_ {};
-        // Completion time of the annotation mission
+        // The completion time of the annotation task. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> finishTime_ {};
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Maximum sampling count limit
+        // The maximum limit for the sampling count.
         shared_ptr<int32_t> samplingCount_ {};
-        // Sampling description
+        // The sampling description.
         shared_ptr<string> samplingDescription_ {};
-        // Sampling rate
+        // The sampling rate.
         shared_ptr<int32_t> samplingRate_ {};
-        // Sampling type
+        // The sampling type.
         shared_ptr<int32_t> samplingType_ {};
-        // List of session end reason types used when creating the mission
-        // 
-        // - 1: Normal completion
-        // 
-        // - 2: Bot hangup after rejection
-        // 
-        // - 3: Hangup due to silence timeout
-        // 
-        // - 4: User hangup after rejection
-        // 
-        // - 5: User hangup without reason
-        // 
-        // - 6: Transfer to agent after intent match
-        // 
-        // - 7: Transfer to agent after rejection
-        // 
-        // - 8: No interaction from user side
-        // 
-        // - 9: System exception interruption
-        // 
-        // - 10: Transfer to IVR after intent match
-        // 
-        // - 11: Transfer to IVR after rejection
+        // The list of call end reasons used to create the task. Valid values:
+        // - 1: Normal completion.
+        // - 2: Hang up by the robot after unrecognized input.
+        // - 3: Hang up due to silence timeout.
+        // - 4: Hang up by the user after unrecognized input.
+        // - 5: Hang up by the user without a reason.
+        // - 6: Transfer to a human agent due to intent match.
+        // - 7: Transfer to a human agent after unrecognized input.
+        // - 8: No interaction on the user side.
+        // - 9: Interruption due to a system exception.
+        // - 10: Transfer to IVR due to intent match.
+        // - 11: Transfer to IVR after unrecognized input.
         shared_ptr<vector<int32_t>> sessionEndReasonFilterList_ {};
-        // Number of completed sessions in the annotation mission
+        // The number of completed sessions in the annotation task.
         shared_ptr<int32_t> sessionFinishCount_ {};
-        // Total number of sessions in the annotation mission
+        // The total number of sessions in the annotation task.
         shared_ptr<int32_t> sessionTotalCount_ {};
       };
 
@@ -383,19 +369,19 @@ namespace Models
 
 
     protected:
-      // Annotation mission list
+      // The list of annotation tasks.
       shared_ptr<vector<Data::AnnotationMissionList>> annotationMissionList_ {};
-      // Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
+      // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
       shared_ptr<string> message_ {};
-      // Page number
+      // The page number.
       shared_ptr<int64_t> pageIndex_ {};
-      // Number of entries per page
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // Indicates whether the call succeeded. true: succeeded. false: failed.
+      // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
       shared_ptr<bool> success_ {};
-      // Total count
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
-      // Total number of pages
+      // The total number of pages.
       shared_ptr<int64_t> totalPageCount_ {};
     };
 
@@ -446,17 +432,17 @@ namespace Models
 
 
   protected:
-    // Response code
+    // The response code.
     shared_ptr<string> code_ {};
-    // Data
+    // The data.
     shared_ptr<ListAnnotationMissionResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
+    // The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. true: succeeded. false: failed.
+    // Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

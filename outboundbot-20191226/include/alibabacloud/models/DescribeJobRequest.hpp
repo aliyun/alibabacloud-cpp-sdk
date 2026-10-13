@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
-    // Specifies whether to return task scenario information.
+    // Specifies whether to return the task scenario information.
     shared_ptr<bool> withScript_ {};
   };
 

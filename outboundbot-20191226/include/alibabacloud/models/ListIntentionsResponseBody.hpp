@@ -169,9 +169,9 @@ namespace Models
 
 
           protected:
-            // Slot Unique Identifier
+            // The unique identifier of the slot.
             shared_ptr<string> slotId_ {};
-            // Expression
+            // The utterance text.
             shared_ptr<string> text_ {};
           };
 
@@ -208,14 +208,14 @@ namespace Models
 
 
         protected:
-          // Source ID
-          // >Notice: Invalid content
+          // The source ID.
+          // >Notice: 无效内容
           shared_ptr<string> fromId_ {};
-          // The ID of the user utterance.
+          // The utterance ID.
           shared_ptr<string> id_ {};
-          // Is Strict Match
+          // Indicates whether strict matching is used.
           shared_ptr<bool> strict_ {};
-          // User Say List
+          // The list of user utterances.
           shared_ptr<vector<UserSay::UserSayData>> userSayData_ {};
         };
 
@@ -298,9 +298,9 @@ namespace Models
 
 
           protected:
-            // User Say Unique Identifier for the Label
+            // The unique identifier of the intent utterance corresponding to the label.
             shared_ptr<string> userSayId_ {};
-            // The value of the tag is the result of tagging an intent expression.
+            // The tagging result of the intent utterance corresponding to the label.
             shared_ptr<string> value_ {};
           };
 
@@ -406,15 +406,15 @@ namespace Models
 
 
             protected:
-              // Condition ID
+              // The condition ID.
               shared_ptr<string> id_ {};
-              // Follow-up Question Label
+              // The clarification prompt label.
               shared_ptr<string> label_ {};
-              // Condition Name
+              // The condition name.
               shared_ptr<string> name_ {};
-              // Type
+              // The type.
               shared_ptr<string> type_ {};
-              // Condition Value
+              // The condition value.
               shared_ptr<string> value_ {};
             };
 
@@ -496,29 +496,27 @@ namespace Models
 
 
           protected:
-            // Alibaba Cloud Function Name
+            // The Alibaba Cloud function name.
             shared_ptr<string> aliyunFunction_ {};
-            // Alibaba Cloud Service
+            // The Alibaba Cloud service.
             shared_ptr<string> aliyunService_ {};
-            // API Status Code
+            // The status code of the operation.
             shared_ptr<string> code_ {};
-            // Follow-up Question Description
+            // The clarification description.
             shared_ptr<string> description_ {};
-            // Endpoint
+            // The endpoint.
             shared_ptr<string> endPoint_ {};
-            // Follow-up Question Function
+            // The clarification function.
             shared_ptr<string> function_ {};
-            // Function Name
+            // The function name.
             shared_ptr<string> name_ {};
-            // Parameters
+            // The parameters.
             Darabonba::Json params_ {};
-            // Feature Switch. Values:
-            // 
-            // - **on**: Enabled
-            // 
-            // - **off**: Disabled
+            // The feature switch. Valid values:
+            // - **on**: Enabled.
+            // - **off**: Disabled.
             shared_ptr<vector<FeedbackFunctions::Switch>> switch_ {};
-            // Follow-up Question Type
+            // The clarification type.
             shared_ptr<string> type_ {};
           };
 
@@ -617,41 +615,39 @@ namespace Models
 
 
         protected:
-          // The follow-up question function.
-          // >Notice: This parameter is invalid.
+          // The clarification functions.
+          // >Notice: 无效内容
           shared_ptr<vector<Slot::FeedbackFunctions>> feedbackFunctions_ {};
-          // Feedback Type
-          // >Notice: Invalid content
+          // The feedback type.
+          // >Notice: 无效内容
           shared_ptr<string> feedbackType_ {};
-          // Slot Unique Identifier
+          // The unique identifier of the slot.
           shared_ptr<string> id_ {};
-          // Is Array:
+          // Indicates whether the slot is an array. Valid values:
           // 
-          // - true: Yes
-          // 
-          // - false: No
+          // - true: Yes.
+          // - false: No.
           shared_ptr<bool> isArray_ {};
-          // Is Encrypted
-          // >Notice: Invalid content
+          // Indicates whether the slot is encrypted.
+          // >Notice: 无效内容
           shared_ptr<bool> isEncrypt_ {};
-          // Is Interactive
-          // >Notice: Invalid content
+          // Indicates whether the slot is interactive.
+          // >Notice: 无效内容
           shared_ptr<bool> isInteractive_ {};
-          // Is Required Slot:
+          // Indicates whether the slot is required. Valid values:
           // 
-          // - true: Yes
-          // 
-          // - false: No
+          // - true: Yes.
+          // - false: No.
           shared_ptr<bool> isNecessary_ {};
-          // Slot Lifecycle
+          // The slot life span.
           shared_ptr<int32_t> lifeSpan_ {};
-          // Slot Name
+          // The slot name.
           shared_ptr<string> name_ {};
-          // Slot Follow-up Question
+          // The slot clarification prompts.
           shared_ptr<vector<string>> question_ {};
-          // Slot Tagging Labels
+          // The slot tagging labels.
           shared_ptr<vector<Slot::Tags>> tags_ {};
-          // Slot Tagging Result
+          // The slot tagging result.
           shared_ptr<string> value_ {};
         };
 
@@ -715,13 +711,13 @@ namespace Models
 
 
         protected:
-          // Error Message
+          // The error message.
           shared_ptr<vector<string>> error_ {};
-          // Is Strict Match
+          // Indicates whether strict matching is used.
           shared_ptr<bool> strict_ {};
-          // Expression Value
+          // The expression value.
           shared_ptr<string> text_ {};
-          // Warning Message
+          // The warning message.
           shared_ptr<vector<string>> warning_ {};
         };
 
@@ -822,41 +818,36 @@ namespace Models
 
 
       protected:
-        // Intent Alias
+        // The intent alias.
         shared_ptr<vector<string>> alias_ {};
-        // Bot ID (Deprecated)
+        // The robot ID. [Deprecated]
         shared_ptr<int64_t> botId_ {};
-        // Bot Name
+        // The robot name.
         shared_ptr<string> botName_ {};
-        // Conversation Flow ID
+        // The dialog flow ID.
         shared_ptr<string> dialogId_ {};
-        // Intent ID
+        // The intent ID.
         shared_ptr<int64_t> id_ {};
-        // Language
+        // The language.
         // 
-        // - English (en-us)
-        // 
-        // - Chinese (zh-cn)
+        // - English: en-us
+        // - Chinese: zh-cn
         shared_ptr<string> language_ {};
-        // Intent Name
+        // The intent name.
         shared_ptr<string> name_ {};
-        // LGF Intent Expression
+        // The LGF intent utterance expressions.
         shared_ptr<vector<IntentList::RuleCheck>> ruleCheck_ {};
-        // Intent Slot Information
+        // The intent slot information.
         shared_ptr<vector<IntentList::Slot>> slot_ {};
-        // Table ID
+        // The table ID.
         shared_ptr<int64_t> tableId_ {};
-        // Intent Type:
-        // 
-        // - 0: Normal intent;
-        // 
-        // - 1: UNKNOWN;
-        // 
-        // - 2: TableQA intent;
-        // 
-        // - 3: Generated from standard intent
+        // The intent type. Valid values:
+        // - 0: normal intent. 
+        // - 1: UNKNOWN. 
+        // - 2: TableQA intent. 
+        // - 3: generated from a standard intent.
         shared_ptr<int32_t> type_ {};
-        // User Say List
+        // The list of user utterances.
         shared_ptr<vector<IntentList::UserSay>> userSay_ {};
       };
 
@@ -893,13 +884,13 @@ namespace Models
 
 
     protected:
-      // Bot ID
+      // The robot ID.
       shared_ptr<string> botId_ {};
-      // Intent List
+      // The list of intents.
       shared_ptr<vector<Data::IntentList>> intentList_ {};
-      // API Message
+      // The message returned by the operation.
       shared_ptr<string> message_ {};
-      // Indicates whether the operation was successful.
+      // Indicates whether the request was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -950,17 +941,17 @@ namespace Models
 
 
   protected:
-    // API Status Code
+    // The status code of the operation.
     shared_ptr<string> code_ {};
-    // Returned Data
+    // The returned data.
     shared_ptr<ListIntentionsResponseBody::Data> data_ {};
-    // HTTP Status Code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API Message
+    // The message returned by the operation.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Is Success
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

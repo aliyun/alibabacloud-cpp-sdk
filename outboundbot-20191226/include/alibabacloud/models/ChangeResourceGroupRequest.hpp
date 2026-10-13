@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the new resource group.
+    // The new resource group ID.
     // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
-    // The ID of the resource.
+    // The resource group ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};

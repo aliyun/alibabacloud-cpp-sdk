@@ -158,9 +158,9 @@ namespace Models
 
 
         protected:
-          // Start time.
+          // The start time. The format is HH:mm:ss.
           shared_ptr<string> beginTime_ {};
-          // End time.
+          // The end time. The format is HH:mm:ss.
           shared_ptr<string> endTime_ {};
         };
 
@@ -278,35 +278,39 @@ namespace Models
 
 
       protected:
-        // Custom information for the policy.
+        // The custom information of the strategy.
         shared_ptr<string> customized_ {};
-        // End time of the scheduling policy.
+        // The end time of the scheduling strategy. The time is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // Action to take for outbound calls that were not completed in the previous cycle.
+        // The follow-up strategy for outbound calls that are not completed in the previous cycle.
         shared_ptr<string> followUpStrategy_ {};
-        // Indicates whether the policy is a template.
+        // Indicates whether the strategy is a template.
         shared_ptr<bool> isTemplate_ {};
-        // Maximum number of retries per day after a failed call.
+        // The maximum number of retries per day after a call fails.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
-        // Minimum interval between retries.
+        // The minimum interval between retries.
         shared_ptr<int32_t> minAttemptInterval_ {};
-        // How often the job repeats. Valid values: Once, Day, Week, and Month.
+        // The repetition mode. Valid values:
+        // - Once: The job is not repeated.
+        // - Day: The job is repeated every day.
+        // - Week: The job is repeated every week.
+        // - Month: The job is repeated every month.
         shared_ptr<string> repeatBy_ {};
-        // List of days on which the job repeats.
+        // The list of days on which the job is repeated.
         shared_ptr<vector<string>> repeatDays_ {};
-        // Recording policy for caller numbers.
+        // The recording strategy for the calling number.
         shared_ptr<string> routingStrategy_ {};
-        // Start time when the job group begins execution.
+        // The time when the job group starts to be executed. The time is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
-        // Description of the policy.
+        // The strategy description.
         shared_ptr<string> strategyDescription_ {};
-        // ID of the policy.
+        // The strategy ID.
         shared_ptr<string> strategyId_ {};
-        // Name of the policy.
+        // The strategy name.
         shared_ptr<string> strategyName_ {};
-        // Type of the policy.
+        // The strategy type.
         shared_ptr<string> type_ {};
-        // Time periods during which the job runs each day.
+        // The time periods during which the job is executed in a day.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -374,21 +378,21 @@ namespace Models
 
 
     protected:
-      // ID of the job group.
+      // The job group ID.
       shared_ptr<string> batchJobId_ {};
-      // List of caller numbers.
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
-      // Time when the job group was created.
+      // The time when the job group was created. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // Key of the uploaded Excel file.
+      // The key of the uploaded Excel file.
       shared_ptr<string> jobFilePath_ {};
-      // Description of the job group.
+      // The description of the job group.
       shared_ptr<string> jobGroupDescription_ {};
-      // Name of the job group.
+      // The name of the job group.
       shared_ptr<string> jobGroupName_ {};
-      // ID of the scenario for the job group.
+      // The scenario ID of the job group.
       shared_ptr<string> scenarioId_ {};
-      // Job execution policy.
+      // The job execution strategy.
       shared_ptr<BatchJob::Strategy> strategy_ {};
     };
 
@@ -439,17 +443,17 @@ namespace Models
 
 
   protected:
-    // Information about the job group.
+    // The job group information.
     shared_ptr<CreateBatchJobsResponseBody::BatchJob> batchJob_ {};
-    // API status code.
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message.
+    // The message.
     shared_ptr<string> message_ {};
-    // ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
