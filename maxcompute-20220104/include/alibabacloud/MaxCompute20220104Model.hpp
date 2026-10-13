@@ -64,6 +64,9 @@
 #include <alibabacloud/models/GetJobResourceUsageShrinkRequest.hpp>
 #include <alibabacloud/models/GetJobResourceUsageResponseBody.hpp>
 #include <alibabacloud/models/GetJobResourceUsageResponse.hpp>
+#include <alibabacloud/models/GetLogviewDownloadUrlRequest.hpp>
+#include <alibabacloud/models/GetLogviewDownloadUrlResponseBody.hpp>
+#include <alibabacloud/models/GetLogviewDownloadUrlResponse.hpp>
 #include <alibabacloud/models/GetMmsAsyncTaskResponseBody.hpp>
 #include <alibabacloud/models/GetMmsAsyncTaskResponse.hpp>
 #include <alibabacloud/models/GetMmsDataSourceRequest.hpp>

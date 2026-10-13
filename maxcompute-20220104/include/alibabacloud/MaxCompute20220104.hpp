@@ -445,6 +445,48 @@ namespace MaxCompute20220104
       Models::GetJobResourceUsageResponse getJobResourceUsage(const Models::GetJobResourceUsageRequest &request);
 
       /**
+       * @summary Retrieves the download link for the offline Logview file of an instance in a specified MaxCompute project. The link is valid for 10 minutes from the time it is generated.
+       *
+       * @description Generates the offline Logview file for a specified MaxCompute instance and returns a presigned Object Storage Service (OSS) download URL.
+       * ## Procedure
+       * 1. Specify the project name by using the project path parameter and the instance ID in the project by using the instance parameter.
+       * 2. Select useVpcEndpoint based on the download environment: If this parameter is not specified or is set to false, the default OSS endpoint is used. If this parameter is set to true, the OSS VPC endpoint configured on the server is used. The download client must have network access to the selected endpoint.
+       * 3. Obtain the URL from the data field in the success response and download the file before the link expires. The link expires 10 minutes after it is generated. If the link expires, call this operation again to obtain a new link.
+       * ## File and usage instructions
+       * - The downloaded file is named logview_detail_{project}_{instance}.txt. The file content is offline Logview data in UTF-8 encoded JSON format. The specific data varies based on the instance task type and available information, and is not guaranteed to include execution results.
+       * - Each call rebuilds and uploads the offline Logview data. The same file object path is used for the same project and instance, and a subsequent upload overwrites the previous content.
+       * - This operation returns a download URL instead of a file stream upon success. A success response identifies the request by using requestId and returns the download link in the data field. The httpCode, errorCode, and errorMsg fields are common response fields. These fields are not assigned values when this operation is successfully processed, but they are not guaranteed to be omitted from the response.
+       * - If useVpcEndpoint is set to true and no OSS VPC endpoint is configured on the server, link generation fails and does not automatically fall back to the default endpoint.
+       * - The sample URL in the data field is desensitized and is used only to illustrate the format. It cannot be used for actual downloads.
+       *
+       * @param request GetLogviewDownloadUrlRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLogviewDownloadUrlResponse
+       */
+      Models::GetLogviewDownloadUrlResponse getLogviewDownloadUrlWithOptions(const string &project, const string &instance, const Models::GetLogviewDownloadUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the download link for the offline Logview file of an instance in a specified MaxCompute project. The link is valid for 10 minutes from the time it is generated.
+       *
+       * @description Generates the offline Logview file for a specified MaxCompute instance and returns a presigned Object Storage Service (OSS) download URL.
+       * ## Procedure
+       * 1. Specify the project name by using the project path parameter and the instance ID in the project by using the instance parameter.
+       * 2. Select useVpcEndpoint based on the download environment: If this parameter is not specified or is set to false, the default OSS endpoint is used. If this parameter is set to true, the OSS VPC endpoint configured on the server is used. The download client must have network access to the selected endpoint.
+       * 3. Obtain the URL from the data field in the success response and download the file before the link expires. The link expires 10 minutes after it is generated. If the link expires, call this operation again to obtain a new link.
+       * ## File and usage instructions
+       * - The downloaded file is named logview_detail_{project}_{instance}.txt. The file content is offline Logview data in UTF-8 encoded JSON format. The specific data varies based on the instance task type and available information, and is not guaranteed to include execution results.
+       * - Each call rebuilds and uploads the offline Logview data. The same file object path is used for the same project and instance, and a subsequent upload overwrites the previous content.
+       * - This operation returns a download URL instead of a file stream upon success. A success response identifies the request by using requestId and returns the download link in the data field. The httpCode, errorCode, and errorMsg fields are common response fields. These fields are not assigned values when this operation is successfully processed, but they are not guaranteed to be omitted from the response.
+       * - If useVpcEndpoint is set to true and no OSS VPC endpoint is configured on the server, link generation fails and does not automatically fall back to the default endpoint.
+       * - The sample URL in the data field is desensitized and is used only to illustrate the format. It cannot be used for actual downloads.
+       *
+       * @param request GetLogviewDownloadUrlRequest
+       * @return GetLogviewDownloadUrlResponse
+       */
+      Models::GetLogviewDownloadUrlResponse getLogviewDownloadUrl(const string &project, const string &instance, const Models::GetLogviewDownloadUrlRequest &request);
+
+      /**
        * @summary Retrieves a single asynchronous task in MMA.
        *
        * @param headers map
@@ -1251,7 +1293,7 @@ namespace MaxCompute20220104
       Models::ListProjectUsersResponse listProjectUsers(const string &projectName);
 
       /**
-       * @summary Retrieves a list of MaxCompute projects.
+       * @summary Lists MaxCompute projects
        *
        * @param request ListProjectsRequest
        * @param headers map
@@ -1261,7 +1303,7 @@ namespace MaxCompute20220104
       Models::ListProjectsResponse listProjectsWithOptions(const Models::ListProjectsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of MaxCompute projects.
+       * @summary Lists MaxCompute projects
        *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse

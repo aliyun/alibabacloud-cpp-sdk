@@ -1278,6 +1278,75 @@ GetJobResourceUsageResponse Client::getJobResourceUsage(const GetJobResourceUsag
 }
 
 /**
+ * @summary Retrieves the download link for the offline Logview file of an instance in a specified MaxCompute project. The link is valid for 10 minutes from the time it is generated.
+ *
+ * @description Generates the offline Logview file for a specified MaxCompute instance and returns a presigned Object Storage Service (OSS) download URL.
+ * ## Procedure
+ * 1. Specify the project name by using the project path parameter and the instance ID in the project by using the instance parameter.
+ * 2. Select useVpcEndpoint based on the download environment: If this parameter is not specified or is set to false, the default OSS endpoint is used. If this parameter is set to true, the OSS VPC endpoint configured on the server is used. The download client must have network access to the selected endpoint.
+ * 3. Obtain the URL from the data field in the success response and download the file before the link expires. The link expires 10 minutes after it is generated. If the link expires, call this operation again to obtain a new link.
+ * ## File and usage instructions
+ * - The downloaded file is named logview_detail_{project}_{instance}.txt. The file content is offline Logview data in UTF-8 encoded JSON format. The specific data varies based on the instance task type and available information, and is not guaranteed to include execution results.
+ * - Each call rebuilds and uploads the offline Logview data. The same file object path is used for the same project and instance, and a subsequent upload overwrites the previous content.
+ * - This operation returns a download URL instead of a file stream upon success. A success response identifies the request by using requestId and returns the download link in the data field. The httpCode, errorCode, and errorMsg fields are common response fields. These fields are not assigned values when this operation is successfully processed, but they are not guaranteed to be omitted from the response.
+ * - If useVpcEndpoint is set to true and no OSS VPC endpoint is configured on the server, link generation fails and does not automatically fall back to the default endpoint.
+ * - The sample URL in the data field is desensitized and is used only to illustrate the format. It cannot be used for actual downloads.
+ *
+ * @param request GetLogviewDownloadUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLogviewDownloadUrlResponse
+ */
+GetLogviewDownloadUrlResponse Client::getLogviewDownloadUrlWithOptions(const string &project, const string &instance, const GetLogviewDownloadUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUseVpcEndpoint()) {
+    query["useVpcEndpoint"] = request.getUseVpcEndpoint();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLogviewDownloadUrl"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/logview/project/" , Darabonba::Encode::Encoder::percentEncode(project) , "/instance/" , Darabonba::Encode::Encoder::percentEncode(instance) , "/downloadUrl")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLogviewDownloadUrlResponse>();
+}
+
+/**
+ * @summary Retrieves the download link for the offline Logview file of an instance in a specified MaxCompute project. The link is valid for 10 minutes from the time it is generated.
+ *
+ * @description Generates the offline Logview file for a specified MaxCompute instance and returns a presigned Object Storage Service (OSS) download URL.
+ * ## Procedure
+ * 1. Specify the project name by using the project path parameter and the instance ID in the project by using the instance parameter.
+ * 2. Select useVpcEndpoint based on the download environment: If this parameter is not specified or is set to false, the default OSS endpoint is used. If this parameter is set to true, the OSS VPC endpoint configured on the server is used. The download client must have network access to the selected endpoint.
+ * 3. Obtain the URL from the data field in the success response and download the file before the link expires. The link expires 10 minutes after it is generated. If the link expires, call this operation again to obtain a new link.
+ * ## File and usage instructions
+ * - The downloaded file is named logview_detail_{project}_{instance}.txt. The file content is offline Logview data in UTF-8 encoded JSON format. The specific data varies based on the instance task type and available information, and is not guaranteed to include execution results.
+ * - Each call rebuilds and uploads the offline Logview data. The same file object path is used for the same project and instance, and a subsequent upload overwrites the previous content.
+ * - This operation returns a download URL instead of a file stream upon success. A success response identifies the request by using requestId and returns the download link in the data field. The httpCode, errorCode, and errorMsg fields are common response fields. These fields are not assigned values when this operation is successfully processed, but they are not guaranteed to be omitted from the response.
+ * - If useVpcEndpoint is set to true and no OSS VPC endpoint is configured on the server, link generation fails and does not automatically fall back to the default endpoint.
+ * - The sample URL in the data field is desensitized and is used only to illustrate the format. It cannot be used for actual downloads.
+ *
+ * @param request GetLogviewDownloadUrlRequest
+ * @return GetLogviewDownloadUrlResponse
+ */
+GetLogviewDownloadUrlResponse Client::getLogviewDownloadUrl(const string &project, const string &instance, const GetLogviewDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getLogviewDownloadUrlWithOptions(project, instance, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a single asynchronous task in MMA.
  *
  * @param headers map
@@ -3885,7 +3954,7 @@ ListProjectUsersResponse Client::listProjectUsers(const string &projectName) {
 }
 
 /**
- * @summary Retrieves a list of MaxCompute projects.
+ * @summary Lists MaxCompute projects
  *
  * @param request ListProjectsRequest
  * @param headers map
@@ -3962,7 +4031,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
- * @summary Retrieves a list of MaxCompute projects.
+ * @summary Lists MaxCompute projects
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse

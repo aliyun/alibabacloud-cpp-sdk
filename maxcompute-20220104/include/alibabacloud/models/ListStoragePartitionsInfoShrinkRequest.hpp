@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<string> partitionPrefix_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The schema to which the table belongs.
+    // The name of the schema.
     shared_ptr<string> schema_ {};
     // The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
     shared_ptr<string> tenantId_ {};
