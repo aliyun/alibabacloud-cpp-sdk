@@ -833,6 +833,82 @@ namespace LHM20250116
       Models::ExecMetaDataComponentNameResponse execMetaDataComponentName(const Models::ExecMetaDataComponentNameRequest &request);
 
       /**
+       * @summary 停止探查任务
+       *
+       * @description ## 接口说明
+       * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+       * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+       * ## 请求说明
+       * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+       * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+       * ## 返回说明
+       * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+       * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+       *
+       * @param request ExecMetaProfilingSkillJobDisableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecMetaProfilingSkillJobDisableResponse
+       */
+      Models::ExecMetaProfilingSkillJobDisableResponse execMetaProfilingSkillJobDisableWithOptions(const Models::ExecMetaProfilingSkillJobDisableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止探查任务
+       *
+       * @description ## 接口说明
+       * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+       * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+       * ## 请求说明
+       * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+       * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+       * ## 返回说明
+       * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+       * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+       *
+       * @param request ExecMetaProfilingSkillJobDisableRequest
+       * @return ExecMetaProfilingSkillJobDisableResponse
+       */
+      Models::ExecMetaProfilingSkillJobDisableResponse execMetaProfilingSkillJobDisable(const Models::ExecMetaProfilingSkillJobDisableRequest &request);
+
+      /**
+       * @summary 立即执行探查任务
+       *
+       * @description ## 接口说明
+       * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+       * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+       * ## 请求说明
+       * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+       * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+       * ## 返回说明
+       * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+       * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+       *
+       * @param request ExecMetaProfilingTaskRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecMetaProfilingTaskRunResponse
+       */
+      Models::ExecMetaProfilingTaskRunResponse execMetaProfilingTaskRunWithOptions(const Models::ExecMetaProfilingTaskRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 立即执行探查任务
+       *
+       * @description ## 接口说明
+       * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+       * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+       * ## 请求说明
+       * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+       * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+       * ## 返回说明
+       * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+       * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+       *
+       * @param request ExecMetaProfilingTaskRunRequest
+       * @return ExecMetaProfilingTaskRunResponse
+       */
+      Models::ExecMetaProfilingTaskRunResponse execMetaProfilingTaskRun(const Models::ExecMetaProfilingTaskRunRequest &request);
+
+      /**
        * @summary Converts a single SQL script.
        *
        * @description ## Operation description
@@ -1489,6 +1565,38 @@ namespace LHM20250116
       Models::GetLhmDWResourceGroupStatusResponse getLhmDWResourceGroupStatus(const Models::GetLhmDWResourceGroupStatusRequest &request);
 
       /**
+       * @summary Retrieves an overview of incremental changes in a data source.
+       *
+       * @description ## Operation description
+       * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+       * ## Request description
+       * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+       * ## Response description
+       * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+       *
+       * @param request GetMetaCompareIncrementDbOverviewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetaCompareIncrementDbOverviewResponse
+       */
+      Models::GetMetaCompareIncrementDbOverviewResponse getMetaCompareIncrementDbOverviewWithOptions(const Models::GetMetaCompareIncrementDbOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves an overview of incremental changes in a data source.
+       *
+       * @description ## Operation description
+       * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+       * ## Request description
+       * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+       * ## Response description
+       * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+       *
+       * @param request GetMetaCompareIncrementDbOverviewRequest
+       * @return GetMetaCompareIncrementDbOverviewResponse
+       */
+      Models::GetMetaCompareIncrementDbOverviewResponse getMetaCompareIncrementDbOverview(const Models::GetMetaCompareIncrementDbOverviewRequest &request);
+
+      /**
        * @summary Retrieves temporary OSS upload credentials (STS), including the AccessKey, security token, bucket, upload directory, and expiration time.
        *
        * @description ## Operation description
@@ -1519,6 +1627,24 @@ namespace LHM20250116
        * @return GetMetaOssTempKeyResponse
        */
       Models::GetMetaOssTempKeyResponse getMetaOssTempKey(const Models::GetMetaOssTempKeyRequest &request);
+
+      /**
+       * @summary Queries the data source overview.
+       *
+       * @param request GetMetaProfilingResultDbOverviewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetaProfilingResultDbOverviewResponse
+       */
+      Models::GetMetaProfilingResultDbOverviewResponse getMetaProfilingResultDbOverviewWithOptions(const Models::GetMetaProfilingResultDbOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the data source overview.
+       *
+       * @param request GetMetaProfilingResultDbOverviewRequest
+       * @return GetMetaProfilingResultDbOverviewResponse
+       */
+      Models::GetMetaProfilingResultDbOverviewResponse getMetaProfilingResultDbOverview(const Models::GetMetaProfilingResultDbOverviewRequest &request);
 
       /**
        * @summary Queries the execution progress of an SQL conversion task by task ID and returns the total count, completed count, success count, and completion percentage.
@@ -1973,6 +2099,78 @@ namespace LHM20250116
       Models::ListMetaDataComponentPageResponse listMetaDataComponentPage(const Models::ListMetaDataComponentPageRequest &request);
 
       /**
+       * @summary 获取catalog分页列表
+       *
+       * @param request ListMetaProfilingResultCatalogPageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaProfilingResultCatalogPageResponse
+       */
+      Models::ListMetaProfilingResultCatalogPageResponse listMetaProfilingResultCatalogPageWithOptions(const Models::ListMetaProfilingResultCatalogPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取catalog分页列表
+       *
+       * @param request ListMetaProfilingResultCatalogPageRequest
+       * @return ListMetaProfilingResultCatalogPageResponse
+       */
+      Models::ListMetaProfilingResultCatalogPageResponse listMetaProfilingResultCatalogPage(const Models::ListMetaProfilingResultCatalogPageRequest &request);
+
+      /**
+       * @summary Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+       *
+       * @param request ListMetaProfilingResultTablePageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaProfilingResultTablePageResponse
+       */
+      Models::ListMetaProfilingResultTablePageResponse listMetaProfilingResultTablePageWithOptions(const Models::ListMetaProfilingResultTablePageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+       *
+       * @param request ListMetaProfilingResultTablePageRequest
+       * @return ListMetaProfilingResultTablePageResponse
+       */
+      Models::ListMetaProfilingResultTablePageResponse listMetaProfilingResultTablePage(const Models::ListMetaProfilingResultTablePageRequest &request);
+
+      /**
+       * @summary 查询函数分页列表
+       *
+       * @param request ListMetaProfilingResultUdfPageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaProfilingResultUdfPageResponse
+       */
+      Models::ListMetaProfilingResultUdfPageResponse listMetaProfilingResultUdfPageWithOptions(const Models::ListMetaProfilingResultUdfPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询函数分页列表
+       *
+       * @param request ListMetaProfilingResultUdfPageRequest
+       * @return ListMetaProfilingResultUdfPageResponse
+       */
+      Models::ListMetaProfilingResultUdfPageResponse listMetaProfilingResultUdfPage(const Models::ListMetaProfilingResultUdfPageRequest &request);
+
+      /**
+       * @summary Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+       *
+       * @param request ListMetaProfilingSkillJobPageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaProfilingSkillJobPageResponse
+       */
+      Models::ListMetaProfilingSkillJobPageResponse listMetaProfilingSkillJobPageWithOptions(const Models::ListMetaProfilingSkillJobPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+       *
+       * @param request ListMetaProfilingSkillJobPageRequest
+       * @return ListMetaProfilingSkillJobPageResponse
+       */
+      Models::ListMetaProfilingSkillJobPageResponse listMetaProfilingSkillJobPage(const Models::ListMetaProfilingSkillJobPageRequest &request);
+
+      /**
        * @summary User Scheduling Task Transformation
        *
        * @description ## Interface Description
@@ -2121,6 +2319,24 @@ namespace LHM20250116
        * @return SingleSqlDryRunResponse
        */
       Models::SingleSqlDryRunResponse singleSqlDryRun(const Models::SingleSqlDryRunRequest &request);
+
+      /**
+       * @summary Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+       *
+       * @param request SkillAddMetaProfilingJobRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SkillAddMetaProfilingJobResponse
+       */
+      Models::SkillAddMetaProfilingJobResponse skillAddMetaProfilingJobWithOptions(const Models::SkillAddMetaProfilingJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+       *
+       * @param request SkillAddMetaProfilingJobRequest
+       * @return SkillAddMetaProfilingJobResponse
+       */
+      Models::SkillAddMetaProfilingJobResponse skillAddMetaProfilingJob(const Models::SkillAddMetaProfilingJobRequest &request);
 
       /**
        * @summary Validates the syntax of a specified SQL conversion task and then performs the conversion, returning the combined validation and conversion results.

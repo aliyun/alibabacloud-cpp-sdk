@@ -1660,6 +1660,140 @@ ExecMetaDataComponentNameResponse Client::execMetaDataComponentName(const ExecMe
 }
 
 /**
+ * @summary 停止探查任务
+ *
+ * @description ## 接口说明
+ * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+ * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+ * ## 请求说明
+ * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+ * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+ * ## 返回说明
+ * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+ * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+ *
+ * @param request ExecMetaProfilingSkillJobDisableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecMetaProfilingSkillJobDisableResponse
+ */
+ExecMetaProfilingSkillJobDisableResponse Client::execMetaProfilingSkillJobDisableWithOptions(const ExecMetaProfilingSkillJobDisableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDsId()) {
+    body["dsId"] = request.getDsId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecMetaProfilingSkillJobDisable"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/skill/profiling/job/disable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecMetaProfilingSkillJobDisableResponse>();
+}
+
+/**
+ * @summary 停止探查任务
+ *
+ * @description ## 接口说明
+ * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+ * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+ * ## 请求说明
+ * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+ * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+ * ## 返回说明
+ * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+ * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+ *
+ * @param request ExecMetaProfilingSkillJobDisableRequest
+ * @return ExecMetaProfilingSkillJobDisableResponse
+ */
+ExecMetaProfilingSkillJobDisableResponse Client::execMetaProfilingSkillJobDisable(const ExecMetaProfilingSkillJobDisableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return execMetaProfilingSkillJobDisableWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 立即执行探查任务
+ *
+ * @description ## 接口说明
+ * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+ * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+ * ## 请求说明
+ * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+ * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+ * ## 返回说明
+ * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+ * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+ *
+ * @param request ExecMetaProfilingTaskRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecMetaProfilingTaskRunResponse
+ */
+ExecMetaProfilingTaskRunResponse Client::execMetaProfilingTaskRunWithOptions(const ExecMetaProfilingTaskRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBatchNo()) {
+    body["batchNo"] = request.getBatchNo();
+  }
+
+  if (!!request.hasComponentId()) {
+    body["componentId"] = request.getComponentId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecMetaProfilingTaskRun"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/task/runNow")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecMetaProfilingTaskRunResponse>();
+}
+
+/**
+ * @summary 立即执行探查任务
+ *
+ * @description ## 接口说明
+ * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+ * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+ * ## 请求说明
+ * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+ * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+ * ## 返回说明
+ * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+ * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+ *
+ * @param request ExecMetaProfilingTaskRunRequest
+ * @return ExecMetaProfilingTaskRunResponse
+ */
+ExecMetaProfilingTaskRunResponse Client::execMetaProfilingTaskRun(const ExecMetaProfilingTaskRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return execMetaProfilingTaskRunWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Converts a single SQL script.
  *
  * @description ## Operation description
@@ -3026,6 +3160,77 @@ GetLhmDWResourceGroupStatusResponse Client::getLhmDWResourceGroupStatus(const Ge
 }
 
 /**
+ * @summary Retrieves an overview of incremental changes in a data source.
+ *
+ * @description ## Operation description
+ * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+ * ## Request description
+ * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+ * ## Response description
+ * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+ *
+ * @param request GetMetaCompareIncrementDbOverviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetaCompareIncrementDbOverviewResponse
+ */
+GetMetaCompareIncrementDbOverviewResponse Client::getMetaCompareIncrementDbOverviewWithOptions(const GetMetaCompareIncrementDbOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCatalogName()) {
+    body["catalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasIsSummary()) {
+    body["isSummary"] = request.getIsSummary();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetMetaCompareIncrementDbOverview"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/result/databases/overviewOfCompareIncrement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetaCompareIncrementDbOverviewResponse>();
+}
+
+/**
+ * @summary Retrieves an overview of incremental changes in a data source.
+ *
+ * @description ## Operation description
+ * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+ * ## Request description
+ * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+ * ## Response description
+ * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+ *
+ * @param request GetMetaCompareIncrementDbOverviewRequest
+ * @return GetMetaCompareIncrementDbOverviewResponse
+ */
+GetMetaCompareIncrementDbOverviewResponse Client::getMetaCompareIncrementDbOverview(const GetMetaCompareIncrementDbOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMetaCompareIncrementDbOverviewWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves temporary OSS upload credentials (STS), including the AccessKey, security token, bucket, upload directory, and expiration time.
  *
  * @description ## Operation description
@@ -3076,6 +3281,55 @@ GetMetaOssTempKeyResponse Client::getMetaOssTempKey(const GetMetaOssTempKeyReque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMetaOssTempKeyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the data source overview.
+ *
+ * @param request GetMetaProfilingResultDbOverviewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetaProfilingResultDbOverviewResponse
+ */
+GetMetaProfilingResultDbOverviewResponse Client::getMetaProfilingResultDbOverviewWithOptions(const GetMetaProfilingResultDbOverviewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIsSummary()) {
+    query["isSummary"] = request.getIsSummary();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMetaProfilingResultDbOverview"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/result/databases/overviewOfTaskDimension")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetaProfilingResultDbOverviewResponse>();
+}
+
+/**
+ * @summary Queries the data source overview.
+ *
+ * @param request GetMetaProfilingResultDbOverviewRequest
+ * @return GetMetaProfilingResultDbOverviewResponse
+ */
+GetMetaProfilingResultDbOverviewResponse Client::getMetaProfilingResultDbOverview(const GetMetaProfilingResultDbOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMetaProfilingResultDbOverviewWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4062,6 +4316,374 @@ ListMetaDataComponentPageResponse Client::listMetaDataComponentPage(const ListMe
 }
 
 /**
+ * @summary 获取catalog分页列表
+ *
+ * @param request ListMetaProfilingResultCatalogPageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaProfilingResultCatalogPageResponse
+ */
+ListMetaProfilingResultCatalogPageResponse Client::listMetaProfilingResultCatalogPageWithOptions(const ListMetaProfilingResultCatalogPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCatalogName()) {
+    body["catalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["groupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    body["needTotalCount"] = request.getNeedTotalCount();
+  }
+
+  if (!!request.hasOrderBy()) {
+    body["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderDirection()) {
+    body["orderDirection"] = request.getOrderDirection();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListMetaProfilingResultCatalogPage"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/result/catalogs/pageOfTaskDimension")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaProfilingResultCatalogPageResponse>();
+}
+
+/**
+ * @summary 获取catalog分页列表
+ *
+ * @param request ListMetaProfilingResultCatalogPageRequest
+ * @return ListMetaProfilingResultCatalogPageResponse
+ */
+ListMetaProfilingResultCatalogPageResponse Client::listMetaProfilingResultCatalogPage(const ListMetaProfilingResultCatalogPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMetaProfilingResultCatalogPageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+ *
+ * @param request ListMetaProfilingResultTablePageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaProfilingResultTablePageResponse
+ */
+ListMetaProfilingResultTablePageResponse Client::listMetaProfilingResultTablePageWithOptions(const ListMetaProfilingResultTablePageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComponentType()) {
+    body["componentType"] = request.getComponentType();
+  }
+
+  if (!!request.hasDataRange()) {
+    body["dataRange"] = request.getDataRange();
+  }
+
+  if (!!request.hasDataSize()) {
+    body["dataSize"] = request.getDataSize();
+  }
+
+  if (!!request.hasDataUnit()) {
+    body["dataUnit"] = request.getDataUnit();
+  }
+
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["groupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasIsPartitioned()) {
+    body["isPartitioned"] = request.getIsPartitioned();
+  }
+
+  if (!!request.hasIsSummary()) {
+    body["isSummary"] = request.getIsSummary();
+  }
+
+  if (!!request.hasMigrationStatus()) {
+    body["migrationStatus"] = request.getMigrationStatus();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    body["needTotalCount"] = request.getNeedTotalCount();
+  }
+
+  if (!!request.hasOrderBy()) {
+    body["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderDirection()) {
+    body["orderDirection"] = request.getOrderDirection();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTableName()) {
+    body["tableName"] = request.getTableName();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListMetaProfilingResultTablePage"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/result/tables/pageOfTaskDimension")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaProfilingResultTablePageResponse>();
+}
+
+/**
+ * @summary Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+ *
+ * @param request ListMetaProfilingResultTablePageRequest
+ * @return ListMetaProfilingResultTablePageResponse
+ */
+ListMetaProfilingResultTablePageResponse Client::listMetaProfilingResultTablePage(const ListMetaProfilingResultTablePageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMetaProfilingResultTablePageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询函数分页列表
+ *
+ * @param request ListMetaProfilingResultUdfPageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaProfilingResultUdfPageResponse
+ */
+ListMetaProfilingResultUdfPageResponse Client::listMetaProfilingResultUdfPageWithOptions(const ListMetaProfilingResultUdfPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCatalogName()) {
+    body["catalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasComponentType()) {
+    body["componentType"] = request.getComponentType();
+  }
+
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasFuncName()) {
+    body["funcName"] = request.getFuncName();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["groupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasIsSummary()) {
+    body["isSummary"] = request.getIsSummary();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    body["needTotalCount"] = request.getNeedTotalCount();
+  }
+
+  if (!!request.hasOrderBy()) {
+    body["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderDirection()) {
+    body["orderDirection"] = request.getOrderDirection();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListMetaProfilingResultUdfPage"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/profiling/result/udf/pageOfTaskDimension")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaProfilingResultUdfPageResponse>();
+}
+
+/**
+ * @summary 查询函数分页列表
+ *
+ * @param request ListMetaProfilingResultUdfPageRequest
+ * @return ListMetaProfilingResultUdfPageResponse
+ */
+ListMetaProfilingResultUdfPageResponse Client::listMetaProfilingResultUdfPage(const ListMetaProfilingResultUdfPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMetaProfilingResultUdfPageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+ *
+ * @param request ListMetaProfilingSkillJobPageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaProfilingSkillJobPageResponse
+ */
+ListMetaProfilingSkillJobPageResponse Client::listMetaProfilingSkillJobPageWithOptions(const ListMetaProfilingSkillJobPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComponentIds()) {
+    body["componentIds"] = request.getComponentIds();
+  }
+
+  if (!!request.hasDsId()) {
+    body["dsId"] = request.getDsId();
+  }
+
+  if (!!request.hasDsName()) {
+    body["dsName"] = request.getDsName();
+  }
+
+  if (!!request.hasDsType()) {
+    body["dsType"] = request.getDsType();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["groupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasIsDisplaySystemTask()) {
+    body["isDisplaySystemTask"] = request.getIsDisplaySystemTask();
+  }
+
+  if (!!request.hasJobId()) {
+    body["jobId"] = request.getJobId();
+  }
+
+  if (!!request.hasJobName()) {
+    body["jobName"] = request.getJobName();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    body["needTotalCount"] = request.getNeedTotalCount();
+  }
+
+  if (!!request.hasOrderBy()) {
+    body["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasOrderDirection()) {
+    body["orderDirection"] = request.getOrderDirection();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListMetaProfilingSkillJobPage"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/skill/profiling/job/page")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaProfilingSkillJobPageResponse>();
+}
+
+/**
+ * @summary Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+ *
+ * @param request ListMetaProfilingSkillJobPageRequest
+ * @return ListMetaProfilingSkillJobPageResponse
+ */
+ListMetaProfilingSkillJobPageResponse Client::listMetaProfilingSkillJobPage(const ListMetaProfilingSkillJobPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMetaProfilingSkillJobPageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary User Scheduling Task Transformation
  *
  * @description ## Interface Description
@@ -4404,6 +5026,91 @@ SingleSqlDryRunResponse Client::singleSqlDryRun(const SingleSqlDryRunRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return singleSqlDryRunWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+ *
+ * @param request SkillAddMetaProfilingJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SkillAddMetaProfilingJobResponse
+ */
+SkillAddMetaProfilingJobResponse Client::skillAddMetaProfilingJobWithOptions(const SkillAddMetaProfilingJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComponentId()) {
+    body["componentId"] = request.getComponentId();
+  }
+
+  if (!!request.hasJobDesc()) {
+    body["jobDesc"] = request.getJobDesc();
+  }
+
+  if (!!request.hasJobId()) {
+    body["jobId"] = request.getJobId();
+  }
+
+  if (!!request.hasJobName()) {
+    body["jobName"] = request.getJobName();
+  }
+
+  if (!!request.hasMetaIds()) {
+    body["metaIds"] = request.getMetaIds();
+  }
+
+  if (!!request.hasPluginId()) {
+    body["pluginId"] = request.getPluginId();
+  }
+
+  if (!!request.hasProfilingFlag()) {
+    body["profilingFlag"] = request.getProfilingFlag();
+  }
+
+  if (!!request.hasProfilingPermission()) {
+    body["profilingPermission"] = request.getProfilingPermission();
+  }
+
+  if (!!request.hasProfilingRule()) {
+    body["profilingRule"] = request.getProfilingRule();
+  }
+
+  if (!!request.hasProfilingSchemaList()) {
+    body["profilingSchemaList"] = request.getProfilingSchemaList();
+  }
+
+  if (!!request.hasProfilingType()) {
+    body["profilingType"] = request.getProfilingType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SkillAddMetaProfilingJob"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/meta/skill/profiling/job")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SkillAddMetaProfilingJobResponse>();
+}
+
+/**
+ * @summary Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+ *
+ * @param request SkillAddMetaProfilingJobRequest
+ * @return SkillAddMetaProfilingJobResponse
+ */
+SkillAddMetaProfilingJobResponse Client::skillAddMetaProfilingJob(const SkillAddMetaProfilingJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return skillAddMetaProfilingJobWithOptions(request, headers, runtime);
 }
 
 /**
