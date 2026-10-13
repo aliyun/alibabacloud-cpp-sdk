@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->name_ == nullptr; };
+        && this->name_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListProductsRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListProductsRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
     // The language that you use, supporting English, Chinese, and Japanese. Valid values: en, zh, and jp, which indicate English, Chinese, and Japanese, respectively.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The name of the product. Fuzzy search is supported. This parameter is optional.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

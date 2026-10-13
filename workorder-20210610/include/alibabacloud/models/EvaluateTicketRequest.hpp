@@ -38,59 +38,59 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->score_ == nullptr && return this->solved_ == nullptr && return this->ticketId_ == nullptr && return this->uid_ == nullptr; };
+        && this->score_ == nullptr && this->solved_ == nullptr && this->ticketId_ == nullptr && this->uid_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline EvaluateTicketRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // score Field Functions 
     bool hasScore() const { return this->score_ != nullptr;};
     void deleteScore() { this->score_ = nullptr;};
-    inline string score() const { DARABONBA_PTR_GET_DEFAULT(score_, "") };
+    inline string getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, "") };
     inline EvaluateTicketRequest& setScore(string score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
     // solved Field Functions 
     bool hasSolved() const { return this->solved_ != nullptr;};
     void deleteSolved() { this->solved_ = nullptr;};
-    inline bool solved() const { DARABONBA_PTR_GET_DEFAULT(solved_, false) };
+    inline bool getSolved() const { DARABONBA_PTR_GET_DEFAULT(solved_, false) };
     inline EvaluateTicketRequest& setSolved(bool solved) { DARABONBA_PTR_SET_VALUE(solved_, solved) };
 
 
     // ticketId Field Functions 
     bool hasTicketId() const { return this->ticketId_ != nullptr;};
     void deleteTicketId() { this->ticketId_ = nullptr;};
-    inline string ticketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
+    inline string getTicketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
     inline EvaluateTicketRequest& setTicketId(string ticketId) { DARABONBA_PTR_SET_VALUE(ticketId_, ticketId) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline EvaluateTicketRequest& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
   protected:
-    // Comment
-    std::shared_ptr<string> content_ = nullptr;
-    // Rating star 1-5 stars
+    // The content of the evaluation.
+    shared_ptr<string> content_ {};
+    // The rating, from 1 to 5 stars.
     // 
     // This parameter is required.
-    std::shared_ptr<string> score_ = nullptr;
-    // Whether to resolve
+    shared_ptr<string> score_ {};
+    // Indicates whether the issue was resolved.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> solved_ = nullptr;
-    // The ID of the ticket.
+    shared_ptr<bool> solved_ {};
+    // The ticket ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ticketId_ = nullptr;
-    // UID
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<string> ticketId_ {};
+    // The UID.
+    shared_ptr<string> uid_ {};
   };
 
   } // namespace Models

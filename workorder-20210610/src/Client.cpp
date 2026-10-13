@@ -50,11 +50,11 @@ CloseTicketResponse Client::closeTicketWithOptions(const CloseTicketRequest &req
   request.validate();
   json body = {};
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -97,45 +97,45 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
   CreateTicketShrinkRequest request = CreateTicketShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFileNameList()) {
-    request.setFileNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fileNameList(), "FileNameList", "simple"));
+    request.setFileNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileNameList(), "FileNameList", "simple"));
   }
 
   if (!!tmpReq.hasSecretInfo()) {
-    request.setSecretInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.secretInfo(), "SecretInfo", "json"));
+    request.setSecretInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSecretInfo(), "SecretInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasSecretInfoShrink()) {
-    query["SecretInfo"] = request.secretInfoShrink();
+    query["SecretInfo"] = request.getSecretInfoShrink();
   }
 
   json body = {};
   if (!!request.hasCategoryId()) {
-    body["CategoryId"] = request.categoryId();
+    body["CategoryId"] = request.getCategoryId();
   }
 
   if (!!request.hasCreatorId()) {
-    body["CreatorId"] = request.creatorId();
+    body["CreatorId"] = request.getCreatorId();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasEmail()) {
-    body["Email"] = request.email();
+    body["Email"] = request.getEmail();
   }
 
   if (!!request.hasFileNameListShrink()) {
-    body["FileNameList"] = request.fileNameListShrink();
+    body["FileNameList"] = request.getFileNameListShrink();
   }
 
   if (!!request.hasSeverity()) {
-    body["Severity"] = request.severity();
+    body["Severity"] = request.getSeverity();
   }
 
   if (!!request.hasTitle()) {
-    body["Title"] = request.title();
+    body["Title"] = request.getTitle();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -178,23 +178,23 @@ EvaluateTicketResponse Client::evaluateTicketWithOptions(const EvaluateTicketReq
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasScore()) {
-    body["Score"] = request.score();
+    body["Score"] = request.getScore();
   }
 
   if (!!request.hasSolved()) {
-    body["Solved"] = request.solved();
+    body["Solved"] = request.getSolved();
   }
 
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -228,6 +228,17 @@ EvaluateTicketResponse Client::evaluateTicket(const EvaluateTicketRequest &reque
 /**
  * @summary Queries the Object Storage Service (OSS) URL that is used to upload attachments.
  *
+ * @description > Attachment upload
+ * >
+ * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+ * After you obtain the temporary upload URL, you can upload the file as follows:
+ * <details>
+ * <summary>
+ * Sample
+ * </summary>
+ * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+ * </details>
+ *
  * @param request GetAttachmentUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAttachmentUploadUrlResponse
@@ -236,7 +247,7 @@ GetAttachmentUploadUrlResponse Client::getAttachmentUploadUrlWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -259,6 +270,17 @@ GetAttachmentUploadUrlResponse Client::getAttachmentUploadUrlWithOptions(const G
 /**
  * @summary Queries the Object Storage Service (OSS) URL that is used to upload attachments.
  *
+ * @description > Attachment upload
+ * >
+ * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+ * After you obtain the temporary upload URL, you can upload the file as follows:
+ * <details>
+ * <summary>
+ * Sample
+ * </summary>
+ * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+ * </details>
+ *
  * @param request GetAttachmentUploadUrlRequest
  * @return GetAttachmentUploadUrlResponse
  */
@@ -268,7 +290,8 @@ GetAttachmentUploadUrlResponse Client::getAttachmentUploadUrl(const GetAttachmen
 }
 
 /**
- * @param request GetMqConsumerTagRequest
+ * @summary Retrieves the tag for a ticket\\"s RocketMQ message listener.
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMqConsumerTagResponse
  */
@@ -289,6 +312,8 @@ GetMqConsumerTagResponse Client::getMqConsumerTagWithOptions(const Darabonba::Ru
 }
 
 /**
+ * @summary Retrieves the tag for a ticket\\"s RocketMQ message listener.
+ *
  * @return GetMqConsumerTagResponse
  */
 GetMqConsumerTagResponse Client::getMqConsumerTag() {
@@ -297,7 +322,7 @@ GetMqConsumerTagResponse Client::getMqConsumerTag() {
 }
 
 /**
- * @summary Query tickets.
+ * @summary Queries a ticket.
  *
  * @param request GetTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,11 +332,11 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &request, 
   request.validate();
   json body = {};
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -332,7 +357,7 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &request, 
 }
 
 /**
- * @summary Query tickets.
+ * @summary Queries a ticket.
  *
  * @param request GetTicketRequest
  * @return GetTicketResponse
@@ -353,16 +378,16 @@ ListCategoriesResponse Client::listCategoriesWithOptions(const ListCategoriesReq
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   json body = {};
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasProductId()) {
-    body["ProductId"] = request.productId();
+    body["ProductId"] = request.getProductId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -405,11 +430,11 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
   request.validate();
   json query = {};
   if (!!request.hasLanguage()) {
-    query["Language"] = request.language();
+    query["Language"] = request.getLanguage();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -441,7 +466,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
- * @summary Obtains the ticket communication records.
+ * @summary Retrieves the communication records for a ticket.
  *
  * @param request ListTicketNotesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -451,11 +476,11 @@ ListTicketNotesResponse Client::listTicketNotesWithOptions(const ListTicketNotes
   request.validate();
   json query = {};
   if (!!request.hasTicketId()) {
-    query["TicketId"] = request.ticketId();
+    query["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    query["Uid"] = request.uid();
+    query["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -476,7 +501,7 @@ ListTicketNotesResponse Client::listTicketNotesWithOptions(const ListTicketNotes
 }
 
 /**
- * @summary Obtains the ticket communication records.
+ * @summary Retrieves the communication records for a ticket.
  *
  * @param request ListTicketNotesRequest
  * @return ListTicketNotesResponse
@@ -487,7 +512,7 @@ ListTicketNotesResponse Client::listTicketNotes(const ListTicketNotesRequest &re
 }
 
 /**
- * @summary You can call this operation to obtain the list of my tickets.
+ * @summary Retrieves a list of your tickets.
  *
  * @param tmpReq ListTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -498,45 +523,45 @@ ListTicketsResponse Client::listTicketsWithOptions(const ListTicketsRequest &tmp
   ListTicketsShrinkRequest request = ListTicketsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTicketIdList()) {
-    request.setTicketIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ticketIdList(), "TicketIdList", "simple"));
+    request.setTicketIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTicketIdList(), "TicketIdList", "simple"));
   }
 
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   json body = {};
   if (!!request.hasEndDate()) {
-    body["EndDate"] = request.endDate();
+    body["EndDate"] = request.getEndDate();
   }
 
   if (!!request.hasKeyword()) {
-    body["Keyword"] = request.keyword();
+    body["Keyword"] = request.getKeyword();
   }
 
   if (!!request.hasStartDate()) {
-    body["StartDate"] = request.startDate();
+    body["StartDate"] = request.getStartDate();
   }
 
   if (!!request.hasStatusList()) {
-    body["StatusList"] = request.statusList();
+    body["StatusList"] = request.getStatusList();
   }
 
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasTicketIdListShrink()) {
-    body["TicketIdList"] = request.ticketIdListShrink();
+    body["TicketIdList"] = request.getTicketIdListShrink();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -558,7 +583,7 @@ ListTicketsResponse Client::listTicketsWithOptions(const ListTicketsRequest &tmp
 }
 
 /**
- * @summary You can call this operation to obtain the list of my tickets.
+ * @summary Retrieves a list of your tickets.
  *
  * @param request ListTicketsRequest
  * @return ListTicketsResponse
@@ -569,7 +594,7 @@ ListTicketsResponse Client::listTickets(const ListTicketsRequest &request) {
 }
 
 /**
- * @summary Reopens a ticket
+ * @summary Reopens a ticket.
  *
  * @param request ReopenTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -579,15 +604,15 @@ ReopenTicketResponse Client::reopenTicketWithOptions(const ReopenTicketRequest &
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -608,7 +633,7 @@ ReopenTicketResponse Client::reopenTicketWithOptions(const ReopenTicketRequest &
 }
 
 /**
- * @summary Reopens a ticket
+ * @summary Reopens a ticket.
  *
  * @param request ReopenTicketRequest
  * @return ReopenTicketResponse
@@ -619,7 +644,7 @@ ReopenTicketResponse Client::reopenTicket(const ReopenTicketRequest &request) {
 }
 
 /**
- * @summary Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+ * @summary Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
  *
  * @param tmpReq ReplyTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -630,29 +655,29 @@ ReplyTicketResponse Client::replyTicketWithOptions(const ReplyTicketRequest &tmp
   ReplyTicketShrinkRequest request = ReplyTicketShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFileNameList()) {
-    request.setFileNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fileNameList(), "FileNameList", "simple"));
+    request.setFileNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileNameList(), "FileNameList", "simple"));
   }
 
   json query = {};
   if (!!request.hasFileNameListShrink()) {
-    query["FileNameList"] = request.fileNameListShrink();
+    query["FileNameList"] = request.getFileNameListShrink();
   }
 
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasEncrypt()) {
-    body["Encrypt"] = request.encrypt();
+    body["Encrypt"] = request.getEncrypt();
   }
 
   if (!!request.hasTicketId()) {
-    body["TicketId"] = request.ticketId();
+    body["TicketId"] = request.getTicketId();
   }
 
   if (!!request.hasUid()) {
-    body["Uid"] = request.uid();
+    body["Uid"] = request.getUid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -674,7 +699,7 @@ ReplyTicketResponse Client::replyTicketWithOptions(const ReplyTicketRequest &tmp
 }
 
 /**
- * @summary Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+ * @summary Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
  *
  * @param request ReplyTicketRequest
  * @return ReplyTicketResponse

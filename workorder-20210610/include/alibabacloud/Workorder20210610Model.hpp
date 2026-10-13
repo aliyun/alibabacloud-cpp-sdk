@@ -40,19 +40,5 @@
 #include <alibabacloud/models/ReplyTicketShrinkRequest.hpp>
 #include <alibabacloud/models/ReplyTicketResponseBody.hpp>
 #include <alibabacloud/models/ReplyTicketResponse.hpp>
-#include <alibabacloud/models/CreateTicketRequestSecretInfo.hpp>
-#include <alibabacloud/models/GetAttachmentUploadUrlResponseBodyData.hpp>
-#include <alibabacloud/models/GetTicketResponseBodyDataSeverity.hpp>
-#include <alibabacloud/models/GetTicketResponseBodyDataStatus.hpp>
-#include <alibabacloud/models/GetTicketResponseBodyData.hpp>
-#include <alibabacloud/models/ListCategoriesResponseBodyData.hpp>
-#include <alibabacloud/models/ListProductsResponseBodyDataProductList.hpp>
-#include <alibabacloud/models/ListProductsResponseBodyData.hpp>
-#include <alibabacloud/models/ListTicketNotesResponseBodyDataAttachments.hpp>
-#include <alibabacloud/models/ListTicketNotesResponseBodyDataDialog.hpp>
-#include <alibabacloud/models/ListTicketNotesResponseBodyDataUser.hpp>
-#include <alibabacloud/models/ListTicketNotesResponseBodyData.hpp>
-#include <alibabacloud/models/ListTicketsResponseBodyDataStatus.hpp>
-#include <alibabacloud/models/ListTicketsResponseBodyData.hpp>
 
 #endif

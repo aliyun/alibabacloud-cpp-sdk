@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ticketId_ == nullptr
-        && return this->uid_ == nullptr; };
+        && this->uid_ == nullptr; };
     // ticketId Field Functions 
     bool hasTicketId() const { return this->ticketId_ != nullptr;};
     void deleteTicketId() { this->ticketId_ = nullptr;};
-    inline string ticketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
+    inline string getTicketId() const { DARABONBA_PTR_GET_DEFAULT(ticketId_, "") };
     inline CloseTicketRequest& setTicketId(string ticketId) { DARABONBA_PTR_SET_VALUE(ticketId_, ticketId) };
 
 
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
-    inline string uid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
+    inline string getUid() const { DARABONBA_PTR_GET_DEFAULT(uid_, "") };
     inline CloseTicketRequest& setUid(string uid) { DARABONBA_PTR_SET_VALUE(uid_, uid) };
 
 
   protected:
-    // Work Order Number
+    // The ticket ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ticketId_ = nullptr;
-    // The UID of the Alibaba Cloud account. You can view your UID in the profile picture in the upper-right corner of the DMS console.
-    std::shared_ptr<string> uid_ = nullptr;
+    shared_ptr<string> ticketId_ {};
+    // The user UID. You can find your UID by clicking the profile picture in the upper-right corner of the DMS console.
+    shared_ptr<string> uid_ {};
   };
 
   } // namespace Models

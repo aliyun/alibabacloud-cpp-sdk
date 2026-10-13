@@ -44,92 +44,87 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->email_ == nullptr && return this->fileNameListShrink_ == nullptr && return this->secretInfoShrink_ == nullptr
-        && return this->severity_ == nullptr && return this->title_ == nullptr; };
+        && this->creatorId_ == nullptr && this->description_ == nullptr && this->email_ == nullptr && this->fileNameListShrink_ == nullptr && this->secretInfoShrink_ == nullptr
+        && this->severity_ == nullptr && this->title_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
-    inline string categoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
+    inline string getCategoryId() const { DARABONBA_PTR_GET_DEFAULT(categoryId_, "") };
     inline CreateTicketShrinkRequest& setCategoryId(string categoryId) { DARABONBA_PTR_SET_VALUE(categoryId_, categoryId) };
 
 
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};
-    inline string creatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+    inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
     inline CreateTicketShrinkRequest& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateTicketShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline CreateTicketShrinkRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // fileNameListShrink Field Functions 
     bool hasFileNameListShrink() const { return this->fileNameListShrink_ != nullptr;};
     void deleteFileNameListShrink() { this->fileNameListShrink_ = nullptr;};
-    inline string fileNameListShrink() const { DARABONBA_PTR_GET_DEFAULT(fileNameListShrink_, "") };
+    inline string getFileNameListShrink() const { DARABONBA_PTR_GET_DEFAULT(fileNameListShrink_, "") };
     inline CreateTicketShrinkRequest& setFileNameListShrink(string fileNameListShrink) { DARABONBA_PTR_SET_VALUE(fileNameListShrink_, fileNameListShrink) };
 
 
     // secretInfoShrink Field Functions 
     bool hasSecretInfoShrink() const { return this->secretInfoShrink_ != nullptr;};
     void deleteSecretInfoShrink() { this->secretInfoShrink_ = nullptr;};
-    inline string secretInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(secretInfoShrink_, "") };
+    inline string getSecretInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(secretInfoShrink_, "") };
     inline CreateTicketShrinkRequest& setSecretInfoShrink(string secretInfoShrink) { DARABONBA_PTR_SET_VALUE(secretInfoShrink_, secretInfoShrink) };
 
 
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
-    inline int32_t severity() const { DARABONBA_PTR_GET_DEFAULT(severity_, 0) };
+    inline int32_t getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, 0) };
     inline CreateTicketShrinkRequest& setSeverity(int32_t severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
 
 
     // title Field Functions 
     bool hasTitle() const { return this->title_ != nullptr;};
     void deleteTitle() { this->title_ = nullptr;};
-    inline string title() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+    inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
     inline CreateTicketShrinkRequest& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
   protected:
-    // The ID of the problem category. You can obtain the returned value from the ListCategories operation by using the CategoryId parameter.
+    // The ID of the issue category. Obtain this ID from the ListCategories operation.
     // 
     // This parameter is required.
-    std::shared_ptr<string> categoryId_ = nullptr;
-    // Submit the Alibaba Cloud UID of the account, which is required for the MPK virtual market scene.
-    std::shared_ptr<string> creatorId_ = nullptr;
-    // The description of the ticket. Only pure text format is supported.
+    shared_ptr<string> categoryId_ {};
+    // The Alibaba Cloud UID of the account that submits the ticket. This parameter is required for Marketplace reseller scenarios.
+    shared_ptr<string> creatorId_ {};
+    // The description of the issue in the ticket. Only plain text is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> description_ = nullptr;
-    // sdahkjdshga@qq.com
-    std::shared_ptr<string> email_ = nullptr;
-    // The list of attachment names, GetAttachmentUploadUrl the ObjectKey field returned by the interface.
-    std::shared_ptr<string> fileNameListShrink_ = nullptr;
-    // Sensitive information
-    std::shared_ptr<string> secretInfoShrink_ = nullptr;
-    // Enumeration value, 1 for general problem, 2 for urgent problem
-    // 
-    // Enumeration values:
-    // 
-    // *   1: regular.
-    // *   2: emergency.
+    shared_ptr<string> description_ {};
+    // The contact email address for the ticket.
+    shared_ptr<string> email_ {};
+    // A list of attachment names. Use the ObjectKey value returned by the GetAttachmentUploadUrl operation.
+    shared_ptr<string> fileNameListShrink_ {};
+    // Sensitive information.
+    shared_ptr<string> secretInfoShrink_ {};
+    // An enumeration value. A value of 1 indicates a normal issue. A value of 2 indicates an urgent issue.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> severity_ = nullptr;
+    shared_ptr<int32_t> severity_ {};
     // The title of the ticket.
-    std::shared_ptr<string> title_ = nullptr;
+    shared_ptr<string> title_ {};
   };
 
   } // namespace Models

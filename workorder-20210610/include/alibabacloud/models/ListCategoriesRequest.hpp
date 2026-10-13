@@ -34,37 +34,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && return this->name_ == nullptr && return this->productId_ == nullptr; };
+        && this->name_ == nullptr && this->productId_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
-    inline string language() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
+    inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
     inline ListCategoriesRequest& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListCategoriesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // productId Field Functions 
     bool hasProductId() const { return this->productId_ != nullptr;};
     void deleteProductId() { this->productId_ = nullptr;};
-    inline int64_t productId() const { DARABONBA_PTR_GET_DEFAULT(productId_, 0L) };
+    inline int64_t getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, 0L) };
     inline ListCategoriesRequest& setProductId(int64_t productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
 
 
   protected:
     // Multi-language, support, Chinese, English. Value definition: zh: Chinese, en: English.
-    std::shared_ptr<string> language_ = nullptr;
+    shared_ptr<string> language_ {};
     // The name of the classification question. Fuzzy search is supported.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The ID of the product. You can call the ListProducts operation to obtain the product ID. The ProductId parameter is the ID of an Alibaba Cloud product. Multiple Categories are displayed for each product.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> productId_ = nullptr;
+    shared_ptr<int64_t> productId_ {};
   };
 
   } // namespace Models

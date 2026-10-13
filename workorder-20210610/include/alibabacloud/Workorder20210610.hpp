@@ -74,6 +74,17 @@ namespace Workorder20210610
       /**
        * @summary Queries the Object Storage Service (OSS) URL that is used to upload attachments.
        *
+       * @description > Attachment upload
+       * >
+       * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+       * After you obtain the temporary upload URL, you can upload the file as follows:
+       * <details>
+       * <summary>
+       * Sample
+       * </summary>
+       * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+       * </details>
+       *
        * @param request GetAttachmentUploadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAttachmentUploadUrlResponse
@@ -83,25 +94,39 @@ namespace Workorder20210610
       /**
        * @summary Queries the Object Storage Service (OSS) URL that is used to upload attachments.
        *
+       * @description > Attachment upload
+       * >
+       * > - Use a presigned URL to upload the file. For more information, see the OSS documentation.
+       * After you obtain the temporary upload URL, you can upload the file as follows:
+       * <details>
+       * <summary>
+       * Sample
+       * </summary>
+       * curl -X PUT -H "Content-Type:application/octet-stream" -H "x-oss-meta-author:aliy" -T /home/admin/file.png "https\\://xx.oss-cn-zhangjiakou.aliyuncs.com/xx/xx.png"
+       * </details>
+       *
        * @param request GetAttachmentUploadUrlRequest
        * @return GetAttachmentUploadUrlResponse
        */
       Models::GetAttachmentUploadUrlResponse getAttachmentUploadUrl(const Models::GetAttachmentUploadUrlRequest &request);
 
       /**
-       * @param request GetMqConsumerTagRequest
+       * @summary Retrieves the tag for a ticket\\"s RocketMQ message listener.
+       *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMqConsumerTagResponse
        */
       Models::GetMqConsumerTagResponse getMqConsumerTagWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the tag for a ticket\\"s RocketMQ message listener.
+       *
        * @return GetMqConsumerTagResponse
        */
       Models::GetMqConsumerTagResponse getMqConsumerTag();
 
       /**
-       * @summary Query tickets.
+       * @summary Queries a ticket.
        *
        * @param request GetTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -110,7 +135,7 @@ namespace Workorder20210610
       Models::GetTicketResponse getTicketWithOptions(const Models::GetTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query tickets.
+       * @summary Queries a ticket.
        *
        * @param request GetTicketRequest
        * @return GetTicketResponse
@@ -152,7 +177,7 @@ namespace Workorder20210610
       Models::ListProductsResponse listProducts(const Models::ListProductsRequest &request);
 
       /**
-       * @summary Obtains the ticket communication records.
+       * @summary Retrieves the communication records for a ticket.
        *
        * @param request ListTicketNotesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -161,7 +186,7 @@ namespace Workorder20210610
       Models::ListTicketNotesResponse listTicketNotesWithOptions(const Models::ListTicketNotesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the ticket communication records.
+       * @summary Retrieves the communication records for a ticket.
        *
        * @param request ListTicketNotesRequest
        * @return ListTicketNotesResponse
@@ -169,7 +194,7 @@ namespace Workorder20210610
       Models::ListTicketNotesResponse listTicketNotes(const Models::ListTicketNotesRequest &request);
 
       /**
-       * @summary You can call this operation to obtain the list of my tickets.
+       * @summary Retrieves a list of your tickets.
        *
        * @param tmpReq ListTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +203,7 @@ namespace Workorder20210610
       Models::ListTicketsResponse listTicketsWithOptions(const Models::ListTicketsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to obtain the list of my tickets.
+       * @summary Retrieves a list of your tickets.
        *
        * @param request ListTicketsRequest
        * @return ListTicketsResponse
@@ -186,7 +211,7 @@ namespace Workorder20210610
       Models::ListTicketsResponse listTickets(const Models::ListTicketsRequest &request);
 
       /**
-       * @summary Reopens a ticket
+       * @summary Reopens a ticket.
        *
        * @param request ReopenTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -195,7 +220,7 @@ namespace Workorder20210610
       Models::ReopenTicketResponse reopenTicketWithOptions(const Models::ReopenTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reopens a ticket
+       * @summary Reopens a ticket.
        *
        * @param request ReopenTicketRequest
        * @return ReopenTicketResponse
@@ -203,7 +228,7 @@ namespace Workorder20210610
       Models::ReopenTicketResponse reopenTicket(const Models::ReopenTicketRequest &request);
 
       /**
-       * @summary Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+       * @summary Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
        *
        * @param tmpReq ReplyTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -212,7 +237,7 @@ namespace Workorder20210610
       Models::ReplyTicketResponse replyTicketWithOptions(const Models::ReplyTicketRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reply to the ticket. You can call the ListTicketNotes operation to obtain the content of the reply.
+       * @summary Replies to a ticket. You can call the ListTicketNotes operation to retrieve the reply.
        *
        * @param request ReplyTicketRequest
        * @return ReplyTicketResponse
