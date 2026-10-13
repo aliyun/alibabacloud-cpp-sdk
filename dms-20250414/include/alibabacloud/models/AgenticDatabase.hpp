@@ -176,32 +176,40 @@ namespace Models
   protected:
     // The name of the catalog.
     shared_ptr<string> catalogName_ {};
-    // The type of the catalog.
+    // The type of the catalog. Valid values:
+    // 
+    // - **JDBC**: relational database catalog
+    // - **DataLake**: data lake catalog
+    // - **Dataset**: knowledge base catalog
     shared_ptr<string> catalogType_ {};
-    // The unique identifier of the catalog.
+    // The UUID of the catalog.
     shared_ptr<string> catalogUuid_ {};
-    // The database\\"s business attributes.
+    // The business attributes of the database, returned as key-value pairs. Currently, this may include **ENV_TYPE**, which indicates the environment type of the database.
     Darabonba::Json databaseBizAttrs_ {};
     // The unique identifier of the database.
     shared_ptr<string> databaseUuid_ {};
+    // The database type inherited from the catalog. The value is the uppercase name of the database type, such as MYSQL.
     shared_ptr<string> dbType_ {};
-    // The database description.
+    // The description of the database.
     shared_ptr<string> description_ {};
-    // The metadata for the database engine.
+    // The metadata of the database engine. This field is returned only for databases under a JDBC catalog.
     shared_ptr<AgenticDatabaseEngineMeta> engineMeta_ {};
-    // The name of the database.
+    // The name of the database. For databases that distinguish schemas, such as PostgreSQL, this is the schema name.
     shared_ptr<string> name_ {};
-    // The database\\"s extended properties.
+    // The extended properties of the database, returned as key-value pairs. This field is returned only for databases under a DataLake catalog.
     Darabonba::Json properties_ {};
-    // The fully qualified name of the database.
+    // The fully qualified name of the database. For databases that distinguish schemas, such as PostgreSQL, the format is database name.schema name.
     shared_ptr<string> qualifiedName_ {};
     // The region ID of the database.
     shared_ptr<string> regionId_ {};
-    // The name used to search the database.
+    // The search name of the database. SearchAgenticDatabase matches search keywords against this name.
     shared_ptr<string> searchName_ {};
-    // The database state.
+    // The status of the database. Valid values:
+    // 
+    // - **0**: normal
+    // - **-1**: deleted
     shared_ptr<int32_t> state_ {};
-    // The database storage location.
+    // The storage location. This field is returned only for databases under a DataLake catalog.
     shared_ptr<string> storageLocation_ {};
   };
 

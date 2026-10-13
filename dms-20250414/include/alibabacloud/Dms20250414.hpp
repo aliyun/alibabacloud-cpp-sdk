@@ -1231,9 +1231,9 @@ namespace Dms20250414
       Models::ListCustomAgentMonitorSessionsResponse listCustomAgentMonitorSessions(const Models::ListCustomAgentMonitorSessionsRequest &request);
 
       /**
-       * @summary Lists accuracy test configuration items that meet the specified conditions.
+       * @summary Lists the accuracy test configuration items that meet the specified conditions.
        *
-       * @description Lists accuracy test configuration items that meet the specified conditions.
+       * @description Lists the accuracy test configuration items that meet the specified conditions.
        *
        * @param request ListDataAgentAccuracyTestInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1242,9 +1242,9 @@ namespace Dms20250414
       Models::ListDataAgentAccuracyTestInstancesResponse listDataAgentAccuracyTestInstancesWithOptions(const Models::ListDataAgentAccuracyTestInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists accuracy test configuration items that meet the specified conditions.
+       * @summary Lists the accuracy test configuration items that meet the specified conditions.
        *
-       * @description Lists accuracy test configuration items that meet the specified conditions.
+       * @description Lists the accuracy test configuration items that meet the specified conditions.
        *
        * @param request ListDataAgentAccuracyTestInstancesRequest
        * @return ListDataAgentAccuracyTestInstancesResponse
@@ -1379,7 +1379,7 @@ namespace Dms20250414
       Models::ListDataAgentThemeResponse listDataAgentTheme(const Models::ListDataAgentThemeRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
+       * @summary Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1388,7 +1388,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
+       * @summary Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @return ListDataAgentWorkspaceResponse

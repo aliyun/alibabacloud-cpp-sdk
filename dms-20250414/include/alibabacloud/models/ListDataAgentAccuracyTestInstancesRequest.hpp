@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The accuracy test instance ID.
     shared_ptr<string> accuracyTestInsId_ {};
-    // The maximum number of entries per page.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

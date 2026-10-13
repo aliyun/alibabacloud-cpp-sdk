@@ -56,7 +56,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccuracyTestInsId, accuracyTestInsId_);
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
+        DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_TO_JSON(Datasource, datasource_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
@@ -71,7 +73,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccuracyTestInsId, accuracyTestInsId_);
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
+        DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_FROM_JSON(Datasource, datasource_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
@@ -94,9 +98,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accuracyTestInsId_ == nullptr
-        && this->agentId_ == nullptr && this->creator_ == nullptr && this->datasource_ == nullptr && this->fileId_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->language_ == nullptr && this->maxConcurrent_ == nullptr && this->mode_ == nullptr && this->name_ == nullptr
-        && this->needDelete_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->agentId_ == nullptr && this->creator_ == nullptr && this->datasetId_ == nullptr && this->datasource_ == nullptr && this->description_ == nullptr
+        && this->fileId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->language_ == nullptr && this->maxConcurrent_ == nullptr
+        && this->mode_ == nullptr && this->name_ == nullptr && this->needDelete_ == nullptr && this->workspaceId_ == nullptr; };
       // accuracyTestInsId Field Functions 
       bool hasAccuracyTestInsId() const { return this->accuracyTestInsId_ != nullptr;};
       void deleteAccuracyTestInsId() { this->accuracyTestInsId_ = nullptr;};
@@ -118,11 +122,25 @@ namespace Models
       inline Data& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
 
 
+      // datasetId Field Functions 
+      bool hasDatasetId() const { return this->datasetId_ != nullptr;};
+      void deleteDatasetId() { this->datasetId_ = nullptr;};
+      inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+      inline Data& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
+
+
       // datasource Field Functions 
       bool hasDatasource() const { return this->datasource_ != nullptr;};
       void deleteDatasource() { this->datasource_ = nullptr;};
       inline string getDatasource() const { DARABONBA_PTR_GET_DEFAULT(datasource_, "") };
       inline Data& setDatasource(string datasource) { DARABONBA_PTR_SET_VALUE(datasource_, datasource) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
       // fileId Field Functions 
@@ -195,13 +213,17 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
+      // The ID of the test dataset.
+      shared_ptr<string> datasetId_ {};
       // The data source.
       shared_ptr<string> datasource_ {};
+      // The description.
+      shared_ptr<string> description_ {};
       // The ID of the test set file.
       shared_ptr<string> fileId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The language used for the analysis task.
       shared_ptr<string> language_ {};
@@ -211,9 +233,9 @@ namespace Models
       shared_ptr<int32_t> mode_ {};
       // The custom agent name.
       shared_ptr<string> name_ {};
-      // Specifies whether sessions are displayed after analysis. This feature is not supported.
+      // Specifies whether the session is displayed after analysis. This feature is currently not supported.
       shared_ptr<string> needDelete_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -300,15 +322,15 @@ namespace Models
 
 
   protected:
-    // The response struct.
+    // The response data.
     shared_ptr<vector<ListDataAgentAccuracyTestInstancesResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The maximum number of entries returned per page. You can use this parameter together with NextToken to implement paging.
+    // The maximum number of results to return per request. You can use this parameter with NextToken to paginate results.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -316,9 +338,9 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
-    // The operation timestamp.
+    // The timestamp of the operation.
     shared_ptr<string> timestamp_ {};
     // The total number of records.
     shared_ptr<string> total_ {};

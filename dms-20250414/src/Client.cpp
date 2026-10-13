@@ -3856,9 +3856,9 @@ ListCustomAgentMonitorSessionsResponse Client::listCustomAgentMonitorSessions(co
 }
 
 /**
- * @summary Lists accuracy test configuration items that meet the specified conditions.
+ * @summary Lists the accuracy test configuration items that meet the specified conditions.
  *
- * @description Lists accuracy test configuration items that meet the specified conditions.
+ * @description Lists the accuracy test configuration items that meet the specified conditions.
  *
  * @param request ListDataAgentAccuracyTestInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3909,9 +3909,9 @@ ListDataAgentAccuracyTestInstancesResponse Client::listDataAgentAccuracyTestInst
 }
 
 /**
- * @summary Lists accuracy test configuration items that meet the specified conditions.
+ * @summary Lists the accuracy test configuration items that meet the specified conditions.
  *
- * @description Lists accuracy test configuration items that meet the specified conditions.
+ * @description Lists the accuracy test configuration items that meet the specified conditions.
  *
  * @param request ListDataAgentAccuracyTestInstancesRequest
  * @return ListDataAgentAccuracyTestInstancesResponse
@@ -4440,7 +4440,7 @@ ListDataAgentThemeResponse Client::listDataAgentTheme(const ListDataAgentThemeRe
 }
 
 /**
- * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
+ * @summary Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4507,7 +4507,7 @@ ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const L
 }
 
 /**
- * @summary Retrieves a paginated list of collaborative workspaces under the primary account.
+ * @summary Queries a paginated list of collaborative workspaces under the Alibaba Cloud account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @return ListDataAgentWorkspaceResponse

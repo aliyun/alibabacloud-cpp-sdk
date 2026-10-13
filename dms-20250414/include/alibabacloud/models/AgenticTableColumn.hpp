@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The name of the column.
+    // The column name.
     shared_ptr<string> columnName_ {};
-    // The data type of the column.
+    // The column type, which is the native type definition of the database.
     shared_ptr<string> columnType_ {};
-    // The description of the column.
+    // The column description.
     shared_ptr<string> description_ {};
-    // Engine-specific metadata for the column.
+    // The engine metadata of the column.
     shared_ptr<AgenticTableColumnEngineMeta> engineMeta_ {};
-    // The 1-based ordinal position of the column within the table.
+    // The position of the column in the table, starting from 1.
     shared_ptr<int32_t> position_ {};
   };
 

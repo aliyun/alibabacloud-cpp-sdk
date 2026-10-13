@@ -131,9 +131,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The sort field name.
+    // The name of the field to sort by.
     shared_ptr<string> orderBy_ {};
-    // The page number.
+    // The starting page number.
     // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The name of the workspace.
     shared_ptr<string> workspaceName_ {};
-    // The workspace type.
+    // The workspace type to query.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceType_ {};
