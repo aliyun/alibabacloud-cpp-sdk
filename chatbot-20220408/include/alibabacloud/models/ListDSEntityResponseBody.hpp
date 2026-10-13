@@ -149,25 +149,25 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC.
+      // The creation time (UTC).
       shared_ptr<string> createTime_ {};
       // The ID of the user who created the entity.
       shared_ptr<string> createUserId_ {};
       // The name of the user who created the entity.
       shared_ptr<string> createUserName_ {};
-      // The ID of the entity.
+      // The entity ID.
       shared_ptr<int64_t> entityId_ {};
       // The entity name.
       shared_ptr<string> entityName_ {};
-      // The entity type. Valid values: `synonyms`, `regex`, and `system`.
+      // The entity type (synonyms | regex | system).
       shared_ptr<string> entityType_ {};
-      // The update time in UTC.
+      // The modification time (UTC).
       shared_ptr<string> modifyTime_ {};
       // The ID of the user who last modified the entity.
       shared_ptr<string> modifyUserId_ {};
       // The name of the user who last modified the entity.
       shared_ptr<string> modifyUserName_ {};
-      // The code for the system entity, such as `sys_date`. This parameter is blank for custom entities.
+      // The system entity code, such as sys.date. This parameter is empty for user entities.
       shared_ptr<string> sysEntityCode_ {};
     };
 
@@ -213,13 +213,13 @@ namespace Models
   protected:
     // The list of entities.
     shared_ptr<vector<ListDSEntityResponseBody::Entities>> entities_ {};
-    // The current page number. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of matching entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

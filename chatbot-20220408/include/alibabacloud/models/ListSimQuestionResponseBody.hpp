@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the similar question, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The modification time of the similar question, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
       // The similar question ID.
       shared_ptr<int64_t> simQuestionId_ {};

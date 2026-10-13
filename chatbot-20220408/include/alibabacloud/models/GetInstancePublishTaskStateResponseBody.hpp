@@ -132,9 +132,9 @@ namespace Models
     shared_ptr<vector<string>> bizTypeList_ {};
     // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
-    // The error message if the task fails.
+    // The job failure information.
     shared_ptr<string> error_ {};
-    // A map of error messages for each submodule, where the key is the submodule and the value is an array of errors.
+    // The fault information for each sub-publish module. The key is the sub-publish module and the value is the fault information.
     Darabonba::Json errors_ {};
     // The task ID.
     shared_ptr<int64_t> id_ {};
@@ -142,11 +142,11 @@ namespace Models
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID, returned as a string.
+    // The task ID.
     shared_ptr<string> response_ {};
-    // The status of the task.
+    // The task status.
     shared_ptr<string> status_ {};
-    // A map of warning messages for each submodule, where the key is the submodule and the value is an array of warnings.
+    // The warning information for each sub-publish module. The key is the sub-publish module and the value is the warning information.
     Darabonba::Json warnings_ {};
   };
 

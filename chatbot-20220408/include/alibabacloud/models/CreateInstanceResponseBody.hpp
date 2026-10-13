@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The instance ID of the robot.
+    // The unique identifier of the chatbot.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

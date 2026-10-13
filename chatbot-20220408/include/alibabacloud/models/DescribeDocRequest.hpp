@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // The key that identifies the workspace. If this parameter is omitted, the default workspace is used. You can find this key on the workspace management page of your root account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
     shared_ptr<string> agentKey_ {};
     // The knowledge ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
-    // Specifies whether to return detailed information for paragraphs. true: Detailed information is returned. false: Detailed information is not returned (default).
+    // Specifies whether to display detailed paragraph information of the document. Valid values:
+    // - true: Display.
+    // - false: Ignore (default).
     shared_ptr<bool> showDetail_ {};
   };
 

@@ -149,11 +149,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the slot can accept multiple values.
+        // Indicates whether the slot is an array.
         shared_ptr<bool> array_ {};
-        // Indicates whether the slot contains sensitive data.
+        // Indicates whether the slot is sensitive.
         shared_ptr<bool> encrypt_ {};
-        // Indicates whether the slot value is collected interactively.
+        // Indicates whether the slot is collected interactively.
         shared_ptr<bool> interactive_ {};
         // The slot name.
         shared_ptr<string> name_ {};
@@ -239,25 +239,25 @@ namespace Models
 
 
     protected:
-      // The intent alias.
+      // The alias of the intent.
       shared_ptr<string> aliasName_ {};
-      // The time at which the intent was created, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the user who created the intent.
+      // The unique identifier of the creator.
       shared_ptr<string> createUserId_ {};
-      // The name of the user who created the intent.
+      // The name of the creator.
       shared_ptr<string> createUserName_ {};
       // The intent ID.
       shared_ptr<int64_t> intentId_ {};
       // The intent name.
       shared_ptr<string> intentName_ {};
-      // The time at which the intent was last modified, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The ID of the user who last modified the intent.
+      // The unique identifier of the user who last modified the intent.
       shared_ptr<string> modifyUserId_ {};
       // The name of the user who last modified the intent.
       shared_ptr<string> modifyUserName_ {};
-      // A list of slots associated with the intent.
+      // The slot information associated with the intent.
       shared_ptr<vector<Intents::SlotInfos>> slotInfos_ {};
     };
 
@@ -301,15 +301,15 @@ namespace Models
 
 
   protected:
-    // A list of intents.
+    // The list of intents.
     shared_ptr<vector<ListIntentResponseBody::Intents>> intents_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of intents per page. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of intents.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

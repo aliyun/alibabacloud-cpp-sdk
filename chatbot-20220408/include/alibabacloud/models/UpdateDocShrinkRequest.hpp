@@ -140,34 +140,45 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If this parameter is not specified, the default business space is used. You can obtain the key on the Business Management page of your master account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the primary account.
     shared_ptr<string> agentKey_ {};
     // The document category ID.
     shared_ptr<int64_t> categoryId_ {};
-    // **Splitter**: The method used to split the document. Valid values: `paragraphSplitter` (splits by paragraph, default) and `treeSplitter` (splits by hierarchical rules).
+    // The document parsing/chunking configuration.
+    // Configuration item: Splitter
+    // KEY: Splitter
+    // Valid values: paragraphSplitter - hierarchy recognition (default)
+    // Valid values: treeSplitter - rule-based hierarchy
     // 
-    // **ChunkSize**: The chunk size. The value must be an integer from 200 to 800. The default value is 500.
+    // Configuration item: Document chunk size
+    // KEY: ChunkSize
+    // VALUE: Default 500. Range: [200,800]
     // 
-    // **TreePatterns**: An array of regular expressions that define the structure for rule-based splitting. The default value is `[]`.
+    // Configuration item: Rule-based hierarchy
+    // KEY: TreePatterns
+    // VALUE: Default []
     // 
-    // **TitleSource**: The source of the document title. Valid values: `ocrTitle` (uses the OCR-recognized title, default) and `docName` (uses the document name as the title).
+    // Configuration item: Document title source
+    // KEY: TitleSource
+    // Valid values: ocrTitle - OCR-recognized title (default)
+    // Valid values: docName - document name as title.
     shared_ptr<string> config_ {};
     // The document content.
     shared_ptr<string> content_ {};
     shared_ptr<string> docMetadataShrink_ {};
     // The document name.
     shared_ptr<string> docName_ {};
-    // The time when the document expires. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The end of the effective period.
     shared_ptr<string> endDate_ {};
     // The document ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
-    // The metadata of the document, specified as a JSON string.
+    // The document metadata.
     shared_ptr<string> meta_ {};
-    // The time when the document becomes effective. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The start of the effective period.
     shared_ptr<string> startDate_ {};
-    // The tag IDs to associate with the document. Passing an empty array removes all existing tag associations.
+    // The list of tag IDs. If this parameter is left empty, the tag bindings are removed.
     shared_ptr<string> tagIdsShrink_ {};
     // The document title.
     shared_ptr<string> title_ {};

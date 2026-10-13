@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The name of the business space. Use this parameter to filter the results.
+    // The business space name. You can use this parameter to search by name.
     shared_ptr<string> agentName_ {};
-    // The commodity code. Filters the results to return only business spaces associated with a specific commodity code.
+    // The commodity code. You can use this parameter to filter by commodity code and query instance information.
     shared_ptr<string> goodsCodes_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // The number of records per page in the response. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

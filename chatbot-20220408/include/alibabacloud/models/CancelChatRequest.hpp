@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The agent key. If unspecified, the default agent is used. You can obtain the key on the Business Management page of your Alibaba Cloud account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The content of the answer.
+    // The answer content.
     shared_ptr<string> answer_ {};
-    // The ID that identifies a single chat turn.
+    // The ID that identifies a single conversation.
     shared_ptr<string> chatId_ {};
-    // The ID of the chatbot instance.
+    // The chatbot ID.
     shared_ptr<string> instanceId_ {};
-    // The session ID is used to identify a visitor\\"s session and maintain context. For a new visitor, omit this parameter in the first call to the chat operation. The chatbot starts a session and returns the session ID in the response. For subsequent turns, you must pass the session ID to maintain context. The value can be up to 64 characters in length.
+    // The session ID, which is used to identify a visitor\\"s session and maintain context information. For a new visitor, you do not need to specify this parameter when calling the Chat operation for the first time. The chatbot starts a session and returns the SessionId in the response of the Chat operation. For subsequent conversation turns of the visitor, pass the SessionId of the current session when calling the Chat operation so that the chatbot can continue the conversation based on the SessionId. Maximum length: 64 characters.
     shared_ptr<string> sessionId_ {};
-    // The cancellation type.
+    // The interruption type.
     shared_ptr<string> type_ {};
   };
 

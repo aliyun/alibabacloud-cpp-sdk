@@ -122,13 +122,15 @@ namespace Models
       shared_ptr<string> modifyTime_ {};
       // The perspective name.
       shared_ptr<string> name_ {};
-      // The perspective code (used for the Q\\&A API).
+      // The perspective code, which is used for the Q&A API.
       shared_ptr<string> perspectiveCode_ {};
       // The perspective ID.
       shared_ptr<string> perspectiveId_ {};
       // Indicates whether the perspective is custom-defined.
       shared_ptr<bool> selfDefine_ {};
-      // The status of the perspective. Valid values are 3 (enabled) and 1 (disabled).
+      // The data status. Valid values:
+      // - 3: Enabled.
+      // - 1: Not enabled.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -151,7 +153,7 @@ namespace Models
 
 
   protected:
-    // A list of perspectives.
+    // The list of perspectives.
     shared_ptr<vector<QueryPerspectivesResponseBody::Perspectives>> perspectives_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -106,23 +106,27 @@ namespace Models
 
 
   protected:
-    // A list of business types.
+    // The list of business types.
     shared_ptr<vector<string>> bizTypeList_ {};
-    // The time when the task was created, in UTC.
+    // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
-    // The error message returned if the task fails.
+    // The task failure information.
     shared_ptr<string> error_ {};
-    // The ID of the publish task.
+    // The publish task ID.
     shared_ptr<int64_t> id_ {};
-    // The time when the task was last modified, in UTC.
+    // The UTC time when the task was last modified.
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the publish task. This is a redundant field. We recommend that you use the `Id` field instead.
+    // The publish task ID. This is a redundant field. Use the publish task ID instead.
     shared_ptr<string> response_ {};
-    // The task status. Valid values:
+    // The task status.
+    // Valid values:
     // 
-    // `FE_RUNNING`: in progress, `FE_SUCCESS`: succeeded, `FE_FAILED`: failed, `FE_ABORTED`: aborted.
+    // - FE_RUNNING: Publishing in progress.
+    // - FE_SUCCESS: Published successfully.
+    // - FE_FAILED: Publishing failed.
+    // - FE_ABORTED: Publishing canceled.
     shared_ptr<string> status_ {};
   };
 

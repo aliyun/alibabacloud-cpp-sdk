@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The ASR end-pointing detection time, in milliseconds.
+    // The Automatic Speech Recognition (ASR) end-of-speech detection time. Unit: milliseconds.
     shared_ptr<int32_t> asrMaxEndSilence_ {};
-    // Indicates whether voice playback is interruptible.
+    // Indicates whether the voice broadcast can be interrupted.
     shared_ptr<bool> interruptible_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The silence timeout, in seconds.
+    // The silence timeout period. Unit: seconds.
     shared_ptr<int32_t> silenceReplyTimeout_ {};
     // The welcome message.
     shared_ptr<string> welcomeMessage_ {};

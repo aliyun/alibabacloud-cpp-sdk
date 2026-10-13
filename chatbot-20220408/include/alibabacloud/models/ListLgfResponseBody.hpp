@@ -103,13 +103,13 @@ namespace Models
 
 
     protected:
-      // The creation time, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the intent.
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
-      // The LGF ID.
+      // LGF ID
       shared_ptr<int64_t> lgfId_ {};
-      // The modification time, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
       // The LGF rule.
       shared_ptr<string> ruleText_ {};
@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // A list of advanced semantic configurations.
+    // The list of LGF configurations.
     shared_ptr<vector<ListLgfResponseBody::Lgfs>> lgfs_ {};
-    // The returned page number.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of matching entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

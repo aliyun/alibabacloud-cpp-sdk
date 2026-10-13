@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // Indicates whether the slot can contain an array of values.
+      // Indicates whether the slot is an array.
       shared_ptr<bool> array_ {};
-      // Indicates whether the slot is configured to encrypt its value.
+      // Indicates whether the slot is sensitive.
       shared_ptr<bool> encrypt_ {};
       // Indicates whether interactive slot filling is enabled. Default value: false.
       shared_ptr<bool> interactive_ {};
       // The slot name.
       shared_ptr<string> name_ {};
-      // The slot ID.
+      // The unique identifier of the slot.
       shared_ptr<string> slotId_ {};
-      // The value extracted for the slot.
+      // The slot tagging result.
       shared_ptr<string> value_ {};
     };
 
@@ -223,25 +223,25 @@ namespace Models
   protected:
     // The intent alias.
     shared_ptr<string> aliasName_ {};
-    // The time when the intent was created, in UTC format.
+    // The creation time in UTC.
     shared_ptr<string> createTime_ {};
-    // The creator ID.
+    // The unique identifier of the creator.
     shared_ptr<string> createUserId_ {};
-    // The creator name.
+    // The name of the creator.
     shared_ptr<string> createUserName_ {};
     // The intent ID.
     shared_ptr<int64_t> intentId_ {};
     // The intent name.
     shared_ptr<string> intentName_ {};
-    // The time when the intent was last modified, in UTC format.
+    // The modification time in UTC.
     shared_ptr<string> modifyTime_ {};
-    // The modifier ID.
+    // The unique identifier of the user who last modified the intent.
     shared_ptr<string> modifyUserId_ {};
-    // The modifier name.
+    // The name of the user who last modified the intent.
     shared_ptr<string> modifyUserName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of objects that contain the slot information for the intent.
+    // The slot information associated with the intent.
     shared_ptr<vector<DescribeIntentResponseBody::SlotInfos>> slotInfos_ {};
   };
 

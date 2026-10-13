@@ -183,29 +183,38 @@ namespace Models
     protected:
       // The category ID.
       shared_ptr<int64_t> categoryId_ {};
-      // The creation time (UTC).
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<int64_t> createUserId_ {};
-      // The creator\\"s username.
+      // The name of the creator.
       shared_ptr<string> createUserName_ {};
-      // The effective status of the FAQ. This status is determined by the StartDate and EndDate parameters.
+      // The effective status of the knowledge, calculated based on StartDate and EndDate. Valid values:
+      // 
+      // - 20: Active.
+      // - 21: Expired.
+      // - 22: Pending.
       shared_ptr<int32_t> effectStatus_ {};
-      // A list of matched similar titles.
+      // The list of hit similar questions.
       shared_ptr<vector<string>> hitSimilarTitles_ {};
-      // A list of matched answers.
+      // The list of hit solutions.
       shared_ptr<vector<string>> hitSolutions_ {};
-      // The FAQ ID.
+      // The knowledge ID.
       shared_ptr<int64_t> knowledgeId_ {};
-      // The modification time (UTC).
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The modifier ID.
+      // The ID of the modifier.
       shared_ptr<int64_t> modifyUserId_ {};
-      // The modifier\\"s username.
+      // The name of the modifier.
       shared_ptr<string> modifyUserName_ {};
-      // The FAQ status.
+      // The knowledge status. Valid values:
+      // 
+      // - -1: deleted and unpublished.
+      // - 1: unpublished.
+      // - 2: published.
+      // - 3: updated and unpublished.
       shared_ptr<int32_t> status_ {};
-      // The title of the FAQ.
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -249,7 +258,7 @@ namespace Models
 
 
   protected:
-    // The list of matching FAQs.
+    // The knowledge search results.
     shared_ptr<vector<SearchFaqResponseBody::FaqHits>> faqHits_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -257,7 +266,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of matched entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

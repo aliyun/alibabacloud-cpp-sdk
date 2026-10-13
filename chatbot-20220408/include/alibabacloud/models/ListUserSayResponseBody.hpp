@@ -114,11 +114,11 @@ namespace Models
 
 
       protected:
-        // The zero-based end index of the slot in the user say. This value is exclusive.
+        // The end index of the slot in the intent utterance (exclusive).
         shared_ptr<int32_t> endIndex_ {};
-        // The ID of the intent slot.
+        // The intent slot ID.
         shared_ptr<string> slotId_ {};
-        // The zero-based start index of the slot in the user say. This value is inclusive.
+        // The start index of the slot in the intent utterance.
         shared_ptr<int32_t> startIndex_ {};
       };
 
@@ -169,17 +169,17 @@ namespace Models
 
 
     protected:
-      // The content of the user say.
+      // The utterance content.
       shared_ptr<string> content_ {};
-      // The time when the user say was created. The time is in UTC.
+      // The time when the utterance was created, in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the intent.
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
-      // The time when the user say was last modified. The time is in UTC.
+      // The time when the utterance was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
-      // A list of associated slots.
+      // The associated slot information.
       shared_ptr<vector<UserSays::SlotInfos>> slotInfos_ {};
-      // The ID of the user say.
+      // The utterance ID.
       shared_ptr<int64_t> userSayId_ {};
     };
 
@@ -223,15 +223,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of matching entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of user says.
+    // The list of utterances.
     shared_ptr<vector<ListUserSayResponseBody::UserSays>> userSays_ {};
   };
 

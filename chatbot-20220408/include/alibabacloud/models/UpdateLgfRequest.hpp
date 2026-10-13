@@ -116,17 +116,17 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If omitted, the default business space is used. You can get the key on the Business Management page of your main account.
+    // The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The bot ID.
+    // The chatbot ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The LGF definition.
+    // The LGF information.
     // 
     // This parameter is required.
     shared_ptr<UpdateLgfRequest::LgfDefinition> lgfDefinition_ {};
-    // The LGF ID.
+    // LGF ID
     // 
     // This parameter is required.
     shared_ptr<int64_t> lgfId_ {};

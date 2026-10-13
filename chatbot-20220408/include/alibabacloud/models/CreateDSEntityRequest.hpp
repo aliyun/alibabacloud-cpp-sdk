@@ -66,15 +66,18 @@ namespace Models
 
 
   protected:
-    // The key for the `business space`. If you omit this parameter, the default `business space` is used. You can get the key from the Business Management page of your `main account`.
+    // The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value on the business management page of the main account.
     shared_ptr<string> agentKey_ {};
-    // The `entity name`. The name can contain Chinese characters, uppercase and lowercase letters, digits, and underscores (_).
+    // The entity name. Only Chinese characters, uppercase and lowercase letters, digits, and underscores are supported.
     // 
     // This parameter is required.
     shared_ptr<string> entityName_ {};
-    // The `entity type`. Valid values: `synonyms` and `regex`.
+    // The entity type. Valid values:
+    // 
+    // - synonyms: synonym.
+    // - regex: regular expression.
     shared_ptr<string> entityType_ {};
-    // The `instance ID`.
+    // The chatbot ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

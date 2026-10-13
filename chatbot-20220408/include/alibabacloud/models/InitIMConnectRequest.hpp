@@ -57,13 +57,10 @@ namespace Models
 
 
   protected:
-    // The key for the business space. Omit this parameter to use the default business space. You can get the key from the business management page of your main account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The identifier for the connection source. You can obtain this value from the channel console.
-    // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The access token for user authentication.
     shared_ptr<string> userAccessToken_ {};
   };
 

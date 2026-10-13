@@ -162,15 +162,15 @@ namespace Models
 
 
       protected:
-        // Indicates whether this is a default tag.
+        // Indicates whether this is the default label that represents all labels.
         shared_ptr<bool> defaultTag_ {};
-        // The tag group ID.
+        // The label group ID.
         shared_ptr<int64_t> groupId_ {};
-        // The tag group name.
+        // The label group name.
         shared_ptr<string> groupName_ {};
-        // The tag ID.
+        // The label ID.
         shared_ptr<int64_t> tagId_ {};
-        // The tag name.
+        // The label name.
         shared_ptr<string> tagName_ {};
       };
 
@@ -333,49 +333,76 @@ namespace Models
       shared_ptr<string> bizCode_ {};
       // The category ID.
       shared_ptr<int64_t> categoryId_ {};
-      // The splitter for the document. Key: `Splitter`. Valid values:<br>• `paragraphSplitter` (default): Splits the document by paragraph.<br>• `treeSplitter`: Splits the document based on a rule-based hierarchy.<br><br>
+      // The document parsing and chunking configuration.
       // 
-      // The size of each document chunk. Key: `ChunkSize`. Default value: 500. Value range: [200, 800].
+      // Configuration item: Splitter
+      // KEY: Splitter
+      // Valid values:
+      // - paragraphSplitter: hierarchy recognition (default)
+      // - treeSplitter: rule-based hierarchy
       // 
-      // The patterns for the rule-based hierarchy. Key: `TreePatterns`. Default value: `[]`.
+      // Configuration item: Document chunk size
+      // KEY: ChunkSize
+      // VALUE: Default value: 500. Value range: [200, 800].
       // 
-      // The source of the document title. Key: `TitleSource`. Valid values:<br>• `ocrTitle` (default): Uses the OCR-identified title.<br>• `docName`: Uses the document name as the title.<br><br>
+      // Configuration item: Rule-based hierarchy
+      // KEY: TreePatterns
+      // VALUE: Default value: [].
+      // 
+      // Configuration item: Document title source
+      // KEY: TitleSource
+      // Valid values:
+      // - ocrTitle: OCR-recognized title (default)
+      // - docName: document name as title
       shared_ptr<string> config_ {};
-      // The time the document was created (UTC).
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The creator ID.
+      // The ID of the creator.
       shared_ptr<int64_t> createUserId_ {};
       // The name of the creator.
       shared_ptr<string> createUserName_ {};
       // The document name.
       shared_ptr<string> docName_ {};
-      // A list of the document\\"s tags.
+      // The list of label details.
       shared_ptr<vector<DocHits::DocTags>> docTags_ {};
-      // The knowledge\\"s effective status, calculated based on `StartDate` and `EndDate`. Valid values:<br>• 20: Active<br>• 21: Expired<br>• 22: Pending<br><br><br>
+      // The knowledge effective status, calculated based on StartDate and EndDate. Valid values:
+      // - 20: effective
+      // - 21: expired
+      // - 22: pending effective
       shared_ptr<int32_t> effectStatus_ {};
-      // The time the knowledge expires (UTC).
+      // The expiration time in UTC.
       shared_ptr<string> endDate_ {};
       // The knowledge ID.
       shared_ptr<int64_t> knowledgeId_ {};
-      // The document metadata.
+      // The metadata associated with the document.
       shared_ptr<string> meta_ {};
-      // The time the document was last modified (UTC).
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The modifier ID.
+      // The ID of the modifier.
       shared_ptr<int64_t> modifyUserId_ {};
-      // The name of the last modifier.
+      // The name of the modifier.
       shared_ptr<string> modifyUserName_ {};
-      // Indicates whether the task can be retried.<br>• `true`: The task can be retried.<br>• `false`: The task cannot be retried.<br><br>
+      // Indicates whether the task can be retried. Valid values:
+      // - true: The task can be retried.
+      // - false: The task cannot be retried.
       shared_ptr<bool> processCanRetry_ {};
-      // The processing message for the task.
+      // The task processing message.
       shared_ptr<string> processMessage_ {};
-      // The task\\"s processing status. Valid values:<br>• -1: Queued<br>• 0: Succeeded<br>• 1: Parsing<br>• 2: Processing<br>• 3: Failed<br><br><br><br><br>
+      // The task processing status. Valid values:
+      // - -1: queued
+      // - 0: succeeded
+      // - 1: parsing
+      // - 2: processing
+      // - 3: processing failed
       shared_ptr<int32_t> processStatus_ {};
-      // The time the knowledge takes effect (UTC).
+      // The effective period in UTC.
       shared_ptr<string> startDate_ {};
-      // The editing status of the document. Valid values:<br>• 1: Unpublished<br>• 2: Published<br>• 3: Updated but not published<br><br><br>
+      // The editing status. Valid values:
+      // - 1: unpublished
+      // - 2: published
+      // - 3: updated but not published
       shared_ptr<int32_t> status_ {};
-      // The OSS URL of the object.
+      // The OSS URL where the document is stored.
       shared_ptr<string> url_ {};
     };
 
@@ -419,15 +446,15 @@ namespace Models
 
 
   protected:
-    // A list of matching documents.
+    // The list of documents.
     shared_ptr<vector<SearchDocResponseBody::DocHits>> docHits_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of matching entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

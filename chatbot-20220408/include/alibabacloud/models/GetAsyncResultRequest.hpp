@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If unspecified, the default business space is used. This key is available on the Business Management page of your Alibaba Cloud account.
+    // The workspace key. If not specified, the default workspace is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the asynchronous task.
+    // The task ID of the asynchronous service.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

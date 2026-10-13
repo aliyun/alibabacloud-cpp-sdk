@@ -176,13 +176,13 @@ namespace Models
 
 
         protected:
-          // Indicates whether the slot was filled.
+          // Indicates whether the slot is hit.
           shared_ptr<bool> hit_ {};
-          // The name of the slot.
+          // The name.
           shared_ptr<string> name_ {};
-          // The original value from the user\\"s input.
+          // The original value.
           shared_ptr<string> origin_ {};
-          // Extracted value of the slot.
+          // The specific value.
           shared_ptr<string> value_ {};
         };
 
@@ -319,39 +319,39 @@ namespace Models
 
 
       protected:
-        // The source of the answer.
+        // Distinguishes the answer type.
         shared_ptr<string> answerSource_ {};
-        // Title of the matched article. Returned only if `AnswerSource` is `MACHINE_READ`.
+        // When AnswerSource is MACHINE_READ, this field returns the title of the hit article.
         shared_ptr<string> articleTitle_ {};
-        // Command parameters, such as the skill group for transferring to a human agent.
+        // The instruction parameters, such as the skill group for a transfer-to-agent instruction.
         Darabonba::Json commands_ {};
         // The content of the text message.
         shared_ptr<string> content_ {};
-        // The content format of the answer.
+        // The indicator of whether the answer is plain text or rich text.
         shared_ptr<string> contentType_ {};
-        // Name of the dialog. Returned only if `AnswerSource` is `BotFramework`.
+        // When AnswerSource is BotFramework, this field returns the dialog flow unit name.
         shared_ptr<string> dialogName_ {};
-        // Contains passthrough parameters.
+        // The pass-through parameters returned in this field.
         Darabonba::Json ext_ {};
-        // Passthrough parameters. Returned only if `AnswerSource` is `BotFramework`.
+        // The pass-through parameters returned when AnswerSource is BotFramework.
         Darabonba::Json externalFlags_ {};
         // The hit statement.
         shared_ptr<string> hitStatement_ {};
-        // The name of the intent. This field is returned when `AnswerSource` is `BotFramework`.
+        // When AnswerSource is BotFramework, this field returns the intent name.
         shared_ptr<string> intentName_ {};
-        // Metadata.
+        // The metadata.
         shared_ptr<string> metaData_ {};
-        // The node ID. Returned only if `AnswerSource` is `BotFramework`.
+        // The node ID returned when AnswerSource is BotFramework.
         shared_ptr<string> nodeId_ {};
-        // The name of the node. This field is returned when `AnswerSource` is `BotFramework`.
+        // When AnswerSource is BotFramework, this field returns the node name.
         shared_ptr<string> nodeName_ {};
-        // A value of `SSML` indicates that an interactive slot-filling process has started in the dialog factory. This field is returned only if `AnswerSource` is `BotFramework`.
+        // When AnswerSource is BotFramework and ResponseType is SSML, this field indicates that a dialog flow interactive slot filling is hit. Otherwise, this field does not exist.
         shared_ptr<string> responseType_ {};
-        // The confidence score.
+        // The score.
         shared_ptr<double> score_ {};
-        // A list of slot objects. Returned only if `AnswerSource` is `BotFramework`.
+        // When AnswerSource is BotFramework, this field returns the list of named entities.
         shared_ptr<vector<Text::Slots>> slots_ {};
-        // The title of a custom chit-chat topic.
+        // The title of the custom chitchat topic.
         shared_ptr<string> userDefinedChatTitle_ {};
       };
 
@@ -411,13 +411,13 @@ namespace Models
 
 
       protected:
-        // Source of the clarification.
+        // The identifier of the clarification source.
         shared_ptr<string> answerSource_ {};
-        // The knowledge ID for the clarification.
+        // The knowledge ID for clarification.
         shared_ptr<string> knowledgeId_ {};
-        // The score of the recommended content. Returned only if `AnswerSource` is `KNOWLEDGE`.
+        // The score of the recommended content. This field has a value when AnswerSource is KNOWLEDGE.
         shared_ptr<double> score_ {};
-        // Clarification content. This can be an entity from knowledge graph QA, a knowledge title from FAQ-based QA, or a column value from table QA.
+        // The clarification content, which can be an entity from knowledge graph Q&A, a knowledge title from knowledge-based Q&A, or a column value from table-based Q&A.
         shared_ptr<string> title_ {};
       };
 
@@ -578,26 +578,26 @@ namespace Models
 
 
       protected:
-        // The source of the answer.
-        // `KnowledgeBase`: The answer is from the knowledge base.
+        // Distinguishes the answer type.
+        // KnowledgeBase: knowledge base.
         shared_ptr<string> answerSource_ {};
-        // The category of the knowledge entry.
+        // The knowledge category.
         shared_ptr<string> category_ {};
-        // The content of the matched knowledge entry.
+        // The content of the hit question.
         shared_ptr<string> content_ {};
-        // Content format of the answer.
+        // The indicator of whether the answer is plain text or rich text.
         shared_ptr<string> contentType_ {};
-        // The hit statement matching the query.
+        // The hit statement.
         shared_ptr<string> hitStatement_ {};
-        // ID of the matched knowledge entry in the knowledge base.
+        // The ID of the hit question in the knowledge base.
         shared_ptr<string> id_ {};
-        // A list of related knowledge objects.
+        // The list of related knowledge entries.
         shared_ptr<vector<Knowledge::RelatedKnowledges>> relatedKnowledges_ {};
-        // The confidence score.
+        // The score.
         shared_ptr<double> score_ {};
-        // Summary of the matched knowledge entry.
+        // The summary of the hit question.
         shared_ptr<string> summary_ {};
-        // The title of the matched knowledge entry.
+        // The title of the hit question.
         shared_ptr<string> title_ {};
       };
 
@@ -660,19 +660,20 @@ namespace Models
 
 
     protected:
-      // Indicates the source of the recommended answer if `AnswerType` is `Recommend`.
+      // The source of the recommended answer when AnswerType is Recommend.
+      // [_single.resp.200.props.Messages.items.AnswerSource.enum. INTENT_FAQ_CLARIFY]mixed clarification from FAQ and dialog flow
       shared_ptr<string> answerSource_ {};
-      // Type of the message.
+      // The type of this message.
       shared_ptr<string> answerType_ {};
-      // Contains the `Knowledge` object if `AnswerType` is `Knowledge`.
+      // When AnswerType is Knowledge, this field contains the Knowledge object returned by the chatbot.
       shared_ptr<Messages::Knowledge> knowledge_ {};
-      // Contains a list of `Recommend` objects if `AnswerType` is `Recommend`.
+      // The list of recommendations returned by the bot when AnswerType is Recommend.
       shared_ptr<vector<Messages::Recommends>> recommends_ {};
-      // Contains the `Text` object if `AnswerType` is `Text`.
+      // When AnswerType is Text, this field contains the Text object returned by the chatbot.
       shared_ptr<Messages::Text> text_ {};
-      // The title of the clarification question for text-based chat scenarios.
+      // The counter-question title in online scenarios.
       shared_ptr<string> title_ {};
-      // The clarification content for voice-based scenarios.
+      // The clarification content in voice scenarios.
       shared_ptr<string> voiceTitle_ {};
     };
 
@@ -718,15 +719,15 @@ namespace Models
 
 
   protected:
-    // The unique message ID.
+    // The ID of the response message in the current session.
     shared_ptr<string> messageId_ {};
-    // A list of message objects.
+    // The list of messages.
     shared_ptr<vector<ChatResponseBody::Messages>> messages_ {};
-    // The words segmented from the query. This field may be empty.
+    // The tokenization results of the query, which may be empty.
     shared_ptr<vector<string>> querySegList_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The unique session ID.
+    // The ID of the current session.
     shared_ptr<string> sessionId_ {};
   };
 

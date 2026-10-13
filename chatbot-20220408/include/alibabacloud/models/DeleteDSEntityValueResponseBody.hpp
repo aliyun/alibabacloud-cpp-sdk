@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the deleted entity value.
+    // The entity member ID.
     shared_ptr<int64_t> entityValueId_ {};
-    // The unique identifier of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

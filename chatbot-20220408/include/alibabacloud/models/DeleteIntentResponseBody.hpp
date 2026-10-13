@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the deleted intent.
+    // The intent ID.
     shared_ptr<int64_t> intentId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

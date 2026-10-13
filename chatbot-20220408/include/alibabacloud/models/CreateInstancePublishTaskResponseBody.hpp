@@ -106,11 +106,11 @@ namespace Models
 
 
   protected:
-    // A list of business types.
+    // The list of business types.
     shared_ptr<vector<string>> bizTypeList_ {};
     // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
-    // The error message for the publish task.
+    // The error message of the job failure.
     shared_ptr<string> error_ {};
     // The task ID.
     shared_ptr<int64_t> id_ {};
@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID, returned as a string.
+    // The task ID.
     shared_ptr<string> response_ {};
     // The task status.
     shared_ptr<string> status_ {};

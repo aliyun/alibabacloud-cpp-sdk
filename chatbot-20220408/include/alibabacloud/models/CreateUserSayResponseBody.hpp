@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The unique ID of the intent-user say pair.
+    // The unique ID of the intent utterance.
     shared_ptr<int64_t> userSayId_ {};
   };
 

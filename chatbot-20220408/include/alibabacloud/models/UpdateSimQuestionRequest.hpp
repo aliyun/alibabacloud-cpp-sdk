@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The key of the workspace. If you do not specify this parameter, the default workspace is used. You can find the key on the Business Management page of your master account.
+    // The key of the business space. If this parameter is not specified, the default business space is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the similar question that you want to update.
+    // The ID of the similar question.
     // 
     // This parameter is required.
     shared_ptr<int64_t> simQuestionId_ {};
-    // The new title of the similar question. The title can be up to 120 characters long.
+    // The title of the similar question. The maximum length is 120 characters.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

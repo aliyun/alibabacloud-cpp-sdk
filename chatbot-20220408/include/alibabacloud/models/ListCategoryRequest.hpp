@@ -57,11 +57,16 @@ namespace Models
 
 
   protected:
-    // The business space key. If you omit this parameter, the default business space is used. You can obtain the key on the Business Management page of your primary account.
+    // The key of the business space. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The knowledge type. Valid values: `1` (FAQ category) and `3` (document category). The default value is `1`.
+    // The knowledge type. Valid values:
+    // 
+    // - 1: FAQ category.
+    // - 3: Document category.
+    // 
+    // Default value: 1.
     shared_ptr<int32_t> knowledgeType_ {};
-    // The parent category ID.
+    // The ID of the parent category.
     shared_ptr<int64_t> parentCategoryId_ {};
   };
 

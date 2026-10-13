@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The key of the business space. If you do not specify this parameter, the default business space is used. You can find the key on the Business Management page of your master account.
+    // The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the primary account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the publish task.
+    // The publish task ID.
     shared_ptr<int64_t> id_ {};
   };
 

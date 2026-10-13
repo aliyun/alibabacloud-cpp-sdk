@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique ID of the LGF.
+    // The unique identifier of the LGF.
     shared_ptr<int64_t> lgfId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

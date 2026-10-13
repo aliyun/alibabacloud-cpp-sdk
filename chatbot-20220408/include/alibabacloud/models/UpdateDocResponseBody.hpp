@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The knowledge ID of the document.
+    // The knowledge ID.
     shared_ptr<int64_t> knowledgeId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

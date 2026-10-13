@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // The workspace key. If this parameter is not specified, the service uses the default workspace. You can obtain the key from the workspace management page of your Alibaba Cloud account.
+    // The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the primary account.
     shared_ptr<string> agentKey_ {};
-    // The instance ID.
+    // The unique identifier of the robot.
     shared_ptr<string> instanceId_ {};
-    // The code for a perspective. Use this to retrieve answers from different perspectives that share the same knowledge title. When constructing the request, pass the value in the "Perspective={perspective_code}" format, for example, \\&Perspective=["FZJBY3raWr"]. If you use an SDK, pass the parameter as defined by the SDK. You can specify only one perspective in each request.
+    // The perspective code, which is used to call answers from different perspectives under the same knowledge title. When assembling request parameters, pass the parameter in the format Perspective={perspective code}. For example: &Perspective=["FZJBY3raWr"]. When using the SDK, use the parameters defined in the SDK. Currently, only one perspective answer can be called.
     shared_ptr<vector<string>> perspective_ {};
-    // The number of recommended FAQs to return. The value must be an integer from 1 to 10. This parameter takes effect only when recommendations are generated. The number of FAQs returned is less than or equal to the value you specify.
+    // The number of recommended questions, ranging from 1 to 10. This parameter takes effect only when recommendations are returned. The number of returned recommended questions is less than or equal to RecommendNum.
     shared_ptr<int64_t> recommendNum_ {};
-    // The session ID that identifies a conversation and maintains context. For the first request from a new user, you can omit this parameter. The service automatically starts a session and returns a session ID in the response. To continue the conversation, you must include the session ID in subsequent requests.
+    // The session ID, which is used to identify a visitor\\"s session and maintain context information. For a new visitor, you do not need to pass this field when calling the Chat operation for the first time. The robot starts a session and returns the SessionId of the session in the response of the Chat operation. For subsequent conversation turns of the visitor, pass the SessionId of the current session when calling the Chat operation so that the robot can continue the conversation based on the SessionId.
     shared_ptr<string> sessionId_ {};
-    // The user\\"s utterance.
+    // The user utterance.
     shared_ptr<string> utterance_ {};
   };
 

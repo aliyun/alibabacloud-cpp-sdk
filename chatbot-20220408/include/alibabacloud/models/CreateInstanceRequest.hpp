@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The key of the agent. If you omit this parameter, the default agent is used. You can find the key on the Business Management page of your Alibaba Cloud account.
+    // The workspace key. If this parameter is not specified, the default workspace is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // A description of the robot. The description can be up to 50 characters long.
+    // The description of the chatbot. The description can be up to 50 characters in length.
     shared_ptr<string> introduction_ {};
-    // The language of the robot, such as `zh-cn` or `en-us`. The language must be supported by the agent. If you omit this parameter, the agent\\"s default language is used.
+    // The language of the chatbot service, such as zh-cn or en-us. Default value: the default language of the workspace. Valid values: the languages supported by the workspace.
     shared_ptr<string> languageCode_ {};
-    // The name of the robot. The maximum length is 50 characters.
+    // The name of the chatbot. The name can be up to 50 characters in length.
     shared_ptr<string> name_ {};
-    // The robot type. The default value is `scenario_im`.
+    // The type of the chatbot. Default value: scenario_im.
     shared_ptr<string> robotType_ {};
   };
 

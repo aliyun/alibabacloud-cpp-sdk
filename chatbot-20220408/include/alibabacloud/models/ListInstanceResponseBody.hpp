@@ -124,13 +124,13 @@ namespace Models
     protected:
       // The URL of the chatbot avatar.
       shared_ptr<string> avatar_ {};
-      // The time when the chatbot was created. The time is in the UTC format.
+      // The UTC time when the chatbot was created.
       shared_ptr<string> createTime_ {};
-      // The unique ID of the chatbot.
+      // The unique identifier of the chatbot.
       shared_ptr<string> instanceId_ {};
-      // The remarks on the chatbot.
+      // The description of the chatbot.
       shared_ptr<string> introduction_ {};
-      // The language of the chatbot, such as zh-cn and en-us. For more information, see http\\://www\\.lingoes.net/en/translator/langcode.htm.
+      // The language of the chatbot service, such as zh-cn or en-us. For more information, see http://www.lingoes.net/zh/translator/langcode.htm.
       shared_ptr<string> languageCode_ {};
       // The name of the chatbot.
       shared_ptr<string> name_ {};

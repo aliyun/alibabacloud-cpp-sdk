@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The business space key. If not specified, the default business space is used. You can get the key from the Business Management page of your main account.
+    // The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The name of the perspective. The name must be 50 characters or fewer.
+    // The perspective name. The name can be up to 50 characters in length.
     shared_ptr<string> name_ {};
     // The perspective ID.
     shared_ptr<string> perspectiveId_ {};

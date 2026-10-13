@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The workspace key. If you omit this parameter, the default workspace is used. You can get this key from the Business Management page in your Alibaba Cloud account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The unique ID of the chatbot instance.
+    // The unique identifier of the chatbot.
     shared_ptr<string> instanceId_ {};
-    // The new description of the chatbot.
+    // The remarks of the chatbot to update.
     shared_ptr<string> introduction_ {};
-    // The new name of the chatbot. The maximum length is 50 characters.
+    // The name of the chatbot to update. The name can be up to 50 characters in length.
     shared_ptr<string> name_ {};
   };
 

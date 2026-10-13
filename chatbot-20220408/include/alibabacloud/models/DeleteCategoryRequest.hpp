@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The agent key. If not specified, the default agent is used. You can obtain the key from the agent management page of your main account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The unique identifier of the category.
+    // The category ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};

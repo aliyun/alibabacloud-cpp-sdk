@@ -57,17 +57,16 @@ namespace Models
 
 
   protected:
-    // The task result, returned as a JSON-formatted string.
+    // The execution result data of the customer service.
     shared_ptr<string> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task\\"s execution status. Valid values:
-    // 
-    // | Value   | Description                      |
-    // | ------- | -------------------------------- |
-    // | Success | The task completed successfully. |
-    // | Running | The task is running.             |
-    // | Fail    | The task failed.                 |
+    // The execution status.
+    // | Value | Description |
+    // |----|----|
+    // | Success | The task is executed. |
+    // | Runninig | The task is being executed. |
+    // | Fail | The task failed to be executed. |
     shared_ptr<string> status_ {};
   };
 

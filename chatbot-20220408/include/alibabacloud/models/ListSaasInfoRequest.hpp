@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If this parameter is omitted, the default business space is used. You can obtain the key from the Business Management page of your primary account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The codes of the user\\"s SaaS permission groups. Separate multiple codes with a comma.
+    // The SaaS permission group codes owned by the user. Separate multiple codes with commas (,).
     shared_ptr<string> saasGroupCodes_ {};
-    // The username of the business user.
+    // The username of the business party.
     // 
     // This parameter is required.
     shared_ptr<string> saasName_ {};

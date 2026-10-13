@@ -114,17 +114,17 @@ namespace Models
 
 
     protected:
-      // The content of the entity value, which can be a standard value or a regular expression.
+      // The entity member name (entity value or regular expression).
       shared_ptr<string> content_ {};
-      // The creation time of the entity value in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The ID of the entity.
+      // The entity ID.
       shared_ptr<int64_t> entityId_ {};
-      // The ID of the entity value.
+      // The entity member ID.
       shared_ptr<int64_t> entityValueId_ {};
-      // The last modification time of the entity value in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // A list of synonyms for the entity value.
+      // The synonym list.
       shared_ptr<vector<string>> synonyms_ {};
     };
 
@@ -168,15 +168,15 @@ namespace Models
 
 
   protected:
-    // A list of entity values.
+    // The entity list.
     shared_ptr<vector<ListDSEntityValueResponseBody::EntityValues>> entityValues_ {};
-    // The page number of the returned results.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the returned page.
+    // The page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of matching entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

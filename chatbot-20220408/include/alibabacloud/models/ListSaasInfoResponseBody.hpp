@@ -99,13 +99,13 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the SaaS atomic page. Use this code to reference the page and query its information.
+      // The unique identifier of the SaaS atomic page. This identifier can be used to associate and query related information about the atomic page.
       shared_ptr<string> code_ {};
       // The English name of the atomic page.
       shared_ptr<string> enName_ {};
       // The Chinese name of the atomic page.
       shared_ptr<string> name_ {};
-      // The URL to embed the SaaS page in an iframe.
+      // The iframe-embedded SaaS page URL.
       shared_ptr<string> serviceUrl_ {};
       // The URL of the atomic page.
       shared_ptr<string> url_ {};
@@ -137,9 +137,9 @@ namespace Models
 
 
   protected:
-    // A list of SaaS integrations.
+    // The list of SaaS integration entries.
     shared_ptr<vector<ListSaasInfoResponseBody::Data>> data_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The SaaS integration token issued by Chatbot.
     shared_ptr<string> saasToken_ {};

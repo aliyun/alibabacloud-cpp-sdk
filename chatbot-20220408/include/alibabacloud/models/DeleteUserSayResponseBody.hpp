@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the user say.
+    // The utterance ID.
     shared_ptr<int64_t> userSayId_ {};
   };
 

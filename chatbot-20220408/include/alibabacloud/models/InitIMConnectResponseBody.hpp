@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The IM connection information, returned as a JSON string.
+    // The IM connection information.
     shared_ptr<string> data_ {};
-    // The response message. If the request fails, this parameter provides the exception message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

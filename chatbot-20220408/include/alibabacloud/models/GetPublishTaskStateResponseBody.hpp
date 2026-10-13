@@ -132,29 +132,27 @@ namespace Models
     shared_ptr<vector<string>> bizTypeList_ {};
     // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
-    // The error message returned if the task fails.
+    // The failure information of the task.
     shared_ptr<string> error_ {};
-    // A map of error messages for each submodule, where the key is the submodule name and the value is the error message.
+    // The fault information of each sub-publish module. The key is the sub-publish module and the value is the fault information.
     Darabonba::Json errors_ {};
-    // The publish task ID.
+    // The ID of the publish task.
     shared_ptr<int64_t> id_ {};
     // The UTC time when the task was last modified.
     shared_ptr<string> modifyTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The publish task ID. This field is redundant. Use the `Id` field instead.
+    // The ID of the publish task. This is a redundant field. Use the publish task ID instead.
     shared_ptr<string> response_ {};
-    // The task status. Valid values:
+    // The task status.
     // 
-    // - `FE_RUNNING`: Publishing
-    // 
-    // - `FE_SUCCESS`: Success
-    // 
-    // - `FE_FAILED`: Failed
-    // 
-    // - `FE_ABORTED`: Aborted
+    // Valid values:
+    // - FE_RUNNING: Publishing in progress.
+    // - FE_SUCCESS: Published.
+    // - FE_FAILED: Publish failed.
+    // - FE_ABORTED: Publish canceled.
     shared_ptr<string> status_ {};
-    // A map of warning messages for each submodule, where the key is the submodule name and the value is the warning message.
+    // The warning information of each sub-publish module. The key is the sub-publish module and the value is the warning information.
     Darabonba::Json warnings_ {};
   };
 

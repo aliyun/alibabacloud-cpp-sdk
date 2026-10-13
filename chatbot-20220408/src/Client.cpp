@@ -18,9 +18,6 @@ namespace Chatbot20220408
 
 AlibabaCloud::Chatbot20220408::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "chatbot.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("chatbot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -39,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Obtain the Connection information for stream invocation.
+ * @summary Retrieves the connection information for streaming calls.
  *
  * @param request ApplyForStreamAccessTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -70,7 +67,7 @@ ApplyForStreamAccessTokenResponse Client::applyForStreamAccessTokenWithOptions(c
 }
 
 /**
- * @summary Obtain the Connection information for stream invocation.
+ * @summary Retrieves the connection information for streaming calls.
  *
  * @param request ApplyForStreamAccessTokenRequest
  * @return ApplyForStreamAccessTokenResponse
@@ -81,7 +78,7 @@ ApplyForStreamAccessTokenResponse Client::applyForStreamAccessToken(const ApplyF
 }
 
 /**
- * @summary Suggests FAQs from the knowledge base based on a user\\"s utterance.
+ * @summary Suggests FAQs from the knowledge base based on a user query.
  *
  * @param tmpReq AssociateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -138,7 +135,7 @@ AssociateResponse Client::associateWithOptions(const AssociateRequest &tmpReq, c
 }
 
 /**
- * @summary Suggests FAQs from the knowledge base based on a user\\"s utterance.
+ * @summary Suggests FAQs from the knowledge base based on a user query.
  *
  * @param request AssociateRequest
  * @return AssociateResponse
@@ -149,7 +146,7 @@ AssociateResponse Client::associate(const AssociateRequest &request) {
 }
 
 /**
- * @summary Initiates a session and retrieves a welcome message.
+ * @summary Retrieves the welcome message.
  *
  * @param request BeginSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -198,7 +195,7 @@ BeginSessionResponse Client::beginSessionWithOptions(const BeginSessionRequest &
 }
 
 /**
- * @summary Initiates a session and retrieves a welcome message.
+ * @summary Retrieves the welcome message.
  *
  * @param request BeginSessionRequest
  * @return BeginSessionResponse
@@ -209,9 +206,9 @@ BeginSessionResponse Client::beginSession(const BeginSessionRequest &request) {
 }
 
 /**
- * @summary Cancels or interrupts an ongoing chat.
+ * @summary Cancels or interrupts a specified conversation.
  *
- * @description This operation supports only the new version of chatbots. You can query data only from the last 90 days.
+ * @description Only new version chatbots are supported. Only data within the last 90 days can be queried.
  *
  * @param request CancelChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -262,9 +259,9 @@ CancelChatResponse Client::cancelChatWithOptions(const CancelChatRequest &reques
 }
 
 /**
- * @summary Cancels or interrupts an ongoing chat.
+ * @summary Cancels or interrupts a specified conversation.
  *
- * @description This operation supports only the new version of chatbots. You can query data only from the last 90 days.
+ * @description Only new version chatbots are supported. Only data within the last 90 days can be queried.
  *
  * @param request CancelChatRequest
  * @return CancelChatResponse
@@ -275,7 +272,7 @@ CancelChatResponse Client::cancelChat(const CancelChatRequest &request) {
 }
 
 /**
- * @summary Cancels a publishing task for a chatbot.
+ * @summary Cancels a chatbot publish task during the publishing process.
  *
  * @param request CancelInstancePublishTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -314,7 +311,7 @@ CancelInstancePublishTaskResponse Client::cancelInstancePublishTaskWithOptions(c
 }
 
 /**
- * @summary Cancels a publishing task for a chatbot.
+ * @summary Cancels a chatbot publish task during the publishing process.
  *
  * @param request CancelInstancePublishTaskRequest
  * @return CancelInstancePublishTaskResponse
@@ -371,7 +368,7 @@ CancelPublishTaskResponse Client::cancelPublishTask(const CancelPublishTaskReque
 }
 
 /**
- * @summary Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
+ * @summary Initiates a conversation with a chatbot by using the unique chatbot identifier (chatbot ID). This operation is applicable only to Chatbot (legacy).
  *
  * @param tmpReq ChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +445,7 @@ ChatResponse Client::chatWithOptions(const ChatRequest &tmpReq, const Darabonba:
 }
 
 /**
- * @summary Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
+ * @summary Initiates a conversation with a chatbot by using the unique chatbot identifier (chatbot ID). This operation is applicable only to Chatbot (legacy).
  *
  * @param request ChatRequest
  * @return ChatResponse
@@ -459,7 +456,7 @@ ChatResponse Client::chat(const ChatRequest &request) {
 }
 
 /**
- * @summary Ignores an alarm and continues a chatbot publish task.
+ * @summary Ignores alerts and continues publishing when the chatbot triggers a publish alert.
  *
  * @param request ContinueInstancePublishTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -498,7 +495,7 @@ ContinueInstancePublishTaskResponse Client::continueInstancePublishTaskWithOptio
 }
 
 /**
- * @summary Ignores an alarm and continues a chatbot publish task.
+ * @summary Ignores alerts and continues publishing when the chatbot triggers a publish alert.
  *
  * @param request ContinueInstancePublishTaskRequest
  * @return ContinueInstancePublishTaskResponse
@@ -569,7 +566,7 @@ CreateCategoryResponse Client::createCategory(const CreateCategoryRequest &reque
 }
 
 /**
- * @summary Creates a connected question for a knowledge item.
+ * @summary Adds associated knowledge to a knowledge entry.
  *
  * @param request CreateConnQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -610,7 +607,7 @@ CreateConnQuestionResponse Client::createConnQuestionWithOptions(const CreateCon
 }
 
 /**
- * @summary Creates a connected question for a knowledge item.
+ * @summary Adds associated knowledge to a knowledge entry.
  *
  * @param request CreateConnQuestionRequest
  * @return CreateConnQuestionResponse
@@ -621,7 +618,7 @@ CreateConnQuestionResponse Client::createConnQuestion(const CreateConnQuestionRe
 }
 
 /**
- * @summary Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
+ * @summary Creates an entity, specifically the meta information of the entity, such as the entity name and entity type.
  *
  * @param request CreateDSEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -664,7 +661,7 @@ CreateDSEntityResponse Client::createDSEntityWithOptions(const CreateDSEntityReq
 }
 
 /**
- * @summary Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
+ * @summary Creates an entity, specifically the meta information of the entity, such as the entity name and entity type.
  *
  * @param request CreateDSEntityRequest
  * @return CreateDSEntityResponse
@@ -675,7 +672,7 @@ CreateDSEntityResponse Client::createDSEntity(const CreateDSEntityRequest &reque
 }
 
 /**
- * @summary Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
+ * @summary Adds entity member information for a specified entity, including the entity value and the corresponding synonym list. Entity values and synonyms must be unique within the same entity.
  *
  * @param tmpReq CreateDSEntityValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -730,7 +727,7 @@ CreateDSEntityValueResponse Client::createDSEntityValueWithOptions(const CreateD
 }
 
 /**
- * @summary Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
+ * @summary Adds entity member information for a specified entity, including the entity value and the corresponding synonym list. Entity values and synonyms must be unique within the same entity.
  *
  * @param request CreateDSEntityValueRequest
  * @return CreateDSEntityValueResponse
@@ -833,7 +830,7 @@ CreateDocResponse Client::createDoc(const CreateDocRequest &request) {
 }
 
 /**
- * @summary Creates a knowledge item.
+ * @summary Creates a knowledge entry.
  *
  * @param tmpReq CreateFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -900,7 +897,7 @@ CreateFaqResponse Client::createFaqWithOptions(const CreateFaqRequest &tmpReq, c
 }
 
 /**
- * @summary Creates a knowledge item.
+ * @summary Creates a knowledge entry.
  *
  * @param request CreateFaqRequest
  * @return CreateFaqResponse
@@ -911,7 +908,7 @@ CreateFaqResponse Client::createFaq(const CreateFaqRequest &request) {
 }
 
 /**
- * @summary Creates a robot in the sandbox environment.
+ * @summary Creates a chatbot in a sandbox environment.
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -958,7 +955,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates a robot in the sandbox environment.
+ * @summary Creates a chatbot in a sandbox environment.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -969,7 +966,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Publishes a sandbox robot to the production environment.
+ * @summary Publishes a sandbox chatbot to the production environment.
  *
  * @param request CreateInstancePublishTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1004,7 +1001,7 @@ CreateInstancePublishTaskResponse Client::createInstancePublishTaskWithOptions(c
 }
 
 /**
- * @summary Publishes a sandbox robot to the production environment.
+ * @summary Publishes a sandbox chatbot to the production environment.
  *
  * @param request CreateInstancePublishTaskRequest
  * @return CreateInstancePublishTaskResponse
@@ -1015,7 +1012,7 @@ CreateInstancePublishTaskResponse Client::createInstancePublishTask(const Create
 }
 
 /**
- * @summary Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
+ * @summary Creates an intent. The intent includes meta information such as the intent name, intent alias, and associated slot information, but does not include intent utterances or LGF.
  *
  * @param tmpReq CreateIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1060,7 +1057,7 @@ CreateIntentResponse Client::createIntentWithOptions(const CreateIntentRequest &
 }
 
 /**
- * @summary Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
+ * @summary Creates an intent. The intent includes meta information such as the intent name, intent alias, and associated slot information, but does not include intent utterances or LGF.
  *
  * @param request CreateIntentRequest
  * @return CreateIntentResponse
@@ -1177,7 +1174,7 @@ CreatePerspectiveResponse Client::createPerspective(const CreatePerspectiveReque
 }
 
 /**
- * @summary Creates a publish task in the publishing center.
+ * @summary Creates a publish task in the publish center.
  *
  * @param tmpReq CreatePublishTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1222,7 +1219,7 @@ CreatePublishTaskResponse Client::createPublishTaskWithOptions(const CreatePubli
 }
 
 /**
- * @summary Creates a publish task in the publishing center.
+ * @summary Creates a publish task in the publish center.
  *
  * @param request CreatePublishTaskRequest
  * @return CreatePublishTaskResponse
@@ -1463,7 +1460,7 @@ CreateTagGroupResponse Client::createTagGroup(const CreateTagGroupRequest &reque
 }
 
 /**
- * @summary Adds a user say to a specified intent.
+ * @summary Adds utterance information to a specified intent.
  *
  * @param tmpReq CreateUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1508,7 +1505,7 @@ CreateUserSayResponse Client::createUserSayWithOptions(const CreateUserSayReques
 }
 
 /**
- * @summary Adds a user say to a specified intent.
+ * @summary Adds utterance information to a specified intent.
  *
  * @param request CreateUserSayRequest
  * @return CreateUserSayResponse
@@ -1519,7 +1516,7 @@ CreateUserSayResponse Client::createUserSay(const CreateUserSayRequest &request)
 }
 
 /**
- * @summary Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
+ * @summary Deletes a category. A published category changes to the deleted and unpublished state, while an unpublished category is deleted directly.
  *
  * @param request DeleteCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1556,7 +1553,7 @@ DeleteCategoryResponse Client::deleteCategoryWithOptions(const DeleteCategoryReq
 }
 
 /**
- * @summary Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
+ * @summary Deletes a category. A published category changes to the deleted and unpublished state, while an unpublished category is deleted directly.
  *
  * @param request DeleteCategoryRequest
  * @return DeleteCategoryResponse
@@ -1567,7 +1564,7 @@ DeleteCategoryResponse Client::deleteCategory(const DeleteCategoryRequest &reque
 }
 
 /**
- * @summary Deletes a knowledge association.
+ * @summary Deletes the associated knowledge of a knowledge item.
  *
  * @param request DeleteConnQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1604,7 +1601,7 @@ DeleteConnQuestionResponse Client::deleteConnQuestionWithOptions(const DeleteCon
 }
 
 /**
- * @summary Deletes a knowledge association.
+ * @summary Deletes the associated knowledge of a knowledge item.
  *
  * @param request DeleteConnQuestionRequest
  * @return DeleteConnQuestionResponse
@@ -1615,7 +1612,7 @@ DeleteConnQuestionResponse Client::deleteConnQuestion(const DeleteConnQuestionRe
 }
 
 /**
- * @summary Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
+ * @summary Deletes an entity. This operation cascade deletes all entity members, synonyms, and regular expressions under the entity.
  *
  * @param request DeleteDSEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1651,7 @@ DeleteDSEntityResponse Client::deleteDSEntityWithOptions(const DeleteDSEntityReq
 }
 
 /**
- * @summary Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
+ * @summary Deletes an entity. This operation cascade deletes all entity members, synonyms, and regular expressions under the entity.
  *
  * @param request DeleteDSEntityRequest
  * @return DeleteDSEntityResponse
@@ -1665,7 +1662,7 @@ DeleteDSEntityResponse Client::deleteDSEntity(const DeleteDSEntityRequest &reque
 }
 
 /**
- * @summary Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
+ * @summary Deletes a member of a specified entity. If the entity is a standard entity, the synonyms of the member are also deleted, if any.
  *
  * @param request DeleteDSEntityValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1708,7 +1705,7 @@ DeleteDSEntityValueResponse Client::deleteDSEntityValueWithOptions(const DeleteD
 }
 
 /**
- * @summary Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
+ * @summary Deletes a member of a specified entity. If the entity is a standard entity, the synonyms of the member are also deleted, if any.
  *
  * @param request DeleteDSEntityValueRequest
  * @return DeleteDSEntityValueResponse
@@ -1765,7 +1762,7 @@ DeleteDocResponse Client::deleteDoc(const DeleteDocRequest &request) {
 }
 
 /**
- * @summary Deletes a knowledge item.
+ * @summary Deletes a knowledge entry.
  *
  * @param request DeleteFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1802,7 +1799,7 @@ DeleteFaqResponse Client::deleteFaqWithOptions(const DeleteFaqRequest &request, 
 }
 
 /**
- * @summary Deletes a knowledge item.
+ * @summary Deletes a knowledge entry.
  *
  * @param request DeleteFaqRequest
  * @return DeleteFaqResponse
@@ -1813,7 +1810,7 @@ DeleteFaqResponse Client::deleteFaq(const DeleteFaqRequest &request) {
 }
 
 /**
- * @summary Deletes an instance from the sandbox and online environments.
+ * @summary Deletes a chatbot from both the sandbox and production environments.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1848,7 +1845,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes an instance from the sandbox and online environments.
+ * @summary Deletes a chatbot from both the sandbox and production environments.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -1859,7 +1856,7 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
- * @summary Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
+ * @summary Deletes an intent and cascade deletes all intent utterances and advanced semantic configurations (LGF) under the intent.
  *
  * @param request DeleteIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1898,7 +1895,7 @@ DeleteIntentResponse Client::deleteIntentWithOptions(const DeleteIntentRequest &
 }
 
 /**
- * @summary Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
+ * @summary Deletes an intent and cascade deletes all intent utterances and advanced semantic configurations (LGF) under the intent.
  *
  * @param request DeleteIntentRequest
  * @return DeleteIntentResponse
@@ -1909,7 +1906,7 @@ DeleteIntentResponse Client::deleteIntent(const DeleteIntentRequest &request) {
 }
 
 /**
- * @summary Deletes the specified LGF configuration.
+ * @summary Deletes a specified advanced semantic configuration.
  *
  * @param request DeleteLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1952,7 +1949,7 @@ DeleteLgfResponse Client::deleteLgfWithOptions(const DeleteLgfRequest &request, 
 }
 
 /**
- * @summary Deletes the specified LGF configuration.
+ * @summary Deletes a specified advanced semantic configuration.
  *
  * @param request DeleteLgfRequest
  * @return DeleteLgfResponse
@@ -2057,7 +2054,7 @@ DeleteSimQuestionResponse Client::deleteSimQuestion(const DeleteSimQuestionReque
 }
 
 /**
- * @summary Deletes the specified solution.
+ * @summary Deletes an answer.
  *
  * @param request DeleteSolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2094,7 +2091,7 @@ DeleteSolutionResponse Client::deleteSolutionWithOptions(const DeleteSolutionReq
 }
 
 /**
- * @summary Deletes the specified solution.
+ * @summary Deletes an answer.
  *
  * @param request DeleteSolutionRequest
  * @return DeleteSolutionResponse
@@ -2213,7 +2210,7 @@ DeleteTagGroupResponse Client::deleteTagGroup(const DeleteTagGroupRequest &reque
 }
 
 /**
- * @summary Deletes a user say from a specified intent.
+ * @summary Modifies the utterance information of an intent.
  *
  * @param request DeleteUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2256,7 +2253,7 @@ DeleteUserSayResponse Client::deleteUserSayWithOptions(const DeleteUserSayReques
 }
 
 /**
- * @summary Deletes a user say from a specified intent.
+ * @summary Modifies the utterance information of an intent.
  *
  * @param request DeleteUserSayRequest
  * @return DeleteUserSayResponse
@@ -2267,7 +2264,7 @@ DeleteUserSayResponse Client::deleteUserSay(const DeleteUserSayRequest &request)
 }
 
 /**
- * @summary Gets information about a specific category.
+ * @summary Queries the information of a single category.
  *
  * @param request DescribeCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2304,7 +2301,7 @@ DescribeCategoryResponse Client::describeCategoryWithOptions(const DescribeCateg
 }
 
 /**
- * @summary Gets information about a specific category.
+ * @summary Queries the information of a single category.
  *
  * @param request DescribeCategoryRequest
  * @return DescribeCategoryResponse
@@ -2315,7 +2312,7 @@ DescribeCategoryResponse Client::describeCategory(const DescribeCategoryRequest 
 }
 
 /**
- * @summary Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
+ * @summary Queries the metadata of a specified entity under a specified chatbot, such as entity type, entity name, creation time, and modification time.
  *
  * @param request DescribeDSEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2354,7 +2351,7 @@ DescribeDSEntityResponse Client::describeDSEntityWithOptions(const DescribeDSEnt
 }
 
 /**
- * @summary Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
+ * @summary Queries the metadata of a specified entity under a specified chatbot, such as entity type, entity name, creation time, and modification time.
  *
  * @param request DescribeDSEntityRequest
  * @return DescribeDSEntityResponse
@@ -2365,7 +2362,7 @@ DescribeDSEntityResponse Client::describeDSEntity(const DescribeDSEntityRequest 
 }
 
 /**
- * @summary Document details.
+ * @summary Queries the details of a document.
  *
  * @param request DescribeDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2404,7 +2401,7 @@ DescribeDocResponse Client::describeDocWithOptions(const DescribeDocRequest &req
 }
 
 /**
- * @summary Document details.
+ * @summary Queries the details of a document.
  *
  * @param request DescribeDocRequest
  * @return DescribeDocResponse
@@ -2415,7 +2412,7 @@ DescribeDocResponse Client::describeDoc(const DescribeDocRequest &request) {
 }
 
 /**
- * @summary Retrieves knowledge details.
+ * @summary Queries the details of a knowledge entry.
  *
  * @param request DescribeFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2452,7 +2449,7 @@ DescribeFaqResponse Client::describeFaqWithOptions(const DescribeFaqRequest &req
 }
 
 /**
- * @summary Retrieves knowledge details.
+ * @summary Queries the details of a knowledge entry.
  *
  * @param request DescribeFaqRequest
  * @return DescribeFaqResponse
@@ -2463,7 +2460,7 @@ DescribeFaqResponse Client::describeFaq(const DescribeFaqRequest &request) {
 }
 
 /**
- * @summary Queries the details of a robot.
+ * @summary Queries the details of a chatbot.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2498,7 +2495,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Queries the details of a robot.
+ * @summary Queries the details of a chatbot.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -2509,7 +2506,7 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
- * @summary Returns metadata for a specified intent, including its type, name, creation time, and modification time.
+ * @summary Returns the metadata of a specified intent, such as the intent type, intent name, creation time, and modification time.
  *
  * @param request DescribeIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2550,7 +2547,7 @@ DescribeIntentResponse Client::describeIntentWithOptions(const DescribeIntentReq
 }
 
 /**
- * @summary Returns metadata for a specified intent, including its type, name, creation time, and modification time.
+ * @summary Returns the metadata of a specified intent, such as the intent type, intent name, creation time, and modification time.
  *
  * @param request DescribeIntentRequest
  * @return DescribeIntentResponse
@@ -2561,7 +2558,7 @@ DescribeIntentResponse Client::describeIntent(const DescribeIntentRequest &reque
 }
 
 /**
- * @summary Retrieves the details of a specified perspective.
+ * @summary Queries the details of a perspective.
  *
  * @param request DescribePerspectiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2596,7 +2593,7 @@ DescribePerspectiveResponse Client::describePerspectiveWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a specified perspective.
+ * @summary Queries the details of a perspective.
  *
  * @param request DescribePerspectiveRequest
  * @return DescribePerspectiveResponse
@@ -2715,7 +2712,7 @@ DescribeTagGroupResponse Client::describeTagGroup(const DescribeTagGroupRequest 
 }
 
 /**
- * @summary Saves user feedback on chatbot responses.
+ * @summary Saves user feedback on Q&A results.
  *
  * @param request FeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2766,7 +2763,7 @@ FeedbackResponse Client::feedbackWithOptions(const FeedbackRequest &request, con
 }
 
 /**
- * @summary Saves user feedback on chatbot responses.
+ * @summary Saves user feedback on Q&A results.
  *
  * @param request FeedbackRequest
  * @return FeedbackResponse
@@ -2777,9 +2774,9 @@ FeedbackResponse Client::feedback(const FeedbackRequest &request) {
 }
 
 /**
- * @summary Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+ * @summary Retrieves a token for passwordless logon in the chat window, which carries the enterprise identity of the user.
  *
- * @description For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
+ * @description For security reasons, the generated token is valid only for the first use within the expiration period. If the same user logs on from multiple browsers, call this operation multiple times.
  *
  * @param request GenerateUserAccessTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2836,9 +2833,9 @@ GenerateUserAccessTokenResponse Client::generateUserAccessTokenWithOptions(const
 }
 
 /**
- * @summary Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+ * @summary Retrieves a token for passwordless logon in the chat window, which carries the enterprise identity of the user.
  *
- * @description For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
+ * @description For security reasons, the generated token is valid only for the first use within the expiration period. If the same user logs on from multiple browsers, call this operation multiple times.
  *
  * @param request GenerateUserAccessTokenRequest
  * @return GenerateUserAccessTokenResponse
@@ -2849,7 +2846,7 @@ GenerateUserAccessTokenResponse Client::generateUserAccessToken(const GenerateUs
 }
 
 /**
- * @summary Retrieves details for a specified agent.
+ * @summary Retrieves the business space ID.
  *
  * @param request GetAgentInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2880,7 +2877,7 @@ GetAgentInfoResponse Client::getAgentInfoWithOptions(const GetAgentInfoRequest &
 }
 
 /**
- * @summary Retrieves details for a specified agent.
+ * @summary Retrieves the business space ID.
  *
  * @param request GetAgentInfoRequest
  * @return GetAgentInfoResponse
@@ -2891,9 +2888,9 @@ GetAgentInfoResponse Client::getAgentInfo(const GetAgentInfoRequest &request) {
 }
 
 /**
- * @summary Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+ * @summary Retrieves the result of an asynchronous service execution. This operation is used together with the Chat operation.
  *
- * @description Retrieves the execution result of an asynchronous service.
+ * @description Retrieves the result of an asynchronous service execution.
  *
  * @param request GetAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2928,9 +2925,9 @@ GetAsyncResultResponse Client::getAsyncResultWithOptions(const GetAsyncResultReq
 }
 
 /**
- * @summary Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+ * @summary Retrieves the result of an asynchronous service execution. This operation is used together with the Chat operation.
  *
- * @description Retrieves the execution result of an asynchronous service.
+ * @description Retrieves the result of an asynchronous service execution.
  *
  * @param request GetAsyncResultRequest
  * @return GetAsyncResultResponse
@@ -2941,9 +2938,9 @@ GetAsyncResultResponse Client::getAsyncResult(const GetAsyncResultRequest &reque
 }
 
 /**
- * @summary Retrieves overview metrics for a bot.
+ * @summary Queries the overview metrics of chatbot Q&A.
  *
- * @description This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
+ * @description Only data from T-1 (excluding the current day) can be queried.
  *
  * @param request GetBotSessionDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2986,9 +2983,9 @@ GetBotSessionDataResponse Client::getBotSessionDataWithOptions(const GetBotSessi
 }
 
 /**
- * @summary Retrieves overview metrics for a bot.
+ * @summary Queries the overview metrics of chatbot Q&A.
  *
- * @description This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
+ * @description Only data from T-1 (excluding the current day) can be queried.
  *
  * @param request GetBotSessionDataRequest
  * @return GetBotSessionDataResponse
@@ -2999,7 +2996,7 @@ GetBotSessionDataResponse Client::getBotSessionData(const GetBotSessionDataReque
 }
 
 /**
- * @summary Checks the status of a bot publishing task.
+ * @summary Queries the publish progress of a chatbot.
  *
  * @param request GetInstancePublishTaskStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3038,7 +3035,7 @@ GetInstancePublishTaskStateResponse Client::getInstancePublishTaskStateWithOptio
 }
 
 /**
- * @summary Checks the status of a bot publishing task.
+ * @summary Queries the publish progress of a chatbot.
  *
  * @param request GetInstancePublishTaskStateRequest
  * @return GetInstancePublishTaskStateResponse
@@ -3049,7 +3046,7 @@ GetInstancePublishTaskStateResponse Client::getInstancePublishTaskState(const Ge
 }
 
 /**
- * @summary Gets the progress of a publish task.
+ * @summary Queries the publish progress.
  *
  * @param request GetPublishTaskStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3084,7 +3081,7 @@ GetPublishTaskStateResponse Client::getPublishTaskStateWithOptions(const GetPubl
 }
 
 /**
- * @summary Gets the progress of a publish task.
+ * @summary Queries the publish progress.
  *
  * @param request GetPublishTaskStateRequest
  * @return GetPublishTaskStateResponse
@@ -3095,7 +3092,7 @@ GetPublishTaskStateResponse Client::getPublishTaskState(const GetPublishTaskStat
 }
 
 /**
- * @summary Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
+ * @summary Initializes an IM connection with custom settings by using the from value generated from the channel backend configuration. Supports passing a user authentication token during initialization.
  *
  * @param request InitIMConnectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3136,7 +3133,7 @@ InitIMConnectResponse Client::initIMConnectWithOptions(const InitIMConnectReques
 }
 
 /**
- * @summary Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
+ * @summary Initializes an IM connection with custom settings by using the from value generated from the channel backend configuration. Supports passing a user authentication token during initialization.
  *
  * @param request InitIMConnectRequest
  * @return InitIMConnectResponse
@@ -3147,7 +3144,7 @@ InitIMConnectResponse Client::initIMConnect(const InitIMConnectRequest &request)
 }
 
 /**
- * @summary Links knowledge categories to a chatbot.
+ * @summary Associates knowledge categories with a chatbot.
  *
  * @param request LinkInstanceCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3192,7 +3189,7 @@ LinkInstanceCategoryResponse Client::linkInstanceCategoryWithOptions(const LinkI
 }
 
 /**
- * @summary Links knowledge categories to a chatbot.
+ * @summary Associates knowledge categories with a chatbot.
  *
  * @param request LinkInstanceCategoryRequest
  * @return LinkInstanceCategoryResponse
@@ -3203,7 +3200,7 @@ LinkInstanceCategoryResponse Client::linkInstanceCategory(const LinkInstanceCate
 }
 
 /**
- * @summary Lists the business spaces for your Alibaba Cloud account.
+ * @summary Retrieves the list of business spaces for the current Alibaba Cloud account.
  *
  * @param request ListAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3246,7 +3243,7 @@ ListAgentResponse Client::listAgentWithOptions(const ListAgentRequest &request, 
 }
 
 /**
- * @summary Lists the business spaces for your Alibaba Cloud account.
+ * @summary Retrieves the list of business spaces for the current Alibaba Cloud account.
  *
  * @param request ListAgentRequest
  * @return ListAgentResponse
@@ -3257,7 +3254,7 @@ ListAgentResponse Client::listAgent(const ListAgentRequest &request) {
 }
 
 /**
- * @summary Lists categories.
+ * @summary Retrieves the list of categories.
  *
  * @param request ListCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3298,7 +3295,7 @@ ListCategoryResponse Client::listCategoryWithOptions(const ListCategoryRequest &
 }
 
 /**
- * @summary Lists categories.
+ * @summary Retrieves the list of categories.
  *
  * @param request ListCategoryRequest
  * @return ListCategoryResponse
@@ -3309,7 +3306,7 @@ ListCategoryResponse Client::listCategory(const ListCategoryRequest &request) {
 }
 
 /**
- * @summary Lists the connected questions for a knowledge item.
+ * @summary Queries the list of associated questions for a knowledge item.
  *
  * @param request ListConnQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3346,7 +3343,7 @@ ListConnQuestionResponse Client::listConnQuestionWithOptions(const ListConnQuest
 }
 
 /**
- * @summary Lists the connected questions for a knowledge item.
+ * @summary Queries the list of associated questions for a knowledge item.
  *
  * @param request ListConnQuestionRequest
  * @return ListConnQuestionResponse
@@ -3357,7 +3354,7 @@ ListConnQuestionResponse Client::listConnQuestion(const ListConnQuestionRequest 
 }
 
 /**
- * @summary Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
+ * @summary Queries the list of entities under a specified chatbot. Only the metadata of each entity is returned, such as entity type, entity name, creation time, and modification time.
  *
  * @param request ListDSEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3408,7 +3405,7 @@ ListDSEntityResponse Client::listDSEntityWithOptions(const ListDSEntityRequest &
 }
 
 /**
- * @summary Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
+ * @summary Queries the list of entities under a specified chatbot. Only the metadata of each entity is returned, such as entity type, entity name, creation time, and modification time.
  *
  * @param request ListDSEntityRequest
  * @return ListDSEntityResponse
@@ -3419,7 +3416,7 @@ ListDSEntityResponse Client::listDSEntity(const ListDSEntityRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
+ * @summary Queries the list and details of entity members for a specified entity. Keyword filtering (contains) is supported. The filtering scope includes entity values and synonyms.
  *
  * @param request ListDSEntityValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3476,7 +3473,7 @@ ListDSEntityValueResponse Client::listDSEntityValueWithOptions(const ListDSEntit
 }
 
 /**
- * @summary Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
+ * @summary Queries the list and details of entity members for a specified entity. Keyword filtering (contains) is supported. The filtering scope includes entity values and synonyms.
  *
  * @param request ListDSEntityValueRequest
  * @return ListDSEntityValueResponse
@@ -3487,7 +3484,7 @@ ListDSEntityValueResponse Client::listDSEntityValue(const ListDSEntityValueReque
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries the list of chatbots.
  *
  * @param request ListInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3538,7 +3535,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Queries the list of chatbots.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -3549,7 +3546,7 @@ ListInstanceResponse Client::listInstance(const ListInstanceRequest &request) {
 }
 
 /**
- * @summary Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
+ * @summary Queries the list of intents under a specified chatbot. Only the metadata of each intent is returned, such as the intent type, intent name, creation time, and modification time.
  *
  * @param request ListIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3596,7 +3593,7 @@ ListIntentResponse Client::listIntentWithOptions(const ListIntentRequest &reques
 }
 
 /**
- * @summary Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
+ * @summary Queries the list of intents under a specified chatbot. Only the metadata of each intent is returned, such as the intent type, intent name, creation time, and modification time.
  *
  * @param request ListIntentRequest
  * @return ListIntentResponse
@@ -3607,7 +3604,7 @@ ListIntentResponse Client::listIntent(const ListIntentRequest &request) {
 }
 
 /**
- * @summary Queries the advanced semantic configurations (LGF) for a specified intent.
+ * @summary Queries the advanced semantic configuration (LGF) of a specified intent.
  *
  * @param request ListLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3658,7 +3655,7 @@ ListLgfResponse Client::listLgfWithOptions(const ListLgfRequest &request, const 
 }
 
 /**
- * @summary Queries the advanced semantic configurations (LGF) for a specified intent.
+ * @summary Queries the advanced semantic configuration (LGF) of a specified intent.
  *
  * @param request ListLgfRequest
  * @return ListLgfResponse
@@ -3669,7 +3666,7 @@ ListLgfResponse Client::listLgf(const ListLgfRequest &request) {
 }
 
 /**
- * @summary Lists SaaS integration information.
+ * @summary Retrieves the list of SaaS integration information.
  *
  * @param request ListSaasInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3708,7 +3705,7 @@ ListSaasInfoResponse Client::listSaasInfoWithOptions(const ListSaasInfoRequest &
 }
 
 /**
- * @summary Lists SaaS integration information.
+ * @summary Retrieves the list of SaaS integration information.
  *
  * @param request ListSaasInfoRequest
  * @return ListSaasInfoResponse
@@ -3719,7 +3716,7 @@ ListSaasInfoResponse Client::listSaasInfo(const ListSaasInfoRequest &request) {
 }
 
 /**
- * @summary Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
+ * @summary Retrieves the list of permission integration information. You can use the permission groups returned in this list to grant permissions to users.
  *
  * @param request ListSaasPermissionGroupInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3750,7 +3747,7 @@ ListSaasPermissionGroupInfosResponse Client::listSaasPermissionGroupInfosWithOpt
 }
 
 /**
- * @summary Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
+ * @summary Retrieves the list of permission integration information. You can use the permission groups returned in this list to grant permissions to users.
  *
  * @param request ListSaasPermissionGroupInfosRequest
  * @return ListSaasPermissionGroupInfosResponse
@@ -3809,7 +3806,7 @@ ListSimQuestionResponse Client::listSimQuestion(const ListSimQuestionRequest &re
 }
 
 /**
- * @summary Lists the solutions for a knowledge entry.
+ * @summary Queries the list of answers for a knowledge item.
  *
  * @param request ListSolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3846,7 +3843,7 @@ ListSolutionResponse Client::listSolutionWithOptions(const ListSolutionRequest &
 }
 
 /**
- * @summary Lists the solutions for a knowledge entry.
+ * @summary Queries the list of answers for a knowledge item.
  *
  * @param request ListSolutionRequest
  * @return ListSolutionResponse
@@ -3981,7 +3978,7 @@ ListTagGroupResponse Client::listTagGroup(const ListTagGroupRequest &request) {
 }
 
 /**
- * @summary Retrieves chat history details.
+ * @summary Retrieves the session history details.
  *
  * @param request ListTongyiChatHistorysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4028,7 +4025,7 @@ ListTongyiChatHistorysResponse Client::listTongyiChatHistorysWithOptions(const L
 }
 
 /**
- * @summary Retrieves chat history details.
+ * @summary Retrieves the session history details.
  *
  * @param request ListTongyiChatHistorysRequest
  * @return ListTongyiChatHistorysResponse
@@ -4039,9 +4036,9 @@ ListTongyiChatHistorysResponse Client::listTongyiChatHistorys(const ListTongyiCh
 }
 
 /**
- * @summary Retrieves the conversation logs for a single session of a Tongyi chatbot.
+ * @summary Queries the conversation records of a single session for Chatbot Tongyi Edition.
  *
- * @description This operation retrieves conversation logs generated within the past two hours.
+ * @description Only conversation records from the last 2 hours can be queried.
  *
  * @param request ListTongyiConversationLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4080,9 +4077,9 @@ ListTongyiConversationLogsResponse Client::listTongyiConversationLogsWithOptions
 }
 
 /**
- * @summary Retrieves the conversation logs for a single session of a Tongyi chatbot.
+ * @summary Queries the conversation records of a single session for Chatbot Tongyi Edition.
  *
- * @description This operation retrieves conversation logs generated within the past two hours.
+ * @description Only conversation records from the last 2 hours can be queried.
  *
  * @param request ListTongyiConversationLogsRequest
  * @return ListTongyiConversationLogsResponse
@@ -4093,7 +4090,7 @@ ListTongyiConversationLogsResponse Client::listTongyiConversationLogs(const List
 }
 
 /**
- * @summary Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
+ * @summary Queries the utterance content and associated slot information of a specified intent. Supports filtering utterances by keyword (contains).
  *
  * @param request ListUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4144,7 +4141,7 @@ ListUserSayResponse Client::listUserSayWithOptions(const ListUserSayRequest &req
 }
 
 /**
- * @summary Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
+ * @summary Queries the utterance content and associated slot information of a specified intent. Supports filtering utterances by keyword (contains).
  *
  * @param request ListUserSayRequest
  * @return ListUserSayResponse
@@ -4155,7 +4152,7 @@ ListUserSayResponse Client::listUserSay(const ListUserSayRequest &request) {
 }
 
 /**
- * @summary Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
+ * @summary Returns the natural language understanding (NLU) result of a chatbot for a user query. Currently, only NLU information from dialog flow and the central controller is supported. Other engines will be supported as needed.
  *
  * @param request NluRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4194,7 +4191,7 @@ NluResponse Client::nluWithOptions(const NluRequest &request, const Darabonba::R
 }
 
 /**
- * @summary Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
+ * @summary Returns the natural language understanding (NLU) result of a chatbot for a user query. Currently, only NLU information from dialog flow and the central controller is supported. Other engines will be supported as needed.
  *
  * @param request NluRequest
  * @return NluResponse
@@ -4205,7 +4202,7 @@ NluResponse Client::nlu(const NluRequest &request) {
 }
 
 /**
- * @summary Queries a list of perspectives.
+ * @summary Queries the list of perspectives.
  *
  * @param request QueryPerspectivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4236,7 +4233,7 @@ QueryPerspectivesResponse Client::queryPerspectivesWithOptions(const QueryPerspe
 }
 
 /**
- * @summary Queries a list of perspectives.
+ * @summary Queries the list of perspectives.
  *
  * @param request QueryPerspectivesRequest
  * @return QueryPerspectivesResponse
@@ -4247,7 +4244,7 @@ QueryPerspectivesResponse Client::queryPerspectives(const QueryPerspectivesReque
 }
 
 /**
- * @summary Retries a document processing task.
+ * @summary Retries document processing.
  *
  * @param request RetryDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4282,7 +4279,7 @@ RetryDocResponse Client::retryDocWithOptions(const RetryDocRequest &request, con
 }
 
 /**
- * @summary Retries a document processing task.
+ * @summary Retries document processing.
  *
  * @param request RetryDocRequest
  * @return RetryDocResponse
@@ -4293,7 +4290,7 @@ RetryDocResponse Client::retryDoc(const RetryDocRequest &request) {
 }
 
 /**
- * @summary Search the documentation.
+ * @summary Searches for documents.
  *
  * @param tmpReq SearchDocRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4406,7 +4403,7 @@ SearchDocResponse Client::searchDocWithOptions(const SearchDocRequest &tmpReq, c
 }
 
 /**
- * @summary Search the documentation.
+ * @summary Searches for documents.
  *
  * @param request SearchDocRequest
  * @return SearchDocResponse
@@ -4417,7 +4414,7 @@ SearchDocResponse Client::searchDoc(const SearchDocRequest &request) {
 }
 
 /**
- * @summary Search the knowledge base.
+ * @summary Searches for knowledge.
  *
  * @param tmpReq SearchFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4520,7 +4517,7 @@ SearchFaqResponse Client::searchFaqWithOptions(const SearchFaqRequest &tmpReq, c
 }
 
 /**
- * @summary Search the knowledge base.
+ * @summary Searches for knowledge.
  *
  * @param request SearchFaqRequest
  * @return SearchFaqResponse
@@ -4531,9 +4528,9 @@ SearchFaqResponse Client::searchFaq(const SearchFaqRequest &request) {
 }
 
 /**
- * @summary Debugging information for large language model Q&A.
+ * @summary Retrieves the debugging information for large language model Q&A.
  *
- * @description Only supported for new version chatbots. Only data within the last 90 days can be queried.
+ * @description Supports only new-version chatbots. You can query only data generated within the last 90 days.
  *
  * @param request TongyiChatDebugInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4572,9 +4569,9 @@ TongyiChatDebugInfoResponse Client::tongyiChatDebugInfoWithOptions(const TongyiC
 }
 
 /**
- * @summary Debugging information for large language model Q&A.
+ * @summary Retrieves the debugging information for large language model Q&A.
  *
- * @description Only supported for new version chatbots. Only data within the last 90 days can be queried.
+ * @description Supports only new-version chatbots. You can query only data generated within the last 90 days.
  *
  * @param request TongyiChatDebugInfoRequest
  * @return TongyiChatDebugInfoResponse
@@ -4641,7 +4638,7 @@ UpdateCategoryResponse Client::updateCategory(const UpdateCategoryRequest &reque
 }
 
 /**
- * @summary Updates a connection.
+ * @summary Updates an association.
  *
  * @param request UpdateConnQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4682,7 +4679,7 @@ UpdateConnQuestionResponse Client::updateConnQuestionWithOptions(const UpdateCon
 }
 
 /**
- * @summary Updates a connection.
+ * @summary Updates an association.
  *
  * @param request UpdateConnQuestionRequest
  * @return UpdateConnQuestionResponse
@@ -4693,7 +4690,7 @@ UpdateConnQuestionResponse Client::updateConnQuestion(const UpdateConnQuestionRe
 }
 
 /**
- * @summary Updates the metadata of an entity. You can modify the entity name, but not the entity type.
+ * @summary Modifies the meta information of an entity. Only the entity name can be modified. The entity type cannot be modified.
  *
  * @param request UpdateDSEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4740,7 +4737,7 @@ UpdateDSEntityResponse Client::updateDSEntityWithOptions(const UpdateDSEntityReq
 }
 
 /**
- * @summary Updates the metadata of an entity. You can modify the entity name, but not the entity type.
+ * @summary Modifies the meta information of an entity. Only the entity name can be modified. The entity type cannot be modified.
  *
  * @param request UpdateDSEntityRequest
  * @return UpdateDSEntityResponse
@@ -4751,7 +4748,7 @@ UpdateDSEntityResponse Client::updateDSEntity(const UpdateDSEntityRequest &reque
 }
 
 /**
- * @summary Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
+ * @summary Modifies a member of a specified entity. Two types of data can be modified: entity values with synonyms, and regular expressions. Note: Adding a regular expression to a standard entity is not allowed, and vice versa.
  *
  * @param tmpReq UpdateDSEntityValueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4810,7 +4807,7 @@ UpdateDSEntityValueResponse Client::updateDSEntityValueWithOptions(const UpdateD
 }
 
 /**
- * @summary Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
+ * @summary Modifies a member of a specified entity. Two types of data can be modified: entity values with synonyms, and regular expressions. Note: Adding a regular expression to a standard entity is not allowed, and vice versa.
  *
  * @param request UpdateDSEntityValueRequest
  * @return UpdateDSEntityValueResponse
@@ -4917,7 +4914,7 @@ UpdateDocResponse Client::updateDoc(const UpdateDocRequest &request) {
 }
 
 /**
- * @summary Updates an existing knowledge entry.
+ * @summary Edits a knowledge entry.
  *
  * @param tmpReq UpdateFaqRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4980,7 +4977,7 @@ UpdateFaqResponse Client::updateFaqWithOptions(const UpdateFaqRequest &tmpReq, c
 }
 
 /**
- * @summary Updates an existing knowledge entry.
+ * @summary Edits a knowledge entry.
  *
  * @param request UpdateFaqRequest
  * @return UpdateFaqResponse
@@ -4991,7 +4988,7 @@ UpdateFaqResponse Client::updateFaq(const UpdateFaqRequest &request) {
 }
 
 /**
- * @summary Updates a chatbot\\"s name and description.
+ * @summary Updates the name and description of a chatbot.
  *
  * @param request UpdateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5034,7 +5031,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 }
 
 /**
- * @summary Updates a chatbot\\"s name and description.
+ * @summary Updates the name and description of a chatbot.
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -5045,7 +5042,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
+ * @summary Modifies an intent, including the meta information of the intent, such as the intent name, intent alias, and slot information associated with the intent. This operation does not include intent utterances or LGF.
  *
  * @param tmpReq UpdateIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5094,7 +5091,7 @@ UpdateIntentResponse Client::updateIntentWithOptions(const UpdateIntentRequest &
 }
 
 /**
- * @summary Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
+ * @summary Modifies an intent, including the meta information of the intent, such as the intent name, intent alias, and slot information associated with the intent. This operation does not include intent utterances or LGF.
  *
  * @param request UpdateIntentRequest
  * @return UpdateIntentResponse
@@ -5105,7 +5102,7 @@ UpdateIntentResponse Client::updateIntent(const UpdateIntentRequest &request) {
 }
 
 /**
- * @summary Updates the advanced semantic feature (LGF) for a specified intent.
+ * @summary Creates an advanced semantic configuration (LGF) for a specified intent.
  *
  * @param tmpReq UpdateLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5154,7 +5151,7 @@ UpdateLgfResponse Client::updateLgfWithOptions(const UpdateLgfRequest &tmpReq, c
 }
 
 /**
- * @summary Updates the advanced semantic feature (LGF) for a specified intent.
+ * @summary Creates an advanced semantic configuration (LGF) for a specified intent.
  *
  * @param request UpdateLgfRequest
  * @return UpdateLgfResponse
@@ -5165,7 +5162,7 @@ UpdateLgfResponse Client::updateLgf(const UpdateLgfRequest &request) {
 }
 
 /**
- * @summary Updates a perspective\\"s name and description.
+ * @summary Updates the name and description of a perspective.
  *
  * @param request UpdatePerspectiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5204,7 +5201,7 @@ UpdatePerspectiveResponse Client::updatePerspectiveWithOptions(const UpdatePersp
 }
 
 /**
- * @summary Updates a perspective\\"s name and description.
+ * @summary Updates the name and description of a perspective.
  *
  * @param request UpdatePerspectiveRequest
  * @return UpdatePerspectiveResponse
@@ -5267,7 +5264,7 @@ UpdateSimQuestionResponse Client::updateSimQuestion(const UpdateSimQuestionReque
 }
 
 /**
- * @summary Updates a solution.
+ * @summary Updates an answer.
  *
  * @param tmpReq UpdateSolutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5326,7 +5323,7 @@ UpdateSolutionResponse Client::updateSolutionWithOptions(const UpdateSolutionReq
 }
 
 /**
- * @summary Updates a solution.
+ * @summary Updates an answer.
  *
  * @param request UpdateSolutionRequest
  * @return UpdateSolutionResponse
@@ -5453,7 +5450,7 @@ UpdateTagGroupResponse Client::updateTagGroup(const UpdateTagGroupRequest &reque
 }
 
 /**
- * @summary Modifies an existing user say.
+ * @summary Modifies the utterance information of an intent.
  *
  * @param tmpReq UpdateUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5502,7 +5499,7 @@ UpdateUserSayResponse Client::updateUserSayWithOptions(const UpdateUserSayReques
 }
 
 /**
- * @summary Modifies an existing user say.
+ * @summary Modifies the utterance information of an intent.
  *
  * @param request UpdateUserSayRequest
  * @return UpdateUserSayResponse

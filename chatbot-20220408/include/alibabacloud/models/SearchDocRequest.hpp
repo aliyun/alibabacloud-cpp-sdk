@@ -209,9 +209,9 @@ namespace Models
 
 
   protected:
-    // The workspace key. If omitted, the default workspace is used. You can obtain this key from the Business Management page of your main account.
+    // The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the primary account.
     shared_ptr<string> agentKey_ {};
-    // A list of category IDs.
+    // The list of category IDs.
     shared_ptr<vector<int64_t>> categoryIds_ {};
     // The start of the creation time range.
     shared_ptr<string> createTimeBegin_ {};
@@ -223,29 +223,39 @@ namespace Models
     shared_ptr<string> endTimeBegin_ {};
     // The end of the expiration time range.
     shared_ptr<string> endTimeEnd_ {};
-    // The search keyword.
+    // The keyword.
     shared_ptr<string> keyword_ {};
     // The start of the modification time range.
     shared_ptr<string> modifyTimeBegin_ {};
     // The end of the modification time range.
     shared_ptr<string> modifyTimeEnd_ {};
-    // The name of the last modifier.
+    // The name of the modifier.
     shared_ptr<string> modifyUserName_ {};
-    // The page number to return.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The task status.<br>Valid values:<br>• -1: Queued<br>• 0: Succeeded<br>• 1: Parsing<br>• 2: Processing<br>• 3: Failed<br><br><br><br><br><br>
+    // The task status. Valid values:
+    // - -1: queued
+    // - 0: succeeded
+    // - 1: parsing
+    // - 2: processing
+    // - 3: processing failed
     shared_ptr<int32_t> processStatus_ {};
-    // The search scope.<br>Valid values:<br>• 1: Search titles<br>• 2: Search content<br><br><br>
+    // The search scope. Valid values: 
+    // - 1: search by title
+    // - 2: search by content
     shared_ptr<int32_t> searchScope_ {};
     // The start of the effective time range.
     shared_ptr<string> startTimeBegin_ {};
     // The end of the effective time range.
     shared_ptr<string> startTimeEnd_ {};
-    // The edit status.<br>Valid values:<br>• 1: Unpublished<br>• 2: Published<br>• 3: Updated but not published<br><br><br><br>
+    // The editing status. Valid values:
+    // - 1: unpublished
+    // - 2: published
+    // - 3: updated but not published
     shared_ptr<int32_t> status_ {};
-    // A list of tag IDs. If you provide multiple IDs, the operation returns documents that match at least one of the specified tags (logical OR).
+    // The list of label IDs. When multiple labels are specified, the union logic is used for filtering.
     shared_ptr<vector<int64_t>> tagIds_ {};
   };
 

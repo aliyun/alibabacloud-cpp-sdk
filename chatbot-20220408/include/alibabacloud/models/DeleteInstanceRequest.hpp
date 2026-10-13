@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If you omit this parameter, the default business space is used. You can find the key on the Business Management page of your main account.
+    // The business space key. If this parameter is not specified, the default business space is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The unique ID of the instance.
+    // The unique identifier of the chatbot.
     shared_ptr<string> instanceId_ {};
   };
 

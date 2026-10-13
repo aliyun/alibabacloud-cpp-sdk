@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The ID of the connected question.
+      // The associated knowledge ID.
       shared_ptr<int64_t> connQuestionId_ {};
-      // The creation time, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The last modification time, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The relation ID.
+      // The association ID.
       shared_ptr<int64_t> outlineId_ {};
-      // The title of the connected question.
+      // The title of the associated knowledge item.
       shared_ptr<string> title_ {};
     };
 
@@ -128,7 +128,7 @@ namespace Models
 
 
   protected:
-    // A list of connected questions.
+    // The list of associated questions.
     shared_ptr<vector<ListConnQuestionResponseBody::Outlines>> outlines_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

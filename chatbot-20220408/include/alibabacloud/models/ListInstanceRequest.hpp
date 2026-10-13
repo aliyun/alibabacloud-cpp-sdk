@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The key of the business space. You can obtain the key on the Business Management page of the primary account. If you do not set this parameter, the default business space is accessed.
+    // The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The name of the chatbot. A fuzzy search is supported.
+    // Performs a fuzzy match by chatbot name.
     shared_ptr<string> name_ {};
-    // The page number. Default value: 1.
+    // The page number for pagination. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of instances to return on each page. Default value: 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The type of the chatbot.
+    // Filters chatbots by type.
     shared_ptr<string> robotType_ {};
     shared_ptr<bool> sandbox_ {};
   };

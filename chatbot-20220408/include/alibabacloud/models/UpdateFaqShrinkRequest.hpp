@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If this parameter is omitted, the default business space is used. You can find this key on the Business Management page of your main account.
+    // The workspace key. If not specified, the default workspace is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the knowledge entry\\"s category.
+    // The category ID of the knowledge entry.
     // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
-    // The expiration date and time. The value must be in ISO 8601 format.
+    // The expiration time.
     shared_ptr<string> endDate_ {};
-    // The ID of the knowledge entry.
+    // The knowledge ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
-    // The effective start date and time. The value must be in ISO 8601 format.
+    // The effective period.
     shared_ptr<string> startDate_ {};
-    // A list of tag IDs.
+    // The list of tag IDs.
     shared_ptr<string> tagIdListShrink_ {};
-    // The knowledge title.
+    // The title of the knowledge entry.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

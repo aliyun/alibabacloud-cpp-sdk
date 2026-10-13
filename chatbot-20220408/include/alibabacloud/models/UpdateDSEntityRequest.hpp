@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The business space key. If you do not specify this parameter, the system uses the default business space. You can get this key from the business management page of your Alibaba Cloud account.
+    // The business space key. If this parameter is not set, the default business space is accessed. You can obtain the key value from the business management page of the main account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the entity.
+    // The entity ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
-    // The new name for the entity. The name can contain only Chinese characters, letters, digits, and underscores (_).
+    // The entity name. Only Chinese characters, uppercase and lowercase letters, digits, and underscores are supported.
     // 
     // This parameter is required.
     shared_ptr<string> entityName_ {};
-    // The type of the entity. This parameter cannot be modified. Valid values: `synonyms` and `regex`.
+    // The entity type. Valid values: synonyms (synonym) and regex (regular expression).
     shared_ptr<string> entityType_ {};
-    // The ID of the instance.
+    // The chatbot ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

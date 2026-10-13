@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // Additional information.
+      // The additional information.
       shared_ptr<string> meta_ {};
-      // The title of the suggested FAQ.
+      // The title of the associated question.
       shared_ptr<string> title_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // A list of suggested FAQs.
+    // The list of associated suggestions.
     shared_ptr<vector<AssociateResponseBody::Associate>> associate_ {};
-    // The response message ID.
+    // The ID of the response message in the current session.
     shared_ptr<string> messageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session ID.
+    // The ID of the current session.
     shared_ptr<string> sessionId_ {};
   };
 

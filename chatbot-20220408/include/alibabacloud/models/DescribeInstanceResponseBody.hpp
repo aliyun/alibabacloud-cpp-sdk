@@ -106,11 +106,11 @@ namespace Models
 
 
     protected:
-      // The ability type of the category, such as FAQ or MRC.
+      // The ability type of the category, such as FAQ (frequently asked questions) or MRC (document).
       shared_ptr<string> abilityType_ {};
       // The category ID.
       shared_ptr<int64_t> categoryId_ {};
-      // The category name.
+      // The name of the category.
       shared_ptr<string> name_ {};
       // The parent category ID. A value of -1 indicates the root directory.
       shared_ptr<int64_t> parentCategoryId_ {};
@@ -199,27 +199,27 @@ namespace Models
 
 
   protected:
-    // The URL of the robot\\"s avatar.
+    // The URL of the chatbot avatar.
     shared_ptr<string> avatar_ {};
-    // A list of categories.
+    // The list of categories.
     shared_ptr<vector<DescribeInstanceResponseBody::Categories>> categories_ {};
-    // The UTC time when the robot was created.
+    // The UTC time when the chatbot was created.
     shared_ptr<string> createTime_ {};
-    // The status of the robot.
+    // The status of the chatbot.
     shared_ptr<string> editStatus_ {};
-    // The unique identifier of the robot instance.
+    // The unique identifier of the chatbot.
     shared_ptr<string> instanceId_ {};
-    // The robot\\"s introduction.
+    // The remarks of the chatbot.
     shared_ptr<string> introduction_ {};
-    // The language of the robot, such as zh-cn and en-us.
+    // The language of the chatbot service, such as zh-cn or en-us.
     shared_ptr<string> languageCode_ {};
-    // The robot name.
+    // The name of the chatbot.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The robot type.
+    // The type of the chatbot.
     shared_ptr<string> robotType_ {};
-    // The time zone of the robot. For more information, see Time zone codes.
+    // The time zone of the chatbot. For more information, see the common time zone codes.
     shared_ptr<string> timeZone_ {};
   };
 

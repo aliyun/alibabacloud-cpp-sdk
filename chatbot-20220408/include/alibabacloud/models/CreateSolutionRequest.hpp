@@ -89,23 +89,26 @@ namespace Models
 
 
   protected:
-    // The key of the business space. If this parameter is omitted, the system uses the default business space. You can obtain the key from the Business Management page of your primary account.
+    // The key of the workspace. If this parameter is not specified, the default workspace is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The content of the knowledge answer.
+    // The content of the answer.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The answer type. Valid values: `0` (plain text) and `1` (rich text).
+    // The type of the answer. Valid values:
+    // 
+    // - 0: plain text.
+    // - 1: rich text.
     shared_ptr<int32_t> contentType_ {};
-    // The ID of the knowledge.
+    // The knowledge ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
-    // A list of perspective codes.
+    // The list of perspective codes.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> perspectiveCodes_ {};
-    // A list of tag IDs.
+    // The list of tag IDs.
     shared_ptr<vector<int64_t>> tagIdList_ {};
   };
 

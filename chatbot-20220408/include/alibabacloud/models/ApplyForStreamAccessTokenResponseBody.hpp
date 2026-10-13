@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Request token for the service.
+    // The request token of the service.
     shared_ptr<string> accessToken_ {};
-    // Channel ID
+    // The channel ID.
     shared_ptr<string> channelId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Key of the workspace, used to add signature to stream requests
+    // The secret key of the business space, which is used to sign streaming requests.
     shared_ptr<string> streamSecret_ {};
   };
 

@@ -159,19 +159,21 @@ namespace Models
     protected:
       // The solution content.
       shared_ptr<string> content_ {};
-      // The solution content type. Valid values: `0` (plain text) and `1` (rich text).
+      // The solution type. Valid values:
+      // - 0: plain text.
+      // - 1: rich text.
       shared_ptr<int32_t> contentType_ {};
-      // The time the solution was created, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The time the solution was last modified, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // A list of perspective codes.
+      // The list of perspective codes.
       shared_ptr<vector<string>> perspectiveCodes_ {};
       // The plain text content of the solution.
       shared_ptr<string> plainText_ {};
       // The solution ID.
       shared_ptr<int64_t> solutionId_ {};
-      // A list of tag IDs.
+      // The list of label IDs.
       shared_ptr<vector<int64_t>> tagIdList_ {};
     };
 
@@ -231,9 +233,9 @@ namespace Models
 
 
     protected:
-      // The time the similar question was created, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The time the similar question was last modified, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
       // The similar question ID.
       shared_ptr<int64_t> simQuestionId_ {};
@@ -308,11 +310,11 @@ namespace Models
     protected:
       // The related knowledge ID.
       shared_ptr<int64_t> connQuestionId_ {};
-      // The time the related question was created, in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createTime_ {};
-      // The time the related question was last modified, in UTC.
+      // The modification time in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The relationship ID.
+      // The relation ID.
       shared_ptr<int64_t> outlineId_ {};
       // The related knowledge title.
       shared_ptr<string> title_ {};
@@ -445,35 +447,42 @@ namespace Models
   protected:
     // The category ID.
     shared_ptr<int64_t> categoryId_ {};
-    // The time the knowledge was created, in UTC.
+    // The creation time in UTC.
     shared_ptr<string> createTime_ {};
-    // The creator of the knowledge.
+    // The user who created the knowledge.
     shared_ptr<string> createUserName_ {};
-    // The validity status of the knowledge, calculated based on `StartDate` and `EndDate`. Valid values: `20` (Active), `21` (Expired), and `22` (Pending).
+    // The knowledge effective status, calculated based on StartDate and EndDate. Valid values:
+    // - 20: effective.
+    // - 21: expired.
+    // - 22: pending.
     shared_ptr<int32_t> effectStatus_ {};
-    // The expiration time of the knowledge, in UTC.
+    // The expiration time in UTC.
     shared_ptr<string> endDate_ {};
     // The knowledge ID.
     shared_ptr<int64_t> knowledgeId_ {};
-    // The time the knowledge was last modified, in UTC.
+    // The modification time in UTC.
     shared_ptr<string> modifyTime_ {};
     // The user who last modified the knowledge.
     shared_ptr<string> modifyUserName_ {};
-    // A list of related questions.
+    // The list of related questions.
     shared_ptr<vector<DescribeFaqResponseBody::Outlines>> outlines_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of similar questions.
+    // The list of similar questions.
     shared_ptr<vector<DescribeFaqResponseBody::SimQuestions>> simQuestions_ {};
-    // A list of solutions.
+    // The list of solutions.
     shared_ptr<vector<DescribeFaqResponseBody::Solutions>> solutions_ {};
-    // The effective start time of the knowledge, in UTC.
+    // The effective period in UTC.
     shared_ptr<string> startDate_ {};
-    // The knowledge status. Valid values: `-1` (Deleted and unpublished), `1` (Unpublished), `2` (Published), and `3` (Updated and unpublished).
+    // The knowledge status. Valid values:
+    // - -1: deleted but not published.
+    // - 1: not published.
+    // - 2: published.
+    // - 3: updated but not published.
     shared_ptr<int32_t> status_ {};
-    // A list of tag IDs associated with the knowledge.
+    // The list of label IDs.
     shared_ptr<vector<int64_t>> tagIdList_ {};
-    // The knowledge title.
+    // The title.
     shared_ptr<string> title_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the perspective was successfully deleted.
+    // The result of deleting the perspective.
     shared_ptr<bool> result_ {};
   };
 

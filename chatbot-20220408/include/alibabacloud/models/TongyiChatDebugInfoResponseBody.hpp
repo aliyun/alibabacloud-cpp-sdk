@@ -100,16 +100,16 @@ namespace Models
     protected:
       // The debugging input information.
       Darabonba::Json input_ {};
-      // The Policy Name. Valid values:
-      // - High-frequency Q&A direct response
+      // The policy name. Valid values:
+      // - High-frequency Q&A direct output
       // - Keyword-based transfer to agent
       // - Global sensitive words
       // 
-      // This field is returned only when NodeType is system_strategy.
+      // This field is available only when NodeType is system_strategy.
       shared_ptr<string> name_ {};
       // The node type. Valid values:
-      // * **system_strategy**: system strategy.
-      // * **rewrite_query**: retrieval query.
+      // * **system_strategy**: system policy.
+      // * **rewrite_query**: retrieved question.
       // * **invoke_llm**: LLM invocation.
       // * **invoke_tools**: tool calling.
       shared_ptr<string> nodeType_ {};
@@ -163,12 +163,16 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const DirectMessageBody& obj) { 
             DARABONBA_PTR_TO_JSON(ContentType, contentType_);
+            DARABONBA_PTR_TO_JSON(HitSystemAskConfig, hitSystemAskConfig_);
+            DARABONBA_PTR_TO_JSON(RtDetail, rtDetail_);
             DARABONBA_PTR_TO_JSON(TransitionList, transitionList_);
             DARABONBA_PTR_TO_JSON(relatedQuestionList, relatedQuestionList_);
             DARABONBA_PTR_TO_JSON(sentenceList, sentenceList_);
           };
           friend void from_json(const Darabonba::Json& j, DirectMessageBody& obj) { 
             DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
+            DARABONBA_PTR_FROM_JSON(HitSystemAskConfig, hitSystemAskConfig_);
+            DARABONBA_PTR_FROM_JSON(RtDetail, rtDetail_);
             DARABONBA_PTR_FROM_JSON(TransitionList, transitionList_);
             DARABONBA_PTR_FROM_JSON(relatedQuestionList, relatedQuestionList_);
             DARABONBA_PTR_FROM_JSON(sentenceList, sentenceList_);
@@ -222,17 +226,83 @@ namespace Models
 
 
           protected:
+            // The formal answer entry.
             shared_ptr<string> content_ {};
+            // The number that corresponds one-to-one with the Number in AnswerReferenceInfo.ItemList for generating this answer.
             shared_ptr<int32_t> referNumber_ {};
           };
 
+          class RtDetail : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RtDetail& obj) { 
+              DARABONBA_ANY_TO_JSON(SentenceRtList, sentenceRtList_);
+              DARABONBA_ANY_TO_JSON(TransitionRtList, transitionRtList_);
+            };
+            friend void from_json(const Darabonba::Json& j, RtDetail& obj) { 
+              DARABONBA_ANY_FROM_JSON(SentenceRtList, sentenceRtList_);
+              DARABONBA_ANY_FROM_JSON(TransitionRtList, transitionRtList_);
+            };
+            RtDetail() = default ;
+            RtDetail(const RtDetail &) = default ;
+            RtDetail(RtDetail &&) = default ;
+            RtDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RtDetail() = default ;
+            RtDetail& operator=(const RtDetail &) = default ;
+            RtDetail& operator=(RtDetail &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->sentenceRtList_ == nullptr
+        && this->transitionRtList_ == nullptr; };
+            // sentenceRtList Field Functions 
+            bool hasSentenceRtList() const { return this->sentenceRtList_ != nullptr;};
+            void deleteSentenceRtList() { this->sentenceRtList_ = nullptr;};
+            inline             const Darabonba::Json & getSentenceRtList() const { DARABONBA_GET(sentenceRtList_) };
+            Darabonba::Json & getSentenceRtList() { DARABONBA_GET(sentenceRtList_) };
+            inline RtDetail& setSentenceRtList(const Darabonba::Json & sentenceRtList) { DARABONBA_SET_VALUE(sentenceRtList_, sentenceRtList) };
+            inline RtDetail& setSentenceRtList(Darabonba::Json && sentenceRtList) { DARABONBA_SET_RVALUE(sentenceRtList_, sentenceRtList) };
+
+
+            // transitionRtList Field Functions 
+            bool hasTransitionRtList() const { return this->transitionRtList_ != nullptr;};
+            void deleteTransitionRtList() { this->transitionRtList_ = nullptr;};
+            inline             const Darabonba::Json & getTransitionRtList() const { DARABONBA_GET(transitionRtList_) };
+            Darabonba::Json & getTransitionRtList() { DARABONBA_GET(transitionRtList_) };
+            inline RtDetail& setTransitionRtList(const Darabonba::Json & transitionRtList) { DARABONBA_SET_VALUE(transitionRtList_, transitionRtList) };
+            inline RtDetail& setTransitionRtList(Darabonba::Json && transitionRtList) { DARABONBA_SET_RVALUE(transitionRtList_, transitionRtList) };
+
+
+          protected:
+            // The list of RTs for each segment from the time the user question is received on the text side to the sequential generation of the formal answer.
+            Darabonba::Json sentenceRtList_ {};
+            // The list of RTs for each segment from the time the user question is received on the text side to the sequential generation of the transition phrases.
+            Darabonba::Json transitionRtList_ {};
+          };
+
           virtual bool empty() const override { return this->contentType_ == nullptr
-        && this->transitionList_ == nullptr && this->relatedQuestionList_ == nullptr && this->sentenceList_ == nullptr; };
+        && this->hitSystemAskConfig_ == nullptr && this->rtDetail_ == nullptr && this->transitionList_ == nullptr && this->relatedQuestionList_ == nullptr && this->sentenceList_ == nullptr; };
           // contentType Field Functions 
           bool hasContentType() const { return this->contentType_ != nullptr;};
           void deleteContentType() { this->contentType_ = nullptr;};
           inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
           inline DirectMessageBody& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
+          // hitSystemAskConfig Field Functions 
+          bool hasHitSystemAskConfig() const { return this->hitSystemAskConfig_ != nullptr;};
+          void deleteHitSystemAskConfig() { this->hitSystemAskConfig_ = nullptr;};
+          inline string getHitSystemAskConfig() const { DARABONBA_PTR_GET_DEFAULT(hitSystemAskConfig_, "") };
+          inline DirectMessageBody& setHitSystemAskConfig(string hitSystemAskConfig) { DARABONBA_PTR_SET_VALUE(hitSystemAskConfig_, hitSystemAskConfig) };
+
+
+          // rtDetail Field Functions 
+          bool hasRtDetail() const { return this->rtDetail_ != nullptr;};
+          void deleteRtDetail() { this->rtDetail_ = nullptr;};
+          inline const DirectMessageBody::RtDetail & getRtDetail() const { DARABONBA_PTR_GET_CONST(rtDetail_, DirectMessageBody::RtDetail) };
+          inline DirectMessageBody::RtDetail getRtDetail() { DARABONBA_PTR_GET(rtDetail_, DirectMessageBody::RtDetail) };
+          inline DirectMessageBody& setRtDetail(const DirectMessageBody::RtDetail & rtDetail) { DARABONBA_PTR_SET_VALUE(rtDetail_, rtDetail) };
+          inline DirectMessageBody& setRtDetail(DirectMessageBody::RtDetail && rtDetail) { DARABONBA_PTR_SET_RVALUE(rtDetail_, rtDetail) };
 
 
           // transitionList Field Functions 
@@ -263,9 +333,17 @@ namespace Models
 
 
         protected:
+          // The answer type.
           shared_ptr<string> contentType_ {};
+          // The matched system Q&A policy.
+          shared_ptr<string> hitSystemAskConfig_ {};
+          // The response time (RT) debugging information for the current Q&A.
+          shared_ptr<DirectMessageBody::RtDetail> rtDetail_ {};
+          // The list of transition phrases.
           shared_ptr<vector<string>> transitionList_ {};
+          // The list of similar questions.
           shared_ptr<vector<string>> relatedQuestionList_ {};
+          // The list of formal answers.
           shared_ptr<vector<DirectMessageBody::SentenceList>> sentenceList_ {};
         };
 
@@ -290,7 +368,9 @@ namespace Models
 
 
       protected:
+        // The command parameters, such as the skill group for the transfer-to-agent command.
         Darabonba::Json commands_ {};
+        // The message body that contains the Q&A results, including the answer, text type, recommended questions, and matched system type.
         shared_ptr<MessageBody::DirectMessageBody> directMessageBody_ {};
       };
 
@@ -389,11 +469,17 @@ namespace Models
 
 
         protected:
+          // The type of the referenced text.
           shared_ptr<string> contentType_ {};
+          // The source of the referenced knowledge.
           shared_ptr<string> dataSource_ {};
+          // The ID of the referenced knowledge.
           shared_ptr<string> id_ {};
+          // The number that corresponds one-to-one with the ReferNumber in AnswerInfo.MessageBody.DirectMessageBody.SentenceList.
           shared_ptr<int32_t> number_ {};
+          // The extension information specific to the knowledge type.
           Darabonba::Json referenceExt_ {};
+          // The title of the referenced knowledge.
           shared_ptr<string> title_ {};
         };
 
@@ -408,6 +494,7 @@ namespace Models
 
 
       protected:
+        // The list of referenced knowledge entries.
         shared_ptr<vector<AnswerReferenceInfo::ItemList>> itemList_ {};
       };
 
@@ -432,7 +519,9 @@ namespace Models
 
 
     protected:
+      // The referenced knowledge information of the matched answer.
       shared_ptr<AnswerInfo::AnswerReferenceInfo> answerReferenceInfo_ {};
+      // The message body.
       shared_ptr<AnswerInfo::MessageBody> messageBody_ {};
     };
 
@@ -478,13 +567,15 @@ namespace Models
 
 
   protected:
+    // The answer information corresponding to the conversation.
     shared_ptr<TongyiChatDebugInfoResponseBody::AnswerInfo> answerInfo_ {};
-    // The ID of the response message in the current session.
+    // The ID of the response message for the current session.
     shared_ptr<string> messageId_ {};
-    // The information about the entire Q&A pipeline.
+    // The information about the entire Q&A process.
     shared_ptr<vector<TongyiChatDebugInfoResponseBody::Pipeline>> pipeline_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The ID of the session to which the current response message belongs.
     shared_ptr<string> sessionId_ {};
   };
 

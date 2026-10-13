@@ -105,7 +105,10 @@ namespace Models
       shared_ptr<string> name_ {};
       // The parent category ID.
       shared_ptr<int64_t> parentCategoryId_ {};
-      // The status of the category. Valid values: `0` (Normal) and `-1` (Deleted).
+      // The category status. Valid values:
+      // 
+      // - -1: Deleted but not published.
+      // - 0: Normal.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -128,7 +131,7 @@ namespace Models
 
 
   protected:
-    // An array of categories.
+    // The list of categories.
     shared_ptr<vector<ListCategoryResponseBody::Categories>> categories_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

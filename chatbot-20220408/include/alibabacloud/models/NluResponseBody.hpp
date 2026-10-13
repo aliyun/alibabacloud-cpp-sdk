@@ -161,13 +161,13 @@ namespace Models
 
 
           protected:
-            // The name of the entity.
+            // The entity name.
             shared_ptr<string> name_ {};
-            // The original word for the entity, also known as an entity member.
+            // The original word of the entity (entity member).
             shared_ptr<string> origin_ {};
-            // The type of the entity. Currently, only the `text` type is supported.
+            // The entity type. Currently, only the text type is supported.
             shared_ptr<string> type_ {};
-            // The entity\\"s synonym.
+            // The synonym of the entity.
             shared_ptr<string> value_ {};
           };
 
@@ -220,13 +220,18 @@ namespace Models
         protected:
           // The intent ID.
           shared_ptr<int64_t> intentId_ {};
-          // The details of the matching process.
+          // The match details (matching process).
           shared_ptr<string> matchDetail_ {};
-          // The match type. Valid values are `Similarity` (match by utterance similarity), `Lgf` (match by LGF), `Classify` (match by model training), `FewShotLearning` (match by the built-in few-shot learning model), and `BuildIn` (match with a built-in intent).
+          // The match type. Valid values:
+          // - Similarity: The query matches the intent through intent utterance similarity.
+          // - Lgf: The query matches the intent through LGF.
+          // - Classify: The query matches the intent through model training.
+          // - FewShotLearning: The query matches the intent through the built-in few-shot model.
+          // - BuildIn: The query matches a built-in system intent.
           shared_ptr<string> matchType_ {};
-          // The name of the intent.
+          // The intent name.
           shared_ptr<string> name_ {};
-          // The confidence score of the match.
+          // The score.
           shared_ptr<double> score_ {};
           // The list of slots for the matched intent.
           shared_ptr<vector<IntentList::SlotList>> slotList_ {};
@@ -288,13 +293,13 @@ namespace Models
 
 
         protected:
-          // The name of the entity.
+          // The entity name.
           shared_ptr<string> name_ {};
-          // The original word for the entity, also known as an entity member.
+          // The original word of the entity (entity member).
           shared_ptr<string> origin_ {};
-          // The type of the entity. Currently, only the `text` type is supported.
+          // The entity type. Currently, only the text type is supported.
           shared_ptr<string> type_ {};
-          // The entity\\"s synonym.
+          // The synonym of the entity.
           shared_ptr<string> value_ {};
         };
 
@@ -455,7 +460,7 @@ namespace Models
 
 
       protected:
-        // The list of global dictionary entries.
+        // The list of global nouns.
         shared_ptr<vector<DialogHubNluInfo::GlobalDictList>> globalDictList_ {};
         // The list of global sensitive words.
         shared_ptr<vector<DialogHubNluInfo::GlobalSensitiveWordList>> globalSensitiveWordList_ {};
@@ -482,9 +487,9 @@ namespace Models
 
 
     protected:
-      // The natural language understanding information from DialogHub.
+      // The NLU information from the dialog central controller.
       shared_ptr<Messages::DialogHubNluInfo> dialogHubNluInfo_ {};
-      // The natural language understanding information from Dialog Studio.
+      // The NLU information from the dialog flow.
       shared_ptr<Messages::DsNluInfo> dsNluInfo_ {};
     };
 
@@ -514,7 +519,7 @@ namespace Models
 
 
   protected:
-    // The ID of the natural language understanding response.
+    // The ID of the NLU response message.
     shared_ptr<string> messageId_ {};
     // The list of messages.
     shared_ptr<vector<NluResponseBody::Messages>> messages_ {};

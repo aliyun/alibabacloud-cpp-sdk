@@ -189,39 +189,48 @@ namespace Models
 
 
   protected:
-    // The key for the workspace. If this parameter is not specified, the default workspace is used. You can get the key on the Business Management page of your main account.
+    // The business space key. If not specified, the default business space is accessed. Obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // An array of category IDs to filter the search results.
+    // The unique identifier of the category.
     shared_ptr<vector<int64_t>> categoryIds_ {};
-    // The start of the creation period.
+    // The start of the creation time range.
     shared_ptr<string> createTimeBegin_ {};
-    // The end of the creation period.
+    // The end of the creation time range.
     shared_ptr<string> createTimeEnd_ {};
-    // The creator\\"s username.
+    // The name of the creator.
     shared_ptr<string> createUserName_ {};
-    // The start of the expiration period.
+    // The start of the expiration time range.
     shared_ptr<string> endTimeBegin_ {};
-    // The end of the expiration period.
+    // The end of the expiration time range.
     shared_ptr<string> endTimeEnd_ {};
-    // The search keyword.
+    // The keyword.
     shared_ptr<string> keyword_ {};
-    // The start of the modification period.
+    // The start of the modification time range.
     shared_ptr<string> modifyTimeBegin_ {};
-    // The end of the modification period.
+    // The end of the modification time range.
     shared_ptr<string> modifyTimeEnd_ {};
-    // The modifier\\"s username.
+    // The name of the modifier.
     shared_ptr<string> modifyUserName_ {};
-    // The number of the page to return. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The default value is 10, and the maximum value is 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The search scope.
+    // The search scope. Valid values:
+    // 
+    // - 1: Search titles and similar questions.
+    // - 2: Search answers.
+    // - 3: Search all.
     shared_ptr<int32_t> searchScope_ {};
-    // The start of the effective period.
+    // The start of the effective time range.
     shared_ptr<string> startTimeBegin_ {};
-    // The end of the effective period.
+    // The end of the effective time range.
     shared_ptr<string> startTimeEnd_ {};
-    // The status of the knowledge item.
+    // The knowledge status. Valid values:
+    // 
+    // - -1: deleted and unpublished.
+    // - 1: unpublished.
+    // - 2: published.
+    // - 3: updated and unpublished.
     shared_ptr<int32_t> status_ {};
   };
 

@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The request duration, in milliseconds.
+    // The time consumed by the request.
     shared_ptr<string> costTime_ {};
-    // A list of chat history entries.
+    // The data details.
     shared_ptr<vector<Darabonba::Json>> datas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

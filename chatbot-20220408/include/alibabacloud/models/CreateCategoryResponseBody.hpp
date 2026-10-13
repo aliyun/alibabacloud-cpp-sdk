@@ -102,9 +102,12 @@ namespace Models
       shared_ptr<int64_t> categoryId_ {};
       // The category name.
       shared_ptr<string> name_ {};
-      // The ID of the parent category.
+      // The parent category ID.
       shared_ptr<int64_t> parentCategoryId_ {};
-      // The category status. A value of -1 indicates that the category has been deleted, but this change has not been published. A value of 0 indicates Normal.
+      // The category status. Valid values:
+      // 
+      // - -1: deleted but not published.
+      // - 0: Normal.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -127,7 +130,7 @@ namespace Models
 
 
   protected:
-    // Details of the created category.
+    // The category information.
     shared_ptr<CreateCategoryResponseBody::Category> category_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

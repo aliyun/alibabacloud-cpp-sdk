@@ -78,21 +78,21 @@ namespace Models
 
 
   protected:
-    // The business space key. If omitted, the default business space is used. You can obtain the key from the Business Management page of your primary account.
+    // The key of the workspace. If this parameter is not specified, the default workspace is accessed. You can obtain the key value on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The entity value (or regular expression).
+    // The entity value or regular expression.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The entity ID.
+    // The entity ID. This parameter can be left empty when you modify an entity member.
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
-    // The robot ID.
+    // The chatbot ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // A list of synonyms for the entity value.
+    // The synonym list.
     shared_ptr<vector<string>> synonyms_ {};
   };
 

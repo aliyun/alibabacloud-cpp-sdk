@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The key for the business space. If not specified, the default business space is used. You can find the key on the Business Management page of your main account.
+    // The key of the workspace. If this parameter is not set, the default workspace is accessed. You can obtain the key on the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> sandBox_ {};

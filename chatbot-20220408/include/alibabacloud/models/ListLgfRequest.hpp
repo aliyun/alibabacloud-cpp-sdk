@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The key of the business space. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your main account.
+    // The business space key. If not specified, the default business space is accessed. You can obtain the key value from the business management page of the Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
-    // The ID of the chatbot.
+    // The chatbot ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the intent.
+    // The intent ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
-    // The text used to filter the advanced semantic configurations.
+    // The semantic configuration content to filter.
     shared_ptr<string> lgfText_ {};
-    // The number of the page to return. Defaults to 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Defaults to 10.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 
