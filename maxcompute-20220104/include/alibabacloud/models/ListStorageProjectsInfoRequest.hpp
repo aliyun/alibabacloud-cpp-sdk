@@ -114,20 +114,15 @@ namespace Models
   protected:
     // Specifies whether to sort the results in ascending order.
     shared_ptr<bool> ascOrder_ {};
-    // The statistics collection date. The date is accurate to the day. The date must be in the `YYYYMMdd` format.
+    // The statistical date, in the YYYYMMdd format. Data is collected on a daily basis.
     // 
     // This parameter is required.
     shared_ptr<string> date_ {};
-    // The column to sort by. Valid values:
-    // 
+    // The sort column. Valid values:
     // - totalStorage
-    // 
     // - longTermStorage
-    // 
     // - lowFreqStorage
-    // 
     // - standardStorage
-    // 
     // - recycleBinStorage
     shared_ptr<string> orderColumn_ {};
     // The page number.
@@ -136,11 +131,11 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The prefix of the MaxCompute project name.
     shared_ptr<string> projectPrefix_ {};
-    // The number of days for year-over-year comparison.
+    // The number of days used for comparison.
     shared_ptr<int32_t> recentDays_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The tenant ID. You can log on to the MaxCompute console and choose **Tenant Property** in the navigation pane on the left to view the tenant ID.
+    // The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
     shared_ptr<string> tenantId_ {};
   };
 

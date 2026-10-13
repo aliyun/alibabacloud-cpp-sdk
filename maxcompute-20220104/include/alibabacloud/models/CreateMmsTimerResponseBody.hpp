@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the timer.
+      // timer id
       shared_ptr<int64_t> timerId_ {};
     };
 
@@ -82,9 +82,9 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned result.
     shared_ptr<CreateMmsTimerResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

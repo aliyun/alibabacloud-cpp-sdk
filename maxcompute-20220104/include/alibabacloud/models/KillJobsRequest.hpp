@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The request body parameters.
+    // The list of jobs to terminate. The instanceId is obtained from the job instance ID returned by ListJobInfos, and the projectName is obtained from the project name returned by ListProjects.
     shared_ptr<string> body_ {};
-    // The ID of the region in which the instance resides.
+    // The region ID.
     shared_ptr<string> region_ {};
-    // The ID of the tenant.
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

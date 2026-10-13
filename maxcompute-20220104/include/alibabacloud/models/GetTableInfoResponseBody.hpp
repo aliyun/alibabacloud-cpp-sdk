@@ -171,13 +171,14 @@ namespace Models
 
 
       protected:
-        // The comments of the partition key column.
+        // The partition column comment.
         shared_ptr<string> comment_ {};
-        // The sensitivity-level label of the column. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+        // The sensitivity level label of the column. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+        // <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
         shared_ptr<string> label_ {};
         // The partition name.
         shared_ptr<string> name_ {};
-        // The partition column type.
+        // The data type.
         shared_ptr<string> type_ {};
       };
 
@@ -237,13 +238,14 @@ namespace Models
 
 
       protected:
-        // The column comments.
+        // The column comment.
         shared_ptr<string> comment_ {};
-        // The sensitivity-level label of the column. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+        // The sensitivity level label of the column. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+        // <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
         shared_ptr<string> label_ {};
         // The column name.
         shared_ptr<string> name_ {};
-        // The column type.
+        // The data type.
         shared_ptr<string> type_ {};
       };
 
@@ -310,9 +312,9 @@ namespace Models
 
 
         protected:
-          // The name of the sorting field.
+          // The name of the sort column.
           shared_ptr<string> name_ {};
-          // The sorting order.
+          // The sort order.
           shared_ptr<string> order_ {};
         };
 
@@ -351,15 +353,16 @@ namespace Models
 
 
       protected:
-        // Optional. The number of buckets in the clustered table. The value 0 indicates that the number of buckets dynamically changes when a job is running.
+        // The number of buckets in the clustered table. This is an optional field. A value of 0 indicates that the number of buckets is dynamically determined during job execution.
         shared_ptr<int64_t> bucketNum_ {};
-        // The cluster keys.
+        // The cluster key.
         shared_ptr<vector<string>> clusterCols_ {};
-        // The clustering type of the table. MaxCompute supports [hash clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/hash-clustering) and
-        // 
-        // [range clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/range-clustering).
+        // The clustering type of the table. MaxCompute currently supports <props="china">[Hash Clustering](https://www.alibabacloud.com/help/en/maxcompute/use-cases/hash-clustering)
+        // <props="intl">[Hash Clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/hash-clustering) and
+        // <props="china"> [Range Clustering](https://www.alibabacloud.com/help/en/maxcompute/use-cases/hash-clustering)
+        // <props="intl">[Range Clustering](https://www.alibabacloud.com/help/maxcompute/use-cases/range-clustering).
         shared_ptr<string> clusterType_ {};
-        // The condition by which the results are sorted.
+        // The sort columns.
         shared_ptr<vector<ClusterInfo::SortCols>> sortCols_ {};
       };
 
@@ -609,79 +612,79 @@ namespace Models
 
 
     protected:
-      // Indicates whether the materialized view is automatically refreshed. This response parameter is returned when type is set to materializedView.
+      // Indicates whether automatic refresh of the materialized view is enabled. This parameter is returned only when the type is materialized view.
       shared_ptr<bool> autoRefreshEnabled_ {};
-      // The clustering attribute. This response parameter is returned when the table is a clustered table.
+      // The clustering properties. This parameter is returned only when the table type is clustered table.
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
-      // The comments of the table.
+      // The table comment.
       shared_ptr<string> comment_ {};
-      // DDL statement to create a table.
+      // The DDL statement used to create the table.
       shared_ptr<string> createTableDDL_ {};
-      // The creation time.
+      // The creation time. The time is in ISO 8601 format and in the UTC time zone.
       shared_ptr<int64_t> creationTime_ {};
       // The display name.
       shared_ptr<string> displayName_ {};
-      // The number of file of the table.
+      // The number of files.
       shared_ptr<int64_t> fileNum_ {};
-      // Indicates whether the table is an external table. This response parameter is returned when type is set to external.
+      // Indicates whether the table is an external table. This parameter is returned only when the type is table.
       shared_ptr<bool> isExternalTable_ {};
-      // Indicates whether data of the materialized view is invalid due to changes in the data of the source table. This response parameter is returned when type is set to materializedView.
+      // Indicates whether the data in the materialized view is invalid due to changes in the source table data. This parameter is returned only when the type is materialized view.
       shared_ptr<bool> isOutdated_ {};
-      // The time when data of the table or view was last accessed.
+      // The time when the data of the table or view was last accessed. This parameter is returned only when the table is a non-partitioned table.
+      // > This data has been gradually collected since July 2023. If the table has not been accessed after the upgrade, or if it is accessed through ALGO jobs or Hologres direct read, the last_access_time cannot be collected.
       shared_ptr<int64_t> lastAccessTime_ {};
-      // The time when the data definition language (DDL) statement of the table or view was last modified.
+      // The time when the DDL statement of the table or view was last modified.
       shared_ptr<int64_t> lastDDLTime_ {};
-      // The time when data of the table or view was last modified.
+      // The time when the data of the table or view was last modified. The time is in ISO 8601 format and in the UTC time zone.
       shared_ptr<int64_t> lastModifiedTime_ {};
-      // The lifecycle. Unit: days.
+      // The lifecycle in days.
       shared_ptr<string> lifecycle_ {};
-      // The path of the external table. This response parameter is returned when type is set to external.
+      // The external table location. This parameter is returned only when the type is external table.
       shared_ptr<string> location_ {};
-      // Indicates whether the table or view is a [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
+      // Indicates whether the table is a <props="china">[materialized view](https://www.alibabacloud.com/help/en/maxcompute/user-guide/materialized-view-operations)
+      // <props="intl">[materialized view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
       shared_ptr<bool> materializedView_ {};
       // The name of the table or view.
       shared_ptr<string> name_ {};
-      // The field information.
+      // The column information.
       shared_ptr<vector<Data::NativeColumns>> nativeColumns_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the role AliyunODPSDefaultRole in Resource Access Management (RAM). This response parameter is returned when type is set to external.
+      // The ARN of AliyunODPSDefaultRole in RAM. This parameter is returned only when the type is external table.
       shared_ptr<string> odpsPropertiesRolearn_ {};
-      // Indicates whether the table header is ignored. This response parameter is returned when type is set to external.
+      // Indicates whether to ignore the header. This parameter is returned only when the type is external table.
       shared_ptr<bool> odpsSqlTextOptionFlushHeader_ {};
-      // The first N rows that were ignored in the table header. This response parameter is returned when type is set to external.
+      // The number of header lines to ignore. This parameter is returned only when the type is external table.
       shared_ptr<int64_t> odpsTextOptionHeaderLinesCount_ {};
-      // The account information of the table or view owner.
+      // The account information of the owner of the table or view.
       shared_ptr<string> owner_ {};
-      // The information about partition key columns. This response parameter is returned only for partitioned tables.
+      // The partition column information. This parameter is returned only for partitioned tables.
       shared_ptr<vector<Data::PartitionColumns>> partitionColumns_ {};
-      // The physical size of the table.
+      // The physical size.
       shared_ptr<int64_t> physicalSize_ {};
       // The name of the project to which the table or view belongs.
       shared_ptr<string> projectName_ {};
-      // Indicates whether the query rewrite operation can be performed by using the materialized view. This response parameter is returned when type is set to materializedView.
+      // Indicates whether query rewrite through the materialized view is allowed. This parameter is returned only when the type is materialized view.
       shared_ptr<bool> rewriteEnabled_ {};
-      // The name of the schema to which the table or the view belongs.
+      // The name of the schema to which the table or view belongs.
       shared_ptr<string> schema_ {};
-      // The data size of the non-partitioned table. If the table is a partitioned table, the system does not calculate the data size of the table. In this case, the value of this parameter is NULL. The PARTITIONS view includes the data size of each partition in a partitioned table. Unit: bytes.
+      // The data size of the table. If the table is a non-partitioned table, the value is the data size of the table. If the table is a partitioned table, the system does not calculate the data size of the table, and the value is NULL. The PARTITIONS view contains the data size of each partition in the partitioned table. Unit: bytes.
       shared_ptr<int64_t> size_ {};
-      // The storage handler of the external table. This response parameter is returned when type is set to external.
+      // The external table parser. This parameter is returned only when the type is external table.
       shared_ptr<string> storageHandler_ {};
-      // The sensitivity-level label of the table. For more information, see [Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
+      // The sensitivity level label of the table. For more information, see <props="china">[Label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+      // <props="intl">[Label-based access control](https://www.alibabacloud.com/help/maxcompute/user-guide/label-based-access-control).
       shared_ptr<string> tableLabel_ {};
-      // The name of the Tablestore table to be accessed. This response parameter is returned when type is set to external.
+      // The name of the Tablestore table to be accessed. This parameter is returned only when the type is external table.
       shared_ptr<string> tablesotreTableName_ {};
-      // The columns of the Tablestore table to be accessed, including the primary key column and attribute column. This response parameter is returned when type is set to external.
+      // The columns of the Tablestore table to be accessed by MaxCompute, including the primary key columns and attribute columns. This parameter is returned only when the type is external table.
       shared_ptr<string> tablestoreColumnsMapping_ {};
       // The type of the table or view. Valid values:
-      // 
-      // - **internal**: internal table
-      // 
-      // - **external**: external table
-      // 
-      // - **view**: view
-      // 
-      // - **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
+      // - **internal**: Internal table.
+      // - **external**: External table.
+      // - **view**: View.
+      // - **materializedView**: <props="china">[Materialized view](https://www.alibabacloud.com/help/en/maxcompute/user-guide/materialized-view-operations)
+      // <props="intl">[Materialized view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations).
       shared_ptr<string> type_ {};
-      // The statement that generates the view. This response parameter is returned when type is set to view.
+      // The statement used to create the view. This parameter is returned only when the type is view.
       shared_ptr<string> viewText_ {};
     };
 
@@ -704,7 +707,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response result.
     shared_ptr<GetTableInfoResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

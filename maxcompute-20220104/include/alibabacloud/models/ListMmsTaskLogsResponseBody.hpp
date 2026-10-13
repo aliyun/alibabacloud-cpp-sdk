@@ -118,17 +118,17 @@ namespace Models
     protected:
       // The operation performed by the migration task.
       shared_ptr<string> action_ {};
-      // The time when the log was created.
+      // The creation time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
       // The log ID.
       shared_ptr<int64_t> id_ {};
       // The result of the migration task operation.
       shared_ptr<string> msg_ {};
-      // The data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> sourceId_ {};
-      // The migration task status.
+      // The status of the migration task.
       shared_ptr<string> status_ {};
-      // The migration task ID.
+      // The ID of the migration task.
       shared_ptr<int64_t> taskId_ {};
     };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
   protected:
-    // A list of logs.
+    // The list of logs.
     shared_ptr<vector<ListMmsTaskLogsResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

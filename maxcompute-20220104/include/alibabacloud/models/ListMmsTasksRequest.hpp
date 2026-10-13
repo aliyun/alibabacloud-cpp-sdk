@@ -87,9 +87,9 @@ namespace Models
 
 
     protected:
-      // Sorts results by the start time.
+      // Sorts the results by start time.
       shared_ptr<string> startTime_ {};
-      // Sorts results by status.
+      // Sorts the results by status.
       shared_ptr<string> status_ {};
     };
 
@@ -189,7 +189,7 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The partition value. Use this parameter to filter migration tasks that migrated a specific partition value.
+    // The partition value. Filters migration tasks that migrated a specific partition value.
     shared_ptr<string> partition_ {};
     // The source database name.
     shared_ptr<string> srcDbName_ {};

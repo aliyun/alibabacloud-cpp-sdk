@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<string> data_ {};
-    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+    // Indicates whether the operation was successful. If the value is not empty and is not 200, the operation failed.
     shared_ptr<int32_t> httpCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

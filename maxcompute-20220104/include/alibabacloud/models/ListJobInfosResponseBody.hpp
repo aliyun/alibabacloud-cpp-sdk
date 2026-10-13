@@ -219,17 +219,17 @@ namespace Models
 
 
         protected:
-          // The details of the intelligent diagnostics result.
+          // The details of the intelligent diagnosis result.
           shared_ptr<string> description_ {};
-          // The node information about data skew or data bloat. This parameter is returned only when the diagnostics scenario is data skew or data bloat.
+          // The node information for data skew and data bloat. This parameter is returned only when the diagnosis scenario is data skew or data bloat.
           shared_ptr<map<string, string>> params_ {};
-          // The scenario of the intelligent diagnostics result.
+          // The scenario of the intelligent diagnosis result.
           shared_ptr<string> scene_ {};
-          // The tag of the intelligent diagnostics result.
+          // The tag of the intelligent diagnosis result.
           shared_ptr<string> sceneTag_ {};
-          // The summary of the intelligent diagnostics result.
+          // The summary of the intelligent diagnosis result.
           shared_ptr<string> summary_ {};
-          // The type of the intelligent diagnostics result.
+          // The type of the intelligent diagnosis result.
           shared_ptr<string> type_ {};
         };
 
@@ -481,13 +481,13 @@ namespace Models
         shared_ptr<double> cuSnapshot_ {};
         // The total CU usage.
         shared_ptr<int64_t> cuUsage_ {};
-        // The time when the job finished running.
+        // The end time of the execution. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> endAtTime_ {};
         // The DataWorks node ID.
         shared_ptr<string> extNodeId_ {};
         // The name of the external scheduling platform that submitted the job.
         shared_ptr<string> extNodeName_ {};
-        // The person responsible for the execution.
+        // The person in charge of the execution.
         shared_ptr<string> extNodeOnDuty_ {};
         // The upstream platform.
         shared_ptr<string> extPlantFrom_ {};
@@ -515,13 +515,13 @@ namespace Models
         shared_ptr<string> quotaType_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The role session name of the entity that submitted the job through role assumption.
+        // The role assumption used to commit the job.
         shared_ptr<string> roleSessionName_ {};
-        // The time when the job started running.
+        // The start time of the job execution. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> runningAtTime_ {};
-        // The running time.
+        // The execution duration. Unit: seconds.
         shared_ptr<int64_t> runningTime_ {};
-        // The intelligent diagnostics results.
+        // The intelligent diagnosis results.
         shared_ptr<vector<JobInfoList::SceneResults>> sceneResults_ {};
         // The SQL signature.
         shared_ptr<string> signature_ {};
@@ -529,7 +529,7 @@ namespace Models
         shared_ptr<string> status_ {};
         // The snapshot status of the job.
         shared_ptr<string> statusSnapshot_ {};
-        // The time when the job was submitted.
+        // The submission time of the job. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> submittedAtTime_ {};
         // The tags.
         shared_ptr<string> tags_ {};
@@ -537,9 +537,9 @@ namespace Models
         shared_ptr<string> taskName_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // The total running duration.
+        // The total execution duration.
         shared_ptr<int64_t> totalTime_ {};
-        // The waiting time.
+        // The waiting time. Unit: seconds.
         shared_ptr<int64_t> waitingTime_ {};
       };
 
@@ -614,7 +614,7 @@ namespace Models
   protected:
     // The response data.
     shared_ptr<ListJobInfosResponseBody::Data> data_ {};
-    // The HTTP status code. If the value is not empty and is not 200, the request failed.
+    // Indicates whether the request is successful. If the value is not null and is not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

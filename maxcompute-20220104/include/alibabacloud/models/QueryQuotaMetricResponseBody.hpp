@@ -106,7 +106,7 @@ namespace Models
 
 
       protected:
-        // The metadata of the metric.
+        // The metric metadata information.
         shared_ptr<map<string, string>> metric_ {};
         // The time series data.
         shared_ptr<vector<vector<double>>> values_ {};
@@ -145,11 +145,11 @@ namespace Models
 
 
     protected:
-      // This parameter is not supported.
+      // Not supported.
       shared_ptr<string> category_ {};
       // The metric values.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
-      // The name of the metric.
+      // The name of the observed metric.
       shared_ptr<string> name_ {};
       // The step size of the monitoring data.
       shared_ptr<int64_t> period_ {};
@@ -202,16 +202,11 @@ namespace Models
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // The HTTP status code.
-    // 
-    // - 1xx: informational response. The request was received and is being processed.
-    // 
-    // - 2xx: success. The request was successfully received, understood, and accepted by the server.
-    // 
-    // - 3xx: redirection. The request was redirected. Further action needs to be taken to complete the request.
-    // 
-    // - 4xx: client error. The request contains incorrect request parameters or syntax, or specific request conditions cannot be met.
-    // 
-    // - 5xx: server error. The server failed to fulfill the request for other reasons.
+    // - 1xx: Informational. The request was received and is being processed.
+    // - 2xx: Success. The request was successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+    // - 4xx: Client error. The request contains bad syntax, invalid parameters, or cannot be fulfilled.
+    // - 5xx: Server error. The server failed to fulfill the request due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -175,17 +175,17 @@ namespace Models
 
 
       protected:
-        // The remarks.
+        // The comment.
         shared_ptr<string> comment_ {};
-        // The Base64-encoded 128-bit MD5 hash value of the HTTP request body.
+        // The Base64-encoded 128-bit MD5 hash of the HTTP request body.
         shared_ptr<string> contentMD5_ {};
-        // The time when the resource was created.
+        // The creation time in ISO 8601 format in the UTC time zone.
         shared_ptr<int64_t> creationTime_ {};
         // The display name.
         shared_ptr<string> displayName_ {};
-        // The time when the resource was modified.
+        // The last modification time in ISO 8601 format in the UTC time zone.
         shared_ptr<int64_t> lastModifiedTime_ {};
-        // The user who updated the resource.
+        // The user who last updated the resource.
         shared_ptr<string> lastUpdator_ {};
         // The name of the resource.
         shared_ptr<string> name_ {};
@@ -196,48 +196,6 @@ namespace Models
         // The size of the resource.
         shared_ptr<int64_t> size_ {};
         // The resource type.
-        // 
-        // Valid values:
-        // 
-        // - file
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        // - py
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        // - jar
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        // - volumefile
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        // - table
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
-        // 
-        //   <!-- -->
         shared_ptr<string> type_ {};
       };
 
@@ -267,9 +225,9 @@ namespace Models
 
 
     protected:
-      // Indicates the marker after which the returned list begins.
+      // Specifies the marker after which results are returned in alphabetical order.
       shared_ptr<string> marker_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of results to return per page.
       shared_ptr<int32_t> maxItem_ {};
       // The list of resources.
       shared_ptr<vector<Data::Resources>> resources_ {};
@@ -296,7 +254,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<ListResourcesResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

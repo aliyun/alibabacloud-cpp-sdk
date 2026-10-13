@@ -367,13 +367,13 @@ namespace Models
 
 
       protected:
-        // The amount of CPU cores requested by the job at the snapshot time.
+        // The requested CPU resources of the job at the snapshot time. Unit: Core.
         shared_ptr<int64_t> cpuRequest_ {};
-        // The CPU usage of the job at the snapshot time. Unit: cores.
+        // The CPU usage of the job at the snapshot time. Unit: Core.
         shared_ptr<int64_t> cpuUsage_ {};
-        // The CPU fulfillment ratio of the job at the snapshot time. This is calculated by dividing the CPU usage by the CPU request.
+        // The CPU fulfillment rate of the job at the snapshot time, which is calculated as CPU usage divided by requested CPU resources.
         shared_ptr<double> cpuUsageToRequestRatio_ {};
-        // The upstream node ID.
+        // The upstream node IDs.
         shared_ptr<string> extNodeId_ {};
         // The account ID of the task owner.
         shared_ptr<string> extNodeOnDuty_ {};
@@ -384,53 +384,52 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The job owner.
         shared_ptr<string> jobOwner_ {};
-        // The job type.
+        // The job types.
         shared_ptr<string> jobType_ {};
-        // This parameter is not used.
+        // Ignore this parameter.
         shared_ptr<double> maxCpuPct_ {};
-        // This parameter is not used.
+        // Ignore this parameter.
         shared_ptr<double> maxMemoryPct_ {};
-        // The amount of memory requested by the job at the snapshot time, in MB.
+        // The requested memory resources of the job at the snapshot time. Unit: MB.
         shared_ptr<int64_t> memoryRequest_ {};
         // The memory usage of the job at the snapshot time. Unit: MB.
         shared_ptr<int64_t> memoryUsage_ {};
-        // The memory fulfillment ratio of the job at the snapshot time. This is calculated by dividing the memory usage by the memory request.
+        // The memory fulfillment rate of the job at the snapshot time, which is calculated as memory usage divided by requested memory resources.
         shared_ptr<double> memoryUsageToRequestRatio_ {};
-        // The CPU usage percentage of a subscription job at the snapshot time. This value is calculated by dividing the CPU usage by the sum of the reserved CPU guarantee and the elastic reserved CPU. This parameter is not available for pay-as-you-go jobs.
+        // The CPU usage ratio of a subscription job at the snapshot time, which is calculated as CPU usage divided by the sum of reserved CPU and elastic reserved CPU. This parameter is not returned for pay-as-you-go jobs.
         shared_ptr<double> minCpuPct_ {};
-        // The memory usage percentage of a subscription job at the observation time. This value is calculated by dividing the memory usage by the sum of the reserved memory guarantee and the elastic reserved memory. This parameter is not available for pay-as-you-go jobs.
+        // The memory usage ratio of a subscription job at the observation time, which is calculated as memory usage divided by the sum of reserved memory and elastic reserved memory. This parameter is not returned for pay-as-you-go jobs.
         shared_ptr<double> minMemoryPct_ {};
-        // The job priority.
+        // The job priorities.
         shared_ptr<int64_t> priority_ {};
-        // The project name.
+        // The project names.
         shared_ptr<string> project_ {};
-        // The nickname of the computing quota that the job uses.
+        // The nickname of the compute quota used by the job.
         shared_ptr<string> quotaNickname_ {};
         // The quota type.
         shared_ptr<string> quotaType_ {};
         // The region ID.
         shared_ptr<string> region_ {};
         // The time when the job started running.
-        // 
-        // > The time when the job acquired its first computing resource.
+        // > The time when the job obtained the first compute resource. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> runningAtTime_ {};
-        // The runtime duration, in seconds. This is the duration from when the job started running to the snapshot time. If the job has not started, this parameter is empty.
+        // The running duration, which is the time from when the job started running to the snapshot time. If the job has not started running, this parameter is empty. Unit: s.
         shared_ptr<int64_t> runningTime_ {};
-        // The signature of the SQL job.
+        // The SQL job signatures.
         shared_ptr<string> signature_ {};
-        // The snapshot time.
+        // The snapshot time. The value is a UNIX timestamp, Unit: s.
         shared_ptr<int64_t> snapshotTime_ {};
         // The job status.
         // 
-        // > The status of a snapshot job can only be \\`running\\`.
+        // > The status of a job in a snapshot is always running.
         shared_ptr<string> status_ {};
-        // The time when the job was submitted.
+        // The time when the job was submitted. The value is a UNIX timestamp, Unit: s.
         shared_ptr<int64_t> submittedAtTime_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // The total duration, in seconds. This is the duration from when the job was submitted to the snapshot time.
+        // The total duration, which is the time from when the job was submitted to the snapshot time. Unit: s.
         shared_ptr<int64_t> totalTime_ {};
-        // The waiting duration, in seconds. This is the duration from when the job was submitted to when it started running. If the job has not started, this is the duration from the submission time to the snapshot time.
+        // The waiting duration, which is the time from when the job was submitted to when it started running. If the job has not started running, the value is the time from when the job was submitted to the snapshot time. Unit: s.
         shared_ptr<int64_t> waitingTime_ {};
       };
 
@@ -469,11 +468,11 @@ namespace Models
     protected:
       // The list of job snapshots.
       shared_ptr<vector<Data::JobInfoList>> jobInfoList_ {};
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of returned entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -517,23 +516,18 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<ListJobSnapshotInfosResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // The HTTP status code.
-    // 
-    // - 1xx: Informational - The request has been received and the process is continuing.
-    // 
-    // - 2xx: Success - The request was successfully received, understood, and accepted.
-    // 
-    // - 3xx: Redirection - Further action must be taken to complete the request.
-    // 
-    // - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled.
-    // 
-    // - 5xx: Server Error - The server failed to fulfill an apparently valid request.
+    // - 1xx: Informational. The request was received and is being processed.
+    // - 2xx: Success. The request was successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+    // - 4xx: Client error. The request contains invalid parameters, bad syntax, or specific request conditions cannot be met.
+    // - 5xx: Server error. The server failed to fulfill the request due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

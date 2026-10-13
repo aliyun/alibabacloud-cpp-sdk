@@ -121,9 +121,9 @@ namespace MaxCompute20220104
       Models::CreateMmsJobResponse createMmsJob(const string &sourceId, const Models::CreateMmsJobRequest &request);
 
       /**
-       * @summary CreateMmsTimer
+       * @summary Creates a scheduled data migration task.
        *
-       * @description Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
+       * @description Before calling this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for the data transfer service.
        *
        * @param request CreateMmsTimerRequest
        * @param headers map
@@ -133,9 +133,9 @@ namespace MaxCompute20220104
       Models::CreateMmsTimerResponse createMmsTimerWithOptions(const string &sourceId, const Models::CreateMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateMmsTimer
+       * @summary Creates a scheduled data migration task.
        *
-       * @description Before you call this API, make sure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for dedicated resource groups and elastic reserved computing resources in the Data Transmission Service.
+       * @description Before calling this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for the data transfer service.
        *
        * @param request CreateMmsTimerRequest
        * @return CreateMmsTimerResponse
@@ -445,7 +445,7 @@ namespace MaxCompute20220104
       Models::GetJobResourceUsageResponse getJobResourceUsage(const Models::GetJobResourceUsageRequest &request);
 
       /**
-       * @summary Retrieves a single MMA asynchronous task.
+       * @summary Retrieves a single asynchronous task in MMA.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -454,7 +454,7 @@ namespace MaxCompute20220104
       Models::GetMmsAsyncTaskResponse getMmsAsyncTaskWithOptions(const string &sourceId, const string &asyncTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a single MMA asynchronous task.
+       * @summary Retrieves a single asynchronous task in MMA.
        *
        * @return GetMmsAsyncTaskResponse
        */
@@ -825,7 +825,7 @@ namespace MaxCompute20220104
       Models::GetStorageSummaryComparedResponse getStorageSummaryCompared(const string &type, const Models::GetStorageSummaryComparedRequest &request);
 
       /**
-       * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+       * @summary Queries the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
        *
        * @param request GetTableInfoRequest
        * @param headers map
@@ -835,7 +835,7 @@ namespace MaxCompute20220104
       Models::GetTableInfoResponse getTableInfoWithOptions(const string &projectName, const string &tableName, const Models::GetTableInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+       * @summary Queries the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
        *
        * @param request GetTableInfoRequest
        * @return GetTableInfoResponse
@@ -973,7 +973,7 @@ namespace MaxCompute20220104
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the list of jobs.
+       * @summary Lists jobs.
        *
        * @param request ListJobInfosRequest
        * @param headers map
@@ -983,7 +983,7 @@ namespace MaxCompute20220104
       Models::ListJobInfosResponse listJobInfosWithOptions(const Models::ListJobInfosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of jobs.
+       * @summary Lists jobs.
        *
        * @param request ListJobInfosRequest
        * @return ListJobInfosResponse
@@ -991,7 +991,7 @@ namespace MaxCompute20220104
       Models::ListJobInfosResponse listJobInfos(const Models::ListJobInfosRequest &request);
 
       /**
-       * @summary Queries a performance metric of the job that is complete.
+       * @summary Retrieves the performance metrics of completed jobs.
        *
        * @param request ListJobMetricRequest
        * @param headers map
@@ -1001,7 +1001,7 @@ namespace MaxCompute20220104
       Models::ListJobMetricResponse listJobMetricWithOptions(const Models::ListJobMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a performance metric of the job that is complete.
+       * @summary Retrieves the performance metrics of completed jobs.
        *
        * @param request ListJobMetricRequest
        * @return ListJobMetricResponse
@@ -1051,7 +1051,7 @@ namespace MaxCompute20220104
       Models::ListMmsDataSourceConfigItemsResponse listMmsDataSourceConfigItems(const Models::ListMmsDataSourceConfigItemsRequest &request);
 
       /**
-       * @summary MaxCompute Migration Assist (MMA) data sources
+       * @summary Lists MMA data sources.
        *
        * @param request ListMmsDataSourcesRequest
        * @param headers map
@@ -1061,7 +1061,7 @@ namespace MaxCompute20220104
       Models::ListMmsDataSourcesResponse listMmsDataSourcesWithOptions(const Models::ListMmsDataSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary MaxCompute Migration Assist (MMA) data sources
+       * @summary Lists MMA data sources.
        *
        * @param request ListMmsDataSourcesRequest
        * @return ListMmsDataSourcesResponse
@@ -1069,7 +1069,7 @@ namespace MaxCompute20220104
       Models::ListMmsDataSourcesResponse listMmsDataSources(const Models::ListMmsDataSourcesRequest &request);
 
       /**
-       * @summary List databases in the MMA data source.
+       * @summary Lists the databases in an MMA data source.
        *
        * @param tmpReq ListMmsDbsRequest
        * @param headers map
@@ -1079,7 +1079,7 @@ namespace MaxCompute20220104
       Models::ListMmsDbsResponse listMmsDbsWithOptions(const string &sourceId, const Models::ListMmsDbsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List databases in the MMA data source.
+       * @summary Lists the databases in an MMA data source.
        *
        * @param request ListMmsDbsRequest
        * @return ListMmsDbsResponse
@@ -1141,7 +1141,7 @@ namespace MaxCompute20220104
       Models::ListMmsTablesResponse listMmsTables(const string &sourceId, const Models::ListMmsTablesRequest &request);
 
       /**
-       * @summary Lists the execution logs for a specific migration task.
+       * @summary Lists the execution logs of a single migration task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1150,14 +1150,14 @@ namespace MaxCompute20220104
       Models::ListMmsTaskLogsResponse listMmsTaskLogsWithOptions(const string &sourceId, const string &taskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the execution logs for a specific migration task.
+       * @summary Lists the execution logs of a single migration task.
        *
        * @return ListMmsTaskLogsResponse
        */
       Models::ListMmsTaskLogsResponse listMmsTaskLogs(const string &sourceId, const string &taskId);
 
       /**
-       * @summary Retrieves a list of data migration tasks.
+       * @summary Queries the list of migration tasks.
        *
        * @param request ListMmsTasksRequest
        * @param headers map
@@ -1167,7 +1167,7 @@ namespace MaxCompute20220104
       Models::ListMmsTasksResponse listMmsTasksWithOptions(const string &sourceId, const Models::ListMmsTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of data migration tasks.
+       * @summary Queries the list of migration tasks.
        *
        * @param request ListMmsTasksRequest
        * @return ListMmsTasksResponse
@@ -1175,10 +1175,9 @@ namespace MaxCompute20220104
       Models::ListMmsTasksResponse listMmsTasks(const string &sourceId, const Models::ListMmsTasksRequest &request);
 
       /**
-       * @summary Lists the logs of a scheduled task for a specific data source.
+       * @summary Lists the logs of scheduled tasks.
        *
-       * @description Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-       * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
+       * @description Before calling this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for data transfer.
        *
        * @param request ListMmsTimerLogsRequest
        * @param headers map
@@ -1188,10 +1187,9 @@ namespace MaxCompute20220104
       Models::ListMmsTimerLogsResponse listMmsTimerLogsWithOptions(const string &sourceId, const string &timerId, const Models::ListMmsTimerLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the logs of a scheduled task for a specific data source.
+       * @summary Lists the logs of scheduled tasks.
        *
-       * @description Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-       * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for the data transfer service, exclusive resource groups, and elastic reserved computing resources.
+       * @description Before calling this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for data transfer.
        *
        * @param request ListMmsTimerLogsRequest
        * @return ListMmsTimerLogsResponse
@@ -1199,10 +1197,9 @@ namespace MaxCompute20220104
       Models::ListMmsTimerLogsResponse listMmsTimerLogs(const string &sourceId, const string &timerId, const Models::ListMmsTimerLogsRequest &request);
 
       /**
-       * @summary Lists the timers for a specified data source.
+       * @summary Lists scheduled tasks for data migration.
        *
-       * @description Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-       * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
+       * @description Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for the data transmission service.
        *
        * @param request ListMmsTimersRequest
        * @param headers map
@@ -1212,10 +1209,9 @@ namespace MaxCompute20220104
       Models::ListMmsTimersResponse listMmsTimersWithOptions(const string &sourceId, const Models::ListMmsTimersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the timers for a specified data source.
+       * @summary Lists scheduled tasks for data migration.
        *
-       * @description Before calling this operation, ensure you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)
-       * <props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive resource groups and elastic reserved computing resources for Data Transmission Service.
+       * @description Before you call this operation, make sure that you fully understand the <props="china">[billing methods and pricing](https://www.alibabacloud.com/help/en/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of exclusive resource groups and elastic reserved compute resources for the data transmission service.
        *
        * @param request ListMmsTimersRequest
        * @return ListMmsTimersResponse
@@ -1223,7 +1219,7 @@ namespace MaxCompute20220104
       Models::ListMmsTimersResponse listMmsTimers(const string &sourceId, const Models::ListMmsTimersRequest &request);
 
       /**
-       * @summary Queries the packages in a MaxCompute project.
+       * @summary Retrieves the list of packages in a MaxCompute project.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1232,7 +1228,7 @@ namespace MaxCompute20220104
       Models::ListPackagesResponse listPackagesWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the packages in a MaxCompute project.
+       * @summary Retrieves the list of packages in a MaxCompute project.
        *
        * @return ListPackagesResponse
        */
@@ -1309,7 +1305,7 @@ namespace MaxCompute20220104
       Models::ListQuotasPlansResponse listQuotasPlans(const string &nickname, const Models::ListQuotasPlansRequest &request);
 
       /**
-       * @summary Obtains resources in a MaxCompute project.
+       * @summary Retrieves a list of resources in a MaxCompute project.
        *
        * @param request ListResourcesRequest
        * @param headers map
@@ -1319,7 +1315,7 @@ namespace MaxCompute20220104
       Models::ListResourcesResponse listResourcesWithOptions(const string &projectName, const Models::ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains resources in a MaxCompute project.
+       * @summary Retrieves a list of resources in a MaxCompute project.
        *
        * @param request ListResourcesRequest
        * @return ListResourcesResponse
@@ -1343,7 +1339,7 @@ namespace MaxCompute20220104
       Models::ListRolesResponse listRoles(const string &projectName);
 
       /**
-       * @summary Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
+       * @summary Retrieves the storage details of each partition in a partitioned table within a specified MaxCompute project.
        *
        * @param tmpReq ListStoragePartitionsInfoRequest
        * @param headers map
@@ -1353,7 +1349,7 @@ namespace MaxCompute20220104
       Models::ListStoragePartitionsInfoResponse listStoragePartitionsInfoWithOptions(const string &project, const string &table, const Models::ListStoragePartitionsInfoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves storage details for the partitions of a partitioned table in a MaxCompute project.
+       * @summary Retrieves the storage details of each partition in a partitioned table within a specified MaxCompute project.
        *
        * @param request ListStoragePartitionsInfoRequest
        * @return ListStoragePartitionsInfoResponse
@@ -1361,7 +1357,7 @@ namespace MaxCompute20220104
       Models::ListStoragePartitionsInfoResponse listStoragePartitionsInfo(const string &project, const string &table, const Models::ListStoragePartitionsInfoRequest &request);
 
       /**
-       * @summary Retrieves the storage details of projects.
+       * @summary Retrieves the storage details of MaxCompute projects.
        *
        * @param request ListStorageProjectsInfoRequest
        * @param headers map
@@ -1371,7 +1367,7 @@ namespace MaxCompute20220104
       Models::ListStorageProjectsInfoResponse listStorageProjectsInfoWithOptions(const Models::ListStorageProjectsInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage details of projects.
+       * @summary Retrieves the storage details of MaxCompute projects.
        *
        * @param request ListStorageProjectsInfoRequest
        * @return ListStorageProjectsInfoResponse
@@ -1483,7 +1479,7 @@ namespace MaxCompute20220104
       Models::QueryQuotaResponse queryQuota(const string &nickname, const Models::QueryQuotaRequest &request);
 
       /**
-       * @summary Queries the time series data of resource consumption for a quota.
+       * @summary Queries the time series information of quota resource consumption.
        *
        * @param request QueryQuotaMetricRequest
        * @param headers map
@@ -1493,7 +1489,7 @@ namespace MaxCompute20220104
       Models::QueryQuotaMetricResponse queryQuotaMetricWithOptions(const string &metric, const Models::QueryQuotaMetricRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the time series data of resource consumption for a quota.
+       * @summary Queries the time series information of quota resource consumption.
        *
        * @param request QueryQuotaMetricRequest
        * @return QueryQuotaMetricResponse
@@ -1783,9 +1779,9 @@ namespace MaxCompute20220104
       Models::SumStorageMetricsByDateResponse sumStorageMetricsByDate(const Models::SumStorageMetricsByDateRequest &request);
 
       /**
-       * @summary Aggregates storage usage by storage type.
+       * @summary Queries storage usage statistics by storage type.
        *
-       * @description Aggregates storage usage by storage type.
+       * @description Queries storage usage statistics by storage type.
        *
        * @param request SumStorageMetricsByTypeRequest
        * @param headers map
@@ -1795,9 +1791,9 @@ namespace MaxCompute20220104
       Models::SumStorageMetricsByTypeResponse sumStorageMetricsByTypeWithOptions(const Models::SumStorageMetricsByTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Aggregates storage usage by storage type.
+       * @summary Queries storage usage statistics by storage type.
        *
-       * @description Aggregates storage usage by storage type.
+       * @description Queries storage usage statistics by storage type.
        *
        * @param request SumStorageMetricsByTypeRequest
        * @return SumStorageMetricsByTypeResponse

@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // Specifies the marker after which the returned list begins.
+    // Specifies the marker after which results are returned in alphabetical order.
     shared_ptr<string> marker_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxItem_ {};
     // The name of the resource.
     shared_ptr<string> name_ {};

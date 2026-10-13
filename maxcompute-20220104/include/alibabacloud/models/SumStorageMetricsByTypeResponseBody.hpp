@@ -124,27 +124,21 @@ namespace Models
 
 
       protected:
-        // The date of the metric, in `yyyyMMdd` format.
+        // The statistics date. Format: yyyyMMdd.
         shared_ptr<string> dateTime_ {};
-        // The percentage of total daily storage that this storage type accounts for.
+        // The storage usage percentage.
         shared_ptr<double> percentage_ {};
         // The storage type. Valid values:
-        // 
-        // - `Storage`: standard storage.
-        // 
-        // - `LowFreqStorage`: infrequent access storage.
-        // 
-        // - `ColdStorage`: archive storage.
-        // 
-        // - `$sum`: total storage.
-        // 
-        // - `RecycleBinStorage`: recycle bin storage.
-        // 
-        // - `DRStorage`: multi-AZ storage.
+        // - Storage: standard storage.
+        // - LowFreqStorage: infrequent access storage.
+        // - ColdStorage: long-term storage.
+        // - $sum: total storage.
+        // - RecycleBinStorage: backup storage.
+        // - DRStorage: multi-AZ storage.
         shared_ptr<string> storageType_ {};
         // The unit of the storage metric.
         shared_ptr<string> unit_ {};
-        // The storage usage for this day.
+        // The storage usage.
         shared_ptr<double> usage_ {};
       };
 
@@ -181,21 +175,15 @@ namespace Models
 
 
     protected:
-      // A list of daily storage usage metrics.
+      // The list of daily storage usage statistics.
       shared_ptr<vector<Data::DailyStorageMetrics>> dailyStorageMetrics_ {};
       // The storage type. Valid values:
-      // 
-      // - `Storage`: standard storage.
-      // 
-      // - `LowFreqStorage`: infrequent access storage.
-      // 
-      // - `ColdStorage`: archive storage.
-      // 
-      // - `$sum`: total storage.
-      // 
-      // - `RecycleBinStorage`: recycle bin storage.
-      // 
-      // - `DRStorage`: multi-AZ storage.
+      // - Storage: standard storage.
+      // - LowFreqStorage: infrequent access storage.
+      // - ColdStorage: long-term storage.
+      // - $sum: total storage.
+      // - RecycleBinStorage: backup storage.
+      // - DRStorage: multi-AZ storage.
       shared_ptr<string> storageType_ {};
       // The unit of the storage metric.
       shared_ptr<string> unit_ {};
@@ -229,19 +217,14 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<vector<SumStorageMetricsByTypeResponseBody::Data>> data_ {};
     // The HTTP status code.
-    // 
-    // - `1xx`: Informational response - The request has been received and is being processed.
-    // 
-    // - `2xx`: Success - The request was successfully received, understood, and accepted.
-    // 
-    // - `3xx`: Redirection - Further action is needed to complete the request.
-    // 
-    // - `4xx`: Client error - The request contains invalid syntax or cannot be fulfilled.
-    // 
-    // - `5xx`: Server error - The server failed to fulfill a valid request.
+    // - 1xx: Informational response. The request has been received and is being processed.
+    // - 2xx: Success. The request has been successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection. The request is redirected. Further action is required to complete the request.
+    // - 4xx: Client error. The request contains invalid parameters, bad syntax, or specific request conditions cannot be fulfilled.
+    // - 5xx: Server error. The server cannot fulfill the request due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

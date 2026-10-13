@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // Number of data rows in the database
+      // The number of data rows in the database.
       shared_ptr<string> numRows_ {};
-      // Size of data in the database
+      // The size of data in the database.
       shared_ptr<string> size_ {};
-      // Update time
+      // The update time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -132,15 +132,15 @@ namespace Models
 
 
   protected:
-    // Data source name
+    // The name of the data source.
     shared_ptr<string> name_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // Number of records per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Sorting conditions
+    // The sorting conditions.
     shared_ptr<ListMmsDbsRequest::Sorter> sorter_ {};
-    // Data source status
+    // The status of the data source.
     shared_ptr<string> status_ {};
   };
 

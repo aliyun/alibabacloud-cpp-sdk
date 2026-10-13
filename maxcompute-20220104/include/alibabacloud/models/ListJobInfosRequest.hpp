@@ -259,7 +259,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort in ascending or descending order.
+    // Specifies whether to sort the results in ascending order.
     shared_ptr<bool> ascOrder_ {};
     // The upstream node IDs.
     shared_ptr<vector<string>> extNodeIdList_ {};
@@ -269,9 +269,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> from_ {};
-    // The job instance IDs.
+    // The job instance Id.
     shared_ptr<vector<string>> instanceIdList_ {};
-    // The job owners.
+    // The list of job owners.
     shared_ptr<vector<string>> jobOwnerList_ {};
     // The job priorities.
     shared_ptr<vector<int64_t>> priorityList_ {};
@@ -279,13 +279,13 @@ namespace Models
     shared_ptr<vector<string>> projectList_ {};
     // The quota nickname.
     shared_ptr<string> quotaNickname_ {};
-    // The intelligent diagnosis labels.
+    // The intelligent diagnostics tags.
     shared_ptr<vector<string>> sceneTagList_ {};
     // The job signatures.
     shared_ptr<vector<string>> signatureList_ {};
-    // The fields used for multi-column sorting.
+    // The multi-column sort fields.
     shared_ptr<vector<string>> sortByList_ {};
-    // The sort orders for multi-column sorting.
+    // The multi-column sort orders.
     shared_ptr<vector<string>> sortOrderList_ {};
     // The job statuses.
     shared_ptr<vector<string>> statusList_ {};
@@ -297,11 +297,11 @@ namespace Models
     shared_ptr<int64_t> to_ {};
     // The job types.
     shared_ptr<vector<string>> typeList_ {};
-    // The column used for sorting.
+    // The sort column.
     shared_ptr<string> orderColumn_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};

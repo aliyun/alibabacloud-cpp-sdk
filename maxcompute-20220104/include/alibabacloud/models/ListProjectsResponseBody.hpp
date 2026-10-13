@@ -171,9 +171,10 @@ namespace Models
 
 
           protected:
-            // If project data protection is enabled, you can configure an exception policy. This policy allows specified users to export data from specified objects to trusted projects, bypassing the data protection mechanism.
+            // If you enable data protection for the project, you can configure exceptions or trusted projects to allow specified users to transfer data of specified objects to specified projects. All scenarios described in the exception policy can bypass the data protection mechanism.
             shared_ptr<string> exceptionPolicy_ {};
-            // Specifies whether to enable <props="intl">[project data protection](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) to prevent data from being exported from the project. Default value: `false`.
+            // Specifies whether to enable the <props="china">[data protection mechanism](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/project-data-protection)
+            // <props="intl">[data protection mechanism](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) for the project to prohibit or allow data stream out of the project. The default enabling status is disabled.
             shared_ptr<bool> protected_ {};
           };
 
@@ -232,19 +233,24 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable <props="intl">[download control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control). Default value: `false`.
+          // Specifies whether to use the <props="china">[download control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/download-control)
+          // <props="intl">[download control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature. By default, this feature is disabled.
           shared_ptr<bool> enableDownloadPrivilege_ {};
-          // Specifies whether to enable <props="intl">[label-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control). Default value: `false`.
+          // Specifies whether to use the <props="china">[label-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/label-based-access-control)
+          // <props="intl">[label-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/label-based-access-control) feature. By default, this feature is disabled.
           shared_ptr<bool> labelSecurity_ {};
-          // Specifies whether the creator of an object can access it. Default value: `true`.
+          // Specifies whether to allow object creators to have access permissions on the objects. By default, this is allowed.
           shared_ptr<bool> objectCreatorHasAccessPermission_ {};
-          // Specifies whether the creator of an object can grant other users permissions on it. Default value: `true`.
+          // Specifies whether to allow object creators to have authorization permissions on the objects. By default, this is allowed.
           shared_ptr<bool> objectCreatorHasGrantPermission_ {};
-          // The <props="intl">[project data protection](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) properties.
+          // The <props="china">[data protection mechanism](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/project-data-protection)
+          // <props="intl">[data protection mechanism](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/project-data-protection) properties.
           shared_ptr<SecurityProperties::ProjectProtection> projectProtection_ {};
-          // Specifies whether to enable <props="intl">[ACL-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/acl-based-access-control). Default value: `true`.
+          // Specifies whether to use the <props="china">[ACL-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/acl-based-access-control)
+          // <props="intl">[ACL-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/acl-based-access-control) feature. By default, this feature is enabled.
           shared_ptr<bool> usingAcl_ {};
-          // Specifies whether to enable <props="intl">[policy-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/policy-based-access-control-1). Default value: `true`.
+          // Specifies whether to use the <props="china">[policy-based access control](https://www.alibabacloud.com/help/en/maxcompute/user-guide/policy-based-access-control-1)
+          // <props="intl">[policy-based access control](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/policy-based-access-control-1) feature. By default, this feature is enabled.
           shared_ptr<bool> usingPolicy_ {};
         };
 
@@ -369,15 +375,12 @@ namespace Models
 
 
           protected:
-            // The type of the lifecycle. Valid values:
-            // 
-            // - **mandatory**: A lifecycle must be configured for each table.
-            // 
-            // - **optional**: The lifecycle is optional. If unspecified for a table, the table does not expire.
-            // 
-            // - **inherit**: If no lifecycle is specified for a table, the table inherits its lifecycle from the `odps.table.lifecycle.value` property.
+            // The lifecycle type. Valid values:
+            // - **mandatory**: The LIFECYCLE clause is required. You must specify a lifecycle for the table.
+            // - **optional**: The LIFECYCLE clause is optional when you create a table. If you do not specify a lifecycle for the table, the table never expires.
+            // - **inherit**: If you do not specify a lifecycle for a table when you create the table, the lifecycle of the table is the value of the odps.table.lifecycle.value parameter.
             shared_ptr<string> type_ {};
-            // The lifecycle of the table, in days. Valid values: `1` to `37231`. Default value: `37231`.
+            // The lifecycle of the table. Unit: days. Valid values: 1 to 37231. Default value: 37231.
             shared_ptr<string> value_ {};
           };
 
@@ -409,7 +412,8 @@ namespace Models
 
 
           protected:
-            // Specifies whether the project is an external project for <props="intl">[Integrated Lakehouse](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide).
+            // Specifies whether the project is an external project of <props="china">[Data Lakehouse Solution 2.0](https://www.alibabacloud.com/help/en/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide)
+            // <props="intl">[Data Lakehouse Solution 2.0](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/lake-warehouse-integrated-2-0-use-guide).
             shared_ptr<string> isExternalCatalogBound_ {};
           };
 
@@ -460,12 +464,13 @@ namespace Models
 
 
           protected:
-            // The data encryption algorithm. Supported algorithms include AES256, AESCTR, and RC4.
+            // The data encryption algorithm. The encryption algorithms supported by the key include AES256, AESCTR, and RC4.
             shared_ptr<string> algorithm_ {};
-            // Specifies whether to enable storage encryption for the project. For more information, see
+            // Specifies whether to enable data encryption for the project. For more information about data encryption, see 
+            // <props="china">[Storage encryption](https://www.alibabacloud.com/help/en/maxcompute/security-and-compliance/storage-encryption)
             // <props="intl">[Storage encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
             shared_ptr<bool> enable_ {};
-            // The key for data encryption. You can use the default MaxCompute-managed key or a custom key with the Bring Your Own Key (BYOK) feature.
+            // The type of the key used for data encryption. Valid values include the default key (MaxCompute Default Key) and Bring Your Own Key (BYOK). The default key is a default key created internally by MaxCompute.
             shared_ptr<string> key_ {};
           };
 
@@ -556,43 +561,40 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow a full table scan in the project. This feature is disabled by default because a full table scan can consume a large amount of computing resources.
+          // Specifies whether to allow full table scans in the project. Full table scans consume a large amount of resources. To improve processing efficiency, this feature is disabled by default.
           shared_ptr<bool> allowFullScan_ {};
-          // Specifies whether to enable the MaxCompute 2.0 Decimal data type in the project.
+          // Specifies whether to enable the DECIMAL data type of MaxCompute V2.0 for the project.
           shared_ptr<bool> enableDecimal2_ {};
-          // Specifies whether to enable routing for the Data Transmission Service resource group.
-          // 
-          // - true: Data transmission jobs submitted by default from the project use the bound Data Transmission Service resource group.
-          // 
-          // - false: Data transmission jobs submitted by default from the project use the shared Data Transmission Service resource group.
+          // Specifies whether to enable EPS resource group routing for the data transfer service.
+          // - true: Data transfer tasks submitted by default in the project use the bound EPS resource group for the data transfer service.
+          // - false: Data transfer tasks submitted by default in the project use the shared EPS resource group for the data transfer service.
           shared_ptr<bool> enableTunnelQuotaRoute_ {};
           // The storage encryption properties.
           shared_ptr<Properties::Encryption> encryption_ {};
           // The properties of the external project.
           shared_ptr<Properties::ExternalProjectProperties> externalProjectProperties_ {};
-          // The number of retention days for backup data. You can restore data to any backup version that is created within the retention period. Valid values: `0` to `30`. Default value: `1`. A value of `0` indicates that the backup feature is disabled.
+          // The retention period of backup data in days. During this period, you can restore the current version to any backed-up data version. Valid values: 0 to 30. Default value: 1. A value of 0 indicates that the backup feature is disabled.
           shared_ptr<int64_t> retentionDays_ {};
-          // The maximum metered cost for a single SQL statement. The cost is calculated by using the formula: (scanned data in GB) × (complexity).
+          // The maximum threshold for the consumption of a single SQL statement. Unit: scanned data volume (GB) × complexity.
           shared_ptr<string> sqlMeteringMax_ {};
-          // The table lifecycle properties.
+          // The lifecycle properties of tables.
           shared_ptr<Properties::TableLifecycle> tableLifecycle_ {};
-          // The time zone of the project. This parameter corresponds to the `odps.sql.timezone` property.
+          // The time zone of the project, which is the odps.sql.timezone property.
           shared_ptr<string> timezone_ {};
-          // The <props="intl">[Data Transmission Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group that is bound to the project.
+          // The EPS resource group of the <props="china">[data transfer service](https://www.alibabacloud.com/help/en/maxcompute/user-guide/overview-of-dts)
+          // <props="intl">[data transfer service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) bound to the project.
           // 
-          // - Default (shared Data Transmission Service resource group): The project cannot use subscription Data Transmission Service resource groups. Data Transmission Service jobs submitted from this project automatically use the Default resource group, regardless of the default setting for the Data Transmission Service resource group.
+          // - Default (shared EPS resource group for the data transfer service): The project is not allowed to use the subscription EPS resource group for the data transfer service. Regardless of the default EPS resource group setting, data transfer tasks submitted by default in this project automatically use the Default EPS resource group.
           // 
-          // - Subscription Data Transmission Service resource group: The project can use a subscription Data Transmission Service resource group.
+          // - Subscription EPS resource group for the data transfer service: The project is allowed to use the subscription EPS resource group for the data transfer service.
           shared_ptr<string> tunnelQuota_ {};
-          // The data type version. Valid values:
+          // The data type edition. Valid values:
+          // - **1**: MaxCompute V1.0 data type edition
+          // - **2**: MaxCompute V2.0 data type edition
+          // - **hive**: Hive-compatible data type edition
           // 
-          // - **1**: Version 1.0.
-          // 
-          // - **2**: Version 2.0.
-          // 
-          // - **hive**: A Hive-compatible type.
-          // 
-          // For more information about the differences between the data type versions, see <props="intl">[Data type versions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
+          // For more information about the differences among the three data type editions, see <props="china">[Data type editions](https://www.alibabacloud.com/help/en/maxcompute/user-guide/data-type-editions)
+          // <props="intl">[Data type editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
           shared_ptr<string> typeSystem_ {};
         };
 
@@ -634,13 +636,12 @@ namespace Models
 
 
         protected:
-          // The IP whitelist for access over the public network and from other Alibaba Cloud services.
+          // The IP address whitelist for the Internet and cloud service interconnection network.
           // 
-          // > If you configure only this IP whitelist, access over the public network and from other Alibaba Cloud services is restricted based on the whitelist, and all access from VPCs is denied.
+          // > If you configure only the IP address whitelist for the Internet and cloud service interconnection network, access from the Internet and cloud service interconnection network is restricted by the configuration, and all access from VPCs is prohibited.
           shared_ptr<string> ipList_ {};
-          // The IP whitelist for access from VPCs.
-          // 
-          // > If you configure only the VPC IP whitelist, access from VPCs is restricted based on the whitelist, and all access over the public network and from other Alibaba Cloud services is denied.
+          // The IP address whitelist for VPCs.
+          // > If you configure only the IP address whitelist for VPCs, access from VPCs is restricted by the configuration, and all access from the Internet and cloud service interconnection network is prohibited.
           shared_ptr<string> vpcIpList_ {};
         };
 
@@ -755,19 +756,21 @@ namespace Models
 
 
       protected:
-        // The description of the project.
+        // The project description.
         shared_ptr<string> comment_ {};
-        // The total storage usage of the project, which represents the compressed, logical data size used for metering.
+        // The total storage size. This value indicates the current storage size of the project and is consistent with the billing metric. It represents the logical storage size after data compression at the project level.
         shared_ptr<string> costStorage_ {};
-        // The time when the project was created, as a Unix timestamp in milliseconds.
+        // The creation time. The time is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createdTime_ {};
-        // The default compute quota. If you do not specify a quota for a job, the job consumes computing resources from this default quota. For more information about how to use computing resources, see <props="intl">[Use of computing resources](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/use-of-computing-resources).
+        // The default compute quota.
+        // This is used to allocate compute resources. If no compute quota is specified, jobs initiated in the project consume resources from the default quota. For more information about how to use compute resources, see <props="china">[Use of computing resources](https://www.alibabacloud.com/help/en/maxcompute/user-guide/use-of-computing-resources)
+        // <props="intl">[Use of computing resources](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/use-of-computing-resources).
         shared_ptr<string> defaultQuota_ {};
-        // The IP whitelist.
+        // The IP address whitelist.
         shared_ptr<Projects::IpWhiteList> ipWhiteList_ {};
-        // The name of the project.
+        // The project name.
         shared_ptr<string> name_ {};
-        // The owner of the project.
+        // The account information of the project owner.
         shared_ptr<string> owner_ {};
         // The basic properties of the project.
         shared_ptr<Projects::Properties> properties_ {};
@@ -775,25 +778,21 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The instance ID and billing method of the default compute quota.
         shared_ptr<Projects::SaleTag> saleTag_ {};
-        // The security-related properties.
+        // The security properties.
         shared_ptr<Projects::SecurityProperties> securityProperties_ {};
-        // The status of the project. Valid values:
-        // 
-        // - **AVAILABLE**: The project is running as expected.
-        // 
-        // - **READONLY**: The project is read-only.
-        // 
-        // - **FROZEN**: The project is frozen.
-        // 
-        // - **DELETING**: The project is being deleted.
+        // The project status. Valid values:
+        // - **AVAILABLE**: normal
+        // - **READONLY**: read-only
+        // - **FROZEN**: frozen
+        // - **DELETING**: deleting
         shared_ptr<string> status_ {};
-        // Specifies whether the project uses a three-tier model (project > schema > object). In this model, schemas are used within a project to organize objects such as tables, resources, and user-defined functions (UDFs). For more information, see <props="intl">[Schema operations](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/schema-related-operations).
+        // Specifies whether to support schema-based storage.
+        // MaxCompute supports schemas, which are located under projects and used to classify objects such as tables, resources, and UDFs. A project can contain multiple schemas. For more information, see <props="china">[Schema-related operations](https://www.alibabacloud.com/help/en/maxcompute/user-guide/schema-related-operations)
+        // <props="intl">[Schema-related operations](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/schema-related-operations).
         shared_ptr<bool> threeTierModel_ {};
-        // The type of the project. Valid values:
-        // 
-        // - **managed**: An internal project.
-        // 
-        // - **external**: An external project.
+        // The project type. Valid values:
+        // - **managed**: internal project
+        // - **external**: external project
         shared_ptr<string> type_ {};
       };
 
@@ -830,11 +829,11 @@ namespace Models
 
 
     protected:
-      // The token for retrieving the next page of results. If this parameter is empty, all results have been returned.
+      // The pagination token. The current operation only supports sequential pagination. A non-empty nextToken value indicates that more data is available. You can use the nextToken value as a parameter to query the next page.
       shared_ptr<string> nextToken_ {};
-      // A pagination marker used to retrieve the next page of results. This parameter is returned when the response is truncated.
+      // The marker used to specify the starting point of the returned results. The results are sorted in alphabetical order and returned starting from the first item after the marker.
       shared_ptr<string> marker_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of results to return per page.
       shared_ptr<int32_t> maxItem_ {};
       // The list of projects.
       shared_ptr<vector<Data::Projects>> projects_ {};
@@ -859,7 +858,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned results.
     shared_ptr<ListProjectsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

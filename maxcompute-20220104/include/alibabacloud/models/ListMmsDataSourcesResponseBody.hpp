@@ -243,23 +243,23 @@ namespace Models
         protected:
           // The description of the configuration.
           shared_ptr<string> desc_ {};
-          // A list of valid values for the configuration.
+          // The enumerated values of the configuration.
           shared_ptr<vector<string>> enums_ {};
           // The configuration group.
           shared_ptr<string> group_ {};
-          // The unique key for the configuration.
+          // The English identifier of the configuration.
           shared_ptr<string> key_ {};
-          // The configuration name.
+          // The name of the configuration.
           shared_ptr<string> name_ {};
-          // A placeholder for the configuration value.
+          // The sample value of the configuration.
           shared_ptr<string> placeHolder_ {};
-          // Indicates whether the configuration is required.
+          // Specifies whether the configuration is required.
           shared_ptr<bool> required_ {};
-          // The required file extension (for example, `.keytab`) when `type` is `file`.
+          // The specific file type when the type is file, such as .keytab.
           shared_ptr<string> subType_ {};
-          // The configuration type.
+          // The type of the configuration. Valid values: boolean, int, map, string, password, and file.
           shared_ptr<string> type_ {};
-          // The configuration value.
+          // The value of the configuration.
           Darabonba::Json value_ {};
         };
 
@@ -456,55 +456,60 @@ namespace Models
 
 
       protected:
-        // Indicates whether the agent for the data source instance is online.
+        // Specifies whether the data source instance or the associated agent is started.
         shared_ptr<bool> agentIsOnline_ {};
-        // A list of data source configurations.
+        // The configurations related to the data source.
         shared_ptr<vector<ObjectList::Config>> config_ {};
-        // The time the data source was created.
+        // The time when the data source was created. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The number of databases in the data source.
         shared_ptr<int32_t> dbNum_ {};
         // The default destination MaxCompute project.
         shared_ptr<string> dstProject_ {};
-        // A list of destination MaxCompute projects.
+        // The list of destination MaxCompute projects.
         shared_ptr<vector<string>> dstProjects_ {};
-        // The reason the data source instance failed to start or stop. This parameter is returned only if the `status` is `START_FAILED` or `STOP_FAILED`.
+        // The reason why the data source instance failed to start or stop when the status is START_FAILED or STOP_FAILED.
         shared_ptr<string> errMsg_ {};
-        // The data source ID.
+        // The ID of the data source.
         shared_ptr<int64_t> id_ {};
-        // The last metadata synchronization time.
+        // The time when the metadata was last synchronized. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> lastUpdateTime_ {};
-        // The data source name.
+        // The name of the data source.
         shared_ptr<string> name_ {};
-        // The network connection, specified in the `VpcId:RegionId` format.
+        // The MaxCompute network connectivity ID. Format: "MaxCompute network connectivity ID":region ID.
         shared_ptr<string> networklink_ {};
         // The number of partitions in the data source.
         shared_ptr<int32_t> partitionNum_ {};
-        // The number of partitions currently being migrated.
+        // The number of partitions being migrated.
         shared_ptr<int32_t> partitionsDoingNum_ {};
-        // The number of successfully migrated partitions.
+        // The number of partitions that have been migrated.
         shared_ptr<int32_t> partitionsDoneNum_ {};
-        // The number of partitions that failed to migrate.
+        // The number of partitions that failed to be migrated.
         shared_ptr<int32_t> partitionsFailedNum_ {};
         // The region ID.
         shared_ptr<string> region_ {};
+        // The cause of the metadata update task failure.
         shared_ptr<string> scanErrMsg_ {};
         // The ID of the metadata synchronization task.
         shared_ptr<int64_t> scanId_ {};
+        // The status of the metadata update task. Valid values:
+        // - DOING: The task is running.
+        // - DONE: The task succeeded.
+        // - FAILED: The task failed.
         shared_ptr<string> scanStatus_ {};
-        // The data source status.
+        // The status of the data source.
         shared_ptr<string> status_ {};
         // The number of tables in the data source.
         shared_ptr<int32_t> tableNum_ {};
-        // The number of tables currently being migrated.
+        // The number of tables being migrated.
         shared_ptr<int32_t> tablesDoingNum_ {};
-        // The number of successfully migrated tables.
+        // The number of tables that have been migrated.
         shared_ptr<int32_t> tablesDoneNum_ {};
-        // The number of tables that failed to migrate.
+        // The number of tables that failed to be migrated.
         shared_ptr<int32_t> tablesFailedNum_ {};
-        // The number of partially migrated tables.
+        // The number of tables that have been partially migrated.
         shared_ptr<int32_t> tablesPartDoneNum_ {};
-        // The data source type.
+        // The type of the data source.
         shared_ptr<string> type_ {};
       };
 
@@ -547,7 +552,7 @@ namespace Models
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of data sources.
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -570,7 +575,7 @@ namespace Models
 
 
   protected:
-    // The response payload.
+    // The returned data.
     shared_ptr<ListMmsDataSourcesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

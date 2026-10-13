@@ -106,9 +106,9 @@ namespace Models
 
 
       protected:
-        // Metric related information.
+        // The metric-related information.
         shared_ptr<map<string, string>> metric_ {};
-        // Metric values information.
+        // The metric value information.
         shared_ptr<vector<vector<double>>> values_ {};
       };
 
@@ -145,13 +145,13 @@ namespace Models
 
 
     protected:
-      // The category of the metrics.
+      // The metric type.
       shared_ptr<string> category_ {};
-      // Metric details.
+      // The metric details.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
-      // The name of observation metric.
+      // The metric name.
       shared_ptr<string> name_ {};
-      // The monitoring statistical period.Unit:Second(s).
+      // The monitoring statistical period.
       shared_ptr<int64_t> period_ {};
     };
 
@@ -195,23 +195,18 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<ListJobMetricResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // HTTP status code.
-    // 
-    // - 1xx: Informational response - Request received, processing continues.
-    // 
-    // - 2xx: Success - The request has been successfully received, understood, and accepted by the server.
-    // 
-    // - 3xx: Redirection - Further action must be taken to complete the request.
-    // 
-    // - 4xx: Client error - The request contains bad syntax or cannot be fulfilled.
-    // 
-    // - 5xx: Server error - The server failed to fulfill an apparently valid request.
+    // The HTTP status code.
+    // - 1xx: Informational response. The request was received and is being processed.
+    // - 2xx: Success. The request action was successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+    // - 4xx: Client error. The request contains invalid parameters, bad syntax, or cannot be fulfilled due to specific request conditions.
+    // - 5xx: Server error. The server failed to fulfill the request due to other reasons.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

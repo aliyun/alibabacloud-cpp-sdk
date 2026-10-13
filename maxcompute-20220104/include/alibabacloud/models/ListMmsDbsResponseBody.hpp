@@ -325,59 +325,59 @@ namespace Models
 
 
       protected:
-        // Time created in MMS
+        // The time when the database was created in MMS.
         shared_ptr<string> createTime_ {};
-        // Whether deleted
+        // Indicates whether the database has been deleted.
         shared_ptr<bool> deleted_ {};
-        // Database description
+        // The description of the database.
         shared_ptr<string> description_ {};
-        // The MaxCompute schema corresponding to the source database. If the target MaxCompute project does not have a schema layer enabled, this value is null. By default, it is consistent with the source database name.
+        // The MaxCompute schema that corresponds to the source database. If the schema layer is not enabled for the destination MaxCompute project, this value is null. By default, this value is the same as the name of the source database.
         shared_ptr<string> dstName_ {};
-        // Target MaxCompute project name
+        // The name of the destination MaxCompute project.
         shared_ptr<string> dstProjectName_ {};
-        // Other information stored in JSON format
+        // The additional information stored in JSON format.
         shared_ptr<string> extra_ {};
-        // Database ID
+        // The ID of the database.
         shared_ptr<int64_t> id_ {};
         // Last DDL Time
         shared_ptr<string> lastDdlTime_ {};
-        // Database storage location
+        // The storage location of the database.
         shared_ptr<string> location_ {};
-        // Database name
+        // The name of the database.
         shared_ptr<string> name_ {};
-        // Number of database data rows
+        // The number of data rows in the database.
         shared_ptr<int64_t> numRows_ {};
-        // Database owner
+        // The owner of the database.
         shared_ptr<string> owner_ {};
-        // Number of partitions
+        // The number of partitions.
         shared_ptr<int32_t> partitions_ {};
-        // Partitions being migrated
+        // The partitions being migrated.
         shared_ptr<int32_t> partitionsDoing_ {};
-        // Partitions migrated
+        // The partitions that have been migrated.
         shared_ptr<int32_t> partitionsDone_ {};
-        // Failed partitions
+        // The partitions that failed to migrate.
         shared_ptr<int32_t> partitionsFailed_ {};
-        // Database data size in bytes
+        // The size of the database data, in bytes.
         shared_ptr<int64_t> size_ {};
-        // Data source ID.
+        // The ID of the data source.
         shared_ptr<int64_t> sourceId_ {};
-        // Data source name
+        // The name of the data source.
         shared_ptr<string> sourceName_ {};
-        // Migration status: INIT, DOING, FAILED, DONE, PART_DONE
+        // The migration status. Valid values: INIT, DOING, FAILED, DONE, and PART_DONE.
         shared_ptr<string> status_ {};
-        // Number of tables
+        // The number of tables.
         shared_ptr<int32_t> tables_ {};
-        // Tables being migrated
+        // The tables being migrated.
         shared_ptr<int32_t> tablesDoing_ {};
-        // Tables migrated
+        // The tables that have been migrated.
         shared_ptr<int32_t> tablesDone_ {};
-        // Failed tables
+        // The tables that failed to migrate.
         shared_ptr<int32_t> tablesFailed_ {};
-        // Partially migrated tables
+        // The tables that are partially migrated.
         shared_ptr<int32_t> tablesPartDone_ {};
-        // Latest data update time
+        // The latest update time of the data. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> updateTime_ {};
-        // Whether data is updated
+        // Indicates whether the data has been updated.
         shared_ptr<bool> updated_ {};
       };
 
@@ -414,13 +414,13 @@ namespace Models
 
 
     protected:
-      // Database list
+      // The list of databases.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // Page size
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of records.
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -443,9 +443,9 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<ListMmsDbsResponseBody::Data> data_ {};
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

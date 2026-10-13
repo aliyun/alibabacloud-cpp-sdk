@@ -168,21 +168,21 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The source database ID.
         shared_ptr<int64_t> dbId_ {};
-        // The timer ID.
+        // The scheduled task ID.
         shared_ptr<int64_t> id_ {};
-        // The timer name.
+        // The scheduled task name.
         shared_ptr<string> name_ {};
-        // The schedule type.
+        // The schedule type of the scheduled task.
         shared_ptr<string> scheduleType_ {};
         // The data source ID.
         shared_ptr<int64_t> sourceId_ {};
         // The source database name.
         shared_ptr<string> srcDbName_ {};
-        // Indicates whether the timer is stopped.
+        // Indicates whether the task is stopped.
         shared_ptr<bool> stopped_ {};
         // The job type.
         shared_ptr<string> type_ {};
@@ -223,11 +223,11 @@ namespace Models
 
 
     protected:
-      // A list of timers.
+      // The log information.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
       // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries on the current page.
+      // The number of entries displayed per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> total_ {};

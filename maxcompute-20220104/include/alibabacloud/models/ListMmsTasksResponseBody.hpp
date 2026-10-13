@@ -269,7 +269,7 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
+        // The task creation time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The source database ID.
         shared_ptr<int64_t> dbId_ {};
@@ -279,7 +279,7 @@ namespace Models
         shared_ptr<string> dstSchemaName_ {};
         // The destination MaxCompute table.
         shared_ptr<string> dstTableName_ {};
-        // The end time of the task.
+        // The end time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
         // The migration task ID.
         shared_ptr<int64_t> id_ {};
@@ -287,7 +287,7 @@ namespace Models
         shared_ptr<int64_t> jobId_ {};
         // The migration job name.
         shared_ptr<string> jobName_ {};
-        // The number of retries that have been performed.
+        // The number of retries.
         shared_ptr<int32_t> retriedTimes_ {};
         // Indicates whether the task is running.
         shared_ptr<bool> running_ {};
@@ -297,11 +297,11 @@ namespace Models
         shared_ptr<string> sourceName_ {};
         // The source database name.
         shared_ptr<string> srcDbName_ {};
-        // The source schema name in a three-level namespace.
+        // The source schema name. This is the schema in the three-level namespace.
         shared_ptr<string> srcSchemaName_ {};
         // The source table name.
         shared_ptr<string> srcTableName_ {};
-        // The start time of the task.
+        // The start time. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
         // The migration task status.
         shared_ptr<string> status_ {};
@@ -375,7 +375,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<ListMmsTasksResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

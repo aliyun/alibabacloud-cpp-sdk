@@ -123,23 +123,23 @@ namespace Models
   protected:
     // Specifies whether to sort the results in ascending order.
     shared_ptr<bool> ascOrder_ {};
-    // The date for which to retrieve statistics. The date must be in `YYYYMMdd` format.
+    // The statistical date at the day level. Specify the time parameter in the YYYYMMdd format.
     // 
     // This parameter is required.
     shared_ptr<string> date_ {};
-    // The column to sort by.
+    // The sort column.
     shared_ptr<string> orderColumn_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The partition name. This parameter supports fuzzy matching.
+    // The partition name for fuzzy matching.
     shared_ptr<string> partitionPrefix_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The schema that contains the table.
+    // The schema to which the table belongs.
     shared_ptr<string> schema_ {};
-    // The tenant ID. You can find this ID in the MaxCompute console by navigating to **Tenant Management** > **Tenant Properties**.
+    // The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
     shared_ptr<string> tenantId_ {};
     // The storage types.
     shared_ptr<string> typesShrink_ {};

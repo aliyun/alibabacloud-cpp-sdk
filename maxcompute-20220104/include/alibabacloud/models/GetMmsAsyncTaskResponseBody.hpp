@@ -161,29 +161,29 @@ namespace Models
 
 
     protected:
-      // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The end time, in the format of YYYY-MM-DD HH:mm:ss.
+      // The end time of the execution. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> endTime_ {};
       // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The asynchronous task ID.
+      // The ID of the asynchronous task.
       shared_ptr<int64_t> id_ {};
       // The ID of the object associated with the asynchronous task.
       shared_ptr<int64_t> objectId_ {};
-      // The running progress.
+      // The execution progress.
       shared_ptr<int32_t> progress_ {};
-      // The running result.
+      // The execution result.
       shared_ptr<string> result_ {};
       // Indicates whether the task is running.
       shared_ptr<bool> running_ {};
-      // The data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> sourceId_ {};
-      // The start time, in the format of YYYY-MM-DD HH:mm:ss.
+      // The start time of the execution. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> startTime_ {};
-      // The asynchronous task status.
+      // The status of the asynchronous task.
       shared_ptr<string> status_ {};
-      // The asynchronous task type.
+      // The type of the asynchronous task.
       shared_ptr<string> type_ {};
     };
 

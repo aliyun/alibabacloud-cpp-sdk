@@ -77,9 +77,9 @@ namespace Models
   protected:
     // The name of the data source.
     shared_ptr<string> name_ {};
-    // The page number. If pagination is not used, all data sources are returned.
+    // The page number. If this parameter is not specified, all records are queried.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. If pagination is not used, all data sources are returned.
+    // The number of entries to return on each page. If this parameter is not specified, all records are queried.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};

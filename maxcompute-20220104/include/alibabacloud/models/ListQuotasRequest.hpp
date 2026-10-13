@@ -96,13 +96,13 @@ namespace Models
   protected:
     // The billing method.
     shared_ptr<string> billingType_ {};
-    // The token that specifies the position from which to start returning results. The results are sorted in alphabetical order.
+    // The marker after which the results are returned in alphabetical order.
     shared_ptr<string> marker_ {};
-    // The maximum number of entries to return on each page.
+    // The maximum number of items to return.
     shared_ptr<int64_t> maxItem_ {};
     shared_ptr<string> productId_ {};
     shared_ptr<string> region_ {};
-    // The cost allocation tags that are used to filter quotas. You can create cost allocation tags in the Tag service.
+    // The billing tags used to filter quota objects. Billing tags are created by users for cloud products.
     shared_ptr<string> saleTags_ {};
     shared_ptr<string> tenantId_ {};
   };

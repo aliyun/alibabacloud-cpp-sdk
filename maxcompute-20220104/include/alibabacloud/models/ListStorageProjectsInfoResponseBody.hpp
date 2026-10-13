@@ -213,27 +213,27 @@ namespace Models
 
 
       protected:
-        // The statistics collection date. The date is accurate to the day. The date must be in the `YYYYMMdd` format.
+        // The statistical date. Data is collected on a daily basis. Specify the date in the YYYYMMDD format.
         shared_ptr<string> date_ {};
-        // The Long Term storage usage.
+        // The long-term storage usage.
         shared_ptr<double> longTermStorage_ {};
-        // The unit of the Long Term storage usage.
+        // The unit of the long-term storage usage.
         shared_ptr<string> longTermStorageUnit_ {};
-        // The IA storage class usage.
+        // The low-frequency storage usage.
         shared_ptr<double> lowFreqStorage_ {};
-        // The unit of the IA storage class usage.
+        // The unit of the low-frequency storage usage.
         shared_ptr<string> lowFreqStorageUnit_ {};
         // The name of the MaxCompute project.
         shared_ptr<string> projectName_ {};
-        // The year-over-year change rate of the total storage usage in the last {$recentDays} days.
+        // The rate of change in the total storage usage compared with {$recentDays} days ago.
         shared_ptr<double> rate_ {};
         // The recycle bin storage usage.
         shared_ptr<double> recycleBinStorage_ {};
         // The unit of the recycle bin storage usage.
         shared_ptr<string> recycleBinStorageUnit_ {};
-        // The Standard storage usage.
+        // The standard storage usage.
         shared_ptr<double> standardStorage_ {};
-        // The unit of the Standard storage usage.
+        // The unit of the standard storage usage.
         shared_ptr<string> standardStorageUnit_ {};
         // The timestamp of the last data update.
         shared_ptr<int64_t> timestamp_ {};
@@ -283,15 +283,15 @@ namespace Models
 
 
     protected:
-      // The statistics collection date.
+      // The statistical date. The format is YYYYMMDD.
       shared_ptr<string> date_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries on each page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
       // The list of project-level storage information.
       shared_ptr<vector<Data::StorageProjectInfoList>> storageProjectInfoList_ {};
-      // The total number of returned entries.
+      // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -342,16 +342,11 @@ namespace Models
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // The HTTP status code.
-    // 
-    // - 1xx: an informational response. The request has been received and is being processed.
-    // 
-    // - 2xx: a success response. The request has been successfully received, understood, and accepted by the server.
-    // 
-    // - 3xx: a redirection response. The request is redirected. You must take further action to complete the request.
-    // 
-    // - 4xx: a client error. The request contains invalid request parameters or syntax, or cannot be fulfilled.
-    // 
-    // - 5xx: a server error. The server fails to fulfill the request for other reasons.
+    // - 1xx: Informational. The request was received and is being processed.
+    // - 2xx: Success. The action requested by the client was successfully received, understood, and accepted by the server.
+    // - 3xx: Redirection. The request was redirected, and further action is required to complete it.
+    // - 4xx: Client error. The request contains bad syntax, invalid parameters, or cannot be fulfilled.
+    // - 5xx: Server error. The server failed to fulfill the request.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

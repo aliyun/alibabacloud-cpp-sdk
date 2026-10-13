@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The timer name.
+    // The table name.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> srcDbName_ {};
     // The source table name.
     shared_ptr<string> srcTableName_ {};
-    // Filters timers by their stopped state.
+    // Specifies whether the job is stopped.
     shared_ptr<bool> stopped_ {};
   };
 
