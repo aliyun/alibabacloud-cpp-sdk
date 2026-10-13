@@ -91,7 +91,7 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The API status code.
     shared_ptr<int32_t> code_ {};
     // The additional information.
     shared_ptr<string> message_ {};

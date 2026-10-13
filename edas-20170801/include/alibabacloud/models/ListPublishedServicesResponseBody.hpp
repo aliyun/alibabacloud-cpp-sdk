@@ -275,12 +275,12 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The code.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // The message.
     shared_ptr<string> message_ {};
     shared_ptr<ListPublishedServicesResponseBody::PublishedServicesList> publishedServicesList_ {};
-    // The unique ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

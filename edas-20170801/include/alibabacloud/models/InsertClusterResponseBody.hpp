@@ -128,30 +128,33 @@ namespace Models
 
 
     protected:
-      // The ID of cluster.
+      // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
       // The type of the cluster. Valid values:
       // 
-      // *   2: ECS cluster
-      // *   3: self-managed Kubernetes cluster in EDAS
-      // *   5: Kubernetes cluster
+      // - 2: ECS cluster.
+      // - 3: EDAS built-in Kubernetes cluster.
+      // - 5: Kubernetes cluster.
       shared_ptr<int32_t> clusterType_ {};
-      // The provider of the IaaS resources that are used in the cluster.
+      // The provider.
       shared_ptr<string> iaasProvider_ {};
-      // The network type of the cluster. Valid values:
+      // The network type. Valid values:
       // 
-      // *   1: classic network
-      // *   2\\. VPC
+      // - 1: Classic network.
+      // 
+      // - 2: VPC.
       shared_ptr<int32_t> networkMode_ {};
-      // **This parameter is deprecated.** The CPU overcommit ratio supported by the Docker cluster. Valid values:
+      // **[Deprecated]** The CPU overselling ratio for Docker clusters. Valid values:
       // 
-      // *   2: 1:2, which means that resources are overcommitted by 1:2.
-      // *   4: 1:4, which means that resources are overcommitted by 1:4.
-      // *   8: 1:8, which means that resources are overcommitted by 1:8.
+      // - 2: 1:2 ratio.
+      // 
+      // - 4: 1:4 ratio.
+      // 
+      // - 8: 1:8 ratio.
       shared_ptr<int32_t> oversoldFactor_ {};
-      // The ID of the region in which the cluster resides.
+      // The region ID of the cluster.
       shared_ptr<string> regionId_ {};
       // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
@@ -190,13 +193,13 @@ namespace Models
 
 
   protected:
-    // The information about the cluster that was created.
+    // The created cluster entity.
     shared_ptr<InsertClusterResponseBody::Cluster> cluster_ {};
-    // The HTTP status code that is returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The additional information that is returned.
+    // The additional information.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

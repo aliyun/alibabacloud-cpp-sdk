@@ -2815,7 +2815,7 @@ GetChangeOrderInfoResponse Client::getChangeOrderInfo(const GetChangeOrderInfoRe
 }
 
 /**
- * @summary Queries a specific cluster.
+ * @summary Retrieves the details of a specified cluster.
  *
  * @param request GetClusterRequest
  * @param headers map
@@ -2848,7 +2848,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
 }
 
 /**
- * @summary Queries a specific cluster.
+ * @summary Retrieves the details of a specified cluster.
  *
  * @param request GetClusterRequest
  * @return GetClusterResponse
@@ -3208,6 +3208,59 @@ GetK8sServicesResponse Client::getK8sServices(const GetK8sServicesRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getK8sServicesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of application import and export.
+ *
+ * @param request GetMigrateApplicationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMigrateApplicationResponse
+ */
+GetMigrateApplicationResponse Client::getMigrateApplicationWithOptions(const GetMigrateApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMigrationId()) {
+    query["migrationId"] = request.getMigrationId();
+  }
+
+  if (!!request.hasMigrationType()) {
+    query["migrationType"] = request.getMigrationType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMigrateApplication"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v5/k8s/migrateK8sApp")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMigrateApplicationResponse>();
+}
+
+/**
+ * @summary Queries the details of application import and export.
+ *
+ * @param request GetMigrateApplicationRequest
+ * @return GetMigrateApplicationResponse
+ */
+GetMigrateApplicationResponse Client::getMigrateApplication(const GetMigrateApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMigrateApplicationWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5396,7 +5449,7 @@ ListConfigTemplatesResponse Client::listConfigTemplates(const ListConfigTemplate
 }
 
 /**
- * @summary Queries consumed services.
+ * @summary Queries the consumed services.
  *
  * @param request ListConsumedServicesRequest
  * @param headers map
@@ -5429,7 +5482,7 @@ ListConsumedServicesResponse Client::listConsumedServicesWithOptions(const ListC
 }
 
 /**
- * @summary Queries consumed services.
+ * @summary Queries the consumed services.
  *
  * @param request ListConsumedServicesRequest
  * @return ListConsumedServicesResponse
@@ -6573,8 +6626,6 @@ ListVpcResponse Client::listVpc() {
 /**
  * @summary Migrates an application.
  *
- * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
- *
  * @param request MigrateApplicationRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6623,8 +6674,6 @@ MigrateApplicationResponse Client::migrateApplicationWithOptions(const MigrateAp
 
 /**
  * @summary Migrates an application.
- *
- * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
  *
  * @param request MigrateApplicationRequest
  * @return MigrateApplicationResponse
@@ -6701,7 +6750,7 @@ MigrateEcuResponse Client::migrateEcu(const MigrateEcuRequest &request) {
 }
 
 /**
- * @summary Modifies the scaling rule for an application.
+ * @summary Modifies the auto scaling rules.
  *
  * @param request ModifyScalingRuleRequest
  * @param headers map
@@ -6850,7 +6899,7 @@ ModifyScalingRuleResponse Client::modifyScalingRuleWithOptions(const ModifyScali
 }
 
 /**
- * @summary Modifies the scaling rule for an application.
+ * @summary Modifies the auto scaling rules.
  *
  * @param request ModifyScalingRuleRequest
  * @return ModifyScalingRuleResponse
@@ -7078,7 +7127,7 @@ QueryRegionConfigResponse Client::queryRegionConfig() {
 }
 
 /**
- * @summary Queries the configuration details of Log Service for an application.
+ * @summary Queries the Simple Log Service configuration details of an application.
  *
  * @param request QuerySlsLogStoreListRequest
  * @param headers map
@@ -7123,7 +7172,7 @@ QuerySlsLogStoreListResponse Client::querySlsLogStoreListWithOptions(const Query
 }
 
 /**
- * @summary Queries the configuration details of Log Service for an application.
+ * @summary Queries the Simple Log Service configuration details of an application.
  *
  * @param request QuerySlsLogStoreListRequest
  * @return QuerySlsLogStoreListResponse

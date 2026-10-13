@@ -100,32 +100,32 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The type of the cluster. Valid values:
     // 
-    // *   2: Elastic Compute Service (ECS) cluster
-    // *   3: self-managed Kubernetes cluster in Enterprise Distributed Application Service (EDAS)
-    // *   5: Kubernetes cluster
+    // - 2: ECS cluster.
+    // - 3: EDAS built-in Kubernetes cluster.
+    // - 5: Kubernetes cluster.
     // 
     // This parameter is required.
     shared_ptr<int32_t> clusterType_ {};
-    // The provider of Infrastructure as a Service (IaaS) resources that are used in the cluster.
+    // The IaaS resource provider.
     // 
-    // When you use Alibaba Cloud, set the value to `ALIYUN`. The value is case-sensitive.
+    // <note>When you select Alibaba Cloud, you must use uppercase Pinyin, such as `ALIYUN`.</note>
     shared_ptr<string> iaasProvider_ {};
-    // The ID of the custom namespace. The ID is in the `physical region ID:custom namespace identifier` format. Example: `cn-hangzhou:test`.
+    // The region ID of the custom namespace. Format: `physical region:custom namespace identifier`, such as `cn-hangzhou:test`.
     shared_ptr<string> logicalRegionId_ {};
-    // The network type of the cluster. Valid values:
+    // The network type. Valid values:
     // 
-    // *   1: classic network
-    // *   2: virtual private cloud (VPC)
+    // - 1: Classic network.
+    // - 2: VPC.
     // 
     // This parameter is required.
     shared_ptr<int32_t> networkMode_ {};
-    // **This parameter is deprecated.** The CPU overcommit ratio supported by a Docker cluster. Valid values:
+    // **[Deprecated]** The CPU overselling ratio for Docker clusters. Valid values:
     // 
-    // *   2: 1:2, which means that resources are overcommitted by 1:2.
-    // *   4: 1:4, which means that resources are overcommitted by 1:4.
-    // *   8: 1:8, which means that resources are overcommitted by 1:8.
+    // - 2: 1:2 ratio.
+    // - 4: 1:4 ratio.
+    // - 8: 1:8 ratio.
     shared_ptr<int32_t> oversoldFactor_ {};
-    // The ID of the VPC. This parameter is required if you set the NetworkMode parameter to 2.
+    // The ID of the VPC. This parameter is required if the network type is set to VPC.
     shared_ptr<string> vpcId_ {};
   };
 

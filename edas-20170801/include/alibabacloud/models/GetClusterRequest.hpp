@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster in Enterprise Distributed Application Service (EDAS). You can call the ListCluster operation to query the cluster ID. For more information, see [ListCluster](https://help.aliyun.com/document_detail/154995.html).
+    // The cluster ID. You can call the [ListCluster](https://help.aliyun.com/document_detail/154995.html) operation to obtain the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

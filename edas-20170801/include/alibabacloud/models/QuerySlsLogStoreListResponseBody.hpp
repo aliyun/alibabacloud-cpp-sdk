@@ -112,21 +112,20 @@ namespace Models
 
 
     protected:
-      // The type of the logging service.
+      // The Simple Log Service type.
       shared_ptr<string> consumerSide_ {};
-      // The time when the logging service was created.
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The URL of the logging service.
+      // The Simple Log Service link.
       shared_ptr<string> link_ {};
-      // The name of the Logstore.
+      // The Logstore name.
       shared_ptr<string> logstore_ {};
-      // The name of the project.
+      // The project name.
       shared_ptr<string> project_ {};
-      // The source of logs. Valid values:
+      // The log source. Valid values:
       // 
-      // - Standard output: stdout.log
-      // 
-      // - File log: the directory that stores logs
+      // - Standard output: stdout.log.
+      // - File log: the collection path.
       shared_ptr<string> source_ {};
     };
 
@@ -170,15 +169,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The message that is returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configurations of Log Service for the application.
+    // The Simple Log Service configuration results.
     shared_ptr<vector<QuerySlsLogStoreListResponseBody::Result>> result_ {};
-    // The number of log sources configured for the application.
+    // The total number of Simple Log Service configurations.
     shared_ptr<int32_t> totalSize_ {};
   };
 

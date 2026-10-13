@@ -305,95 +305,86 @@ namespace Models
 
 
   protected:
-    // Set the value to true if scale-outs are allowed.
+    // Must be set to true if auto scaling is used.
     shared_ptr<bool> acceptEULA_ {};
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The ID of the instance group to which the application is deployed.
+    // The deployment group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The relationship among the conditions that trigger a scale-in.
+    // The trigger condition. Valid values:
     // 
-    // - OR: one of the conditions
-    // 
-    // - AND: all conditions
+    // - OR: Any condition.
+    // - AND: All conditions.
     shared_ptr<string> inCondition_ {};
-    // The CPU utilization that triggers a scale-in.
+    // The trigger metric: CPU utilization.
     shared_ptr<int32_t> inCpu_ {};
-    // The duration in which the metric threshold is exceeded. Unit: minutes.
+    // The duration, in minutes.
     shared_ptr<int32_t> inDuration_ {};
-    // Specifies whether to allow scale-ins.
+    // Specifies whether to include the scale-in rule. Valid values:
     // 
-    // - true: allows scale-ins.
-    // 
-    // - false: does not allow scale-ins.
+    // - true: Included.
+    // - false: Not included.
     shared_ptr<bool> inEnable_ {};
-    // The minimum number of instances that must be retained in each group when a scale-in is performed.
+    // The minimum number of instances to retain when the group scales in.
     shared_ptr<int32_t> inInstanceNum_ {};
-    // The system load that triggers a scale-in.
+    // The trigger metric: system load.
     shared_ptr<int32_t> inLoad_ {};
-    // The minimum service latency that triggers a scale-in. The lower limit is 0. Unit: milliseconds.
+    // The trigger metric: service latency. Unit: milliseconds. Minimum value: 0.
     shared_ptr<int32_t> inRT_ {};
-    // The number of instances that are removed during each scale-in.
+    // The number of instances to scale in at a time.
     shared_ptr<int32_t> inStep_ {};
-    // The key pair that is used to log on to the instance. This parameter takes effect only if you choose to create instances based on the specifications of an existing instance during a scale-out.
+    // The name of the logon key pair for the instance. This parameter is valid only when the existing instance rule is used for auto scaling.
     shared_ptr<string> keyPairName_ {};
-    // The multi-zone scaling policy. Valid values:
-    // 
-    // - PRIORITY: The vSwitch that is first selected has the highest priority.
-    // 
-    // - BALANCE: This policy evenly distributes instances across zones in which the vSwitches reside.
+    // The multi-zone scaling policy for auto scaling. Valid values:
+    // - PRIORITY: Priority policy.
+    // - BALANCE: Balanced distribution policy.
     shared_ptr<string> multiAzPolicy_ {};
-    // The CPU utilization that triggers a scale-out.
+    // The trigger metric: CPU utilization.
     shared_ptr<int32_t> outCPU_ {};
-    // The relationship among the conditions that trigger a scale-out.
+    // The trigger condition. Valid values:
     // 
-    // - OR: one of the conditions
-    // 
-    // - AND: all conditions
+    // - OR: Any condition.
+    // - AND: All conditions.
     shared_ptr<string> outCondition_ {};
-    // The duration in which the metric threshold is exceeded. Unit: minutes.
+    // The duration, in minutes.
     shared_ptr<int32_t> outDuration_ {};
-    // Specifies whether to allow scale-outs.
+    // Specifies whether to include the scale-out rule.
     shared_ptr<bool> outEnable_ {};
-    // The maximum number of instances in each group when a scale-out is performed.
+    // The maximum number of instances when the group scales out.
     shared_ptr<int32_t> outInstanceNum_ {};
-    // The system load that triggers a scale-out.
+    // The trigger metric: system load.
     shared_ptr<int32_t> outLoad_ {};
-    // The minimum service latency that triggers a scale-out. The lower limit is 0. Unit: milliseconds.
+    // The trigger metric: service latency. Unit: milliseconds. Minimum value: 0.
     shared_ptr<int32_t> outRT_ {};
-    // The number of instances that are added during each scale-out.
+    // The number of instances to scale out at a time.
     shared_ptr<int32_t> outStep_ {};
-    // The password that is used to log on to the instance. This parameter takes effect only if you choose to create instances based on the specifications of an existing instance during a scale-out.
+    // The logon password of the instance. This parameter is valid only when the existing instance rule is used for auto scaling.
     shared_ptr<string> password_ {};
-    // The source of the instance to be added during a scale-out. Valid values:
+    // The source of instances for scale-out. Valid values:
+    // - NEW: Elastic resources.
+    // - AVAILABLE: Existing resources. To prioritize existing resources, use AVAILABLE_FIRST.
     // 
-    // - NEW: elastic resources
-    // 
-    // - AVAILABLE: existing resources If you prefer existing resources to elastic resources, set this parameter to AVAILABLE_FIRST.
-    // 
-    // If you set this parameter to NEW or AVAILABLE_FIRST, you must specify the auto-scaling parameters. If you set this parameter to NEW, instances are created based on a launch template or the specifications of an existing instance.
+    // If you set this parameter to NEW or AVAILABLE_FIRST, you must specify auto scaling parameters. Auto scaling includes two modes: launch template and existing instance rule.
     shared_ptr<string> resourceFrom_ {};
-    // The instance handling mode during a scale-in. Valid values:
-    // 
-    // - release: When a scale-in is performed, instances that are no longer used are released.
-    // 
-    // - recycle: When a scale-in is performed, instances that are no longer used are stopped and reclaimed.
+    // The reclamation mode for scale-in. Valid values:
+    // - release: Release mode.
+    // - recycle: Stop and reclaim mode.
     shared_ptr<string> scalingPolicy_ {};
-    // The ID of the launch template that is used to create instances during a scale-out. This parameter takes effect only if you set the OutEnable parameter to true. This parameter takes precedence over the TemplateInstanceId parameter.
+    // The launch template ID for auto scaling. This parameter is valid only when OutEnable is set to true, and it has a higher priority than TemplateInstanceId.
     shared_ptr<string> templateId_ {};
-    // The ID of the instance whose specifications are used to create instances during a scale-out. This parameter is valid only when you set the OutEnable parameter to true.
+    // The instance ID for the existing instance rule of auto scaling. This parameter is valid only when OutEnable is set to true.
     shared_ptr<string> templateInstanceId_ {};
-    // The name of the instance whose specifications are used to create instances during a scale-out. This parameter takes effect only if you specify the TemplateInstanceId parameter.
+    // The instance name for the existing instance rule of auto scaling. This parameter is valid only when TemplateInstanceId is specified.
     shared_ptr<string> templateInstanceName_ {};
-    // The version of the launch template that is used to create instances during a scale-out. This parameter takes effect only if you set the OutEnable parameter to true. To use the default template version, set this parameter to `-1`. Otherwise, set this parameter to the version that you want to use.
+    // The launch template version for auto scaling. This parameter is valid only when OutEnable is set to true. Set this parameter to `-1` to use the default template version, or set it to a specific version number.
     shared_ptr<int32_t> templateVersion_ {};
-    // The IDs of the vSwitches that are associated with the VPC. Separate multiple IDs with commas (,).
+    // The list of vSwitch IDs in the VPC. Separate multiple IDs with commas (,).
     shared_ptr<string> vSwitchIds_ {};
-    // The ID of the virtual private cloud (VPC) that is associated with the instances created based on a launch template or the specifications of an existing instance.
+    // The VPC ID associated with the launch template or existing instance rule for auto scaling.
     shared_ptr<string> vpcId_ {};
   };
 

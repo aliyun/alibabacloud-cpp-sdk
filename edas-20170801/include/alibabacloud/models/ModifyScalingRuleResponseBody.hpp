@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The message that is returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

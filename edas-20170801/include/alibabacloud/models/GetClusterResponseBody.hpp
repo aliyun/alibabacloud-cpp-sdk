@@ -229,77 +229,60 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The import status of the cluster. Valid values:
-      // 
-      // - 1: The cluster is imported.
-      // 
-      // - 2: The cluster fails to be imported.
-      // 
-      // - 3: The cluster is being imported.
-      // 
-      // - 4: The cluster is deleted.
-      // 
-      // - 0: The cluster is not imported.
+      // The cluster import status. Valid values:
+      // - 1: Imported.
+      // - 2: Import failed.
+      // - 3: Importing.
+      // - 4: Cluster deleted.
+      // - 0: Not imported.
       shared_ptr<int32_t> clusterImportStatus_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The type of the cluster. Valid values:
-      // 
-      // - 0: regular Docker cluster
-      // 
-      // - 1: Swarm cluster
-      // 
-      // - 2: Elastic Compute Service (ECS) cluster
-      // 
-      // - 3: self-managed Kubernetes cluster in EDAS
-      // 
-      // - 4: cluster in which Pandora automatically registers applications
-      // 
-      // - 5: ACK cluster
+      // The cluster type. Valid values:
+      // - 0: Common Docker cluster.
+      // - 1: Swarm cluster.
+      // - 2: ECS cluster.
+      // - 3: EDAS self-managed Kubernetes cluster.
+      // - 4: Pandora auto-registered application cluster.
+      // - 5: Container Service Kubernetes cluster.
       shared_ptr<int32_t> clusterType_ {};
       // The total number of CPU cores.
       shared_ptr<int32_t> cpu_ {};
       // The number of used CPU cores.
       shared_ptr<int32_t> cpuUsed_ {};
-      // The time when the cluster was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp when the cluster was created.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the Container Service for Kubernetes (ACK) cluster.
+      // The Container Service cluster ID.
       shared_ptr<string> csClusterId_ {};
-      // The description of the cluster.
+      // The description.
       shared_ptr<string> description_ {};
-      // The provider of Infrastructure as a Service (IaaS) resources used in the cluster.
+      // The IaaS resource provider.
       shared_ptr<string> iaasProvider_ {};
-      // The total size of memory. Unit: MB.
+      // The total memory. Unit: MB.
       shared_ptr<int32_t> mem_ {};
-      // The size of used memory. Unit: MB.
+      // The amount of used memory. Unit: MB.
       shared_ptr<int32_t> memUsed_ {};
-      // The network type of the cluster. Valid values:
-      // 
-      // - 1: classic network
-      // 
-      // - 2: virtual private cloud (VPC)
+      // The network type. Valid values:
+      // - 1: Classic network.
+      // - 2: VPC.
       shared_ptr<int32_t> networkMode_ {};
       // The number of ECS instances.
       shared_ptr<int32_t> nodeNum_ {};
-      // The overcommit ratio supported by a Docker cluster. Valid values:
-      // 
-      // - 1: 1:1, which means that resources are not overcommitted.
-      // 
-      // - 2: 1:2, which means that resources are overcommitted by 1:2.
-      // 
-      // - 4: 1:4, which means that resources are overcommitted by 1:4.
-      // 
-      // - 8: 1:8, which means that resources are overcommitted by 1:8.
+      // The CPU overselling ratio for Docker clusters. Valid values:
+      // - 1: 1:1 ratio. No overselling.
+      // - 2: 1:2 overselling ratio.
+      // - 4: 1:4 overselling ratio.
+      // - 8: 1:8 overselling ratio.
       shared_ptr<int32_t> oversoldFactor_ {};
-      // The ID of the region where the cluster resides.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The subtype of the Kubernetes cluster. Valid values: ManagedKubernetes, Ask, and ExternalKubernetes. ManagedKubernetes refers to the ACK cluster. Ask refers to the Serverless Kubernetes (ASK) cluster. ExternalKubernetes refers to the external cluster.
+      // The subtype of the Kubernetes cluster. ManagedKubernetes indicates an ACK cluster, Ask indicates an ASK cluster, and ExternalKubernetes indicates an external cluster.
       shared_ptr<string> subClusterType_ {};
-      // The time when the cluster was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp when the cluster was last modified.
       shared_ptr<int64_t> updateTime_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -336,13 +319,13 @@ namespace Models
 
 
   protected:
-    // The information about the cluster.
+    // The cluster information.
     shared_ptr<GetClusterResponseBody::Cluster> cluster_ {};
-    // The HTTP status code that is returned.
+    // The status code.
     shared_ptr<int32_t> code_ {};
-    // The detailed information that is returned.
+    // The detailed message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

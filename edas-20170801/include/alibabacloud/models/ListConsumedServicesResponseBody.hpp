@@ -275,10 +275,10 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The code.
     shared_ptr<int32_t> code_ {};
     shared_ptr<ListConsumedServicesResponseBody::ConsumedServicesList> consumedServicesList_ {};
-    // The returned message.
+    // The message.
     shared_ptr<string> message_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};

@@ -863,7 +863,7 @@ namespace Edas20170801
       Models::GetChangeOrderInfoResponse getChangeOrderInfo(const Models::GetChangeOrderInfoRequest &request);
 
       /**
-       * @summary Queries a specific cluster.
+       * @summary Retrieves the details of a specified cluster.
        *
        * @param request GetClusterRequest
        * @param headers map
@@ -873,7 +873,7 @@ namespace Edas20170801
       Models::GetClusterResponse getClusterWithOptions(const Models::GetClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a specific cluster.
+       * @summary Retrieves the details of a specified cluster.
        *
        * @param request GetClusterRequest
        * @return GetClusterResponse
@@ -1005,6 +1005,24 @@ namespace Edas20170801
        * @return GetK8sServicesResponse
        */
       Models::GetK8sServicesResponse getK8sServices(const Models::GetK8sServicesRequest &request);
+
+      /**
+       * @summary Queries the details of application import and export.
+       *
+       * @param request GetMigrateApplicationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMigrateApplicationResponse
+       */
+      Models::GetMigrateApplicationResponse getMigrateApplicationWithOptions(const Models::GetMigrateApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of application import and export.
+       *
+       * @param request GetMigrateApplicationRequest
+       * @return GetMigrateApplicationResponse
+       */
+      Models::GetMigrateApplicationResponse getMigrateApplication(const Models::GetMigrateApplicationRequest &request);
 
       /**
        * @summary Queries the Security Token Service (STS) tokens that are required for temporary storage.
@@ -1557,7 +1575,7 @@ namespace Edas20170801
       Models::ListConfigTemplatesResponse listConfigTemplates(const Models::ListConfigTemplatesRequest &request);
 
       /**
-       * @summary Queries consumed services.
+       * @summary Queries the consumed services.
        *
        * @param request ListConsumedServicesRequest
        * @param headers map
@@ -1567,7 +1585,7 @@ namespace Edas20170801
       Models::ListConsumedServicesResponse listConsumedServicesWithOptions(const Models::ListConsumedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries consumed services.
+       * @summary Queries the consumed services.
        *
        * @param request ListConsumedServicesRequest
        * @return ListConsumedServicesResponse
@@ -2001,8 +2019,6 @@ namespace Edas20170801
       /**
        * @summary Migrates an application.
        *
-       * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
-       *
        * @param request MigrateApplicationRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2012,8 +2028,6 @@ namespace Edas20170801
 
       /**
        * @summary Migrates an application.
-       *
-       * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
        *
        * @param request MigrateApplicationRequest
        * @return MigrateApplicationResponse
@@ -2055,7 +2069,7 @@ namespace Edas20170801
       Models::MigrateEcuResponse migrateEcu(const Models::MigrateEcuRequest &request);
 
       /**
-       * @summary Modifies the scaling rule for an application.
+       * @summary Modifies the auto scaling rules.
        *
        * @param request ModifyScalingRuleRequest
        * @param headers map
@@ -2065,7 +2079,7 @@ namespace Edas20170801
       Models::ModifyScalingRuleResponse modifyScalingRuleWithOptions(const Models::ModifyScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the scaling rule for an application.
+       * @summary Modifies the auto scaling rules.
        *
        * @param request ModifyScalingRuleRequest
        * @return ModifyScalingRuleResponse
@@ -2161,7 +2175,7 @@ namespace Edas20170801
       Models::QueryRegionConfigResponse queryRegionConfig();
 
       /**
-       * @summary Queries the configuration details of Log Service for an application.
+       * @summary Queries the Simple Log Service configuration details of an application.
        *
        * @param request QuerySlsLogStoreListRequest
        * @param headers map
@@ -2171,7 +2185,7 @@ namespace Edas20170801
       Models::QuerySlsLogStoreListResponse querySlsLogStoreListWithOptions(const Models::QuerySlsLogStoreListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration details of Log Service for an application.
+       * @summary Queries the Simple Log Service configuration details of an application.
        *
        * @param request QuerySlsLogStoreListRequest
        * @return QuerySlsLogStoreListResponse

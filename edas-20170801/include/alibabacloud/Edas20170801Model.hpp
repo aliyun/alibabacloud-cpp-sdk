@@ -165,6 +165,9 @@
 #include <alibabacloud/models/GetK8sServicesRequest.hpp>
 #include <alibabacloud/models/GetK8sServicesResponseBody.hpp>
 #include <alibabacloud/models/GetK8sServicesResponse.hpp>
+#include <alibabacloud/models/GetMigrateApplicationRequest.hpp>
+#include <alibabacloud/models/GetMigrateApplicationResponseBody.hpp>
+#include <alibabacloud/models/GetMigrateApplicationResponse.hpp>
 #include <alibabacloud/models/GetPackageStorageCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetPackageStorageCredentialResponse.hpp>
 #include <alibabacloud/models/GetScalingRulesRequest.hpp>

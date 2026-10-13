@@ -66,19 +66,18 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The number of the page to return. Pages start from Page 1.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of data that is collected by Log Service. Valid values:
+    // The Simple Log Service collection type. Valid values:
     // 
-    // - file: the file type
-    // 
-    // - stdout: the standard output type
+    // - file: File.
+    // - stdout: Standard output.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

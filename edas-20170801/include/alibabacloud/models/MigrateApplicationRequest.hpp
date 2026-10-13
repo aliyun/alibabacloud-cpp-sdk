@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_MIGRATEAPPLICATIONREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MIGRATEAPPLICATIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,10 +42,8 @@ namespace Models
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline const vector<string> & getAppIds() const { DARABONBA_PTR_GET_CONST(appIds_, vector<string>) };
-    inline vector<string> getAppIds() { DARABONBA_PTR_GET(appIds_, vector<string>) };
-    inline MigrateApplicationRequest& setAppIds(const vector<string> & appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
-    inline MigrateApplicationRequest& setAppIds(vector<string> && appIds) { DARABONBA_PTR_SET_RVALUE(appIds_, appIds) };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline MigrateApplicationRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // cmd Field Functions 
@@ -78,15 +75,16 @@ namespace Models
 
 
   protected:
-    // The list of application IDs.
-    shared_ptr<vector<string>> appIds_ {};
+    // appIds
+    shared_ptr<string> appIds_ {};
     // The operation command. Valid values:
-    // - export: Export.
-    // - import: Import.
+    // - export: export
+    // - import: import
+    // - clone: clone
     shared_ptr<string> cmd_ {};
     // Specifies whether to export the application binary. Default value: false.
     shared_ptr<string> config_ {};
-    // The raw data for the application to be imported, which is sourced from the JSON file of the exported application.
+    // The row data of the imported application, which is sourced from the JSON file of the exported application.
     shared_ptr<string> rawData_ {};
     // regionId
     shared_ptr<string> regionId_ {};
