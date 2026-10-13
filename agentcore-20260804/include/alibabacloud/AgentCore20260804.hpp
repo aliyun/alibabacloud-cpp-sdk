@@ -21,6 +21,28 @@ namespace AgentCore20260804
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+       *
+       * @description Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+       *
+       * @param tmpReq AddMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddMemoriesResponse
+       */
+      Models::AddMemoriesResponse addMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::AddMemoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+       *
+       * @description Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+       *
+       * @param request AddMemoriesRequest
+       * @return AddMemoriesResponse
+       */
+      Models::AddMemoriesResponse addMemories(const string &workspaceId, const string &memoryStoreName, const Models::AddMemoriesRequest &request);
+
+      /**
        * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
        *
        * @param tmpReq BatchDeleteModelsRequest
@@ -307,6 +329,28 @@ namespace AgentCore20260804
        * @return CreateMcpResponse
        */
       Models::CreateMcpResponse createMcp(const string &workspaceId, const Models::CreateMcpRequest &request);
+
+      /**
+       * @summary Creates a long-term memory store in a specified workspace.
+       *
+       * @description Creates a long-term memory store in a specified workspace.
+       *
+       * @param tmpReq CreateMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMemoryStoreResponse
+       */
+      Models::CreateMemoryStoreResponse createMemoryStoreWithOptions(const string &workspaceId, const Models::CreateMemoryStoreRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a long-term memory store in a specified workspace.
+       *
+       * @description Creates a long-term memory store in a specified workspace.
+       *
+       * @param request CreateMemoryStoreRequest
+       * @return CreateMemoryStoreResponse
+       */
+      Models::CreateMemoryStoreResponse createMemoryStore(const string &workspaceId, const Models::CreateMemoryStoreRequest &request);
 
       /**
        * @summary Creates a model configuration under a specified model connection in a workspace.
@@ -643,6 +687,50 @@ namespace AgentCore20260804
        * @return DeleteMcpResponse
        */
       Models::DeleteMcpResponse deleteMcp(const string &mcpServerId, const string &workspaceId, const Models::DeleteMcpRequest &request);
+
+      /**
+       * @summary Deletes a long-term memory based on the memory ID.
+       *
+       * @description Deletes a long-term memory based on the memory ID.
+       *
+       * @param request DeleteMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a long-term memory based on the memory ID.
+       *
+       * @description Deletes a long-term memory based on the memory ID.
+       *
+       * @param request DeleteMemoryRequest
+       * @return DeleteMemoryResponse
+       */
+      Models::DeleteMemoryResponse deleteMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::DeleteMemoryRequest &request);
+
+      /**
+       * @summary Asynchronously deletes a MemoryStore and all its long-term memory.
+       *
+       * @description Asynchronously deletes a MemoryStore and all its long-term memory.
+       *
+       * @param request DeleteMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMemoryStoreResponse
+       */
+      Models::DeleteMemoryStoreResponse deleteMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Asynchronously deletes a MemoryStore and all its long-term memory.
+       *
+       * @description Asynchronously deletes a MemoryStore and all its long-term memory.
+       *
+       * @param request DeleteMemoryStoreRequest
+       * @return DeleteMemoryStoreResponse
+       */
+      Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspaceId, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request);
 
       /**
        * @summary Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
@@ -1043,11 +1131,11 @@ namespace AgentCore20260804
       Models::GetCredentialResponse getCredential(const string &workspaceId, const string &credentialId, const Models::GetCredentialRequest &request);
 
       /**
-       * @summary 查询自定义智能体
+       * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
        *
-       * @description 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-       * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-       * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+       * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+       * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+       * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
        *
        * @param request GetCustomAgentRequest
        * @param headers map
@@ -1057,11 +1145,11 @@ namespace AgentCore20260804
       Models::GetCustomAgentResponse getCustomAgentWithOptions(const string &workspaceId, const string &agentId, const Models::GetCustomAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义智能体
+       * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
        *
-       * @description 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
-       * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
-       * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+       * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+       * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+       * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
        *
        * @param request GetCustomAgentRequest
        * @return GetCustomAgentResponse
@@ -1193,6 +1281,72 @@ namespace AgentCore20260804
        * @return GetMcpMarketItemResponse
        */
       Models::GetMcpMarketItemResponse getMcpMarketItem(const string &workspaceId, const string &marketItemId, const Models::GetMcpMarketItemRequest &request);
+
+      /**
+       * @summary Queries a long-term memory by memory ID.
+       *
+       * @description Queries a long-term memory by memory ID.
+       *
+       * @param request GetMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a long-term memory by memory ID.
+       *
+       * @description Queries a long-term memory by memory ID.
+       *
+       * @param request GetMemoryRequest
+       * @return GetMemoryResponse
+       */
+      Models::GetMemoryResponse getMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::GetMemoryRequest &request);
+
+      /**
+       * @summary Queries the public information and current status of a MemoryStore in a specified workspace.
+       *
+       * @description Queries the public information and current status of a MemoryStore in a specified workspace.
+       *
+       * @param request GetMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryStoreResponse
+       */
+      Models::GetMemoryStoreResponse getMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the public information and current status of a MemoryStore in a specified workspace.
+       *
+       * @description Queries the public information and current status of a MemoryStore in a specified workspace.
+       *
+       * @param request GetMemoryStoreRequest
+       * @return GetMemoryStoreResponse
+       */
+      Models::GetMemoryStoreResponse getMemoryStore(const string &workspaceId, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request);
+
+      /**
+       * @summary Queries the task ID returned by the asynchronous AddMemories operation.
+       *
+       * @description Queries the task ID returned by the asynchronous AddMemories operation.
+       *
+       * @param request GetMemoryTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryTaskResponse
+       */
+      Models::GetMemoryTaskResponse getMemoryTaskWithOptions(const string &workspaceId, const string &memoryStoreName, const string &taskId, const Models::GetMemoryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the task ID returned by the asynchronous AddMemories operation.
+       *
+       * @description Queries the task ID returned by the asynchronous AddMemories operation.
+       *
+       * @param request GetMemoryTaskRequest
+       * @return GetMemoryTaskResponse
+       */
+      Models::GetMemoryTaskResponse getMemoryTask(const string &workspaceId, const string &memoryStoreName, const string &taskId, const Models::GetMemoryTaskRequest &request);
 
       /**
        * @summary Queries the detailed configuration and region of a model in a specified workspace.
@@ -1803,6 +1957,94 @@ namespace AgentCore20260804
       Models::ListMcpsResponse listMcps(const string &workspaceId, const Models::ListMcpsRequest &request);
 
       /**
+       * @summary Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+       *
+       * @description Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+       *
+       * @param request ListMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoriesResponse
+       */
+      Models::ListMemoriesResponse listMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::ListMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+       *
+       * @description Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+       *
+       * @param request ListMemoriesRequest
+       * @return ListMemoriesResponse
+       */
+      Models::ListMemoriesResponse listMemories(const string &workspaceId, const string &memoryStoreName, const Models::ListMemoriesRequest &request);
+
+      /**
+       * @summary Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+       *
+       * @description Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+       *
+       * @param request ListMemorySessionMessagesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemorySessionMessagesResponse
+       */
+      Models::ListMemorySessionMessagesResponse listMemorySessionMessagesWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::ListMemorySessionMessagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+       *
+       * @description Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+       *
+       * @param request ListMemorySessionMessagesRequest
+       * @return ListMemorySessionMessagesResponse
+       */
+      Models::ListMemorySessionMessagesResponse listMemorySessionMessages(const string &workspaceId, const string &memoryStoreName, const Models::ListMemorySessionMessagesRequest &request);
+
+      /**
+       * @summary Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+       *
+       * @description Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+       *
+       * @param request ListMemorySessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemorySessionsResponse
+       */
+      Models::ListMemorySessionsResponse listMemorySessionsWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::ListMemorySessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+       *
+       * @description Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+       *
+       * @param request ListMemorySessionsRequest
+       * @return ListMemorySessionsResponse
+       */
+      Models::ListMemorySessionsResponse listMemorySessions(const string &workspaceId, const string &memoryStoreName, const Models::ListMemorySessionsRequest &request);
+
+      /**
+       * @summary Queries MemoryStores in a specified workspace by using paging.
+       *
+       * @description Queries MemoryStores in a specified workspace by using paging.
+       *
+       * @param request ListMemoryStoresRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMemoryStoresResponse
+       */
+      Models::ListMemoryStoresResponse listMemoryStoresWithOptions(const string &workspaceId, const Models::ListMemoryStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries MemoryStores in a specified workspace by using paging.
+       *
+       * @description Queries MemoryStores in a specified workspace by using paging.
+       *
+       * @param request ListMemoryStoresRequest
+       * @return ListMemoryStoresResponse
+       */
+      Models::ListMemoryStoresResponse listMemoryStores(const string &workspaceId, const Models::ListMemoryStoresRequest &request);
+
+      /**
        * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
        *
        * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
@@ -2183,6 +2425,28 @@ namespace AgentCore20260804
       Models::ResetUserPasswordResponse resetUserPassword(const string &workspaceId, const Models::ResetUserPasswordRequest &request);
 
       /**
+       * @summary Retrieves long-term memory from a MemoryStore based on semantics queries.
+       *
+       * @description Retrieves long-term memory from a MemoryStore based on semantics queries.
+       *
+       * @param tmpReq SearchMemoriesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::SearchMemoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves long-term memory from a MemoryStore based on semantics queries.
+       *
+       * @description Retrieves long-term memory from a MemoryStore based on semantics queries.
+       *
+       * @param request SearchMemoriesRequest
+       * @return SearchMemoriesResponse
+       */
+      Models::SearchMemoriesResponse searchMemories(const string &workspaceId, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
+
+      /**
        * @summary Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
        *
        * @description ## Operation description
@@ -2475,6 +2739,50 @@ namespace AgentCore20260804
        * @return UpdateMcpTemplateConfigResponse
        */
       Models::UpdateMcpTemplateConfigResponse updateMcpTemplateConfig(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpTemplateConfigRequest &request);
+
+      /**
+       * @summary Updates the long-term memory text or metadata based on the memory ID.
+       *
+       * @description Updates the long-term memory text or metadata based on the memory ID.
+       *
+       * @param tmpReq UpdateMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the long-term memory text or metadata based on the memory ID.
+       *
+       * @description Updates the long-term memory text or metadata based on the memory ID.
+       *
+       * @param request UpdateMemoryRequest
+       * @return UpdateMemoryResponse
+       */
+      Models::UpdateMemoryResponse updateMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const Models::UpdateMemoryRequest &request);
+
+      /**
+       * @summary Updates a memory store.
+       *
+       * @description Updates a memory store.
+       *
+       * @param tmpReq UpdateMemoryStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryStoreResponse
+       */
+      Models::UpdateMemoryStoreResponse updateMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a memory store.
+       *
+       * @description Updates a memory store.
+       *
+       * @param request UpdateMemoryStoreRequest
+       * @return UpdateMemoryStoreResponse
+       */
+      Models::UpdateMemoryStoreResponse updateMemoryStore(const string &workspaceId, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request);
 
       /**
        * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.

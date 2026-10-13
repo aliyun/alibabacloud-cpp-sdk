@@ -37,6 +37,61 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+ *
+ * @description Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+ *
+ * @param tmpReq AddMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddMemoriesResponse
+ */
+AddMemoriesResponse Client::addMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const AddMemoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddMemoriesShrinkRequest request = AddMemoriesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddMemories"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddMemoriesResponse>();
+}
+
+/**
+ * @summary Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+ *
+ * @description Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, the operation returns only a taskId that can be queried by using GetMemoryTask.
+ *
+ * @param request AddMemoriesRequest
+ * @return AddMemoriesResponse
+ */
+AddMemoriesResponse Client::addMemories(const string &workspaceId, const string &memoryStoreName, const AddMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
  * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
  *
  * @param tmpReq BatchDeleteModelsRequest
@@ -781,6 +836,67 @@ CreateMcpResponse Client::createMcp(const string &workspaceId, const CreateMcpRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createMcpWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Creates a long-term memory store in a specified workspace.
+ *
+ * @description Creates a long-term memory store in a specified workspace.
+ *
+ * @param tmpReq CreateMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMemoryStoreResponse
+ */
+CreateMemoryStoreResponse Client::createMemoryStoreWithOptions(const string &workspaceId, const CreateMemoryStoreRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMemoryStoreShrinkRequest request = CreateMemoryStoreShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMemoryStore"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMemoryStoreResponse>();
+}
+
+/**
+ * @summary Creates a long-term memory store in a specified workspace.
+ *
+ * @description Creates a long-term memory store in a specified workspace.
+ *
+ * @param request CreateMemoryStoreRequest
+ * @return CreateMemoryStoreResponse
+ */
+CreateMemoryStoreResponse Client::createMemoryStore(const string &workspaceId, const CreateMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMemoryStoreWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -1585,6 +1701,92 @@ DeleteMcpResponse Client::deleteMcp(const string &mcpServerId, const string &wor
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteMcpWithOptions(mcpServerId, workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a long-term memory based on the memory ID.
+ *
+ * @description Deletes a long-term memory based on the memory ID.
+ *
+ * @param request DeleteMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const DeleteMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemory"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryResponse>();
+}
+
+/**
+ * @summary Deletes a long-term memory based on the memory ID.
+ *
+ * @description Deletes a long-term memory based on the memory ID.
+ *
+ * @param request DeleteMemoryRequest
+ * @return DeleteMemoryResponse
+ */
+DeleteMemoryResponse Client::deleteMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const DeleteMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+}
+
+/**
+ * @summary Asynchronously deletes a MemoryStore and all its long-term memory.
+ *
+ * @description Asynchronously deletes a MemoryStore and all its long-term memory.
+ *
+ * @param request DeleteMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMemoryStoreResponse
+ */
+DeleteMemoryStoreResponse Client::deleteMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const DeleteMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMemoryStore"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMemoryStoreResponse>();
+}
+
+/**
+ * @summary Asynchronously deletes a MemoryStore and all its long-term memory.
+ *
+ * @description Asynchronously deletes a MemoryStore and all its long-term memory.
+ *
+ * @param request DeleteMemoryStoreRequest
+ * @return DeleteMemoryStoreResponse
+ */
+DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspaceId, const string &memoryStoreName, const DeleteMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
 }
 
 /**
@@ -2424,11 +2626,11 @@ GetCredentialResponse Client::getCredential(const string &workspaceId, const str
 }
 
 /**
- * @summary 查询自定义智能体
+ * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
  *
- * @description 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
- * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
- * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+ * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+ * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+ * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
  *
  * @param request GetCustomAgentRequest
  * @param headers map
@@ -2455,11 +2657,11 @@ GetCustomAgentResponse Client::getCustomAgentWithOptions(const string &workspace
 }
 
 /**
- * @summary 查询自定义智能体
+ * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
  *
- * @description 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
- * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
- * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+ * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
+ * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
+ * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
  *
  * @param request GetCustomAgentRequest
  * @return GetCustomAgentResponse
@@ -2720,6 +2922,135 @@ GetMcpMarketItemResponse Client::getMcpMarketItem(const string &workspaceId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMcpMarketItemWithOptions(workspaceId, marketItemId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a long-term memory by memory ID.
+ *
+ * @description Queries a long-term memory by memory ID.
+ *
+ * @param request GetMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const GetMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemory"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryResponse>();
+}
+
+/**
+ * @summary Queries a long-term memory by memory ID.
+ *
+ * @description Queries a long-term memory by memory ID.
+ *
+ * @param request GetMemoryRequest
+ * @return GetMemoryResponse
+ */
+GetMemoryResponse Client::getMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const GetMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the public information and current status of a MemoryStore in a specified workspace.
+ *
+ * @description Queries the public information and current status of a MemoryStore in a specified workspace.
+ *
+ * @param request GetMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryStoreResponse
+ */
+GetMemoryStoreResponse Client::getMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const GetMemoryStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryStore"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryStoreResponse>();
+}
+
+/**
+ * @summary Queries the public information and current status of a MemoryStore in a specified workspace.
+ *
+ * @description Queries the public information and current status of a MemoryStore in a specified workspace.
+ *
+ * @param request GetMemoryStoreRequest
+ * @return GetMemoryStoreResponse
+ */
+GetMemoryStoreResponse Client::getMemoryStore(const string &workspaceId, const string &memoryStoreName, const GetMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the task ID returned by the asynchronous AddMemories operation.
+ *
+ * @description Queries the task ID returned by the asynchronous AddMemories operation.
+ *
+ * @param request GetMemoryTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryTaskResponse
+ */
+GetMemoryTaskResponse Client::getMemoryTaskWithOptions(const string &workspaceId, const string &memoryStoreName, const string &taskId, const GetMemoryTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMemoryTask"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memory-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryTaskResponse>();
+}
+
+/**
+ * @summary Queries the task ID returned by the asynchronous AddMemories operation.
+ *
+ * @description Queries the task ID returned by the asynchronous AddMemories operation.
+ *
+ * @param request GetMemoryTaskRequest
+ * @return GetMemoryTaskResponse
+ */
+GetMemoryTaskResponse Client::getMemoryTask(const string &workspaceId, const string &memoryStoreName, const string &taskId, const GetMemoryTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryTaskWithOptions(workspaceId, memoryStoreName, taskId, request, headers, runtime);
 }
 
 /**
@@ -4209,6 +4540,250 @@ ListMcpsResponse Client::listMcps(const string &workspaceId, const ListMcpsReque
 }
 
 /**
+ * @summary Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+ *
+ * @description Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+ *
+ * @param request ListMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoriesResponse
+ */
+ListMemoriesResponse Client::listMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const ListMemoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemories"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoriesResponse>();
+}
+
+/**
+ * @summary Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+ *
+ * @description Performs a paged query on long-term memory. Paging is supported, and you can filter the results independently by user ID, agent ID, and session ID.
+ *
+ * @param request ListMemoriesRequest
+ * @return ListMemoriesResponse
+ */
+ListMemoriesResponse Client::listMemories(const string &workspaceId, const string &memoryStoreName, const ListMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+ *
+ * @description Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+ *
+ * @param request ListMemorySessionMessagesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemorySessionMessagesResponse
+ */
+ListMemorySessionMessagesResponse Client::listMemorySessionMessagesWithOptions(const string &workspaceId, const string &memoryStoreName, const ListMemorySessionMessagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemorySessionMessages"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/messages")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemorySessionMessagesResponse>();
+}
+
+/**
+ * @summary Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+ *
+ * @description Performs a paged query for raw messages by exact scope with paging. SessionId is required, and at least one of UserId and AgentId must be provided.
+ *
+ * @param request ListMemorySessionMessagesRequest
+ * @return ListMemorySessionMessagesResponse
+ */
+ListMemorySessionMessagesResponse Client::listMemorySessionMessages(const string &workspaceId, const string &memoryStoreName, const ListMemorySessionMessagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemorySessionMessagesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+ *
+ * @description Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+ *
+ * @param request ListMemorySessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemorySessionsResponse
+ */
+ListMemorySessionsResponse Client::listMemorySessionsWithOptions(const string &workspaceId, const string &memoryStoreName, const ListMemorySessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasUserId()) {
+    query["userId"] = request.getUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemorySessions"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/sessions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemorySessionsResponse>();
+}
+
+/**
+ * @summary Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+ *
+ * @description Performs a paging query for sessions in a MemoryStore, and allows independent filtering by user ID and agent ID.
+ *
+ * @param request ListMemorySessionsRequest
+ * @return ListMemorySessionsResponse
+ */
+ListMemorySessionsResponse Client::listMemorySessions(const string &workspaceId, const string &memoryStoreName, const ListMemorySessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemorySessionsWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries MemoryStores in a specified workspace by using paging.
+ *
+ * @description Queries MemoryStores in a specified workspace by using paging.
+ *
+ * @param request ListMemoryStoresRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMemoryStoresResponse
+ */
+ListMemoryStoresResponse Client::listMemoryStoresWithOptions(const string &workspaceId, const ListMemoryStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMemoryStores"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMemoryStoresResponse>();
+}
+
+/**
+ * @summary Queries MemoryStores in a specified workspace by using paging.
+ *
+ * @description Queries MemoryStores in a specified workspace by using paging.
+ *
+ * @param request ListMemoryStoresRequest
+ * @return ListMemoryStoresResponse
+ */
+ListMemoryStoresResponse Client::listMemoryStores(const string &workspaceId, const ListMemoryStoresRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMemoryStoresWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
  *
  * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
@@ -5255,6 +5830,61 @@ ResetUserPasswordResponse Client::resetUserPassword(const string &workspaceId, c
 }
 
 /**
+ * @summary Retrieves long-term memory from a MemoryStore based on semantics queries.
+ *
+ * @description Retrieves long-term memory from a MemoryStore based on semantics queries.
+ *
+ * @param tmpReq SearchMemoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemoriesWithOptions(const string &workspaceId, const string &memoryStoreName, const SearchMemoriesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SearchMemoriesShrinkRequest request = SearchMemoriesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SearchMemories"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories/search")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchMemoriesResponse>();
+}
+
+/**
+ * @summary Retrieves long-term memory from a MemoryStore based on semantics queries.
+ *
+ * @description Retrieves long-term memory from a MemoryStore based on semantics queries.
+ *
+ * @param request SearchMemoriesRequest
+ * @return SearchMemoriesResponse
+ */
+SearchMemoriesResponse Client::searchMemories(const string &workspaceId, const string &memoryStoreName, const SearchMemoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return searchMemoriesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+}
+
+/**
  * @summary Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
  *
  * @description ## Operation description
@@ -6027,6 +6657,122 @@ UpdateMcpTemplateConfigResponse Client::updateMcpTemplateConfig(const string &wo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateMcpTemplateConfigWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the long-term memory text or metadata based on the memory ID.
+ *
+ * @description Updates the long-term memory text or metadata based on the memory ID.
+ *
+ * @param tmpReq UpdateMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemoryWithOptions(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const UpdateMemoryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMemoryShrinkRequest request = UpdateMemoryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemory"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryResponse>();
+}
+
+/**
+ * @summary Updates the long-term memory text or metadata based on the memory ID.
+ *
+ * @description Updates the long-term memory text or metadata based on the memory ID.
+ *
+ * @param request UpdateMemoryRequest
+ * @return UpdateMemoryResponse
+ */
+UpdateMemoryResponse Client::updateMemory(const string &workspaceId, const string &memoryStoreName, const string &memoryId, const UpdateMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a memory store.
+ *
+ * @description Updates a memory store.
+ *
+ * @param tmpReq UpdateMemoryStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryStoreResponse
+ */
+UpdateMemoryStoreResponse Client::updateMemoryStoreWithOptions(const string &workspaceId, const string &memoryStoreName, const UpdateMemoryStoreRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMemoryStoreShrinkRequest request = UpdateMemoryStoreShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemoryStore"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memorystores/" , Darabonba::Encode::Encoder::percentEncode(memoryStoreName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryStoreResponse>();
+}
+
+/**
+ * @summary Updates a memory store.
+ *
+ * @description Updates a memory store.
+ *
+ * @param request UpdateMemoryStoreRequest
+ * @return UpdateMemoryStoreResponse
+ */
+UpdateMemoryStoreResponse Client::updateMemoryStore(const string &workspaceId, const string &memoryStoreName, const UpdateMemoryStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryStoreWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
 }
 
 /**
