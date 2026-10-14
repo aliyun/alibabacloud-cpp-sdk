@@ -136,7 +136,7 @@ namespace Models
 
 
         protected:
-          // The client_id of the OAuth protocol.
+          // The client ID of the OAuth protocol.
           shared_ptr<string> clientId_ {};
         };
 
@@ -151,7 +151,7 @@ namespace Models
 
 
       protected:
-        // The credential content of the OAuth client authentication credential type.
+        // The credential content for the OAuth client authentication credential type.
         shared_ptr<CredentialContent::OAuthClientContent> OAuthClientContent_ {};
       };
 
@@ -282,7 +282,7 @@ namespace Models
 
 
     protected:
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The credential content.
       shared_ptr<Credentials::CredentialContent> credentialContent_ {};
@@ -290,6 +290,7 @@ namespace Models
       // - system_init: Created by the system.
       // - user_custom: Created by the user.
       shared_ptr<string> credentialCreationType_ {};
+      // The external unique identifiers of the credentials.
       shared_ptr<string> credentialExternalId_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
@@ -297,15 +298,18 @@ namespace Models
       shared_ptr<string> credentialIdentifier_ {};
       // The credential name.
       shared_ptr<string> credentialName_ {};
-      // The scenarios label of the credential. Valid values:
-      // - llm: large language model.
-      // - saas: third-party SaaS service.
+      // The usage scenario label of the credential. Valid values:
+      // - llm: Large language model.
+      // - saas: Third-party SaaS service.
       shared_ptr<string> credentialScenarioLabel_ {};
+      // The credential sharing scope. Valid values:
+      // - common: common
+      // - user_exclusive: account-exclusive
       shared_ptr<string> credentialSharingScope_ {};
-      // The subject ID to which the credential belongs.
+      // The subject ID of the credential.
       shared_ptr<string> credentialSubjectId_ {};
-      // The subject type to which the credential belongs. Valid values:
-      // - authentication_token_provider: authentication token provider.
+      // The subject type of the credential. Valid values:
+      // - authentication_token_provider: Authentication token provider.
       shared_ptr<string> credentialSubjectType_ {};
       // The credential type. Valid values:
       // - api_key: API key authentication credential.
@@ -313,6 +317,7 @@ namespace Models
       shared_ptr<string> credentialType_ {};
       // The credential description.
       shared_ptr<string> description_ {};
+      // The exclusive user ID of the credential.
       shared_ptr<string> exclusiveUserId_ {};
       // The EIAM instance ID.
       shared_ptr<string> instanceId_ {};
@@ -320,7 +325,7 @@ namespace Models
       // - enabled: Enabled.
       // - diasbled: Disabled.
       shared_ptr<string> status_ {};
-      // The update time, in UNIX timestamp format. Unit: milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -366,13 +371,13 @@ namespace Models
   protected:
     // The list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Credentials>> credentials_ {};
-    // The maximum number of entries per page for paging.
+    // The maximum number of rows per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

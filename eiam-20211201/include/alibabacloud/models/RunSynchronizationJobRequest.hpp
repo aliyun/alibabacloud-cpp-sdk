@@ -15,8 +15,10 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RunSynchronizationJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(FieldSelectionEnabled, fieldSelectionEnabled_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PasswordInitialization, passwordInitialization_);
+      DARABONBA_PTR_TO_JSON(SelectedFieldNames, selectedFieldNames_);
       DARABONBA_PTR_TO_JSON(SynchronizationScopeConfig, synchronizationScopeConfig_);
       DARABONBA_PTR_TO_JSON(TargetId, targetId_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
@@ -24,8 +26,10 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, RunSynchronizationJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(FieldSelectionEnabled, fieldSelectionEnabled_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PasswordInitialization, passwordInitialization_);
+      DARABONBA_PTR_FROM_JSON(SelectedFieldNames, selectedFieldNames_);
       DARABONBA_PTR_FROM_JSON(SynchronizationScopeConfig, synchronizationScopeConfig_);
       DARABONBA_PTR_FROM_JSON(TargetId, targetId_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
@@ -104,13 +108,20 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->instanceId_ == nullptr && this->passwordInitialization_ == nullptr && this->synchronizationScopeConfig_ == nullptr && this->targetId_ == nullptr && this->targetType_ == nullptr
-        && this->userIdentityTypes_ == nullptr; };
+        && this->fieldSelectionEnabled_ == nullptr && this->instanceId_ == nullptr && this->passwordInitialization_ == nullptr && this->selectedFieldNames_ == nullptr && this->synchronizationScopeConfig_ == nullptr
+        && this->targetId_ == nullptr && this->targetType_ == nullptr && this->userIdentityTypes_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline RunSynchronizationJobRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // fieldSelectionEnabled Field Functions 
+    bool hasFieldSelectionEnabled() const { return this->fieldSelectionEnabled_ != nullptr;};
+    void deleteFieldSelectionEnabled() { this->fieldSelectionEnabled_ = nullptr;};
+    inline bool getFieldSelectionEnabled() const { DARABONBA_PTR_GET_DEFAULT(fieldSelectionEnabled_, false) };
+    inline RunSynchronizationJobRequest& setFieldSelectionEnabled(bool fieldSelectionEnabled) { DARABONBA_PTR_SET_VALUE(fieldSelectionEnabled_, fieldSelectionEnabled) };
 
 
     // instanceId Field Functions 
@@ -125,6 +136,15 @@ namespace Models
     void deletePasswordInitialization() { this->passwordInitialization_ = nullptr;};
     inline bool getPasswordInitialization() const { DARABONBA_PTR_GET_DEFAULT(passwordInitialization_, false) };
     inline RunSynchronizationJobRequest& setPasswordInitialization(bool passwordInitialization) { DARABONBA_PTR_SET_VALUE(passwordInitialization_, passwordInitialization) };
+
+
+    // selectedFieldNames Field Functions 
+    bool hasSelectedFieldNames() const { return this->selectedFieldNames_ != nullptr;};
+    void deleteSelectedFieldNames() { this->selectedFieldNames_ = nullptr;};
+    inline const vector<string> & getSelectedFieldNames() const { DARABONBA_PTR_GET_CONST(selectedFieldNames_, vector<string>) };
+    inline vector<string> getSelectedFieldNames() { DARABONBA_PTR_GET(selectedFieldNames_, vector<string>) };
+    inline RunSynchronizationJobRequest& setSelectedFieldNames(const vector<string> & selectedFieldNames) { DARABONBA_PTR_SET_VALUE(selectedFieldNames_, selectedFieldNames) };
+    inline RunSynchronizationJobRequest& setSelectedFieldNames(vector<string> && selectedFieldNames) { DARABONBA_PTR_SET_RVALUE(selectedFieldNames_, selectedFieldNames) };
 
 
     // synchronizationScopeConfig Field Functions 
@@ -162,21 +182,26 @@ namespace Models
   protected:
     // The description of the synchronization task.
     shared_ptr<string> description_ {};
+    // Specifies whether field selection is enabled.
+    shared_ptr<bool> fieldSelectionEnabled_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // Specifies whether to initialize the password.
     shared_ptr<bool> passwordInitialization_ {};
+    // The selected fields.
+    shared_ptr<vector<string>> selectedFieldNames_ {};
     // The synchronization scope configuration.
     shared_ptr<RunSynchronizationJobRequest::SynchronizationScopeConfig> synchronizationScopeConfig_ {};
-    // The synchronization target ID.
+    // The ID of the synchronization target.
     // 
     // This parameter is required.
     shared_ptr<string> targetId_ {};
-    // The synchronization target type. Valid values:
+    // The type of the synchronization target. Valid values:
     // 
     // - identity_provider: identity provider
+    // 
     // - application: application
     // 
     // This parameter is required.

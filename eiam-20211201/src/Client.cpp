@@ -7389,8 +7389,16 @@ GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForS
 GenerateFileImportTemplateResponse Client::generateFileImportTemplateWithOptions(const GenerateFileImportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasFieldSelectionEnabled()) {
+    query["FieldSelectionEnabled"] = request.getFieldSelectionEnabled();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSelectedFieldNames()) {
+    query["SelectedFieldNames"] = request.getSelectedFieldNames();
   }
 
   if (!!request.hasTargetType()) {
@@ -9448,7 +9456,7 @@ GetLoginRedirectApplicationForBrandResponse Client::getLoginRedirectApplicationF
 }
 
 /**
- * @summary Queries the information about a specified network access endpoint.
+ * @summary Queries the details of a specified network access endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9483,7 +9491,7 @@ GetNetworkAccessEndpointResponse Client::getNetworkAccessEndpointWithOptions(con
 }
 
 /**
- * @summary Queries the information about a specified network access endpoint.
+ * @summary Queries the details of a specified network access endpoint.
  *
  * @param request GetNetworkAccessEndpointRequest
  * @return GetNetworkAccessEndpointResponse
@@ -11780,7 +11788,7 @@ ListCredentialProvidersResponse Client::listCredentialProviders(const ListCreden
 }
 
 /**
- * @summary Queries the information of one or more credentials by using paging.
+ * @summary Performs a paging query to retrieve the information of one or more credentials.
  *
  * @param request ListCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11843,7 +11851,7 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentials
 }
 
 /**
- * @summary Queries the information of one or more credentials by using paging.
+ * @summary Performs a paging query to retrieve the information of one or more credentials.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -13376,12 +13384,12 @@ ListResourceServersForUserResponse Client::listResourceServersForUser(const List
 }
 
 /**
- * @summary Query the list of synchronization job details.
+ * @summary Lists the details of synchronization tasks.
  *
- * @description The following two methods are supported for viewing returned data:
- * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
- * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
- * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
+ * @description You can view the returned data in one of the following ways:
+ * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
+ * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListSynchronizationJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13456,12 +13464,12 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobsWithOptions(const
 }
 
 /**
- * @summary Query the list of synchronization job details.
+ * @summary Lists the details of synchronization tasks.
  *
- * @description The following two methods are supported for viewing returned data:
- * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
- * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
- * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
+ * @description You can view the returned data in one of the following ways:
+ * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+ * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
+ * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
  *
  * @param request ListSynchronizationJobsRequest
  * @return ListSynchronizationJobsResponse
@@ -14986,7 +14994,7 @@ RevokeResourceServerScopesFromUserResponse Client::revokeResourceServerScopesFro
 }
 
 /**
- * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
+ * @summary Runs a synchronization task. This creates a new synchronization task and immediately executes it.
  *
  * @param request RunSynchronizationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14999,12 +15007,20 @@ RunSynchronizationJobResponse Client::runSynchronizationJobWithOptions(const Run
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasFieldSelectionEnabled()) {
+    query["FieldSelectionEnabled"] = request.getFieldSelectionEnabled();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPasswordInitialization()) {
     query["PasswordInitialization"] = request.getPasswordInitialization();
+  }
+
+  if (!!request.hasSelectedFieldNames()) {
+    query["SelectedFieldNames"] = request.getSelectedFieldNames();
   }
 
   if (!!request.hasSynchronizationScopeConfig()) {
@@ -15041,7 +15057,7 @@ RunSynchronizationJobResponse Client::runSynchronizationJobWithOptions(const Run
 }
 
 /**
- * @summary Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
+ * @summary Runs a synchronization task. This creates a new synchronization task and immediately executes it.
  *
  * @param request RunSynchronizationJobRequest
  * @return RunSynchronizationJobResponse
