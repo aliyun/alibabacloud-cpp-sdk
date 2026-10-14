@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The release type of the kernel version. This value is the same as the value returned by the corresponding database product. For example, for ApsaraDB RDS, LTS indicates a long-term support version and BETA indicates a preview version. For PolarDB, the value can be Stable, Old, HighRisk, or Beta.
       shared_ptr<string> kernelReleaseType_ {};
+      // The available kernel version number.
       shared_ptr<string> kernelVersion_ {};
+      // The display name of the kernel version.
       shared_ptr<string> kernelVersionName_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of available kernel versions.
     shared_ptr<vector<ListMiniEngineVersionsResponseBody::KernelVersions>> kernelVersions_ {};
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
   };
 

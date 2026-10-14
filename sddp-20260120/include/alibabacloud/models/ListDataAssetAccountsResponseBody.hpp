@@ -168,17 +168,42 @@ namespace Models
 
 
     protected:
+      // The database account name.
       shared_ptr<string> accountName_ {};
+      // The Alibaba Cloud account ID to which the asset belongs.
       shared_ptr<int64_t> aliUid_ {};
+      // The column encryption access permissions. Valid values:
+      // 
+      // - fullAccess: plaintext access.
+      // - restrictedAccess: restricted access.
+      // - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
       shared_ptr<string> authRole_ {};
+      // The current effective column encryption key mode. Valid values:
+      // 
+      // - client_key: local master key.
+      // - kms_key: KMS key.
+      // 
+      // This field is not returned if no column encryption configuration is in effect.
       shared_ptr<string> encryptionKeyMode_ {};
+      // The database engine type.
       shared_ptr<string> engineType_ {};
+      // The expiration time of the plaintext access permissions. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC. This field is not returned if no expiration time is set.
       shared_ptr<int64_t> expireTime_ {};
+      // The database account identifier. This value is used as AccountId when configuring permissions.
       shared_ptr<int64_t> id_ {};
+      // The database instance identity.
       shared_ptr<string> instanceId_ {};
+      // The cloud product code.
       shared_ptr<string> productCode_ {};
+      // The cloud product type identifier. Valid values:
+      // 
+      // - 5: RDS.
+      // - 8: POLARDB.
+      // - 27: PolarDBX2.
       shared_ptr<int64_t> productId_ {};
+      // The region ID of the asset.
       shared_ptr<string> regionId_ {};
+      // The region name of the asset.
       shared_ptr<string> regionName_ {};
     };
 
@@ -222,10 +247,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by the current query.
     shared_ptr<vector<ListDataAssetAccountsResponseBody::Items>> items_ {};
+    // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the current query or statistical scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

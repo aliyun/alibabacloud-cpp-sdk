@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The region ID where the assets reside.
       shared_ptr<string> regionId_ {};
+      // The name of the region where the assets reside.
       shared_ptr<string> regionName_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The list of regions where assets reside.
     shared_ptr<vector<ListRegionsResponseBody::RegionList>> regionList_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // The name of the instance-level column encryption algorithm. Select an available algorithm from the ListDataMaskingEncryptionAlgorithms operation.
     shared_ptr<string> encryptionAlgorithm_ {};
+    // The KMS key identifier. You can obtain this value from Items[].KeyId in the response of the ListKmsKeys operation. Specify this parameter when you use a KMS key. Do not specify this parameter for local key scenarios.
     shared_ptr<string> encryptionKeyId_ {};
+    // The database instance identity. You can obtain this value from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If you also specify ProductId, the two values must correspond to each other.
     shared_ptr<string> productCode_ {};
+    // The cloud product type identifier. Valid values:
+    // - 5: RDS.
+    // - 8: POLARDB.
+    // - 27: PolarDBX2.
+    // 
+    // If you specify both ProductId and ProductCode, the values must correspond to each other.
     shared_ptr<int64_t> productId_ {};
   };
 

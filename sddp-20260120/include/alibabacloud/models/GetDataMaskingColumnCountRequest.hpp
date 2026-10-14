@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The language of the response description. Valid values:
+    // 
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The list of cloud product type identifiers. Separate multiple values with commas (,). Valid values for column encryption scenarios: 5 (ApsaraDB RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
     shared_ptr<string> productIds_ {};
+    // The ID of the data classification template. You can obtain this value from Items[].Id returned by the ListTemplates operation. This value must be consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
   };
 

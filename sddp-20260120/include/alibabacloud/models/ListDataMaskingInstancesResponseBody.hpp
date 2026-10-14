@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The column encryption algorithm used by the instance.
       shared_ptr<string> encryptionAlgorithm_ {};
+      // The ID of the KMS key used by the instance. This field may not be returned for local key scenarios.
       shared_ptr<string> encryptionKeyId_ {};
+      // The database engine type.
       shared_ptr<string> engineType_ {};
+      // The number of database accounts that have fullAccess plaintext access permissions.
       shared_ptr<int32_t> fullAccessAccountCount_ {};
+      // The instance identity of the database instance.
       shared_ptr<string> instanceId_ {};
+      // The code of the cloud product.
       shared_ptr<string> productCode_ {};
+      // The ID of the cloud product type. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
       shared_ptr<int64_t> productId_ {};
+      // The region ID of the asset.
       shared_ptr<string> regionId_ {};
+      // The region name of the asset.
       shared_ptr<string> regionName_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by the current query.
     shared_ptr<vector<ListDataMaskingInstancesResponseBody::Items>> items_ {};
+    // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

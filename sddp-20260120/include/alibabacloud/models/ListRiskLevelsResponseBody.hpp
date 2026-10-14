@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The description of the sensitivity level.
       shared_ptr<string> description_ {};
+      // The ID of the sensitivity level.
       shared_ptr<int64_t> id_ {};
+      // The name of the sensitivity level.
       shared_ptr<string> name_ {};
+      // The number of references to the sensitivity level.
       shared_ptr<int32_t> referenceNum_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The request ID. You can use this ID to locate the API call.
     shared_ptr<string> requestId_ {};
+    // The list of sensitivity levels.
     shared_ptr<vector<ListRiskLevelsResponseBody::RiskLevelList>> riskLevelList_ {};
   };
 

@@ -112,14 +112,30 @@ namespace Models
 
 
   protected:
+    // The database account name. Filters by exact account name.
     shared_ptr<string> accountName_ {};
+    // The column encryption access permissions. Valid values:
+    // 
+    // - fullAccess: plaintext access.
+    // - restrictedAccess: restricted access.
+    // - noneAccess: decryption prohibited. noneAccess applies only to ApsaraDB RDS for MySQL instances whose current effective key pattern is client_key.
     shared_ptr<string> authRole_ {};
+    // The query business scenario. Use DataMasking for the column encryption scenario. This value is case-sensitive.
     shared_ptr<string> bizType_ {};
+    // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The database instance identity. You can obtain this value from Items[].InstanceId returned by ListDataMaskingInstances.
     shared_ptr<string> instanceId_ {};
+    // The language of the response description. Valid values:
+    // 
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The number of records per page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
+    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two values must correspond to each other.
     shared_ptr<string> productCode_ {};
+    // The list of cloud product type identifiers. Separate multiple values with commas (,). Valid values for the column encryption scenario: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
     shared_ptr<string> productIds_ {};
   };
 

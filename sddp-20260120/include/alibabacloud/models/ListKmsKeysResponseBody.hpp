@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The alias of the KMS key.
       shared_ptr<string> aliasName_ {};
+      // The ID of the KMS key.
       shared_ptr<string> keyId_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The list of records returned by this query.
     shared_ptr<vector<ListKmsKeysResponseBody::Items>> items_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 

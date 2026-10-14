@@ -232,24 +232,45 @@ namespace Models
 
 
     protected:
+      // The creation time of the data object. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
       shared_ptr<int64_t> creationTime_ {};
+      // The cloud instance identity.
       shared_ptr<string> dataAssetSourceId_ {};
+      // The database name.
       shared_ptr<string> dataSourceName_ {};
+      // The data type of the database column.
       shared_ptr<string> dataType_ {};
+      // The database engine type.
       shared_ptr<string> engineType_ {};
+      // The cloud instance identity to which the column belongs. This is a compatible field.
       shared_ptr<string> instanceName_ {};
+      // The compatible field for column encryption status. To query column encryption results, call ListDataMaskingColumns.
       shared_ptr<int32_t> maskingStatus_ {};
+      // The name of the data column.
       shared_ptr<string> name_ {};
+      // The cloud product code.
       shared_ptr<string> productCode_ {};
+      // The region ID of the asset.
       shared_ptr<string> regionId_ {};
+      // The ID of the detection result revision record.
       shared_ptr<int64_t> revisionId_ {};
+      // The revision status of the detection result. Valid values:
+      // - 0: not revised.
+      // - 1: revised.
       shared_ptr<int64_t> revisionStatus_ {};
+      // The sensitivity level ID.
       shared_ptr<int64_t> riskLevelId_ {};
+      // The sensitivity level name.
       shared_ptr<string> riskLevelName_ {};
+      // The ID of the matched detection rule.
       shared_ptr<int64_t> ruleId_ {};
+      // The name of the matched detection rule.
       shared_ptr<string> ruleName_ {};
+      // The database schema name.
       shared_ptr<string> schemaName_ {};
+      // Indicates whether the data is detected as sensitive data.
       shared_ptr<bool> sensitive_ {};
+      // The data table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -293,10 +314,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by this query.
     shared_ptr<vector<ListColumnsResponseBody::Items>> items_ {};
+    // The number of records per page for this query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the current query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

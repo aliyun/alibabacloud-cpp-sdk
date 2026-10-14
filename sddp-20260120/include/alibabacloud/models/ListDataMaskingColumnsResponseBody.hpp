@@ -129,7 +129,9 @@ namespace Models
 
 
       protected:
+        // The ID of the model tag.
         shared_ptr<int64_t> id_ {};
+        // The name of the model tag.
         shared_ptr<string> name_ {};
       };
 
@@ -267,23 +269,50 @@ namespace Models
 
 
     protected:
+      // The data type of the database column.
       shared_ptr<string> dataType_ {};
+      // The database name.
       shared_ptr<string> dbName_ {};
+      // The database engine type.
       shared_ptr<string> engineType_ {};
+      // The business error code of the record or operation. This value can be empty if no error occurs. Evaluate this value together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
+      // The business error description of the record or operation.
       shared_ptr<string> errorMessage_ {};
+      // The ID of the column record.
       shared_ptr<string> id_ {};
+      // The instance identity of the database.
       shared_ptr<string> instanceId_ {};
+      // The column encryption status. Valid values:
+      // - NotEncrypted: Not encrypted.
+      // - Processing: Being processed.
+      // - Success: Encryption succeeded.
+      // - Failed: Encryption failed.
+      // - Deleting: Being disabled.
+      // - DeleteFailed: Disabling failed.
       shared_ptr<string> maskingStatus_ {};
+      // The list of matched model tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
+      // The name of the data column.
       shared_ptr<string> name_ {};
+      // The cloud product code.
       shared_ptr<string> productCode_ {};
+      // The cloud product type ID. Valid values:
+      // - 5: RDS.
+      // - 8: POLARDB.
+      // - 27: PolarDBX2.
       shared_ptr<int64_t> productId_ {};
+      // The region ID of the asset.
       shared_ptr<string> regionId_ {};
+      // The ID of the sensitivity level.
       shared_ptr<int64_t> riskLevelId_ {};
+      // The name of the sensitivity level.
       shared_ptr<string> riskLevelName_ {};
+      // The ID of the matched detection rule.
       shared_ptr<int64_t> ruleId_ {};
+      // The name of the matched detection rule.
       shared_ptr<string> ruleName_ {};
+      // The table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -327,10 +356,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by the current query.
     shared_ptr<vector<ListDataMaskingColumnsResponseBody::Items>> items_ {};
+    // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the current query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

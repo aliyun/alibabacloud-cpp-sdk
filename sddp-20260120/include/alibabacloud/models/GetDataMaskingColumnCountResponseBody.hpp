@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The number of encrypted columns within the current scope.
       shared_ptr<int64_t> maskedCount_ {};
+      // The number of columns that failed to be encrypted within the current scope.
       shared_ptr<int64_t> maskingFailedCount_ {};
+      // The number of sensitive columns within the current scope.
       shared_ptr<int64_t> sensitiveCount_ {};
+      // The total number of columns within the current scope.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The column encryption statistics.
     shared_ptr<GetDataMaskingColumnCountResponseBody::ColumnCount> columnCount_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 

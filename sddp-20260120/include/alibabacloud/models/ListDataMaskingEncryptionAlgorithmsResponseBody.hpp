@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The business error code for the record or operation. This value can be empty if no error occurs. Evaluate this value together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
+      // The business error description for the record or operation.
       shared_ptr<string> errorMessage_ {};
+      // The algorithm name.
       shared_ptr<string> name_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of column encryption algorithms.
     shared_ptr<vector<ListDataMaskingEncryptionAlgorithmsResponseBody::Algorithms>> algorithms_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // A reserved feature type parameter. This parameter is not used to filter results in the current query. You do not need to specify this parameter for column encryption calls.
     shared_ptr<int32_t> featureType_ {};
+    // Specifies whether to return only detection models supported in audit scenarios. If this parameter is set to true, only audit-supported models such as phone number, ID card, and bank card models are returned. You do not need to specify this parameter for column encryption scenarios.
     shared_ptr<bool> filterAuditModel_ {};
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The ID of the data classification template. You can obtain this value from Items[].Id in the response of the ListTemplates operation. The template must be consistent with the selected sensitivity level and detection models.
     shared_ptr<int64_t> templateId_ {};
   };
 

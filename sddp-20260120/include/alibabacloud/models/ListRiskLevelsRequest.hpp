@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // A reserved feature type parameter. This parameter does not filter results in the current query. You do not need to specify this parameter for column encryption calls.
     shared_ptr<int32_t> featureType_ {};
+    // The language of the response description. Valid values:
+    // 
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The ID of the data classification template. You can obtain this value from Items[].Id returned by ListTemplates. Ensure that the template is consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
   };
 

@@ -254,26 +254,59 @@ namespace Models
 
 
     protected:
+      // The connection status of the data source. Valid values:
+      // - UnConnected: Not connected.
+      // - Processing: Connecting.
+      // - Success: Connected.
+      // - Failed: Connection failed.
       shared_ptr<string> connectStatus_ {};
+      // The identifier of the data asset in Data Security Center.
       shared_ptr<string> dataAssetId_ {};
+      // The identifier of the data source in Data Security Center.
       shared_ptr<string> dataSourceId_ {};
+      // The statistical value of the data source capacity. This field is not used in the column encryption process for relational databases.
       shared_ptr<int64_t> dataSourceSize_ {};
+      // The name of the database.
       shared_ptr<string> dbName_ {};
+      // The description of the data source.
       shared_ptr<string> description_ {};
+      // The type of the database engine.
       shared_ptr<string> engineType_ {};
+      // The business error code of the record or operation. This field can be empty if no error occurs. Evaluate this field together with ErrorMessage.
       shared_ptr<string> errorCode_ {};
+      // The business error message of the record or operation.
       shared_ptr<string> errorMessage_ {};
+      // The identifier of the record.
       shared_ptr<int64_t> id_ {};
+      // The status of the data source detection switch. Valid values:
+      // - Enable: Submitted for enabling.
+      // - Enabling: Enabling.
+      // - Enabled: Enabled.
+      // - EnableFailed: Enabling failed.
+      // - Disable: Submitted for disabling.
+      // - Disabling: Disabling.
+      // - Disabled: Disabled.
+      // - DisableFailed: Disabling failed.
       shared_ptr<string> identifyStatus_ {};
+      // The database instance identity.
       shared_ptr<string> instanceId_ {};
+      // The identity of the member accounts to which the asset belongs.
       shared_ptr<int64_t> memberAccount_ {};
+      // The port for the database connection.
       shared_ptr<int64_t> port_ {};
+      // The code of the cloud service.
       shared_ptr<string> productCode_ {};
+      // The identifier of the cloud service type. 5: ApsaraDB RDS; 8: PolarDB; 27: PolarDB-X 2.0.
       shared_ptr<int64_t> productId_ {};
+      // The ID of the region where the asset resides.
       shared_ptr<string> regionId_ {};
+      // The name of the region where the asset resides.
       shared_ptr<string> regionName_ {};
+      // The ID of the resource group to which the asset belongs.
       shared_ptr<string> resourceGroupId_ {};
+      // The identifier of the database tenant.
       shared_ptr<string> tenantId_ {};
+      // The name of the database account used to connect to the data source.
       shared_ptr<string> userName_ {};
     };
 
@@ -332,12 +365,19 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by the query.
     shared_ptr<vector<ListDataSourcesResponseBody::Items>> items_ {};
+    // The maximum number of records that can be returned for the current cursor-based pagination.
     shared_ptr<int32_t> maxResults_ {};
+    // A compatible pagination cursor field. The ListDataSources operation uses page number-based pagination and does not rely on this field to determine whether more pages exist.
     shared_ptr<string> nextToken_ {};
+    // The number of records returned on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request identity, which is active when you invoke this API call.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that meet the current statistics or query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 

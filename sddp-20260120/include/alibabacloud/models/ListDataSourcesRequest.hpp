@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataAssetId, dataAssetId_);
       DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
+      DARABONBA_PTR_TO_JSON(EngineType, engineType_);
       DARABONBA_PTR_TO_JSON(IdentifyStatus, identifyStatus_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
@@ -34,12 +36,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataAssetId, dataAssetId_);
       DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
+      DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
       DARABONBA_PTR_FROM_JSON(IdentifyStatus, identifyStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectStatus_ == nullptr
-        && this->currentPage_ == nullptr && this->dataAssetId_ == nullptr && this->dataSourceId_ == nullptr && this->dbName_ == nullptr && this->identifyStatus_ == nullptr
-        && this->instanceId_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr
-        && this->productCode_ == nullptr && this->productId_ == nullptr && this->sourceIp_ == nullptr; };
+        && this->currentPage_ == nullptr && this->dataAssetId_ == nullptr && this->dataSourceId_ == nullptr && this->dbName_ == nullptr && this->engineType_ == nullptr
+        && this->identifyStatus_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->pageSize_ == nullptr && this->port_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->sourceIp_ == nullptr; };
     // connectStatus Field Functions 
     bool hasConnectStatus() const { return this->connectStatus_ != nullptr;};
     void deleteConnectStatus() { this->connectStatus_ = nullptr;};
@@ -92,6 +96,13 @@ namespace Models
     void deleteDbName() { this->dbName_ = nullptr;};
     inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
     inline ListDataSourcesRequest& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+    // engineType Field Functions 
+    bool hasEngineType() const { return this->engineType_ != nullptr;};
+    void deleteEngineType() { this->engineType_ = nullptr;};
+    inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+    inline ListDataSourcesRequest& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
     // identifyStatus Field Functions 
@@ -136,6 +147,13 @@ namespace Models
     inline ListDataSourcesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // port Field Functions 
+    bool hasPort() const { return this->port_ != nullptr;};
+    void deletePort() { this->port_ = nullptr;};
+    inline int32_t getPort() const { DARABONBA_PTR_GET_DEFAULT(port_, 0) };
+    inline ListDataSourcesRequest& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
+
+
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
@@ -158,19 +176,56 @@ namespace Models
 
 
   protected:
+    // The connection status of the data source. Valid values:
+    // - UnConnected: Not connected.
+    // - Processing: Connecting.
+    // - Success: Connected.
+    // - Failed: Connection failed.
     shared_ptr<string> connectStatus_ {};
+    // The current page number. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The identifier of the data asset in Data Security Center.
     shared_ptr<string> dataAssetId_ {};
+    // The identifier of the data source in Data Security Center. You can obtain the value from the Items[].DataSourceId parameter in the response of the ListDataSources operation.
     shared_ptr<string> dataSourceId_ {};
+    // The name of the database.
     shared_ptr<string> dbName_ {};
+    // The engine type. Valid values:
+    // - **MySQL**
+    // - **MariaDB**
+    // - **Oracle**
+    // - **PostgreSQL**
+    // - **SQLServer**
+    shared_ptr<string> engineType_ {};
+    // The status of the data source detection switch. Valid values:
+    // - Enable: Submitted for enabling.
+    // - Enabling: Enabling.
+    // - Enabled: Enabled.
+    // - EnableFailed: Enabling failed.
+    // - Disable: Submitted for disabling.
+    // - Disabling: Disabling.
+    // - Disabled: Disabled.
+    // - DisableFailed: Disabling failed.
     shared_ptr<string> identifyStatus_ {};
+    // The database instance identity. You can obtain the value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
     shared_ptr<string> instanceId_ {};
+    // The language of the response message. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // A reserved pagination parameter. The ListDataSources operation uses CurrentPage and PageSize for pagination. Omit this parameter when you call the operation.
     shared_ptr<int32_t> maxResults_ {};
+    // A reserved pagination cursor parameter. The ListDataSources operation uses CurrentPage and PageSize for pagination. Omit this parameter when you call the operation.
     shared_ptr<string> nextToken_ {};
+    // The number of entries to return on each page. Keep other filter conditions consistent when you query the next page.
     shared_ptr<int32_t> pageSize_ {};
+    // The port for the database connection.
+    shared_ptr<int32_t> port_ {};
+    // The code of the cloud service. Column encryption supports ApsaraDB RDS, PolarDB, and PolarDB-X 2.0. If this parameter is specified together with ProductId, the values must match.
     shared_ptr<string> productCode_ {};
+    // The identifier of the cloud service type. 5: ApsaraDB RDS; 8: PolarDB; 27: PolarDB-X 2.0. If this parameter is specified together with ProductCode, the values must match.
     shared_ptr<int64_t> productId_ {};
+    // The source IP address of the call.
     shared_ptr<string> sourceIp_ {};
   };
 

@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // The database engine type. This value must match the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
+    // The database instance identity. You can obtain this value from Items[].InstanceId in the response of ListDataMaskingInstances.
     shared_ptr<string> instanceId_ {};
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two must correspond to each other.
     shared_ptr<string> productCode_ {};
+    // The cloud product type identifier. Valid values:
+    // - 5: RDS.
+    // - 8: POLARDB.
+    // - 27: PolarDBX2.
+    // 
+    // If both ProductId and ProductCode are specified, they must correspond to each other.
     shared_ptr<int64_t> productId_ {};
+    // The list of column encryption targets grouped by database and table.
     shared_ptr<string> subRuleListShrink_ {};
   };
 

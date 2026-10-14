@@ -186,22 +186,44 @@ namespace Models
 
 
   protected:
+    // The column name filter condition.
     shared_ptr<string> columnName_ {};
+    // The page number of the current query. Pages start from 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the database.
     shared_ptr<string> dbName_ {};
+    // The database engine type. The value must match the EngineType of the target instance, such as MySQL or PostgreSQL.
     shared_ptr<string> engineType_ {};
+    // The instance identity of the database instance. You can obtain the value from Items[].InstanceId in the response of ListDataMaskingInstances.
     shared_ptr<string> instanceId_ {};
+    // The language of the response description. Valid values:
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
+    // The column encryption status used for filtering. Valid values:
+    // - NotEncrypted: Not encrypted.
+    // - Success: Encryption succeeded.
+    // - Failed: Encryption failed.
     shared_ptr<string> maskingStatus_ {};
+    // The ID of the model tag. This parameter is used to limit the data to those that match the specified model tag.
     shared_ptr<string> modelTagId_ {};
+    // The number of records per page. Keep other filter conditions consistent when querying the next page.
     shared_ptr<int32_t> pageSize_ {};
+    // The code of the cloud product. Column encryption supports RDS, POLARDB, and PolarDBX2. If you also specify ProductId, the two values must correspond to each other.
     shared_ptr<string> productCode_ {};
+    // The ID of the cloud product type. Valid values: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2). If you specify both ProductId and ProductCode, the values must correspond to each other.
     shared_ptr<int64_t> productId_ {};
+    // The list of cloud product type IDs. Separate multiple values with commas (,). Valid values for column encryption: 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
     shared_ptr<string> productIds_ {};
+    // The ID of the sensitivity level. You can obtain the value from the response of ListRiskLevels.
     shared_ptr<int64_t> riskLevelId_ {};
+    // The list of sensitivity level IDs. Separate multiple values with commas (,). Select values from the response of ListRiskLevels that corresponds to the same TemplateId.
     shared_ptr<string> riskLevelIds_ {};
+    // The name of the table. For PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
     shared_ptr<string> tableName_ {};
+    // The ID of the classification and grading template. You can obtain the value from Items[].Id in the response of ListTemplates. The value must be consistent with the selected sensitivity level and detection model.
     shared_ptr<int64_t> templateId_ {};
+    // The list of detection model IDs. Separate multiple values with commas (,). Select values from the response of ListIdentifyModels that corresponds to the same TemplateId.
     shared_ptr<string> templateRuleIds_ {};
   };
 

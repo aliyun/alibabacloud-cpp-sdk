@@ -158,16 +158,41 @@ namespace Models
 
 
     protected:
+      // The current sensitivity level of the template.
       shared_ptr<int32_t> currentRiskLevel_ {};
+      // The description of the classification and grading template.
       shared_ptr<string> description_ {};
+      // The time when the template was created. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The time when the template was last modified. This value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
       shared_ptr<int64_t> gmtModified_ {};
+      // The ID of the classification and grading template.
       shared_ptr<int64_t> id_ {};
+      // The maximum category level supported by the template.
       shared_ptr<int32_t> maxCategoryLevel_ {};
+      // The maximum sensitivity level supported by the template.
       shared_ptr<int32_t> maxRiskLevel_ {};
+      // The name of the classification and grading template.
       shared_ptr<string> name_ {};
+      // The status of the template. Valid values:
+      // - 0: disabled.
+      // - 1: enabled as the primary template.
+      // - 2: active template.
+      // - 3: general-purpose detection model.
       shared_ptr<int32_t> status_ {};
+      // Indicates whether the template can be edited. Valid values:
+      // - 0: not supported.
+      // - 1: supported.
       shared_ptr<int32_t> supportEdit_ {};
+      // The category of the template. Valid values:
+      // - 1: Alibaba template.
+      // - 2: finance template.
+      // - 3: energy template.
+      // - 4: personal information security template.
+      // - 5: travel template.
+      // - 65: general-purpose template.
+      // - 66: custom template.
+      // - 67: template from another cloud service.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -211,10 +236,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned data.
     shared_ptr<int32_t> currentPage_ {};
+    // The list of records returned by the current query.
     shared_ptr<vector<ListTemplatesResponseBody::Items>> items_ {};
+    // The number of records per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which can be used to locate this API call.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the current query scope.
     shared_ptr<int32_t> totalCount_ {};
   };
 
