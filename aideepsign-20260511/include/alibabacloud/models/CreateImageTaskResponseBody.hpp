@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The business error code. The value `OK` is returned if the request succeeds.
+    // The business error code. The value `OK` is returned if the request was successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value `200` is returned if the request succeeds.
+    // The HTTP status code. The value `200` is returned if the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. The value `success` is returned if the request succeeds.
+    // The additional information. The value `success` is returned if the request was successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

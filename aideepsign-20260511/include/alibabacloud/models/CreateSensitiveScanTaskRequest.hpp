@@ -15,12 +15,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateSensitiveScanTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
-      DARABONBA_PTR_TO_JSON(ObjectKey, objectKey_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSensitiveScanTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
-      DARABONBA_PTR_FROM_JSON(ObjectKey, objectKey_);
     };
     CreateSensitiveScanTaskRequest() = default ;
     CreateSensitiveScanTaskRequest(const CreateSensitiveScanTaskRequest &) = default ;
@@ -34,7 +32,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->imageUrl_ == nullptr && this->objectKey_ == nullptr; };
+        && this->imageUrl_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -49,20 +47,11 @@ namespace Models
     inline CreateSensitiveScanTaskRequest& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
-    // objectKey Field Functions 
-    bool hasObjectKey() const { return this->objectKey_ != nullptr;};
-    void deleteObjectKey() { this->objectKey_ = nullptr;};
-    inline string getObjectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
-    inline CreateSensitiveScanTaskRequest& setObjectKey(string objectKey) { DARABONBA_PTR_SET_VALUE(objectKey_, objectKey) };
-
-
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotence of the request. The client generates this parameter value, which must be unique across different requests. `ClientToken` supports only ASCII characters and cannot exceed 64 characters.
     shared_ptr<string> clientToken_ {};
-    // The URL of the image to scan. Only HTTP and HTTPS protocols are supported. The image size cannot exceed 10 MB. You must specify at least one of ImageUrl and ObjectKey.
+    // The URL of the image to be scanned. Only HTTP/HTTPS protocols are supported. The image size cannot exceed 10 MB. You must specify either `ImageUrl` or `ObjectKey`.
     shared_ptr<string> imageUrl_ {};
-    // The ObjectKey of the image to scan in OSS. When you use ObjectKey, make sure that the key belongs to the namespace of the current caller. You must specify at least one of ImageUrl and ObjectKey.
-    shared_ptr<string> objectKey_ {};
   };
 
   } // namespace Models

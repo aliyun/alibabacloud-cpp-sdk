@@ -1,0 +1,62 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETWATERMARKEMBEDTASKRESULTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETWATERMARKEMBEDTASKRESULTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AIDeepSign20260511
+{
+namespace Models
+{
+  class GetWatermarkEmbedTaskResultRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetWatermarkEmbedTaskResultRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetWatermarkEmbedTaskResultRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+    };
+    GetWatermarkEmbedTaskResultRequest() = default ;
+    GetWatermarkEmbedTaskResultRequest(const GetWatermarkEmbedTaskResultRequest &) = default ;
+    GetWatermarkEmbedTaskResultRequest(GetWatermarkEmbedTaskResultRequest &&) = default ;
+    GetWatermarkEmbedTaskResultRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetWatermarkEmbedTaskResultRequest() = default ;
+    GetWatermarkEmbedTaskResultRequest& operator=(const GetWatermarkEmbedTaskResultRequest &) = default ;
+    GetWatermarkEmbedTaskResultRequest& operator=(GetWatermarkEmbedTaskResultRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->taskId_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline GetWatermarkEmbedTaskResultRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline GetWatermarkEmbedTaskResultRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+  protected:
+    // A reserved idempotency field. This field is not supported. Passing a value does not cause an error, but it does not produce an idempotency effect.
+    shared_ptr<string> clientToken_ {};
+    // The invisible watermark task ID returned by the CreateWatermarkEmbedTask operation.
+    // 
+    // This parameter is required.
+    shared_ptr<string> taskId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AIDeepSign20260511
+#endif

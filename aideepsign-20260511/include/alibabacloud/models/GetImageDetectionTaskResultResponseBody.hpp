@@ -51,16 +51,22 @@ namespace Models
     class Tamper : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Tamper& obj) { 
+        DARABONBA_PTR_TO_JSON(AiWatermark, aiWatermark_);
         DARABONBA_PTR_TO_JSON(BaseResults, baseResults_);
+        DARABONBA_PTR_TO_JSON(FinalConclusion, finalConclusion_);
         DARABONBA_PTR_TO_JSON(LlmResult, llmResult_);
-        DARABONBA_PTR_TO_JSON(RiskCode, riskCode_);
-        DARABONBA_PTR_TO_JSON(RiskReasons, riskReasons_);
+        DARABONBA_PTR_TO_JSON(MetadataAiFlag, metadataAiFlag_);
+        DARABONBA_PTR_TO_JSON(MetadataAiSource, metadataAiSource_);
+        DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       };
       friend void from_json(const Darabonba::Json& j, Tamper& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiWatermark, aiWatermark_);
         DARABONBA_PTR_FROM_JSON(BaseResults, baseResults_);
+        DARABONBA_PTR_FROM_JSON(FinalConclusion, finalConclusion_);
         DARABONBA_PTR_FROM_JSON(LlmResult, llmResult_);
-        DARABONBA_PTR_FROM_JSON(RiskCode, riskCode_);
-        DARABONBA_PTR_FROM_JSON(RiskReasons, riskReasons_);
+        DARABONBA_PTR_FROM_JSON(MetadataAiFlag, metadataAiFlag_);
+        DARABONBA_PTR_FROM_JSON(MetadataAiSource, metadataAiSource_);
+        DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       };
       Tamper() = default ;
       Tamper(const Tamper &) = default ;
@@ -80,12 +86,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Aips, aips_);
           DARABONBA_PTR_TO_JSON(ImgType, imgType_);
           DARABONBA_PTR_TO_JSON(PsLoc, psLoc_);
+          DARABONBA_PTR_TO_JSON(Recap, recap_);
         };
         friend void from_json(const Darabonba::Json& j, BaseResults& obj) { 
           DARABONBA_PTR_FROM_JSON(Aigc, aigc_);
           DARABONBA_PTR_FROM_JSON(Aips, aips_);
           DARABONBA_PTR_FROM_JSON(ImgType, imgType_);
           DARABONBA_PTR_FROM_JSON(PsLoc, psLoc_);
+          DARABONBA_PTR_FROM_JSON(Recap, recap_);
         };
         BaseResults() = default ;
         BaseResults(const BaseResults &) = default ;
@@ -98,6 +106,61 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Recap : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Recap& obj) { 
+            DARABONBA_PTR_TO_JSON(Desc, desc_);
+            DARABONBA_PTR_TO_JSON(Risk, risk_);
+            DARABONBA_PTR_TO_JSON(Score, score_);
+          };
+          friend void from_json(const Darabonba::Json& j, Recap& obj) { 
+            DARABONBA_PTR_FROM_JSON(Desc, desc_);
+            DARABONBA_PTR_FROM_JSON(Risk, risk_);
+            DARABONBA_PTR_FROM_JSON(Score, score_);
+          };
+          Recap() = default ;
+          Recap(const Recap &) = default ;
+          Recap(Recap &&) = default ;
+          Recap(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Recap() = default ;
+          Recap& operator=(const Recap &) = default ;
+          Recap& operator=(Recap &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->desc_ == nullptr
+        && this->risk_ == nullptr && this->score_ == nullptr; };
+          // desc Field Functions 
+          bool hasDesc() const { return this->desc_ != nullptr;};
+          void deleteDesc() { this->desc_ = nullptr;};
+          inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+          inline Recap& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+          // risk Field Functions 
+          bool hasRisk() const { return this->risk_ != nullptr;};
+          void deleteRisk() { this->risk_ = nullptr;};
+          inline string getRisk() const { DARABONBA_PTR_GET_DEFAULT(risk_, "") };
+          inline Recap& setRisk(string risk) { DARABONBA_PTR_SET_VALUE(risk_, risk) };
+
+
+          // score Field Functions 
+          bool hasScore() const { return this->score_ != nullptr;};
+          void deleteScore() { this->score_ = nullptr;};
+          inline float getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+          inline Recap& setScore(float score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+        protected:
+          // The recapture/copy detection result description.
+          shared_ptr<string> desc_ {};
+          // The recapture/copy dimension risk label.
+          shared_ptr<string> risk_ {};
+          // The recapture/copy detection score. Value range: 0 to 1. A higher value indicates a greater likelihood of recapture or copying.
+          shared_ptr<float> score_ {};
+        };
+
         class PsLoc : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const PsLoc& obj) { 
@@ -159,9 +222,9 @@ namespace Models
 
 
           protected:
-            // The bounding box coordinates of the tampered region in the format `[x1, y1, x2, y2]`.
+            // The bounding box coordinates of the tampered region, in the format `[x1, y1, x2, y2]`.
             shared_ptr<vector<float>> bbox_ {};
-            // The tamper confidence level for the region. Value range: `0 to 1`.
+            // The tamper confidence of the region. Value range: 0 to 1.
             shared_ptr<float> score_ {};
           };
 
@@ -184,7 +247,7 @@ namespace Models
 
 
         protected:
-          // The description of the PS tamper localization result.
+          // The PS tamper localization result description.
           shared_ptr<string> desc_ {};
           // The list of tampered regions.
           shared_ptr<vector<PsLoc::Items>> items_ {};
@@ -194,10 +257,12 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Aips& obj) { 
             DARABONBA_PTR_TO_JSON(Desc, desc_);
+            DARABONBA_PTR_TO_JSON(Risk, risk_);
             DARABONBA_PTR_TO_JSON(Score, score_);
           };
           friend void from_json(const Darabonba::Json& j, Aips& obj) { 
             DARABONBA_PTR_FROM_JSON(Desc, desc_);
+            DARABONBA_PTR_FROM_JSON(Risk, risk_);
             DARABONBA_PTR_FROM_JSON(Score, score_);
           };
           Aips() = default ;
@@ -212,12 +277,19 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->desc_ == nullptr
-        && this->score_ == nullptr; };
+        && this->risk_ == nullptr && this->score_ == nullptr; };
           // desc Field Functions 
           bool hasDesc() const { return this->desc_ != nullptr;};
           void deleteDesc() { this->desc_ = nullptr;};
           inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
           inline Aips& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+          // risk Field Functions 
+          bool hasRisk() const { return this->risk_ != nullptr;};
+          void deleteRisk() { this->risk_ = nullptr;};
+          inline string getRisk() const { DARABONBA_PTR_GET_DEFAULT(risk_, "") };
+          inline Aips& setRisk(string risk) { DARABONBA_PTR_SET_VALUE(risk_, risk) };
 
 
           // score Field Functions 
@@ -228,8 +300,10 @@ namespace Models
 
 
         protected:
-          // The description of the AI post-processing detection result.
+          // The AI post-processing detection result description.
           shared_ptr<string> desc_ {};
+          // The local PS/AI editing dimension risk label.
+          shared_ptr<string> risk_ {};
           // The AI post-processing detection score. Value range: 0 to 1. A higher value indicates a greater likelihood of AI post-processing.
           shared_ptr<float> score_ {};
         };
@@ -238,10 +312,12 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Aigc& obj) { 
             DARABONBA_PTR_TO_JSON(Desc, desc_);
+            DARABONBA_PTR_TO_JSON(Risk, risk_);
             DARABONBA_PTR_TO_JSON(Score, score_);
           };
           friend void from_json(const Darabonba::Json& j, Aigc& obj) { 
             DARABONBA_PTR_FROM_JSON(Desc, desc_);
+            DARABONBA_PTR_FROM_JSON(Risk, risk_);
             DARABONBA_PTR_FROM_JSON(Score, score_);
           };
           Aigc() = default ;
@@ -256,12 +332,19 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->desc_ == nullptr
-        && this->score_ == nullptr; };
+        && this->risk_ == nullptr && this->score_ == nullptr; };
           // desc Field Functions 
           bool hasDesc() const { return this->desc_ != nullptr;};
           void deleteDesc() { this->desc_ = nullptr;};
           inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
           inline Aigc& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+          // risk Field Functions 
+          bool hasRisk() const { return this->risk_ != nullptr;};
+          void deleteRisk() { this->risk_ = nullptr;};
+          inline string getRisk() const { DARABONBA_PTR_GET_DEFAULT(risk_, "") };
+          inline Aigc& setRisk(string risk) { DARABONBA_PTR_SET_VALUE(risk_, risk) };
 
 
           // score Field Functions 
@@ -272,14 +355,16 @@ namespace Models
 
 
         protected:
-          // The description of the AIGC detection result.
+          // The AIGC detection result description.
           shared_ptr<string> desc_ {};
+          // The AIGC dimension risk label.
+          shared_ptr<string> risk_ {};
           // The AIGC detection score. Value range: 0 to 1. A higher value indicates a greater likelihood of AI generation.
           shared_ptr<float> score_ {};
         };
 
         virtual bool empty() const override { return this->aigc_ == nullptr
-        && this->aips_ == nullptr && this->imgType_ == nullptr && this->psLoc_ == nullptr; };
+        && this->aips_ == nullptr && this->imgType_ == nullptr && this->psLoc_ == nullptr && this->recap_ == nullptr; };
         // aigc Field Functions 
         bool hasAigc() const { return this->aigc_ != nullptr;};
         void deleteAigc() { this->aigc_ = nullptr;};
@@ -314,19 +399,38 @@ namespace Models
         inline BaseResults& setPsLoc(BaseResults::PsLoc && psLoc) { DARABONBA_PTR_SET_RVALUE(psLoc_, psLoc) };
 
 
+        // recap Field Functions 
+        bool hasRecap() const { return this->recap_ != nullptr;};
+        void deleteRecap() { this->recap_ = nullptr;};
+        inline const BaseResults::Recap & getRecap() const { DARABONBA_PTR_GET_CONST(recap_, BaseResults::Recap) };
+        inline BaseResults::Recap getRecap() { DARABONBA_PTR_GET(recap_, BaseResults::Recap) };
+        inline BaseResults& setRecap(const BaseResults::Recap & recap) { DARABONBA_PTR_SET_VALUE(recap_, recap) };
+        inline BaseResults& setRecap(BaseResults::Recap && recap) { DARABONBA_PTR_SET_RVALUE(recap_, recap) };
+
+
       protected:
-        // The AIGC detection score.
+        // The AIGC detection result.
         shared_ptr<BaseResults::Aigc> aigc_ {};
         // The AI post-processing detection score.
         shared_ptr<BaseResults::Aips> aips_ {};
         // The image type.
         shared_ptr<string> imgType_ {};
-        // The PS tamper localization results.
+        // The PS tamper localization result.
         shared_ptr<BaseResults::PsLoc> psLoc_ {};
+        // The recapture/copy detection result.
+        shared_ptr<BaseResults::Recap> recap_ {};
       };
 
-      virtual bool empty() const override { return this->baseResults_ == nullptr
-        && this->llmResult_ == nullptr && this->riskCode_ == nullptr && this->riskReasons_ == nullptr; };
+      virtual bool empty() const override { return this->aiWatermark_ == nullptr
+        && this->baseResults_ == nullptr && this->finalConclusion_ == nullptr && this->llmResult_ == nullptr && this->metadataAiFlag_ == nullptr && this->metadataAiSource_ == nullptr
+        && this->riskLevel_ == nullptr; };
+      // aiWatermark Field Functions 
+      bool hasAiWatermark() const { return this->aiWatermark_ != nullptr;};
+      void deleteAiWatermark() { this->aiWatermark_ = nullptr;};
+      inline string getAiWatermark() const { DARABONBA_PTR_GET_DEFAULT(aiWatermark_, "") };
+      inline Tamper& setAiWatermark(string aiWatermark) { DARABONBA_PTR_SET_VALUE(aiWatermark_, aiWatermark) };
+
+
       // baseResults Field Functions 
       bool hasBaseResults() const { return this->baseResults_ != nullptr;};
       void deleteBaseResults() { this->baseResults_ = nullptr;};
@@ -336,6 +440,13 @@ namespace Models
       inline Tamper& setBaseResults(Tamper::BaseResults && baseResults) { DARABONBA_PTR_SET_RVALUE(baseResults_, baseResults) };
 
 
+      // finalConclusion Field Functions 
+      bool hasFinalConclusion() const { return this->finalConclusion_ != nullptr;};
+      void deleteFinalConclusion() { this->finalConclusion_ = nullptr;};
+      inline string getFinalConclusion() const { DARABONBA_PTR_GET_DEFAULT(finalConclusion_, "") };
+      inline Tamper& setFinalConclusion(string finalConclusion) { DARABONBA_PTR_SET_VALUE(finalConclusion_, finalConclusion) };
+
+
       // llmResult Field Functions 
       bool hasLlmResult() const { return this->llmResult_ != nullptr;};
       void deleteLlmResult() { this->llmResult_ = nullptr;};
@@ -343,31 +454,42 @@ namespace Models
       inline Tamper& setLlmResult(string llmResult) { DARABONBA_PTR_SET_VALUE(llmResult_, llmResult) };
 
 
-      // riskCode Field Functions 
-      bool hasRiskCode() const { return this->riskCode_ != nullptr;};
-      void deleteRiskCode() { this->riskCode_ = nullptr;};
-      inline string getRiskCode() const { DARABONBA_PTR_GET_DEFAULT(riskCode_, "") };
-      inline Tamper& setRiskCode(string riskCode) { DARABONBA_PTR_SET_VALUE(riskCode_, riskCode) };
+      // metadataAiFlag Field Functions 
+      bool hasMetadataAiFlag() const { return this->metadataAiFlag_ != nullptr;};
+      void deleteMetadataAiFlag() { this->metadataAiFlag_ = nullptr;};
+      inline string getMetadataAiFlag() const { DARABONBA_PTR_GET_DEFAULT(metadataAiFlag_, "") };
+      inline Tamper& setMetadataAiFlag(string metadataAiFlag) { DARABONBA_PTR_SET_VALUE(metadataAiFlag_, metadataAiFlag) };
 
 
-      // riskReasons Field Functions 
-      bool hasRiskReasons() const { return this->riskReasons_ != nullptr;};
-      void deleteRiskReasons() { this->riskReasons_ = nullptr;};
-      inline const vector<string> & getRiskReasons() const { DARABONBA_PTR_GET_CONST(riskReasons_, vector<string>) };
-      inline vector<string> getRiskReasons() { DARABONBA_PTR_GET(riskReasons_, vector<string>) };
-      inline Tamper& setRiskReasons(const vector<string> & riskReasons) { DARABONBA_PTR_SET_VALUE(riskReasons_, riskReasons) };
-      inline Tamper& setRiskReasons(vector<string> && riskReasons) { DARABONBA_PTR_SET_RVALUE(riskReasons_, riskReasons) };
+      // metadataAiSource Field Functions 
+      bool hasMetadataAiSource() const { return this->metadataAiSource_ != nullptr;};
+      void deleteMetadataAiSource() { this->metadataAiSource_ = nullptr;};
+      inline string getMetadataAiSource() const { DARABONBA_PTR_GET_DEFAULT(metadataAiSource_, "") };
+      inline Tamper& setMetadataAiSource(string metadataAiSource) { DARABONBA_PTR_SET_VALUE(metadataAiSource_, metadataAiSource) };
+
+
+      // riskLevel Field Functions 
+      bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
+      void deleteRiskLevel() { this->riskLevel_ = nullptr;};
+      inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+      inline Tamper& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
 
 
     protected:
-      // The basic detection results, including detection scores across multiple dimensions.
+      // The AI visible watermark. This field is returned only in large model mode. It is empty in small model mode.
+      shared_ptr<string> aiWatermark_ {};
+      // The basic algorithm detection results, including multi-dimensional detection scores and risk labels.
       shared_ptr<Tamper::BaseResults> baseResults_ {};
+      // The final conclusion.
+      shared_ptr<string> finalConclusion_ {};
       // The comprehensive analysis result from the large language model.
       shared_ptr<string> llmResult_ {};
-      // The risk code. A value of `"0"` indicates no risk.
-      shared_ptr<string> riskCode_ {};
-      // The list of risk reasons. An empty array is returned when no risk is detected.
-      shared_ptr<vector<string>> riskReasons_ {};
+      // The metadata AI flag. This field is always returned.
+      shared_ptr<string> metadataAiFlag_ {};
+      // The source of the metadata AI flag. This field is returned only in large model mode. It is empty in small model mode.
+      shared_ptr<string> metadataAiSource_ {};
+      // The determination result. This field is always returned.
+      shared_ptr<string> riskLevel_ {};
     };
 
     class Labels : public Darabonba::Model {
@@ -410,9 +532,7 @@ namespace Models
     protected:
       // The confidence level. Value range: 0 to 1.
       shared_ptr<float> confidence_ {};
-      // The detection label. Valid values:
-      // - ai_generated: AI-generated.
-      // - non_ai_generated: not AI-generated.
+      // The detection label. When DetectMode is aigc, valid values are: risk_aigc (the image is suspected to be AIGC-generated), risk_fake (the image is suspected to be a composite image), risk_edit (the image is suspected to be AI-edited). When DetectMode is tamper, valid values are: aigc (AIGC detection score), aips (AI post-processing detection score).
       shared_ptr<string> label_ {};
     };
 
@@ -494,31 +614,31 @@ namespace Models
 
 
   protected:
-    // The business error code. The value `"OK"` is returned when the request succeeds.
+    // The business error code. The value "OK" is returned when the request succeeds.
     shared_ptr<string> code_ {};
     // The detection mode that was actually executed. Valid values:
     // - aigc: AIGC only.
     // - tamper: tamper detection.
     // 
-    // This parameter is returned only when `Status` is `succeeded`.
+    // This field is returned only when Status is succeeded.
     shared_ptr<string> detectMode_ {};
-    // The HTTP status code. The value `200` is returned when the request succeeds.
+    // The HTTP status code. The value 200 is returned when the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of AIGC detection result labels. This parameter is returned only when `Status` is `succeeded` and the task includes AIGC detection.
+    // The list of detection result labels. This field is returned only when Status is succeeded and AIGC detection is included. The label values and confidence ranges vary depending on DetectMode. In aigc mode, AIGC generation identification labels are returned (see the table below). In tamper mode, aigc/aips labels are returned (confidence range: 0 to 1).
     shared_ptr<vector<GetImageDetectionTaskResultResponseBody::Labels>> labels_ {};
-    // The additional information. The value `"success"` is returned when the request succeeds. An error message is returned when the task fails. This parameter is returned only when `Status` is `failed`.
+    // The additional information. The value "success" is returned when the request succeeds. The error message is returned when the task fails. This field is returned only when Status is failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The task status. Valid values:
-    // - `pending`: waiting.
-    // - `running`: in progress.
-    // - `succeeded`: completed.
-    // - `failed`: failed.
+    // - pending: waiting.
+    // - running: in progress.
+    // - succeeded: completed.
+    // - failed: failed.
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The tamper detection results. This parameter is returned only when `DetectType` is `tamper` or `auto` (and the image is identified as a credential-type image).
+    // The tamper detection result.
     shared_ptr<GetImageDetectionTaskResultResponseBody::Tamper> tamper_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

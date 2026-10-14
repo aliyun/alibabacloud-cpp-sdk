@@ -125,11 +125,11 @@ namespace Models
     shared_ptr<string> algorithm_ {};
     // The subject information of the signing certificate.
     shared_ptr<string> certificateSubject_ {};
-    // The business error code. The value "OK" is returned if the request succeeds.
+    // The business error code. "OK" is returned if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value 200 is returned if the request succeeds.
+    // The HTTP status code. 200 is returned if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. The value "success" is returned if the request succeeds.
+    // The additional information. "success" is returned if the request is successful.
     shared_ptr<string> message_ {};
     // The ObjectKey of the signed image in OSS. You can use this value for subsequent API calls.
     shared_ptr<string> objectKey_ {};
@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<string> signTime_ {};
     // The pre-signed download URL of the signed image.
     shared_ptr<string> signedImageUrl_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

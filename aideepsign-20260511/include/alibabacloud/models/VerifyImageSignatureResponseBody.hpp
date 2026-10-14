@@ -187,7 +187,7 @@ namespace Models
 
 
     protected:
-      // The list of assertions, which contains metadata such as the origin and editing history of the image.
+      // The list of assertions, which contains metadata such as the provenance and editing history of the image.
       shared_ptr<vector<Manifest::Assertions>> assertions_ {};
       // The signature details.
       shared_ptr<Manifest::SignatureInfo> signatureInfo_ {};
@@ -314,7 +314,7 @@ namespace Models
     shared_ptr<int64_t> httpStatusCode_ {};
     // The issuer information.
     shared_ptr<VerifyImageSignatureResponseBody::Issuer> issuer_ {};
-    // Indicates whether the issuer is trusted. A value of true indicates that the issuer certificate is issued by a trusted CA.
+    // Indicates whether the issuer is trusted. A value of true indicates that the issuer certificate is issued by a trusted certification authority (CA).
     shared_ptr<bool> issuerTrusted_ {};
     // The content credentials manifest information. This parameter is returned only when the image contains a C2PA signature.
     shared_ptr<VerifyImageSignatureResponseBody::Manifest> manifest_ {};
@@ -325,9 +325,10 @@ namespace Models
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The signature verification status. Valid values:
-    // - Valid: The signature is valid.
-    // - Invalid: The signature is invalid or has been tampered with.
-    // - Trusted: The signature is valid and trusted.
+    // - Unsigned: The image does not contain C2PA data.
+    // - Invalid: The signature, data hash, or C2PA structure is invalid.
+    // - Valid: The signature and data hash are valid, but the issuer is not necessarily trusted.
+    // - Trusted: The signature is valid and the issuer certificate is trusted.
     shared_ptr<string> verificationState_ {};
   };
 

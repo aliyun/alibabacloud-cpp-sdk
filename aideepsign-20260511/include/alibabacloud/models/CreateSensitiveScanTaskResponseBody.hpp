@@ -96,7 +96,7 @@ namespace Models
     // - true: The call was successful.
     // - false: The call failed.
     shared_ptr<bool> success_ {};
-    // The task ID. You can use this ID to call the GetSensitiveScanResult operation to query the result.
+    // The task ID. You can use this ID to call `GetSensitiveScanResult` to query the result.
     shared_ptr<string> taskId_ {};
   };
 

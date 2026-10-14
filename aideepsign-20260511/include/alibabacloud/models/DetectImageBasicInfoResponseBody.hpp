@@ -112,13 +112,13 @@ namespace Models
 
 
   protected:
-    // The business error code. "OK" is returned if the request was successful.
+    // The business error code. Returns "OK" when the request succeeds.
     shared_ptr<string> code_ {};
-    // The image resolution (width × height), such as 1920 × 1080. This value is empty if the resolution cannot be identified.
+    // The image resolution (width × height), such as 1920 × 1080. Empty if the resolution cannot be identified.
     shared_ptr<string> dpi_ {};
-    // The HTTP status code. 200 is returned if the request was successful.
+    // The HTTP status code. Returns 200 when the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The additional information. "success" is returned if the request was successful.
+    // The additional information. Returns "success" when the request succeeds.
     shared_ptr<string> message_ {};
     // The file name.
     shared_ptr<string> name_ {};
@@ -126,9 +126,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The file size in a human-readable format, such as 1.5 MB or 256 KB.
     shared_ptr<string> size_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The image format, such as JPEG, PNG, GIF, or WEBP. UNKNOWN is returned if the format cannot be identified.
+    // The image format, such as JPEG, PNG, GIF, or WEBP. Returns `UNKNOWN` if the format cannot be identified.
     shared_ptr<string> type_ {};
   };
 

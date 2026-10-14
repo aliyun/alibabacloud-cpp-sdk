@@ -15,12 +15,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SignUserImageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
-      DARABONBA_PTR_TO_JSON(ObjectKey, objectKey_);
     };
     friend void from_json(const Darabonba::Json& j, SignUserImageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
-      DARABONBA_PTR_FROM_JSON(ObjectKey, objectKey_);
     };
     SignUserImageRequest() = default ;
     SignUserImageRequest(const SignUserImageRequest &) = default ;
@@ -34,7 +32,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->imageUrl_ == nullptr && this->objectKey_ == nullptr; };
+        && this->imageUrl_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -49,20 +47,11 @@ namespace Models
     inline SignUserImageRequest& setImageUrl(string imageUrl) { DARABONBA_PTR_SET_VALUE(imageUrl_, imageUrl) };
 
 
-    // objectKey Field Functions 
-    bool hasObjectKey() const { return this->objectKey_ != nullptr;};
-    void deleteObjectKey() { this->objectKey_ = nullptr;};
-    inline string getObjectKey() const { DARABONBA_PTR_GET_DEFAULT(objectKey_, "") };
-    inline SignUserImageRequest& setObjectKey(string objectKey) { DARABONBA_PTR_SET_VALUE(objectKey_, objectKey) };
-
-
   protected:
-    // The client token that is used to ensure the idempotence of the request. The client generates this value. Make sure the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The URL of the image to be signed. HTTP and HTTPS URLs are supported. Specify at least one of `ImageUrl` and `ObjectKey`.
+    // The URL of the image to be signed. HTTP/HTTPS URLs are supported. Specify either `ImageUrl` or `ObjectKey`. At least one of them is required.
     shared_ptr<string> imageUrl_ {};
-    // The ObjectKey of the image to be signed in OSS. When you use `ObjectKey`, make sure the key belongs to the namespace of the current caller. Specify at least one of `ImageUrl` and `ObjectKey`.
-    shared_ptr<string> objectKey_ {};
   };
 
   } // namespace Models
