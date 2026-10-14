@@ -280,66 +280,67 @@ namespace Models
 
 
   protected:
-    // The collection of client statuses.
+    // The client statuses.
     shared_ptr<vector<string>> appStatuses_ {};
-    // The collection of client versions.
+    // The client versions.
     shared_ptr<vector<string>> appVersions_ {};
+    // The automatic logon statuses used to filter user endpoint devices.
     shared_ptr<vector<string>> autoLoginStatuses_ {};
-    // The page number of the current page in a paging query. Valid values: 1 to 10000.
+    // The current page number for paging queries. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The department to which the user belongs. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
+    // The department to which the user belongs. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
     // The ownership of the endpoint device. Valid values:
-    // - **Personal**: personal device.
-    // - **Company**: company device.
+    // - **Personal**: Personal device.
+    // - **Company**: Company device.
     shared_ptr<string> deviceBelong_ {};
-    // The device group ID.
+    // The ID of the device group.
     shared_ptr<string> deviceGroupId_ {};
-    // The collection of endpoint device statuses.
+    // The endpoint device statuses.
     shared_ptr<vector<string>> deviceStatuses_ {};
-    // The collection of endpoint device IDs.
+    // The IDs of the endpoint devices.
     shared_ptr<vector<string>> deviceTags_ {};
-    // The collection of endpoint device operating system types.
+    // The operating system types of the endpoint devices.
     shared_ptr<vector<string>> deviceTypes_ {};
-    // The collection of office data protection statuses.
+    // The office data protection statuses.
     shared_ptr<vector<string>> dlpStatuses_ {};
-    // The name of the endpoint device. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), endpoint devices whose names contain 4-byte UTF-8 characters are also queried.
+    // The name of the endpoint device. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system also queries all endpoint devices whose names contain 4-byte UTF-8 characters.
     shared_ptr<string> hostname_ {};
-    // The collection of Internet access statuses.
+    // The Internet access statuses.
     shared_ptr<vector<string>> iaStatuses_ {};
     // The internal IP address of the endpoint device.
     shared_ptr<string> innerIp_ {};
     // The MAC address of the endpoint device.
     shared_ptr<string> mac_ {};
-    // The collection of network access control statuses.
+    // The network access control statuses.
     shared_ptr<vector<string>> nacStatuses_ {};
-    // The collection of private access statuses.
+    // The internal network access statuses.
     shared_ptr<vector<string>> paStatuses_ {};
-    // The number of entries per page in a paging query. Settings: 1 to 500.
+    // The number of entries per page for paging queries. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
-    // The user ID. You can obtain this value from the following operations:
+    // The user ID. You can obtain the value from the following operations:
     // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user endpoint device.
-    // - [ListUserDevices](~~ListUserDevices~~): Lists user endpoint devices.
+    // - [ListUserDevices](~~ListUserDevices~~): Queries a list of user endpoint devices.
     shared_ptr<string> saseUserId_ {};
     // Specifies whether sharing is enabled for the device. Valid values:
     // - **true**: Sharing is enabled.
     // - **false**: Sharing is disabled.
     shared_ptr<bool> sharingStatus_ {};
-    // The BIOS system serial number.
+    // The BIOS system SN.
     shared_ptr<string> snBios_ {};
-    // The system serial number.
+    // The system serial number (SN).
     shared_ptr<string> snSystem_ {};
-    // The sort parameter. Valid values:
-    // - **Username**: sorted by Username in ascending order.
-    // - **AppVersion**: sorted by AppVersion in descending order.
-    // - **UpdateTime**: sorted by UpdateTime in descending order.
-    // - **CreateTime**: sorted by CreateTime in descending order.
+    // The sorting parameter. Valid values:
+    // - **Username**: Sorts by Username in ascending order.
+    // - **AppVersion**: Sorts by AppVersion in descending order.
+    // - **UpdateTime**: Sorts by UpdateTime in descending order.
+    // - **CreateTime**: Sorts by CreateTime in descending order.
     shared_ptr<string> sortBy_ {};
-    // The username. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
+    // The username. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
     // The name of the office area.
     shared_ptr<string> workshop_ {};

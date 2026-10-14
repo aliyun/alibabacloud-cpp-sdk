@@ -87,29 +87,25 @@ namespace Models
 
 
   protected:
-    // An array of up to 100 ConnectorIDs.
+    // The IDs of the connectors. You can specify up to 100 connector IDs.
     shared_ptr<vector<string>> connectorIds_ {};
-    // The number of the page to return. Valid values: 1 to 10,000.
+    // The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the connector. The name must be 1 to 128 characters long and can contain letters, Chinese characters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name of the connector. The name must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The number of entries per page. Valid values: 1 to 1,000.
+    // The number of entries per page in the Settings for paging in a paged query. Valid values: 1 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The connection status of the connector. Valid values:
-    // 
-    // - **Online**
-    // 
-    // - **Offline**
+    // - **Online**: Online.
+    // - **Offline**: Offline.
     shared_ptr<string> status_ {};
-    // The state of the connector instance. Valid values:
-    // 
-    // - **Enabled**
-    // 
-    // - **Disabled**
+    // The connector instance status. Valid values:
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Shutdown.
     shared_ptr<string> switchStatus_ {};
   };
 

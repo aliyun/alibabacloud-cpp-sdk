@@ -240,24 +240,24 @@ namespace Models
 
 
       protected:
-        // The time when the software version was created.
+        // The time when the software version was created. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
-        // The number of times the software has been downloaded from the client.
+        // The number of times the software is downloaded from the client.
         shared_ptr<int64_t> downloadTimes_ {};
-        // The MD5 value of the software package.
+        // The MD5 hash value of the software package.
         shared_ptr<string> md5_ {};
         // The time when the software version was last modified.
         shared_ptr<string> modifyTime_ {};
-        // The operating system to which the software package applies. Valid values:
+        // The operating system applicable to the software package. Valid values:
         // - **Windows**: Windows.
         // - **Mac(Apple)**: macOS with Apple silicon.
-        // - **Mac(Intel)**: macOS with Intel processors.
+        // - **Mac(Intel)**: macOS with Intel chips.
         shared_ptr<string> os_ {};
         // The software publisher type. Valid values:
-        // - **local**: locally uploaded.
+        // - **local**: local upload.
         // - **thirdparty**: third-party link.
         shared_ptr<string> publisherType_ {};
-        // The ID of the software to which this version belongs.
+        // The ID of the software to which the version belongs.
         shared_ptr<string> softwareId_ {};
         // The name of the software package.
         shared_ptr<string> softwarePkgName_ {};
@@ -265,9 +265,9 @@ namespace Models
         shared_ptr<int64_t> softwarePkgSize_ {};
         // The download URL of the software package.
         shared_ptr<string> softwareUrl_ {};
-        // The version publish status. Valid values:
+        // The release status of the version. Valid values:
         // - **published**: published.
-        // - **unpublished**: not published.
+        // - **unpublished**: unpublished.
         shared_ptr<string> status_ {};
         // The software version number.
         shared_ptr<string> version_ {};
@@ -451,33 +451,33 @@ namespace Models
 
 
     protected:
-      // The associated built-in software ID.
+      // The ID of the associated built-in software.
       shared_ptr<string> builtinSoftwareId_ {};
-      // The software BundleId used for verification.
+      // The software bundle ID used for verification.
       shared_ptr<string> checkBundleId_ {};
       // The software name used for verification.
       shared_ptr<string> checkSoftwareName_ {};
-      // The software classification ID.
+      // The software category ID.
       shared_ptr<string> classifyId_ {};
-      // The time when the software was created, in seconds-level UNIX timestamp.
+      // The time when the software was created. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<string> createTime_ {};
       // The software description.
       shared_ptr<string> description_ {};
-      // The list of associated terminal device IDs.
+      // The list of associated endpoint device IDs.
       shared_ptr<vector<string>> devTags_ {};
       // The list of associated device group IDs.
       shared_ptr<vector<string>> deviceGroupIds_ {};
-      // The number of times the software has been manually downloaded from the client.
+      // The number of times the software is manually downloaded from the client.
       shared_ptr<int64_t> downloadTimes_ {};
       // Indicates whether a new version is available for the software.
       shared_ptr<bool> hasNewVersion_ {};
       // The URL of the software logo.
       shared_ptr<string> logoUrl_ {};
-      // The latest software version number for Mac (Apple).
+      // The maximum software version number for macOS with Apple silicon.
       shared_ptr<string> macAppleVersion_ {};
-      // The latest software version number for Mac (Intel).
+      // The maximum software version number for macOS with Intel chips.
       shared_ptr<string> macIntelVersion_ {};
-      // The policy matching target type. Valid values:
+      // The policy match target type. Valid values:
       // - **UserGroupAll**: all users.
       // - **UserGroupNormal**: specified user groups.
       // - **DevTagNormal**: specified devices.
@@ -487,13 +487,13 @@ namespace Models
       shared_ptr<string> matchMode_ {};
       // The official download URL of the software.
       shared_ptr<string> officialDownloadUrl_ {};
-      // The execution account (only supported on Windows).
+      // The execution account. Only Windows is supported.
       shared_ptr<string> runAsAccount_ {};
       // The software ID.
       shared_ptr<string> softwareId_ {};
       // The software name.
       shared_ptr<string> softwareName_ {};
-      // Indicates whether the built-in library source has been deleted.
+      // Indicates whether the built-in library source is deleted.
       shared_ptr<bool> sourceRemoved_ {};
       // The software source. Valid values:
       // - **custom**: custom software.
@@ -501,9 +501,9 @@ namespace Models
       shared_ptr<string> sourceType_ {};
       // The list of associated user group IDs.
       shared_ptr<vector<string>> userGroupIds_ {};
-      // The software version list. This field is not returned by this operation. Call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~) to query software versions.
+      // The software version list. This field is not returned by the current operation. Call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~) to query software versions.
       shared_ptr<vector<DataList::Versions>> versions_ {};
-      // The latest software version number for Windows.
+      // The maximum software version number for Windows.
       shared_ptr<string> windowsVersion_ {};
     };
 
@@ -549,13 +549,13 @@ namespace Models
   protected:
     // The software list.
     shared_ptr<vector<ListSoftwarelibSoftwareResponseBody::DataList>> dataList_ {};
-    // The maximum number of entries per page. This parameter is not returned by this operation.
+    // The maximum number of entries per page. This parameter is not returned by the current operation.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. This parameter is not returned by this operation.
+    // The query token. This parameter is not returned by the current operation.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of software entries that match the query conditions.
+    // The total number of software packages that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

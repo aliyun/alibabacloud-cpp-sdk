@@ -106,30 +106,30 @@ namespace Models
 
 
   protected:
-    // The page number of the current page when paging is used. Valid values: 1 to 10000.
+    // The page number of the current page for paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The number of entries per page when paging is used. Valid values: 1 to 500.
+    // The Settings for the number of entries per page for paging in a paged query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
     // The ID of the associated business policy.
     shared_ptr<string> policyId_ {};
-    // The type of the associated policy. Valid values:
-    // - **DomainBlacklist**: domain name blacklist.
-    // - **DomainWhitelist**: domain name whitelist.
-    // - **SoftwareBlock**: software blocking.
-    // - **AppUninstall**: agent uninstallation.
-    // - **DlpSend**: file outgoing.
-    // - **PeripheralBlock**: peripheral control.
+    // The type of the adapted policy. Valid values:
+    // - **DomainBlacklist**: domain name blacklist
+    // - **DomainWhitelist**: domain name whitelist
+    // - **SoftwareBlock**: software blocking
+    // - **AppUninstall**: endpoint uninstallation
+    // - **DlpSend**: file sending
+    // - **PeripheralBlock**: peripheral control
     shared_ptr<string> policyType_ {};
-    // The collection of approval process IDs.
+    // The IDs of the approval processes.
     shared_ptr<vector<string>> processIds_ {};
-    // The template name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The name of the template. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> processName_ {};
-    // The ID of the associated approver. You can call the following operation to obtain the ID:
-    // - [ListUsers](~~ListUsers~~): lists users.
+    // The ID of the associated approver. You can call the following operation to obtain the value:
+    // - [ListUsers](~~ListUsers~~): List users.
     shared_ptr<string> saseUserId_ {};
     // The username of the associated approver.
     shared_ptr<string> username_ {};

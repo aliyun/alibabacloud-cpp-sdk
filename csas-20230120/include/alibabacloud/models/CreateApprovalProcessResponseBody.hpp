@@ -165,7 +165,7 @@ namespace Models
       protected:
         // The list of software blocking policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -255,7 +255,7 @@ namespace Models
       protected:
         // The list of peripheral control policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -345,7 +345,7 @@ namespace Models
       protected:
         // The list of domain name whitelist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -391,7 +391,7 @@ namespace Models
       protected:
         // The list of domain name blacklist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -435,9 +435,9 @@ namespace Models
 
 
       protected:
-        // The list of file outbound policy IDs.
+        // The list of outbound file transfer policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -483,7 +483,7 @@ namespace Models
       protected:
         // The list of device registration policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -527,9 +527,9 @@ namespace Models
 
 
       protected:
-        // The list of terminal uninstall policy IDs.
+        // The list of endpoint uninstallation policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -665,15 +665,15 @@ namespace Models
 
 
     protected:
-      // The list of policies associated with terminal uninstall.
+      // The list of policies associated with endpoint uninstallation.
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
-      // The time when the approval flow was created.
+      // The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The description of the approval flow.
+      // The description of the approval process.
       shared_ptr<string> description_ {};
       // The list of policies associated with device registration.
       shared_ptr<Process::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
-      // The list of policies associated with file outbound.
+      // The list of policies associated with outbound file transfer.
       shared_ptr<Process::DlpSendPolicies> dlpSendPolicies_ {};
       // The list of policies associated with the domain name blacklist.
       shared_ptr<Process::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
@@ -683,9 +683,9 @@ namespace Models
       // The list of policies associated with peripheral control.
       shared_ptr<Process::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
       shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
-      // The approval flow ID.
+      // The ID of the approval process.
       shared_ptr<string> processId_ {};
-      // The approval flow name.
+      // The name of the approval process.
       shared_ptr<string> processName_ {};
       // The list of approval nodes.
       shared_ptr<vector<vector<Process::ProcessNodes>>> processNodes_ {};
@@ -713,9 +713,9 @@ namespace Models
 
 
   protected:
-    // The approval flow.
+    // The approval process.
     shared_ptr<CreateApprovalProcessResponseBody::Process> process_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

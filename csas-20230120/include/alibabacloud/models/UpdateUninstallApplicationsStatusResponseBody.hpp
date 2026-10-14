@@ -171,15 +171,15 @@ namespace Models
 
 
     protected:
-      // The uninstall application ID.
+      // The uninstallation application ID.
       shared_ptr<string> applicationId_ {};
-      // The time when the uninstall application was created.
+      // The time when the uninstallation application was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The department to which the user belongs.
       shared_ptr<string> department_ {};
-      // The ID of the endpoint device.
+      // The ID of the terminal device.
       shared_ptr<string> devTag_ {};
-      // The operating system type of the endpoint device. Valid values:
+      // The operating system type of the terminal device. Valid values:
       // - **Windows**: Windows.
       // - **macOS**: macOS.
       // - **Linux**: Linux.
@@ -187,19 +187,19 @@ namespace Models
       // - **iOS**: iOS.
       // - **Windows_Wuying**: WUYING Workspace.
       shared_ptr<string> devType_ {};
-      // The name of the endpoint device.
+      // The name of the terminal device.
       shared_ptr<string> hostname_ {};
-      // The name of the identity provider.
+      // The name of the user identity source.
       shared_ptr<string> idpName_ {};
-      // Indicates whether the uninstallation has been performed.
+      // Specifies whether the uninstallation has been executed.
       shared_ptr<bool> isUninstall_ {};
-      // The MAC address of the endpoint device.
+      // The MAC address of the terminal device.
       shared_ptr<string> mac_ {};
       // The reason for the application.
       shared_ptr<string> reason_ {};
       // The user ID.
       shared_ptr<string> saseUserId_ {};
-      // The status of the uninstall application. Valid values:
+      // The status of the uninstallation application. Valid values:
       // - **Pending**: Pending.
       // - **Approved**: Approved.
       // - **Rejected**: Rejected.
@@ -227,9 +227,9 @@ namespace Models
 
 
   protected:
-    // The list of uninstall applications.
+    // The list of uninstallation applications.
     shared_ptr<vector<UpdateUninstallApplicationsStatusResponseBody::Applications>> applications_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

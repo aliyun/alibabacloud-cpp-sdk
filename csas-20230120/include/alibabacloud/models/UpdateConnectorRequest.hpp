@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable Global Accelerator. Valid values:
+    // Specifies whether to enable global acceleration. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> accelerateStatus_ {};
-    // The Connector ID. You can obtain the value by calling [ListConnectors](~~ListConnectors~~).
+    // The ID of the connector. You can call the [ListConnectors](~~ListConnectors~~) operation to query connectors and obtain the value.
     // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
-    // The Connector name. The name must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name of the connector. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The instance status of the Connector. Valid values:
+    // The instance status of the connector. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Shutdown.
     shared_ptr<string> switchStatus_ {};

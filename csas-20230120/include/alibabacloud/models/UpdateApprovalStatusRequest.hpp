@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The approval instance ID. You can obtain this value from the following operations:
-    // - [ListApprovals](~~ListApprovals~~): Lists approval instances.
+    // The ID of the approval instance. You can obtain the value from the following operations:
+    // - [ListApprovals](~~ListApprovals~~): Queries a list of approval instances.
     // - [GetApproval](~~GetApproval~~): Queries the details of an approval instance.
     // 
     // This parameter is required.
     shared_ptr<string> approvalId_ {};
-    // The approval instance status. Valid values:
+    // The status of the approval instance. Valid values:
     // - **Approved**: Approved.
-    // - **Rejected**: Rejected.
+    // - **Rejected**: deny.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

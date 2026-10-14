@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The current page number, starting from 1.
+    // The current page number. Pages start from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time of the query. UNIX timestamp in seconds.
+    // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -126,17 +126,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The policy action. Single-value exact match.
+    // The policy action. Exact match for a single value is supported.
     shared_ptr<string> policyAction_ {};
-    // The original file name. Fuzzy match.
+    // The original file name. Fuzzy match is supported.
     shared_ptr<string> srcFileName_ {};
-    // The start time of the query. UNIX timestamp in seconds.
+    // The start time of the query. The value is a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The secondary channel ID in the format of `PrimaryChannelID.SubChannelID`. Separate multiple values with commas.
+    // The secondary channel ID. Format: primary channel ID.secondary channel ID. Multiple values are separated by commas.
     shared_ptr<string> subChannelType_ {};
-    // The username. Exact match.
+    // The username. Exact match is supported.
     shared_ptr<string> userName_ {};
   };
 

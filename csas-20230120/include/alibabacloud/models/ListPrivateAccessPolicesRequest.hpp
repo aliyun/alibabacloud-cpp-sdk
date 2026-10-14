@@ -133,19 +133,19 @@ namespace Models
 
 
   protected:
-    // The ID of the private access application. The application ID cannot be used together with the private access tag ID for filtering. Sources of the value:
-    //  - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Queries private access applications by batch.
-    //  - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
+    // The ID of the private access application. This parameter cannot be used together with the private access tag ID for filtering. You can obtain the value from the following sources:
+    //  - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): List private access applications.
+    //  - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Create a private access application.
     shared_ptr<string> applicationId_ {};
     // The name of the private access application.
     shared_ptr<string> applicationName_ {};
-    // The page number of the current page that is returned during paginated queries. Valid values: 1 to 10000.
+    // The page number of the current page returned during paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the private access policy. The name must be 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase English letters. It can contain digits, periods (.), underscores (_), and hyphens (-).
+    // Policy Name of the private access policy. Policy Name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The number of entries per page that is set during paginated queries. Valid values: 1 to 1000.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
@@ -153,21 +153,21 @@ namespace Models
     // - **Block**: Block.
     // - **Allow**: Allow.
     shared_ptr<string> policyAction_ {};
-    // The collection of private access policy IDs. You can specify up to 100 private access policy IDs.
+    // The IDs of the private access policies. You can specify up to 100 private access policy IDs.
     shared_ptr<vector<string>> policyIds_ {};
     // The status of the private access policy. Valid values:
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The ID of the private access tag. The tag ID cannot be used together with the application ID for filtering. Sources of the value:
-    //  - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Queries private access tags by batch.
-    //  - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Creates a private access tag.
+    // The ID of the private access tag. This parameter cannot be used together with the application ID for filtering. You can obtain the value from the following sources:
+    //  - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): List private access tags.
+    //  - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Create a private access tag.
     shared_ptr<string> tagId_ {};
     // The name of the tag.
     shared_ptr<string> tagName_ {};
-    // The ID of the user group. Sources of the value:
-    // - [ListUserGroups](~~ListUserGroups~~): Queries user groups by batch.
-    // - [CreateUserGroup](~~CreateUserGroup~~): Creates a user group.
+    // The ID of the user group. You can obtain the value from the following sources:
+    // - [ListUserGroups](~~ListUserGroups~~): List user groups.
+    // - [CreateUserGroup](~~CreateUserGroup~~): Create a user group.
     shared_ptr<string> userGroupId_ {};
   };
 

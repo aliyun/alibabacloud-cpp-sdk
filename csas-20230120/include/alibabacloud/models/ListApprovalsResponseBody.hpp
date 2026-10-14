@@ -214,12 +214,12 @@ namespace Models
 
       protected:
         // The action performed on the approval progress node. Valid values:
-        // - **Approve**: Approved.
-        // - **Reject**: Rejected.
-        // - **Revoke**: Revoked.
-        // - **Comment**: Commented.
+        // - **Approve**: Approve.
+        // - **Reject**: Reject.
+        // - **Revoke**: Revoke.
+        // - **Comment**: Comment.
         shared_ptr<string> action_ {};
-        // The comment on the approval progress node.
+        // The comment added to the approval progress node.
         shared_ptr<string> comment_ {};
         // The ID of the executor for the approval progress node.
         shared_ptr<string> executor_ {};
@@ -231,7 +231,7 @@ namespace Models
         // - **Rejected**: Rejected.
         // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
-        // The time when the approval progress node was executed. The value is a UNIX timestamp in seconds.
+        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -392,43 +392,43 @@ namespace Models
     protected:
       // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // The instance ID of the approval.
+      // The ID of the approval instance.
       shared_ptr<string> approvalId_ {};
-      // The list of approval progress nodes.
+      // The list of progress nodes for the approval instance.
       shared_ptr<vector<Approvals::ApprovalProgresses>> approvalProgresses_ {};
       // The approval type. Valid values:
-      // * 0: built-in approval.
-      // * 1: DingTalk approval.
-      // * 2: WeCom approval.
-      // * 3: Lark approval.
+      // - 0: Built-in approval.
+      // - 1: DingTalk approval.
+      // - 2: WeCom approval.
+      // - 3: Lark approval.
       shared_ptr<int32_t> approvalType_ {};
-      // The time when the approval instance was created.
+      // The time when the approval instance was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The department of the approval instance creator.
+      // The department of the user who created the approval instance.
       shared_ptr<string> creatorDepartment_ {};
-      // The terminal device ID of the approval instance creator.
+      // The ID of the endpoint device on which the approval instance was created.
       shared_ptr<string> creatorDevTag_ {};
-      // The ID of the approval instance creator.
+      // The ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
-      // The username of the approval instance creator.
+      // The username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
-      // The filing effective status. An empty string is returned when the approval status is not Approved. Valid values:
-      // * Enabled: effective.
-      // * Expired: expired or reached the expiration date.
+      // The effective status of the report. If the approval status is not Approved, an empty string is returned. Valid values:
+      // - Enabled: Valid.
+      // - Expired: Invalid or expired.
       shared_ptr<string> effectStatus_ {};
-      // The filing deadline. The value is a UNIX timestamp in seconds. The value 0 is returned when ValidityType is set to Permanent.
+      // The expiration time of the report. The value is a UNIX timestamp in seconds. If ValidityType is set to Permanent, 0 is returned.
       shared_ptr<int64_t> endTimestamp_ {};
-      // The policy type associated with the approval instance. Valid values:
+      // The type of the policy associated with the approval instance. Valid values:
       // - **DomainBlacklist**: Domain name blacklist.
       // - **DomainWhitelist**: Domain name whitelist.
       // - **SoftwareBlock**: Software blocking.
       // - **DeviceRegistration**: Excess registration.
       // - **AppUninstall**: Endpoint uninstallation.
-      // - **DlpSend**: File outbound transfer.
+      // - **DlpSend**: Outbound file transfer.
       // - **PeripheralBlock**: Peripheral control.
       // - **EndpointHardening**: Endpoint hardening.
       // - **oftwareHardening**: Software hardening.
-      // - **AiAgentBlock**: AI Agent control.
+      // - **AiAgentBlock**: AI agent control.
       // - **PrivateAccessBlock**: Internal network access.
       shared_ptr<string> policyType_ {};
       // The ID of the process associated with the approval instance.
@@ -437,9 +437,9 @@ namespace Models
       shared_ptr<string> processName_ {};
       // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
-      // The filing type. Valid values:
-      // * ApprovalReport: approval filing.
-      // * BackendReport: backend filing.
+      // The report type. Valid values:
+      // - ApprovalReport: Approval report.
+      // - BackendReport: Backend report.
       shared_ptr<string> reportType_ {};
       // The content of the template associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
@@ -447,7 +447,7 @@ namespace Models
       shared_ptr<string> schemaId_ {};
       // The name of the template associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // The instance status of the approval. Valid values:
+      // The status of the approval instance. Valid values:
       // - **Pending**: Pending approval.
       // - **Approved**: Approved.
       // - **Rejected**: Denied.
@@ -455,7 +455,7 @@ namespace Models
       // - **Expired**: Expired.
       // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
-      // The validity duration type. Valid values: FixedTime, Permanent.
+      // The validity duration type. Valid values: FixedTime and Permanent.
       shared_ptr<string> validityType_ {};
     };
 

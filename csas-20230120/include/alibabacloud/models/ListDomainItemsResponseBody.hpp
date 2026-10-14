@@ -92,10 +92,11 @@ namespace Models
     protected:
       // The time when the entry was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the entry was last modified.
+      // The time when the entry was last updated.
       shared_ptr<string> gmtModified_ {};
+      // The entry ID.
       shared_ptr<int64_t> itemId_ {};
-      // The domain name. Wildcard domain names are supported.
+      // The specific domain name. Wildcard domain names are supported.
       shared_ptr<string> itemValue_ {};
     };
 
@@ -129,7 +130,7 @@ namespace Models
     shared_ptr<vector<ListDomainItemsResponseBody::DomainItems>> domainItems_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the specified conditions. This is an optional parameter and may not be returned by default.
+    // The total number of records that match the specified conditions. This is an optional parameter and is not returned by default.
     shared_ptr<int32_t> totalNum_ {};
   };
 

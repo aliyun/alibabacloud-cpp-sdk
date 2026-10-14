@@ -170,25 +170,25 @@ namespace Models
 
 
     protected:
-      // ConnectorID。
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // The connector creation time.
+      // The time when the connector was created, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The connector name.
+      // The name of the connector.
       shared_ptr<string> name_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The connector connection status. Valid values:
+      // The connection status of the connector. Valid values:
       // - **Online**: Online.
       // - **Offline**: Offline.
       shared_ptr<string> status_ {};
-      // The connector instance status. Valid values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // The instance status of the connector. Valid values:
+      // - **Enabled**: enabled
+      // - **Disabled**: shutdown
       shared_ptr<string> switchStatus_ {};
-      // The connector upgrade time.
+      // The upgrade time of the connector.
       shared_ptr<Connector::UpgradeTime> upgradeTime_ {};
-      // The virtual IP address range.
+      // The virtual IP address CIDR block.
       shared_ptr<string> vipCidr_ {};
     };
 
@@ -211,7 +211,7 @@ namespace Models
 
 
   protected:
-    // Connector。
+    // The connector.
     shared_ptr<GetConnectorResponseBody::Connector> connector_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

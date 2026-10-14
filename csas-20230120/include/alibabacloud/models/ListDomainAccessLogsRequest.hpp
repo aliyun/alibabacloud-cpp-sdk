@@ -112,29 +112,23 @@ namespace Models
 
 
   protected:
-    // The action taken upon a rule hit. Exact match is used. Valid values:
-    // 
-    // - Audit: Audit.
-    // - Observe: Observe only.
-    // - WhiteList: Allowed by whitelist.
-    // - Block: Blocked.
-    // - Redirect: Redirected to a prompt page.
+    // The matched action for exact match.
     shared_ptr<string> blockAction_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The department. Exact match is used.
+    // The department for exact match.
     shared_ptr<string> department_ {};
-    // The end time of the query. This value is a UNIX timestamp in seconds.
+    // The end time of the query, which is a UNIX timestamp in seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The number of entries per page in paging. Valid values: 1 to 1000.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 1000.
     shared_ptr<int32_t> pageSize_ {};
-    // The policy type used to filter results.
+    // The policy type used for filtering.
     shared_ptr<string> policyType_ {};
-    // The destination domain name accessed. Exact match is used.
+    // The destination domain name for exact match.
     shared_ptr<string> remoteHost_ {};
-    // The start time of the query. This value is a UNIX timestamp in seconds.
+    // The start time of the query, which is a UNIX timestamp in seconds.
     shared_ptr<int64_t> startTime_ {};
-    // The username. Exact match is used.
+    // The username for exact match.
     shared_ptr<string> userName_ {};
   };
 

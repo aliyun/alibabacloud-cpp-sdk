@@ -184,9 +184,9 @@ namespace Models
 
 
     protected:
-      // The uninstall application ID.
+      // The ID of the uninstallation application.
       shared_ptr<string> applicationId_ {};
-      // The time when the uninstall application was created.
+      // The time when the uninstallation application was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The department to which the user belongs.
       shared_ptr<string> department_ {};
@@ -212,10 +212,10 @@ namespace Models
       shared_ptr<string> mac_ {};
       // The reason for the application.
       shared_ptr<string> reason_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<string> saseUserId_ {};
-      // The uninstall application status. Valid values:
-      // - **Pending**: Pending processing.
+      // The status of the uninstallation application. Valid values:
+      // - **Pending**: Pending.
       // - **Approved**: Approved.
       // - **Rejected**: Rejected.
       shared_ptr<string> status_ {};
@@ -249,11 +249,11 @@ namespace Models
 
 
   protected:
-    // The list of uninstall applications.
+    // The list of uninstallation applications.
     shared_ptr<vector<ListUninstallApplicationsResponseBody::Applications>> applications_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of uninstall applications.
+    // The total number of uninstallation applications.
     shared_ptr<int64_t> totalNum_ {};
   };
 

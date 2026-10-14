@@ -224,7 +224,7 @@ namespace Csas20230120
       Models::CancelVulScanTasksResponse cancelVulScanTasks(const Models::CancelVulScanTasksRequest &request);
 
       /**
-       * @summary Creates an approval flow under the current Alibaba Cloud account.
+       * @summary Creates an approval process under the current Alibaba Cloud account.
        *
        * @param tmpReq CreateApprovalProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +233,7 @@ namespace Csas20230120
       Models::CreateApprovalProcessResponse createApprovalProcessWithOptions(const Models::CreateApprovalProcessRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an approval flow under the current Alibaba Cloud account.
+       * @summary Creates an approval process under the current Alibaba Cloud account.
        *
        * @param request CreateApprovalProcessRequest
        * @return CreateApprovalProcessResponse
@@ -436,9 +436,9 @@ namespace Csas20230120
       Models::CreatePADiagnosisTaskResponse createPADiagnosisTask(const Models::CreatePADiagnosisTaskRequest &request);
 
       /**
-       * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Creates a private access application within the current Alibaba Cloud account.
        *
-       * @description You can create up to 500 internal-facing access applications by default.
+       * @description By default, you can create up to 500 private access applications.
        *
        * @param tmpReq CreatePrivateAccessApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -447,9 +447,9 @@ namespace Csas20230120
       Models::CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(const Models::CreatePrivateAccessApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Creates a private access application within the current Alibaba Cloud account.
        *
-       * @description You can create up to 500 internal-facing access applications by default.
+       * @description By default, you can create up to 500 private access applications.
        *
        * @param request CreatePrivateAccessApplicationRequest
        * @return CreatePrivateAccessApplicationResponse
@@ -1286,6 +1286,23 @@ namespace Csas20230120
       Models::DeleteVulScanScheduledStrategyResponse deleteVulScanScheduledStrategy(const Models::DeleteVulScanScheduledStrategyRequest &request);
 
       /**
+       * @summary Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+       *
+       * @param request DescribeApplicationHealthCheckReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationHealthCheckReportsResponse
+       */
+      Models::DescribeApplicationHealthCheckReportsResponse describeApplicationHealthCheckReportsWithOptions(const Models::DescribeApplicationHealthCheckReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+       *
+       * @param request DescribeApplicationHealthCheckReportsRequest
+       * @return DescribeApplicationHealthCheckReportsResponse
+       */
+      Models::DescribeApplicationHealthCheckReportsResponse describeApplicationHealthCheckReports(const Models::DescribeApplicationHealthCheckReportsRequest &request);
+
+      /**
        * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
        *
        * @summary Detaches private network access applications from a Connector in your Alibaba Cloud account.
@@ -1458,7 +1475,7 @@ namespace Csas20230120
       Models::GetApprovalSchemaResponse getApprovalSchema(const Models::GetApprovalSchemaRequest &request);
 
       /**
-       * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+       * @summary Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetBootAndAntiUninstallPolicyResponse
@@ -1466,7 +1483,7 @@ namespace Csas20230120
       Models::GetBootAndAntiUninstallPolicyResponse getBootAndAntiUninstallPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+       * @summary Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
        *
        * @return GetBootAndAntiUninstallPolicyResponse
        */
@@ -1651,7 +1668,7 @@ namespace Csas20230120
       Models::GetPADiagnosisTaskResponse getPADiagnosisTask(const Models::GetPADiagnosisTaskRequest &request);
 
       /**
-       * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Queries the details of a private access application under the current Alibaba Cloud account.
        *
        * @param request GetPrivateAccessApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1660,7 +1677,7 @@ namespace Csas20230120
       Models::GetPrivateAccessApplicationResponse getPrivateAccessApplicationWithOptions(const Models::GetPrivateAccessApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+       * @summary Queries the details of a private access application under the current Alibaba Cloud account.
        *
        * @param request GetPrivateAccessApplicationRequest
        * @return GetPrivateAccessApplicationResponse
@@ -1719,7 +1736,7 @@ namespace Csas20230120
       Models::GetProhibitedSoftwareResponse getProhibitedSoftware(const Models::GetProhibitedSoftwareRequest &request);
 
       /**
-       * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
+       * @summary Queries the details of a device registration policy for the current Alibaba Cloud account.
        *
        * @param request GetRegistrationPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1728,7 +1745,7 @@ namespace Csas20230120
       Models::GetRegistrationPolicyResponse getRegistrationPolicyWithOptions(const Models::GetRegistrationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
+       * @summary Queries the details of a device registration policy for the current Alibaba Cloud account.
        *
        * @param request GetRegistrationPolicyRequest
        * @return GetRegistrationPolicyResponse
@@ -1753,7 +1770,7 @@ namespace Csas20230120
       Models::GetSaseUserTagResponse getSaseUserTag(const Models::GetSaseUserTagRequest &request);
 
       /**
-       * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
+       * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
        *
        * @param request GetUserDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1762,7 +1779,7 @@ namespace Csas20230120
       Models::GetUserDeviceResponse getUserDeviceWithOptions(const Models::GetUserDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
+       * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
        *
        * @param request GetUserDeviceRequest
        * @return GetUserDeviceResponse
@@ -1991,7 +2008,7 @@ namespace Csas20230120
       Models::ListApplicationsForPrivateAccessTagResponse listApplicationsForPrivateAccessTag(const Models::ListApplicationsForPrivateAccessTagRequest &request);
 
       /**
-       * @summary Queries the list of approval processes under the current Alibaba Cloud account.
+       * @summary Queries the approval processes under the current Alibaba Cloud account.
        *
        * @param request ListApprovalProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2000,7 +2017,7 @@ namespace Csas20230120
       Models::ListApprovalProcessesResponse listApprovalProcessesWithOptions(const Models::ListApprovalProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of approval processes under the current Alibaba Cloud account.
+       * @summary Queries the approval processes under the current Alibaba Cloud account.
        *
        * @param request ListApprovalProcessesRequest
        * @return ListApprovalProcessesResponse
@@ -2093,7 +2110,7 @@ namespace Csas20230120
       Models::ListClientUsersResponse listClientUsers(const Models::ListClientUsersRequest &request);
 
       /**
-       * @summary Query connectors in batches.
+       * @summary Queries connectors in batches.
        *
        * @param request ListConnectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2102,7 +2119,7 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectorsWithOptions(const Models::ListConnectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query connectors in batches.
+       * @summary Queries connectors in batches.
        *
        * @param request ListConnectorsRequest
        * @return ListConnectorsResponse
@@ -2144,7 +2161,7 @@ namespace Csas20230120
       Models::ListDevicesForVulnerabilityResponse listDevicesForVulnerability(const Models::ListDevicesForVulnerabilityRequest &request);
 
       /**
-       * @summary Lists DLP outbound file transfer logs.
+       * @summary Lists Data Loss Prevention (DLP) outbound transfer logs.
        *
        * @param request ListDlpOutboundLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2153,7 +2170,7 @@ namespace Csas20230120
       Models::ListDlpOutboundLogsResponse listDlpOutboundLogsWithOptions(const Models::ListDlpOutboundLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists DLP outbound file transfer logs.
+       * @summary Lists Data Loss Prevention (DLP) outbound transfer logs.
        *
        * @param request ListDlpOutboundLogsRequest
        * @return ListDlpOutboundLogsResponse
@@ -2161,9 +2178,9 @@ namespace Csas20230120
       Models::ListDlpOutboundLogsResponse listDlpOutboundLogs(const Models::ListDlpOutboundLogsRequest &request);
 
       /**
-       * @summary Queries the Internet access logs of endpoints by using paging.
+       * @summary Performs a paged query on the Internet access logs of endpoints by using paging.
        *
-       * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+       * @description Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
        *
        * @param request ListDomainAccessLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2172,9 +2189,9 @@ namespace Csas20230120
       Models::ListDomainAccessLogsResponse listDomainAccessLogsWithOptions(const Models::ListDomainAccessLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Internet access logs of endpoints by using paging.
+       * @summary Performs a paged query on the Internet access logs of endpoints by using paging.
        *
-       * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+       * @description Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
        *
        * @param request ListDomainAccessLogsRequest
        * @return ListDomainAccessLogsResponse
@@ -2182,9 +2199,9 @@ namespace Csas20230120
       Models::ListDomainAccessLogsResponse listDomainAccessLogs(const Models::ListDomainAccessLogsRequest &request);
 
       /**
-       * @summary Queries domain name entries in a domain name list by paging.
+       * @summary Queries domain name entries in a domain name list by using paging.
        *
-       * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+       * @description Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
        *
        * @param request ListDomainItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2193,9 +2210,9 @@ namespace Csas20230120
       Models::ListDomainItemsResponse listDomainItemsWithOptions(const Models::ListDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries domain name entries in a domain name list by paging.
+       * @summary Queries domain name entries in a domain name list by using paging.
        *
-       * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+       * @description Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
        *
        * @param request ListDomainItemsRequest
        * @return ListDomainItemsResponse
@@ -2561,7 +2578,7 @@ namespace Csas20230120
       Models::ListPrivateAccessApplicationL7SwitchesResponse listPrivateAccessApplicationL7Switches(const Models::ListPrivateAccessApplicationL7SwitchesRequest &request);
 
       /**
-       * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+       * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2570,7 +2587,7 @@ namespace Csas20230120
       Models::ListPrivateAccessApplicationsResponse listPrivateAccessApplicationsWithOptions(const Models::ListPrivateAccessApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+       * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessApplicationsRequest
        * @return ListPrivateAccessApplicationsResponse
@@ -2595,7 +2612,7 @@ namespace Csas20230120
       Models::ListPrivateAccessApplicationsForDynamicRouteResponse listPrivateAccessApplicationsForDynamicRoute(const Models::ListPrivateAccessApplicationsForDynamicRouteRequest &request);
 
       /**
-       * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
+       * @summary Queries the details of all private access policies within the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessPolicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2604,7 +2621,7 @@ namespace Csas20230120
       Models::ListPrivateAccessPolicesResponse listPrivateAccessPolicesWithOptions(const Models::ListPrivateAccessPolicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
+       * @summary Queries the details of all private access policies within the current Alibaba Cloud account.
        *
        * @param request ListPrivateAccessPolicesRequest
        * @return ListPrivateAccessPolicesResponse
@@ -2798,11 +2815,11 @@ namespace Csas20230120
       Models::ListSoftwareForUserDeviceResponse listSoftwareForUserDevice(const Models::ListSoftwareForUserDeviceRequest &request);
 
       /**
-       * @summary Queries software in the software library in batches.
+       * @summary Queries software in the software library.
        *
        * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
        * - SoftwareName supports fuzzy match.
-       * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+       * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
        *
        * @param request ListSoftwarelibSoftwareRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2811,11 +2828,11 @@ namespace Csas20230120
       Models::ListSoftwarelibSoftwareResponse listSoftwarelibSoftwareWithOptions(const Models::ListSoftwarelibSoftwareRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries software in the software library in batches.
+       * @summary Queries software in the software library.
        *
        * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
        * - SoftwareName supports fuzzy match.
-       * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+       * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
        *
        * @param request ListSoftwarelibSoftwareRequest
        * @return ListSoftwarelibSoftwareResponse
@@ -2857,7 +2874,7 @@ namespace Csas20230120
       Models::ListTagsForPrivateAccessPolicyResponse listTagsForPrivateAccessPolicy(const Models::ListTagsForPrivateAccessPolicyRequest &request);
 
       /**
-       * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+       * @summary Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
        *
        * @param request ListUninstallApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2866,7 +2883,7 @@ namespace Csas20230120
       Models::ListUninstallApplicationsResponse listUninstallApplicationsWithOptions(const Models::ListUninstallApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+       * @summary Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
        *
        * @param request ListUninstallApplicationsRequest
        * @return ListUninstallApplicationsResponse
@@ -2891,7 +2908,7 @@ namespace Csas20230120
       Models::ListUserApplicationsResponse listUserApplications(const Models::ListUserApplicationsRequest &request);
 
       /**
-       * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
+       * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
        *
        * @param request ListUserDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2900,7 +2917,7 @@ namespace Csas20230120
       Models::ListUserDevicesResponse listUserDevicesWithOptions(const Models::ListUserDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
+       * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
        *
        * @param request ListUserDevicesRequest
        * @return ListUserDevicesResponse
@@ -3010,7 +3027,7 @@ namespace Csas20230120
       Models::ListVirusFileStatusesResponse listVirusFileStatuses(const Models::ListVirusFileStatusesRequest &request);
 
       /**
-       * @summary 查询病毒扫描额外名单
+       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
        *
        * @param request ListVirusScanAdditionalListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3019,7 +3036,7 @@ namespace Csas20230120
       Models::ListVirusScanAdditionalListsResponse listVirusScanAdditionalListsWithOptions(const Models::ListVirusScanAdditionalListsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询病毒扫描额外名单
+       * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
        *
        * @param request ListVirusScanAdditionalListsRequest
        * @return ListVirusScanAdditionalListsResponse
@@ -3337,7 +3354,7 @@ namespace Csas20230120
       Models::UpdateApprovalProcessResponse updateApprovalProcess(const Models::UpdateApprovalProcessRequest &request);
 
       /**
-       * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
+       * @summary Updates the status of an approval instance under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3346,7 +3363,7 @@ namespace Csas20230120
       Models::UpdateApprovalStatusResponse updateApprovalStatusWithOptions(const Models::UpdateApprovalStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
+       * @summary Updates the status of an approval instance under the current Alibaba Cloud account.
        *
        * @param request UpdateApprovalStatusRequest
        * @return UpdateApprovalStatusResponse
@@ -3422,7 +3439,7 @@ namespace Csas20230120
       Models::UpdateClientUserStatusResponse updateClientUserStatus(const Models::UpdateClientUserStatusRequest &request);
 
       /**
-       * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+       * @summary Modifies a connector instance within the current Alibaba Cloud account.
        *
        * @param request UpdateConnectorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3431,7 +3448,7 @@ namespace Csas20230120
       Models::UpdateConnectorResponse updateConnectorWithOptions(const Models::UpdateConnectorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+       * @summary Modifies a connector instance within the current Alibaba Cloud account.
        *
        * @param request UpdateConnectorRequest
        * @return UpdateConnectorResponse
@@ -3750,7 +3767,7 @@ namespace Csas20230120
       Models::UpdateSaseUserTagResponse updateSaseUserTag(const Models::UpdateSaseUserTagRequest &request);
 
       /**
-       * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+       * @summary Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3759,7 +3776,7 @@ namespace Csas20230120
       Models::UpdateUninstallApplicationsStatusResponse updateUninstallApplicationsStatusWithOptions(const Models::UpdateUninstallApplicationsStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+       * @summary Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
        *
        * @param request UpdateUninstallApplicationsStatusRequest
        * @return UpdateUninstallApplicationsStatusResponse

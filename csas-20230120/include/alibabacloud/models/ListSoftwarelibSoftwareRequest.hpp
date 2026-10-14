@@ -103,22 +103,22 @@ namespace Models
 
 
   protected:
-    // The software classification ID. You can call [ListSoftwarelibClassify](~~ListSoftwarelibClassify~~) to obtain the value.
+    // The software category ID. You can call [ListSoftwarelibClassify](~~ListSoftwarelibClassify~~) to obtain the value.
     shared_ptr<string> classifyId_ {};
-    // The page number of the current page in a paging query. Valid values: 1 to 10000.
+    // The page number of the current page displayed during paging in a paged query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
-    // The maximum number of entries per page. This parameter is not supported by this operation. Use CurrentPage and PageSize for pagination.
+    // The maximum number of entries per page. This parameter is not supported by the current operation. Use CurrentPage and PageSize for pagination.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. This parameter is not supported by this operation. Use CurrentPage and PageSize for pagination.
+    // The query token. This parameter is not supported by the current operation. Use CurrentPage and PageSize for pagination.
     shared_ptr<string> nextToken_ {};
-    // The operating system to which the software package applies. Valid values:
+    // The operating system applicable to the software package. Valid values:
     // - **Windows**: Windows.
     // - **Mac(Apple)**: macOS with Apple silicon.
-    // - **Mac(Intel)**: macOS with Intel processors.
+    // - **Mac(Intel)**: macOS with Intel chips.
     shared_ptr<string> os_ {};
-    // The number of entries per page in a paging query. Valid values: 1 to 500.
+    // The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};

@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<SoftwareHardeningPolicies::FieldMap>> fieldMap_ {};
         // The policy ID.
         shared_ptr<vector<string>> policyIds_ {};
@@ -323,9 +323,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<SoftwareBlockPolicies::FieldMap>> fieldMap_ {};
         // The list of software blocking policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -447,9 +447,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<PrivateAccessBlockPolicies::FieldMap>> fieldMap_ {};
         // The policy ID.
         shared_ptr<vector<string>> policyIds_ {};
@@ -571,9 +571,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<PeripheralBlockPolicies::FieldMap>> fieldMap_ {};
         // The list of peripheral control policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -695,9 +695,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<EndpointHardeningPolicies::FieldMap>> fieldMap_ {};
         // The policy ID.
         shared_ptr<vector<string>> policyIds_ {};
@@ -819,11 +819,11 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
         // The field mapping table.
         shared_ptr<vector<DomainWhitelistPolicies::FieldMap>> fieldMap_ {};
-        // The list of domain whitelist policy IDs.
+        // The list of domain name whitelist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -943,11 +943,11 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<DomainBlacklistPolicies::FieldMap>> fieldMap_ {};
-        // The list of domain blacklist policy IDs.
+        // The list of domain name blacklist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -1067,11 +1067,11 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<DlpSendPolicies::FieldMap>> fieldMap_ {};
-        // The list of file outgoing policy IDs.
+        // The list of outbound file policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -1191,9 +1191,9 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<DeviceRegistrationPolicies::FieldMap>> fieldMap_ {};
         // The list of device registration policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
@@ -1315,11 +1315,11 @@ namespace Models
 
 
       protected:
-        // The external process ID.
+        // The ID of the external process.
         shared_ptr<string> externalProcessId_ {};
-        // The field mapping table.
+        // The field mapping.
         shared_ptr<vector<AppUninstallPolicies::FieldMap>> fieldMap_ {};
-        // The list of endpoint uninstall policy IDs.
+        // The list of endpoint uninstallation policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
         // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
@@ -1483,25 +1483,25 @@ namespace Models
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
       // The approval type.
       shared_ptr<int32_t> approvalType_ {};
-      // The creation time of the approval process.
+      // The creation time of the approval process. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The description of the approval process.
       shared_ptr<string> description_ {};
       // The list of policies associated with device registration.
       shared_ptr<Process::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
-      // The list of associated policies for file outgoing.
+      // The list of associated outbound file policies.
       shared_ptr<Process::DlpSendPolicies> dlpSendPolicies_ {};
-      // The list of policies associated with the domain blacklist.
+      // The list of policies associated with the domain name blacklist.
       shared_ptr<Process::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
-      // The list of policies associated with the domain whitelist.
+      // The list of policies associated with the domain name whitelist.
       shared_ptr<Process::DomainWhitelistPolicies> domainWhitelistPolicies_ {};
-      // The endpoint protection policy.
+      // The endpoint hardening policies.
       shared_ptr<Process::EndpointHardeningPolicies> endpointHardeningPolicies_ {};
       // The label.
       shared_ptr<string> eventLabel_ {};
       // The external configuration.
       shared_ptr<string> externalConfig_ {};
-      // The list of associated policies for peripheral control.
+      // The list of associated peripheral control policies.
       shared_ptr<Process::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
       // The software hardening policy.
       shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
@@ -1538,7 +1538,7 @@ namespace Models
   protected:
     // The approval process.
     shared_ptr<GetApprovalProcessResponseBody::Process> process_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

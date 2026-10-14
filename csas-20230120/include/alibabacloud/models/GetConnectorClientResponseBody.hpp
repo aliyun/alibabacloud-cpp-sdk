@@ -213,16 +213,16 @@ namespace Models
       // The number of CPUs of the ConnectorClient.
       shared_ptr<string> CPUSize_ {};
       // The connection status of the ConnectorClient. Valid values:
-      // - **Connected**: Connected.
-      // - **Disconnected**: Disconnected.
+      // - **Connected**: The client is connected.
+      // - **Disconnected**: The client is disconnected.
       shared_ptr<string> connectionStatus_ {};
-      // ConnectorID。
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // The connector client version.
+      // The version of the connector client.
       shared_ptr<string> connectorVersion_ {};
-      // The creation time of the ConnectorClient.
+      // The time when the ConnectorClient was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The unique device identifier of the ConnectorClient.
+      // The unique identifier of the ConnectorClient device.
       shared_ptr<string> devTag_ {};
       // The hostname.
       shared_ptr<string> hosname_ {};
@@ -231,24 +231,24 @@ namespace Models
       // The memory size of the ConnectorClient. Unit: MB.
       shared_ptr<string> memorySize_ {};
       // The O&M status. Valid values:
-      // - **Running**: O&M in progress.
+      // - **Running**: O&M is in progress.
       // - **Failed**: O&M failed.
-      // - (Empty string): Not in O&M status.
+      // - (Empty string): Not in an O&M state.
       shared_ptr<string> operationStatus_ {};
       // The private IP address of the ConnectorClient.
       shared_ptr<string> privateIp_ {};
-      // The program runtime. Unit: seconds.
+      // The runtime of the program. Unit: seconds.
       shared_ptr<int32_t> processRunTime_ {};
       // The public IP address of the ConnectorClient.
       shared_ptr<string> publicIp_ {};
       // The release notes.
       shared_ptr<vector<string>> releaseNotes_ {};
-      // The enabled status of the ConnectorClient, which can be used to force the client offline. Valid values:
+      // The enabling status of the ConnectorClient. You can use this parameter to force the client offline. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
-      // The new version status of the connector. Valid values:
-      // - **Latest**: The current version is the latest.
+      // The upgrade status of the connector. Valid values:
+      // - **Latest**: The connector is of the latest version.
       // - **NewVersionAvailable**: A newer version is available for upgrade.
       shared_ptr<string> upgradeStatus_ {};
       // The version to roll back to.
@@ -274,9 +274,9 @@ namespace Models
 
 
   protected:
-    // ConnectorClient。
+    // The ConnectorClient.
     shared_ptr<GetConnectorClientResponseBody::ConnectorClient> connectorClient_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

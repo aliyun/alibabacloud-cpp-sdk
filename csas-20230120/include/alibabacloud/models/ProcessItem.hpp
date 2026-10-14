@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The bundle identity (Bundle ID) of the application to which the process belongs. The example value com.apple.Terminal is the Bundle ID of the macOS terminal application.
     shared_ptr<string> bundleId_ {};
+    // The operating system type of the user terminal device to which the process belongs. Valid values:
+    // - windows: Windows operating system
+    // - macOS: macOS operating system
+    // - linux: Linux operating system
     shared_ptr<string> devType_ {};
+    // The process folder path.
     shared_ptr<string> directory_ {};
+    // The process name.
     shared_ptr<string> process_ {};
   };
 

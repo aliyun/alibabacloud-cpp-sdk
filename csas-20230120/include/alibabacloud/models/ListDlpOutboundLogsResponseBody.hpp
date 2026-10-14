@@ -188,11 +188,11 @@ namespace Models
         shared_ptr<string> engineDataLevel_ {};
         // The corresponding data type.
         shared_ptr<string> engineDataType_ {};
-        // The matched detection rule name.
+        // The name of the matched identification rule.
         shared_ptr<string> engineName_ {};
         // The policy description.
         shared_ptr<string> policyDesc_ {};
-        // The matched policy name.
+        // The hit Policy Name.
         shared_ptr<string> policyName_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
 
 
         protected:
-          // The number of matches.
+          // The hit count.
           shared_ptr<int64_t> count_ {};
           // The dictionary name.
           shared_ptr<string> name_ {};
@@ -301,7 +301,7 @@ namespace Models
 
 
         protected:
-          // The number of matches.
+          // The hit count.
           shared_ptr<int64_t> count_ {};
           // The keyword name.
           shared_ptr<string> name_ {};
@@ -345,7 +345,7 @@ namespace Models
 
 
         protected:
-          // The number of matches.
+          // The hit count.
           shared_ptr<int64_t> count_ {};
           // The dictionary name.
           shared_ptr<string> name_ {};
@@ -650,17 +650,17 @@ namespace Models
       shared_ptr<string> channelType_ {};
       // The department.
       shared_ptr<string> department_ {};
-      // The local path of the file on the device.
+      // The local path of the file on the endpoint.
       shared_ptr<string> devFilePath_ {};
-      // The unique identifier of the device.
+      // The unique identifier of the endpoint.
       shared_ptr<string> deviceTag_ {};
-      // The device type.
+      // The endpoint type.
       shared_ptr<string> deviceType_ {};
       // The storage policy ID.
       shared_ptr<string> dlpStorageConfigId_ {};
       // The storage type.
       shared_ptr<string> dlpStorageType_ {};
-      // The outbound destination address or URL.
+      // The destination address or URL of the outbound transfer.
       shared_ptr<string> dstAddr_ {};
       // The file source.
       shared_ptr<string> fileOrigin_ {};
@@ -668,17 +668,17 @@ namespace Models
       shared_ptr<string> fileOriginHost_ {};
       // The referrer of the file source.
       shared_ptr<string> fileOriginReferrer_ {};
-      // The file content preview snippet.
+      // The preview snippet of the file content.
       shared_ptr<string> filePreview_ {};
       // The file type.
       shared_ptr<string> format_ {};
       // The organizational structure path.
       shared_ptr<string> groupInfo_ {};
-      // The hostname of the device.
+      // The endpoint hostname.
       shared_ptr<string> hostName_ {};
       // LogId
       shared_ptr<string> logId_ {};
-      // The matched dictionary statistics.
+      // The statistics of matched dictionaries.
       shared_ptr<Logs::MatchedDicts> matchedDicts_ {};
       // The list of matched policy details.
       shared_ptr<vector<Logs::MatchedPolicies>> matchedPolicies_ {};
@@ -688,7 +688,7 @@ namespace Models
       shared_ptr<string> policyAction_ {};
       // The list of matched policy names.
       shared_ptr<vector<string>> policyName_ {};
-      // The outbound process name.
+      // The outbound transfer process name.
       shared_ptr<string> processName_ {};
       // The secondary channel description.
       shared_ptr<string> processNameDesc_ {};
@@ -702,11 +702,11 @@ namespace Models
       shared_ptr<string> size_ {};
       // The original file name.
       shared_ptr<string> srcFileName_ {};
-      // The source IP address of the device.
+      // The source IP address of the endpoint.
       shared_ptr<string> srcIp_ {};
-      // The time when the event occurred.
+      // The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The time when the log was reported.
+      // The time when the log was reported. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> uploadTime_ {};
       // The username.
       shared_ptr<string> user_ {};
@@ -740,9 +740,9 @@ namespace Models
   protected:
     // The log objects.
     shared_ptr<vector<ListDlpOutboundLogsResponseBody::Logs>> logs_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query conditions.
+    // The total number of records that meet the query conditions.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

@@ -600,7 +600,7 @@ CancelVulScanTasksResponse Client::cancelVulScanTasks(const CancelVulScanTasksRe
 }
 
 /**
- * @summary Creates an approval flow under the current Alibaba Cloud account.
+ * @summary Creates an approval process under the current Alibaba Cloud account.
  *
  * @param tmpReq CreateApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -653,7 +653,7 @@ CreateApprovalProcessResponse Client::createApprovalProcessWithOptions(const Cre
 }
 
 /**
- * @summary Creates an approval flow under the current Alibaba Cloud account.
+ * @summary Creates an approval process under the current Alibaba Cloud account.
  *
  * @param request CreateApprovalProcessRequest
  * @return CreateApprovalProcessResponse
@@ -1366,9 +1366,9 @@ CreatePADiagnosisTaskResponse Client::createPADiagnosisTask(const CreatePADiagno
 }
 
 /**
- * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Creates a private access application within the current Alibaba Cloud account.
  *
- * @description You can create up to 500 internal-facing access applications by default.
+ * @description By default, you can create up to 500 private access applications.
  *
  * @param tmpReq CreatePrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1378,6 +1378,10 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
   tmpReq.validate();
   CreatePrivateAccessApplicationShrinkRequest request = CreatePrivateAccessApplicationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHealthCheckConfig()) {
+    request.setHealthCheckConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHealthCheckConfig(), "HealthCheckConfig", "json"));
+  }
+
   if (!!tmpReq.hasL7Config()) {
     request.setL7ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getL7Config(), "L7Config", "json"));
   }
@@ -1406,6 +1410,14 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
 
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasHealthCheckConfigShrink()) {
+    body["HealthCheckConfig"] = request.getHealthCheckConfigShrink();
+  }
+
+  if (!!request.hasHealthCheckMode()) {
+    body["HealthCheckMode"] = request.getHealthCheckMode();
   }
 
   if (!!request.hasL7ConfigShrink()) {
@@ -1465,9 +1477,9 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
 }
 
 /**
- * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Creates a private access application within the current Alibaba Cloud account.
  *
- * @description You can create up to 500 internal-facing access applications by default.
+ * @description By default, you can create up to 500 private access applications.
  *
  * @param request CreatePrivateAccessApplicationRequest
  * @return CreatePrivateAccessApplicationResponse
@@ -4278,6 +4290,60 @@ DeleteVulScanScheduledStrategyResponse Client::deleteVulScanScheduledStrategy(co
 }
 
 /**
+ * @summary Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+ *
+ * @param request DescribeApplicationHealthCheckReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationHealthCheckReportsResponse
+ */
+DescribeApplicationHealthCheckReportsResponse Client::describeApplicationHealthCheckReportsWithOptions(const DescribeApplicationHealthCheckReportsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasApplicationIds()) {
+    bodyFlat["ApplicationIds"] = request.getApplicationIds();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationHealthCheckReports"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationHealthCheckReportsResponse>();
+}
+
+/**
+ * @summary Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+ *
+ * @param request DescribeApplicationHealthCheckReportsRequest
+ * @return DescribeApplicationHealthCheckReportsResponse
+ */
+DescribeApplicationHealthCheckReportsResponse Client::describeApplicationHealthCheckReports(const DescribeApplicationHealthCheckReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationHealthCheckReportsWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
  *
  * @summary Detaches private network access applications from a Connector in your Alibaba Cloud account.
@@ -4751,7 +4817,7 @@ GetApprovalSchemaResponse Client::getApprovalSchema(const GetApprovalSchemaReque
 }
 
 /**
- * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBootAndAntiUninstallPolicyResponse
@@ -4773,7 +4839,7 @@ GetBootAndAntiUninstallPolicyResponse Client::getBootAndAntiUninstallPolicyWithO
 }
 
 /**
- * @summary Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
  *
  * @return GetBootAndAntiUninstallPolicyResponse
  */
@@ -5184,7 +5250,7 @@ GetPADiagnosisTaskResponse Client::getPADiagnosisTask(const GetPADiagnosisTaskRe
 }
 
 /**
- * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Queries the details of a private access application under the current Alibaba Cloud account.
  *
  * @param request GetPrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5211,7 +5277,7 @@ GetPrivateAccessApplicationResponse Client::getPrivateAccessApplicationWithOptio
 }
 
 /**
- * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+ * @summary Queries the details of a private access application under the current Alibaba Cloud account.
  *
  * @param request GetPrivateAccessApplicationRequest
  * @return GetPrivateAccessApplicationResponse
@@ -5342,7 +5408,7 @@ GetProhibitedSoftwareResponse Client::getProhibitedSoftware(const GetProhibitedS
 }
 
 /**
- * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
+ * @summary Queries the details of a device registration policy for the current Alibaba Cloud account.
  *
  * @param request GetRegistrationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,7 +5435,7 @@ GetRegistrationPolicyResponse Client::getRegistrationPolicyWithOptions(const Get
 }
 
 /**
- * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
+ * @summary Queries the details of a device registration policy for the current Alibaba Cloud account.
  *
  * @param request GetRegistrationPolicyRequest
  * @return GetRegistrationPolicyResponse
@@ -5422,7 +5488,7 @@ GetSaseUserTagResponse Client::getSaseUserTag(const GetSaseUserTagRequest &reque
 }
 
 /**
- * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
+ * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
  *
  * @param request GetUserDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5449,7 +5515,7 @@ GetUserDeviceResponse Client::getUserDeviceWithOptions(const GetUserDeviceReques
 }
 
 /**
- * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
+ * @summary Queries the details of user terminal devices under the current Alibaba Cloud account.
  *
  * @param request GetUserDeviceRequest
  * @return GetUserDeviceResponse
@@ -5976,7 +6042,7 @@ ListApplicationsForPrivateAccessTagResponse Client::listApplicationsForPrivateAc
 }
 
 /**
- * @summary Queries the list of approval processes under the current Alibaba Cloud account.
+ * @summary Queries the approval processes under the current Alibaba Cloud account.
  *
  * @param request ListApprovalProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6003,7 +6069,7 @@ ListApprovalProcessesResponse Client::listApprovalProcessesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the list of approval processes under the current Alibaba Cloud account.
+ * @summary Queries the approval processes under the current Alibaba Cloud account.
  *
  * @param request ListApprovalProcessesRequest
  * @return ListApprovalProcessesResponse
@@ -6204,7 +6270,7 @@ ListClientUsersResponse Client::listClientUsers(const ListClientUsersRequest &re
 }
 
 /**
- * @summary Query connectors in batches.
+ * @summary Queries connectors in batches.
  *
  * @param request ListConnectorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6231,7 +6297,7 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 }
 
 /**
- * @summary Query connectors in batches.
+ * @summary Queries connectors in batches.
  *
  * @param request ListConnectorsRequest
  * @return ListConnectorsResponse
@@ -6334,7 +6400,7 @@ ListDevicesForVulnerabilityResponse Client::listDevicesForVulnerability(const Li
 }
 
 /**
- * @summary Lists DLP outbound file transfer logs.
+ * @summary Lists Data Loss Prevention (DLP) outbound transfer logs.
  *
  * @param request ListDlpOutboundLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6397,7 +6463,7 @@ ListDlpOutboundLogsResponse Client::listDlpOutboundLogsWithOptions(const ListDlp
 }
 
 /**
- * @summary Lists DLP outbound file transfer logs.
+ * @summary Lists Data Loss Prevention (DLP) outbound transfer logs.
  *
  * @param request ListDlpOutboundLogsRequest
  * @return ListDlpOutboundLogsResponse
@@ -6408,9 +6474,9 @@ ListDlpOutboundLogsResponse Client::listDlpOutboundLogs(const ListDlpOutboundLog
 }
 
 /**
- * @summary Queries the Internet access logs of endpoints by using paging.
+ * @summary Performs a paged query on the Internet access logs of endpoints by using paging.
  *
- * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+ * @description Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
  *
  * @param request ListDomainAccessLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6437,9 +6503,9 @@ ListDomainAccessLogsResponse Client::listDomainAccessLogsWithOptions(const ListD
 }
 
 /**
- * @summary Queries the Internet access logs of endpoints by using paging.
+ * @summary Performs a paged query on the Internet access logs of endpoints by using paging.
  *
- * @description Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+ * @description Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
  *
  * @param request ListDomainAccessLogsRequest
  * @return ListDomainAccessLogsResponse
@@ -6450,9 +6516,9 @@ ListDomainAccessLogsResponse Client::listDomainAccessLogs(const ListDomainAccess
 }
 
 /**
- * @summary Queries domain name entries in a domain name list by paging.
+ * @summary Queries domain name entries in a domain name list by using paging.
  *
- * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+ * @description Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
  *
  * @param request ListDomainItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6499,9 +6565,9 @@ ListDomainItemsResponse Client::listDomainItemsWithOptions(const ListDomainItems
 }
 
 /**
- * @summary Queries domain name entries in a domain name list by paging.
+ * @summary Queries domain name entries in a domain name list by using paging.
  *
- * @description Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+ * @description Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
  *
  * @param request ListDomainItemsRequest
  * @return ListDomainItemsResponse
@@ -7390,7 +7456,7 @@ ListPrivateAccessApplicationL7SwitchesResponse Client::listPrivateAccessApplicat
 }
 
 /**
- * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+ * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7417,6 +7483,10 @@ ListPrivateAccessApplicationsResponse Client::listPrivateAccessApplicationsWithO
 
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasHealthCheckStatus()) {
+    query["HealthCheckStatus"] = request.getHealthCheckStatus();
   }
 
   if (!!request.hasName()) {
@@ -7457,7 +7527,7 @@ ListPrivateAccessApplicationsResponse Client::listPrivateAccessApplicationsWithO
 }
 
 /**
- * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+ * @summary Queries the details of all private access applications in the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsRequest
  * @return ListPrivateAccessApplicationsResponse
@@ -7506,7 +7576,7 @@ ListPrivateAccessApplicationsForDynamicRouteResponse Client::listPrivateAccessAp
 }
 
 /**
- * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
+ * @summary Queries the details of all private access policies within the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessPolicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7533,7 +7603,7 @@ ListPrivateAccessPolicesResponse Client::listPrivateAccessPolicesWithOptions(con
 }
 
 /**
- * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
+ * @summary Queries the details of all private access policies within the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessPolicesRequest
  * @return ListPrivateAccessPolicesResponse
@@ -8044,11 +8114,11 @@ ListSoftwareForUserDeviceResponse Client::listSoftwareForUserDevice(const ListSo
 }
 
 /**
- * @summary Queries software in the software library in batches.
+ * @summary Queries software in the software library.
  *
  * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
  * - SoftwareName supports fuzzy match.
- * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+ * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
  *
  * @param request ListSoftwarelibSoftwareRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8107,11 +8177,11 @@ ListSoftwarelibSoftwareResponse Client::listSoftwarelibSoftwareWithOptions(const
 }
 
 /**
- * @summary Queries software in the software library in batches.
+ * @summary Queries software in the software library.
  *
  * @description - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
  * - SoftwareName supports fuzzy match.
- * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+ * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
  *
  * @param request ListSoftwarelibSoftwareRequest
  * @return ListSoftwarelibSoftwareResponse
@@ -8198,7 +8268,7 @@ ListTagsForPrivateAccessPolicyResponse Client::listTagsForPrivateAccessPolicy(co
 }
 
 /**
- * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+ * @summary Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
  *
  * @param request ListUninstallApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8225,7 +8295,7 @@ ListUninstallApplicationsResponse Client::listUninstallApplicationsWithOptions(c
 }
 
 /**
- * @summary Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+ * @summary Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
  *
  * @param request ListUninstallApplicationsRequest
  * @return ListUninstallApplicationsResponse
@@ -8274,7 +8344,7 @@ ListUserApplicationsResponse Client::listUserApplications(const ListUserApplicat
 }
 
 /**
- * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
+ * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8401,7 +8471,7 @@ ListUserDevicesResponse Client::listUserDevicesWithOptions(const ListUserDevices
 }
 
 /**
- * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
+ * @summary Queries a list of user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListUserDevicesRequest
  * @return ListUserDevicesResponse
@@ -8640,7 +8710,7 @@ ListVirusFileStatusesResponse Client::listVirusFileStatuses(const ListVirusFileS
 }
 
 /**
- * @summary 查询病毒扫描额外名单
+ * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
  *
  * @param request ListVirusScanAdditionalListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8667,7 +8737,7 @@ ListVirusScanAdditionalListsResponse Client::listVirusScanAdditionalListsWithOpt
 }
 
 /**
- * @summary 查询病毒扫描额外名单
+ * @summary Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
  *
  * @param request ListVirusScanAdditionalListsRequest
  * @return ListVirusScanAdditionalListsResponse
@@ -9596,7 +9666,7 @@ UpdateApprovalProcessResponse Client::updateApprovalProcess(const UpdateApproval
 }
 
 /**
- * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
+ * @summary Updates the status of an approval instance under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9631,7 +9701,7 @@ UpdateApprovalStatusResponse Client::updateApprovalStatusWithOptions(const Updat
 }
 
 /**
- * @summary Updates the instance status of an approval under the current Alibaba Cloud account.
+ * @summary Updates the status of an approval instance under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @return UpdateApprovalStatusResponse
@@ -9868,7 +9938,7 @@ UpdateClientUserStatusResponse Client::updateClientUserStatus(const UpdateClient
 }
 
 /**
- * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+ * @summary Modifies a connector instance within the current Alibaba Cloud account.
  *
  * @param request UpdateConnectorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9915,7 +9985,7 @@ UpdateConnectorResponse Client::updateConnectorWithOptions(const UpdateConnector
 }
 
 /**
- * @summary Modifies a Connector instance under the current Alibaba Cloud account.
+ * @summary Modifies a connector instance within the current Alibaba Cloud account.
  *
  * @param request UpdateConnectorRequest
  * @return UpdateConnectorResponse
@@ -10390,6 +10460,10 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
   tmpReq.validate();
   UpdatePrivateAccessApplicationShrinkRequest request = UpdatePrivateAccessApplicationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHealthCheckConfig()) {
+    request.setHealthCheckConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHealthCheckConfig(), "HealthCheckConfig", "json"));
+  }
+
   if (!!tmpReq.hasL7Config()) {
     request.setL7ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getL7Config(), "L7Config", "json"));
   }
@@ -10418,6 +10492,14 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
 
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasHealthCheckConfigShrink()) {
+    body["HealthCheckConfig"] = request.getHealthCheckConfigShrink();
+  }
+
+  if (!!request.hasHealthCheckMode()) {
+    body["HealthCheckMode"] = request.getHealthCheckMode();
   }
 
   if (!!request.hasL7ConfigShrink()) {
@@ -11176,7 +11258,7 @@ UpdateSaseUserTagResponse Client::updateSaseUserTag(const UpdateSaseUserTagReque
 }
 
 /**
- * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+ * @summary Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11215,7 +11297,7 @@ UpdateUninstallApplicationsStatusResponse Client::updateUninstallApplicationsSta
 }
 
 /**
- * @summary Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+ * @summary Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @return UpdateUninstallApplicationsStatusResponse

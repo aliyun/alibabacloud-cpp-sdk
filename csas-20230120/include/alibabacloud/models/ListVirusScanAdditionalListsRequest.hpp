@@ -80,11 +80,21 @@ namespace Models
 
 
   protected:
+    // Filters by matching dimension. Duplicate values are not allowed. If this parameter is not specified, all matching dimensions are returned.
     shared_ptr<vector<string>> additionalTypes_ {};
+    // The operating system type for which the list takes effect. Valid values:
+    // - **windows**: Windows.
+    // - **macOS**: macOS.
+    // 
     // This parameter is required.
     shared_ptr<string> devType_ {};
+    // The content of the list entry, using exact match. This parameter is used to locate a specific list entry by content and does not support fuzzy match.
     shared_ptr<string> listDetail_ {};
+    // Filters by list entry ID. Duplicate values are not allowed. If this parameter is not specified, no filtering by list entry ID is applied.
     shared_ptr<vector<string>> listIds_ {};
+    // Filters by list type. If this parameter is not specified, both blacklists and whitelists are returned. Valid values:
+    // - **Blacklist**: Blacklist. Files that match are directly identified as virus files.
+    // - **Whitelist**: Whitelist. Files that match are excluded from virus detection.
     shared_ptr<string> listType_ {};
   };
 

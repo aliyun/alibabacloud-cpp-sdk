@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // The approval flow ID. Valid values:
-    // - [ListApprovalProcesses](~~ListApprovalProcesses~~): Lists approval flows.
+    // The ID of the approval process. You can obtain the value by calling the following operation:
+    // - [ListApprovalProcesses](~~ListApprovalProcesses~~): Queries a list of approval processes.
     // 
     // This parameter is required.
     shared_ptr<string> processId_ {};

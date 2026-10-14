@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/AddressGroup.hpp>
+#include <alibabacloud/models/HealthCheckConfig.hpp>
 #include <alibabacloud/models/PAL7Config.hpp>
 #include <alibabacloud/models/PAApplicationUnauthorizedAccessConfig.hpp>
 using namespace std;
@@ -22,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(ConfigMode, configMode_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_TO_JSON(HealthCheckMode, healthCheckMode_);
       DARABONBA_PTR_TO_JSON(L7Config, l7Config_);
       DARABONBA_PTR_TO_JSON(L7ProxyDomainAutomaticPrefix, l7ProxyDomainAutomaticPrefix_);
       DARABONBA_PTR_TO_JSON(L7ProxyDomainCustom, l7ProxyDomainCustom_);
@@ -40,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(ConfigMode, configMode_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_FROM_JSON(HealthCheckMode, healthCheckMode_);
       DARABONBA_PTR_FROM_JSON(L7Config, l7Config_);
       DARABONBA_PTR_FROM_JSON(L7ProxyDomainAutomaticPrefix, l7ProxyDomainAutomaticPrefix_);
       DARABONBA_PTR_FROM_JSON(L7ProxyDomainCustom, l7ProxyDomainCustom_);
@@ -108,9 +113,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->addressGroups_ == nullptr
-        && this->addresses_ == nullptr && this->applicationId_ == nullptr && this->configMode_ == nullptr && this->description_ == nullptr && this->l7Config_ == nullptr
-        && this->l7ProxyDomainAutomaticPrefix_ == nullptr && this->l7ProxyDomainCustom_ == nullptr && this->l7ProxyDomainPrivate_ == nullptr && this->modifyType_ == nullptr && this->name_ == nullptr
-        && this->portRanges_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr && this->tagIds_ == nullptr && this->unauthorizedAccessConfig_ == nullptr; };
+        && this->addresses_ == nullptr && this->applicationId_ == nullptr && this->configMode_ == nullptr && this->description_ == nullptr && this->healthCheckConfig_ == nullptr
+        && this->healthCheckMode_ == nullptr && this->l7Config_ == nullptr && this->l7ProxyDomainAutomaticPrefix_ == nullptr && this->l7ProxyDomainCustom_ == nullptr && this->l7ProxyDomainPrivate_ == nullptr
+        && this->modifyType_ == nullptr && this->name_ == nullptr && this->portRanges_ == nullptr && this->protocol_ == nullptr && this->status_ == nullptr
+        && this->tagIds_ == nullptr && this->unauthorizedAccessConfig_ == nullptr; };
     // addressGroups Field Functions 
     bool hasAddressGroups() const { return this->addressGroups_ != nullptr;};
     void deleteAddressGroups() { this->addressGroups_ = nullptr;};
@@ -148,6 +154,22 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdatePrivateAccessApplicationRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // healthCheckConfig Field Functions 
+    bool hasHealthCheckConfig() const { return this->healthCheckConfig_ != nullptr;};
+    void deleteHealthCheckConfig() { this->healthCheckConfig_ = nullptr;};
+    inline const HealthCheckConfig & getHealthCheckConfig() const { DARABONBA_PTR_GET_CONST(healthCheckConfig_, HealthCheckConfig) };
+    inline HealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, HealthCheckConfig) };
+    inline UpdatePrivateAccessApplicationRequest& setHealthCheckConfig(const HealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
+    inline UpdatePrivateAccessApplicationRequest& setHealthCheckConfig(HealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
+
+
+    // healthCheckMode Field Functions 
+    bool hasHealthCheckMode() const { return this->healthCheckMode_ != nullptr;};
+    void deleteHealthCheckMode() { this->healthCheckMode_ = nullptr;};
+    inline string getHealthCheckMode() const { DARABONBA_PTR_GET_DEFAULT(healthCheckMode_, "") };
+    inline UpdatePrivateAccessApplicationRequest& setHealthCheckMode(string healthCheckMode) { DARABONBA_PTR_SET_VALUE(healthCheckMode_, healthCheckMode) };
 
 
     // l7Config Field Functions 
@@ -236,48 +258,55 @@ namespace Models
 
 
   protected:
-    // The application address groups. This parameter can be specified when ConfigMode is set to Precise. This parameter cannot be specified when ConfigMode is an empty string.
+    // The application address groups. You can specify this parameter when ConfigMode is Precise. You cannot specify this parameter when ConfigMode is an empty string.
     shared_ptr<vector<AddressGroup>> addressGroups_ {};
-    // The addresses of the private access application. You can specify up to 1000 addresses.
+    // The collection of private access application addresses. You can enter up to 1,000 private access application addresses.
     shared_ptr<vector<string>> addresses_ {};
-    // The ID of the private access application. You can obtain the value from:
+    // The ID of the private access application. You can obtain the value from the following operations:
     // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
     // - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The configuration mode. Valid values:
-    // * Empty string: default mode.
-    // * Precise: precise mode.
+    // * Empty string: the default mode.
+    // * Precise: the precise mode.
     shared_ptr<string> configMode_ {};
-    // The description of the private access application. The description must be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+    // The description of the private access application. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
-    // The browser access mode parameter: the Layer 7 application configuration.
+    // The health check configuration. This parameter is valid only when HealthCheckMode is set to Continuous. You cannot specify this parameter when HealthCheckMode is set to OnAccess.
+    shared_ptr<HealthCheckConfig> healthCheckConfig_ {};
+    // The health check mode. Valid values:
+    // * OnAccess: Checks upon access without active probing.
+    // * Continuous: Performs continuous checks and periodically probes based on the configurations in HealthCheckConfig.
+    // If this parameter is not specified, the default value is OnAccess. When the application addresses include wildcard domain names or CIDR blocks, or when the number of application addresses exceeds 10, only OnAccess is supported.
+    shared_ptr<string> healthCheckMode_ {};
+    // The Layer 7 application configuration in browser access mode.
     shared_ptr<PAL7Config> l7Config_ {};
-    // The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
+    // The prefix of the mapped proxy domain name in browser access mode. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
     shared_ptr<string> l7ProxyDomainAutomaticPrefix_ {};
-    // The browser access mode parameter: the custom proxy domain name.
+    // The custom proxy domain name in browser access mode.
     shared_ptr<string> l7ProxyDomainCustom_ {};
-    // The browser access mode parameter: the private proxy domain name.
+    // The private proxy domain name in browser access mode.
     shared_ptr<string> l7ProxyDomainPrivate_ {};
     // The modification type of the private access application. Valid values:
-    // - **Cover** (default): overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
-    // - **Append**: appends the values of the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
+    // - **Cover** (default): Overwrites the original addresses, port ranges, and tag IDs with the values of the **Addresses**, **PortRanges**, and **TagIds** parameters.
+    // - **Append**: Appends the values specified in the **Addresses**, **PortRanges**, and **TagIds** parameters to the original addresses, port ranges, and tag IDs.
     shared_ptr<string> modifyType_ {};
-    // The application name.
+    // The name of the application.
     shared_ptr<string> name_ {};
-    // The port ranges of the private access application. You can specify up to 65535 port ranges. Multiple port ranges cannot overlap.
+    // The collection of port ranges for the private access application. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicate or overlap.
     shared_ptr<vector<UpdatePrivateAccessApplicationRequest::PortRanges>> portRanges_ {};
     // The protocol of the private access application. Valid values:
-    // - **All**: all protocols.
+    // - **All**: All protocols.
     // - **TCP**
     // - **UDP**
     shared_ptr<string> protocol_ {};
     // The status of the private access application. Valid values:
-    // - **Enabled**: enabled.
-    // - **Disabled**: disabled.
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The IDs of private access tags. A private access application can be associated with up to 6 custom private access tags.
+    // The collection of private access tag IDs. You can associate up to six custom private access tags with a single private access application.
     shared_ptr<vector<string>> tagIds_ {};
     // The configuration for unauthorized application access requests.
     shared_ptr<PAApplicationUnauthorizedAccessConfig> unauthorizedAccessConfig_ {};

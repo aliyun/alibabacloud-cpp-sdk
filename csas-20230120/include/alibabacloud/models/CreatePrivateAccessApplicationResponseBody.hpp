@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the internal-facing access application.
+    // The ID of the private access application.
     shared_ptr<string> applicationId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

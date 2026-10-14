@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The frequency unit for periodic execution. It is used together with Interval to specify the execution cycle. For example, a value of day indicates daily execution.
       shared_ptr<string> frequency_ {};
+      // The periodic execution interval. When Frequency is set, valid values are 1 to 10000. The unit is determined by Frequency. For example, if Frequency is set to day and Interval is set to 1, the execution interval is one day.
       shared_ptr<int64_t> interval_ {};
     };
 
@@ -115,7 +117,9 @@ namespace Models
 
 
     protected:
+      // The end time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server. It must not be earlier than Start.
       shared_ptr<string> end_ {};
+      // The start time of the daily effective time range. It uses the 24-hour HH:mm format and is interpreted based on the current system time zone of the server.
       shared_ptr<string> start_ {};
     };
 
@@ -203,12 +207,19 @@ namespace Models
 
 
     protected:
+      // Specifies whether the policy takes effect on Friday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> friday_ {};
+      // Specifies whether the policy takes effect on Monday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> monday_ {};
+      // Specifies whether the policy takes effect on Saturday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> saturday_ {};
+      // Specifies whether the policy takes effect on Sunday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> sunday_ {};
+      // Specifies whether the policy takes effect on Thursday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> thursday_ {};
+      // Specifies whether the policy takes effect on Tuesday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> tuesday_ {};
+      // Specifies whether the policy takes effect on Wednesday when ValidType is set to Weekly. Valid values: true and false. A value of true indicates that the policy takes effect. A value of false indicates that the policy does not take effect.
       shared_ptr<bool> wednesday_ {};
     };
 
@@ -249,9 +260,16 @@ namespace Models
 
 
   protected:
+    // The effective days of the week configuration. Used when ValidType is set to Weekly.
     shared_ptr<ExecutePeriod::EffectDay> effectDay_ {};
+    // The daily effective time range. Both Start and End use the 24-hour HH:mm format and are interpreted based on the current system time zone of the server. The time range cannot span across days.
     shared_ptr<ExecutePeriod::EffectTime> effectTime_ {};
+    // The frequency and interval configuration for periodic execution. Frequency and Interval together specify the execution cycle.
     shared_ptr<ExecutePeriod::ScheduleEffect> scheduleEffect_ {};
+    // The execution cycle mode. Valid values:
+    // - **Once**: The single execution mode. Used in combination with ExecuteMode=Once.
+    // - **Interval**: The periodic execution mode based on a specified frequency. Used in combination with ExecuteMode=Schedule.
+    // - **Weekly**: The weekly execution mode where you can select effective days. Used in combination with ExecuteMode=Schedule and EffectDay.
     shared_ptr<string> validType_ {};
   };
 

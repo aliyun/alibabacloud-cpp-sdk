@@ -217,11 +217,11 @@ namespace Models
       protected:
         // The CPU usage percentage of the process.
         shared_ptr<double> cpu_ {};
-        // The process running description.
+        // The description of the running process.
         shared_ptr<string> description_ {};
         // The memory usage of the process, in MB.
         shared_ptr<int32_t> memory_ {};
-        // The process name.
+        // The name of the process.
         shared_ptr<string> name_ {};
       };
 
@@ -307,7 +307,7 @@ namespace Models
 
 
       protected:
-        // The user ID.
+        // The ID of the user.
         shared_ptr<string> saseUserId_ {};
         // The username.
         shared_ptr<string> username_ {};
@@ -719,111 +719,147 @@ namespace Models
 
 
     protected:
-      // The client status. Valid values:
+      // The status of the client. Valid values:
+      // - **Online**: Online.
+      // - **Offline**: Offline.
       shared_ptr<string> appStatus_ {};
       // The client version.
       shared_ptr<string> appVersion_ {};
-      // The auto-logon status of the device. Valid values:
+      // The password-free logon status of the device. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> autoLoginStatus_ {};
       // The battery health percentage.
       shared_ptr<int32_t> batteryHealthPercentage_ {};
-      // The battery remaining charge percentage.
+      // The remaining battery percentage.
       shared_ptr<int32_t> batteryRemainingPercentage_ {};
-      // The CPU model of the terminal device.
+      // The CPU model of the endpoint device.
       shared_ptr<string> CPU_ {};
       // The city to which the public IP address belongs.
       shared_ptr<string> city_ {};
-      // The city name in English.
+      // The city in English.
       shared_ptr<string> cityEn_ {};
-      // The city name in Chinese.
+      // The city in Chinese.
       shared_ptr<string> cityZh_ {};
       // The continent to which the public IP address belongs.
       shared_ptr<string> continent_ {};
-      // The continent name in English.
+      // The continent in English.
       shared_ptr<string> continentEn_ {};
-      // The continent name in Chinese.
+      // The continent in Chinese.
       shared_ptr<string> continentZh_ {};
       // The country to which the public IP address belongs.
       shared_ptr<string> country_ {};
-      // The country name in English.
+      // The country in English.
       shared_ptr<string> countryEn_ {};
-      // The country name in Chinese.
+      // The country in Chinese.
       shared_ptr<string> countryZh_ {};
-      // The registration time of the terminal device.
+      // The registration time of the endpoint device. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
       // The department to which the user belongs.
       shared_ptr<string> department_ {};
-      // The ownership of the terminal device. Valid values:
+      // The ownership of the endpoint device. Valid values:
+      // - **Personal**: Personal device.
+      // - **Company**: Company device.
       shared_ptr<string> deviceBelong_ {};
-      // The model of the terminal device.
+      // The model of the endpoint device.
       shared_ptr<string> deviceModel_ {};
-      // The status of the terminal device. Valid values:
+      // The status of the endpoint device. Valid values:
+      // - **Online**: Online.
+      // - **Offline**: Offline.
+      // - **LongTermOffline**: Long-term offline.
+      // - **Locked**: Locked.
+      // - **Lost**: Reported as lost.
+      // - **Unbound**: Unbound.
       shared_ptr<string> deviceStatus_ {};
-      // The ID of the terminal device.
+      // The ID of the endpoint device.
       shared_ptr<string> deviceTag_ {};
-      // The operating system type of the terminal device. Valid values:
+      // The operating system type of the endpoint device. Valid values:
+      // - **Windows**: Windows.
+      // - **macOS**: macOS.
+      // - **Linux**: Linux.
+      // - **Android**: Android.
+      // - **iOS**: iOS.
+      // - **Windows_Wuying**: WUYING Workspace.
       shared_ptr<string> deviceType_ {};
-      // The operating system version of the terminal device.
+      // The operating system version of the endpoint device.
       shared_ptr<string> deviceVersion_ {};
-      // The disk model of the terminal device.
+      // The disk model of the endpoint device.
       shared_ptr<string> disk_ {};
       // The available disk space, in GB.
       shared_ptr<int32_t> diskAvailable_ {};
       // The used disk space, in GB.
       shared_ptr<int32_t> diskUsed_ {};
       // The office data protection status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
+      // - **Unprovisioned**: Unprovisioned.
+      // - **Unauthorized**: Unauthorized.
       shared_ptr<string> dlpStatus_ {};
       // The anti-intrusion status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
       shared_ptr<string> edrStatus_ {};
-      // The historical users of the terminal device.
+      // The collection of historical users of the endpoint device.
       shared_ptr<vector<Device::HistoryUsers>> historyUsers_ {};
-      // The name of the terminal device.
+      // The name of the endpoint device.
       shared_ptr<string> hostname_ {};
       // The Internet access status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> iaStatus_ {};
-      // The internal IP address of the terminal device.
+      // The internal IP address of the endpoint device.
       shared_ptr<string> innerIP_ {};
-      // Indicates whether the terminal has joined an AD domain.
+      // Indicates whether the terminal is joined to an Active Directory (AD) domain.
       shared_ptr<bool> joinAdDomain_ {};
-      // The MAC address of the terminal device.
+      // The MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
-      // The IDs of matched device groups.
+      // The collection of matched device group IDs.
       shared_ptr<vector<string>> matchDeviceGroupIds_ {};
-      // The memory capacity of the terminal device. Unit: GB.
+      // The memory capacity of the endpoint device. Unit: GB.
       shared_ptr<string> memory_ {};
       // The network access control status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> nacStatus_ {};
-      // The list of network interface controllers (NICs) of the terminal device.
+      // The list of network interface controllers (NICs) of the endpoint device.
       shared_ptr<vector<Device::NetInterfaceInfo>> netInterfaceInfo_ {};
-      // The private access status. Valid values:
+      // The internal network access status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> paStatus_ {};
-      // The list of processes running on the terminal.
+      // The list of running processes on the terminal.
       shared_ptr<vector<Device::Processes>> processes_ {};
       // The province to which the public IP address belongs.
       shared_ptr<string> province_ {};
-      // The province name in English.
+      // The province in English.
       shared_ptr<string> provinceEn_ {};
-      // The province name in Chinese.
+      // The province in Chinese.
       shared_ptr<string> provinceZh_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<string> saseUserId_ {};
-      // Indicates whether sharing is enabled for the device. Valid values:
+      // Specifies whether sharing is enabled for the device. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> sharingStatus_ {};
       // The motherboard serial number.
       shared_ptr<string> snBaseBoard_ {};
-      // The serial number (SN) of the BIOS system.
+      // The serial number of the BIOS.
       shared_ptr<string> snBios_ {};
       // The hard disk serial number.
       shared_ptr<string> snDiskDrive_ {};
-      // The serial number (SN) of the processor.
+      // The serial number of the processor.
       shared_ptr<string> snProcessor_ {};
       // The system serial number.
       shared_ptr<string> snSystem_ {};
-      // The logon IP address of the terminal device.
+      // The logon IP address of the endpoint device.
       shared_ptr<string> srcIP_ {};
       // The timestamp when the terminal process information was collected.
       shared_ptr<int64_t> terminalInfoCollectTime_ {};
-      // The last online time of the terminal device.
+      // The last online time of the endpoint device. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> updateTime_ {};
       // The username.
       shared_ptr<string> username_ {};
@@ -850,7 +886,7 @@ namespace Models
 
 
   protected:
-    // The terminal device.
+    // The endpoint device.
     shared_ptr<GetUserDeviceResponseBody::Device> device_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

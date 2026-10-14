@@ -217,7 +217,7 @@ namespace Models
         // - **Rejected**: Rejected.
         // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
-        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp in seconds.
+        // The time when the action was performed on the approval progress node. The value is a UNIX timestamp accurate to seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -335,24 +335,24 @@ namespace Models
     protected:
       // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
-      // The approval instance ID.
+      // The ID of the approval instance.
       shared_ptr<string> approvalId_ {};
-      // The list of approval progress nodes.
+      // The list of progress nodes for the approval instance.
       shared_ptr<vector<Approval::ApprovalProgresses>> approvalProgresses_ {};
-      // The time when the approval instance was created.
+      // The time when the approval instance was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The ID of the terminal device from which the approval instance was created.
+      // The ID of the endpoint device used to create the approval instance.
       shared_ptr<string> creatorDevTag_ {};
       // The ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
-      // The expiration time of the approval instance. The value is a UNIX timestamp in seconds.
+      // The expiration time of the approval instance. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> endTimestamp_ {};
-      // The policy type associated with the approval instance. Valid values:
+      // The type of the policy associated with the approval instance. Valid values:
       // - **DomainBlacklist**: Domain name blacklist.
       // - **DomainWhitelist**: Domain name whitelist.
       // - **SoftwareBlock**: Software blocking.
-      // - **AppUninstall**: Terminal uninstallation.
-      // - **DlpSend**: File outbound transfer.
+      // - **AppUninstall**: Endpoint uninstallation.
+      // - **DlpSend**: Outbound file transfer.
       // - **PeripheralBlock**: Peripheral control.
       shared_ptr<string> policyType_ {};
       // The ID of the process associated with the approval instance.
@@ -361,16 +361,16 @@ namespace Models
       shared_ptr<string> processName_ {};
       // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
-      // The content of the template associated with the approval instance.
+      // The content of the schema associated with the approval instance.
       shared_ptr<string> schemaContent_ {};
-      // The ID of the template associated with the approval instance.
+      // The ID of the schema associated with the approval instance.
       shared_ptr<string> schemaId_ {};
-      // The name of the template associated with the approval instance.
+      // The name of the schema associated with the approval instance.
       shared_ptr<string> schemaName_ {};
-      // The instance status of the approval. Valid values:
+      // The status of the approval instance. Valid values:
       // - **Pending**: Pending approval.
       // - **Approved**: Approved.
-      // - **Rejected**: Deny.
+      // - **Rejected**: deny.
       // - **Revoked**: Revoked.
       // - **Expired**: Expired.
       shared_ptr<string> status_ {};
@@ -397,7 +397,7 @@ namespace Models
   protected:
     // The approval instance.
     shared_ptr<vector<UpdateApprovalStatusResponseBody::Approval>> approval_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

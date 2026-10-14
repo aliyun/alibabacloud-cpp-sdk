@@ -179,27 +179,27 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable Global Accelerator. Valid values:
+      // Specifies whether to enable global acceleration. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> accelerateStatus_ {};
-      // ConnectorID。
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // The creation time of the Connector.
+      // The time when the connector was created, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The Connector name.
+      // The name of the connector.
       shared_ptr<string> name_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The connection status of the Connector. Valid values:
+      // The connection status of the connector. Valid values:
       // - **Online**: Online.
       // - **Offline**: Offline.
       shared_ptr<string> status_ {};
-      // The instance status of the Connector. Valid values:
+      // The instance status of the connector. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Shutdown.
       shared_ptr<string> switchStatus_ {};
-      // The upgrade time of the Connector.
+      // The upgrade time of the connector.
       shared_ptr<Connector::UpgradeTime> upgradeTime_ {};
       // The virtual IP address.
       shared_ptr<string> vipCidr_ {};
@@ -224,9 +224,9 @@ namespace Models
 
 
   protected:
-    // Connector。
+    // The connector.
     shared_ptr<UpdateConnectorResponseBody::Connector> connector_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

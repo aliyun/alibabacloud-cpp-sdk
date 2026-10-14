@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_TO_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(HealthCheckStatus, healthCheckStatus_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
       DARABONBA_PTR_FROM_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(HealthCheckStatus, healthCheckStatus_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessModes_ == nullptr
-        && this->address_ == nullptr && this->applicationIds_ == nullptr && this->connectorId_ == nullptr && this->currentPage_ == nullptr && this->name_ == nullptr
-        && this->pageSize_ == nullptr && this->policyId_ == nullptr && this->status_ == nullptr && this->tagId_ == nullptr; };
+        && this->address_ == nullptr && this->applicationIds_ == nullptr && this->connectorId_ == nullptr && this->currentPage_ == nullptr && this->healthCheckStatus_ == nullptr
+        && this->name_ == nullptr && this->pageSize_ == nullptr && this->policyId_ == nullptr && this->status_ == nullptr && this->tagId_ == nullptr; };
     // accessModes Field Functions 
     bool hasAccessModes() const { return this->accessModes_ != nullptr;};
     void deleteAccessModes() { this->accessModes_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListPrivateAccessApplicationsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // healthCheckStatus Field Functions 
+    bool hasHealthCheckStatus() const { return this->healthCheckStatus_ != nullptr;};
+    void deleteHealthCheckStatus() { this->healthCheckStatus_ = nullptr;};
+    inline string getHealthCheckStatus() const { DARABONBA_PTR_GET_DEFAULT(healthCheckStatus_, "") };
+    inline ListPrivateAccessApplicationsRequest& setHealthCheckStatus(string healthCheckStatus) { DARABONBA_PTR_SET_VALUE(healthCheckStatus_, healthCheckStatus) };
 
 
     // name Field Functions 
@@ -128,33 +137,39 @@ namespace Models
     // - **app**: application access. Filters applications that support application access.
     // - **browser**: browser access. Filters applications that support browser access.
     shared_ptr<string> accessModes_ {};
-    // The address of the internal-facing access application. The address is 1 to 128 characters in length and supports IPv4 addresses, CIDR blocks, domain names, and wildcard domain names.
+    // The address of the private access application. The address must be 1 to 128 characters in length, and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
     shared_ptr<string> address_ {};
-    // The IDs of internal-facing access applications. You can specify up to 100 application IDs.
+    // The IDs of the private access applications. You can specify up to 100 IDs.
     shared_ptr<vector<string>> applicationIds_ {};
-    // The connector ID. You can obtain the ID from the [ListConnectors](~~ListConnectors~~) operation.
+    // The ID of the connector. You can obtain the ID from the following operation: [ListConnectors](~~ListConnectors~~): List connectors.
     shared_ptr<string> connectorId_ {};
-    // The page number of the current page displayed in a paged query. Valid values: 1 to 10000.
+    // The page number of the current page in a paging query. Valid values: 1 to 10000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the internal-facing access application. The name is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), underscores (_), and hyphens (-).
+    // Filters applications by health check status. Valid values:
+    // * normal: The success rate of the last check is greater than or equal to 95%.
+    // * partialError: The success rate of the last check is greater than 0 and less than 95%.
+    // * error: The success rate of the last check is 0.
+    // * uncompleted: No check results are available.
+    shared_ptr<string> healthCheckStatus_ {};
+    // The name of the private access application. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
-    // The number of entries per page in a paged query. Valid values: 1 to 1000.
+    // The Settings for the number of entries per page in a paging query. Valid values: 1 to 1000.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the internal-facing access policy. You can obtain the ID from the following operations:
-    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries internal-facing access policies in batches.
-    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal-facing access policy.
+    // The ID of the private access policy. You can obtain the ID from the following operations:
+    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List private access policies.
+    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create a private access policy.
     shared_ptr<string> policyId_ {};
-    // The status of the internal-facing access application. Valid values:
+    // The status of the private access application. Valid values:
     // - **Enabled**: enabled.
     // - **Disabled**: disabled.
     shared_ptr<string> status_ {};
-    // The ID of the internal-facing access tag. You can obtain the ID from the following operations:
-    // - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): queries internal-facing access tags in batches.
-    // - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): creates an internal-facing access tag.
+    // The ID of the private access tag. You can obtain the ID from the following operations:
+    // - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): List private access tags.
+    // - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): Create a private access tag.
     shared_ptr<string> tagId_ {};
   };
 

@@ -167,9 +167,9 @@ namespace Models
 
 
       protected:
-        // The list of software blocking policy IDs.
+        // The IDs of the software blocking policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -257,9 +257,9 @@ namespace Models
 
 
       protected:
-        // The list of peripheral control policy IDs.
+        // The IDs of the peripheral control policy.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -347,9 +347,9 @@ namespace Models
 
 
       protected:
-        // The list of domain name whitelist policy IDs.
+        // The IDs of the domain name whitelist policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -393,9 +393,9 @@ namespace Models
 
 
       protected:
-        // The list of domain name blacklist policy IDs.
+        // The IDs of the domain name blacklist policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -439,9 +439,9 @@ namespace Models
 
 
       protected:
-        // The list of file outgoing policy IDs.
+        // The IDs of the file sending policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -485,9 +485,9 @@ namespace Models
 
 
       protected:
-        // The list of device registration policy IDs.
+        // The IDs of the device registration policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -531,9 +531,9 @@ namespace Models
 
 
       protected:
-        // The list of agent uninstallation policy IDs.
+        // The IDs of the endpoint uninstallation policies.
         shared_ptr<vector<string>> policyIds_ {};
-        // The approval template ID.
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -676,16 +676,16 @@ namespace Models
 
 
     protected:
-      // The list of policies associated with agent uninstallation.
+      // The list of policies associated with endpoint uninstallation.
       shared_ptr<Processes::AppUninstallPolicies> appUninstallPolicies_ {};
       shared_ptr<int32_t> approvalType_ {};
-      // The time when the approval process was created.
+      // The time when the approval process was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The description of the approval process.
       shared_ptr<string> description_ {};
       // The list of policies associated with device registration.
       shared_ptr<Processes::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
-      // The list of policies associated with file outgoing.
+      // The list of policies associated with file sending.
       shared_ptr<Processes::DlpSendPolicies> dlpSendPolicies_ {};
       // The list of policies associated with the domain name blacklist.
       shared_ptr<Processes::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
@@ -695,7 +695,7 @@ namespace Models
       // The list of policies associated with peripheral control.
       shared_ptr<Processes::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
       shared_ptr<Processes::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
-      // The approval process ID.
+      // The ID of the approval process.
       shared_ptr<string> processId_ {};
       // The name of the approval process.
       shared_ptr<string> processName_ {};
@@ -734,7 +734,7 @@ namespace Models
   protected:
     // The list of approval processes.
     shared_ptr<vector<ListApprovalProcessesResponseBody::Processes>> processes_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of approval processes.
     shared_ptr<string> totalNum_ {};

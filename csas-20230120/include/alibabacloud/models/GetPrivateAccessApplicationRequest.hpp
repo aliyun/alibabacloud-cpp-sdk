@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The ID of the internal-facing access application. You can obtain the value from:
-    // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications.
-    // - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates an internal-facing access application.
+    // The ID of the private access application. You can obtain the value from the following operations:
+    // - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+    // - [CreatePrivateAccessApplication](~~CreatePrivateAccessApplication~~): Creates a private access application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};

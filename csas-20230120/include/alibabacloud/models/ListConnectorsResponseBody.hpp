@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // The end time of the upgrade window.
+        // The end time.
         shared_ptr<string> end_ {};
-        // The start time of the upgrade window.
+        // The start time.
         shared_ptr<string> start_ {};
       };
 
@@ -177,9 +177,9 @@ namespace Models
 
 
       protected:
-        // The connection status between the connector client and connector server.
+        // The connection status between the connector client and the connector server.
         shared_ptr<string> connectionStatus_ {};
-        // The unique device ID of the connector client.
+        // The unique device identifier of the connector client.
         shared_ptr<string> devTag_ {};
         // The hostname of the connector client.
         shared_ptr<string> hostname_ {};
@@ -225,9 +225,9 @@ namespace Models
 
 
       protected:
-        // The private access application ID.
+        // The ID of the internal access application.
         shared_ptr<string> applicationId_ {};
-        // The private access application name.
+        // The name of the internal access application.
         shared_ptr<string> applicationName_ {};
       };
 
@@ -333,41 +333,35 @@ namespace Models
 
 
     protected:
-      // Indicates whether global acceleration is enabled. Valid values:
-      // 
-      // - **Enabled**: Global acceleration is enabled.
-      // 
-      // - **Disabled**: Global acceleration is disabled.
+      // Specifies whether global acceleration is enabled. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
       shared_ptr<string> accelerateStatus_ {};
-      // A list of associated private access applications.
+      // The internal access applications associated with the connector.
       shared_ptr<vector<Connectors::Applications>> applications_ {};
-      // The cluster IP address.
+      // The IP address of the cluster.
       shared_ptr<string> clusterIP_ {};
-      // The cluster port.
+      // The port of the cluster.
       shared_ptr<string> clusterPort_ {};
-      // A list of deployed connector clients.
+      // The deployed connector clients.
       shared_ptr<vector<Connectors::ConnectorClients>> connectorClients_ {};
       // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // The time the connector was created.
+      // The time when the connector was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The connector name.
+      // The name of the connector.
       shared_ptr<string> name_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The connection status of the connector. Valid values:
-      // 
-      // - **Online**: The connector is online.
-      // 
-      // - **Offline**: The connector is offline.
+      // - **Online**: Online.
+      // - **Offline**: Offline.
       shared_ptr<string> status_ {};
-      // The status of the connector instance. Valid values:
-      // 
-      // - **Enabled**: The connector is enabled.
-      // 
-      // - **Disabled**: The connector is disabled.
+      // The connector instance status. Valid values:
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Shutdown.
       shared_ptr<string> switchStatus_ {};
-      // The upgrade window for the connector.
+      // The upgrade time of the connector.
       shared_ptr<Connectors::UpgradeTime> upgradeTime_ {};
       shared_ptr<string> vipCidr_ {};
     };
@@ -398,9 +392,9 @@ namespace Models
 
 
   protected:
-    // A list of connectors.
+    // The list of connectors.
     shared_ptr<vector<ListConnectorsResponseBody::Connectors>> connectors_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of connectors.
     shared_ptr<int32_t> totalNum_ {};

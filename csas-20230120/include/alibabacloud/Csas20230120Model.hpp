@@ -9,6 +9,7 @@
 #include <alibabacloud/models/DeviceGroupDynamicRule.hpp>
 #include <alibabacloud/models/DisposalContent.hpp>
 #include <alibabacloud/models/ExecutePeriod.hpp>
+#include <alibabacloud/models/HealthCheckConfig.hpp>
 #include <alibabacloud/models/IdpAttrMapConfigItem.hpp>
 #include <alibabacloud/models/IdpAttrMapConfig.hpp>
 #include <alibabacloud/models/IdpConnectConfig.hpp>
@@ -255,6 +256,9 @@
 #include <alibabacloud/models/DeleteVulScanScheduledStrategyRequest.hpp>
 #include <alibabacloud/models/DeleteVulScanScheduledStrategyResponseBody.hpp>
 #include <alibabacloud/models/DeleteVulScanScheduledStrategyResponse.hpp>
+#include <alibabacloud/models/DescribeApplicationHealthCheckReportsRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationHealthCheckReportsResponseBody.hpp>
+#include <alibabacloud/models/DescribeApplicationHealthCheckReportsResponse.hpp>
 #include <alibabacloud/models/DetachApplication2ConnectorRequest.hpp>
 #include <alibabacloud/models/DetachApplication2ConnectorShrinkRequest.hpp>
 #include <alibabacloud/models/DetachApplication2ConnectorResponseBody.hpp>

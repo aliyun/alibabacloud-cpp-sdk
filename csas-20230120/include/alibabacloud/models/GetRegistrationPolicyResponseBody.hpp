@@ -120,11 +120,11 @@ namespace Models
 
 
       protected:
-        // The total device registration limit. This parameter is valid when the device registration limit type is **LimitAll**.
+        // The total limit on the number of device registrations. This field is valid only when the type of device registration limit is **LimitAll**.
         shared_ptr<int32_t> all_ {};
-        // The number of mobile logins allowed by the device registration limit. This parameter is valid when the device registration limit type is **LimitDiff**.
+        // The limit on the number of mobile logons for device registration. This field is valid only when the type of device registration limit is **LimitDiff**.
         shared_ptr<int32_t> mobile_ {};
-        // The number of PC logins allowed by the device registration limit. This parameter is valid when the device registration limit type is **LimitDiff**.
+        // The limit on the number of PC logons for device registration. This field is valid only when the type of device registration limit is **LimitDiff**.
         shared_ptr<int32_t> PC_ {};
       };
 
@@ -154,16 +154,16 @@ namespace Models
 
 
     protected:
-      // The ownership of the device. Valid values:
-      // - **Company**: company-owned device.
-      // - **Personal**: personal device.
+      // The device ownership. Valid values:
+      // - **Company**: Corporate device.
+      // - **Personal**: Personal device.
       shared_ptr<string> deviceBelong_ {};
-      // The device registration limit count.
+      // The limit on the number of device registrations.
       shared_ptr<LimitDetail::LimitCount> limitCount_ {};
-      // The type of the device registration limit. Valid values:
-      // - **Unlimited**: no limit.
-      // - **LimitAll**: limit by total count.
-      // - **LimitDiff**: limit by terminal category.
+      // The type of device registration limit. Valid values:
+      // - **Unlimited**: Unlimited.
+      // - **LimitAll**: Limited by total count.
+      // - **LimitDiff**: Limited by endpoint category.
       shared_ptr<string> limitType_ {};
     };
 
@@ -254,31 +254,31 @@ namespace Models
 
 
   protected:
-    // The time when the device registration policy was created.
+    // The time when the device registration policy was created. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> createTime_ {};
     // The description of the device registration policy.
     shared_ptr<string> description_ {};
-    // The list of limit details of the device registration policy.
+    // The list of limit details for the device registration policy.
     shared_ptr<vector<GetRegistrationPolicyResponseBody::LimitDetail>> limitDetail_ {};
-    // The match mode of the policy. Valid values:
-    // - **UserGroupAll**: associated with all users.
-    // - **UserGroupNormal**: associated with specific user groups.
+    // The target type for policy matching. Valid values:
+    // - **UserGroupAll**: All users.
+    // - **UserGroupNormal**: Specific user groups.
     shared_ptr<string> matchMode_ {};
-    // The name of the device registration policy.
+    // The policy name of the device registration policy.
     shared_ptr<string> name_ {};
     // The ID of the device registration policy.
     shared_ptr<string> policyId_ {};
-    // The priority of the device registration policy. The value 0 indicates the highest priority, and the value 99 indicates the lowest priority.
+    // The policy priority of the device registration policy. A value of 0 indicates the highest priority, and a value of 99 indicates the lowest priority.
     shared_ptr<int64_t> priority_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The status of the device registration policy. Valid values:
-    // - **Enabled**: enabled.
-    // - **Disabled**: disabled.
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
-    // The IDs of the user groups associated with the device registration policy. This parameter is valid when the match mode of the policy is **UserGroupNormal**.
+    // The IDs of the user groups associated with the device registration policy. This field has a value only when the target type for policy matching is **UserGroupNormal**.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The list of whitelisted users in the device registration policy.
+    // The list of whitelisted users for the device registration policy.
     shared_ptr<vector<string>> whitelist_ {};
   };
 

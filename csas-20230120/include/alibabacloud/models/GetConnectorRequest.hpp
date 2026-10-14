@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // ConnectorID。
+    // The connector ID.
     // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};

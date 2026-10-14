@@ -151,23 +151,23 @@ namespace Models
 
 
       protected:
-        // The identity provider ID of the user group. This value exists when the custom user group type is **department**.
+        // The ID of the identity source for the user group. This value exists when the custom user group type is **department**.
         shared_ptr<int32_t> idpId_ {};
         // The relation of the user group. Valid values:
-        // - **Equal**: Equal.
-        // - **Unequal**: Not equal.
+        // - **Equal**: Equal to.
+        // - **Unequal**: Not equal to.
         shared_ptr<string> relation_ {};
         // The type of the user group. Valid values:
         // - **username**: Username.
         // - **department**: Department.
-        // - **email**: Email.
-        // - **telephone**: Mobile phone.
+        // - **email**: Email address.
+        // - **telephone**: Mobile phone number.
         shared_ptr<string> userGroupType_ {};
         // The value of the user group attribute.
-        // - When the user group type is **username**, this indicates the value of the username. The value must be 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase English letters. It can contain digits, periods (.), underscores (_), and hyphens (-).
-        // - When the user group type is **department**, this indicates the value of the department. For example: OU=Department1,OU=SASE DingTalk.
-        // - When the user group type is **email**, this indicates the value of the email. For example: username@example.com.
-        // - When the user group type is **telephone**, this indicates the value of the mobile phone. For example: 13900001234.
+        // - If the user group type is **username**, this value indicates the username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+        // - If the user group type is **department**, this value indicates the department. Example: OU=Department 1,OU=SASE DingTalk.
+        // - If the user group type is **email**, this value indicates the email address. Example: username@example.com.
+        // - If the user group type is **telephone**, this value indicates the mobile phone number. Example: 13900001234.
         shared_ptr<string> value_ {};
       };
 
@@ -344,15 +344,15 @@ namespace Models
 
 
     protected:
-      // The collection of application IDs of the private access policy. This field has a value when the application type is **Application**.
+      // The IDs of the applications for the private access policy. This field has a value when the application type is **Application**.
       shared_ptr<vector<string>> applicationIds_ {};
       // The application type of the private access policy. Valid values:
       // - **Application**: Application.
       // - **Tag**: Tag.
       shared_ptr<string> applicationType_ {};
-      // The creation time of the private access policy.
+      // The time when the private access policy was created. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect by union.
+      // The collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect as a union.
       shared_ptr<vector<Polices::CustomUserAttributes>> customUserAttributes_ {};
       // The description of the private access policy.
       shared_ptr<string> description_ {};
@@ -362,7 +362,7 @@ namespace Models
       shared_ptr<string> deviceAttributeAction_ {};
       // The ID of the security baseline policy.
       shared_ptr<string> deviceAttributeId_ {};
-      // The name of the private access policy.
+      // The Policy Name of the internal network access policy.
       shared_ptr<string> name_ {};
       // The action of the private access policy. Valid values:
       // - **Block**: Block.
@@ -370,13 +370,13 @@ namespace Models
       shared_ptr<string> policyAction_ {};
       // The ID of the private access policy.
       shared_ptr<string> policyId_ {};
-      // The priority of the private access policy. A value of 1 indicates the highest priority.
+      // The policy priority of the internal network access policy. A value of 1 indicates the highest priority.
       shared_ptr<int32_t> priority_ {};
       // The status of the private access policy. Valid values:
       // - **Enabled**: Enabled.
       // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
-      // The collection of tag IDs of the private access policy. This field has a value when the application type is **Tag**.
+      // The IDs of the tags for the private access policy. This field has a value when the application type is **Tag**.
       shared_ptr<vector<string>> tagIds_ {};
       // The ID of the trigger template.
       shared_ptr<string> triggerTemplateId_ {};
@@ -388,19 +388,19 @@ namespace Models
       shared_ptr<string> trustedProcessStatus_ {};
       // The list of trusted software IDs.
       shared_ptr<vector<string>> trustedSoftwareIds_ {};
-      // The collection of user group IDs for the private access policy. This field has a value when the user group type is **Normal**.
+      // The IDs of the user groups for the private access policy. This field has a value when the user group type is **Normal**.
       shared_ptr<vector<string>> userGroupIds_ {};
       // The user group type of the private access policy. Valid values:
-      // - **Normal**: Normal user group.
+      // - **Normal**: Common user group.
       // - **Custom**: Custom user group.
       shared_ptr<string> userGroupMode_ {};
-      // The effective start time of the zero trust policy, in second-level Unix timestamp.
+      // The effective start time of the zero trust policy. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> validFrom_ {};
-      // The status of the effective time switch. Valid values:
+      // The status of the effective period switch. Valid values:
       // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // - **Disabled**: shutdown.
       shared_ptr<string> validTimeStatus_ {};
-      // The effective end time of the zero trust policy, in second-level Unix timestamp.
+      // The effective end time of the zero trust policy. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> validUntil_ {};
     };
 
@@ -432,7 +432,7 @@ namespace Models
   protected:
     // The list of private access policies.
     shared_ptr<vector<ListPrivateAccessPolicesResponseBody::Polices>> polices_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of private access policies.
     shared_ptr<int32_t> totalNum_ {};

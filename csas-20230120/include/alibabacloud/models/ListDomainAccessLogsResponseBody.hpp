@@ -154,13 +154,13 @@ namespace Models
 
 
     protected:
-      // The action taken upon a rule hit.
+      // The matched action.
       shared_ptr<string> blockAction_ {};
       // The department.
       shared_ptr<string> department_ {};
       // The destination URL accessed.
       shared_ptr<string> destAddress_ {};
-      // The event time.
+      // The time when the event occurred, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> eventTime_ {};
       // The Layer 4 protocol type.
       shared_ptr<string> l4ProtocolType_ {};
@@ -204,11 +204,11 @@ namespace Models
 
 
   protected:
-    // The list of access log records.
+    // The list of access records.
     shared_ptr<vector<ListDomainAccessLogsResponseBody::AccessLogs>> accessLogs_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the query conditions.
+    // The total number of records that meet the specified conditions.
     shared_ptr<int32_t> totalNum_ {};
   };
 

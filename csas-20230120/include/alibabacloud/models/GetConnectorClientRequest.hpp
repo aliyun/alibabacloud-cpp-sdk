@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The connector ID. You can call [ListConnectors](~~ListConnectors~~) to query connectors.
+    // The connector ID. You can obtain this value from the [ListConnectors](~~ListConnectors~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> connectorId_ {};
-    // The unique device identifier of the ConnectorClient. You can call [ListConnectors](~~ListConnectors~~) to query connectors.
+    // The unique identifier of the ConnectorClient device. You can obtain this value from the [ListConnectors](~~ListConnectors~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> devTag_ {};

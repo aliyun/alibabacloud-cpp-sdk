@@ -147,11 +147,11 @@ namespace Models
 
 
     protected:
-      // The ID of the device uninstall approval template.
+      // The ID of the application uninstallation approval template.
       shared_ptr<string> appUninstallSchemaId_ {};
       // The ID of the device registration approval template.
       shared_ptr<string> deviceRegistrationSchemaId_ {};
-      // The ID of the file outbound approval template.
+      // The ID of the outbound file transfer approval template.
       shared_ptr<string> dlpSendSchemaId_ {};
       // The ID of the domain name blacklist approval template.
       shared_ptr<string> domainBlacklistSchemaId_ {};
@@ -201,15 +201,15 @@ namespace Models
 
 
   protected:
-    // The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
+    // The description of the approval process. The description must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
     // The matched approval templates.
     shared_ptr<CreateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
-    // The flow name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // The name of the process. The name must be 1 to 128 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> processName_ {};
-    // The list of approval nodes. You can define up to 5 approval nodes.
+    // The list of approval nodes. You can define up to five approval nodes.
     // 
     // This parameter is required.
     shared_ptr<vector<vector<string>>> processNodes_ {};

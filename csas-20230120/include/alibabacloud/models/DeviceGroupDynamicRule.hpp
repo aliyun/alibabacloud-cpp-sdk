@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The list of matching parameters. The meaning of the parameters is determined by both Key and Operator. When Key is set to dev_type and Operator is set to in, specify the operating system types to match.
     Darabonba::Json args_ {};
+    // The user endpoint device property key used for dynamic matching. The example value dev_type indicates the operating system type of the endpoint device.
     shared_ptr<string> key_ {};
+    // The matching operator applied to the property specified by Key. The example value in indicates that the property value belongs to the list of parameters specified by Args.
     shared_ptr<string> operator_ {};
   };
 
