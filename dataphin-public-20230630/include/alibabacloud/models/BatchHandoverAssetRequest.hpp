@@ -74,8 +74,12 @@ namespace Models
 
 
     protected:
+      // The list of asset GUIDs to be transferred. A maximum of 50 assets can be transferred at a time. Currently, only physical tables and logical tables are supported. Data source tables are not supported.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> guidList_ {};
+      // The user ID of the transfer recipient.
+      // 
       // This parameter is required.
       shared_ptr<string> targetUserId_ {};
     };
@@ -106,10 +110,15 @@ namespace Models
 
 
   protected:
+    // The batch transfer command.
+    // 
     // This parameter is required.
     shared_ptr<BatchHandoverAssetRequest::HandoverCommand> handoverCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The operator user ID.
     shared_ptr<string> opUserId_ {};
   };
 

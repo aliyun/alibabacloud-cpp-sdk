@@ -100,10 +100,17 @@ namespace Models
 
 
     protected:
+      // The catalog name.
       shared_ptr<string> catalog_ {};
+      // The identifier of the data source or compute source. If QueryMode is set to DATA_SOURCE, specify the physical data source ID. If QueryMode is set to PROJECT_COMPUTE_SOURCE, specify the data source ID bound to the compute source.
       shared_ptr<string> id_ {};
+      // The query mode. Valid values:
+      // - DATA_SOURCE: physical data source. This is the default value. It includes direct queries and automatic routing of external data source metadata.
+      // - PROJECT_COMPUTE_SOURCE: tables under the project or compute source. The data source is parsed based on the compute source of the project specified by Context.ProjectId.
       shared_ptr<string> queryMode_ {};
+      // The schema name.
       shared_ptr<string> schemaName_ {};
+      // The table name. The schema.table format is supported.
       shared_ptr<string> tableName_ {};
     };
 
@@ -145,7 +152,11 @@ namespace Models
 
 
     protected:
+      // The current operation environment. Valid values:
+      // - DEV: development environment.
+      // - PROD: production environment.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline task belongs.
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -184,11 +195,18 @@ namespace Models
 
 
   protected:
+    // The request context.
+    // 
     // This parameter is required.
     shared_ptr<GetSourceTableMetaRequest::Context> context_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
+    // The query conditions for the integration source table.
+    // 
     // This parameter is required.
     shared_ptr<GetSourceTableMetaRequest::Query> query_ {};
   };

@@ -193,42 +193,39 @@ namespace Models
 
 
       protected:
-        // The list of user IDs of development owners.
+        // The list of user IDs of the development owners.
         shared_ptr<vector<string>> developOwners_ {};
-        // The directory where the node is located.
+        // The directory.
         shared_ptr<string> directory_ {};
         // The file ID.
         shared_ptr<int64_t> fileId_ {};
-        // The schedule node ID.
+        // The scheduling node ID.
         shared_ptr<string> nodeId_ {};
-        // The node name.
+        // The task name.
         shared_ptr<string> nodeName_ {};
-        // The list of user IDs of O&M owners.
+        // The list of user IDs of the O&M owners.
         shared_ptr<vector<string>> opsOwners_ {};
         // The pipeline ID.
         shared_ptr<int64_t> pipelineId_ {};
         // The schedule type. Valid values:
-        // 
-        // - 1: periodic scheduling.
-        // - 3: manual scheduling.
-        // - 5: real-time scheduling.
+        // - 1: Periodic scheduling.
+        // - 3: Manual scheduling.
+        // - 5: Real-time scheduling.
         shared_ptr<int32_t> scheduleType_ {};
-        // The list of node tag names.
+        // The list of task tag names.
         shared_ptr<vector<string>> tags_ {};
-        // The node status. Valid values:
-        // 
-        // - DRAFT: draft.
-        // - SUBMITTING: being submitted.
-        // - SUBMITTED: submitted.
-        // - PUBLISHED: published.
+        // The task status. Valid values:
+        // - DRAFT: Draft.
+        // - SUBMITTING: Submitting.
+        // - SUBMITTED: Submitted.
+        // - PUBLISHED: Published.
         shared_ptr<string> taskStatus_ {};
-        // The node type. Valid values:
-        // 
-        // - 0: offline integration.
-        // - 1: real-time integration.
-        // - 13: data aggregation.
-        // - 14: offline unstructured workflow.
-        // - 15: real-time unstructured workflow.
+        // The task type. Valid values:
+        // - 0: Offline integration.
+        // - 1: Real-time integration.
+        // - 13: Data aggregation.
+        // - 14: Offline unstructured workflow.
+        // - 15: Real-time unstructured workflow.
         shared_ptr<int32_t> taskType_ {};
       };
 
@@ -272,15 +269,15 @@ namespace Models
 
 
     protected:
-      // The list of node information on the current page.
+      // The list of task information on the current page.
       shared_ptr<vector<Data::List>> list_ {};
-      // The cursor for the next page (an opaque cursor that the caller does not need to interpret). A null value indicates that there are no more pages. Otherwise, pass this value as the nextCursor parameter in the next request to retrieve the next page.
+      // The cursor for the next page in cursor-based pagination. This is an opaque cursor and does not need to be parsed. A value of null indicates that there are no more pages. Otherwise, pass this value as the nextCursor parameter in the next request to retrieve the next page.
       shared_ptr<int64_t> nextCursor_ {};
-      // The current page number, starting from 1.
+      // The current page number. Pages start from 1.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records that match the conditions. For the first page request, the actual total count is returned. For subsequent page requests (when nextCursor is passed in), if totalCount is included in the request, the same value is returned. Otherwise, this field is not returned. The total value is a snapshot taken at the time of the first page query and is not updated in real time as data changes during pagination.
+      // The total number of records that meet the query conditions.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -331,17 +328,17 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The paged query result.
+    // The paging query result.
     shared_ptr<ListPipelinesResponseBody::Data> data_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

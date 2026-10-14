@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the connectivity check task, which is the Data returned by CheckDataSourceConnectivityOnResourceGroup.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

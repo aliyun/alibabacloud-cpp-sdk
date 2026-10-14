@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
     // The request command.
     // 

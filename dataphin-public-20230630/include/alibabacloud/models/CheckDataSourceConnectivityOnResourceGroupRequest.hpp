@@ -97,7 +97,9 @@ namespace Models
 
 
       protected:
+        // The key of the configuration item.
         shared_ptr<string> key_ {};
+        // The configuration value.
         shared_ptr<string> value_ {};
       };
 
@@ -134,9 +136,13 @@ namespace Models
 
 
     protected:
+      // The connection configuration items. If DataSourceId is specified, this parameter is optional and the saved configurations of the data source are used by default.
       shared_ptr<vector<CheckCommand::ConfigItemList>> configItemList_ {};
+      // The data source ID. This parameter is optional. If specified, the check result is associated with the data source and visible on the data source page, and the old check records of the data source on the target resource group are cleared first. If Type and ConfigItemList are not specified, the saved type and configurations of the data source are used for the check.
       shared_ptr<string> dataSourceId_ {};
+      // The ID of the schedule resource group. The connectivity check task is executed on this resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The data source type. If DataSourceId is specified, this parameter is optional and the saved type of the data source is used by default.
       shared_ptr<string> type_ {};
     };
 
@@ -166,10 +172,15 @@ namespace Models
 
 
   protected:
+    // The check object.
+    // 
     // This parameter is required.
     shared_ptr<CheckDataSourceConnectivityOnResourceGroupRequest::CheckCommand> checkCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

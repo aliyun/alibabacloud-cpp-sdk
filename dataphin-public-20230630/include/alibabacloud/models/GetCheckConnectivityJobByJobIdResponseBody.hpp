@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The ID of the data source. This parameter is empty if the check is performed before creation.
       shared_ptr<string> dataSourceId_ {};
+      // The error message returned when the check fails.
       shared_ptr<string> errorMsg_ {};
+      // The ID of the connectivity check task.
       shared_ptr<string> jobId_ {};
+      // The job type.
       shared_ptr<string> jobType_ {};
+      // The job status. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
       shared_ptr<string> status_ {};
+      // The ID of the tenant to which the check task belongs.
       shared_ptr<string> tenantId_ {};
+      // The ID of the underlying execution task.
       shared_ptr<string> voldemortTaskId_ {};
     };
 
@@ -179,11 +186,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The connectivity check task.
     shared_ptr<GetCheckConnectivityJobByJobIdResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message of the request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

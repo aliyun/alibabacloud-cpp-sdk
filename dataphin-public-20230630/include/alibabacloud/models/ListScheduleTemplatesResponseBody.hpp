@@ -187,10 +187,15 @@ namespace Models
 
 
         protected:
+          // The end time of the effective period.
           shared_ptr<string> endTime_ {};
+          // The interval value.
           shared_ptr<int32_t> interval_ {};
+          // The interval unit.
           shared_ptr<string> intervalUnit_ {};
+          // The schedule period to which the interval belongs.
           shared_ptr<string> schedulePeriod_ {};
+          // The start time of the effective period.
           shared_ptr<string> startTime_ {};
         };
 
@@ -259,10 +264,15 @@ namespace Models
 
 
         protected:
+          // The end time of the effective period.
           shared_ptr<string> endTime_ {};
+          // The interval value.
           shared_ptr<int32_t> interval_ {};
+          // The interval unit.
           shared_ptr<string> intervalUnit_ {};
+          // The schedule period to which the interval belongs.
           shared_ptr<string> schedulePeriod_ {};
+          // The start time of the effective period.
           shared_ptr<string> startTime_ {};
         };
 
@@ -350,12 +360,22 @@ namespace Models
 
 
         protected:
+          // The name of the condition.
           shared_ptr<string> conditionName_ {};
+          // The cron expression used after the condition is met.
           shared_ptr<string> cronExpression_ {};
+          // Specifies whether the condition is enabled.
           shared_ptr<bool> enable_ {};
+          // Specifies whether to follow the main schedule parameter.
           shared_ptr<bool> followScheduleParam_ {};
+          // The node schedule status after the condition is met. Valid values:
+          // - 1: Normal.
+          // - 2: Paused.
+          // - 3: Dry run.
           shared_ptr<int32_t> nodeStatus_ {};
+          // The conditional expression tree as a JSON character string. The keys are in lower camel case and must be parsed by the caller.
           shared_ptr<string> scheduleConditionJson_ {};
+          // The schedule time used after the condition is met.
           shared_ptr<string> scheduleTime_ {};
         };
 
@@ -526,27 +546,49 @@ namespace Models
 
 
       protected:
+        // The condition-based schedule parameters. This parameter has a value only for condition-based schedule templates.
         shared_ptr<vector<ResultData::ConditionScheduleParamList>> conditionScheduleParamList_ {};
+        // The cron expression for automatic scheduling. Refer to Linux cron expressions.
         shared_ptr<string> cronExpression_ {};
+        // Specifies whether a custom cron expression is used.
         shared_ptr<bool> customCronExpression_ {};
+        // The custom schedule interval configuration. This configuration takes effect only when used together with CustomIntervalConfigType.
         shared_ptr<ResultData::CustomIntervalConfig> customIntervalConfig_ {};
+        // The type of the custom interval configuration. Valid values: TIME_POINT, TIME_PERIOD, CUSTOM_TIME_POINT, and CUSTOM_TIME_PERIOD.
         shared_ptr<string> customIntervalConfigType_ {};
+        // The custom schedule interval configurations. This parameter is valid only when CustomIntervalConfigType is set to CUSTOM_TIME_PERIOD.
         shared_ptr<vector<ResultData::CustomIntervalConfigs>> customIntervalConfigs_ {};
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The modification time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtModify_ {};
+        // Specifies whether the schedule template is referenced by a node.
         shared_ptr<bool> hasReference_ {};
+        // The ID of the modifier.
         shared_ptr<string> modifierId_ {};
+        // The name of the modifier.
         shared_ptr<string> modifierName_ {};
+        // The schedule interval type. Valid values: YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, and MINUTELY.
         shared_ptr<string> scheduleIntervalType_ {};
+        // The description of the schedule template.
         shared_ptr<string> scheduleTemplateDesc_ {};
+        // The ID of the schedule template, which is used to bind a schedule template when updating a node.
         shared_ptr<int64_t> scheduleTemplateId_ {};
+        // The name of the schedule template.
         shared_ptr<string> scheduleTemplateName_ {};
+        // The templatetype. Valid values: BASE_SCHEDULE_TEMPLATE: basic scheduling template, CONDITION_SCHEDULE_TEMPLATE: conditional scheduling template.
         shared_ptr<string> scheduleTemplateType_ {};
+        // The schedule type. Valid values: normal scheduling, dry run scheduling, and paused scheduling.
         shared_ptr<int32_t> scheduleType_ {};
+        // The ID of the tenant to which the schedule template belongs.
         shared_ptr<int64_t> tenantId_ {};
+        // The ID of the creator.
         shared_ptr<string> userId_ {};
+        // The name of the creator.
         shared_ptr<string> userName_ {};
+        // The end date of the effective period, in the yyyy-MM-dd format.
         shared_ptr<string> validEndDate_ {};
+        // The start date of the effective period, in the yyyy-MM-dd format.
         shared_ptr<string> validStartDate_ {};
       };
 
@@ -569,7 +611,9 @@ namespace Models
 
 
     protected:
+      // The total number of schedule templates that meet the specified conditions. This number is not limited by pagination.
       shared_ptr<int32_t> count_ {};
+      // The schedule templates.
       shared_ptr<vector<ListScheduleTemplatesResponse::ResultData>> resultData_ {};
     };
 
@@ -620,11 +664,17 @@ namespace Models
 
 
   protected:
+    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The schedule template list response.
     shared_ptr<ListScheduleTemplatesResponseBody::ListScheduleTemplatesResponse> listScheduleTemplatesResponse_ {};
+    // The error message of the request.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

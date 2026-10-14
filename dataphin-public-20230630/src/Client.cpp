@@ -756,7 +756,7 @@ BatchCreateKgRelationResponse Client::batchCreateKgRelation(const BatchCreateKgR
 }
 
 /**
- * @summary 批量交接资产。
+ * @summary Transfers assets in batches. Released in version 6.3.2.
  *
  * @param tmpReq BatchHandoverAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -803,7 +803,7 @@ BatchHandoverAssetResponse Client::batchHandoverAssetWithOptions(const BatchHand
 }
 
 /**
- * @summary 批量交接资产。
+ * @summary Transfers assets in batches. Released in version 6.3.2.
  *
  * @param request BatchHandoverAssetRequest
  * @return BatchHandoverAssetResponse
@@ -1030,9 +1030,9 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityById(
 }
 
 /**
- * @summary 在指定调度资源组上检查数据源连通性
+ * @summary Checks the connectivity of a data source on a specified schedule resource group. Available since version 6.3.2.
  *
- * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+ * @description Asynchronously initiates a data source connectivity check on a specified schedule resource group and immediately returns the check task ID in the Data field. You can poll the task result by calling GetCheckConnectivityJobByJobId. Difference from CheckDataSourceConnectivity: The check task of this operation is executed on the schedule resource group specified by the customer, which is applicable to scenarios where the network between the Dataphin server and the target data source is disconnected.
  *
  * @param tmpReq CheckDataSourceConnectivityOnResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1079,9 +1079,9 @@ CheckDataSourceConnectivityOnResourceGroupResponse Client::checkDataSourceConnec
 }
 
 /**
- * @summary 在指定调度资源组上检查数据源连通性
+ * @summary Checks the connectivity of a data source on a specified schedule resource group. Available since version 6.3.2.
  *
- * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+ * @description Asynchronously initiates a data source connectivity check on a specified schedule resource group and immediately returns the check task ID in the Data field. You can poll the task result by calling GetCheckConnectivityJobByJobId. Difference from CheckDataSourceConnectivity: The check task of this operation is executed on the schedule resource group specified by the customer, which is applicable to scenarios where the network between the Dataphin server and the target data source is disconnected.
  *
  * @param request CheckDataSourceConnectivityOnResourceGroupRequest
  * @return CheckDataSourceConnectivityOnResourceGroupResponse
@@ -6502,7 +6502,7 @@ GetAssetTypeAttributeCodesResponse Client::getAssetTypeAttributeCodes(const GetA
 }
 
 /**
- * @summary Retrieves the details of an offline compute node.
+ * @summary Retrieves the details of an offline computing task.
  *
  * @param request GetBatchTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6553,7 +6553,7 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfoWithOptions(const GetBatchTaskI
 }
 
 /**
- * @summary Retrieves the details of an offline compute node.
+ * @summary Retrieves the details of an offline computing task.
  *
  * @param request GetBatchTaskInfoRequest
  * @return GetBatchTaskInfoResponse
@@ -6564,7 +6564,7 @@ GetBatchTaskInfoResponse Client::getBatchTaskInfo(const GetBatchTaskInfoRequest 
 }
 
 /**
- * @summary Retrieves the details of a specific version of a batch task.
+ * @summary Retrieves the details of a specified version of an offline computing task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6611,7 +6611,7 @@ GetBatchTaskInfoByVersionResponse Client::getBatchTaskInfoByVersionWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a specific version of a batch task.
+ * @summary Retrieves the details of a specified version of an offline computing task.
  *
  * @param request GetBatchTaskInfoByVersionRequest
  * @return GetBatchTaskInfoByVersionResponse
@@ -7128,9 +7128,9 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetails(const GetCatalogAs
 }
 
 /**
- * @summary 按任务ID查询数据源连通性检查任务
+ * @summary Queries a data source connectivity check task by task ID. Available since version 6.3.2.
  *
- * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+ * @description Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
  *
  * @param request GetCheckConnectivityJobByJobIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7169,9 +7169,9 @@ GetCheckConnectivityJobByJobIdResponse Client::getCheckConnectivityJobByJobIdWit
 }
 
 /**
- * @summary 按任务ID查询数据源连通性检查任务
+ * @summary Queries a data source connectivity check task by task ID. Available since version 6.3.2.
  *
- * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+ * @description Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
  *
  * @param request GetCheckConnectivityJobByJobIdRequest
  * @return GetCheckConnectivityJobByJobIdResponse
@@ -11298,7 +11298,7 @@ GetServerVersionResponse Client::getServerVersion(const GetServerVersionRequest 
 }
 
 /**
- * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+ * @summary Retrieves the description and metadata of an integration source table, including the table description and field list. This operation supports three sources: project or compute source tables, direct query tables of data sources, and externally collected data sources. The query results are returned in real time. For external data sources, metadata collection must be completed first. Release version: v6.3.2.
  *
  * @param tmpReq GetSourceTableMetaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11353,7 +11353,7 @@ GetSourceTableMetaResponse Client::getSourceTableMetaWithOptions(const GetSource
 }
 
 /**
- * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+ * @summary Retrieves the description and metadata of an integration source table, including the table description and field list. This operation supports three sources: project or compute source tables, direct query tables of data sources, and externally collected data sources. The query results are returned in real time. For external data sources, metadata collection must be completed first. Release version: v6.3.2.
  *
  * @param request GetSourceTableMetaRequest
  * @return GetSourceTableMetaResponse
@@ -11936,7 +11936,7 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstance(const Ge
 }
 
 /**
- * @summary 查询表资产清单详情。
+ * @summary Queries the details of a table asset inventory. Release version: v6.3.2.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11975,7 +11975,7 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary 查询表资产清单详情。
+ * @summary Queries the details of a table asset inventory. Release version: v6.3.2.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -14940,7 +14940,7 @@ ListOperationRecordResponse Client::listOperationRecord(const ListOperationRecor
 }
 
 /**
- * @summary Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
+ * @summary Queries a list of tasks, including offline integration, real-time integration, and unstructured workflows (data ingestion, offline workflows, and real-time workflows). Supports multi-dimensional filtering by directory, keyword, task type, submit status, schedule type, owner, tag, and creator, and returns paginated results.
  *
  * @param tmpReq ListPipelinesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14995,7 +14995,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const ListPipelinesReques
 }
 
 /**
- * @summary Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
+ * @summary Queries a list of tasks, including offline integration, real-time integration, and unstructured workflows (data ingestion, offline workflows, and real-time workflows). Supports multi-dimensional filtering by directory, keyword, task type, submit status, schedule type, owner, tag, and creator, and returns paginated results.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -15826,7 +15826,7 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserId(const ListRo
 }
 
 /**
- * @summary 查询租户下的调度模板列表
+ * @summary Queries a list of scheduling templates. Supports fuzzy search by template name and pagination, and is used to select a scheduling template when updating a task. Release version: v6.3.2.
  *
  * @param tmpReq ListScheduleTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15873,7 +15873,7 @@ ListScheduleTemplatesResponse Client::listScheduleTemplatesWithOptions(const Lis
 }
 
 /**
- * @summary 查询租户下的调度模板列表
+ * @summary Queries a list of scheduling templates. Supports fuzzy search by template name and pagination, and is used to select a scheduling template when updating a task. Release version: v6.3.2.
  *
  * @param request ListScheduleTemplatesRequest
  * @return ListScheduleTemplatesResponse
@@ -16176,8 +16176,8 @@ ListSubmitRecordsResponse Client::listSubmitRecords(const ListSubmitRecordsReque
 }
 
 /**
- * @summary Performs a paged query to retrieve asset table metadata.
- * Online version: v5.4.2.
+ * @summary Queries the metadata of asset tables by page.
+ * Available in version v5.4.2.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16224,8 +16224,8 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary Performs a paged query to retrieve asset table metadata.
- * Online version: v5.4.2.
+ * @summary Queries the metadata of asset tables by page.
+ * Available in version v5.4.2.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -16294,12 +16294,12 @@ ListTenantMembersResponse Client::listTenantMembers(const ListTenantMembersReque
 }
 
 /**
- * @summary 获取租户角色列表
+ * @summary Retrieves the list of tenant roles. Release version: v6.3.2.
  *
- * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
- * - BUILD_IN：内置角色
- * - CUSTOM：自定义角色（即租户自定义创建的角色）
- * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+ * @description Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
+ * - BUILD_IN: built-in role
+ * - CUSTOM: custom role (created by the tenant)
+ * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
  *
  * @param request ListTenantRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16334,12 +16334,12 @@ ListTenantRolesResponse Client::listTenantRolesWithOptions(const ListTenantRoles
 }
 
 /**
- * @summary 获取租户角色列表
+ * @summary Retrieves the list of tenant roles. Release version: v6.3.2.
  *
- * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
- * - BUILD_IN：内置角色
- * - CUSTOM：自定义角色（即租户自定义创建的角色）
- * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+ * @description Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
+ * - BUILD_IN: built-in role
+ * - CUSTOM: custom role (created by the tenant)
+ * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
  *
  * @param request ListTenantRolesRequest
  * @return ListTenantRolesResponse
@@ -17970,7 +17970,7 @@ SearchKgBySemanticResponse Client::searchKgBySemantic(const SearchKgBySemanticRe
 }
 
 /**
- * @summary 启动增全量一体化实例。
+ * @summary Starts an integrated full and incremental instance. Release version: v6.3.2.
  *
  * @param tmpReq StartPipelineIntegratedTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18025,7 +18025,7 @@ StartPipelineIntegratedTaskResponse Client::startPipelineIntegratedTaskWithOptio
 }
 
 /**
- * @summary 启动增全量一体化实例。
+ * @summary Starts an integrated full and incremental instance. Release version: v6.3.2.
  *
  * @param request StartPipelineIntegratedTaskRequest
  * @return StartPipelineIntegratedTaskResponse
@@ -18090,7 +18090,7 @@ StopAdHocTaskResponse Client::stopAdHocTask(const StopAdHocTaskRequest &request)
 }
 
 /**
- * @summary 批量停止增全量一体化实例。
+ * @summary Stops multiple integrated incremental and full instances. Available since version v6.3.2.
  *
  * @param tmpReq StopPipelineIntegratedTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18145,7 +18145,7 @@ StopPipelineIntegratedTaskResponse Client::stopPipelineIntegratedTaskWithOptions
 }
 
 /**
- * @summary 批量停止增全量一体化实例。
+ * @summary Stops multiple integrated incremental and full instances. Available since version v6.3.2.
  *
  * @param request StopPipelineIntegratedTaskRequest
  * @return StopPipelineIntegratedTaskResponse
@@ -18576,11 +18576,11 @@ SyncDepartmentResponse Client::syncDepartment(const SyncDepartmentRequest &reque
 /**
  * @summary Synchronizes department member information.
  *
- * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
- * 使用说明：
- * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
- * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
- * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+ * @description Synchronizes the department mapping relationships of users. You can set departments for a specified user or clear all departments set for the user by passing an empty list for departmentIdList.
+ * Usage notes:
+ * - If departmentIdList is null (not passed): An error is returned directly to prevent the caller from accidentally clearing the data.
+ * - If departmentIdList is an empty list []: All department mappings corresponding to the sourceUserId are explicitly cleared.
+ * - If departmentIdList is a non-empty list: A full overwrite is performed. All old department mappings of the user are deleted first, and then the departments in the new list are inserted.
  *
  * @param tmpReq SyncDepartmentUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18629,11 +18629,11 @@ SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepar
 /**
  * @summary Synchronizes department member information.
  *
- * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
- * 使用说明：
- * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
- * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
- * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+ * @description Synchronizes the department mapping relationships of users. You can set departments for a specified user or clear all departments set for the user by passing an empty list for departmentIdList.
+ * Usage notes:
+ * - If departmentIdList is null (not passed): An error is returned directly to prevent the caller from accidentally clearing the data.
+ * - If departmentIdList is an empty list []: All department mappings corresponding to the sourceUserId are explicitly cleared.
+ * - If departmentIdList is a non-empty list: A full overwrite is performed. All old department mappings of the user are deleted first, and then the departments in the new list are inserted.
  *
  * @param request SyncDepartmentUserRequest
  * @return SyncDepartmentUserResponse
@@ -18876,7 +18876,7 @@ UpdateBasicProjectResponse Client::updateBasicProject(const UpdateBasicProjectRe
 }
 
 /**
- * @summary Updates an offline compute node.
+ * @summary Updates an offline computing task.
  *
  * @param tmpReq UpdateBatchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18923,7 +18923,7 @@ UpdateBatchTaskResponse Client::updateBatchTaskWithOptions(const UpdateBatchTask
 }
 
 /**
- * @summary Updates an offline compute node.
+ * @summary Updates an offline computing task.
  *
  * @param request UpdateBatchTaskRequest
  * @return UpdateBatchTaskResponse

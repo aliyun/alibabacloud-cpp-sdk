@@ -211,54 +211,35 @@ namespace Models
 
 
     protected:
-      // The list of creator user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
+      // The user IDs of the creators used for filtering. If this parameter is left empty, no filtering is performed. If multiple IDs are specified, they are evaluated by using the OR operator.
       shared_ptr<vector<string>> creatorList_ {};
-      // The list of development owner user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
+      // The user IDs of the development owners used for filtering. If this parameter is left empty, no filtering is performed. If multiple IDs are specified, they are evaluated by using the OR operator.
       shared_ptr<vector<string>> developOwnerList_ {};
-      // The list of full folder paths to query. If left empty, the root folder is queried.
+      // The full paths of the directories to query. If this parameter is left empty, the root directory is queried.
       shared_ptr<vector<string>> directories_ {};
-      // Specifies whether to use exact match for node names. Default value: false.
+      // Specifies whether an exact match is performed on the node name. Default value: false.
       shared_ptr<bool> exactMatch_ {};
-      // The list of node name keywords. This parameter is optional. If left empty, no filtering by name is applied. For exact match, specify full names. For fuzzy match, specify keywords. Multiple values are evaluated with an OR relationship.
+      // The keywords used to filter task names. This parameter is optional. If this parameter is left empty, tasks are not filtered by name. If exact match is enabled, this parameter specifies a list of full names. If fuzzy match is used, this parameter specifies a list of keywords. If multiple keywords are specified, they are evaluated by using the OR operator.
       shared_ptr<vector<string>> keywords_ {};
-      // The cursor-based pagination parameter (an opaque cursor that callers do not need to interpret). This parameter is optional. If not specified, the request is treated as a first-page request and returns the actual total count. If specified, the request is treated as a subsequent-page request. Pass the NextCursor value returned from the previous page as-is. The SQL layer automatically filters by incrementing ID to query the next page without re-querying the total count. No OFFSET is used throughout, which avoids performance degradation in deep paging scenarios.
+      // The cursor for the next page. Leave this parameter empty for the first page. For subsequent pages, pass the NextCursor value returned from the previous page.
       shared_ptr<int64_t> nextCursor_ {};
-      // The list of O&M owner user IDs for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
+      // The user IDs of the O&M owners used for filtering. If this parameter is left empty, no filtering is performed. If multiple IDs are specified, they are evaluated by using the OR operator.
       shared_ptr<vector<string>> opsOwnerList_ {};
-      // The page number. Default value: 1. Pages start from 1.
+      // The page number. Default value: 1. The value starts from 1.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of node types. Default value: [0] (batch integration). Valid values:
-      // 
-      // - 0: batch integration.
-      // - 1: real-time integration.
-      // - 13: data aggregation.
-      // - 14: offline unstructured workflow.
-      // - 15: real-time unstructured workflow.
-      // - 16: online unstructured workflow.
-      // 
-      // If null or an empty list is passed, the default value [0] is used.
+      // The task types. Default value: [0]. Valid values: 0: offline integration. 1: real-time integration. 13: data ingestion. 14: offline unstructured workflow. 15: real-time unstructured workflow. 16: online unstructured workflow. If you pass null or an empty list, the default value [0] is used.
       shared_ptr<vector<int32_t>> pipelineTypeList_ {};
-      // Specifies whether to recursively query subfolders. Default value: false.
+      // Specifies whether to recursively query subdirectories. Default value: false.
       shared_ptr<bool> recursive_ {};
-      // The list of scheduling types for filtering. If left empty, no filtering is applied. Valid values:
-      // 
-      // - 1: periodic scheduling.
-      // - 3: manual scheduling.
-      // - 5: real-time scheduling.
-      // - 7: online workflow.
+      // The schedule types used for filtering. If this parameter is left empty, no filtering is performed. Valid values: 1: periodic scheduling. 3: manual scheduling. 5: real-time scheduling. 7: online workflow.
       shared_ptr<vector<int32_t>> scheduleTypeList_ {};
-      // The list of submit statuses for filtering. If left empty, no filtering is applied. Valid values:
-      // 
-      // - DRAFT: draft.
-      // - SUBMITTING: submitting.
-      // - SUBMITTED: submitted.
-      // - PUBLISHED: published.
+      // The submit statuses used for filtering. If this parameter is left empty, no filtering is performed. Valid values: DRAFT: draft. SUBMITTING: submitting. SUBMITTED: submitted. PUBLISHED: published.
       shared_ptr<vector<string>> submitStatusList_ {};
-      // The list of label names for filtering. If left empty, no filtering is applied. Multiple values are evaluated with an OR relationship.
+      // The tag names used for filtering. If this parameter is left empty, no filtering is performed. If multiple names are specified, they are evaluated by using the OR operator.
       shared_ptr<vector<string>> tagList_ {};
-      // The total number of records for cursor-based pagination. This parameter is optional and takes effect only when NextCursor is not empty. After the first-page request returns the actual total count, pass this value back as-is for subsequent pages. The server does not re-query the total count and directly echoes the value, which avoids redundant count overhead. If not specified, the system falls back to querying one extra record to determine whether a next page exists.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -300,12 +281,7 @@ namespace Models
 
 
     protected:
-      // The environment identifier. Valid values:
-      // 
-      // - DEV: development environment.
-      // - PROD: production environment.
-      // 
-      // Default value: PROD.
+      // The environment identifier. Valid values: DEV: development environment. PROD: production environment. Default value: PROD.
       shared_ptr<string> env_ {};
       // The project ID.
       // 
@@ -360,7 +336,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The user ID of the operator.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

@@ -84,14 +84,9 @@ namespace Models
 
 
   protected:
-    // The environment identifier. Valid values:
-    // 
-    // - dev
-    // - prod
-    // 
-    // Default value: dev.
+    // The environment identifier. Valid values: dev and prod. Default value: dev.
     shared_ptr<string> env_ {};
-    // The node ID in the directory tree.
+    // The node ID in the task directory tree.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
@@ -103,7 +98,7 @@ namespace Models
     shared_ptr<int64_t> opTenantId_ {};
     // The ID of the operator.
     shared_ptr<string> opUserId_ {};
-    // The ID of the project to which the node belongs.
+    // The project to which the task belongs.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

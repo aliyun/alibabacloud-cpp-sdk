@@ -137,14 +137,27 @@ namespace Models
 
 
     protected:
+      // The bandwidth limit for the offline full task. Unit: MB/s.
       shared_ptr<int32_t> byteSpeed_ {};
+      // The specified time checkpoint for starting in pure incremental mode.
       shared_ptr<string> checkpoint_ {};
+      // The concurrency for the offline full task.
       shared_ptr<int32_t> concurrent_ {};
+      // The startup mode for the full table task. Valid values:
+      // - INIT
+      // - RELAY
       shared_ptr<string> fullTaskMode_ {};
+      // The incremental instance ID required when restarting the instance.
       shared_ptr<string> incrementalTaskId_ {};
+      // The memory for the offline full task. Unit: MB.
       shared_ptr<int32_t> memory_ {};
+      // The ID of the real-time node required when starting from a node.
       shared_ptr<string> nodeId_ {};
+      // The ID of the resource group used by the full table instance.
       shared_ptr<string> quotaGroupId_ {};
+      // The synchronization mode. Valid values:
+      // - DI_DF
+      // - DI
       shared_ptr<string> syncMode_ {};
     };
 
@@ -186,8 +199,14 @@ namespace Models
 
 
     protected:
+      // The current operating environment. Valid values:
+      // - DEV: Development environment.
+      // - PROD: Production environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline node belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -227,11 +246,18 @@ namespace Models
 
 
   protected:
+    // The request context.
+    // 
     // This parameter is required.
     shared_ptr<StartPipelineIntegratedTaskRequest::Context> context_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
+    // The startup parameters.
+    // 
     // This parameter is required.
     shared_ptr<StartPipelineIntegratedTaskRequest::StartCommand> startCommand_ {};
   };

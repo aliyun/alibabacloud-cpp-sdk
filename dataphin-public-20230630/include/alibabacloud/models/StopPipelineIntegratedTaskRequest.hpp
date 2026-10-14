@@ -66,6 +66,8 @@ namespace Models
 
 
     protected:
+      // The list of instance IDs of the incremental instances to stop.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> taskIds_ {};
     };
@@ -108,8 +110,12 @@ namespace Models
 
 
     protected:
+      // The current operating environment. Valid values: DEV: development environment. PROD: production environment.
+      // 
       // This parameter is required.
       shared_ptr<string> env_ {};
+      // The ID of the project to which the integration pipeline task belongs.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
     };
@@ -149,11 +155,18 @@ namespace Models
 
 
   protected:
+    // The request context information.
+    // 
     // This parameter is required.
     shared_ptr<StopPipelineIntegratedTaskRequest::Context> context_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
+    // The stop parameters.
+    // 
     // This parameter is required.
     shared_ptr<StopPipelineIntegratedTaskRequest::StopCommand> stopCommand_ {};
   };

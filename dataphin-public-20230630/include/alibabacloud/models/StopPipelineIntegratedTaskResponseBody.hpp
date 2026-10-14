@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // The job name.
         shared_ptr<string> jobName_ {};
+        // The job owner.
         shared_ptr<string> owner_ {};
+        // The operation status.
         shared_ptr<string> status_ {};
       };
 
@@ -141,8 +144,11 @@ namespace Models
 
 
     protected:
+      // The stop results for each instance.
       shared_ptr<vector<Data::DevOpsActionResDTOList>> devOpsActionResDTOList_ {};
+      // The number of failed stops.
       shared_ptr<int64_t> fail_ {};
+      // The number of successful stops.
       shared_ptr<int64_t> success_ {};
     };
 
@@ -193,11 +199,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The batch results of stopping integrated incremental and full instances.
     shared_ptr<StopPipelineIntegratedTaskResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

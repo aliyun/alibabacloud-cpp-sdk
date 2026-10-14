@@ -72,6 +72,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(Published, published_);
+        DARABONBA_PTR_TO_JSON(PythonModuleList, pythonModuleList_);
+        DARABONBA_PTR_TO_JSON(PythonVersion, pythonVersion_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(Rerunable, rerunable_);
         DARABONBA_PTR_TO_JSON(SchedulePeriod, schedulePeriod_);
@@ -111,6 +113,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(Published, published_);
+        DARABONBA_PTR_FROM_JSON(PythonModuleList, pythonModuleList_);
+        DARABONBA_PTR_FROM_JSON(PythonVersion, pythonVersion_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(Rerunable, rerunable_);
         DARABONBA_PTR_FROM_JSON(SchedulePeriod, schedulePeriod_);
@@ -305,27 +309,31 @@ namespace Models
       protected:
         // The dependency period.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
-        // The dependency strategy. Valid values: ALL, FIRST, LAST, NEAR.
+        // The dependency strategy. Valid values:
+        // - ALL
+        // - FIRST
+        // - LAST
+        // - NEAR
         shared_ptr<string> dependStrategy_ {};
-        // The dependent logical table fields.
+        // The fields of the dependent logical table.
         shared_ptr<vector<string>> fieldList_ {};
-        // The type of the upstream dependency node. Valid values:
-        // - PHYSICAL: physical node.
-        // - LOGICAL: logical table dependency.
+        // The node type of the upstream dependency. Valid values:
+        // - PHYSICAL: Physical node.
+        // - LOGICAL: Logical table dependency.
         shared_ptr<string> nodeType_ {};
-        // The period difference. A value of 0 indicates a same-cycle dependency. A positive number indicates a dependency on the previous N cycles.
+        // The period difference. A value of 0 indicates a same-period dependency. A positive integer indicates a dependency on the previous N periods.
         shared_ptr<int32_t> periodDiff_ {};
         // Indicates whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
-        // The upstream node ID.
+        // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
-        // The upstream node name.
+        // The name of the upstream node.
         shared_ptr<string> sourceNodeName_ {};
         // The output name of the upstream node.
         shared_ptr<string> sourceNodeOutputName_ {};
-        // The username of the upstream node owner.
+        // The upstream username.
         shared_ptr<string> sourceNodeUserName_ {};
-        // The input table name.
+        // The name of the input table.
         shared_ptr<string> sourceTableName_ {};
       };
 
@@ -357,8 +365,74 @@ namespace Models
 
 
       protected:
-        // The Spark client version name.
+        // The name of the Spark client.
         shared_ptr<string> sparkClientVersion_ {};
+      };
+
+      class PythonModuleList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PythonModuleList& obj) { 
+          DARABONBA_PTR_TO_JSON(ModuleId, moduleId_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(PythonVersion, pythonVersion_);
+          DARABONBA_PTR_TO_JSON(Version, version_);
+        };
+        friend void from_json(const Darabonba::Json& j, PythonModuleList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ModuleId, moduleId_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(PythonVersion, pythonVersion_);
+          DARABONBA_PTR_FROM_JSON(Version, version_);
+        };
+        PythonModuleList() = default ;
+        PythonModuleList(const PythonModuleList &) = default ;
+        PythonModuleList(PythonModuleList &&) = default ;
+        PythonModuleList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PythonModuleList() = default ;
+        PythonModuleList& operator=(const PythonModuleList &) = default ;
+        PythonModuleList& operator=(PythonModuleList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->moduleId_ == nullptr
+        && this->name_ == nullptr && this->pythonVersion_ == nullptr && this->version_ == nullptr; };
+        // moduleId Field Functions 
+        bool hasModuleId() const { return this->moduleId_ != nullptr;};
+        void deleteModuleId() { this->moduleId_ = nullptr;};
+        inline int64_t getModuleId() const { DARABONBA_PTR_GET_DEFAULT(moduleId_, 0L) };
+        inline PythonModuleList& setModuleId(int64_t moduleId) { DARABONBA_PTR_SET_VALUE(moduleId_, moduleId) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline PythonModuleList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // pythonVersion Field Functions 
+        bool hasPythonVersion() const { return this->pythonVersion_ != nullptr;};
+        void deletePythonVersion() { this->pythonVersion_ = nullptr;};
+        inline string getPythonVersion() const { DARABONBA_PTR_GET_DEFAULT(pythonVersion_, "") };
+        inline PythonModuleList& setPythonVersion(string pythonVersion) { DARABONBA_PTR_SET_VALUE(pythonVersion_, pythonVersion) };
+
+
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline PythonModuleList& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+      protected:
+        // The ID of the third-party package.
+        shared_ptr<int64_t> moduleId_ {};
+        // The name of the third-party package.
+        shared_ptr<string> name_ {};
+        // The Python version that the third-party package depends on.
+        shared_ptr<string> pythonVersion_ {};
+        // The version number of the third-party package.
+        shared_ptr<string> version_ {};
       };
 
       class ParamList : public Darabonba::Model {
@@ -399,9 +473,9 @@ namespace Models
 
 
       protected:
-        // The parameter name.
+        // The name of the parameter.
         shared_ptr<string> key_ {};
-        // The parameter value.
+        // The value of the parameter.
         shared_ptr<string> value_ {};
       };
 
@@ -470,15 +544,15 @@ namespace Models
 
 
       protected:
-        // The end time in the format of HH:mm.
+        // The end time in the HH:mm format.
         shared_ptr<string> endTime_ {};
         // The custom interval.
         shared_ptr<int32_t> interval_ {};
-        // The interval unit. Valid values: MINUTE, HOUR.
+        // The unit of the interval. Valid values: MINUTE and HOUR.
         shared_ptr<string> intervalUnit_ {};
         // The scheduling period.
         shared_ptr<string> schedulePeriod_ {};
-        // The start time in the format of HH:mm.
+        // The start time in the HH:mm format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -488,9 +562,9 @@ namespace Models
         && this->name_ == nullptr && this->needPublish_ == nullptr && this->nodeDescription_ == nullptr && this->nodeFrom_ == nullptr && this->nodeId_ == nullptr
         && this->nodeName_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->operatorUserId_ == nullptr && this->opsOwnerIdList_ == nullptr
         && this->opsOwnerNameList_ == nullptr && this->ownerName_ == nullptr && this->ownerUserId_ == nullptr && this->paramList_ == nullptr && this->paused_ == nullptr
-        && this->priority_ == nullptr && this->projectId_ == nullptr && this->published_ == nullptr && this->remark_ == nullptr && this->rerunable_ == nullptr
-        && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr && this->status_ == nullptr && this->taskType_ == nullptr
-        && this->upStreamList_ == nullptr; };
+        && this->priority_ == nullptr && this->projectId_ == nullptr && this->published_ == nullptr && this->pythonModuleList_ == nullptr && this->pythonVersion_ == nullptr
+        && this->remark_ == nullptr && this->rerunable_ == nullptr && this->schedulePeriod_ == nullptr && this->scheduleType_ == nullptr && this->sparkClientInfo_ == nullptr
+        && this->status_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
@@ -708,6 +782,22 @@ namespace Models
       inline TaskInfo& setPublished(bool published) { DARABONBA_PTR_SET_VALUE(published_, published) };
 
 
+      // pythonModuleList Field Functions 
+      bool hasPythonModuleList() const { return this->pythonModuleList_ != nullptr;};
+      void deletePythonModuleList() { this->pythonModuleList_ = nullptr;};
+      inline const vector<TaskInfo::PythonModuleList> & getPythonModuleList() const { DARABONBA_PTR_GET_CONST(pythonModuleList_, vector<TaskInfo::PythonModuleList>) };
+      inline vector<TaskInfo::PythonModuleList> getPythonModuleList() { DARABONBA_PTR_GET(pythonModuleList_, vector<TaskInfo::PythonModuleList>) };
+      inline TaskInfo& setPythonModuleList(const vector<TaskInfo::PythonModuleList> & pythonModuleList) { DARABONBA_PTR_SET_VALUE(pythonModuleList_, pythonModuleList) };
+      inline TaskInfo& setPythonModuleList(vector<TaskInfo::PythonModuleList> && pythonModuleList) { DARABONBA_PTR_SET_RVALUE(pythonModuleList_, pythonModuleList) };
+
+
+      // pythonVersion Field Functions 
+      bool hasPythonVersion() const { return this->pythonVersion_ != nullptr;};
+      void deletePythonVersion() { this->pythonVersion_ = nullptr;};
+      inline string getPythonVersion() const { DARABONBA_PTR_GET_DEFAULT(pythonVersion_, "") };
+      inline TaskInfo& setPythonVersion(string pythonVersion) { DARABONBA_PTR_SET_VALUE(pythonVersion_, pythonVersion) };
+
+
       // remark Field Functions 
       bool hasRemark() const { return this->remark_ != nullptr;};
       void deleteRemark() { this->remark_ = nullptr;};
@@ -769,52 +859,49 @@ namespace Models
 
 
     protected:
-      // The task code.
+      // The code of the task.
       shared_ptr<string> code_ {};
-      // The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+      // The cron expression for automatic scheduling. You can refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
       // The custom scheduling interval configuration.
       shared_ptr<TaskInfo::CustomScheduleConfig> customScheduleConfig_ {};
       // The ID of the DAG to which the task belongs.
       shared_ptr<string> dagId_ {};
-      // The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+      // The catalog of the data source. This parameter takes effect only for database SQL tasks and data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The data source ID for database SQL nodes.
+      // The ID of the data source for the database SQL task.
       shared_ptr<string> dataSourceId_ {};
-      // The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+      // The schema of the data source. This parameter takes effect only for database SQL tasks and data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
-      // The list of development owner IDs.
+      // The IDs of the developers.
       shared_ptr<vector<string>> developOwnerIdList_ {};
-      // The list of development owner names.
+      // The names of the developers.
       shared_ptr<vector<string>> developOwnerNameList_ {};
-      // The node ID in the directory tree.
+      // The node ID of the task directory tree.
       shared_ptr<int64_t> fileId_ {};
-      // Indicates whether the task has a development environment node.
+      // Indicates whether a development environment node exists.
       shared_ptr<bool> hasDevNode_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> name_ {};
       // Indicates whether the task needs to be published.
       shared_ptr<bool> needPublish_ {};
-      // The task description.
+      // The description of the task.
       shared_ptr<string> nodeDescription_ {};
-      // The source of the node, indicating the organization or application that created the node.
+      // The source of the node. This indicates the organization or application that created the node.
       shared_ptr<string> nodeFrom_ {};
-      // The node ID.
+      // The ID of the node.
       shared_ptr<string> nodeId_ {};
-      // The node name.
+      // The name of the node.
       shared_ptr<string> nodeName_ {};
-      // The list of node output names.
+      // The output names of the node.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
-      // The node status. Valid values:
-      // - 1: Normal.
-      // - 2: Paused.
-      // - 3: Dry run.
+      // The status of the node. Valid values: 1 (Normal), 2 (Paused), and 3 (Dry run).
       shared_ptr<int32_t> nodeStatus_ {};
-      // The user ID of the current operator.
+      // The ID of the user who performs the current operation.
       shared_ptr<string> operatorUserId_ {};
-      // The list of O&M owner IDs.
+      // The IDs of the O&M owners.
       shared_ptr<vector<string>> opsOwnerIdList_ {};
-      // The list of O&M owner names.
+      // The names of the O&M owners.
       shared_ptr<vector<string>> opsOwnerNameList_ {};
       // The name of the node owner.
       shared_ptr<string> ownerName_ {};
@@ -822,38 +909,42 @@ namespace Models
       shared_ptr<string> ownerUserId_ {};
       // The list of custom parameters for the node.
       shared_ptr<vector<TaskInfo::ParamList>> paramList_ {};
-      // Indicates whether the node is paused for scheduling.
+      // Indicates whether the scheduling of the node is paused.
       shared_ptr<bool> paused_ {};
-      // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
+      // The scheduling priority of the task. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
-      // The project ID.
+      // The ID of the project.
       shared_ptr<int64_t> projectId_ {};
-      // Indicates whether the task is published.
+      // Indicates whether the node is published.
       shared_ptr<bool> published_ {};
-      // The remarks.
+      // The list of third-party packages that the Python task depends on.
+      shared_ptr<vector<TaskInfo::PythonModuleList>> pythonModuleList_ {};
+      // The Python version of the Python task, such as Python 3.7.
+      shared_ptr<string> pythonVersion_ {};
+      // The remark.
       shared_ptr<string> remark_ {};
-      // Indicates whether the node can be rerun.
+      // Indicates whether the task can be rerun.
       shared_ptr<bool> rerunable_ {};
       // The scheduling period. Valid values:
-      // - YEARLY
-      // - MONTHLY
-      // - WEEKLY
-      // - DAILY
-      // - HOURLY
-      // - MINUTELY
+      // - YEARLY: Yearly.
+      // - MONTHLY: Monthly.
+      // - WEEKLY: Weekly.
+      // - DAILY: Daily.
+      // - HOURLY: Hourly.
+      // - MINUTELY: Minutely.
       shared_ptr<string> schedulePeriod_ {};
       // The node type. Valid values:
-      // - 1: periodic node.
-      // - 3: manual node.
+      // - 1: Periodic task.
+      // - 3: Manual task.
       shared_ptr<int32_t> scheduleType_ {};
-      // The Spark client information.
+      // The Spark client.
       shared_ptr<TaskInfo::SparkClientInfo> sparkClientInfo_ {};
-      // The submit status. Valid values:
-      // - 0: draft.
-      // - 1: submitted.
-      // - 100: in development.
+      // The publish status. Valid values:
+      // - 0: Draft.
+      // - 1: Submitted.
+      // - 100: In development.
       shared_ptr<string> status_ {};
-      // The task type. For more information, refer to the API operation for creating batch tasks.
+      // The task type. For more information, see the API operation for creating an offline computing task.
       shared_ptr<int32_t> taskType_ {};
       // The upstream dependencies.
       shared_ptr<vector<TaskInfo::UpStreamList>> upStreamList_ {};
@@ -906,15 +997,15 @@ namespace Models
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The error code of the request. A value of OK indicates that the request is successful.
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message of the request.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The task details.
     shared_ptr<GetBatchTaskInfoByVersionResponseBody::TaskInfo> taskInfo_ {};

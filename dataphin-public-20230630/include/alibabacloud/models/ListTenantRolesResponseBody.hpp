@@ -170,17 +170,34 @@ namespace Models
 
 
     protected:
+      // The JSON string of the permission set.
       shared_ptr<string> authJson_ {};
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The user ID of the modifier.
       shared_ptr<string> modifier_ {};
+      // The role description.
       shared_ptr<string> roleDesc_ {};
+      // The role key.
       shared_ptr<string> roleKey_ {};
+      // The role name.
       shared_ptr<string> roleName_ {};
+      // The role type. Valid values:
+      // - BUILD_IN: built-in role
+      // - CUSTOM: custom role
       shared_ptr<string> roleType_ {};
+      // The role status. Valid values:
+      // - ON: enabled
+      // - OFF: disabled
+      // - DEL: deleted
       shared_ptr<string> status_ {};
+      // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
+      // The tenant type.
       shared_ptr<string> tenantType_ {};
     };
 
@@ -231,11 +248,17 @@ namespace Models
 
 
   protected:
+    // The request error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code of the backend response.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message of the request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role list.
     shared_ptr<vector<ListTenantRolesResponseBody::RoleList>> roleList_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

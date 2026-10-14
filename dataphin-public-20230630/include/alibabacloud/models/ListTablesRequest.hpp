@@ -110,15 +110,29 @@ namespace Models
 
 
     protected:
-      // The asset catalog, such as the project name or business unit name.
+      // The asset catalog: project name and business unit name.
       shared_ptr<string> catalog_ {};
-      // The keyword for searching. Table names are supported.
+      // The supported keyword: table name.
       shared_ptr<string> keyword_ {};
+      // The ID of the owner.
       shared_ptr<string> ownerId_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
-      // The number of records per page. Default value: 20.
+      // The number of entries per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The table types. If you do not specify this parameter or pass an empty list, all table types are queried. Valid values:
+      // - PHYSICAL_TABLE: Physical table of the compute source.
+      // - PHYSICAL_VIEW: View of the compute source.
+      // - PHYSICAL_MATERIALIZED_VIEW: Materialized view of the compute source.
+      // - STREAM_TABLE: Meta table.
+      // - MIRROR_TABLE: Mirror table.
+      // - DIM: Logical dimension table.
+      // - FACT: Logical fact table.
+      // - SUM_BIZ_UNIT: Logical aggregate table.
+      // - LOGIC_VIEW: Logical view.
+      // - DATASOURCE_TABLE: Data source table.
+      // - DATASOURCE_VIEW: Data source view.
+      // - DATASOURCE_MATERIALIZED_VIEW: Data source materialized view.
       shared_ptr<vector<string>> subTypes_ {};
     };
 
@@ -154,6 +168,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

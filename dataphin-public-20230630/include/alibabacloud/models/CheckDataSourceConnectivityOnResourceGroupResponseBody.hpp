@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The error code of the request. A value of OK indicates that the request is normal.
     shared_ptr<string> code_ {};
+    // The ID of the connectivity check task. You can poll the task result by calling GetCheckConnectivityJobByJobId.
     shared_ptr<string> data_ {};
+    // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message of the request.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

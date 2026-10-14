@@ -192,13 +192,13 @@ namespace Models
 
 
         protected:
-          // The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
+          // The cycle offset. This parameter is required when the PeriodType parameter is set to LAST_N_PERIOD.
           shared_ptr<int32_t> periodOffset_ {};
-          // The type of the dependency period. Valid values:
-          // - CURRENT_PERIOD: current period.
-          // - LAST_PERIOD: previous period.
-          // - LAST_N_PERIOD: last N days.
-          // - LAST_24_HOUR: last 24 hours.
+          // The type of the dependency cycle. Valid values:
+          // - CURRENT_PERIOD: Current cycle.
+          // - LAST_PERIOD: Last cycle.
+          // - LAST_N_PERIOD: Last N days.
+          // - LAST_24_HOUR: Last 24 hours.
           // 
           // This parameter is required.
           shared_ptr<string> periodType_ {};
@@ -275,25 +275,25 @@ namespace Models
 
 
       protected:
-        // The dependency period.
+        // The dependency cycle.
         shared_ptr<UpStreamList::DependPeriod> dependPeriod_ {};
         // The dependency strategy. Valid values:
-        // - ALL: all.
-        // - FIRST: first.
-        // - LAST: last.
-        // - NEAR: nearest.
+        // - ALL: All.
+        // - FIRST: First.
+        // - LAST: Last.
+        // - NEAR: Nearest.
         shared_ptr<string> dependStrategy_ {};
-        // The fields of the dependent logical table.
+        // The list of dependent logical table fields.
         shared_ptr<vector<string>> fieldList_ {};
         // The type of the upstream dependency node. Valid values:
-        // - PHYSICAL: physical node.
-        // - LOGICAL: logical table dependency.
+        // - PHYSICAL: Physical node.
+        // - LOGICAL: Logical table dependency.
         shared_ptr<string> nodeType_ {};
-        // The period difference. A value of 0 indicates same-period dependency. A positive number indicates dependency on the previous N periods.
+        // The cycle difference. A value of 0 indicates a dependency on the same cycle. A positive integer indicates a dependency on the previous N cycles.
         // 
         // This parameter is required.
         shared_ptr<int32_t> periodDiff_ {};
-        // Indicates whether the upstream node is enabled.
+        // Specifies whether the upstream node is enabled.
         shared_ptr<bool> sourceNodeEnabled_ {};
         // The ID of the upstream node.
         shared_ptr<string> sourceNodeId_ {};
@@ -381,7 +381,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> key_ {};
-        // The parameter value.
+        // The value of the parameter.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
@@ -452,7 +452,7 @@ namespace Models
 
 
       protected:
-        // The end time in the format of HH:mm.
+        // The end time in the HH:mm format.
         // 
         // This parameter is required.
         shared_ptr<string> endTime_ {};
@@ -461,22 +461,22 @@ namespace Models
         // This parameter is required.
         shared_ptr<int32_t> interval_ {};
         // The interval unit. Valid values:
-        // - MINUTE: minute.
-        // - HOUR: hour.
+        // - MINUTE: Minutes.
+        // - HOUR: Hours.
         // 
         // This parameter is required.
         shared_ptr<string> intervalUnit_ {};
         // The schedule period. Valid values:
-        // - YEARLY
-        // - MONTHLY
-        // - WEEKLY
-        // - DAILY
-        // - HOURLY
-        // - MINUTELY
+        // - YEARLY: Yearly.
+        // - MONTHLY: Monthly.
+        // - WEEKLY: Weekly.
+        // - DAILY: Daily.
+        // - HOURLY: Hourly.
+        // - MINUTELY: Minutely.
         // 
         // This parameter is required.
         shared_ptr<string> schedulePeriod_ {};
-        // The start time in the format of HH:mm.
+        // The start time in the HH:mm format.
         // 
         // This parameter is required.
         shared_ptr<string> startTime_ {};
@@ -529,8 +529,11 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<string> defaultValue_ {};
+        // The parameter description.
         shared_ptr<string> desc_ {};
+        // The parameter name.
         shared_ptr<string> paramKey_ {};
       };
 
@@ -618,12 +621,22 @@ namespace Models
 
 
       protected:
+        // The condition name.
         shared_ptr<string> conditionName_ {};
+        // The cron expression used after the condition is met.
         shared_ptr<string> cronExpression_ {};
+        // Specifies whether to enable the condition.
         shared_ptr<bool> enable_ {};
+        // Specifies whether to follow the primary schedule parameter.
         shared_ptr<bool> followScheduleParam_ {};
+        // The node schedule status after the condition is met. Valid values:
+        // - 1: Normal.
+        // - 2: Paused.
+        // - 3: Dry run.
         shared_ptr<int32_t> nodeStatus_ {};
+        // The JSON string of the conditional expression tree. The keys are in lower camel case characters and must be parsed by the invoker.
         shared_ptr<string> scheduleConditionJson_ {};
+        // The schedule time used after the condition is met.
         shared_ptr<string> scheduleTime_ {};
       };
 
@@ -896,39 +909,46 @@ namespace Models
 
 
     protected:
+      // The base schedule template ID. This parameter takes effect when the configuration method is set to schedule template. If this parameter and all other schedule fields are not specified, the original binding is retained.
       shared_ptr<int64_t> baseScheduleTemplateId_ {};
-      // The code of the node.
+      // The task code.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // Specifies whether to enable conditional scheduling.
       shared_ptr<bool> conditionScheduleEnable_ {};
+      // The conditional scheduling configuration details. This parameter overwrites the existing configurations. If this parameter is not specified, the original configurations are retained. This parameter is supported only for periodic tasks.
       shared_ptr<vector<UpdateCommand::ConditionScheduleParamList>> conditionScheduleParamList_ {};
+      // The conditional schedule template ID.
       shared_ptr<int64_t> conditionScheduleTemplateId_ {};
+      // The cross-node parameters. These are output parameters declared by the current node for downstream nodes to reference. This parameter overwrites the existing parameters. If this parameter is not specified, the original parameters are retained.
       shared_ptr<vector<UpdateCommand::ContextParamList>> contextParamList_ {};
-      // The cron expression for automatic scheduling. Refer to Linux cron expressions.
+      // The cron expression for automatic scheduling. You can refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
       // The custom schedule interval configuration.
       shared_ptr<UpdateCommand::CustomScheduleConfig> customScheduleConfig_ {};
-      // The catalog for database SQL nodes. This parameter applies only to datasource types that require a catalog, such as Presto.
+      // The data source catalog for database SQL tasks. This parameter takes effect only for data source types that require a catalog, such as Presto.
       shared_ptr<string> dataSourceCatalog_ {};
-      // The datasource ID for database SQL nodes.
+      // The data source ID for database SQL tasks.
       shared_ptr<string> dataSourceId_ {};
-      // The schema for database SQL nodes. This parameter applies only to datasource types that require a schema, such as Oracle.
+      // The data source schema for database SQL tasks. This parameter takes effect only for data source types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      // The HTTP path in the development environment for Databricks tasks.
       shared_ptr<string> devHttpPath_ {};
+      // The ID of the schedule resource group for development tasks.
       shared_ptr<string> devResourceGroupId_ {};
       // The list of development owner IDs.
       shared_ptr<vector<string>> developOwnerIdList_ {};
-      // The execution engine for the node, such as for Python nodes. Valid values:
-      // - PYTHON2_7
-      // - PYTHON3_7
-      // - PYTHON3_11
+      // The task execution engine, such as Python tasks. Valid values:
+      // - PYTHON2_7: Python 2.7.
+      // - PYTHON3_7: Python 3.7.
+      // - PYTHON3_11: Python 3.11.
       shared_ptr<string> engine_ {};
-      // The node ID in the folder tree.
+      // The ID of the task directory tree node.
       // 
       // This parameter is required.
       shared_ptr<int64_t> fileId_ {};
-      // The name of the offline node.
+      // The name of the offline task.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
@@ -936,46 +956,52 @@ namespace Models
       shared_ptr<string> nodeDescription_ {};
       // The list of node output names.
       shared_ptr<vector<string>> nodeOutputNameList_ {};
-      // The node status. Valid values:
+      // The status of the node. Valid values:
       // - 1: Normal.
       // - 2: Paused.
       // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
+      // The list of O&M owner IDs. If you do not specify this parameter, the O&M owners are not modified.
       shared_ptr<vector<string>> opsOwnerIdList_ {};
       // The list of custom parameters.
       shared_ptr<vector<UpdateCommand::ParamList>> paramList_ {};
       // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
+      // The HTTP path in the production environment. This parameter is used for Databricks nodes.
       shared_ptr<string> prodHttpPath_ {};
       // The ID of the project to which the node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
-      // The third-party Python packages required by the node.
+      // The list of third-party Python packages on which the node depends.
       shared_ptr<vector<string>> pythonModuleList_ {};
+      // The ID of the scheduling resource group for the production node.
       shared_ptr<string> resourceGroupId_ {};
-      // The schedule period. Valid values:
-      // - YEARLY
-      // - MONTHLY
-      // - WEEKLY
-      // - DAILY
-      // - HOURLY
-      // - MINUTELY
+      // The scheduling cycle. Valid values:
+      // - YEARLY: Yearly.
+      // - MONTHLY: Monthly.
+      // - WEEKLY: Weekly.
+      // - DAILY: Daily.
+      // - HOURLY: Hourly.
+      // - MINUTELY: Minutely.
       shared_ptr<string> schedulePeriod_ {};
-      // The Spark client information.
+      // The Spark client.
       shared_ptr<UpdateCommand::SparkClientInfo> sparkClientInfo_ {};
+      // The list of node tags. This parameter overwrites all existing tags. If you do not specify this parameter, the original tags remain unchanged.
       shared_ptr<vector<string>> taskTagList_ {};
-      // The node type. Valid values:
-      // - 1: Hive_SQL.
-      // - 5: MaxCompute_SQL.
+      // The type of the node. Valid values:
+      // - 1: Hive SQL.
+      // - 5: MaxCompute SQL.
       // - 10: Shell.
       // - 21: Python.
       // 
       // This parameter is required.
       shared_ptr<int32_t> taskType_ {};
-      // The upstream dependencies.
+      // The list of upstream dependencies.
       shared_ptr<vector<UpdateCommand::UpStreamList>> upStreamList_ {};
+      // The end date of the validity period. Format: yyyy-MM-dd. This parameter must be specified together with the ValidStartDate parameter.
       shared_ptr<string> validEndDate_ {};
+      // The start date of the validity period. Format: yyyy-MM-dd. This parameter must be specified together with the ValidEndDate parameter.
       shared_ptr<string> validStartDate_ {};
     };
 
@@ -1009,7 +1035,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID of the operator user.
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
     // The update request.
     // 

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The query conditions for the scheduling template list. This is a JSON object that supports keyword search and pagination.
+    // 
     // This parameter is required.
     shared_ptr<string> listScheduleTemplatesCommandShrink_ {};
+    // The tenant ID, which indicates the tenant for the current operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

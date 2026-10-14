@@ -89,9 +89,16 @@ namespace Models
 
 
     protected:
+      // The keyword for fuzzy matching by template name. If this parameter is empty or not specified, no filtering is applied.
       shared_ptr<string> keyword_ {};
+      // The page number. Pages start from 1. Default value: 1.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page. Default value: 50. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The scheduling templatetype. Valid values:
+      // - BASE_SCHEDULE_TEMPLATE: basic scheduling template
+      // - CONDITION_SCHEDULE_TEMPLATE: conditional scheduling template
+      // If this parameter is not specified, all types are returned.
       shared_ptr<string> scheduleTemplateType_ {};
     };
 
@@ -121,10 +128,15 @@ namespace Models
 
 
   protected:
+    // The query conditions for the scheduling template list. This is a JSON object that supports keyword search and pagination.
+    // 
     // This parameter is required.
     shared_ptr<ListScheduleTemplatesRequest::ListScheduleTemplatesCommand> listScheduleTemplatesCommand_ {};
+    // The tenant ID, which indicates the tenant for the current operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the user who performs the operation.
     shared_ptr<string> opUserId_ {};
   };
 

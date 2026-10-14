@@ -415,35 +415,33 @@ namespace Models
       protected:
         // The asset inventory tags.
         shared_ptr<vector<string>> assetTagList_ {};
-        // The ID of the business unit.
+        // The business unit ID.
         shared_ptr<int64_t> bizUnitId_ {};
-        // The name of the business unit.
+        // The business unit name.
         shared_ptr<string> bizUnitName_ {};
-        // The comment of the table.
+        // The table comment.
         shared_ptr<string> comment_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
-        // The ID of the creator.
+        // The creator ID.
         shared_ptr<string> creator_ {};
-        // The ID of the data domain.
+        // The data domain ID.
         shared_ptr<int64_t> dataDomainId_ {};
-        // The name of the data domain.
+        // The subject area name.
         shared_ptr<string> dataDomainName_ {};
-        // The ID of the data source.
+        // The data source ID.
         shared_ptr<int64_t> dataSourceId_ {};
-        // The display name of the table.
+        // The table display name.
         shared_ptr<string> displayName_ {};
-        // The environment. Valid values:
-        // - dev
-        // - prod.
+        // The environment. Valid values: dev and prod.
         shared_ptr<string> env_ {};
-        // The file ID. This value is used to navigate to the ODM model.
+        // The file ID used to navigate to the ODM model.
         shared_ptr<string> fileId_ {};
-        // The GUID of the table.
+        // The table GUID.
         shared_ptr<string> guid_ {};
-        // Indicates whether the project or business version to which the table belongs is in Basic mode.
+        // Specifies whether the project or business version to which the table belongs is in Basic mode.
         shared_ptr<bool> isBasicMode_ {};
-        // Indicates whether the table is a partitioned table.
+        // Specifies whether the table is a partitioned table.
         shared_ptr<bool> isPartitionTable_ {};
         // The time when the table DDL was last modified.
         shared_ptr<string> lastDdlTime_ {};
@@ -453,27 +451,25 @@ namespace Models
         shared_ptr<string> lastQueryTime_ {};
         // The lifecycle of the table, in days.
         shared_ptr<int64_t> lifeCycle_ {};
-        // The name of the table.
+        // The table name.
         shared_ptr<string> name_ {};
-        // The Dataphin user ID of the table owner. This value may be empty if the owner is not bound.
+        // The user ID of the table owner in Dataphin. This parameter may be empty if the owner is not bound.
         shared_ptr<string> owner_ {};
-        // The ID of the parent model. This value is used to navigate to the ODM model.
+        // The parent model ID used to navigate to the ODM model.
         shared_ptr<string> parentModelId_ {};
-        // The ID of the logical project.
+        // The logical project ID.
         shared_ptr<int64_t> projectId_ {};
-        // The name of the logical project.
+        // The logical project name.
         shared_ptr<string> projectName_ {};
         // The security classification.
         shared_ptr<int64_t> securityLevel_ {};
         // The abbreviation of the security classification name.
         shared_ptr<string> securityLevelAbbreviation_ {};
-        // The name of the security classification.
+        // The security classification name.
         shared_ptr<string> securityLevelName_ {};
-        // The storage type. Valid values:
-        // - HIVE
-        // - MAX_COMPUTE.
+        // The storage type. Valid values: HIVE and MAX_COMPUTE.
         shared_ptr<string> storageType_ {};
-        // The dynamic properties of the real-time meta table.
+        // The dynamic properties of the real-time metatable.
         shared_ptr<vector<TableList::StreamTableConfig>> streamTableConfig_ {};
         // The total storage size of the table, in bytes.
         shared_ptr<int64_t> tableSizeInBytes_ {};
@@ -500,7 +496,7 @@ namespace Models
 
 
     protected:
-      // The list of tables.
+      // The table list.
       shared_ptr<vector<PageResult::TableList>> tableList_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -555,15 +551,15 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The HTTP status code.
+    // The HTTP response code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The details of the backend exception.
+    // The backend exception details.
     shared_ptr<string> message_ {};
     // The paged query result.
     shared_ptr<ListTablesResponseBody::PageResult> pageResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

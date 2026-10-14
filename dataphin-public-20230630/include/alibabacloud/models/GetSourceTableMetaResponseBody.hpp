@@ -149,12 +149,19 @@ namespace Models
 
 
       protected:
+        // The column comment.
         shared_ptr<string> comment_ {};
+        // The column data type.
         shared_ptr<string> dataType_ {};
+        // The column name.
         shared_ptr<string> name_ {};
+        // Indicates whether the column is a primary key.
         shared_ptr<bool> pk_ {};
+        // Indicates whether the column is a partition column.
         shared_ptr<bool> pt_ {};
+        // The raw column data type.
         shared_ptr<string> rawDataType_ {};
+        // The column sequence number.
         shared_ptr<int32_t> seqNumber_ {};
       };
 
@@ -191,9 +198,13 @@ namespace Models
 
 
     protected:
+      // The column list.
       shared_ptr<vector<Data::Columns>> columns_ {};
+      // The globally unique identifier (GUID) of the table.
       shared_ptr<string> guid_ {};
+      // The table description or comment.
       shared_ptr<string> tableComment_ {};
+      // The table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -244,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The metadata of the integration source table, including the table description and field list.
     shared_ptr<GetSourceTableMetaResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

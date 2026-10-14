@@ -116,11 +116,22 @@ namespace Models
 
 
     protected:
+      // The error message. This parameter is empty if no error occurs.
       shared_ptr<string> errorMessage_ {};
+      // The number of failed transfers.
       shared_ptr<int32_t> failCount_ {};
+      // The list of asset GUIDs for which the transfer failed. This parameter is empty if all transfers succeed.
       shared_ptr<vector<string>> failedGuids_ {};
+      // The status of the batch transfer task. Valid values:
+      // - INIT: Initial.
+      // - HANDOVER_RECORDS_GENERATED: Records generated.
+      // - PROCESSING_WITHOUT_APPROVAL: Processing.
+      // - SUCCESS: Success.
+      // - FINISHED_WITH_EXCEPTION: Finished with failures.
       shared_ptr<string> status_ {};
+      // The number of successful transfers.
       shared_ptr<int32_t> successCount_ {};
+      // The total number of transferred assets.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -171,11 +182,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The result of the batch asset owner transfer.
     shared_ptr<BatchHandoverAssetResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
