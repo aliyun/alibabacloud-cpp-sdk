@@ -164,13 +164,13 @@ namespace Models
 
 
       protected:
-        // The action ARN.
+        // The ARN of the action.
         shared_ptr<string> actionArn_ {};
         // The permission name.
         shared_ptr<string> actionName_ {};
-        // The list of action dependencies.
+        // The list of dependencies for the action.
         shared_ptr<vector<string>> dependencies_ {};
-        // The action description.
+        // The description of the action.
         shared_ptr<string> description_ {};
         // The display name of the permission.
         shared_ptr<string> displayName_ {};
@@ -335,34 +335,36 @@ namespace Models
 
 
     protected:
-      // The list of allowed actions on the queue.
+      // The list of allowed operations for the queue.
       shared_ptr<vector<Queues::AllowActions>> allowActions_ {};
-      // The time when the workspace was created.
+      // The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The UID of the user who created the queue.
+      // The UID of the creator.
       shared_ptr<string> creator_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The list of queue environment types.
+      // The list of environment types for the queue.
       shared_ptr<vector<string>> environments_ {};
+      // The number of GPU machines.
       shared_ptr<int32_t> gpuMachineNum_ {};
-      // The list of GPU models.
+      // The list of GPU instance types.
       shared_ptr<vector<string>> gpuSpec_ {};
+      // The ID of the resource instance associated with the queue.
       shared_ptr<string> instanceId_ {};
       // The maximum resource capacity of the queue.
       shared_ptr<string> maxResource_ {};
       // The minimum resource capacity of the queue.
       shared_ptr<string> minResource_ {};
-      // The billing type. Valid values:
+      // The billing method. Valid values:
       // 
-      // - PayAsYouGo: pay-as-you-go.
-      // - Pre: subscription.
+      // - PayAsYouGo: pay-as-you-go
+      // - Pre: subscription
       shared_ptr<string> paymentType_ {};
-      // Indicates whether resource prefetch is enabled.
+      // Specifies whether resource prefetching is performed.
       shared_ptr<bool> preheat_ {};
       // The queue label.
       shared_ptr<string> properties_ {};
-      // The queue category, CPU or GPU.
+      // The queue category, such as CPU or GPU.
       shared_ptr<string> queueCategory_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
@@ -423,7 +425,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned per request.
+    // The maximum number of records to return per request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};

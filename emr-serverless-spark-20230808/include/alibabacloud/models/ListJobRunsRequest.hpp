@@ -144,9 +144,9 @@ namespace Models
 
 
     protected:
-      // The end of the start time range.
+      // The end time of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The beginning of the start time range.
+      // The start time of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -188,9 +188,9 @@ namespace Models
 
 
     protected:
-      // The end of the end time range.
+      // The end time of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The beginning of the end time range.
+      // The start time of the time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -331,32 +331,33 @@ namespace Models
     shared_ptr<string> applicationConfigs_ {};
     // The UID of the user who created the job.
     shared_ptr<string> creator_ {};
-    // The end time range of the job.
+    // The time range for the end time of the job run.
     shared_ptr<ListJobRunsRequest::EndTime> endTime_ {};
+    // Specifies whether to aggregate and return statistical results by job run state.
     shared_ptr<bool> groupByState_ {};
-    // Specifies whether the job is a workflow job.
+    // Specifies whether the job run is a workflow job.
     shared_ptr<string> isWorkflow_ {};
-    // The job ID of the streaming job deployment.
+    // The ID of the streaming job deployment.
     shared_ptr<string> jobRunDeploymentId_ {};
-    // The job ID.
+    // The ID of the job run.
     shared_ptr<string> jobRunId_ {};
-    // The maximum number of records to retrieve in a single request. Maximum value: 100.
+    // The maximum number of entries to return in a single call. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The minimum execution duration of the job, in milliseconds.
+    // The minimum execution duration of the job run, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
-    // The job name.
+    // The name of the job.
     shared_ptr<string> name_ {};
-    // The pagination token that marks the position from which to start reading.
+    // The pagination token that specifies the starting position for the query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the resource queue on which the Spark job runs.
+    // The name of the resource queue in which the Spark job runs.
     shared_ptr<string> resourceQueueId_ {};
     // The runtime configurations.
     shared_ptr<string> runtimeConfigs_ {};
-    // The start time range of the job.
+    // The time range for the start time of the job run.
     shared_ptr<ListJobRunsRequest::StartTime> startTime_ {};
-    // The job states.
+    // The states of the job runs.
     shared_ptr<vector<string>> states_ {};
     // The list of tags.
     shared_ptr<vector<ListJobRunsRequest::Tags>> tags_ {};

@@ -139,19 +139,19 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The creator of the token.
         shared_ptr<string> createdby_ {};
-        // The expiration time.
+        // The expiration time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
-        // The last used time.
+        // The time when the token was last used. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastUsedTime_ {};
         // The token name.
         shared_ptr<string> name_ {};
         // The token content.
         shared_ptr<string> token_ {};
-        // Token ID。
+        // The token ID.
         shared_ptr<string> tokenId_ {};
       };
 
@@ -166,7 +166,7 @@ namespace Models
 
 
     protected:
-      // The list of tokens.
+      // The token list.
       shared_ptr<vector<Data::Tokens>> tokens_ {};
     };
 
@@ -203,9 +203,9 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 1000000 indicates success. Any other value indicates failure. You can view the specific error description in the message field.
+    // The return code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error cause, see the message.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ListLivyComputeTokenResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

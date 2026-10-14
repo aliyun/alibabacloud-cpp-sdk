@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The end of the time range.
+      // The end point of the task start time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start of the time range.
+      // The start point of the task start time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -134,7 +134,9 @@ namespace Models
 
 
     protected:
+      // The end point of the task end time range. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
+      // The start point of the task end time range. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -233,22 +235,29 @@ namespace Models
 
 
   protected:
-    // The ID of the Spark application submitted by Kyuubi, used for searching.
+    // The ID of the Spark application submitted by Kyuubi, used for search.
     shared_ptr<string> applicationId_ {};
-    // The name of the Spark application submitted by Kyuubi, used for searching.
+    // The name of the Spark application submitted by Kyuubi, used for search.
     shared_ptr<string> applicationName_ {};
+    // The end time range of the task.
     shared_ptr<ListKyuubiSparkApplicationsRequest::EndTime> endTime_ {};
+    // The list of statuses of the latest SQL statement used for filtering.
     shared_ptr<string> latestSqlStatementStatuses_ {};
-    // The maximum number of records to return.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
+    // The minimum execution duration of the application, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
-    // The token to retrieve the next page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
+    // The list of sort fields.
     shared_ptr<vector<string>> orderBy_ {};
+    // The resource queue ID used to filter Spark applications.
     shared_ptr<string> resourceQueueId_ {};
+    // The sort order. A value of asc indicates ascending order, and desc indicates descending order.
     shared_ptr<string> sort_ {};
-    // The time range when the task started.
+    // The start time range of the task.
     shared_ptr<ListKyuubiSparkApplicationsRequest::StartTime> startTime_ {};
+    // The list of Spark application states used for filtering.
     shared_ptr<string> states_ {};
   };
 

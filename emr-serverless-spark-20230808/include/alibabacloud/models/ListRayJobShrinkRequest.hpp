@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The name of the Ray Job (exact match).
+    // The name of the Ray job. Exact match is supported.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Default value: 20.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The submission ID of the Ray Job.
+    // The submission ID of the Ray job.
     shared_ptr<string> submissionId_ {};
-    // The submit time range.
+    // The submission time range.
     shared_ptr<string> submitTimeShrink_ {};
-    // The data development node ID.
+    // The ID of the data development node.
     shared_ptr<string> taskBizId_ {};
   };
 

@@ -197,37 +197,37 @@ namespace Models
 
 
     protected:
-      // The specifications of the Kyuubi service.
+      // The Kyuubi service specifications.
       shared_ptr<string> computeInstance_ {};
-      // The timestamp when the service was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
       // The UID of the creator.
       shared_ptr<string> creator_ {};
-      // The internal same-region endpoint.
+      // The internal network domain name.
       shared_ptr<string> innerEndpoint_ {};
-      // The configuration of the Kyuubi service.
+      // The Kyuubi service configuration.
       shared_ptr<string> kyuubiConfigs_ {};
-      // The Kyuubi service engine version.
+      // The Kyuubi service DPI engine version.
       shared_ptr<string> kyuubiReleaseVersion_ {};
-      // The ID of the Kyuubi service.
+      // Kyuubi Service ID。
       shared_ptr<string> kyuubiServiceId_ {};
-      // The name of the Kyuubi service.
+      // The Kyuubi service name.
       shared_ptr<string> name_ {};
       // The public domain name.
       shared_ptr<string> publicEndpoint_ {};
-      // Indicates whether public network access is enabled.
+      // Specifies whether public network access is enabled.
       shared_ptr<bool> publicEndpointEnabled_ {};
-      // The name of the queue.
+      // The queue name.
       shared_ptr<string> queue_ {};
-      // The Spark engine version.
+      // The Spark DPI engine version.
       shared_ptr<string> releaseVersion_ {};
-      // The number of high-availability (HA) replicas.
+      // The number of replicas enabled for high availability.
       shared_ptr<int32_t> replica_ {};
       // The Spark configuration.
       shared_ptr<string> sparkConfigs_ {};
-      // The timestamp when the service was started.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The state of the Kyuubi service.
+      // The Kyuubi service status.
       shared_ptr<string> state_ {};
     };
 
@@ -250,7 +250,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned result.
     shared_ptr<GetKyuubiServiceResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

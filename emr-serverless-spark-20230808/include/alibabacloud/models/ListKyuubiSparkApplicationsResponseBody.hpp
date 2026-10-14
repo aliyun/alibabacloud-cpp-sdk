@@ -214,33 +214,34 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The name of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationName_ {};
-      // The number of CUs consumed during the task lifecycle. This is an estimated value. The final amount is subject to your bill.
+      // The number of compute units (CUs) consumed during the task execution. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The time when the task ended.
+      // The end time of the task. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The exit code.
+      // The exit reason of the application.
       shared_ptr<string> exitReason_ {};
+      // The ID of the Kyuubi service that submitted the Spark application.
       shared_ptr<string> kyuubiServiceId_ {};
-      // The status of the last task execution in the session.
+      // The execution status of the latest SQL statement in the application.
       shared_ptr<string> latestSqlStatementStatus_ {};
-      // The total memory allocated to the task in MB, multiplied by the number of seconds the task ran.
+      // The total memory allocated to the task multiplied by the task execution duration in seconds.
       shared_ptr<int64_t> mbSeconds_ {};
+      // The priority of the Spark application.
       shared_ptr<string> priority_ {};
-      // The name of the resource queue where the Spark task runs.
+      // The name of the resource queue in which the Spark task runs.
       shared_ptr<string> resourceQueueId_ {};
+      // The application log.
       shared_ptr<RunLog> runLog_ {};
-      // The time when the task started.
+      // The start time of the task. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The status of the Spark application.
-      // 
+      // The state of the Spark application. Valid values:
       // - STARTING: The application is starting.
-      // 
       // - RUNNING: The application is running.
-      // 
       // - TERMINATED: The application is terminated.
       shared_ptr<string> state_ {};
+      // The list of tags for the Spark application.
       shared_ptr<vector<Tag>> tags_ {};
-      // The total vCores allocated to the task, multiplied by the number of seconds the task ran.
+      // The total number of vcores allocated to the task multiplied by the task execution duration in seconds.
       shared_ptr<int64_t> vcoreSeconds_ {};
       // The URL of the Spark application UI.
       shared_ptr<string> webUI_ {};
@@ -286,11 +287,11 @@ namespace Models
 
 
   protected:
-    // A list of application details.
+    // The list of application details.
     shared_ptr<vector<ListKyuubiSparkApplicationsResponseBody::Applications>> applications_ {};
-    // The maximum number of records returned.
+    // The maximum number of records to retrieve at a time.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

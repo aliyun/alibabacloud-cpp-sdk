@@ -175,15 +175,15 @@ namespace Models
     protected:
       // The ID of the Livy Gateway.
       shared_ptr<string> computeId_ {};
-      // The time when the session was created. This is a UNIX timestamp in milliseconds.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The number of compute units (CUs) consumed during the task execution. This is an estimated value. The actual value is subject to the bill.
+      // The number of compute units (CUs) consumed during the job runtime. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The time when the session ended. This is a UNIX timestamp in milliseconds.
+      // The end time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The runtime information.
       shared_ptr<string> info_ {};
-      // The total amount of memory in MB allocated to the task multiplied by the number of seconds the task has been running.
+      // The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
       shared_ptr<int64_t> mbSeconds_ {};
       // The session name.
       shared_ptr<string> name_ {};
@@ -193,21 +193,16 @@ namespace Models
       shared_ptr<string> sessionId_ {};
       // The Spark job configuration.
       shared_ptr<string> sparkConf_ {};
-      // The session state.
-      // 
-      // - starting: The session is starting.
-      // 
-      // - running: The session is running.
-      // 
-      // - terminating: The session is being terminated.
-      // 
-      // - terminated: The session is terminated.
-      // 
-      // - error: The session failed.
+      // The session status. Valid values:
+      // - starting: Starting.
+      // - running: Running.
+      // - terminating: Terminating.
+      // - terminated: Terminated.
+      // - error: Error.
       shared_ptr<string> state_ {};
-      // The total number of vCores allocated to the task multiplied by the number of seconds the task has been running.
+      // The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
       shared_ptr<int64_t> vcoreSeconds_ {};
-      // The web UI URL of the session.
+      // The web UI address of the session.
       shared_ptr<string> webUI_ {};
     };
 

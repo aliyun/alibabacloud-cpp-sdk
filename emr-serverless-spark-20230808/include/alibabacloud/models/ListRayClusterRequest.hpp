@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
+    // The number of entries to return on each page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

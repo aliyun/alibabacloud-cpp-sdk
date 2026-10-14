@@ -107,9 +107,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the token automatically expires.
+        // Specifies whether auto-expiration is enabled.
         shared_ptr<bool> enable_ {};
-        // The expiration period, in days.
+        // The expiration period in days.
         shared_ptr<int32_t> expireDays_ {};
       };
 
@@ -193,24 +193,24 @@ namespace Models
 
 
     protected:
-      // The automatic expiration configuration.
+      // The auto-expiration configuration struct.
       shared_ptr<Data::AutoExpireConfiguration> autoExpireConfiguration_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The creator name.
+      // The name of the creator.
       shared_ptr<string> createdBy_ {};
-      // The expiration time.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // The last used time.
+      // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The Alibaba Cloud Resource Names (ARNs) of the authorized users.
+      // The list of authorized user ARNs.
       shared_ptr<vector<string>> memberArns_ {};
       // The token name.
       shared_ptr<string> name_ {};
       shared_ptr<vector<string>> sparkRole_ {};
       // The masked token.
       shared_ptr<string> token_ {};
-      // The token ID.
+      // Token ID。
       shared_ptr<string> tokenId_ {};
     };
 
@@ -233,7 +233,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<GetKyuubiTokenResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

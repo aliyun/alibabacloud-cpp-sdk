@@ -134,13 +134,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether to automatically start the gateway after it is created.
-        // 
+        // Specifies whether to automatically start after creation. Valid values:
         // - true: Yes.
-        // 
         // - false: No.
         shared_ptr<bool> enable_ {};
-        // The number of minutes after which the Livy Gateway is automatically stopped if it is idle.
+        // The number of idle minutes after which the Livy Gateway automatically stops.
         shared_ptr<int64_t> idleTimeoutMinutes_ {};
       };
 
@@ -313,49 +311,52 @@ namespace Models
       shared_ptr<Data::AutoStopConfiguration> autoStopConfiguration_ {};
       // The ID of the Livy Gateway.
       shared_ptr<string> computeId_ {};
-      // The number of CPU cores for the Livy server.
+      // The number of CPU cores for the Livy Server. Valid values:
+      // - 1
+      // - 2
+      // - 4
       shared_ptr<string> cpuLimit_ {};
       // The name of the creator.
       shared_ptr<string> createdBy_ {};
-      // The version number of the Spark engine.
+      // The Spark DPI engine version number.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The status of the public endpoint switch.
+      // The status of the public network address switch.
       shared_ptr<bool> enablePublic_ {};
-      // The public endpoint.
+      // The public network connection address.
       shared_ptr<string> endpoint_ {};
-      // The internal endpoint.
+      // The internal network connection address.
       shared_ptr<string> endpointInner_ {};
-      // The ID of the runtime environment.
+      // The runtime environment ID.
       shared_ptr<string> environmentId_ {};
-      // Indicates whether the fusion switch is enabled.
+      // Specifies whether the fusion feature is enabled.
       shared_ptr<bool> fusion_ {};
       // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
       // The Livy Gateway configuration in JSON format. The following files are supported:
       // 
       // - sparkDefaultsConf
-      // 
       // - sparkBlackListConf
-      // 
       // - livyConf
-      // 
       // - livyClientConf
       shared_ptr<string> livyServerConf_ {};
       // The Livy version.
       shared_ptr<string> livyVersion_ {};
-      // The memory size of the Livy server.
+      // The memory size of the Livy Server. Valid values:
+      // - 4Gi
+      // - 8Gi
+      // - 16Gi
       shared_ptr<string> memoryLimit_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The name of the network connection.
+      // The network connectivity name.
       shared_ptr<string> networkName_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
       // The ID of the creator.
       shared_ptr<string> ramUserId_ {};
-      // The version number of the Spark engine. This parameter is deprecated. Use displayReleaseVersion instead.
+      // The Spark DPI engine version number. This field is deprecated. Use displayReleaseVersion instead.
       shared_ptr<string> releaseVersion_ {};
-      // The start time.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The running status.
       shared_ptr<string> status_ {};
@@ -394,9 +395,9 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 1000000 indicates a successful request. Other values indicate a failed request. Check the message parameter for the error details.
+    // The return code of the request. The value 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<GetLivyComputeResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

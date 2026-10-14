@@ -50,13 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the AI center. Valid values:
-    // 
-    // - Running
-    // 
-    // - inactive
-    // 
-    // - activating
+    // The status of AI Hub. Valid values:
+    // * active
+    // * inactive
+    // * activating
     shared_ptr<string> state_ {};
   };
 

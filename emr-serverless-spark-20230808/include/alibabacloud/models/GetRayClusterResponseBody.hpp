@@ -222,11 +222,11 @@ namespace Models
       shared_ptr<string> env_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The name of the worker node group.
+      // The worker node group name.
       shared_ptr<string> groupName_ {};
       // The maximum number of workers.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size. Unit: Gi.
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
       // The minimum number of workers.
       shared_ptr<int32_t> minReplica_ {};
@@ -236,7 +236,7 @@ namespace Models
       shared_ptr<string> rayStartParams_ {};
       // The number of worker nodes.
       shared_ptr<int32_t> replica_ {};
-      // The type of the worker node group.
+      // The worker node group type.
       shared_ptr<string> workerType_ {};
     };
 
@@ -360,25 +360,25 @@ namespace Models
 
 
     protected:
-      // The exit code of the primary container.
+      // The main container exit code.
       shared_ptr<int32_t> containerExitCode_ {};
-      // The status of the primary container.
+      // The main container state.
       shared_ptr<string> containerState_ {};
-      // The primary container status message.
+      // The main container state information.
       shared_ptr<string> containerStateMessage_ {};
-      // The primary container information.
+      // The main container information.
       shared_ptr<string> containerStateReason_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The node ID.
       shared_ptr<string> instanceId_ {};
-      // The node pod status message.
+      // The node pod state information.
       shared_ptr<string> message_ {};
-      // The node pod status.
+      // The node pod state.
       shared_ptr<string> phase_ {};
       // The node information.
       shared_ptr<string> reason_ {};
-      // The start time.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The node type.
       shared_ptr<string> type_ {};
@@ -474,7 +474,7 @@ namespace Models
       protected:
         // The Redis password.
         shared_ptr<string> redisPassword_ {};
-        // The Redis URL.
+        // The Redis address.
         shared_ptr<string> redisUrl_ {};
         // The Redis username.
         shared_ptr<string> redisUsername_ {};
@@ -575,7 +575,7 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The Ray DPI engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Indicates whether automatic scaling is enabled for worker nodes.
+      // Indicates whether auto scaling is enabled for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       // The environment variables.
       shared_ptr<string> env_ {};
@@ -585,9 +585,9 @@ namespace Models
       shared_ptr<bool> gftEnabled_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout period of worker nodes after automatic scaling is enabled.
+      // The idle timeout period for worker nodes after auto scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
-      // The memory size. Unit: Gi.
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
@@ -811,7 +811,7 @@ namespace Models
   protected:
     // The Ray cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The creation time. This value is a UNIX timestamp in milliseconds.
+    // The creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
     // The UID of the user who created the cluster.
     shared_ptr<string> creator_ {};
@@ -823,27 +823,27 @@ namespace Models
     shared_ptr<string> description_ {};
     // The Ray DPI engine version.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The extra parameters in JSON format.
+    // The additional parameters in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The gRPC endpoint (internal network). The domain name in this endpoint can also be used to submit Ray jobs.
+    // The gRPC endpoint (internal network). The domain name in the endpoint can also be used to submit Ray jobs.
     shared_ptr<string> grpcEndpoint_ {};
-    // The parameters of the Ray cluster head node.
+    // The Ray cluster head node parameters.
     shared_ptr<GetRayClusterResponseBody::HeadSpec> headSpec_ {};
     // The Ray cluster node IDs.
     shared_ptr<string> instanceId_ {};
     // The Ray cluster node IDs.
     shared_ptr<vector<GetRayClusterResponseBody::Instances>> instances_ {};
-    // The public URL for submitting Ray Jobs.
+    // The public address for submitting Ray jobs.
     shared_ptr<string> jobUrl_ {};
-    // The internal network URL for submitting Ray jobs.
+    // The internal network address for submitting Ray jobs.
     shared_ptr<string> jobUrlInner_ {};
-    // The error message returned when the status is Error.
+    // The error message when the status is Error.
     shared_ptr<string> message_ {};
     // Indicates whether the configuration has been modified.
     shared_ptr<bool> modified_ {};
-    // The update time. This value is a UNIX timestamp in milliseconds.
+    // The update time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
-    // The UID of the user who last modified the cluster.
+    // The UID of the user who last updated the cluster.
     shared_ptr<string> modifier_ {};
     // The nickname of the modifier.
     shared_ptr<string> modifierName_ {};
@@ -853,16 +853,16 @@ namespace Models
     shared_ptr<string> networkServiceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time. This value is a UNIX timestamp in milliseconds.
+    // The start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
     // The session status. Valid values:
-    // - Starting: Starting.
-    // - Running: Running.
-    // - Stopping: Stopping.
-    // - Stopped: Stopped.
-    // - Error: Failed.
+    // - Starting: starting.
+    // - Running: running.
+    // - Stopping: stopping.
+    // - Stopped: stopped.
+    // - Error: failed.
     shared_ptr<string> state_ {};
-    // The authentication token for submitting Ray Jobs. Include this token in the request header as "ray-token": "token".
+    // The authentication token for submitting Ray jobs. Include this token in the request header as "ray-token": "token".
     shared_ptr<string> submitToken_ {};
     // The Alibaba Cloud account ID of the creator.
     shared_ptr<string> userId_ {};

@@ -106,13 +106,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether the token automatically expires.
-        // 
+        // Specifies whether the token expires automatically. Valid values:
         // - true: Yes.
-        // 
         // - false: No.
         shared_ptr<bool> enable_ {};
-        // The expiration period, in days.
+        // The expiration period in days.
         shared_ptr<int32_t> expireDays_ {};
       };
 
@@ -178,21 +176,21 @@ namespace Models
 
 
     protected:
-      // The information about token expiration.
+      // The token expiration configuration struct.
       shared_ptr<Data::AutoExpireConfiguration> autoExpireConfiguration_ {};
-      // The time when the token was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The name of the user who created the token.
+      // The name of the creator.
       shared_ptr<string> createdBy_ {};
-      // The time when the token expires.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // The time when the token was last used.
+      // The last used time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The name of the token.
+      // The token name.
       shared_ptr<string> name_ {};
-      // The content of the token.
+      // The token content.
       shared_ptr<string> token_ {};
-      // The ID of the token.
+      // Token ID。
       shared_ptr<string> tokenId_ {};
     };
 
@@ -229,13 +227,13 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information about the error, see the message parameter.
+    // The return code of the request. A value of 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetLivyComputeTokenResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

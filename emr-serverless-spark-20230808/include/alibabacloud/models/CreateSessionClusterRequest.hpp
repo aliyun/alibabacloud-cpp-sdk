@@ -92,13 +92,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic stop.
-      // 
-      // - true: Enables automatic stop.
-      // 
-      // - false: Disables automatic stop.
+      // Specifies whether to allow automatic stop. Valid values:
+      // - true: Allowed.
+      // - false: Not allowed.
       shared_ptr<bool> enable_ {};
-      // The idle timeout period of the session. The session is automatically stopped after it is idle for the specified period. Unit: minutes.
+      // The number of idle minutes after which the session is automatically stopped.
       shared_ptr<int32_t> idleTimeoutMinutes_ {};
     };
 
@@ -130,11 +128,9 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable automatic startup.
-      // 
-      // - true: Enables automatic startup.
-      // 
-      // - false: Disables automatic startup.
+      // Specifies whether to enable automatic startup. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -185,11 +181,11 @@ namespace Models
 
 
     protected:
-      // The name of the configuration file.
+      // The configuration file name.
       shared_ptr<string> configFileName_ {};
-      // The key of a Spark configuration item.
+      // The Spark Conf key.
       shared_ptr<string> configItemKey_ {};
-      // The value of a Spark configuration item.
+      // The Spark Conf value.
       shared_ptr<string> configItemValue_ {};
     };
 
@@ -297,33 +293,31 @@ namespace Models
   protected:
     // The Spark application configurations.
     shared_ptr<vector<CreateSessionClusterRequest::ApplicationConfigs>> applicationConfigs_ {};
-    // The automatic startup configuration.
-    // 
-    // - true: Yes.
-    // 
-    // - false: No.
+    // Specifies whether to enable automatic startup. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<CreateSessionClusterRequest::AutoStartConfiguration> autoStartConfiguration_ {};
     // The automatic stop configuration.
     shared_ptr<CreateSessionClusterRequest::AutoStopConfiguration> autoStopConfiguration_ {};
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The version that is displayed in the console.
+    // The version displayed in the console.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The ID of the Python environment. This parameter applies only to Notebook sessions.
+    // The Python environment ID. This parameter takes effect only for Notebook sessions.
     shared_ptr<string> envId_ {};
-    // Specifies whether to enable the Fusion engine for acceleration.
+    // Specifies whether to enable Fusion engine acceleration.
     shared_ptr<bool> fusion_ {};
-    // The type of the session. Valid values:
-    // 
-    // - SQL: an SQL session.
-    // 
-    // - NOTEBOOK: a Notebook session.
+    // The session type. Valid values:
+    // - SQL: SQL session.
+    // - NOTEBOOK: NOTEBOOK session.
     shared_ptr<string> kind_ {};
-    // The name of the task.
+    // The node name.
     shared_ptr<string> name_ {};
+    // Specifies whether to enable the public network access endpoint.
     shared_ptr<bool> publicEndpointEnabled_ {};
     // The queue name.
     shared_ptr<string> queueName_ {};
-    // The version of the Spark engine.
+    // The Spark DPI engine version number.
     shared_ptr<string> releaseVersion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

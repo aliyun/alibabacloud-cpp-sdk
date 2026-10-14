@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return on each page.
+    // The maximum number of records to return per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the start of the next page of results.
+    // The pagination token that specifies the starting position for the query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

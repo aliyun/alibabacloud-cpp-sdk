@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The language of diagnostic information.
+    // The language of the diagnostic information.
     shared_ptr<string> locale_ {};
-    // The query time.
+    // The query date in the YYYY-MM-DD format.
     shared_ptr<string> queryTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -60,7 +60,7 @@ namespace Models
 
 
     protected:
-      // The diagnostics list.
+      // The list of diagnostic information.
       shared_ptr<vector<string>> suggestions_ {};
     };
 
@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<GetDoctorApplicationResponseBody::Data> data_ {};
   };
 

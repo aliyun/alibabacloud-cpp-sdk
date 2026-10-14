@@ -364,7 +364,7 @@ namespace Models
 
 
     protected:
-      // The job code type. Valid values:
+      // The code type of the job. Valid values:
       // 
       // SQL
       // 
@@ -372,47 +372,49 @@ namespace Models
       // 
       // PYTHON.
       shared_ptr<string> codeType_ {};
-      // The Spark advanced configurations. This parameter is not returned by the List operation.
+      // The advanced Spark configurations. This parameter is not returned by the List operation.
       shared_ptr<JobRuns::ConfigurationOverrides> configurationOverrides_ {};
       // The UID of the user who created the job.
       shared_ptr<string> creator_ {};
-      // The number of compute units (CUs) consumed during the job run cycle. This value is an estimate. The actual value is subject to the bill.
+      // The number of compute units (CUs) consumed during the job run. This value is an estimate and the final value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The version of the Spark DPI engine used to run the job.
+      // The Spark DPI engine version of the running job.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The job end time.
+      // The time when the job ended. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The execution timeout period, in seconds.
+      // The execution timeout period.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether the Fusion engine acceleration is enabled.
+      // Specifies whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The Spark Driver information. This parameter is not returned by the List operation.
+      // The information about the Spark driver. This parameter is not returned by the List operation.
       shared_ptr<JobDriver> jobDriver_ {};
-      // The job ID.
+      // The ID of the job run.
       shared_ptr<string> jobRunId_ {};
-      // The path of the run log.
+      // The path to the execution log.
       shared_ptr<RunLog> log_ {};
-      // The total amount of allocated memory multiplied by the number of seconds the job has been running.
+      // The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
       shared_ptr<int64_t> mbSeconds_ {};
-      // The job name.
+      // The name of the job.
       shared_ptr<string> name_ {};
+      // The priority of the Spark job.
       shared_ptr<string> priority_ {};
-      // The version of the Spark DPI engine used to run the job.
+      // The Spark DPI engine version of the running job.
       shared_ptr<string> releaseVersion_ {};
+      // The name of the resource queue in which the Spark job runs.
       shared_ptr<string> resourceQueueId_ {};
-      // The job states.
+      // The states of the job runs.
       shared_ptr<string> state_ {};
       // The reason for the state change.
       shared_ptr<JobRuns::StateChangeReason> stateChangeReason_ {};
-      // The job submission time.
+      // The time when the job was submitted. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> submitTime_ {};
       // The tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // The total number of allocated vcores multiplied by the number of seconds the job has been running.
+      // The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
       shared_ptr<int64_t> vcoreSeconds_ {};
-      // The job Web UI.
+      // The web UI of the job.
       shared_ptr<string> webUI_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -465,16 +467,17 @@ namespace Models
 
 
   protected:
+    // The statistical results aggregated by job state.
     shared_ptr<map<string, string>> aggregations_ {};
-    // The list of Spark jobs.
+    // The list of Spark job runs.
     shared_ptr<vector<ListJobRunsResponseBody::JobRuns>> jobRuns_ {};
-    // The maximum number of records returned in this request.
+    // The maximum number of records returned for the request.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which the data was read.
+    // The position of the data read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the request conditions.
+    // The total number of records that meet the request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

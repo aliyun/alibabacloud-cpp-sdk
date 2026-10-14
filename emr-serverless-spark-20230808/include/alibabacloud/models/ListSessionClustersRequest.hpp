@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The session type.
     shared_ptr<string> kind_ {};
-    // The maximum number of records to return.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the start of the next page of results.
+    // The token that indicates the position from which to start reading.
     shared_ptr<string> nextToken_ {};
     // The queue name.
     shared_ptr<string> queueName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the job.
+    // The job name.
     shared_ptr<string> sessionClusterId_ {};
   };
 

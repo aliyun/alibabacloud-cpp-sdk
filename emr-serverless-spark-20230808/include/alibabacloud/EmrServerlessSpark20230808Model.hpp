@@ -185,6 +185,9 @@
 #include <alibabacloud/models/ListNetworkServicesRequest.hpp>
 #include <alibabacloud/models/ListNetworkServicesResponseBody.hpp>
 #include <alibabacloud/models/ListNetworkServicesResponse.hpp>
+#include <alibabacloud/models/ListQueueTopJobsRequest.hpp>
+#include <alibabacloud/models/ListQueueTopJobsResponseBody.hpp>
+#include <alibabacloud/models/ListQueueTopJobsResponse.hpp>
 #include <alibabacloud/models/ListRayClusterRequest.hpp>
 #include <alibabacloud/models/ListRayClusterResponseBody.hpp>
 #include <alibabacloud/models/ListRayClusterResponse.hpp>

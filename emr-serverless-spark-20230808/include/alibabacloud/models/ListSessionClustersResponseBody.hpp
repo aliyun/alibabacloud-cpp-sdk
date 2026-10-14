@@ -141,9 +141,9 @@ namespace Models
 
 
       protected:
-        // The state change code.
+        // The status change code.
         shared_ptr<string> code_ {};
-        // The state change message.
+        // The status change message.
         shared_ptr<string> message_ {};
       };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-stop is enabled.
+        // Specifies whether auto-stop is enabled.
         shared_ptr<bool> enable_ {};
-        // The number of minutes of inactivity before the session is automatically stopped.
+        // The number of idle minutes after which the session is automatically stopped.
         shared_ptr<int32_t> idleTimeoutMinutes_ {};
       };
 
@@ -219,7 +219,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether auto-start is enabled.
+        // Specifies whether auto-start is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -461,59 +461,56 @@ namespace Models
 
 
     protected:
-      // The session configurations. These are equivalent to the configurations of the underlying Spark job.
+      // The session configurations, which are equivalent to the configurations of the underlying Spark job.
       shared_ptr<vector<SessionClusters::ApplicationConfigs>> applicationConfigs_ {};
       // The auto-start configuration.
       shared_ptr<SessionClusters::AutoStartConfiguration> autoStartConfiguration_ {};
       // The auto-stop configuration.
       shared_ptr<SessionClusters::AutoStopConfiguration> autoStopConfiguration_ {};
+      // The token used to connect to the session cluster.
       shared_ptr<string> connectionToken_ {};
-      // The version displayed in the console.
+      // The version actually displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The public endpoint of the Thrift server.
+      // The public domain name of the Thrift server.
       shared_ptr<string> domain_ {};
-      // The internal same-region endpoint of the Thrift server.
+      // The internal domain name of the Thrift server.
       shared_ptr<string> domainInner_ {};
-      // The ID of the developer job that is attached to the session.
+      // The ID of the development job bound to the session.
       shared_ptr<string> draftId_ {};
       // The extra metadata of the session.
       shared_ptr<string> extra_ {};
-      // Indicates whether acceleration by the Fusion engine is enabled.
+      // Specifies whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The time when the session was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
       // The session type.
       shared_ptr<string> kind_ {};
       // The session name.
       shared_ptr<string> name_ {};
+      // Specifies whether the public network access endpoint is enabled.
       shared_ptr<bool> publicEndpointEnabled_ {};
-      // The name of the queue in which the session runs.
+      // The name of the queue where the session runs.
       shared_ptr<string> queueName_ {};
       // The Serverless Spark version.
       shared_ptr<string> releaseVersion_ {};
       // The session ID.
       shared_ptr<string> sessionClusterId_ {};
-      // The time when the session was started.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The session state.
-      // 
-      // - Starting: The session is starting.
-      // 
-      // - Running: The session is running.
-      // 
-      // - Stopping: The session is stopping.
-      // 
-      // - Stopped: The session is stopped.
-      // 
-      // - Error: The session has failed.
+      // The session status. Valid values:
+      // - Starting: Starting.
+      // - Running: Running.
+      // - Stopping: Stopping.
+      // - Stopped: Stopped.
+      // - Error: Failed.
       shared_ptr<string> state_ {};
-      // The details of the last state change of the session.
+      // The details of the most recent session status change.
       shared_ptr<SessionClusters::StateChangeReason> stateChangeReason_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The URL of the Spark UI for the session.
+      // The Spark UI URL of the session.
       shared_ptr<string> webUI_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -559,15 +556,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned for the request.
+    // The maximum number of records returned in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the start of the next page of results.
+    // The token that indicates the position of the returned data.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of sessions.
+    // The list of sessions.
     shared_ptr<vector<ListSessionClustersResponseBody::SessionClusters>> sessionClusters_ {};
-    // The total number of entries that match the query criteria.
+    // The total number of records that meet the current request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

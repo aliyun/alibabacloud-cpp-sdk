@@ -145,7 +145,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -350,20 +352,35 @@ namespace Models
 
 
       protected:
+        // Specifies whether auto-renewal is enabled.
         shared_ptr<bool> autoRenewal_ {};
+        // The number of CPU cores.
         shared_ptr<string> cpuCoreCount_ {};
+        // The time when the GPU subscription quota was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
+        // The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
+        // The number of GPUs.
         shared_ptr<int32_t> gpuAmount_ {};
+        // The number of GPU machines.
         shared_ptr<int32_t> gpuMachineNum_ {};
+        // The GPU memory size.
         shared_ptr<int64_t> gpuMemorySize_ {};
+        // The number of GPUs.
         shared_ptr<int32_t> gpuNum_ {};
+        // The GPU model.
         shared_ptr<string> gpuSpec_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The instance family.
         shared_ptr<string> instanceTypeFamily_ {};
+        // The instance type ID.
         shared_ptr<string> instanceTypeId_ {};
+        // The memory size.
         shared_ptr<string> memorySize_ {};
+        // The order ID.
         shared_ptr<string> orderId_ {};
+        // The order status.
         shared_ptr<string> paymentStatus_ {};
       };
 
@@ -471,23 +488,23 @@ namespace Models
       protected:
         // The amount of resources currently allocated.
         shared_ptr<string> allocatedResource_ {};
-        // Indicates whether auto-renewal is enabled for the resource. Valid values:
-        // 
+        // Specifies whether auto-renewal is enabled for the resource. Valid values:
         // - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
-        // - false: Auto-renewal is not enabled. The resource stops being available upon expiration.
+        // - false: Auto-renewal is disabled. The resource is stopped upon expiration.
         shared_ptr<bool> autoRenewal_ {};
-        // The time when the resource quota was created.
+        // The time when the resource quota was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The time when the resource quota expires.
+        // The expiration time of the resource quota. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
         // The instance ID of the resource associated with the quota.
         shared_ptr<string> instanceId_ {};
-        // The maximum amount of resources available.
+        // The maximum amount of resources that can be used.
         shared_ptr<string> maxResource_ {};
+        // The order ID.
         shared_ptr<string> orderId_ {};
         // The payment status of the current resource. Valid values:
-        // - NORMAL: Active.
-        // - WAIT_FOR_EXPIRE: About to expire.
+        // - NORMAL: Valid.
+        // - WAIT_FOR_EXPIRE: Expiring.
         // - EXPIRED: Expired.
         shared_ptr<string> paymentStatus_ {};
         // The amount of resources currently used.
@@ -695,52 +712,57 @@ namespace Models
 
 
     protected:
-      // Indicates whether auto-renewal is enabled. This parameter is required for the prepaid type.
+      // Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal duration. This parameter is required for the prepaid type.
+      // The auto-renewal duration. This parameter is required for subscription resources.
       shared_ptr<int32_t> autoRenewPeriod_ {};
-      // The auto-renewal epoch unit. This parameter is required for the prepaid type.
+      // The auto-renewal epoch. This parameter is required for subscription resources.
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // The time when the workspace was created.
+      // The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The DLF Catalog information.
+      // The DLF catalog information.
       shared_ptr<string> dlfCatalogId_ {};
-      // The DLF binding type.
+      // The type of the associated DLF.
       shared_ptr<string> dlfType_ {};
-      // The subscription period quantity. This parameter is required for the prepaid type.
+      // The duration of the subscription. This parameter is required for subscription resources.
       shared_ptr<int32_t> duration_ {};
-      // The time when the workspace was released.
+      // The time when the workspace was released. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The failure reason.
+      // The reason for the failure.
       shared_ptr<string> failReason_ {};
+      // The list of GPU models.
       shared_ptr<vector<string>> gpuSpec_ {};
+      // The IP whitelist of the workspace.
       shared_ptr<vector<string>> ipWhiteList_ {};
-      // The subscription period unit. This parameter is required for the prepaid type.
+      // The unit of the subscription period. This parameter is required for subscription resources.
       shared_ptr<string> paymentDurationUnit_ {};
       // The payment status.
       shared_ptr<string> paymentStatus_ {};
-      // The payment type.
+      // The billing method.
       shared_ptr<string> paymentType_ {};
-      // The prepaid resource quota information.
+      // The information about the subscription resource quota.
       shared_ptr<Workspaces::PrePaidQuota> prePaidQuota_ {};
+      // The list of GPU subscription quotas.
       shared_ptr<vector<Workspaces::PrePaidQuotaGpu>> prePaidQuotaGpu_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The reason why the workspace was released.
       shared_ptr<string> releaseType_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The resource specification.
       shared_ptr<string> resourceSpec_ {};
-      // The state change information of the workspace.
+      // The information about the workspace status change.
       shared_ptr<Workspaces::StateChangeReason> stateChangeReason_ {};
       // The OSS path.
       shared_ptr<string> storage_ {};
+      // The list of workspace tags.
       shared_ptr<vector<Workspaces::Tags>> tags_ {};
-      // Workspace ID。
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
-      // The workspace status.
+      // The status of the workspace.
       shared_ptr<string> workspaceStatus_ {};
     };
 
@@ -784,9 +806,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to retrieve in a single request.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page.
+    // The next token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

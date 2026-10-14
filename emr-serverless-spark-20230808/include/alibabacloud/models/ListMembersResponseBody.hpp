@@ -167,9 +167,9 @@ namespace Models
         protected:
           // The ARN of the action.
           shared_ptr<string> actionArn_ {};
-          // The name of the permission.
+          // The name of the action.
           shared_ptr<string> actionName_ {};
-          // The list of action dependencies.
+          // The list of dependencies for the action.
           shared_ptr<vector<string>> dependencies_ {};
           // The description of the action.
           shared_ptr<string> description_ {};
@@ -219,7 +219,7 @@ namespace Models
       protected:
         // The list of permissions.
         shared_ptr<vector<Roles::Actions>> actions_ {};
-        // The time when the role was created.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -298,9 +298,9 @@ namespace Models
       protected:
         // The ARN of the action.
         shared_ptr<string> actionArn_ {};
-        // The name of the permission.
+        // The name of the action.
         shared_ptr<string> actionName_ {};
-        // The list of action dependencies.
+        // The list of dependencies for the action.
         shared_ptr<vector<string>> dependencies_ {};
         // The description of the action.
         shared_ptr<string> description_ {};
@@ -372,19 +372,21 @@ namespace Models
 
 
     protected:
-      // The list of operations allowed for this user.
+      // The list of actions allowed for the user.
       shared_ptr<vector<Members::Actions>> actions_ {};
-      // The time when the member was created.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
       // The display name of the user.
       shared_ptr<string> displayName_ {};
-      // The Alibaba Cloud Resource Name (ARN) of the user.
+      // The ARN of the member.
       shared_ptr<string> memberArn_ {};
       // The list of roles in the workspace.
       shared_ptr<vector<Members::Roles>> roles_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The type of the user.
+      // The type of the user. Valid values:
+      // - ROLE
+      // - MEMBER
       shared_ptr<string> userType_ {};
       // Indicates whether the member is visible.
       shared_ptr<bool> visible_ {};
@@ -430,15 +432,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned per page.
+    // The maximum number of records to return per request.
     shared_ptr<int32_t> maxResults_ {};
     // The list of members.
     shared_ptr<vector<ListMembersResponseBody::Members>> members_ {};
-    // The token for the next page of results.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

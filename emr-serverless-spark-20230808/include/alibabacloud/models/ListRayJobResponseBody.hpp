@@ -165,40 +165,40 @@ namespace Models
 
     protected:
       // The status of the corresponding Ray cluster. Valid values:
-      // - Deleted: deleted.
-      // - Submitted: submitted but not yet being created.
-      // - Pending: being created.
-      // - Running: running.
+      // - Deleted: The cluster is deleted.
+      // - Submitted: The cluster is submitted but not yet created.
+      // - Pending: The cluster is being created.
+      // - Running: The cluster is running.
       shared_ptr<string> clusterState_ {};
       // The nickname of the creator.
       shared_ptr<string> creatorName_ {};
-      // The number of compute units (CUs) consumed during the job execution cycle. This value is an estimate. The actual value is subject to the bill.
+      // The number of compute units (CUs) consumed during the job runtime. This value is an estimate. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
-      // The URL of the Ray cluster dashboard. When the Ray cluster is in the Running state, the URL points to the Runtime UI. After the cluster is in the Deleted state, the URL points to the History UI. The History UI is supported only in err-1.2.0 and later versions.
+      // The URL of the Ray cluster dashboard. If the Ray cluster is in the Running state, the URL points to the Runtime UI. If the cluster is in the Deleted state, the URL points to the History UI. The History UI is supported only in err-1.2.0 and later.
       shared_ptr<string> dashboardUrl_ {};
-      // The execution duration of the job. Unit: seconds.
+      // The execution duration of the job, in seconds.
       shared_ptr<int64_t> duration_ {};
-      // The time when the job ended.
+      // The time when the job ended. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The name of the Ray Job.
+      // The name of the Ray job.
       shared_ptr<string> name_ {};
-      // The Ray DPI engine version.
+      // The Ray engine version.
       shared_ptr<string> resourceQueue_ {};
-      // The time when the job was started.
+      // The time when the job was started. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The job status. Valid values:
-      // - Submitted: submitted.
-      // - Pending: the cluster is being created.
-      // - Running: the job is running.
-      // - Succeeded: the job succeeded.
-      // - Failed: the job failed.
-      // - Cancelling: the job is being canceled.
-      // - Cancelled: the job is canceled.
-      // - Timeout: the job timed out and was canceled.
+      // The status of the job. Valid values:
+      // - Submitted: The job is submitted.
+      // - Pending: The cluster is being created.
+      // - Running: The job is running.
+      // - Succeeded: The job succeeded.
+      // - Failed: The job failed.
+      // - Cancelling: The job is being cancelled.
+      // - Cancelled: The job is cancelled.
+      // - Timeout: The job is cancelled due to a timeout.
       shared_ptr<string> status_ {};
-      // The ID of the Ray Job.
+      // The ID of the Ray job.
       shared_ptr<string> submissionId_ {};
-      // The time when the job was submitted.
+      // The time when the job was submitted. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> submitTime_ {};
     };
 
@@ -228,7 +228,7 @@ namespace Models
 
 
   protected:
-    // The list of Ray Jobs.
+    // The list of Ray jobs.
     shared_ptr<vector<ListRayJobResponseBody::RayJobs>> rayJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

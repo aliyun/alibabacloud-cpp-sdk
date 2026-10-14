@@ -186,18 +186,18 @@ namespace Models
 
 
   protected:
-    // The email address to which alerts are sent.
+    // The email address for alert notifications.
     shared_ptr<string> alertEmailAddress_ {};
-    // The description of the workflow.
+    // The workflow description.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The execution policy.
+    // The execution strategy.
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
     shared_ptr<string> globalParamsShrink_ {};
-    // The name of the workflow.
+    // The workflow name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -213,23 +213,23 @@ namespace Models
     shared_ptr<string> resourceQueue_ {};
     // The number of retries.
     shared_ptr<int32_t> retryTimes_ {};
-    // The Alibaba Cloud UID of the user who runs the workflow.
+    // The Alibaba Cloud UID of the execution user.
     shared_ptr<string> runAs_ {};
-    // The scheduling configuration.
+    // The scheduling structure.
     shared_ptr<string> scheduleShrink_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
-    // A JSON array of task definitions. This array contains the details for all tasks in the workflow.
+    // The JSON array of task definitions. It contains the description information of all tasks in the workflow.
     // 
     // This parameter is required.
     shared_ptr<string> taskDefinitionJsonShrink_ {};
-    // The degree of parallelism for tasks.
+    // The task concurrency.
     shared_ptr<int32_t> taskParallelism_ {};
-    // A JSON array of task dependencies. \\`preTaskCode\\` specifies the upstream task ID and \\`postTaskCode\\` specifies the downstream task ID. Each task must have a unique ID. For tasks without an upstream dependency, set \\`preTaskCode\\` to 0.
+    // The JSON array of task dependencies. It contains the dependencies among all tasks in the workflow. preTaskCode specifies the upstream task ID, and postTaskCode specifies the downstream task ID. Each task must have a unique ID. If a task node does not have an upstream task, you must add a dependency with preTaskCode set to 0.
     // 
     // This parameter is required.
     shared_ptr<string> taskRelationJsonShrink_ {};
-    // The default timeout period for a workflow run.
+    // The default timeout period for workflow execution, in seconds.
     shared_ptr<int32_t> timeout_ {};
   };
 

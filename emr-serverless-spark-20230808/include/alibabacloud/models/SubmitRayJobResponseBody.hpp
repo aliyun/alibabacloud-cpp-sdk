@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Ray Job ID。
+    // The Ray job ID.
     shared_ptr<string> submissionId_ {};
   };
 

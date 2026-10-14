@@ -217,35 +217,35 @@ namespace Models
 
 
       protected:
-        // The KyuubiServer instance type.
+        // The instance specifications of the Kyuubi server.
         shared_ptr<string> computeInstance_ {};
-        // The creation time.
+        // The creation time. The time is in UTC and follows the ISO 8601 standard.
         shared_ptr<string> createTime_ {};
-        // The UID of the user who created the KyuubiServer.
+        // The UID of the creator.
         shared_ptr<string> creator_ {};
-        // The internal network endpoint.
+        // The internal domain name.
         shared_ptr<string> innerEndpoint_ {};
-        // The KyuubiServer configurations.
+        // The Kyuubi server configurations.
         shared_ptr<string> kyuubiConfigs_ {};
-        // The KyuubiServer version.
+        // The version of the Kyuubi server.
         shared_ptr<string> kyuubiReleaseVersion_ {};
-        // KyuubiServer ID。
+        // The KyuubiServer ID.
         shared_ptr<string> kyuubiServiceId_ {};
-        // The KyuubiServer name.
+        // The name of the Kyuubi server.
         shared_ptr<string> name_ {};
         // The public domain name.
         shared_ptr<string> publicEndpoint_ {};
-        // The queue name.
+        // The name of the queue.
         shared_ptr<string> queue_ {};
-        // The Spark DPI engine database engine version number.
+        // The Spark DPI engine version.
         shared_ptr<string> releaseVersion_ {};
-        // The number of KyuubiServer replicas.
+        // The number of replicas of the Kyuubi server.
         shared_ptr<int32_t> replica_ {};
-        // The default configurations for Spark applications started by KyuubiServer.
+        // The default configurations for the Kyuubi server to start a Spark application.
         shared_ptr<string> sparkConfigs_ {};
-        // The most recent start time of KyuubiServer.
+        // The most recent start time of the Kyuubi server. The format is YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The KyuubiServer status.
+        // The state of the Kyuubi server.
         shared_ptr<string> state_ {};
         // The WebUI of the Kyuubi Gateway.
         shared_ptr<string> webUi_ {};
@@ -262,7 +262,7 @@ namespace Models
 
 
     protected:
-      // The list of KyuubiServer instances.
+      // The list of Kyuubi servers.
       shared_ptr<vector<Data::KyuubiServices>> kyuubiServices_ {};
     };
 

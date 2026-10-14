@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_TO_JSON(submitTime, submitTime_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
+        DARABONBA_PTR_TO_JSON(tokenDetails, tokenDetails_);
         DARABONBA_PTR_TO_JSON(totalTokens, totalTokens_);
         DARABONBA_PTR_TO_JSON(webUI, webUI_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
@@ -84,6 +85,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_FROM_JSON(submitTime, submitTime_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
+        DARABONBA_PTR_FROM_JSON(tokenDetails, tokenDetails_);
         DARABONBA_PTR_FROM_JSON(totalTokens, totalTokens_);
         DARABONBA_PTR_FROM_JSON(webUI, webUI_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
@@ -99,6 +101,94 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TokenDetails : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TokenDetails& obj) { 
+          DARABONBA_PTR_TO_JSON(enableThinking, enableThinking_);
+          DARABONBA_PTR_TO_JSON(inputModality, inputModality_);
+          DARABONBA_PTR_TO_JSON(modelName, modelName_);
+          DARABONBA_PTR_TO_JSON(tokenRange, tokenRange_);
+          DARABONBA_PTR_TO_JSON(tokenSource, tokenSource_);
+          DARABONBA_PTR_TO_JSON(tokenUsed, tokenUsed_);
+        };
+        friend void from_json(const Darabonba::Json& j, TokenDetails& obj) { 
+          DARABONBA_PTR_FROM_JSON(enableThinking, enableThinking_);
+          DARABONBA_PTR_FROM_JSON(inputModality, inputModality_);
+          DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(tokenRange, tokenRange_);
+          DARABONBA_PTR_FROM_JSON(tokenSource, tokenSource_);
+          DARABONBA_PTR_FROM_JSON(tokenUsed, tokenUsed_);
+        };
+        TokenDetails() = default ;
+        TokenDetails(const TokenDetails &) = default ;
+        TokenDetails(TokenDetails &&) = default ;
+        TokenDetails(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TokenDetails() = default ;
+        TokenDetails& operator=(const TokenDetails &) = default ;
+        TokenDetails& operator=(TokenDetails &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enableThinking_ == nullptr
+        && this->inputModality_ == nullptr && this->modelName_ == nullptr && this->tokenRange_ == nullptr && this->tokenSource_ == nullptr && this->tokenUsed_ == nullptr; };
+        // enableThinking Field Functions 
+        bool hasEnableThinking() const { return this->enableThinking_ != nullptr;};
+        void deleteEnableThinking() { this->enableThinking_ = nullptr;};
+        inline string getEnableThinking() const { DARABONBA_PTR_GET_DEFAULT(enableThinking_, "") };
+        inline TokenDetails& setEnableThinking(string enableThinking) { DARABONBA_PTR_SET_VALUE(enableThinking_, enableThinking) };
+
+
+        // inputModality Field Functions 
+        bool hasInputModality() const { return this->inputModality_ != nullptr;};
+        void deleteInputModality() { this->inputModality_ = nullptr;};
+        inline string getInputModality() const { DARABONBA_PTR_GET_DEFAULT(inputModality_, "") };
+        inline TokenDetails& setInputModality(string inputModality) { DARABONBA_PTR_SET_VALUE(inputModality_, inputModality) };
+
+
+        // modelName Field Functions 
+        bool hasModelName() const { return this->modelName_ != nullptr;};
+        void deleteModelName() { this->modelName_ = nullptr;};
+        inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+        inline TokenDetails& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+        // tokenRange Field Functions 
+        bool hasTokenRange() const { return this->tokenRange_ != nullptr;};
+        void deleteTokenRange() { this->tokenRange_ = nullptr;};
+        inline string getTokenRange() const { DARABONBA_PTR_GET_DEFAULT(tokenRange_, "") };
+        inline TokenDetails& setTokenRange(string tokenRange) { DARABONBA_PTR_SET_VALUE(tokenRange_, tokenRange) };
+
+
+        // tokenSource Field Functions 
+        bool hasTokenSource() const { return this->tokenSource_ != nullptr;};
+        void deleteTokenSource() { this->tokenSource_ = nullptr;};
+        inline string getTokenSource() const { DARABONBA_PTR_GET_DEFAULT(tokenSource_, "") };
+        inline TokenDetails& setTokenSource(string tokenSource) { DARABONBA_PTR_SET_VALUE(tokenSource_, tokenSource) };
+
+
+        // tokenUsed Field Functions 
+        bool hasTokenUsed() const { return this->tokenUsed_ != nullptr;};
+        void deleteTokenUsed() { this->tokenUsed_ = nullptr;};
+        inline int64_t getTokenUsed() const { DARABONBA_PTR_GET_DEFAULT(tokenUsed_, 0L) };
+        inline TokenDetails& setTokenUsed(int64_t tokenUsed) { DARABONBA_PTR_SET_VALUE(tokenUsed_, tokenUsed) };
+
+
+      protected:
+        // Specifies whether thinking mode is enabled.
+        shared_ptr<string> enableThinking_ {};
+        // The input modality.
+        shared_ptr<string> inputModality_ {};
+        // The model name.
+        shared_ptr<string> modelName_ {};
+        // The input token range.
+        shared_ptr<string> tokenRange_ {};
+        // The token source. Valid values: input and output.
+        shared_ptr<string> tokenSource_ {};
+        // The number of tokens consumed.
+        shared_ptr<int64_t> tokenUsed_ {};
+      };
+
       class StateChangeReason : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const StateChangeReason& obj) { 
@@ -173,7 +263,7 @@ namespace Models
 
 
       protected:
-        // The list of configurations.
+        // The configuration list.
         shared_ptr<vector<Configuration>> configurations_ {};
       };
 
@@ -181,8 +271,8 @@ namespace Models
         && this->configurationOverrides_ == nullptr && this->displayReleaseVersion_ == nullptr && this->endTime_ == nullptr && this->environmentId_ == nullptr && this->executionTimeoutSeconds_ == nullptr
         && this->fusion_ == nullptr && this->jobDriver_ == nullptr && this->jobRunId_ == nullptr && this->log_ == nullptr && this->name_ == nullptr
         && this->notebookAccessUrl_ == nullptr && this->priority_ == nullptr && this->releaseVersion_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceQueueId_ == nullptr
-        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->totalTokens_ == nullptr
-        && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->tokenDetails_ == nullptr
+        && this->totalTokens_ == nullptr && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
       // codeType Field Functions 
       bool hasCodeType() const { return this->codeType_ != nullptr;};
       void deleteCodeType() { this->codeType_ = nullptr;};
@@ -333,6 +423,15 @@ namespace Models
       inline JobRun& setTags(vector<Tag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // tokenDetails Field Functions 
+      bool hasTokenDetails() const { return this->tokenDetails_ != nullptr;};
+      void deleteTokenDetails() { this->tokenDetails_ = nullptr;};
+      inline const vector<JobRun::TokenDetails> & getTokenDetails() const { DARABONBA_PTR_GET_CONST(tokenDetails_, vector<JobRun::TokenDetails>) };
+      inline vector<JobRun::TokenDetails> getTokenDetails() { DARABONBA_PTR_GET(tokenDetails_, vector<JobRun::TokenDetails>) };
+      inline JobRun& setTokenDetails(const vector<JobRun::TokenDetails> & tokenDetails) { DARABONBA_PTR_SET_VALUE(tokenDetails_, tokenDetails) };
+      inline JobRun& setTokenDetails(vector<JobRun::TokenDetails> && tokenDetails) { DARABONBA_PTR_SET_RVALUE(tokenDetails_, tokenDetails) };
+
+
       // totalTokens Field Functions 
       bool hasTotalTokens() const { return this->totalTokens_ != nullptr;};
       void deleteTotalTokens() { this->totalTokens_ = nullptr;};
@@ -355,7 +454,7 @@ namespace Models
 
 
     protected:
-      // The code type of the job. Valid values:
+      // The job code type. Valid values:
       // 
       // - SQL
       // 
@@ -367,13 +466,13 @@ namespace Models
       shared_ptr<JobRun::ConfigurationOverrides> configurationOverrides_ {};
       // The version displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The time when the job ended.
+      // The job end time. The value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The execution timeout period, in seconds.
+      // The execution timeout period.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether the Fusion engine acceleration is enabled.
+      // Specifies whether the Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
       // The Spark Driver information.
       shared_ptr<JobDriver> jobDriver_ {};
@@ -381,26 +480,28 @@ namespace Models
       shared_ptr<string> jobRunId_ {};
       // The path of the run log.
       shared_ptr<RunLog> log_ {};
-      // The job run name.
+      // The job name.
       shared_ptr<string> name_ {};
-      // The download URL of the NOTEBOOK file. This parameter is returned only when the job type is NOTEBOOK.
+      // The download URL of the NOTEBOOK file. This parameter is returned only if the job type is NOTEBOOK.
       shared_ptr<string> notebookAccessUrl_ {};
       // The job priority.
       shared_ptr<string> priority_ {};
-      // The Spark DPI engine version used to run the job.
+      // The Spark DPI engine version used to run the node.
       shared_ptr<string> releaseVersion_ {};
       // The UID of the user who created the job.
       shared_ptr<string> resourceOwnerId_ {};
       // The name of the queue used to run the job.
       shared_ptr<string> resourceQueueId_ {};
-      // The job run state.
+      // The job status.
       shared_ptr<string> state_ {};
-      // The reason for the state change.
+      // The reason for the status change.
       shared_ptr<JobRun::StateChangeReason> stateChangeReason_ {};
-      // The time when the job was submitted.
+      // The job submission time. The value is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> submitTime_ {};
-      // The list of tags.
+      // The tag list.
       shared_ptr<vector<Tag>> tags_ {};
+      // The details of token consumption.
+      shared_ptr<vector<JobRun::TokenDetails>> tokenDetails_ {};
       // The total number of tokens consumed.
       shared_ptr<int64_t> totalTokens_ {};
       // The web UI of the job.

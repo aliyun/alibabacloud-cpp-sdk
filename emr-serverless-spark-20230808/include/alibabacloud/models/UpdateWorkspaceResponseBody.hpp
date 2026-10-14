@@ -91,7 +91,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<UpdateWorkspaceResponseBody::Data> data_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

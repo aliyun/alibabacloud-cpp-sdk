@@ -134,19 +134,19 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable auto-renewal. This parameter is required for the pre-paid billing type.
+      // Specifies whether to enable auto-renewal. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenew_ {};
-      // The auto-renewal duration. This parameter is required for the pre-paid billing type.
+      // The auto-renewal period. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenewPeriod_ {};
-      // The auto-renewal period unit. This parameter is required for the pre-paid billing type.
+      // The auto-renewal cycle. This parameter is required for the subscription billing method.
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // The idempotency token.
+      // The client token for idempotency verification.
       shared_ptr<string> clientToken_ {};
-      // The number of subscription periods. This parameter is required for the pre-paid billing type.
+      // The number of subscription periods. This parameter is required for the subscription billing method.
       shared_ptr<string> duration_ {};
       // The subscription period unit.
       shared_ptr<string> paymentDurationUnit_ {};
-      // The list of running queues to be converted.
+      // The list of running queues to be switched.
       shared_ptr<vector<string>> queue_ {};
     };
 
@@ -234,12 +234,19 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable auto-renewal.
       shared_ptr<bool> autoRenew_ {};
+      // The number of subscription periods.
       shared_ptr<int32_t> duration_ {};
+      // The number of GPU machines.
       shared_ptr<int32_t> gpuMachineNum_ {};
+      // The ID of the GPU quota instance to be upgraded. This parameter is required when the operation parameter is set to UPGRADE.
       shared_ptr<string> instanceId_ {};
+      // The GPU instance type.
       shared_ptr<string> instanceTypeId_ {};
+      // The operation type. Valid values: BUY and UPGRADE. BUY indicates a new purchase, and UPGRADE indicates an upgrade. If you set this parameter to UPGRADE, you must specify the orderId parameter. Default value: BUY.
       shared_ptr<string> operation_ {};
+      // The subscription period unit.
       shared_ptr<string> paymentDurationUnit_ {};
     };
 
@@ -325,17 +332,19 @@ namespace Models
 
 
   protected:
-    // The upper limit of workspace resources.
+    // The resource limit of the workspace.
     shared_ptr<int32_t> cu_ {};
-    // The number of GPU cards.
+    // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
     // The GPU instance type.
     shared_ptr<vector<string>> gpuSpec_ {};
+    // The GPU subscription information.
     shared_ptr<UpdateWorkspaceRequest::GpuSubscription> gpuSubscription_ {};
+    // The workspace IP address whitelist.
     shared_ptr<vector<string>> ipWhiteList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The information for converting from pay-as-you-go to subscription.
+    // The information about switching the billing method from pay-as-you-go to subscription.
     shared_ptr<UpdateWorkspaceRequest::Subscription> subscription_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

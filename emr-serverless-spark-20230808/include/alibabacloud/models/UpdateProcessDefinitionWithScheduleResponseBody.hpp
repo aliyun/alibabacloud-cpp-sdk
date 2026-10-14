@@ -235,19 +235,19 @@ namespace Models
 
 
     protected:
-      // The email address for alerts.
+      // The email address for alert notifications.
       shared_ptr<string> alertEmailAddress_ {};
       // The workspace ID.
       shared_ptr<string> bizId_ {};
       // The workflow definition ID.
       shared_ptr<string> code_ {};
-      // The time when the workflow definition was created.
+      // The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
       // The cron expression for scheduling.
       shared_ptr<string> crontab_ {};
-      // The description of the workflow definition.
+      // The node definition description.
       shared_ptr<string> description_ {};
-      // The end time of the schedule.
+      // The end time of the task time range. The value is a UNIX timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
       // The execution policy.
       shared_ptr<string> executionType_ {};
@@ -257,21 +257,21 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the project to which the workflow belongs.
       shared_ptr<string> projectName_ {};
-      // The release state of the workflow.
+      // The online status of the workflow.
       shared_ptr<string> releaseState_ {};
-      // The start time of the schedule.
+      // The start time of the scheduling.
       shared_ptr<string> startTime_ {};
       // The time zone ID.
       shared_ptr<string> timezoneId_ {};
-      // The time when the workflow definition was updated.
+      // The update time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> updateTime_ {};
-      // The ID of the user who scheduled the workflow.
+      // The ID of the scheduling user.
       shared_ptr<string> userId_ {};
-      // The name of the user who scheduled the workflow.
+      // The name of the scheduling user.
       shared_ptr<string> userName_ {};
       // The version number.
       shared_ptr<int32_t> version_ {};
-      // The hash code of the version.
+      // The version hash code.
       shared_ptr<string> versionHashCode_ {};
     };
 
@@ -330,19 +330,19 @@ namespace Models
 
 
   protected:
-    // The return code from the backend API.
+    // The return code from the API backend.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<UpdateProcessDefinitionWithScheduleResponseBody::Data> data_ {};
-    // The number of failed operations.
+    // The number of failures.
     shared_ptr<string> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The detailed description that corresponds to the return code.
+    // The detailed description corresponding to the request code.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

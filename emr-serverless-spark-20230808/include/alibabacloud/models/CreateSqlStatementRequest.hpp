@@ -94,16 +94,17 @@ namespace Models
 
 
   protected:
-    // The SQL code. This parameter accepts one or more SQL statements for execution.
+    // The SQL code. You can specify one or more SQL statements to execute.
     shared_ptr<string> codeContent_ {};
-    // The ID of the default DLF Catalog.
+    // The default DLF catalog ID.
     shared_ptr<string> defaultCatalog_ {};
-    // The name of the default database.
+    // The default database name.
     shared_ptr<string> defaultDatabase_ {};
-    // The limit value. The value must be between 1 and 10000, inclusive.
+    // The limit value. Valid values: 1 to 10000.
     shared_ptr<int32_t> limit_ {};
-    // The ID of the SQL session. The session must be created in the Session Manager module of the EMR Serverless Spark workspace.
+    // The SQL session ID. Create the session in the session management module of the EMR Serverless Spark workspace.
     shared_ptr<string> sqlComputeId_ {};
+    // The data development node ID.
     shared_ptr<string> taskBizId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

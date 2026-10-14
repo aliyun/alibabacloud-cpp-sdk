@@ -902,7 +902,7 @@ CreateRayClusterResponse Client::createRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Creates a session cluster.
+ * @summary Creates a session.
  *
  * @param request CreateSessionClusterRequest
  * @param headers map
@@ -985,7 +985,7 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary Creates a session cluster.
+ * @summary Creates a session.
  *
  * @param request CreateSessionClusterRequest
  * @return CreateSessionClusterResponse
@@ -997,7 +997,7 @@ CreateSessionClusterResponse Client::createSessionCluster(const string &workspac
 }
 
 /**
- * @summary Creates an SQL statement.
+ * @summary Creates an SQL query.
  *
  * @param request CreateSqlStatementRequest
  * @param headers map
@@ -1056,7 +1056,7 @@ CreateSqlStatementResponse Client::createSqlStatementWithOptions(const string &w
 }
 
 /**
- * @summary Creates an SQL statement.
+ * @summary Creates an SQL query.
  *
  * @param request CreateSqlStatementRequest
  * @return CreateSqlStatementResponse
@@ -1650,7 +1650,7 @@ GenerateTaskCodesResponse Client::generateTaskCodes(const string &bizId, const G
 }
 
 /**
- * @summary Gets the state of an AI center.
+ * @summary Retrieves the status of AI Hub.
  *
  * @param request GetAICenterStateRequest
  * @param headers map
@@ -1677,7 +1677,7 @@ GetAICenterStateResponse Client::getAICenterStateWithOptions(const string &works
 }
 
 /**
- * @summary Gets the state of an AI center.
+ * @summary Retrieves the status of AI Hub.
  *
  * @param request GetAICenterStateRequest
  * @return GetAICenterStateResponse
@@ -1783,7 +1783,7 @@ GetCuHoursResponse Client::getCuHours(const string &workspaceId, const string &q
 }
 
 /**
- * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+ * @summary Retrieves the diagnostic information for a Serverless Spark job.
  *
  * @param request GetDoctorApplicationRequest
  * @param headers map
@@ -1824,7 +1824,7 @@ GetDoctorApplicationResponse Client::getDoctorApplicationWithOptions(const strin
 }
 
 /**
- * @summary Obtains job analysis information on E-MapReduce (EMR) Doctor.
+ * @summary Retrieves the diagnostic information for a Serverless Spark job.
  *
  * @param request GetDoctorApplicationRequest
  * @return GetDoctorApplicationResponse
@@ -1836,7 +1836,7 @@ GetDoctorApplicationResponse Client::getDoctorApplication(const string &workspac
 }
 
 /**
- * @summary Retrieves the details of a job run by calling GetJobRun.
+ * @summary Retrieves the details of a Spark job run by calling GetJobRun.
  *
  * @param request GetJobRunRequest
  * @param headers map
@@ -1869,7 +1869,7 @@ GetJobRunResponse Client::getJobRunWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary Retrieves the details of a job run by calling GetJobRun.
+ * @summary Retrieves the details of a Spark job run by calling GetJobRun.
  *
  * @param request GetJobRunRequest
  * @return GetJobRunResponse
@@ -1881,7 +1881,7 @@ GetJobRunResponse Client::getJobRun(const string &workspaceId, const string &job
 }
 
 /**
- * @summary Retrieves the details of a Kyuubi Gateway.
+ * @summary Retrieves a Kyuubi Gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1906,7 +1906,7 @@ GetKyuubiServiceResponse Client::getKyuubiServiceWithOptions(const string &works
 }
 
 /**
- * @summary Retrieves the details of a Kyuubi Gateway.
+ * @summary Retrieves a Kyuubi Gateway.
  *
  * @return GetKyuubiServiceResponse
  */
@@ -1917,7 +1917,7 @@ GetKyuubiServiceResponse Client::getKyuubiService(const string &workspaceId, con
 }
 
 /**
- * @summary Obtains an authentication token for Kyuubi Gateway.
+ * @summary Retrieves the Kyuubi Gateway authentication token.
  *
  * @param request GetKyuubiTokenRequest
  * @param headers map
@@ -1950,7 +1950,7 @@ GetKyuubiTokenResponse Client::getKyuubiTokenWithOptions(const string &workspace
 }
 
 /**
- * @summary Obtains an authentication token for Kyuubi Gateway.
+ * @summary Retrieves the Kyuubi Gateway authentication token.
  *
  * @param request GetKyuubiTokenRequest
  * @return GetKyuubiTokenResponse
@@ -1962,7 +1962,7 @@ GetKyuubiTokenResponse Client::getKyuubiToken(const string &workspaceId, const s
 }
 
 /**
- * @summary Retrieves information about a Livy Gateway.
+ * @summary Retrieves the Livy Gateway information.
  *
  * @param request GetLivyComputeRequest
  * @param headers map
@@ -1995,7 +1995,7 @@ GetLivyComputeResponse Client::getLivyComputeWithOptions(const string &workspace
 }
 
 /**
- * @summary Retrieves information about a Livy Gateway.
+ * @summary Retrieves the Livy Gateway information.
  *
  * @param request GetLivyComputeRequest
  * @return GetLivyComputeResponse
@@ -2007,7 +2007,7 @@ GetLivyComputeResponse Client::getLivyCompute(const string &workspaceBizId, cons
 }
 
 /**
- * @summary Retrieves a token for a Livy Gateway.
+ * @summary Retrieves the token for a Livy Gateway.
  *
  * @param request GetLivyComputeTokenRequest
  * @param headers map
@@ -2040,7 +2040,7 @@ GetLivyComputeTokenResponse Client::getLivyComputeTokenWithOptions(const string 
 }
 
 /**
- * @summary Retrieves a token for a Livy Gateway.
+ * @summary Retrieves the token for a Livy Gateway.
  *
  * @param request GetLivyComputeTokenRequest
  * @return GetLivyComputeTokenResponse
@@ -2221,7 +2221,7 @@ GetRunConfigurationResponse Client::getRunConfiguration(const string &workspaceI
 }
 
 /**
- * @summary Retrieves session details.
+ * @summary Retrieves the details of a session.
  *
  * @param request GetSessionClusterRequest
  * @param headers map
@@ -2254,7 +2254,7 @@ GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &wor
 }
 
 /**
- * @summary Retrieves session details.
+ * @summary Retrieves the details of a session.
  *
  * @param request GetSessionClusterRequest
  * @return GetSessionClusterResponse
@@ -2468,7 +2468,7 @@ ListCatalogsResponse Client::listCatalogs(const string &workspaceId, const ListC
 }
 
 /**
- * @summary Lists the log files for a job executor.
+ * @summary Lists the log files of a job executor.
  *
  * @param request ListExecutorLogsRequest
  * @param headers map
@@ -2513,7 +2513,7 @@ ListExecutorLogsResponse Client::listExecutorLogsWithOptions(const string &works
 }
 
 /**
- * @summary Lists the log files for a job executor.
+ * @summary Lists the log files of a job executor.
  *
  * @param request ListExecutorLogsRequest
  * @return ListExecutorLogsResponse
@@ -2586,7 +2586,7 @@ ListJobExecutorsResponse Client::listJobExecutors(const string &workspaceId, con
 }
 
 /**
- * @summary Queries a list of Spark jobs.
+ * @summary Lists Spark job runs.
  *
  * @param tmpReq ListJobRunsRequest
  * @param headers map
@@ -2701,7 +2701,7 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Queries a list of Spark jobs.
+ * @summary Lists Spark job runs.
  *
  * @param request ListJobRunsRequest
  * @return ListJobRunsResponse
@@ -2758,7 +2758,7 @@ ListKyuubiServicesResponse Client::listKyuubiServices(const string &workspaceId,
 }
 
 /**
- * @summary Lists Kyuubi Spark applications.
+ * @summary Queries the Spark applications submitted by Kyuubi.
  *
  * @param tmpReq ListKyuubiSparkApplicationsRequest
  * @param headers map
@@ -2849,7 +2849,7 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
 }
 
 /**
- * @summary Lists Kyuubi Spark applications.
+ * @summary Queries the Spark applications submitted by Kyuubi.
  *
  * @param request ListKyuubiSparkApplicationsRequest
  * @return ListKyuubiSparkApplicationsResponse
@@ -2861,7 +2861,7 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplications(const st
 }
 
 /**
- * @summary Lists KyuubiServer authentication tokens.
+ * @summary Lists the Kyuubi Server authentication tokens.
  *
  * @param request ListKyuubiTokenRequest
  * @param headers map
@@ -2894,7 +2894,7 @@ ListKyuubiTokenResponse Client::listKyuubiTokenWithOptions(const string &workspa
 }
 
 /**
- * @summary Lists KyuubiServer authentication tokens.
+ * @summary Lists the Kyuubi Server authentication tokens.
  *
  * @param request ListKyuubiTokenRequest
  * @return ListKyuubiTokenResponse
@@ -2906,7 +2906,7 @@ ListKyuubiTokenResponse Client::listKyuubiToken(const string &workspaceId, const
 }
 
 /**
- * @summary Lists Livy Gateways.
+ * @summary Lists Livy gateways.
  *
  * @param request ListLivyComputeRequest
  * @param headers map
@@ -2943,7 +2943,7 @@ ListLivyComputeResponse Client::listLivyComputeWithOptions(const string &workspa
 }
 
 /**
- * @summary Lists Livy Gateways.
+ * @summary Lists Livy gateways.
  *
  * @param request ListLivyComputeRequest
  * @return ListLivyComputeResponse
@@ -2955,7 +2955,7 @@ ListLivyComputeResponse Client::listLivyCompute(const string &workspaceBizId, co
 }
 
 /**
- * @summary Lists the historical sessions for a Livy Gateway.
+ * @summary Retrieves the historical sessions of a Livy Gateway.
  *
  * @param request ListLivyComputeSessionsRequest
  * @param headers map
@@ -2996,7 +2996,7 @@ ListLivyComputeSessionsResponse Client::listLivyComputeSessionsWithOptions(const
 }
 
 /**
- * @summary Lists the historical sessions for a Livy Gateway.
+ * @summary Retrieves the historical sessions of a Livy Gateway.
  *
  * @param request ListLivyComputeSessionsRequest
  * @return ListLivyComputeSessionsResponse
@@ -3008,7 +3008,7 @@ ListLivyComputeSessionsResponse Client::listLivyComputeSessions(const string &wo
 }
 
 /**
- * @summary Lists the tokens of a Livy Gateway.
+ * @summary Lists the tokens of a Livy gateway.
  *
  * @param request ListLivyComputeTokenRequest
  * @param headers map
@@ -3041,7 +3041,7 @@ ListLivyComputeTokenResponse Client::listLivyComputeTokenWithOptions(const strin
 }
 
 /**
- * @summary Lists the tokens of a Livy Gateway.
+ * @summary Lists the tokens of a Livy gateway.
  *
  * @param request ListLivyComputeTokenRequest
  * @return ListLivyComputeTokenResponse
@@ -3110,7 +3110,7 @@ ListLogContentsResponse Client::listLogContents(const string &workspaceId, const
 }
 
 /**
- * @summary Retrieves the list of members in the workspace.
+ * @summary Queries the list of members in a workspace.
  *
  * @param request ListMembersRequest
  * @param headers map
@@ -3151,7 +3151,7 @@ ListMembersResponse Client::listMembersWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Retrieves the list of members in the workspace.
+ * @summary Queries the list of members in a workspace.
  *
  * @param request ListMembersRequest
  * @return ListMembersResponse
@@ -3208,6 +3208,55 @@ ListNetworkServicesResponse Client::listNetworkServices(const string &workspaceI
 }
 
 /**
+ * @summary Queries the jobs with the highest CU usage in a queue.
+ *
+ * @param request ListQueueTopJobsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListQueueTopJobsResponse
+ */
+ListQueueTopJobsResponse Client::listQueueTopJobsWithOptions(const string &workspaceId, const string &queueName, const ListQueueTopJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTopN()) {
+    query["topN"] = request.getTopN();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListQueueTopJobs"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/queues/" , Darabonba::Encode::Encoder::percentEncode(queueName) , "/topJobs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListQueueTopJobsResponse>();
+}
+
+/**
+ * @summary Queries the jobs with the highest CU usage in a queue.
+ *
+ * @param request ListQueueTopJobsRequest
+ * @return ListQueueTopJobsResponse
+ */
+ListQueueTopJobsResponse Client::listQueueTopJobs(const string &workspaceId, const string &queueName, const ListQueueTopJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listQueueTopJobsWithOptions(workspaceId, queueName, request, headers, runtime);
+}
+
+/**
  * @summary Lists Ray clusters.
  *
  * @param request ListRayClusterRequest
@@ -3257,7 +3306,7 @@ ListRayClusterResponse Client::listRayCluster(const string &workspaceId, const L
 }
 
 /**
- * @summary Lists Ray Job information.
+ * @summary Lists Ray job information.
  *
  * @param tmpReq ListRayJobRequest
  * @param headers map
@@ -3316,7 +3365,7 @@ ListRayJobResponse Client::listRayJobWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary Lists Ray Job information.
+ * @summary Lists Ray job information.
  *
  * @param request ListRayJobRequest
  * @return ListRayJobResponse
@@ -3454,7 +3503,7 @@ ListReleaseVersionsResponse Client::listReleaseVersions(const ListReleaseVersion
 }
 
 /**
- * @summary Retrieves a list of session clusters.
+ * @summary Retrieves a list of sessions.
  *
  * @param request ListSessionClustersRequest
  * @param headers map
@@ -3507,7 +3556,7 @@ ListSessionClustersResponse Client::listSessionClustersWithOptions(const string 
 }
 
 /**
- * @summary Retrieves a list of session clusters.
+ * @summary Retrieves a list of sessions.
  *
  * @param request ListSessionClustersRequest
  * @return ListSessionClustersResponse
@@ -3617,7 +3666,7 @@ ListTemplateResponse Client::listTemplate(const string &workspaceBizId, const Li
 }
 
 /**
- * @summary Queries the list of queues in a workspace.
+ * @summary Queries the queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @param headers map
@@ -3654,7 +3703,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueuesWithOptions(const string 
 }
 
 /**
- * @summary Queries the list of queues in a workspace.
+ * @summary Queries the queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @return ListWorkspaceQueuesResponse
@@ -3666,7 +3715,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueues(const string &workspaceI
 }
 
 /**
- * @summary Queries a list of workspaces.
+ * @summary Retrieves a list of workspaces.
  *
  * @param tmpReq ListWorkspacesRequest
  * @param headers map
@@ -3729,7 +3778,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Queries a list of workspaces.
+ * @summary Retrieves a list of workspaces.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -4964,7 +5013,7 @@ UpdateLivyComputeResponse Client::updateLivyCompute(const string &workspaceBizId
 }
 
 /**
- * @summary Updates a workflow definition and its timed scheduling.
+ * @summary Updates the workflow definition and timed scheduling.
  *
  * @param tmpReq UpdateProcessDefinitionWithScheduleRequest
  * @param headers map
@@ -5087,7 +5136,7 @@ UpdateProcessDefinitionWithScheduleResponse Client::updateProcessDefinitionWithS
 }
 
 /**
- * @summary Updates a workflow definition and its timed scheduling.
+ * @summary Updates the workflow definition and timed scheduling.
  *
  * @param request UpdateProcessDefinitionWithScheduleRequest
  * @return UpdateProcessDefinitionWithScheduleResponse
@@ -5172,7 +5221,7 @@ UpdateRayClusterResponse Client::updateRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Updates the properties of a workspace.
+ * @summary Updates the attributes of a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @param headers map
@@ -5243,7 +5292,7 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 }
 
 /**
- * @summary Updates the properties of a workspace.
+ * @summary Updates the attributes of a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse

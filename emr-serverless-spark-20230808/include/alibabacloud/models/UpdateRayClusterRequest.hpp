@@ -188,7 +188,7 @@ namespace Models
       shared_ptr<int32_t> maxReplica_ {};
       // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
-      // The minimum number of workers. Minimum value: 1. The value must be less than or equal to maxReplica.
+      // The minimum number of workers. Minimum value: 1. The value must be less than or equal to the value of maxReplica.
       shared_ptr<int32_t> minReplica_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
@@ -381,17 +381,17 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The Ray DPI engine version.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Specifies whether to enable automatic scaling.
+      // Specifies whether to enable auto scaling.
       shared_ptr<bool> enableAutoScaling_ {};
       // The environment variables.
       shared_ptr<string> env_ {};
-      // The GCS Fault Tolerance configuration.
+      // The GCS fault tolerance configuration.
       shared_ptr<HeadSpec::GftConfig> gftConfig_ {};
-      // Specifies whether to enable GCS Fault Tolerance.
+      // Specifies whether to enable GCS fault tolerance.
       shared_ptr<bool> gftEnabled_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout period of workers after automatic scaling is enabled.
+      // The idle timeout period for workers after auto scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
       // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
@@ -473,15 +473,15 @@ namespace Models
     shared_ptr<string> displayReleaseVersion_ {};
     // The extra parameters. The value must be in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The Ray cluster head node information.
+    // The head node information for the Ray cluster.
     shared_ptr<UpdateRayClusterRequest::HeadSpec> headSpec_ {};
-    // The Ray cluster name. The name must be 1 to 64 characters in length.
+    // The name of the Ray cluster. The name must be 1 to 64 characters in length.
     shared_ptr<string> name_ {};
-    // The network connectivity name.
+    // The network connection name.
     shared_ptr<string> networkServiceName_ {};
-    // The list of managed folder IDs to mount.
+    // The list of managed directory IDs to mount.
     shared_ptr<vector<string>> volumeIds_ {};
-    // The Ray cluster worker node information. A maximum of 50 groups are supported.
+    // The worker node information for the Ray cluster. A maximum of 50 worker groups are supported.
     shared_ptr<vector<UpdateRayClusterRequest::WorkerSpec>> workerSpec_ {};
   };
 

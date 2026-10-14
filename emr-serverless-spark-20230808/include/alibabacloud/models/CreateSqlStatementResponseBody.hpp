@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The ID of the interactive query.
+      // The interactive query ID.
       shared_ptr<string> statementId_ {};
     };
 

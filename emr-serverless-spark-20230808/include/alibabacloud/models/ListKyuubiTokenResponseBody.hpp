@@ -168,17 +168,17 @@ namespace Models
 
 
       protected:
-        // The names of authorized RAM users.
+        // The list of RAM user names of authorized users.
         shared_ptr<vector<string>> accountNames_ {};
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The creator\\"s name.
+        // The name of the creator.
         shared_ptr<string> createdBy_ {};
-        // The expiration time.
+        // The expiration time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> expireTime_ {};
-        // The last used time.
+        // The last usage time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastUsedTime_ {};
-        // The ARNs of authorized users.
+        // The list of ARNs of authorized users.
         shared_ptr<vector<string>> memberArns_ {};
         // The token name.
         shared_ptr<string> name_ {};
@@ -200,7 +200,7 @@ namespace Models
 
 
     protected:
-      // A list of tokens.
+      // The list of tokens.
       shared_ptr<vector<Data::Tokens>> tokens_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<ListKyuubiTokenResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

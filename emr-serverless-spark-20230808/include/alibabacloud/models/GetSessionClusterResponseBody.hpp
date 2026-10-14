@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The state change code.
+        // The code for the state change.
         shared_ptr<string> code_ {};
-        // The state change message.
+        // The message for the state change.
         shared_ptr<string> message_ {};
       };
 
@@ -181,13 +181,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable auto-stop.
-        // 
-        // - true: Auto-stop is enabled.
-        // 
-        // - false: Auto-stop is disabled.
+        // Specifies whether auto-stop is allowed. Valid values:
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> enable_ {};
-        // The number of minutes a session can be idle before it is automatically stopped.
+        // The idle timeout in minutes after which the session is automatically stopped.
         shared_ptr<int32_t> idleTimeoutMinutes_ {};
       };
 
@@ -219,11 +217,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable auto-start.
-        // 
-        // - true: Auto-start is enabled.
-        // 
-        // - false: Auto-start is disabled.
+        // Specifies whether auto-start is enabled. Valid values:
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> enable_ {};
       };
 
@@ -274,7 +270,7 @@ namespace Models
 
 
       protected:
-        // The name of the configuration file.
+        // The configuration file name.
         shared_ptr<string> configFileName_ {};
         // The configuration key.
         shared_ptr<string> configItemKey_ {};
@@ -478,61 +474,55 @@ namespace Models
       shared_ptr<SessionCluster::AutoStartConfiguration> autoStartConfiguration_ {};
       // The auto-stop configuration.
       shared_ptr<SessionCluster::AutoStopConfiguration> autoStopConfiguration_ {};
+      // The token used to connect to the session cluster.
       shared_ptr<string> connectionToken_ {};
-      // The version that is displayed in the console.
+      // The version actually displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The domain name of the Spark UI for the session.
+      // The domain to which the session Spark UI belongs.
       shared_ptr<string> domain_ {};
-      // The internal same-region endpoint.
+      // The internal domain name.
       shared_ptr<string> domainInner_ {};
-      // The ID of the developer job that is attached to the session.
+      // The ID of the development job bound to the session.
       shared_ptr<string> draftId_ {};
       // The environment ID.
       shared_ptr<string> envId_ {};
       // The extra metadata of the session.
       shared_ptr<string> extra_ {};
-      // Specifies whether to enable acceleration using the Fusion engine.
+      // Specifies whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The time when the session was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The job type. This parameter is required and cannot be modified after the job is created.
-      // 
-      // - SQLSCRIPT: an SQL job.
-      // 
-      // - JAR: a JAR job.
-      // 
-      // - PYTHON: a Python job.
+      // The effective job type. This parameter is required and cannot be modified after creation. Valid values:
+      // - SQLSCRIPT: SQL job.
+      // - JAR: JAR job.
+      // - PYTHON: Python job.
       shared_ptr<string> kind_ {};
       // The session name.
       shared_ptr<string> name_ {};
+      // Specifies whether the public network access endpoint is enabled.
       shared_ptr<bool> publicEndpointEnabled_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
       // The Serverless Spark version.
       shared_ptr<string> releaseVersion_ {};
-      // The session cluster ID.
+      // The interactive job session ID.
       shared_ptr<string> sessionClusterId_ {};
-      // The time when the session started.
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
-      // The state of the job.
-      // 
+      // The job status. Valid values:
       // - Starting: The job is starting.
-      // 
       // - Running: The job is running.
-      // 
       // - Stopping: The job is stopping.
-      // 
       // - Stopped: The job is stopped.
-      // 
-      // - Error: The job failed.
+      // - Error: The job has failed.
       shared_ptr<string> state_ {};
       // The reason for the state change.
       shared_ptr<SessionCluster::StateChangeReason> stateChangeReason_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // The name of the user who created the session.
+      // The name of the session creator.
       shared_ptr<string> userName_ {};
-      // The URL of the Spark UI for the session.
+      // The URL of the session Spark UI.
       shared_ptr<string> webUI_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
