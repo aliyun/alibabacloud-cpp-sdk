@@ -39,6 +39,8 @@ namespace Models
 
   protected:
     // The cluster ID.
+    // 
+    // This parameter is essentially required. If it is not provided, the service returns BadRequest. The target cluster must also have completed control plane deployment and certificate generation. You cannot obtain the kubeconfig for a cluster in the initial state.
     shared_ptr<string> clusterId_ {};
   };
 

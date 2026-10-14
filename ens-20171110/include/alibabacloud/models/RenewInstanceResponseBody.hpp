@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+    // The common parameter. Each request has a unique ID that can be used for troubleshooting and locating issues.
     shared_ptr<string> requestId_ {};
   };
 

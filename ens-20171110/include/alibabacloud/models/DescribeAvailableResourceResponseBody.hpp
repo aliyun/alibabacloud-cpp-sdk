@@ -251,10 +251,10 @@ namespace Models
 
 
   protected:
-    // The returned service code. 0 indicates that the request was successful.
+    // The business return code. The value 0 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeAvailableResourceResponseBody::Images> images_ {};
-    // The ID of the request. This is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
+    // The common parameter. Each request ID is unique and active for troubleshooting.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeAvailableResourceResponseBody::SupportResources> supportResources_ {};
   };

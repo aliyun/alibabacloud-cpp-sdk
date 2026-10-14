@@ -54,8 +54,9 @@ namespace Models
     shared_ptr<string> loadBalancerId_ {};
     // The new instance status. Valid values:
     // 
-    // *   **Active**
-    // *   **InActive**
+    // - **Active**
+    // 
+    // - **InActive**
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerStatus_ {};

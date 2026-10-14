@@ -14,6 +14,7 @@ namespace Models
   class DescribeVSwitchesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVSwitchesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnableIpv6, enableIpv6_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_TO_JSON(NetworkId, networkId_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VSwitchName, vSwitchName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVSwitchesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnableIpv6, enableIpv6_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_FROM_JSON(NetworkId, networkId_);
@@ -44,9 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ensRegionId_ == nullptr
-        && this->ensRegionIds_ == nullptr && this->networkId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vSwitchIds_ == nullptr && this->vSwitchName_ == nullptr; };
+    virtual bool empty() const override { return this->enableIpv6_ == nullptr
+        && this->ensRegionId_ == nullptr && this->ensRegionIds_ == nullptr && this->networkId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vSwitchIds_ == nullptr && this->vSwitchName_ == nullptr; };
+    // enableIpv6 Field Functions 
+    bool hasEnableIpv6() const { return this->enableIpv6_ != nullptr;};
+    void deleteEnableIpv6() { this->enableIpv6_ = nullptr;};
+    inline bool getEnableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
+    inline DescribeVSwitchesRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
+
+
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
@@ -108,21 +117,22 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> enableIpv6_ {};
     // The ID of the ENS node.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. You can specify 1 to 100 IDs.
+    // The IDs of the ENS nodes. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the VPC to which the vSwitch belongs.
+    // The ID of the VPC to which the VSwitch belongs.
     shared_ptr<string> networkId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the vSwitch.
+    // The ID of the VSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The IDs of vSwitches. You can specify 1 to 100 IDs.
+    // The IDs of the vSwitches. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The name of the vSwitch.
+    // The name of the VSwitch.
     shared_ptr<string> vSwitchName_ {};
   };
 

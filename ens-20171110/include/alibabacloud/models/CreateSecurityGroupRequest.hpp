@@ -154,54 +154,63 @@ namespace Models
 
 
     protected:
-      // The description. It must be 2 to 256 characters in length and cannot start with http:// or https://.
+      // The description of the security group rule. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> description_ {};
-      // The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
+      // The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
       shared_ptr<string> destCidrIp_ {};
-      // The direction in which the security group rule is applied.
+      // The direction of the security group rule. Valid values:
       // 
-      // *   egress
-      // *   ingress
+      // - egress: outbound
+      // 
+      // - ingress: inbound
       // 
       // This parameter is required.
       shared_ptr<string> direction_ {};
-      // The protocol type. Valid values:
+      // The transport layer protocol. Valid values:
       // 
-      // *   TCP
-      // *   UDP
-      // *   ICMP
-      // *   ALL: All protocols are supported.
+      // - TCP
+      // 
+      // - UDP
+      // 
+      // - ICMP
+      // 
+      // - ALL
       // 
       // This parameter is required.
       shared_ptr<string> ipProtocol_ {};
       shared_ptr<string> ipv6DestCidrIp_ {};
       shared_ptr<string> ipv6SourceCidrIp_ {};
-      // The action of the security group rule. Valid values:
+      // The policy of the security group rule. Valid values:
       // 
-      // *   Accept
-      // *   Drop
+      // - Accept: allows access.
+      // 
+      // - Drop: denies access.
       // 
       // This parameter is required.
       shared_ptr<string> policy_ {};
-      // The range of destination port numbers for the protocols specified in the security group rule. Valid values:
+      // The range of the destination ports for the security group rule. Valid values:
       // 
-      // *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-      // *   If you set IpProtocol to ALL, the port number range is -1/-1.
+      // - If you set the IpProtocol to TCP or UDP, the port range is 1 to 65535. You must use a forward slash (/) to separate the start port and the end port, for example, 1/200.
+      // 
+      // - If you set the IpProtocol to ICMP, the port range is -1/-1.
+      // 
+      // - If you set the IpProtocol to ALL, the port range is -1/-1.
       // 
       // This parameter is required.
       shared_ptr<string> portRange_ {};
-      // The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
+      // The priority of the security group rule. A smaller value indicates a higher priority. Valid values: 1 to 100.
       // 
       // This parameter is required.
       shared_ptr<int32_t> priority_ {};
-      // The source IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
+      // The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
       shared_ptr<string> sourceCidrIp_ {};
-      // The range of source port numbers for the protocols specified in the security group rule. Valid values:
+      // The range of the source ports for the security group rule. Valid values:
       // 
-      // *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-      // *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
+      // - If you set the IpProtocol to TCP or UDP, the port range is 1 to 65535. You must use a forward slash (/) to separate the start port and the end port, for example, 1/200.
+      // 
+      // - If you set the IpProtocol to ICMP, the port range is -1/-1.
+      // 
+      // - If you set the IpProtocol to ALL, the port range is -1/-1.
       shared_ptr<string> sourcePortRange_ {};
     };
 
@@ -231,11 +240,11 @@ namespace Models
 
 
   protected:
-    // The description. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+    // The description of the security group. The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // An array of security group rules. You can specify up to 200 IDs of security group rules.
+    // The rules of the security group. Valid values of N: 0 to 200.
     shared_ptr<vector<CreateSecurityGroupRequest::Permissions>> permissions_ {};
-    // The name of the security group. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter but cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-). By default, this parameter is empty.
+    // The name of the security group. The name must be 2 to 128 characters in length, and can contain digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`. By default, this parameter is empty.
     shared_ptr<string> securityGroupName_ {};
   };
 

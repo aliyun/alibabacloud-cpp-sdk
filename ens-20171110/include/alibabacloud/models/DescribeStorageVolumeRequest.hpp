@@ -100,8 +100,9 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // Specifies whether to enable the volume. Valid values:
     // 
-    // *   **1** (default): enables the volume.
-    // *   **0**: disables the volume.
+    // - **1** (default): enables the volume.
+    // 
+    // - **0**: disables the volume.
     shared_ptr<int32_t> isEnable_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};

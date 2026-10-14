@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // This parameter does not take effect.
+    // Invalid parameter.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the Edge Node Service (ENS) node.
+    // The ID of the ENS edge node.
     shared_ptr<string> regionId_ {};
     // Service ID
     shared_ptr<string> serviceId_ {};

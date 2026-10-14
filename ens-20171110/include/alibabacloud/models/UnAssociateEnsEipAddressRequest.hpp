@@ -48,14 +48,16 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP.
+    // The instance ID of the edge elastic IP address (EIP).
+    // 
+    // If the EIP is referenced by an SNAT entry, invoke DeleteSnatIpForSnatEntry to remove it first. If the EIP is referenced by a DNAT entry, invoke DeleteForwardEntry to delete it first, or set Force to true under Settings as needed.
     // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
-    // Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
+    // Specifies whether to forcibly disassociate the EIP when the EIP is bound to a NAT gateway that has DNAT or SNAT entries. Valid values:
     // 
-    // *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
-    // *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+    // - **false** (default): does not forcibly disassociate the EIP.
+    // - **true**: forcibly disassociates the EIP.
     shared_ptr<bool> force_ {};
   };
 

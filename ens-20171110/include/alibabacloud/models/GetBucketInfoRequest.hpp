@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // Bucket name.
     // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};

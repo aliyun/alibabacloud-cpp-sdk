@@ -72,9 +72,9 @@ namespace Models
     shared_ptr<string> allocationId_ {};
     // The peak bandwidth of the EIP. Default value: 5. Valid values: **5** to **10000**. Unit: Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
-    // The new description of the EIP. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+    // The new description of the EIP. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
-    // The new name of the EIP. The name must be 2 to 128 characters in length and cannot start with http:// or https://.
+    // The new name of the EIP. The name must be 2 to 128 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> name_ {};
   };
 

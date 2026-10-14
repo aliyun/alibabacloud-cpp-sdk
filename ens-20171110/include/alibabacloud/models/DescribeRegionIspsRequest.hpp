@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the node. You can specify only one node ID in a call.
+    // The edge node ID. Only a single query is supported.
     shared_ptr<string> ensRegionId_ {};
   };
 

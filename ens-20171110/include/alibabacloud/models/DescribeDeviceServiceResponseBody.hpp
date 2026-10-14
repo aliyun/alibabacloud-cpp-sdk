@@ -107,7 +107,7 @@ namespace Models
 
 
       protected:
-        // The public IP address.
+        // The IP address.
         shared_ptr<string> ip_ {};
       };
 
@@ -139,7 +139,7 @@ namespace Models
 
 
       protected:
-        // The internal IP address.
+        // The IP address.
         shared_ptr<string> ip_ {};
       };
 
@@ -222,16 +222,16 @@ namespace Models
 
 
         protected:
-          // The port of the container.
+          // The container port.
           shared_ptr<string> containerPorts_ {};
           // The public IP address.
           shared_ptr<string> externalIp_ {};
-          // The port range.
+          // The host port range.
           shared_ptr<string> hostPorts_ {};
-          // The protocol of the gateway. The value is of the enumeration type. Valid values:
+          // The gateway protocol. Valid values:
           // 
-          // *   TCP
-          // *   UDP
+          // - TCP
+          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -261,9 +261,9 @@ namespace Models
 
 
       protected:
-        // The name of the device.
+        // The device name.
         shared_ptr<string> name_ {};
-        // The network information.
+        // The list of network information.
         shared_ptr<vector<DeviceInfos::Network>> network_ {};
         // The status.
         shared_ptr<string> status_ {};
@@ -364,29 +364,29 @@ namespace Models
 
 
     protected:
-      // The version of the application.
+      // The application version number.
       shared_ptr<string> appVersion_ {};
       // The area code.
       shared_ptr<string> areaCode_ {};
-      // The region name.
+      // The area name.
       shared_ptr<string> areaName_ {};
-      // The time when the application was created.
+      // The time when the resource was created.
       shared_ptr<string> createTime_ {};
-      // The information about the devices.
+      // The list of device information.
       shared_ptr<vector<ResourceInfos::DeviceInfos>> deviceInfos_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the instance.
+      // The instance status.
       shared_ptr<string> instanceStatus_ {};
-      // The internal IP addresses.
+      // The list of internal IP addresses.
       shared_ptr<vector<ResourceInfos::InternalIps>> internalIps_ {};
       // The public IP addresses.
       shared_ptr<vector<ResourceInfos::PublicIps>> publicIps_ {};
-      // The ID of the region.
+      // The region code.
       shared_ptr<string> regionCode_ {};
-      // The ID of the ENS node.
+      // The ID of the ENS edge node.
       shared_ptr<string> regionId_ {};
-      // The name of the region.
+      // The area name.
       shared_ptr<string> regionName_ {};
     };
 
@@ -501,25 +501,25 @@ namespace Models
 
 
     protected:
-      // The name of the device.
+      // The device name.
       shared_ptr<string> deviceName_ {};
-      // The ID of the cloud device.
+      // The cloud device ID.
       shared_ptr<string> ID_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The Internet service provider (ISP).
+      // The Internet service provider (ISP) information.
       shared_ptr<string> ISP_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageID_ {};
-      // The media access control (MAC) address of the device.
+      // The MAC address of the device.
       shared_ptr<string> mac_ {};
-      // The ID of the ENS node.
+      // The ID of the ENS edge node.
       shared_ptr<string> regionID_ {};
-      // The server name of the ENS node.
+      // The server NC name of the ENS edge node.
       shared_ptr<string> server_ {};
-      // The status of the device.
+      // The device status.
       shared_ptr<string> status_ {};
-      // The type of the device.
+      // The device type.
       shared_ptr<string> type_ {};
     };
 
@@ -570,24 +570,23 @@ namespace Models
 
 
     protected:
-      // The status of the application. The value is of the enumeration type. Valid values:
+      // The application status. Valid values:
       // 
       // Three intermediate states:
-      // 
-      // *   CREATING
-      // *   UPDATING
-      // *   DELETING
+      // -   CREATING
+      // -   UPDATING
+      // -   DELETING
       // 
       // Four final states:
-      // 
-      // *   CREATE_FAILED
-      // *   UPDATE_FAILED
-      // *   DELETE_FAILED
-      // *   RUNNING
+      //   
+      // - CREATE_FAILED
+      // -   UPDATE_FAILED
+      // -   DELETE_FAILED
+      // -   RUNNING
       shared_ptr<string> phase_ {};
       // The description of the application status.
       shared_ptr<string> statusDescrip_ {};
-      // The time when the status was last updated.
+      // The most recent status update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -675,18 +674,18 @@ namespace Models
 
 
     protected:
-      // The ID of the application.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
       // The stable version number of the application.
       shared_ptr<string> appStableVersion_ {};
-      // The type of the application. The value is of the enumeration type. Valid values:
+      // The application type. Valid values:
       // 
-      // *   Common
-      // *   Scheduler
+      // - Common: common.
+      // - Scheduler: schedule resource.
       shared_ptr<string> appType_ {};
-      // The name of the application cluster.
+      // The application cluster name.
       shared_ptr<string> clusterName_ {};
       // The time when the application was created.
       shared_ptr<string> createTime_ {};
@@ -742,13 +741,13 @@ namespace Models
   protected:
     // The basic properties of the application.
     shared_ptr<DescribeDeviceServiceResponseBody::AppMetaData> appMetaData_ {};
-    // The status information of the application.
+    // The application status information.
     shared_ptr<DescribeDeviceServiceResponseBody::AppStatus> appStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the devices.
+    // The device list.
     shared_ptr<vector<DescribeDeviceServiceResponseBody::ResourceDetailInfos>> resourceDetailInfos_ {};
-    // The information about the instances.
+    // The list of resource instance information.
     shared_ptr<vector<DescribeDeviceServiceResponseBody::ResourceInfos>> resourceInfos_ {};
   };
 

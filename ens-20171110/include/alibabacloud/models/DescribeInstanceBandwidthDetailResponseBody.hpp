@@ -160,25 +160,27 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<int64_t> aliUid_ {};
-      // The bandwidth service time. The data granularity is 5 minutes.
+      // The bandwidth business time. The bandwidth calculation granularity is 5 minutes.
       shared_ptr<string> bizTime_ {};
       // The node ID.
       shared_ptr<string> ensRegionId_ {};
-      // The type of the bandwidth. Valid values: 1, which indicates public network bandwidth. 2, which indicates internal network bandwidth.
+      // The bandwidth type. Valid values:
+      // - 1: public network.
+      // - 2: internal network.
       shared_ptr<int32_t> flowType_ {};
-      // The plan ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The type of the instance, such as vm, eip, single_tenant, and nc.
+      // The instance type, such as vm, eip, single_tenant, or nc.
       shared_ptr<string> instanceType_ {};
-      // null
+      // The IP address of the instance.
       shared_ptr<string> ip_ {};
-      // The Internet service provider to which the IP address belongs.
+      // The Internet service provider (ISP) of the IP address.
       shared_ptr<string> isp_ {};
-      // null
+      // The inbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> rxBw_ {};
-      // The type of the service, such as vm, eip, esk, and meta.
+      // The service type, such as vm, eip, esk, or meta.
       shared_ptr<string> serviceType_ {};
-      // null
+      // The outbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> txBw_ {};
     };
 
@@ -222,15 +224,15 @@ namespace Models
 
 
   protected:
-    // Details about the maximum public bandwidth.
+    // The collection of Internet bandwidth cap information.
     shared_ptr<vector<DescribeInstanceBandwidthDetailResponseBody::Bandwidths>> bandwidths_ {};
-    // The page number of the current page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -157,7 +157,7 @@ namespace Models
 
   protected:
     shared_ptr<RemoveBackendServersResponseBody::BackendServers> backendServers_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

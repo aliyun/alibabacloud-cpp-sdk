@@ -50,11 +50,11 @@ namespace Models
   protected:
     // The description of the network ACL.
     // 
-    // The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
     // Enter a name for the network ACL.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> networkAclName_ {};
   };
 

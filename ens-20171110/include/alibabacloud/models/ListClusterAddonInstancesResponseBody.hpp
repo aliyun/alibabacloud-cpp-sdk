@@ -115,13 +115,13 @@ namespace Models
 
 
       protected:
-        // Application version.
+        // The application version.
         shared_ptr<string> appVersion_ {};
-        // Configuration version.
+        // The configuration version.
         shared_ptr<string> configVersion_ {};
-        // Component name.
+        // The add-on name.
         shared_ptr<string> name_ {};
-        // Custom parameters.
+        // The custom add-on parameters.
         shared_ptr<string> params_ {};
       };
 
@@ -165,13 +165,13 @@ namespace Models
 
 
     protected:
-      // Whether to automatically clean up associated cloud resources.
+      // Specifies whether to automatically clean up associated cloud resources.
       shared_ptr<bool> cleanupCloudResources_ {};
-      // List of custom parameter schemas for the addon.
+      // The list of schemas for custom add-on parameters.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
-      // Addon name.
+      // The plug-in name.
       shared_ptr<string> name_ {};
-      // Current addon status. Values:
+      // The current add-on status. Valid values:
       // 
       // - **enabling**: Enabling.
       // - **enabled**: Enabled.
@@ -179,7 +179,7 @@ namespace Models
       // - **disabled**: Disabled.
       // - **upgrading**: Upgrading.
       shared_ptr<string> status_ {};
-      // Version number.
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -202,9 +202,9 @@ namespace Models
 
 
   protected:
-    // List of addon information.
+    // The list of add-on information.
     shared_ptr<vector<ListClusterAddonInstancesResponseBody::Addons>> addons_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

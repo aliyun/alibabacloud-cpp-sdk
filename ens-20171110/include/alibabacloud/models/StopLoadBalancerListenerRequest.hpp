@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<int32_t> listenerPort_ {};
     // The frontend protocol that is used by the ELB instance.
     // 
-    // >  This parameter is required if the same port is used by listeners that use different protocols.
+    // > This parameter is required if the same port is used by listeners that use different protocols.
     shared_ptr<string> listenerProtocol_ {};
     // The ID of the ELB instance.
     // 

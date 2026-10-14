@@ -118,9 +118,11 @@ namespace Models
     shared_ptr<string> nextHopId_ {};
     // The type of next hop of the custom route entry. Valid values:
     // 
-    // *   Instance (default): an ENS instance.
-    // *   HaVip: a high-availability virtual IP address (HAVIP).
-    // *   NetworkPeer: VPC peering connection.
+    // - Instance (default): an ENS instance.
+    // 
+    // - HaVip: a high-availability virtual IP address (HAVIP).
+    // 
+    // - NetworkPeer: VPC peering connection.
     shared_ptr<string> nextHopType_ {};
     // The page number of the returned page. Valid values: integers that are greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -132,8 +134,9 @@ namespace Models
     shared_ptr<string> routeEntryName_ {};
     // The route type. Valid values:
     // 
-    // *   Custom: custom route
-    // *   System: system route
+    // - Custom: custom route
+    // 
+    // - System: system route
     shared_ptr<string> routeEntryType_ {};
     // The ID of the route table that you want to query.
     shared_ptr<string> routeTableId_ {};

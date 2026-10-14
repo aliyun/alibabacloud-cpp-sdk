@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The user groups.
+    // The user group.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> users_ {};

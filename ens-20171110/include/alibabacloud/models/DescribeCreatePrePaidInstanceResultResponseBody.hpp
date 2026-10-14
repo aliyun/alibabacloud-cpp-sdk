@@ -71,10 +71,13 @@ namespace Models
     protected:
       // The status of the instance creation.
       // 
-      // *   Accepted
-      // *   Creating
-      // *   Failed
-      // *   Successed
+      // - Accepted
+      // 
+      // - Creating
+      // 
+      // - Failed
+      // 
+      // - Successed
       shared_ptr<string> instanceCreateStatus_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};

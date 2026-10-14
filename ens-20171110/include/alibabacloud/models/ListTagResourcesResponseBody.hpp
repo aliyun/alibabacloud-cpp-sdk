@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The ID of the associated resources.
+      // The ID of the associated resource.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
       // The tag key of the instance.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The token of the first page to query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tags that are added to specified one or more resources.
+    // The collection of tagged resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

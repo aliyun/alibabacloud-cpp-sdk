@@ -412,16 +412,16 @@ namespace Models
 
 
   protected:
-    // The returned service code. 0 indicates that the request was successful.
+    // The returned business code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned pages.
+    // The total number of pages for a paged query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

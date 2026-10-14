@@ -159,16 +159,17 @@ namespace Models
 
 
       protected:
-        // The time when the SDG was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
         shared_ptr<string> creationTime_ {};
+        // The disk type of the redundant shared disks.
         shared_ptr<string> diskType_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // The number of redundant replicas to quickly respond to shared mounts.
+        // The number of redundant copies for fast shared mounting response.
         shared_ptr<int32_t> redundantNum_ {};
-        // The ID of the node.
+        // The edge zone ID.
         shared_ptr<string> regionId_ {};
-        // The time when the status was last updated.
+        // The most recent status update time.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -228,19 +229,19 @@ namespace Models
 
 
       protected:
-        // The time when the SDG was created on the node.
+        // The creation time of the SDG in the edge zone.
         shared_ptr<string> creationTime_ {};
-        // The ID of the node.
+        // The edge zone ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the snapshot.
+        // The snapshot ID.
         shared_ptr<string> snapshotId_ {};
-        // The status of the SDG on the node. Valid values:
+        // The status of the SDG in the edge zone. Valid values:
         // 
-        // *   **sdg_making**
-        // *   **sdg_saving**
-        // *   **sdg_copying**
-        // *   **failed**
-        // *   **success**
+        // - **sdg_making**: Being created.
+        // - **sdg_saving**: Being saved.
+        // - **sdg_copying**: Being synchronized across edge zones.
+        // - **failed**: Creation failed.
+        // - **success**: Creation succeeded.
         shared_ptr<string> status_ {};
       };
 
@@ -358,34 +359,38 @@ namespace Models
 
 
     protected:
-      // SDGs that have snapshots.
+      // The list of edge zones where SDG snapshots exist.
       shared_ptr<vector<SDGs::AvaliableRegionIds>> avaliableRegionIds_ {};
+      // The billing cycle of the shared disk.
       shared_ptr<string> billingCycle_ {};
+      // The billing type.
       shared_ptr<string> billingType_ {};
+      // The disk type of the source disk used to create the SDG.
       shared_ptr<string> creationDiskType_ {};
-      // The ID of the instance on which the SDG is created.
+      // The instance ID of the instance from which the SDG was created.
       shared_ptr<string> creationInstanceId_ {};
-      // The ID of the node on which the SDG is created.
+      // The ID of the edge zone where the SDG was created.
       shared_ptr<string> creationRegionId_ {};
-      // The time when the first SDG in the node was created.
+      // The time when the SDG was first created.
       shared_ptr<string> creationTime_ {};
       // The description of the SDG.
       shared_ptr<string> description_ {};
-      // The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
+      // The ID of the source SDG for incremental creation. This is the FromSDGId parameter specified when you called [CreateSDG](https://help.aliyun.com/document_detail/608128.html).
       shared_ptr<string> parentSDGId_ {};
+      // The sharing ratio of the SDG.
       shared_ptr<string> performanceLevel_ {};
-      // The preload information.
+      // The preload configuration information.
       shared_ptr<vector<SDGs::PreloadInfos>> preloadInfos_ {};
       // The ID of the SDG.
       shared_ptr<string> SDGId_ {};
       // The size of the SDG. Unit: GB.
       shared_ptr<int64_t> size_ {};
-      // The status of the SDG creation. Valid values:
+      // The creation status of the SDG. Valid values:
       // 
-      // *   **sdg_making**
-      // *   **sdg_saving**
-      // *   **failed**
-      // *   **success**
+      // - **sdg_making**: Being created.
+      // - **sdg_saving**: Being saved.
+      // - **failed**: Creation failed.
+      // - **success**: Creation succeeded.
       shared_ptr<string> status_ {};
       // The time when the SDG was last updated.
       shared_ptr<string> updateTime_ {};
@@ -431,15 +436,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the SDGs.
+    // The list of SDG information.
     shared_ptr<vector<DescribeSDGResponseBody::SDGs>> SDGs_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

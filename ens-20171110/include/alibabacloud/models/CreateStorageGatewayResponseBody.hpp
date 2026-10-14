@@ -163,8 +163,9 @@ namespace Models
     shared_ptr<vector<CreateStorageGatewayResponseBody::AllocationId>> allocationId_ {};
     // The success status code.
     // 
-    // *   **PartSuccess**: partially succeeded.
-    // *   **AllSuccess**: all succeeded.
+    // - **PartSuccess**: partially succeeded.
+    // 
+    // - **AllSuccess**: all succeeded.
     shared_ptr<string> bizStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

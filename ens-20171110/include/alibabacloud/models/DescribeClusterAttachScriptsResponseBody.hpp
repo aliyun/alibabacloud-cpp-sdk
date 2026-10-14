@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The cluster attachment script, Base64-encoded.
     shared_ptr<string> script_ {};
   };
 

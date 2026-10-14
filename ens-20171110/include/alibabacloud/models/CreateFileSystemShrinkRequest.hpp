@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The information about the orders.
+    // The list of orders. Each element in the list contains the details of an order.
     // 
     // This parameter is required.
     shared_ptr<string> orderDetailsShrink_ {};

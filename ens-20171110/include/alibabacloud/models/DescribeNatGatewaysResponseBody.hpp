@@ -131,9 +131,13 @@ namespace Models
 
 
       protected:
+        // Tag key.
         shared_ptr<string> key_ {};
+        // Tag key.
         shared_ptr<string> tagKey_ {};
+        // Tag value.
         shared_ptr<string> tagValue_ {};
+        // Tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -190,9 +194,11 @@ namespace Models
         shared_ptr<string> ipAddress_ {};
         // The association between the EIP and the Internet NAT gateway. Valid values:
         // 
-        // *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
-        // *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
-        // *   **Idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
+        // - **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+        // 
+        // - **UsedBySnatTable**: The EIP is specified in an SNAT entry.
+        // 
+        // - **Idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
         shared_ptr<string> usingStatus_ {};
       };
 
@@ -290,10 +296,13 @@ namespace Models
       shared_ptr<string> spec_ {};
       // The status of the NAT gateway. Valid values:
       // 
-      // *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
-      // *   **Available**: The NAT gateway is in the Available state after the creation is complete.
-      // *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
+      // - **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
+      // 
+      // - **Available**: The NAT gateway is in the Available state after the creation is complete.
+      // 
+      // - **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
       shared_ptr<string> status_ {};
+      // The collection of tags.
       shared_ptr<vector<NatGateways::Tags>> tags_ {};
       // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};

@@ -54,7 +54,7 @@ namespace Models
     shared_ptr<string> loadBalancerId_ {};
     // The name of the ELB instance. The name must be **2** to **128** characters in length.
     // 
-    // >  The value cannot start with `http://` or `https://`.
+    // > The value cannot start with `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerName_ {};

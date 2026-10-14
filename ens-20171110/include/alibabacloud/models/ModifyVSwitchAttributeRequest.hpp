@@ -14,11 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyVSwitchAttributeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableIPv6, enableIPv6_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VSwitchName, vSwitchName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyVSwitchAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableIPv6, enableIPv6_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VSwitchName, vSwitchName_);
     };
@@ -34,12 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
+        && this->enableIPv6_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyVSwitchAttributeRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enableIPv6 Field Functions 
+    bool hasEnableIPv6() const { return this->enableIPv6_ != nullptr;};
+    void deleteEnableIPv6() { this->enableIPv6_ = nullptr;};
+    inline bool getEnableIPv6() const { DARABONBA_PTR_GET_DEFAULT(enableIPv6_, false) };
+    inline ModifyVSwitchAttributeRequest& setEnableIPv6(bool enableIPv6) { DARABONBA_PTR_SET_VALUE(enableIPv6_, enableIPv6) };
+
+
+    // ipv6CidrBlock Field Functions 
+    bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+    void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+    inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
+    inline ModifyVSwitchAttributeRequest& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
 
 
     // vSwitchId Field Functions 
@@ -57,19 +75,23 @@ namespace Models
 
 
   protected:
-    // The description of the listener.
+    // Description.
     // 
-    // *   The description must be 2 to 256 characters in length.
-    // *   It must start with a letter but cannot start with http:// or https://.
+    // - Must be 2 to 256 characters in length and can contain English or Chinese characters.
+    // 
+    // - Cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
-    // The ID of the vSwitch.
+    shared_ptr<bool> enableIPv6_ {};
+    shared_ptr<string> ipv6CidrBlock_ {};
+    // vSwitch ID.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The name of the vSwitch.
+    // vSwitch name.
     // 
-    // *   The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-    // *   It must start with a letter but cannot start with http:// or https://.
+    // - Must be 2 to 128 characters long. Can contain letters, digits, Chinese characters, underscores (_), and hyphens (-).
+    // 
+    // - Must start with a letter or a Chinese character. Cannot start with http\\:// or https\\://.
     shared_ptr<string> vSwitchName_ {};
   };
 

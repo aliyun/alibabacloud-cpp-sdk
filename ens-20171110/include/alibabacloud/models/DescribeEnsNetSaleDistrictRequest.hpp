@@ -50,14 +50,17 @@ namespace Models
   protected:
     // The region code.
     // 
-    // *   If you do not specify this parameter, only nodes under the area level that is specified by NetLevelCode are queried.
-    // *   If you specify this parameter, only child nodes in the area that is specified by NetDistrictCode are queried.
+    // - If you do not specify this parameter, only nodes under the area level that is specified by NetLevelCode are queried.
+    // 
+    // - If you specify this parameter, only child nodes in the area that is specified by NetDistrictCode are queried.
     shared_ptr<string> netDistrictCode_ {};
     // The network level. Valid values:
     // 
-    // *   **Big**: area
-    // *   **Middle**: province
-    // *   **Small**: city
+    // - **Big**: area
+    // 
+    // - **Middle**: province
+    // 
+    // - **Small**: city
     // 
     // This parameter is required.
     shared_ptr<string> netLevelCode_ {};

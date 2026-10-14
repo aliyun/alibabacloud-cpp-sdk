@@ -50,8 +50,9 @@ namespace Models
   protected:
     // Specifies whether to forcibly stop the instance.
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**
+    // 
+    // - **false** (default)
     shared_ptr<string> forceStop_ {};
     // The ID of the instance that you want to stop. You can specify only one instance ID.
     // 

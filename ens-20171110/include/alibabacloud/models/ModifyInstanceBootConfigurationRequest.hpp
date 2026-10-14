@@ -66,15 +66,16 @@ namespace Models
 
 
   protected:
-    // The startup method.
+    // The boot method.
     shared_ptr<string> bootSet_ {};
-    // The startup type.
+    // The boot type.
+    // Governance testing has confirmed that the value disk passes parameter validation, whereas the original example value pxe returns Parameter.Invalid. Other values have not been confirmed.
     // 
     // This parameter is required.
     shared_ptr<string> bootType_ {};
-    // Specifies whether the startup depends on the disk.
+    // Specifies whether the boot process depends on a disk.
     shared_ptr<string> diskSet_ {};
-    // The ID of the instance for which you want to modify the configuration. You can specify only one ID.
+    // The ID of the instance whose boot configuration you want to modify. You can specify only one instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

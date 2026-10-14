@@ -99,16 +99,15 @@ namespace Models
     protected:
       // The IP address of the backend server.
       shared_ptr<string> ip_ {};
-      // The backend port that is used by the Edge Load Balancer (ELB) instance.
+      // The port used by the backend servers of the load balancing instance.
       shared_ptr<int32_t> port_ {};
       // The instance ID of the backend server.
       // 
       // This parameter is required.
       shared_ptr<string> serverId_ {};
-      // The type of backend server. Valid values:
-      // 
-      // *   **ens**: an Edge Node Service (ENS) instance.
-      // *   **eni**: an Elastic Network Interface (ENI).
+      // The backend server type. Valid values:
+      // - **ens**: ENS instance.
+      // - **eni**: network interface controller (NIC).
       shared_ptr<string> type_ {};
       // The weight of the backend server.
       shared_ptr<int32_t> weight_ {};
@@ -133,11 +132,11 @@ namespace Models
 
 
   protected:
-    // The list of backend servers that you want to remove. You can remove up to 20 backend servers at a time.
+    // The list of backend servers to remove. You can remove up to 20 backend servers per call.
     // 
     // This parameter is required.
     shared_ptr<vector<RemoveBackendServersRequest::BackendServers>> backendServers_ {};
-    // The ID of the Edge Load Balancer (ELB) instance.
+    // The ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};

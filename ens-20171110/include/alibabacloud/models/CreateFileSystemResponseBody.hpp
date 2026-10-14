@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The ENS edge zone ID.
       shared_ptr<string> ensRegionId_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -124,17 +126,17 @@ namespace Models
 
 
   protected:
-    // The information about the file system that was created.
+    // The file systems that are created.
     shared_ptr<vector<string>> allocationId_ {};
+    // The list of instance allocation information for the file system across ENS edge zones.
     shared_ptr<vector<CreateFileSystemResponseBody::AllocationIds>> allocationIds_ {};
-    // The status code for successful operations. Valid values:
-    // 
-    // *   PartSuccess: The operation is partially successful.
-    // *   AllSuccess: The operation is successful.
+    // The status code that indicates the result. Valid values:  
+    // - PartSuccess: partially successful.
+    // - AllSuccess: all successful.
     shared_ptr<string> bizStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the file system that failed to be created.
+    // The file systems that failed to be created.
     shared_ptr<vector<string>> unAllocationId_ {};
   };
 

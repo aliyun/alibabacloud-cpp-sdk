@@ -54,8 +54,9 @@ namespace Models
     shared_ptr<string> ensServiceId_ {};
     // The operation to perform after you preview the created edge service. Valid values:
     // 
-    // *   **Buy**: create
-    // *   **Upgrade**: change
+    // - **Buy**: create
+    // 
+    // - **Upgrade**: change
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};

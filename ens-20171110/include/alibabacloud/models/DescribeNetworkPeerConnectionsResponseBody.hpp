@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // The CIDR blocks of the requester network.
         shared_ptr<vector<string>> ipv4Cidrs_ {};
+        // The network ID of the requester.
         shared_ptr<string> networkId_ {};
       };
 
@@ -159,7 +161,9 @@ namespace Models
 
 
       protected:
+        // The CIDR blocks of the accepter network.
         shared_ptr<vector<string>> ipv4Cidrs_ {};
+        // The network ID of the accepter.
         shared_ptr<string> networkId_ {};
       };
 
@@ -241,15 +245,31 @@ namespace Models
 
 
     protected:
+      // Details of the accepter network.
       shared_ptr<NetworkPeerConnects::AcceptingNetwork> acceptingNetwork_ {};
+      // The network ID of the accepter.
       shared_ptr<string> acceptingNetworkId_ {};
+      // The creation time in UTC.
       shared_ptr<string> creationTime_ {};
+      // The description of the network peering connection.
       shared_ptr<string> description_ {};
+      // The ID of the ENS node.
       shared_ptr<string> ensRegionId_ {};
+      // The ID of the network peering connection.
       shared_ptr<string> instanceId_ {};
+      // The name of the network peering connection.
       shared_ptr<string> name_ {};
+      // Details of the requester network.
       shared_ptr<NetworkPeerConnects::Network> network_ {};
+      // The network ID of the requester.
       shared_ptr<string> networkId_ {};
+      // The status of the network peering connection. Valid values:
+      // 
+      // - `Creating`: The connection is being created.
+      // 
+      // - `Activated`: The connection is active.
+      // 
+      // - `Deleting`: The connection is being deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -293,10 +313,15 @@ namespace Models
 
 
   protected:
+    // A list of the network peering connections.
     shared_ptr<vector<DescribeNetworkPeerConnectionsResponseBody::NetworkPeerConnects>> networkPeerConnects_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

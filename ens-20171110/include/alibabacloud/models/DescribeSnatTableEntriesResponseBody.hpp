@@ -160,10 +160,11 @@ namespace Models
     protected:
       // Specifies whether to enable EIP affinity. Valid values:
       // 
-      // *   **0**: no
-      // *   **1**: yes
+      // - **0**: no
       // 
-      // **
+      // - **1**: yes
+      // 
+      // \\*\\*
       // 
       // **Description** After you enable EIP affinity, if multiple EIPs are associated with an SNAT entry, each client uses one EIP to access the Internet. If EIP affinity is disabled, each client uses a random EIP to access the Internet.
       shared_ptr<bool> eipAffinity_ {};
@@ -189,16 +190,21 @@ namespace Models
       shared_ptr<string> standbySnatIp_ {};
       // The status of the secondary EIP. Valid values:
       // 
-      // *   Running
-      // *   Stopping
-      // *   Stopped
-      // *   Starting
+      // - Running
+      // 
+      // - Stopping
+      // 
+      // - Stopped
+      // 
+      // - Starting
       shared_ptr<string> standbyStatus_ {};
       // The status of the SNAT entry. Valid values:
       // 
-      // *   Pending: The SNAT entry is being created or modified.
-      // *   Available: The SNAT entry is available.
-      // *   Deleting: The SNAT entry is being deleted.
+      // - Pending: The SNAT entry is being created or modified.
+      // 
+      // - Available: The SNAT entry is available.
+      // 
+      // - Deleting: The SNAT entry is being deleted.
       shared_ptr<string> status_ {};
     };
 

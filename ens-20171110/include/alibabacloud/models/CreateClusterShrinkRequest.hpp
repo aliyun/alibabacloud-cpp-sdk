@@ -17,9 +17,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_TO_JSON(ControlPlaneConfig, controlPlaneConfigShrink_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(KubernetesVersion, kubernetesVersion_);
       DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(PodVswitchIds, podVswitchIdsShrink_);
       DARABONBA_PTR_TO_JSON(Profile, profile_);
       DARABONBA_PTR_TO_JSON(PublicAccess, publicAccess_);
@@ -32,9 +34,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_FROM_JSON(ControlPlaneConfig, controlPlaneConfigShrink_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(KubernetesVersion, kubernetesVersion_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(PodVswitchIds, podVswitchIdsShrink_);
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
       DARABONBA_PTR_FROM_JSON(PublicAccess, publicAccess_);
@@ -54,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && this->containerCidr_ == nullptr && this->controlPlaneConfigShrink_ == nullptr && this->ensRegionId_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr
-        && this->name_ == nullptr && this->podVswitchIdsShrink_ == nullptr && this->profile_ == nullptr && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr
-        && this->vpcId_ == nullptr && this->vswitchIdsShrink_ == nullptr; };
+        && this->containerCidr_ == nullptr && this->controlPlaneConfigShrink_ == nullptr && this->ensRegionId_ == nullptr && this->isp_ == nullptr && this->kubernetesVersion_ == nullptr
+        && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->podVswitchIdsShrink_ == nullptr && this->profile_ == nullptr
+        && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr && this->vpcId_ == nullptr && this->vswitchIdsShrink_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
@@ -85,6 +89,13 @@ namespace Models
     inline CreateClusterShrinkRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
 
 
+    // isp Field Functions 
+    bool hasIsp() const { return this->isp_ != nullptr;};
+    void deleteIsp() { this->isp_ = nullptr;};
+    inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+    inline CreateClusterShrinkRequest& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
+
+
     // kubernetesVersion Field Functions 
     bool hasKubernetesVersion() const { return this->kubernetesVersion_ != nullptr;};
     void deleteKubernetesVersion() { this->kubernetesVersion_ = nullptr;};
@@ -104,6 +115,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateClusterShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // natGatewayId Field Functions 
+    bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
+    void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline CreateClusterShrinkRequest& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
 
 
     // podVswitchIdsShrink Field Functions 
@@ -149,21 +167,42 @@ namespace Models
 
 
   protected:
+    // Kubernetes or ManagedKubernetes. The former indicates an ECK cluster, and the latter indicates a serverless VC.
+    // Must be used together with the profile parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterType_ {};
+    // The pod network CIDR block. The CIDR block must be a valid private CIDR block, which includes the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. The CIDR block cannot overlap with the CIDR blocks used by the VPC or existing Kubernetes clusters in the VPC. You cannot modify the CIDR block after the cluster is created.
     shared_ptr<string> containerCidr_ {};
+    // The control plane configuration.
     shared_ptr<string> controlPlaneConfigShrink_ {};
+    // The ENS Region ID of the cluster.
     shared_ptr<string> ensRegionId_ {};
+    shared_ptr<string> isp_ {};
+    // The cluster version, which is consistent with the Kubernetes community baseline version. Select the latest version. If you do not specify this parameter, the latest version is used by default.
     shared_ptr<string> kubernetesVersion_ {};
+    // The ID of the CLB instance used for API Server access. If you specify this parameter, automatic creation of a CLB instance for the API Server is skipped.
     shared_ptr<string> loadBalancerId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> name_ {};
+    shared_ptr<string> natGatewayId_ {};
+    // Each pod vSwitch corresponds to a worker node vSwitch. The zone of the pod vSwitch must be the same as that of the worker node vSwitch. If you do not specify this parameter, vswitch_ids is used by default.
     shared_ptr<string> podVswitchIdsShrink_ {};
+    // Default or Serverless. The former indicates an ECK cluster, and the latter indicates a serverless VC.
+    // Must be used together with the cluster_type parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> profile_ {};
+    // Specifies whether to enable public network access. The API Server is exposed through an EIP to enable public access to the cluster.
+    // ● true: Enable public network access.
+    // ● false: Disable public network access. If you select this option, you cannot access the cluster API Server from the Internet.
+    // Default value: false.
     shared_ptr<bool> publicAccess_ {};
+    // The service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks used by existing Kubernetes clusters in the VPC. You cannot modify the CIDR block after the cluster is created.
     shared_ptr<string> serviceCidr_ {};
+    // The VPC used by the cluster.
     shared_ptr<string> vpcId_ {};
+    // The IDs of the vSwitches for cluster nodes. The ENS Region of the vswitch_ids must be the same as the ens_region_id value.
     shared_ptr<string> vswitchIdsShrink_ {};
   };
 

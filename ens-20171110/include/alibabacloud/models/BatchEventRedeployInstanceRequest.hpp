@@ -95,17 +95,17 @@ namespace Models
 
 
     protected:
-      // System event ID.
+      // The system event ID.
       shared_ptr<string> eventId_ {};
-      // Operation type, value range:
+      // The O&M task type. Valid values:
       // 
-      // - immediate: Execute immediately.
+      // - immediate: Immediate execution.
       // - scheduled: Scheduled execution.
       shared_ptr<string> opsType_ {};
-      // Scheduled execution time, in timestamp, unit is milliseconds. This field is required when OpsType=scheduled.
+      // The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
       shared_ptr<int64_t> planTime_ {};
       shared_ptr<string> planUtcTime_ {};
-      // Resource ID.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -120,7 +120,7 @@ namespace Models
 
 
   protected:
-    // List of events.
+    // The list of events.
     shared_ptr<vector<BatchEventRedeployInstanceRequest::EventInfos>> eventInfos_ {};
   };
 

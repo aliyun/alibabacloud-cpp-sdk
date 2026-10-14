@@ -16,14 +16,18 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateNetworkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableIpv6, enableIpv6_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_TO_JSON(Ipv6Isp, ipv6Isp_);
       DARABONBA_PTR_TO_JSON(NetworkName, networkName_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNetworkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableIpv6, enableIpv6_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_FROM_JSON(Ipv6Isp, ipv6Isp_);
       DARABONBA_PTR_FROM_JSON(NetworkName, networkName_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
@@ -76,18 +80,21 @@ namespace Models
 
 
     protected:
-      // The key of the tag that are to add to the instance. Valid values of N: **1** to **20**.
+      // The tag key for the instance. N ranges from **1** to **20**.
       // 
-      // *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // *   The key must be up to 64 characters in length.
-      // *   The tag key cannot be an empty string.
+      // - Cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // 
+      // - Supports up to 64 characters.
+      // 
+      // - Cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the resource. You can specify up to 20 tag values. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs: or contain http:// or https://.
+      // The tag value for the resource. N ranges from 1 to 20. This value can be an empty string once provided. It supports up to 128 characters, cannot start with acs:, and cannot contain http\\:// or https\\://.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->networkName_ == nullptr && this->tag_ == nullptr; };
+        && this->description_ == nullptr && this->enableIpv6_ == nullptr && this->ensRegionId_ == nullptr && this->ipv6Isp_ == nullptr && this->networkName_ == nullptr
+        && this->tag_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
@@ -102,11 +109,25 @@ namespace Models
     inline CreateNetworkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // enableIpv6 Field Functions 
+    bool hasEnableIpv6() const { return this->enableIpv6_ != nullptr;};
+    void deleteEnableIpv6() { this->enableIpv6_ = nullptr;};
+    inline bool getEnableIpv6() const { DARABONBA_PTR_GET_DEFAULT(enableIpv6_, false) };
+    inline CreateNetworkRequest& setEnableIpv6(bool enableIpv6) { DARABONBA_PTR_SET_VALUE(enableIpv6_, enableIpv6) };
+
+
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
     inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CreateNetworkRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+    // ipv6Isp Field Functions 
+    bool hasIpv6Isp() const { return this->ipv6Isp_ != nullptr;};
+    void deleteIpv6Isp() { this->ipv6Isp_ = nullptr;};
+    inline string getIpv6Isp() const { DARABONBA_PTR_GET_DEFAULT(ipv6Isp_, "") };
+    inline CreateNetworkRequest& setIpv6Isp(string ipv6Isp) { DARABONBA_PTR_SET_VALUE(ipv6Isp_, ipv6Isp) };
 
 
     // networkName Field Functions 
@@ -126,29 +147,35 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the network. You can use one of the following CIDR blocks or their subnets as the CIDR block of the network:
+    // The CIDR block of the network. You can use one of the following CIDR blocks or their subsets:
     // 
-    // *   10.0.0.0/8 (default)
-    // *   172.16.0.0/12
-    // *   192.168.0.0/16
+    // - 10.0.0.0/8 (default).
+    // 
+    // - 172.16.0.0/12.
+    // 
+    // - 192.168.0.0/16.
     // 
     // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
-    // The description of the network.
+    // A description of the network.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+    // Must be 2 to 256 characters long, start with a letter or a Chinese character, and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
-    // The ID of the edge node.
+    shared_ptr<bool> enableIpv6_ {};
+    // The node ID of ENS.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // The name of the network. The name must meet the following requirements:
+    shared_ptr<string> ipv6Isp_ {};
+    // The network name. Follow these naming rules:
     // 
-    // *   The name must be 2 to 128 characters in length.
-    // *   The name must start with a letter but cannot start with http:// or https://.
-    // *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // - Must be 2 to 128 characters long, using English or Chinese characters.
+    // 
+    // - Must start with a letter or a Chinese character. Cannot start with http\\:// or https\\://.
+    // 
+    // - Can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> networkName_ {};
-    // The resource tags.
+    // Resource tags.
     shared_ptr<vector<CreateNetworkRequest::Tag>> tag_ {};
   };
 

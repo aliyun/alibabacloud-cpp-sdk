@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the ELB instance.
+    // The ID of the load balancing instance.
     shared_ptr<string> loadBalancerId_ {};
-    // The name of the ELB instance.
+    // The name of the load balancing instance.
     shared_ptr<string> loadBalancerName_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the vSwitch to which the ELB instance belongs.
+    // The ID of the vSwitch to which the load balancing instance belongs.
     shared_ptr<string> vSwitchId_ {};
   };
 

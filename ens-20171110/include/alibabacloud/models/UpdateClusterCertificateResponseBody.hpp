@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

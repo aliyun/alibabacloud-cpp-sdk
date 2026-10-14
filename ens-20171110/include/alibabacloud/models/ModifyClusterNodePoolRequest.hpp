@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The data cloud disk type.
         shared_ptr<string> category_ {};
+        // The data cloud disk size.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -186,23 +188,34 @@ namespace Models
 
 
     protected:
+      // The data cloud disk information.
       shared_ptr<vector<ScalingGroup::DataDisks>> dataDisks_ {};
+      // The instance image ID.
       shared_ptr<string> imageId_ {};
+      // The instance billing type.
       shared_ptr<string> instanceChargeType_ {};
+      // The instance types.
       shared_ptr<vector<string>> instanceTypes_ {};
+      // The instance key pair. This parameter is mutually exclusive with password.
       shared_ptr<string> keyPairName_ {};
+      // The instance password. This parameter is mutually exclusive with key_pair_name.
       shared_ptr<string> password_ {};
+      // The system cloud disk type.
       shared_ptr<string> systemDiskCategory_ {};
+      // The system cloud disk size.
       shared_ptr<int32_t> systemDiskSize_ {};
+      // The vSwitches used by instances.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
 
     class NodepoolInfo : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const NodepoolInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NodepoolId, nodepoolId_);
       };
       friend void from_json(const Darabonba::Json& j, NodepoolInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NodepoolId, nodepoolId_);
       };
       NodepoolInfo() = default ;
@@ -216,7 +229,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->nodepoolId_ == nullptr; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->nodepoolId_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline NodepoolInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
       // nodepoolId Field Functions 
       bool hasNodepoolId() const { return this->nodepoolId_ != nullptr;};
       void deleteNodepoolId() { this->nodepoolId_ = nullptr;};
@@ -225,6 +246,9 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> name_ {};
+      // The node pool ID.
+      // 
       // This parameter is required.
       shared_ptr<string> nodepoolId_ {};
     };
@@ -267,7 +291,9 @@ namespace Models
 
 
     protected:
+      // The script to run after instance creation but before joining the cluster. The content must be Base64-encoded.
       shared_ptr<string> preUserData_ {};
+      // The script to run after instance creation and after joining the cluster. The content must be Base64-encoded.
       shared_ptr<string> userData_ {};
     };
 
@@ -308,11 +334,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // Only ECK cluster IDs with the eck- prefix are supported. You can obtain the ID by calling the DescribeClustersV1 operation. Serverless cluster IDs returned by the DescribeCluster operation are not supported. The cluster must be in the running state. After creation, it typically takes 10 to 20 minutes to complete initialization.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The Kubernetes configuration.
     shared_ptr<ModifyClusterNodePoolRequest::KubernetesConfig> kubernetesConfig_ {};
+    // The node pool information.
+    // 
     // This parameter is required.
     shared_ptr<ModifyClusterNodePoolRequest::NodepoolInfo> nodepoolInfo_ {};
+    // The scaling group configuration.
     shared_ptr<ModifyClusterNodePoolRequest::ScalingGroup> scalingGroup_ {};
   };
 

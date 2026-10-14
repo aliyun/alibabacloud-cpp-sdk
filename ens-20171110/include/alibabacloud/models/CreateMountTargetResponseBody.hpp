@@ -52,10 +52,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The state of the mount target. Valid values:
     // 
-    // *   active
-    // *   inactive
-    // *   pending
-    // *   deleting
+    // - active
+    // 
+    // - inactive
+    // 
+    // - pending
+    // 
+    // - deleting
     shared_ptr<string> status_ {};
   };
 

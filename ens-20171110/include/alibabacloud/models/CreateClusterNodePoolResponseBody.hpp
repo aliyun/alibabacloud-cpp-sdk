@@ -143,12 +143,23 @@ namespace Models
 
 
       protected:
+        // The expected number of instances.
         shared_ptr<int32_t> desiredNodes_ {};
+        // The nodes that failed to be created in the node pool.
         shared_ptr<int32_t> failedNodes_ {};
+        // The number of instances that are being created.
         shared_ptr<int32_t> initialNodes_ {};
+        // The number of instances that are being deleted.
         shared_ptr<int32_t> removingNodes_ {};
+        // The number of instances that are in use.
         shared_ptr<int32_t> servingNodes_ {};
+        // The state of the node pool. Valid values:
+        // 
+        // - active: The desired state is reached.
+        // - scaling: The node pool is scaling out.
+        // - removing_nodes: The node pool is scaling in.
         shared_ptr<string> state_ {};
+        // The total number of instances, including instances that are being created, in use, and being deleted.
         shared_ptr<int32_t> totalNodes_ {};
       };
 
@@ -225,7 +236,9 @@ namespace Models
 
 
         protected:
+          // The disk category.
           shared_ptr<string> category_ {};
+          // The size of the data cloud disk. Unit: GB.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -302,14 +315,23 @@ namespace Models
 
 
       protected:
+        // The data cloud disk information of the nodes.
         shared_ptr<vector<ScalingGroup::DataDisks>> dataDisks_ {};
+        // The image ID of the control plane virtual machine.
         shared_ptr<string> imageId_ {};
+        // The billing method of the instance.
         shared_ptr<string> instanceChargeType_ {};
+        // The list of instance types for the nodes in the node pool.
         shared_ptr<vector<string>> instanceTypes_ {};
+        // The name of the key pair.
         shared_ptr<string> keyPairName_ {};
+        // The logon password of the instance.
         shared_ptr<string> password_ {};
+        // The system cloud disk category of the node.
         shared_ptr<string> systemDiskCategory_ {};
+        // The size of the system cloud disk. Unit: GB.
         shared_ptr<int32_t> systemDiskSize_ {};
+        // The IDs of the vSwitches where the cluster nodes reside.
         shared_ptr<vector<string>> vswitchIds_ {};
       };
 
@@ -360,8 +382,11 @@ namespace Models
 
 
       protected:
+        // The ENS region ID of the cluster.
         shared_ptr<string> ensRegionId_ {};
+        // The cluster name.
         shared_ptr<string> name_ {};
+        // The node pool ID.
         shared_ptr<string> nodepoolId_ {};
       };
 
@@ -403,7 +428,9 @@ namespace Models
 
 
       protected:
+        // The script to be executed after the instance is created and before it is added to the cluster. The content must be Base64-encoded.
         shared_ptr<string> preUserData_ {};
+        // The script to be executed after the instance is created and added to the cluster. The content must be Base64-encoded.
         shared_ptr<string> userData_ {};
       };
 
@@ -453,10 +480,15 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> clusterId_ {};
+      // The Kubernetes-related configurations.
       shared_ptr<Nodepool::KubernetesConfig> kubernetesConfig_ {};
+      // The node pool information.
       shared_ptr<Nodepool::NodepoolInfo> nodepoolInfo_ {};
+      // The ID of the resource group to which the newly created scaling group belongs. You can assign the newly created scaling group to a specified resource group. If you do not specify this parameter, the scaling group is assigned to the default resource group.
       shared_ptr<Nodepool::ScalingGroup> scalingGroup_ {};
+      // The status information of the node pool.
       shared_ptr<Nodepool::Status> status_ {};
     };
 
@@ -479,7 +511,9 @@ namespace Models
 
 
   protected:
+    // The node pool configurations.
     shared_ptr<CreateClusterNodePoolResponseBody::Nodepool> nodepool_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

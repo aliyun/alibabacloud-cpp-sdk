@@ -123,22 +123,22 @@ namespace Models
 
 
     protected:
-      // The billing method of the NAS file system. Valid values:
-      // 
-      // *   PrePaid: subscription. This billing method is not supported.
-      // *   PostPaid: pay-as-you-go.
+      // The billable methods of NAS. Valid values:  
+      // - PrePaid: subscription (currently not supported).  
+      // - PostPaid: pay-as-you-go billing method.
       // 
       // This parameter is required.
       shared_ptr<string> chargeType_ {};
-      // The ID of the edge node.
+      // The edge zone ID.
       // 
       // This parameter is required.
       shared_ptr<string> ensRegionId_ {};
-      // The name of the file system. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+      // The file system name.
+      // The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
       // 
       // This parameter is required.
       shared_ptr<string> fileSystemName_ {};
-      // The name of the mount target. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+      // The mount target name. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
       // 
       // This parameter is required.
       shared_ptr<string> mountTargetDomain_ {};
@@ -146,18 +146,19 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> networkId_ {};
-      // The type of the order. Set the value to BUY.
+      // The order type. Valid values: BUY.
       // 
       // This parameter is required.
       shared_ptr<string> orderType_ {};
-      // The storage protocol. Set the value to nfs.
+      // The storage protocol. Valid values: nfs.
       // 
       // This parameter is required.
       shared_ptr<string> protocolType_ {};
       // The storage type. Valid values:
       // 
-      // *   Capacity.
-      // *   Performance.
+      // - capacity: storage-optimized.
+      // 
+      // - Performance: ultra-fast.
       // 
       // This parameter is required.
       shared_ptr<string> storgeType_ {};
@@ -174,7 +175,7 @@ namespace Models
 
 
   protected:
-    // The information about the orders.
+    // The list of orders. Each element in the list contains the details of an order.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateFileSystemRequest::OrderDetails>> orderDetails_ {};

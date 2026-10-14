@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The status code of the operation. 200 indicates that the operation succeeded.
+      // The status code for the operation on a specific instance. A value of `200` indicates a successful operation.
       shared_ptr<int32_t> code_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+      // The response message for the operation. If the `Code` is `200`, the message is `successful`.
       shared_ptr<string> message_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the operation on the instance succeeded. Valid values: `true` and `false`.
       shared_ptr<bool> success_ {};
     };
 
@@ -153,17 +153,17 @@ namespace Models
 
 
   protected:
-    // The number of instances to which the SSH key pair failed to be bound.
+    // The number of instances for which the detach operation failed.
     shared_ptr<int32_t> failCount_ {};
-    // The ID of the SSH key pair.
+    // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The name of the SSH key pair.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The operation results.
+    // The results of the operation for each instance.
     shared_ptr<vector<DetachKeyPairResponseBody::Results>> results_ {};
-    // The total number of instances to which the SSH key pair is bound.
+    // The total number of instances specified in the request.
     shared_ptr<int32_t> totalCount_ {};
   };
 

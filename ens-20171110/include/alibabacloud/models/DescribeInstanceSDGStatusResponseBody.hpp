@@ -158,23 +158,27 @@ namespace Models
 
 
     protected:
+      // The size of the writable layer of the block device. Unit: GiB. A value of 0 indicates that this feature is disabled.
       shared_ptr<int32_t> blockRwSplitSize_ {};
+      // The cache size. Unit: GiB. A value of 0 indicates that this feature is disabled.
       shared_ptr<int32_t> cacheSize_ {};
+      // The disk access protocol type of the mounted shared cloud disk.
       shared_ptr<string> diskAccessProtocol_ {};
+      // The disk type of the mounted shared cloud disk.
       shared_ptr<string> diskType_ {};
-      // The ID of the edge node.
+      // The edge zone ID.
       shared_ptr<string> ensRegionId_ {};
-      // The ID of the AIC instance.
+      // The AIC instance ID.
       shared_ptr<string> instanceId_ {};
       // The deployment type of the SDG.
       shared_ptr<string> mountType_ {};
-      // Deployment Phase
+      // The deployment phase of the SDG.
       shared_ptr<string> phase_ {};
       // The ID of the SDG.
       shared_ptr<string> SDGId_ {};
       // The deployment status of the SDG.
       shared_ptr<string> status_ {};
-      // The time when the status was last updated.
+      // The latest status update time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -218,15 +222,15 @@ namespace Models
 
 
   protected:
-    // The deployment information of the SDGs.
+    // The list of SDG deployment information.
     shared_ptr<vector<DescribeInstanceSDGStatusResponseBody::DeploymentStatus>> deploymentStatus_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The Settings for the number of entries per page for paging in a paged query. Default value: **10**.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of queried deployment records.
+    // The total number of deployment records returned.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -178,20 +178,25 @@ namespace Models
       shared_ptr<string> ensRegionId_ {};
       // Indicates whether authentication is enabled. Valid values:
       // 
-      // *   **1**: Authentication is enabled.
-      // *   **0** (default): Authentication is disabled.
+      // - **1**: Authentication is enabled.
+      // 
+      // - **0** (default): Authentication is disabled.
       shared_ptr<int32_t> isAuth_ {};
       // Indicates whether the volume is enabled. Valid values:
       // 
-      // *   **1** (default): The volume is enabled.
-      // *   **0**: The volume is disabled.
+      // - **1** (default): The volume is enabled.
+      // 
+      // - **0**: The volume is disabled.
       shared_ptr<int32_t> isEnable_ {};
       // The status of the volume. Valid values:
       // 
-      // *   creating
-      // *   available
-      // *   deleting
-      // *   deleted
+      // - creating
+      // 
+      // - available
+      // 
+      // - deleting
+      // 
+      // - deleted
       shared_ptr<string> status_ {};
       // The ID of the storage gateway.
       shared_ptr<string> storageGatewayId_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the DNAT entry.
     shared_ptr<string> forwardEntryId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

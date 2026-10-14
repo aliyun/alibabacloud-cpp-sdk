@@ -198,13 +198,13 @@ namespace Models
       // The name of the container service.
       shared_ptr<bool> containerService_ {};
       shared_ptr<PodAbstractInfo::ContainerStatuses> containerStatuses_ {};
-      // The name of the pod.
+      // The pod name.
       shared_ptr<bool> name_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<bool> namespace_ {};
-      // The pod scope.
+      // The scope where the pod is located.
       shared_ptr<bool> resourceScope_ {};
-      // The status of the pod.
+      // The pod status.
       shared_ptr<bool> status_ {};
     };
 
@@ -270,21 +270,21 @@ namespace Models
 
 
   protected:
-    // The index number of the scheduled virtual device (pod).
+    // The index number of the scheduled target virtual device (container pod).
     shared_ptr<int32_t> index_ {};
-    // The ID of the scheduled instance.
+    // The target instance ID for scheduling.
     shared_ptr<string> instanceId_ {};
-    // The ID of the scheduled instance.
+    // The IP address of the scheduled target instance.
     shared_ptr<string> instanceIp_ {};
-    // The start port of the scheduled instance.
+    // The start port of the scheduled target instance.
     shared_ptr<int32_t> instancePort_ {};
-    // The summary information about the scheduled virtual device.
+    // The summary information of the scheduled virtual device pod.
     shared_ptr<DescribeServcieScheduleResponseBody::PodAbstractInfo> podAbstractInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is repeated.
+    // Indicates whether the resource has been created.
     shared_ptr<bool> requestRepeated_ {};
-    // The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+    // The TCP service port range of the scheduled target virtual machine instance or container. Valid values are in the ${from}-${to} format, such as 80-88.
     shared_ptr<string> tcpPorts_ {};
   };
 

@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The error code.
+      // The status code.
       shared_ptr<int32_t> code_ {};
-      // The ID of the event.
+      // The event ID.
       shared_ptr<string> eventId_ {};
-      // When Code!=200, it indicates the specific error message.
+      // The error message returned when Code is not 200.
       shared_ptr<string> message_ {};
-      // The resource IDs.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The results.
+    // The list of results.
     shared_ptr<vector<BatchEventMigrateInstanceResponseBody::Results>> results_ {};
   };
 

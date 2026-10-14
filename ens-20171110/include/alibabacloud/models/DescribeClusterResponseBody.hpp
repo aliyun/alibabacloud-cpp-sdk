@@ -99,18 +99,13 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The version of the cluster.
+      // The version information of the current cluster.
       shared_ptr<string> currentVersion_ {};
       // The cluster name.
       shared_ptr<string> name_ {};
-      // The next version of the cluster.
+      // The next version information of the cluster.
       shared_ptr<string> nextVersion_ {};
-      // The health status of the instance.
-      // 
-      // Valid values:
-      // 
-      // *   healthy
-      // *   unhealthy
+      // The health status of the cluster.
       shared_ptr<string> status_ {};
     };
 
@@ -133,9 +128,9 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information about clusters.
+    // The list of cluster information.
     shared_ptr<vector<DescribeClusterResponseBody::Clusters>> clusters_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

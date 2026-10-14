@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The name of the bucket. This parameter is available only when the OSS SDK is used.
+    // The name of the physical storage. Pass this value when you use the OSS SDK.
     shared_ptr<string> bucketName_ {};
-    // The endpoint. This parameter is available only when the OSS SDK is used.
+    // The endpoint. Pass this value when you use the OSS SDK.
     shared_ptr<string> endpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

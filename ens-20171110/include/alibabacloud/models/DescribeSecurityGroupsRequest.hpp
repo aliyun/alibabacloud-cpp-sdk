@@ -68,13 +68,15 @@ namespace Models
   protected:
     // The page number.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1
+    // - Pages start from page 1.
+    // 
+    // - Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // *   Maximum value: 50.
-    // *   Default value: 10
+    // - Maximum value: 50.
+    // 
+    // - Default value: 10
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};

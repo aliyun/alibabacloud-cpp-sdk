@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The name of the mount target.
+    // The mount target name.
     shared_ptr<string> mountTargetName_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Maximum value: 100. Default value: 10.
+    // The number of rows per page, with a maximum value of 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

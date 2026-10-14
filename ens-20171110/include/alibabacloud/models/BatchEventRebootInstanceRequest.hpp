@@ -95,17 +95,18 @@ namespace Models
 
 
     protected:
-      // The ID of the system event.
+      // The system event ID.
       shared_ptr<string> eventId_ {};
-      // The type of the O\\&M task.
+      // The O&M task type. Valid values:
       // 
-      // *   immediate
-      // *   scheduled
+      // - immediate: immediate execution.
+      // 
+      // - scheduled: scheduled execution.
       shared_ptr<string> opsType_ {};
-      // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+      // The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
       shared_ptr<int64_t> planTime_ {};
       shared_ptr<string> planUtcTime_ {};
-      // A client ID.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -120,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The details of events.
+    // The list of events.
     shared_ptr<vector<BatchEventRebootInstanceRequest::EventInfos>> eventInfos_ {};
   };
 

@@ -50,8 +50,9 @@ namespace Models
   protected:
     // Specifies whether to forcefully stop the instance before you restart it.
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**
+    // 
+    // - **false** (default)
     shared_ptr<string> forceStop_ {};
     // The ID of the instance that you want to reboot. You can specify only one instance ID.
     // 

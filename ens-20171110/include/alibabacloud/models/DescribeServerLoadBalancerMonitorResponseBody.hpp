@@ -173,29 +173,29 @@ namespace Models
     protected:
       // The total number of requests.
       shared_ptr<int32_t> acc_ {};
-      // The business time of the log. Logs are collected every minute.
+      // The log business time. The log collection granularity is 1 minute.
       shared_ptr<string> bizTime_ {};
-      // The ID of the node to which the ELB instance belongs.
+      // The ID of the edge zone.
       shared_ptr<string> ensRegionId_ {};
-      // The ID of the ELB instance.
+      // The load balancing instance ID.
       shared_ptr<string> loadBalancerId_ {};
-      // The name of the ELB instance.
+      // The load balancing instance name.
       shared_ptr<string> loadBalancerName_ {};
-      // The specification of the ELB instance.
+      // The load balancing instance specification.
       shared_ptr<string> loadBalancerSpec_ {};
-      // The number of requests with HTTP 2xx status code returned.
+      // The number of requests with 2xx HTTP status codes.
       shared_ptr<int32_t> reqs2xx_ {};
-      // The number of requests with HTTP 3xx status code returned.
+      // The number of requests with 3xx HTTP status codes.
       shared_ptr<int32_t> reqs3xx_ {};
-      // The number of requests with HTTP 4xx status code returned.
+      // The number of requests with 4xx HTTP status codes.
       shared_ptr<int32_t> reqs4xx_ {};
-      // The number of requests with HTTP 5xx status code returned.
+      // The number of requests with 5xx HTTP status codes.
       shared_ptr<int32_t> reqs5xx_ {};
-      // The average response time. Unit: milliseconds.
+      // The average request latency. Unit: milliseconds.
       shared_ptr<int32_t> rtAvg_ {};
       // The virtual IP address (VIP) of the instance.
       shared_ptr<string> vip_ {};
-      // The ID of the tunnel.
+      // The tunnel ID.
       shared_ptr<int32_t> vni_ {};
     };
 
@@ -218,9 +218,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request。
     shared_ptr<string> requestId_ {};
-    // The array of the monitoring data.
+    // The array of objects.
     shared_ptr<vector<DescribeServerLoadBalancerMonitorResponseBody::ServerLoadBalancerMonitorData>> serverLoadBalancerMonitorData_ {};
   };
 

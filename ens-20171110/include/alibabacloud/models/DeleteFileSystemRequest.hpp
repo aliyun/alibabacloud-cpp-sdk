@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the edge node.
+    // The edge zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the file system that you want to delete.
+    // The ID of the file system to delete.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};

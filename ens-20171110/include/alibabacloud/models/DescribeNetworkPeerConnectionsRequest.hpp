@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // The ID of the ENS node.
     shared_ptr<string> ensRegionId_ {};
+    // The ID of the network peer connection.
     shared_ptr<string> instanceId_ {};
+    // The name of the network peer connection.
     shared_ptr<string> name_ {};
+    // The IDs of the networks involved in the connection. The query does not distinguish between the requester and accepter.
     shared_ptr<vector<string>> networkIds_ {};
+    // The page number for the returned results. Default: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default: **10**. Valid values: **10** to **100**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

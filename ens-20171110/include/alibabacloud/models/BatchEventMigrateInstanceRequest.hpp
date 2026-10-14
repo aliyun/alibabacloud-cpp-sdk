@@ -115,32 +115,32 @@ namespace Models
 
     protected:
       // The data migration policy. Valid values:
-      // 
-      // *   abandon: does not migrate data. This is the default value.
-      // *   force_transfer: forcibly migrates data.
-      // *   try_transfer: Migrate data as much as possible.
+      // - abandon: Does not migrate data. This is the default value.
+      // - force_transfer: Performs forcible migration of EPS resource data.
+      // - try_transfer: Migrates data on a best-effort basis.
       shared_ptr<string> dataPolicy_ {};
-      // Event ID e-\\*.
+      // The event ID, in the format of e-*.
       // 
       // This parameter is required.
       shared_ptr<string> eventId_ {};
-      // The type of the O\\&M task. Valid values:
+      // The O&M task type. Valid values:
       // 
-      // *   immediate
-      // *   scheduled
+      // - immediate: immediate execution.
+      // - scheduled: scheduled execution.
       // 
       // This parameter is required.
       shared_ptr<string> opsType_ {};
-      // The password of the instance. This parameter is optional. If you do not specify this parameter, a random password is used.
+      // The instance password. This parameter is optional. If you do not specify this parameter, a random password is used.
       // 
-      // The password must be 8 to 30 characters in length. The password must contain uppercase letters, lowercase letters, digits, and special characters.
+      // The password must be 8 to 30 characters in length and must contain uppercase letters, lowercase letters, and digits.
       // 
-      // Note that you cannot enter a password for scheduled execution.
+      // Note: Password specification is not supported for scheduled execution.
       shared_ptr<string> password_ {};
-      // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+      // The scheduled execution time. The value is a timestamp in milliseconds.
+      // This parameter is required when OpsType is set to scheduled.
       shared_ptr<int64_t> planTime_ {};
       shared_ptr<string> planUtcTime_ {};
-      // Resource ID i-\\*.
+      // The resource ID, in the format of i-*.
       // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
@@ -157,7 +157,7 @@ namespace Models
 
 
   protected:
-    // The details of events.
+    // The list of events.
     shared_ptr<vector<BatchEventMigrateInstanceRequest::EventInfos>> eventInfos_ {};
   };
 

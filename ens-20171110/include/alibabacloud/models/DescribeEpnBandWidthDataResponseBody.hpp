@@ -120,15 +120,15 @@ namespace Models
 
 
       protected:
-        // The outbound bandwidth. Unit: bit/s.
+        // The downstream bandwidth. Unit: bit/s.
         shared_ptr<int64_t> downBandWidth_ {};
-        // The Internet traffic to the instance. Unit: bytes.
+        // The inbound public network traffic of the instance. Unit: bits.
         shared_ptr<int64_t> internetRX_ {};
-        // The Internet traffic from the instance. Unit: bytes.
+        // The outbound public network traffic of the instance. Unit: bits.
         shared_ptr<int64_t> internetTX_ {};
-        // The timestamp when the monitoring data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The timestamp of the monitoring data. The time is in UTC and in the format of yyyy-MM-DDThh:mm:ssZ.
         shared_ptr<string> timeStamp_ {};
-        // The inbound bandwidth. Unit: bit/s.
+        // The upstream bandwidth. Unit: bit/s.
         shared_ptr<int64_t> upBandWidth_ {};
       };
 
@@ -158,11 +158,11 @@ namespace Models
 
 
     protected:
-      // The bandwidth data.
+      // The bandwidth monitoring data.
       shared_ptr<vector<MonitorData::BandWidthMonitorData>> bandWidthMonitorData_ {};
-      // The maximum outbound bandwidth within the queried time range. Unit: bit/s.
+      // The maximum downstream bandwidth within the queried time range. Unit: bit/s.
       shared_ptr<int64_t> maxDownBandWidth_ {};
-      // The maximum inbound bandwidth within the queried time range. Unit: bit/s.
+      // The maximum upstream bandwidth within the queried time range. Unit: bit/s.
       shared_ptr<int64_t> maxUpBandWidth_ {};
     };
 

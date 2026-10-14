@@ -121,34 +121,37 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
-    shared_ptr<string> appId_ {};
-    // The ID of the image.
-    shared_ptr<string> imageId_ {};
-    // The type of the network. The value must be of the enumerated data type. Valid values:
+    // The application ID.
     // 
-    // *   **1** (default): Internet
-    // *   **2**: internal network
+    // This parameter is required. If you do not specify this parameter, the service returns error code 100001. You can call ListApplications to obtain the application ID. To create an application, call CreateApplication first.
+    shared_ptr<string> appId_ {};
+    // The image ID.
+    shared_ptr<string> imageId_ {};
+    // The network type. Valid values:
+    // 
+    // - **1** (default): Internet
+    // 
+    // - **2**: internal network
     shared_ptr<int32_t> ipType_ {};
-    // The region level of the scale-out. Set the value to RegionId. RegionId specifies that resource scale-out is performed based on the ID of the edge node.
+    // The region level for scaling out resources. Valid values: RegionId (specifies an edge node ID).
     // 
     // This parameter is required.
     shared_ptr<string> rescaleLevel_ {};
-    // The scaling operation. Set the value to Add to add new resources.
+    // The resource scaling method. Valid values: Add (provisions new resources).
     // 
     // This parameter is required.
     shared_ptr<string> rescaleType_ {};
-    // The information about the resource specification template. The value must be a JSON string.
+    // The resource specification template information. The value is a string in JSON format.
     shared_ptr<string> resourceInfo_ {};
-    // The required resources. The value must be a JSON string.
+    // The region requirements for scaling out resources. The value is a string in JSON array format.
     // 
     // This parameter is required.
     shared_ptr<string> resourceSelector_ {};
-    // The resource specification.
+    // The resource specification name.
     shared_ptr<string> resourceSpec_ {};
-    // The ID of the service.
+    // The service ID.
     shared_ptr<string> serviceId_ {};
-    // The timeout period for asynchronous scale-out. Unit: seconds. Default value: 300.
+    // The timeout period for asynchronous resource scaling, in seconds. Default value: 300.
     shared_ptr<int64_t> timeout_ {};
   };
 

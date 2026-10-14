@@ -117,8 +117,9 @@ namespace Models
   protected:
     // The type of the resource with which the route table is associated. Valid values:
     // 
-    // *   **VSwitch**
-    // *   **Gateway**
+    // - **VSwitch**
+    // 
+    // - **Gateway**
     shared_ptr<string> associateType_ {};
     // The ID of the ENS node.
     shared_ptr<string> ensRegionId_ {};
@@ -136,7 +137,7 @@ namespace Models
     shared_ptr<string> routeTableName_ {};
     // The SNAT type.
     // 
-    // *   FullCone: full cone NAT.
+    // - FullCone: full cone NAT.
     shared_ptr<string> type_ {};
   };
 

@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> permissionsShrink_ {};
-    // The IDs of the security groups.
+    // The security group ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

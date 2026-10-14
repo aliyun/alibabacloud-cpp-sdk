@@ -132,16 +132,21 @@ namespace Models
     // 
     // Container scenario:
     // 
-    // *   Start: selects and activates an idle cloud device.
-    // *   Stop: stops and releases the cloud device.
-    // *   Console: performs the scheduling operation when the device is in the scheduling state.
+    // - Start: selects and activates an idle cloud device.
+    // 
+    // - Stop: stops and releases the cloud device.
+    // 
+    // - Console: performs the scheduling operation when the device is in the scheduling state.
     // 
     // Bare metal instance or virtual machine scenario:
     // 
-    // *   PreSchedule: locks a virtual machine instance for scheduling.
-    // *   Confirm: confirms the scheduling operation.
-    // *   Cancel: cancels the scheduling operation.
-    // *   Console: performs the scheduling operation when the device is in the scheduling state.
+    // - PreSchedule: locks a virtual machine instance for scheduling.
+    // 
+    // - Confirm: confirms the scheduling operation.
+    // 
+    // - Cancel: cancels the scheduling operation.
+    // 
+    // - Console: performs the scheduling operation when the device is in the scheduling state.
     // 
     // This parameter is required.
     shared_ptr<string> serviceAction_ {};

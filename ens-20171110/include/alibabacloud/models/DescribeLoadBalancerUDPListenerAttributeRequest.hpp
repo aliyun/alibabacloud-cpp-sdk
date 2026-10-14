@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The listening port that you want to query. Valid values: **1** to **65535**.
+    // The listener port to query. Valid values: **1** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> listenerPort_ {};
-    // The ID of the ELB instance.
+    // The ID of the load balancer.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};

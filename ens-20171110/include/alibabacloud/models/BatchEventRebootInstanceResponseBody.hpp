@@ -90,11 +90,11 @@ namespace Models
     protected:
       // The status code.
       shared_ptr<int32_t> code_ {};
-      // The ID of the system event.
+      // The system event ID.
       shared_ptr<string> eventId_ {};
-      // The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+      // The operation message. When code is 200, the message is successful.
       shared_ptr<string> message_ {};
-      // The resource IDs.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request。
     shared_ptr<string> requestId_ {};
-    // The result.
+    // The results.
     shared_ptr<vector<BatchEventRebootInstanceResponseBody::Results>> results_ {};
   };
 

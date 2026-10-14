@@ -57,12 +57,18 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const InstanceType& obj) { 
           DARABONBA_PTR_TO_JSON(CpuCoreCount, cpuCoreCount_);
+          DARABONBA_PTR_TO_JSON(InstanceBandwidthRx, instanceBandwidthRx_);
+          DARABONBA_PTR_TO_JSON(InstanceBandwidthTx, instanceBandwidthTx_);
+          DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_TO_JSON(InstanceTypeId, instanceTypeId_);
           DARABONBA_PTR_TO_JSON(InstanceTypeName, instanceTypeName_);
           DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
         };
         friend void from_json(const Darabonba::Json& j, InstanceType& obj) { 
           DARABONBA_PTR_FROM_JSON(CpuCoreCount, cpuCoreCount_);
+          DARABONBA_PTR_FROM_JSON(InstanceBandwidthRx, instanceBandwidthRx_);
+          DARABONBA_PTR_FROM_JSON(InstanceBandwidthTx, instanceBandwidthTx_);
+          DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
           DARABONBA_PTR_FROM_JSON(InstanceTypeId, instanceTypeId_);
           DARABONBA_PTR_FROM_JSON(InstanceTypeName, instanceTypeName_);
           DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
@@ -79,12 +85,34 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpuCoreCount_ == nullptr
-        && this->instanceTypeId_ == nullptr && this->instanceTypeName_ == nullptr && this->memorySize_ == nullptr; };
+        && this->instanceBandwidthRx_ == nullptr && this->instanceBandwidthTx_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeId_ == nullptr && this->instanceTypeName_ == nullptr
+        && this->memorySize_ == nullptr; };
         // cpuCoreCount Field Functions 
         bool hasCpuCoreCount() const { return this->cpuCoreCount_ != nullptr;};
         void deleteCpuCoreCount() { this->cpuCoreCount_ = nullptr;};
         inline int32_t getCpuCoreCount() const { DARABONBA_PTR_GET_DEFAULT(cpuCoreCount_, 0) };
         inline InstanceType& setCpuCoreCount(int32_t cpuCoreCount) { DARABONBA_PTR_SET_VALUE(cpuCoreCount_, cpuCoreCount) };
+
+
+        // instanceBandwidthRx Field Functions 
+        bool hasInstanceBandwidthRx() const { return this->instanceBandwidthRx_ != nullptr;};
+        void deleteInstanceBandwidthRx() { this->instanceBandwidthRx_ = nullptr;};
+        inline int64_t getInstanceBandwidthRx() const { DARABONBA_PTR_GET_DEFAULT(instanceBandwidthRx_, 0L) };
+        inline InstanceType& setInstanceBandwidthRx(int64_t instanceBandwidthRx) { DARABONBA_PTR_SET_VALUE(instanceBandwidthRx_, instanceBandwidthRx) };
+
+
+        // instanceBandwidthTx Field Functions 
+        bool hasInstanceBandwidthTx() const { return this->instanceBandwidthTx_ != nullptr;};
+        void deleteInstanceBandwidthTx() { this->instanceBandwidthTx_ = nullptr;};
+        inline int64_t getInstanceBandwidthTx() const { DARABONBA_PTR_GET_DEFAULT(instanceBandwidthTx_, 0L) };
+        inline InstanceType& setInstanceBandwidthTx(int64_t instanceBandwidthTx) { DARABONBA_PTR_SET_VALUE(instanceBandwidthTx_, instanceBandwidthTx) };
+
+
+        // instanceType Field Functions 
+        bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+        void deleteInstanceType() { this->instanceType_ = nullptr;};
+        inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+        inline InstanceType& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
         // instanceTypeId Field Functions 
@@ -110,6 +138,9 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> cpuCoreCount_ {};
+        shared_ptr<int64_t> instanceBandwidthRx_ {};
+        shared_ptr<int64_t> instanceBandwidthTx_ {};
+        shared_ptr<string> instanceType_ {};
         shared_ptr<string> instanceTypeId_ {};
         shared_ptr<string> instanceTypeName_ {};
         shared_ptr<int32_t> memorySize_ {};
@@ -155,7 +186,7 @@ namespace Models
 
 
   protected:
-    // The status code. If the request is successful, 0 is returned. If the request fails, a non-zero error code is returned.
+    // The business code. A value of 0 indicates success. An error code is returned upon failure.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
     // The request ID.

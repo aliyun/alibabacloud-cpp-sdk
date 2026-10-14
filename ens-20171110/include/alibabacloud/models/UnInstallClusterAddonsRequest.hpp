@@ -60,6 +60,7 @@ namespace Models
 
 
     protected:
+      // The name of the add-on.
       shared_ptr<string> name_ {};
     };
 
@@ -82,7 +83,12 @@ namespace Models
 
 
   protected:
+    // The add-on information.
     shared_ptr<vector<UnInstallClusterAddonsRequest::Addons>> addons_ {};
+    // The ID of the cluster.
+    // 
+    // The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
   };

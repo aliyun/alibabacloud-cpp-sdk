@@ -152,63 +152,62 @@ namespace Models
 
 
     protected:
-      // The description of the storage gateway. It must be 2 to 256 characters in length and cannot start with http:// or https://.
+      // The description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
       shared_ptr<string> description_ {};
-      // The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+      // The destination IPv4 CIDR block. Both CIDR format and IPv4 format IP address range are supported.
       shared_ptr<string> destCidrIp_ {};
-      // The direction in which the security group rule is applied.
+      // The authorization direction. Valid values:
       // 
-      // *   egress
-      // *   ingress
+      // - egress: outbound.
+      // - ingress: inbound.
       // 
       // This parameter is required.
       shared_ptr<string> direction_ {};
-      // Protocol type. Valid values:
-      // 
-      // *   TCP
-      // *   UDP
-      // *   ICMP: the ICMP protocol
-      // *   ICMPv6: the ICMP protocol for IPv6.
-      // *   ALL: All protocols are supported.
+      // The protocol type. Valid values: 
+      //          
+      // - TCP: TCP protocol.
+      // - UDP: UDP protocol.
+      // - ICMP: ICMP protocol.
+      // - ICMPv6: ICMPv6 protocol.
+      // - ALL: All protocols are supported.
       // 
       // This parameter is required.
       shared_ptr<string> ipProtocol_ {};
-      // The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
+      // The destination IPv6 CIDR block. Both CIDR format and IPv6 format IP address range are supported. 
       // 
-      // >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
+      // > This parameter and the `DestCidrIp` parameter cannot be set at the same time. Settings for these two parameters are mutually exclusive.
       shared_ptr<string> ipv6DestCidrIp_ {};
-      // The source IPv6 CIDR block of the security group rule. or IPv6 address.
-      // 
-      // >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
+      // The source IPv6 CIDR block. Both CIDR format and IPv6 format IP address range are supported.
+      // > This parameter and the `DestCidrIp` parameter cannot be set at the same time. Settings for these two parameters are mutually exclusive.
       shared_ptr<string> ipv6SourceCidrIp_ {};
-      // The action specified in the security group rule. Valid values:
-      // 
-      // *   Accept
-      // *   Drop
+      // The access permissions. Valid values: 
+      //          
+      // - Accept: Allows access.
+      // - Drop: Deny access.
       // 
       // This parameter is required.
       shared_ptr<string> policy_ {};
-      // The destination port range of the security group rule. Valid values:
-      // 
-      // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port range is -1/-1.
-      // *   ICMPv6:-1/-1.
-      // *   If you set IpProtocol to ALL, the port number range is -1/-1.
+      // The range of destination ports that correspond to the protocols for the security group. Valid values:
+      //          
+      // - TCP/UDP protocol: Valid values are 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
+      // - ICMP protocol: -1/-1.
+      // - ICMPv6: -1/-1.
+      // - ALL: -1/-1.
       // 
       // This parameter is required.
       shared_ptr<string> portRange_ {};
-      // The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
+      // The priority of the security group rule. A smaller value indicates a higher priority. Valid values: 1 to 100.
       // 
       // This parameter is required.
       shared_ptr<int32_t> priority_ {};
-      // The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+      // The source IPv4 CIDR block. Both CIDR format and IPv4 format IP address range are supported.
       shared_ptr<string> sourceCidrIp_ {};
-      // The range of source port numbers for the protocols specified in the security group rule. Valid values:
-      // 
-      // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port range is -1/-1.
-      // *   ICMPv6:-1/-1.
-      // *   If you set IpProtocol to ALL, the port range is -1/-1.
+      // The range of source ports that correspond to the protocols for the security group. Valid values:
+      //          
+      // - TCP/UDP protocol: Valid values are 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
+      // - ICMP protocol: -1/-1.
+      // - ICMPv6: -1/-1.
+      // - ALL: -1/-1.
       shared_ptr<string> sourcePortRange_ {};
     };
 
@@ -235,7 +234,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<CreateSecurityGroupPermissionsRequest::Permissions>> permissions_ {};
-    // The IDs of the security groups.
+    // The security group ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

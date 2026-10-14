@@ -158,47 +158,44 @@ namespace Models
 
 
     protected:
-      // The ID of the event.
+      // The event ID.
       shared_ptr<string> eventId_ {};
-      // The level of the specific event. Valid values:
-      // 
-      // *   CRITICAL
-      // *   WARN
-      // *   INFO
+      // The event level. Valid values:
+      // - CRITICAL: Critical.
+      // - WARN: Warning.
+      // - INFO: Information.
       shared_ptr<string> eventLevel_ {};
-      // The status of the event. Valid values:
-      // 
-      // *   Inquiring
-      // *   Scheduled
-      // *   Executing
-      // *   Executed
-      // *   Failed
-      // *   Canceled
-      // *   Avoided
+      // The event status. Valid values:
+      // - Inquiring: Inquiring.
+      // - Scheduled: Scheduled.
+      // - Executing: Executing.
+      // - Executed: Executed.
+      // - Failed: Failed.
+      // - Canceled: Canceled.
+      // - Avoided: Avoided.
       shared_ptr<string> eventStatus_ {};
-      // The type of the event. Description:
-      // 
-      // *   Instance:SystemFailure.Redeploy: The instance is redeployed due to system issues.
-      // *   Instance:SystemFailure.Reboot: The instance is restarted due to a system error.
-      // *   Instance:RegionNetworkDown: The node network is interrupted.
-      // *   Disk:Stalled: The disk performance is impaired.
-      // *   EnsRegion:NetworkMigration: The instance is migrated due to a system error.
-      // *   IP:SafeRisk: IP alerts.
-      // *   IP:SafeBan: IP blocking.
-      // *   Instance:SystemUpgrade.Migrate: The instance needs to be migrated due to underlying upgrades.
-      // *   Instance:SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
+      // The event type. Valid values:
+      // - Instance:SystemFailure.Redeploy: The instance deployment due to a system fault.
+      // - Instance:SystemFailure.Reboot: The instance is restarted due to a system fault.
+      // - Instance:RegionNetworkDown: The edge zone network break.
+      // - Disk:Stalled: The disk performance is degraded.
+      // - EnsRegion:NetworkMigration: Instance migration due to a system fault.
+      // - IP:SafeRisk: IP alerting.
+      // - IP:SafeBan: The IP address is blocked.
+      // - Instance:SystemUpgrade.Migrate: The instance needs to be migrated due to an underlying upgrade.
+      // - Instance:SystemMaintenance.Redeploy: The instance deployment due to system maintenance.
       shared_ptr<string> eventType_ {};
-      // The extended attributes.
+      // The extended attribute.
       shared_ptr<string> extendedAttribute_ {};
-      // The scheduled execution time of the event in milliseconds.
+      // The scheduled execution time of the event, in milliseconds.
       shared_ptr<int64_t> notBefore_ {};
       shared_ptr<string> notBeforeUtcTime_ {};
-      // The release time in milliseconds.
+      // The publish time, in milliseconds.
       shared_ptr<int64_t> publishTime_ {};
       shared_ptr<string> publishUtcTime_ {};
-      // The event cause.
+      // The reason for the event.
       shared_ptr<string> reason_ {};
-      // The ID of the associated resources.
+      // The ID of the associated resource.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -242,15 +239,15 @@ namespace Models
 
 
   protected:
-    // The queried events.
+    // The list of events.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Events>> events_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

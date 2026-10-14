@@ -65,9 +65,11 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The name of the security group. The name of a bucket must meet the following requirements:
     // 
-    // *   The name must be 2 to 128 characters in length.
-    // *   The name must start with a letter but cannot start with http:// or https://.
-    // *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // - The name must be 2 to 128 characters in length.
+    // 
+    // - The name must start with a letter but cannot start with http\\:// or https\\://.
+    // 
+    // - The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> securityGroupName_ {};
   };
 

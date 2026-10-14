@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ELB instance.
+    // The ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};

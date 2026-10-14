@@ -112,9 +112,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag that are to add to the instance. Valid values: 1 to 20.
+      // The tag key of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The tag value of the instance. Valid values: 1 to 20.
+      // The tag value of the instance. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -292,63 +292,55 @@ namespace Models
 
 
   protected:
+    // The list of EIP addresses used to filter instances.
     shared_ptr<vector<string>> eipAddresses_ {};
     // The region ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of the regions. The value is a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).
+    // The list of edge zone IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
     shared_ptr<string> ensRegionIds_ {};
-    // The ID of the edge service. You can use the ID to query information about the instances that are created in the edge service.
+    // The Edge Node Service ID. You can use this ID to query the instances created under the edge service.
     shared_ptr<string> ensServiceId_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The IDs of the instances. The value is a JSON array that consists of up to 100 IDs. Separate IDs with commas (,).
+    // The list of instance IDs. This parameter is a formatted JSON array that contains up to 100 IDs separated by commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The condition that you want to use to filter instances by category. Valid values:
-    // 
-    // *   EnsInstance: ENS instances that you purchase.
-    // *   EnsService: ENS instances that belong to edge services.
-    // *   BuildMachine: ENS instances that are configured with image builders.
-    // *   EnsPostPaidInstance: Pay-as-you-go ENS instances that you purchase.
+    // The filter type. Valid values:
     shared_ptr<string> instanceResourceType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The internal IP address of the instance.
+    // The internal IP address.
     shared_ptr<string> intranetIp_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
-    // The method that you want to use to sort instances. The value of this parameter is in the JSON format.
-    // 
-    // You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
+    // The sorting parameter in JSON format.
     shared_ptr<string> orderByParams_ {};
-    // The page number. Pages start from page **1**.
-    // 
-    // Default value: **1**.
+    // The page number of the instance status list. The value starts from **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The maximum value is **100**.
-    // 
-    // Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **100**.
     shared_ptr<string> pageSize_ {};
-    // The keyword that you use to query the logs of the service. You can specify the values of parameters such as **ip**, **InstanceName**, and **InstanceId** as the keyword.
+    // The search keyword. Supports parameters such as **ip**, **InstanceName**, and **InstanceId**.
     shared_ptr<string> searchKey_ {};
-    // The ID of the security group.
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The status of the service. Valid values.
+    // The business status of the instance, which does not represent the actual running status of the instance.
     shared_ptr<vector<string>> serviceStatus_ {};
-    // The status of the instance. Valid values:
+    // The instance status. Valid values:
     // 
-    // *   Running
-    // *   Stopped
-    // *   Expired
+    // - Running: Running.
+    // - Stopped: Stopped.
+    // - Expired: Expired.
     shared_ptr<string> status_ {};
-    // The tags that are added to the resource. This operation does not return tag information. You can call this operation in combination with the tag-related operations.
+    // The resource tags. This operation does not return tag information. Use this parameter in combination with the APIs in the tag category.
     shared_ptr<vector<DescribeInstancesRequest::Tags>> tags_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // The VPD network ID.
     shared_ptr<string> vpdId_ {};
+    // The VPD vSwitch ID.
     shared_ptr<string> vpdVSwitchId_ {};
   };
 

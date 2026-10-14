@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the security group.
+    // The ID of the newly created security group.
     shared_ptr<string> securityGroupId_ {};
   };
 

@@ -161,10 +161,13 @@ namespace Models
       shared_ptr<string> serviceIp_ {};
       // The status of the storage gateway. Valid values:
       // 
-      // *   creating
-      // *   available
-      // *   deleting
-      // *   deleted
+      // - creating
+      // 
+      // - available
+      // 
+      // - deleting
+      // 
+      // - deleted
       shared_ptr<string> status_ {};
       // The ID of the storage gateway.
       shared_ptr<string> storageGatewayId_ {};

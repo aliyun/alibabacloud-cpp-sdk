@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The name of the add-on.
+    // 
     // This parameter is required.
     shared_ptr<string> addonName_ {};
+    // The version of the add-on. If you do not specify a version, all available versions are returned by default.
     shared_ptr<string> addonVersion_ {};
   };
 

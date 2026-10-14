@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RunInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Amount, amount_);
+      DARABONBA_PTR_TO_JSON(AutoInstallCloudAssistant, autoInstallCloudAssistant_);
       DARABONBA_PTR_TO_JSON(AutoReleaseTime, autoReleaseTime_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(BillingCycle, billingCycle_);
       DARABONBA_PTR_TO_JSON(Carrier, carrier_);
+      DARABONBA_PTR_TO_JSON(CloudAssistantRegion, cloudAssistantRegion_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
       DARABONBA_PTR_TO_JSON(DeploymentSetId, deploymentSetId_);
@@ -62,11 +64,13 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, RunInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
+      DARABONBA_PTR_FROM_JSON(AutoInstallCloudAssistant, autoInstallCloudAssistant_);
       DARABONBA_PTR_FROM_JSON(AutoReleaseTime, autoReleaseTime_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(BillingCycle, billingCycle_);
       DARABONBA_PTR_FROM_JSON(Carrier, carrier_);
+      DARABONBA_PTR_FROM_JSON(CloudAssistantRegion, cloudAssistantRegion_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
       DARABONBA_PTR_FROM_JSON(DeploymentSetId, deploymentSetId_);
@@ -156,9 +160,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The custom tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value. The tag value cannot exceed 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -200,9 +204,9 @@ namespace Models
 
 
     protected:
-      // The category of the system disk.
+      // The type of the system cloud disk.
       shared_ptr<string> category_ {};
-      // The size of the system disk. Unit: GiB.
+      // The size of the system cloud disk. Unit: GiB.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -262,44 +266,53 @@ namespace Models
 
 
     protected:
-      // The category of the disk. Valid values:
-      // 
-      // *   **cloud_efficiency**: ultra disk.
-      // *   **cloud_ssd**: all-flash disk.
-      // *   **local_hdd**: local HDD.
-      // *   **local_ssd**: local SSD.
+      // The disk category. Valid values:
+      // - **cloud_efficiency**: ultra cloud disk
+      // - **cloud_ssd**: all-flash cloud disk
+      // - **local_hdd**: local HDD
+      // - **local_ssd**: local SSD
       shared_ptr<string> category_ {};
-      // Specifies whether to encrypt the disk. Valid values:
+      // Specifies whether to encrypt the cloud disk. Valid values:
       // 
-      // *   true.
-      // *   false (default).
+      // - true: encrypts the cloud disk.
+      // 
+      // - false (default): does not encrypt the cloud disk.
       shared_ptr<bool> encrypted_ {};
-      // The ID of the Key Management Service (KMS) key that is used for the disk. Valid values:
+      // The ID of the KMS key used by the cloud disk. Valid values:
       // 
-      // *   true.
-      // *   false (default).
+      // - true: encrypts the cloud disk.
       // 
-      // >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
+      // - false (default): does not encrypt the cloud disk.
+      // 
+      // > If Encrypted is set to true and KMSKeyId is empty, the default service key is used.
       shared_ptr<string> KMSKeyId_ {};
-      // The size of a data disk. Unit: GiB.
+      // The size of the data cloud disk. Unit: GiB.
       shared_ptr<int64_t> size_ {};
     };
 
     virtual bool empty() const override { return this->amount_ == nullptr
-        && this->autoReleaseTime_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->billingCycle_ == nullptr && this->carrier_ == nullptr
-        && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr && this->ensRegionId_ == nullptr && this->hostName_ == nullptr
-        && this->imageId_ == nullptr && this->instanceChargeStrategy_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
-        && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ipType_ == nullptr && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr
-        && this->launchTemplateId_ == nullptr && this->launchTemplateName_ == nullptr && this->launchTemplateVersion_ == nullptr && this->netDistrictCode_ == nullptr && this->netWorkId_ == nullptr
-        && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr
-        && this->publicIpIdentification_ == nullptr && this->scheduleAreaLevel_ == nullptr && this->schedulingPriceStrategy_ == nullptr && this->schedulingStrategy_ == nullptr && this->securityId_ == nullptr
-        && this->spotDuration_ == nullptr && this->spotStrategy_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->uniqueSuffix_ == nullptr
-        && this->userData_ == nullptr && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr && this->vpdVSwitchIds_ == nullptr; };
+        && this->autoInstallCloudAssistant_ == nullptr && this->autoReleaseTime_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->billingCycle_ == nullptr
+        && this->carrier_ == nullptr && this->cloudAssistantRegion_ == nullptr && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr
+        && this->ensRegionId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr && this->instanceChargeStrategy_ == nullptr && this->instanceChargeType_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ipType_ == nullptr
+        && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr && this->launchTemplateId_ == nullptr && this->launchTemplateName_ == nullptr && this->launchTemplateVersion_ == nullptr
+        && this->netDistrictCode_ == nullptr && this->netWorkId_ == nullptr && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr
+        && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->publicIpIdentification_ == nullptr && this->scheduleAreaLevel_ == nullptr && this->schedulingPriceStrategy_ == nullptr
+        && this->schedulingStrategy_ == nullptr && this->securityId_ == nullptr && this->spotDuration_ == nullptr && this->spotStrategy_ == nullptr && this->systemDisk_ == nullptr
+        && this->tag_ == nullptr && this->uniqueSuffix_ == nullptr && this->userData_ == nullptr && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr
+        && this->vpdVSwitchIds_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
     inline int64_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0L) };
     inline RunInstancesRequest& setAmount(int64_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+    // autoInstallCloudAssistant Field Functions 
+    bool hasAutoInstallCloudAssistant() const { return this->autoInstallCloudAssistant_ != nullptr;};
+    void deleteAutoInstallCloudAssistant() { this->autoInstallCloudAssistant_ = nullptr;};
+    inline bool getAutoInstallCloudAssistant() const { DARABONBA_PTR_GET_DEFAULT(autoInstallCloudAssistant_, false) };
+    inline RunInstancesRequest& setAutoInstallCloudAssistant(bool autoInstallCloudAssistant) { DARABONBA_PTR_SET_VALUE(autoInstallCloudAssistant_, autoInstallCloudAssistant) };
 
 
     // autoReleaseTime Field Functions 
@@ -335,6 +348,13 @@ namespace Models
     void deleteCarrier() { this->carrier_ = nullptr;};
     inline string getCarrier() const { DARABONBA_PTR_GET_DEFAULT(carrier_, "") };
     inline RunInstancesRequest& setCarrier(string carrier) { DARABONBA_PTR_SET_VALUE(carrier_, carrier) };
+
+
+    // cloudAssistantRegion Field Functions 
+    bool hasCloudAssistantRegion() const { return this->cloudAssistantRegion_ != nullptr;};
+    void deleteCloudAssistantRegion() { this->cloudAssistantRegion_ = nullptr;};
+    inline string getCloudAssistantRegion() const { DARABONBA_PTR_GET_DEFAULT(cloudAssistantRegion_, "") };
+    inline RunInstancesRequest& setCloudAssistantRegion(string cloudAssistantRegion) { DARABONBA_PTR_SET_VALUE(cloudAssistantRegion_, cloudAssistantRegion) };
 
 
     // dataDisk Field Functions 
@@ -619,170 +639,190 @@ namespace Models
 
 
   protected:
-    // The number of instances that you want to create. Valid values: 1 to 100.
+    // The number of instances to create. Valid values: 1 to 100.
     shared_ptr<int64_t> amount_ {};
-    // The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
+    // Specifies whether to automatically install the Cloud Assistant client on the instance.
+    shared_ptr<bool> autoInstallCloudAssistant_ {};
+    // The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     // 
-    // *   If the value of `ss` is not `00`, the start time is automatically rounded down to the nearest minute based on the value of `mm`.
-    // *   The specified time must be at least one hour later than the current time.
+    // - If the value of seconds (`ss`) is not `00`, the time is automatically set to the start of the current minute (`mm`).
+    // 
+    // - The earliest release time is one hour after the current time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> autoReleaseTime_ {};
-    // Specifies whether to enable auto-renewal for the premium bandwidth plan. Valid values:
+    // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   **true**.
-    // *   **false** (default).
+    // - **true**: enables auto-renewal.
+    // - **false**: does not enable auto-renewal. (Default)
     // 
-    // >  This parameter is not available when InstanceChargeType is set to PostPaid.
+    // >This parameter is invalid for pay-as-you-go instances.
     shared_ptr<bool> autoRenew_ {};
-    // Specifies whether to use coupons. Default value: true.
+    // Specifies whether to use coupons. Default value: true (AutoUseCoupon=true).
     shared_ptr<string> autoUseCoupon_ {};
-    // The billing cycle of computing resources of the instance. Only pay-as-you-go instances are supported. Valid values:
+    // The billing cycle for instance compute resources. Only instance-level pay-as-you-go is supported. Valid values:
     // 
-    // *   **Day**.
-    // *   **Month**.
+    // - **Day**: daily billing.
+    // 
+    // - **Month**: monthly billing.
     shared_ptr<string> billingCycle_ {};
-    // The Internet service provider (ISP).
-    // 
-    // >  This parameter required if ScheduleAreaLevel is set to Region.\\
-    // If you set ScheduleAreaLevel to Region, a node has multiple ISPs, and you do not specify an ISP, then the create instance uses the ISP of the node. If the node has two ISPs, such as China Mobile and China Unicom, the created instance has two ISPs.\\
-    // You can call the DescribeRegionIsps operation to query ISPs of the edge node.[](~~2637461~~)
+    // The carrier.
+    // >This parameter is required for region-level scheduling.</br>
+    // >For node-level scheduling, if a node has multiple carriers and you do not specify a carrier, instances are created for each carrier on the node. For example, if a node has both China Mobile and China Unicom carriers, instances with two ISPs are created.</br>You can call [DescribeRegionIsps](https://help.aliyun.com/document_detail/2637461.html) to query the carrier information of a node.
     shared_ptr<string> carrier_ {};
-    // The specifications of data disks.
+    // The region for Cloud Assistant access. Valid values: cn-zhangjiakou (Zhangjiakou) and ap-southeast-1 (Singapore).
+    shared_ptr<string> cloudAssistantRegion_ {};
+    // The data cloud disk specifications.
     shared_ptr<vector<RunInstancesRequest::DataDisk>> dataDisk_ {};
+    // The release protection property of the instance. Specifies whether the instance can be released from the console or by calling an API operation. Valid values: 
+    // 
+    // -  true: Enables instance release protection.
+    // -  false: Disables instance release protection.
+    // 
+    // Default value: false.
+    // 
+    // > This property applies only to pay-as-you-go instances and can only restrict manual release operations. It does not take effect on system-initiated release operations.
     shared_ptr<bool> deletionProtection_ {};
+    // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
-    // The ID of the node.
+    // The node ID.
     // 
-    // >  This parameter is required if ScheduleAreaLevel is set to Region and is not available if ScheduleAreaLevel is set to other values.
+    // > This parameter is required for node-level scheduling and is invalid for region-level scheduling.
     shared_ptr<string> ensRegionId_ {};
-    // The name of the host.
+    // The hostname.
     shared_ptr<string> hostName_ {};
-    // The ID of the image. For ARM PCB-based server instances, leave this parameter empty. For other instances, this parameter is required.
+    // The image ID. This parameter cannot be specified for ARM-based instances. This parameter is required for other instance types.
     shared_ptr<string> imageId_ {};
-    // The billing policy of the instance. Valid values:
+    // The instance billing strategy. Valid values:
     // 
-    // *   **instance**: Bills are generated based on instances.
-    // *   If you do not specify this parameter, bills are generated based on users.
+    // - **instance**: instance-level billing.
+    // - If not specified, the default is user-level billing.
     shared_ptr<string> instanceChargeStrategy_ {};
     // The billing method of the instance. Valid values:
-    // 
-    // *   **PrePaid**: subscription.
-    // *   **PostPaid:** pay-as-you-go.
+    // - **PrePaid**: subscription.
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
-    // The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The instance name. The name must be 2 to 128 characters in length and must start with a letter or Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), or hyphens (-).
     // 
-    // The default value of this parameter is the value of the InstanceId parameter.
+    // Default value: the InstanceId of the instance.
     shared_ptr<string> instanceName_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The bandwidth billing method. Valid values:
+    // Billable methods for bandwidth. Valid values:
+    // - **BandwidthByDay**: daily peak bandwidth
+    // - **95BandwidthByMonth**: monthly 95th percentile bandwidth
     // 
-    // *   **BandwidthByDay**: pay by daily peak bandwidth
-    // *   **95BandwidthByMonth**: pay by monthly 95th percentile bandwidth
-    // 
-    // >  This parameter is required if you purchase an ENS instance for the first time. The value that you specified is used as the default value for subsequent purchases.
+    // > You can select a billing method only for the first purchase. Subsequent purchases use the billing method selected during the first purchase by default.
     shared_ptr<string> internetChargeType_ {};
-    // The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is assigned to the instance.
+    // The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is automatically assigned to the instance.
     shared_ptr<int64_t> internetMaxBandwidthOut_ {};
-    // The type of the IP address. Valid values:
+    // The IP type. Valid values:
     // 
-    // *   **ipv4** (default).
-    // *   **ipv6**.
-    // *   **ipv4Andipv6** (single stack).
-    // *   **ipv4Withipv6** (dual stack).
+    // - **ipv4** (default): IPv4.
+    // 
+    // - **ipv6**: IPv6.
+    // 
+    // - **ipv4Andipv6**: IPv4 and IPv6 (single stack).
+    // - **ipv4Withipv6**: IPv4 and IPv6 (dual-stack).
     shared_ptr<string> ipType_ {};
+    // The number of randomly generated IPv6 addresses to assign to the primary ENI of the private network.
     shared_ptr<int64_t> ipv6AddressCount_ {};
-    // The name of the key pair.
-    // 
-    // >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+    // The key pair name.
+    // > Specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
     shared_ptr<string> keyPairName_ {};
+    // The ID of the instance launch template.
     shared_ptr<string> launchTemplateId_ {};
+    // The name of the instance launch template.
     shared_ptr<string> launchTemplateName_ {};
+    // The version of the instance launch template.
     shared_ptr<int32_t> launchTemplateVersion_ {};
-    // The code of the region.
-    // 
-    // >  This parameter is not available if ScheduleAreaLevel is set to Region and is required if ScheduleAreaLevel is set to other values.
+    // The region code.
+    // >This parameter is required for region-level scheduling and is invalid for node-level scheduling.
     shared_ptr<string> netDistrictCode_ {};
-    // The ID of the network.
+    // The network ID.
     // 
-    // >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs.
+    // >This parameter can only be used for node-level scheduling. An error is returned if this parameter is specified for region-level scheduling. If you do not specify vSwitch information, only the validity of the network ID is verified. The actual resource creation does not use this network ID.
     shared_ptr<string> netWorkId_ {};
-    // The password that is used to connect to the instance.
+    // The instance password.
     // 
-    // >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+    // > Specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
     shared_ptr<string> password_ {};
     // Specifies whether to use the preset password of the image. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: uses the preset password.
+    // - **false**: does not use the preset password.
     // 
-    // >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+    // > Specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
     shared_ptr<bool> passwordInherit_ {};
-    // The unit of the subscription period.
+    // The duration of the purchased resource.
     // 
-    // *   If **PeriodUnit** is set to **Day**, **Period** can only be set to **3**.
-    // *   If **PeriodUnit** is **Month**, **Period** can be set to **1 to 9** or **12**.
+    // - If **PeriodUnit** is set to **Day**, **Period** can only be set to **3**.
+    // 
+    // - If **PeriodUnit** is set to **Month**, **Period** can be set to **1-9** or **12**.
     shared_ptr<int64_t> period_ {};
-    // The unit of the subscription period. Valid values:
-    // 
-    // *   **Month** (default).
-    // *   **Day**.
+    // The unit of the purchase duration. Valid values:
+    // - **Month** (default): monthly purchase.
+    // - **Day**: daily purchase.
     shared_ptr<string> periodUnit_ {};
     // The private IP address.
-    // 
-    // >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs. If you specify a private IP address, the number of instances must be 1. The private IP address takes effect only when the private IP address and the vSwitch ID are not empty.
+    // >This parameter can only be used for node-level scheduling. An error is returned if this parameter is specified for region-level scheduling.
+    // If a private IP address is specified, the number of instances can only be 1. The private IP address takes effect only when both the private IP address and vSwitch ID are specified.
     shared_ptr<string> privateIpAddress_ {};
-    // Specifies whether to enable public IP address identification. Valid values: true and false. Default value: false.
+    // Specifies whether to enable public IP identification. Valid values:
+    // 
+    // - true: enables public IP identification.
+    // 
+    // - false: does not enable public IP identification.
+    // 
+    // Default value: true.
     shared_ptr<bool> publicIpIdentification_ {};
-    // The scheduling level. This parameter specifies area-level scheduling or node-level scheduling. Valid values:
+    // The scheduling level. Use this parameter to specify node-level or region-level scheduling. Valid values:
     // 
-    // *   **Big**: greater area
-    // *   **Middle**: province
-    // *   **Small**: city
-    // *   **Region**: node
+    // - **Big**: major area
+    // - **Middle**: province
+    // - **Small**: city
+    // - **Region**: node
     shared_ptr<string> scheduleAreaLevel_ {};
-    // The scheduling price policy. Valid values:
+    // The scheduling price strategy. Valid values:
     // 
-    // *   **PriceHighPriority**: The high price prevails.
-    // *   **PriceLowPriority**: The low price prevails.
+    // - **PriceHighPriority**: high price first
+    // - **PriceLowPriority**: low price first
     shared_ptr<string> schedulingPriceStrategy_ {};
-    // The scheduling policy of the taint. Valid values:
+    // The scheduling strategy. Valid values:
     // 
-    // *   **Concentrate**
-    // *   **Disperse**
+    // - **Concentrate**: concentrated
+    // - **Disperse**: dispersed
     // 
-    // >  If ScheduleAreaLevel is set to Region, set this parameter to **Concentrate**. If ScheduleAreaLevel is set to other values, set this parameter to Concentrate or Disperse based on your business requirements.
+    // > For node-level scheduling, the value is **Concentrate**. For region-level scheduling, select a value based on your requirements.
     shared_ptr<string> schedulingStrategy_ {};
-    // The ID of security group.
+    // The security group ID.
     shared_ptr<string> securityId_ {};
-    // The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
+    // The protection period of the spot instance.
     // 
-    // *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-    // *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-    // 
-    // Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Preemptible instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+    // Unit: hours.
     shared_ptr<int32_t> spotDuration_ {};
-    // The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+    // The bidding policy for the pay-as-you-go instance. This parameter takes effect when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
     // 
-    // *   NoSpot: The elastic container instances are pay-as-you-go instances.
-    // *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+    // - NoSpot: a regular pay-as-you-go instance.
+    // - SpotAsPriceGo: the system automatically bids at the current market price.
     // 
     // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
-    // The specification of the system disk.
+    // The system cloud disk specifications.
     shared_ptr<RunInstancesRequest::SystemDisk> systemDisk_ {};
-    // The tags.
+    // The tags that are bound to the instance.
     shared_ptr<vector<RunInstancesRequest::Tag>> tag_ {};
-    // Specifies whether to append sequential suffixes to the hostname specified by the **HostName** parameter and to the instance name specified by the **InstanceName** parameter. The sequential suffixes range from 001 to 999.
+    // Specifies whether to add sequential suffixes to **HostName** and **InstanceName**. The sequential suffixes start from 001 and cannot exceed 999.
     shared_ptr<bool> uniqueSuffix_ {};
-    // The custom data. The maximum data size is 16 KB. You can specify **UserData**. **UserData** must be Base64-encoded.
+    // The custom user data. Maximum size: 16 KB. You can pass in **UserData** information. **UserData** is Base64-encoded.
     shared_ptr<string> userData_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     // 
-    // >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs.
+    // >This parameter can only be used for node-level scheduling. An error is returned if this parameter is specified for region-level scheduling.
     shared_ptr<string> vSwitchId_ {};
+    // The VPD network ID.
     shared_ptr<string> vpdId_ {};
+    // The list of VPD vSwitch IDs.
     shared_ptr<vector<string>> vpdVSwitchIds_ {};
   };
 

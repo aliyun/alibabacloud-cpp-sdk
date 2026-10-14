@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IDs of the snapshots.
+    // The snapshot ID.
     shared_ptr<vector<string>> snapShotId_ {};
   };
 

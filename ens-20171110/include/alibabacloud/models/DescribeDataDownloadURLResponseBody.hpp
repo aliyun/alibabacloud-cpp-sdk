@@ -99,7 +99,7 @@ namespace Models
       protected:
         // The host address of the file server.
         shared_ptr<string> host_ {};
-        // The ID of the Edge Node Service (ENS) node.
+        // The ID of the ENS edge node.
         shared_ptr<string> regionId_ {};
       };
 
@@ -129,11 +129,11 @@ namespace Models
 
 
     protected:
-      // The time when the data file expires. The time is displayed in UTC.
+      // The expiration time of the download URL in UTC.
       shared_ptr<string> expireTime_ {};
-      // The file servers.
+      // The list of file servers.
       shared_ptr<vector<Data::ServerList>> serverList_ {};
-      // The download URL of the data file.
+      // The download URL of the file.
       shared_ptr<string> url_ {};
     };
 
@@ -170,13 +170,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The return code.
     shared_ptr<int64_t> code_ {};
-    // The download URLs of data files.
+    // The list of download URLs for data files.
     shared_ptr<DescribeDataDownloadURLResponseBody::Data> data_ {};
-    // The response message. Success is returned for a successful request.
+    // The response message. A value of success indicates that the request was successful.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

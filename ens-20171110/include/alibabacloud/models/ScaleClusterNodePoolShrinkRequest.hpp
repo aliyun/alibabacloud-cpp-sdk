@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The HTTP request body.
     shared_ptr<string> bodyShrink_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The node pool ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodepoolId_ {};
   };

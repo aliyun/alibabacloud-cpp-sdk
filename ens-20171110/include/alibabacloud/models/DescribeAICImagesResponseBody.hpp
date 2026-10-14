@@ -122,18 +122,19 @@ namespace Models
 
 
     protected:
+      // The Android version of the image.
       shared_ptr<string> androidVersion_ {};
-      // The time when the image was created.
+      // The time when the image was created, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
-      // The image ID of the AIC instance.
+      // The ID of the Android in Container (AIC) image.
       shared_ptr<string> imageId_ {};
       // The URL of the AIC image repository.
       shared_ptr<string> imageUrl_ {};
-      // The status of the image. **Available** is returned for this parameter. Available indicates that the image is available.
+      // The image status. Valid values: **available**.
       shared_ptr<string> status_ {};
-      // The username of the image repository.
+      // The repository username of the image.
       shared_ptr<string> user_ {};
     };
 
@@ -177,17 +178,17 @@ namespace Models
 
 
   protected:
-    // The information about the images.
+    // The array of image information.
     shared_ptr<vector<DescribeAICImagesResponseBody::Images>> images_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

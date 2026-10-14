@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Public key grouping
+    // The group of the public key.
     shared_ptr<string> keyGroup_ {};
-    // Public key name
+    // The name of the public key.
     shared_ptr<string> keyName_ {};
-    // Public key type
+    // The type of the public key.
     shared_ptr<string> keyType_ {};
-    // The page number of the page to return.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records to display per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
+    // 
+    // Before calling this operation, activate the Edge Application Hosting service and create an application by calling CreateApplication. Obtain the AppId from the response of the CreateApplication operation.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The data files that you want to push. The value must be a JSON string.
+    // The list of data files to be pre-pushed, in the string format of a JSON array.
     // 
     // This parameter is required.
     shared_ptr<string> data_ {};
-    // The push policy in the canary release environment. The value must be a JSON string. You can specify multiple push policies. By default, all data files are pushed.
+    // The canary pre-push policy in JSON string format. Multiple distribution policies are supported. By default, all data is pre-pushed.
     shared_ptr<string> pushStrategy_ {};
-    // This parameter does not take effect.
+    // This parameter is invalid.
     shared_ptr<int32_t> timeout_ {};
   };
 

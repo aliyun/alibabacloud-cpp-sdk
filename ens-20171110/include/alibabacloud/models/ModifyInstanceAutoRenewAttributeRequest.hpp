@@ -88,9 +88,11 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     // Specifies whether to renew the instance. The **RenewalStatus** parameter has a higher priority than the **AutoRenew** parameter. If you do not specify **RenewalStatus**, the **AutoRenew** parameter is used by default.
     // 
-    // *   AutoRenewal: Auto-renewal is enabled for the instance.
-    // *   Normal: Auto-renewal is disabled for the instance.
-    // *   NotRenewal: The instance is not renewed.
+    // - AutoRenewal: Auto-renewal is enabled for the instance.
+    // 
+    // - Normal: Auto-renewal is disabled for the instance.
+    // 
+    // - NotRenewal: The instance is not renewed.
     // 
     // The system no longer sends an expiration notification but sends only a renewal notification three days before the instance expires. To renew the instance, you can change the value of this parameter from NotRenewal to Normal and then manually renew the instance, or change the value of this parameter from NotRenewal to AutoRenewal.
     shared_ptr<string> renewalStatus_ {};

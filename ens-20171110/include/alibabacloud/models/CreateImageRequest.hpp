@@ -84,23 +84,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically release the instance after the image is packaged and uploaded. Only image builders are supported. Default value: false. Valid values:
+    // Specifies whether to enable automatic release of the instance after the image is packaged and uploaded. This parameter is supported only for build instances.
     // 
-    // *   true: The image is released when the instance is released.
-    // *   false: The image is retained when the instance is released.
-    // *   If you leave this property empty, false is used by default.
+    // - true: The image is released together with the instance when the instance is released.
+    // - false: The image is retained when the instance is released.
+    // - If this parameter is left empty, the default value is false.
     shared_ptr<string> deleteAfterImageUpload_ {};
-    // The name of the image. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The image name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
     // 
     // This parameter is required.
     shared_ptr<string> imageName_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the snapshot.
+    // The snapshot ID.
     shared_ptr<string> snapshotId_ {};
-    // The region of the destination OSS bucket where the image is to be stored.
+    // The region of the destination OSS bucket where the image is stored.
     shared_ptr<string> targetOSSRegionId_ {};
-    // Specifies whether to include data disk snapshots in the custom image.
+    // Specifies whether to include data cloud disks when creating the image.
     shared_ptr<bool> withDataDisks_ {};
   };
 

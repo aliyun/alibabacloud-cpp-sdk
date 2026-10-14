@@ -59,9 +59,11 @@ namespace Models
   protected:
     // Specifies whether the disk to be attached is released with the instance. Valid values:
     // 
-    // *   true: The disk will be released when the ECS instance is released.
-    // *   false: The disk will be retained when the ECS instance is released.
-    // *   If you leave this parameter empty, the default value is used.
+    // - true: The disk will be released when the ECS instance is released.
+    // 
+    // - false: The disk will be retained when the ECS instance is released.
+    // 
+    // - If you leave this parameter empty, the default value is used.
     shared_ptr<string> deleteWithInstance_ {};
     // The ID of the disk to be attached. The cloud disk and the instance must belong to the same node.
     // 

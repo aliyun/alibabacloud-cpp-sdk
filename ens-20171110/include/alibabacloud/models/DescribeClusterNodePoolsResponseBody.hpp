@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -90,6 +93,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const NodePools& obj) { 
         DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+        DARABONBA_PTR_TO_JSON(Created, created_);
         DARABONBA_PTR_TO_JSON(KubernetesConfig, kubernetesConfig_);
         DARABONBA_PTR_TO_JSON(NodepoolInfo, nodepoolInfo_);
         DARABONBA_PTR_TO_JSON(ScalingGroup, scalingGroup_);
@@ -97,6 +101,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, NodePools& obj) { 
         DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+        DARABONBA_PTR_FROM_JSON(Created, created_);
         DARABONBA_PTR_FROM_JSON(KubernetesConfig, kubernetesConfig_);
         DARABONBA_PTR_FROM_JSON(NodepoolInfo, nodepoolInfo_);
         DARABONBA_PTR_FROM_JSON(ScalingGroup, scalingGroup_);
@@ -197,12 +202,23 @@ namespace Models
 
 
       protected:
+        // The expected number of instances.
         shared_ptr<int32_t> desiredNodes_ {};
+        // The number of nodes that failed to be created in the node pool.
         shared_ptr<int32_t> failedNodes_ {};
+        // The number of instances that are being created.
         shared_ptr<int32_t> initialNodes_ {};
+        // The number of instances that are being deleted.
         shared_ptr<int32_t> removingNodes_ {};
+        // The number of instances in use.
         shared_ptr<int32_t> servingNodes_ {};
+        // The state of the node pool.
+        // 
+        // - active: The desired state is reached.
+        // - scaling: Scaling out.
+        // - removing_nodes: Scaling in.
         shared_ptr<string> state_ {};
+        // The total number of instances, including those that are being created, in use, and being deleted.
         shared_ptr<int32_t> totalNodes_ {};
       };
 
@@ -279,7 +295,9 @@ namespace Models
 
 
         protected:
+          // The cloud disk category.
           shared_ptr<string> category_ {};
+          // The cloud disk size. Unit: GB.
           shared_ptr<int32_t> size_ {};
         };
 
@@ -356,14 +374,23 @@ namespace Models
 
 
       protected:
+        // The list of data cloud disks. The parameter limits are the same as those of the system cloud disk.
         shared_ptr<vector<ScalingGroup::DataDisks>> dataDisks_ {};
+        // The image ID.
         shared_ptr<string> imageId_ {};
+        // The billing method of the instance.
         shared_ptr<string> instanceChargeType_ {};
+        // The list of instance types.
         shared_ptr<vector<string>> instanceTypes_ {};
+        // The name of the key pair.
         shared_ptr<string> keyPairName_ {};
+        // The password of the instance.
         shared_ptr<string> password_ {};
+        // The system cloud disk category of the node. Valid values: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
         shared_ptr<string> systemDiskCategory_ {};
+        // The size of the system cloud disk for the node.
         shared_ptr<int32_t> systemDiskSize_ {};
+        // The vSwitch ID.
         shared_ptr<vector<string>> vswitchIds_ {};
       };
 
@@ -414,8 +441,11 @@ namespace Models
 
 
       protected:
+        // The ENS edge zone ID.
         shared_ptr<string> ensRegionId_ {};
+        // The name of the node pool.
         shared_ptr<string> name_ {};
+        // The node pool ID.
         shared_ptr<string> nodepoolId_ {};
       };
 
@@ -457,17 +487,26 @@ namespace Models
 
 
       protected:
+        // The script to execute after the instance is created and before it is added to the cluster. The content must be Base64-encoded.
         shared_ptr<string> preUserData_ {};
+        // The script to execute after the instance is created and added to the cluster. The content must be Base64-encoded.
         shared_ptr<string> userData_ {};
       };
 
       virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->kubernetesConfig_ == nullptr && this->nodepoolInfo_ == nullptr && this->scalingGroup_ == nullptr && this->status_ == nullptr; };
+        && this->created_ == nullptr && this->kubernetesConfig_ == nullptr && this->nodepoolInfo_ == nullptr && this->scalingGroup_ == nullptr && this->status_ == nullptr; };
       // clusterId Field Functions 
       bool hasClusterId() const { return this->clusterId_ != nullptr;};
       void deleteClusterId() { this->clusterId_ = nullptr;};
       inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
       inline NodePools& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+      // created Field Functions 
+      bool hasCreated() const { return this->created_ != nullptr;};
+      void deleteCreated() { this->created_ = nullptr;};
+      inline string getCreated() const { DARABONBA_PTR_GET_DEFAULT(created_, "") };
+      inline NodePools& setCreated(string created) { DARABONBA_PTR_SET_VALUE(created_, created) };
 
 
       // kubernetesConfig Field Functions 
@@ -507,10 +546,17 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The creation time.
+      shared_ptr<string> created_ {};
+      // The Kubernetes-related configurations.
       shared_ptr<NodePools::KubernetesConfig> kubernetesConfig_ {};
+      // The node pool information.
       shared_ptr<NodePools::NodepoolInfo> nodepoolInfo_ {};
+      // The scaling group.
       shared_ptr<NodePools::ScalingGroup> scalingGroup_ {};
+      // The status of the node pool.
       shared_ptr<NodePools::Status> status_ {};
     };
 
@@ -542,8 +588,11 @@ namespace Models
 
 
   protected:
+    // The list of node pools.
     shared_ptr<vector<DescribeClusterNodePoolsResponseBody::NodePools>> nodePools_ {};
+    // The current page number.
     shared_ptr<DescribeClusterNodePoolsResponseBody::Page> page_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

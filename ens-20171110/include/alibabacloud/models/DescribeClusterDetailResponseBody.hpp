@@ -19,11 +19,17 @@ namespace Models
       DARABONBA_ANY_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_TO_JSON(ControlPlaneConfig, controlPlaneConfig_);
+      DARABONBA_PTR_TO_JSON(ControlPlaneMeta, controlPlaneMeta_);
+      DARABONBA_PTR_TO_JSON(Created, created_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(JoinToken, joinToken_);
       DARABONBA_PTR_TO_JSON(KubernetesVersion, kubernetesVersion_);
       DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
+      DARABONBA_PTR_TO_JSON(PodStatus, podStatus_);
       DARABONBA_PTR_TO_JSON(PodVswitchIds, podVswitchIds_);
       DARABONBA_PTR_TO_JSON(PublicAccess, publicAccess_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -38,11 +44,17 @@ namespace Models
       DARABONBA_ANY_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(ContainerCidr, containerCidr_);
       DARABONBA_PTR_FROM_JSON(ControlPlaneConfig, controlPlaneConfig_);
+      DARABONBA_PTR_FROM_JSON(ControlPlaneMeta, controlPlaneMeta_);
+      DARABONBA_PTR_FROM_JSON(Created, created_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(JoinToken, joinToken_);
       DARABONBA_PTR_FROM_JSON(KubernetesVersion, kubernetesVersion_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
+      DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
+      DARABONBA_PTR_FROM_JSON(PodStatus, podStatus_);
       DARABONBA_PTR_FROM_JSON(PodVswitchIds, podVswitchIds_);
       DARABONBA_PTR_FROM_JSON(PublicAccess, publicAccess_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -62,6 +74,230 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class PodStatus : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const PodStatus& obj) { 
+        DARABONBA_PTR_TO_JSON(Running, running_);
+        DARABONBA_PTR_TO_JSON(Total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, PodStatus& obj) { 
+        DARABONBA_PTR_FROM_JSON(Running, running_);
+        DARABONBA_PTR_FROM_JSON(Total, total_);
+      };
+      PodStatus() = default ;
+      PodStatus(const PodStatus &) = default ;
+      PodStatus(PodStatus &&) = default ;
+      PodStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~PodStatus() = default ;
+      PodStatus& operator=(const PodStatus &) = default ;
+      PodStatus& operator=(PodStatus &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->running_ == nullptr
+        && this->total_ == nullptr; };
+      // running Field Functions 
+      bool hasRunning() const { return this->running_ != nullptr;};
+      void deleteRunning() { this->running_ = nullptr;};
+      inline int32_t getRunning() const { DARABONBA_PTR_GET_DEFAULT(running_, 0) };
+      inline PodStatus& setRunning(int32_t running) { DARABONBA_PTR_SET_VALUE(running_, running) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline PodStatus& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      shared_ptr<int32_t> running_ {};
+      shared_ptr<int32_t> total_ {};
+    };
+
+    class NodeCount : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const NodeCount& obj) { 
+        DARABONBA_PTR_TO_JSON(Ready, ready_);
+        DARABONBA_PTR_TO_JSON(Total, total_);
+      };
+      friend void from_json(const Darabonba::Json& j, NodeCount& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ready, ready_);
+        DARABONBA_PTR_FROM_JSON(Total, total_);
+      };
+      NodeCount() = default ;
+      NodeCount(const NodeCount &) = default ;
+      NodeCount(NodeCount &&) = default ;
+      NodeCount(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~NodeCount() = default ;
+      NodeCount& operator=(const NodeCount &) = default ;
+      NodeCount& operator=(NodeCount &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ready_ == nullptr
+        && this->total_ == nullptr; };
+      // ready Field Functions 
+      bool hasReady() const { return this->ready_ != nullptr;};
+      void deleteReady() { this->ready_ = nullptr;};
+      inline int32_t getReady() const { DARABONBA_PTR_GET_DEFAULT(ready_, 0) };
+      inline NodeCount& setReady(int32_t ready) { DARABONBA_PTR_SET_VALUE(ready_, ready) };
+
+
+      // total Field Functions 
+      bool hasTotal() const { return this->total_ != nullptr;};
+      void deleteTotal() { this->total_ = nullptr;};
+      inline int32_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0) };
+      inline NodeCount& setTotal(int32_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    protected:
+      shared_ptr<int32_t> ready_ {};
+      shared_ptr<int32_t> total_ {};
+    };
+
+    class ControlPlaneMeta : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ControlPlaneMeta& obj) { 
+        DARABONBA_PTR_TO_JSON(MasterInstances, masterInstances_);
+        DARABONBA_PTR_TO_JSON(MasterUrl, masterUrl_);
+      };
+      friend void from_json(const Darabonba::Json& j, ControlPlaneMeta& obj) { 
+        DARABONBA_PTR_FROM_JSON(MasterInstances, masterInstances_);
+        DARABONBA_PTR_FROM_JSON(MasterUrl, masterUrl_);
+      };
+      ControlPlaneMeta() = default ;
+      ControlPlaneMeta(const ControlPlaneMeta &) = default ;
+      ControlPlaneMeta(ControlPlaneMeta &&) = default ;
+      ControlPlaneMeta(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ControlPlaneMeta() = default ;
+      ControlPlaneMeta& operator=(const ControlPlaneMeta &) = default ;
+      ControlPlaneMeta& operator=(ControlPlaneMeta &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class MasterUrl : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MasterUrl& obj) { 
+          DARABONBA_PTR_TO_JSON(PrivateUrl, privateUrl_);
+          DARABONBA_PTR_TO_JSON(PublicUrl, publicUrl_);
+        };
+        friend void from_json(const Darabonba::Json& j, MasterUrl& obj) { 
+          DARABONBA_PTR_FROM_JSON(PrivateUrl, privateUrl_);
+          DARABONBA_PTR_FROM_JSON(PublicUrl, publicUrl_);
+        };
+        MasterUrl() = default ;
+        MasterUrl(const MasterUrl &) = default ;
+        MasterUrl(MasterUrl &&) = default ;
+        MasterUrl(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MasterUrl() = default ;
+        MasterUrl& operator=(const MasterUrl &) = default ;
+        MasterUrl& operator=(MasterUrl &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->privateUrl_ == nullptr
+        && this->publicUrl_ == nullptr; };
+        // privateUrl Field Functions 
+        bool hasPrivateUrl() const { return this->privateUrl_ != nullptr;};
+        void deletePrivateUrl() { this->privateUrl_ = nullptr;};
+        inline string getPrivateUrl() const { DARABONBA_PTR_GET_DEFAULT(privateUrl_, "") };
+        inline MasterUrl& setPrivateUrl(string privateUrl) { DARABONBA_PTR_SET_VALUE(privateUrl_, privateUrl) };
+
+
+        // publicUrl Field Functions 
+        bool hasPublicUrl() const { return this->publicUrl_ != nullptr;};
+        void deletePublicUrl() { this->publicUrl_ = nullptr;};
+        inline string getPublicUrl() const { DARABONBA_PTR_GET_DEFAULT(publicUrl_, "") };
+        inline MasterUrl& setPublicUrl(string publicUrl) { DARABONBA_PTR_SET_VALUE(publicUrl_, publicUrl) };
+
+
+      protected:
+        shared_ptr<string> privateUrl_ {};
+        shared_ptr<string> publicUrl_ {};
+      };
+
+      class MasterInstances : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MasterInstances& obj) { 
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(Ip, ip_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+        };
+        friend void from_json(const Darabonba::Json& j, MasterInstances& obj) { 
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(Ip, ip_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+        };
+        MasterInstances() = default ;
+        MasterInstances(const MasterInstances &) = default ;
+        MasterInstances(MasterInstances &&) = default ;
+        MasterInstances(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MasterInstances() = default ;
+        MasterInstances& operator=(const MasterInstances &) = default ;
+        MasterInstances& operator=(MasterInstances &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->ip_ == nullptr && this->name_ == nullptr; };
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline MasterInstances& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // ip Field Functions 
+        bool hasIp() const { return this->ip_ != nullptr;};
+        void deleteIp() { this->ip_ = nullptr;};
+        inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+        inline MasterInstances& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline MasterInstances& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      protected:
+        shared_ptr<string> instanceId_ {};
+        shared_ptr<string> ip_ {};
+        shared_ptr<string> name_ {};
+      };
+
+      virtual bool empty() const override { return this->masterInstances_ == nullptr
+        && this->masterUrl_ == nullptr; };
+      // masterInstances Field Functions 
+      bool hasMasterInstances() const { return this->masterInstances_ != nullptr;};
+      void deleteMasterInstances() { this->masterInstances_ = nullptr;};
+      inline const vector<ControlPlaneMeta::MasterInstances> & getMasterInstances() const { DARABONBA_PTR_GET_CONST(masterInstances_, vector<ControlPlaneMeta::MasterInstances>) };
+      inline vector<ControlPlaneMeta::MasterInstances> getMasterInstances() { DARABONBA_PTR_GET(masterInstances_, vector<ControlPlaneMeta::MasterInstances>) };
+      inline ControlPlaneMeta& setMasterInstances(const vector<ControlPlaneMeta::MasterInstances> & masterInstances) { DARABONBA_PTR_SET_VALUE(masterInstances_, masterInstances) };
+      inline ControlPlaneMeta& setMasterInstances(vector<ControlPlaneMeta::MasterInstances> && masterInstances) { DARABONBA_PTR_SET_RVALUE(masterInstances_, masterInstances) };
+
+
+      // masterUrl Field Functions 
+      bool hasMasterUrl() const { return this->masterUrl_ != nullptr;};
+      void deleteMasterUrl() { this->masterUrl_ = nullptr;};
+      inline const ControlPlaneMeta::MasterUrl & getMasterUrl() const { DARABONBA_PTR_GET_CONST(masterUrl_, ControlPlaneMeta::MasterUrl) };
+      inline ControlPlaneMeta::MasterUrl getMasterUrl() { DARABONBA_PTR_GET(masterUrl_, ControlPlaneMeta::MasterUrl) };
+      inline ControlPlaneMeta& setMasterUrl(const ControlPlaneMeta::MasterUrl & masterUrl) { DARABONBA_PTR_SET_VALUE(masterUrl_, masterUrl) };
+      inline ControlPlaneMeta& setMasterUrl(ControlPlaneMeta::MasterUrl && masterUrl) { DARABONBA_PTR_SET_RVALUE(masterUrl_, masterUrl) };
+
+
+    protected:
+      shared_ptr<vector<ControlPlaneMeta::MasterInstances>> masterInstances_ {};
+      shared_ptr<ControlPlaneMeta::MasterUrl> masterUrl_ {};
+    };
+
     class ControlPlaneConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ControlPlaneConfig& obj) { 
@@ -146,20 +382,28 @@ namespace Models
 
 
     protected:
+      // The container runtime type.
       shared_ptr<string> containerRuntime_ {};
+      // The image ID of the control plane virtual machine.
       shared_ptr<string> imageId_ {};
+      // The node instance type.
       shared_ptr<string> instanceSpec_ {};
+      // The node service port range.
       shared_ptr<string> nodePortRange_ {};
+      // The number of control plane nodes.
       shared_ptr<int64_t> size_ {};
+      // The system cloud disk type of the node.
       shared_ptr<string> systemDiskCategory_ {};
+      // The system cloud disk size of the node.
       shared_ptr<int64_t> systemDiskSize_ {};
     };
 
     virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->clusterId_ == nullptr && this->config_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->ensRegionId_ == nullptr
-        && this->joinToken_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->podVswitchIds_ == nullptr
-        && this->publicAccess_ == nullptr && this->requestId_ == nullptr && this->serviceCidr_ == nullptr && this->state_ == nullptr && this->vpcId_ == nullptr
-        && this->vswitchIds_ == nullptr; };
+        && this->clusterId_ == nullptr && this->config_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlPlaneMeta_ == nullptr
+        && this->created_ == nullptr && this->ensRegionId_ == nullptr && this->isp_ == nullptr && this->joinToken_ == nullptr && this->kubernetesVersion_ == nullptr
+        && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->natGatewayId_ == nullptr && this->nodeCount_ == nullptr && this->podStatus_ == nullptr
+        && this->podVswitchIds_ == nullptr && this->publicAccess_ == nullptr && this->requestId_ == nullptr && this->serviceCidr_ == nullptr && this->state_ == nullptr
+        && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -199,11 +443,34 @@ namespace Models
     inline DescribeClusterDetailResponseBody& setControlPlaneConfig(DescribeClusterDetailResponseBody::ControlPlaneConfig && controlPlaneConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneConfig_, controlPlaneConfig) };
 
 
+    // controlPlaneMeta Field Functions 
+    bool hasControlPlaneMeta() const { return this->controlPlaneMeta_ != nullptr;};
+    void deleteControlPlaneMeta() { this->controlPlaneMeta_ = nullptr;};
+    inline const DescribeClusterDetailResponseBody::ControlPlaneMeta & getControlPlaneMeta() const { DARABONBA_PTR_GET_CONST(controlPlaneMeta_, DescribeClusterDetailResponseBody::ControlPlaneMeta) };
+    inline DescribeClusterDetailResponseBody::ControlPlaneMeta getControlPlaneMeta() { DARABONBA_PTR_GET(controlPlaneMeta_, DescribeClusterDetailResponseBody::ControlPlaneMeta) };
+    inline DescribeClusterDetailResponseBody& setControlPlaneMeta(const DescribeClusterDetailResponseBody::ControlPlaneMeta & controlPlaneMeta) { DARABONBA_PTR_SET_VALUE(controlPlaneMeta_, controlPlaneMeta) };
+    inline DescribeClusterDetailResponseBody& setControlPlaneMeta(DescribeClusterDetailResponseBody::ControlPlaneMeta && controlPlaneMeta) { DARABONBA_PTR_SET_RVALUE(controlPlaneMeta_, controlPlaneMeta) };
+
+
+    // created Field Functions 
+    bool hasCreated() const { return this->created_ != nullptr;};
+    void deleteCreated() { this->created_ = nullptr;};
+    inline string getCreated() const { DARABONBA_PTR_GET_DEFAULT(created_, "") };
+    inline DescribeClusterDetailResponseBody& setCreated(string created) { DARABONBA_PTR_SET_VALUE(created_, created) };
+
+
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
     inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline DescribeClusterDetailResponseBody& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+    // isp Field Functions 
+    bool hasIsp() const { return this->isp_ != nullptr;};
+    void deleteIsp() { this->isp_ = nullptr;};
+    inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+    inline DescribeClusterDetailResponseBody& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
 
 
     // joinToken Field Functions 
@@ -232,6 +499,31 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribeClusterDetailResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // natGatewayId Field Functions 
+    bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
+    void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline DescribeClusterDetailResponseBody& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
+
+
+    // nodeCount Field Functions 
+    bool hasNodeCount() const { return this->nodeCount_ != nullptr;};
+    void deleteNodeCount() { this->nodeCount_ = nullptr;};
+    inline const DescribeClusterDetailResponseBody::NodeCount & getNodeCount() const { DARABONBA_PTR_GET_CONST(nodeCount_, DescribeClusterDetailResponseBody::NodeCount) };
+    inline DescribeClusterDetailResponseBody::NodeCount getNodeCount() { DARABONBA_PTR_GET(nodeCount_, DescribeClusterDetailResponseBody::NodeCount) };
+    inline DescribeClusterDetailResponseBody& setNodeCount(const DescribeClusterDetailResponseBody::NodeCount & nodeCount) { DARABONBA_PTR_SET_VALUE(nodeCount_, nodeCount) };
+    inline DescribeClusterDetailResponseBody& setNodeCount(DescribeClusterDetailResponseBody::NodeCount && nodeCount) { DARABONBA_PTR_SET_RVALUE(nodeCount_, nodeCount) };
+
+
+    // podStatus Field Functions 
+    bool hasPodStatus() const { return this->podStatus_ != nullptr;};
+    void deletePodStatus() { this->podStatus_ = nullptr;};
+    inline const DescribeClusterDetailResponseBody::PodStatus & getPodStatus() const { DARABONBA_PTR_GET_CONST(podStatus_, DescribeClusterDetailResponseBody::PodStatus) };
+    inline DescribeClusterDetailResponseBody::PodStatus getPodStatus() { DARABONBA_PTR_GET(podStatus_, DescribeClusterDetailResponseBody::PodStatus) };
+    inline DescribeClusterDetailResponseBody& setPodStatus(const DescribeClusterDetailResponseBody::PodStatus & podStatus) { DARABONBA_PTR_SET_VALUE(podStatus_, podStatus) };
+    inline DescribeClusterDetailResponseBody& setPodStatus(DescribeClusterDetailResponseBody::PodStatus && podStatus) { DARABONBA_PTR_SET_RVALUE(podStatus_, podStatus) };
 
 
     // podVswitchIds Field Functions 
@@ -288,23 +580,49 @@ namespace Models
 
 
   protected:
+    // The user ID.
     shared_ptr<string> aliUid_ {};
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The cluster kubeconfig.
     Darabonba::Json config_ {};
+    // The CIDR block for pods.
     shared_ptr<string> containerCidr_ {};
+    // The control plane configuration.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneConfig> controlPlaneConfig_ {};
+    shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneMeta> controlPlaneMeta_ {};
+    shared_ptr<string> created_ {};
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
+    shared_ptr<string> isp_ {};
+    // The authentication token for cluster access.
     shared_ptr<string> joinToken_ {};
+    // The cluster version, which is consistent with the Kubernetes community baseline version. We recommend that you select the latest version. If you do not specify this parameter, the latest version is used by default.
     shared_ptr<string> kubernetesVersion_ {};
+    // The CLB instance ID of the API server.
     shared_ptr<string> loadBalancerId_ {};
+    // The cluster name.
     shared_ptr<string> name_ {};
+    shared_ptr<string> natGatewayId_ {};
+    shared_ptr<DescribeClusterDetailResponseBody::NodeCount> nodeCount_ {};
+    shared_ptr<DescribeClusterDetailResponseBody::PodStatus> podStatus_ {};
+    // The vSwitch IDs for pods.
     shared_ptr<vector<string>> podVswitchIds_ {};
+    // Indicates whether public network access is enabled.
     shared_ptr<bool> publicAccess_ {};
     // Id of the request。
     shared_ptr<string> requestId_ {};
+    // The CIDR block for services.
     shared_ptr<string> serviceCidr_ {};
+    // The cluster status. Valid values:
+    // - **initial**: Being created.
+    // - **failed**: Creation failed.
+    // - **running**: Running.
+    // - **deleting**: Being released.
     shared_ptr<string> state_ {};
+    // The VPC used by the cluster.
     shared_ptr<string> vpcId_ {};
+    // The vSwitch IDs of the cluster nodes.
     shared_ptr<vector<string>> vswitchIds_ {};
   };
 

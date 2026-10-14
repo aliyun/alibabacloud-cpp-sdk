@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The ID of the node.
+    // The ID of the edge zone.
     // 
-    // By default, all available node IDs are returned.
+    // If you do not specify this parameter, the IDs of all active edge zones are returned.
     shared_ptr<string> ensRegionId_ {};
   };
 

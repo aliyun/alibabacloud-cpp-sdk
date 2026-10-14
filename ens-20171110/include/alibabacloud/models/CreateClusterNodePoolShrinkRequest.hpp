@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The cluster-related configurations.
     shared_ptr<string> kubernetesConfigShrink_ {};
+    // The node pool configurations.
+    // 
     // This parameter is required.
     shared_ptr<string> nodepoolInfoShrink_ {};
+    // The scaling group configurations.
+    // 
     // This parameter is required.
     shared_ptr<string> scalingGroupShrink_ {};
   };

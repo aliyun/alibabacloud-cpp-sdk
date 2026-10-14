@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The URL of the VNC management terminal.
+    // The management terminal URL.
     shared_ptr<string> vncUrl_ {};
   };
 

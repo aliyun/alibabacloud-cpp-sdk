@@ -63,12 +63,15 @@ namespace Models
     // 
     // If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
     shared_ptr<string> netDistrictCode_ {};
+    // Region code
     shared_ptr<bool> netDistrictCodeNode_ {};
     // The level of the region.
     // 
-    // *   **Big**: area
-    // *   **Middle**: province
-    // *   **Small**: city
+    // - **Big**: area
+    // 
+    // - **Middle**: province
+    // 
+    // - **Small**: city
     // 
     // This parameter is required.
     shared_ptr<string> netLevelCode_ {};

@@ -116,7 +116,7 @@ namespace Models
 
 
         protected:
-          // The error message returned if the call failed.
+          // The error message.
           shared_ptr<string> errMessage_ {};
           // The instance ID.
           shared_ptr<string> instanceId_ {};
@@ -148,11 +148,11 @@ namespace Models
 
 
       protected:
-        // The number of failed tasks.
+        // The number of failures.
         shared_ptr<int64_t> failedCount_ {};
-        // Details about failed tasks.
+        // The list of failure details.
         shared_ptr<vector<Result::FailedItems>> failedItems_ {};
-        // The number of successful tasks.
+        // The number of successes.
         shared_ptr<int64_t> successCount_ {};
       };
 
@@ -182,14 +182,14 @@ namespace Models
 
 
     protected:
-      // The response message. Success is returned for a successful request.
+      // The response message. The value success is returned for a successful request.
       shared_ptr<string> message_ {};
-      // The execution result of the synchronization request.
+      // The execution result of the synchronous request.
       shared_ptr<Data::Result> result_ {};
-      // Indicates whether all tasks are successful. Valid values:
+      // Indicates whether all requests succeeded. Valid values:
       // 
-      // *   **true**: All tasks are successful.
-      // *   **false**: Failed tasks exist.
+      // - **true**: All succeeded.
+      // - **false**: Some tasks failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -212,7 +212,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned Data object.
     shared_ptr<RemoveSDGsResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

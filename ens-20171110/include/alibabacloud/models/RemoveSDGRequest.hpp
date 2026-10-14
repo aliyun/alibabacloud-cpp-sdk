@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // IDs of Android in Container (AIC) instances.
+    // The list of AIC instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};

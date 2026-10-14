@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to retain cloud resources. Default value: false.
     shared_ptr<bool> retainResources_ {};
   };
 

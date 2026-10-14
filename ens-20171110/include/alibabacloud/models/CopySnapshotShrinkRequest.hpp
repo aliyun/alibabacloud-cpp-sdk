@@ -75,14 +75,19 @@ namespace Models
 
 
   protected:
-    // The IDs of destination nodes.
+    // The list of destination edge zone IDs.
     // 
     // This parameter is required.
     shared_ptr<string> destinationRegionIdsShrink_ {};
     // The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> destinationSnapshotDescription_ {};
-    // The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The display name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> destinationSnapshotName_ {};
+    // The billing cycle of the instance. Valid values:
+    // 
+    // - Hour
+    // - Day
+    // - Month
     shared_ptr<string> instanceBillingCycle_ {};
     // The ID of the source snapshot.
     // 

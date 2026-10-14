@@ -112,17 +112,17 @@ namespace Models
 
 
     protected:
-      // Public key content
+      // The content of the public key.
       shared_ptr<string> content_ {};
-      // The creation time of the voiceprint.
+      // The time when the public key was created.
       shared_ptr<string> creationTime_ {};
-      // Public key description
+      // The description of the public key.
       shared_ptr<string> description_ {};
-      // Public key grouping
+      // The group of the public key.
       shared_ptr<string> keyGroup_ {};
-      // Public key name
+      // The name of the public key.
       shared_ptr<string> keyName_ {};
-      // Public key type
+      // The type of the public key.
       shared_ptr<string> keyType_ {};
     };
 
@@ -166,15 +166,15 @@ namespace Models
 
 
   protected:
-    // Current page number when paging
+    // The current page number in the paginated query.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records to display per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Public key list
+    // The list of public keys.
     shared_ptr<vector<ListAICPublicKeysResponseBody::PublicKeys>> publicKeys_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

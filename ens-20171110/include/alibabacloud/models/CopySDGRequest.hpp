@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The destination nodes.
+    // The list of destination edge zones.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> destinationRegionIds_ {};
-    // The ID of the SDG that you want to copy.
+    // The ID of the SDG to copy.
     // 
     // This parameter is required.
     shared_ptr<string> SDGId_ {};

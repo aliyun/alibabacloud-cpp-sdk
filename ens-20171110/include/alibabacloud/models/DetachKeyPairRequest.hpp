@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The instance IDs.
+    // An array of instance IDs from which to detach the key pair.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The key pair ID.
+    // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The name of the SSH key pair.
+    // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
   };
 

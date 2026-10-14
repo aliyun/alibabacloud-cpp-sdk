@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The add-on information.
     shared_ptr<string> addonsShrink_ {};
+    // The ID of the cluster.
+    // 
+    // The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
   };

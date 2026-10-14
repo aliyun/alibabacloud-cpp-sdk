@@ -48,11 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the edge network instance.
+    // The edge-to-edge communication instance ID.
+    // 
+    // The NetworkingModel of the EPN instance must be Connection or SpeedUpAndConnection. The SpeedUp pattern does not allow you to associate vSwitches.
     // 
     // This parameter is required.
     shared_ptr<string> EPNInstanceId_ {};
-    // The information about the internal networking to which you want to add the edge network instance.
+    // The internal networking information to be added.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchesInfo_ {};

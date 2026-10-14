@@ -108,8 +108,9 @@ namespace Models
       protected:
         // The type of currency.
         // 
-        // *   USD: US dollar
-        // *   JPY: Japanese Yen
+        // - USD: US dollar
+        // 
+        // - JPY: Japanese Yen
         shared_ptr<string> currency_ {};
         // The discount.
         shared_ptr<float> discountPrice_ {};

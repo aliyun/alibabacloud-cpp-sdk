@@ -129,21 +129,21 @@ namespace Models
 
 
     protected:
-      // The ID of the device.
+      // The device ID.
       shared_ptr<string> ID_ {};
-      // The IP address of the device.
+      // The device IP address.
       shared_ptr<string> IP_ {};
-      // The Internet service provider (ISP) to which the device belongs.
+      // The ISP of the device.
       shared_ptr<string> ISP_ {};
-      // The media access control (MAC) address of the device.
+      // The MAC address of the device.
       shared_ptr<string> mac_ {};
-      // The ID of the edge node to which the device belongs.
+      // The ID of the edge node where the device is located.
       shared_ptr<string> regionID_ {};
-      // The name of the server on which the device is deployed.
+      // The name of the server NC where the device is located.
       shared_ptr<string> server_ {};
-      // The status of the device.
+      // The device status.
       shared_ptr<string> status_ {};
-      // The type of the instance.
+      // The device type.
       shared_ptr<string> type_ {};
     };
 
@@ -182,13 +182,13 @@ namespace Models
 
 
   protected:
-    // The IDs of the devices.
+    // The list of device IDs.
     shared_ptr<vector<string>> deviceIds_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The key properties of the device.
+    // The list of primary device attributes.
     shared_ptr<vector<RescaleDeviceServiceResponseBody::ResourceDetailInfos>> resourceDetailInfos_ {};
   };
 

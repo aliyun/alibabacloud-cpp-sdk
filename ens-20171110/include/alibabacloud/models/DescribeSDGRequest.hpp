@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number for paging.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of rows per page in a paging query.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of SDGs that you want to query. By default, all SDGs are queried.
+    // The IDs of the SDGs to query. By default, all SDGs are queried.
     shared_ptr<vector<string>> SDGIds_ {};
     shared_ptr<bool> sameDiskId_ {};
   };

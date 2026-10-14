@@ -68,8 +68,9 @@ namespace Models
   protected:
     // The end of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+    // - Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
+    // - If the value of the seconds place is not 00, the start time is automatically set to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -77,15 +78,19 @@ namespace Models
     shared_ptr<string> ensRegionId_ {};
     // The Internet service provider (ISP). Valid values:
     // 
-    // *   cmcc: China Mobile
-    // *   telecom: China Telecom
-    // *   unicom: China Unicom
-    // *   multiCarrier: multi-line ISP
+    // - cmcc: China Mobile
+    // 
+    // - telecom: China Telecom
+    // 
+    // - unicom: China Unicom
+    // 
+    // - multiCarrier: multi-line ISP
     shared_ptr<string> isp_ {};
     // The beginning of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+    // - Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
+    // - If the value of the seconds place is not 00, the start time is automatically set to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

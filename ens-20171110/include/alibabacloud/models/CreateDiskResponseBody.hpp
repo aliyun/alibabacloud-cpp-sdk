@@ -60,11 +60,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The collection of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The ID of the order. Multiple IDs are separated by commas (,).
-    // 
-    // >  This parameter is not returned for the pay-as-you-go billing method.
+    // The order ID. Multiple IDs are separated by commas (,).
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

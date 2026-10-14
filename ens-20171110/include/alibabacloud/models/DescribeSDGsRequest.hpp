@@ -53,9 +53,9 @@ namespace Models
 
 
   protected:
-    // The AIC instance ID to be queried.
+    // The list of AIC instance IDs to query.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The IDs of SDGs that you want to query. By default, all SDGs are queried.
+    // The list of SDG IDs to query.
     shared_ptr<vector<string>> SDGIds_ {};
   };
 

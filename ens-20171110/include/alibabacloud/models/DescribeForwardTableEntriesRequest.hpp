@@ -113,9 +113,11 @@ namespace Models
     shared_ptr<string> internalIp_ {};
     // The protocol. Valid values:
     // 
-    // *   **TCP**: forwards TCP packets.
-    // *   **UDP**: forwards UDP packets.
-    // *   **Any**: forwards all packets.
+    // - **TCP**: forwards TCP packets.
+    // 
+    // - **UDP**: forwards UDP packets.
+    // 
+    // - **Any**: forwards all packets.
     shared_ptr<string> ipProtocol_ {};
     // The ID of the NAT gateway.
     // 

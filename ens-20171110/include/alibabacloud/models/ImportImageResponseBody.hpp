@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Image ID.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

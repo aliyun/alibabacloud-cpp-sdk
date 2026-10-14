@@ -84,32 +84,31 @@ namespace Models
 
 
   protected:
-    // The ID of the application. You can query the application ID by calling the ListApplications operation.
+    // The application ID. You can obtain this value by calling the ListApplications operation.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The level of resource scaling. The value is of the enumeration type. Valid values:
+    // The level of the scaling region. Valid values:
     // 
-    // *   AreaIspCode (default): scales resources based on the Internet service provider (ISP).
-    // *   RegionId: scales resources based on the edge node.
-    // *   InstanceId: scales resources based on the instance ID. Resource scale-out specifies resource hosting and scale-in specifies resource release.
+    // - AreaIspCode: region ISP.
+    // - RegionId: edge zone.
+    // - InstanceId: instance. Scale-out indicates resource hosting. Scale-in indicates resource release.
     // 
     // Default value: AreaIspCode.
     shared_ptr<string> rescaleLevel_ {};
-    // The scaling operation. The value must be of the enumerated data type. Valid values:
-    // 
-    // *   Add: adds new resources.
-    // *   Del: releases resources.
+    // The scaling action for resources. Valid values:
+    // - Add: Provisions new resources.
+    // - Del: Releases resources.
     // 
     // This parameter is required.
     shared_ptr<string> rescaleType_ {};
-    // The required resources. The value must be a JSON string.
+    // The scaling resource requirements. The value is a string in JSON array format.
     // 
     // This parameter is required.
     shared_ptr<string> resourceSelector_ {};
-    // The timeout period for asynchronous scaling. Unit: seconds. Default value: 300.
+    // The timeout period for asynchronous scaling, in seconds. Default value: 300.
     shared_ptr<int32_t> timeout_ {};
-    // The version number of the application deployment package. By default, the stable version number is used. This parameter takes effect only when you perform resource scale-out.
+    // The application deployment version for new resources. This parameter takes effect only when resources are added. Default value: the stable version number of the application.
     shared_ptr<string> toAppVersion_ {};
   };
 

@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
+    // 
+    // The AppId is returned by the CreateApplication operation. FromAppVersion and ToAppVersion must be existing versions created by calling CreateAppVersion. You can call ListAppVersions to query the versions.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The current version number.
+    // The version number to be rolled back.
     // 
     // This parameter is required.
     shared_ptr<string> fromAppVersion_ {};
-    // The timeout period of the asynchronous rollback operation. Unit: seconds. Default value: 300.
+    // The timeout period for the asynchronous rollback operation. Unit: seconds. Default value: 300.
     shared_ptr<int32_t> timeout_ {};
-    // The target version number. By default, the system automatically rolls back the container version to the previous version.
+    // The target version number. By default, the application is automatically rolled back to the previous version.
     shared_ptr<string> toAppVersion_ {};
   };
 

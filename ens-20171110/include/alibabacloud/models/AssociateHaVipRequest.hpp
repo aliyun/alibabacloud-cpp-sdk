@@ -67,8 +67,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the instance to be associated with the HAVIP. Valid values:
     // 
-    // *   EnsInstance (default): ENS instance
-    // *   NetworkInterface: elastic network interface (ENI)
+    // - EnsInstance (default): ENS instance
+    // 
+    // - NetworkInterface: elastic network interface (ENI)
     shared_ptr<string> instanceType_ {};
   };
 

@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The ID of the order.
+    // The generated order ID.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -127,7 +127,7 @@ namespace Models
 
 
           protected:
-            // The ID of the shared data group (SDG).
+            // The specific ID.
             shared_ptr<string> sdgId_ {};
           };
 
@@ -152,7 +152,7 @@ namespace Models
         protected:
           // The error message.
           shared_ptr<string> errMessage_ {};
-          // Description
+          // The specific information.
           shared_ptr<FailedItems::Item> item_ {};
         };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
       protected:
-        // The number of failed tasks.
+        // The number of failures.
         shared_ptr<int64_t> failedCount_ {};
-        // Details about the failed tasks.
+        // The details of failed tasks.
         shared_ptr<vector<Result::FailedItems>> failedItems_ {};
-        // The number of successful tasks.
+        // The number of successes.
         shared_ptr<int64_t> successCount_ {};
       };
 
@@ -216,14 +216,14 @@ namespace Models
 
 
     protected:
-      // The response message. Success is returned for a successful request.
+      // The response message. A value of success indicates a successful request.
       shared_ptr<string> message_ {};
-      // The execution result of the synchronization request.
+      // The execution result of the synchronous request.
       shared_ptr<Data::Result> result_ {};
-      // Indicates whether all tasks are successful. Valid values:
+      // Indicates whether all requests succeeded. Valid values:
       // 
-      // *   true: All tasks are successful.
-      // *   false: Failed tasks exist.
+      // - true: All succeeded.
+      // - false: Some tasks failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -246,7 +246,7 @@ namespace Models
 
 
   protected:
-    // The returned data object.
+    // The returned Data object.
     shared_ptr<DeleteSDGResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -79,8 +79,9 @@ namespace Models
     shared_ptr<string> bandWithTypeInfo_ {};
     // The metering type.
     // 
-    // *   ChargeByUnified: unified metering.
-    // *   ChargeByGrade: differential metering.
+    // - ChargeByUnified: unified metering.
+    // 
+    // - ChargeByGrade: differential metering.
     shared_ptr<string> chargeContractType_ {};
     // The metering cycle. Currently, this parameter is empty in the response.
     shared_ptr<string> chargeCycleInfo_ {};

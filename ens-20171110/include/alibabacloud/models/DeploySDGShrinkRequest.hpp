@@ -59,14 +59,14 @@ namespace Models
   protected:
     // The SDG deployment type. Valid values:
     // 
-    // *   common (default): read/write deployment. Data updates are written to disks.
-    // *   overlay: read/write splitting deployment. Content in SDGs is read-only. Data updates are written to the local storage of the instance.
+    // - common: (default) read/write deployment. Data updates are written to the cloud disk.
+    // - overlay: read/write splitting deployment. The SDG content is read-only, and data updates are written to the local storage of the instance.
     shared_ptr<string> deploymentType_ {};
-    // The IDs of instances on which you want to deploy SDGs. You can deploy SDGs on a maximum of 100 instances at a time.
+    // The list of device resource IDs to which the SDG is deployed. Batch deployment is supported, with a maximum of 100 instances per request.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The SDG ID. This parameter is used to create a disk, which is attached to an instance.
+    // The SDG ID. A cloud disk is created based on this SDG ID and mounted to the specified instance.
     // 
     // This parameter is required.
     shared_ptr<string> SDGId_ {};

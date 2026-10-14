@@ -124,30 +124,29 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. You can specify 1 to 100 IDs.
+    // The IDs of ENS nodes. Array length: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The IP address of the HAVIP.
+    // The IP address of the HaVip instance.
     shared_ptr<string> haVipAddress_ {};
-    // The ID of the HAVIP.
+    // The HaVip instance ID.
     shared_ptr<string> haVipId_ {};
-    // The name of the HAVIP.
+    // The name of the HaVip instance.
     shared_ptr<string> name_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query. Settings for paging.
     shared_ptr<string> pageSize_ {};
-    // The status of the HAVIP. Valid values:
-    // 
-    // *   Creating
-    // *   Available
-    // *   InUse
-    // *   Deleting
+    // The HaVip status. Valid values:
+    // - Creating: The HaVip is being created.
+    // - Available: The HaVip is available.
+    // - InUse: The HaVip is in use.
+    // - Deleting: The HaVip is being deleted.
     shared_ptr<string> status_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

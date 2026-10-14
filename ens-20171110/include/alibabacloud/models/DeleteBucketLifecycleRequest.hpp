@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // The bucket name.
     // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
-    // The ID of the rule. If this parameter is not specified, all rules are removed.
+    // The rule ID. If this parameter is not specified, all rules are deleted.
     shared_ptr<string> ruleId_ {};
   };
 

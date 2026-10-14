@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The status code of the operation. 200 indicates that the operation succeeded.
+      // The status code for the operation. A value of `200` indicates success.
       shared_ptr<int32_t> code_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+      // The response message. If the `Code` is `200`, this message is `successful`.
       shared_ptr<string> message_ {};
-      // Indicates whether the operation is successful.
+      // Indicates if the operation succeeded for the instance.
       shared_ptr<bool> success_ {};
     };
 
@@ -153,17 +153,17 @@ namespace Models
 
 
   protected:
-    // The number of instances from which the SSH key pair failed to be unbound.
+    // The number of instances where the attachment failed.
     shared_ptr<int32_t> failCount_ {};
-    // The ID of the SSH key pair.
+    // The key pair ID.
     shared_ptr<string> keyPairId_ {};
-    // The name of the SSH key pair.
+    // The key pair name.
     shared_ptr<string> keyPairName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result set of the unbind operation.
+    // The attachment results for each instance.
     shared_ptr<vector<AttachKeyPairResponseBody::Results>> results_ {};
-    // The total number of instances from which the SSH key pair is unbound.
+    // The total number of instances in the request.
     shared_ptr<int32_t> totalCount_ {};
   };
 

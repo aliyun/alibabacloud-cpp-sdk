@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The add-on name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
   };

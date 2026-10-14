@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The page number, which is used for paged query
+    // The page number for paging in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // sdg ID
+    // The ID of the SDG. You can call the DescribeSDGs operation to query the IDs of existing SDGs. To create an SDG, call the CreateSDG and SaveSDG operations in sequence after the AIC instance is running.
     // 
     // This parameter is required.
     shared_ptr<string> sdgId_ {};

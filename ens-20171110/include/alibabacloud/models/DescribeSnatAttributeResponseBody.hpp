@@ -113,11 +113,15 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The status of the IP address.
       // 
-      // *   Running
-      // *   Stopping
-      // *   Stopped
-      // *   Starting
-      // *   Releasing
+      // - Running
+      // 
+      // - Stopping
+      // 
+      // - Stopped
+      // 
+      // - Starting
+      // 
+      // - Releasing
       shared_ptr<string> status_ {};
     };
 
@@ -246,15 +250,18 @@ namespace Models
     shared_ptr<string> destCIDR_ {};
     // Specifies whether to enable IP affinity. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**
     // 
-    // >  After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
+    // - **true**
+    // 
+    // > After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
     shared_ptr<bool> eipAffinity_ {};
     // The timeout period. Unit: seconds.
     shared_ptr<int32_t> idleTimeout_ {};
     // Whether to enable operator affinity. Value taking:
+    // 
     // - false:Do not open.
+    // 
     // - true:Open.
     shared_ptr<bool> ispAffinity_ {};
     // The ID of the Network Address Translation (NAT) gateway.
@@ -275,21 +282,27 @@ namespace Models
     shared_ptr<string> standbySnatIp_ {};
     // The status of the secondary EIP.
     // 
-    // *   Running
-    // *   Stopping
-    // *   Stopped
-    // *   Starting
+    // - Running
+    // 
+    // - Stopping
+    // 
+    // - Stopped
+    // 
+    // - Starting
     shared_ptr<string> standbyStatus_ {};
     // The status of the SNAT entry.
     // 
-    // *   Pending: The SNAT entry is being created or modified.
-    // *   Available: The SNAT entry is available.
-    // *   Deleting: The SNAT entry is being deleted.
+    // - Pending: The SNAT entry is being created or modified.
+    // 
+    // - Available: The SNAT entry is available.
+    // 
+    // - Deleting: The SNAT entry is being deleted.
     shared_ptr<string> status_ {};
     // The type of the NAT.
     // 
-    // *   Empty: symmetric NAT.
-    // *   FullCone: full cone NAT.
+    // - Empty: symmetric NAT.
+    // 
+    // - FullCone: full cone NAT.
     shared_ptr<string> type_ {};
   };
 

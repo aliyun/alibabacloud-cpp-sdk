@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
+    // The end time. The maximum interval between StartTime and EndTime cannot exceed 24 hours.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the ELB instance.
+    // The load balancing instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
-    // The request protocol, such as http, https, or tcp.
+    // The request protocol, such as http, https, and tcp.
     shared_ptr<string> proto_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time in the format of yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The virtual IP address (VIP) port, such as 80, 8080, or 443.
+    // The VIP port, such as 80, 8080, and 443.
     shared_ptr<string> VPort_ {};
   };
 

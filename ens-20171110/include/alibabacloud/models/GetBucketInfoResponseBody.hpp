@@ -105,21 +105,23 @@ namespace Models
 
 
     protected:
-      // The ACL of the bucket.
+      // Bucket access control list type:
       // 
-      // *   **public-read-write**
-      // *   **public-read**
-      // *   **private** (default)
+      // - **public-read-write**: public-read-write
+      // 
+      // - **public-read**: public-read
+      // 
+      // - **private**: private (default)
       shared_ptr<string> bucketAcl_ {};
-      // The name of the bucket.
+      // Bucket name.
       shared_ptr<string> bucketName_ {};
-      // The remarks.
+      // Comments.
       shared_ptr<string> comment_ {};
-      // The time when the bucket was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // Bucket creation time. Represented in ISO8601 standard, using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // Single-node storage. Set the value to sink.
+      // Single node storage. Value: sink.
       shared_ptr<string> logicalBucketType_ {};
-      // The time when the bucket was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // Bucket modification time. Represented in ISO8601 standard, using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTime_ {};
     };
 
@@ -142,9 +144,9 @@ namespace Models
 
 
   protected:
-    // The list of bucket information.
+    // Bucket information list.
     shared_ptr<GetBucketInfoResponseBody::BucketInfo> bucketInfo_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

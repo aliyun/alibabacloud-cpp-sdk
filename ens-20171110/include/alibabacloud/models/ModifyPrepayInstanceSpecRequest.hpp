@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the instance that you want to upgrade or downgrade.
+    // The instance ID of the instance for which you want to perform an Upgrade/Downgrade.
     shared_ptr<string> instanceId_ {};
-    // The updated configuration.
+    // The new instance type.
     shared_ptr<string> instanceType_ {};
   };
 

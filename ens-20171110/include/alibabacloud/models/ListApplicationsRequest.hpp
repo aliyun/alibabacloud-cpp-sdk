@@ -109,11 +109,15 @@ namespace Models
     shared_ptr<string> clusterNames_ {};
     // The region level by which edge resources of the application are collected. The value is of the enumeration type. Valid values:
     // 
-    // *   National: Chinese mainland
-    // *   Big: area
-    // *   Middle: province
-    // *   Small: city
-    // *   RegionId: edge node
+    // - National: Chinese mainland
+    // 
+    // - Big: area
+    // 
+    // - Middle: province
+    // 
+    // - Small: city
+    // 
+    // - RegionId: edge node
     // 
     // Default value: National.
     shared_ptr<string> level_ {};

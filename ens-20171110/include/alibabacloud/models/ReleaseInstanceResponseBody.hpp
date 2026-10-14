@@ -54,12 +54,17 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   instance
-    // *   eip
-    // *   disk
-    // *   network
-    // *   natgateway
-    // *   vswitch
+    // - instance
+    // 
+    // - eip
+    // 
+    // - disk
+    // 
+    // - network
+    // 
+    // - natgateway
+    // 
+    // - vswitch
     shared_ptr<string> resourceType_ {};
   };
 

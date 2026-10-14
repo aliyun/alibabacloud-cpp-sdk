@@ -131,24 +131,24 @@ namespace Models
 
 
     protected:
-      // The subnet mask of the CIDR block.
+      // The CIDR mask of the IP address.
       shared_ptr<int32_t> cidrMask_ {};
-      // The time when the secondary public IP address was created. The time is displayed in UTC.
+      // The creation time in UTC format.
       shared_ptr<string> creationTime_ {};
-      // The ID of the edge node.
+      // The ID of the ENS edge zone.
       shared_ptr<string> ensRegionId_ {};
       // The gateway.
       shared_ptr<string> gateway_ {};
-      // The version of the IP address. Valid values:
+      // The IP address version. Valid values:
       // 
-      // *   **ipv4**
-      // *   **ipv6**
+      // - **ipv4**: IPv4 address.
+      // 
+      // - **ipv6**: IPv6 address.
       shared_ptr<string> ipVersion_ {};
-      // The Internet service provider. Valid values:
-      // 
-      // *   cmcc: China Mobile.
-      // *   unicom: China Unicom.
-      // *   telecom: China Telecom.
+      // The Internet service provider (ISP). Valid values:
+      // - cmcc: China Mobile.
+      // - unicom: China Unicom.
+      // - telecom: China Telecom.
       shared_ptr<string> isp_ {};
       // The secondary public IP address.
       shared_ptr<string> secondaryPublicIpAddress_ {};
@@ -196,15 +196,15 @@ namespace Models
 
 
   protected:
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging queries.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The array of returned secondary IP addresses.
+    // The list of secondary public IP addresses.
     shared_ptr<vector<DescribeSecondaryPublicIpAddressesResponseBody::SecondaryPublicIpAddresses>> secondaryPublicIpAddresses_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

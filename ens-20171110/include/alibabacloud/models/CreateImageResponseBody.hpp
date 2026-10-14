@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The returned service code. 0 indicates that the request was successful.
+    // The business return code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

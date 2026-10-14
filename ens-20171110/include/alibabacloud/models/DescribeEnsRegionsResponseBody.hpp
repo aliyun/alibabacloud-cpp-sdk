@@ -165,7 +165,7 @@ namespace Models
 
 
   protected:
-    // The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+    // The status code. A value of 0 indicates that the call was successful. If the call failed, an error code is returned.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeEnsRegionsResponseBody::EnsRegions> ensRegions_ {};
     // The request ID.

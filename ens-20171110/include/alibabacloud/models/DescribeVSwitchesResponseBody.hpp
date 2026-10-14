@@ -65,6 +65,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
           DARABONBA_PTR_TO_JSON(FreeIpCount, freeIpCount_);
+          DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
           DARABONBA_PTR_TO_JSON(NetworkId, networkId_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
           DARABONBA_PTR_FROM_JSON(FreeIpCount, freeIpCount_);
+          DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
           DARABONBA_PTR_FROM_JSON(NetworkId, networkId_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -190,8 +192,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && this->createdTime_ == nullptr && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->freeIpCount_ == nullptr && this->networkId_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
+        && this->createdTime_ == nullptr && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->freeIpCount_ == nullptr && this->ipv6CidrBlock_ == nullptr
+        && this->networkId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
         // cidrBlock Field Functions 
         bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
         void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
@@ -225,6 +227,13 @@ namespace Models
         void deleteFreeIpCount() { this->freeIpCount_ = nullptr;};
         inline int64_t getFreeIpCount() const { DARABONBA_PTR_GET_DEFAULT(freeIpCount_, 0L) };
         inline VSwitch& setFreeIpCount(int64_t freeIpCount) { DARABONBA_PTR_SET_VALUE(freeIpCount_, freeIpCount) };
+
+
+        // ipv6CidrBlock Field Functions 
+        bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+        void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+        inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
+        inline VSwitch& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
 
 
         // networkId Field Functions 
@@ -270,6 +279,7 @@ namespace Models
         shared_ptr<string> description_ {};
         shared_ptr<string> ensRegionId_ {};
         shared_ptr<int64_t> freeIpCount_ {};
+        shared_ptr<string> ipv6CidrBlock_ {};
         shared_ptr<string> networkId_ {};
         shared_ptr<string> status_ {};
         shared_ptr<VSwitch::Tags> tags_ {};
@@ -333,12 +343,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // A collection of VSwitches.
     shared_ptr<DescribeVSwitchesResponseBody::VSwitches> vSwitches_ {};
   };
 

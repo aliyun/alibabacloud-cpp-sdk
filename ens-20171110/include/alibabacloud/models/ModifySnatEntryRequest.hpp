@@ -77,14 +77,19 @@ namespace Models
   protected:
     // Specifies whether to enable IP affinity. Default value: true. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**
     // 
-    // >  Description After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
+    // - **true**
+    // 
+    // > Description After you enable IP affinity, if multiple EIPs are associated with an SNAT entry, one client uses the same EIP to for communication. If IP affinity is disabled, the client uses a random EIP for communication.
     shared_ptr<bool> eipAffinity_ {};
+    // Specifies whether to enable carrier affinity.
     shared_ptr<bool> ispAffinity_ {};
+    // The ID of the SNAT entry.
+    // 
     // This parameter is required.
     shared_ptr<string> snatEntryId_ {};
+    // The name of the SNAT entry. The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> snatEntryName_ {};
     // Separate multiple EIPs in the SNAT entry with commas (,).
     shared_ptr<string> snatIp_ {};

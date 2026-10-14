@@ -127,19 +127,21 @@ namespace Models
     shared_ptr<string> cidrBlock_ {};
     // The description of the network ACL.
     // 
-    // The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
+    // The destination network.
     shared_ptr<string> destinationCidrBlock_ {};
     // The direction in which the rule is applied. Valid values:
     // 
-    // *   **ingress**
-    // *   **egress**
+    // - **ingress**
+    // 
+    // - **egress**
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
     // The name of the rule.
     // 
-    // The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> networkAclEntryName_ {};
     // The ID of the network ACL.
     // 
@@ -147,15 +149,17 @@ namespace Models
     shared_ptr<string> networkAclId_ {};
     // The action that is performed on network traffic that matches the rule. Valid values:
     // 
-    // *   **accept**: allows network traffic.
-    // *   **drop**: blocks network traffic.
+    // - **accept**: allows network traffic.
+    // 
+    // - **drop**: blocks network traffic.
     // 
     // This parameter is required.
     shared_ptr<string> policy_ {};
     // The port range.
     // 
-    // *   If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
-    // *   If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
+    // - If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
+    // 
+    // - If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
     // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};
@@ -165,10 +169,13 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The type of the protocol. Valid values:
     // 
-    // *   **icmp**: ICMP
-    // *   **tcp**: TCP
-    // *   **udp**: UDP
-    // *   **all**: all protocols
+    // - **icmp**: ICMP
+    // 
+    // - **tcp**: TCP
+    // 
+    // - **udp**: UDP
+    // 
+    // - **all**: all protocols
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};

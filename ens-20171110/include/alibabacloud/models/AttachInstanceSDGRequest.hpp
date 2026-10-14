@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable block device read/write splitting. Default value: false.
       shared_ptr<bool> blockRwSplit_ {};
+      // The size for block device read/write splitting, in GiB. A value of 0 indicates that the default size is used.
       shared_ptr<int32_t> blockRwSplitSize_ {};
+      // Specifies whether to enable caching. Block device read/write splitting must be enabled before caching can be used. Default value: false.
       shared_ptr<bool> cache_ {};
+      // The cache size, in GiB. A value of 0 indicates that the default size is used.
       shared_ptr<int32_t> cacheSize_ {};
     };
 
@@ -142,12 +146,26 @@ namespace Models
 
 
   protected:
+    // The cloud disk access protocol type. Valid values:
+    // 
+    // - iscsi: the default protocol for standard cloud disks. Both rbd cloud disks and standard cloud disks support this protocol.
+    // 
+    //  - rbd: the default protocol for rbd cloud disks. Only rbd cloud disks support this mount protocol.
     shared_ptr<string> diskAccessProtocol_ {};
+    // The type of the shared cloud disk to be created. Valid values:
+    // 
+    // - standard: standard cloud disk.
+    // - rbd: rbd cloud disk.
+    // 
+    // > 
+    // > - If no shared cloud disk type is specified, a standard cloud disk is created by default.
+    // > - An rbd shared cloud disk can be created only when the parent disk type is rbd.
     shared_ptr<string> diskType_ {};
-    // The IDs of the instances.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The file loading rate optimization parameter.
     shared_ptr<AttachInstanceSDGRequest::LoadOpt> loadOpt_ {};
     // The ID of the SDG.
     // 

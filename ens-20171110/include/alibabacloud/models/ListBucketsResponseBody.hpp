@@ -120,9 +120,11 @@ namespace Models
     protected:
       // The access control list (ACL) of the bucket.
       // 
-      // *   **public-read-write**
-      // *   **public-read**
-      // *   **private** (default)
+      // - **public-read-write**
+      // 
+      // - **public-read**
+      // 
+      // - **private** (default)
       shared_ptr<string> bucketAcl_ {};
       // The name of the bucket.
       shared_ptr<string> bucketName_ {};

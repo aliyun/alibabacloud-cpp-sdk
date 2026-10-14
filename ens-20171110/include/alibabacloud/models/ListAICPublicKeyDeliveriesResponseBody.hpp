@@ -107,11 +107,11 @@ namespace Models
       shared_ptr<string> creationTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Public Key Grouping
+      // The group of the public key.
       shared_ptr<string> keyGroup_ {};
-      // Public Key Name
+      // The name of the public key.
       shared_ptr<string> keyName_ {};
-      // Public key type
+      // The type of the public key.
       shared_ptr<string> keyType_ {};
     };
 
@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // Current page number when paging
+    // The current page number in the paginated query.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of records to display per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Public Key List
+    // The list of public keys.
     shared_ptr<vector<ListAICPublicKeyDeliveriesResponseBody::PublicKeyDeliverInfo>> publicKeyDeliverInfo_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

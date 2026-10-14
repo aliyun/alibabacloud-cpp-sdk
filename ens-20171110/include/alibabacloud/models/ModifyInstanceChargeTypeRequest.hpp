@@ -106,48 +106,36 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-payment when you change the billing method from pay-as-you-go to subscription. Valid values:
+    // Specifies whether to automatically complete the payment when you switch the billing method of the instance from pay-as-you-go to subscription. Valid values:
     // 
-    // true: enables auto-payment. Make sure that your account has sufficient balance.
+    // true: The payment is automatically completed. Make sure that your account balance is sufficient.
     // 
-    // false (default): does not enable auto-payment. The order is generated but not paid.
+    // false: Only an order is generated but no payment is made. This is the default value.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal when you change the billing method from pay-as-you-go to subscription. Valid values:
+    // Specifies whether to enable auto-renewal when converting the instance from pay-as-you-go to subscription. Valid values:
     // 
-    // true: enables auto-renewal for the instance.
-    // 
-    // false
+    // - true: Auto-renewal is enabled.
+    // - false: Auto-renewal is not enabled (default).
     shared_ptr<bool> autoRenew_ {};
+    // The billing cycle. Valid values: Month, Day, and Hour.
     shared_ptr<string> billingCycle_ {};
-    // Specifies whether to change the billing method of all data disks that are created with the instance to subscription when you change the billing method of the instance from pay-as-you-go to subscription. Valid values:
-    // 
-    // true
-    // 
-    // false (default)
+    // Specifies whether to convert all pay-as-you-go data cloud disks created with the instance to subscription data cloud disks when converting an instance-level pay-as-you-go instance to a subscription instance. Valid values:
     shared_ptr<bool> includeDataDisks_ {};
-    // The new billing method. Valid values:
-    // 
-    // PrePaid
-    // 
-    // PostPaid (default)
+    // The target billing method of the instance. Valid values:
     // 
     // This parameter is required.
     shared_ptr<string> instanceChargeType_ {};
-    // The IDs of the instances.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
+    // The subscription duration when converting a pay-as-you-go instance to subscription. This parameter is required in this scenario. Valid values:
     // 
-    // If the PeriodUnit parameter is set to Day, Period can only be set to 3.
+    // If PeriodUnit is set to Day, Period can only be set to 3.
     // 
-    // If PeriodUnit is Month, Period can be set to 1 to 9 or 12.
+    // If PeriodUnit is set to Month, Period can be set to 1-9 or 12.
     shared_ptr<string> period_ {};
-    // The unit of the subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
-    // 
-    // Month
-    // 
-    // Day
+    // The unit of the subscription duration when converting an instance-level pay-as-you-go instance to a subscription instance. This parameter is required in this scenario. Valid values:
     shared_ptr<string> periodUnit_ {};
   };
 

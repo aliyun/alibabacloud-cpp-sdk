@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to use the internal access address. The default value is false.
     shared_ptr<bool> privateIpAddress_ {};
   };
 

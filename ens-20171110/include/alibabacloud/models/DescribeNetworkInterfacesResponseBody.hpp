@@ -495,13 +495,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNetworkInterfacesResponseBody::NetworkInterfaceSets> networkInterfaceSets_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number of the instance status list. Pages start from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

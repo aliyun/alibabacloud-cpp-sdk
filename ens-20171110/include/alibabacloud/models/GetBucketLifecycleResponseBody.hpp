@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // The expiration date.
+        // The expiration date in ISO 8601 UTC format, which is YYYY-MM-DDTHH:mm:ssZ.
         shared_ptr<string> createdBeforeDate_ {};
-        // The validity period, in days.
+        // The number of days before expiration.
         shared_ptr<string> days_ {};
       };
 
@@ -138,12 +138,13 @@ namespace Models
       shared_ptr<Rule::Expiration> expiration_ {};
       // The unique ID of the rule.
       shared_ptr<string> ID_ {};
-      // The prefix that is applied to the rule.
+      // The prefix to which the rule applies.
       shared_ptr<string> prefix_ {};
       // The status of the rule. Valid values:
       // 
-      // *   **Enabled**: The rule is periodically executed.
-      // *   **Disabled**: The rule is ignored.
+      // - **Enabled**: The rule is executed periodically.
+      // 
+      // - **Disabled**: The rule is ignored.
       shared_ptr<string> status_ {};
     };
 
@@ -168,7 +169,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The detailed information about the rule.
+    // The rule details.
     shared_ptr<vector<GetBucketLifecycleResponseBody::Rule>> rule_ {};
   };
 

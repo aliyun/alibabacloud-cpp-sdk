@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The ID of the node pool.
+    // 
     // This parameter is required.
     shared_ptr<string> nodepoolId_ {};
   };

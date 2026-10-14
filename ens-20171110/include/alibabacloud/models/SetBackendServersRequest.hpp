@@ -35,11 +35,13 @@ namespace Models
     class BackendServers : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const BackendServers& obj) { 
+        DARABONBA_PTR_TO_JSON(Ip, ip_);
         DARABONBA_PTR_TO_JSON(ServerId, serverId_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(Weight, weight_);
       };
       friend void from_json(const Darabonba::Json& j, BackendServers& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ip, ip_);
         DARABONBA_PTR_FROM_JSON(ServerId, serverId_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(Weight, weight_);
@@ -55,8 +57,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->serverId_ == nullptr
-        && this->type_ == nullptr && this->weight_ == nullptr; };
+      virtual bool empty() const override { return this->ip_ == nullptr
+        && this->serverId_ == nullptr && this->type_ == nullptr && this->weight_ == nullptr; };
+      // ip Field Functions 
+      bool hasIp() const { return this->ip_ != nullptr;};
+      void deleteIp() { this->ip_ = nullptr;};
+      inline string getIp() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+      inline BackendServers& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
       // serverId Field Functions 
       bool hasServerId() const { return this->serverId_ != nullptr;};
       void deleteServerId() { this->serverId_ = nullptr;};
@@ -79,18 +88,19 @@ namespace Models
 
 
     protected:
-      // The ID of the instance that you use as the backend server.
+      // The IP address.
+      shared_ptr<string> ip_ {};
+      // The instance ID of the backend server.
       // 
       // This parameter is required.
       shared_ptr<string> serverId_ {};
-      // The type of the backend server. Valid values:
-      // 
-      // *   **ens**: ENS instance
-      // *   **eni**: elastic network interface (ENI)
+      // The server type of the backend server. Valid values:
+      // - **ens**: ENS instance.
+      // - **eni**: elastic network interfaces (ENIs) instance. The backend server is a network interface controller (NIC).
       shared_ptr<string> type_ {};
       // The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
       // 
-      // >  The value 0 indicates that requests are not forwarded to the backend server.
+      // > A value of 0 indicates that no requests are forwarded to the backend server.
       // 
       // This parameter is required.
       shared_ptr<int32_t> weight_ {};
@@ -115,11 +125,11 @@ namespace Models
 
 
   protected:
-    // The list of backend servers that you added. You can modify the weights of up to 20 backend servers in each request.
+    // The list of backend servers to add. You can modify up to 20 backend servers in each call.
     // 
     // This parameter is required.
     shared_ptr<vector<SetBackendServersRequest::BackendServers>> backendServers_ {};
-    // The ID of the Edge Load Balancer (ELB) instance.
+    // The ID of the load balancing instance.
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};

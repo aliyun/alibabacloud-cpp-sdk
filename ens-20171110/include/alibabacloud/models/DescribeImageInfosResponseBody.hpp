@@ -60,6 +60,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(DiskDeviceMappings, diskDeviceMappings_);
           DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+          DARABONBA_PTR_TO_JSON(ImageOwnerAlias, imageOwnerAlias_);
           DARABONBA_PTR_TO_JSON(ImageSize, imageSize_);
           DARABONBA_PTR_TO_JSON(ImageVersion, imageVersion_);
           DARABONBA_PTR_TO_JSON(OSName, OSName_);
@@ -71,6 +72,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(DiskDeviceMappings, diskDeviceMappings_);
           DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+          DARABONBA_PTR_FROM_JSON(ImageOwnerAlias, imageOwnerAlias_);
           DARABONBA_PTR_FROM_JSON(ImageSize, imageSize_);
           DARABONBA_PTR_FROM_JSON(ImageVersion, imageVersion_);
           DARABONBA_PTR_FROM_JSON(OSName, OSName_);
@@ -184,8 +186,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->computeType_ == nullptr
-        && this->description_ == nullptr && this->diskDeviceMappings_ == nullptr && this->imageId_ == nullptr && this->imageSize_ == nullptr && this->imageVersion_ == nullptr
-        && this->OSName_ == nullptr && this->OSType_ == nullptr && this->regionId_ == nullptr; };
+        && this->description_ == nullptr && this->diskDeviceMappings_ == nullptr && this->imageId_ == nullptr && this->imageOwnerAlias_ == nullptr && this->imageSize_ == nullptr
+        && this->imageVersion_ == nullptr && this->OSName_ == nullptr && this->OSType_ == nullptr && this->regionId_ == nullptr; };
         // computeType Field Functions 
         bool hasComputeType() const { return this->computeType_ != nullptr;};
         void deleteComputeType() { this->computeType_ = nullptr;};
@@ -214,6 +216,13 @@ namespace Models
         void deleteImageId() { this->imageId_ = nullptr;};
         inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
         inline Image& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+        // imageOwnerAlias Field Functions 
+        bool hasImageOwnerAlias() const { return this->imageOwnerAlias_ != nullptr;};
+        void deleteImageOwnerAlias() { this->imageOwnerAlias_ = nullptr;};
+        inline string getImageOwnerAlias() const { DARABONBA_PTR_GET_DEFAULT(imageOwnerAlias_, "") };
+        inline Image& setImageOwnerAlias(string imageOwnerAlias) { DARABONBA_PTR_SET_VALUE(imageOwnerAlias_, imageOwnerAlias) };
 
 
         // imageSize Field Functions 
@@ -256,6 +265,7 @@ namespace Models
         shared_ptr<string> description_ {};
         shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
         shared_ptr<string> imageId_ {};
+        shared_ptr<string> imageOwnerAlias_ {};
         shared_ptr<string> imageSize_ {};
         shared_ptr<string> imageVersion_ {};
         shared_ptr<string> OSName_ {};
@@ -303,7 +313,7 @@ namespace Models
 
 
   protected:
-    // The HTTP status code that is returned.
+    // The return code.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeImageInfosResponseBody::Images> images_ {};
     // The request ID.

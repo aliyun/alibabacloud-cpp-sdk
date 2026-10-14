@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Public Key Name
+    // The name of the public key.
     // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};

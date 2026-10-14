@@ -513,6 +513,7 @@
 #include <alibabacloud/models/DescribeInstanceSDGStatusResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceSpecResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceSpecResponse.hpp>
+#include <alibabacloud/models/DescribeInstanceTypesRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceTypesResponse.hpp>
 #include <alibabacloud/models/DescribeInstanceVncUrlRequest.hpp>

@@ -105,14 +105,15 @@ namespace Models
   protected:
     // The deployment type.
     shared_ptr<string> deploymentType_ {};
+    // The list of disk IDs.
     shared_ptr<string> diskIdsShrink_ {};
-    // IDs of Android in Container (AIC) instances.
+    // The list of AIC instance IDs.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The number of the page to return. Pages start from page **1**. Default value: **1**.
+    // The page number. Pages start from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of the nodes.
+    // The list of region IDs.
     shared_ptr<string> regionIdsShrink_ {};
     // The ID of the SDG.
     // 

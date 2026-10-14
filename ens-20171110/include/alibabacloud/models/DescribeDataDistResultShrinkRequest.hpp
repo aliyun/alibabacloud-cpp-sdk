@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The name of the data file. Separate multiple names with commas (,). By default, all data files are queried.
+    // The data file names. This parameter is a filter condition. You can specify multiple names separated by commas (,). By default, all data files are queried.
     shared_ptr<string> dataNames_ {};
-    // The version number of the data file. Separate multiple numbers with commas (,). By default, all versions of data files are queried.
+    // The data file version numbers. This parameter is a filter condition. You can specify multiple versions separated by commas (,). By default, all versions are queried.
     shared_ptr<string> dataVersions_ {};
-    // The IDs of the ENS nodes.
+    // The list of ENS edge zone IDs.
     shared_ptr<string> ensRegionIdsShrink_ {};
-    // The IDs of ENS instances. Separate multiple IDs with commas (,). By default, all instances are queried.
+    // The list of edge instance IDs. This parameter is a filter condition. You can specify multiple IDs separated by commas (,). By default, all instances are queried.
     shared_ptr<string> instanceIds_ {};
-    // The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+    // The end date of the query in the format "2006-01-02". By default, no time limit is applied.
     shared_ptr<string> maxDate_ {};
-    // The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+    // The start date of the query in the format "2006-01-02". By default, no time limit is applied.
     shared_ptr<string> minDate_ {};
-    // The page number. Pages start from page 1. This parameter is optional if you want to return the push status of all data files.
+    // The page number, starting from 1. You do not need to specify this parameter when exporting all data.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. This parameter is optional if you want to return the distribution status of all data files.
+    // The number of entries per page for paging queries. This parameter is not required when exporting all data.
     shared_ptr<int32_t> pageSize_ {};
   };
 

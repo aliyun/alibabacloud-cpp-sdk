@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_TO_JSON(NetworkId, networkId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchName, vSwitchName_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_FROM_JSON(NetworkId, networkId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchName, vSwitchName_);
@@ -78,18 +80,21 @@ namespace Models
 
 
     protected:
-      // The key of the tag that are to add to the instance. Valid values of N: **1** to **20**.
+      // The key of the tag.
       // 
-      // *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // *   The key must be up to 64 characters in length.
-      // *   The tag key cannot be an empty string.
+      // - The tag key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // 
+      // - The tag key can be up to 64 characters long.
+      // 
+      // - The tag key cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs: or contain http:// or https://.
+      // The value of the tag. It can be up to 128 characters long, can be an empty string, and cannot start with `acs:` or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->networkId_ == nullptr && this->tag_ == nullptr && this->vSwitchName_ == nullptr; };
+        && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->networkId_ == nullptr && this->tag_ == nullptr
+        && this->vSwitchName_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
@@ -109,6 +114,13 @@ namespace Models
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
     inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
     inline CreateVSwitchRequest& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+    // ipv6CidrBlock Field Functions 
+    bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+    void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+    inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
+    inline CreateVSwitchRequest& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
 
 
     // networkId Field Functions 
@@ -135,32 +147,36 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the vSwitch. Take note of the following limits:
+    // The CIDR block of the VSwitch. The following requirements apply:
     // 
-    // *   The subnet mask must be 16 to 29 bits in length.
-    // *   The CIDR block of the vSwitch must fall within the CIDR block of the VPC to which the vSwitch belongs.
-    // *   The CIDR block of the vSwitch cannot be the same as the destination CIDR block in a route entry of the VPC. However, it can be a subset of the destination CIDR block.
+    // - The prefix length must be an integer from 16 to 29.
+    // 
+    // - The CIDR block of the VSwitch must be a subset of the CIDR block of the VPC to which the VSwitch belongs.
+    // 
+    // - The CIDR block of the VSwitch cannot be the same as the destination CIDR block of an existing route in the VPC, but it can be a subset of the destination CIDR block.
     // 
     // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
-    // The description of the vSwitch.
+    // The description of the VSwitch.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+    // The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The ID of the edge node.
+    // The ID of the ENS node.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the network to which the vSwitch that you want to create belongs.
+    shared_ptr<string> ipv6CidrBlock_ {};
+    // The ID of the network to which the VSwitch belongs.
     shared_ptr<string> networkId_ {};
-    // The tags.
+    // The tags of the resource. You can specify up to 20 tags.
     shared_ptr<vector<CreateVSwitchRequest::Tag>> tag_ {};
-    // The name of the vSwitch. The name must meet the following requirements:
+    // The name of the VSwitch. The following requirements apply:
     // 
-    // *   The name must be 2 to 128 characters in length.
-    // *   The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // - The name must be 2 to 128 characters in length.
     // 
-    // Default value: null.
+    // - The name must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+    // 
+    // Default value: an empty string.
     shared_ptr<string> vSwitchName_ {};
   };
 

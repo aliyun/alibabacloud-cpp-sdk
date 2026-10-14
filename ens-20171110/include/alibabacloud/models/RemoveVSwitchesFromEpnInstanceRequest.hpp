@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of theEPN instance.
+    // The Edge Private Network (EPN) instance ID. The NetworkingModel of the EPN instance must be Connection or SpeedUpAndConnection. The SpeedUp pattern does not support vSwitch operations.
     // 
     // This parameter is required.
     shared_ptr<string> EPNInstanceId_ {};
-    // The internal networking information that you want to delete.
+    // The internal network configuration information to remove.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchesInfo_ {};

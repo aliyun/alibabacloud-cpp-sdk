@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the disk. Format: d-\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*.
+    // The disk ID in the format of d-***********.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss. The time range specified by the StartTime and EndTime parameters cannot exceed one day for a query.
+    // The end time in the format of yyyy-MM-dd HH:mm:ss. The time span between the start time and end time cannot exceed one day.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start time in the format of yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

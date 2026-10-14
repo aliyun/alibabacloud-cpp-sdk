@@ -103,40 +103,40 @@ namespace Models
 
 
   protected:
-    // The ID of the EPN instance.
+    // The instance ID of the edge-to-edge network.
     shared_ptr<string> EPNInstanceId_ {};
     // The end of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+    // - The time must be in UTC and in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+    // 
+    // - If the seconds value is not 00, the end time is automatically set to the beginning of the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the Edge Node Service (ENS) node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The Internet service provider (ISP). Valid values:
-    // 
-    // *   cmcc: China Mobile
-    // *   telecom: China Telecom
-    // *   unicom: China Unicom
-    // *   multiCarrier: multi-line ISP
+    // - cmcc: China Mobile.
+    // - telecom: China Telecom.
+    // - unicom: China Unicom.
+    // - multiCarrier: multi-ISP.
     shared_ptr<string> isp_ {};
     // The networking mode. Valid values:
-    // 
-    // *   **SpeedUp**: intelligent acceleration network (Internet)
-    // *   **Connection**: internal network
-    // *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
+    // - **SpeedUp**: intelligent acceleration (public network).
+    // - **Connection**: internal network connectivity (internal network mode).
+    // - **SpeedUpAndConnection**: intelligent acceleration and internal network connectivity (internal network mode).
     shared_ptr<string> networkingModel_ {};
-    // The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
+    // The precision of the monitoring data. Valid values: 300 (default), 1200, 3600, and 14400. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<string> period_ {};
-    // The beginning of the time range to query.
+    // The start of the time range to query.
     // 
-    // *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+    // - The time must be in UTC and in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+    // 
+    // - If the seconds value is not 00, the start time is automatically set to the beginning of the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -188,8 +188,9 @@ namespace Models
       shared_ptr<Data::Result> result_ {};
       // Indicates whether all tasks are successful. Valid values:
       // 
-      // *   true: All tasks are successful.
-      // *   false: Failed tasks exist.
+      // - true: All tasks are successful.
+      // 
+      // - false: Failed tasks exist.
       shared_ptr<bool> success_ {};
     };
 

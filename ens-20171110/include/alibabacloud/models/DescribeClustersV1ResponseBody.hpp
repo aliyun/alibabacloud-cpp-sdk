@@ -40,7 +40,9 @@ namespace Models
         DARABONBA_ANY_TO_JSON(Config, config_);
         DARABONBA_PTR_TO_JSON(ContainerCidr, containerCidr_);
         DARABONBA_PTR_TO_JSON(ControlPlaneConfig, controlPlaneConfig_);
+        DARABONBA_PTR_TO_JSON(Created, created_);
         DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
+        DARABONBA_PTR_TO_JSON(Isp, isp_);
         DARABONBA_PTR_TO_JSON(JoinToken, joinToken_);
         DARABONBA_PTR_TO_JSON(KubernetesVersion, kubernetesVersion_);
         DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
@@ -58,7 +60,9 @@ namespace Models
         DARABONBA_ANY_FROM_JSON(Config, config_);
         DARABONBA_PTR_FROM_JSON(ContainerCidr, containerCidr_);
         DARABONBA_PTR_FROM_JSON(ControlPlaneConfig, controlPlaneConfig_);
+        DARABONBA_PTR_FROM_JSON(Created, created_);
         DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
+        DARABONBA_PTR_FROM_JSON(Isp, isp_);
         DARABONBA_PTR_FROM_JSON(JoinToken, joinToken_);
         DARABONBA_PTR_FROM_JSON(KubernetesVersion, kubernetesVersion_);
         DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
@@ -165,26 +169,27 @@ namespace Models
 
 
       protected:
-        // The runtime type used by the nodes.
+        // The container runtime type.
         shared_ptr<string> containerRuntime_ {};
-        // The ID of the custom image.
+        // The image ID.
         shared_ptr<string> imageId_ {};
         // The instance type.
         shared_ptr<string> instanceSpec_ {};
-        // The node port range.
+        // The node service port range.
         shared_ptr<string> nodePortRange_ {};
         // The number of control plane nodes.
         shared_ptr<int64_t> size_ {};
-        // The system disk type of the node. Valid value: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
+        // The system cloud disk type of the node. Valid values: local_ssd, cloud_ssd, cloud_efficiency, and local_hdd.
         shared_ptr<string> systemDiskCategory_ {};
-        // The size of the system disk. Unit: GB.
+        // The system cloud disk size. Unit: GB.
         shared_ptr<int64_t> systemDiskSize_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->clusterId_ == nullptr && this->config_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->ensRegionId_ == nullptr
-        && this->joinToken_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr && this->name_ == nullptr && this->podVswitchIds_ == nullptr
-        && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr && this->state_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->clusterId_ == nullptr && this->config_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->created_ == nullptr
+        && this->ensRegionId_ == nullptr && this->isp_ == nullptr && this->joinToken_ == nullptr && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr
+        && this->name_ == nullptr && this->podVswitchIds_ == nullptr && this->publicAccess_ == nullptr && this->serviceCidr_ == nullptr && this->state_ == nullptr
+        && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -224,11 +229,25 @@ namespace Models
       inline Clusters& setControlPlaneConfig(Clusters::ControlPlaneConfig && controlPlaneConfig) { DARABONBA_PTR_SET_RVALUE(controlPlaneConfig_, controlPlaneConfig) };
 
 
+      // created Field Functions 
+      bool hasCreated() const { return this->created_ != nullptr;};
+      void deleteCreated() { this->created_ = nullptr;};
+      inline string getCreated() const { DARABONBA_PTR_GET_DEFAULT(created_, "") };
+      inline Clusters& setCreated(string created) { DARABONBA_PTR_SET_VALUE(created_, created) };
+
+
       // ensRegionId Field Functions 
       bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
       void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
       inline string getEnsRegionId() const { DARABONBA_PTR_GET_DEFAULT(ensRegionId_, "") };
       inline Clusters& setEnsRegionId(string ensRegionId) { DARABONBA_PTR_SET_VALUE(ensRegionId_, ensRegionId) };
+
+
+      // isp Field Functions 
+      bool hasIsp() const { return this->isp_ != nullptr;};
+      void deleteIsp() { this->isp_ = nullptr;};
+      inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
+      inline Clusters& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
 
 
       // joinToken Field Functions 
@@ -306,36 +325,42 @@ namespace Models
 
 
     protected:
-      // The user IDs.
+      // The user ID.
       shared_ptr<string> aliUid_ {};
       // The cluster instance ID.
       shared_ptr<string> clusterId_ {};
-      // The kubeconfig file of the cluster.
+      // The cluster kubeconfig.
       Darabonba::Json config_ {};
-      // The pod CIDR block. You can specify 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16, or their subnets as the pod CIDR block. The pod CIDR block cannot overlap with the CIDR block of the VPC in which the cluster is deployed and the CIDR blocks of existing clusters in the VPC. You cannot modify the pod CIDR block after you create the cluster.
+      // The pod network CIDR block. The value must be a valid private CIDR block, which includes the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. The CIDR block cannot overlap with the VPC CIDR block or the CIDR blocks used by existing Kubernetes clusters in the VPC. You cannot modify this value after the cluster is created.
       shared_ptr<string> containerCidr_ {};
-      // Control plane configuration.
+      // The control plane configuration.
       shared_ptr<Clusters::ControlPlaneConfig> controlPlaneConfig_ {};
-      // The ID of the ENS node.
+      shared_ptr<string> created_ {};
+      // The ENS node ID.
       shared_ptr<string> ensRegionId_ {};
-      // The cluster access authentication token.
+      shared_ptr<string> isp_ {};
+      // The authentication token for cluster access.
       shared_ptr<string> joinToken_ {};
-      // The Kubernetes version of the cluster. The Kubernetes versions supported are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
+      // The cluster version, which is consistent with the Kubernetes community baseline version. Use the latest version. If you do not specify this parameter, the latest version is used by default.
       shared_ptr<string> kubernetesVersion_ {};
-      // The ID of the ALB instance.
+      // The load balancing instance ID.
       shared_ptr<string> loadBalancerId_ {};
-      // The name of the monitoring object.
+      // The cluster name.
       shared_ptr<string> name_ {};
-      // For each vSwitch that allocates IP addresses to worker nodes, you must select a vSwitch in the same zone to allocate IP addresses to pods. If you do not specify this parameter, vswitch_ids is used by default.
+      // The vSwitch IDs for pods. Each pod vSwitch corresponds to a worker node vSwitch, and the zones of the pod vSwitch and the worker node vSwitch must be the same. If you leave this parameter empty, the value of vswitch_ids is used by default.
       shared_ptr<vector<string>> podVswitchIds_ {};
-      // Specifies whether to enable Internet access for the application. You can use an elastic IP address (EIP) to expose the API server. This way, you can access the cluster over the Internet. Valid values: true: enables Internet access for the application. false: disables Internet access to the API server of the cluster. If you set the value to false, the API server cannot be accessed over the Internet.
+      // Indicates whether public network access is enabled. The API Server is exposed through an EIP to enable public access to the cluster. Valid values:
+      // 
+      // - true: Public network access is enabled.
+      // - false: Public network access is disabled. If you select this option, the cluster API Server cannot be accessed from the Internet.
       shared_ptr<bool> publicAccess_ {};
-      // Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The Service CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks of existing ACK clusters in the VPC. You cannot change the Service CIDR block after you create the cluster.
+      // The service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or the CIDR blocks used by existing Kubernetes clusters in the VPC. You cannot modify this value after the cluster is created.
       shared_ptr<string> serviceCidr_ {};
+      // The cluster status.
       shared_ptr<string> state_ {};
-      // The VPC of the cluster.
+      // The VPC used by the cluster.
       shared_ptr<string> vpcId_ {};
-      // the id of the vswitch to which the cluster node belongs. The ENS region of the vswitch_ids service must be the same as that of the ens_region_id.
+      // The vSwitch IDs of the cluster nodes. The ENS region of the vSwitch IDs must be the same as the value of ens_region_id.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
 
@@ -358,7 +383,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the information about clusters.
+    // The list of clusters.
     shared_ptr<vector<DescribeClustersV1ResponseBody::Clusters>> clusters_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

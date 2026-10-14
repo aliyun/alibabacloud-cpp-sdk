@@ -102,25 +102,33 @@ namespace Models
     shared_ptr<string> destCidrIp_ {};
     // The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
     // 
-    // *   tcp
-    // *   udp
-    // *   icmp
-    // *   gre
-    // *   all: All protocols are supported.
+    // - tcp
+    // 
+    // - udp
+    // 
+    // - icmp
+    // 
+    // - gre
+    // 
+    // - all: All protocols are supported.
     // 
     // This parameter is required.
     shared_ptr<string> ipProtocol_ {};
     // The action of the security group rule. Valid values:
     // 
-    // *   accept: allows access. This is the default value.
-    // *   drop: denies access and does not return responses.
+    // - accept: allows access. This is the default value.
+    // 
+    // - drop: denies access and does not return responses.
     shared_ptr<string> policy_ {};
     // The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
     // 
-    // *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-    // *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-    // *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-    // *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+    // - When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+    // 
+    // - When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+    // 
+    // - When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+    // 
+    // - When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
     // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};
@@ -132,10 +140,13 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The range of port numbers that correspond to the transport layer protocol for the source security group. Valid values:
     // 
-    // *   When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-    // *   When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-    // *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-    // *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+    // - When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
+    // 
+    // - When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
+    // 
+    // - When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
+    // 
+    // - When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
     shared_ptr<string> sourcePortRange_ {};
   };
 

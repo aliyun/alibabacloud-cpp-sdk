@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The ID of the AIC instance.
+    // The AIC instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of SDGs that you want to query. By default, all SDGs are queried.
+    // The IDs of the SDGs to query. By default, all SDGs are queried.
     shared_ptr<vector<string>> SDGIds_ {};
     // The deployment status of the SDG.
     shared_ptr<string> status_ {};

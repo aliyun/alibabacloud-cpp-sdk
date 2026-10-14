@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // Status code.
+      // The status code.
       shared_ptr<int32_t> code_ {};
-      // System event ID.
+      // The system event ID.
       shared_ptr<string> eventId_ {};
-      // Operational message, when code=200, the message is \\"successful\\".
+      // The operation message. When code is 200, the message is successful.
       shared_ptr<string> message_ {};
-      // Resource ID.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of results.
+    // The list of results.
     shared_ptr<vector<BatchEventRedeployInstanceResponseBody::Results>> results_ {};
   };
 

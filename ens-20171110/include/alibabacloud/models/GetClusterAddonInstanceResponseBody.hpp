@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The application version.
       shared_ptr<string> appVersion_ {};
+      // The configuration version.
       shared_ptr<string> configVersion_ {};
+      // The add-on name.
       shared_ptr<string> name_ {};
+      // The custom parameters of the add-on.
       shared_ptr<string> params_ {};
     };
 
@@ -149,12 +153,22 @@ namespace Models
 
 
   protected:
+    // Indicates whether associated cloud resources are automatically cleaned up.
     shared_ptr<bool> cleanupCloudResources_ {};
+    // The schema of custom parameters for the add-on.
     shared_ptr<vector<GetClusterAddonInstanceResponseBody::ConfigSchema>> configSchema_ {};
+    // The add-on name.
     shared_ptr<string> name_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The current component instance status. Valid values:
+    // 
+    // - **enabled**: Running normally.
+    // - **deleting**: Stopping.
+    // - **enabling**: Starting.
+    // - **upgrading**: In upgrade or configuration.
     shared_ptr<string> status_ {};
+    // The version number.
     shared_ptr<string> version_ {};
   };
 

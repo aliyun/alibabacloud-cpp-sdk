@@ -172,9 +172,11 @@ namespace Models
       shared_ptr<int32_t> runningCount_ {};
       // The type of the service. Valid values:
       // 
-      // *   1: subscription instance.
-      // *   2: edge service instance.
-      // *   3: pay-as-you-go instance.
+      // - 1: subscription instance.
+      // 
+      // - 2: edge service instance.
+      // 
+      // - 3: pay-as-you-go instance.
       shared_ptr<string> serviceType_ {};
       // The total disk size.
       shared_ptr<int64_t> storageSum_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the NAT gateway.
+    // The instance ID of the created NAT gateway.
     shared_ptr<string> natGatewayId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

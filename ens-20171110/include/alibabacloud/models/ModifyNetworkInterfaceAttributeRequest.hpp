@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The description. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+    // The description. The description must be 1 to 256 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
     // The ID of the ENI.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http:// or https://.
+    // The name of the ENI. The name must be 1 to 128 characters in length, The name cannot start with http\\:// or https\\://.
     shared_ptr<string> networkInterfaceName_ {};
   };
 

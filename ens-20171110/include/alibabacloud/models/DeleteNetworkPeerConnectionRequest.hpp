@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The instance ID of the network peer connection to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

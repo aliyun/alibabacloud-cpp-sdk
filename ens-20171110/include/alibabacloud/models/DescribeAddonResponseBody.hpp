@@ -115,9 +115,13 @@ namespace Models
 
 
       protected:
+        // The application version.
         shared_ptr<string> appVersion_ {};
+        // The configuration version.
         shared_ptr<string> configVersion_ {};
+        // The name of the add-on.
         shared_ptr<string> name_ {};
+        // The custom parameters of the add-on.
         Darabonba::Json params_ {};
       };
 
@@ -154,9 +158,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether associated cloud resources are automatically cleaned up.
       shared_ptr<string> cleanupCloudResources_ {};
+      // The schema of custom parameters for the add-on.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
+      // The name of the add-on.
       shared_ptr<string> name_ {};
+      // The add-on version.
       shared_ptr<string> version_ {};
     };
 
@@ -179,6 +187,7 @@ namespace Models
 
 
   protected:
+    // The add-on information.
     shared_ptr<vector<DescribeAddonResponseBody::Addons>> addons_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

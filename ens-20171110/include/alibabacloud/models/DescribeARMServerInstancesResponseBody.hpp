@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -204,9 +206,11 @@ namespace Models
           shared_ptr<string> SDGId_ {};
           // The deployment status of the SDG. Valid values:
           // 
-          // *   **sdg_deploying**
-          // *   **failed**
-          // *   **success**
+          // - **sdg_deploying**: Being deployed.
+          // 
+          // - **failed**: Deployment failed.
+          // 
+          // - **success**: Deployment succeeded.
           shared_ptr<string> status_ {};
         };
 
@@ -352,36 +356,34 @@ namespace Models
       protected:
         // The refresh rate of the AIC instance. Unit: Hz.
         shared_ptr<int64_t> frequency_ {};
-        // The ID of the AIC image.
+        // The AIC image ID.
         shared_ptr<string> imageId_ {};
-        // The ID of the AIC instance.
+        // The AIC instance ID.
         shared_ptr<string> instanceId_ {};
-        // The operation that was most recently performed.
+        // The most recent operation.
         shared_ptr<string> latestAction_ {};
-        // The name of the container.
+        // The container name.
         shared_ptr<string> name_ {};
-        // The network attributes of the AIC instance.
+        // The network attributes.
         shared_ptr<AICInstances::NetworkAttributes> networkAttributes_ {};
         // The resolution of the AIC instance.
         shared_ptr<string> resolution_ {};
-        // The information about the shared data group (SDG) that is deployed on the AIC instance.
+        // The shared data group (SDG) information deployed on the instance.
         shared_ptr<AICInstances::SdgDeployInfo> sdgDeployInfo_ {};
         // The specification of the AIC instance.
         shared_ptr<string> spec_ {};
-        // The operation status of the AIC instance. Valid values:
-        // 
-        // *   **success**
-        // *   **failed**
-        // *   **creating**
-        // *   **releasing**
-        // *   **rebooting**
-        // *   **reseting**
+        // The operation state of the AIC instance. Valid values:
+        // - **success**: Succeeded.
+        // - **failed**: Failed.
+        // - **creating**: Being created.
+        // - **releasing**: Being released.
+        // - **rebooting**: Being restarted.
+        // - **reseting**: Being reset.
         shared_ptr<string> state_ {};
         // The running status of the AIC instance. Valid values:
-        // 
-        // *   **running**
-        // *   **pending**
-        // *   **terminating**
+        // - **running**: Running.
+        // - **pending**: Pending.
+        // - **terminating**: Being terminated.
         shared_ptr<string> status_ {};
       };
 
@@ -485,42 +487,41 @@ namespace Models
 
 
     protected:
-      // The information about the AIC instances.
+      // The array of AIC instance information.
       shared_ptr<vector<Servers::AICInstances>> AICInstances_ {};
       // The time when the instance was created.
       shared_ptr<string> creationTime_ {};
-      // The ID of the ENS node.
+      // The ENS edge zone ID.
       shared_ptr<string> ensRegionId_ {};
       // The time when the instance expires.
       shared_ptr<string> expiredTime_ {};
-      // The operation that was most recently performed.
+      // The most recent operation.
       shared_ptr<string> latestAction_ {};
-      // The name of the server.
+      // The server name.
       shared_ptr<string> name_ {};
-      // The namespace of the cluster to which the server belongs.
+      // The namespace of the cluster to which the card belongs.
       shared_ptr<string> namespace_ {};
       // The billing method.
       shared_ptr<string> payType_ {};
-      // The ID of the server.
+      // The server ID.
       shared_ptr<string> serverId_ {};
       // The server specification.
       shared_ptr<string> specName_ {};
-      // The operation status of the server. Valid values:
-      // 
-      // *   **success**
-      // *   **failed**
-      // *   **creating**
-      // *   **releasing**
-      // *   **rebooting**
-      // *   **upgrading**
+      // The operation state of the server. Valid values:
+      // - **success**: Succeeded.
+      // - **failed**: Failed.
+      // - **creating**: Being created.
+      // - **releasing**: Being released.
+      // - **rebooting**: Being restarted.
+      // - **upgrading**: Being upgraded.
       shared_ptr<string> state_ {};
       // The running status of the server. Valid values:
-      // 
-      // *   **running**
-      // *   **stopping**
-      // *   **down**
-      // *   **starting**
+      // - **running**: Running.
+      // - **stopping**: Being stopped.
+      // - **down**: Shut down.
+      // - **starting**: Being started.
       shared_ptr<string> status_ {};
+      // The collection of tags.
       shared_ptr<vector<Servers::Tags>> tags_ {};
     };
 
@@ -564,15 +565,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the instance list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page that was specified in the request.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the servers and the AIC instances.
+    // The array of ARM server and AIC instance information.
     shared_ptr<vector<DescribeARMServerInstancesResponseBody::Servers>> servers_ {};
-    // The total number of entries returned.
+    // The total number of instances returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

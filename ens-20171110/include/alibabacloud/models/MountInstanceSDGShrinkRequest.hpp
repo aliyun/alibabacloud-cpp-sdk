@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};

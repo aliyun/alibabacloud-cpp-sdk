@@ -174,46 +174,45 @@ namespace Models
 
 
   protected:
-    // The region ID of the instance.
+    // The ID of the region where the instance resides.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. N indicates the number of edge node IDs that you can specify at the same time. Valid values of N: 1 to 100.
+    // The IDs of the ENS edge zones. N indicates the sequence number of the edge zone ID. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+    // The IPv6 addresses of the elastic network interfaces (ENIs). N indicates the settings for multiple IPv6 addresses. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> ipv6Address_ {};
     // The ID of the network.
     shared_ptr<string> networkId_ {};
-    // The ID of the ENI.
+    // The ID of the elastic network interfaces (ENIs).
     shared_ptr<string> networkInterfaceId_ {};
-    // The IDs of the elastic network interfaces (ENIs). N indicates the number of ENI IDs that you can specify at the same time. Valid values of N: 1 to 100.
+    // The list of IDs of the elastic network interfaces (ENIs). N indicates the settings for multiple elastic network interfaces (ENIs) IDs. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
-    // The name of the ENI.
+    // The name of the elastic network interfaces (ENIs).
     shared_ptr<string> networkInterfaceName_ {};
-    // The page number of the returned page. Pages start from page 1. Default value: 1.
+    // The page number of the instance status list. Pages start from 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: 100. Default value: 50.
+    // The number of entries per page for paging queries. Maximum value: 100. Default value: 50.
     shared_ptr<string> pageSize_ {};
-    // The primary IP address of the ENI.
+    // The primary IP address of the elastic network interfaces (ENIs).
     shared_ptr<string> primaryIpAddress_ {};
-    // The ID of the security group to which the secondary ENI belongs. To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
+    // The ID of the security group to which the secondary ENI belongs. Specify this parameter if you want to query the information about secondary ENIs by security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The status of the ENI. Valid values:
+    // The stateful status of the elastic network interfaces (ENIs). Valid values:
     // 
-    // *   Available: The ENI is available.
-    // *   Attaching: The ENI is being attached to an instance.
-    // *   InUse: The ENI is attached to an instance.
-    // *   Detaching: The ENI is being detached from an instance.
-    // *   Deleting: The ENI is being deleted.
+    // - Available: available.
+    // - Attaching: attaching.
+    // - InUse: in use.
+    // - Detaching: detaching.
+    // - Deleting: the delete operation is in progress.
     // 
-    // This parameter is empty by default, which indicates that ENIs in all states are queried.
+    // Default value: empty, which indicates that all statuses are queried.
     shared_ptr<string> status_ {};
-    // The type of the ENI. Valid values:
+    // The type of the elastic network interfaces (ENIs). Valid values:
+    // - Primary: primary network interface controller (NIC).
+    // - Secondary: secondary network interface controller (NIC).
     // 
-    // *   Primary: the primary ENI.
-    // *   Secondary: the secondary ENI.
-    // 
-    // This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
+    // Default value: empty, which indicates that all types are queried.
     shared_ptr<string> type_ {};
     // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};

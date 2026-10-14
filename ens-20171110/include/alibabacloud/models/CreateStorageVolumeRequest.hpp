@@ -139,13 +139,15 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // Specifies whether to enable authentication. Valid values:
     // 
-    // *   **1**: Authentication is enabled.
-    // *   **0** (default): Authentication is disabled.
+    // - **1**: Authentication is enabled.
+    // 
+    // - **0** (default): Authentication is disabled.
     shared_ptr<string> isAuth_ {};
     // Indicates whether the volume is enabled. Valid values:
     // 
-    // *   **1** (default): The volume is enabled.
-    // *   **0**: The volume is disabled.
+    // - **1** (default): The volume is enabled.
+    // 
+    // - **0**: The volume is disabled.
     shared_ptr<string> isEnable_ {};
     // The ID of the storage medium.
     // 

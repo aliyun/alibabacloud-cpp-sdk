@@ -130,19 +130,19 @@ namespace Models
 
     protected:
       shared_ptr<vector<string>> ability_ {};
-      // The ID of the region.
+      // The area.
       shared_ptr<string> area_ {};
-      // The number of resources that you can purchase.
+      // The quantity available for purchase.
       shared_ptr<string> canBuyCount_ {};
-      // The name of the node.
+      // The English name of the edge zone.
       shared_ptr<string> enName_ {};
-      // The ID of the Edge Node Service (ENS) node.
+      // The ID of the ENS edge zone.
       shared_ptr<string> ensRegionId_ {};
-      // The specifications of the ELB instances.
+      // The specification of the load balancing instance.
       shared_ptr<vector<string>> loadBalancerSpec_ {};
-      // The Chinese name of the node.
+      // The name of the edge zone.
       shared_ptr<string> name_ {};
-      // The province where the node is deployed.
+      // The province.
       shared_ptr<string> province_ {};
     };
 
@@ -165,9 +165,9 @@ namespace Models
 
 
   protected:
-    // The information about resources.
+    // The collection of resource information.
     shared_ptr<vector<DescribeElbAvailableResourceInfoResponseBody::ElbAvailableResourceInfo>> elbAvailableResourceInfo_ {};
-    // The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
+    // The common parameter. The ID of the request. Each request has a unique ID, which is active for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

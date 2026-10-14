@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the AIC instance.
+    // The AIC instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the server.
+    // The server instance ID.
     shared_ptr<string> serverId_ {};
   };
 

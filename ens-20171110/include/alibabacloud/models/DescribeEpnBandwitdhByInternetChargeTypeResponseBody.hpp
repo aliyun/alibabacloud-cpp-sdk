@@ -70,10 +70,13 @@ namespace Models
     shared_ptr<int64_t> bandwidthValue_ {};
     // The metering method. Valid values:
     // 
-    // *   BandwidthByDay: Pay by daily peak bandwidth
-    // *   95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
-    // *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
-    // *   PayByBandwidth: Pay by fixed bandwidth
+    // - BandwidthByDay: Pay by daily peak bandwidth
+    // 
+    // - 95BandwidthByMonth: Pay by monthly 95th percentile bandwidth
+    // 
+    // - PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
+    // 
+    // - PayByBandwidth: Pay by fixed bandwidth
     // 
     // You can specify only one metering method for network usage and cannot overwrite the existing metering method.
     shared_ptr<string> internetChargeType_ {};

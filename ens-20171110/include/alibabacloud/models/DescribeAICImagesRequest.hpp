@@ -114,28 +114,33 @@ namespace Models
   protected:
     // The description of the image.
     shared_ptr<string> description_ {};
-    // The image ID of the AIC instance.
+    // The ID of the Android in Container (AIC) image.
     shared_ptr<string> imageId_ {};
-    // The type of the image. Valid values:
+    // The image type. Valid values:
     // 
-    // *   **public**: public image
-    // *   **private**: custom image
+    // - **public**: public image.
+    // 
+    // - **private**: custom image.
     shared_ptr<string> imageType_ {};
     // The URL of the AIC image repository.
     shared_ptr<string> imageUrl_ {};
-    // The end of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+    // The end time of the query. Format: "2006-01-02". By default, no time limit is applied.
     shared_ptr<string> maxDate_ {};
-    // The beginning of the time range to query. Specify the time in the 2006-01-02 format. By default, the time range to query is not restricted.
+    // The start time of the query. Format: "2006-01-02". By default, no time limit is applied.
     shared_ptr<string> minDate_ {};
-    // The page number. Pages start from page **1**. Default value: **1**.
+    // The page number. The value starts from **1**.
+    // Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page. The maximum value is **100**. Default value: **10**.
+    // The number of entries per page for paging. Maximum value: **100**.
+    // Default value: **10**.
     shared_ptr<string> pageSize_ {};
-    // The status of the image. Valid values:
+    // The image status. Valid values:
     // 
-    // *   **verifying**
-    // *   **disable**
-    // *   **available**
+    // - **verifying**: pending verification.
+    // 
+    // - **disable**: unavailable.
+    // 
+    // - **available**: available.
     shared_ptr<string> status_ {};
   };
 

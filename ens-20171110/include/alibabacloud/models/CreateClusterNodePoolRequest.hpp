@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // The disk category.
         shared_ptr<string> category_ {};
+        // The size of the data cloud disk. Unit: GB. Minimum value: 20. The value must be a multiple of 10.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -195,17 +197,30 @@ namespace Models
 
 
     protected:
+      // The size of the data cloud disk. Unit: GB.
       shared_ptr<vector<ScalingGroup::DataDisks>> dataDisks_ {};
+      // The expected number of instances.
       shared_ptr<int32_t> desiredSize_ {};
+      // The image ID of the instance.
+      // 
       // This parameter is required.
       shared_ptr<string> imageId_ {};
+      // The billing method of the instance.
       shared_ptr<string> instanceChargeType_ {};
+      // The list of instance types for the nodes in the node pool.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> instanceTypes_ {};
+      // The key pair of the instance. This parameter and Password are mutually exclusive.
       shared_ptr<string> keyPairName_ {};
+      // The password used when creating instances in the node pool. This parameter and KeyPairName are mutually exclusive.
       shared_ptr<string> password_ {};
+      // The category of the system cloud disk. Valid values: local_ssd, local_hdd, cloud_efficiency, and cloud_ssd.
       shared_ptr<string> systemDiskCategory_ {};
+      // The size of the system cloud disk. Unit: GB. Minimum value: 20. The value must be a multiple of 10.
       shared_ptr<int32_t> systemDiskSize_ {};
+      // The vSwitches used by the instances.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
@@ -238,6 +253,8 @@ namespace Models
 
 
     protected:
+      // The name of the node pool.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
     };
@@ -280,7 +297,9 @@ namespace Models
 
 
     protected:
+      // The script to be executed after the machine is created and before it is added to the cluster. The content must be Base64-encoded.
       shared_ptr<string> preUserData_ {};
+      // The script to be executed after the machine is created and added to the cluster. The content must be Base64-encoded.
       shared_ptr<string> userData_ {};
     };
 
@@ -321,11 +340,18 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The cluster-related configurations.
     shared_ptr<CreateClusterNodePoolRequest::KubernetesConfig> kubernetesConfig_ {};
+    // The node pool configurations.
+    // 
     // This parameter is required.
     shared_ptr<CreateClusterNodePoolRequest::NodepoolInfo> nodepoolInfo_ {};
+    // The scaling group configurations.
+    // 
     // This parameter is required.
     shared_ptr<CreateClusterNodePoolRequest::ScalingGroup> scalingGroup_ {};
   };

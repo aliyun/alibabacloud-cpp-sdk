@@ -50,9 +50,11 @@ namespace Models
   protected:
     // The access control list (ACL) of the bucket.
     // 
-    // *   **public-read-write**
-    // *   **public-read**
-    // *   **private** (default)
+    // - **public-read-write**
+    // 
+    // - **public-read**
+    // 
+    // - **private** (default)
     // 
     // This parameter is required.
     shared_ptr<string> bucketAcl_ {};

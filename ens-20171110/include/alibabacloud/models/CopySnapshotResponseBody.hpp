@@ -64,7 +64,7 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The ID of the edge zone where the snapshot resides.
       shared_ptr<string> ensRegionId_ {};
     };
 
@@ -108,9 +108,9 @@ namespace Models
 
 
     protected:
-      // The ID of the node.
+      // The ID of the edge zone where the snapshot resides.
       shared_ptr<string> ensRegionId_ {};
-      // The IDs of the instances.
+      // The array of instance IDs.
       shared_ptr<vector<string>> instanceId_ {};
     };
 
@@ -149,16 +149,16 @@ namespace Models
 
 
   protected:
-    // The list of created snapshots.
+    // The list of successfully created snapshots.
     shared_ptr<vector<CopySnapshotResponseBody::AllocationId>> allocationId_ {};
-    // The success status code.
+    // The status code indicating success. Valid values:
     // 
-    // *   **PartSuccess**: partially succeeded.
-    // *   **AllSuccess**: all succeeded.
+    // - **PartSuccess**: Partially successful.
+    // - **AllSuccess**: All successful.
     shared_ptr<string> bizStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of nodes that are not created.
+    // The list of edge zones where snapshot creation failed.
     shared_ptr<vector<CopySnapshotResponseBody::UnAllocationId>> unAllocationId_ {};
   };
 

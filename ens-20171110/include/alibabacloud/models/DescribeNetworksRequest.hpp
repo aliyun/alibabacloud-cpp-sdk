@@ -99,19 +99,19 @@ namespace Models
 
 
   protected:
-    // The ID of the edge node.
+    // ENS node ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. You can specify 1 to 100 IDs.
+    // Array of ENS edge zone IDs. Array length: 1–100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the network.
+    // Network ID.
     shared_ptr<string> networkId_ {};
-    // The IDs of VPCs You can specify 1 to 100 IDs.
+    // Array of network IDs. Array length: 1–100.
     shared_ptr<vector<string>> networkIds_ {};
-    // The name of the network.
+    // Network name.
     shared_ptr<string> networkName_ {};
-    // The page number of the returned page. Default value: **1**.
+    // Page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+    // Number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
   };
 

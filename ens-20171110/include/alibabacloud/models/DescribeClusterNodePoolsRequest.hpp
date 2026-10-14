@@ -61,9 +61,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // This parameter is required.
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // This parameter is required.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

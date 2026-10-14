@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};
-    // The ID of the rule that you want to query. If this parameter is not specified, all rules are returned.
+    // The ID of the rule to retrieve. If this parameter is not specified, information about all rules is retrieved.
     shared_ptr<string> ruleId_ {};
   };
 

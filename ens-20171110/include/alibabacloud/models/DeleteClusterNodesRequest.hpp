@@ -64,6 +64,8 @@ namespace Models
 
 
     protected:
+      // The information about the nodes to be removed.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> nodes_ {};
     };
@@ -94,10 +96,15 @@ namespace Models
 
 
   protected:
+    // The request body parameters.
+    // 
     // This parameter is required.
     shared_ptr<DeleteClusterNodesRequest::Body> body_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // Specifies whether to release the ENS instance where the node resides. Default value: true.
     shared_ptr<bool> releaseNode_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The details of events.
+    // The list of events.
     shared_ptr<string> eventInfosShrink_ {};
   };
 

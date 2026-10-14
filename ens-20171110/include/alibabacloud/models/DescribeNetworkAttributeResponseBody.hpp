@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GatewayRouteTableId, gatewayRouteTableId_);
       DARABONBA_PTR_TO_JSON(HaVipIds, haVipIds_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrBlocks, ipv6CidrBlocks_);
       DARABONBA_PTR_TO_JSON(LoadBalancerIds, loadBalancerIds_);
       DARABONBA_PTR_TO_JSON(NatGatewayIds, natGatewayIds_);
       DARABONBA_PTR_TO_JSON(NetworkAclId, networkAclId_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GatewayRouteTableId, gatewayRouteTableId_);
       DARABONBA_PTR_FROM_JSON(HaVipIds, haVipIds_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrBlocks, ipv6CidrBlocks_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerIds, loadBalancerIds_);
       DARABONBA_PTR_FROM_JSON(NatGatewayIds, natGatewayIds_);
       DARABONBA_PTR_FROM_JSON(NetworkAclId, networkAclId_);
@@ -268,6 +270,91 @@ namespace Models
       shared_ptr<vector<string>> loadBalancerId_ {};
     };
 
+    class Ipv6CidrBlocks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Ipv6CidrBlocks& obj) { 
+        DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      };
+      friend void from_json(const Darabonba::Json& j, Ipv6CidrBlocks& obj) { 
+        DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      };
+      Ipv6CidrBlocks() = default ;
+      Ipv6CidrBlocks(const Ipv6CidrBlocks &) = default ;
+      Ipv6CidrBlocks(Ipv6CidrBlocks &&) = default ;
+      Ipv6CidrBlocks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Ipv6CidrBlocks() = default ;
+      Ipv6CidrBlocks& operator=(const Ipv6CidrBlocks &) = default ;
+      Ipv6CidrBlocks& operator=(Ipv6CidrBlocks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Ipv6CidrBlock : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Ipv6CidrBlock& obj) { 
+          DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+          DARABONBA_PTR_TO_JSON(Ipv6Isp, ipv6Isp_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Ipv6CidrBlock& obj) { 
+          DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+          DARABONBA_PTR_FROM_JSON(Ipv6Isp, ipv6Isp_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        Ipv6CidrBlock() = default ;
+        Ipv6CidrBlock(const Ipv6CidrBlock &) = default ;
+        Ipv6CidrBlock(Ipv6CidrBlock &&) = default ;
+        Ipv6CidrBlock(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Ipv6CidrBlock() = default ;
+        Ipv6CidrBlock& operator=(const Ipv6CidrBlock &) = default ;
+        Ipv6CidrBlock& operator=(Ipv6CidrBlock &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->ipv6CidrBlock_ == nullptr
+        && this->ipv6Isp_ == nullptr && this->type_ == nullptr; };
+        // ipv6CidrBlock Field Functions 
+        bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+        void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+        inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
+        inline Ipv6CidrBlock& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+
+
+        // ipv6Isp Field Functions 
+        bool hasIpv6Isp() const { return this->ipv6Isp_ != nullptr;};
+        void deleteIpv6Isp() { this->ipv6Isp_ = nullptr;};
+        inline string getIpv6Isp() const { DARABONBA_PTR_GET_DEFAULT(ipv6Isp_, "") };
+        inline Ipv6CidrBlock& setIpv6Isp(string ipv6Isp) { DARABONBA_PTR_SET_VALUE(ipv6Isp_, ipv6Isp) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Ipv6CidrBlock& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> ipv6CidrBlock_ {};
+        shared_ptr<string> ipv6Isp_ {};
+        shared_ptr<string> type_ {};
+      };
+
+      virtual bool empty() const override { return this->ipv6CidrBlock_ == nullptr; };
+      // ipv6CidrBlock Field Functions 
+      bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+      void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+      inline const vector<Ipv6CidrBlocks::Ipv6CidrBlock> & getIpv6CidrBlock() const { DARABONBA_PTR_GET_CONST(ipv6CidrBlock_, vector<Ipv6CidrBlocks::Ipv6CidrBlock>) };
+      inline vector<Ipv6CidrBlocks::Ipv6CidrBlock> getIpv6CidrBlock() { DARABONBA_PTR_GET(ipv6CidrBlock_, vector<Ipv6CidrBlocks::Ipv6CidrBlock>) };
+      inline Ipv6CidrBlocks& setIpv6CidrBlock(const vector<Ipv6CidrBlocks::Ipv6CidrBlock> & ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+      inline Ipv6CidrBlocks& setIpv6CidrBlock(vector<Ipv6CidrBlocks::Ipv6CidrBlock> && ipv6CidrBlock) { DARABONBA_PTR_SET_RVALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+
+
+    protected:
+      shared_ptr<vector<Ipv6CidrBlocks::Ipv6CidrBlock>> ipv6CidrBlock_ {};
+    };
+
     class InstanceIds : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const InstanceIds& obj) { 
@@ -411,9 +498,10 @@ namespace Models
 
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
         && this->cloudResources_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->gatewayRouteTableId_ == nullptr
-        && this->haVipIds_ == nullptr && this->instanceIds_ == nullptr && this->loadBalancerIds_ == nullptr && this->natGatewayIds_ == nullptr && this->networkAclId_ == nullptr
-        && this->networkId_ == nullptr && this->networkInterfaceIds_ == nullptr && this->networkName_ == nullptr && this->requestId_ == nullptr && this->routeTableId_ == nullptr
-        && this->routeTableIds_ == nullptr && this->routerTableId_ == nullptr && this->secondaryCidrBlocks_ == nullptr && this->status_ == nullptr && this->vSwitchIds_ == nullptr; };
+        && this->haVipIds_ == nullptr && this->instanceIds_ == nullptr && this->ipv6CidrBlocks_ == nullptr && this->loadBalancerIds_ == nullptr && this->natGatewayIds_ == nullptr
+        && this->networkAclId_ == nullptr && this->networkId_ == nullptr && this->networkInterfaceIds_ == nullptr && this->networkName_ == nullptr && this->requestId_ == nullptr
+        && this->routeTableId_ == nullptr && this->routeTableIds_ == nullptr && this->routerTableId_ == nullptr && this->secondaryCidrBlocks_ == nullptr && this->status_ == nullptr
+        && this->vSwitchIds_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
@@ -474,6 +562,15 @@ namespace Models
     inline DescribeNetworkAttributeResponseBody::InstanceIds getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, DescribeNetworkAttributeResponseBody::InstanceIds) };
     inline DescribeNetworkAttributeResponseBody& setInstanceIds(const DescribeNetworkAttributeResponseBody::InstanceIds & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeNetworkAttributeResponseBody& setInstanceIds(DescribeNetworkAttributeResponseBody::InstanceIds && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // ipv6CidrBlocks Field Functions 
+    bool hasIpv6CidrBlocks() const { return this->ipv6CidrBlocks_ != nullptr;};
+    void deleteIpv6CidrBlocks() { this->ipv6CidrBlocks_ = nullptr;};
+    inline const DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks & getIpv6CidrBlocks() const { DARABONBA_PTR_GET_CONST(ipv6CidrBlocks_, DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks) };
+    inline DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks getIpv6CidrBlocks() { DARABONBA_PTR_GET(ipv6CidrBlocks_, DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks) };
+    inline DescribeNetworkAttributeResponseBody& setIpv6CidrBlocks(const DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks & ipv6CidrBlocks) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlocks_, ipv6CidrBlocks) };
+    inline DescribeNetworkAttributeResponseBody& setIpv6CidrBlocks(DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks && ipv6CidrBlocks) { DARABONBA_PTR_SET_RVALUE(ipv6CidrBlocks_, ipv6CidrBlocks) };
 
 
     // loadBalancerIds Field Functions 
@@ -583,37 +680,39 @@ namespace Models
     // The IPv4 CIDR block of the network.
     shared_ptr<string> cidrBlock_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::CloudResources> cloudResources_ {};
-    // The time when the network was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time at which the network was created. The time is in UTC and is formatted as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> createdTime_ {};
     // The description of the network.
     shared_ptr<string> description_ {};
-    // The ID of the edge node.
+    // The ID of the ENS node.
     shared_ptr<string> ensRegionId_ {};
-    // The ID of the gateway route table.
+    // The gateway route table ID.
     shared_ptr<string> gatewayRouteTableId_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::HaVipIds> haVipIds_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::InstanceIds> instanceIds_ {};
+    shared_ptr<DescribeNetworkAttributeResponseBody::Ipv6CidrBlocks> ipv6CidrBlocks_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::LoadBalancerIds> loadBalancerIds_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::NatGatewayIds> natGatewayIds_ {};
-    // The ID of the network access control list (ACL).
+    // The ID of the network ACL.
     shared_ptr<string> networkAclId_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::NetworkInterfaceIds> networkInterfaceIds_ {};
-    // The name of the network.
+    // The network name.
     shared_ptr<string> networkName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the route table.
+    // The route table ID.
     shared_ptr<string> routeTableId_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::RouteTableIds> routeTableIds_ {};
-    // The ID of the route table.
+    // The route table ID.
     shared_ptr<string> routerTableId_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
     // The status of the network. Valid values:
     // 
-    // *   Pending
-    // *   Available
+    // - Pending: The network is being configured.
+    // 
+    // - Available: The network is ready for use.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::VSwitchIds> vSwitchIds_ {};
   };

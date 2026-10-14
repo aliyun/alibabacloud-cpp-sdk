@@ -74,9 +74,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
-      // The type of the associated resource. Set the value to **Network**.
+      // The type of the associated resource. Valid values:
       // 
-      // Valid values of **N**: 0 to 29. You can associate a network ACL with at most 30 resources.
+      // - **Network**: network.
+      // 
+      // **N** ranges from 0 to 29. You can associate up to 30 resources.
       // 
       // This parameter is required.
       shared_ptr<string> resourceType_ {};
@@ -105,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> networkAclId_ {};
-    // The type of resource with which you want to associate the network ACL.
+    // The information about the associated resources.
     // 
     // This parameter is required.
     shared_ptr<vector<AccosicateNetworkAclRequest::Resource>> resource_ {};

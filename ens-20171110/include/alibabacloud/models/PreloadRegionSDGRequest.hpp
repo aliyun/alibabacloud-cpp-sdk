@@ -80,18 +80,26 @@ namespace Models
 
 
   protected:
-    // The IDs of the destination nodes.
+    // The list of destination edge zones.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> destinationRegionIds_ {};
+    // The type of the shared cloud disk to be created. Valid values:
+    // 
+    // - standard: standard cloud disk.
+    // 
+    // - rbd: rbd cloud disk.
+    // 
+    // >
+    // >- If you do not specify the shared cloud disk type, a standard cloud disk is created by default.
     shared_ptr<string> diskType_ {};
-    // An array that consists of queried namespaces.
+    // The list of namespaces.
     shared_ptr<vector<string>> namespaces_ {};
-    // The number of redundant replicas to support rapid deployment.
+    // The redundancy count to support fast deployment.
     // 
     // This parameter is required.
     shared_ptr<int32_t> redundantNum_ {};
-    // The ID of the SDG for which data is preloaded.
+    // The ID of the SDG that you want to preload.
     // 
     // This parameter is required.
     shared_ptr<string> SDGId_ {};

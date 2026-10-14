@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
-    // The name of the HAVIP. The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+    // The name of the HAVIP. The name must be 1 to 128 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> name_ {};
   };
 

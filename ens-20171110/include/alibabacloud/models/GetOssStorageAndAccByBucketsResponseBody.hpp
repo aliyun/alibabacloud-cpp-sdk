@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The number of times that the bucket is accessed.
+      // The number of access requests.
       shared_ptr<int64_t> acc_ {};
-      // The name of the bucket.
+      // The OSS bucket name.
       shared_ptr<string> bucket_ {};
-      // The storage usage of the bucket. Unit: bytes.
+      // The storage usage, in bytes.
       shared_ptr<int64_t> storageUsageByte_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The information about the bucket.
+    // The bucket information.
     shared_ptr<vector<GetOssStorageAndAccByBucketsResponseBody::BucketList>> bucketList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

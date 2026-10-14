@@ -75,21 +75,23 @@ namespace Models
 
 
   protected:
-    // The ID of the system event.
+    // The ID of the system Event.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The type of the O\\&M task. Valid values:
+    // The type of the operation. Valid values:
     // 
-    // *   immediate
-    // *   scheduled
+    // - immediate: Executes the operation immediately.
+    // 
+    // - scheduled: Executes the operation at the specified time.
     // 
     // This parameter is required.
     shared_ptr<string> opsType_ {};
-    // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
+    // The scheduled execution time, as a Timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
     shared_ptr<int64_t> planTime_ {};
+    // Reserved parameter.
     shared_ptr<string> planUtcTime_ {};
-    // The ID of the resource.
+    // The ID of the Resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};

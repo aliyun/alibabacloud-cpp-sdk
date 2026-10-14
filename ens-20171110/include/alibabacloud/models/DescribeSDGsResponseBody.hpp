@@ -137,18 +137,18 @@ namespace Models
       protected:
         // The time when the SDG was deployed on the instance.
         shared_ptr<string> creationTime_ {};
-        // The deployment type of the SDG. Valid values:
+        // The SDG deployment type. Valid values:
         // 
-        // *   common: common deployment.
-        // *   overlay: read/write splitting deployment.
+        // - common: standard deployment
+        // - overlay: read/write splitting deployment
         shared_ptr<string> deploymentType_ {};
-        // The ID of the instance.
+        // The AIC instance ID.
         shared_ptr<string> instanceId_ {};
         // The deployment status. Valid values:
         // 
-        // *   **sdg_deploying**
-        // *   **failed**
-        // *   **success**
+        // - **sdg_deploying**: Being deployed.
+        // - **failed**: Deployment failed.
+        // - **success**: Deployment succeeded.
         shared_ptr<string> status_ {};
       };
 
@@ -208,19 +208,19 @@ namespace Models
 
 
       protected:
-        // The time when the SDG was created on the node.
+        // The creation time of the SDG in the edge zone.
         shared_ptr<string> creationTime_ {};
-        // The ID of the edge node.
+        // The edge zone ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the snapshot.
+        // The snapshot ID.
         shared_ptr<string> snapshotId_ {};
-        // The status of the SDG on the node. Valid values:
+        // The status of the SDG in the edge zone. Valid values:
         // 
-        // *   **sdg_making**
-        // *   **sdg_saving**
-        // *   **sdg_copying**
-        // *   **failed**
-        // *   **success**
+        // - **sdg_making**: Being created.
+        // - **sdg_saving**: Being saved.
+        // - **sdg_copying**: Being synchronized across edge zones.
+        // - **failed**: Creation failed.
+        // - **success**: Creation succeeded.
         shared_ptr<string> status_ {};
       };
 
@@ -338,34 +338,38 @@ namespace Models
 
 
     protected:
-      // The IDs of available edge nodes.
+      // The list of available edge zones.
       shared_ptr<vector<SDGs::AvaliableRegionIds>> avaliableRegionIds_ {};
+      // The billing cycle of the shared disk.
       shared_ptr<string> billingCycle_ {};
+      // The billing type.
       shared_ptr<string> billingType_ {};
+      // The disk type of the source disk used to create the SDG.
       shared_ptr<string> creationDiskType_ {};
-      // The ID of the instance on which the SDG is created.
+      // The instance ID of the instance used to create the SDG.
       shared_ptr<string> creationInstanceId_ {};
-      // The ID of the node on which the SDG is created.
+      // The edge zone ID where the SDG was created.
       shared_ptr<string> creationRegionId_ {};
       // The time when the SDG was first created.
       shared_ptr<string> creationTime_ {};
-      // The deployment information.
+      // The list of deployment status information.
       shared_ptr<vector<SDGs::DeployedInstanceIds>> deployedInstanceIds_ {};
       // The description of the SDG.
       shared_ptr<string> description_ {};
-      // The ID of the source SDG from which you want to create an SDG. The value of this parameter is the value of the **FromSDGId** parameter that you need to specify when you call the [CreateSDG](https://help.aliyun.com/document_detail/608128.html) operation.
+      // The ID of the source SDG used for incremental creation. This is the **FromSDGId** parameter passed when calling [CreateSDG](https://help.aliyun.com/document_detail/608128.html).
       shared_ptr<string> parentSDGId_ {};
+      // The sharing ratio of the SDG.
       shared_ptr<int64_t> performanceLevel_ {};
-      // The ID of the SDG.
+      // The SDG ID.
       shared_ptr<string> SDGId_ {};
       // The size of the SDG. Unit: GB.
       shared_ptr<int64_t> size_ {};
-      // The status of the SDG creation. Valid values:
+      // The creation status of the SDG. Valid values:
       // 
-      // *   **sdg_making**
-      // *   **sdg_saving**
-      // *   **failed**
-      // *   **success**
+      // - **sdg_making**: Being created.
+      // - **sdg_saving**: Being saved.
+      // - **failed**: Creation failed.
+      // - **success**: Creation succeeded.
       shared_ptr<string> status_ {};
       // The time when the SDG was last updated.
       shared_ptr<string> updateTime_ {};
@@ -392,7 +396,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the SDGs.
+    // The list of SDG information.
     shared_ptr<vector<DescribeSDGsResponseBody::SDGs>> SDGs_ {};
   };
 

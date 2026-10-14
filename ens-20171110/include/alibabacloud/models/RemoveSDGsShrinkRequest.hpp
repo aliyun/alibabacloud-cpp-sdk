@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The IDs of SDG.
+    // The list of SDG IDs.
     shared_ptr<string> sdgIdsShrink_ {};
   };
 

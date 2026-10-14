@@ -80,13 +80,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the instance. Valid values of N: **1** to **20**.
+      // The tag key of the instance. Valid values of N: **1** to **20**.
       // 
-      // *   The key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // *   The key must be up to 64 characters in length.
-      // *   The tag key cannot be an empty string.
+      // - Cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      // - Can be up to 64 characters in length.
+      // - Cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with acs: or contain http:// or https://.
+      // The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length, cannot start with acs:, and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -145,22 +145,23 @@ namespace Models
 
 
   protected:
-    // The ID of the Edge Node Service (ENS) node.
+    // The ID of the ENS edge zone.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
+    // The billing cycle of the instance. Valid values: Hour and Month.
     shared_ptr<string> instanceBillingCycle_ {};
-    // The instance type of the NAT gateway. Set the value to **enat.default**.
+    // The NAT gateway specification. Valid value: **enat.default**.
     shared_ptr<string> instanceType_ {};
-    // The name of the NAT gateway. The name must be 1 to 128 characters in length. The name cannot start with `http://` or `https://`.
+    // The name of the NAT gateway. The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
-    // The ID of the network.
+    // The network ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkId_ {};
-    // The tags.
+    // The resource tags.
     shared_ptr<vector<CreateNatGatewayRequest::Tag>> tag_ {};
-    // The ID of the new vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

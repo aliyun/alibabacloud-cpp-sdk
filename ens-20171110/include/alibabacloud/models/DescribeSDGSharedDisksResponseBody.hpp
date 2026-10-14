@@ -131,21 +131,21 @@ namespace Models
 
 
     protected:
-      // The time when the shared disk was created.
+      // The time when the shared disk was created. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
       shared_ptr<string> creationTime_ {};
-      // shared disk id
+      // The ID of the shared disk.
       shared_ptr<string> diskId_ {};
-      // Shared disk type
+      // The type of the shared disk.
       shared_ptr<string> diskType_ {};
-      // The namespace of the service.
+      // The namespace.
       shared_ptr<string> namespace_ {};
-      // The node ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // SdgId of the shared disk
+      // The ID of the SDG.
       shared_ptr<string> sdgId_ {};
-      // Number of shared mounts
+      // The number of shared mounts.
       shared_ptr<int32_t> sharedNum_ {};
-      // Shared disk status
+      // The status of the shared disk.
       shared_ptr<string> status_ {};
     };
 
@@ -189,15 +189,15 @@ namespace Models
 
 
   protected:
-    // Current page number when paging
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Shared disk list
+    // The list of shared disks.
     shared_ptr<vector<DescribeSDGSharedDisksResponseBody::SharedDisks>> sharedDisks_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

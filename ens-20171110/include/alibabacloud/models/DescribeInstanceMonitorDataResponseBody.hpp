@@ -145,7 +145,7 @@ namespace Models
 
 
   protected:
-    // The returned service code. A value of 0 indicates that the operation was successful.
+    // The business code. A value of 0 indicates success.
     shared_ptr<int32_t> code_ {};
     shared_ptr<DescribeInstanceMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.

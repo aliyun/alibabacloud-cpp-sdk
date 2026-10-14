@@ -152,34 +152,43 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP that you want to query. You can specify up to 50 EIP IDs. Separate multiple IDs with commas (,).
+    // The ID of the EIP instance to query. You can specify up to 50 EIP instance IDs separated by commas (,).
     shared_ptr<string> allocationId_ {};
-    // The ID of the instance with which you want to associate the EIP.
+    // The instance ID of the cloud service.
     shared_ptr<string> associatedInstanceId_ {};
-    // The type of the instance that is associated with the EIP. Valid values:
+    // The type of the cloud service instance to associate. Valid values: 
     // 
-    // *   **EnsInstance**: ENS instance in a VPC
-    // *   **SlbInstance**: SLB instance
+    // - **EnsInstance**: a VPC-type ENS instance.
+    // 
+    // - **SlbInstance**: a load balancing instance.
     shared_ptr<string> associatedInstanceType_ {};
-    // The EIP that you want to query. You can specify up to 50 EIPs. Separate multiple EIPs with commas (,).
+    // The IP address of the EIP to query. You can specify up to 50 EIP addresses separated by commas (,).
     shared_ptr<string> eipAddress_ {};
     // The name of the EIP.
     shared_ptr<string> eipName_ {};
-    // The ID of the Edge Node Service (ENS) node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of edge nodes. You can specify 1 to 100 IDs.
+    // The array of ENS edge zone IDs. Array length: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    shared_ptr<bool> icmpReplyEnabled_ {};
-    shared_ptr<string> lockReason_ {};
-    // The page number. Default value: 1.
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100. Default value: 10.
-    shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether the EIP is a secondary EIP. Valid values:
+    // Specifies whether ICMP echo reply is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true** (default): enabled.
+    // - **false**: disabled.
+    shared_ptr<bool> icmpReplyEnabled_ {};
+    // The lock type.
+    // - financial: locked due to overdue payment.
+    shared_ptr<string> lockReason_ {};
+    // The page number of the list. Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+    shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether the EIP is a standby EIP. Valid values:
+    // 
+    // - **true**: standby.
+    // 
+    // - **false**: not standby.
     shared_ptr<string> standby_ {};
+    // The status of the EIP. Valid values: Associating: being associated. Unassociating: being disassociated. InUse: allocated. Available: available.
     shared_ptr<string> status_ {};
   };
 

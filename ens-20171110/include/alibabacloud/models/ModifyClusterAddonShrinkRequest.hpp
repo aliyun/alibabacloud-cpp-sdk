@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The parameter settings of the add-on.
     shared_ptr<string> addonShrink_ {};
+    // The ID of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The name of the add-on. It must reference an installed add-on in the target cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> componentName_ {};
   };

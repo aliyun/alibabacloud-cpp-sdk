@@ -50,10 +50,13 @@ namespace Models
   protected:
     // The export status of the image. Valid values:
     // 
-    // *   Exporting
-    // *   Exported
-    // *   ExportError
-    // *   Unexported
+    // - Exporting
+    // 
+    // - Exported
+    // 
+    // - ExportError
+    // 
+    // - Unexported
     shared_ptr<string> imageExportStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The array of instances, including the instance information.
+    // 
     // This parameter is required.
     shared_ptr<string> instancesShrink_ {};
+    // The node pool ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodepoolId_ {};
   };

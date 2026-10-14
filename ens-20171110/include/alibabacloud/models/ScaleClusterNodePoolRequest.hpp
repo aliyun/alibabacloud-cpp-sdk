@@ -61,6 +61,8 @@ namespace Models
 
 
     protected:
+      // The expected number of instances.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> count_ {};
     };
@@ -91,9 +93,14 @@ namespace Models
 
 
   protected:
+    // The HTTP request body.
     shared_ptr<ScaleClusterNodePoolRequest::Body> body_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
+    // The node pool ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodepoolId_ {};
   };

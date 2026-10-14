@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The code of the ISP.
+      // The ISP code.
       shared_ptr<string> code_ {};
-      // The name of the ISP.
+      // The ISP name.
       shared_ptr<string> name_ {};
     };
 

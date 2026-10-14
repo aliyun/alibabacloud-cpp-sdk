@@ -162,8 +162,9 @@ namespace Models
     protected:
       // The type of the resource with which the route table is associated. Valid values:
       // 
-      // *   **VSwitch**
-      // *   **Gateway**
+      // - **VSwitch**
+      // 
+      // - **Gateway**
       shared_ptr<string> associateType_ {};
       // The time when the route table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
@@ -183,12 +184,13 @@ namespace Models
       shared_ptr<string> routeTableName_ {};
       // The status. Valid values:
       // 
-      // *   Available: The route table is available.
+      // - Available: The route table is available.
       shared_ptr<string> status_ {};
       // The type of the route table. Examples:
       // 
-      // *   Custom: custom route table.
-      // *   System: system route table.
+      // - Custom: custom route table.
+      // 
+      // - System: system route table.
       shared_ptr<string> type_ {};
       // The vSwitches that are associated with the route table.
       shared_ptr<vector<string>> vSwitchIds_ {};

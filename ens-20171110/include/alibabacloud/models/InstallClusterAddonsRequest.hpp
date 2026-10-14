@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // The application version.
         shared_ptr<string> appVersion_ {};
+        // The configuration version.
         shared_ptr<string> configVersion_ {};
+        // The component name.
         shared_ptr<string> name_ {};
+        // The custom parameters of the component.
         Darabonba::Json params_ {};
       };
 
@@ -145,8 +149,11 @@ namespace Models
 
 
     protected:
+      // The schema for the custom parameters of the component.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
+      // The plug-in name.
       shared_ptr<string> name_ {};
+      // The version number.
       shared_ptr<string> version_ {};
     };
 
@@ -169,8 +176,12 @@ namespace Models
 
 
   protected:
+    // The component information.
+    // 
     // This parameter is required.
     shared_ptr<vector<InstallClusterAddonsRequest::Addons>> addons_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
   };

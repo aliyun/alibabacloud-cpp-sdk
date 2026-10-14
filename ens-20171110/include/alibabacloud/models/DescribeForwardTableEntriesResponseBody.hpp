@@ -184,9 +184,11 @@ namespace Models
       shared_ptr<string> internalPort_ {};
       // The protocol. Valid values:
       // 
-      // *   **TCP**: forwards TCP packets.
-      // *   **UDP**: forwards UDP packets.
-      // *   **Any**: forwards all packets.
+      // - **TCP**: forwards TCP packets.
+      // 
+      // - **UDP**: forwards UDP packets.
+      // 
+      // - **Any**: forwards all packets.
       shared_ptr<string> ipProtocol_ {};
       // The ID of the NAT gateway.
       shared_ptr<string> natGatewayId_ {};
@@ -194,16 +196,21 @@ namespace Models
       shared_ptr<string> standbyExternalIp_ {};
       // The status of the secondary EIP. Valid values:
       // 
-      // *   Running
-      // *   Stopping
-      // *   Stopped
-      // *   Starting
+      // - Running
+      // 
+      // - Stopping
+      // 
+      // - Stopped
+      // 
+      // - Starting
       shared_ptr<string> standbyStatus_ {};
       // The status of the DNAT entry. Valid values:
       // 
-      // *   Pending: The DNAT entry is being created or modified.
-      // *   Available: The DNAT entry is available.
-      // *   Deleting: The DNAT entry is being deleted.
+      // - Pending: The DNAT entry is being created or modified.
+      // 
+      // - Available: The DNAT entry is available.
+      // 
+      // - Deleting: The DNAT entry is being deleted.
       shared_ptr<string> status_ {};
     };
 

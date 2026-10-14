@@ -104,7 +104,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -249,107 +251,127 @@ namespace Models
 
 
   protected:
-    // The number of instances to create. Valid values: **1** to **100**.
+    // The number of instances to create. Minimum value: **1**. Maximum value: **100**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable auto-renewal for the subscription. Valid values:
-    // 
-    // *   true
-    // *   false (default)
+    // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
     // Specifies whether to use coupons. Valid values:
-    // 
-    // *   true
-    // *   false (default)
     shared_ptr<bool> autoUseCoupon_ {};
+    // The IPv4 CIDR block used by the instance, in CIDR notation.
     shared_ptr<string> cidr_ {};
-    // The ID of the Edge Node Service (ENS) node.
+    // The ENS edge zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
-    // Set one or more environment variables during EAIS instance initialization.
+    // One or more environment variables to set during EAIS instance initialization.
     shared_ptr<string> environmentVar_ {};
-    // The refresh rate. Unit: Hz. Valid values: 30 and 60.
+    // The refresh rate, in Hz. Valid values: 30 and 60.
     shared_ptr<int32_t> frequency_ {};
-    // The ID of the image.
+    // The image ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
+    // The instance billing cycle. Valid values:
+    // - Hour
+    // - Day
     shared_ptr<string> instanceBillingCycle_ {};
-    // The specification of the Android in Container (AIC) instance. Examples:
+    // The instance type of the AIC container instance. Valid values:
     // 
-    // *   aic.cf52r.c1.np
-    // *   aic.cf52r.c2.np
-    // *   aic.cf53r.c2.np
-    // *   aic.cf52r.c4.np
-    // *   aic.cf53r.c3.np
-    // *   aic.cf52r.c3.np
-    // *   aic.cf53r.c1.np
-    // *   aic.cf53r.c5.np
-    // *   aic.cf53r.c6
-    // *   aic.cf53r.c4.np
-    // *   aic.cf53r.c6.np
-    // *   aic.cf53r.c7.np
-    // *   aic.cf52m1r.c5.np
-    // *   aic.cf53r.c8.np
-    // *   aic.cf53r.c7
-    // *   aic.cf52m1r.c2.np
-    // *   aic.cf52m1r.c1.np
-    // *   aic.cf52m1r.c3.np
-    // *   aic.cf52m1r.c4.np
-    // *   aic.cf52m1r.c6
-    // *   ens.a6c2
+    // - aic.cf52r.c1.np
+    // 
+    // - aic.cf52r.c2.np
+    // 
+    // - aic.cf53r.c2.np
+    // 
+    // - aic.cf52r.c4.np
+    // 
+    // - aic.cf53r.c3.np
+    // 
+    // - aic.cf52r.c3.np
+    // 
+    // - aic.cf53r.c1.np
+    // 
+    // - aic.cf53r.c5.np
+    // 
+    // - aic.cf53r.c6
+    // 
+    // - aic.cf53r.c4.np
+    // 
+    // - aic.cf53r.c6.np
+    // 
+    // - aic.cf53r.c7.np
+    // 
+    // - aic.cf52m1r.c5.np
+    // 
+    // - aic.cf53r.c8.np
+    // 
+    // - aic.cf53r.c7
+    // 
+    // - aic.cf52m1r.c2.np
+    // 
+    // - aic.cf52m1r.c1.np
+    // 
+    // - aic.cf52m1r.c3.np
+    // 
+    // - aic.cf52m1r.c4.np
+    // 
+    // - aic.cf52m1r.c6
+    // 
+    // - ens.a6c2
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // The name of the key pair.
+    // The key pair name.
     shared_ptr<string> keyPairName_ {};
     // The namespace.
     shared_ptr<string> nameSpace_ {};
-    // The billing method. Set the value to **PrePaid**. PrePaid specifies the subscription billing method.
-    // 
-    // >  Only PrePaid is supported.
+    // The billing type. Valid values: **PrePaid** (subscription).
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The subscription duration of the instance.
+    // The duration for which you want to purchase the resource.
     // 
-    // *   If you leave PeriodUnit empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
-    // *   If you set PeriodUnit to Day, you can set Period only to 3.
-    // *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
+    // - If you do not specify PeriodUnit, the resource is purchased on a monthly basis by default. Currently, only Days and Month are supported.
+    // - If PeriodUnit is set to Day, Period can only be set to 3.
+    // - If PeriodUnit is set to Month, Period can be set to 1 to 9 or 12.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration.
-    // 
-    // *   If you leave PeriodUnit empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
-    // *   If you set PeriodUnit to Day, you can set Period only to 3.
-    // *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
+    // The unit of the purchase duration.
     shared_ptr<string> periodUnit_ {};
-    // The resolution. Examples:
+    // The resolution. Valid values:
     // 
-    // *   1920\\*864
-    // *   1080\\*1920
-    // *   1920\\*1080
-    // *   720\\*1280
-    // *   2400\\*1080
-    // *   1080\\*2400
-    // *   1280\\*720
-    // *   864\\*1920
+    // - 1920*864
+    // 
+    // - 1080*1920
+    // 
+    // - 1920*1080
+    // 
+    // - 720*1280
+    // 
+    // - 2400*1080
+    // 
+    // - 1080*2400
+    // 
+    // - 1280*720
+    // 
+    // - 864*1920
     // 
     // This parameter is required.
     shared_ptr<string> resolution_ {};
-    // The name of the service.
+    // The service name.
     shared_ptr<string> serverName_ {};
-    // The specification of the ARM server. Examples:
+    // The ARM board specification. Valid values:
     // 
-    // *   cas.cf53r
-    // *   cas.cf52r
-    // *   cas.cf52m1r
-    // *   cas.tg52g2
-    // *   ens.afq-c2m3i.medium
+    // - cas.cf53r
+    // - cas.cf52r
+    // - cas.cf52m1r
+    // - cas.tg52g2
+    // - ens.afq-c2m3i.medium
     // 
     // This parameter is required.
     shared_ptr<string> serverType_ {};
+    // The list of tags bound to the instance.
     shared_ptr<vector<CreateARMServerInstancesRequest::Tag>> tag_ {};
   };
 

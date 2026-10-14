@@ -84,14 +84,34 @@ namespace Models
 
 
   protected:
+    // One or more environment variables to set during instance initialization.
     shared_ptr<string> environmentVar_ {};
+    // The refresh rate. Unit: Hz. Valid values:
+    // - 30
+    // - 60
+    // - 120
     shared_ptr<int64_t> frequency_ {};
+    // The image ID.
+    // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
+    // The ID of the instance whose specifications you want to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The target AIC container instance specifications.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
+    // The resolution. Valid values:
+    // - 1920*1080
+    // - 1080*1920
+    // - 1280*720
+    // - 720*1280
+    // - 2400*1080
+    // - 1080*2400
+    // - 1920*864
+    // - 864*1920
     shared_ptr<string> resolution_ {};
   };
 

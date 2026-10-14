@@ -75,7 +75,9 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
+    // 
+    // You can call ListApplications to obtain the AppId. The call chain is as follows: call CreateApplication to create an application, call PushApplicationData or DistApplicationData to upload data, and then call this operation to query the download URL.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
@@ -83,13 +85,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dataName_ {};
-    // The version number of the data file.
+    // The version number of the data.
     // 
     // This parameter is required.
     shared_ptr<string> dataVersion_ {};
-    // This parameter is reserved.
+    // A reserved parameter.
     shared_ptr<int64_t> expireTimeout_ {};
-    // The condition that you want to use to filter file servers. You can specify multiple canary release policies. By default, all resources are queried.
+    // The filter condition for file servers. Multiple canary release strategies are supported. By default, all file servers are queried.
     shared_ptr<string> serverFilterStrategy_ {};
   };
 

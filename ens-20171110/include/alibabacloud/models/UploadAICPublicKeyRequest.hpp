@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // Public Key
+    // The content of the public key.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The description of the document.
+    // The description of the public key.
     shared_ptr<string> description_ {};
-    // Public Key Grouping
+    // The group of the public key.
     shared_ptr<string> keyGroup_ {};
-    // Public Key Name
+    // The name of the public key.
     // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};
-    // Public key type
+    // The type of the public key.
     // 
     // This parameter is required.
     shared_ptr<string> keyType_ {};

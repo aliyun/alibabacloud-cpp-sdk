@@ -149,54 +149,56 @@ namespace Models
 
 
   protected:
-    // System architecture. Allowed values:</br>
+    // The system architecture. Valid values:</br>
     // 
-    // - x86_64.</br>
+    // - x86_64
     // 
     // Currently, only x86_64 is supported.
     // 
     // This parameter is required.
     shared_ptr<string> architecture_ {};
-    // `Image Type`
-    // ens_vm: ens virtual machine image (default)
+    // The image type. Valid values:
+    // 
+    // ens_vm: ENS virtual machine image (default).
     // 
     // This parameter is required.
     shared_ptr<string> computeType_ {};
-    // List of custom image information being created.
+    // The list of custom image information.
     shared_ptr<string> diskDeviceMappingShrink_ {};
-    // Image format. Allowed values:</br>
+    // The image format. Valid values:</br>
     // qcow2.</br>
     // Currently, only qcow2 is supported.
     // 
     // This parameter is required.
     shared_ptr<string> imageFormat_ {};
-    // Image name. The length should be [2, 128] English or Chinese characters. It must start with a letter (uppercase or lowercase) or a Chinese character, and cannot start with http:// or https://. It can contain numbers, colons (:), underscores (_), or hyphens (-).
+    // The image name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with http:// or https://.
     // 
     // This parameter is required.
     shared_ptr<string> imageName_ {};
+    // The image license type. Valid values: Aliyun (Alibaba Cloud license) and BYOL (Bring Your Own Key).
     shared_ptr<string> licenseType_ {};
-    // The OSS Bucket where the image file is located.
+    // The OSS bucket that stores the image file.
     shared_ptr<string> OSSBucket_ {};
     // The name of the image file.
     shared_ptr<string> OSSObject_ {};
-    // The Region where the image is located. Currently, only cn-beijing is supported.
+    // The region where the image resides. Currently, only cn-beijing is supported.
     shared_ptr<string> OSSRegion_ {};
-    // Operating system platform type. Allowed values:
+    // The type of the operating system platform. Valid values:
     // 
-    // - windows.
-    // - linux.
+    // - windows
+    // - linux
     // 
     // Currently, only linux is supported.
     // 
     // This parameter is required.
     shared_ptr<string> OSType_ {};
-    // Operating system distribution version
+    // The version of the operating system distribution.
     shared_ptr<string> OSVersion_ {};
-    // Operating system distribution. Allowed values:
+    // The operating system distribution. Valid values:
     // * centos
     // * ubuntu
     shared_ptr<string> platform_ {};
-    // The target OSS region where the image will be stored.</br>
+    // The region of the destination OSS bucket where the image is stored.</br>
     // 
     // > Currently, only cn-beijing and ap-southeast-1 are supported.
     shared_ptr<string> targetOSSRegionId_ {};

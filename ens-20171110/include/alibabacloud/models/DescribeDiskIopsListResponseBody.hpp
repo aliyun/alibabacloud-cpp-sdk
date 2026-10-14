@@ -134,21 +134,21 @@ namespace Models
 
 
     protected:
-      // The business time . The time is displayed in the yyyy-MM-dd HH:mm:ss.
+      // The business time in the format of yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> bizTime_ {};
-      // The ID of the disk.
+      // The disk ID.
       shared_ptr<string> diskId_ {};
-      // The read throughput. Unit: bytes.
+      // The read throughput (in bytes).
       shared_ptr<int64_t> readBytes_ {};
-      // The read latency. Unit: ms.
+      // The read latency (in microseconds).
       shared_ptr<int64_t> readLatency_ {};
       // The read IOPS.
       shared_ptr<int64_t> readOps_ {};
-      // The ID of the node.
+      // The edge zone ID.
       shared_ptr<string> regionId_ {};
-      // The write throughput. Unit: bytes.
+      // The write throughput (in bytes).
       shared_ptr<int64_t> writeBytes_ {};
-      // The write latency. Unit: microseconds.
+      // The write latency (in microseconds).
       shared_ptr<int64_t> writeLatency_ {};
       // The write IOPS.
       shared_ptr<int64_t> writeOps_ {};
@@ -173,7 +173,7 @@ namespace Models
 
 
   protected:
-    // The IOPS monitoring data of the cloud disk.
+    // The list of cloud disk I/O monitoring data.
     shared_ptr<vector<DescribeDiskIopsListResponseBody::DiskIopsList>> diskIopsList_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

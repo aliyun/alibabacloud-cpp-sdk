@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The levels of the event-triggered alerts.
+    // The list of event levels.
     shared_ptr<string> eventLevelsShrink_ {};
-    // Event status list.
+    // The list of event statuses.
     shared_ptr<string> eventStatusShrink_ {};
     // The list of event types.
     // 
     // This parameter is required.
     shared_ptr<string> eventTypesShrink_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of resources.
+    // The list of resource IDs.
     shared_ptr<string> resourceIdsShrink_ {};
   };
 

@@ -143,10 +143,13 @@ namespace Models
         shared_ptr<string> netWorkId_ {};
         // The status of the mount target. Valid values:
         // 
-        // *   active: The mount target is available.
-        // *   inactive: The mount target is unavailable.
-        // *   pending: The task is running.
-        // *   deleting: The mount target is being deleted.
+        // - active: The mount target is available.
+        // 
+        // - inactive: The mount target is unavailable.
+        // 
+        // - pending: The task is running.
+        // 
+        // - deleting: The mount target is being deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -245,6 +248,7 @@ namespace Models
       shared_ptr<int64_t> capacity_ {};
       // The time when the file system was created.
       shared_ptr<string> creationTime_ {};
+      // Description.
       shared_ptr<string> description_ {};
       // The ID of the region.
       shared_ptr<string> ensRegionId_ {};
@@ -260,22 +264,29 @@ namespace Models
       shared_ptr<string> payType_ {};
       // The protocol type of the file system. Valid values:
       // 
-      // *   NFS: Network File System (NFS)
-      // *   SMB: Server Message Block (SMB)
+      // - NFS: Network File System (NFS)
+      // 
+      // - SMB: Server Message Block (SMB)
       shared_ptr<string> protocolType_ {};
       // The status of the file system. Valid values:
       // 
-      // *   pending: The file system is being created or modified.
-      // *   running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
-      // *   stopped: The file system is unavailable.
-      // *   extending: The file system is being scaled out.
-      // *   stopping: The file system is being disabled.
-      // *   deleting: The file system is being deleted.
+      // - pending: The file system is being created or modified.
+      // 
+      // - running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
+      // 
+      // - stopped: The file system is unavailable.
+      // 
+      // - extending: The file system is being scaled out.
+      // 
+      // - stopping: The file system is being disabled.
+      // 
+      // - deleting: The file system is being deleted.
       shared_ptr<string> status_ {};
       // The storage type. Valid values:
       // 
-      // *   capacity: Capacity NAS file systems
-      // *   performance: Performance NAS file systems
+      // - capacity: Capacity NAS file systems
+      // 
+      // - performance: Performance NAS file systems
       shared_ptr<string> storageType_ {};
     };
 

@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(HaVipIds, haVipIds_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_TO_JSON(LoadBalancerIds, loadBalancerIds_);
       DARABONBA_PTR_TO_JSON(NatGatewayIds, natGatewayIds_);
       DARABONBA_PTR_TO_JSON(NetworkId, networkId_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(HaVipIds, haVipIds_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerIds, loadBalancerIds_);
       DARABONBA_PTR_FROM_JSON(NatGatewayIds, natGatewayIds_);
       DARABONBA_PTR_FROM_JSON(NetworkId, networkId_);
@@ -225,8 +227,8 @@ namespace Models
 
     virtual bool empty() const override { return this->availableIpAddressCount_ == nullptr
         && this->cidrBlock_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->ensRegionId_ == nullptr && this->haVipIds_ == nullptr
-        && this->instanceIds_ == nullptr && this->loadBalancerIds_ == nullptr && this->natGatewayIds_ == nullptr && this->networkId_ == nullptr && this->networkInterfaceIds_ == nullptr
-        && this->requestId_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->loadBalancerIds_ == nullptr && this->natGatewayIds_ == nullptr && this->networkId_ == nullptr
+        && this->networkInterfaceIds_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr; };
     // availableIpAddressCount Field Functions 
     bool hasAvailableIpAddressCount() const { return this->availableIpAddressCount_ != nullptr;};
     void deleteAvailableIpAddressCount() { this->availableIpAddressCount_ = nullptr;};
@@ -278,6 +280,13 @@ namespace Models
     inline DescribeVSwitchAttributesResponseBody::InstanceIds getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, DescribeVSwitchAttributesResponseBody::InstanceIds) };
     inline DescribeVSwitchAttributesResponseBody& setInstanceIds(const DescribeVSwitchAttributesResponseBody::InstanceIds & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline DescribeVSwitchAttributesResponseBody& setInstanceIds(DescribeVSwitchAttributesResponseBody::InstanceIds && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
+
+
+    // ipv6CidrBlock Field Functions 
+    bool hasIpv6CidrBlock() const { return this->ipv6CidrBlock_ != nullptr;};
+    void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
+    inline string getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, "") };
+    inline DescribeVSwitchAttributesResponseBody& setIpv6CidrBlock(string ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
 
 
     // loadBalancerIds Field Functions 
@@ -343,34 +352,37 @@ namespace Models
 
 
   protected:
-    // The number of available IP addresses in the VSwitch.
+    // The number of available IP addresses in the vSwitch.
     shared_ptr<int64_t> availableIpAddressCount_ {};
     // The IPv4 CIDR block of the network.
     shared_ptr<string> cidrBlock_ {};
-    // The creation time, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+    // The time when the vSwitch was created. This value uses UTC and follows the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> createdTime_ {};
-    // The description of the VSwitch.
+    // The description of the vSwitch.
     shared_ptr<string> description_ {};
-    // The ENS node ID.
+    // The ID of the ENS edge zone.
     shared_ptr<string> ensRegionId_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::HaVipIds> haVipIds_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::InstanceIds> instanceIds_ {};
+    shared_ptr<string> ipv6CidrBlock_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::LoadBalancerIds> loadBalancerIds_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::NatGatewayIds> natGatewayIds_ {};
-    // The network ID.
+    // The ID of the network.
     shared_ptr<string> networkId_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::NetworkInterfaceIds> networkInterfaceIds_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the VSwitch, as follows:
+    // The status of the vSwitch. Valid values:
     // 
-    // - Pending
-    // - Available
-    // - Releasing
+    // - Pending: The vSwitch is being configured.
+    // 
+    // - Available: The vSwitch is active.
+    // 
+    // - Releasing: The vSwitch is being released.
     shared_ptr<string> status_ {};
-    // The ID of the VSwitch.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The name of the VSwitch.
+    // The name of the vSwitch.
     shared_ptr<string> vSwitchName_ {};
   };
 

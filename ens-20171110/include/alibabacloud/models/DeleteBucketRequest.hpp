@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the bucket that you want to delete. You can delete only one bucket at a time.
+    // The name of the bucket to delete. Only one bucket can be deleted at a time.
     // 
     // This parameter is required.
     shared_ptr<string> bucketName_ {};

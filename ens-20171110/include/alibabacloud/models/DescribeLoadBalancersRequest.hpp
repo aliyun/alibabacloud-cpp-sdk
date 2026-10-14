@@ -143,31 +143,31 @@ namespace Models
 
 
   protected:
-    // The IP address that the ELB instance uses to provide services.
+    // The service address of the load balancing instance.
     shared_ptr<string> address_ {};
-    // The ID of the Edge Node Service (ENS) node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of the Edge Node Service (ENS) nodes.
+    // The list of ENS edge zone IDs.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the ELB instance.
+    // The ID of the load balancing instance.
     shared_ptr<string> loadBalancerId_ {};
-    // The name of the ELB instance.
+    // The name of the load balancing instance.
     shared_ptr<string> loadBalancerName_ {};
-    // The status of the listener for the ELB instance. Valid values:
-    // 
-    // *   **Active**: The listener for the instance can forward the received traffic based on forwarding rules.
-    // *   **InActive**: The listener for the instance does not forward the received traffic.
+    // The listener status of the load balancing instance. Valid values:
+    // - **Active**: The listeners in the instance can forward accepted traffic based on rules.
+    // - **InActive**: The listeners in the instance no longer forward accepted traffic.
     shared_ptr<string> loadBalancerStatus_ {};
+    // The type of the load balancing instance.
     shared_ptr<string> loadBalancerType_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
-    // The page number. Default value: 1.
+    // The page number of the list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 10. Valid values: **10** to **100**.
+    // The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the backend server.
+    // The backend server instance ID.
     shared_ptr<string> serverId_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
   };
 

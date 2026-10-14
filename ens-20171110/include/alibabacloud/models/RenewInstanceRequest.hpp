@@ -48,11 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The ID of the instance that you want to renew.
+    // 
+    // Only subscription instances whose InstanceResourceType is EnsInstance are supported. Pay-as-you-go instances cannot be renewed.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The renewal duration of the subscription instance.
+    // The subscription renewal duration.
     // 
     // This parameter is required.
     shared_ptr<int64_t> period_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the SDGs that you want to delete.
+    // The list of SDGs to delete.
     // 
     // This parameter is required.
     shared_ptr<string> SDGIdShrink_ {};

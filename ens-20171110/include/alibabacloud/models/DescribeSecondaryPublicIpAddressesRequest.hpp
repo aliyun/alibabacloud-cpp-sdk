@@ -97,20 +97,20 @@ namespace Models
 
 
   protected:
-    // The ID of the edge node.
+    // The ID of the ENS edge zone.
     shared_ptr<string> ensRegionId_ {};
+    // The array of ENS edge zone IDs. Array length: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The Internet service provider. Valid values:
-    // 
-    // *   cmcc: China Mobile.
-    // *   unicom: China Unicom.
-    // *   telecom: China Telecom.
+    // The Internet service provider (ISP). Valid values:
+    // - cmcc: China Mobile.
+    // - unicom: China Unicom.
+    // - telecom: China Telecom.
     shared_ptr<string> isp_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The secondary IP address.
+    // The secondary public IP address.
     shared_ptr<string> secondaryPublicIpAddress_ {};
     // The ID of the secondary public IP address.
     shared_ptr<string> secondaryPublicIpId_ {};

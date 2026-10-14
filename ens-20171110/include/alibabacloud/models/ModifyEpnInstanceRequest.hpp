@@ -76,11 +76,13 @@ namespace Models
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     // The networking mode. Valid values:
     // 
-    // *   **SpeedUp**: Intelligent acceleration network (Internet).
-    // *   **Connection**: Internal network.
-    // *   **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
+    // - **SpeedUp**: Intelligent acceleration network (Internet).
     // 
-    // >  The internal network supports only **Connection** and **SpeedUpAndConnection**.
+    // - **Connection**: Internal network.
+    // 
+    // - **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
+    // 
+    // > The internal network supports only **Connection** and **SpeedUpAndConnection**.
     shared_ptr<string> networkingModel_ {};
   };
 

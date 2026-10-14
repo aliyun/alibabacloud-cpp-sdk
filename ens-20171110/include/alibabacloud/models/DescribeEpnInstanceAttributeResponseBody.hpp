@@ -200,9 +200,11 @@ namespace Models
       shared_ptr<string> instanceName_ {};
       // The ISP. Valid values:
       // 
-      // *   cmcc: China Mobile
-      // *   unicom: China Unicom
-      // *   telecom: China Telecom
+      // - cmcc: China Mobile
+      // 
+      // - unicom: China Unicom
+      // 
+      // - telecom: China Telecom
       shared_ptr<string> isp_ {};
       // The private IP address.
       shared_ptr<string> privateIpAddress_ {};
@@ -210,9 +212,11 @@ namespace Models
       shared_ptr<string> publicIpAddress_ {};
       // The status of the instance. Valid values:
       // 
-      // *   Running
-      // *   Stopped
-      // *   Expired
+      // - Running
+      // 
+      // - Stopped
+      // 
+      // - Expired
       shared_ptr<string> status_ {};
     };
 
@@ -329,9 +333,11 @@ namespace Models
     shared_ptr<vector<DescribeEpnInstanceAttributeResponseBody::Instances>> instances_ {};
     // The networking mode. Valid values:
     // 
-    // *   SpeedUp: intelligent acceleration network (Internet)
-    // *   Connection: internal network
-    // *   SpeedUpAndConnection: intelligent acceleration network and internal network
+    // - SpeedUp: intelligent acceleration network (Internet)
+    // 
+    // - Connection: internal network
+    // 
+    // - SpeedUpAndConnection: intelligent acceleration network and internal network
     shared_ptr<string> networkingModel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

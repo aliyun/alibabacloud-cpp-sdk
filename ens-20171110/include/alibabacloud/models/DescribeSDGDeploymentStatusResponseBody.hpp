@@ -149,32 +149,25 @@ namespace Models
 
 
     protected:
+      // The size of the writable layer for the block device. Unit: GiB. A value of 0 indicates that this feature is disabled.
       shared_ptr<int32_t> blockRwSplitSize_ {};
+      // The cache size. Unit: GiB. A value of 0 indicates that this feature is disabled.
       shared_ptr<int32_t> cacheSize_ {};
+      // The disk access protocol type of the mounted shared cloud disk.
       shared_ptr<string> diskAccessProtocol_ {};
+      // The disk type of the mounted shared cloud disk.
       shared_ptr<string> diskType_ {};
-      // The ID of the AIC instance.
+      // The AIC instance ID.
       shared_ptr<string> instanceId_ {};
       // The deployment type.
-      // 
-      // Valid values:
-      // 
-      // *   overlay: read/write splitting.
-      // *   common: common deployment.
       shared_ptr<string> mountType_ {};
-      // The deployment phase of the SDG.
+      // The SDG deployment phase.
       shared_ptr<string> phase_ {};
-      // The ID of the edge node.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The deployment status of the SDG.
-      // 
-      // Valid values:
-      // 
-      // *   sdg_deploying
-      // *   success
-      // *   failed
       shared_ptr<string> status_ {};
-      // The time when the status was last updated.
+      // The time when the status was last updated. The time is displayed in the ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -220,13 +213,13 @@ namespace Models
   protected:
     // The list of SDG deployment information.
     shared_ptr<vector<DescribeSDGDeploymentStatusResponseBody::DeploymentStatus>> deploymentStatus_ {};
-    // The page number. Pages start from page 1. Default value: 1
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page in a paging query. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of queried deployment records.
+    // The total number of deployment records returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

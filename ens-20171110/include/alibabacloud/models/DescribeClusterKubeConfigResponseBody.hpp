@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster certificate.
     shared_ptr<string> kubeconfig_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

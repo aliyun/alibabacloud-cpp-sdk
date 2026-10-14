@@ -73,8 +73,9 @@ namespace Models
       shared_ptr<string> ensRegionId_ {};
       // Specifies whether IPv6 is supported. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> supportIpv6_ {};
     };
 

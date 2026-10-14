@@ -65,9 +65,11 @@ namespace Models
     shared_ptr<string> privateIpAddress_ {};
     // The vSwitch IDs.
     // 
-    // *   If you set this parameter to the ID of the current vSwitch, the vSwitch of the ECS instance remains unchanged.
-    // *   The input ID is a new vSwitch, and the new and old vSwitches must belong to the same node.
-    // *   By default, if this parameter is not specified, a private IP address is randomly assigned from within the CIDR block of the specified vSwitch.
+    // - If you set this parameter to the ID of the current vSwitch, the vSwitch of the ECS instance remains unchanged.
+    // 
+    // - The input ID is a new vSwitch, and the new and old vSwitches must belong to the same node.
+    // 
+    // - By default, if this parameter is not specified, a private IP address is randomly assigned from within the CIDR block of the specified vSwitch.
     shared_ptr<string> vSwitchId_ {};
   };
 
