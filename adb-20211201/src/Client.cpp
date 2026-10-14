@@ -2166,7 +2166,7 @@ CreateDBClusterResponse Client::createDBCluster(const CreateDBClusterRequest &re
 /**
  * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2313,7 +2313,7 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 /**
  * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBResourceGroupRequest
  * @return CreateDBResourceGroupResponse
@@ -4842,7 +4842,7 @@ DescribeApsActionLogsResponse Client::describeApsActionLogs(const DescribeApsAct
 }
 
 /**
- * @summary Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+ * @summary Queries the details of an APS data source.
  *
  * @param request DescribeApsDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4881,7 +4881,7 @@ DescribeApsDatasourceResponse Client::describeApsDatasourceWithOptions(const Des
 }
 
 /**
- * @summary Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+ * @summary Queries the details of an APS data source.
  *
  * @param request DescribeApsDatasourceRequest
  * @return DescribeApsDatasourceResponse
@@ -4892,7 +4892,7 @@ DescribeApsDatasourceResponse Client::describeApsDatasource(const DescribeApsDat
 }
 
 /**
- * @summary Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+ * @summary Queries APS data sources.
  *
  * @param request DescribeApsDatasourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4951,7 +4951,7 @@ DescribeApsDatasourcesResponse Client::describeApsDatasourcesWithOptions(const D
 }
 
 /**
- * @summary Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+ * @summary Queries APS data sources.
  *
  * @param request DescribeApsDatasourcesRequest
  * @return DescribeApsDatasourcesResponse
@@ -5058,7 +5058,7 @@ DescribeApsJobDetailResponse Client::describeApsJobDetail(const DescribeApsJobDe
 }
 
 /**
- * @summary Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+ * @summary Queries a list of APS tasks.
  *
  * @param request DescribeApsJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5109,7 +5109,7 @@ DescribeApsJobsResponse Client::describeApsJobsWithOptions(const DescribeApsJobs
 }
 
 /**
- * @summary Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+ * @summary Queries a list of APS tasks.
  *
  * @param request DescribeApsJobsRequest
  * @return DescribeApsJobsResponse
@@ -5120,7 +5120,7 @@ DescribeApsJobsResponse Client::describeApsJobs(const DescribeApsJobsRequest &re
 }
 
 /**
- * @summary Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+ * @summary Queries the list of workloads for an APS migration task.
  *
  * @param request DescribeApsMigrationWorkloadsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5175,7 +5175,7 @@ DescribeApsMigrationWorkloadsResponse Client::describeApsMigrationWorkloadsWithO
 }
 
 /**
- * @summary Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+ * @summary Queries the list of workloads for an APS migration task.
  *
  * @param request DescribeApsMigrationWorkloadsRequest
  * @return DescribeApsMigrationWorkloadsResponse
@@ -7498,9 +7498,9 @@ DescribeExecutorDetectionResponse Client::describeExecutorDetection(const Descri
 }
 
 /**
- * @summary Retrieve historical task records.
+ * @summary Retrieves historical task records.
  *
- * @description Only supports viewing tasks within the last 30 days.
+ * @description You can view only tasks from the last 30 days.
  *
  * @param request DescribeHistoryTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7579,9 +7579,9 @@ DescribeHistoryTasksResponse Client::describeHistoryTasksWithOptions(const Descr
 }
 
 /**
- * @summary Retrieve historical task records.
+ * @summary Retrieves historical task records.
  *
- * @description Only supports viewing tasks within the last 30 days.
+ * @description You can view only tasks from the last 30 days.
  *
  * @param request DescribeHistoryTasksRequest
  * @return DescribeHistoryTasksResponse
@@ -7592,7 +7592,7 @@ DescribeHistoryTasksResponse Client::describeHistoryTasks(const DescribeHistoryT
 }
 
 /**
- * @summary Queries task statistics.
+ * @summary Queries task statistics in the task center.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7663,7 +7663,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStatWithOptions(con
 }
 
 /**
- * @summary Queries task statistics.
+ * @summary Queries task statistics in the task center.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @return DescribeHistoryTasksStatResponse
@@ -8202,7 +8202,7 @@ DescribeMvRecommendTasksResponse Client::describeMvRecommendTasks(const Describe
 }
 
 /**
- * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
+ * @summary Queries the authorization status of a service account.
  *
  * @param request DescribeOperatorPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8249,7 +8249,7 @@ DescribeOperatorPermissionResponse Client::describeOperatorPermissionWithOptions
 }
 
 /**
- * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
+ * @summary Queries the authorization status of a service account.
  *
  * @param request DescribeOperatorPermissionRequest
  * @return DescribeOperatorPermissionResponse
@@ -9444,7 +9444,7 @@ DescribeSparkSQLDiagnosisAttributeResponse Client::describeSparkSQLDiagnosisAttr
 }
 
 /**
- * @summary Queries the diagnostic information about Spark SQL queries.
+ * @summary Queries the Spark SQL diagnostics list.
  *
  * @param request DescribeSparkSQLDiagnosisListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9503,7 +9503,7 @@ DescribeSparkSQLDiagnosisListResponse Client::describeSparkSQLDiagnosisListWithO
 }
 
 /**
- * @summary Queries the diagnostic information about Spark SQL queries.
+ * @summary Queries the Spark SQL diagnostics list.
  *
  * @param request DescribeSparkSQLDiagnosisListRequest
  * @return DescribeSparkSQLDiagnosisListResponse
@@ -11204,7 +11204,7 @@ GetFormationCrawlerResponse Client::getFormationCrawler(const GetFormationCrawle
 }
 
 /**
- * @summary Performs knowledge base recall.
+ * @summary Adds a knowledge base document.
  *
  * @param request GetKnowledgeRecallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11225,6 +11225,10 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
     query["Question"] = request.getQuestion();
   }
 
+  if (!!request.hasSemanticRules()) {
+    query["SemanticRules"] = request.getSemanticRules();
+  }
+
   if (!!request.hasTags()) {
     query["Tags"] = request.getTags();
   }
@@ -11237,9 +11241,15 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
     query["User"] = request.getUser();
   }
 
+  json body = {};
+  if (!!request.hasImages()) {
+    body["Images"] = request.getImages();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "GetKnowledgeRecall"},
     {"version" , "2021-12-01"},
@@ -11255,7 +11265,7 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
 }
 
 /**
- * @summary Performs knowledge base recall.
+ * @summary Adds a knowledge base document.
  *
  * @param request GetKnowledgeRecallRequest
  * @return GetKnowledgeRecallResponse
@@ -11426,11 +11436,11 @@ GetSemanticViewResponse Client::getSemanticView(const GetSemanticViewRequest &re
 }
 
 /**
- * @summary Queries the information about the retry log of a Spark application.
+ * @summary Queries the retry logs of a Spark application.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request GetSparkAppAttemptLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11475,11 +11485,11 @@ GetSparkAppAttemptLogResponse Client::getSparkAppAttemptLogWithOptions(const Get
 }
 
 /**
- * @summary Queries the information about the retry log of a Spark application.
+ * @summary Queries the retry logs of a Spark application.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request GetSparkAppAttemptLogRequest
  * @return GetSparkAppAttemptLogResponse

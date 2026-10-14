@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The AnalyticDB for MySQL cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The file location. Currently, only OSS paths are supported.
+    // The file location. Only OSS paths are supported.
     // 
     // This parameter is required.
     shared_ptr<string> fileLocation_ {};
     // The file type.
     shared_ptr<string> fileType_ {};
-    // Specifies whether the path is a directory.
+    // Specifies whether the path is a folder.
     shared_ptr<bool> isDir_ {};
-    // The confidence level or weight of the file.
+    // The credibility or weight of the file.
     shared_ptr<string> priority_ {};
     // The file tags in JSON format.
     shared_ptr<string> tags_ {};

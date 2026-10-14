@@ -80,15 +80,21 @@ namespace Models
 
 
     protected:
-      // The status of the APS job.
+      // The task status. Valid values:
       // 
-      // *   **Scheduled**
-      // *   **Running**
-      // *   **Succeed**
-      // *   **Failed**: The task failed.
-      // *   **Cancelling**
-      // *   **Canceled**
-      // *   **Waiting**
+      // - **Scheduled**: Pending execution.
+      // 
+      // - **Running**: Running.
+      // 
+      // - **Succeed**: Succeeded.
+      // 
+      // - **Failed**: Failed.
+      // 
+      // - **Cancelling**: Cancelling.
+      // 
+      // - **Canceled**: Canceled.
+      // 
+      // - **Waiting**: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The total number of tasks.
       shared_ptr<int32_t> totalCount_ {};
@@ -178,28 +184,26 @@ namespace Models
 
 
     protected:
-      // Authorized action
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The display name of the requester.
+      // The display name of the authorized principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The ID of the Alibaba Cloud account to which the authentication principal belongs.
+      // The Alibaba Cloud account ID of the authenticated principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The requester type.
+      // The type of the authorized principal.
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of the policy denial. Valid values:
-      // 
-      // *   **ImplicitDeny**: The resource holder has not configured a policy for the current user. By default, unauthorized operations are denied.
-      // *   **ExplicitDeny**: The RAM policy configured by the resource holder explicitly denies the current user access to the corresponding resources.
+      // The type of the access policy denial. Valid values:
+      // - **ImplicitDeny**: The resource owner has not configured a relevant access policy for the current user, and unauthorized operations are denied by default.
+      // - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
       shared_ptr<string> noPermissionType_ {};
-      // The type of the policy that causes the access denied error.
-      // 
-      // *   **ControlPolicy**: control policy
-      // *   **SessionPolicy**: an additional policy that is added to the temporary token.
-      // *   **AssumeRolePolicy**: the authorization policy of the RAM role.
-      // *   **AccountLevelIdentityBasedPolicy**: the principal policies of the account authorization scope, including custom policies and system policies.
-      // *   **ResourceGroupLevelIdentityBasedPolicy**: the principal policy of the resource group authorization scope, including custom policies and system policies.
+      // The type of the policy that caused the permission denial. Valid values:
+      // - **ControlPolicy**: Control policy.
+      // - **SessionPolicy**: An additional permission policy added to the temporary token.
+      // - **AssumeRolePolicy**: The trust policy of the RAM role.
+      // - **AccountLevelIdentityBasedPolicy**: The identity-access policy at the account level, including custom policies and system policies.
+      // - **ResourceGroupLevelIdentityBasedPolicy**: The identity-access policy at the resource group level, including custom policies and system policies.
       shared_ptr<string> policyType_ {};
     };
 
@@ -260,25 +264,24 @@ namespace Models
 
 
   protected:
-    // The queried information about the request denial.
+    // The access denial details.
     shared_ptr<DescribeHistoryTasksStatResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // API status or POP error code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The tasks.
+    // The list of tasks.
     shared_ptr<vector<DescribeHistoryTasksStatResponseBody::Items>> items_ {};
-    // The returned message. Valid values:
+    // The additional information about the call result. Valid values:
     // 
-    // *   If the request was successful, an success message is returned.
-    // *   If the request failed, an error message is returned.
+    // - If the request is normal, OK is returned.
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

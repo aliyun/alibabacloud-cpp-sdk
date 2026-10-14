@@ -92,9 +92,9 @@ namespace Models
     protected:
       // The total number of entries.
       shared_ptr<int32_t> count_ {};
-      // The prompt message.
+      // The message.
       shared_ptr<string> message_ {};
-      // The recall results.
+      // The retrieval results.
       shared_ptr<vector<Darabonba::Json>> results_ {};
       // The Tracing Analysis ID.
       shared_ptr<string> traceId_ {};

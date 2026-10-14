@@ -84,24 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL instance.
+    // The ADB instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The JSON string of the file ID array. A maximum of 200 positive integers are supported.
+    // The JSON string of the file ID array, which contains up to 200 positive integers.
     shared_ptr<string> fileIds_ {};
-    // The page number, starting from 1. If this parameter is not specified, Ray uses a default value of 1.
+    // The page number, starting from 1. If this parameter is not specified, the default value is 1.
     shared_ptr<string> page_ {};
-    // The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, Ray uses a default value of 20.
+    // The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, the default value is 20.
     shared_ptr<string> pageSize_ {};
-    // The processing status. Valid values:
-    // 
-    // - PENDING
-    // - PROCESSING
-    // - COMPLETED
-    // - FAILED
-    // - DUPLICATED
-    // - SKIPPED
+    // The processing status. Valid values: PENDING, PROCESSING, COMPLETED, FAILED, DUPLICATED, and SKIPPED.
     shared_ptr<string> status_ {};
     // The stable ID of the authorized user. If this parameter is not specified, all files in the knowledge base can be queried.
     shared_ptr<string> user_ {};

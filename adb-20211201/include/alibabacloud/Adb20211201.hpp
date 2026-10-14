@@ -572,7 +572,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param tmpReq CreateDBResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -583,7 +583,7 @@ namespace Adb20211201
       /**
        * @summary Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
        *
-       * @description For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+       * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request CreateDBResourceGroupRequest
        * @return CreateDBResourceGroupResponse
@@ -1445,7 +1445,7 @@ namespace Adb20211201
       Models::DescribeApsActionLogsResponse describeApsActionLogs(const Models::DescribeApsActionLogsRequest &request);
 
       /**
-       * @summary Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+       * @summary Queries the details of an APS data source.
        *
        * @param request DescribeApsDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1454,7 +1454,7 @@ namespace Adb20211201
       Models::DescribeApsDatasourceResponse describeApsDatasourceWithOptions(const Models::DescribeApsDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+       * @summary Queries the details of an APS data source.
        *
        * @param request DescribeApsDatasourceRequest
        * @return DescribeApsDatasourceResponse
@@ -1462,7 +1462,7 @@ namespace Adb20211201
       Models::DescribeApsDatasourceResponse describeApsDatasource(const Models::DescribeApsDatasourceRequest &request);
 
       /**
-       * @summary Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+       * @summary Queries APS data sources.
        *
        * @param request DescribeApsDatasourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1471,7 +1471,7 @@ namespace Adb20211201
       Models::DescribeApsDatasourcesResponse describeApsDatasourcesWithOptions(const Models::DescribeApsDatasourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+       * @summary Queries APS data sources.
        *
        * @param request DescribeApsDatasourcesRequest
        * @return DescribeApsDatasourcesResponse
@@ -1513,7 +1513,7 @@ namespace Adb20211201
       Models::DescribeApsJobDetailResponse describeApsJobDetail(const Models::DescribeApsJobDetailRequest &request);
 
       /**
-       * @summary Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+       * @summary Queries a list of APS tasks.
        *
        * @param request DescribeApsJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1522,7 +1522,7 @@ namespace Adb20211201
       Models::DescribeApsJobsResponse describeApsJobsWithOptions(const Models::DescribeApsJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+       * @summary Queries a list of APS tasks.
        *
        * @param request DescribeApsJobsRequest
        * @return DescribeApsJobsResponse
@@ -1530,7 +1530,7 @@ namespace Adb20211201
       Models::DescribeApsJobsResponse describeApsJobs(const Models::DescribeApsJobsRequest &request);
 
       /**
-       * @summary Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+       * @summary Queries the list of workloads for an APS migration task.
        *
        * @param request DescribeApsMigrationWorkloadsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1539,7 +1539,7 @@ namespace Adb20211201
       Models::DescribeApsMigrationWorkloadsResponse describeApsMigrationWorkloadsWithOptions(const Models::DescribeApsMigrationWorkloadsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+       * @summary Queries the list of workloads for an APS migration task.
        *
        * @param request DescribeApsMigrationWorkloadsRequest
        * @return DescribeApsMigrationWorkloadsResponse
@@ -2277,9 +2277,9 @@ namespace Adb20211201
       Models::DescribeExecutorDetectionResponse describeExecutorDetection(const Models::DescribeExecutorDetectionRequest &request);
 
       /**
-       * @summary Retrieve historical task records.
+       * @summary Retrieves historical task records.
        *
-       * @description Only supports viewing tasks within the last 30 days.
+       * @description You can view only tasks from the last 30 days.
        *
        * @param request DescribeHistoryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2288,9 +2288,9 @@ namespace Adb20211201
       Models::DescribeHistoryTasksResponse describeHistoryTasksWithOptions(const Models::DescribeHistoryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve historical task records.
+       * @summary Retrieves historical task records.
        *
-       * @description Only supports viewing tasks within the last 30 days.
+       * @description You can view only tasks from the last 30 days.
        *
        * @param request DescribeHistoryTasksRequest
        * @return DescribeHistoryTasksResponse
@@ -2298,7 +2298,7 @@ namespace Adb20211201
       Models::DescribeHistoryTasksResponse describeHistoryTasks(const Models::DescribeHistoryTasksRequest &request);
 
       /**
-       * @summary Queries task statistics.
+       * @summary Queries task statistics in the task center.
        *
        * @param request DescribeHistoryTasksStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2307,7 +2307,7 @@ namespace Adb20211201
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStatWithOptions(const Models::DescribeHistoryTasksStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries task statistics.
+       * @summary Queries task statistics in the task center.
        *
        * @param request DescribeHistoryTasksStatRequest
        * @return DescribeHistoryTasksStatResponse
@@ -2463,7 +2463,7 @@ namespace Adb20211201
       Models::DescribeMvRecommendTasksResponse describeMvRecommendTasks(const Models::DescribeMvRecommendTasksRequest &request);
 
       /**
-       * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
+       * @summary Queries the authorization status of a service account.
        *
        * @param request DescribeOperatorPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2472,7 +2472,7 @@ namespace Adb20211201
       Models::DescribeOperatorPermissionResponse describeOperatorPermissionWithOptions(const Models::DescribeOperatorPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
+       * @summary Queries the authorization status of a service account.
        *
        * @param request DescribeOperatorPermissionRequest
        * @return DescribeOperatorPermissionResponse
@@ -2838,7 +2838,7 @@ namespace Adb20211201
       Models::DescribeSparkSQLDiagnosisAttributeResponse describeSparkSQLDiagnosisAttribute(const Models::DescribeSparkSQLDiagnosisAttributeRequest &request);
 
       /**
-       * @summary Queries the diagnostic information about Spark SQL queries.
+       * @summary Queries the Spark SQL diagnostics list.
        *
        * @param request DescribeSparkSQLDiagnosisListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2847,7 +2847,7 @@ namespace Adb20211201
       Models::DescribeSparkSQLDiagnosisListResponse describeSparkSQLDiagnosisListWithOptions(const Models::DescribeSparkSQLDiagnosisListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the diagnostic information about Spark SQL queries.
+       * @summary Queries the Spark SQL diagnostics list.
        *
        * @param request DescribeSparkSQLDiagnosisListRequest
        * @return DescribeSparkSQLDiagnosisListResponse
@@ -3430,7 +3430,7 @@ namespace Adb20211201
       Models::GetFormationCrawlerResponse getFormationCrawler(const Models::GetFormationCrawlerRequest &request);
 
       /**
-       * @summary Performs knowledge base recall.
+       * @summary Adds a knowledge base document.
        *
        * @param request GetKnowledgeRecallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3439,7 +3439,7 @@ namespace Adb20211201
       Models::GetKnowledgeRecallResponse getKnowledgeRecallWithOptions(const Models::GetKnowledgeRecallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs knowledge base recall.
+       * @summary Adds a knowledge base document.
        *
        * @param request GetKnowledgeRecallRequest
        * @return GetKnowledgeRecallResponse
@@ -3506,11 +3506,11 @@ namespace Adb20211201
       Models::GetSemanticViewResponse getSemanticView(const Models::GetSemanticViewRequest &request);
 
       /**
-       * @summary Queries the information about the retry log of a Spark application.
+       * @summary Queries the retry logs of a Spark application.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppAttemptLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3519,11 +3519,11 @@ namespace Adb20211201
       Models::GetSparkAppAttemptLogResponse getSparkAppAttemptLogWithOptions(const Models::GetSparkAppAttemptLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the retry log of a Spark application.
+       * @summary Queries the retry logs of a Spark application.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-       * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
        *
        * @param request GetSparkAppAttemptLogRequest
        * @return GetSparkAppAttemptLogResponse

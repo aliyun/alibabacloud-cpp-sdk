@@ -144,10 +144,10 @@ namespace Models
 
 
       protected:
-        // Indicates whether the data source is a cross-account resource. Valid values:
+        // Specifies whether the resource is cross-account. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: The current network instance is a cross-account resource.
+        // - **false**: The current network instance belongs to the current account.
         shared_ptr<bool> across_ {};
         // The name of the cross-account role.
         shared_ptr<string> acrossRole_ {};
@@ -155,7 +155,7 @@ namespace Models
         shared_ptr<string> acrossUid_ {};
         // The name of the SLS project.
         shared_ptr<string> project_ {};
-        // The region ID.
+        // The ID of the region to which the production site belongs.
         shared_ptr<string> sourceRegionId_ {};
         // The name of the SLS Logstore.
         shared_ptr<string> store_ {};
@@ -226,15 +226,15 @@ namespace Models
 
 
       protected:
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> connectUrl_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> instanceId_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> regionId_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> securityGroup_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> userName_ {};
       };
 
@@ -331,21 +331,21 @@ namespace Models
 
 
       protected:
-        // The parameter is no longer supported.
+        // -
         shared_ptr<bool> across_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> acrossRole_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> acrossUid_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> connectUrl_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> instanceId_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> regionId_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> securityGroup_ {};
-        // The parameter is no longer supported.
+        // -
         shared_ptr<string> userName_ {};
       };
 
@@ -387,9 +387,9 @@ namespace Models
 
 
       protected:
-        // The ID of the Kafka instance.
+        // The Kafka instance ID.
         shared_ptr<string> kafkaClusterId_ {};
-        // The topic of the Kafka instance.
+        // kafka topic
         shared_ptr<string> kafkaTopic_ {};
       };
 
@@ -451,11 +451,11 @@ namespace Models
       protected:
         // The ID of the E-MapReduce (EMR) cluster.
         shared_ptr<string> emrClusterId_ {};
-        // The URL of the Hive Metastore.
+        // The Hive metastore URL.
         shared_ptr<string> metaStoreUri_ {};
-        // The security group ID.
+        // The ID of the security group.
         shared_ptr<string> securityGroup_ {};
-        // The vSwitch ID.
+        // The ID of the vSwitch.
         shared_ptr<string> vswitch_ {};
       };
 
@@ -497,7 +497,7 @@ namespace Models
 
 
       protected:
-        // The token that is used to access Databricks.
+        // The token used to access Databricks.
         shared_ptr<string> accessToken_ {};
         // The URL of the workspace.
         shared_ptr<string> workspaceURL_ {};
@@ -596,11 +596,11 @@ namespace Models
 
 
     protected:
-      // The time when the data source was created.
+      // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The information about Databricks.
+      // The Databricks information.
       shared_ptr<ApsDatasource::DatabricksInfo> databricksInfo_ {};
       // The description of the data source.
       shared_ptr<string> datasourceDescription_ {};
@@ -608,13 +608,13 @@ namespace Models
       shared_ptr<string> datasourceName_ {};
       // The type of the data source.
       shared_ptr<string> datasourceType_ {};
-      // The information about the Hive data source.
+      // The Hive data source information.
       shared_ptr<ApsDatasource::HiveInfo> hiveInfo_ {};
-      // The information about the Kafka instance.
+      // The Kafka instance information.
       shared_ptr<ApsDatasource::KafkaInfo> kafkaInfo_ {};
-      // The parameter is no longer supported.
+      // This parameter is no longer supported.
       shared_ptr<ApsDatasource::PolarDBMysqlInfo> polarDBMysqlInfo_ {};
-      // The parameter is no longer supported.
+      // This parameter is no longer supported.
       shared_ptr<ApsDatasource::RdsMysqlInfo> rdsMysqlInfo_ {};
       // The Simple Log Service (SLS) project.
       shared_ptr<ApsDatasource::SlsInfo> slsInfo_ {};
@@ -639,9 +639,9 @@ namespace Models
 
 
   protected:
-    // The queried APS data source.
+    // -
     shared_ptr<DescribeApsDatasourceResponseBody::ApsDatasource> apsDatasource_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

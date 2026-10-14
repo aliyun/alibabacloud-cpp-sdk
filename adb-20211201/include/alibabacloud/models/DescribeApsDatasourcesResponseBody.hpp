@@ -112,11 +112,11 @@ namespace Models
 
 
     protected:
-      // The time when the data source was created.
+      // The creation time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> createTime_ {};
       // The description of the data source.
       shared_ptr<string> datasourceDescription_ {};
-      // The data source ID.
+      // The ID of the data source.
       shared_ptr<int64_t> datasourceId_ {};
       // The name of the data source.
       shared_ptr<string> datasourceName_ {};
@@ -166,7 +166,7 @@ namespace Models
 
 
   protected:
-    // The queried APS data sources.
+    // The data sources.
     shared_ptr<vector<DescribeApsDatasourcesResponseBody::ApsDatasources>> apsDatasources_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -174,7 +174,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<string> totalCount_ {};
   };
 

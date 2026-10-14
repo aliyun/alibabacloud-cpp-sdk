@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The time when the permissions take effect.
+    // The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> createdTime_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The time when the permissions expire.
+    // The expiration time of the authorization. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> expiredTime_ {};
-    // The queried permissions.
+    // The authorization details.
     shared_ptr<string> privileges_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

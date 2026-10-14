@@ -157,25 +157,25 @@ namespace Models
 
 
     protected:
-      // The job ID.
+      // The ID of the task.
       shared_ptr<string> apsJobId_ {};
-      // The name of the APS job.
+      // The name of the task.
       shared_ptr<string> apsJobName_ {};
-      // The time when the APS job was created.
+      // The creation time in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> createTime_ {};
       // The synchronization latency.
       shared_ptr<int64_t> delay_ {};
-      // The destination cluster ID.
+      // The destination instance ID.
       shared_ptr<string> destinationInstanceID_ {};
       // The error message.
       shared_ptr<string> errMessage_ {};
       // The progress.
       shared_ptr<string> projress_ {};
-      // The ID of the source instance or cluster.
+      // The source instance ID.
       shared_ptr<string> sourceInstanceID_ {};
-      // The status of the APS job.
-      shared_ptr<string> status_ {};
       // The status of the task.
+      shared_ptr<string> status_ {};
+      // The status of the subtask.
       shared_ptr<string> subStatus_ {};
     };
 
@@ -248,16 +248,15 @@ namespace Models
 
 
   protected:
-    // The queried APS jobs.
+    // The list of APS tasks.
     shared_ptr<vector<DescribeApsJobsResponseBody::APSJobs>> APSJobs_ {};
-    // The HTTP status code.
+    // The backend error code.
     shared_ptr<string> code_ {};
-    // The status code. A value of 200 indicates that the request was successful.
+    // The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - If the request is successful, **Success** is returned. 
+    // - If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
@@ -265,12 +264,11 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

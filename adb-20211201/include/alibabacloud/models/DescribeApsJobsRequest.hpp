@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The name of the APS job.
+    // The name of the task.
     shared_ptr<string> apsJobName_ {};
-    // The end of the time range to query.
+    // The end time of creation.
     shared_ptr<string> createTimeEnd_ {};
-    // The beginning of the time range to query.
+    // The start time of creation.
     shared_ptr<string> createTimeStart_ {};
     // The page number.
     // 

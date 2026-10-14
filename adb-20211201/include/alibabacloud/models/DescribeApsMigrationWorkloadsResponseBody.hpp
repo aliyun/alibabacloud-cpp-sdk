@@ -158,27 +158,27 @@ namespace Models
 
 
     protected:
-      // The number of AnalyticDB compute units (ACUs).
+      // The number of ACUs.
       shared_ptr<int32_t> acuCount_ {};
-      // The time when the job was created.
+      // The time when the task was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
       shared_ptr<string> createTime_ {};
       // The error message.
       shared_ptr<string> failedMsg_ {};
-      // The job ID.
+      // The task ID.
       shared_ptr<string> id_ {};
       // The maximum response time.
       shared_ptr<string> maxRT_ {};
-      // The time when the migration job was modified.
+      // The time when the task was modified. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
       shared_ptr<string> modifyTime_ {};
-      // The name of the workload.
+      // The name.
       shared_ptr<string> name_ {};
-      // The OSS URL.
+      // The OSS address.
       shared_ptr<string> ossLocation_ {};
       // The status.
       shared_ptr<string> state_ {};
       // The destination type.
       shared_ptr<string> targetType_ {};
-      // The sub-type of the workload.
+      // The subtask type.
       shared_ptr<string> workloadSubType_ {};
     };
 
@@ -222,15 +222,15 @@ namespace Models
 
 
   protected:
-    // The queried migration workloads.
+    // The list of migration workloads.
     shared_ptr<vector<DescribeApsMigrationWorkloadsResponseBody::MigrationWorkloads>> migrationWorkloads_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

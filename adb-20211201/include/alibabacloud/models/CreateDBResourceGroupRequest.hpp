@@ -130,13 +130,14 @@ namespace Models
       shared_ptr<string> groupName_ {};
       // The query execution time threshold, in milliseconds (ms).
       shared_ptr<string> queryTime_ {};
-      // The name of the destination resource group.
+      // The name of the target resource group.
       shared_ptr<string> targetGroupName_ {};
     };
 
     class RayConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RayConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthToken, authToken_);
         DARABONBA_PTR_TO_JSON(Category, category_);
         DARABONBA_PTR_TO_JSON(EnableUserEni, enableUserEni_);
         DARABONBA_PTR_TO_JSON(HeadAllocateUnit, headAllocateUnit_);
@@ -148,6 +149,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WorkerGroups, workerGroups_);
       };
       friend void from_json(const Darabonba::Json& j, RayConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthToken, authToken_);
         DARABONBA_PTR_FROM_JSON(Category, category_);
         DARABONBA_PTR_FROM_JSON(EnableUserEni, enableUserEni_);
         DARABONBA_PTR_FROM_JSON(HeadAllocateUnit, headAllocateUnit_);
@@ -263,7 +265,7 @@ namespace Models
         shared_ptr<int32_t> minWorkerQuantity_ {};
         // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
-        // The specification of the worker node.
+        // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
         // The resource type of the worker node.
         shared_ptr<string> workerSpecType_ {};
@@ -321,9 +323,16 @@ namespace Models
         shared_ptr<string> storageName_ {};
       };
 
-      virtual bool empty() const override { return this->category_ == nullptr
-        && this->enableUserEni_ == nullptr && this->headAllocateUnit_ == nullptr && this->headDiskCapacity_ == nullptr && this->headSpec_ == nullptr && this->headSpecType_ == nullptr
-        && this->storageMounts_ == nullptr && this->userDefinedRequirements_ == nullptr && this->workerGroups_ == nullptr; };
+      virtual bool empty() const override { return this->authToken_ == nullptr
+        && this->category_ == nullptr && this->enableUserEni_ == nullptr && this->headAllocateUnit_ == nullptr && this->headDiskCapacity_ == nullptr && this->headSpec_ == nullptr
+        && this->headSpecType_ == nullptr && this->storageMounts_ == nullptr && this->userDefinedRequirements_ == nullptr && this->workerGroups_ == nullptr; };
+      // authToken Field Functions 
+      bool hasAuthToken() const { return this->authToken_ != nullptr;};
+      void deleteAuthToken() { this->authToken_ = nullptr;};
+      inline string getAuthToken() const { DARABONBA_PTR_GET_DEFAULT(authToken_, "") };
+      inline RayConfig& setAuthToken(string authToken) { DARABONBA_PTR_SET_VALUE(authToken_, authToken) };
+
+
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -392,23 +401,26 @@ namespace Models
 
 
     protected:
+      // The Ray authentication token.
+      shared_ptr<string> authToken_ {};
       // The Ray cluster type. Valid values:
       // 
-      // - BASIC: the basic type, which is non-highly available.
+      // - BASIC: basic type, non-high-availability.
       // 
-      // - HIGH_AVAILABILITY: the highly available type.
+      // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
-      // Specifies whether to enable user Elastic Network Interface (ENI) connectivity.
+      // Specifies whether to enable user ENI connectivity.
       shared_ptr<bool> enableUserEni_ {};
       // The allocation unit of the head node.
       shared_ptr<string> headAllocateUnit_ {};
       // The disk size of the head node.
       shared_ptr<string> headDiskCapacity_ {};
-      // The specification of the head node.
+      // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
       // The resource type of the head node.
       shared_ptr<string> headSpecType_ {};
       shared_ptr<vector<RayConfig::StorageMounts>> storageMounts_ {};
+      // The custom Python dependencies for RayCluster. The content follows the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line can be up to 512 characters in length. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
       shared_ptr<string> userDefinedRequirements_ {};
       // The list of Ray worker group configurations.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
@@ -473,9 +485,9 @@ namespace Models
 
 
       protected:
-        // The end time as a cron expression. The interval must be at least 1 hour.
+        // The end time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> endCronExpression_ {};
-        // The start time as a cron expression. The interval must be at least 1 hour.
+        // The start time, specified as a cron expression. The interval must be at least 1 hour.
         shared_ptr<string> startCronExpression_ {};
       };
 
@@ -628,17 +640,17 @@ namespace Models
     protected:
       // The number of authentication nodes.
       shared_ptr<int32_t> authNodeNum_ {};
-      // The authentication node specification ([0-9+]ACU).
+      // The node specifications of authentication nodes ([0-9+]ACU).
       shared_ptr<string> authNodeSpec_ {};
       // The number of insert nodes.
       shared_ptr<int32_t> insertNodeNum_ {};
-      // The insert node specification ([0-9+]ACU).
+      // The node specifications of insert nodes ([0-9+]ACU).
       shared_ptr<string> insertNodeSpec_ {};
       // The cache size of query nodes (GB).
       shared_ptr<int32_t> selectNodeCacheSize_ {};
       // The number of query nodes.
       shared_ptr<int32_t> selectNodeNum_ {};
-      // The query node specification ([0-9+]ACU).
+      // The node specifications of query nodes ([0-9+]ACU).
       shared_ptr<string> selectNodeSpec_ {};
       // The disk size of storage nodes.
       shared_ptr<int32_t> storageNodeDiskSize_ {};
@@ -646,7 +658,7 @@ namespace Models
       shared_ptr<string> storageNodeDiskType_ {};
       // The number of storage nodes.
       shared_ptr<int32_t> storageNodeNum_ {};
-      // The storage node specification ([0-9+]ACU).
+      // The node specifications of storage nodes ([0-9+]ACU).
       shared_ptr<string> storageNodeSpec_ {};
     };
 
@@ -837,7 +849,7 @@ namespace Models
   protected:
     // The PromQL resource group configuration.
     shared_ptr<CreateDBResourceGroupRequest::AtmConfig> atmConfig_ {};
-    // The auto-stop interval, in minutes (m).
+    // The automatic stop interval, in minutes (m).
     shared_ptr<string> autoStopInterval_ {};
     // The classification of the resource group. Valid values:
     // - SQL
@@ -864,7 +876,7 @@ namespace Models
     shared_ptr<string> engine_ {};
     // The engine configuration.
     Darabonba::Json engineParams_ {};
-    // The GPU time-based elastic plan.
+    // The GPU time-sharing elastic plan.
     shared_ptr<CreateDBResourceGroupRequest::GpuElasticPlan> gpuElasticPlan_ {};
     // The name of the resource group.
     // - The name can be up to 255 characters in length.
@@ -876,15 +888,15 @@ namespace Models
     // The type of the resource group. Valid values:
     // - **Interactive**
     // - **Job**
-    // > For more information about Data Lakehouse Edition resource groups, see [Introduction to resource groups (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+    // > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
     // 
     // This parameter is required.
     shared_ptr<string> groupType_ {};
     // A reserved parameter (not applicable).
     shared_ptr<int32_t> maxClusterCount_ {};
     // The maximum reserved computing resources, in ACUs.
-    // - If the resource group type is Interactive, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 16 ACUs.
-    // - If the resource group type is Job, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 8 ACUs.
+    // - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 16 ACUs.
+    // - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 8 ACUs.
     shared_ptr<string> maxComputeResource_ {};
     // The maximum number of GPUs.
     shared_ptr<int32_t> maxGpuQuantity_ {};
@@ -906,13 +918,13 @@ namespace Models
     // The job routing rules.
     shared_ptr<vector<CreateDBResourceGroupRequest::Rules>> rules_ {};
     // The scaling policy of the resource group. Valid values:
-    // - AutoScaling: enables the AutoScaling auto-scaling policy.
-    // - Disable: disables auto-scaling.
-    // - MultiCluster: enables the MultiCluster auto-scaling policy.
+    // - AutoScaling: enables the AutoScaling automatic scaling policy.
+    // - Disable: disables automatic scaling.
+    // - MultiCluster: enables the MultiCluster automatic scaling policy.
     shared_ptr<string> scalePolicy_ {};
     // The specification name.
     shared_ptr<string> specName_ {};
-    // The name of the destination resource group.
+    // The name of the target resource group.
     shared_ptr<string> targetResourceGroupName_ {};
   };
 

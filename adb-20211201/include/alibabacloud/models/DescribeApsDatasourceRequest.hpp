@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The ADB instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The data source ID.
+    // The ID of the data source.
     // 
     // This parameter is required.
     shared_ptr<int64_t> datasourceId_ {};

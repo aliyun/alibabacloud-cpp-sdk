@@ -152,29 +152,28 @@ namespace Models
 
     protected:
       // The application ID.
-      // 
-      // >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+      // > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
       shared_ptr<string> appId_ {};
-      // The execution duration of the query. Unit: milliseconds.
+      // The actual running time. Unit: milliseconds.
       shared_ptr<int64_t> elapsedTime_ {};
-      // The ID of the query executed within the Spark application.
+      // The internal query execution ID within the Spark application.
       shared_ptr<int64_t> innerQueryId_ {};
-      // The maximum operator execution duration. Unit: milliseconds.
+      // The maximum operator execution time. Unit: milliseconds.
       shared_ptr<int64_t> maxExclusiveTime_ {};
-      // The maximum operator memory used. Unit: bytes.
+      // The maximum operator memory consumption. Unit: bytes.
       shared_ptr<int64_t> peakMemory_ {};
       // The SQL statement.
       shared_ptr<string> SQL_ {};
-      // The number of entries scanned.
+      // The number of scanned rows.
       shared_ptr<int64_t> scanRowCount_ {};
-      // The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
+      // The start time of the query. Format: <i>yyyy-MM-ddTHH:mmZ</i> (UTC time).
       shared_ptr<string> startTime_ {};
-      // The execution status of the query. Valid values:
+      // The final execution state of the query. Valid values:
       // 
-      // *   COMPLETED
-      // *   CANCELED
-      // *   ABORTED
-      // *   FAILED
+      // - COMPLETED: The query is completed.
+      // - CANCELED: The query is canceled.
+      // - ABORTED: The query is aborted.
+      // - FAILED: The query failed.
       shared_ptr<string> state_ {};
       // The unique ID of the code block in the Spark job.
       shared_ptr<int64_t> statementId_ {};
@@ -227,7 +226,7 @@ namespace Models
 
 
   protected:
-    // The information about the request denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -235,9 +234,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried diagnostic information.
+    // The SQL diagnostics information collection.
     shared_ptr<vector<DescribeSparkSQLDiagnosisListResponseBody::SQLDiagnosisList>> SQLDiagnosisList_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

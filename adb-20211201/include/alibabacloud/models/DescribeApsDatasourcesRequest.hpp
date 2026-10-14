@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The ADB instance ID. This parameter is required. You can invoke the DescribeDBClusters operation to query the cluster ID in the specified region.
     shared_ptr<string> DBClusterId_ {};
     // The name of the data source.
     shared_ptr<string> datasourceName_ {};
     // The type of the data source.
     shared_ptr<string> datasourceType_ {};
-    // The end of the time range to query.
+    // The end date. Format: yyyy-MM-dd.
     shared_ptr<string> endTime_ {};
     // The page number.
     // 
@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query.
+    // The start date. Format: yyyy-MM-dd.
     shared_ptr<string> startTime_ {};
   };
 

@@ -251,56 +251,63 @@ namespace Models
 
 
     protected:
-      // Allowed operation information. When used specifically, matches operation Action based on currentStepName+status in this information. If no Action is matched, represents task current status does not support operations.
+      // The allowed operation information. When you use this parameter, the system matches the operation action based on the currentStepName and status in this information. If no action is matched, the current task status does not support the operation.
       shared_ptr<string> actionInfo_ {};
-      // null
+      // The ID of the requesting user. If callerSource is User, it represents the user UID.
       shared_ptr<string> callerSource_ {};
-      // null
+      // The request source. Valid values:
       // 
-      // *   **null**
-      // *   **null**
+      // - **System**: System.
+      // 
+      // - **User**: User.
       shared_ptr<string> callerUid_ {};
-      // Current executing step name. If empty, represents task has not started.
+      // The name of the current step. If this parameter is empty, the task has not started.
       shared_ptr<string> currentStepName_ {};
-      // The database engine type.
+      // The database type.
       shared_ptr<string> dbType_ {};
-      // Task end time.
+      // The end time of the task. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
       shared_ptr<string> endTime_ {};
-      // Cluster ID.
+      // The cluster ID.
       shared_ptr<string> instanceId_ {};
-      // The instance ID.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
-      // Instance type.
+      // The instance type.
       shared_ptr<string> instanceType_ {};
-      // The service name.
+      // The product.
       shared_ptr<string> product_ {};
-      // Indicates the task progress.
+      // The current progress.
       shared_ptr<float> progress_ {};
-      // The reason why the current task was initiated.
+      // The reason why the current task is initiated.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // Estimated remaining execution time, in seconds.
+      // The estimated remaining execution time. Unit: seconds.
       shared_ptr<int32_t> remainTime_ {};
-      // Task start time.
+      // The start time of the task. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
       shared_ptr<string> startTime_ {};
-      // Task status. Valid values:
+      // The task status. Valid values:
       // 
-      // *   **Scheduled**
-      // *   **Running**
-      // *   **Succeed**
-      // *   **Failed**: The task failed.
-      // *   **Cancelling**
-      // *   **Canceled**
-      // *   **Waiting**
+      // - **Scheduled**: Pending execution.
+      // 
+      // - **Running**: Running.
+      // 
+      // - **Succeed**: Succeeded.
+      // 
+      // - **Failed**: Failed.
+      // 
+      // - **Cancelling**: Being canceled.
+      // 
+      // - **Canceled**: Canceled.
+      // 
+      // - **Waiting**: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The task details.
       shared_ptr<string> taskDetail_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // Task type.
+      // The task type.
       shared_ptr<string> taskType_ {};
-      // null
+      // The ID of the user to which the resource belongs.
       shared_ptr<string> uid_ {};
     };
 
@@ -388,28 +395,26 @@ namespace Models
 
 
     protected:
-      // null
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // null
+      // The display name of the authorization principal.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // null
+      // The Alibaba Cloud account ID of the authentication principal.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // null
+      // The type of the authorization principal.
       shared_ptr<string> authPrincipalType_ {};
-      // null
+      // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // null
-      // 
-      // *   **null**
-      // *   **null**
+      // The type of the access policy denial. Valid values:
+      // - **ImplicitDeny**: The resource owner has not configured a relevant access policy for the current user, and unauthorized operations are denied by default.
+      // - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user from accessing the corresponding resource.
       shared_ptr<string> noPermissionType_ {};
-      // null
-      // 
-      // *   **null**
-      // *   **null**
-      // *   **null**
-      // *   **null**
-      // *   **null**
+      // The type of the policy that causes the permission denial. Valid values:
+      // - **ControlPolicy**: Control policy.
+      // - **SessionPolicy**: Session policy, which is an additional permission policy added to a temporary token.
+      // - **AssumeRolePolicy**: Assume role policy, which is the trust policy of a RAM role.
+      // - **AccountLevelIdentityBasedPolicy**: Account-level identity-access policy, which includes custom policies and system policies.
+      // - **ResourceGroupLevelIdentityBasedPolicy**: Resource group-level identity-access policy, which includes custom policies and system policies.
       shared_ptr<string> policyType_ {};
     };
 
@@ -491,31 +496,29 @@ namespace Models
 
 
   protected:
-    // null
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<DescribeHistoryTasksResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The HTTP status code that is returned.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The task list.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The returned message. null
-    // 
-    // *   null****
-    // *   null
+    // The additional information about the call result. Valid values:
+    // - If the request is normal, **Success** is returned. 
+    // - If the request is abnormal, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number of the query result.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call is successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
-    // Total record count.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

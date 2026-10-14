@@ -181,13 +181,13 @@ namespace Models
 
 
       protected:
-        // The time when the file was added to the knowledge base.
+        // The time when the file was added to the knowledge base. The format is yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createdAt_ {};
         // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
-        // The size of the file, in bytes.
+        // The size of the file.
         shared_ptr<int64_t> fileSizeBytes_ {};
-        // The Object Storage Service (OSS) URL of the file.
+        // The OSS URL of the file.
         shared_ptr<string> fileUrl_ {};
         // The format of the file.
         shared_ptr<string> format_ {};
@@ -197,7 +197,7 @@ namespace Models
         shared_ptr<int64_t> ownerFileId_ {};
         // The total number of pages in the file, such as the number of pages in a PDF file.
         shared_ptr<int32_t> pageCount_ {};
-        // The processing message of the knowledge base file.
+        // The processing information of the knowledge base file.
         shared_ptr<string> processMessage_ {};
         // The status of the file in the knowledge base. Valid values:
         // 
@@ -205,7 +205,7 @@ namespace Models
         // 
         // - Finished: The file has been processed.
         shared_ptr<string> processStatus_ {};
-        // The time when the file was last updated.
+        // The update time. The format is yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -258,7 +258,7 @@ namespace Models
     protected:
       // The list of file information.
       shared_ptr<vector<Data::Files>> files_ {};
-      // The message returned by the request.
+      // The message returned for the request.
       shared_ptr<string> message_ {};
       // The current page number.
       shared_ptr<int32_t> page_ {};
@@ -268,7 +268,7 @@ namespace Models
       // - **true**: The request was successful.
       // - **false**: The request failed.
       shared_ptr<bool> success_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
