@@ -348,14 +348,9 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<int64_t> createdAt_ {};
-      // The detailed description of the anomaly item.
+      // The description of the anomaly item.
       shared_ptr<string> description_ {};
-      // The diagnostic status. Valid values:
-      // - 1: diagnosis ready.
-      // - 2: diagnosis in progress.
-      // - 3: diagnosis completed.
-      // - 4: not diagnosable.
-      // - 5: diagnosis failed.
+      // The diagnostic status. Valid values: 1: the diagnosis is ready. 2: the diagnosis is running. 3: the diagnosis is complete. 4: the item is not diagnosable. 5: the diagnosis failed.
       shared_ptr<int32_t> diagStatus_ {};
       // The end time of the anomaly event.
       shared_ptr<int64_t> endAt_ {};
@@ -415,12 +410,12 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization was successful.
+    // - `code == Success` indicates that the authorization is successful.
     // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<vector<ListAbnormalyEventsResponseBody::Data>> data_ {};
-    // The error code description. This value is empty if no error occurred.
+    // The error code description. This field is empty if no error occurs.
     shared_ptr<string> message_ {};
     // The total number of records.
     shared_ptr<int32_t> total_ {};

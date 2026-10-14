@@ -13,7 +13,6 @@ namespace Models
   class ListInstanceInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstanceInfoRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(infoType, infoType_);
       DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(managedType, managedType_);
@@ -21,10 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(pluginId, pluginId_);
       DARABONBA_PTR_TO_JSON(region, region_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstanceInfoRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(infoType, infoType_);
       DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(managedType, managedType_);
@@ -32,7 +29,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(pluginId, pluginId_);
       DARABONBA_PTR_FROM_JSON(region, region_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListInstanceInfoRequest() = default ;
     ListInstanceInfoRequest(const ListInstanceInfoRequest &) = default ;
@@ -45,16 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->infoType_ == nullptr && this->instanceType_ == nullptr && this->managedType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->pluginId_ == nullptr && this->region_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline ListInstanceInfoRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->infoType_ == nullptr
+        && this->instanceType_ == nullptr && this->managedType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pluginId_ == nullptr
+        && this->region_ == nullptr; };
     // infoType Field Functions 
     bool hasInfoType() const { return this->infoType_ != nullptr;};
     void deleteInfoType() { this->infoType_ = nullptr;};
@@ -104,15 +93,7 @@ namespace Models
     inline ListInstanceInfoRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline ListInstanceInfoRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     // The information type.
     shared_ptr<string> infoType_ {};
     // The instance type.
@@ -127,7 +108,6 @@ namespace Models
     shared_ptr<string> pluginId_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

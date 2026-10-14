@@ -97,7 +97,7 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
+    // - `code == Success` indicates that the authorization was successful.
     // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
@@ -106,13 +106,13 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error information for the request.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The maximum number of records returned by this request based on MaxResults.
+    // The maximum number of records returned by MaxResults for this request.
     shared_ptr<int32_t> total_ {};
   };
 

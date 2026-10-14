@@ -287,13 +287,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetHotspotCompareResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the API call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // - true: The API call was successful.
+    // - false: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

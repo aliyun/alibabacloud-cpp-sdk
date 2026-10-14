@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The task ID. You can use this task ID to call GetAgentTask to query the execution status of the task.
+      // The task ID. You can use this task ID to call the GetAgentTasK operation to query the execution status of the task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -103,7 +103,7 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
+    // - `code == Success` indicates that the authorization was successful.
     // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.

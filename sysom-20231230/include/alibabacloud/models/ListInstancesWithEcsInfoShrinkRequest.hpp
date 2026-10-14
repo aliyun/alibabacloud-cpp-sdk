@@ -13,7 +13,6 @@ namespace Models
   class ListInstancesWithEcsInfoShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesWithEcsInfoShrinkRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(health_status, healthStatus_);
       DARABONBA_PTR_TO_JSON(instance_id, instanceId_);
@@ -29,10 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(resource_group_id_name, resourceGroupIdName_);
       DARABONBA_PTR_TO_JSON(resource_group_name, resourceGroupName_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesWithEcsInfoShrinkRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(health_status, healthStatus_);
       DARABONBA_PTR_FROM_JSON(instance_id, instanceId_);
@@ -48,7 +45,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(resource_group_id, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(resource_group_id_name, resourceGroupIdName_);
       DARABONBA_PTR_FROM_JSON(resource_group_name, resourceGroupName_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListInstancesWithEcsInfoShrinkRequest() = default ;
     ListInstancesWithEcsInfoShrinkRequest(const ListInstancesWithEcsInfoShrinkRequest &) = default ;
@@ -61,18 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->current_ == nullptr && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->instanceIdName_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceTagShrink_ == nullptr && this->isManaged_ == nullptr && this->osName_ == nullptr && this->pageSize_ == nullptr && this->privateIp_ == nullptr
-        && this->publicIp_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdName_ == nullptr && this->resourceGroupName_ == nullptr
-        && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline ListInstancesWithEcsInfoShrinkRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->current_ == nullptr
+        && this->healthStatus_ == nullptr && this->instanceId_ == nullptr && this->instanceIdName_ == nullptr && this->instanceName_ == nullptr && this->instanceTagShrink_ == nullptr
+        && this->isManaged_ == nullptr && this->osName_ == nullptr && this->pageSize_ == nullptr && this->privateIp_ == nullptr && this->publicIp_ == nullptr
+        && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupIdName_ == nullptr && this->resourceGroupName_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -178,20 +166,12 @@ namespace Models
     inline ListInstancesWithEcsInfoShrinkRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline ListInstancesWithEcsInfoShrinkRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
-    // The page number for pagination. This parameter specifies the current page.
+    // The page number for pagination. This field indicates the current page.
     shared_ptr<int32_t> current_ {};
     // Filters instances by health status.
     shared_ptr<string> healthStatus_ {};
-    // Specifies an instance ID to filter the Agent installation status of the specified instance.
+    // Specifies the instance ID to filter the Agent installation status of the specified instance.
     shared_ptr<string> instanceId_ {};
     // Filters instances by instance name or instance ID. Fuzzy match is supported.
     shared_ptr<string> instanceIdName_ {};
@@ -199,7 +179,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // Filters instances by instance tag.
     shared_ptr<string> instanceTagShrink_ {};
-    // Filters instances by management status.
+    // Filters instances by managed status.
     shared_ptr<int32_t> isManaged_ {};
     // Filters instances by operating system name.
     shared_ptr<string> osName_ {};
@@ -219,7 +199,6 @@ namespace Models
     shared_ptr<string> resourceGroupIdName_ {};
     // Filters instances by resource group name.
     shared_ptr<string> resourceGroupName_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

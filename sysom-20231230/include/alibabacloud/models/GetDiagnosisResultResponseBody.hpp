@@ -171,11 +171,12 @@ namespace Models
       shared_ptr<string> errMsg_ {};
       // The diagnostic parameters.
       Darabonba::Json params_ {};
-      // The diagnostic result.
+      // The diagnostic results.
       Darabonba::Json result_ {};
       // The diagnostic type.
       shared_ptr<string> serviceName_ {};
       // The execution status of the diagnostic task.
+      // 
       // Valid values:
       // - **Ready**: Ready.
       // - **Running**: Running.
@@ -224,14 +225,14 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success`: The authorization is successful.
-    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
+    // - `code == Success` indicates that the authorization was successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetDiagnosisResultResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

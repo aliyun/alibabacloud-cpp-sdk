@@ -146,11 +146,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<ListInstanceInfoResponseBody::Data>> data_ {};
-    // The maximum number of entries returned per request.
+    // The maximum number of records returned in a single request.
     shared_ptr<int32_t> maxResults_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
     // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};

@@ -14,7 +14,6 @@ namespace Models
   class UpdateAlertDestinationRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateAlertDestinationRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(app_id, appId_);
       DARABONBA_PTR_TO_JSON(app_secret, appSecret_);
       DARABONBA_PTR_TO_JSON(group_id, groupId_);
@@ -24,10 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(params, params_);
       DARABONBA_PTR_TO_JSON(source, source_);
       DARABONBA_PTR_TO_JSON(target, target_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAlertDestinationRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(app_id, appId_);
       DARABONBA_PTR_FROM_JSON(app_secret, appSecret_);
       DARABONBA_PTR_FROM_JSON(group_id, groupId_);
@@ -37,7 +34,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(params, params_);
       DARABONBA_PTR_FROM_JSON(source, source_);
       DARABONBA_PTR_FROM_JSON(target, target_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     UpdateAlertDestinationRequest() = default ;
     UpdateAlertDestinationRequest(const UpdateAlertDestinationRequest &) = default ;
@@ -110,22 +106,15 @@ namespace Models
       shared_ptr<string> email_ {};
       // The phone number.
       shared_ptr<string> phone_ {};
-      // The secret key of the chatbot.
+      // The chatbot secret key.
       shared_ptr<string> sec_ {};
-      // The webhook URL of the chatbot.
+      // The webhook URL.
       shared_ptr<string> webhook_ {};
     };
 
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->appId_ == nullptr && this->appSecret_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->imbot_ == nullptr
-        && this->name_ == nullptr && this->params_ == nullptr && this->source_ == nullptr && this->target_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline UpdateAlertDestinationRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->appSecret_ == nullptr && this->groupId_ == nullptr && this->id_ == nullptr && this->imbot_ == nullptr && this->name_ == nullptr
+        && this->params_ == nullptr && this->source_ == nullptr && this->target_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -193,15 +182,7 @@ namespace Models
     inline UpdateAlertDestinationRequest& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline UpdateAlertDestinationRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     shared_ptr<string> appId_ {};
     shared_ptr<string> appSecret_ {};
     shared_ptr<vector<string>> groupId_ {};
@@ -214,9 +195,8 @@ namespace Models
     shared_ptr<UpdateAlertDestinationRequest::Params> params_ {};
     // The configuration source.
     shared_ptr<string> source_ {};
-    // The alert notification target. Currently, only DingTalk contacts are supported.
+    // The alert push target. Currently, only DingTalk contacts are supported.
     shared_ptr<string> target_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

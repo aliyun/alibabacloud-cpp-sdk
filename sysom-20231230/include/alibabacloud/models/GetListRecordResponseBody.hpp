@@ -159,7 +159,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<GetListRecordResponseBody::Data>> data_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

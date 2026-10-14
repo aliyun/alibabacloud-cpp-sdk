@@ -149,13 +149,13 @@ namespace Models
         shared_ptr<string> createdAt_ {};
         // The installation script of the component.
         shared_ptr<string> installScript_ {};
-        // The uninstallation script of the component.
+        // The uninstall script of the component.
         shared_ptr<string> uninstallScript_ {};
-        // The time when the component version was updated.
+        // The time when the component version was last updated.
         shared_ptr<string> updatedAt_ {};
-        // The update script of the component.
+        // The upgrade script of the component.
         shared_ptr<string> upgradeScript_ {};
-        // The component version number.
+        // The version number of the component.
         shared_ptr<string> version_ {};
       };
 
@@ -229,13 +229,13 @@ namespace Models
       shared_ptr<string> id_ {};
       // The component name.
       shared_ptr<string> name_ {};
-      // The supported architectures (multiple architectures are separated by commas).
+      // The supported architectures. Multiple architectures are separated by commas.
       shared_ptr<string> supportArch_ {};
       // The type of the component. Valid values:
       // - Control: control-type component.
       // - AI: AI component.
       shared_ptr<string> type_ {};
-      // The time when the component was updated.
+      // The time when the component was last updated.
       shared_ptr<string> updatedAt_ {};
       // The list of component versions.
       shared_ptr<vector<Data::Versions>> versions_ {};

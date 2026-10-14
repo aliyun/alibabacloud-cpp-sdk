@@ -85,11 +85,11 @@ namespace Models
     protected:
       // The chat content text.
       shared_ptr<string> content_ {};
-      // The time of the chat record. The value is of the string type.
+      // The chat record time, of the string type.
       shared_ptr<string> time_ {};
       // The role identifier. Valid values:
-      // - user: a user.
-      // - copilot: a bot.
+      // - user: the user.
+      // - copilot: the bot.
       shared_ptr<string> user_ {};
     };
 
@@ -128,7 +128,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The list of chat records. The length equals the requested count. If the actual chat records are fewer than the requested count, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}]
+    // The list of chat records. The length equals the requested number. If the actual chat records are fewer than the requested number, the actual number is returned. Format: [{"user":"","content":"".question,"time":""},{...}]
     shared_ptr<vector<GetCopilotHistoryResponseBody::Data>> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.

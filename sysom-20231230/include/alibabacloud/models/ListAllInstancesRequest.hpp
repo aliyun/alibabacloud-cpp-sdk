@@ -13,7 +13,6 @@ namespace Models
   class ListAllInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListAllInstancesRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(current, current_);
       DARABONBA_PTR_TO_JSON(filters, filters_);
       DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
@@ -23,10 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(pluginId, pluginId_);
       DARABONBA_PTR_TO_JSON(region, region_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListAllInstancesRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(current, current_);
       DARABONBA_PTR_FROM_JSON(filters, filters_);
       DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
@@ -36,7 +33,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(pluginId, pluginId_);
       DARABONBA_PTR_FROM_JSON(region, region_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListAllInstancesRequest() = default ;
     ListAllInstancesRequest(const ListAllInstancesRequest &) = default ;
@@ -49,16 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->current_ == nullptr && this->filters_ == nullptr && this->instanceType_ == nullptr && this->managedType_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->pluginId_ == nullptr && this->region_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline ListAllInstancesRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->current_ == nullptr
+        && this->filters_ == nullptr && this->instanceType_ == nullptr && this->managedType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->pageSize_ == nullptr && this->pluginId_ == nullptr && this->region_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};
@@ -122,15 +111,7 @@ namespace Models
     inline ListAllInstancesRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline ListAllInstancesRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     // The current page number.
     shared_ptr<string> current_ {};
     // The list of filter conditions.
@@ -139,7 +120,7 @@ namespace Models
     shared_ptr<string> instanceType_ {};
     // The management type.
     shared_ptr<string> managedType_ {};
-    // The maximum number of records to retrieve in a single request.
+    // The maximum number of entries to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     // > If this parameter is not empty, more data is available.
@@ -150,7 +131,6 @@ namespace Models
     shared_ptr<string> pluginId_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

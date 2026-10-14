@@ -14,16 +14,12 @@ namespace Models
   class StartAIDiffAnalysisRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const StartAIDiffAnalysisRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(task1, task1_);
       DARABONBA_PTR_TO_JSON(task2, task2_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, StartAIDiffAnalysisRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(task1, task1_);
       DARABONBA_PTR_FROM_JSON(task2, task2_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     StartAIDiffAnalysisRequest() = default ;
     StartAIDiffAnalysisRequest(const StartAIDiffAnalysisRequest &) = default ;
@@ -98,7 +94,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> analysisId_ {};
-      // The process IDs (PIDs) of AI job processes. Batch input is supported with comma-separated values.
+      // The PIDs of AI job processes. You can specify multiple PIDs separated by commas.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> pids_ {};
@@ -172,7 +168,7 @@ namespace Models
     protected:
       // The AI analysis ID.
       shared_ptr<string> analysisId_ {};
-      // The process IDs (PIDs) of AI job processes. Batch input is supported with comma-separated values.
+      // The PIDs of AI job processes. You can specify multiple PIDs separated by commas.
       shared_ptr<vector<string>> pids_ {};
       // The step end time, calculated based on the selected step number.
       shared_ptr<float> stepEnd_ {};
@@ -180,15 +176,8 @@ namespace Models
       shared_ptr<float> stepStart_ {};
     };
 
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->task1_ == nullptr && this->task2_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline StartAIDiffAnalysisRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->task1_ == nullptr
+        && this->task2_ == nullptr; };
     // task1 Field Functions 
     bool hasTask1() const { return this->task1_ != nullptr;};
     void deleteTask1() { this->task1_ = nullptr;};
@@ -207,15 +196,7 @@ namespace Models
     inline StartAIDiffAnalysisRequest& setTask2(StartAIDiffAnalysisRequest::Task2 && task2) { DARABONBA_PTR_SET_RVALUE(task2_, task2) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline StartAIDiffAnalysisRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     // The task1 parameters.
     // 
     // This parameter is required.
@@ -224,7 +205,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<StartAIDiffAnalysisRequest::Task2> task2_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

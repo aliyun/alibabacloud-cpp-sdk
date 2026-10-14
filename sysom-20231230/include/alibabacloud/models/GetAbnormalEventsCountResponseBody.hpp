@@ -85,9 +85,9 @@ namespace Models
     protected:
       // The list of abnormal events.
       shared_ptr<vector<string>> eventList_ {};
-      // The type of the abnormal event.
+      // The type of the abnormality.
       shared_ptr<string> type_ {};
-      // The number of abnormal events of this type.
+      // The number of abnormalities of this type.
       shared_ptr<int64_t> value_ {};
     };
 

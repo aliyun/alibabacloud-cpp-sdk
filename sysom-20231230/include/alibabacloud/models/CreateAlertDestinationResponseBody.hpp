@@ -128,7 +128,7 @@ namespace Models
         shared_ptr<string> email_ {};
         // The phone number.
         shared_ptr<string> phone_ {};
-        // The secret key of the chatbot.
+        // The chatbot secret key.
         shared_ptr<string> sec_ {};
         // The webhook URL of the chatbot.
         shared_ptr<string> webhook_ {};
@@ -196,7 +196,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the contact was created.
       shared_ptr<int64_t> createdAt_ {};
       // The policy ID.
       shared_ptr<int32_t> id_ {};
@@ -210,7 +210,7 @@ namespace Models
       shared_ptr<string> target_ {};
       // The user ID.
       shared_ptr<string> uid_ {};
-      // The update time.
+      // The time when the contact was last updated.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<CreateAlertDestinationResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error message for the request.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -37,13 +37,13 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
+ * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
  *
- * @description >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
- * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+ * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+ * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
  * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
  * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
- * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
+ * - When you invoke this operation to authorize diagnostics on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
  *
  * @param request AuthDiagnosisRequest
  * @param headers map
@@ -52,15 +52,6 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  */
 AuthDiagnosisResponse Client::authDiagnosisWithOptions(const AuthDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAutoCreateRole()) {
     body["autoCreateRole"] = request.getAutoCreateRole();
@@ -76,7 +67,6 @@ AuthDiagnosisResponse Client::authDiagnosisWithOptions(const AuthDiagnosisReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -94,13 +84,13 @@ AuthDiagnosisResponse Client::authDiagnosisWithOptions(const AuthDiagnosisReques
 }
 
 /**
- * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
+ * @summary Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
  *
- * @description >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
- * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+ * @description >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+ * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
  * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
  * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
- * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
+ * - When you invoke this operation to authorize diagnostics on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
  *
  * @param request AuthDiagnosisRequest
  * @return AuthDiagnosisResponse
@@ -112,7 +102,76 @@ AuthDiagnosisResponse Client::authDiagnosis(const AuthDiagnosisRequest &request)
 }
 
 /**
- * @summary Checks whether a target instance is supported by SysOM.
+ * @summary Checks whether resources such as clusters and nodes support the current configuration.
+ *
+ * @description The instance list retrieved by this operation contains only machines managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+ *
+ * @param request CheckAgentConfigSupportedRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAgentConfigSupportedResponse
+ */
+CheckAgentConfigSupportedResponse Client::checkAgentConfigSupportedWithOptions(const CheckAgentConfigSupportedRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasCheckType()) {
+    query["checkType"] = request.getCheckType();
+  }
+
+  if (!!request.hasClusters()) {
+    query["clusters"] = request.getClusters();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["configId"] = request.getConfigId();
+  }
+
+  if (!!request.hasContent()) {
+    query["content"] = request.getContent();
+  }
+
+  if (!!request.hasInstances()) {
+    query["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckAgentConfigSupported"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/checkAgentConfigSupported")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAgentConfigSupportedResponse>();
+}
+
+/**
+ * @summary Checks whether resources such as clusters and nodes support the current configuration.
+ *
+ * @description The instance list retrieved by this operation contains only machines managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+ *
+ * @param request CheckAgentConfigSupportedRequest
+ * @return CheckAgentConfigSupportedResponse
+ */
+CheckAgentConfigSupportedResponse Client::checkAgentConfigSupported(const CheckAgentConfigSupportedRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkAgentConfigSupportedWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Checks whether target instances are supported by SysOM.
  *
  * @description The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -123,15 +182,6 @@ AuthDiagnosisResponse Client::authDiagnosis(const AuthDiagnosisRequest &request)
  */
 CheckInstanceSupportResponse Client::checkInstanceSupportWithOptions(const CheckInstanceSupportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasInstances()) {
     body["instances"] = request.getInstances();
@@ -143,7 +193,6 @@ CheckInstanceSupportResponse Client::checkInstanceSupportWithOptions(const Check
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -161,7 +210,7 @@ CheckInstanceSupportResponse Client::checkInstanceSupportWithOptions(const Check
 }
 
 /**
- * @summary Checks whether a target instance is supported by SysOM.
+ * @summary Checks whether target instances are supported by SysOM.
  *
  * @description The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -184,15 +233,6 @@ CheckInstanceSupportResponse Client::checkInstanceSupport(const CheckInstanceSup
  */
 FutureGenerator<CpuHighAgentStreamResponseResponse> Client::cpuHighAgentStreamResponseWithSSE(const CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasLlmParamString()) {
     body["llmParamString"] = request.getLlmParamString();
@@ -200,7 +240,6 @@ FutureGenerator<CpuHighAgentStreamResponseResponse> Client::cpuHighAgentStreamRe
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -241,15 +280,6 @@ return Darabonba::FutureGenerator<json>(__retrun);
  */
 CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponseWithOptions(const CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasLlmParamString()) {
     body["llmParamString"] = request.getLlmParamString();
@@ -257,7 +287,6 @@ CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponseWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -287,6 +316,59 @@ CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponse(const CpuH
 }
 
 /**
+ * @summary Creates a component configuration.
+ *
+ * @param request CreateAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentConfigResponse
+ */
+CreateAgentConfigResponse Client::createAgentConfigWithOptions(const CreateAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasConfigName()) {
+    body["configName"] = request.getConfigName();
+  }
+
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/createAgentConfig")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentConfigResponse>();
+}
+
+/**
+ * @summary Creates a component configuration.
+ *
+ * @param request CreateAgentConfigRequest
+ * @return CreateAgentConfigResponse
+ */
+CreateAgentConfigResponse Client::createAgentConfig(const CreateAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAgentConfigWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a contact for alert notifications.
  *
  * @param request CreateAlertDestinationRequest
@@ -296,15 +378,6 @@ CpuHighAgentStreamResponseResponse Client::cpuHighAgentStreamResponse(const CpuH
  */
 CreateAlertDestinationResponse Client::createAlertDestinationWithOptions(const CreateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAppId()) {
     body["app_id"] = request.getAppId();
@@ -340,7 +413,6 @@ CreateAlertDestinationResponse Client::createAlertDestinationWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -379,15 +451,6 @@ CreateAlertDestinationResponse Client::createAlertDestination(const CreateAlertD
  */
 CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasEnabled()) {
     body["enabled"] = request.getEnabled();
@@ -407,7 +470,6 @@ CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateA
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -439,9 +501,9 @@ CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrateg
 /**
  * @summary Creates a VPC endpoint connection for a cluster.
  *
- * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
- * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
- * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
+ * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+ * - Populate the parameters based on the input parameters of the general LLM service, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned string to a dictionary before use. Refer to the response format of the general LLM service.
  *
  * @param request CreateClusterVpcEndpointConnectionRequest
  * @param headers map
@@ -450,15 +512,6 @@ CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrateg
  */
 CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConnectionWithOptions(const CreateClusterVpcEndpointConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasClusterId()) {
     body["clusterId"] = request.getClusterId();
@@ -474,7 +527,6 @@ CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConne
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -494,9 +546,9 @@ CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConne
 /**
  * @summary Creates a VPC endpoint connection for a cluster.
  *
- * @description - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
- * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
- * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
+ * @description - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+ * - Populate the parameters based on the input parameters of the general LLM service, convert them to a string, and assign the string to llmParamString.
+ * - Convert the returned string to a dictionary before use. Refer to the response format of the general LLM service.
  *
  * @param request CreateClusterVpcEndpointConnectionRequest
  * @return CreateClusterVpcEndpointConnectionResponse
@@ -517,15 +569,6 @@ CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConne
  */
 CreateInstanceInspectionResponse Client::createInstanceInspectionWithOptions(const CreateInstanceInspectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasInstance()) {
     body["instance"] = request.getInstance();
@@ -549,7 +592,6 @@ CreateInstanceInspectionResponse Client::createInstanceInspectionWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -579,7 +621,7 @@ CreateInstanceInspectionResponse Client::createInstanceInspection(const CreateIn
 }
 
 /**
- * @summary Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
+ * @summary Creates an intelligent breakdown diagnostic node to diagnose the vmcore or dmesg log file specified in the input parameters.
  *
  * @param request CreateVmcoreDiagnosisTaskRequest
  * @param headers map
@@ -588,15 +630,6 @@ CreateInstanceInspectionResponse Client::createInstanceInspection(const CreateIn
  */
 CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTaskWithOptions(const CreateVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasDebuginfoCommonUrl()) {
     body["debuginfoCommonUrl"] = request.getDebuginfoCommonUrl();
@@ -620,7 +653,6 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTaskWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -638,7 +670,7 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTaskWithOptions(c
 }
 
 /**
- * @summary Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
+ * @summary Creates an intelligent breakdown diagnostic node to diagnose the vmcore or dmesg log file specified in the input parameters.
  *
  * @param request CreateVmcoreDiagnosisTaskRequest
  * @return CreateVmcoreDiagnosisTaskResponse
@@ -647,6 +679,55 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTask(const Create
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a component configuration.
+ *
+ * @param request DeleteAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentConfigResponse
+ */
+DeleteAgentConfigResponse Client::deleteAgentConfigWithOptions(const DeleteAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["configId"] = request.getConfigId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/deleteAgentConfig")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentConfigResponse>();
+}
+
+/**
+ * @summary Deletes a component configuration.
+ *
+ * @param request DeleteAgentConfigRequest
+ * @return DeleteAgentConfigResponse
+ */
+DeleteAgentConfigResponse Client::deleteAgentConfig(const DeleteAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAgentConfigWithOptions(request, headers, runtime);
 }
 
 /**
@@ -660,16 +741,8 @@ CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTask(const Create
 DeleteAlertDestinationResponse Client::deleteAlertDestinationWithOptions(const DeleteAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasId()) {
     query["id"] = request.getId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -703,7 +776,7 @@ DeleteAlertDestinationResponse Client::deleteAlertDestination(const DeleteAlertD
 }
 
 /**
- * @summary Deletes an alert policy for push notifications.
+ * @summary Deletes an alert policy for push alerting.
  *
  * @param request DeleteAlertStrategyRequest
  * @param headers map
@@ -713,16 +786,8 @@ DeleteAlertDestinationResponse Client::deleteAlertDestination(const DeleteAlertD
 DeleteAlertStrategyResponse Client::deleteAlertStrategyWithOptions(const DeleteAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasId()) {
     query["id"] = request.getId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -744,7 +809,7 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategyWithOptions(const DeleteA
 }
 
 /**
- * @summary Deletes an alert policy for push notifications.
+ * @summary Deletes an alert policy for push alerting.
  *
  * @param request DeleteAlertStrategyRequest
  * @return DeleteAlertStrategyResponse
@@ -758,7 +823,7 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrateg
 /**
  * @summary Queries metric data.
  *
- * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+ * @description The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request DescribeMetricListRequest
  * @param headers map
@@ -768,10 +833,6 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrateg
 DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeMetricListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
   }
@@ -786,10 +847,6 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
 
   if (!!request.hasStartTime()) {
     query["startTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -813,7 +870,7 @@ DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeM
 /**
  * @summary Queries metric data.
  *
- * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+ * @description The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
  * @param request DescribeMetricListRequest
  * @return DescribeMetricListResponse
@@ -825,9 +882,9 @@ DescribeMetricListResponse Client::describeMetricList(const DescribeMetricListRe
 }
 
 /**
- * @summary Retrieves the response from the Copilot service.
+ * @summary Retrieves the response result from the Copilot service.
  *
- * @description - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * @description - Populate parameters according to the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
  * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotResponseRequest
@@ -837,15 +894,6 @@ DescribeMetricListResponse Client::describeMetricList(const DescribeMetricListRe
  */
 GenerateCopilotResponseResponse Client::generateCopilotResponseWithOptions(const GenerateCopilotResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasLlmParamString()) {
     body["llmParamString"] = request.getLlmParamString();
@@ -853,7 +901,6 @@ GenerateCopilotResponseResponse Client::generateCopilotResponseWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -871,9 +918,9 @@ GenerateCopilotResponseResponse Client::generateCopilotResponseWithOptions(const
 }
 
 /**
- * @summary Retrieves the response from the Copilot service.
+ * @summary Retrieves the response result from the Copilot service.
  *
- * @description - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * @description - Populate parameters according to the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
  * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotResponseRequest
@@ -889,7 +936,7 @@ GenerateCopilotResponseResponse Client::generateCopilotResponse(const GenerateCo
  * @summary Provides a streaming SSE interface for the OS Copilot service.
  *
  * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
- * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
  * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
@@ -899,15 +946,6 @@ GenerateCopilotResponseResponse Client::generateCopilotResponse(const GenerateCo
  */
 FutureGenerator<GenerateCopilotStreamResponseResponse> Client::generateCopilotStreamResponseWithSSE(const GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasLlmParamString()) {
     body["llmParamString"] = request.getLlmParamString();
@@ -915,7 +953,6 @@ FutureGenerator<GenerateCopilotStreamResponseResponse> Client::generateCopilotSt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -950,7 +987,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
  * @summary Provides a streaming SSE interface for the OS Copilot service.
  *
  * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
- * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
  * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
@@ -960,15 +997,6 @@ return Darabonba::FutureGenerator<json>(__retrun);
  */
 GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponseWithOptions(const GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasLlmParamString()) {
     body["llmParamString"] = request.getLlmParamString();
@@ -976,7 +1004,6 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponseWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -997,7 +1024,7 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponseWithO
  * @summary Provides a streaming SSE interface for the OS Copilot service.
  *
  * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
- * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+ * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
  * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
  *
  * @param request GenerateCopilotStreamResponseRequest
@@ -1010,7 +1037,7 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponse(cons
 }
 
 /**
- * @summary Queries the AI Infra analysis results.
+ * @summary Queries AI Infra analysis results.
  *
  * @param request GetAIQueryResultRequest
  * @param headers map
@@ -1019,15 +1046,6 @@ GenerateCopilotStreamResponseResponse Client::generateCopilotStreamResponse(cons
  */
 GetAIQueryResultResponse Client::getAIQueryResultWithOptions(const GetAIQueryResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAnalysisId()) {
     body["analysisId"] = request.getAnalysisId();
@@ -1035,7 +1053,6 @@ GetAIQueryResultResponse Client::getAIQueryResultWithOptions(const GetAIQueryRes
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1053,7 +1070,7 @@ GetAIQueryResultResponse Client::getAIQueryResultWithOptions(const GetAIQueryRes
 }
 
 /**
- * @summary Queries the AI Infra analysis results.
+ * @summary Queries AI Infra analysis results.
  *
  * @param request GetAIQueryResultRequest
  * @return GetAIQueryResultResponse
@@ -1075,10 +1092,6 @@ GetAIQueryResultResponse Client::getAIQueryResult(const GetAIQueryResultRequest 
 GetAbnormalEventsCountResponse Client::getAbnormalEventsCountWithOptions(const GetAbnormalEventsCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -1109,10 +1122,6 @@ GetAbnormalEventsCountResponse Client::getAbnormalEventsCountWithOptions(const G
 
   if (!!request.hasStart()) {
     query["start"] = request.getStart();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1146,7 +1155,7 @@ GetAbnormalEventsCountResponse Client::getAbnormalEventsCount(const GetAbnormalE
 }
 
 /**
- * @summary Retrieves the details of a specified component.
+ * @summary Retrieves the details of a specific component.
  *
  * @param request GetAgentRequest
  * @param headers map
@@ -1156,16 +1165,8 @@ GetAbnormalEventsCountResponse Client::getAbnormalEventsCount(const GetAbnormalE
 GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasAgentId()) {
     query["agent_id"] = request.getAgentId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1187,7 +1188,7 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
 }
 
 /**
- * @summary Retrieves the details of a specified component.
+ * @summary Retrieves the details of a specific component.
  *
  * @param request GetAgentRequest
  * @return GetAgentResponse
@@ -1196,6 +1197,71 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getAgentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves component configurations.
+ *
+ * @param request GetAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentConfigResponse
+ */
+GetAgentConfigResponse Client::getAgentConfigWithOptions(const GetAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasConfigId()) {
+    query["configId"] = request.getConfigId();
+  }
+
+  if (!!request.hasConfigName()) {
+    query["configName"] = request.getConfigName();
+  }
+
+  if (!!request.hasCurrent()) {
+    query["current"] = request.getCurrent();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegion()) {
+    query["region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/getAgentConfig")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentConfigResponse>();
+}
+
+/**
+ * @summary Retrieves component configurations.
+ *
+ * @param request GetAgentConfigRequest
+ * @return GetAgentConfigResponse
+ */
+GetAgentConfigResponse Client::getAgentConfig(const GetAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAgentConfigWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1209,16 +1275,8 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 GetAgentTaskResponse Client::getAgentTaskWithOptions(const GetAgentTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasTaskId()) {
     query["task_id"] = request.getTaskId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1252,6 +1310,104 @@ GetAgentTaskResponse Client::getAgentTask(const GetAgentTaskRequest &request) {
 }
 
 /**
+ * @summary Retrieves diagnostic results.
+ *
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+ *
+ * @param request GetAifgResultRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAifgResultResponse
+ */
+GetAifgResultResponse Client::getAifgResultWithOptions(const GetAifgResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAifgResult"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aifg/getAifgResult")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAifgResultResponse>();
+}
+
+/**
+ * @summary Retrieves diagnostic results.
+ *
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+ *
+ * @param request GetAifgResultRequest
+ * @return GetAifgResultResponse
+ */
+GetAifgResultResponse Client::getAifgResult(const GetAifgResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAifgResultWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the URL link of a diagnostic result.
+ *
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ *
+ * @param request GetAifgUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAifgUrlResponse
+ */
+GetAifgUrlResponse Client::getAifgUrlWithOptions(const GetAifgUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAifgUrl"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aifg/getAifgUrl")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAifgUrlResponse>();
+}
+
+/**
+ * @summary Retrieves the URL link of a diagnostic result.
+ *
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ *
+ * @param request GetAifgUrlRequest
+ * @return GetAifgUrlResponse
+ */
+GetAifgUrlResponse Client::getAifgUrl(const GetAifgUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAifgUrlWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the information of a specified alert contact.
  *
  * @param request GetAlertDestinationRequest
@@ -1262,16 +1418,8 @@ GetAgentTaskResponse Client::getAgentTask(const GetAgentTaskRequest &request) {
 GetAlertDestinationResponse Client::getAlertDestinationWithOptions(const GetAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasId()) {
     query["id"] = request.getId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1305,7 +1453,7 @@ GetAlertDestinationResponse Client::getAlertDestination(const GetAlertDestinatio
 }
 
 /**
- * @summary Retrieves an alert for a user based on the policy ID.
+ * @summary Retrieves an alert rule of a user by policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @param headers map
@@ -1315,16 +1463,8 @@ GetAlertDestinationResponse Client::getAlertDestination(const GetAlertDestinatio
 GetAlertStrategyResponse Client::getAlertStrategyWithOptions(const GetAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasId()) {
     query["id"] = request.getId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1346,7 +1486,7 @@ GetAlertStrategyResponse Client::getAlertStrategyWithOptions(const GetAlertStrat
 }
 
 /**
- * @summary Retrieves an alert for a user based on the policy ID.
+ * @summary Retrieves an alert rule of a user by policy ID.
  *
  * @param request GetAlertStrategyRequest
  * @return GetAlertStrategyResponse
@@ -1368,10 +1508,6 @@ GetAlertStrategyResponse Client::getAlertStrategy(const GetAlertStrategyRequest 
 GetConfigByNameResponse Client::getConfigByNameWithOptions(const GetConfigByNameRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasConfigName()) {
     query["configName"] = request.getConfigName();
   }
@@ -1390,10 +1526,6 @@ GetConfigByNameResponse Client::getConfigByNameWithOptions(const GetConfigByName
 
   if (!!request.hasVersionId()) {
     query["versionId"] = request.getVersionId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1427,7 +1559,7 @@ GetConfigByNameResponse Client::getConfigByName(const GetConfigByNameRequest &re
 }
 
 /**
- * @summary Retrieves the chat history of Copilot.
+ * @summary Retrieves the historical chat records of Copilot.
  *
  * @param request GetCopilotHistoryRequest
  * @param headers map
@@ -1436,15 +1568,6 @@ GetConfigByNameResponse Client::getConfigByName(const GetConfigByNameRequest &re
  */
 GetCopilotHistoryResponse Client::getCopilotHistoryWithOptions(const GetCopilotHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasCount()) {
     body["count"] = request.getCount();
@@ -1452,7 +1575,6 @@ GetCopilotHistoryResponse Client::getCopilotHistoryWithOptions(const GetCopilotH
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1470,7 +1592,7 @@ GetCopilotHistoryResponse Client::getCopilotHistoryWithOptions(const GetCopilotH
 }
 
 /**
- * @summary Retrieves the chat history of Copilot.
+ * @summary Retrieves the historical chat records of Copilot.
  *
  * @param request GetCopilotHistoryRequest
  * @return GetCopilotHistoryResponse
@@ -1482,9 +1604,9 @@ GetCopilotHistoryResponse Client::getCopilotHistory(const GetCopilotHistoryReque
 }
 
 /**
- * @summary Retrieves the diagnostic result.
+ * @summary Retrieves diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
  *
  * @param request GetDiagnosisResultRequest
  * @param headers map
@@ -1494,16 +1616,8 @@ GetCopilotHistoryResponse Client::getCopilotHistory(const GetCopilotHistoryReque
 GetDiagnosisResultResponse Client::getDiagnosisResultWithOptions(const GetDiagnosisResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasTaskId()) {
     query["task_id"] = request.getTaskId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1525,9 +1639,9 @@ GetDiagnosisResultResponse Client::getDiagnosisResultWithOptions(const GetDiagno
 }
 
 /**
- * @summary Retrieves the diagnostic result.
+ * @summary Retrieves diagnostic results.
  *
- * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+ * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
  *
  * @param request GetDiagnosisResultRequest
  * @return GetDiagnosisResultResponse
@@ -1539,7 +1653,226 @@ GetDiagnosisResultResponse Client::getDiagnosisResult(const GetDiagnosisResultRe
 }
 
 /**
- * @summary Retrieves the health status distribution of nodes or Pods within a specified time period.
+ * @summary Retrieves the GPU cluster parameter list.
+ *
+ * @description After installing the component for the target ACK cluster:
+ * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+ *
+ * @param request GetGpuClusterArgsOptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGpuClusterArgsOptionsResponse
+ */
+GetGpuClusterArgsOptionsResponse Client::getGpuClusterArgsOptionsWithOptions(const GetGpuClusterArgsOptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilterType()) {
+    query["filterType"] = request.getFilterType();
+  }
+
+  if (!!request.hasFilterValues()) {
+    query["filterValues"] = request.getFilterValues();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGpuClusterArgsOptions"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiTopology/topology/listClusterTopologyOptions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGpuClusterArgsOptionsResponse>();
+}
+
+/**
+ * @summary Retrieves the GPU cluster parameter list.
+ *
+ * @description After installing the component for the target ACK cluster:
+ * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+ *
+ * @param request GetGpuClusterArgsOptionsRequest
+ * @return GetGpuClusterArgsOptionsResponse
+ */
+GetGpuClusterArgsOptionsResponse Client::getGpuClusterArgsOptions(const GetGpuClusterArgsOptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGpuClusterArgsOptionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the list of GPU cluster alerts.
+ *
+ * @description After installing the component on the target ACK cluster:
+ * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+ *
+ * @param request GetGpuClusterListAlarmRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGpuClusterListAlarmRecordResponse
+ */
+GetGpuClusterListAlarmRecordResponse Client::getGpuClusterListAlarmRecordWithOptions(const GetGpuClusterListAlarmRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlarmCluster()) {
+    query["alarmCluster"] = request.getAlarmCluster();
+  }
+
+  if (!!request.hasAlarmExtInfo()) {
+    query["alarmExtInfo"] = request.getAlarmExtInfo();
+  }
+
+  if (!!request.hasAlarmTask()) {
+    query["alarmTask"] = request.getAlarmTask();
+  }
+
+  if (!!request.hasAlarmTime()) {
+    query["alarmTime"] = request.getAlarmTime();
+  }
+
+  if (!!request.hasAlarmType()) {
+    query["alarmType"] = request.getAlarmType();
+  }
+
+  if (!!request.hasCurrent()) {
+    query["current"] = request.getCurrent();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGpuClusterListAlarmRecord"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiTopology/topology/listAlarmRecord")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGpuClusterListAlarmRecordResponse>();
+}
+
+/**
+ * @summary Retrieves the list of GPU cluster alerts.
+ *
+ * @description After installing the component on the target ACK cluster:
+ * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+ *
+ * @param request GetGpuClusterListAlarmRecordRequest
+ * @return GetGpuClusterListAlarmRecordResponse
+ */
+GetGpuClusterListAlarmRecordResponse Client::getGpuClusterListAlarmRecord(const GetGpuClusterListAlarmRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGpuClusterListAlarmRecordWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the GPU cluster topology.
+ *
+ * @description After you install the component on the target ACK cluster:
+ * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+ *
+ * @param request GetGpuClusterTopologyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGpuClusterTopologyResponse
+ */
+GetGpuClusterTopologyResponse Client::getGpuClusterTopologyWithOptions(const GetGpuClusterTopologyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannelId()) {
+    query["channelId"] = request.getChannelId();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["clusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCommunicationId()) {
+    query["communicationId"] = request.getCommunicationId();
+  }
+
+  if (!!request.hasInstanceIdList()) {
+    query["instanceIdList"] = request.getInstanceIdList();
+  }
+
+  if (!!request.hasPodList()) {
+    query["podList"] = request.getPodList();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTaskIdList()) {
+    query["taskIdList"] = request.getTaskIdList();
+  }
+
+  if (!!request.hasTopoType()) {
+    query["topoType"] = request.getTopoType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGpuClusterTopology"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiTopology/topology/clusterTopology")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGpuClusterTopologyResponse>();
+}
+
+/**
+ * @summary Retrieves the GPU cluster topology.
+ *
+ * @description After you install the component on the target ACK cluster:
+ * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+ * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+ *
+ * @param request GetGpuClusterTopologyRequest
+ * @return GetGpuClusterTopologyResponse
+ */
+GetGpuClusterTopologyResponse Client::getGpuClusterTopology(const GetGpuClusterTopologyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGpuClusterTopologyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
  *
  * @param request GetHealthPercentageRequest
  * @param headers map
@@ -1549,10 +1882,6 @@ GetDiagnosisResultResponse Client::getDiagnosisResult(const GetDiagnosisResultRe
 GetHealthPercentageResponse Client::getHealthPercentageWithOptions(const GetHealthPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -1567,10 +1896,6 @@ GetHealthPercentageResponse Client::getHealthPercentageWithOptions(const GetHeal
 
   if (!!request.hasStart()) {
     query["start"] = request.getStart();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1592,7 +1917,7 @@ GetHealthPercentageResponse Client::getHealthPercentageWithOptions(const GetHeal
 }
 
 /**
- * @summary Retrieves the health status distribution of nodes or Pods within a specified time period.
+ * @summary Retrieves the health status distribution of nodes or pods over a specified time period.
  *
  * @param request GetHealthPercentageRequest
  * @return GetHealthPercentageResponse
@@ -1604,7 +1929,7 @@ GetHealthPercentageResponse Client::getHealthPercentage(const GetHealthPercentag
 }
 
 /**
- * @summary Retrieves the number of cluster nodes or the number of Pods on a node.
+ * @summary Retrieves the number of nodes or node Pods in a cluster.
  *
  * @param request GetHostCountRequest
  * @param headers map
@@ -1614,10 +1939,6 @@ GetHealthPercentageResponse Client::getHealthPercentage(const GetHealthPercentag
 GetHostCountResponse Client::getHostCountWithOptions(const GetHostCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -1632,10 +1953,6 @@ GetHostCountResponse Client::getHostCountWithOptions(const GetHostCountRequest &
 
   if (!!request.hasStart()) {
     query["start"] = request.getStart();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1657,7 +1974,7 @@ GetHostCountResponse Client::getHostCountWithOptions(const GetHostCountRequest &
 }
 
 /**
- * @summary Retrieves the number of cluster nodes or the number of Pods on a node.
+ * @summary Retrieves the number of nodes or node Pods in a cluster.
  *
  * @param request GetHostCountRequest
  * @return GetHostCountResponse
@@ -1678,15 +1995,6 @@ GetHostCountResponse Client::getHostCount(const GetHostCountRequest &request) {
  */
 GetHotSpotUniqListResponse Client::getHotSpotUniqListWithOptions(const GetHotSpotUniqListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasBegEnd()) {
     body["beg_end"] = request.getBegEnd();
@@ -1714,7 +2022,6 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqListWithOptions(const GetHotSpo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1744,6 +2051,55 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqList(const GetHotSpotUniqListRe
 }
 
 /**
+ * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+ *
+ * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
+ *
+ * @param request GetHotfixTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHotfixTaskResponse
+ */
+GetHotfixTaskResponse Client::getHotfixTaskWithOptions(const GetHotfixTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHotfixTask"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/hotfix_manager/task/get")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHotfixTaskResponse>();
+}
+
+/**
+ * @summary Queries the status of an asynchronous task for CVE hotfixes on a node.
+ *
+ * @description The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
+ *
+ * @param request GetHotfixTaskRequest
+ * @return GetHotfixTaskResponse
+ */
+GetHotfixTaskResponse Client::getHotfixTask(const GetHotfixTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getHotfixTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves hot spot analysis results.
  *
  * @param request GetHotspotAnalysisRequest
@@ -1753,15 +2109,6 @@ GetHotSpotUniqListResponse Client::getHotSpotUniqList(const GetHotSpotUniqListRe
  */
 GetHotspotAnalysisResponse Client::getHotspotAnalysisWithOptions(const GetHotspotAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAppType()) {
     body["appType"] = request.getAppType();
@@ -1789,7 +2136,6 @@ GetHotspotAnalysisResponse Client::getHotspotAnalysisWithOptions(const GetHotspo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1819,7 +2165,7 @@ GetHotspotAnalysisResponse Client::getHotspotAnalysis(const GetHotspotAnalysisRe
 }
 
 /**
- * @summary Retrieves the hot spot comparison and tracing results.
+ * @summary Retrieves the results of a hot spot comparison trace.
  *
  * @param request GetHotspotCompareRequest
  * @param headers map
@@ -1828,15 +2174,6 @@ GetHotspotAnalysisResponse Client::getHotspotAnalysis(const GetHotspotAnalysisRe
  */
 GetHotspotCompareResponse Client::getHotspotCompareWithOptions(const GetHotspotCompareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasBeg1End()) {
     body["beg1_end"] = request.getBeg1End();
@@ -1880,7 +2217,6 @@ GetHotspotCompareResponse Client::getHotspotCompareWithOptions(const GetHotspotC
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1898,7 +2234,7 @@ GetHotspotCompareResponse Client::getHotspotCompareWithOptions(const GetHotspotC
 }
 
 /**
- * @summary Retrieves the hot spot comparison and tracing results.
+ * @summary Retrieves the results of a hot spot comparison trace.
  *
  * @param request GetHotspotCompareRequest
  * @return GetHotspotCompareResponse
@@ -1919,15 +2255,6 @@ GetHotspotCompareResponse Client::getHotspotCompare(const GetHotspotCompareReque
  */
 GetHotspotInstanceListResponse Client::getHotspotInstanceListWithOptions(const GetHotspotInstanceListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasBegEnd()) {
     body["beg_end"] = request.getBegEnd();
@@ -1943,7 +2270,6 @@ GetHotspotInstanceListResponse Client::getHotspotInstanceListWithOptions(const G
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1982,15 +2308,6 @@ GetHotspotInstanceListResponse Client::getHotspotInstanceList(const GetHotspotIn
  */
 GetHotspotPidListResponse Client::getHotspotPidListWithOptions(const GetHotspotPidListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasBegEnd()) {
     body["beg_end"] = request.getBegEnd();
@@ -2010,7 +2327,6 @@ GetHotspotPidListResponse Client::getHotspotPidListWithOptions(const GetHotspotP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2049,15 +2365,6 @@ GetHotspotPidListResponse Client::getHotspotPidList(const GetHotspotPidListReque
  */
 GetHotspotTrackingResponse Client::getHotspotTrackingWithOptions(const GetHotspotTrackingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasBegEnd()) {
     body["beg_end"] = request.getBegEnd();
@@ -2085,7 +2392,6 @@ GetHotspotTrackingResponse Client::getHotspotTrackingWithOptions(const GetHotspo
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2125,16 +2431,8 @@ GetHotspotTrackingResponse Client::getHotspotTracking(const GetHotspotTrackingRe
 GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInspectionReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasReportId()) {
     query["reportId"] = request.getReportId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2178,20 +2476,12 @@ GetInspectionReportResponse Client::getInspectionReport(const GetInspectionRepor
 GetInstantScoreResponse Client::getInstantScoreWithOptions(const GetInstantScoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
 
   if (!!request.hasInstance()) {
     query["instance"] = request.getInstance();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2225,7 +2515,64 @@ GetInstantScoreResponse Client::getInstantScore(const GetInstantScoreRequest &re
 }
 
 /**
- * @summary Retrieves the list of AI Infra analysis records.
+ * @summary Retrieves a list of GPU clusters.
+ *
+ * @description After installing the component for the target ACK cluster:
+ * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+ *
+ * @param request GetListGpuClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetListGpuClusterResponse
+ */
+GetListGpuClusterResponse Client::getListGpuClusterWithOptions(const GetListGpuClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTimeRegion()) {
+    query["timeRegion"] = request.getTimeRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetListGpuCluster"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aiTopology/topology/listCluster")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetListGpuClusterResponse>();
+}
+
+/**
+ * @summary Retrieves a list of GPU clusters.
+ *
+ * @description After installing the component for the target ACK cluster:
+ * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+ *
+ * @param request GetListGpuClusterRequest
+ * @return GetListGpuClusterResponse
+ */
+GetListGpuClusterResponse Client::getListGpuCluster(const GetListGpuClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getListGpuClusterWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a list of AI Infra analysis records.
  *
  * @param request GetListRecordRequest
  * @param headers map
@@ -2235,10 +2582,6 @@ GetInstantScoreResponse Client::getInstantScore(const GetInstantScoreRequest &re
 GetListRecordResponse Client::getListRecordWithOptions(const GetListRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasAnalysisId()) {
     query["analysisId"] = request.getAnalysisId();
   }
@@ -2257,10 +2600,6 @@ GetListRecordResponse Client::getListRecordWithOptions(const GetListRecordReques
 
   if (!!request.hasRegion()) {
     query["region"] = request.getRegion();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2282,7 +2621,7 @@ GetListRecordResponse Client::getListRecordWithOptions(const GetListRecordReques
 }
 
 /**
- * @summary Retrieves the list of AI Infra analysis records.
+ * @summary Retrieves a list of AI Infra analysis records.
  *
  * @param request GetListRecordRequest
  * @return GetListRecordResponse
@@ -2294,7 +2633,7 @@ GetListRecordResponse Client::getListRecord(const GetListRecordRequest &request)
 }
 
 /**
- * @summary Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
+ * @summary Retrieves the proportion of anomaly issues for nodes in a cluster or pods in a node within a specified time range.
  *
  * @param request GetProblemPercentageRequest
  * @param headers map
@@ -2304,10 +2643,6 @@ GetListRecordResponse Client::getListRecord(const GetListRecordRequest &request)
 GetProblemPercentageResponse Client::getProblemPercentageWithOptions(const GetProblemPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -2322,10 +2657,6 @@ GetProblemPercentageResponse Client::getProblemPercentageWithOptions(const GetPr
 
   if (!!request.hasStart()) {
     query["start"] = request.getStart();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2347,7 +2678,7 @@ GetProblemPercentageResponse Client::getProblemPercentageWithOptions(const GetPr
 }
 
 /**
- * @summary Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
+ * @summary Retrieves the proportion of anomaly issues for nodes in a cluster or pods in a node within a specified time range.
  *
  * @param request GetProblemPercentageRequest
  * @return GetProblemPercentageResponse
@@ -2369,10 +2700,6 @@ GetProblemPercentageResponse Client::getProblemPercentage(const GetProblemPercen
 GetRangeScoreResponse Client::getRangeScoreWithOptions(const GetRangeScoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -2387,10 +2714,6 @@ GetRangeScoreResponse Client::getRangeScoreWithOptions(const GetRangeScoreReques
 
   if (!!request.hasStart()) {
     query["start"] = request.getStart();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2434,10 +2757,6 @@ GetRangeScoreResponse Client::getRangeScore(const GetRangeScoreRequest &request)
 GetResourcesResponse Client::getResourcesWithOptions(const GetResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -2448,10 +2767,6 @@ GetResourcesResponse Client::getResourcesWithOptions(const GetResourcesRequest &
 
   if (!!request.hasType()) {
     query["type"] = request.getType();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2503,10 +2818,6 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatusWithOptions(const GetSe
   }
 
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasChannel()) {
     query["channel"] = request.getChannel();
   }
@@ -2517,10 +2828,6 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatusWithOptions(const GetSe
 
   if (!!request.hasServiceName()) {
     query["service_name"] = request.getServiceName();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2566,16 +2873,8 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatus(const GetServiceFuncSt
 GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTaskWithOptions(const GetVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasTaskId()) {
     query["taskId"] = request.getTaskId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2609,12 +2908,12 @@ GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTask(const GetVmcoreDia
 }
 
 /**
- * @summary Initializes SysOM and ensures that the service-linked role exists.
+ * @summary Initializes SysOM to ensure that the service-linked role exists.
  *
  * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
- * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
+ * - `check_only`: If this parameter is set to True, only a check is performed to determine whether the service-linked role exists. The service-linked role is not created. If this parameter is set to False or left empty, automatic creation of the service-linked role is performed if it does not exist.
  * > 
- * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
+ * > Note: When you call this operation to initialize the role, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
  *
  * @param request InitialSysomRequest
  * @param headers map
@@ -2623,15 +2922,6 @@ GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTask(const GetVmcoreDia
  */
 InitialSysomResponse Client::initialSysomWithOptions(const InitialSysomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasCheckOnly()) {
     body["check_only"] = request.getCheckOnly();
@@ -2643,7 +2933,6 @@ InitialSysomResponse Client::initialSysomWithOptions(const InitialSysomRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2661,12 +2950,12 @@ InitialSysomResponse Client::initialSysomWithOptions(const InitialSysomRequest &
 }
 
 /**
- * @summary Initializes SysOM and ensures that the service-linked role exists.
+ * @summary Initializes SysOM to ensure that the service-linked role exists.
  *
  * @description Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
- * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
+ * - `check_only`: If this parameter is set to True, only a check is performed to determine whether the service-linked role exists. The service-linked role is not created. If this parameter is set to False or left empty, automatic creation of the service-linked role is performed if it does not exist.
  * > 
- * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
+ * > Note: When you call this operation to initialize the role, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
  *
  * @param request InitialSysomRequest
  * @return InitialSysomResponse
@@ -2678,9 +2967,9 @@ InitialSysomResponse Client::initialSysom(const InitialSysomRequest &request) {
 }
 
 /**
- * @summary Installs an Agent on a specified instance.
+ * @summary Installs an agent on a specified instance.
  *
- * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
+ * @description Calling this operation to install an agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
  *
  * @param request InstallAgentRequest
  * @param headers map
@@ -2689,15 +2978,6 @@ InitialSysomResponse Client::initialSysom(const InitialSysomRequest &request) {
  */
 InstallAgentResponse Client::installAgentWithOptions(const InstallAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -2717,7 +2997,6 @@ InstallAgentResponse Client::installAgentWithOptions(const InstallAgentRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2735,9 +3014,9 @@ InstallAgentResponse Client::installAgentWithOptions(const InstallAgentRequest &
 }
 
 /**
- * @summary Installs an Agent on a specified instance.
+ * @summary Installs an agent on a specified instance.
  *
- * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
+ * @description Calling this operation to install an agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
  *
  * @param request InstallAgentRequest
  * @return InstallAgentResponse
@@ -2752,8 +3031,8 @@ InstallAgentResponse Client::installAgent(const InstallAgentRequest &request) {
  * @summary Installs a component on an ACK cluster.
  *
  * @description After you install a component on the target ACK cluster:
- * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
+ * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request InstallAgentForClusterRequest
  * @param headers map
@@ -2762,15 +3041,6 @@ InstallAgentResponse Client::installAgent(const InstallAgentRequest &request) {
  */
 InstallAgentForClusterResponse Client::installAgentForClusterWithOptions(const InstallAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -2794,7 +3064,6 @@ InstallAgentForClusterResponse Client::installAgentForClusterWithOptions(const I
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2815,8 +3084,8 @@ InstallAgentForClusterResponse Client::installAgentForClusterWithOptions(const I
  * @summary Installs a component on an ACK cluster.
  *
  * @description After you install a component on the target ACK cluster:
- * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
- * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
+ * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+ * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
  *
  * @param request InstallAgentForClusterRequest
  * @return InstallAgentForClusterResponse
@@ -2830,7 +3099,7 @@ InstallAgentForClusterResponse Client::installAgentForCluster(const InstallAgent
 /**
  * @summary Installs an Agent on a specified instance.
  *
- * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+ * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to check the task execution status.
  *
  * @param request InstallAgentWithTypeRequest
  * @param headers map
@@ -2839,15 +3108,6 @@ InstallAgentForClusterResponse Client::installAgentForCluster(const InstallAgent
  */
 InstallAgentWithTypeResponse Client::installAgentWithTypeWithOptions(const InstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasTag()) {
     body["Tag"] = request.getTag();
@@ -2875,7 +3135,6 @@ InstallAgentWithTypeResponse Client::installAgentWithTypeWithOptions(const Insta
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -2895,7 +3154,7 @@ InstallAgentWithTypeResponse Client::installAgentWithTypeWithOptions(const Insta
 /**
  * @summary Installs an Agent on a specified instance.
  *
- * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+ * @description Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to check the task execution status.
  *
  * @param request InstallAgentWithTypeRequest
  * @return InstallAgentWithTypeResponse
@@ -2907,7 +3166,60 @@ InstallAgentWithTypeResponse Client::installAgentWithType(const InstallAgentWith
 }
 
 /**
- * @summary Initiates an anomaly diagnostics task.
+ * @summary Installs CVE hotfixes asynchronously on specified instances.
+ *
+ * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ *
+ * @param request InstallHotfixRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallHotfixResponse
+ */
+InstallHotfixResponse Client::installHotfixWithOptions(const InstallHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCveId()) {
+    body["cveId"] = request.getCveId();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InstallHotfix"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/hotfix_manager/hotfix/install")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallHotfixResponse>();
+}
+
+/**
+ * @summary Installs CVE hotfixes asynchronously on specified instances.
+ *
+ * @description This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ *
+ * @param request InstallHotfixRequest
+ * @return InstallHotfixResponse
+ */
+InstallHotfixResponse Client::installHotfix(const InstallHotfixRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return installHotfixWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Initiates an anomaly diagnosis.
  *
  * @param request InvokeAnomalyDiagnosisRequest
  * @param headers map
@@ -2917,16 +3229,8 @@ InstallAgentWithTypeResponse Client::installAgentWithType(const InstallAgentWith
 InvokeAnomalyDiagnosisResponse Client::invokeAnomalyDiagnosisWithOptions(const InvokeAnomalyDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasUuid()) {
     query["uuid"] = request.getUuid();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2948,7 +3252,7 @@ InvokeAnomalyDiagnosisResponse Client::invokeAnomalyDiagnosisWithOptions(const I
 }
 
 /**
- * @summary Initiates an anomaly diagnostics task.
+ * @summary Initiates an anomaly diagnosis.
  *
  * @param request InvokeAnomalyDiagnosisRequest
  * @return InvokeAnomalyDiagnosisResponse
@@ -3035,10 +3339,6 @@ InvokeDiagnosisResponse Client::invokeDiagnosis(const InvokeDiagnosisRequest &re
 ListAbnormalyEventsResponse Client::listAbnormalyEventsWithOptions(const ListAbnormalyEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -3083,10 +3383,6 @@ ListAbnormalyEventsResponse Client::listAbnormalyEventsWithOptions(const ListAbn
     query["start"] = request.getStart();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3128,10 +3424,6 @@ ListAbnormalyEventsResponse Client::listAbnormalyEvents(const ListAbnormalyEvent
 ListAgentInstallRecordsResponse Client::listAgentInstallRecordsWithOptions(const ListAgentInstallRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3158,10 +3450,6 @@ ListAgentInstallRecordsResponse Client::listAgentInstallRecordsWithOptions(const
 
   if (!!request.hasStatus()) {
     query["status"] = request.getStatus();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3205,10 +3493,6 @@ ListAgentInstallRecordsResponse Client::listAgentInstallRecords(const ListAgentI
 ListAgentsResponse Client::listAgentsWithOptions(const ListAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3223,10 +3507,6 @@ ListAgentsResponse Client::listAgentsWithOptions(const ListAgentsRequest &reques
 
   if (!!request.hasType()) {
     query["type"] = request.getType();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3260,7 +3540,76 @@ ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of alert contacts.
+ * @summary Retrieves a list of diagnostic tasks.
+ *
+ * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+ *
+ * @param request ListAifgJobsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAifgJobsResponse
+ */
+ListAifgJobsResponse Client::listAifgJobsWithOptions(const ListAifgJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrent()) {
+    query["current"] = request.getCurrent();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegion()) {
+    query["region"] = request.getRegion();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["serviceName"] = request.getServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAifgJobs"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aifg/listAifgJobs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAifgJobsResponse>();
+}
+
+/**
+ * @summary Retrieves a list of diagnostic tasks.
+ *
+ * @description This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+ *
+ * @param request ListAifgJobsRequest
+ * @return ListAifgJobsResponse
+ */
+ListAifgJobsResponse Client::listAifgJobs(const ListAifgJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAifgJobsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a list of alert contacts.
  *
  * @param request ListAlertDestinationsRequest
  * @param headers map
@@ -3270,10 +3619,6 @@ ListAgentsResponse Client::listAgents(const ListAgentsRequest &request) {
 ListAlertDestinationsResponse Client::listAlertDestinationsWithOptions(const ListAlertDestinationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3292,10 +3637,6 @@ ListAlertDestinationsResponse Client::listAlertDestinationsWithOptions(const Lis
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3317,7 +3658,7 @@ ListAlertDestinationsResponse Client::listAlertDestinationsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of alert contacts.
+ * @summary Retrieves a list of alert contacts.
  *
  * @param request ListAlertDestinationsRequest
  * @return ListAlertDestinationsResponse
@@ -3365,7 +3706,7 @@ ListAlertItemsResponse Client::listAlertItems() {
 }
 
 /**
- * @summary Retrieves all push alert policies for the current user.
+ * @summary Retrieves all alert policies configured by the user for push notifications.
  *
  * @param request ListAlertStrategiesRequest
  * @param headers map
@@ -3375,10 +3716,6 @@ ListAlertItemsResponse Client::listAlertItems() {
 ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAlertStrategiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3397,10 +3734,6 @@ ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAle
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3422,7 +3755,7 @@ ListAlertStrategiesResponse Client::listAlertStrategiesWithOptions(const ListAle
 }
 
 /**
- * @summary Retrieves all push alert policies for the current user.
+ * @summary Retrieves all alert policies configured by the user for push notifications.
  *
  * @param request ListAlertStrategiesRequest
  * @return ListAlertStrategiesResponse
@@ -3434,7 +3767,7 @@ ListAlertStrategiesResponse Client::listAlertStrategies(const ListAlertStrategie
 }
 
 /**
- * @summary Retrieves a list of managed or unmanaged instances along with their instance information.
+ * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
  *
  * @param request ListAllInstancesRequest
  * @param headers map
@@ -3444,10 +3777,6 @@ ListAlertStrategiesResponse Client::listAlertStrategies(const ListAlertStrategie
 ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3484,10 +3813,6 @@ ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstan
     query["region"] = request.getRegion();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3507,7 +3832,7 @@ ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstan
 }
 
 /**
- * @summary Retrieves a list of managed or unmanaged instances along with their instance information.
+ * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
  *
  * @param request ListAllInstancesRequest
  * @return ListAllInstancesResponse
@@ -3519,7 +3844,7 @@ ListAllInstancesResponse Client::listAllInstances(const ListAllInstancesRequest 
 }
 
 /**
- * @summary Retrieves the component installation records of a cluster.
+ * @summary Retrieves the installation records of cluster components.
  *
  * @param request ListClusterAgentInstallRecordsRequest
  * @param headers map
@@ -3529,10 +3854,6 @@ ListAllInstancesResponse Client::listAllInstances(const ListAllInstancesRequest 
 ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecordsWithOptions(const ListClusterAgentInstallRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasAgentConfigId()) {
     query["agent_config_id"] = request.getAgentConfigId();
   }
@@ -3557,10 +3878,6 @@ ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecordsWit
     query["plugin_version"] = request.getPluginVersion();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3580,7 +3897,7 @@ ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecordsWit
 }
 
 /**
- * @summary Retrieves the component installation records of a cluster.
+ * @summary Retrieves the installation records of cluster components.
  *
  * @param request ListClusterAgentInstallRecordsRequest
  * @return ListClusterAgentInstallRecordsResponse
@@ -3602,10 +3919,6 @@ ListClusterAgentInstallRecordsResponse Client::listClusterAgentInstallRecords(co
 ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasClusterId()) {
     query["cluster_id"] = request.getClusterId();
   }
@@ -3632,10 +3945,6 @@ ListClustersResponse Client::listClustersWithOptions(const ListClustersRequest &
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3679,10 +3988,6 @@ ListClustersResponse Client::listClusters(const ListClustersRequest &request) {
 ListDiagnosisResponse Client::listDiagnosisWithOptions(const ListDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3701,10 +4006,6 @@ ListDiagnosisResponse Client::listDiagnosisWithOptions(const ListDiagnosisReques
 
   if (!!request.hasStatus()) {
     query["status"] = request.getStatus();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3738,7 +4039,7 @@ ListDiagnosisResponse Client::listDiagnosis(const ListDiagnosisRequest &request)
 }
 
 /**
- * @summary Retrieves the health status list of cluster nodes or Pods within a specified time range.
+ * @summary Retrieves the health status list of cluster nodes or pods within a specified time range.
  *
  * @param request ListInstanceHealthRequest
  * @param headers map
@@ -3748,10 +4049,6 @@ ListDiagnosisResponse Client::listDiagnosis(const ListDiagnosisRequest &request)
 ListInstanceHealthResponse Client::listInstanceHealthWithOptions(const ListInstanceHealthRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCluster()) {
     query["cluster"] = request.getCluster();
   }
@@ -3776,10 +4073,6 @@ ListInstanceHealthResponse Client::listInstanceHealthWithOptions(const ListInsta
     query["start"] = request.getStart();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3799,7 +4092,7 @@ ListInstanceHealthResponse Client::listInstanceHealthWithOptions(const ListInsta
 }
 
 /**
- * @summary Retrieves the health status list of cluster nodes or Pods within a specified time range.
+ * @summary Retrieves the health status list of cluster nodes or pods within a specified time range.
  *
  * @param request ListInstanceHealthRequest
  * @return ListInstanceHealthResponse
@@ -3811,7 +4104,7 @@ ListInstanceHealthResponse Client::listInstanceHealth(const ListInstanceHealthRe
 }
 
 /**
- * @summary Retrieves all values of a specified type of instance information.
+ * @summary Retrieves all values of a specific type of instance information.
  *
  * @param request ListInstanceInfoRequest
  * @param headers map
@@ -3821,10 +4114,6 @@ ListInstanceHealthResponse Client::listInstanceHealth(const ListInstanceHealthRe
 ListInstanceInfoResponse Client::listInstanceInfoWithOptions(const ListInstanceInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasInfoType()) {
     query["infoType"] = request.getInfoType();
   }
@@ -3853,10 +4142,6 @@ ListInstanceInfoResponse Client::listInstanceInfoWithOptions(const ListInstanceI
     query["region"] = request.getRegion();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -3876,7 +4161,7 @@ ListInstanceInfoResponse Client::listInstanceInfoWithOptions(const ListInstanceI
 }
 
 /**
- * @summary Retrieves all values of a specified type of instance information.
+ * @summary Retrieves all values of a specific type of instance information.
  *
  * @param request ListInstanceInfoRequest
  * @return ListInstanceInfoResponse
@@ -3888,7 +4173,7 @@ ListInstanceInfoResponse Client::listInstanceInfo(const ListInstanceInfoRequest 
 }
 
 /**
- * @summary Retrieves instance statuses.
+ * @summary Retrieves the instance status.
  *
  * @description Retrieves the list of machines managed by SysOM.
  *
@@ -3900,10 +4185,6 @@ ListInstanceInfoResponse Client::listInstanceInfo(const ListInstanceInfoRequest 
 ListInstanceStatusResponse Client::listInstanceStatusWithOptions(const ListInstanceStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -3922,10 +4203,6 @@ ListInstanceStatusResponse Client::listInstanceStatusWithOptions(const ListInsta
 
   if (!!request.hasStatus()) {
     query["status"] = request.getStatus();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3947,7 +4224,7 @@ ListInstanceStatusResponse Client::listInstanceStatusWithOptions(const ListInsta
 }
 
 /**
- * @summary Retrieves instance statuses.
+ * @summary Retrieves the instance status.
  *
  * @description Retrieves the list of machines managed by SysOM.
  *
@@ -3961,7 +4238,7 @@ ListInstanceStatusResponse Client::listInstanceStatus(const ListInstanceStatusRe
 }
 
 /**
- * @summary Retrieves a list of instances.
+ * @summary Retrieves the list of managed instances.
  *
  * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -3973,10 +4250,6 @@ ListInstanceStatusResponse Client::listInstanceStatus(const ListInstanceStatusRe
 ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasClusterId()) {
     query["cluster_id"] = request.getClusterId();
   }
@@ -4001,10 +4274,6 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
     query["status"] = request.getStatus();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -4024,7 +4293,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Retrieves a list of instances.
+ * @summary Retrieves the list of managed instances.
  *
  * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -4050,10 +4319,6 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 ListInstancesEcsInfoListResponse Client::listInstancesEcsInfoListWithOptions(const ListInstancesEcsInfoListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasInfoType()) {
     query["info_type"] = request.getInfoType();
   }
@@ -4072,10 +4337,6 @@ ListInstancesEcsInfoListResponse Client::listInstancesEcsInfoListWithOptions(con
 
   if (!!request.hasRegion()) {
     query["region"] = request.getRegion();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4129,10 +4390,6 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfoWithOptions(con
   }
 
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -4193,10 +4450,6 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfoWithOptions(con
     query["resource_group_name"] = request.getResourceGroupName();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -4230,7 +4483,7 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfo(const ListInst
 }
 
 /**
- * @summary Retrieves the list of instances for plugin installation, update, or uninstallation.
+ * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
  *
  * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -4242,10 +4495,6 @@ ListInstancesWithEcsInfoResponse Client::listInstancesWithEcsInfo(const ListInst
 ListPluginsInstancesResponse Client::listPluginsInstancesWithOptions(const ListPluginsInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasCurrent()) {
     query["current"] = request.getCurrent();
   }
@@ -4274,10 +4523,6 @@ ListPluginsInstancesResponse Client::listPluginsInstancesWithOptions(const ListP
     query["region"] = request.getRegion();
   }
 
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -4297,7 +4542,7 @@ ListPluginsInstancesResponse Client::listPluginsInstancesWithOptions(const ListP
 }
 
 /**
- * @summary Retrieves the list of instances for plugin installation, update, or uninstallation.
+ * @summary Retrieves the list of instances for plug-in installation, update, or uninstallation.
  *
  * @description The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
  *
@@ -4321,10 +4566,6 @@ ListPluginsInstancesResponse Client::listPluginsInstances(const ListPluginsInsta
 ListPodsOfInstanceResponse Client::listPodsOfInstanceWithOptions(const ListPodsOfInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasClusterId()) {
     query["cluster_id"] = request.getClusterId();
   }
@@ -4339,10 +4580,6 @@ ListPodsOfInstanceResponse Client::listPodsOfInstanceWithOptions(const ListPodsO
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4426,16 +4663,8 @@ ListRegionsResponse Client::listRegions() {
 ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTaskWithOptions(const ListVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasDays()) {
     query["days"] = request.getDays();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4469,6 +4698,59 @@ ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTask(const ListVmcore
 }
 
 /**
+ * @summary Asynchronously queries the CVE hotfix status on specified instances.
+ *
+ * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+ *
+ * @param request QueryHotfixStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHotfixStatusResponse
+ */
+QueryHotfixStatusResponse Client::queryHotfixStatusWithOptions(const QueryHotfixStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCveId()) {
+    body["cveId"] = request.getCveId();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryHotfixStatus"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/hotfix_manager/hotfix/query_status")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHotfixStatusResponse>();
+}
+
+/**
+ * @summary Asynchronously queries the CVE hotfix status on specified instances.
+ *
+ * @description The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+ *
+ * @param request QueryHotfixStatusRequest
+ * @return QueryHotfixStatusResponse
+ */
+QueryHotfixStatusResponse Client::queryHotfixStatus(const QueryHotfixStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryHotfixStatusWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Starts AI job analysis.
  *
  * @param request StartAIAnalysisRequest
@@ -4478,15 +4760,6 @@ ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTask(const ListVmcore
  */
 StartAIAnalysisResponse Client::startAIAnalysisWithOptions(const StartAIAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAnalysisTool()) {
     body["analysisTool"] = request.getAnalysisTool();
@@ -4546,7 +4819,6 @@ StartAIAnalysisResponse Client::startAIAnalysisWithOptions(const StartAIAnalysis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4578,7 +4850,7 @@ StartAIAnalysisResponse Client::startAIAnalysis(const StartAIAnalysisRequest &re
 /**
  * @summary Starts an AI Infra differential analysis.
  *
- * @description Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
+ * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
  *
  * @param request StartAIDiffAnalysisRequest
  * @param headers map
@@ -4587,15 +4859,6 @@ StartAIAnalysisResponse Client::startAIAnalysis(const StartAIAnalysisRequest &re
  */
 StartAIDiffAnalysisResponse Client::startAIDiffAnalysisWithOptions(const StartAIDiffAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasTask1()) {
     body["task1"] = request.getTask1();
@@ -4607,7 +4870,6 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysisWithOptions(const StartAI
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4627,7 +4889,7 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysisWithOptions(const StartAI
 /**
  * @summary Starts an AI Infra differential analysis.
  *
- * @description Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
+ * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
  *
  * @param request StartAIDiffAnalysisRequest
  * @return StartAIDiffAnalysisResponse
@@ -4636,6 +4898,67 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysis(const StartAIDiffAnalysi
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return startAIDiffAnalysisWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Triggers AI application diagnostics.
+ *
+ * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+ *
+ * @param request StartAifgAnalysisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartAifgAnalysisResponse
+ */
+StartAifgAnalysisResponse Client::startAifgAnalysisWithOptions(const StartAifgAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChannel()) {
+    body["channel"] = request.getChannel();
+  }
+
+  if (!!request.hasParams()) {
+    body["params"] = request.getParams();
+  }
+
+  if (!!request.hasRegion()) {
+    body["region"] = request.getRegion();
+  }
+
+  if (!!request.hasServiceName()) {
+    body["serviceName"] = request.getServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StartAifgAnalysis"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/aifg/startAifgAnalysis")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartAifgAnalysisResponse>();
+}
+
+/**
+ * @summary Triggers AI application diagnostics.
+ *
+ * @description Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+ *
+ * @param request StartAifgAnalysisRequest
+ * @return StartAifgAnalysisResponse
+ */
+StartAifgAnalysisResponse Client::startAifgAnalysis(const StartAifgAnalysisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return startAifgAnalysisWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4650,15 +4973,6 @@ StartAIDiffAnalysisResponse Client::startAIDiffAnalysis(const StartAIDiffAnalysi
  */
 UninstallAgentResponse Client::uninstallAgentWithOptions(const UninstallAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -4674,7 +4988,6 @@ UninstallAgentResponse Client::uninstallAgentWithOptions(const UninstallAgentReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4715,15 +5028,6 @@ UninstallAgentResponse Client::uninstallAgent(const UninstallAgentRequest &reque
  */
 UninstallAgentForClusterResponse Client::uninstallAgentForClusterWithOptions(const UninstallAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -4739,7 +5043,6 @@ UninstallAgentForClusterResponse Client::uninstallAgentForClusterWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4771,7 +5074,7 @@ UninstallAgentForClusterResponse Client::uninstallAgentForCluster(const Uninstal
 /**
  * @summary Uninstalls a specified version of a component.
  *
- * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UninstallAgentWithTypeRequest
  * @param headers map
@@ -4780,15 +5083,6 @@ UninstallAgentForClusterResponse Client::uninstallAgentForCluster(const Uninstal
  */
 UninstallAgentWithTypeResponse Client::uninstallAgentWithTypeWithOptions(const UninstallAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agentId"] = request.getAgentId();
@@ -4808,7 +5102,6 @@ UninstallAgentWithTypeResponse Client::uninstallAgentWithTypeWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4828,7 +5121,7 @@ UninstallAgentWithTypeResponse Client::uninstallAgentWithTypeWithOptions(const U
 /**
  * @summary Uninstalls a specified version of a component.
  *
- * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @description Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UninstallAgentWithTypeRequest
  * @return UninstallAgentWithTypeResponse
@@ -4837,6 +5130,116 @@ UninstallAgentWithTypeResponse Client::uninstallAgentWithType(const UninstallAge
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return uninstallAgentWithTypeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+ *
+ * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ *
+ * @param request UninstallHotfixRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallHotfixResponse
+ */
+UninstallHotfixResponse Client::uninstallHotfixWithOptions(const UninstallHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCveId()) {
+    body["cveId"] = request.getCveId();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UninstallHotfix"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/hotfix_manager/hotfix/uninstall")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallHotfixResponse>();
+}
+
+/**
+ * @summary Asynchronously uninstalls CVE hotfixes from the specified instances.
+ *
+ * @description This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+ *
+ * @param request UninstallHotfixRequest
+ * @return UninstallHotfixResponse
+ */
+UninstallHotfixResponse Client::uninstallHotfix(const UninstallHotfixRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return uninstallHotfixWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates the component configuration.
+ *
+ * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+ *
+ * @param request UpdateAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAgentConfigResponse
+ */
+UpdateAgentConfigResponse Client::updateAgentConfigWithOptions(const UpdateAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasConfigId()) {
+    body["configId"] = request.getConfigId();
+  }
+
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/updateAgentConfig")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAgentConfigResponse>();
+}
+
+/**
+ * @summary Updates the component configuration.
+ *
+ * @description After the configuration is updated, the new configuration is delivered to all resources that use it.
+ *
+ * @param request UpdateAgentConfigRequest
+ * @return UpdateAgentConfigResponse
+ */
+UpdateAgentConfigResponse Client::updateAgentConfig(const UpdateAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAgentConfigWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4851,15 +5254,6 @@ UninstallAgentWithTypeResponse Client::uninstallAgentWithType(const UninstallAge
  */
 UpdateAlertDestinationResponse Client::updateAlertDestinationWithOptions(const UpdateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAppId()) {
     body["app_id"] = request.getAppId();
@@ -4899,7 +5293,6 @@ UpdateAlertDestinationResponse Client::updateAlertDestinationWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4940,15 +5333,6 @@ UpdateAlertDestinationResponse Client::updateAlertDestination(const UpdateAlertD
  */
 UpdateAlertEnabledResponse Client::updateAlertEnabledWithOptions(const UpdateAlertEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasEnabled()) {
     body["enabled"] = request.getEnabled();
@@ -4960,7 +5344,6 @@ UpdateAlertEnabledResponse Client::updateAlertEnabledWithOptions(const UpdateAle
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -4999,15 +5382,6 @@ UpdateAlertEnabledResponse Client::updateAlertEnabled(const UpdateAlertEnabledRe
  */
 UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasEnabled()) {
     body["enabled"] = request.getEnabled();
@@ -5031,7 +5405,6 @@ UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateA
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -5061,6 +5434,59 @@ UpdateAlertStrategyResponse Client::updateAlertStrategy(const UpdateAlertStrateg
 }
 
 /**
+ * @summary Updates the configuration of a cluster component.
+ *
+ * @param request UpdateClusterAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateClusterAgentConfigResponse
+ */
+UpdateClusterAgentConfigResponse Client::updateClusterAgentConfigWithOptions(const UpdateClusterAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["clusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasConfigId()) {
+    body["configId"] = request.getConfigId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateClusterAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/updateClusterAgentConfig")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateClusterAgentConfigResponse>();
+}
+
+/**
+ * @summary Updates the configuration of a cluster component.
+ *
+ * @param request UpdateClusterAgentConfigRequest
+ * @return UpdateClusterAgentConfigResponse
+ */
+UpdateClusterAgentConfigResponse Client::updateClusterAgentConfig(const UpdateClusterAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateClusterAgentConfigWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Updates the attention level of an anomaly item. Adjusting the attention level affects the sensitivity of the anomaly detection algorithm.
  *
  * @param request UpdateEventsAttentionRequest
@@ -5070,15 +5496,6 @@ UpdateAlertStrategyResponse Client::updateAlertStrategy(const UpdateAlertStrateg
  */
 UpdateEventsAttentionResponse Client::updateEventsAttentionWithOptions(const UpdateEventsAttentionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasMode()) {
     body["mode"] = request.getMode();
@@ -5094,7 +5511,6 @@ UpdateEventsAttentionResponse Client::updateEventsAttentionWithOptions(const Upd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -5143,10 +5559,6 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecordWithOptions(const U
   }
 
   json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
   if (!!request.hasChannel()) {
     query["channel"] = request.getChannel();
   }
@@ -5157,10 +5569,6 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecordWithOptions(const U
 
   if (!!request.hasServiceName()) {
     query["service_name"] = request.getServiceName();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5197,9 +5605,62 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecord(const UpdateFuncSw
 }
 
 /**
- * @summary Updates the version of an installed component to a specified version.
+ * @summary Updates the component configuration of an instance.
  *
- * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @param request UpdateInstanceAgentConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstanceAgentConfigResponse
+ */
+UpdateInstanceAgentConfigResponse Client::updateInstanceAgentConfigWithOptions(const UpdateInstanceAgentConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["agentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasConfigId()) {
+    body["configId"] = request.getConfigId();
+  }
+
+  if (!!request.hasInstances()) {
+    body["instances"] = request.getInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateInstanceAgentConfig"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/am/agent/updateInstanceAgentConfig")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstanceAgentConfigResponse>();
+}
+
+/**
+ * @summary Updates the component configuration of an instance.
+ *
+ * @param request UpdateInstanceAgentConfigRequest
+ * @return UpdateInstanceAgentConfigResponse
+ */
+UpdateInstanceAgentConfigResponse Client::updateInstanceAgentConfig(const UpdateInstanceAgentConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateInstanceAgentConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Updates an installed component to a specified version.
+ *
+ * @description Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UpgradeAgentRequest
  * @param headers map
@@ -5208,15 +5669,6 @@ UpdateFuncSwitchRecordResponse Client::updateFuncSwitchRecord(const UpdateFuncSw
  */
 UpgradeAgentResponse Client::upgradeAgentWithOptions(const UpgradeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -5232,7 +5684,6 @@ UpgradeAgentResponse Client::upgradeAgentWithOptions(const UpgradeAgentRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -5250,9 +5701,9 @@ UpgradeAgentResponse Client::upgradeAgentWithOptions(const UpgradeAgentRequest &
 }
 
 /**
- * @summary Updates the version of an installed component to a specified version.
+ * @summary Updates an installed component to a specified version.
  *
- * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @description Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UpgradeAgentRequest
  * @return UpgradeAgentResponse
@@ -5264,7 +5715,7 @@ UpgradeAgentResponse Client::upgradeAgent(const UpgradeAgentRequest &request) {
 }
 
 /**
- * @summary Updates a component for an ACK cluster.
+ * @summary Updates a component for a cluster.
  *
  * @param request UpgradeAgentForClusterRequest
  * @param headers map
@@ -5273,15 +5724,6 @@ UpgradeAgentResponse Client::upgradeAgent(const UpgradeAgentRequest &request) {
  */
 UpgradeAgentForClusterResponse Client::upgradeAgentForClusterWithOptions(const UpgradeAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agent_id"] = request.getAgentId();
@@ -5297,7 +5739,6 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForClusterWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -5315,7 +5756,7 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForClusterWithOptions(const U
 }
 
 /**
- * @summary Updates a component for an ACK cluster.
+ * @summary Updates a component for a cluster.
  *
  * @param request UpgradeAgentForClusterRequest
  * @return UpgradeAgentForClusterResponse
@@ -5329,7 +5770,7 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForCluster(const UpgradeAgent
 /**
  * @summary Updates the version of an installed component to a specified version.
  *
- * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @description Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UpgradeAgentWithTypeRequest
  * @param headers map
@@ -5338,15 +5779,6 @@ UpgradeAgentForClusterResponse Client::upgradeAgentForCluster(const UpgradeAgent
  */
 UpgradeAgentWithTypeResponse Client::upgradeAgentWithTypeWithOptions(const UpgradeAgentWithTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasXDebugId()) {
-    query["X-Debug-Id"] = request.getXDebugId();
-  }
-
-  if (!!request.hasXSysomInvokeSource()) {
-    query["x-sysom-invoke-source"] = request.getXSysomInvokeSource();
-  }
-
   json body = {};
   if (!!request.hasAgentId()) {
     body["agentId"] = request.getAgentId();
@@ -5366,7 +5798,6 @@ UpgradeAgentWithTypeResponse Client::upgradeAgentWithTypeWithOptions(const Upgra
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -5386,7 +5817,7 @@ UpgradeAgentWithTypeResponse Client::upgradeAgentWithTypeWithOptions(const Upgra
 /**
  * @summary Updates the version of an installed component to a specified version.
  *
- * @description Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+ * @description Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
  *
  * @param request UpgradeAgentWithTypeRequest
  * @return UpgradeAgentWithTypeResponse

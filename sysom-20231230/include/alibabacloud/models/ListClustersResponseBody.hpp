@@ -133,8 +133,8 @@ namespace Models
     protected:
       // The actual cluster ID.
       // 
-      // > - For `ACK` type clusters, this is the ACK cluster ID.
-      // > - For `CUSTOM` type clusters, this serves as a unique identifier with no additional meaning.
+      // > - For `ACK` clusters, this cluster ID is the ACK cluster ID.
+      // > - For `CUSTOM` clusters, this cluster ID serves as a unique identifier and has no additional meaning.
       shared_ptr<string> clusterId_ {};
       // - `Running`: The cluster is managed normally.
       // - `Installing`: An installation task is in progress for the cluster.
@@ -143,7 +143,7 @@ namespace Models
       // - `Offline`: The cluster is offline and management is abnormal.
       shared_ptr<string> clusterStatus_ {};
       // - `ACK`: ACK cluster.
-      // - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
+      // - `CUSTOM`: Custom cluster. The default cluster belongs to the custom cluster type.
       shared_ptr<string> clusterType_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};
@@ -200,8 +200,8 @@ namespace Models
     // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<ListClustersResponseBody::Data>> data_ {};

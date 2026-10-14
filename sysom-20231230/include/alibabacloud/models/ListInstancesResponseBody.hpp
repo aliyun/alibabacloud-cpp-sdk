@@ -176,19 +176,19 @@ namespace Models
       shared_ptr<string> instance_ {};
       // The current kernel version of the instance.
       shared_ptr<string> kernelVersion_ {};
-      // The metadata of the instance.
+      // The instance metadata.
       Darabonba::Json meta_ {};
       // The architecture of the ECS instance.
       shared_ptr<string> osArch_ {};
       // The health score of the instance.
       shared_ptr<string> osHealthScore_ {};
-      // The operating system name of the instance (obtained from /etc/os-release).
+      // The operating system name of the instance, obtained from /etc/os-release.
       shared_ptr<string> osName_ {};
-      // The operating system name ID of the instance (obtained from /etc/os-release).
+      // The operating system name ID of the instance, obtained from /etc/os-release.
       shared_ptr<string> osNameId_ {};
-      // The operating system version of the instance (obtained from /etc/os-release).
+      // The operating system version of the instance, obtained from /etc/os-release.
       shared_ptr<string> osVersion_ {};
-      // The operating system version ID of the instance (obtained from /etc/os-release).
+      // The operating system version ID of the instance, obtained from /etc/os-release.
       shared_ptr<string> osVersionId_ {};
       // The region where the instance resides.
       shared_ptr<string> region_ {};
@@ -237,8 +237,8 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};

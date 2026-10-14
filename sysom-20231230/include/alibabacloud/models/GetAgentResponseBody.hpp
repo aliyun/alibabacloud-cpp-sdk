@@ -151,9 +151,9 @@ namespace Models
         shared_ptr<string> uninstallScript_ {};
         // The time when the agent version was last updated.
         shared_ptr<string> updatedAt_ {};
-        // The update script for this agent version.
+        // The upgrade script for this agent version.
         shared_ptr<string> upgradeScript_ {};
-        // The agent version number.
+        // The version number of the agent.
         shared_ptr<string> version_ {};
       };
 
@@ -221,19 +221,19 @@ namespace Models
     protected:
       // The time when the component was created.
       shared_ptr<string> createdAt_ {};
-      // The component description.
+      // The description of the component.
       shared_ptr<string> description_ {};
       // The component ID.
       shared_ptr<string> id_ {};
-      // The component name.
+      // The name of the component.
       shared_ptr<string> name_ {};
-      // The supported architectures.
+      // The supported architecture.
       shared_ptr<string> supportArch_ {};
       // The agent type.
       shared_ptr<string> type_ {};
       // The time when the component was last updated.
       shared_ptr<string> updatedAt_ {};
-      // The component version information.
+      // The version information of the component.
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -274,13 +274,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code.
     // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetAgentResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the error information of the request.
     shared_ptr<string> message_ {};
   };
 

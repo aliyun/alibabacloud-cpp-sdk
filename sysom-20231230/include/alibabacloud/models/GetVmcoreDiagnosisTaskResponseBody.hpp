@@ -122,13 +122,13 @@ namespace Models
 
 
       protected:
-        // The download URL of the debuginfo-common RPM package.
+        // The download link for the debuginfo-common RPM package.
         shared_ptr<string> debuginfoCommonUrl_ {};
-        // The download URL of the debuginfo RPM package.
+        // The download link for the debuginfo RPM package.
         shared_ptr<string> debuginfoUrl_ {};
-        // The download URL of the dmesg log.
+        // The download link for the dmesg log.
         shared_ptr<string> dmesgUrl_ {};
-        // The download URL of the vmcore file.
+        // The download link for the vmcore file.
         shared_ptr<string> vmcoreUrl_ {};
       };
 
@@ -199,7 +199,7 @@ namespace Models
       shared_ptr<string> taskStatus_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The download URLs of related files associated with the task.
+      // The download links for files related to the task.
       shared_ptr<Data::Urls> urls_ {};
     };
 
@@ -244,7 +244,7 @@ namespace Models
     shared_ptr<GetVmcoreDiagnosisTaskResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

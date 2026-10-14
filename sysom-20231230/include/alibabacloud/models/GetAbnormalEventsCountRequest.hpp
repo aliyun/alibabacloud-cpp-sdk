@@ -13,7 +13,6 @@ namespace Models
   class GetAbnormalEventsCountRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAbnormalEventsCountRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(cluster, cluster_);
       DARABONBA_PTR_TO_JSON(end, end_);
       DARABONBA_PTR_TO_JSON(instance, instance_);
@@ -22,10 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pod, pod_);
       DARABONBA_PTR_TO_JSON(showPod, showPod_);
       DARABONBA_PTR_TO_JSON(start, start_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, GetAbnormalEventsCountRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(cluster, cluster_);
       DARABONBA_PTR_FROM_JSON(end, end_);
       DARABONBA_PTR_FROM_JSON(instance, instance_);
@@ -34,7 +31,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pod, pod_);
       DARABONBA_PTR_FROM_JSON(showPod, showPod_);
       DARABONBA_PTR_FROM_JSON(start, start_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     GetAbnormalEventsCountRequest() = default ;
     GetAbnormalEventsCountRequest(const GetAbnormalEventsCountRequest &) = default ;
@@ -47,16 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->cluster_ == nullptr && this->end_ == nullptr && this->instance_ == nullptr && this->level_ == nullptr && this->namespace_ == nullptr
-        && this->pod_ == nullptr && this->showPod_ == nullptr && this->start_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline GetAbnormalEventsCountRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->cluster_ == nullptr
+        && this->end_ == nullptr && this->instance_ == nullptr && this->level_ == nullptr && this->namespace_ == nullptr && this->pod_ == nullptr
+        && this->showPod_ == nullptr && this->start_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
@@ -113,22 +102,14 @@ namespace Models
     inline GetAbnormalEventsCountRequest& setStart(float start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline GetAbnormalEventsCountRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     // The cluster ID.
     shared_ptr<string> cluster_ {};
     // The end time.
     shared_ptr<float> end_ {};
     // The instance ID.
     shared_ptr<string> instance_ {};
-    // The severity level of abnormal events.
+    // The severity level of the abnormal event.
     shared_ptr<string> level_ {};
     // The namespace of the pod.
     shared_ptr<string> namespace_ {};
@@ -138,7 +119,6 @@ namespace Models
     shared_ptr<int32_t> showPod_ {};
     // The start time.
     shared_ptr<float> start_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

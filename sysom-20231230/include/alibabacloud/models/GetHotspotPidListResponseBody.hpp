@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetHotspotPidListResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

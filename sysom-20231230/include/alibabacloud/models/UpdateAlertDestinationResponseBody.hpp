@@ -72,7 +72,7 @@ namespace Models
     // - If `code == Success`, the authorization is successful.
     // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The response result.
     Darabonba::Json data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.

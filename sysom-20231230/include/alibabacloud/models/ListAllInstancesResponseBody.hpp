@@ -364,12 +364,12 @@ namespace Models
       // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
       // The running status of the instance. Valid values:
-      // - **Running**: The instance is running.
-      // - **Offline**: The instance is offline.
+      // - **Running**: Running.
+      // - **Offline**: Offline.
       // 
       // 
       // 
-      // > An instance in the Offline state indicates that the heartbeat from the node to the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
+      // > An instance in the Offline status indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -436,7 +436,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error message.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
     // The pagination token.
     // 

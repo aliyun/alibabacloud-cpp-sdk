@@ -132,11 +132,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetHotSpotUniqListResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call is successful. true: successful. false: failed.
+    // Indicates whether the API call is successful. Valid values:
+    // - true: The API call is successful.
+    // - false: The API call failed.
     shared_ptr<string> success_ {};
   };
 

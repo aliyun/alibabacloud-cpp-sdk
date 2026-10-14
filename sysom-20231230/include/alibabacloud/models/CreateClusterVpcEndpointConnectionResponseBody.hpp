@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the endpoint connection.
+      // The endpoint connection ID.
       shared_ptr<string> endpointConnectionId_ {};
     };
 

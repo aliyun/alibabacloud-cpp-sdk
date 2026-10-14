@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The type of the abnormal item.
+      // The anomaly item type.
       shared_ptr<string> type_ {};
-      // The number of abnormal items of this type.
+      // The number of anomaly items of this type.
       shared_ptr<int64_t> value_ {};
     };
 

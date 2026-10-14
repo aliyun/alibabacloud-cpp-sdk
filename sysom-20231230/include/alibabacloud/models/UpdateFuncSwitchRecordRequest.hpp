@@ -13,18 +13,14 @@ namespace Models
   class UpdateFuncSwitchRecordRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateFuncSwitchRecordRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(channel, channel_);
       DARABONBA_PTR_TO_JSON(params, params_);
       DARABONBA_PTR_TO_JSON(service_name, serviceName_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateFuncSwitchRecordRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(channel, channel_);
       DARABONBA_PTR_FROM_JSON(params, params_);
       DARABONBA_PTR_FROM_JSON(service_name, serviceName_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     UpdateFuncSwitchRecordRequest() = default ;
     UpdateFuncSwitchRecordRequest(const UpdateFuncSwitchRecordRequest &) = default ;
@@ -172,7 +168,7 @@ namespace Models
         shared_ptr<string> addCmd_ {};
         // The ONCPU tracing switch.
         shared_ptr<string> cpu_ {};
-        // The start duration. Unit: seconds.
+        // The start duration, in seconds (s).
         shared_ptr<int32_t> duration_ {};
         // The storage path.
         shared_ptr<string> javaStorePath_ {};
@@ -251,15 +247,8 @@ namespace Models
       shared_ptr<string> uid_ {};
     };
 
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->channel_ == nullptr && this->params_ == nullptr && this->serviceName_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline UpdateFuncSwitchRecordRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->channel_ == nullptr
+        && this->params_ == nullptr && this->serviceName_ == nullptr; };
     // channel Field Functions 
     bool hasChannel() const { return this->channel_ != nullptr;};
     void deleteChannel() { this->channel_ = nullptr;};
@@ -283,20 +272,12 @@ namespace Models
     inline UpdateFuncSwitchRecordRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline UpdateFuncSwitchRecordRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
     // The diagnostic channel. Currently, this parameter is fixed to the ECS channel.
     // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
-    // The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match specified values.
+    // The diagnostic parameters. Different types of diagnostics require different diagnostic parameters. You can use this field to filter records whose parameters match the specified values.
     // 
     // This parameter is required.
     shared_ptr<UpdateFuncSwitchRecordRequest::Params> params_ {};
@@ -304,7 +285,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

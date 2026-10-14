@@ -13,7 +13,6 @@ namespace Models
   class ListClustersRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListClustersRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_TO_JSON(cluster_status, clusterStatus_);
       DARABONBA_PTR_TO_JSON(cluster_type, clusterType_);
@@ -21,10 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
-      DARABONBA_PTR_TO_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     friend void from_json(const Darabonba::Json& j, ListClustersRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(X-Debug-Id, xDebugId_);
       DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
       DARABONBA_PTR_FROM_JSON(cluster_status, clusterStatus_);
       DARABONBA_PTR_FROM_JSON(cluster_type, clusterType_);
@@ -32,7 +29,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
-      DARABONBA_PTR_FROM_JSON(x-sysom-invoke-source, xSysomInvokeSource_);
     };
     ListClustersRequest() = default ;
     ListClustersRequest(const ListClustersRequest &) = default ;
@@ -45,16 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->xDebugId_ == nullptr
-        && this->clusterId_ == nullptr && this->clusterStatus_ == nullptr && this->clusterType_ == nullptr && this->current_ == nullptr && this->id_ == nullptr
-        && this->name_ == nullptr && this->pageSize_ == nullptr && this->xSysomInvokeSource_ == nullptr; };
-    // xDebugId Field Functions 
-    bool hasXDebugId() const { return this->xDebugId_ != nullptr;};
-    void deleteXDebugId() { this->xDebugId_ = nullptr;};
-    inline string getXDebugId() const { DARABONBA_PTR_GET_DEFAULT(xDebugId_, "") };
-    inline ListClustersRequest& setXDebugId(string xDebugId) { DARABONBA_PTR_SET_VALUE(xDebugId_, xDebugId) };
-
-
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->clusterStatus_ == nullptr && this->clusterType_ == nullptr && this->current_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
+        && this->pageSize_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -104,16 +93,8 @@ namespace Models
     inline ListClustersRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
-    // xSysomInvokeSource Field Functions 
-    bool hasXSysomInvokeSource() const { return this->xSysomInvokeSource_ != nullptr;};
-    void deleteXSysomInvokeSource() { this->xSysomInvokeSource_ = nullptr;};
-    inline string getXSysomInvokeSource() const { DARABONBA_PTR_GET_DEFAULT(xSysomInvokeSource_, "") };
-    inline ListClustersRequest& setXSysomInvokeSource(string xSysomInvokeSource) { DARABONBA_PTR_SET_VALUE(xSysomInvokeSource_, xSysomInvokeSource) };
-
-
   protected:
-    shared_ptr<string> xDebugId_ {};
-    // Filters by cluster ID.
+    // The cluster ID used to filter clusters.
     // 
     // > This cluster ID is not the ACK cluster ID. It is the `id` field returned by this operation.
     shared_ptr<string> clusterId_ {};
@@ -124,17 +105,16 @@ namespace Models
     // - `Offline`: The cluster is offline and management is abnormal.
     shared_ptr<string> clusterStatus_ {};
     // - `ACK`: ACK cluster.
-    // - `CUSTOM`: Custom cluster (default clusters belong to custom clusters).
+    // - `CUSTOM`: Custom cluster. The default cluster belongs to the custom cluster type.
     shared_ptr<string> clusterType_ {};
     // The current page number (starting from page 1).
     shared_ptr<int64_t> current_ {};
-    // **[Deprecated]** Use the cluster_id parameter to filter instead.
+    // **[Deprecated]** Use the cluster_id parameter to filter clusters.
     shared_ptr<string> id_ {};
-    // Filters plugins by plugin name.
+    // The name of the plug-in used to filter plug-ins.
     shared_ptr<string> name_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    shared_ptr<string> xSysomInvokeSource_ {};
   };
 
   } // namespace Models

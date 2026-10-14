@@ -124,25 +124,25 @@ namespace Models
 
 
     protected:
-      // The list of container image names in the Pod.
+      // The list of container image names in the pod.
       shared_ptr<vector<string>> images_ {};
       // The instance ID.
       shared_ptr<string> instance_ {};
-      // The namespace of the Pod.
+      // The namespace of the pod.
       shared_ptr<string> namespace_ {};
-      // The Pod name.
+      // The pod name.
       shared_ptr<string> pod_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The health score.
       shared_ptr<float> score_ {};
       // The running status of the instance. Valid values:
-      // - **Running**: running.
-      // - **Offline**: offline.
+      // - **Running**: Running.
+      // - **Offline**: Offline.
       // 
       // 
       // 
-      // > An instance in the Offline state indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
+      // > An instance in the Offline status indicates that the heartbeat between the node and the SysOM server is lost. It does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -187,14 +187,14 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - If `code == Success`, the authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<vector<ListInstanceHealthResponseBody::Data>> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error information of the request.
+    // - Otherwise, this field contains the request error information.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

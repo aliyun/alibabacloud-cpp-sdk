@@ -139,13 +139,13 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The canary release environment.
+      // The grayscale configuration.
       shared_ptr<string> grayscaleConfig_ {};
       // The component ID.
       shared_ptr<string> pluginId_ {};
       // The plug-in version.
       shared_ptr<string> pluginVersion_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 

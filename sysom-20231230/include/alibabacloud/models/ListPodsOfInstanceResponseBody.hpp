@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The namespace in which the pod resides.
+      // The namespace of the pod.
       shared_ptr<string> namespace_ {};
       // The pod name.
       shared_ptr<string> pod_ {};
@@ -132,7 +132,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The maximum number of entries returned for this request.
+    // The maximum number of records returned in this request.
     shared_ptr<int64_t> total_ {};
   };
 
