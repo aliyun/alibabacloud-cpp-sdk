@@ -134,43 +134,16 @@ namespace Models
 
 
   protected:
-    // The business attributes of the catalog, returned as key-value pairs. The following keys may be included:
-    // 
-    // - **ALIAS**: the alias of the data source
-    // - **HOST**: the endpoint of the data source
-    // - **PORT**: the connection port of the data source
-    // - **ENV_TYPE**: the environment type of the data source
-    // - **VERSION**: the database version of the data source
-    // - **SYNC_ALIAS**: whether automatic synchronization of instance aliases is enabled
     Darabonba::Json catalogBizAttrs_ {};
-    // The type of the catalog. Valid values:
-    // 
-    // - **JDBC**: relational database catalog
-    // - **DataLake**: data lake catalog
-    // - **Dataset**: knowledge base catalog
     shared_ptr<string> catalogType_ {};
-    // The unique identifier of the catalog.
     shared_ptr<string> catalogUuid_ {};
-    // The unique identifier of the data source associated with the catalog.
     shared_ptr<string> dataSourceUuid_ {};
-    // The database type of the data source associated with the catalog. The value is the uppercase name of the database type, such as MYSQL.
     shared_ptr<string> dbType_ {};
-    // The description of the catalog.
     shared_ptr<string> description_ {};
-    // The name of the catalog.
     shared_ptr<string> name_ {};
-    // The extended properties of the catalog, returned as key-value pairs.
     Darabonba::Json properties_ {};
-    // The region ID of the data source associated with the catalog.
     shared_ptr<string> regionId_ {};
-    // The status of the catalog. Valid values:
-    // 
-    // - **0**: Normal. This value is set when the data source is created.
-    // - **-1**: Deleted. This value is set when the data source is deleted.
-    // 
-    // Disabling a data source does not change the status of the catalog.
     shared_ptr<int32_t> state_ {};
-    // The storage location. This property is returned only for catalogs of the DataLake type.
     shared_ptr<string> storageLocation_ {};
   };
 

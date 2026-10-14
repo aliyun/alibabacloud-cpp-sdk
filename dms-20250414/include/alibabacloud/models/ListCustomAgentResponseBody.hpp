@@ -68,6 +68,7 @@ namespace Models
       class Content : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
+          DARABONBA_PTR_TO_JSON(AgentType, agentType_);
           DARABONBA_PTR_TO_JSON(AliyunParentId, aliyunParentId_);
           DARABONBA_PTR_TO_JSON(AliyunUid, aliyunUid_);
           DARABONBA_PTR_TO_JSON(CallbackConfig, callbackConfig_);
@@ -91,6 +92,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(NextRuntime, nextRuntime_);
           DARABONBA_PTR_TO_JSON(OfflineTime, offlineTime_);
+          DARABONBA_PTR_TO_JSON(RecommendQuestionList, recommendQuestionList_);
           DARABONBA_PTR_TO_JSON(Region, region_);
           DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
           DARABONBA_PTR_TO_JSON(ReleaseTime, releaseTime_);
@@ -103,6 +105,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
+          DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
           DARABONBA_PTR_FROM_JSON(AliyunParentId, aliyunParentId_);
           DARABONBA_PTR_FROM_JSON(AliyunUid, aliyunUid_);
           DARABONBA_PTR_FROM_JSON(CallbackConfig, callbackConfig_);
@@ -126,6 +129,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(NextRuntime, nextRuntime_);
           DARABONBA_PTR_FROM_JSON(OfflineTime, offlineTime_);
+          DARABONBA_PTR_FROM_JSON(RecommendQuestionList, recommendQuestionList_);
           DARABONBA_PTR_FROM_JSON(Region, region_);
           DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
           DARABONBA_PTR_FROM_JSON(ReleaseTime, releaseTime_);
@@ -195,11 +199,11 @@ namespace Models
 
 
         protected:
-          // The cron expression for time-based scheduling.
+          // The cron expression for time-based periodic scheduling.
           shared_ptr<string> cronExpression_ {};
-          // The query for the scheduled task.
+          // The question for the periodic task.
           shared_ptr<string> query_ {};
-          // The ID of the referenced historical session.
+          // The referenced historical session ID.
           shared_ptr<string> relatedSessionId_ {};
         };
 
@@ -318,7 +322,7 @@ namespace Models
           shared_ptr<string> accessType_ {};
           // The knowledge base ID.
           shared_ptr<string> kbUuid_ {};
-          // The ID of the MCP server.
+          // The MCP server ID.
           shared_ptr<string> mcpServerId_ {};
         };
 
@@ -387,15 +391,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to prohibit appending data sources during the session.
+          // Specifies whether to prohibit appending data sources in the session.
           shared_ptr<bool> forbiddenAppendDataSource_ {};
-          // Specifies whether to prohibit user inquiries during the process.
+          // Specifies whether to skip user inquiries during the process.
           shared_ptr<bool> skipAskHuman_ {};
           // Specifies whether to skip the plan confirmation step.
           shared_ptr<bool> skipPlan_ {};
           // Specifies whether to skip all SQL confirmations.
           shared_ptr<bool> skipSqlConfirm_ {};
-          // Specifies whether to skip the web report generation confirmation.
+          // Specifies whether to skip the web report rendering confirmation.
           shared_ptr<bool> skipWebReportConfirm_ {};
         };
 
@@ -464,26 +468,33 @@ namespace Models
 
 
         protected:
-          // The parameters to invoke the callback during tool calling.
+          // The parameters for callback tool invocation.
           shared_ptr<string> callbackArgs_ {};
-          // The prompt for generating parameters to invoke the callback during tool calling.
+          // The prompt for generating callback tool invocation parameters.
           shared_ptr<string> callbackPrompt_ {};
-          // The time to invoke the callback during tool calling.
+          // The timing for callback tool invocation.
           shared_ptr<int32_t> callbackTime_ {};
-          // The callback tool identifier.
+          // The identifier of the callback tool.
           shared_ptr<string> toolId_ {};
           // The callback tool type.
           shared_ptr<string> type_ {};
         };
 
-        virtual bool empty() const override { return this->aliyunParentId_ == nullptr
-        && this->aliyunUid_ == nullptr && this->callbackConfig_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr
-        && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr
-        && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
-        && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr
-        && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr
-        && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr
-        && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->aliyunParentId_ == nullptr && this->aliyunUid_ == nullptr && this->callbackConfig_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr
+        && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr
+        && this->executionConfig_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr
+        && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr
+        && this->name_ == nullptr && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr && this->recommendQuestionList_ == nullptr && this->region_ == nullptr
+        && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr
+        && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        // agentType Field Functions 
+        bool hasAgentType() const { return this->agentType_ != nullptr;};
+        void deleteAgentType() { this->agentType_ = nullptr;};
+        inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+        inline Content& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
         // aliyunParentId Field Functions 
         bool hasAliyunParentId() const { return this->aliyunParentId_ != nullptr;};
         void deleteAliyunParentId() { this->aliyunParentId_ = nullptr;};
@@ -653,6 +664,15 @@ namespace Models
         inline Content& setOfflineTime(string offlineTime) { DARABONBA_PTR_SET_VALUE(offlineTime_, offlineTime) };
 
 
+        // recommendQuestionList Field Functions 
+        bool hasRecommendQuestionList() const { return this->recommendQuestionList_ != nullptr;};
+        void deleteRecommendQuestionList() { this->recommendQuestionList_ = nullptr;};
+        inline const vector<string> & getRecommendQuestionList() const { DARABONBA_PTR_GET_CONST(recommendQuestionList_, vector<string>) };
+        inline vector<string> getRecommendQuestionList() { DARABONBA_PTR_GET(recommendQuestionList_, vector<string>) };
+        inline Content& setRecommendQuestionList(const vector<string> & recommendQuestionList) { DARABONBA_PTR_SET_VALUE(recommendQuestionList_, recommendQuestionList) };
+        inline Content& setRecommendQuestionList(vector<string> && recommendQuestionList) { DARABONBA_PTR_SET_RVALUE(recommendQuestionList_, recommendQuestionList) };
+
+
         // region Field Functions 
         bool hasRegion() const { return this->region_ != nullptr;};
         void deleteRegion() { this->region_ = nullptr;};
@@ -728,7 +748,11 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud parent account ID.
+        // The custom agent type. Valid values:
+        // - Default: The system built-in custom agent.
+        // - Common: The common custom agent.
+        shared_ptr<string> agentType_ {};
+        // The ID of the main Alibaba Cloud account.
         shared_ptr<string> aliyunParentId_ {};
         // The Alibaba Cloud account ID.
         shared_ptr<string> aliyunUid_ {};
@@ -736,13 +760,13 @@ namespace Models
         shared_ptr<Content::CallbackConfig> callbackConfig_ {};
         // The name of the creator.
         shared_ptr<string> creatorUserName_ {};
-        // The ID of the custom agent.
+        // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The current DMS unit.
         shared_ptr<string> DMSUnit_ {};
         // The specified data scope in JSON string format.
         shared_ptr<string> dataJson_ {};
-        // Specifies whether the agent is displayed by default.
+        // Indicates whether the agent is displayed by default.
         shared_ptr<int32_t> defaultAgent_ {};
         // The description of the custom agent.
         shared_ptr<string> description_ {};
@@ -756,7 +780,7 @@ namespace Models
         shared_ptr<string> gmtModified_ {};
         // The instructions.
         shared_ptr<string> instruction_ {};
-        // Specifies whether a scheduled task is configured.
+        // Indicates whether a periodic task is configured.
         shared_ptr<bool> isScheduleTask_ {};
         // The knowledge.
         shared_ptr<string> knowledge_ {};
@@ -769,19 +793,21 @@ namespace Models
         shared_ptr<string> modifierUserName_ {};
         // The name of the custom agent.
         shared_ptr<string> name_ {};
-        // The next run time of the scheduled task.
+        // The next run time of the periodic task.
         shared_ptr<int64_t> nextRuntime_ {};
         // The offline time.
         shared_ptr<string> offlineTime_ {};
+        // The list of recommended questions. You can configure up to 10 recommended questions.
+        shared_ptr<vector<string>> recommendQuestionList_ {};
         // The region.
         shared_ptr<string> region_ {};
-        // The ID of the referenced historical session.
+        // The reference historical session ID.
         shared_ptr<string> relatedSessionId_ {};
-        // The release time.
+        // The publish time.
         shared_ptr<string> releaseTime_ {};
-        // The scheduled task configuration.
+        // The periodic task configuration.
         shared_ptr<Content::ScheduleTaskConfig> scheduleTaskConfig_ {};
-        // The status of the custom agent.
+        // The custom agent status.
         shared_ptr<string> status_ {};
         // The text report format.
         shared_ptr<string> textReportConfig_ {};
@@ -792,8 +818,8 @@ namespace Models
         // The web report theme. Valid values:
         // - default: Default.
         // - journal: Journal.
-        // - legacy: Legacy.
-        // - neobrutalism: Neobrutalism.
+        // - legacy: Classic.
+        // - neobrutalism: Stylized.
         // - infographic: Infographic.
         shared_ptr<string> webReportTheme_ {};
         // The workspace ID.
@@ -892,11 +918,11 @@ namespace Models
 
 
   protected:
-    // The returned struct.
+    // The response struct.
     shared_ptr<ListCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

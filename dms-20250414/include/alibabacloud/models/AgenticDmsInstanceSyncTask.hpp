@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ActorId, actorId_);
       DARABONBA_PTR_TO_JSON(ActorName, actorName_);
       DARABONBA_PTR_TO_JSON(ActorType, actorType_);
+      DARABONBA_PTR_TO_JSON(AuthorizeAddVpcNatWhiteList, authorizeAddVpcNatWhiteList_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(ErrorSummary, errorSummary_);
       DARABONBA_PTR_TO_JSON(FailedCount, failedCount_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ActorId, actorId_);
       DARABONBA_PTR_FROM_JSON(ActorName, actorName_);
       DARABONBA_PTR_FROM_JSON(ActorType, actorType_);
+      DARABONBA_PTR_FROM_JSON(AuthorizeAddVpcNatWhiteList, authorizeAddVpcNatWhiteList_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(ErrorSummary, errorSummary_);
       DARABONBA_PTR_FROM_JSON(FailedCount, failedCount_);
@@ -60,9 +62,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actorId_ == nullptr
-        && this->actorName_ == nullptr && this->actorType_ == nullptr && this->errorCode_ == nullptr && this->errorSummary_ == nullptr && this->failedCount_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->operatorMode_ == nullptr && this->requestedOperatorMode_ == nullptr && this->skippedCount_ == nullptr
-        && this->status_ == nullptr && this->successCount_ == nullptr && this->syncUserDataPermission_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr; };
+        && this->actorName_ == nullptr && this->actorType_ == nullptr && this->authorizeAddVpcNatWhiteList_ == nullptr && this->errorCode_ == nullptr && this->errorSummary_ == nullptr
+        && this->failedCount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->operatorMode_ == nullptr && this->requestedOperatorMode_ == nullptr
+        && this->skippedCount_ == nullptr && this->status_ == nullptr && this->successCount_ == nullptr && this->syncUserDataPermission_ == nullptr && this->taskId_ == nullptr
+        && this->totalCount_ == nullptr; };
     // actorId Field Functions 
     bool hasActorId() const { return this->actorId_ != nullptr;};
     void deleteActorId() { this->actorId_ = nullptr;};
@@ -82,6 +85,13 @@ namespace Models
     void deleteActorType() { this->actorType_ = nullptr;};
     inline string getActorType() const { DARABONBA_PTR_GET_DEFAULT(actorType_, "") };
     inline AgenticDmsInstanceSyncTask& setActorType(string actorType) { DARABONBA_PTR_SET_VALUE(actorType_, actorType) };
+
+
+    // authorizeAddVpcNatWhiteList Field Functions 
+    bool hasAuthorizeAddVpcNatWhiteList() const { return this->authorizeAddVpcNatWhiteList_ != nullptr;};
+    void deleteAuthorizeAddVpcNatWhiteList() { this->authorizeAddVpcNatWhiteList_ = nullptr;};
+    inline bool getAuthorizeAddVpcNatWhiteList() const { DARABONBA_PTR_GET_DEFAULT(authorizeAddVpcNatWhiteList_, false) };
+    inline AgenticDmsInstanceSyncTask& setAuthorizeAddVpcNatWhiteList(bool authorizeAddVpcNatWhiteList) { DARABONBA_PTR_SET_VALUE(authorizeAddVpcNatWhiteList_, authorizeAddVpcNatWhiteList) };
 
 
     // errorCode Field Functions 
@@ -179,6 +189,7 @@ namespace Models
     shared_ptr<string> actorId_ {};
     shared_ptr<string> actorName_ {};
     shared_ptr<string> actorType_ {};
+    shared_ptr<bool> authorizeAddVpcNatWhiteList_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorSummary_ {};
     shared_ptr<int32_t> failedCount_ {};

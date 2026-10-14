@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigList_);
       DARABONBA_PTR_TO_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RecommendQuestionList, recommendQuestionList_);
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigList_);
       DARABONBA_PTR_FROM_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RecommendQuestionList, recommendQuestionList_);
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
@@ -111,7 +113,7 @@ namespace Models
 
 
     protected:
-      // The cron expression for periodic scheduling.
+      // The cron expression for scheduled execution.
       shared_ptr<string> cronExpression_ {};
       // The query for the scheduled task.
       shared_ptr<string> query_ {};
@@ -229,12 +231,12 @@ namespace Models
 
     protected:
       // The access type. If this parameter is not specified, the default value is mcp. Valid values:
-      // - mcp: access through MCP. You must pass the McpServerId parameter.
-      // - dms_kb: access through DMS knowledge base. You must pass the KbUuid parameter.
+      // - mcp: access through MCP. You must specify the McpServerId parameter.
+      // - dms_kb: access through a DMS knowledge base. You must specify the KbUuid parameter.
       shared_ptr<string> accessType_ {};
       // The knowledge base ID.
       shared_ptr<string> kbUuid_ {};
-      // The ID of the MCP server.
+      // The MCP server ID.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -303,15 +305,15 @@ namespace Models
 
 
     protected:
-      // Specifies whether to prohibit appending data sources during the session.
+      // Specifies whether to prohibit appending data sources in a session.
       shared_ptr<bool> forbiddenAppendDataSource_ {};
-      // Specifies whether to disable user inquiries during the process.
+      // Specifies whether to disable user prompts during the process.
       shared_ptr<bool> skipAskHuman_ {};
       // Specifies whether to skip the plan confirmation step.
       shared_ptr<bool> skipPlan_ {};
       // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the web report generation confirmation.
+      // Specifies whether to skip the confirmation for generating a web report.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -390,8 +392,8 @@ namespace Models
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
         && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfig_ == nullptr
         && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->name_ == nullptr
-        && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr && this->webReportConfig_ == nullptr
-        && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->recommendQuestionList_ == nullptr && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillList_ == nullptr
+        && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
@@ -477,6 +479,15 @@ namespace Models
     inline ModifyCustomAgentRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // recommendQuestionList Field Functions 
+    bool hasRecommendQuestionList() const { return this->recommendQuestionList_ != nullptr;};
+    void deleteRecommendQuestionList() { this->recommendQuestionList_ = nullptr;};
+    inline const vector<string> & getRecommendQuestionList() const { DARABONBA_PTR_GET_CONST(recommendQuestionList_, vector<string>) };
+    inline vector<string> getRecommendQuestionList() { DARABONBA_PTR_GET(recommendQuestionList_, vector<string>) };
+    inline ModifyCustomAgentRequest& setRecommendQuestionList(const vector<string> & recommendQuestionList) { DARABONBA_PTR_SET_VALUE(recommendQuestionList_, recommendQuestionList) };
+    inline ModifyCustomAgentRequest& setRecommendQuestionList(vector<string> && recommendQuestionList) { DARABONBA_PTR_SET_RVALUE(recommendQuestionList_, recommendQuestionList) };
+
+
     // relatedSessionId Field Functions 
     bool hasRelatedSessionId() const { return this->relatedSessionId_ != nullptr;};
     void deleteRelatedSessionId() { this->relatedSessionId_ = nullptr;};
@@ -538,13 +549,13 @@ namespace Models
     shared_ptr<string> customAgentId_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON character string format**.
+    // The specified data scope in **JSON string format**.
     // - General parameter description
-    //   - tableFlag: true specifies the data scope.
+    //   - tableFlag: true indicates that a data scope is specified.
     //   - scope: personal is a fixed value.
     //   - personal: parameters for file and database types.
     // 
-    // **File type**: pass parameters in the following format:
+    // **File type**: Pass parameters in the following format:
     // - DataSourceType: remote_data_center is a fixed value.
     // - FileId: the file ID.
     // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
@@ -570,15 +581,15 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**: pass parameters as follows:
+    // **Database type**: Pass parameters in the following format:
     // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: the DMS instance ID returned by the Data Center operation.
-    // - DmsDatabaseId: the DMS database ID returned by the Data Center operation.
-    // - FileId: the instance name. **[Deprecated]**
-    // - DbName: the database name returned by the Data Center operation.
-    // - Database: the database name returned by the Data Center operation.
-    // - Tables: the table names returned by the Data Center operation.
-    // - TableIds: the table IDs returned by the Data Center operation.
+    // - DmsInstanceId: the DMS instance ID returned by the data center API.
+    // - DmsDatabaseId: the DMS database ID returned by the data center API.
+    // - FileId: the instance name. (Deprecated)
+    // - DbName: the database name returned by the data center API.
+    // - Database: the database name returned by the data center API.
+    // - Tables: the table names returned by the data center API.
+    // - TableIds: the table IDs returned by the data center API.
     // - Engine: the engine type, such as mysql or postgresql.
     // - RegionId: the current region.
     // ```
@@ -619,6 +630,9 @@ namespace Models
     shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
+    // The list of recommended questions.
+    // - You can configure up to 10 recommended questions.
+    shared_ptr<vector<string>> recommendQuestionList_ {};
     // The ID of the referenced historical session.
     shared_ptr<string> relatedSessionId_ {};
     // The scheduled task configuration.
@@ -632,11 +646,11 @@ namespace Models
     // - Input limit: up to 50,000 characters.
     shared_ptr<string> webReportConfig_ {};
     // The web report theme. Valid values:
-    // - default: default.
-    // - journal: journal.
-    // - legacy: classic.
-    // - neobrutalism: stylized.
-    // - infographic: infographic.
+    // - default: Default.
+    // - journal: Journal.
+    // - legacy: Classic.
+    // - neobrutalism: Stylized.
+    // - infographic: Infographic.
     shared_ptr<string> webReportTheme_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

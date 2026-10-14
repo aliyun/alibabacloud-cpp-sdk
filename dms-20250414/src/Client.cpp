@@ -37,6 +37,140 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Creates a data source accessible by the Agent data gateway.
+ *
+ * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+ *
+ * @param request AddAgenticDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAgenticDataSourceResponse
+ */
+AddAgenticDataSourceResponse Client::addAgenticDataSourceWithOptions(const AddAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlias()) {
+    query["Alias"] = request.getAlias();
+  }
+
+  if (!!request.hasAuthAccount()) {
+    query["AuthAccount"] = request.getAuthAccount();
+  }
+
+  if (!!request.hasAuthPassword()) {
+    query["AuthPassword"] = request.getAuthPassword();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasCatalogName()) {
+    query["CatalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasCreateMode()) {
+    query["CreateMode"] = request.getCreateMode();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.getEnvType();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasInstanceResourceId()) {
+    query["InstanceResourceId"] = request.getInstanceResourceId();
+  }
+
+  if (!!request.hasInstanceSource()) {
+    query["InstanceSource"] = request.getInstanceSource();
+  }
+
+  if (!!request.hasKmsSecret()) {
+    query["KmsSecret"] = request.getKmsSecret();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSnowflakeRole()) {
+    query["SnowflakeRole"] = request.getSnowflakeRole();
+  }
+
+  if (!!request.hasSnowflakeWarehouse()) {
+    query["SnowflakeWarehouse"] = request.getSnowflakeWarehouse();
+  }
+
+  if (!!request.hasSyncAlias()) {
+    query["SyncAlias"] = request.getSyncAlias();
+  }
+
+  if (!!request.hasUseSsl()) {
+    query["UseSsl"] = request.getUseSsl();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAgenticDataSource"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAgenticDataSourceResponse>();
+}
+
+/**
+ * @summary Creates a data source accessible by the Agent data gateway.
+ *
+ * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+ *
+ * @param request AddAgenticDataSourceRequest
+ * @return AddAgenticDataSourceResponse
+ */
+AddAgenticDataSourceResponse Client::addAgenticDataSource(const AddAgenticDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAgenticDataSourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds a memory entry to a DataAgent.
  *
  * @param request AddDataAgentMemoryRequest
@@ -359,6 +493,70 @@ CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
 }
 
 /**
+ * @summary Creates a temporary credential for an agent to execute SQL statements.
+ *
+ * @description The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+ * Fixed properties of the credential:
+ * - Validity period: 10 minutes after creation.
+ * - Maximum number of connections: 500.
+ *
+ * @param request CreateAgenticSqlExecuteCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgenticSqlExecuteCredentialResponse
+ */
+CreateAgenticSqlExecuteCredentialResponse Client::createAgenticSqlExecuteCredentialWithOptions(const CreateAgenticSqlExecuteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogName()) {
+    query["CatalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasQualifiedName()) {
+    query["QualifiedName"] = request.getQualifiedName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgenticSqlExecuteCredential"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgenticSqlExecuteCredentialResponse>();
+}
+
+/**
+ * @summary Creates a temporary credential for an agent to execute SQL statements.
+ *
+ * @description The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+ * Fixed properties of the credential:
+ * - Validity period: 10 minutes after creation.
+ * - Maximum number of connections: 500.
+ *
+ * @param request CreateAgenticSqlExecuteCredentialRequest
+ * @return CreateAgenticSqlExecuteCredentialResponse
+ */
+CreateAgenticSqlExecuteCredentialResponse Client::createAgenticSqlExecuteCredential(const CreateAgenticSqlExecuteCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgenticSqlExecuteCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an Airflow instance in a workspace.
  *
  * @description Creates an Airflow instance in a workspace.
@@ -529,7 +727,7 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginToken(const CreateAirf
 }
 
 /**
- * @summary Creates a custom agent in a personal space or workspace.
+ * @summary Creates a custom agent in a personal or shared workspace.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,6 +753,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
     request.setKnowledgeSemanticConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeSemanticConfigList(), "KnowledgeSemanticConfigList", "json"));
   }
 
+  if (!!tmpReq.hasRecommendQuestionList()) {
+    request.setRecommendQuestionListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecommendQuestionList(), "RecommendQuestionList", "json"));
+  }
+
   if (!!tmpReq.hasScheduleTaskConfig()) {
     request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
   }
@@ -564,6 +766,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
   }
 
   json query = {};
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
   if (!!request.hasCallbackConfigShrink()) {
     query["CallbackConfig"] = request.getCallbackConfigShrink();
   }
@@ -602,6 +808,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRecommendQuestionListShrink()) {
+    query["RecommendQuestionList"] = request.getRecommendQuestionListShrink();
   }
 
   if (!!request.hasRelatedSessionId()) {
@@ -650,7 +860,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary Creates a custom agent in a personal space or workspace.
+ * @summary Creates a custom agent in a personal or shared workspace.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -1188,6 +1398,52 @@ CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplateWithOptions(con
 CreateOneMetaSqlTemplateResponse Client::createOneMetaSqlTemplate(const CreateOneMetaSqlTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createOneMetaSqlTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a data source and its associated metadata catalog.
+ *
+ * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+ *
+ * @param request DeleteAgenticDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgenticDataSourceResponse
+ */
+DeleteAgenticDataSourceResponse Client::deleteAgenticDataSourceWithOptions(const DeleteAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataSourceUuid()) {
+    query["DataSourceUuid"] = request.getDataSourceUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgenticDataSource"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgenticDataSourceResponse>();
+}
+
+/**
+ * @summary Deletes a data source and its associated metadata catalog.
+ *
+ * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+ *
+ * @param request DeleteAgenticDataSourceRequest
+ * @return DeleteAgenticDataSourceResponse
+ */
+DeleteAgenticDataSourceResponse Client::deleteAgenticDataSource(const DeleteAgenticDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgenticDataSourceWithOptions(request, runtime);
 }
 
 /**
@@ -1921,7 +2177,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Queries the details of a custom agent by custom agent ID.
+ * @summary Retrieves the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +2212,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Queries the details of a custom agent by custom agent ID.
+ * @summary Retrieves the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -2502,6 +2758,228 @@ GetAgenticAgentByInstallTokenResponse Client::getAgenticAgentByInstallTokenWithO
 GetAgenticAgentByInstallTokenResponse Client::getAgenticAgentByInstallToken(const GetAgenticAgentByInstallTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAgenticAgentByInstallTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of an Agentic DMS catalog based on the catalog UUID.
+ *
+ * @param request GetAgenticCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticCatalogResponse
+ */
+GetAgenticCatalogResponse Client::getAgenticCatalogWithOptions(const GetAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticCatalog"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticCatalogResponse>();
+}
+
+/**
+ * @summary Queries the details of an Agentic DMS catalog based on the catalog UUID.
+ *
+ * @param request GetAgenticCatalogRequest
+ * @return GetAgenticCatalogResponse
+ */
+GetAgenticCatalogResponse Client::getAgenticCatalog(const GetAgenticCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a data source by its UUID.
+ *
+ * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+ *
+ * @param request GetAgenticDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticDataSourceResponse
+ */
+GetAgenticDataSourceResponse Client::getAgenticDataSourceWithOptions(const GetAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataSourceUuid()) {
+    query["DataSourceUuid"] = request.getDataSourceUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticDataSource"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticDataSourceResponse>();
+}
+
+/**
+ * @summary Queries the details of a data source by its UUID.
+ *
+ * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+ *
+ * @param request GetAgenticDataSourceRequest
+ * @return GetAgenticDataSourceResponse
+ */
+GetAgenticDataSourceResponse Client::getAgenticDataSource(const GetAgenticDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of a database in Agentic DMS based on the database UUID.
+ *
+ * @param request GetAgenticDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticDatabaseResponse
+ */
+GetAgenticDatabaseResponse Client::getAgenticDatabaseWithOptions(const GetAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticDatabase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticDatabaseResponse>();
+}
+
+/**
+ * @summary Queries the details of a database in Agentic DMS based on the database UUID.
+ *
+ * @param request GetAgenticDatabaseRequest
+ * @return GetAgenticDatabaseResponse
+ */
+GetAgenticDatabaseResponse Client::getAgenticDatabase(const GetAgenticDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+ *
+ * @param request GetAgenticTableColumnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticTableColumnResponse
+ */
+GetAgenticTableColumnResponse Client::getAgenticTableColumnWithOptions(const GetAgenticTableColumnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasTableQualifiedName()) {
+    query["TableQualifiedName"] = request.getTableQualifiedName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticTableColumn"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticTableColumnResponse>();
+}
+
+/**
+ * @summary Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+ *
+ * @param request GetAgenticTableColumnRequest
+ * @return GetAgenticTableColumnResponse
+ */
+GetAgenticTableColumnResponse Client::getAgenticTableColumn(const GetAgenticTableColumnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticTableColumnWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+ *
+ * @param request GetAgenticTableIndexRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgenticTableIndexResponse
+ */
+GetAgenticTableIndexResponse Client::getAgenticTableIndexWithOptions(const GetAgenticTableIndexRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasTableQualifiedName()) {
+    query["TableQualifiedName"] = request.getTableQualifiedName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgenticTableIndex"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgenticTableIndexResponse>();
+}
+
+/**
+ * @summary Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+ *
+ * @param request GetAgenticTableIndexRequest
+ * @return GetAgenticTableIndexResponse
+ */
+GetAgenticTableIndexResponse Client::getAgenticTableIndex(const GetAgenticTableIndexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgenticTableIndexWithOptions(request, runtime);
 }
 
 /**
@@ -3624,6 +4102,266 @@ InstallDataAgentMcpResponse Client::installDataAgentMcp(const InstallDataAgentMc
 }
 
 /**
+ * @summary Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+ *
+ * @param request ListAgenticCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticCatalogResponse
+ */
+ListAgenticCatalogResponse Client::listAgenticCatalogWithOptions(const ListAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogType()) {
+    query["CatalogType"] = request.getCatalogType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticCatalog"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticCatalogResponse>();
+}
+
+/**
+ * @summary Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+ *
+ * @param request ListAgenticCatalogRequest
+ * @return ListAgenticCatalogResponse
+ */
+ListAgenticCatalogResponse Client::listAgenticCatalog(const ListAgenticCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the data sources of the current account by using paging.
+ *
+ * @description You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+ *
+ * @param request ListAgenticDataSourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticDataSourcesResponse
+ */
+ListAgenticDataSourcesResponse Client::listAgenticDataSourcesWithOptions(const ListAgenticDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasInstanceSource()) {
+    query["InstanceSource"] = request.getInstanceSource();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.getState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticDataSources"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticDataSourcesResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the data sources of the current account by using paging.
+ *
+ * @description You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+ *
+ * @param request ListAgenticDataSourcesRequest
+ * @return ListAgenticDataSourcesResponse
+ */
+ListAgenticDataSourcesResponse Client::listAgenticDataSources(const ListAgenticDataSourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticDataSourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+ *
+ * @param request ListAgenticDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticDatabaseResponse
+ */
+ListAgenticDatabaseResponse Client::listAgenticDatabaseWithOptions(const ListAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasSortFieldName()) {
+    query["SortFieldName"] = request.getSortFieldName();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticDatabase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticDatabaseResponse>();
+}
+
+/**
+ * @summary Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+ *
+ * @param request ListAgenticDatabaseRequest
+ * @return ListAgenticDatabaseResponse
+ */
+ListAgenticDatabaseResponse Client::listAgenticDatabase(const ListAgenticDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+ *
+ * @param request ListAgenticTableBaseInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticTableBaseInfoResponse
+ */
+ListAgenticTableBaseInfoResponse Client::listAgenticTableBaseInfoWithOptions(const ListAgenticTableBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasSortFieldName()) {
+    query["SortFieldName"] = request.getSortFieldName();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasTableType()) {
+    query["TableType"] = request.getTableType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticTableBaseInfo"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticTableBaseInfoResponse>();
+}
+
+/**
+ * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+ *
+ * @param request ListAgenticTableBaseInfoRequest
+ * @return ListAgenticTableBaseInfoResponse
+ */
+ListAgenticTableBaseInfoResponse Client::listAgenticTableBaseInfo(const ListAgenticTableBaseInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticTableBaseInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Lists the available Airflow versions.
  *
  * @description Lists the available Airflow versions.
@@ -3728,7 +4466,7 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 }
 
 /**
- * @summary Lists all custom agents in personal spaces and workspaces.
+ * @summary Lists all custom agents in personal and shared workspaces.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3737,6 +4475,10 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -3779,7 +4521,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary Lists all custom agents in personal spaces and workspaces.
+ * @summary Lists all custom agents in personal and shared workspaces.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -5190,7 +5932,7 @@ ListWorkspaceCodeResponse Client::listWorkspaceCode(const ListWorkspaceCodeReque
 }
 
 /**
- * @summary Modifies a custom agent in a personal or shared workspace.
+ * @summary Modifies a custom agent in a personal or team workspace.
  *
  * @param tmpReq ModifyCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5214,6 +5956,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 
   if (!!tmpReq.hasKnowledgeSemanticConfigList()) {
     request.setKnowledgeSemanticConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeSemanticConfigList(), "KnowledgeSemanticConfigList", "json"));
+  }
+
+  if (!!tmpReq.hasRecommendQuestionList()) {
+    request.setRecommendQuestionListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRecommendQuestionList(), "RecommendQuestionList", "json"));
   }
 
   if (!!tmpReq.hasScheduleTaskConfig()) {
@@ -5269,6 +6015,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasRecommendQuestionListShrink()) {
+    query["RecommendQuestionList"] = request.getRecommendQuestionListShrink();
+  }
+
   if (!!request.hasRelatedSessionId()) {
     query["RelatedSessionId"] = request.getRelatedSessionId();
   }
@@ -5315,7 +6065,7 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 }
 
 /**
- * @summary Modifies a custom agent in a personal or shared workspace.
+ * @summary Modifies a custom agent in a personal or team workspace.
  *
  * @param request ModifyCustomAgentRequest
  * @return ModifyCustomAgentResponse
@@ -5812,6 +6562,130 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
 }
 
 /**
+ * @summary Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+ *
+ * @param request SearchAgenticCatalogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchAgenticCatalogResponse
+ */
+SearchAgenticCatalogResponse Client::searchAgenticCatalogWithOptions(const SearchAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogType()) {
+    query["CatalogType"] = request.getCatalogType();
+  }
+
+  if (!!request.hasCatalogUuids()) {
+    query["CatalogUuids"] = request.getCatalogUuids();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchAgenticCatalog"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchAgenticCatalogResponse>();
+}
+
+/**
+ * @summary Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+ *
+ * @param request SearchAgenticCatalogRequest
+ * @return SearchAgenticCatalogResponse
+ */
+SearchAgenticCatalogResponse Client::searchAgenticCatalog(const SearchAgenticCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchAgenticCatalogWithOptions(request, runtime);
+}
+
+/**
+ * @summary Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+ *
+ * @param request SearchAgenticDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchAgenticDatabaseResponse
+ */
+SearchAgenticDatabaseResponse Client::searchAgenticDatabaseWithOptions(const SearchAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.getEnvType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchAgenticDatabase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchAgenticDatabaseResponse>();
+}
+
+/**
+ * @summary Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+ *
+ * @param request SearchAgenticDatabaseRequest
+ * @return SearchAgenticDatabaseResponse
+ */
+SearchAgenticDatabaseResponse Client::searchAgenticDatabase(const SearchAgenticDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchAgenticDatabaseWithOptions(request, runtime);
+}
+
+/**
  * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
@@ -6217,6 +7091,258 @@ StopDataAgentAccuracyTestTaskResponse Client::stopDataAgentAccuracyTestTaskWithO
 StopDataAgentAccuracyTestTaskResponse Client::stopDataAgentAccuracyTestTask(const StopDataAgentAccuracyTestTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopDataAgentAccuracyTestTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Tests whether the network and authentication information of a data source are available.
+ *
+ * @description Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+ *
+ * @param request TestAgenticDataSourceConnectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TestAgenticDataSourceConnectionResponse
+ */
+TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnectionWithOptions(const TestAgenticDataSourceConnectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlias()) {
+    query["Alias"] = request.getAlias();
+  }
+
+  if (!!request.hasAuthAccount()) {
+    query["AuthAccount"] = request.getAuthAccount();
+  }
+
+  if (!!request.hasAuthPassword()) {
+    query["AuthPassword"] = request.getAuthPassword();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasCatalogName()) {
+    query["CatalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasDataSourceUuid()) {
+    query["DataSourceUuid"] = request.getDataSourceUuid();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.getEnvType();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasInstanceResourceId()) {
+    query["InstanceResourceId"] = request.getInstanceResourceId();
+  }
+
+  if (!!request.hasInstanceSource()) {
+    query["InstanceSource"] = request.getInstanceSource();
+  }
+
+  if (!!request.hasKmsSecret()) {
+    query["KmsSecret"] = request.getKmsSecret();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSnowflakeRole()) {
+    query["SnowflakeRole"] = request.getSnowflakeRole();
+  }
+
+  if (!!request.hasSnowflakeWarehouse()) {
+    query["SnowflakeWarehouse"] = request.getSnowflakeWarehouse();
+  }
+
+  if (!!request.hasSyncAlias()) {
+    query["SyncAlias"] = request.getSyncAlias();
+  }
+
+  if (!!request.hasUseSsl()) {
+    query["UseSsl"] = request.getUseSsl();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TestAgenticDataSourceConnection"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TestAgenticDataSourceConnectionResponse>();
+}
+
+/**
+ * @summary Tests whether the network and authentication information of a data source are available.
+ *
+ * @description Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+ *
+ * @param request TestAgenticDataSourceConnectionRequest
+ * @return TestAgenticDataSourceConnectionResponse
+ */
+TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnection(const TestAgenticDataSourceConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return testAgenticDataSourceConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the connection, authentication, or display information of an existing data source.
+ *
+ * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+ *
+ * @param request UpdateAgenticDataSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAgenticDataSourceResponse
+ */
+UpdateAgenticDataSourceResponse Client::updateAgenticDataSourceWithOptions(const UpdateAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlias()) {
+    query["Alias"] = request.getAlias();
+  }
+
+  if (!!request.hasAuthAccount()) {
+    query["AuthAccount"] = request.getAuthAccount();
+  }
+
+  if (!!request.hasAuthPassword()) {
+    query["AuthPassword"] = request.getAuthPassword();
+  }
+
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasCatalogName()) {
+    query["CatalogName"] = request.getCatalogName();
+  }
+
+  if (!!request.hasCreateMode()) {
+    query["CreateMode"] = request.getCreateMode();
+  }
+
+  if (!!request.hasDataSourceUuid()) {
+    query["DataSourceUuid"] = request.getDataSourceUuid();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.getEnvType();
+  }
+
+  if (!!request.hasHost()) {
+    query["Host"] = request.getHost();
+  }
+
+  if (!!request.hasInstanceResourceId()) {
+    query["InstanceResourceId"] = request.getInstanceResourceId();
+  }
+
+  if (!!request.hasKmsSecret()) {
+    query["KmsSecret"] = request.getKmsSecret();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.getPolicyId();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRoleArn()) {
+    query["RoleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSnowflakeRole()) {
+    query["SnowflakeRole"] = request.getSnowflakeRole();
+  }
+
+  if (!!request.hasSnowflakeWarehouse()) {
+    query["SnowflakeWarehouse"] = request.getSnowflakeWarehouse();
+  }
+
+  if (!!request.hasSyncAlias()) {
+    query["SyncAlias"] = request.getSyncAlias();
+  }
+
+  if (!!request.hasUseSsl()) {
+    query["UseSsl"] = request.getUseSsl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAgenticDataSource"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAgenticDataSourceResponse>();
+}
+
+/**
+ * @summary Updates the connection, authentication, or display information of an existing data source.
+ *
+ * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+ *
+ * @param request UpdateAgenticDataSourceRequest
+ * @return UpdateAgenticDataSourceResponse
+ */
+UpdateAgenticDataSourceResponse Client::updateAgenticDataSource(const UpdateAgenticDataSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAgenticDataSourceWithOptions(request, runtime);
 }
 
 /**

@@ -13,6 +13,7 @@ namespace Models
   class CreateCustomAgentShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCustomAgentShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(CallbackConfig, callbackConfigShrink_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(DataJson, dataJson_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
       DARABONBA_PTR_TO_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigListShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RecommendQuestionList, recommendQuestionListShrink_);
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(CallbackConfig, callbackConfigShrink_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(DataJson, dataJson_);
@@ -42,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
       DARABONBA_PTR_FROM_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigListShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RecommendQuestionList, recommendQuestionListShrink_);
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
@@ -61,11 +65,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->callbackConfigShrink_ == nullptr
-        && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr && this->instruction_ == nullptr
-        && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->knowledgeSemanticConfigListShrink_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr
-        && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillListShrink_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
-        && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->callbackConfigShrink_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr
+        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->knowledgeSemanticConfigListShrink_ == nullptr && this->name_ == nullptr
+        && this->recommendQuestionListShrink_ == nullptr && this->relatedSessionId_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->userSpecifiedSkillListShrink_ == nullptr
+        && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline CreateCustomAgentShrinkRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // callbackConfigShrink Field Functions 
     bool hasCallbackConfigShrink() const { return this->callbackConfigShrink_ != nullptr;};
     void deleteCallbackConfigShrink() { this->callbackConfigShrink_ = nullptr;};
@@ -136,6 +147,13 @@ namespace Models
     inline CreateCustomAgentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // recommendQuestionListShrink Field Functions 
+    bool hasRecommendQuestionListShrink() const { return this->recommendQuestionListShrink_ != nullptr;};
+    void deleteRecommendQuestionListShrink() { this->recommendQuestionListShrink_ = nullptr;};
+    inline string getRecommendQuestionListShrink() const { DARABONBA_PTR_GET_DEFAULT(recommendQuestionListShrink_, "") };
+    inline CreateCustomAgentShrinkRequest& setRecommendQuestionListShrink(string recommendQuestionListShrink) { DARABONBA_PTR_SET_VALUE(recommendQuestionListShrink_, recommendQuestionListShrink) };
+
+
     // relatedSessionId Field Functions 
     bool hasRelatedSessionId() const { return this->relatedSessionId_ != nullptr;};
     void deleteRelatedSessionId() { this->relatedSessionId_ = nullptr;};
@@ -186,17 +204,21 @@ namespace Models
 
 
   protected:
+    // The type of the custom agent. Valid values:
+    // - Default: The built-in custom agent. Each workspace can have at most one agent of this type, and it cannot be deleted.
+    // - Common: A regular custom agent.
+    shared_ptr<string> agentType_ {};
     shared_ptr<string> callbackConfigShrink_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope, in **JSON character string format**.
-    // - Common parameter description
-    //   - tableFlag: true specifies the data scope.
-    //   - scope: personal is a fixed value.
-    //   - personal: the parameters for file and database types.
+    // The specified data scope in **JSON character string format**.
+    // - General parameter description:
+    //   - tableFlag: Set to true to specify the data scope.
+    //   - scope: Set to personal as a fixed value.
+    //   - personal: The parameters for file and database types.
     // 
     // **File type**: Pass parameters in the following format:
-    // - DataSourceType: remote_data_center is a fixed value.
+    // - DataSourceType: Set to remote_data_center as a fixed value.
     // - FileId: The file ID.
     // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
     // - Tables: The table names returned by the ListDataCenterTable operation.
@@ -221,15 +243,15 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**: Pass parameters as follows:
-    // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: The DMS instance ID returned by the Data Center API.
-    // - DmsDatabaseId: The DMS database ID returned by the Data Center API.
-    // - FileId: The instance name. **[Deprecated]**
-    // - DbName: The database name returned by the Data Center API.
-    // - Database: The database name returned by the Data Center API.
-    // - Tables: The table names returned by the Data Center API.
-    // - TableIds: The table IDs returned by the Data Center API.
+    // **Database type**: Pass parameters in the following format:
+    // - DataSourceType: Set to database as a fixed value.
+    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
+    // - FileId: The instance name. (Deprecated)
+    // - DbName: The database name returned by the data center operation.
+    // - Database: The database name returned by the data center operation.
+    // - Tables: The table names returned by the data center operation.
+    // - TableIds: The table IDs returned by the data center operation.
     // - Engine: The engine type, such as mysql or postgresql.
     // - RegionId: The current region.
     // ```
@@ -259,17 +281,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
-    // The instructions.
-    // - Input limit: A maximum of 10,000 characters.
+    // The instructions. Maximum length: 10,000 characters.
     shared_ptr<string> instruction_ {};
-    // The knowledge.
-    // - Input limit: A maximum of 10,000 characters.
+    // The knowledge. Maximum length: 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};
     shared_ptr<string> knowledgeSemanticConfigListShrink_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
+    // The list of recommended questions. You can configure up to 10 recommended questions.
+    shared_ptr<string> recommendQuestionListShrink_ {};
     // The ID of the referenced historical session.
     shared_ptr<string> relatedSessionId_ {};
     // The scheduled task configuration.

@@ -21,6 +21,27 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Creates a data source accessible by the Agent data gateway.
+       *
+       * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+       *
+       * @param request AddAgenticDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAgenticDataSourceResponse
+       */
+      Models::AddAgenticDataSourceResponse addAgenticDataSourceWithOptions(const Models::AddAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a data source accessible by the Agent data gateway.
+       *
+       * @description Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+       *
+       * @param request AddAgenticDataSourceRequest
+       * @return AddAgenticDataSourceResponse
+       */
+      Models::AddAgenticDataSourceResponse addAgenticDataSource(const Models::AddAgenticDataSourceRequest &request);
+
+      /**
        * @summary Adds a memory entry to a DataAgent.
        *
        * @param request AddDataAgentMemoryRequest
@@ -127,6 +148,33 @@ namespace Dms20250414
       Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
 
       /**
+       * @summary Creates a temporary credential for an agent to execute SQL statements.
+       *
+       * @description The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+       * Fixed properties of the credential:
+       * - Validity period: 10 minutes after creation.
+       * - Maximum number of connections: 500.
+       *
+       * @param request CreateAgenticSqlExecuteCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgenticSqlExecuteCredentialResponse
+       */
+      Models::CreateAgenticSqlExecuteCredentialResponse createAgenticSqlExecuteCredentialWithOptions(const Models::CreateAgenticSqlExecuteCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a temporary credential for an agent to execute SQL statements.
+       *
+       * @description The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+       * Fixed properties of the credential:
+       * - Validity period: 10 minutes after creation.
+       * - Maximum number of connections: 500.
+       *
+       * @param request CreateAgenticSqlExecuteCredentialRequest
+       * @return CreateAgenticSqlExecuteCredentialResponse
+       */
+      Models::CreateAgenticSqlExecuteCredentialResponse createAgenticSqlExecuteCredential(const Models::CreateAgenticSqlExecuteCredentialRequest &request);
+
+      /**
        * @summary Creates an Airflow instance in a workspace.
        *
        * @description Creates an Airflow instance in a workspace.
@@ -165,7 +213,7 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
-       * @summary Creates a custom agent in a personal space or workspace.
+       * @summary Creates a custom agent in a personal or shared workspace.
        *
        * @param tmpReq CreateCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -174,7 +222,7 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom agent in a personal space or workspace.
+       * @summary Creates a custom agent in a personal or shared workspace.
        *
        * @param request CreateCustomAgentRequest
        * @return CreateCustomAgentResponse
@@ -316,6 +364,27 @@ namespace Dms20250414
        * @return CreateOneMetaSqlTemplateResponse
        */
       Models::CreateOneMetaSqlTemplateResponse createOneMetaSqlTemplate(const Models::CreateOneMetaSqlTemplateRequest &request);
+
+      /**
+       * @summary Deletes a data source and its associated metadata catalog.
+       *
+       * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+       *
+       * @param request DeleteAgenticDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgenticDataSourceResponse
+       */
+      Models::DeleteAgenticDataSourceResponse deleteAgenticDataSourceWithOptions(const Models::DeleteAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a data source and its associated metadata catalog.
+       *
+       * @description After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+       *
+       * @param request DeleteAgenticDataSourceRequest
+       * @return DeleteAgenticDataSourceResponse
+       */
+      Models::DeleteAgenticDataSourceResponse deleteAgenticDataSource(const Models::DeleteAgenticDataSourceRequest &request);
 
       /**
        * @summary Deletes an Airflow instance.
@@ -581,7 +650,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Queries the details of a custom agent by custom agent ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -590,7 +659,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a custom agent by custom agent ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -783,6 +852,95 @@ namespace Dms20250414
        * @return GetAgenticAgentByInstallTokenResponse
        */
       Models::GetAgenticAgentByInstallTokenResponse getAgenticAgentByInstallToken(const Models::GetAgenticAgentByInstallTokenRequest &request);
+
+      /**
+       * @summary Queries the details of an Agentic DMS catalog based on the catalog UUID.
+       *
+       * @param request GetAgenticCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticCatalogResponse
+       */
+      Models::GetAgenticCatalogResponse getAgenticCatalogWithOptions(const Models::GetAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an Agentic DMS catalog based on the catalog UUID.
+       *
+       * @param request GetAgenticCatalogRequest
+       * @return GetAgenticCatalogResponse
+       */
+      Models::GetAgenticCatalogResponse getAgenticCatalog(const Models::GetAgenticCatalogRequest &request);
+
+      /**
+       * @summary Queries the details of a data source by its UUID.
+       *
+       * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+       *
+       * @param request GetAgenticDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticDataSourceResponse
+       */
+      Models::GetAgenticDataSourceResponse getAgenticDataSourceWithOptions(const Models::GetAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a data source by its UUID.
+       *
+       * @description Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+       *
+       * @param request GetAgenticDataSourceRequest
+       * @return GetAgenticDataSourceResponse
+       */
+      Models::GetAgenticDataSourceResponse getAgenticDataSource(const Models::GetAgenticDataSourceRequest &request);
+
+      /**
+       * @summary Queries the details of a database in Agentic DMS based on the database UUID.
+       *
+       * @param request GetAgenticDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticDatabaseResponse
+       */
+      Models::GetAgenticDatabaseResponse getAgenticDatabaseWithOptions(const Models::GetAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a database in Agentic DMS based on the database UUID.
+       *
+       * @param request GetAgenticDatabaseRequest
+       * @return GetAgenticDatabaseResponse
+       */
+      Models::GetAgenticDatabaseResponse getAgenticDatabase(const Models::GetAgenticDatabaseRequest &request);
+
+      /**
+       * @summary Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+       *
+       * @param request GetAgenticTableColumnRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticTableColumnResponse
+       */
+      Models::GetAgenticTableColumnResponse getAgenticTableColumnWithOptions(const Models::GetAgenticTableColumnRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+       *
+       * @param request GetAgenticTableColumnRequest
+       * @return GetAgenticTableColumnResponse
+       */
+      Models::GetAgenticTableColumnResponse getAgenticTableColumn(const Models::GetAgenticTableColumnRequest &request);
+
+      /**
+       * @summary Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+       *
+       * @param request GetAgenticTableIndexRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgenticTableIndexResponse
+       */
+      Models::GetAgenticTableIndexResponse getAgenticTableIndexWithOptions(const Models::GetAgenticTableIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+       *
+       * @param request GetAgenticTableIndexRequest
+       * @return GetAgenticTableIndexResponse
+       */
+      Models::GetAgenticTableIndexResponse getAgenticTableIndex(const Models::GetAgenticTableIndexRequest &request);
 
       /**
        * @summary Queries the configuration and status of an Airflow instance.
@@ -1159,6 +1317,78 @@ namespace Dms20250414
       Models::InstallDataAgentMcpResponse installDataAgentMcp(const Models::InstallDataAgentMcpRequest &request);
 
       /**
+       * @summary Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+       *
+       * @param request ListAgenticCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticCatalogResponse
+       */
+      Models::ListAgenticCatalogResponse listAgenticCatalogWithOptions(const Models::ListAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+       *
+       * @param request ListAgenticCatalogRequest
+       * @return ListAgenticCatalogResponse
+       */
+      Models::ListAgenticCatalogResponse listAgenticCatalog(const Models::ListAgenticCatalogRequest &request);
+
+      /**
+       * @summary Performs a paged query on the data sources of the current account by using paging.
+       *
+       * @description You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+       *
+       * @param request ListAgenticDataSourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticDataSourcesResponse
+       */
+      Models::ListAgenticDataSourcesResponse listAgenticDataSourcesWithOptions(const Models::ListAgenticDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query on the data sources of the current account by using paging.
+       *
+       * @description You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+       *
+       * @param request ListAgenticDataSourcesRequest
+       * @return ListAgenticDataSourcesResponse
+       */
+      Models::ListAgenticDataSourcesResponse listAgenticDataSources(const Models::ListAgenticDataSourcesRequest &request);
+
+      /**
+       * @summary Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+       *
+       * @param request ListAgenticDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticDatabaseResponse
+       */
+      Models::ListAgenticDatabaseResponse listAgenticDatabaseWithOptions(const Models::ListAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+       *
+       * @param request ListAgenticDatabaseRequest
+       * @return ListAgenticDatabaseResponse
+       */
+      Models::ListAgenticDatabaseResponse listAgenticDatabase(const Models::ListAgenticDatabaseRequest &request);
+
+      /**
+       * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+       *
+       * @param request ListAgenticTableBaseInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticTableBaseInfoResponse
+       */
+      Models::ListAgenticTableBaseInfoResponse listAgenticTableBaseInfoWithOptions(const Models::ListAgenticTableBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+       *
+       * @param request ListAgenticTableBaseInfoRequest
+       * @return ListAgenticTableBaseInfoResponse
+       */
+      Models::ListAgenticTableBaseInfoResponse listAgenticTableBaseInfo(const Models::ListAgenticTableBaseInfoRequest &request);
+
+      /**
        * @summary Lists the available Airflow versions.
        *
        * @description Lists the available Airflow versions.
@@ -1197,7 +1427,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
 
       /**
-       * @summary Lists all custom agents in personal spaces and workspaces.
+       * @summary Lists all custom agents in personal and shared workspaces.
        *
        * @param request ListCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1206,7 +1436,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom agents in personal spaces and workspaces.
+       * @summary Lists all custom agents in personal and shared workspaces.
        *
        * @param request ListCustomAgentRequest
        * @return ListCustomAgentResponse
@@ -1570,7 +1800,7 @@ namespace Dms20250414
       Models::ListWorkspaceCodeResponse listWorkspaceCode(const Models::ListWorkspaceCodeRequest &request);
 
       /**
-       * @summary Modifies a custom agent in a personal or shared workspace.
+       * @summary Modifies a custom agent in a personal or team workspace.
        *
        * @param tmpReq ModifyCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1579,7 +1809,7 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgentWithOptions(const Models::ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a custom agent in a personal or shared workspace.
+       * @summary Modifies a custom agent in a personal or team workspace.
        *
        * @param request ModifyCustomAgentRequest
        * @return ModifyCustomAgentResponse
@@ -1735,6 +1965,40 @@ namespace Dms20250414
       Models::SaveWorkspaceCodeResponse saveWorkspaceCode(const Models::SaveWorkspaceCodeRequest &request);
 
       /**
+       * @summary Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+       *
+       * @param request SearchAgenticCatalogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchAgenticCatalogResponse
+       */
+      Models::SearchAgenticCatalogResponse searchAgenticCatalogWithOptions(const Models::SearchAgenticCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+       *
+       * @param request SearchAgenticCatalogRequest
+       * @return SearchAgenticCatalogResponse
+       */
+      Models::SearchAgenticCatalogResponse searchAgenticCatalog(const Models::SearchAgenticCatalogRequest &request);
+
+      /**
+       * @summary Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+       *
+       * @param request SearchAgenticDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchAgenticDatabaseResponse
+       */
+      Models::SearchAgenticDatabaseResponse searchAgenticDatabaseWithOptions(const Models::SearchAgenticDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+       *
+       * @param request SearchAgenticDatabaseRequest
+       * @return SearchAgenticDatabaseResponse
+       */
+      Models::SearchAgenticDatabaseResponse searchAgenticDatabase(const Models::SearchAgenticDatabaseRequest &request);
+
+      /**
        * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
@@ -1863,6 +2127,48 @@ namespace Dms20250414
        * @return StopDataAgentAccuracyTestTaskResponse
        */
       Models::StopDataAgentAccuracyTestTaskResponse stopDataAgentAccuracyTestTask(const Models::StopDataAgentAccuracyTestTaskRequest &request);
+
+      /**
+       * @summary Tests whether the network and authentication information of a data source are available.
+       *
+       * @description Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+       *
+       * @param request TestAgenticDataSourceConnectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TestAgenticDataSourceConnectionResponse
+       */
+      Models::TestAgenticDataSourceConnectionResponse testAgenticDataSourceConnectionWithOptions(const Models::TestAgenticDataSourceConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Tests whether the network and authentication information of a data source are available.
+       *
+       * @description Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+       *
+       * @param request TestAgenticDataSourceConnectionRequest
+       * @return TestAgenticDataSourceConnectionResponse
+       */
+      Models::TestAgenticDataSourceConnectionResponse testAgenticDataSourceConnection(const Models::TestAgenticDataSourceConnectionRequest &request);
+
+      /**
+       * @summary Updates the connection, authentication, or display information of an existing data source.
+       *
+       * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+       *
+       * @param request UpdateAgenticDataSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAgenticDataSourceResponse
+       */
+      Models::UpdateAgenticDataSourceResponse updateAgenticDataSourceWithOptions(const Models::UpdateAgenticDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the connection, authentication, or display information of an existing data source.
+       *
+       * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+       *
+       * @param request UpdateAgenticDataSourceRequest
+       * @return UpdateAgenticDataSourceResponse
+       */
+      Models::UpdateAgenticDataSourceResponse updateAgenticDataSource(const Models::UpdateAgenticDataSourceRequest &request);
 
       /**
        * @summary Updates the properties of an Airflow instance.

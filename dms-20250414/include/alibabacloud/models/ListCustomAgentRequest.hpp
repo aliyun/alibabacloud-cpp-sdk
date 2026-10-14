@@ -13,6 +13,7 @@ namespace Models
   class ListCustomAgentRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCustomAgentRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentType, agentType_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(QueryAllReleased, queryAllReleased_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListCustomAgentRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(QueryAllReleased, queryAllReleased_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->queryAllReleased_ == nullptr && this->searchKey_ == nullptr && this->status_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->queryAllReleased_ == nullptr && this->searchKey_ == nullptr && this->status_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // agentType Field Functions 
+    bool hasAgentType() const { return this->agentType_ != nullptr;};
+    void deleteAgentType() { this->agentType_ = nullptr;};
+    inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+    inline ListCustomAgentRequest& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -84,13 +94,17 @@ namespace Models
 
 
   protected:
+    // The custom agent type. Valid values:
+    // - Default: system built-in custom agent
+    // - Common: regular custom agent
+    shared_ptr<string> agentType_ {};
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether to query all published custom agents. Default value: false.
     shared_ptr<bool> queryAllReleased_ {};
-    // The search keyword. Fuzzy search is supported for custom agent names and descriptions.
+    // The search keyword. Supports fuzzy search for custom agent names and descriptions.
     shared_ptr<string> searchKey_ {};
     // The status of the custom agent.
     shared_ptr<string> status_ {};
