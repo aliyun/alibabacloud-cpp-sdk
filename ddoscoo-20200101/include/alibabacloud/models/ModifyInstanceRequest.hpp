@@ -167,64 +167,65 @@ namespace Models
 
 
   protected:
-    // Address type. Values:
+    // The address type. Valid values:
     // - **Ipv4**: IPv4.
     // - **Ipv6**: IPv6.
     shared_ptr<string> addressType_ {};
-    // Elastic protection bandwidth (Mainland China). Unit: Gbps.
+    // The burstable protection bandwidth (the Chinese mainland). Unit: Gbit/s.
     shared_ptr<string> bandwidth_ {};
-    // Guaranteed protection bandwidth (Mainland China). Unit: Gbps.
+    // The basic protection bandwidth (the Chinese mainland). Unit: Gbit/s.
     shared_ptr<string> baseBandwidth_ {};
-    // Number of protected domains.
+    // The number of protected domain names.
     shared_ptr<string> domainCount_ {};
-    // Protection package (Mainland China). Values:
+    // The mitigation plan (the Chinese mainland). Valid values:
     // 
-    // - **coop**: Indicates the DDoS High Defense (Mainland China) Professional Edition.
-    // - **advance**: Indicates the DDoS High Defense (Mainland China) Professional Edition.
+    // - **coop**: Professional Edition of Anti-DDoS Pro or Anti-DDoS Premium (Chinese mainland).
+    // - **advance**: Professional Edition of Anti-DDoS Pro or Anti-DDoS Premium (Chinese mainland).
     shared_ptr<string> editionSale_ {};
-    // Function version, with values:
+    // The function version. Valid values:
     // 
-    // - **0**: Standard function.
-    // - **1**: Enhanced function.
+    // - **0**: standard features.
+    // - **1**: enhanced features.
     shared_ptr<string> functionVersion_ {};
-    // The ID of the DDoS High Defense instance.
-    // > You can call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the ID information of all DDoS High Defense instances.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // > You can invoke [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Adjustment type, with values
+    // The type of specification change. Valid values:
     // - UPGRADE: Upgrade.
     // - DOWNGRADE: Downgrade.
     // 
     // This parameter is required.
     shared_ptr<string> modifyType_ {};
-    // Business bandwidth (outside Mainland China). Unit: Mbps.
+    // The clean bandwidth (outside the Chinese mainland). Unit: Mbit/s.
     shared_ptr<string> normalBandwidth_ {};
-    // Business QPS. Unit: Mbps.
+    // The clean queries per second (QPS). Unit: Mbit/s.
     shared_ptr<string> normalQps_ {};
-    // Number of protected ports.
+    // The number of protected ports.
     shared_ptr<string> portCount_ {};
-    // Protection package (outside Mainland China). Values:
+    // The mitigation plan (outside the Chinese mainland). Valid values:
     // 
-    // - **0**: Indicates the DDoS High Defense (outside Mainland China) Insurance Edition.
-    // - **1**: Indicates the DDoS High Defense (outside Mainland China) Worry-Free Edition.
-    // - **2**: Indicates the DDoS High Defense (outside Mainland China) Acceleration Line.
-    // - **3**: Indicates the DDoS High Defense (outside Mainland China) Secure Acceleration Line.
+    // - **0**: Insurance mitigation plan for Anti-DDoS Pro or Anti-DDoS Premium (outside the Chinese mainland).
+    // - **1**: Unlimited mitigation plan for Anti-DDoS Pro or Anti-DDoS Premium (outside the Chinese mainland).
+    // - **2**: acceleration line for Anti-DDoS Pro or Anti-DDoS Premium (outside the Chinese mainland).
+    // - **3**: secure acceleration line for Anti-DDoS Pro or Anti-DDoS Premium (outside the Chinese mainland).
     shared_ptr<string> productPlan_ {};
-    // Product type.
-    // Values:
+    // The product type.
     // 
-    // - **ddoscoo**: Indicates that the DDoS High Defense (Mainland China) instance is being adjusted for a China site account.
-    // - **ddoscoo_intl**: Indicates that the DDoS High Defense (Mainland China) instance is being adjusted for an international site account.
-    // - **ddosDip**: Indicates that the DDoS High Defense (outside Mainland China) instance is being adjusted for either a China or international site account.
+    // Valid values:
+    // 
+    // - **ddoscoo**: indicates that the China site account is used for specification changes of an Anti-DDoS Pro or Anti-DDoS Premium (Chinese mainland) instance.
+    // - **ddoscoo_intl**: indicates that the international site account is used for specification changes of an Anti-DDoS Pro or Anti-DDoS Premium (Chinese mainland) instance.
+    // - **ddosDip**: indicates that the China site account or international site account is used for specification changes of an Anti-DDoS Pro or Anti-DDoS Premium (outside the Chinese mainland) instance.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // Business bandwidth (Mainland China). Unit: Mbps.
+    // The clean bandwidth (the Chinese mainland). Unit: Mbit/s.
     shared_ptr<string> serviceBandwidth_ {};
-    // Line resources of the instance (Mainland China). Values:
+    // The line resource of the instance (the Chinese mainland). Valid values:
     // 
-    // - **coop-line-001**: Indicates the DDoS High Defense (Mainland China) 8-line BGP line.
+    // - **coop-line-001**: eight-line BGP line for Anti-DDoS Pro or Anti-DDoS Premium (Chinese mainland).
     shared_ptr<string> servicePartner_ {};
   };
 

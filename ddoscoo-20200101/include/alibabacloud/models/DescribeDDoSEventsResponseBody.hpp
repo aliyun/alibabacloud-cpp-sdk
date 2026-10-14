@@ -127,33 +127,39 @@ namespace Models
 
 
     protected:
-      // The bandwidth of attack traffic. Unit: bit/s.
+      // The bandwidth of the attack traffic. Unit: Mbps.
       shared_ptr<int64_t> bps_ {};
-      // The time when the DDoS attack stopped. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the attack ended. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
       // The type of the attack event. Valid values:
       // 
-      // *   **defense**: traffic scrubbing events
-      // *   **blackhole**: blackhole filtering events
+      // - **defense**: scrubbing events.
+      // 
+      // - **blackhole**: blackhole filtering events.
       shared_ptr<string> eventType_ {};
       // The attacked IP address.
       shared_ptr<string> ip_ {};
       // The attacked port.
       shared_ptr<string> port_ {};
-      // The packet forwarding rate of attack traffic. Unit: packets per second (pps).
+      // The packet forwarding rate of the attack traffic. Unit: pps.
       shared_ptr<int64_t> pps_ {};
-      // The region from which the attack was launched. Valid values:
+      // The source location of the attack. Valid values:
       // 
-      // *   **cn**: a region in the Chinese mainland
-      // *   **alb-ap-northeast-1-gf-x**: Japan (Tokyo)
-      // *   **alb-ap-southeast-gf-x**: Singapore
-      // *   **alb-cn-hongkong-gf-x**: Hong Kong (China)
-      // *   **alb-eu-central-1-gf-x**: Germany (Frankfurt)
-      // *   **alb-us-west-1-gf-x**: US (Silicon Valley)
+      // - **cn**: the Chinese mainland.
       // 
-      // > The values except **cn** are returned only when **RegionId** is set to **ap-southeast-1**.
+      // - **alb-ap-northeast-1-gf-x**: Japan.
+      // 
+      // - **alb-ap-southeast-gf-x**: Singapore.
+      // 
+      // - **alb-cn-hongkong-gf-x**: Hong Kong (China).
+      // 
+      // - **alb-eu-central-1-gf-x**: Germany.
+      // 
+      // - **alb-us-west-1-gf-x**: US (West).
+      // 
+      // > Values other than **cn** are available only for the Anti-DDoS Premium service, for which the **RegionId** is **ap-southeast-1**.
       shared_ptr<string> region_ {};
-      // The time when the DDoS attack started. The value is a UNIX timestamp. Unit: seconds.
+      // The time when the attack started. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -183,11 +189,11 @@ namespace Models
 
 
   protected:
-    // The DDoS attack events.
+    // A list of DDoS attack events.
     shared_ptr<vector<DescribeDDoSEventsResponseBody::DDoSEvents>> DDoSEvents_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of returned attack events.
+    // The total number of attack events.
     shared_ptr<int64_t> total_ {};
   };
 

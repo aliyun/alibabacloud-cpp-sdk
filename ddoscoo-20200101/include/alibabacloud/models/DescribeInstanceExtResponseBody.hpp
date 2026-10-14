@@ -101,8 +101,9 @@ namespace Models
     protected:
       // The function plan. Valid values:
       // 
-      // *   **0**: Standard
-      // *   **1**: Enhanced
+      // - **0**: Standard
+      // 
+      // - **1**: Enhanced
       shared_ptr<int64_t> functionVersion_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};
@@ -110,11 +111,15 @@ namespace Models
       shared_ptr<int64_t> normalBandwidth_ {};
       // The type of the instance. Valid values:
       // 
-      // *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
-      // *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
-      // *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
-      // *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
-      // *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+      // - **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+      // 
+      // - **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+      // 
+      // - **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+      // 
+      // - **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
+      // 
+      // - **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
       shared_ptr<int64_t> productPlan_ {};
       // The Internet service provider (ISP) line of the Anti-DDoS Proxy (Chinese Mainland) instance.
       shared_ptr<string> servicePartner_ {};

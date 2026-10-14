@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The peak of connection flood attacks. Unit: connections per seconds (CPS).
+    // The peak attack throughput of connection flood attacks. Unit: cps.
     shared_ptr<int64_t> cps_ {};
-    // The peak of volumetric attacks. Unit: Mbit/s.
+    // The peak attack throughput of volumetric traffic attacks. Unit: Mbps.
     shared_ptr<int64_t> mbps_ {};
-    // The peak of resource exhaustion attacks. Unit: queries per second (QPS).
+    // The peak attack throughput of web resource exhaustion attacks. Unit: qps.
     shared_ptr<int64_t> qps_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

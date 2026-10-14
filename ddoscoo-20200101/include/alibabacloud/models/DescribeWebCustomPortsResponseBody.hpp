@@ -72,12 +72,13 @@ namespace Models
 
 
     protected:
-      // An array that consists of supported custom ports.
+      // The available port range.
       shared_ptr<vector<string>> proxyPorts_ {};
-      // The type of the protocol. Valid values:
+      // The Protocol Type. Valid values:
       // 
-      // *   **http**
-      // *   **https**
+      // - **http**
+      // 
+      // - **https**
       shared_ptr<string> proxyType_ {};
     };
 
@@ -100,9 +101,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
-    // An array consisting of information about supported custom ports that are used by a website.
+    // The custom port information for website services.
     shared_ptr<vector<DescribeWebCustomPortsResponseBody::WebCustomPorts>> webCustomPorts_ {};
   };
 

@@ -79,11 +79,8 @@ namespace Models
 
 
     protected:
-      // The code of the location from which the attack is initiated. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
       shared_ptr<string> areaId_ {};
-      // The number of attacks from the IP address.
       shared_ptr<int64_t> pv_ {};
-      // The source IP address of the attack.
       shared_ptr<string> srcIp_ {};
     };
 
@@ -106,9 +103,7 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The top IP addresses from which most attacks are initiated.
     shared_ptr<vector<DescribePortCcAttackTopIPResponseBody::TopIp>> topIp_ {};
   };
 

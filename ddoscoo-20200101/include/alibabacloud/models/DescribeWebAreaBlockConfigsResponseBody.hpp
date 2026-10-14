@@ -91,12 +91,13 @@ namespace Models
 
 
       protected:
-        // Indicates whether the location is blocked. Valid values:
+        // The blocking status. Valid values:
         // 
-        // *   **0**: yes
-        // *   **1**: no
+        // - **0**: not blocked
+        // 
+        // - **1**: blocked
         shared_ptr<int32_t> block_ {};
-        // The name of the location.
+        // The region.
         shared_ptr<string> region_ {};
       };
 
@@ -121,7 +122,7 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The configuration of the blocked locations.
+      // The information about the blocked regions.
       shared_ptr<vector<AreaBlockConfigs::RegionList>> regionList_ {};
     };
 
@@ -144,7 +145,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the configurations of the Location Blacklist (Domain Names) policy.
+    // The configuration information of the Location Blacklist feature (for domain names).
     shared_ptr<vector<DescribeWebAreaBlockConfigsResponseBody::AreaBlockConfigs>> areaBlockConfigs_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

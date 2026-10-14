@@ -83,14 +83,13 @@ namespace Models
 
 
     protected:
-      // The codes of the countries or areas from which the requests are blocked.
+      // The list of blocked region codes outside China.
       shared_ptr<vector<int64_t>> countries_ {};
-      // The codes of the administrative regions in China from which the requests are blocked.
+      // The list of blocked region codes in China.
       shared_ptr<vector<int64_t>> provinces_ {};
-      // The status of the Location Blacklist policy. Valid values:
-      // 
-      // *   **on**: enabled
-      // *   **off**: disabled
+      // The status of the location blacklist. Valid values:
+      // - **on**: enabled
+      // - **off**: disabled
       shared_ptr<string> regionBlockSwitch_ {};
     };
 
@@ -113,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The configuration of blocked locations.
+    // The configuration of the location blacklist.
     shared_ptr<DescribeNetworkRegionBlockResponseBody::Config> config_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

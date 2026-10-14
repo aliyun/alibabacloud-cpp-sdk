@@ -101,21 +101,21 @@ namespace Models
     shared_ptr<string> cname_ {};
     // The domain name of the website to query.
     // 
-    // > The domain must have been configured with website business forwarding rules. You can call [DescribeDomains](~~DescribeDomains~~) to query all domains that have been configured with website business forwarding rules.
+    // > The domain name must have a website forwarding rule configured. You can call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names that have website forwarding rules configured.
     shared_ptr<string> domain_ {};
-    // The list of DDoS protection instance IDs to query.
+    // The IDs of the Anti-DDoS Pro or Anti-DDoS Premium instances to query.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The page number. Default value: **1**.
+    // The page number when you use paging. Set the current page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1** to **10**.
+    // The number of forwarding rules per page when you use paging. Set the number of entries per page. Valid values: **1** to **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The query matching pattern. Values:
-    // - **fuzzy** (default): Indicates fuzzy query.
-    // - **exact**: Indicates exact query.
+    // The query match mode. Valid values:
+    // - **fuzzy** (default): fuzzy match.
+    // - **exact**: exact match.
     shared_ptr<string> queryDomainPattern_ {};
-    // The resource group ID of the DDoS protection instance in the resource management service.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management.
     // 
-    // Not setting this parameter indicates the default resource group.
+    // If you do not set this parameter to a value, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

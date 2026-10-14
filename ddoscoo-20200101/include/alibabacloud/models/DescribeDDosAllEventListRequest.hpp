@@ -84,31 +84,34 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The DDoS attack events occur before **EndTime** are queried. This value is a UNIX timestamp. Unit: seconds.
+    // The end of the time range to query. DDoS attack events that occurred before **EndTime** are queried. Specify a UNIX timestamp. Unit: seconds.
+    // > EndTime can specify only events within the last three months.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The type of the DDoS attack events you want to query. Valid values:
+    // The type of DDoS attack event to query. Valid values:
     // 
-    // *   **web-cc**: resource exhaustion attacks
-    // *   **cc**: connection flood attacks
-    // *   **defense**: DDoS attacks that trigger traffic scrubbing
-    // *   **blackhole**: DDoS attacks that trigger blackhole filtering
+    // - **web-cc**: web resource exhaustion attack.
+    // - **cc**: connection flood attack.
+    // - **defense**: volumetric attack (scrubbing event).
+    // - **blackhole**: volumetric attack (blackhole filtering event).
     // 
-    // If you want to query multiple types of DDoS attack events, separate them with commas (,).
+    // You can specify multiple types. Separate them with commas (,).
     // 
-    // If you do not configure this parameter, DDoS attack events of all types are queried.
+    // If you do not set this parameter, attack events of all types are queried.
     shared_ptr<string> eventType_ {};
+    // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance to query.
     shared_ptr<string> ip_ {};
-    // The number of the page to return.
+    // The page number to return in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of attack events to return on each page in a paging query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. The DDoS attack events occur after **StartTime** are queried. This value is a UNIX timestamp. Unit: seconds.
+    // The beginning of the time range to query. DDoS attack events that occurred after **StartTime** are queried. Specify a UNIX timestamp. Unit: seconds.
+    // > StartTime can specify only events within the last three months.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

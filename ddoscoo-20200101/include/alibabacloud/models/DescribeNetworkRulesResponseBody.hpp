@@ -40,6 +40,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BackendPort, backendPort_);
         DARABONBA_PTR_TO_JSON(FrontendPort, frontendPort_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(IpMode, ipMode_);
         DARABONBA_PTR_TO_JSON(IsAutoCreate, isAutoCreate_);
         DARABONBA_PTR_TO_JSON(PayloadRuleEnable, payloadRuleEnable_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BackendPort, backendPort_);
         DARABONBA_PTR_FROM_JSON(FrontendPort, frontendPort_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(IpMode, ipMode_);
         DARABONBA_PTR_FROM_JSON(IsAutoCreate, isAutoCreate_);
         DARABONBA_PTR_FROM_JSON(PayloadRuleEnable, payloadRuleEnable_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -72,8 +74,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->backendPort_ == nullptr
-        && this->frontendPort_ == nullptr && this->instanceId_ == nullptr && this->isAutoCreate_ == nullptr && this->payloadRuleEnable_ == nullptr && this->protocol_ == nullptr
-        && this->proxyEnable_ == nullptr && this->proxyStatus_ == nullptr && this->realServers_ == nullptr && this->remark_ == nullptr; };
+        && this->frontendPort_ == nullptr && this->instanceId_ == nullptr && this->ipMode_ == nullptr && this->isAutoCreate_ == nullptr && this->payloadRuleEnable_ == nullptr
+        && this->protocol_ == nullptr && this->proxyEnable_ == nullptr && this->proxyStatus_ == nullptr && this->realServers_ == nullptr && this->remark_ == nullptr; };
       // backendPort Field Functions 
       bool hasBackendPort() const { return this->backendPort_ != nullptr;};
       void deleteBackendPort() { this->backendPort_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline NetworkRules& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // ipMode Field Functions 
+      bool hasIpMode() const { return this->ipMode_ != nullptr;};
+      void deleteIpMode() { this->ipMode_ = nullptr;};
+      inline string getIpMode() const { DARABONBA_PTR_GET_DEFAULT(ipMode_, "") };
+      inline NetworkRules& setIpMode(string ipMode) { DARABONBA_PTR_SET_VALUE(ipMode_, ipMode) };
 
 
       // isAutoCreate Field Functions 
@@ -147,38 +156,37 @@ namespace Models
 
 
     protected:
-      // The port of the origin server.
+      // The origin server port.
       shared_ptr<int32_t> backendPort_ {};
-      // The forwarding port.
+      // The forward port.
       shared_ptr<int32_t> frontendPort_ {};
-      // The ID of the instance.
+      // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> instanceId_ {};
-      // Indicates whether the port forwarding rule is automatically created. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      shared_ptr<string> ipMode_ {};
+      // Indicates whether the rule is automatically created. Valid values:
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> isAutoCreate_ {};
-      // Indicates whether the payload filtering rule is enabled. Valid values:
+      // The switch for the payload policy module. Valid values:
       // 
-      // *   1: enabled.
-      // *   0: disabled.
+      // - 1: enabled.
+      // - 0: disabled.
       shared_ptr<int64_t> payloadRuleEnable_ {};
       // The forwarding protocol. Valid values:
-      // 
-      // *   **tcp**
-      // *   **udp**
+      // - **tcp**
+      // - **udp**
       shared_ptr<string> protocol_ {};
-      // Indicates whether the traffic diversion switch is on. Valid values:
+      // The traffic redirection switch. Valid values:
       // 
-      // *   0: on.
-      // *   1: off.
+      // - 0: enabled.
+      // - 1: disabled.
       shared_ptr<int64_t> proxyEnable_ {};
-      // The status of traffic diversion. Valid values:
+      // The traffic redirection status. Valid values:
       // 
-      // *   on: Traffic diversion takes effect.
-      // *   off: Traffic diversion does not take effect.
+      // - on: traffic redirection is active.
+      // - off: traffic redirection is inactive.
       shared_ptr<string> proxyStatus_ {};
-      // The IP addresses of origin servers.
+      // The list of origin server IP addresses.
       shared_ptr<vector<string>> realServers_ {};
       // The remarks of the port forwarding rule.
       shared_ptr<string> remark_ {};
@@ -210,11 +218,11 @@ namespace Models
 
 
   protected:
-    // The details of the port forwarding rules.
+    // The port forwarding rules.
     shared_ptr<vector<DescribeNetworkRulesResponseBody::NetworkRules>> networkRules_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. This is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of returned port forwarding rules.
+    // The total number of port forwarding rules.
     shared_ptr<int64_t> totalCount_ {};
   };
 

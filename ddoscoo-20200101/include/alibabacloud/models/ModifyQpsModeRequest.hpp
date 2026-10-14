@@ -50,14 +50,15 @@ namespace Models
   protected:
     // The region ID of the Anti-DDoS Pro instance.
     // 
-    // >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The metering method of QPS. Valid values:
     // 
-    // *   **month**: monthly 95th percentile QPS.
-    // *   **day**: daily 95th percentile QPS.
+    // - **month**: monthly 95th percentile QPS.
+    // 
+    // - **day**: daily 95th percentile QPS.
     // 
     // This parameter is required.
     shared_ptr<string> mode_ {};

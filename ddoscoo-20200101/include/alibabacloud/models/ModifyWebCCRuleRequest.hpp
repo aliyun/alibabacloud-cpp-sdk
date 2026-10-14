@@ -112,26 +112,49 @@ namespace Models
 
 
   protected:
+    // The blocking type. Valid values:
+    // 
+    // - **close**: block
+    // 
+    // - **captcha**: bot detection
+    // 
     // This parameter is required.
     shared_ptr<string> act_ {};
+    // The number of access attempts from a single IP address. Valid values: **2** to **2000**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> count_ {};
+    // The domain name of the website business.
+    // 
+    // > The domain name must have a configured website business forwarding rule. You can call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // The detection duration. Valid values: **5** to **10800**. Unit: seconds.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> interval_ {};
+    // The matching pattern. Valid values:
+    // 
+    // - **prefix**: prefix match
+    // 
+    // - **match**: exact match
+    // 
     // This parameter is required.
     shared_ptr<string> mode_ {};
+    // The rule name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The resource group ID to which the Anti-DDoS Proxy instance belongs in the Resource Management product. The default value is empty, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The blocking duration. Valid values: **60** to **86400**. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ttl_ {};
-    // The check path.
+    // The detection path.
     // 
-    // >  You cannot modify the Uniform Resource Identifier (URI). The domain name of the website, the check path, and the rule name uniquely identify a rule.
+    // > The URI cannot be modified. A rule is uniquely identified by the domain name of the website business, the detection path, and the rule name.
     // 
     // This parameter is required.
     shared_ptr<string> uri_ {};

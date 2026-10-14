@@ -66,18 +66,11 @@ namespace Models
 
 
   protected:
-    // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance to query.
-    // 
     // This parameter is required.
     shared_ptr<string> ip_ {};
-    // The maximum number of entries to return.
     shared_ptr<int64_t> limit_ {};
-    // The attacked port.
-    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
-    // The beginning of the time range to query. Unit: seconds.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> startTimestamp_ {};
   };

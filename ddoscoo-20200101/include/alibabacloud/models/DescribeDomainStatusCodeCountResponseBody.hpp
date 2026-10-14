@@ -169,31 +169,33 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of 200 status codes within the specified period of time.
+    // The number of 200 status codes within the query time range.
     shared_ptr<int64_t> status200_ {};
-    // The number of 2xx status codes within the specified period of time.
+    // The number of 2XX status codes within the query time range.
     shared_ptr<int64_t> status2XX_ {};
-    // The number of 3xx status codes within the specified period of time.
+    // The number of 3XX status codes within the query time range.
     shared_ptr<int64_t> status3XX_ {};
-    // The number of 403 status codes within the specified period of time.
+    // The number of 403 status codes within the query time range.
     shared_ptr<int64_t> status403_ {};
-    // The number of 404 status codes within the specified period of time.
+    // The number of 404 status codes within the query time range.
     shared_ptr<int64_t> status404_ {};
-    // The number of 405 status codes within the specified period of time.
+    // The number of 405 status codes within the query time range.
     shared_ptr<int64_t> status405_ {};
+    // The number of 410 status codes within the query time range.
     shared_ptr<int64_t> status410_ {};
+    // The number of 499 status codes within the query time range.
     shared_ptr<int64_t> status499_ {};
-    // The number of 4xx status codes within the specified period of time.
+    // The number of 4XX status codes within the query time range.
     shared_ptr<int64_t> status4XX_ {};
-    // The number of 501 status codes within the specified period of time.
+    // The number of 501 status codes within the query time range.
     shared_ptr<int64_t> status501_ {};
-    // The number of 502 status codes within the specified period of time.
+    // The number of 502 status codes within the query time range.
     shared_ptr<int64_t> status502_ {};
-    // The number of 503 status codes within the specified period of time.
+    // The number of 503 status codes within the query time range.
     shared_ptr<int64_t> status503_ {};
-    // The number of 504 status codes within the specified period of time.
+    // The number of 504 status codes within the query time range.
     shared_ptr<int64_t> status504_ {};
-    // The number of 5xx status codes within the specified period of time.
+    // The number of 5XX status codes within the query time range.
     shared_ptr<int64_t> status5XX_ {};
   };
 

@@ -70,11 +70,11 @@ namespace Models
 
 
     protected:
-      // The total number of requests that are sent from the ISP.
+      // The relative number of requests.
       // 
-      // > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different ISPs.
+      // > This value does not represent the actual number of requests. You can use this value to calculate the proportion of requests from different ISPs.
       shared_ptr<int64_t> count_ {};
-      // The ID of the ISP. For more information, see the ISP codes table.
+      // The ISP ID. For more information, see the ISP code table below the response parameters. The ISP ID corresponds to the code in the table.
       shared_ptr<string> ispId_ {};
     };
 
@@ -97,7 +97,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details of the ISP.
+    // The request source ISP information of the Anti-DDoS Pro or Anti-DDoS Premium instance.
     shared_ptr<vector<DescribePortViewSourceIspsResponseBody::Isps>> isps_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

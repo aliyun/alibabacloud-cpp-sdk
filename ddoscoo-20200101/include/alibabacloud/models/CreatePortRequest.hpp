@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FrontendPort, frontendPort_);
       DARABONBA_PTR_TO_JSON(FrontendProtocol, frontendProtocol_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(IpMode, ipMode_);
       DARABONBA_PTR_TO_JSON(ProxyEnable, proxyEnable_);
       DARABONBA_PTR_TO_JSON(RealServers, realServers_);
     };
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FrontendPort, frontendPort_);
       DARABONBA_PTR_FROM_JSON(FrontendProtocol, frontendProtocol_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(IpMode, ipMode_);
       DARABONBA_PTR_FROM_JSON(ProxyEnable, proxyEnable_);
       DARABONBA_PTR_FROM_JSON(RealServers, realServers_);
     };
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backendPort_ == nullptr
-        && this->frontendPort_ == nullptr && this->frontendProtocol_ == nullptr && this->instanceId_ == nullptr && this->proxyEnable_ == nullptr && this->realServers_ == nullptr; };
+        && this->frontendPort_ == nullptr && this->frontendProtocol_ == nullptr && this->instanceId_ == nullptr && this->ipMode_ == nullptr && this->proxyEnable_ == nullptr
+        && this->realServers_ == nullptr; };
     // backendPort Field Functions 
     bool hasBackendPort() const { return this->backendPort_ != nullptr;};
     void deleteBackendPort() { this->backendPort_ = nullptr;};
@@ -70,6 +73,13 @@ namespace Models
     inline CreatePortRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // ipMode Field Functions 
+    bool hasIpMode() const { return this->ipMode_ != nullptr;};
+    void deleteIpMode() { this->ipMode_ = nullptr;};
+    inline string getIpMode() const { DARABONBA_PTR_GET_DEFAULT(ipMode_, "") };
+    inline CreatePortRequest& setIpMode(string ipMode) { DARABONBA_PTR_SET_VALUE(ipMode_, ipMode) };
+
+
     // proxyEnable Field Functions 
     bool hasProxyEnable() const { return this->proxyEnable_ != nullptr;};
     void deleteProxyEnable() { this->proxyEnable_ = nullptr;};
@@ -87,27 +97,31 @@ namespace Models
 
 
   protected:
-    // The port of the origin server. Valid values: **0** to **65535**.
+    // The origin server port. Valid values: **0** to **65535**.
     shared_ptr<string> backendPort_ {};
-    // The forwarding port. Valid values: **0** to **65535**.
+    // The forward port. Valid values: **0** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<string> frontendPort_ {};
-    // The type of the forwarding protocol. Valid values:
+    // The forwarding protocol type. Valid values:
     // 
-    // *   **tcp**
-    // *   **udp**
+    // - **tcp**: TCP protocol.
+    // - **udp**: UDP protocol.
     // 
     // This parameter is required.
     shared_ptr<string> frontendProtocol_ {};
     // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
     // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+    // > You can call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<string> ipMode_ {};
+    // The traffic redirection switch. Valid values:
+    // - **0**: disabled.
+    // - **1**: enabled.
     shared_ptr<int64_t> proxyEnable_ {};
-    // An array that consists of the IP addresses of origin servers.
+    // The list of origin server IP addresses.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> realServers_ {};

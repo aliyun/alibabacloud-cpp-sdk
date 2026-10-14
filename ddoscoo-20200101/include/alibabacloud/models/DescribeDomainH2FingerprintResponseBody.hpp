@@ -81,9 +81,9 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The HTTP/2 fingerprint.
+      // The HTTP/2.0 fingerprint.
       shared_ptr<string> h2Fingerprint_ {};
-      // The page views.
+      // The number of times the HTTP/2.0 fingerprint is matched for the domain name.
       shared_ptr<int64_t> pv_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about top N HTTP/2 fingerprints.
+    // The list of top N HTTP/2.0 fingerprints for the domain name.
     shared_ptr<vector<DescribeDomainH2FingerprintResponseBody::DomainH2Fp>> domainH2Fp_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

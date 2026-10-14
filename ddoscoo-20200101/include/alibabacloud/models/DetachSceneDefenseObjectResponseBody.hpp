@@ -52,8 +52,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: yes
+    // 
+    // - **false**: no
     shared_ptr<bool> success_ {};
   };
 

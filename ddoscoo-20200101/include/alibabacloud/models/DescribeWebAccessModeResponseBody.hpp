@@ -70,11 +70,13 @@ namespace Models
 
 
     protected:
-      // The mode in which the website service is added. Valid values:
+      // The access mode. Valid values:
       // 
-      // *   **0**: A record
-      // *   **1**: anti-DDoS mode
-      // *   **2**: origin redundancy mode
+      // - **0**: A record access
+      // 
+      // - **1**: Anti-DDoS Proxy mode
+      // 
+      // - **2**: Back-to-origin mode
       shared_ptr<int32_t> accessMode_ {};
       // The domain name of the website.
       shared_ptr<string> domain_ {};
@@ -99,7 +101,7 @@ namespace Models
 
 
   protected:
-    // An array consisting of the modes in which the website service is added.
+    // The access mode information of website businesses.
     shared_ptr<vector<DescribeWebAccessModeResponseBody::DomainModes>> domainModes_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

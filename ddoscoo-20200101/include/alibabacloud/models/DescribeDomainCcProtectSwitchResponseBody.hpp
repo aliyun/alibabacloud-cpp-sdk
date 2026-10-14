@@ -152,16 +152,73 @@ namespace Models
 
 
     protected:
+      // The mode of AI-powered protection. Valid values:
+      // 
+      // - **watch**: Warning mode
+      // 
+      // - **defense**: Defense mode
       shared_ptr<string> aiMode_ {};
+      // The status of the AI-powered protection feature. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> aiRuleEnable_ {};
+      // The level of AI-powered protection. Valid values:
+      // 
+      // - **level30**: Loose
+      // 
+      // - **level60**: Normal
+      // 
+      // - **level90**: Strict
       shared_ptr<string> aiTemplate_ {};
+      // The status of the blacklists and whitelists feature. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> blackWhiteListEnable_ {};
+      // The status of custom CC rules. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> ccCustomRuleEnable_ {};
+      // The status of the rate limiting (CC protection) feature. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> ccEnable_ {};
+      // The status of the global switch for custom and precise CC protection. Valid values:
+      // 
+      // - **open**: Enabled
+      // 
+      // - **close**: Disabled
       shared_ptr<string> ccGlobalSwitch_ {};
+      // The CC protection mode. Valid values:
+      // 
+      // - **default**: Normal
+      // 
+      // - **gf_under_attack**: Emergency
+      // 
+      // - **gf_sos_verify**: Strict
+      // 
+      // - **gf_sos_enhance**: Very Strict
       shared_ptr<string> ccTemplate_ {};
+      // The domain name of the website.
       shared_ptr<string> domain_ {};
+      // The status of the precise access control feature. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> preciseRuleEnable_ {};
+      // The status of the Location Blacklist (Domain Names) feature. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> regionBlockEnable_ {};
     };
 
@@ -184,7 +241,9 @@ namespace Models
 
 
   protected:
+    // The status of each protection feature for the website.
     shared_ptr<vector<DescribeDomainCcProtectSwitchResponseBody::ProtectSwitchList>> protectSwitchList_ {};
+    // The ID of the request. This ID is unique to the request. Use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

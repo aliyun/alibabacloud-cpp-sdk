@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The number of active connections.
       shared_ptr<int64_t> actConns_ {};
-      // >  This parameter is in internal preview. Do not use this parameter.
+      // > This parameter is in internal preview. Do not use this parameter.
       shared_ptr<int64_t> conns_ {};
       // The number of new connections.
       shared_ptr<int64_t> cps_ {};

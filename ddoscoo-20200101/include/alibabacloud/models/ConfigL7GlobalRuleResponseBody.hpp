@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request that can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

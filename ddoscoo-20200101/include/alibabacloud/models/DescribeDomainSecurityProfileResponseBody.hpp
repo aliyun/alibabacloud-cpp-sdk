@@ -70,16 +70,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the global mitigation policy is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> globalEnable_ {};
-      // The mode of the global mitigation policy. Valid values:
-      // 
-      // *   **weak**: the Low mode
-      // *   **default**: the Normal mode
-      // *   **hard**: the Strict mode
       shared_ptr<string> globalMode_ {};
     };
 
@@ -102,9 +93,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The returned results.
     shared_ptr<vector<DescribeDomainSecurityProfileResponseBody::Result>> result_ {};
   };
 

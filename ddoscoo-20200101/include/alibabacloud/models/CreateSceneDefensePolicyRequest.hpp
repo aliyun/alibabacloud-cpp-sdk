@@ -66,22 +66,21 @@ namespace Models
 
 
   protected:
-    // The end time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+    // The end time when the policy takes effect. This value is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The name of the policy.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The start time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+    // The start time when the policy takes effect. This value is a UNIX timestamp. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The template of the policy. Valid values:
-    // 
-    // *   **promotion**: important activity.
-    // *   **bypass**: all traffic forwarded.
+    // The policy template. Valid values:
+    // - **promotion**: Important Activity template.
+    // - **bypass**: full forwarding.
     // 
     // This parameter is required.
     shared_ptr<string> template_ {};

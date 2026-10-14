@@ -152,7 +152,7 @@ namespace Models
       protected:
         // The domain name.
         // 
-        // >  This parameter is returned only when the Layer 7 health check configuration is queried.
+        // > This parameter is returned only when the Layer 7 health check configuration is queried.
         shared_ptr<string> domain_ {};
         // The number of consecutive failed health checks that must occur before a port is declared unhealthy. Valid values: **1** to **10**.
         shared_ptr<int32_t> down_ {};
@@ -164,14 +164,15 @@ namespace Models
         shared_ptr<int32_t> timeout_ {};
         // The type of the protocol. Valid values:
         // 
-        // *   **tcp**: The Layer 4 health check configuration was queried.
-        // *   **http**: The Layer 7 health check configuration was queried.
+        // - **tcp**: The Layer 4 health check configuration was queried.
+        // 
+        // - **http**: The Layer 7 health check configuration was queried.
         shared_ptr<string> type_ {};
         // The number of consecutive successful health checks that must occur before a port is declared healthy. Valid values: **1** to **10**.
         shared_ptr<int32_t> up_ {};
         // The check path.
         // 
-        // >  This parameter is returned only when the Layer 7 health check configuration is queried.
+        // > This parameter is returned only when the Layer 7 health check configuration is queried.
         shared_ptr<string> uri_ {};
       };
 
@@ -216,8 +217,9 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The forwarding protocol. Valid values:
       // 
-      // *   **tcp**
-      // *   **udp**
+      // - **tcp**
+      // 
+      // - **udp**
       shared_ptr<string> protocol_ {};
     };
 

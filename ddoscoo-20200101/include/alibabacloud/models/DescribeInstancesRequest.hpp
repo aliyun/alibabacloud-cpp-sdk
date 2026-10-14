@@ -90,19 +90,19 @@ namespace Models
 
 
     protected:
-      // The key of the tag that is added to the instance to query. You can specify up to 200 tag keys. When you specify tags, take note of the following rules:
+      // The tag key attached to the Anti-DDoS Pro or Anti-DDoS Premium instance to query. Maximum value of N: 200, which means you can specify up to 200 tag keys. The configuration rules are as follows:
       // 
-      // *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
-      // *   Separate multiple tags with commas (,).
+      // - Each tag consists of a tag key (**Key**) and a tag value (**Value**), separated by a comma (,).
+      // - Tags are separated by commas (,).
       // 
-      // >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.
+      // > The tag key (**Key**) and tag value (**Value**) must appear in pairs.
       shared_ptr<string> key_ {};
-      // The value of the tag that is added to the instance to query. You can specify up to 200 tag values. When you specify tags, take note of the following rules:
+      // The tag value attached to the Anti-DDoS Pro or Anti-DDoS Premium instance to query. Maximum value of N: 200, which means you can specify up to 200 tag values. The configuration rules are as follows:
       // 
-      // *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
-      // *   Separate multiple tags with commas (,).
+      // - Each tag consists of a tag key (**Key**) and a tag value (**Value**), separated by a comma (,).
+      // - Tags are separated by commas (,).
       // 
-      // >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.
+      // > The tag key (**Key**) and tag value (**Value**) must appear in pairs.
       shared_ptr<string> value_ {};
     };
 
@@ -201,43 +201,43 @@ namespace Models
 
 
   protected:
-    // The mitigation plan of the instance to query. Valid values:
+    // The mitigation plan edition of the Anti-DDoS Pro or Anti-DDoS Premium instance to query. Valid values:
     // 
-    // *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
-    // *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
-    // *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
-    // *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+    // - **0**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) Insurance edition.
+    // - **1**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) Unlimited edition.
+    // - **2**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) acceleration line.
+    // - **9**: Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) Professional Edition.
     shared_ptr<int32_t> edition_ {};
-    // The traffic forwarding status of the instance to query. Valid values:
+    // The service traffic forwarding status of the Anti-DDoS Pro or Anti-DDoS Premium instance to query. Valid values:
     // 
-    // *   **0**: The instance no longer forwards service traffic.
-    // *   **1**: The instance forwards service traffic as expected.
+    // - **0**: Service traffic forwarding is stopped.
+    // - **1**: Service traffic forwarding is normal.
     shared_ptr<int32_t> enabled_ {};
-    // The end of the time range to query. Instances whose expiration time is earlier than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+    // The latest expiration time of the Anti-DDoS Pro or Anti-DDoS Premium instances to query. This means that only instances whose expiration time is earlier than the value of **ExpireEndTime** are queried. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> expireEndTime_ {};
-    // The beginning of the time range to query. Instances whose expiration time is later than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+    // The earliest expiration time of the Anti-DDoS Pro or Anti-DDoS Premium instances to query. This means that only instances whose expiration time is later than the value of **ExpireStartTime** are queried. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> expireStartTime_ {};
-    // The IDs of the instances to query. You can specify up to 200 instance IDs.
+    // The IDs of the Anti-DDoS Pro or Anti-DDoS Premium instances to query. You can specify up to 200 Anti-DDoS Pro or Anti-DDoS Premium instances.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The IP address of the instance to query.
+    // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance to query.
     shared_ptr<string> ip_ {};
-    // The number of the page to return.
+    // The page number for paging.
     // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of instances per page for paging. Valid values: 1 to 50.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The remarks of the instance to query. Fuzzy match is supported.
+    // The remark of the Anti-DDoS Pro or Anti-DDoS Premium instance to query. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
-    // The states of the instances to query. You can specify up to two states.
+    // The statuses of the Anti-DDoS Pro or Anti-DDoS Premium instances to query. You can specify up to 2 Anti-DDoS Pro or Anti-DDoS Premium instance statuses.
     shared_ptr<vector<int32_t>> status_ {};
-    // The tags that are added to the instances to query.
+    // The tags attached to the Anti-DDoS Pro or Anti-DDoS Premium instances to query.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
   };
 

@@ -70,9 +70,11 @@ namespace Models
 
 
     protected:
-      // The code or ID of the source region. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+      // The code of the attack source region, including Chinese regions (at the province or city level) and international regions (at the country level). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+      // 
+      // > For more information about the valid values of this parameter, see [China and international regions](https://help.aliyun.com/document_detail/167926.html).
       shared_ptr<string> area_ {};
-      // The number of request packets that were sent from the source region.
+      // The number of request packets from the attack source region.
       shared_ptr<int64_t> inPkts_ {};
     };
 
@@ -95,7 +97,7 @@ namespace Models
 
 
   protected:
-    // The information about the source region from which the volumetric attack was initiated.
+    // The information about the attack source regions.
     shared_ptr<vector<DescribeDDosEventAreaResponseBody::Areas>> areas_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

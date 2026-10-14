@@ -167,22 +167,16 @@ namespace Models
         protected:
           // The status code. Valid values: **100** to **599**.
           // 
-          // *   **200**: The request was successful.
-          // *   Other codes: The request failed.
+          // - **200**: Successful.
+          // - Other values: An error code.
           shared_ptr<int32_t> code_ {};
-          // If a ratio is not used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **CountThreshold**. Valid values: **2** to **50000**.
+          // When the ratio is not used, the action is triggered only when the corresponding status code reaches **CountThreshold**. Valid range: **2** to **50000**.
           shared_ptr<int32_t> countThreshold_ {};
-          // Indicates whether the status code is enabled. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the feature is enabled. Valid values:
           shared_ptr<bool> enabled_ {};
-          // If a ratio is used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **RatioThreshold**. Valid values: **1** to **100**.
+          // When the ratio is used, the action is triggered only when the corresponding status code reaches **RatioThreshold**. Valid range: **1** to **100**.
           shared_ptr<int32_t> ratioThreshold_ {};
-          // Indicates whether to use a ratio.
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether to use the ratio:
           shared_ptr<bool> useRatio_ {};
         };
 
@@ -233,18 +227,14 @@ namespace Models
 
 
         protected:
-          // The statistical method. Valid values:
-          // 
-          // *   **ip**
-          // *   **header**
-          // *   **uri**
+          // The statistics source. Valid values:
+          // - **ip**: by IP address
+          // - **header**: by header
+          // - **uri**: by URI
           shared_ptr<string> field_ {};
-          // The name of the header. This parameter is required only when the Field parameter is set to header.
+          // This parameter is required only when the statistics source is set to header.
           shared_ptr<string> headerName_ {};
-          // Indicates whether the system collects statistics after deduplication. Valid values:
-          // 
-          // *   **count**: The system collects statistics before deduplication.
-          // *   **distinct**: The system collects statistics after deduplication.
+          // The deduplication mode. Valid values:
           shared_ptr<string> mode_ {};
         };
 
@@ -315,12 +305,9 @@ namespace Models
         protected:
           // The statistical period. Unit: seconds.
           shared_ptr<int32_t> interval_ {};
-          // The name of the field. This parameter is required only when the Target parameter is set to header.
+          // The field name. This parameter is required only when the statistics source is set to header.
           shared_ptr<string> subKey_ {};
-          // The statistical method. Valid values:
-          // 
-          // *   **ip**
-          // *   **header**
+          // The statistics source. Valid values:
           shared_ptr<string> target_ {};
           // The trigger threshold.
           shared_ptr<int32_t> threshold_ {};
@@ -395,17 +382,15 @@ namespace Models
 
 
         protected:
-          // The match content.
+          // The matching content.
           shared_ptr<string> content_ {};
-          // The match content when the match method is Equals to One of Multiple Values.
+          // The matching content when the matching method is set to equal to one of multiple values.
           shared_ptr<vector<string>> contentList_ {};
-          // The match field.
+          // The matching field.
           shared_ptr<string> field_ {};
-          // The custom HTTP request header.
-          // 
-          // >  This parameter takes effect only when **Field** is set to **header**.
+          // The name of the custom HTTP header field.
           shared_ptr<string> headerName_ {};
-          // The match method.
+          // The matching method.
           shared_ptr<string> matchMethod_ {};
         };
 
@@ -498,32 +483,31 @@ namespace Models
 
 
       protected:
-        // The action triggered if the rule is matched. Valid values:
-        // 
-        // *   **accept**: The requests that match the rule are allowed.
-        // *   **block**: The requests that match the rule are blocked.
-        // *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
-        // *   **watch**: The requests that match the rule are recorded in logs and allowed.
+        // The matching action. Valid values:
+        // - **accept**: Allow.
+        // - **block**: Block.
+        // - **challenge**: JavaScript Challenge.
+        // - **watch**: Monitor.
         shared_ptr<string> action_ {};
-        // The match conditions.
+        // The list of matching conditions.
         shared_ptr<vector<RuleDetail::Condition>> condition_ {};
-        // The parameter is deprecated.
+        // The legacy rule format. This parameter is deprecated.
         shared_ptr<int32_t> count_ {};
-        // The parameter is deprecated.
+        // The legacy rule format. This parameter is deprecated.
         shared_ptr<int32_t> interval_ {};
-        // The parameter is deprecated.
+        // The legacy rule format. This parameter is deprecated.
         shared_ptr<string> mode_ {};
         // The name of the rule.
         shared_ptr<string> name_ {};
         // The frequency statistics.
         shared_ptr<RuleDetail::RateLimit> rateLimit_ {};
-        // The statistics after deduplication. By default, the system collects statistics before deduplication.
+        // The deduplication statistics. This parameter is optional. If this parameter is not specified, deduplication is not performed.
         shared_ptr<RuleDetail::Statistics> statistics_ {};
-        // The status codes.
+        // The status code.
         shared_ptr<RuleDetail::StatusCode> statusCode_ {};
-        // The parameter is deprecated.
+        // The legacy rule format. This parameter is deprecated.
         shared_ptr<int32_t> ttl_ {};
-        // The parameter is deprecated.
+        // The legacy rule format. This parameter is deprecated.
         shared_ptr<string> uri_ {};
       };
 
@@ -560,16 +544,13 @@ namespace Models
 
 
     protected:
-      // The validity period of the rule. Unit: seconds. If the Action parameter is set to block, the system blocks the requests that match the rule within the validity period of the rule. The value 0 indicates that the rule is permanently valid.
+      // The validity period of the rule. Unit: seconds. This parameter takes effect when the matching action is set to block (action is block). Access requests are blocked within the validity period. A value of 0 indicates that the rule is permanently effective.
       shared_ptr<int64_t> expires_ {};
       // The name of the rule.
       shared_ptr<string> name_ {};
-      // The method used to create the rule. Valid values:
-      // 
-      // *   **manual** (default): manually created.
-      // *   **clover**: automatically created.
+      // The source of the rule. Valid values:
       shared_ptr<string> owner_ {};
-      // The details of the rule.
+      // The rule details.
       shared_ptr<WebCCRules::RuleDetail> ruleDetail_ {};
     };
 
@@ -608,11 +589,11 @@ namespace Models
   protected:
     // The domain name of the website.
     shared_ptr<string> domain_ {};
-    // The request ID.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of returned custom frequency control rules.
+    // The total number of frequency control rules.
     shared_ptr<string> totalCount_ {};
-    // The custom frequency control rules.
+    // The frequency control (HTTP flood mitigation) custom rules.
     shared_ptr<vector<DescribeWebCCRulesV2ResponseBody::WebCCRules>> webCCRules_ {};
   };
 

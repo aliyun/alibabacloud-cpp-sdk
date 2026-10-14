@@ -13,9 +13,11 @@ namespace Models
   class CreateNetworkRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateNetworkRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(IpMode, ipMode_);
       DARABONBA_PTR_TO_JSON(NetworkRules, networkRules_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNetworkRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(IpMode, ipMode_);
       DARABONBA_PTR_FROM_JSON(NetworkRules, networkRules_);
     };
     CreateNetworkRulesRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->networkRules_ == nullptr; };
+    virtual bool empty() const override { return this->ipMode_ == nullptr
+        && this->networkRules_ == nullptr; };
+    // ipMode Field Functions 
+    bool hasIpMode() const { return this->ipMode_ != nullptr;};
+    void deleteIpMode() { this->ipMode_ = nullptr;};
+    inline string getIpMode() const { DARABONBA_PTR_GET_DEFAULT(ipMode_, "") };
+    inline CreateNetworkRulesRequest& setIpMode(string ipMode) { DARABONBA_PTR_SET_VALUE(ipMode_, ipMode) };
+
+
     // networkRules Field Functions 
     bool hasNetworkRules() const { return this->networkRules_ != nullptr;};
     void deleteNetworkRules() { this->networkRules_ = nullptr;};
@@ -38,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The details of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
-    // 
-    // *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
-    // *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
-    // *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
-    // *   **BackendPort**: the port of the origin server. This field is required and must be of the INTEGER type.
-    // *   **RealServers**: the IP addresses of the origin server. This field is required and must be a JSON array. You can specify up to 20 IP addresses.
+    shared_ptr<string> ipMode_ {};
+    // The details of the port forwarding rules, expressed as a character string in JSON format with the following structure:
+    // - **InstanceId**: String. Required. The Anti-DDoS Pro or Anti-DDoS Premium instance ID.
+    // - **Protocol**: String. Required. The forwarding protocol type. Valid values: **tcp**, **udp**.
+    // - **FrontendPort**: Integer. Required. The Redirection Port.
+    // - **BackendPort**: Integer. Required. The origin server port.
+    // - **RealServers**: JSON array. Required. The list of origin server IP addresses. A maximum of 20 IP addresses are supported.
     // 
     // This parameter is required.
     shared_ptr<string> networkRules_ {};

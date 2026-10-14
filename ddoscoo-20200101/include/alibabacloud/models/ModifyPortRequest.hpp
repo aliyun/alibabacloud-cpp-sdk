@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The port of the origin server. Valid values: **0** to **65535**.
+    // The origin server port. Valid values: **0** to **65535**.
     // 
     // This parameter is required.
     shared_ptr<string> backendPort_ {};
@@ -97,19 +97,25 @@ namespace Models
     shared_ptr<string> frontendPort_ {};
     // The type of the forwarding protocol. Valid values:
     // 
-    // *   **tcp**
-    // *   **udp**
+    // - **tcp**: TCP protocol.
+    // 
+    // - **udp**: UDP protocol.
     // 
     // This parameter is required.
     shared_ptr<string> frontendProtocol_ {};
-    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
+    // The ID of the Anti-DDoS Proxy instance to which the port forwarding rule belongs.
     // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+    // > You can call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Proxy instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the traffic diversion switch is on. Valid values:
+    // 
+    // - **0**: off.
+    // 
+    // - **1**: on.
     shared_ptr<int64_t> proxyEnable_ {};
-    // An array that consists of the IP addresses of origin servers.
+    // The IP addresses of origin servers.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> realServers_ {};

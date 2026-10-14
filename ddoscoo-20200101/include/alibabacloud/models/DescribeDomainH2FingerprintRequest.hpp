@@ -77,20 +77,18 @@ namespace Models
   protected:
     // The domain name of the website.
     // 
-    // >  You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names of all websites that are protected by Anti-DDoS Proxy.
+    // > You can invoke [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query the domain names of all websites that are protected by Anti-DDoS Pro and Anti-DDoS Premium.
     shared_ptr<string> domain_ {};
     // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The value must be on the hour or half hour.
     shared_ptr<int64_t> endTime_ {};
-    // The maximum number of entries to return.
+    // The number of entries to return.
     // 
     // This parameter is required.
     shared_ptr<int64_t> limit_ {};
     shared_ptr<string> queryType_ {};
     // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The value must be on the hour or half hour.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

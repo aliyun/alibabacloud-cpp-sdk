@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const InstanceSpecs& obj) { 
         DARABONBA_PTR_TO_JSON(BandwidthMbps, bandwidthMbps_);
         DARABONBA_PTR_TO_JSON(BaseBandwidth, baseBandwidth_);
+        DARABONBA_PTR_TO_JSON(BaseProtectionBandwidth, baseProtectionBandwidth_);
         DARABONBA_PTR_TO_JSON(ConnLimit, connLimit_);
         DARABONBA_PTR_TO_JSON(CpsLimit, cpsLimit_);
         DARABONBA_PTR_TO_JSON(DefenseCount, defenseCount_);
@@ -56,6 +57,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, InstanceSpecs& obj) { 
         DARABONBA_PTR_FROM_JSON(BandwidthMbps, bandwidthMbps_);
         DARABONBA_PTR_FROM_JSON(BaseBandwidth, baseBandwidth_);
+        DARABONBA_PTR_FROM_JSON(BaseProtectionBandwidth, baseProtectionBandwidth_);
         DARABONBA_PTR_FROM_JSON(ConnLimit, connLimit_);
         DARABONBA_PTR_FROM_JSON(CpsLimit, cpsLimit_);
         DARABONBA_PTR_FROM_JSON(DefenseCount, defenseCount_);
@@ -84,10 +86,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bandwidthMbps_ == nullptr
-        && this->baseBandwidth_ == nullptr && this->connLimit_ == nullptr && this->cpsLimit_ == nullptr && this->defenseCount_ == nullptr && this->domainLimit_ == nullptr
-        && this->elasticBandwidth_ == nullptr && this->elasticBw_ == nullptr && this->elasticBwModel_ == nullptr && this->elasticQps_ == nullptr && this->elasticQpsMode_ == nullptr
-        && this->functionVersion_ == nullptr && this->instanceId_ == nullptr && this->portLimit_ == nullptr && this->qpsLimit_ == nullptr && this->realLimitBw_ == nullptr
-        && this->siteLimit_ == nullptr; };
+        && this->baseBandwidth_ == nullptr && this->baseProtectionBandwidth_ == nullptr && this->connLimit_ == nullptr && this->cpsLimit_ == nullptr && this->defenseCount_ == nullptr
+        && this->domainLimit_ == nullptr && this->elasticBandwidth_ == nullptr && this->elasticBw_ == nullptr && this->elasticBwModel_ == nullptr && this->elasticQps_ == nullptr
+        && this->elasticQpsMode_ == nullptr && this->functionVersion_ == nullptr && this->instanceId_ == nullptr && this->portLimit_ == nullptr && this->qpsLimit_ == nullptr
+        && this->realLimitBw_ == nullptr && this->siteLimit_ == nullptr; };
       // bandwidthMbps Field Functions 
       bool hasBandwidthMbps() const { return this->bandwidthMbps_ != nullptr;};
       void deleteBandwidthMbps() { this->bandwidthMbps_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
       void deleteBaseBandwidth() { this->baseBandwidth_ = nullptr;};
       inline int32_t getBaseBandwidth() const { DARABONBA_PTR_GET_DEFAULT(baseBandwidth_, 0) };
       inline InstanceSpecs& setBaseBandwidth(int32_t baseBandwidth) { DARABONBA_PTR_SET_VALUE(baseBandwidth_, baseBandwidth) };
+
+
+      // baseProtectionBandwidth Field Functions 
+      bool hasBaseProtectionBandwidth() const { return this->baseProtectionBandwidth_ != nullptr;};
+      void deleteBaseProtectionBandwidth() { this->baseProtectionBandwidth_ = nullptr;};
+      inline int64_t getBaseProtectionBandwidth() const { DARABONBA_PTR_GET_DEFAULT(baseProtectionBandwidth_, 0L) };
+      inline InstanceSpecs& setBaseProtectionBandwidth(int64_t baseProtectionBandwidth) { DARABONBA_PTR_SET_VALUE(baseProtectionBandwidth_, baseProtectionBandwidth) };
 
 
       // connLimit Field Functions 
@@ -212,13 +221,16 @@ namespace Models
       shared_ptr<int32_t> bandwidthMbps_ {};
       // The basic protection bandwidth. Unit: Gbit/s.
       shared_ptr<int32_t> baseBandwidth_ {};
-      // The specification of concurrent connections of the instance.
+      // The minimum mitigation bandwidth.
+      shared_ptr<int64_t> baseProtectionBandwidth_ {};
+      // The concurrent connections limit of the instance.
       shared_ptr<int64_t> connLimit_ {};
-      // The specification of new connections of the instance.
+      // The new connections limit of the instance.
       shared_ptr<int64_t> cpsLimit_ {};
-      // The number of available advanced mitigation sessions for this month. **-1**: unlimited
+      // The number of available advanced mitigation sessions for the current month. A value of **-1** indicates an unlimited number of sessions.
       // 
-      // >  This parameter is returned only when the request parameter **RegionId** is set to **ap-southeast-1**. If RegionId is set to ap-southeast-1, the specifications of Anti-DDoS Proxy (Outside Chinese Mainland) instances are queried.
+      // 
+      // > This parameter is returned only when the **RegionId** request parameter is set to **ap-southeast-1**, which indicates that Anti-DDoS Pro or Anti-DDoS Premium instances outside the Chinese mainland are queried.
       shared_ptr<int32_t> defenseCount_ {};
       // The number of domain names that can be protected by the instance.
       shared_ptr<int32_t> domainLimit_ {};
@@ -226,33 +238,33 @@ namespace Models
       shared_ptr<int32_t> elasticBandwidth_ {};
       // The burstable clean bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> elasticBw_ {};
-      // The metering method of the burstable clean bandwidth. Valid values:
+      // The billing method for the burstable clean bandwidth of the instance. Valid values:
       // 
-      // *   **day**: the metering method of daily 95th percentile
-      // *   **month**: the metering method of monthly 95th percentile
+      // - **day**: daily 95th percentile metering method.
+      // - **month**: monthly 95th percentile metering method.
       shared_ptr<string> elasticBwModel_ {};
-      // The burstable QPS. Unit: QPS
+      // The burstable QPS. Unit: QPS.
       shared_ptr<int64_t> elasticQps_ {};
-      // The metering method of the burstable QPS. Valid values:
+      // The billing method for the burstable QPS of the instance. Valid values:
       // 
-      // *   **day**: the metering method of daily 95th percentile
-      // *   **month**: the metering method of monthly 95th percentile
+      // - **day**: daily 95th percentile metering method.
+      // - **month**: monthly 95th percentile metering method.
       shared_ptr<string> elasticQpsMode_ {};
-      // The function plan of the instance. Valid values:
+      // The feature edition of the instance. Valid values:
       // 
-      // *   **default**: Standard
-      // *   **enhance**: Enhanced
-      // *   **cnhk**: Chinese Mainland Acceleration (CMA)
-      // *   **cnhk_default**: Secure Chinese Mainland Acceleration (Sec-CMA) standard
-      // *   **cnhk_enhance**: Sec-CMA enhanced
+      // - **default**: Standard feature edition.
+      // - **enhance**: Enhanced feature edition.
+      // - **cnhk**: Acceleration line.
+      // - **cnhk_default**: Standard secure acceleration line feature.
+      // - **cnhk_enhance**: Enhanced secure acceleration line feature.
       shared_ptr<string> functionVersion_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The number of ports that can be protected by the instance.
       shared_ptr<int32_t> portLimit_ {};
-      // The clean QPS.
+      // The clean queries per second (QPS).
       shared_ptr<int32_t> qpsLimit_ {};
-      // The threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
+      // The clean bandwidth throttling limit of the instance. Valid values: 0 to 15360. A value of 0 indicates that no throttling is applied. Unit: Mbit/s.
       shared_ptr<int64_t> realLimitBw_ {};
       // The number of sites that can be protected by the instance.
       shared_ptr<int32_t> siteLimit_ {};
@@ -277,9 +289,9 @@ namespace Models
 
 
   protected:
-    // The details of the specifications of the instance.
+    // The specifications of the Anti-DDoS Pro or Anti-DDoS Premium instances.
     shared_ptr<vector<DescribeInstanceSpecsResponseBody::InstanceSpecs>> instanceSpecs_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. This ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

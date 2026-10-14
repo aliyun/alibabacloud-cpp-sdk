@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The total number of requests.
+      // The number of requests.
       shared_ptr<int64_t> count_ {};
-      // The ID of the region inside China. For more information, see the **Codes of administrative regions in China** section of the [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html) topic. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
+      // The province ID. For more information, see the **China region codes** section in [China and overseas region codes](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing and **120000** indicates Tianjin.
       shared_ptr<string> provinceId_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array consisting of the details of the administrative region in China from which the requests are sent.
+    // The information about request source provinces in China for the website service.
     shared_ptr<vector<DescribeDomainViewSourceProvincesResponseBody::SourceProvinces>> sourceProvinces_ {};
   };
 

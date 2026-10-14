@@ -96,8 +96,9 @@ namespace Models
       shared_ptr<string> ip_ {};
       // The region to which the destination IP address belongs. Valid values:
       // 
-      // *   **cn**: a region in the Chinese mainland
-      // *   **cn-hongkong**: China (Hong Kong)
+      // - **cn**: a region in the Chinese mainland
+      // 
+      // - **cn-hongkong**: China (Hong Kong)
       shared_ptr<string> region_ {};
       // The beginning of the time range. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};

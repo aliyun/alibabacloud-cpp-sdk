@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The peak queries per second (QPS) of DDoS attacks. Units: QPS.
+    // The peak value of the DDoS attack. Unit: QPS.
     shared_ptr<int64_t> qps_ {};
-    // The ID of the request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

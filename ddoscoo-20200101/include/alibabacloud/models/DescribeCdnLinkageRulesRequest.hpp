@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The domain name of your website.
+    // 
+    // > The domain name must be added to your Anti-DDoS instance. Call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names.
     shared_ptr<string> domain_ {};
+    // The number of the page to return for a paged query.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page for a paged query.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the resource group to which the Anti-DDoS instance belongs in Resource Management. If you leave this parameter empty, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -48,14 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
-    // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies the threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
-    // 
     // This parameter is required.
     shared_ptr<int64_t> limitValue_ {};
   };

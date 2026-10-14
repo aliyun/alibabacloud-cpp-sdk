@@ -125,20 +125,21 @@ namespace Models
 
 
     protected:
-      // The global certificate ID, which is in the certificate ID-cn-hangzhou format. If the ID of the certificate is 123, CertIdentifier is 123-cn-hangzhou.
+      // The global certificate ID. The value is a string that consists of the certificate ID and the region ID, separated by a hyphen (-). For example, if the certificate ID is \\`123\\` and the region is \\`cn-hangzhou\\`, the value of \\`CertIdentifier\\` is \\`123-cn-hangzhou\\`.
       shared_ptr<string> certIdentifier_ {};
       // The domain name that is associated with the certificate.
       shared_ptr<string> common_ {};
       // Indicates whether the certificate is associated with the domain name. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The certificate is associated with the domain name.
+      // 
+      // - **false**: The certificate is not associated with the domain name.
       shared_ptr<bool> domainRelated_ {};
       // The expiration date of the certificate. The value is a string.
       shared_ptr<string> endDate_ {};
-      // The certificate ID.
+      // The ID of the certificate.
       shared_ptr<int32_t> id_ {};
-      // The certificate authority (CA) that issued the certificate.
+      // The certification authority (CA) that issued the certificate.
       shared_ptr<string> issuer_ {};
       // The name of the certificate.
       shared_ptr<string> name_ {};
@@ -165,7 +166,7 @@ namespace Models
 
 
   protected:
-    // The certificate information about the website.
+    // The certificate information.
     shared_ptr<vector<DescribeCertsResponseBody::Certs>> certs_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

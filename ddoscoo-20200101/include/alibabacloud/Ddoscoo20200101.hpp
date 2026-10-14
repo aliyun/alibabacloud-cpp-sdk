@@ -21,7 +21,10 @@ namespace Ddoscoo20200101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Adds IP addresses to the blacklist for an Anti-DDoS Pro instance.
+       *
+       * @description ### QPS limit
+       * If you exceed the limit, your API calls are throttled, which may impact your business. To avoid throttling, call this operation at a reasonable rate.
        *
        * @param request AddAutoCcBlacklistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +33,10 @@ namespace Ddoscoo20200101
       Models::AddAutoCcBlacklistResponse addAutoCcBlacklistWithOptions(const Models::AddAutoCcBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Adds IP addresses to the blacklist for an Anti-DDoS Pro instance.
+       *
+       * @description ### QPS limit
+       * If you exceed the limit, your API calls are throttled, which may impact your business. To avoid throttling, call this operation at a reasonable rate.
        *
        * @param request AddAutoCcBlacklistRequest
        * @return AddAutoCcBlacklistResponse
@@ -38,12 +44,12 @@ namespace Ddoscoo20200101
       Models::AddAutoCcBlacklistResponse addAutoCcBlacklist(const Models::AddAutoCcBlacklistRequest &request);
 
       /**
-       * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Adds whitelist IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-       * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation adds whitelist IP addresses for a single Anti-DDoS Pro or Anti-DDoS Premium instance so that the instance directly allows request traffic from the specified IP addresses.
+       * After whitelist IP addresses are added, they are permanently valid by default. If you no longer need the whitelist IP addresses, invoke [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) to clear the whitelist IP address list.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request AddAutoCcWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -52,12 +58,12 @@ namespace Ddoscoo20200101
       Models::AddAutoCcWhitelistResponse addAutoCcWhitelistWithOptions(const Models::AddAutoCcWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Adds whitelist IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
-       * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation adds whitelist IP addresses for a single Anti-DDoS Pro or Anti-DDoS Premium instance so that the instance directly allows request traffic from the specified IP addresses.
+       * After whitelist IP addresses are added, they are permanently valid by default. If you no longer need the whitelist IP addresses, invoke [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) to clear the whitelist IP address list.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request AddAutoCcWhitelistRequest
        * @return AddAutoCcWhitelistResponse
@@ -65,7 +71,7 @@ namespace Ddoscoo20200101
       Models::AddAutoCcWhitelistResponse addAutoCcWhitelist(const Models::AddAutoCcWhitelistRequest &request);
 
       /**
-       * @summary Associates an SSL certificate with the forwarding rule of a website.
+       * @summary Associates an SSL certificate with a forwarding rule of a website service.
        *
        * @param request AssociateWebCertRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -74,7 +80,7 @@ namespace Ddoscoo20200101
       Models::AssociateWebCertResponse associateWebCertWithOptions(const Models::AssociateWebCertRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates an SSL certificate with the forwarding rule of a website.
+       * @summary Associates an SSL certificate with a forwarding rule of a website service.
        *
        * @param request AssociateWebCertRequest
        * @return AssociateWebCertResponse
@@ -82,7 +88,7 @@ namespace Ddoscoo20200101
       Models::AssociateWebCertResponse associateWebCert(const Models::AssociateWebCertRequest &request);
 
       /**
-       * @summary Adds an object to a scenario-specific custom policy for protection.
+       * @summary Adds protected objects to a scenario-specific policy.
        *
        * @param request AttachSceneDefenseObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -91,7 +97,7 @@ namespace Ddoscoo20200101
       Models::AttachSceneDefenseObjectResponse attachSceneDefenseObjectWithOptions(const Models::AttachSceneDefenseObjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an object to a scenario-specific custom policy for protection.
+       * @summary Adds protected objects to a scenario-specific policy.
        *
        * @param request AttachSceneDefenseObjectRequest
        * @return AttachSceneDefenseObjectResponse
@@ -99,7 +105,7 @@ namespace Ddoscoo20200101
       Models::AttachSceneDefenseObjectResponse attachSceneDefenseObject(const Models::AttachSceneDefenseObjectRequest &request);
 
       /**
-       * @summary Configures the global mitigation policy feature, including the feature status and settings.
+       * @summary Configures the switch and level of the Anti-DDoS Global Mitigation Policy mitigation policies.
        *
        * @param request ConfigDomainSecurityProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -108,7 +114,7 @@ namespace Ddoscoo20200101
       Models::ConfigDomainSecurityProfileResponse configDomainSecurityProfileWithOptions(const Models::ConfigDomainSecurityProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the global mitigation policy feature, including the feature status and settings.
+       * @summary Configures the switch and level of the Anti-DDoS Global Mitigation Policy mitigation policies.
        *
        * @param request ConfigDomainSecurityProfileRequest
        * @return ConfigDomainSecurityProfileResponse
@@ -116,7 +122,7 @@ namespace Ddoscoo20200101
       Models::ConfigDomainSecurityProfileResponse configDomainSecurityProfile(const Models::ConfigDomainSecurityProfileRequest &request);
 
       /**
-       * @summary Configures an Anti-DDoS global mitigation policy.
+       * @summary Configures an Anti-DDoS Global Mitigation Policy.
        *
        * @param request ConfigL7GlobalRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +131,7 @@ namespace Ddoscoo20200101
       Models::ConfigL7GlobalRuleResponse configL7GlobalRuleWithOptions(const Models::ConfigL7GlobalRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures an Anti-DDoS global mitigation policy.
+       * @summary Configures an Anti-DDoS Global Mitigation Policy.
        *
        * @param request ConfigL7GlobalRuleRequest
        * @return ConfigL7GlobalRuleResponse
@@ -133,9 +139,9 @@ namespace Ddoscoo20200101
       Models::ConfigL7GlobalRuleResponse configL7GlobalRule(const Models::ConfigL7GlobalRuleRequest &request);
 
       /**
-       * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+       * @summary Configures back-to-origin policies for website forwarding rules that have been created.
        *
-       * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+       * @description If a website that is added to Anti-DDoS Pro and Anti-DDoS Premium has multiple origin servers in the website configuration, you can modify the load balancing algorithm by configuring back-to-origin policies. The default algorithm is IP Hash. You can change it to polling or Least Time. For more information, see the description of the **Policy** request parameter.
        *
        * @param request ConfigL7RsPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -144,9 +150,9 @@ namespace Ddoscoo20200101
       Models::ConfigL7RsPolicyResponse configL7RsPolicyWithOptions(const Models::ConfigL7RsPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+       * @summary Configures back-to-origin policies for website forwarding rules that have been created.
        *
-       * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+       * @description If a website that is added to Anti-DDoS Pro and Anti-DDoS Premium has multiple origin servers in the website configuration, you can modify the load balancing algorithm by configuring back-to-origin policies. The default algorithm is IP Hash. You can change it to polling or Least Time. For more information, see the description of the **Policy** request parameter.
        *
        * @param request ConfigL7RsPolicyRequest
        * @return ConfigL7RsPolicyResponse
@@ -154,7 +160,7 @@ namespace Ddoscoo20200101
       Models::ConfigL7RsPolicyResponse configL7RsPolicy(const Models::ConfigL7RsPolicyRequest &request);
 
       /**
-       * @summary Configures the settings for back-to-origin persistent connections for a domain name.
+       * @summary Configures the persistent connection settings for back-to-origin requests of a domain name.
        *
        * @param request ConfigL7UsKeepaliveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -163,7 +169,7 @@ namespace Ddoscoo20200101
       Models::ConfigL7UsKeepaliveResponse configL7UsKeepaliveWithOptions(const Models::ConfigL7UsKeepaliveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the settings for back-to-origin persistent connections for a domain name.
+       * @summary Configures the persistent connection settings for back-to-origin requests of a domain name.
        *
        * @param request ConfigL7UsKeepaliveRequest
        * @return ConfigL7UsKeepaliveResponse
@@ -171,7 +177,7 @@ namespace Ddoscoo20200101
       Models::ConfigL7UsKeepaliveResponse configL7UsKeepalive(const Models::ConfigL7UsKeepaliveRequest &request);
 
       /**
-       * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+       * @summary 4层带宽限速 客户专用
        *
        * @param request ConfigLayer4RealLimitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -180,7 +186,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RealLimitResponse configLayer4RealLimitWithOptions(const Models::ConfigLayer4RealLimitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+       * @summary 4层带宽限速 客户专用
        *
        * @param request ConfigLayer4RealLimitRequest
        * @return ConfigLayer4RealLimitResponse
@@ -188,7 +194,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RealLimitResponse configLayer4RealLimit(const Models::ConfigLayer4RealLimitRequest &request);
 
       /**
-       * @summary Adds a description to a port forwarding rule.
+       * @summary Adds remarks to port forwarding rules.
        *
        * @param request ConfigLayer4RemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -197,7 +203,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RemarkResponse configLayer4RemarkWithOptions(const Models::ConfigLayer4RemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a description to a port forwarding rule.
+       * @summary Adds remarks to port forwarding rules.
        *
        * @param request ConfigLayer4RemarkRequest
        * @return ConfigLayer4RemarkResponse
@@ -205,7 +211,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RemarkResponse configLayer4Remark(const Models::ConfigLayer4RemarkRequest &request);
 
       /**
-       * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+       * @summary Modifies the back-to-origin mode of a port forwarding rule (enables or disables origin redundancy).
        *
        * @param request ConfigLayer4RuleBakModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -214,7 +220,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RuleBakModeResponse configLayer4RuleBakModeWithOptions(const Models::ConfigLayer4RuleBakModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+       * @summary Modifies the back-to-origin mode of a port forwarding rule (enables or disables origin redundancy).
        *
        * @param request ConfigLayer4RuleBakModeRequest
        * @return ConfigLayer4RuleBakModeResponse
@@ -222,7 +228,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RuleBakModeResponse configLayer4RuleBakMode(const Models::ConfigLayer4RuleBakModeRequest &request);
 
       /**
-       * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+       * @summary Sets the primary and secondary origin server IP addresses for port forwarding rules.
        *
        * @param request ConfigLayer4RulePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -231,7 +237,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RulePolicyResponse configLayer4RulePolicyWithOptions(const Models::ConfigLayer4RulePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+       * @summary Sets the primary and secondary origin server IP addresses for port forwarding rules.
        *
        * @param request ConfigLayer4RulePolicyRequest
        * @return ConfigLayer4RulePolicyResponse
@@ -239,7 +245,7 @@ namespace Ddoscoo20200101
       Models::ConfigLayer4RulePolicyResponse configLayer4RulePolicy(const Models::ConfigLayer4RulePolicyRequest &request);
 
       /**
-       * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
+       * @summary Configures location blacklist settings for an Anti-DDoS Pro or Anti-DDoS Premium instance area.
        *
        * @param request ConfigNetworkRegionBlockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -248,7 +254,7 @@ namespace Ddoscoo20200101
       Models::ConfigNetworkRegionBlockResponse configNetworkRegionBlockWithOptions(const Models::ConfigNetworkRegionBlockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
+       * @summary Configures location blacklist settings for an Anti-DDoS Pro or Anti-DDoS Premium instance area.
        *
        * @param request ConfigNetworkRegionBlockRequest
        * @return ConfigNetworkRegionBlockResponse
@@ -256,7 +262,7 @@ namespace Ddoscoo20200101
       Models::ConfigNetworkRegionBlockResponse configNetworkRegionBlock(const Models::ConfigNetworkRegionBlockRequest &request);
 
       /**
-       * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+       * @summary Modifies the IP addresses of the origin server.
        *
        * @param request ConfigNetworkRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -265,7 +271,7 @@ namespace Ddoscoo20200101
       Models::ConfigNetworkRulesResponse configNetworkRulesWithOptions(const Models::ConfigNetworkRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+       * @summary Modifies the IP addresses of the origin server.
        *
        * @param request ConfigNetworkRulesRequest
        * @return ConfigNetworkRulesResponse
@@ -273,11 +279,11 @@ namespace Ddoscoo20200101
       Models::ConfigNetworkRulesResponse configNetworkRules(const Models::ConfigNetworkRulesRequest &request);
 
       /**
-       * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+       * @summary Adds a UDP reflection attack attack prevention protection policy to filter specified reflection source ports.
        *
-       * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation adds a UDP reflection attack attack prevention protection policy for an Anti-DDoS Pro or Anti-DDoS Premium instance to filter specified reflection source ports.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation as needed.
        *
        * @param request ConfigUdpReflectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -286,11 +292,11 @@ namespace Ddoscoo20200101
       Models::ConfigUdpReflectResponse configUdpReflectWithOptions(const Models::ConfigUdpReflectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+       * @summary Adds a UDP reflection attack attack prevention protection policy to filter specified reflection source ports.
        *
-       * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation adds a UDP reflection attack attack prevention protection policy for an Anti-DDoS Pro or Anti-DDoS Premium instance to filter specified reflection source ports.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation as needed.
        *
        * @param request ConfigUdpReflectRequest
        * @return ConfigUdpReflectResponse
@@ -298,7 +304,7 @@ namespace Ddoscoo20200101
       Models::ConfigUdpReflectResponse configUdpReflect(const Models::ConfigUdpReflectRequest &request);
 
       /**
-       * @summary Creates or modifies the custom frequency control rule of a website.
+       * @summary Creates or modifies a custom rule for frequency control (HTTP flood mitigation) of website services.
        *
        * @param request ConfigWebCCRuleV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -307,7 +313,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebCCRuleV2Response configWebCCRuleV2WithOptions(const Models::ConfigWebCCRuleV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies the custom frequency control rule of a website.
+       * @summary Creates or modifies a custom rule for frequency control (HTTP flood mitigation) of website services.
        *
        * @param request ConfigWebCCRuleV2Request
        * @return ConfigWebCCRuleV2Response
@@ -315,7 +321,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebCCRuleV2Response configWebCCRuleV2(const Models::ConfigWebCCRuleV2Request &request);
 
       /**
-       * @summary Configures the mode of the Frequency Control policy for a website.
+       * @summary Sets the defense mode for frequency control (HTTP flood mitigation) of a website service.
        *
        * @param request ConfigWebCCTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -324,7 +330,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebCCTemplateResponse configWebCCTemplateWithOptions(const Models::ConfigWebCCTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the mode of the Frequency Control policy for a website.
+       * @summary Sets the defense mode for frequency control (HTTP flood mitigation) of a website service.
        *
        * @param request ConfigWebCCTemplateRequest
        * @return ConfigWebCCTemplateResponse
@@ -332,7 +338,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebCCTemplateResponse configWebCCTemplate(const Models::ConfigWebCCTemplateRequest &request);
 
       /**
-       * @summary Configures the IP address whitelist and blacklist for a website.
+       * @summary Configures the IP blacklist and whitelist for a website.
        *
        * @param request ConfigWebIpSetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -341,7 +347,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebIpSetResponse configWebIpSetWithOptions(const Models::ConfigWebIpSetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the IP address whitelist and blacklist for a website.
+       * @summary Configures the IP blacklist and whitelist for a website.
        *
        * @param request ConfigWebIpSetRequest
        * @return ConfigWebIpSetResponse
@@ -349,7 +355,7 @@ namespace Ddoscoo20200101
       Models::ConfigWebIpSetResponse configWebIpSet(const Models::ConfigWebIpSetRequest &request);
 
       /**
-       * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+       * @summary Creates an asynchronous export task to export website forwarding rules, port forwarding rules, session persistence and health check configurations, DDoS mitigation policies, or IP blacklists and whitelists.
        *
        * @param request CreateAsyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -358,7 +364,7 @@ namespace Ddoscoo20200101
       Models::CreateAsyncTaskResponse createAsyncTaskWithOptions(const Models::CreateAsyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+       * @summary Creates an asynchronous export task to export website forwarding rules, port forwarding rules, session persistence and health check configurations, DDoS mitigation policies, or IP blacklists and whitelists.
        *
        * @param request CreateAsyncTaskRequest
        * @return CreateAsyncTaskResponse
@@ -383,7 +389,7 @@ namespace Ddoscoo20200101
       Models::CreateDomainResourceResponse createDomainResource(const Models::CreateDomainResourceRequest &request);
 
       /**
-       * @summary Creates a port forwarding rule.
+       * @summary Creates port forwarding rules.
        *
        * @param request CreateNetworkRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -392,7 +398,7 @@ namespace Ddoscoo20200101
       Models::CreateNetworkRulesResponse createNetworkRulesWithOptions(const Models::CreateNetworkRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a port forwarding rule.
+       * @summary Creates port forwarding rules.
        *
        * @param request CreateNetworkRulesRequest
        * @return CreateNetworkRulesResponse
@@ -402,7 +408,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Creates a port forwarding rule.
        *
-       * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request CreatePortRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -413,7 +419,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Creates a port forwarding rule.
        *
-       * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request CreatePortRequest
        * @return CreatePortResponse
@@ -421,7 +427,7 @@ namespace Ddoscoo20200101
       Models::CreatePortResponse createPort(const Models::CreatePortRequest &request);
 
       /**
-       * @summary Creates a scenario-specific custom policy.
+       * @summary Creates a scenario-specific policy.
        *
        * @param request CreateSceneDefensePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -430,7 +436,7 @@ namespace Ddoscoo20200101
       Models::CreateSceneDefensePolicyResponse createSceneDefensePolicyWithOptions(const Models::CreateSceneDefensePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scenario-specific custom policy.
+       * @summary Creates a scenario-specific policy.
        *
        * @param request CreateSceneDefensePolicyRequest
        * @return CreateSceneDefensePolicyResponse
@@ -438,7 +444,7 @@ namespace Ddoscoo20200101
       Models::CreateSceneDefensePolicyResponse createSceneDefensePolicy(const Models::CreateSceneDefensePolicyRequest &request);
 
       /**
-       * @summary Creates a scheduling rule for Sec-Traffic Manager.
+       * @summary Creates a Sec-Traffic Manager rule.
        *
        * @param request CreateSchedulerRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -447,7 +453,7 @@ namespace Ddoscoo20200101
       Models::CreateSchedulerRuleResponse createSchedulerRuleWithOptions(const Models::CreateSchedulerRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduling rule for Sec-Traffic Manager.
+       * @summary Creates a Sec-Traffic Manager rule.
        *
        * @param request CreateSchedulerRuleRequest
        * @return CreateSchedulerRuleResponse
@@ -482,7 +488,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Creates a custom frequency control rule for a website.
+       * @summary Creates a custom rule for website HTTP flood protection (CC protection).
        *
        * @param request CreateWebCCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +499,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Creates a custom frequency control rule for a website.
+       * @summary Creates a custom rule for website HTTP flood protection (CC protection).
        *
        * @param request CreateWebCCRuleRequest
        * @return CreateWebCCRuleResponse
@@ -535,7 +541,7 @@ namespace Ddoscoo20200101
       Models::DeleteAsyncTaskResponse deleteAsyncTask(const Models::DeleteAsyncTaskRequest &request);
 
       /**
-       * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Removes IP addresses from the blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DeleteAutoCcBlacklistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -544,7 +550,7 @@ namespace Ddoscoo20200101
       Models::DeleteAutoCcBlacklistResponse deleteAutoCcBlacklistWithOptions(const Models::DeleteAutoCcBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Removes IP addresses from the blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DeleteAutoCcBlacklistRequest
        * @return DeleteAutoCcBlacklistResponse
@@ -552,7 +558,7 @@ namespace Ddoscoo20200101
       Models::DeleteAutoCcBlacklistResponse deleteAutoCcBlacklist(const Models::DeleteAutoCcBlacklistRequest &request);
 
       /**
-       * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
+       * @summary Deletes whitelist IPs for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DeleteAutoCcWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -561,7 +567,7 @@ namespace Ddoscoo20200101
       Models::DeleteAutoCcWhitelistResponse deleteAutoCcWhitelistWithOptions(const Models::DeleteAutoCcWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
+       * @summary Deletes whitelist IPs for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DeleteAutoCcWhitelistRequest
        * @return DeleteAutoCcWhitelistResponse
@@ -569,7 +575,7 @@ namespace Ddoscoo20200101
       Models::DeleteAutoCcWhitelistResponse deleteAutoCcWhitelist(const Models::DeleteAutoCcWhitelistRequest &request);
 
       /**
-       * @summary Deletes a specified forwarding rule of a website.
+       * @summary Deletes the specified website business forwarding rule.
        *
        * @param request DeleteDomainResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,7 +584,7 @@ namespace Ddoscoo20200101
       Models::DeleteDomainResourceResponse deleteDomainResourceWithOptions(const Models::DeleteDomainResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified forwarding rule of a website.
+       * @summary Deletes the specified website business forwarding rule.
        *
        * @param request DeleteDomainResourceRequest
        * @return DeleteDomainResourceResponse
@@ -660,12 +666,12 @@ namespace Ddoscoo20200101
       Models::DeleteSchedulerRuleResponse deleteSchedulerRule(const Models::DeleteSchedulerRuleRequest &request);
 
       /**
-       * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+       * @summary Removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
        *
-       * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-       * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-       * ### [](#qps-)QPS limits
-       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
+       * > Only Anti-DDoS Proxy (Chinese Mainland) supports the tag feature.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Plan your calls accordingly.
        *
        * @param request DeleteTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -674,12 +680,12 @@ namespace Ddoscoo20200101
       Models::DeleteTagResourcesResponse deleteTagResourcesWithOptions(const Models::DeleteTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+       * @summary Removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
        *
-       * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-       * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
-       * ### [](#qps-)QPS limits
-       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API operation removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
+       * > Only Anti-DDoS Proxy (Chinese Mainland) supports the tag feature.
+       * ### QPS limit
+       * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Plan your calls accordingly.
        *
        * @param request DeleteTagResourcesRequest
        * @return DeleteTagResourcesResponse
@@ -784,11 +790,11 @@ namespace Ddoscoo20200101
       Models::DeleteWebRuleResponse deleteWebRule(const Models::DeleteWebRuleRequest &request);
 
       /**
-       * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+       * @summary Queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
        *
-       * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
+       * ### QPS limits
+       * The single-user QPS limit for this operation is 10 queries per second (QPS). API calls that exceed this limit will be throttled, which may affect your business. You should call this operation at a reasonable rate.
        *
        * @param request DescribeAsyncTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -797,11 +803,11 @@ namespace Ddoscoo20200101
       Models::DescribeAsyncTasksResponse describeAsyncTasksWithOptions(const Models::DescribeAsyncTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+       * @summary Queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
        *
-       * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
+       * ### QPS limits
+       * The single-user QPS limit for this operation is 10 queries per second (QPS). API calls that exceed this limit will be throttled, which may affect your business. You should call this operation at a reasonable rate.
        *
        * @param request DescribeAsyncTasksRequest
        * @return DescribeAsyncTasksResponse
@@ -809,7 +815,7 @@ namespace Ddoscoo20200101
       Models::DescribeAsyncTasksResponse describeAsyncTasks(const Models::DescribeAsyncTasksRequest &request);
 
       /**
-       * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+       * @summary Queries the peak value (QPS) of DDoS attacks within a specified time period.
        *
        * @param request DescribeAttackAnalysisMaxQpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -818,7 +824,7 @@ namespace Ddoscoo20200101
       Models::DescribeAttackAnalysisMaxQpsResponse describeAttackAnalysisMaxQpsWithOptions(const Models::DescribeAttackAnalysisMaxQpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+       * @summary Queries the peak value (QPS) of DDoS attacks within a specified time period.
        *
        * @param request DescribeAttackAnalysisMaxQpsRequest
        * @return DescribeAttackAnalysisMaxQpsResponse
@@ -826,7 +832,7 @@ namespace Ddoscoo20200101
       Models::DescribeAttackAnalysisMaxQpsResponse describeAttackAnalysisMaxQps(const Models::DescribeAttackAnalysisMaxQpsRequest &request);
 
       /**
-       * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the blacklisted IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeAutoCcBlacklistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -835,7 +841,7 @@ namespace Ddoscoo20200101
       Models::DescribeAutoCcBlacklistResponse describeAutoCcBlacklistWithOptions(const Models::DescribeAutoCcBlacklistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the blacklisted IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeAutoCcBlacklistRequest
        * @return DescribeAutoCcBlacklistResponse
@@ -894,7 +900,7 @@ namespace Ddoscoo20200101
       Models::DescribeBackSourceCidrResponse describeBackSourceCidr(const Models::DescribeBackSourceCidrRequest &request);
 
       /**
-       * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the blackhole filtering status of an Anti-DDoS Proxy instance.
        *
        * @param request DescribeBlackholeStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -903,7 +909,7 @@ namespace Ddoscoo20200101
       Models::DescribeBlackholeStatusResponse describeBlackholeStatusWithOptions(const Models::DescribeBlackholeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the blackhole filtering status of an Anti-DDoS Proxy instance.
        *
        * @param request DescribeBlackholeStatusRequest
        * @return DescribeBlackholeStatusResponse
@@ -911,12 +917,12 @@ namespace Ddoscoo20200101
       Models::DescribeBlackholeStatusResponse describeBlackholeStatus(const Models::DescribeBlackholeStatusRequest &request);
 
       /**
-       * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+       * @summary Queries the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-       * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-       * ### [](#qps-)QPS limits
-       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
+       * > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (Chinese Mainland).
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeBlockStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -925,12 +931,12 @@ namespace Ddoscoo20200101
       Models::DescribeBlockStatusResponse describeBlockStatusWithOptions(const Models::DescribeBlockStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+       * @summary Queries the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-       * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-       * ### [](#qps-)QPS limits
-       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
+       * > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (Chinese Mainland).
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeBlockStatusRequest
        * @return DescribeBlockStatusResponse
@@ -938,6 +944,8 @@ namespace Ddoscoo20200101
       Models::DescribeBlockStatusResponse describeBlockStatus(const Models::DescribeBlockStatusRequest &request);
 
       /**
+       * @summary Describes the CDN interaction rule configurations for a specified domain name.
+       *
        * @param request DescribeCdnLinkageRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCdnLinkageRulesResponse
@@ -945,16 +953,18 @@ namespace Ddoscoo20200101
       Models::DescribeCdnLinkageRulesResponse describeCdnLinkageRulesWithOptions(const Models::DescribeCdnLinkageRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Describes the CDN interaction rule configurations for a specified domain name.
+       *
        * @param request DescribeCdnLinkageRulesRequest
        * @return DescribeCdnLinkageRulesResponse
        */
       Models::DescribeCdnLinkageRulesResponse describeCdnLinkageRules(const Models::DescribeCdnLinkageRulesRequest &request);
 
       /**
-       * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+       * @summary Queries all certificates that are available for a domain name. This operation does not query the certificate that is currently in use.
        *
-       * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
-       * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
+       * @description You can call this operation to query all certificates that are available for a domain name protected by an Anti-DDoS instance. A domain name can be associated with multiple certificates. For example, a query for a specific domain name can return both a certificate for that specific domain name and a wildcard certificate.
+       * > To query the certificate that is currently used by a domain name, call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the CertName and CertRegion values. Then, call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service. Use the returned CertName value to query the corresponding certificate ID and other details.
        *
        * @param request DescribeCertsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,10 +973,10 @@ namespace Ddoscoo20200101
       Models::DescribeCertsResponse describeCertsWithOptions(const Models::DescribeCertsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+       * @summary Queries all certificates that are available for a domain name. This operation does not query the certificate that is currently in use.
        *
-       * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
-       * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
+       * @description You can call this operation to query all certificates that are available for a domain name protected by an Anti-DDoS instance. A domain name can be associated with multiple certificates. For example, a query for a specific domain name can return both a certificate for that specific domain name and a wildcard certificate.
+       * > To query the certificate that is currently used by a domain name, call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the CertName and CertRegion values. Then, call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service. Use the returned CertName value to query the corresponding certificate ID and other details.
        *
        * @param request DescribeCertsRequest
        * @return DescribeCertsResponse
@@ -975,6 +985,8 @@ namespace Ddoscoo20200101
 
       /**
        * @summary Queries the CNAME reuse information about websites.
+       *
+       * @description This operation is applicable only to Anti-DDoS Proxy (Outside Chinese Mainland).
        *
        * @param request DescribeCnameReusesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -985,13 +997,15 @@ namespace Ddoscoo20200101
       /**
        * @summary Queries the CNAME reuse information about websites.
        *
+       * @description This operation is applicable only to Anti-DDoS Proxy (Outside Chinese Mainland).
+       *
        * @param request DescribeCnameReusesRequest
        * @return DescribeCnameReusesResponse
        */
       Models::DescribeCnameReusesResponse describeCnameReuses(const Models::DescribeCnameReusesRequest &request);
 
       /**
-       * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+       * @summary Queries attack events on Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
        * @param request DescribeDDoSEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1000,7 +1014,7 @@ namespace Ddoscoo20200101
       Models::DescribeDDoSEventsResponse describeDDoSEventsWithOptions(const Models::DescribeDDoSEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+       * @summary Queries attack events on Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
        * @param request DescribeDDoSEventsRequest
        * @return DescribeDDoSEventsResponse
@@ -1008,11 +1022,11 @@ namespace Ddoscoo20200101
       Models::DescribeDDoSEventsResponse describeDDoSEvents(const Models::DescribeDDoSEventsRequest &request);
 
       /**
-       * @summary Queries DDoS attack events.
+       * @summary Queries the list of DDoS attack events.
        *
-       * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the list of DDoS attack events within a specified time range by using paging. DDoS attack events contain the following information: attack start time and end time, attack type, attacked object, and peak attack traffic (peak bandwidth or peak packet forwarding rate).
+       * ### Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
        *
        * @param request DescribeDDosAllEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1021,11 +1035,11 @@ namespace Ddoscoo20200101
       Models::DescribeDDosAllEventListResponse describeDDosAllEventListWithOptions(const Models::DescribeDDosAllEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries DDoS attack events.
+       * @summary Queries the list of DDoS attack events.
        *
-       * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the list of DDoS attack events within a specified time range by using paging. DDoS attack events contain the following information: attack start time and end time, attack type, attacked object, and peak attack traffic (peak bandwidth or peak packet forwarding rate).
+       * ### Rate limit
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
        *
        * @param request DescribeDDosAllEventListRequest
        * @return DescribeDDosAllEventListResponse
@@ -1033,9 +1047,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosAllEventListResponse describeDDosAllEventList(const Models::DescribeDDosAllEventListRequest &request);
 
       /**
-       * @summary Queries the source region from which a volumetric attack is initiated.
+       * @summary Queries the source region details of a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventAreaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1044,9 +1058,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventAreaResponse describeDDosEventAreaWithOptions(const Models::DescribeDDosEventAreaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the source region from which a volumetric attack is initiated.
+       * @summary Queries the source region details of a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventAreaRequest
        * @return DescribeDDosEventAreaResponse
@@ -1056,7 +1070,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Queries the attack type details of a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventAttackTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1081,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Queries the attack type details of a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventAttackTypeRequest
        * @return DescribeDDosEventAttackTypeResponse
@@ -1075,9 +1089,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventAttackTypeResponse describeDDosEventAttackType(const Models::DescribeDDosEventAttackTypeRequest &request);
 
       /**
-       * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+       * @summary Queries the Internet service provider (ISP) information of attack sources for a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventIspRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1086,9 +1100,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventIspResponse describeDDosEventIspWithOptions(const Models::DescribeDDosEventIspRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+       * @summary Queries the Internet service provider (ISP) information of attack sources for a volumetric attack.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventIspRequest
        * @return DescribeDDosEventIspResponse
@@ -1096,7 +1110,7 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventIspResponse describeDDosEventIsp(const Models::DescribeDDosEventIspRequest &request);
 
       /**
-       * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+       * @summary Queries the peak attack throughput of volumetric attacks (bps), connection flood attacks (cps), and web resource exhaustion attacks (qps).
        *
        * @param request DescribeDDosEventMaxRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1105,7 +1119,7 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventMaxResponse describeDDosEventMaxWithOptions(const Models::DescribeDDosEventMaxRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+       * @summary Queries the peak attack throughput of volumetric attacks (bps), connection flood attacks (cps), and web resource exhaustion attacks (qps).
        *
        * @param request DescribeDDosEventMaxRequest
        * @return DescribeDDosEventMaxResponse
@@ -1113,9 +1127,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventMaxResponse describeDDosEventMax(const Models::DescribeDDosEventMaxRequest &request);
 
       /**
-       * @summary Queries the source IP address from which a volumetric attack is initiated.
+       * @summary Queries the details of attack source IP addresses for a specific volumetric attack event.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventSrcIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1124,9 +1138,9 @@ namespace Ddoscoo20200101
       Models::DescribeDDosEventSrcIpResponse describeDDosEventSrcIpWithOptions(const Models::DescribeDDosEventSrcIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the source IP address from which a volumetric attack is initiated.
+       * @summary Queries the details of attack source IP addresses for a specific volumetric attack event.
        *
-       * @description > This operation is suitable only for volumetric attacks.
+       * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
        *
        * @param request DescribeDDosEventSrcIpRequest
        * @return DescribeDDosEventSrcIpResponse
@@ -1161,9 +1175,9 @@ namespace Ddoscoo20200101
       Models::DescribeDefenseCountStatisticsResponse describeDefenseCountStatistics(const Models::DescribeDefenseCountStatisticsRequest &request);
 
       /**
-       * @summary Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+       * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
        *
-       * @description > This operation is suitable only for Anti-DDoS Premium.
+       * @description > This API operation is available only for the Anti-DDoS Premium service.
        *
        * @param request DescribeDefenseRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1172,9 +1186,9 @@ namespace Ddoscoo20200101
       Models::DescribeDefenseRecordsResponse describeDefenseRecordsWithOptions(const Models::DescribeDefenseRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+       * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
        *
-       * @description > This operation is suitable only for Anti-DDoS Premium.
+       * @description > This API operation is available only for the Anti-DDoS Premium service.
        *
        * @param request DescribeDefenseRecordsRequest
        * @return DescribeDefenseRecordsResponse
@@ -1233,6 +1247,8 @@ namespace Ddoscoo20200101
       Models::DescribeDomainBpsResponse describeDomainBps(const Models::DescribeDomainBpsRequest &request);
 
       /**
+       * @summary Queries the status of the CC protection feature for the specified domain names.
+       *
        * @param request DescribeDomainCcProtectSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDomainCcProtectSwitchResponse
@@ -1240,13 +1256,15 @@ namespace Ddoscoo20200101
       Models::DescribeDomainCcProtectSwitchResponse describeDomainCcProtectSwitchWithOptions(const Models::DescribeDomainCcProtectSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the status of the CC protection feature for the specified domain names.
+       *
        * @param request DescribeDomainCcProtectSwitchRequest
        * @return DescribeDomainCcProtectSwitchResponse
        */
       Models::DescribeDomainCcProtectSwitchResponse describeDomainCcProtectSwitch(const Models::DescribeDomainCcProtectSwitchRequest &request);
 
       /**
-       * @summary Queries the information about HTTP/2 fingerprints of a website.
+       * @summary Queries the HTTP/2.0 fingerprint information of a website.
        *
        * @param request DescribeDomainH2FingerprintRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1255,7 +1273,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainH2FingerprintResponse describeDomainH2FingerprintWithOptions(const Models::DescribeDomainH2FingerprintRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about HTTP/2 fingerprints of a website.
+       * @summary Queries the HTTP/2.0 fingerprint information of a website.
        *
        * @param request DescribeDomainH2FingerprintRequest
        * @return DescribeDomainH2FingerprintResponse
@@ -1297,12 +1315,12 @@ namespace Ddoscoo20200101
       Models::DescribeDomainQPSListResponse describeDomainQPSList(const Models::DescribeDomainQPSListRequest &request);
 
       /**
-       * @summary Queries the configurations of a forwarding rule.
+       * @summary Describes the forwarding rule configuration for a web service.
        *
-       * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-       * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-       * ### Limits
-       * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API returns a paginated list of detailed configurations for your website forwarding rules, such as website domain name, protocol, HTTPS settings, and CC attack protection configuration.
+       * This API integrates with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * ### QPS limit
+       * The per-user QPS limit for this API is 50 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
        *
        * @param request DescribeDomainResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1311,12 +1329,12 @@ namespace Ddoscoo20200101
       Models::DescribeDomainResourceResponse describeDomainResourceWithOptions(const Models::DescribeDomainResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of a forwarding rule.
+       * @summary Describes the forwarding rule configuration for a web service.
        *
-       * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
-       * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-       * ### Limits
-       * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This API returns a paginated list of detailed configurations for your website forwarding rules, such as website domain name, protocol, HTTPS settings, and CC attack protection configuration.
+       * This API integrates with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * ### QPS limit
+       * The per-user QPS limit for this API is 50 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
        *
        * @param request DescribeDomainResourceRequest
        * @return DescribeDomainResourceResponse
@@ -1324,7 +1342,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainResourceResponse describeDomainResource(const Models::DescribeDomainResourceRequest &request);
 
       /**
-       * @summary Queries the global mitigation policy for a domain name.
+       * @summary 查询安全概要属性开关
        *
        * @param request DescribeDomainSecurityProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1333,7 +1351,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainSecurityProfileResponse describeDomainSecurityProfileWithOptions(const Models::DescribeDomainSecurityProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the global mitigation policy for a domain name.
+       * @summary 查询安全概要属性开关
        *
        * @param request DescribeDomainSecurityProfileRequest
        * @return DescribeDomainSecurityProfileResponse
@@ -1341,7 +1359,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainSecurityProfileResponse describeDomainSecurityProfile(const Models::DescribeDomainSecurityProfileRequest &request);
 
       /**
-       * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+       * @summary Queries the statistics on HTTP status codes of a website within a specified period.
        *
        * @param request DescribeDomainStatusCodeCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1350,7 +1368,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainStatusCodeCountResponse describeDomainStatusCodeCountWithOptions(const Models::DescribeDomainStatusCodeCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+       * @summary Queries the statistics on HTTP status codes of a website within a specified period.
        *
        * @param request DescribeDomainStatusCodeCountRequest
        * @return DescribeDomainStatusCodeCountResponse
@@ -1358,7 +1376,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainStatusCodeCountResponse describeDomainStatusCodeCount(const Models::DescribeDomainStatusCodeCountRequest &request);
 
       /**
-       * @summary Queries the statistics on HTTP status codes of a website.
+       * @summary Queries the response status code statistics information for website services.
        *
        * @param request DescribeDomainStatusCodeListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1367,7 +1385,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainStatusCodeListResponse describeDomainStatusCodeListWithOptions(const Models::DescribeDomainStatusCodeListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics on HTTP status codes of a website.
+       * @summary Queries the response status code statistics information for website services.
        *
        * @param request DescribeDomainStatusCodeListRequest
        * @return DescribeDomainStatusCodeListResponse
@@ -1375,7 +1393,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainStatusCodeListResponse describeDomainStatusCodeList(const Models::DescribeDomainStatusCodeListRequest &request);
 
       /**
-       * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+       * @summary Queries the peak queries per second (QPS) data of website services within a specified time period, including attack QPS and total QPS.
        *
        * @param request DescribeDomainTopAttackListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1384,7 +1402,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopAttackListResponse describeDomainTopAttackListWithOptions(const Models::DescribeDomainTopAttackListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+       * @summary Queries the peak queries per second (QPS) data of website services within a specified time period, including attack QPS and total QPS.
        *
        * @param request DescribeDomainTopAttackListRequest
        * @return DescribeDomainTopAttackListResponse
@@ -1392,7 +1410,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopAttackListResponse describeDomainTopAttackList(const Models::DescribeDomainTopAttackListRequest &request);
 
       /**
-       * @summary Queries the information about the fingerprints of top N clients that access a website.
+       * @summary Queries the top N client fingerprints for a website.
        *
        * @param request DescribeDomainTopFingerprintRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1401,7 +1419,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopFingerprintResponse describeDomainTopFingerprintWithOptions(const Models::DescribeDomainTopFingerprintRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the fingerprints of top N clients that access a website.
+       * @summary Queries the top N client fingerprints for a website.
        *
        * @param request DescribeDomainTopFingerprintRequest
        * @return DescribeDomainTopFingerprintResponse
@@ -1409,7 +1427,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopFingerprintResponse describeDomainTopFingerprint(const Models::DescribeDomainTopFingerprintRequest &request);
 
       /**
-       * @summary Queries the information about top N HTTP methods of a website.
+       * @summary Queries the top N HTTP methods for a website.
        *
        * @param request DescribeDomainTopHttpMethodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1418,7 +1436,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopHttpMethodResponse describeDomainTopHttpMethodWithOptions(const Models::DescribeDomainTopHttpMethodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about top N HTTP methods of a website.
+       * @summary Queries the top N HTTP methods for a website.
        *
        * @param request DescribeDomainTopHttpMethodRequest
        * @return DescribeDomainTopHttpMethodResponse
@@ -1426,7 +1444,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopHttpMethodResponse describeDomainTopHttpMethod(const Models::DescribeDomainTopHttpMethodRequest &request);
 
       /**
-       * @summary Queries the information about top N referers of a website.
+       * @summary Queries the top N referers of a website.
        *
        * @param request DescribeDomainTopRefererRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1435,7 +1453,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopRefererResponse describeDomainTopRefererWithOptions(const Models::DescribeDomainTopRefererRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about top N referers of a website.
+       * @summary Queries the top N referers of a website.
        *
        * @param request DescribeDomainTopRefererRequest
        * @return DescribeDomainTopRefererResponse
@@ -1443,7 +1461,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopRefererResponse describeDomainTopReferer(const Models::DescribeDomainTopRefererRequest &request);
 
       /**
-       * @summary Queries the information about top user agents of a website.
+       * @summary Queries the top User-Agents for a website.
        *
        * @param request DescribeDomainTopUserAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1452,7 +1470,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopUserAgentResponse describeDomainTopUserAgentWithOptions(const Models::DescribeDomainTopUserAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about top user agents of a website.
+       * @summary Queries the top User-Agents for a website.
        *
        * @param request DescribeDomainTopUserAgentRequest
        * @return DescribeDomainTopUserAgentResponse
@@ -1460,7 +1478,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainTopUserAgentResponse describeDomainTopUserAgent(const Models::DescribeDomainTopUserAgentRequest &request);
 
       /**
-       * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+       * @summary Queries the distribution of request source countries for website services within a specified time period.
        *
        * @param request DescribeDomainViewSourceCountriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1469,7 +1487,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainViewSourceCountriesResponse describeDomainViewSourceCountriesWithOptions(const Models::DescribeDomainViewSourceCountriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+       * @summary Queries the distribution of request source countries for website services within a specified time period.
        *
        * @param request DescribeDomainViewSourceCountriesRequest
        * @return DescribeDomainViewSourceCountriesResponse
@@ -1477,7 +1495,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainViewSourceCountriesResponse describeDomainViewSourceCountries(const Models::DescribeDomainViewSourceCountriesRequest &request);
 
       /**
-       * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+       * @summary Queries the distribution of request sources by province in China for website services within a specified time period.
        *
        * @param request DescribeDomainViewSourceProvincesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1486,7 +1504,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainViewSourceProvincesResponse describeDomainViewSourceProvincesWithOptions(const Models::DescribeDomainViewSourceProvincesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+       * @summary Queries the distribution of request sources by province in China for website services within a specified time period.
        *
        * @param request DescribeDomainViewSourceProvincesRequest
        * @return DescribeDomainViewSourceProvincesResponse
@@ -1511,7 +1529,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainViewTopCostTimeResponse describeDomainViewTopCostTime(const Models::DescribeDomainViewTopCostTimeRequest &request);
 
       /**
-       * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+       * @summary Queries the top N most visited URLs for website services within a specified time period.
        *
        * @param request DescribeDomainViewTopUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1520,7 +1538,7 @@ namespace Ddoscoo20200101
       Models::DescribeDomainViewTopUrlResponse describeDomainViewTopUrlWithOptions(const Models::DescribeDomainViewTopUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+       * @summary Queries the top N most visited URLs for website services within a specified time period.
        *
        * @param request DescribeDomainViewTopUrlRequest
        * @return DescribeDomainViewTopUrlResponse
@@ -1545,9 +1563,9 @@ namespace Ddoscoo20200101
       Models::DescribeDomainsResponse describeDomains(const Models::DescribeDomainsRequest &request);
 
       /**
-       * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
+       * @summary Queries the available burstable protection bandwidth specifications for an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
        *
        * @param request DescribeElasticBandwidthSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1556,9 +1574,9 @@ namespace Ddoscoo20200101
       Models::DescribeElasticBandwidthSpecResponse describeElasticBandwidthSpecWithOptions(const Models::DescribeElasticBandwidthSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
+       * @summary Queries the available burstable protection bandwidth specifications for an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
        *
        * @param request DescribeElasticBandwidthSpecRequest
        * @return DescribeElasticBandwidthSpecResponse
@@ -1566,7 +1584,7 @@ namespace Ddoscoo20200101
       Models::DescribeElasticBandwidthSpecResponse describeElasticBandwidthSpec(const Models::DescribeElasticBandwidthSpecRequest &request);
 
       /**
-       * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+       * @summary Retrieves the elastic QPS time-series data for an Anti-DDoS instance.
        *
        * @param request DescribeElasticQpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1575,7 +1593,7 @@ namespace Ddoscoo20200101
       Models::DescribeElasticQpsResponse describeElasticQpsWithOptions(const Models::DescribeElasticQpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+       * @summary Retrieves the elastic QPS time-series data for an Anti-DDoS instance.
        *
        * @param request DescribeElasticQpsRequest
        * @return DescribeElasticQpsResponse
@@ -1600,7 +1618,7 @@ namespace Ddoscoo20200101
       Models::DescribeElasticQpsRecordResponse describeElasticQpsRecord(const Models::DescribeElasticQpsRecordRequest &request);
 
       /**
-       * @summary Queries the custom header that is specified for a domain name.
+       * @summary Queries the custom headers for a domain name.
        *
        * @param request DescribeHeadersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1609,7 +1627,7 @@ namespace Ddoscoo20200101
       Models::DescribeHeadersResponse describeHeadersWithOptions(const Models::DescribeHeadersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the custom header that is specified for a domain name.
+       * @summary Queries the custom headers for a domain name.
        *
        * @param request DescribeHeadersRequest
        * @return DescribeHeadersResponse
@@ -1651,11 +1669,11 @@ namespace Ddoscoo20200101
       Models::DescribeHealthCheckStatusResponse describeHealthCheckStatus(const Models::DescribeHealthCheckStatusRequest &request);
 
       /**
-       * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance, such as the IP address, status, and protection line of the instance.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeInstanceDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1664,11 +1682,11 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceDetailsResponse describeInstanceDetailsWithOptions(const Models::DescribeInstanceDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * @summary Queries the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance, such as the IP address, status, and protection line of the instance.
+       * ### QPS limit
+       * You can invoke this operation up to 10 times per second per account. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeInstanceDetailsRequest
        * @return DescribeInstanceDetailsResponse
@@ -1693,7 +1711,11 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceExtResponse describeInstanceExt(const Models::DescribeInstanceExtRequest &request);
 
       /**
-       * @summary The description of the instance.
+       * @summary Queries the IDs, editions, remarks, and IP types of Anti-DDoS Pro or Anti-DDoS Premium instances.
+       *
+       * @description This operation queries the IDs, editions, remarks, and IP types of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate.
        *
        * @param request DescribeInstanceIdsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1702,7 +1724,11 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceIdsResponse describeInstanceIdsWithOptions(const Models::DescribeInstanceIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The description of the instance.
+       * @summary Queries the IDs, editions, remarks, and IP types of Anti-DDoS Pro or Anti-DDoS Premium instances.
+       *
+       * @description This operation queries the IDs, editions, remarks, and IP types of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate.
        *
        * @param request DescribeInstanceIdsRequest
        * @return DescribeInstanceIdsResponse
@@ -1712,9 +1738,9 @@ namespace Ddoscoo20200101
       /**
        * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
-       * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances in batches, such as the clean bandwidth, mitigation bandwidth, feature edition, number of protected domain names, and number of ports.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
        *
        * @param request DescribeInstanceSpecsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1725,9 +1751,9 @@ namespace Ddoscoo20200101
       /**
        * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
-       * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances in batches, such as the clean bandwidth, mitigation bandwidth, feature edition, number of protected domain names, and number of ports.
+       * ### QPS limits
+       * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
        *
        * @param request DescribeInstanceSpecsRequest
        * @return DescribeInstanceSpecsResponse
@@ -1752,7 +1778,7 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceStatisticsResponse describeInstanceStatistics(const Models::DescribeInstanceStatisticsRequest &request);
 
       /**
-       * @summary Queries the status of a specified Anti-DDoS Proxy instance.
+       * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeInstanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1761,7 +1787,7 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceStatusResponse describeInstanceStatusWithOptions(const Models::DescribeInstanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of a specified Anti-DDoS Proxy instance.
+       * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeInstanceStatusRequest
        * @return DescribeInstanceStatusResponse
@@ -1769,9 +1795,11 @@ namespace Ddoscoo20200101
       Models::DescribeInstanceStatusResponse describeInstanceStatus(const Models::DescribeInstanceStatusRequest &request);
 
       /**
-       * @summary 查询实例列表
+       * @summary Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
-       * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+       * @description Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances owned by the current Alibaba Cloud account by using paging. The details include the instance ID, edition, expiration time, and service traffic forwarding status.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 invocations per second. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation based on your business requirements.
        *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1780,9 +1808,11 @@ namespace Ddoscoo20200101
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例列表
+       * @summary Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances.
        *
-       * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+       * @description Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances owned by the current Alibaba Cloud account by using paging. The details include the instance ID, edition, expiration time, and service traffic forwarding status.
+       * ### QPS limit
+       * The QPS limit for a single user is 10 invocations per second. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation based on your business requirements.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -1790,7 +1820,7 @@ namespace Ddoscoo20200101
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries an Anti-DDoS global mitigation policy.
+       * @summary Queries the Anti-DDoS Global Mitigation Policy.
        *
        * @param request DescribeL7GlobalRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1799,7 +1829,7 @@ namespace Ddoscoo20200101
       Models::DescribeL7GlobalRuleResponse describeL7GlobalRuleWithOptions(const Models::DescribeL7GlobalRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an Anti-DDoS global mitigation policy.
+       * @summary Queries the Anti-DDoS Global Mitigation Policy.
        *
        * @param request DescribeL7GlobalRuleRequest
        * @return DescribeL7GlobalRuleResponse
@@ -1824,7 +1854,7 @@ namespace Ddoscoo20200101
       Models::DescribeL7RsPolicyResponse describeL7RsPolicy(const Models::DescribeL7RsPolicyRequest &request);
 
       /**
-       * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
+       * @summary Queries the persistent connection settings for back-to-origin requests of a domain name.
        *
        * @param request DescribeL7UsKeepaliveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1833,7 +1863,7 @@ namespace Ddoscoo20200101
       Models::DescribeL7UsKeepaliveResponse describeL7UsKeepaliveWithOptions(const Models::DescribeL7UsKeepaliveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
+       * @summary Queries the persistent connection settings for back-to-origin requests of a domain name.
        *
        * @param request DescribeL7UsKeepaliveRequest
        * @return DescribeL7UsKeepaliveResponse
@@ -1875,7 +1905,7 @@ namespace Ddoscoo20200101
       Models::DescribeLogStoreExistStatusResponse describeLogStoreExistStatus(const Models::DescribeLogStoreExistStatusRequest &request);
 
       /**
-       * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the Location Blacklist configuration for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeNetworkRegionBlockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1884,7 +1914,7 @@ namespace Ddoscoo20200101
       Models::DescribeNetworkRegionBlockResponse describeNetworkRegionBlockWithOptions(const Models::DescribeNetworkRegionBlockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the Location Blacklist configuration for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribeNetworkRegionBlockRequest
        * @return DescribeNetworkRegionBlockResponse
@@ -1892,7 +1922,7 @@ namespace Ddoscoo20200101
       Models::DescribeNetworkRegionBlockResponse describeNetworkRegionBlock(const Models::DescribeNetworkRegionBlockRequest &request);
 
       /**
-       * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+       * @summary Queries the protection settings of port forwarding rules for non-website services, including session persistence and DDoS mitigation policies.
        *
        * @param request DescribeNetworkRuleAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1901,7 +1931,7 @@ namespace Ddoscoo20200101
       Models::DescribeNetworkRuleAttributesResponse describeNetworkRuleAttributesWithOptions(const Models::DescribeNetworkRuleAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+       * @summary Queries the protection settings of port forwarding rules for non-website services, including session persistence and DDoS mitigation policies.
        *
        * @param request DescribeNetworkRuleAttributesRequest
        * @return DescribeNetworkRuleAttributesResponse
@@ -1926,10 +1956,10 @@ namespace Ddoscoo20200101
       Models::DescribeNetworkRulesResponse describeNetworkRules(const Models::DescribeNetworkRulesRequest &request);
 
       /**
-       * @summary Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
+       * @summary Queries the operation logs of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-       * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
+       * Operation log types include: settings for elastic protection specifications of an instance, Unblock (deactivation of blackhole filtering), settings for near-origin traffic diversion, offsetting with anti-DDoS mitigation plans, changing an ECS IP address, and clearing full logs.
        *
        * @param request DescribeOpEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1938,10 +1968,10 @@ namespace Ddoscoo20200101
       Models::DescribeOpEntitiesResponse describeOpEntitiesWithOptions(const Models::DescribeOpEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
+       * @summary Queries the operation logs of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-       * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
+       * Operation log types include: settings for elastic protection specifications of an instance, Unblock (deactivation of blackhole filtering), settings for near-origin traffic diversion, offsetting with anti-DDoS mitigation plans, changing an ECS IP address, and clearing full logs.
        *
        * @param request DescribeOpEntitiesRequest
        * @return DescribeOpEntitiesResponse
@@ -1949,9 +1979,9 @@ namespace Ddoscoo20200101
       Models::DescribeOpEntitiesResponse describeOpEntities(const Models::DescribeOpEntitiesRequest &request);
 
       /**
-       * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the port forwarding rules created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request DescribePortRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1960,9 +1990,9 @@ namespace Ddoscoo20200101
       Models::DescribePortResponse describePortWithOptions(const Models::DescribePortRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Queries the port forwarding rules created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
-       * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request DescribePortRequest
        * @return DescribePortResponse
@@ -2012,8 +2042,6 @@ namespace Ddoscoo20200101
       Models::DescribePortAutoCcStatusResponse describePortAutoCcStatus(const Models::DescribePortAutoCcStatusRequest &request);
 
       /**
-       * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-       *
        * @param request DescribePortCcAttackTopIPRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribePortCcAttackTopIPResponse
@@ -2021,8 +2049,6 @@ namespace Ddoscoo20200101
       Models::DescribePortCcAttackTopIPResponse describePortCcAttackTopIPWithOptions(const Models::DescribePortCcAttackTopIPRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-       *
        * @param request DescribePortCcAttackTopIPRequest
        * @return DescribePortCcAttackTopIPResponse
        */
@@ -2063,7 +2089,7 @@ namespace Ddoscoo20200101
       Models::DescribePortConnsListResponse describePortConnsList(const Models::DescribePortConnsListRequest &request);
 
       /**
-       * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
+       * @summary Queries the traffic data list of an Anti-DDoS Pro and Anti-DDoS Premium instance.
        *
        * @param request DescribePortFlowListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2072,7 +2098,7 @@ namespace Ddoscoo20200101
       Models::DescribePortFlowListResponse describePortFlowListWithOptions(const Models::DescribePortFlowListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
+       * @summary Queries the traffic data list of an Anti-DDoS Pro and Anti-DDoS Premium instance.
        *
        * @param request DescribePortFlowListRequest
        * @return DescribePortFlowListResponse
@@ -2080,7 +2106,7 @@ namespace Ddoscoo20200101
       Models::DescribePortFlowListResponse describePortFlowList(const Models::DescribePortFlowListRequest &request);
 
       /**
-       * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
+       * @summary Queries the peak connection information of ports on an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribePortMaxConnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2089,7 +2115,7 @@ namespace Ddoscoo20200101
       Models::DescribePortMaxConnsResponse describePortMaxConnsWithOptions(const Models::DescribePortMaxConnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
+       * @summary Queries the peak connection information of ports on an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request DescribePortMaxConnsRequest
        * @return DescribePortMaxConnsResponse
@@ -2114,12 +2140,12 @@ namespace Ddoscoo20200101
       Models::DescribePortViewSourceCountriesResponse describePortViewSourceCountries(const Models::DescribePortViewSourceCountriesRequest &request);
 
       /**
-       * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+       * @summary Queries the distribution of request source ISPs for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
        *
-       * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-       * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Queries the distribution of request source Internet service providers (ISPs) for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
+       * > Because the Layer 4 transport-layer identity statistics algorithm of Anti-DDoS Pro and Anti-DDoS Premium has been updated, the data returned by this operation does not reflect the actual traffic volume. The data can only be used to calculate the proportion of requests from different ISPs (that is, the distribution of request source ISPs). To obtain request traffic data, call [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html).
+       * ### QPS limit
+       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
        *
        * @param request DescribePortViewSourceIspsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2128,12 +2154,12 @@ namespace Ddoscoo20200101
       Models::DescribePortViewSourceIspsResponse describePortViewSourceIspsWithOptions(const Models::DescribePortViewSourceIspsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+       * @summary Queries the distribution of request source ISPs for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
        *
-       * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-       * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description Queries the distribution of request source Internet service providers (ISPs) for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
+       * > Because the Layer 4 transport-layer identity statistics algorithm of Anti-DDoS Pro and Anti-DDoS Premium has been updated, the data returned by this operation does not reflect the actual traffic volume. The data can only be used to calculate the proportion of requests from different ISPs (that is, the distribution of request source ISPs). To obtain request traffic data, call [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html).
+       * ### QPS limit
+       * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
        *
        * @param request DescribePortViewSourceIspsRequest
        * @return DescribePortViewSourceIspsResponse
@@ -2185,11 +2211,11 @@ namespace Ddoscoo20200101
       Models::DescribeSceneDefenseObjectsResponse describeSceneDefenseObjects(const Models::DescribeSceneDefenseObjectsRequest &request);
 
       /**
-       * @summary Queries the configurations of a scenario-specific custom policy.
+       * @summary Queries the detailed configurations of scenario-specific policies.
        *
-       * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries the detailed configurations of created scenario-specific policies, such as the policy status, protected objects, and protection rules.
+       * ### QPS limit
+       * You can call this operation up to 10 times per second per user. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation within the limit.
        *
        * @param request DescribeSceneDefensePoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2198,11 +2224,11 @@ namespace Ddoscoo20200101
       Models::DescribeSceneDefensePoliciesResponse describeSceneDefensePoliciesWithOptions(const Models::DescribeSceneDefensePoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of a scenario-specific custom policy.
+       * @summary Queries the detailed configurations of scenario-specific policies.
        *
-       * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries the detailed configurations of created scenario-specific policies, such as the policy status, protected objects, and protection rules.
+       * ### QPS limit
+       * You can call this operation up to 10 times per second per user. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation within the limit.
        *
        * @param request DescribeSceneDefensePoliciesRequest
        * @return DescribeSceneDefensePoliciesResponse
@@ -2261,7 +2287,7 @@ namespace Ddoscoo20200101
       Models::DescribeSlsAuthStatusResponse describeSlsAuthStatus(const Models::DescribeSlsAuthStatusRequest &request);
 
       /**
-       * @summary Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+       * @summary Queries the log store information of Anti-DDoS Pro or Anti-DDoS Premium, such as log storage capacity and storage duration of logs.
        *
        * @param request DescribeSlsLogstoreInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2270,7 +2296,7 @@ namespace Ddoscoo20200101
       Models::DescribeSlsLogstoreInfoResponse describeSlsLogstoreInfoWithOptions(const Models::DescribeSlsLogstoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+       * @summary Queries the log store information of Anti-DDoS Pro or Anti-DDoS Premium, such as log storage capacity and storage duration of logs.
        *
        * @param request DescribeSlsLogstoreInfoRequest
        * @return DescribeSlsLogstoreInfoResponse
@@ -2295,11 +2321,11 @@ namespace Ddoscoo20200101
       Models::DescribeSlsOpenStatusResponse describeSlsOpenStatus(const Models::DescribeSlsOpenStatusRequest &request);
 
       /**
-       * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+       * @summary Queries whether Anti-DDoS Proxy are authorized to access other cloud services.
        *
-       * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries whether your Alibaba Cloud account has authorized Anti-DDoS Pro and Anti-DDoS Premium to access other cloud services.
+       * ### QPS limits
+       * The maximum number of queries per second (QPS) for this operation is 10 per user. If the number of API calls exceeds this limit, throttling is triggered. This may affect your business operations. Ensure that you call this operation at an appropriate rate.
        *
        * @param request DescribeStsGrantStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2308,11 +2334,11 @@ namespace Ddoscoo20200101
       Models::DescribeStsGrantStatusResponse describeStsGrantStatusWithOptions(const Models::DescribeStsGrantStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+       * @summary Queries whether Anti-DDoS Proxy are authorized to access other cloud services.
        *
-       * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation queries whether your Alibaba Cloud account has authorized Anti-DDoS Pro and Anti-DDoS Premium to access other cloud services.
+       * ### QPS limits
+       * The maximum number of queries per second (QPS) for this operation is 10 per user. If the number of API calls exceeds this limit, throttling is triggered. This may affect your business operations. Ensure that you call this operation at an appropriate rate.
        *
        * @param request DescribeStsGrantStatusRequest
        * @return DescribeStsGrantStatusResponse
@@ -2320,12 +2346,12 @@ namespace Ddoscoo20200101
       Models::DescribeStsGrantStatusResponse describeStsGrantStatus(const Models::DescribeStsGrantStatusRequest &request);
 
       /**
-       * @summary Queries the details of the bills for the burstable clean bandwidth.
+       * @summary Queries the billing details of burstable clean bandwidth.
        *
-       * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-       * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation lets you query the system logs of Anti-DDoS Pro. System logs currently include only the billing logs of burstable clean bandwidth.
+       * If you have enabled burstable clean bandwidth, you can call this operation to query the billing details of burstable clean bandwidth.
+       * ### QPS limits
+       * The QPS limit for this operation is 10 per second per user. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business operations. Therefore, call this operation at an appropriate frequency.
        *
        * @param request DescribeSystemLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2334,12 +2360,12 @@ namespace Ddoscoo20200101
       Models::DescribeSystemLogResponse describeSystemLogWithOptions(const Models::DescribeSystemLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the bills for the burstable clean bandwidth.
+       * @summary Queries the billing details of burstable clean bandwidth.
        *
-       * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
-       * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation lets you query the system logs of Anti-DDoS Pro. System logs currently include only the billing logs of burstable clean bandwidth.
+       * If you have enabled burstable clean bandwidth, you can call this operation to query the billing details of burstable clean bandwidth.
+       * ### QPS limits
+       * The QPS limit for this operation is 10 per second per user. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business operations. Therefore, call this operation at an appropriate frequency.
        *
        * @param request DescribeSystemLogRequest
        * @return DescribeSystemLogResponse
@@ -2401,7 +2427,7 @@ namespace Ddoscoo20200101
       Models::DescribeTagResourcesResponse describeTagResources(const Models::DescribeTagResourcesRequest &request);
 
       /**
-       * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+       * @summary 新峰值接口
        *
        * @param request DescribeTotalAttackMaxFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2410,7 +2436,7 @@ namespace Ddoscoo20200101
       Models::DescribeTotalAttackMaxFlowResponse describeTotalAttackMaxFlowWithOptions(const Models::DescribeTotalAttackMaxFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+       * @summary 新峰值接口
        *
        * @param request DescribeTotalAttackMaxFlowRequest
        * @return DescribeTotalAttackMaxFlowResponse
@@ -2435,7 +2461,7 @@ namespace Ddoscoo20200101
       Models::DescribeUdpReflectResponse describeUdpReflect(const Models::DescribeUdpReflectRequest &request);
 
       /**
-       * @summary Queries the total quota and remaining quota for blackhole filtering deactivation.
+       * @summary Queries the number of times that blackhole filtering can be deactivated.
        *
        * @param request DescribeUnBlackholeCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2444,7 +2470,7 @@ namespace Ddoscoo20200101
       Models::DescribeUnBlackholeCountResponse describeUnBlackholeCountWithOptions(const Models::DescribeUnBlackholeCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the total quota and remaining quota for blackhole filtering deactivation.
+       * @summary Queries the number of times that blackhole filtering can be deactivated.
        *
        * @param request DescribeUnBlackholeCountRequest
        * @return DescribeUnBlackholeCountResponse
@@ -2452,9 +2478,9 @@ namespace Ddoscoo20200101
       Models::DescribeUnBlackholeCountResponse describeUnBlackholeCount(const Models::DescribeUnBlackholeCountRequest &request);
 
       /**
-       * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
+       * @summary Queries the available near-origin traffic diversion quota.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
        *
        * @param request DescribeUnBlockCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2463,9 +2489,9 @@ namespace Ddoscoo20200101
       Models::DescribeUnBlockCountResponse describeUnBlockCountWithOptions(const Models::DescribeUnBlockCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
+       * @summary Queries the available near-origin traffic diversion quota.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
        *
        * @param request DescribeUnBlockCountRequest
        * @return DescribeUnBlockCountResponse
@@ -2473,11 +2499,11 @@ namespace Ddoscoo20200101
       Models::DescribeUnBlockCountResponse describeUnBlockCount(const Models::DescribeUnBlockCountRequest &request);
 
       /**
-       * @summary Checks whether the log analysis feature is enabled for all domain names.
+       * @summary Queries the full log switch status of all domain names.
        *
-       * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the full log switch status of all domain names that are added to Anti-DDoS Pro for protection.
+       * ### QPS limit
+       * The QPS limit on this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a proper frequency.
        *
        * @param request DescribeWebAccessLogDispatchStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2486,11 +2512,11 @@ namespace Ddoscoo20200101
       Models::DescribeWebAccessLogDispatchStatusResponse describeWebAccessLogDispatchStatusWithOptions(const Models::DescribeWebAccessLogDispatchStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether the log analysis feature is enabled for all domain names.
+       * @summary Queries the full log switch status of all domain names.
        *
-       * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation is used to query the full log switch status of all domain names that are added to Anti-DDoS Pro for protection.
+       * ### QPS limit
+       * The QPS limit on this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a proper frequency.
        *
        * @param request DescribeWebAccessLogDispatchStatusRequest
        * @return DescribeWebAccessLogDispatchStatusResponse
@@ -2532,7 +2558,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebAccessLogStatusResponse describeWebAccessLogStatus(const Models::DescribeWebAccessLogStatusRequest &request);
 
       /**
-       * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Queries the access mode of website businesses.
        *
        * @param request DescribeWebAccessModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2567,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebAccessModeResponse describeWebAccessModeWithOptions(const Models::DescribeWebAccessModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Queries the access mode of website businesses.
        *
        * @param request DescribeWebAccessModeRequest
        * @return DescribeWebAccessModeResponse
@@ -2549,7 +2575,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebAccessModeResponse describeWebAccessMode(const Models::DescribeWebAccessModeRequest &request);
 
       /**
-       * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+       * @summary Queries the configuration information of the Location Blacklist feature (for domain names) in website services.
        *
        * @param request DescribeWebAreaBlockConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2558,7 +2584,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebAreaBlockConfigsResponse describeWebAreaBlockConfigsWithOptions(const Models::DescribeWebAreaBlockConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+       * @summary Queries the configuration information of the Location Blacklist feature (for domain names) in website services.
        *
        * @param request DescribeWebAreaBlockConfigsRequest
        * @return DescribeWebAreaBlockConfigsResponse
@@ -2568,7 +2594,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Queries the custom frequency control rules that are created for a website.
+       * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
        *
        * @param request DescribeWebCCRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2579,7 +2605,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Queries the custom frequency control rules that are created for a website.
+       * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
        *
        * @param request DescribeWebCCRulesRequest
        * @return DescribeWebCCRulesResponse
@@ -2587,7 +2613,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCCRulesResponse describeWebCCRules(const Models::DescribeWebCCRulesRequest &request);
 
       /**
-       * @summary Queries the custom frequency control rules that are created for a website.
+       * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
        *
        * @param request DescribeWebCCRulesV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -2596,7 +2622,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCCRulesV2Response describeWebCCRulesV2WithOptions(const Models::DescribeWebCCRulesV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the custom frequency control rules that are created for a website.
+       * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
        *
        * @param request DescribeWebCCRulesV2Request
        * @return DescribeWebCCRulesV2Response
@@ -2629,7 +2655,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCacheConfigsResponse describeWebCacheConfigs(const Models::DescribeWebCacheConfigsRequest &request);
 
       /**
-       * @summary Queries the status of each mitigation policy for a website.
+       * @summary Queries the status of protection features for website services.
        *
        * @param request DescribeWebCcProtectSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2638,7 +2664,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCcProtectSwitchResponse describeWebCcProtectSwitchWithOptions(const Models::DescribeWebCcProtectSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of each mitigation policy for a website.
+       * @summary Queries the status of protection features for website services.
        *
        * @param request DescribeWebCcProtectSwitchRequest
        * @return DescribeWebCcProtectSwitchResponse
@@ -2646,7 +2672,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCcProtectSwitchResponse describeWebCcProtectSwitch(const Models::DescribeWebCcProtectSwitchRequest &request);
 
       /**
-       * @summary Queries the supported custom ports of a website.
+       * @summary Queries the range of custom ports supported by Anti-DDoS Proxy for website services.
        *
        * @param request DescribeWebCustomPortsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2655,7 +2681,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCustomPortsResponse describeWebCustomPortsWithOptions(const Models::DescribeWebCustomPortsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the supported custom ports of a website.
+       * @summary Queries the range of custom ports supported by Anti-DDoS Proxy for website services.
        *
        * @param request DescribeWebCustomPortsRequest
        * @return DescribeWebCustomPortsResponse
@@ -2663,7 +2689,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebCustomPortsResponse describeWebCustomPorts(const Models::DescribeWebCustomPortsRequest &request);
 
       /**
-       * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+       * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances associated with website services.
        *
        * @param request DescribeWebInstanceRelationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2672,7 +2698,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebInstanceRelationsResponse describeWebInstanceRelationsWithOptions(const Models::DescribeWebInstanceRelationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+       * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances associated with website services.
        *
        * @param request DescribeWebInstanceRelationsRequest
        * @return DescribeWebInstanceRelationsResponse
@@ -2680,7 +2706,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebInstanceRelationsResponse describeWebInstanceRelations(const Models::DescribeWebInstanceRelationsRequest &request);
 
       /**
-       * @summary Queries the accurate access control rules that are created for websites.
+       * @summary Queries the precise access control rules configured for a website.
        *
        * @param request DescribeWebPreciseAccessRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2689,7 +2715,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebPreciseAccessRuleResponse describeWebPreciseAccessRuleWithOptions(const Models::DescribeWebPreciseAccessRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the accurate access control rules that are created for websites.
+       * @summary Queries the precise access control rules configured for a website.
        *
        * @param request DescribeWebPreciseAccessRuleRequest
        * @return DescribeWebPreciseAccessRuleResponse
@@ -2697,7 +2723,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebPreciseAccessRuleResponse describeWebPreciseAccessRule(const Models::DescribeWebPreciseAccessRuleRequest &request);
 
       /**
-       * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+       * @summary 查询报表top IP
        *
        * @param request DescribeWebReportTopIpRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2706,7 +2732,7 @@ namespace Ddoscoo20200101
       Models::DescribeWebReportTopIpResponse describeWebReportTopIpWithOptions(const Models::DescribeWebReportTopIpRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+       * @summary 查询报表top IP
        *
        * @param request DescribeWebReportTopIpRequest
        * @return DescribeWebReportTopIpResponse
@@ -2714,12 +2740,12 @@ namespace Ddoscoo20200101
       Models::DescribeWebReportTopIpResponse describeWebReportTopIp(const Models::DescribeWebReportTopIpRequest &request);
 
       /**
-       * @summary Query Configuration of Website Business Forwarding Rules.
+       * @summary Queries the configurations of website forwarding rules.
        *
-       * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
-       * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
-       * ### QPS Limit
-       * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+       * @description This operation is used to query the configurations of website forwarding rules that you have created by using paging. For example, you can query the forwarding protocol type, origin server address, HTTPS configuration, and IP blacklist configuration.
+       * Before you invoke this operation, you must have invoked [CreateWebRule](https://help.aliyun.com/document_detail/157463.html) to create website forwarding rules.
+       * ### QPS limit
+       * You can invoke this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeWebRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2728,12 +2754,12 @@ namespace Ddoscoo20200101
       Models::DescribeWebRulesResponse describeWebRulesWithOptions(const Models::DescribeWebRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Configuration of Website Business Forwarding Rules.
+       * @summary Queries the configurations of website forwarding rules.
        *
-       * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
-       * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
-       * ### QPS Limit
-       * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+       * @description This operation is used to query the configurations of website forwarding rules that you have created by using paging. For example, you can query the forwarding protocol type, origin server address, HTTPS configuration, and IP blacklist configuration.
+       * Before you invoke this operation, you must have invoked [CreateWebRule](https://help.aliyun.com/document_detail/157463.html) to create website forwarding rules.
+       * ### QPS limit
+       * You can invoke this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
        *
        * @param request DescribeWebRulesRequest
        * @return DescribeWebRulesResponse
@@ -2758,7 +2784,7 @@ namespace Ddoscoo20200101
       Models::DetachSceneDefenseObjectResponse detachSceneDefenseObject(const Models::DetachSceneDefenseObjectRequest &request);
 
       /**
-       * @summary Disables a scenario-specific custom policy.
+       * @summary Disables a scenario-specific policy.
        *
        * @param request DisableSceneDefensePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2767,7 +2793,7 @@ namespace Ddoscoo20200101
       Models::DisableSceneDefensePolicyResponse disableSceneDefensePolicyWithOptions(const Models::DisableSceneDefensePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a scenario-specific custom policy.
+       * @summary Disables a scenario-specific policy.
        *
        * @param request DisableSceneDefensePolicyRequest
        * @return DisableSceneDefensePolicyResponse
@@ -2775,7 +2801,7 @@ namespace Ddoscoo20200101
       Models::DisableSceneDefensePolicyResponse disableSceneDefensePolicy(const Models::DisableSceneDefensePolicyRequest &request);
 
       /**
-       * @summary Disables the log analysis feature for a website.
+       * @summary Shuts down full logs analysis for a website service.
        *
        * @param request DisableWebAccessLogConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2784,7 +2810,7 @@ namespace Ddoscoo20200101
       Models::DisableWebAccessLogConfigResponse disableWebAccessLogConfigWithOptions(const Models::DisableWebAccessLogConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the log analysis feature for a website.
+       * @summary Shuts down full logs analysis for a website service.
        *
        * @param request DisableWebAccessLogConfigRequest
        * @return DisableWebAccessLogConfigResponse
@@ -2809,7 +2835,7 @@ namespace Ddoscoo20200101
       Models::DisableWebCCResponse disableWebCC(const Models::DisableWebCCRequest &request);
 
       /**
-       * @summary Disables custom frequency control rules for a website.
+       * @summary Disables the custom rule switch for frequency control (HTTP flood mitigation) of a website service.
        *
        * @param request DisableWebCCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2818,7 +2844,7 @@ namespace Ddoscoo20200101
       Models::DisableWebCCRuleResponse disableWebCCRuleWithOptions(const Models::DisableWebCCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables custom frequency control rules for a website.
+       * @summary Disables the custom rule switch for frequency control (HTTP flood mitigation) of a website service.
        *
        * @param request DisableWebCCRuleRequest
        * @return DisableWebCCRuleResponse
@@ -2860,7 +2886,7 @@ namespace Ddoscoo20200101
       Models::EmptyAutoCcWhitelistResponse emptyAutoCcWhitelist(const Models::EmptyAutoCcWhitelistRequest &request);
 
       /**
-       * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Deletes the Logstore of Anti-DDoS Proxy.
        *
        * @param request EmptySlsLogstoreRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2869,7 +2895,7 @@ namespace Ddoscoo20200101
       Models::EmptySlsLogstoreResponse emptySlsLogstoreWithOptions(const Models::EmptySlsLogstoreRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Deletes the Logstore of Anti-DDoS Proxy.
        *
        * @param request EmptySlsLogstoreRequest
        * @return EmptySlsLogstoreResponse
@@ -2928,7 +2954,7 @@ namespace Ddoscoo20200101
       Models::EnableWebCCResponse enableWebCC(const Models::EnableWebCCRequest &request);
 
       /**
-       * @summary Enables custom frequency control rules for a website.
+       * @summary Enables a custom HTTP flood protection rule.
        *
        * @param request EnableWebCCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +2963,7 @@ namespace Ddoscoo20200101
       Models::EnableWebCCRuleResponse enableWebCCRuleWithOptions(const Models::EnableWebCCRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables custom frequency control rules for a website.
+       * @summary Enables a custom HTTP flood protection rule.
        *
        * @param request EnableWebCCRuleRequest
        * @return EnableWebCCRuleResponse
@@ -2945,9 +2971,7 @@ namespace Ddoscoo20200101
       Models::EnableWebCCRuleResponse enableWebCCRule(const Models::EnableWebCCRuleRequest &request);
 
       /**
-       * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-       *
-       * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+       * @summary 95计费切换模式
        *
        * @param request ModifyBizBandWidthModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2956,9 +2980,7 @@ namespace Ddoscoo20200101
       Models::ModifyBizBandWidthModeResponse modifyBizBandWidthModeWithOptions(const Models::ModifyBizBandWidthModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-       *
-       * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+       * @summary 95计费切换模式
        *
        * @param request ModifyBizBandWidthModeRequest
        * @return ModifyBizBandWidthModeResponse
@@ -3042,9 +3064,9 @@ namespace Ddoscoo20200101
       Models::ModifyDomainResourceResponse modifyDomainResource(const Models::ModifyDomainResourceRequest &request);
 
       /**
-       * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+       * @summary Modifies the burstable protection bandwidth of an Anti-DDoS Pro or Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro (the Chinese mainland) service.
        *
        * @param request ModifyElasticBandWidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3053,9 +3075,9 @@ namespace Ddoscoo20200101
       Models::ModifyElasticBandWidthResponse modifyElasticBandWidthWithOptions(const Models::ModifyElasticBandWidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+       * @summary Modifies the burstable protection bandwidth of an Anti-DDoS Pro or Anti-DDoS Premium instance in the Chinese mainland.
        *
-       * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+       * @description > This operation is applicable only to Anti-DDoS Pro (the Chinese mainland) service.
        *
        * @param request ModifyElasticBandWidthRequest
        * @return ModifyElasticBandWidthResponse
@@ -3063,9 +3085,7 @@ namespace Ddoscoo20200101
       Models::ModifyElasticBandWidthResponse modifyElasticBandWidth(const Models::ModifyElasticBandWidthRequest &request);
 
       /**
-       * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-       *
-       * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+       * @summary 修改弹性业务带宽
        *
        * @param request ModifyElasticBizBandWidthRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3074,9 +3094,7 @@ namespace Ddoscoo20200101
       Models::ModifyElasticBizBandWidthResponse modifyElasticBizBandWidthWithOptions(const Models::ModifyElasticBizBandWidthRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-       *
-       * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+       * @summary 修改弹性业务带宽
        *
        * @param request ModifyElasticBizBandWidthRequest
        * @return ModifyElasticBizBandWidthResponse
@@ -3086,7 +3104,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
        *
-       * @description You can enable burstable QPS only for IPv4 instances.
+       * @description Both IPv4 and IPv6 instances support burstable QPS.
        *
        * @param request ModifyElasticBizQpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3097,7 +3115,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
        *
-       * @description You can enable burstable QPS only for IPv4 instances.
+       * @description Both IPv4 and IPv6 instances support burstable QPS.
        *
        * @param request ModifyElasticBizQpsRequest
        * @return ModifyElasticBizQpsResponse
@@ -3122,7 +3140,7 @@ namespace Ddoscoo20200101
       Models::ModifyFullLogTtlResponse modifyFullLogTtl(const Models::ModifyFullLogTtlRequest &request);
 
       /**
-       * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Modifies custom headers for a domain on an Anti-DDoS Pro instance.
        *
        * @param request ModifyHeadersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3131,7 +3149,7 @@ namespace Ddoscoo20200101
       Models::ModifyHeadersResponse modifyHeadersWithOptions(const Models::ModifyHeadersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Modifies custom headers for a domain on an Anti-DDoS Pro instance.
        *
        * @param request ModifyHeadersRequest
        * @return ModifyHeadersResponse
@@ -3177,7 +3195,7 @@ namespace Ddoscoo20200101
       Models::ModifyHttp2EnableResponse modifyHttp2Enable(const Models::ModifyHttp2EnableRequest &request);
 
       /**
-       * @summary Instance adjustment, similar to BSS adjustment
+       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request ModifyInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3186,7 +3204,7 @@ namespace Ddoscoo20200101
       Models::ModifyInstanceResponse modifyInstanceWithOptions(const Models::ModifyInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Instance adjustment, similar to BSS adjustment
+       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request ModifyInstanceRequest
        * @return ModifyInstanceResponse
@@ -3194,7 +3212,7 @@ namespace Ddoscoo20200101
       Models::ModifyInstanceResponse modifyInstance(const Models::ModifyInstanceRequest &request);
 
       /**
-       * @summary Modifies the description of an Anti-DDoS Proxy instance.
+       * @summary Modifies the remark of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request ModifyInstanceRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3203,7 +3221,7 @@ namespace Ddoscoo20200101
       Models::ModifyInstanceRemarkResponse modifyInstanceRemarkWithOptions(const Models::ModifyInstanceRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the description of an Anti-DDoS Proxy instance.
+       * @summary Modifies the remark of an Anti-DDoS Pro or Anti-DDoS Premium instance.
        *
        * @param request ModifyInstanceRemarkRequest
        * @return ModifyInstanceRemarkResponse
@@ -3211,7 +3229,7 @@ namespace Ddoscoo20200101
       Models::ModifyInstanceRemarkResponse modifyInstanceRemark(const Models::ModifyInstanceRemarkRequest &request);
 
       /**
-       * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+       * @summary Modifies the session persistence and DDoS mitigation policy settings for a port forwarding rule.
        *
        * @param request ModifyNetworkRuleAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3220,7 +3238,7 @@ namespace Ddoscoo20200101
       Models::ModifyNetworkRuleAttributeResponse modifyNetworkRuleAttributeWithOptions(const Models::ModifyNetworkRuleAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+       * @summary Modifies the session persistence and DDoS mitigation policy settings for a port forwarding rule.
        *
        * @param request ModifyNetworkRuleAttributeRequest
        * @return ModifyNetworkRuleAttributeResponse
@@ -3251,7 +3269,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Modifies a port forwarding rule.
        *
-       * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation can be used with Terraform. For more information, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request ModifyPortRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3262,7 +3280,7 @@ namespace Ddoscoo20200101
       /**
        * @summary Modifies a port forwarding rule.
        *
-       * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+       * @description This operation can be used with Terraform. For more information, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
        *
        * @param request ModifyPortRequest
        * @return ModifyPortResponse
@@ -3270,7 +3288,7 @@ namespace Ddoscoo20200101
       Models::ModifyPortResponse modifyPort(const Models::ModifyPortRequest &request);
 
       /**
-       * @summary Modifies the Intelligent Protection configuration of a non-website service.
+       * @summary Configures AI-based intelligent protection for non-website services.
        *
        * @param request ModifyPortAutoCcStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3279,7 +3297,7 @@ namespace Ddoscoo20200101
       Models::ModifyPortAutoCcStatusResponse modifyPortAutoCcStatusWithOptions(const Models::ModifyPortAutoCcStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the Intelligent Protection configuration of a non-website service.
+       * @summary Configures AI-based intelligent protection for non-website services.
        *
        * @param request ModifyPortAutoCcStatusRequest
        * @return ModifyPortAutoCcStatusResponse
@@ -3338,7 +3356,7 @@ namespace Ddoscoo20200101
       Models::ModifySchedulerRuleResponse modifySchedulerRule(const Models::ModifySchedulerRuleRequest &request);
 
       /**
-       * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+       * @summary Modifies the TLS security policy of a website forwarding rule.
        *
        * @param request ModifyTlsConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3347,7 +3365,7 @@ namespace Ddoscoo20200101
       Models::ModifyTlsConfigResponse modifyTlsConfigWithOptions(const Models::ModifyTlsConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+       * @summary Modifies the TLS security policy of a website forwarding rule.
        *
        * @param request ModifyTlsConfigRequest
        * @return ModifyTlsConfigResponse
@@ -3389,7 +3407,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebAIProtectSwitchResponse modifyWebAIProtectSwitch(const Models::ModifyWebAIProtectSwitchRequest &request);
 
       /**
-       * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Sets the access mode for website services.
        *
        * @param request ModifyWebAccessModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3398,7 +3416,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebAccessModeResponse modifyWebAccessModeWithOptions(const Models::ModifyWebAccessModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+       * @summary Sets the access mode for website services.
        *
        * @param request ModifyWebAccessModeRequest
        * @return ModifyWebAccessModeResponse
@@ -3406,7 +3424,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebAccessModeResponse modifyWebAccessMode(const Models::ModifyWebAccessModeRequest &request);
 
       /**
-       * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+       * @summary Sets the blocked regions for Location Blacklist (domain-specific) of website services.
        *
        * @param request ModifyWebAreaBlockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3415,7 +3433,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebAreaBlockResponse modifyWebAreaBlockWithOptions(const Models::ModifyWebAreaBlockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+       * @summary Sets the blocked regions for Location Blacklist (domain-specific) of website services.
        *
        * @param request ModifyWebAreaBlockRequest
        * @return ModifyWebAreaBlockResponse
@@ -3423,11 +3441,11 @@ namespace Ddoscoo20200101
       Models::ModifyWebAreaBlockResponse modifyWebAreaBlock(const Models::ModifyWebAreaBlockRequest &request);
 
       /**
-       * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+       * @summary Sets the status of the Location Blacklist feature for website services (for domain names).
        *
-       * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation sets the status of the Location Blacklist feature for website services (for domain names).
+       * ### QPS limits
+       * The single-user queries per second (QPS) limit for this operation is 10. API calls that exceed the limit are throttled, which may affect your business. We recommend that you call this operation at an appropriate rate.
        *
        * @param request ModifyWebAreaBlockSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3436,11 +3454,11 @@ namespace Ddoscoo20200101
       Models::ModifyWebAreaBlockSwitchResponse modifyWebAreaBlockSwitchWithOptions(const Models::ModifyWebAreaBlockSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+       * @summary Sets the status of the Location Blacklist feature for website services (for domain names).
        *
-       * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
-       * ### Limits
-       * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+       * @description This operation sets the status of the Location Blacklist feature for website services (for domain names).
+       * ### QPS limits
+       * The single-user queries per second (QPS) limit for this operation is 10. API calls that exceed the limit are throttled, which may affect your business. We recommend that you call this operation at an appropriate rate.
        *
        * @param request ModifyWebAreaBlockSwitchRequest
        * @return ModifyWebAreaBlockSwitchResponse
@@ -3467,7 +3485,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Modifies the custom frequency control rule of a website.
+       * @summary Modifies a custom rule for website business frequency control protection (HTTP flood protection).
        *
        * @param request ModifyWebCCRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3478,7 +3496,7 @@ namespace Ddoscoo20200101
       /**
        * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
        *
-       * @summary Modifies the custom frequency control rule of a website.
+       * @summary Modifies a custom rule for website business frequency control protection (HTTP flood protection).
        *
        * @param request ModifyWebCCRuleRequest
        * @return ModifyWebCCRuleResponse
@@ -3562,7 +3580,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebIpSetSwitchResponse modifyWebIpSetSwitch(const Models::ModifyWebIpSetSwitchRequest &request);
 
       /**
-       * @summary Creates or modifies an accurate access control rule of a website.
+       * @summary Creates or edits a precise access control rule for a website.
        *
        * @param request ModifyWebPreciseAccessRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3571,7 +3589,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebPreciseAccessRuleResponse modifyWebPreciseAccessRuleWithOptions(const Models::ModifyWebPreciseAccessRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or modifies an accurate access control rule of a website.
+       * @summary Creates or edits a precise access control rule for a website.
        *
        * @param request ModifyWebPreciseAccessRuleRequest
        * @return ModifyWebPreciseAccessRuleResponse
@@ -3596,10 +3614,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebPreciseAccessSwitchResponse modifyWebPreciseAccessSwitch(const Models::ModifyWebPreciseAccessSwitchRequest &request);
 
       /**
-       * @summary Modifies the forwarding rule of a website.
-       *
-       * @description ## Debugging
-       * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+       * @summary Modifies an existing website forwarding rule.
        *
        * @param request ModifyWebRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3608,10 +3623,7 @@ namespace Ddoscoo20200101
       Models::ModifyWebRuleResponse modifyWebRuleWithOptions(const Models::ModifyWebRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the forwarding rule of a website.
-       *
-       * @description ## Debugging
-       * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+       * @summary Modifies an existing website forwarding rule.
        *
        * @param request ModifyWebRuleRequest
        * @return ModifyWebRuleResponse
@@ -3619,9 +3631,13 @@ namespace Ddoscoo20200101
       Models::ModifyWebRuleResponse modifyWebRule(const Models::ModifyWebRuleRequest &request);
 
       /**
-       * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Release an expired Anti-DDoS Proxy instance.
        *
-       * @description The ID of the request, which is used to locate and troubleshoot issues.
+       * @description After an Anti-DDoS instance expires, it stops providing DDoS attack protection services. Seven days after expiration, it stops forwarding service traffic.
+       * - We recommend that you renew your instance before it expires to avoid impacts on service protection and forwarding. You can call [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) to query the expiration time of an instance. To renew the instance, go to the [Anti-DDoS console](https://yundun.console.aliyun.com/?p=ddoscoo) to perform the operation.
+       * - If you do not plan to renew the instance, we recommend that you restore the protected service IP (no longer use the Anti-DDoS IP as the service IP) or service DNS parsing (no longer parse service traffic to the CNAME address of Anti-DDoS) before the Anti-DDoS instance expires. This prevents service traffic from being forwarded to the Anti-DDoS instance and avoids disruption to normal service forwarding when the instance expires.
+       * After the instance expires, you can call this operation to release the specified Anti-DDoS instance.
+       * > Before releasing the specified instance, ensure that you have restored the protected service IP or service DNS parsing.
        *
        * @param request ReleaseInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3630,9 +3646,13 @@ namespace Ddoscoo20200101
       Models::ReleaseInstanceResponse releaseInstanceWithOptions(const Models::ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Release an expired Anti-DDoS Proxy instance.
        *
-       * @description The ID of the request, which is used to locate and troubleshoot issues.
+       * @description After an Anti-DDoS instance expires, it stops providing DDoS attack protection services. Seven days after expiration, it stops forwarding service traffic.
+       * - We recommend that you renew your instance before it expires to avoid impacts on service protection and forwarding. You can call [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) to query the expiration time of an instance. To renew the instance, go to the [Anti-DDoS console](https://yundun.console.aliyun.com/?p=ddoscoo) to perform the operation.
+       * - If you do not plan to renew the instance, we recommend that you restore the protected service IP (no longer use the Anti-DDoS IP as the service IP) or service DNS parsing (no longer parse service traffic to the CNAME address of Anti-DDoS) before the Anti-DDoS instance expires. This prevents service traffic from being forwarded to the Anti-DDoS instance and avoids disruption to normal service forwarding when the instance expires.
+       * After the instance expires, you can call this operation to release the specified Anti-DDoS instance.
+       * > Before releasing the specified instance, ensure that you have restored the protected service IP or service DNS parsing.
        *
        * @param request ReleaseInstanceRequest
        * @return ReleaseInstanceResponse

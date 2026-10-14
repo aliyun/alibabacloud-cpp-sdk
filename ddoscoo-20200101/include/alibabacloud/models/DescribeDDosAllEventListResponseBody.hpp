@@ -127,42 +127,42 @@ namespace Models
 
 
     protected:
-      // The source location or region from which the attack was initiated. Valid values:
+      // The source region of the attack. Valid values:
       // 
-      // *   **cn**: Chinese mainland
-      // *   **alb-cn-hongkong-gf-2**: China (Hongkong)
-      // *   **alb-us-west-1-gf-2**: US (Silicon Valley)
-      // *   **alb-ap-northeast-1-gf-1**: Japan (Tokyo)
-      // *   **alb-ap-southeast-gf-1**: Singapore
-      // *   **alb-eu-central-1-gf-1**: Germany (Frankfurt)
-      // *   **alb-eu-central-1-gf-1** or **selb-eu-west-1-gf-1a**: UK (London)
-      // *   **alb-us-east-gf-1**: US (Virginia)
-      // *   **CT-yundi**: China (Hongkong) This value is returned only for Anti-DDoS Premium instances of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan.
+      // - **cn**: the Chinese mainland.
+      // - **alb-cn-hongkong-gf-2**: Hong Kong (China).
+      // - **alb-us-west-1-gf-2**: US (Silicon Valley).
+      // - **alb-ap-northeast-1-gf-1**: Japan (Tokyo).
+      // - **alb-ap-southeast-gf-1**: Singapore.
+      // - **alb-eu-central-1-gf-1**: Germany (Frankfurt).
+      // - **alb-eu-west-1-gf-1** and **selb-eu-west-1-gf-1a**: UK (London).
+      // - **alb-us-east-gf-1**: US (Virginia).
+      // - **CT-yundi**: Hong Kong (China). This value applies only to Anti-DDoS Pro and Anti-DDoS Premium secure acceleration line instances.
       shared_ptr<string> area_ {};
-      // The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+      // The end time of the attack. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
       // The type of the DDoS attack event. Valid values:
       // 
-      // *   **web-cc**: resource exhaustion attacks
-      // *   **cc**: connection flood attacks
-      // *   **defense**: DDoS attacks that trigger traffic scrubbing
-      // *   **blackhole**: DDoS attacks that trigger blackhole filtering
+      // - **web-cc**: web resource exhaustion attack.
+      // - **cc**: connection flood attack.
+      // - **defense**: volumetric attack (scrubbing event).
+      // - **blackhole**: volumetric attack (blackhole filtering event).
       shared_ptr<string> eventType_ {};
-      // The attacked object. The attacked object varies based on the attack event type. The following list describes different attacked objects of different attack event types:
+      // The attacked object. The attacked object varies based on the attack event type:
       // 
-      // *   If **EventType** is set to **web-cc**, the value of this parameter indicates the domain name of the attacked website.
-      // *   If **EventType** is set to **cc**, the value of this parameter indicates the IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
-      // *   If **EventType** is set to **defense** or **blackhole**, the value of this parameter indicates the IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+      // - Web resource exhaustion attack (**EventType** is **web-cc**): this parameter indicates the attacked website domain name.
+      // - Connection flood attack (**EventType** is **cc**): this parameter indicates the attacked IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+      // - Volumetric attack (**EventType** is **defense** or **blackhole**): this parameter indicates the attacked IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> ip_ {};
       // The peak bandwidth of the attack traffic. Unit: Mbit/s.
       shared_ptr<int64_t> mbps_ {};
-      // The attacked port.
+      // The attacked port number.
       // 
-      // > If **EventType** is set to **web-cc**, this parameter is not returned.
+      // > This parameter is not returned for web resource exhaustion attacks (**EventType** is **web-cc**).
       shared_ptr<string> port_ {};
-      // The peak packet forwarding rate of attack traffic. Unit: packets per second (pps).
+      // The peak packet forwarding rate of the attack traffic. Unit: pps.
       shared_ptr<int64_t> pps_ {};
-      // The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+      // The start time of the attack. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -192,11 +192,11 @@ namespace Models
 
 
   protected:
-    // The DDoS attack events.
+    // The list of attack events.
     shared_ptr<vector<DescribeDDosAllEventListResponseBody::AttackEvents>> attackEvents_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of DDoS attack events.
+    // The total number of attack events returned.
     shared_ptr<int64_t> total_ {};
   };
 

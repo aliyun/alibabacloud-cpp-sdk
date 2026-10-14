@@ -69,23 +69,20 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // The end time of the query. This value is a UNIX timestamp. Unit: seconds.
+    // > The value must be on the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The IDs of the Anti-DDoS Proxy instances.
-    // 
-    // >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy instances.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // > You can invoke [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // The start time of the query. This value is a UNIX timestamp. Unit: seconds.
+    // > The value must be on the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

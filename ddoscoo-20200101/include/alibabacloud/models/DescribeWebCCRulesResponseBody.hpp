@@ -118,25 +118,23 @@ namespace Models
 
 
     protected:
-      // The action triggered if the rule is matched. Valid values:
-      // 
-      // *   **close**: The requests that match the rule are blocked.
-      // *   **captcha**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
+      // The blocking type. Valid values:
+      // - **close**: blocks the request.
+      // - **captcha**: implements CAPTCHA verification.
       shared_ptr<string> act_ {};
-      // The number of requests that are allowed from a single IP address. Valid values: **2** to **2000**.
+      // The number of visits from a single IP address. Valid values: **2** to **2000**.
       shared_ptr<int32_t> count_ {};
-      // The check interval. Valid values: **5** to **10800**. Unit: seconds.
+      // The detection interval. Valid values: **5** to **10800**. Unit: seconds.
       shared_ptr<int32_t> interval_ {};
-      // The match mode. Valid values:
-      // 
-      // *   **prefix**: prefix match.
-      // *   **match**: exact match.
+      // The matching mode. Valid values:
+      // - **prefix**: prefix match.
+      // - **match**: exact match.
       shared_ptr<string> mode_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> name_ {};
-      // The validity period. Valid values: **1** to **1440**. Unit: minutes.
+      // The blocking duration. Valid values: **1** to **1440**. Unit: minutes.
       shared_ptr<int32_t> ttl_ {};
-      // The check path.
+      // The detection path.
       shared_ptr<string> uri_ {};
     };
 
@@ -166,11 +164,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of custom frequency control rules.
+    // The total number of frequency control (HTTP flood mitigation) custom rules.
     shared_ptr<int64_t> totalCount_ {};
-    // The custom frequency control rule.
+    // The frequency control (HTTP flood mitigation) custom rules.
     shared_ptr<vector<DescribeWebCCRulesResponseBody::WebCCRules>> webCCRules_ {};
   };
 

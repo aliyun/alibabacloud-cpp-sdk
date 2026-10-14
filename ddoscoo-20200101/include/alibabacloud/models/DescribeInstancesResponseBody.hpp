@@ -173,54 +173,54 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the instance was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The overdue status of the instance. The value is fixed as **0**, which indicates that your Alibaba Cloud account does not have overdue payments. The instance supports only the subscription billing method.
+      // The overdue payment status of the instance. The value is fixed as **0**, which indicates no overdue payments, because Anti-DDoS Pro and Anti-DDoS Premium currently only supports the subscription billing method.
       shared_ptr<int32_t> debtStatus_ {};
-      // The mitigation plan of the instance. Valid values:
+      // The mitigation plan edition of the instance. Valid values:
       // 
-      // *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
-      // *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
-      // *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
-      // *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+      // - **0**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) Insurance edition.
+      // - **1**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) Unlimited edition.
+      // - **2**: Anti-DDoS Pro and Anti-DDoS Premium (outside the Chinese mainland) acceleration line.
+      // - **9**: Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) Professional Edition.
       shared_ptr<int32_t> edition_ {};
-      // The traffic forwarding status of the instance. Valid values:
+      // The service traffic forwarding status of the instance. Valid values:
       // 
-      // *   **0**: The instance no longer forwards service traffic.
-      // *   **1**: The instance forwards service traffic as expected.
+      // - **0**: Service traffic forwarding is stopped.
+      // - **1**: Service traffic forwarding is normal.
       shared_ptr<int32_t> enabled_ {};
-      // The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration time of the instance. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};
-      // The IP address of the instance.
+      // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> ip_ {};
-      // The IP address-based forwarding mode of the instance. Valid values:
+      // The IP forwarding mode of the instance. Valid values:
       // 
-      // *   **fnat**: Requests from IPv4 addresses are forwarded to origin servers that use IPv4 addresses and requests from IPv6 addresses are forwarded to origin servers that use IPv6 addresses.
-      // *   **v6tov4**: All requests are forwarded to origin servers that use IPv4 addresses.
+      // - **fnat**: The IP versions of the origin server and the client are the same. Requests from IPv4 clients are forwarded to IPv4 origin servers, and requests from IPv6 clients are forwarded to IPv6 origin servers.
+      // - **v6tov4**: Requests from IPv6 clients are forwarded to IPv4 origin servers.
       shared_ptr<string> ipMode_ {};
-      // The IP version of the instance. Valid values:
+      // The IP protocol version of the instance. Valid values:
       // 
-      // *   **Ipv4**
-      // *   **Ipv6**
+      // - **Ipv4**: IPv4.
+      // - **Ipv6**: IPv6.
       shared_ptr<string> ipVersion_ {};
-      // Indicates whether the metering method of the 95th percentile burstable clean bandwidth is enabled for the instance. Valid values:
+      // Indicates whether the 95th percentile burstable clean bandwidth metering method was enabled for the instance. Valid values:
       // 
-      // *   0: no
-      // *   1: yes
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int64_t> isFirstOpenBw_ {};
-      // Indicates whether the metering method of the 95th percentile burstable QPS is enabled for the instance. Valid values:
+      // Indicates whether the 95th percentile burstable QPS metering method was enabled for the instance. Valid values:
       // 
-      // *   0: no
-      // *   1: yes
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int64_t> isFirstOpenQps_ {};
-      // The remarks of the instance.
+      // The description of the instance.
       shared_ptr<string> remark_ {};
       // The status of the instance. Valid values:
       // 
-      // *   **1**: normal
-      // *   **2**: expired
+      // - **1**: Normal.
+      // - **2**: Expired.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -250,11 +250,11 @@ namespace Models
 
 
   protected:
-    // The details about the instances.
+    // The details of the Anti-DDoS Pro or Anti-DDoS Premium instances.
     shared_ptr<vector<DescribeInstancesResponseBody::Instances>> instances_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request, which is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of the instances.
+    // The total number of Anti-DDoS Pro or Anti-DDoS Premium instances queried.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -94,22 +94,22 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
     // 
-    // > The time must be in the latest 30 days.
+    // > The time range cannot exceed 30 days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The operation object that you want to query.
+    // The operation object used to filter results.
     shared_ptr<string> entityObject_ {};
-    // The type of the operation object that you want to query. Valid values:
+    // The type of the operation object used to filter results. Valid values:
     // 
-    // *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
-    // *   **2**: Anti-DDoS plans
-    // *   **3**: ECS instances
-    // *   **4**: all logs
+    // - **1**: IP Address of Anti-DDoS Proxy instance
+    // - **2**: Anti-DDoS Pro and Anti-DDoS Premium mitigation plan
+    // - **3**: ECS instance
+    // - **4**: full logs
     shared_ptr<int32_t> entityType_ {};
-    // The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+    // The page number to return in a paging query. For example, to query the first page, set the value to **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
@@ -117,11 +117,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group to which the Anti-DDoS Pro and Anti-DDoS Premium instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
     // 
-    // > The time must be in the latest 30 days.
+    // > The time range cannot exceed 30 days.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

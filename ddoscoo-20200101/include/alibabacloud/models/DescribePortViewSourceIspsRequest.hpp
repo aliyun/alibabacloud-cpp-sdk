@@ -69,23 +69,23 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The end time of the request data to query. Specify a UNIX timestamp. Unit: seconds.
     // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The value must be on the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The IDs of the Anti-DDoS Proxy instances to query.
+    // The IDs of the Anti-DDoS Pro or Anti-DDoS Premium instances to query.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not set this parameter, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the request data to query. Specify a UNIX timestamp. Unit: seconds.
     // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The value must be on the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

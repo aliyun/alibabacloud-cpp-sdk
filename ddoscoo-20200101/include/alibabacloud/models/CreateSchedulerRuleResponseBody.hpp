@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The CNAME that is assigned by Sec-Traffic Manager for the scheduling rule.
+    // The CNAME assigned by Sec-Traffic Manager for the rule.
     // 
-    // > To enable the scheduling rule, you must map the domain name of the service to the CNAME.
+    // > You must map your service domain name to the CNAME of Sec-Traffic Manager to enable the rule.
     shared_ptr<string> cname_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. The value is a unique identifier that Alibaba Cloud generates for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The name of the rule.
     shared_ptr<string> ruleName_ {};

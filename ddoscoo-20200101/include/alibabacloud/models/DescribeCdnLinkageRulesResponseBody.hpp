@@ -156,11 +156,31 @@ namespace Models
 
 
         protected:
+          // The priority of the rule. Valid values: 0 to 100. A larger value indicates a higher priority.
           shared_ptr<int32_t> priority_ {};
+          // The region ID. The default value is empty.
           shared_ptr<string> regionId_ {};
+          // The status of the rule. Valid values:
+          // 
+          // - **0**: Inactive
+          // 
+          // - **1**: Active
           shared_ptr<int32_t> status_ {};
+          // The format of the resource address. Valid values:
+          // 
+          // - **A**: IPv4 address
+          // 
+          // - **AAAA**: IPv6 address
+          // 
+          // - **CNAME**: canonical name
           shared_ptr<string> type_ {};
+          // The resource address.
           shared_ptr<string> value_ {};
+          // The type of the resource address. Valid values:
+          // 
+          // - **1**: Anti-DDoS IP
+          // 
+          // - **5**: Accelerated domain name for CDN interaction
           shared_ptr<int32_t> valueType_ {};
         };
 
@@ -223,7 +243,9 @@ namespace Models
 
 
           protected:
+            // The QPS threshold that triggers a resource switch.
             shared_ptr<int64_t> accessQps_ {};
+            // A reserved field. The default value is 0.
             shared_ptr<int64_t> upstreamQps_ {};
           };
 
@@ -246,7 +268,13 @@ namespace Models
 
 
         protected:
+          // The interaction conditions.
           shared_ptr<Param::ParamData> paramData_ {};
+          // The type of the resource for interaction. Valid values:
+          // 
+          // - **cdn**: Alibaba Cloud CDN
+          // 
+          // - **dcdn**: DCDN
           shared_ptr<string> paramType_ {};
         };
 
@@ -285,9 +313,13 @@ namespace Models
 
 
       protected:
+        // The canonical name of the Anti-DDoS instance that is associated with the domain name.
         shared_ptr<string> cname_ {};
+        // The resource for interaction.
         shared_ptr<CdnLinkageRule::Param> param_ {};
+        // The name of the traffic scheduling rule.
         shared_ptr<string> ruleName_ {};
+        // The rule information.
         shared_ptr<vector<CdnLinkageRule::Rules>> rules_ {};
       };
 
@@ -317,8 +349,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether CDN interaction is enabled. Valid values:
+      // 
+      // - **0**: Disabled
+      // 
+      // - **1**: Enabled
       shared_ptr<int32_t> cdnLinkageEnable_ {};
+      // The CDN interaction rule.
       shared_ptr<SchedulerRules::CdnLinkageRule> cdnLinkageRule_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
     };
 
@@ -348,8 +387,11 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The traffic scheduling rules.
     shared_ptr<vector<DescribeCdnLinkageRulesResponseBody::SchedulerRules>> schedulerRules_ {};
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

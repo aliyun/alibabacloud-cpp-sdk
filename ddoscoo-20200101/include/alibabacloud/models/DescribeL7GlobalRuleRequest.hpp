@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The domain name of the website service to operate on.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // The language type for the request and response messages. Valid values:
+    // 
+    // - zh: Chinese.
+    // - en: English.
     shared_ptr<string> lang_ {};
   };
 

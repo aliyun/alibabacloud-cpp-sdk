@@ -73,7 +73,7 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The header of the response.
+      // The custom headers. The value is a string that consists of a JSON object. The JSON object contains the following fields:
       shared_ptr<string> headers_ {};
     };
 
@@ -103,10 +103,11 @@ namespace Models
 
 
   protected:
-    // The information about the custom header.
+    // The custom header information.
     shared_ptr<DescribeHeadersResponseBody::CustomHeader> customHeader_ {};
+    // The request header that can be used to mark the Layer 7 attack. The value is a string that consists of a JSON object. The JSON object contains the following fields:
     shared_ptr<string> embeddedHeaders_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

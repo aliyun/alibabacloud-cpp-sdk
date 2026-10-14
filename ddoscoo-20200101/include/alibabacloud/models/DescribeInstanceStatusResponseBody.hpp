@@ -57,14 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
     shared_ptr<string> instanceId_ {};
-    // The status of the instance. Valid values:
+    // The status of the Anti-DDoS Pro or Anti-DDoS Premium instance. Valid values:
     // 
-    // *   **1**: normal
-    // *   **2**: expired
-    // *   **3**: overdue
-    // *   **4**: released
+    // - **1**: Normal.
     shared_ptr<int32_t> instanceStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The domain name of the website.
+      // The domain name of the website service.
       shared_ptr<string> domain_ {};
-      // The page views.
+      // The number of request matches.
       shared_ptr<int64_t> pv_ {};
-      // The Base64-encoded referer.
+      // The Base64-encoded value of the referer.
       shared_ptr<string> referer_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about top referers.
+    // The top referer data of the website.
     shared_ptr<vector<DescribeDomainTopRefererResponseBody::DomainTopReferer>> domainTopReferer_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

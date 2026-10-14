@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // The log store that is associated with Anti-DDoS Pro and Anti-DDoS Premium.
     shared_ptr<string> logStore_ {};
-    // The Logstore project of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // The log project that is associated with Anti-DDoS Pro and Anti-DDoS Premium.
     shared_ptr<string> project_ {};
     // The available log storage capacity. Unit: bytes.
     shared_ptr<int64_t> quota_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The log storage duration. Unit: days.
+    // The storage duration of logs. Unit: days.
     shared_ptr<int32_t> ttl_ {};
-    // The used log storage capacity. Unit: bytes.
+    // The used storage capacity. Unit: bytes.
     // 
-    // > The statistics on Log Service are delayed for about two hours.
+    // > The statistics from Simple Log Service have a delay of approximately two hours.
     shared_ptr<int64_t> used_ {};
   };
 

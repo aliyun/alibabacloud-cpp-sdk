@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The remaining number of times that you can enable the near-origin traffic diversion feature.
+    // The remaining number of available near-origin traffic diversion sessions.
     shared_ptr<int32_t> remainCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of times that you can enable the near-origin traffic diversion feature.
+    // The total number of available near-origin traffic diversion sessions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

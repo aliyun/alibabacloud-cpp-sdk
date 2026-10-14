@@ -202,9 +202,9 @@ namespace Models
       shared_ptr<int32_t> index_ {};
       // The number of 200 status codes.
       shared_ptr<int64_t> status200_ {};
-      // The number of 2xx status codes.
+      // The number of 2XX status codes.
       shared_ptr<int64_t> status2XX_ {};
-      // The number of 3xx status codes.
+      // The number of 3XX status codes.
       shared_ptr<int64_t> status3XX_ {};
       // The number of 403 status codes.
       shared_ptr<int64_t> status403_ {};
@@ -212,9 +212,11 @@ namespace Models
       shared_ptr<int64_t> status404_ {};
       // The number of 405 status codes.
       shared_ptr<int64_t> status405_ {};
+      // The number of 410 status codes.
       shared_ptr<int64_t> status410_ {};
+      // The number of 499 status codes.
       shared_ptr<int64_t> status499_ {};
-      // The number of 4xx status codes.
+      // The number of 4XX status codes.
       shared_ptr<int64_t> status4XX_ {};
       // The number of 501 status codes.
       shared_ptr<int64_t> status501_ {};
@@ -224,9 +226,9 @@ namespace Models
       shared_ptr<int64_t> status503_ {};
       // The number of 504 status codes.
       shared_ptr<int64_t> status504_ {};
-      // The number of 5xx status codes.
+      // The number of 5XX status codes.
       shared_ptr<int64_t> status5XX_ {};
-      // The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+      // The time of the statistic. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> time_ {};
     };
 
@@ -251,7 +253,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The statistics on response status codes.
+    // The statistics information on response status codes.
     shared_ptr<vector<DescribeDomainStatusCodeListResponseBody::StatusCodeList>> statusCodeList_ {};
   };
 

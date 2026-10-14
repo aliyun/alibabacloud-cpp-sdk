@@ -51,8 +51,13 @@ namespace Models
 
 
   protected:
+    // The domain names of the websites. You can specify up to five domain names.
+    // 
+    // > A website forwarding rule must be configured for the domain name. Call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domains_ {};
+    // The ID of the resource group to which the Anti-DDoS Pro instance belongs in Resource Management. If you do not specify this parameter, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

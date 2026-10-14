@@ -79,8 +79,15 @@ namespace Models
 
 
     protected:
+      // The reused canonical name value.
       shared_ptr<string> cname_ {};
+      // The domain name of the website.
       shared_ptr<string> domain_ {};
+      // Indicates whether CNAME reuse is enabled. Valid values:
+      // 
+      // - **0**: disabled
+      // 
+      // - **1**: enabled
       shared_ptr<int32_t> enable_ {};
     };
 
@@ -103,7 +110,9 @@ namespace Models
 
 
   protected:
+    // The CNAME reuse information.
     shared_ptr<vector<DescribeCnameReusesResponseBody::CnameReuses>> cnameReuses_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

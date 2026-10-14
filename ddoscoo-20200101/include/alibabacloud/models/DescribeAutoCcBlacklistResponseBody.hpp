@@ -90,16 +90,17 @@ namespace Models
 
 
     protected:
-      // The IP address of the instance.
+      // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> destIp_ {};
-      // The validity period of the IP address in the blacklist. The value is a UNIX timestamp. Unit: seconds.
+      // The expiration time of the blacklisted IP address. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The IP address in the blacklist.
+      // The blacklisted IP address.
       shared_ptr<string> sourceIp_ {};
-      // The mode of how the IP address is added to the blacklist. Valid values:
+      // The source of the blacklisted IP address. Valid values:
       // 
-      // *   **manual**: manually added
-      // *   **auto**: automatically added
+      // - **manual**: The IP address is manually added.
+      // 
+      // - **auto**: The IP address is automatically added.
       shared_ptr<string> type_ {};
     };
 
@@ -129,11 +130,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details of the IP addresses in the blacklist of the instance.
+    // The list of blacklisted IP addresses for the Anti-DDoS Pro or Anti-DDoS Premium instance.
     shared_ptr<vector<DescribeAutoCcBlacklistResponseBody::AutoCcBlacklist>> autoCcBlacklist_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of returned IP addresses in the blacklist.
+    // The total number of blacklisted IP addresses.
     shared_ptr<int64_t> totalCount_ {};
   };
 

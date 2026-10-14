@@ -208,40 +208,47 @@ namespace Models
 
 
     protected:
-      // The bandwidth of attack traffic. Unit: bit/s.
+      // The attack bandwidth. Unit: bit/s.
       shared_ptr<int64_t> attackBps_ {};
-      // The packet forwarding rate of attack traffic. Unit: pps.
+      // The attack packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> attackPps_ {};
       // The inbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> inBps_ {};
-      // The packet forwarding rate of inbound traffic. Unit: packets per second.
+      // The inbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> inPps_ {};
       // The index number of the returned data.
       shared_ptr<int64_t> index_ {};
       // The outbound bandwidth. Unit: bit/s.
       shared_ptr<int64_t> outBps_ {};
-      // The packet forwarding rate of outbound traffic. Unit: packets per second (pps).
+      // The outbound packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> outPps_ {};
-      // The source region of the traffic. Valid values:
+      // The source location of the access traffic. Valid values:
+      // - **cn**: the Chinese mainland.
+      // - **alb-ap-northeast-1-gf-x**: Japan.
+      // - **alb-ap-southeast-gf-x**: Singapore.
+      // - **alb-cn-hongkong-gf-x**: Hong Kong (China).
+      // - **alb-eu-central-1-gf-x**: Germany.
+      // - **alb-us-west-1-gf-x**: US West.
       // 
-      // *   **cn**: mainland China
-      // *   **alb-ap-northeast-1-gf-x**: Japan (Tokyo)
-      // *   **alb-ap-southeast-gf-x**: Singapore
-      // *   **alb-cn-hongkong-gf-x**: Hong Kong (China)
-      // *   **alb-eu-central-1-gf-x**: Germany (Frankfurt)
-      // *   **alb-us-west-1-gf-x**: US (Silicon Valley)
-      // 
-      // > The values except **cn** are returned only when **RegionId** is set to **ap-southeast-1**.
+      // > Values other than **cn** are available only for Anti-DDoS Pro and Anti-DDoS Premium (**RegionId** is **ap-southeast-1**).
       shared_ptr<string> region_ {};
+      // The destination bandwidth rate limiting. Unit: bit/s.
       shared_ptr<int64_t> slaBpsDropBps_ {};
+      // The destination bandwidth packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> slaBpsDropPps_ {};
+      // The destination concurrent connections rate limiting. Unit: bit/s.
       shared_ptr<int64_t> slaConnDropBps_ {};
+      // The destination concurrent connections packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> slaConnDropPps_ {};
+      // The destination new connections rate limiting. Unit: bit/s.
       shared_ptr<int64_t> slaCpsDropBps_ {};
+      // The destination new connections packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> slaCpsDropPps_ {};
+      // The destination packets rate limiting. Unit: bit/s.
       shared_ptr<int64_t> slaPpsDropBps_ {};
+      // The destination packets packet forwarding rate. Unit: pps.
       shared_ptr<int64_t> slaPpsDropPps_ {};
-      // The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+      // The statistics time. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> time_ {};
     };
 
@@ -264,7 +271,7 @@ namespace Models
 
 
   protected:
-    // The returned traffic data.
+    // The traffic data.
     shared_ptr<vector<DescribePortFlowListResponseBody::PortFlowList>> portFlowList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

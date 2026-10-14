@@ -48,17 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
-    // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The metering method of the burstable clean bandwidth feature. Valid values:
-    // 
-    // *   **month**: the metering method of monthly 95th percentile
-    // *   **day**: the metering method of daily 95th percentile
-    // 
     // This parameter is required.
     shared_ptr<string> mode_ {};
   };

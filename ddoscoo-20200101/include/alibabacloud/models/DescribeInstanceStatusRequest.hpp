@@ -48,16 +48,17 @@ namespace Models
 
 
   protected:
-    // The ID of the Anti-DDoS Proxy instance to query.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance that you want to query.
     // 
-    // >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy (Chinese Mainland) or Anti-DDoS Proxy (Outside Chinese Mainland) instances.
+    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy (Chinese Mainland) or Anti-DDoS Proxy (Outside Chinese Mainland) instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The type of the Anti-DDoS Proxy instance to query. Valid values:
+    // The type of the Anti-DDoS Pro or Anti-DDoS Premium instance that you want to query. Valid values:
     // 
-    // *   **1**: an Anti-DDoS Proxy (Chinese Mainland) instance
-    // *   **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance
+    // - **1**: an Anti-DDoS Proxy (Chinese Mainland) instance.
+    // 
+    // - **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
     // 
     // This parameter is required.
     shared_ptr<int32_t> productType_ {};

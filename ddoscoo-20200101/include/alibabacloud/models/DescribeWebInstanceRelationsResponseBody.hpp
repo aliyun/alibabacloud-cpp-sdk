@@ -102,14 +102,13 @@ namespace Models
 
 
       protected:
-        // The IP addresses of the instance.
+        // The list of IP addresses of the Anti-DDoS Pro or Anti-DDoS Premium instance.
         shared_ptr<vector<string>> eipList_ {};
-        // The function plan of the instance. Valid values:
-        // 
-        // *   **default**: Standard function plan
-        // *   **enhance**: Enhanced function plan
+        // The function plan type. Valid values:
+        // - **default**: Standard function.
+        // - **enhance**: Enhanced function.
         shared_ptr<string> functionVersion_ {};
-        // The ID of the instance.
+        // The Anti-DDoS Pro or Anti-DDoS Premium instance ID.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -134,7 +133,7 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The information about the instance to which a website service is added.
+      // The information about the associated Anti-DDoS Pro or Anti-DDoS Premium instances.
       shared_ptr<vector<WebInstanceRelations::InstanceDetails>> instanceDetails_ {};
     };
 
@@ -159,7 +158,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the instances to which a website service is added.
+    // The information about Anti-DDoS Pro or Anti-DDoS Premium instances associated with website services.
     shared_ptr<vector<DescribeWebInstanceRelationsResponseBody::WebInstanceRelations>> webInstanceRelations_ {};
   };
 

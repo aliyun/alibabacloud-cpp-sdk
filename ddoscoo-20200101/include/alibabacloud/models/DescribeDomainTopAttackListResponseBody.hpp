@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The attack QPS. Unit: QPS
+      // The attack QPS. Unit: QPS.
       shared_ptr<int64_t> attack_ {};
-      // The number of all QPS, which includes normal and attack QPS. Unit: QPS.
+      // The total QPS, including normal service requests and attacks. Unit: QPS.
       shared_ptr<int64_t> count_ {};
-      // The domain name of the website.
+      // The website domain name.
       shared_ptr<string> domain_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The peak QPS of the website.
+    // The peak QPS data of website services.
     shared_ptr<vector<DescribeDomainTopAttackListResponseBody::AttackList>> attackList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

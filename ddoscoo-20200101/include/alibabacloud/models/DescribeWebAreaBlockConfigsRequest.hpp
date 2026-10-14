@@ -51,13 +51,13 @@ namespace Models
 
 
   protected:
-    // The domain name of the website.
+    // The domain names of the website services.
     // 
-    // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // > The domain names must have forwarding rules configured for website services. You can call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> domains_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The resource group ID of the Anti-DDoS Proxy instance in Resource Management. The default value is empty, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

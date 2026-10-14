@@ -118,49 +118,59 @@ namespace Models
 
 
     protected:
-      // The end time of the task. This value is a UNIX timestamp. Unit: milliseconds.
+      // The end time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The start time of the task. The value is a UNIX timestamp. Unit: milliseconds.
+      // The start time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The ID of the job.
+      // The ID of the task.
       shared_ptr<int64_t> taskId_ {};
-      // The task parameter. The value is a JSON string. The returned field in the value varies based on the value of **TaskType**.
+      // The task parameters. This value is a string in the JSON format. Different **TaskType** values have different task parameters.
       // 
-      // If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following filed is returned:
+      // When **TaskType** is **1**, **3**, **4**, **5**, or **6**, the task parameters have the following structure:
       // 
-      // *   **instanceId**: the ID of the instance. Data type: string.
+      // - **instanceId**: the ID of the Anti-DDoS instance. The type is String.
       // 
-      // If **TaskType** is set to **2**, the following field is returned:
+      // When **TaskType** is **2**, the task parameters have the following structure:
       // 
-      // *   **domain**: the domain name of the website. Data type: string.
+      // - **domain**: the domain name of the website. The type is String.
       shared_ptr<string> taskParams_ {};
-      // The execution result of the task. The value is a JSON string. The returned fields in the value vary based on the value of **TaskType**.
+      // The task result. This value is a string in the JSON format. Different **TaskType** values have different task results.
       // 
-      // If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following fields are returned:
+      // When **TaskType** is **1**, **3**, **4**, **5**, or **6**, the task result has the following structure:
       // 
-      // *   **instanceId**: the ID of the instance. Data type: string.
-      // *   **url**: the URL to download the exported file from Object Storage Service (OSS). Data type: string.
+      // - **instanceId**: the ID of the Anti-DDoS instance. The type is String.
       // 
-      // If **TaskType** is set to **2**, the following fields are returned:
+      // - **url**: the OSS download URL of the exported file. The type is String.
       // 
-      // *   **domain**: the domain name of the website. Data type: string.
-      // *   **url**: the URL to download the exported file from OSS. Data type: string.
+      // When **TaskType** is **2**, the task result has the following structure:
+      // 
+      // - **domain**: the domain name of the website. The type is String.
+      // 
+      // - **url**: the OSS download URL of the exported file. The type is String.
       shared_ptr<string> taskResult_ {};
       // The status of the task. Valid values:
       // 
-      // *   **0**: indicates that the task is being initialized.
-      // *   **1**: indicates that the task is in progress.
-      // *   **2**: indicates that the task is successful.
-      // *   **3**: indicates that the task failed.
+      // - **0**: indicates that the task is initialized.
+      // 
+      // - **1**: indicates that the task is in progress.
+      // 
+      // - **2**: indicates that the task is successful.
+      // 
+      // - **3**: indicates that the task failed.
       shared_ptr<int32_t> taskStatus_ {};
       // The type of the task. Valid values:
       // 
-      // *   **1**: the task to export the port forwarding rules of an instance
-      // *   **2**: the task to export the forwarding rules of a website protected by an instance
-      // *   **3**: the task to export the sessions and health check settings of an instance
-      // *   **4**: the task to export the mitigation policies of an instance
-      // *   **5**: the task to download the blacklist for destination IP addresses of an instance
-      // *   **6**: the task to download the whitelist for destination IP addresses of an instance
+      // - **1**: Layer 4 export task, which indicates exporting port forwarding rules of the Anti-DDoS instance.
+      // 
+      // - **2**: Layer 7 export task, which indicates exporting website forwarding rules.
+      // 
+      // - **3**: Session and health check export task, which indicates exporting session and health check configuration of the Anti-DDoS instance.
+      // 
+      // - **4**: DDoS mitigation policies export task, which indicates exporting DDoS mitigation policies configuration of the Anti-DDoS instance.
+      // 
+      // - **5**: Blacklist (for destination IP addresses) download task, which indicates exporting blacklist IP addresses for the Anti-DDoS instance.
+      // 
+      // - **6**: Whitelist (for destination IP addresses) download task, which indicates exporting whitelist IP addresses for the Anti-DDoS instance.
       shared_ptr<int32_t> taskType_ {};
     };
 
@@ -190,11 +200,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of the details of the asynchronous export tasks.
+    // The detailed information about the asynchronous export tasks.
     shared_ptr<vector<DescribeAsyncTasksResponseBody::AsyncTasks>> asyncTasks_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The ID of this request, which is generated by Alibaba Cloud as a unique identifier for this request. You can use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // The total number of asynchronous export tasks that are returned.
+    // The total number of asynchronous export tasks that are queried.
     shared_ptr<int32_t> totalCount_ {};
   };
 

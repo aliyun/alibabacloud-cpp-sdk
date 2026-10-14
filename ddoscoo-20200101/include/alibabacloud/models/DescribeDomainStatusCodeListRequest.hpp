@@ -84,30 +84,29 @@ namespace Models
 
 
   protected:
-    // The domain name of the website. If you do not specify this parameter, the statistics on response status codes of all domain names are queried.
+    // The domain name of the website service.
     // 
-    // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // > You can invoke [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query the domain names of all website services that are added to Anti-DDoS Pro or Anti-DDoS Premium.
     shared_ptr<string> domain_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // The end of the time range to query. Specify a UNIX timestamp. Unit: seconds.
+    // > The value must be on the exact minute.
     shared_ptr<int64_t> endTime_ {};
-    // The interval for returning data. Unit: seconds.
+    // The time interval between consecutive data entries returned. Unit: seconds. This parameter specifies how frequently a query result is returned.
     // 
     // This parameter is required.
     shared_ptr<int64_t> interval_ {};
-    // The source of the statistics. Valid values:
-    // 
-    // *   **gf**: Anti-DDoS Pro or Anti-DDoS Premium
-    // *   **upstrem**: origin server
+    // The source of the query data. Valid values:
+    // - **gf**: Anti-DDoS Pro or Anti-DDoS Premium response data.
+    // - **upstream**: origin server response data.
     // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-    shared_ptr<string> resourceGroupId_ {};
-    // The start time of the event. The value is a UNIX timestamp. Unit: seconds.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management. By default, this parameter is empty, which indicates that the instance belongs to the default resource group.
     // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // For more information about resource groups, refer to [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+    shared_ptr<string> resourceGroupId_ {};
+    // The beginning of the time range to query. Specify a UNIX timestamp. Unit: seconds.
+    // > The value must be on the exact minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

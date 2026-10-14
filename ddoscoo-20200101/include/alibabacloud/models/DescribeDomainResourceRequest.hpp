@@ -78,18 +78,19 @@ namespace Models
 
 
   protected:
-    // The domain name of the website that you want to query.
+    // The domain name to query.
     shared_ptr<string> domain_ {};
-    // An array that consists of the IDs of instances to query.
+    // The IDs of the Anti-DDoS Pro instances to query.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The page number. Default value: **1**.
+    // The number of the page to return. The default value is **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of forwarding rules per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The match mode. Valid values:
+    // The matching pattern for the query. Valid values:
     // 
-    // *   **fuzzy**: fuzzy match. This is the default value.
-    // *   **exact**: exact match.
+    // - **fuzzy** (default): Specifies a fuzzy search.
+    // 
+    // - **exact**: Specifies an exact match.
     shared_ptr<string> queryDomainPattern_ {};
   };
 

@@ -71,17 +71,17 @@ namespace Models
 
 
   protected:
-    // The IP addresses and CIDR blocks in the blacklist. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
+    // The list of IP addresses or address segments to add to the blacklist. You can add up to 200 IP addresses or address segments.
     shared_ptr<vector<string>> blackList_ {};
     // The domain name of the website.
     // 
-    // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // > A website forwarding rule must be configured for the domain name. Call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group in Resource Management to which the Anti-DDoS instance belongs. If you leave this parameter empty, the instance is added to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The IP addresses and CIDR blocks in the whitelist. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
+    // The IP addresses or CIDR blocks for the whitelist. You can add up to 200 IP addresses or CIDR blocks.
     shared_ptr<vector<string>> whiteList_ {};
   };
 

@@ -66,19 +66,21 @@ namespace Models
 
 
   protected:
-    // The domain name of the website.
+    // The domain name of the website to query. If you leave this parameter unspecified, the statistics on all domain names are queried.
     // 
-    // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // > The domain name must be protected by Anti-DDoS Proxy. You can call [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) to query all domain names that are protected by Anti-DDoS Proxy.
     shared_ptr<string> domain_ {};
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a timestamp. Unit: seconds.
     // 
     // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // 
+    // For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp. Unit: seconds.
     // 
     // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
     // 

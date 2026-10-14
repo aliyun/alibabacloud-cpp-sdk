@@ -81,9 +81,9 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The fingerprint of the client.
+      // The client fingerprint.
       shared_ptr<string> fingerprinting_ {};
-      // The page views.
+      // The number of request matches.
       shared_ptr<int64_t> pv_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about the fingerprints of the clients.
+    // The list of client fingerprints for the website.
     shared_ptr<vector<DescribeDomainTopFingerprintResponseBody::DomainTopFp>> domainTopFp_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

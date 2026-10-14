@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The maximum number of connections per second (CPS).
+      // The maximum number of connections per second.
       shared_ptr<int64_t> cps_ {};
-      // The IP address of the instance.
+      // The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> ip_ {};
-      // The port of the instance.
+      // The port of the Anti-DDoS Pro or Anti-DDoS Premium instance.
       shared_ptr<string> port_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // The details of the maximum number of connections that can be established over a port of the instance.
+    // The peak connection information of ports on the Anti-DDoS Pro or Anti-DDoS Premium instance.
     shared_ptr<vector<DescribePortMaxConnsResponseBody::PortMaxConns>> portMaxConns_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

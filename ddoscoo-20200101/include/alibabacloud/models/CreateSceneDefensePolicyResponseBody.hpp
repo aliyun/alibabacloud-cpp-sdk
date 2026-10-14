@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: yes
-    // *   **false**: no
+    // Indicates whether the policy is created. Valid values:
+    // - **true**: The policy is created.
+    // - **false**: The policy failed to be created.
     shared_ptr<bool> success_ {};
   };
 

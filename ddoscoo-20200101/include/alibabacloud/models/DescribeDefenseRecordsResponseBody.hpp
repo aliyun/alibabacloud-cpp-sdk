@@ -108,20 +108,21 @@ namespace Models
 
 
     protected:
-      // The peak attack traffic. Unit: bit/s.
+      // The peak attack throughput. Unit: bps.
       shared_ptr<int64_t> attackPeak_ {};
-      // The end time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+      // The end time of the mitigation. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The number of attacks.
       shared_ptr<int32_t> eventCount_ {};
-      // The ID of the instance.
+      // The ID of the Anti-DDoS instance.
       shared_ptr<string> instanceId_ {};
-      // The start time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+      // The start time of the mitigation. This is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the advanced mitigation session. Valid values:
+      // The status of advanced mitigation. Valid values:
       // 
-      // *   **0**: The advanced mitigation session is being used.
-      // *   **1**: The advanced mitigation session is used.
+      // - **0**: in use
+      // 
+      // - **1**: ended
       shared_ptr<int32_t> status_ {};
     };
 
@@ -151,11 +152,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of details of the log of an advanced mitigation session.
+    // The advanced mitigation logs.
     shared_ptr<vector<DescribeDefenseRecordsResponseBody::DefenseRecords>> defenseRecords_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of advanced mitigation sessions.
+    // The total number of advanced mitigation records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The total number of requests.
+      // The number of requests.
       shared_ptr<int64_t> count_ {};
-      // The domain name of the website.
+      // The website domain name.
       shared_ptr<string> domain_ {};
-      // The URL that is Base64-encoded.
+      // The URL. The value is Base64-encoded.
       shared_ptr<string> url_ {};
     };
 
@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // An array consisting of the URLs that receive the most requests.
+    // The list of top URLs by access volume for the website service.
     shared_ptr<vector<DescribeDomainViewTopUrlResponseBody::UrlList>> urlList_ {};
   };
 

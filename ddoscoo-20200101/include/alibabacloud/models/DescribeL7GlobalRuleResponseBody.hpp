@@ -106,11 +106,28 @@ namespace Models
 
 
     protected:
+      // The action that the rule performs. Valid values:
+      // 
+      // - **watch**: Monitor.
+      // - **block**: Block.
+      // - **challenge**: JavaScript Challenge.
       shared_ptr<string> action_ {};
+      // The default action of the rule. Valid values:
+      // 
+      // - **watch**: Monitor.
+      // - **block**: Block.
+      // - **challenge**: JavaScript Challenge.
       shared_ptr<string> actionDefault_ {};
+      // The rule description.
       shared_ptr<string> description_ {};
+      // Indicates whether the rule is enabled. Valid values:
+      // 
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int64_t> enabled_ {};
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
+      // The rule name.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -133,7 +150,9 @@ namespace Models
 
 
   protected:
+    // The global template rule information.
     shared_ptr<vector<DescribeL7GlobalRuleResponseBody::GlobalRules>> globalRules_ {};
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

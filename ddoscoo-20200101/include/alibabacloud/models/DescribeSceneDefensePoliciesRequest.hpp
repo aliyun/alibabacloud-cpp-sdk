@@ -57,21 +57,19 @@ namespace Models
 
 
   protected:
-    // The ID of the resource group to which the instance belongs in Resource Management.
+    // The ID of the resource group to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs in Resource Management.
     // 
-    // If you do not configure this parameter, the instance belongs to the default resource group.
+    // If you do not configure this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the policy. Valid values:
-    // 
-    // *   **0**: disabled
-    // *   **1**: pending enabling
-    // *   **2**: enabled
-    // *   **3**: expired
+    // The status of the policy that you want to query. Valid values:
+    // - **0**: disabled.
+    // - **1**: pending activation.
+    // - **2**: active.
+    // - **3**: expired.
     shared_ptr<string> status_ {};
-    // The type of the template that is used to create the policy. Valid values:
-    // 
-    // *   **promotion**: the Important Activity template
-    // *   **bypass**: the Forward All template
+    // The templatetype used by the policy that you want to query. Valid values:
+    // - **promotion**: Important Activity template.
+    // - **bypass**: full forwarding template.
     shared_ptr<string> template_ {};
   };
 

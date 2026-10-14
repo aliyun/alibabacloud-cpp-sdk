@@ -66,14 +66,13 @@ namespace Models
 
 
   protected:
-    // The domain name of the website that you want to add to the Anti-DDoS Proxy instance for protection.
+    // The domain name of the website that is added to Anti-DDoS Pro and Anti-DDoS Premium for protection.
     shared_ptr<string> domain_ {};
-    // The number of entries that you want the system to skip before the system returns entries. Default value: **0**.
+    // The start index, which specifies the position from which the results are displayed. Default value: **0**.
     shared_ptr<string> offset_ {};
-    // The method used to create the rule. Valid values:
-    // 
-    // *   **manual** (default): manually created.
-    // *   **clover**: automatically created.
+    // The source of the rule. Valid values:
+    // - **manual** (default): manually added.
+    // - **clover**: automatically generated.
     shared_ptr<string> owner_ {};
     // The number of entries per page. Maximum value: **20**. Default value: **20**.
     shared_ptr<string> pageSize_ {};

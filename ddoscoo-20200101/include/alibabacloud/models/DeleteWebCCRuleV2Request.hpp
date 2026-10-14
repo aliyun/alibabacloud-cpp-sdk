@@ -59,14 +59,15 @@ namespace Models
   protected:
     // The domain name of the website.
     // 
-    // >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+    // > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     // The source of the rule. Valid values:
     // 
-    // *   **manual** (default): manually created.
-    // *   **clover**: automatically created. Specify this value when you want to delete intelligent protection rules.
+    // - **manual** (default): manually created.
+    // 
+    // - **clover**: automatically created. Specify this value when you want to delete intelligent protection rules.
     shared_ptr<string> owner_ {};
     // The names of the rules that you want to delete.
     shared_ptr<string> ruleNames_ {};

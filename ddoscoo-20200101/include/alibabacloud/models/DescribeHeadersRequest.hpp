@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The domain name that you want to query.
+    // The domain name for which to query custom headers.
     // 
-    // > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+    // > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group in Resource Management to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

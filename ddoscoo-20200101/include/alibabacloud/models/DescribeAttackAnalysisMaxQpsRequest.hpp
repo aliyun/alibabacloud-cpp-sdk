@@ -57,12 +57,12 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. Use the UNIX timestamp format. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<string> ip_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. Use the UNIX timestamp format. Unit: seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

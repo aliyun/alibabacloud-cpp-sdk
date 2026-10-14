@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page. For example, to query the results on the first page, enter **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records displayed on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID of the Anti-DDoS Proxy instance in Resource Management. The default value is empty, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The rule name.
     shared_ptr<string> ruleName_ {};
   };
 

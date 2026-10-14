@@ -152,56 +152,47 @@ namespace Models
 
 
     protected:
-      // The mode of Intelligent Protection. Valid values:
-      // 
-      // *   **watch**: Warning
-      // *   **defense**: Defense
+      // The mode of AI-based intelligent analysis. Valid values:
+      // - **watch**: Warning mode
+      // - **defense**: Defense mode
       shared_ptr<string> aiMode_ {};
-      // The status of Intelligent Protection. Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the AI-based intelligent analysis feature. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> aiRuleEnable_ {};
-      // The level of Intelligent Protection. Valid values:
-      // 
-      // *   **level30**: Loose
-      // *   **level60**: Normal
-      // *   **level90**: Strict
+      // The level of AI-based intelligent analysis. Valid values:
+      // - **level30**: Loose
+      // - **level60**: Normal
+      // - **level90**: Strict
       shared_ptr<string> aiTemplate_ {};
-      // The status of Blacklist/Whitelist (Domain Names). Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the blacklists and whitelists feature for the domain name. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> blackWhiteListEnable_ {};
-      // The status of the Custom Rules switch for Frequency Control. Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the custom frequency control (HTTP flood mitigation) feature. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> ccCustomRuleEnable_ {};
-      // The status of Frequency Control. Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the frequency control (HTTP flood mitigation) feature. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> ccEnable_ {};
       shared_ptr<string> ccGlobalSwitch_ {};
-      // The mode of Frequency Control. Valid values:
-      // 
-      // *   **default**: Normal
-      // *   **gf_under_attack**: Emergency
-      // *   **gf_sos_verify**: Strict
-      // *   **gf_sos_enhance**: Super Strict
+      // The mode of frequency control (HTTP flood mitigation). Valid values:
+      // - **default**: Normal
+      // - **gf_under_attack**: Emergency
+      // - **gf_sos_verify**: Strict
+      // - **gf_sos_enhance**: Super Strict
       shared_ptr<string> ccTemplate_ {};
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The status of Accurate Access Control. Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the accurate access control feature. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> preciseRuleEnable_ {};
-      // The status of Location Blacklist (Domain Names). Valid values:
-      // 
-      // *   **0**: turned off
-      // *   **1:** turned on
+      // The status of the location blacklist feature for the domain name. Valid values:
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> regionBlockEnable_ {};
     };
 
@@ -224,9 +215,9 @@ namespace Models
 
 
   protected:
-    // The status of each mitigation policy for the website.
+    // The status of protection features for website services.
     shared_ptr<vector<DescribeWebCcProtectSwitchResponseBody::ProtectSwitchList>> protectSwitchList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,26 +75,27 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end of the query time range, specified as a UNIX timestamp in seconds.
     // 
-    // >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The timestamp must be the start of a minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The sampling interval. Unit: seconds. The value must be a multiple of 60. Default value: 60. Unit: seconds. The query result varies depending on the sampling interval.
+    // The sampling interval, in seconds. The value must be a multiple of 60. The default value is 60.
     shared_ptr<string> interval_ {};
-    // The IP address of the Anti-DDoS Proxy instance to query.
+    // The IP address of the Anti-DDoS instance to query.
     shared_ptr<string> ip_ {};
-    // The type of the service. Valid values:
+    // The service region. Valid values:
     // 
-    // *   **cn**: Anti-DDoS Proxy (Chinese Mainland)
-    // *   **cn-hongkong**: Anti-DDoS Proxy (Outside Chinese Mainland)
+    // - **cn**: Chinese mainland.
+    // 
+    // - **cn-hongkong**: Outside Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The start of the query time range, specified as a UNIX timestamp in seconds.
     // 
-    // >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The timestamp must be the start of a minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The type of the object. Set the value to **Domain**, which indicates a domain name.
+    // The object type. Set the value to **Domain**, which indicates a domain name.
     // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
-    // The object that you want to add to the policy. Separate multiple objects with commas (,).
+    // The protected objects to add. Separate multiple objects with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> objects_ {};
-    // The ID of the policy.
+    // The policy ID.
     // 
-    // > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+    // > You can call [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) to query all policy IDs.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};

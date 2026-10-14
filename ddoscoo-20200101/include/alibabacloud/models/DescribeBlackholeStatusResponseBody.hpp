@@ -88,16 +88,17 @@ namespace Models
 
 
     protected:
-      // Indicates whether blackhole filtering is triggered for the instance. Valid values:
+      // The blackhole filtering status. Valid values:
       // 
-      // *   **blackhole**: yes
-      // *   **normal**: no
+      // - **blackhole**: Black Hole Activated
+      // 
+      // - **normal**: Normal
       shared_ptr<string> blackStatus_ {};
-      // The end time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+      // The end time of blackhole filtering. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The IP address of the instance.
+      // The IP address of the Anti-DDoS Proxy instance.
       shared_ptr<string> ip_ {};
-      // The start time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+      // The start time of blackhole filtering. This value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -120,7 +121,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the blackhole filtering status of the instance.
+    // The blackhole filtering status information of the Anti-DDoS Pro or Anti-DDoS Premium instance.
     shared_ptr<vector<DescribeBlackholeStatusResponseBody::BlackholeStatus>> blackholeStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

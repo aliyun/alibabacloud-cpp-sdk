@@ -153,14 +153,15 @@ namespace Models
         shared_ptr<int32_t> maxFails_ {};
         // The primary/secondary flag. Valid values:
         // 
-        // *   **active**: primary
-        // *   **backup**: secondary
+        // - **active**: primary
+        // 
+        // - **backup**: secondary
         shared_ptr<string> mode_ {};
         // The timeout period for a read connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
         shared_ptr<int32_t> readTimeout_ {};
         // The timeout period for a write connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
         shared_ptr<int32_t> sendTimeout_ {};
-        // The weight of the origin server. This parameter takes effect only if the value of **ProxyMode** is **rr** or **ip_hash**.****
+        // The weight of the origin server. This parameter takes effect only if the value of **ProxyMode** is **rr** or **ip_hash**.\\*\\*\\*\\*
         // 
         // Valid values: **1** to **100**. Default value: **100**. A server with a higher weight receives more requests.
         shared_ptr<int32_t> weight_ {};
@@ -198,8 +199,9 @@ namespace Models
       shared_ptr<string> realServer_ {};
       // The address type of the origin server. Valid values:
       // 
-      // *   **0**: IP address
-      // *   **1**: domain name
+      // - **0**: IP address
+      // 
+      // - **1**: domain name
       shared_ptr<int32_t> rsType_ {};
     };
 
@@ -247,9 +249,11 @@ namespace Models
     shared_ptr<vector<DescribeL7RsPolicyResponseBody::Attributes>> attributes_ {};
     // The scheduling algorithm for back-to-origin traffic. Valid values:
     // 
-    // *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
-    // *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
-    // *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
+    // - **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
+    // 
+    // - **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
+    // 
+    // - **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
     shared_ptr<string> proxyMode_ {};
     // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
@@ -257,8 +261,9 @@ namespace Models
     shared_ptr<int64_t> rsAttrRwTimeoutMax_ {};
     // The back-to-origin retry switch. Valid values:
     // 
-    // *   **1**: on
-    // *   **0**: off
+    // - **1**: on
+    // 
+    // - **0**: off
     shared_ptr<int32_t> upstreamRetry_ {};
   };
 

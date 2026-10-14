@@ -89,28 +89,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the specified resource. Valid values:
+    // Specifies whether to remove all tags from the resource. Valid values:
     // 
-    // *   **true**: yes.
-    // *   **false** no. This is the default value.
+    // - **true**
+    // 
+    // - **false** (default)
     shared_ptr<bool> all_ {};
-    // The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
+    // The region ID of the Anti-DDoS instance. The value is fixed to **cn-hangzhou**, which indicates the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management.
+    // The ID of the resource group to which the Anti-DDoS instance belongs in Resource Management.
     // 
-    // If you do not configure this parameter, the instance belongs to the default resource group.
+    // If you do not set this parameter, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // An array consisting of the IDs of instances from which you want to remove tags.
+    // A list of IDs of the Anti-DDoS instances from which you want to remove tags.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+    // The resource type. The value is fixed to **INSTANCE**, which indicates an Anti-DDoS instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // An array consisting of the keys of the tags that you want to remove.
+    // A list of tag keys to remove.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

@@ -88,14 +88,14 @@ namespace Models
 
     protected:
       shared_ptr<int64_t> dsKeepaliveTimeout_ {};
-      // Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
+      // Indicates whether back-to-origin persistent connections are enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> enabled_ {};
-      // The number of requests that reuse persistent connections.
+      // The number of requests that can reuse a persistent connection.
       shared_ptr<int64_t> keepaliveRequests_ {};
-      // The timeout period of idle persistent connections.
+      // The idle timeout period of a persistent connection.
       shared_ptr<int64_t> keepaliveTimeout_ {};
     };
 
@@ -118,9 +118,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The value of the Back-to-origin Persistent Connections parameter.
+    // The configured back-to-origin persistent connection parameters.
     shared_ptr<DescribeL7UsKeepaliveResponseBody::RsKeepalive> rsKeepalive_ {};
   };
 

@@ -81,9 +81,9 @@ namespace Models
     protected:
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The HTTP method.
+      // The HTTP method of the domain name.
       shared_ptr<string> httpMethod_ {};
-      // The page views.
+      // The number of matching requests.
       shared_ptr<int64_t> pv_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about top HTTP methods.
+    // The list of top HTTP methods for the domain name.
     shared_ptr<vector<DescribeDomainTopHttpMethodResponseBody::DomainTopMethod>> domainTopMethod_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

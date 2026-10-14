@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // An array that consists of the available burstable protection bandwidths. Unit: Gbit/s.
+    // The list of available burstable protection bandwidth specifications. Unit: Gbit/s.
     shared_ptr<vector<string>> elasticBandwidthSpec_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

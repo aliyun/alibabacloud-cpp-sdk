@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
     // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The timestamp must be on the minute.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the instance.
+    // The IDs of the Anti-DDoS Pro or Anti-DDoS Premium instances.
     // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+    // > Call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Pro and Anti-DDoS Premium instances.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+    // The number of the page to return. For example, to query the first page, set this parameter to **1**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
@@ -105,11 +105,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group in Resource Management to which the Anti-DDoS Pro or Anti-DDoS Premium instance belongs. By default, this parameter is empty, which means that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+    // The beginning of the time range to query. This is a UNIX timestamp. Unit: seconds.
     // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // > The timestamp must be on the minute.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

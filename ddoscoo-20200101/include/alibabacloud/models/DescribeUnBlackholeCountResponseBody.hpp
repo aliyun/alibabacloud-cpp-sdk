@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The remaining quota that you can deactivate blackhole filtering.
+    // The remaining number of times that blackhole filtering can be deactivated.
     shared_ptr<int32_t> remainCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total quota that you can deactivate blackhole filtering.
+    // The total number of times that blackhole filtering can be deactivated.
     shared_ptr<int32_t> totalCount_ {};
   };
 

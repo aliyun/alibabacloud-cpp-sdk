@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The peak bandwidth of attack traffic. Unit: bit/s.
     shared_ptr<int64_t> bps_ {};
-    // The peak packet rate of attack traffic. Unit: packets per second (pps).
     shared_ptr<int64_t> pps_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

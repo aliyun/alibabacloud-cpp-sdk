@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The domain name for which the forwarding rule is configured.
+    // The domain name corresponding to the website business forwarding rule to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};

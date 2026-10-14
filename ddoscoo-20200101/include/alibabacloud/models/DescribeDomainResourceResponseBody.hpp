@@ -141,14 +141,17 @@ namespace Models
 
 
       protected:
-        // The port numbers.
+        // The array of ports associated with the protocol.
         shared_ptr<vector<string>> proxyPorts_ {};
-        // The type of the protocol. Valid values:
+        // The proxy protocol. Valid values:
         // 
-        // *   **http**
-        // *   **https**
-        // *   **websocket**
-        // *   **websockets**
+        // - **http**: HTTP
+        // 
+        // - **https**: HTTPS
+        // 
+        // - **websocket**: WebSocket
+        // 
+        // - **websockets**: WebSockets
         shared_ptr<string> proxyType_ {};
       };
 
@@ -346,111 +349,135 @@ namespace Models
 
 
     protected:
-      // The IP addresses that are included in the blacklist of the domain name.
+      // An array of IP addresses on the blocklist for the domain.
       shared_ptr<vector<string>> blackList_ {};
-      // Indicates whether Frequency Control is enabled. Valid values:
+      // Whether CC protection is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> ccEnabled_ {};
-      // Indicates whether the Custom Rules switch of Frequency Control is turned on. Valid values:
+      // Whether custom CC protection rules are enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> ccRuleEnabled_ {};
-      // The mode of Frequency Control. Valid values:
+      // The CC protection mode. Valid values:
       // 
-      // *   **default**: the Normal mode
-      // *   **gf_under_attack**: the Emergency mode
-      // *   **gf_sos_verify**: the Strict mode
-      // *   **gf_sos_verify**: the Super Strict mode
+      // - **default**: normal mode
+      // 
+      // - **gf_under_attack**: Emergency mode
+      // 
+      // - **gf_sos_verify**: Strict mode
+      // 
+      // - **gf_sos_enhance**: Super Strict mode
       shared_ptr<string> ccTemplate_ {};
-      // The name of the SSL certificate used by the domain name.
+      // The name of the SSL certificate used by the domain.
       shared_ptr<string> certName_ {};
-      // The CNAME provided by the instance to which the domain name is added.
+      // The CNAME assigned to the domain by Anti-DDoS Pro.
       shared_ptr<string> cname_ {};
-      // The custom cipher suites.
+      // An array of custom cipher suites.
       shared_ptr<vector<string>> customCiphers_ {};
-      // The domain name of the website.
+      // The domain name.
       shared_ptr<string> domain_ {};
-      // Indicates whether Enable HTTP/2 is turned on. Valid values:
+      // Whether HTTP/2 is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> http2Enable_ {};
-      // Indicates whether Enable HTTPS Redirection is turned on. Valid values:
+      // Whether forced HTTPS redirect is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> http2HttpsEnable_ {};
-      // Indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Valid values:
+      // Whether HTTP back-to-source is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> https2HttpEnable_ {};
-      // The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+      // The advanced HTTPS settings, formatted as a JSON string. These settings apply only when the domain uses HTTPS (the `ProxyType` value includes `https`). The string contains the following fields:
       // 
-      // *   **Http2https**: indicates whether Enable HTTPS Redirection is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTPS Redirection is turned on. The value 1 indicates that Enable HTTPS Redirection is turned off.
-      // *   **Https2http**: indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that the feature is turned on. The value 1 indicates that the feature is turned off.
-      // *   **Http2**: indicates whether Enable HTTP/2 is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on.
+      // - **Http2https**: integer. Specifies whether to enable forced HTTPS redirect. Valid values: **0** (disabled) and **1** (enabled).
+      // 
+      // - **Https2http**: integer. Specifies whether to enable HTTP back-to-source. Valid values: **0** (disabled) and **1** (enabled).
+      // 
+      // - **Http2**: integer. Specifies whether to enable HTTP/2. Valid values: **0** (disabled) and **1** (enabled).
       shared_ptr<string> httpsExt_ {};
-      // The IDs of the instances to which the domain name is added.
+      // An array of IDs for the Anti-DDoS Pro instances associated with the domain.
       shared_ptr<vector<string>> instanceIds_ {};
-      // Indicates whether the Online Certificate Status Protocol (OCSP) feature is turned on. Valid values:
+      // Whether Online Certificate Status Protocol (OCSP) is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> ocspEnabled_ {};
-      // The scheduling algorithm for back-to-origin traffic. Valid values:
+      // The back-to-source load balancing algorithm. This algorithm determines how traffic is distributed to origin servers. Valid values:
       // 
-      // *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
-      // *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
-      // *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from the instance to origin servers based on the intelligent DNS resolution feature.
+      // - **ip_hash**: IP Hash. This algorithm hashes the source IP address and routes all requests from the same IP address to the same origin server.
+      // 
+      // - **rr**: Round Robin. This algorithm distributes requests across origin servers in turn.
+      // 
+      // - **least_time**: Least Time. This algorithm uses intelligent DNS resolution to minimize end-to-end latency from the protection node to the origin server.
       shared_ptr<string> policyMode_ {};
-      // Indicates whether the instance forwards the traffic that is destined for the website. Valid values:
+      // Whether Anti-DDoS Pro forwards traffic for the domain. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Forwarding is enabled.
+      // 
+      // - **false**: Forwarding is disabled.
       shared_ptr<bool> proxyEnabled_ {};
-      // The details about the protocol type and port number.
+      // An array of proxy configurations for the domain, each specifying a protocol and its associated ports.
       shared_ptr<vector<WebRules::ProxyTypes>> proxyTypes_ {};
-      // The reason why the domain name is invalid. Valid values:
+      // The reason the domain is penalized. Valid values:
       // 
-      // *   **1**: No Content Provider (ICP) filing is completed for the domain name.
-      // *   **2**: The business for which you registered the domain name does not meet regulatory requirements.
+      // - **1**: The domain does not have an ICP filing.
       // 
-      // If the two reasons are both involved, the value **2** is returned.
+      // - **2**: The business hosted on the domain does not meet regulatory requirements.
+      // 
+      // If both reasons apply, this parameter returns **2**.
       shared_ptr<int32_t> punishReason_ {};
-      // Indicates whether the domain name is invalid. Valid values:
+      // Whether the domain is penalized. Valid values:
       // 
-      // *   **true**: The domain name is invalid. You can view the specific reasons from the **PunishReason** parameter.
-      // *   **false**: The domain name is valid.
+      // - **true**: The domain is penalized. For more information, see the `PunishReason` parameter.
+      // 
+      // - **false**: The domain is not penalized.
       shared_ptr<bool> punishStatus_ {};
-      // The addresses of origin servers.
+      // An array of origin server addresses.
       shared_ptr<vector<string>> realServers_ {};
       // The address type of the origin server. Valid values:
       // 
-      // *   **0**: IP address
-      // *   **1**: domain name
+      // - **0**: IP address
+      // 
+      // - **1**: domain
       shared_ptr<int32_t> rsType_ {};
-      // Indicates whether TLS 1.3 is supported. Valid values:
+      // Whether TLS 1.3 is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // 
+      // - **false**: Disabled.
       shared_ptr<bool> ssl13Enabled_ {};
-      // The type of the cipher suite. Valid values:
+      // The cipher suite configuration type. Valid values:
       // 
-      // *   **default**: custom cipher suite
-      // *   **all**: all cipher suites
-      // *   **strong**: strong cipher suites
+      // - **default**: Custom
+      // 
+      // - **all**: All
+      // 
+      // - **strong**: Strong
+      // 
+      // - **improved**: Improved
       shared_ptr<string> sslCiphers_ {};
-      // The version of the TLS protocol. Valid values:
+      // The minimum TLS protocol version. Valid values:
       // 
-      // *   **tls1.0**: TLS 1.0 or later
-      // *   **tls1.1**: TLS 1.1 or later
-      // *   **tls1.2**: TLS 1.2 or later
+      // - **tls1.0**: TLS 1.0 and later versions.
+      // 
+      // - **tls1.1**: TLS 1.1 and later versions.
+      // 
+      // - **tls1.2**: TLS 1.2 and later versions.
       shared_ptr<string> sslProtocols_ {};
-      // The IP addresses that are included in the whitelist of the domain name.
+      // An array of IP addresses on the allowlist for the domain.
       shared_ptr<vector<string>> whiteList_ {};
     };
 
@@ -480,11 +507,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of forwarding rules.
+    // The total number of web rules returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The configurations of the forwarding rule.
+    // An array of web rule configurations.
     shared_ptr<vector<DescribeDomainResourceResponseBody::WebRules>> webRules_ {};
   };
 

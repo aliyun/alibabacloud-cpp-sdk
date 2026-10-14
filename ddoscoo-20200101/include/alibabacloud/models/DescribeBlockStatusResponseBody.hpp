@@ -109,19 +109,17 @@ namespace Models
 
 
       protected:
-        // The blocking status of the network traffic. Valid values:
-        // 
-        // *   **areablock**: Network traffic is blocked.
-        // *   **normal**: Network traffic is not blocked.
+        // The traffic blocking status. Valid values:
+        // - **areablock**: Blocked.
+        // - **normal**: Normal (not blocked).
         shared_ptr<string> blockStatus_ {};
-        // The end time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+        // The end time of the blocking. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> endTime_ {};
-        // The Internet service provider (ISP) line from which the traffic is blocked. Valid values:
-        // 
-        // *   **ct**: China Telecom (International)
-        // *   **cut**: China Unicom (International)
+        // The type of the blocked line. Valid values:
+        // - **ct**: China Telecom international line.
+        // - **cut**: China Unicom international line.
         shared_ptr<string> line_ {};
-        // The start time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+        // The start time of the blocking. The value is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -144,9 +142,9 @@ namespace Models
 
 
     protected:
-      // An array that consists of details of the Diversion from Origin Server configuration.
+      // The near-origin traffic diversion configurations.
       shared_ptr<vector<StatusList::BlockStatusList>> blockStatusList_ {};
-      // The IP address of the instance.
+      // The IP address of the Anti-DDoS Pro and Anti-DDoS Premium instance.
       shared_ptr<string> ip_ {};
     };
 
@@ -171,7 +169,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // An array that consists of details of the Diversion from Origin Server configurations of the instance.
+    // The near-origin traffic diversion configurations of the Anti-DDoS Pro and Anti-DDoS Premium instances.
     shared_ptr<vector<DescribeBlockStatusResponseBody::StatusList>> statusList_ {};
   };
 

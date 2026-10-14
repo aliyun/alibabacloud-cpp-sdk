@@ -76,23 +76,21 @@ namespace Models
 
   protected:
     // The forwarding protocol. Valid values:
-    // 
-    // *   **tcp**
-    // *   **udp**
+    // - **tcp**
+    // - **udp**
     shared_ptr<string> forwardProtocol_ {};
-    // The forwarding port.
+    // The forward port.
     shared_ptr<int32_t> frontendPort_ {};
-    // The ID of the instance.
-    // 
-    // > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+    // The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // > You can call [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+    // The page number to return in a paging query. For example, set this parameter to **1** to return the first page of results.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of records displayed on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

@@ -74,10 +74,9 @@ namespace Models
     protected:
       // The domain name.
       shared_ptr<string> domain_ {};
-      // Indicates whether the log analysis feature is enabled. Valid values:
-      // 
-      // *   **true**: yes
-      // *   **false**: no
+      // Indicates whether full log collection is enabled. Valid values:
+      // - **true**: enabled.
+      // - **false**: disabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -109,9 +108,9 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the log analysis feature is enabled for domain names.
+    // The full log switch status of the domain names.
     shared_ptr<vector<DescribeWebAccessLogDispatchStatusResponseBody::SlsConfigStatus>> slsConfigStatus_ {};
-    // The total number of entries returned.
+    // The total number of domain names queried.
     shared_ptr<int32_t> totalCount_ {};
   };
 

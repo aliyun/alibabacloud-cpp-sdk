@@ -57,20 +57,20 @@ namespace Models
 
 
   protected:
-    // The type of the attack event that you want to query. Valid values:
+    // The type of the attack event to query. Valid values:
     // 
-    // *   **defense**: attack events that trigger traffic scrubbing
-    // *   **blackhole**: attack events that trigger blackhole filtering
+    // - **defense**: volumetric attack scrubbing events.
+    // - **blackhole**: volumetric attack blackhole filtering events.
     // 
     // This parameter is required.
     shared_ptr<string> eventType_ {};
-    // The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+    // The attacked IP Address of Anti-DDoS Proxy instance.
     // 
     // This parameter is required.
     shared_ptr<string> ip_ {};
-    // The UNIX timestamp when the query starts. Unit: seconds.
+    // The start timestamp of the event to query. Unit: seconds.
     // 
-    // > You can call the [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) operation to query the beginning time of all attack events.
+    // > You can call [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) to query the start time of all events.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

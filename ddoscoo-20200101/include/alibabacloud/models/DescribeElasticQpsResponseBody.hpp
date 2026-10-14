@@ -143,24 +143,25 @@ namespace Models
 
 
     protected:
-      // The index number of the returned data.
+      // The index of the returned data point.
       shared_ptr<int64_t> index_ {};
-      // The peak QPS of the normal service.
+      // The peak normal business QPS.
       shared_ptr<int64_t> maxNormalQps_ {};
       // The peak inbound QPS.
       shared_ptr<int64_t> maxQps_ {};
-      // The total number of requests during the step size period.
+      // The total number of requests within the sampling interval.
       shared_ptr<int64_t> pv_ {};
-      // The total number of HTTP 2xx status codes during the step size period.
+      // The number of 2xx status codes within the sampling interval.
       shared_ptr<int64_t> status2_ {};
-      // The total number of HTTP 3xx status codes during the step size period.
+      // The number of 3xx status codes within the sampling interval.
       shared_ptr<int64_t> status3_ {};
-      // The total number of HTTP 4xx status codes during the step size period.
+      // The number of 4xx status codes within the sampling interval.
       shared_ptr<int64_t> status4_ {};
+      // The number of 410 status codes within the sampling interval.
       shared_ptr<int64_t> status410Pv_ {};
-      // The total number of HTTP 5xx status codes during the step size period.
+      // The number of 5xx status codes within the sampling interval.
       shared_ptr<int64_t> status5_ {};
-      // The total number of origin requests during the step size period.
+      // The total number of origin-pull requests within the sampling interval.
       shared_ptr<int64_t> ups_ {};
     };
 
@@ -183,9 +184,9 @@ namespace Models
 
 
   protected:
-    // The information about the burstable QPS.
+    // The time-series data of elastic QPS.
     shared_ptr<vector<DescribeElasticQpsResponseBody::ElasticQps>> elasticQps_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The unique ID generated for the request. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

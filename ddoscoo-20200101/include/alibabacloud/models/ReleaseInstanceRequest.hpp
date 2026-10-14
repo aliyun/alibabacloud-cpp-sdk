@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the instance to be released.
+    // 
+    // > Only expired instances can be released. You can call [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) to query the IDs and expiration status of all Anti-DDoS Proxy instances.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

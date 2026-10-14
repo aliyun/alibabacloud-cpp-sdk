@@ -152,9 +152,11 @@ namespace Models
       shared_ptr<int64_t> qpsPeak_ {};
       // Indicates whether the instance has expired or is released. Valid values:
       // 
-      // *   **1**: The instance runs as expected.
-      // *   **2**: The instance has expired.
-      // *   **4**: The instance is released.
+      // - **1**: The instance runs as expected.
+      // 
+      // - **2**: The instance has expired.
+      // 
+      // - **4**: The instance is released.
       shared_ptr<int64_t> status_ {};
     };
 

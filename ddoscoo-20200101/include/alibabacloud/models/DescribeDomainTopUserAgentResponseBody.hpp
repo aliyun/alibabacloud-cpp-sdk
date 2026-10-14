@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The domain name of the website.
+      // The website domain name.
       shared_ptr<string> domain_ {};
-      // The page views.
+      // The number of request matches.
       shared_ptr<int64_t> pv_ {};
-      // The Base64-encoded user agent.
+      // The Base64-encoded value of the User-Agent.
       shared_ptr<string> userAgent_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The information about the user agents.
+    // The list of User-Agent data.
     shared_ptr<vector<DescribeDomainTopUserAgentResponseBody::DomainTopUa>> domainTopUa_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

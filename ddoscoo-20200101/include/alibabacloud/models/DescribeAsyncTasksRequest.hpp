@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number for the paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of asynchronous export tasks to return on each page for the paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management.
+    // The resource group ID of the Anti-DDoS instance in Resource Management.
     // 
-    // If you do not configure this parameter, the instance belongs to the default resource group.
+    // If this parameter is not specified, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
   };
 

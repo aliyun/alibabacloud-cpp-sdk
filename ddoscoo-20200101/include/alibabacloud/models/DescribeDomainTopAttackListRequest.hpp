@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // > The value must be on the hour or half hour.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The time granularity of the query data. Unit: seconds.
+    // - Valid values: 300, 3600, 14400, 28800, and 86400.
+    // - If you do not specify this parameter or specify an unsupported value, the default value 3600 is used.
     shared_ptr<int64_t> interval_ {};
-    // The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group to which the Anti-DDoS Pro and Anti-DDoS Premium instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-    // 
-    // > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // > The value must be on the hour or half hour.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

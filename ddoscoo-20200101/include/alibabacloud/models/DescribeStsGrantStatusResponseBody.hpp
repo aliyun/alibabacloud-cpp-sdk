@@ -61,8 +61,9 @@ namespace Models
     protected:
       // The authorization status. Valid values:
       // 
-      // *   **0**: Anti-DDoS Pro or Anti-DDoS Premium is not authorized to access other cloud services.
-      // *   **1**: Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+      // - **0**: Anti-DDoS Proxy are not authorized to access resources of other cloud services.
+      // 
+      // - **1**: Anti-DDoS Proxy are authorized to access resources of other cloud services.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -87,7 +88,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The authorization status of Anti-DDoS Pro or Anti-DDoS Premium.
+    // The authorization status of Anti-DDoS Pro and Anti-DDoS Premium.
     shared_ptr<DescribeStsGrantStatusResponseBody::StsGrant> stsGrant_ {};
   };
 

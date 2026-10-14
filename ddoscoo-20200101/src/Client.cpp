@@ -36,7 +36,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Adds IP addresses to the blacklist for an Anti-DDoS Pro instance.
+ *
+ * @description ### QPS limit
+ * If you exceed the limit, your API calls are throttled, which may impact your business. To avoid throttling, call this operation at a reasonable rate.
  *
  * @param request AddAutoCcBlacklistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -75,7 +78,10 @@ AddAutoCcBlacklistResponse Client::addAutoCcBlacklistWithOptions(const AddAutoCc
 }
 
 /**
- * @summary Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Adds IP addresses to the blacklist for an Anti-DDoS Pro instance.
+ *
+ * @description ### QPS limit
+ * If you exceed the limit, your API calls are throttled, which may impact your business. To avoid throttling, call this operation at a reasonable rate.
  *
  * @param request AddAutoCcBlacklistRequest
  * @return AddAutoCcBlacklistResponse
@@ -86,12 +92,12 @@ AddAutoCcBlacklistResponse Client::addAutoCcBlacklist(const AddAutoCcBlacklistRe
 }
 
 /**
- * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Adds whitelist IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
- * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation adds whitelist IP addresses for a single Anti-DDoS Pro or Anti-DDoS Premium instance so that the instance directly allows request traffic from the specified IP addresses.
+ * After whitelist IP addresses are added, they are permanently valid by default. If you no longer need the whitelist IP addresses, invoke [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) to clear the whitelist IP address list.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request AddAutoCcWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -130,12 +136,12 @@ AddAutoCcWhitelistResponse Client::addAutoCcWhitelistWithOptions(const AddAutoCc
 }
 
 /**
- * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Adds whitelist IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
- * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation adds whitelist IP addresses for a single Anti-DDoS Pro or Anti-DDoS Premium instance so that the instance directly allows request traffic from the specified IP addresses.
+ * After whitelist IP addresses are added, they are permanently valid by default. If you no longer need the whitelist IP addresses, invoke [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) to clear the whitelist IP address list.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request AddAutoCcWhitelistRequest
  * @return AddAutoCcWhitelistResponse
@@ -146,7 +152,7 @@ AddAutoCcWhitelistResponse Client::addAutoCcWhitelist(const AddAutoCcWhitelistRe
 }
 
 /**
- * @summary Associates an SSL certificate with the forwarding rule of a website.
+ * @summary Associates an SSL certificate with a forwarding rule of a website service.
  *
  * @param request AssociateWebCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -201,7 +207,7 @@ AssociateWebCertResponse Client::associateWebCertWithOptions(const AssociateWebC
 }
 
 /**
- * @summary Associates an SSL certificate with the forwarding rule of a website.
+ * @summary Associates an SSL certificate with a forwarding rule of a website service.
  *
  * @param request AssociateWebCertRequest
  * @return AssociateWebCertResponse
@@ -212,7 +218,7 @@ AssociateWebCertResponse Client::associateWebCert(const AssociateWebCertRequest 
 }
 
 /**
- * @summary Adds an object to a scenario-specific custom policy for protection.
+ * @summary Adds protected objects to a scenario-specific policy.
  *
  * @param request AttachSceneDefenseObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +257,7 @@ AttachSceneDefenseObjectResponse Client::attachSceneDefenseObjectWithOptions(con
 }
 
 /**
- * @summary Adds an object to a scenario-specific custom policy for protection.
+ * @summary Adds protected objects to a scenario-specific policy.
  *
  * @param request AttachSceneDefenseObjectRequest
  * @return AttachSceneDefenseObjectResponse
@@ -262,7 +268,7 @@ AttachSceneDefenseObjectResponse Client::attachSceneDefenseObject(const AttachSc
 }
 
 /**
- * @summary Configures the global mitigation policy feature, including the feature status and settings.
+ * @summary Configures the switch and level of the Anti-DDoS Global Mitigation Policy mitigation policies.
  *
  * @param request ConfigDomainSecurityProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -301,7 +307,7 @@ ConfigDomainSecurityProfileResponse Client::configDomainSecurityProfileWithOptio
 }
 
 /**
- * @summary Configures the global mitigation policy feature, including the feature status and settings.
+ * @summary Configures the switch and level of the Anti-DDoS Global Mitigation Policy mitigation policies.
  *
  * @param request ConfigDomainSecurityProfileRequest
  * @return ConfigDomainSecurityProfileResponse
@@ -312,7 +318,7 @@ ConfigDomainSecurityProfileResponse Client::configDomainSecurityProfile(const Co
 }
 
 /**
- * @summary Configures an Anti-DDoS global mitigation policy.
+ * @summary Configures an Anti-DDoS Global Mitigation Policy.
  *
  * @param request ConfigL7GlobalRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +353,7 @@ ConfigL7GlobalRuleResponse Client::configL7GlobalRuleWithOptions(const ConfigL7G
 }
 
 /**
- * @summary Configures an Anti-DDoS global mitigation policy.
+ * @summary Configures an Anti-DDoS Global Mitigation Policy.
  *
  * @param request ConfigL7GlobalRuleRequest
  * @return ConfigL7GlobalRuleResponse
@@ -358,9 +364,9 @@ ConfigL7GlobalRuleResponse Client::configL7GlobalRule(const ConfigL7GlobalRuleRe
 }
 
 /**
- * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+ * @summary Configures back-to-origin policies for website forwarding rules that have been created.
  *
- * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+ * @description If a website that is added to Anti-DDoS Pro and Anti-DDoS Premium has multiple origin servers in the website configuration, you can modify the load balancing algorithm by configuring back-to-origin policies. The default algorithm is IP Hash. You can change it to polling or Least Time. For more information, see the description of the **Policy** request parameter.
  *
  * @param request ConfigL7RsPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -403,9 +409,9 @@ ConfigL7RsPolicyResponse Client::configL7RsPolicyWithOptions(const ConfigL7RsPol
 }
 
 /**
- * @summary Configures a back-to-origin policy for the forwarding rule of a website.
+ * @summary Configures back-to-origin policies for website forwarding rules that have been created.
  *
- * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+ * @description If a website that is added to Anti-DDoS Pro and Anti-DDoS Premium has multiple origin servers in the website configuration, you can modify the load balancing algorithm by configuring back-to-origin policies. The default algorithm is IP Hash. You can change it to polling or Least Time. For more information, see the description of the **Policy** request parameter.
  *
  * @param request ConfigL7RsPolicyRequest
  * @return ConfigL7RsPolicyResponse
@@ -416,7 +422,7 @@ ConfigL7RsPolicyResponse Client::configL7RsPolicy(const ConfigL7RsPolicyRequest 
 }
 
 /**
- * @summary Configures the settings for back-to-origin persistent connections for a domain name.
+ * @summary Configures the persistent connection settings for back-to-origin requests of a domain name.
  *
  * @param request ConfigL7UsKeepaliveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +461,7 @@ ConfigL7UsKeepaliveResponse Client::configL7UsKeepaliveWithOptions(const ConfigL
 }
 
 /**
- * @summary Configures the settings for back-to-origin persistent connections for a domain name.
+ * @summary Configures the persistent connection settings for back-to-origin requests of a domain name.
  *
  * @param request ConfigL7UsKeepaliveRequest
  * @return ConfigL7UsKeepaliveResponse
@@ -466,7 +472,7 @@ ConfigL7UsKeepaliveResponse Client::configL7UsKeepalive(const ConfigL7UsKeepaliv
 }
 
 /**
- * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+ * @summary 4层带宽限速 客户专用
  *
  * @param request ConfigLayer4RealLimitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +507,7 @@ ConfigLayer4RealLimitResponse Client::configLayer4RealLimitWithOptions(const Con
 }
 
 /**
- * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+ * @summary 4层带宽限速 客户专用
  *
  * @param request ConfigLayer4RealLimitRequest
  * @return ConfigLayer4RealLimitResponse
@@ -512,7 +518,7 @@ ConfigLayer4RealLimitResponse Client::configLayer4RealLimit(const ConfigLayer4Re
 }
 
 /**
- * @summary Adds a description to a port forwarding rule.
+ * @summary Adds remarks to port forwarding rules.
  *
  * @param request ConfigLayer4RemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -543,7 +549,7 @@ ConfigLayer4RemarkResponse Client::configLayer4RemarkWithOptions(const ConfigLay
 }
 
 /**
- * @summary Adds a description to a port forwarding rule.
+ * @summary Adds remarks to port forwarding rules.
  *
  * @param request ConfigLayer4RemarkRequest
  * @return ConfigLayer4RemarkResponse
@@ -554,7 +560,7 @@ ConfigLayer4RemarkResponse Client::configLayer4Remark(const ConfigLayer4RemarkRe
 }
 
 /**
- * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+ * @summary Modifies the back-to-origin mode of a port forwarding rule (enables or disables origin redundancy).
  *
  * @param request ConfigLayer4RuleBakModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -589,7 +595,7 @@ ConfigLayer4RuleBakModeResponse Client::configLayer4RuleBakModeWithOptions(const
 }
 
 /**
- * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
+ * @summary Modifies the back-to-origin mode of a port forwarding rule (enables or disables origin redundancy).
  *
  * @param request ConfigLayer4RuleBakModeRequest
  * @return ConfigLayer4RuleBakModeResponse
@@ -600,7 +606,7 @@ ConfigLayer4RuleBakModeResponse Client::configLayer4RuleBakMode(const ConfigLaye
 }
 
 /**
- * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+ * @summary Sets the primary and secondary origin server IP addresses for port forwarding rules.
  *
  * @param request ConfigLayer4RulePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -631,7 +637,7 @@ ConfigLayer4RulePolicyResponse Client::configLayer4RulePolicyWithOptions(const C
 }
 
 /**
- * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+ * @summary Sets the primary and secondary origin server IP addresses for port forwarding rules.
  *
  * @param request ConfigLayer4RulePolicyRequest
  * @return ConfigLayer4RulePolicyResponse
@@ -642,7 +648,7 @@ ConfigLayer4RulePolicyResponse Client::configLayer4RulePolicy(const ConfigLayer4
 }
 
 /**
- * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
+ * @summary Configures location blacklist settings for an Anti-DDoS Pro or Anti-DDoS Premium instance area.
  *
  * @param request ConfigNetworkRegionBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +683,7 @@ ConfigNetworkRegionBlockResponse Client::configNetworkRegionBlockWithOptions(con
 }
 
 /**
- * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
+ * @summary Configures location blacklist settings for an Anti-DDoS Pro or Anti-DDoS Premium instance area.
  *
  * @param request ConfigNetworkRegionBlockRequest
  * @return ConfigNetworkRegionBlockResponse
@@ -688,7 +694,7 @@ ConfigNetworkRegionBlockResponse Client::configNetworkRegionBlock(const ConfigNe
 }
 
 /**
- * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+ * @summary Modifies the IP addresses of the origin server.
  *
  * @param request ConfigNetworkRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -719,7 +725,7 @@ ConfigNetworkRulesResponse Client::configNetworkRulesWithOptions(const ConfigNet
 }
 
 /**
- * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+ * @summary Modifies the IP addresses of the origin server.
  *
  * @param request ConfigNetworkRulesRequest
  * @return ConfigNetworkRulesResponse
@@ -730,11 +736,11 @@ ConfigNetworkRulesResponse Client::configNetworkRules(const ConfigNetworkRulesRe
 }
 
 /**
- * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+ * @summary Adds a UDP reflection attack attack prevention protection policy to filter specified reflection source ports.
  *
- * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation adds a UDP reflection attack attack prevention protection policy for an Anti-DDoS Pro or Anti-DDoS Premium instance to filter specified reflection source ports.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation as needed.
  *
  * @param request ConfigUdpReflectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -773,11 +779,11 @@ ConfigUdpReflectResponse Client::configUdpReflectWithOptions(const ConfigUdpRefl
 }
 
 /**
- * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+ * @summary Adds a UDP reflection attack attack prevention protection policy to filter specified reflection source ports.
  *
- * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation adds a UDP reflection attack attack prevention protection policy for an Anti-DDoS Pro or Anti-DDoS Premium instance to filter specified reflection source ports.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation as needed.
  *
  * @param request ConfigUdpReflectRequest
  * @return ConfigUdpReflectResponse
@@ -788,7 +794,7 @@ ConfigUdpReflectResponse Client::configUdpReflect(const ConfigUdpReflectRequest 
 }
 
 /**
- * @summary Creates or modifies the custom frequency control rule of a website.
+ * @summary Creates or modifies a custom rule for frequency control (HTTP flood mitigation) of website services.
  *
  * @param request ConfigWebCCRuleV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +833,7 @@ ConfigWebCCRuleV2Response Client::configWebCCRuleV2WithOptions(const ConfigWebCC
 }
 
 /**
- * @summary Creates or modifies the custom frequency control rule of a website.
+ * @summary Creates or modifies a custom rule for frequency control (HTTP flood mitigation) of website services.
  *
  * @param request ConfigWebCCRuleV2Request
  * @return ConfigWebCCRuleV2Response
@@ -838,7 +844,7 @@ ConfigWebCCRuleV2Response Client::configWebCCRuleV2(const ConfigWebCCRuleV2Reque
 }
 
 /**
- * @summary Configures the mode of the Frequency Control policy for a website.
+ * @summary Sets the defense mode for frequency control (HTTP flood mitigation) of a website service.
  *
  * @param request ConfigWebCCTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -877,7 +883,7 @@ ConfigWebCCTemplateResponse Client::configWebCCTemplateWithOptions(const ConfigW
 }
 
 /**
- * @summary Configures the mode of the Frequency Control policy for a website.
+ * @summary Sets the defense mode for frequency control (HTTP flood mitigation) of a website service.
  *
  * @param request ConfigWebCCTemplateRequest
  * @return ConfigWebCCTemplateResponse
@@ -888,7 +894,7 @@ ConfigWebCCTemplateResponse Client::configWebCCTemplate(const ConfigWebCCTemplat
 }
 
 /**
- * @summary Configures the IP address whitelist and blacklist for a website.
+ * @summary Configures the IP blacklist and whitelist for a website.
  *
  * @param request ConfigWebIpSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +937,7 @@ ConfigWebIpSetResponse Client::configWebIpSetWithOptions(const ConfigWebIpSetReq
 }
 
 /**
- * @summary Configures the IP address whitelist and blacklist for a website.
+ * @summary Configures the IP blacklist and whitelist for a website.
  *
  * @param request ConfigWebIpSetRequest
  * @return ConfigWebIpSetResponse
@@ -942,7 +948,7 @@ ConfigWebIpSetResponse Client::configWebIpSet(const ConfigWebIpSetRequest &reque
 }
 
 /**
- * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+ * @summary Creates an asynchronous export task to export website forwarding rules, port forwarding rules, session persistence and health check configurations, DDoS mitigation policies, or IP blacklists and whitelists.
  *
  * @param request CreateAsyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -981,7 +987,7 @@ CreateAsyncTaskResponse Client::createAsyncTaskWithOptions(const CreateAsyncTask
 }
 
 /**
- * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+ * @summary Creates an asynchronous export task to export website forwarding rules, port forwarding rules, session persistence and health check configurations, DDoS mitigation policies, or IP blacklists and whitelists.
  *
  * @param request CreateAsyncTaskRequest
  * @return CreateAsyncTaskResponse
@@ -1054,7 +1060,7 @@ CreateDomainResourceResponse Client::createDomainResource(const CreateDomainReso
 }
 
 /**
- * @summary Creates a port forwarding rule.
+ * @summary Creates port forwarding rules.
  *
  * @param request CreateNetworkRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1063,6 +1069,10 @@ CreateDomainResourceResponse Client::createDomainResource(const CreateDomainReso
 CreateNetworkRulesResponse Client::createNetworkRulesWithOptions(const CreateNetworkRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasIpMode()) {
+    query["IpMode"] = request.getIpMode();
+  }
+
   if (!!request.hasNetworkRules()) {
     query["NetworkRules"] = request.getNetworkRules();
   }
@@ -1085,7 +1095,7 @@ CreateNetworkRulesResponse Client::createNetworkRulesWithOptions(const CreateNet
 }
 
 /**
- * @summary Creates a port forwarding rule.
+ * @summary Creates port forwarding rules.
  *
  * @param request CreateNetworkRulesRequest
  * @return CreateNetworkRulesResponse
@@ -1098,7 +1108,7 @@ CreateNetworkRulesResponse Client::createNetworkRules(const CreateNetworkRulesRe
 /**
  * @summary Creates a port forwarding rule.
  *
- * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request CreatePortRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,6 +1131,10 @@ CreatePortResponse Client::createPortWithOptions(const CreatePortRequest &reques
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIpMode()) {
+    query["IpMode"] = request.getIpMode();
   }
 
   if (!!request.hasProxyEnable()) {
@@ -1151,7 +1165,7 @@ CreatePortResponse Client::createPortWithOptions(const CreatePortRequest &reques
 /**
  * @summary Creates a port forwarding rule.
  *
- * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request CreatePortRequest
  * @return CreatePortResponse
@@ -1162,7 +1176,7 @@ CreatePortResponse Client::createPort(const CreatePortRequest &request) {
 }
 
 /**
- * @summary Creates a scenario-specific custom policy.
+ * @summary Creates a scenario-specific policy.
  *
  * @param request CreateSceneDefensePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1219,7 @@ CreateSceneDefensePolicyResponse Client::createSceneDefensePolicyWithOptions(con
 }
 
 /**
- * @summary Creates a scenario-specific custom policy.
+ * @summary Creates a scenario-specific policy.
  *
  * @param request CreateSceneDefensePolicyRequest
  * @return CreateSceneDefensePolicyResponse
@@ -1216,7 +1230,7 @@ CreateSceneDefensePolicyResponse Client::createSceneDefensePolicy(const CreateSc
 }
 
 /**
- * @summary Creates a scheduling rule for Sec-Traffic Manager.
+ * @summary Creates a Sec-Traffic Manager rule.
  *
  * @param request CreateSchedulerRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1277,7 @@ CreateSchedulerRuleResponse Client::createSchedulerRuleWithOptions(const CreateS
 }
 
 /**
- * @summary Creates a scheduling rule for Sec-Traffic Manager.
+ * @summary Creates a Sec-Traffic Manager rule.
  *
  * @param request CreateSchedulerRuleRequest
  * @return CreateSchedulerRuleResponse
@@ -1342,7 +1356,7 @@ CreateTagResourcesResponse Client::createTagResources(const CreateTagResourcesRe
 /**
  * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Creates a custom frequency control rule for a website.
+ * @summary Creates a custom rule for website HTTP flood protection (CC protection).
  *
  * @param request CreateWebCCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1421,7 @@ CreateWebCCRuleResponse Client::createWebCCRuleWithOptions(const CreateWebCCRule
 /**
  * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Creates a custom frequency control rule for a website.
+ * @summary Creates a custom rule for website HTTP flood protection (CC protection).
  *
  * @param request CreateWebCCRuleRequest
  * @return CreateWebCCRuleResponse
@@ -1530,7 +1544,7 @@ DeleteAsyncTaskResponse Client::deleteAsyncTask(const DeleteAsyncTaskRequest &re
 }
 
 /**
- * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Removes IP addresses from the blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DeleteAutoCcBlacklistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1569,7 +1583,7 @@ DeleteAutoCcBlacklistResponse Client::deleteAutoCcBlacklistWithOptions(const Del
 }
 
 /**
- * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Removes IP addresses from the blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DeleteAutoCcBlacklistRequest
  * @return DeleteAutoCcBlacklistResponse
@@ -1580,7 +1594,7 @@ DeleteAutoCcBlacklistResponse Client::deleteAutoCcBlacklist(const DeleteAutoCcBl
 }
 
 /**
- * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
+ * @summary Deletes whitelist IPs for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DeleteAutoCcWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1615,7 +1629,7 @@ DeleteAutoCcWhitelistResponse Client::deleteAutoCcWhitelistWithOptions(const Del
 }
 
 /**
- * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Proxy instance.
+ * @summary Deletes whitelist IPs for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DeleteAutoCcWhitelistRequest
  * @return DeleteAutoCcWhitelistResponse
@@ -1626,7 +1640,7 @@ DeleteAutoCcWhitelistResponse Client::deleteAutoCcWhitelist(const DeleteAutoCcWh
 }
 
 /**
- * @summary Deletes a specified forwarding rule of a website.
+ * @summary Deletes the specified website business forwarding rule.
  *
  * @param request DeleteDomainResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1657,7 +1671,7 @@ DeleteDomainResourceResponse Client::deleteDomainResourceWithOptions(const Delet
 }
 
 /**
- * @summary Deletes a specified forwarding rule of a website.
+ * @summary Deletes the specified website business forwarding rule.
  *
  * @param request DeleteDomainResourceRequest
  * @return DeleteDomainResourceResponse
@@ -1862,12 +1876,12 @@ DeleteSchedulerRuleResponse Client::deleteSchedulerRule(const DeleteSchedulerRul
 }
 
 /**
- * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+ * @summary Removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
  *
- * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
- * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
- * ### [](#qps-)QPS limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API operation removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
+ * > Only Anti-DDoS Proxy (Chinese Mainland) supports the tag feature.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request DeleteTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1918,12 +1932,12 @@ DeleteTagResourcesResponse Client::deleteTagResourcesWithOptions(const DeleteTag
 }
 
 /**
- * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+ * @summary Removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
  *
- * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
- * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
- * ### [](#qps-)QPS limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API operation removes tags from an Anti-DDoS Proxy (Chinese Mainland) instance.
+ * > Only Anti-DDoS Proxy (Chinese Mainland) supports the tag feature.
+ * ### QPS limit
+ * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Plan your calls accordingly.
  *
  * @param request DeleteTagResourcesRequest
  * @return DeleteTagResourcesResponse
@@ -2192,11 +2206,11 @@ DeleteWebRuleResponse Client::deleteWebRule(const DeleteWebRuleRequest &request)
 }
 
 /**
- * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+ * @summary Queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
  *
- * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
+ * ### QPS limits
+ * The single-user QPS limit for this operation is 10 queries per second (QPS). API calls that exceed this limit will be throttled, which may affect your business. You should call this operation at a reasonable rate.
  *
  * @param request DescribeAsyncTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2235,11 +2249,11 @@ DescribeAsyncTasksResponse Client::describeAsyncTasksWithOptions(const DescribeA
 }
 
 /**
- * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+ * @summary Queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
  *
- * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries detailed information about asynchronous export tasks, including task ID, start and end times, status, parameters, results, and more.
+ * ### QPS limits
+ * The single-user QPS limit for this operation is 10 queries per second (QPS). API calls that exceed this limit will be throttled, which may affect your business. You should call this operation at a reasonable rate.
  *
  * @param request DescribeAsyncTasksRequest
  * @return DescribeAsyncTasksResponse
@@ -2250,7 +2264,7 @@ DescribeAsyncTasksResponse Client::describeAsyncTasks(const DescribeAsyncTasksRe
 }
 
 /**
- * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+ * @summary Queries the peak value (QPS) of DDoS attacks within a specified time period.
  *
  * @param request DescribeAttackAnalysisMaxQpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2289,7 +2303,7 @@ DescribeAttackAnalysisMaxQpsResponse Client::describeAttackAnalysisMaxQpsWithOpt
 }
 
 /**
- * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
+ * @summary Queries the peak value (QPS) of DDoS attacks within a specified time period.
  *
  * @param request DescribeAttackAnalysisMaxQpsRequest
  * @return DescribeAttackAnalysisMaxQpsResponse
@@ -2300,7 +2314,7 @@ DescribeAttackAnalysisMaxQpsResponse Client::describeAttackAnalysisMaxQps(const 
 }
 
 /**
- * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the blacklisted IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeAutoCcBlacklistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2347,7 +2361,7 @@ DescribeAutoCcBlacklistResponse Client::describeAutoCcBlacklistWithOptions(const
 }
 
 /**
- * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the blacklisted IP addresses for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeAutoCcBlacklistRequest
  * @return DescribeAutoCcBlacklistResponse
@@ -2508,7 +2522,7 @@ DescribeBackSourceCidrResponse Client::describeBackSourceCidr(const DescribeBack
 }
 
 /**
- * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the blackhole filtering status of an Anti-DDoS Proxy instance.
  *
  * @param request DescribeBlackholeStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2539,7 +2553,7 @@ DescribeBlackholeStatusResponse Client::describeBlackholeStatusWithOptions(const
 }
 
 /**
- * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the blackhole filtering status of an Anti-DDoS Proxy instance.
  *
  * @param request DescribeBlackholeStatusRequest
  * @return DescribeBlackholeStatusResponse
@@ -2550,12 +2564,12 @@ DescribeBlackholeStatusResponse Client::describeBlackholeStatus(const DescribeBl
 }
 
 /**
- * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+ * @summary Queries the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
- * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
- * ### [](#qps-)QPS limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
+ * > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (Chinese Mainland).
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeBlockStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2590,12 +2604,12 @@ DescribeBlockStatusResponse Client::describeBlockStatusWithOptions(const Describ
 }
 
 /**
- * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+ * @summary Queries the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
- * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
- * ### [](#qps-)QPS limits
- * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the near-origin traffic diversion configurations of an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
+ * > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (Chinese Mainland).
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeBlockStatusRequest
  * @return DescribeBlockStatusResponse
@@ -2606,6 +2620,8 @@ DescribeBlockStatusResponse Client::describeBlockStatus(const DescribeBlockStatu
 }
 
 /**
+ * @summary Describes the CDN interaction rule configurations for a specified domain name.
+ *
  * @param request DescribeCdnLinkageRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCdnLinkageRulesResponse
@@ -2647,6 +2663,8 @@ DescribeCdnLinkageRulesResponse Client::describeCdnLinkageRulesWithOptions(const
 }
 
 /**
+ * @summary Describes the CDN interaction rule configurations for a specified domain name.
+ *
  * @param request DescribeCdnLinkageRulesRequest
  * @return DescribeCdnLinkageRulesResponse
  */
@@ -2656,10 +2674,10 @@ DescribeCdnLinkageRulesResponse Client::describeCdnLinkageRules(const DescribeCd
 }
 
 /**
- * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+ * @summary Queries all certificates that are available for a domain name. This operation does not query the certificate that is currently in use.
  *
- * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
- * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
+ * @description You can call this operation to query all certificates that are available for a domain name protected by an Anti-DDoS instance. A domain name can be associated with multiple certificates. For example, a query for a specific domain name can return both a certificate for that specific domain name and a wildcard certificate.
+ * > To query the certificate that is currently used by a domain name, call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the CertName and CertRegion values. Then, call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service. Use the returned CertName value to query the corresponding certificate ID and other details.
  *
  * @param request DescribeCertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2694,10 +2712,10 @@ DescribeCertsResponse Client::describeCertsWithOptions(const DescribeCertsReques
 }
 
 /**
- * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
+ * @summary Queries all certificates that are available for a domain name. This operation does not query the certificate that is currently in use.
  *
- * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.
- * >  If you want to query the certificate that is in use for the current domain name, you can call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the values of the CertName and CertRegion parameters. Then, you can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service to query the ID and other details of the certificate by using the value of the CertName parameter.
+ * @description You can call this operation to query all certificates that are available for a domain name protected by an Anti-DDoS instance. A domain name can be associated with multiple certificates. For example, a query for a specific domain name can return both a certificate for that specific domain name and a wildcard certificate.
+ * > To query the certificate that is currently used by a domain name, call the [DescribeWebRules](https://help.aliyun.com/document_detail/473610.html) operation to obtain the CertName and CertRegion values. Then, call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/411733.html) operation of Certificate Management Service. Use the returned CertName value to query the corresponding certificate ID and other details.
  *
  * @param request DescribeCertsRequest
  * @return DescribeCertsResponse
@@ -2709,6 +2727,8 @@ DescribeCertsResponse Client::describeCerts(const DescribeCertsRequest &request)
 
 /**
  * @summary Queries the CNAME reuse information about websites.
+ *
+ * @description This operation is applicable only to Anti-DDoS Proxy (Outside Chinese Mainland).
  *
  * @param request DescribeCnameReusesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2745,6 +2765,8 @@ DescribeCnameReusesResponse Client::describeCnameReusesWithOptions(const Describ
 /**
  * @summary Queries the CNAME reuse information about websites.
  *
+ * @description This operation is applicable only to Anti-DDoS Proxy (Outside Chinese Mainland).
+ *
  * @param request DescribeCnameReusesRequest
  * @return DescribeCnameReusesResponse
  */
@@ -2754,7 +2776,7 @@ DescribeCnameReusesResponse Client::describeCnameReuses(const DescribeCnameReuse
 }
 
 /**
- * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+ * @summary Queries attack events on Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
  * @param request DescribeDDoSEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2805,7 +2827,7 @@ DescribeDDoSEventsResponse Client::describeDDoSEventsWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+ * @summary Queries attack events on Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
  * @param request DescribeDDoSEventsRequest
  * @return DescribeDDoSEventsResponse
@@ -2816,11 +2838,11 @@ DescribeDDoSEventsResponse Client::describeDDoSEvents(const DescribeDDoSEventsRe
 }
 
 /**
- * @summary Queries DDoS attack events.
+ * @summary Queries the list of DDoS attack events.
  *
- * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the list of DDoS attack events within a specified time range by using paging. DDoS attack events contain the following information: attack start time and end time, attack type, attacked object, and peak attack traffic (peak bandwidth or peak packet forwarding rate).
+ * ### Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeDDosAllEventListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2871,11 +2893,11 @@ DescribeDDosAllEventListResponse Client::describeDDosAllEventListWithOptions(con
 }
 
 /**
- * @summary Queries DDoS attack events.
+ * @summary Queries the list of DDoS attack events.
  *
- * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the list of DDoS attack events within a specified time range by using paging. DDoS attack events contain the following information: attack start time and end time, attack type, attacked object, and peak attack traffic (peak bandwidth or peak packet forwarding rate).
+ * ### Rate limit
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeDDosAllEventListRequest
  * @return DescribeDDosAllEventListResponse
@@ -2886,9 +2908,9 @@ DescribeDDosAllEventListResponse Client::describeDDosAllEventList(const Describe
 }
 
 /**
- * @summary Queries the source region from which a volumetric attack is initiated.
+ * @summary Queries the source region details of a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventAreaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2931,9 +2953,9 @@ DescribeDDosEventAreaResponse Client::describeDDosEventAreaWithOptions(const Des
 }
 
 /**
- * @summary Queries the source region from which a volumetric attack is initiated.
+ * @summary Queries the source region details of a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventAreaRequest
  * @return DescribeDDosEventAreaResponse
@@ -2946,7 +2968,7 @@ DescribeDDosEventAreaResponse Client::describeDDosEventArea(const DescribeDDosEv
 /**
  * @summary Queries the attack type details of a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventAttackTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2987,7 +3009,7 @@ DescribeDDosEventAttackTypeResponse Client::describeDDosEventAttackTypeWithOptio
 /**
  * @summary Queries the attack type details of a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventAttackTypeRequest
  * @return DescribeDDosEventAttackTypeResponse
@@ -2998,9 +3020,9 @@ DescribeDDosEventAttackTypeResponse Client::describeDDosEventAttackType(const De
 }
 
 /**
- * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+ * @summary Queries the Internet service provider (ISP) information of attack sources for a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventIspRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3043,9 +3065,9 @@ DescribeDDosEventIspResponse Client::describeDDosEventIspWithOptions(const Descr
 }
 
 /**
- * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
+ * @summary Queries the Internet service provider (ISP) information of attack sources for a volumetric attack.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventIspRequest
  * @return DescribeDDosEventIspResponse
@@ -3056,7 +3078,7 @@ DescribeDDosEventIspResponse Client::describeDDosEventIsp(const DescribeDDosEven
 }
 
 /**
- * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+ * @summary Queries the peak attack throughput of volumetric attacks (bps), connection flood attacks (cps), and web resource exhaustion attacks (qps).
  *
  * @param request DescribeDDosEventMaxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3095,7 +3117,7 @@ DescribeDDosEventMaxResponse Client::describeDDosEventMaxWithOptions(const Descr
 }
 
 /**
- * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+ * @summary Queries the peak attack throughput of volumetric attacks (bps), connection flood attacks (cps), and web resource exhaustion attacks (qps).
  *
  * @param request DescribeDDosEventMaxRequest
  * @return DescribeDDosEventMaxResponse
@@ -3106,9 +3128,9 @@ DescribeDDosEventMaxResponse Client::describeDDosEventMax(const DescribeDDosEven
 }
 
 /**
- * @summary Queries the source IP address from which a volumetric attack is initiated.
+ * @summary Queries the details of attack source IP addresses for a specific volumetric attack event.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventSrcIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3151,9 +3173,9 @@ DescribeDDosEventSrcIpResponse Client::describeDDosEventSrcIpWithOptions(const D
 }
 
 /**
- * @summary Queries the source IP address from which a volumetric attack is initiated.
+ * @summary Queries the details of attack source IP addresses for a specific volumetric attack event.
  *
- * @description > This operation is suitable only for volumetric attacks.
+ * @description > This operation is applicable only to querying data of volumetric attacks. It is not applicable to querying data of web resource exhaustion or connection flood attacks.
  *
  * @param request DescribeDDosEventSrcIpRequest
  * @return DescribeDDosEventSrcIpResponse
@@ -3216,9 +3238,9 @@ DescribeDefenseCountStatisticsResponse Client::describeDefenseCountStatistics(co
 }
 
 /**
- * @summary Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+ * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
  *
- * @description > This operation is suitable only for Anti-DDoS Premium.
+ * @description > This API operation is available only for the Anti-DDoS Premium service.
  *
  * @param request DescribeDefenseRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3269,9 +3291,9 @@ DescribeDefenseRecordsResponse Client::describeDefenseRecordsWithOptions(const D
 }
 
 /**
- * @summary Queries the advanced mitigation logs of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+ * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
  *
- * @description > This operation is suitable only for Anti-DDoS Premium.
+ * @description > This API operation is available only for the Anti-DDoS Premium service.
  *
  * @param request DescribeDefenseRecordsRequest
  * @return DescribeDefenseRecordsResponse
@@ -3460,6 +3482,8 @@ DescribeDomainBpsResponse Client::describeDomainBps(const DescribeDomainBpsReque
 }
 
 /**
+ * @summary Queries the status of the CC protection feature for the specified domain names.
+ *
  * @param request DescribeDomainCcProtectSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDomainCcProtectSwitchResponse
@@ -3493,6 +3517,8 @@ DescribeDomainCcProtectSwitchResponse Client::describeDomainCcProtectSwitchWithO
 }
 
 /**
+ * @summary Queries the status of the CC protection feature for the specified domain names.
+ *
  * @param request DescribeDomainCcProtectSwitchRequest
  * @return DescribeDomainCcProtectSwitchResponse
  */
@@ -3502,7 +3528,7 @@ DescribeDomainCcProtectSwitchResponse Client::describeDomainCcProtectSwitch(cons
 }
 
 /**
- * @summary Queries the information about HTTP/2 fingerprints of a website.
+ * @summary Queries the HTTP/2.0 fingerprint information of a website.
  *
  * @param request DescribeDomainH2FingerprintRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3549,7 +3575,7 @@ DescribeDomainH2FingerprintResponse Client::describeDomainH2FingerprintWithOptio
 }
 
 /**
- * @summary Queries the information about HTTP/2 fingerprints of a website.
+ * @summary Queries the HTTP/2.0 fingerprint information of a website.
  *
  * @param request DescribeDomainH2FingerprintRequest
  * @return DescribeDomainH2FingerprintResponse
@@ -3672,12 +3698,12 @@ DescribeDomainQPSListResponse Client::describeDomainQPSList(const DescribeDomain
 }
 
 /**
- * @summary Queries the configurations of a forwarding rule.
+ * @summary Describes the forwarding rule configuration for a web service.
  *
- * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
- * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
- * ### Limits
- * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API returns a paginated list of detailed configurations for your website forwarding rules, such as website domain name, protocol, HTTPS settings, and CC attack protection configuration.
+ * This API integrates with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * ### QPS limit
+ * The per-user QPS limit for this API is 50 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
  *
  * @param request DescribeDomainResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3724,12 +3750,12 @@ DescribeDomainResourceResponse Client::describeDomainResourceWithOptions(const D
 }
 
 /**
- * @summary Queries the configurations of a forwarding rule.
+ * @summary Describes the forwarding rule configuration for a web service.
  *
- * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
- * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
- * ### Limits
- * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This API returns a paginated list of detailed configurations for your website forwarding rules, such as website domain name, protocol, HTTPS settings, and CC attack protection configuration.
+ * This API integrates with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * ### QPS limit
+ * The per-user QPS limit for this API is 50 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your API calls accordingly.
  *
  * @param request DescribeDomainResourceRequest
  * @return DescribeDomainResourceResponse
@@ -3740,7 +3766,7 @@ DescribeDomainResourceResponse Client::describeDomainResource(const DescribeDoma
 }
 
 /**
- * @summary Queries the global mitigation policy for a domain name.
+ * @summary 查询安全概要属性开关
  *
  * @param request DescribeDomainSecurityProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3771,7 +3797,7 @@ DescribeDomainSecurityProfileResponse Client::describeDomainSecurityProfileWithO
 }
 
 /**
- * @summary Queries the global mitigation policy for a domain name.
+ * @summary 查询安全概要属性开关
  *
  * @param request DescribeDomainSecurityProfileRequest
  * @return DescribeDomainSecurityProfileResponse
@@ -3782,7 +3808,7 @@ DescribeDomainSecurityProfileResponse Client::describeDomainSecurityProfile(cons
 }
 
 /**
- * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+ * @summary Queries the statistics on HTTP status codes of a website within a specified period.
  *
  * @param request DescribeDomainStatusCodeCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3825,7 +3851,7 @@ DescribeDomainStatusCodeCountResponse Client::describeDomainStatusCodeCountWithO
 }
 
 /**
- * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
+ * @summary Queries the statistics on HTTP status codes of a website within a specified period.
  *
  * @param request DescribeDomainStatusCodeCountRequest
  * @return DescribeDomainStatusCodeCountResponse
@@ -3836,7 +3862,7 @@ DescribeDomainStatusCodeCountResponse Client::describeDomainStatusCodeCount(cons
 }
 
 /**
- * @summary Queries the statistics on HTTP status codes of a website.
+ * @summary Queries the response status code statistics information for website services.
  *
  * @param request DescribeDomainStatusCodeListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3887,7 +3913,7 @@ DescribeDomainStatusCodeListResponse Client::describeDomainStatusCodeListWithOpt
 }
 
 /**
- * @summary Queries the statistics on HTTP status codes of a website.
+ * @summary Queries the response status code statistics information for website services.
  *
  * @param request DescribeDomainStatusCodeListRequest
  * @return DescribeDomainStatusCodeListResponse
@@ -3898,7 +3924,7 @@ DescribeDomainStatusCodeListResponse Client::describeDomainStatusCodeList(const 
 }
 
 /**
- * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+ * @summary Queries the peak queries per second (QPS) data of website services within a specified time period, including attack QPS and total QPS.
  *
  * @param request DescribeDomainTopAttackListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3941,7 +3967,7 @@ DescribeDomainTopAttackListResponse Client::describeDomainTopAttackListWithOptio
 }
 
 /**
- * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+ * @summary Queries the peak queries per second (QPS) data of website services within a specified time period, including attack QPS and total QPS.
  *
  * @param request DescribeDomainTopAttackListRequest
  * @return DescribeDomainTopAttackListResponse
@@ -3952,7 +3978,7 @@ DescribeDomainTopAttackListResponse Client::describeDomainTopAttackList(const De
 }
 
 /**
- * @summary Queries the information about the fingerprints of top N clients that access a website.
+ * @summary Queries the top N client fingerprints for a website.
  *
  * @param request DescribeDomainTopFingerprintRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4007,7 +4033,7 @@ DescribeDomainTopFingerprintResponse Client::describeDomainTopFingerprintWithOpt
 }
 
 /**
- * @summary Queries the information about the fingerprints of top N clients that access a website.
+ * @summary Queries the top N client fingerprints for a website.
  *
  * @param request DescribeDomainTopFingerprintRequest
  * @return DescribeDomainTopFingerprintResponse
@@ -4018,7 +4044,7 @@ DescribeDomainTopFingerprintResponse Client::describeDomainTopFingerprint(const 
 }
 
 /**
- * @summary Queries the information about top N HTTP methods of a website.
+ * @summary Queries the top N HTTP methods for a website.
  *
  * @param request DescribeDomainTopHttpMethodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4069,7 +4095,7 @@ DescribeDomainTopHttpMethodResponse Client::describeDomainTopHttpMethodWithOptio
 }
 
 /**
- * @summary Queries the information about top N HTTP methods of a website.
+ * @summary Queries the top N HTTP methods for a website.
  *
  * @param request DescribeDomainTopHttpMethodRequest
  * @return DescribeDomainTopHttpMethodResponse
@@ -4080,7 +4106,7 @@ DescribeDomainTopHttpMethodResponse Client::describeDomainTopHttpMethod(const De
 }
 
 /**
- * @summary Queries the information about top N referers of a website.
+ * @summary Queries the top N referers of a website.
  *
  * @param request DescribeDomainTopRefererRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4131,7 +4157,7 @@ DescribeDomainTopRefererResponse Client::describeDomainTopRefererWithOptions(con
 }
 
 /**
- * @summary Queries the information about top N referers of a website.
+ * @summary Queries the top N referers of a website.
  *
  * @param request DescribeDomainTopRefererRequest
  * @return DescribeDomainTopRefererResponse
@@ -4142,7 +4168,7 @@ DescribeDomainTopRefererResponse Client::describeDomainTopReferer(const Describe
 }
 
 /**
- * @summary Queries the information about top user agents of a website.
+ * @summary Queries the top User-Agents for a website.
  *
  * @param request DescribeDomainTopUserAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4193,7 +4219,7 @@ DescribeDomainTopUserAgentResponse Client::describeDomainTopUserAgentWithOptions
 }
 
 /**
- * @summary Queries the information about top user agents of a website.
+ * @summary Queries the top User-Agents for a website.
  *
  * @param request DescribeDomainTopUserAgentRequest
  * @return DescribeDomainTopUserAgentResponse
@@ -4204,7 +4230,7 @@ DescribeDomainTopUserAgentResponse Client::describeDomainTopUserAgent(const Desc
 }
 
 /**
- * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+ * @summary Queries the distribution of request source countries for website services within a specified time period.
  *
  * @param request DescribeDomainViewSourceCountriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4247,7 +4273,7 @@ DescribeDomainViewSourceCountriesResponse Client::describeDomainViewSourceCountr
 }
 
 /**
- * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
+ * @summary Queries the distribution of request source countries for website services within a specified time period.
  *
  * @param request DescribeDomainViewSourceCountriesRequest
  * @return DescribeDomainViewSourceCountriesResponse
@@ -4258,7 +4284,7 @@ DescribeDomainViewSourceCountriesResponse Client::describeDomainViewSourceCountr
 }
 
 /**
- * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+ * @summary Queries the distribution of request sources by province in China for website services within a specified time period.
  *
  * @param request DescribeDomainViewSourceProvincesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4301,7 +4327,7 @@ DescribeDomainViewSourceProvincesResponse Client::describeDomainViewSourceProvin
 }
 
 /**
- * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+ * @summary Queries the distribution of request sources by province in China for website services within a specified time period.
  *
  * @param request DescribeDomainViewSourceProvincesRequest
  * @return DescribeDomainViewSourceProvincesResponse
@@ -4370,7 +4396,7 @@ DescribeDomainViewTopCostTimeResponse Client::describeDomainViewTopCostTime(cons
 }
 
 /**
- * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+ * @summary Queries the top N most visited URLs for website services within a specified time period.
  *
  * @param request DescribeDomainViewTopUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4421,7 +4447,7 @@ DescribeDomainViewTopUrlResponse Client::describeDomainViewTopUrlWithOptions(con
 }
 
 /**
- * @summary Queries the top N URLs that receive the most requests within a specified period of time.
+ * @summary Queries the top N most visited URLs for website services within a specified time period.
  *
  * @param request DescribeDomainViewTopUrlRequest
  * @return DescribeDomainViewTopUrlResponse
@@ -4478,9 +4504,9 @@ DescribeDomainsResponse Client::describeDomains(const DescribeDomainsRequest &re
 }
 
 /**
- * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
+ * @summary Queries the available burstable protection bandwidth specifications for an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
  *
  * @param request DescribeElasticBandwidthSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4511,9 +4537,9 @@ DescribeElasticBandwidthSpecResponse Client::describeElasticBandwidthSpecWithOpt
 }
 
 /**
- * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
+ * @summary Queries the available burstable protection bandwidth specifications for an Anti-DDoS Pro and Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
  *
  * @param request DescribeElasticBandwidthSpecRequest
  * @return DescribeElasticBandwidthSpecResponse
@@ -4524,7 +4550,7 @@ DescribeElasticBandwidthSpecResponse Client::describeElasticBandwidthSpec(const 
 }
 
 /**
- * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+ * @summary Retrieves the elastic QPS time-series data for an Anti-DDoS instance.
  *
  * @param request DescribeElasticQpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4571,7 +4597,7 @@ DescribeElasticQpsResponse Client::describeElasticQpsWithOptions(const DescribeE
 }
 
 /**
- * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+ * @summary Retrieves the elastic QPS time-series data for an Anti-DDoS instance.
  *
  * @param request DescribeElasticQpsRequest
  * @return DescribeElasticQpsResponse
@@ -4632,7 +4658,7 @@ DescribeElasticQpsRecordResponse Client::describeElasticQpsRecord(const Describe
 }
 
 /**
- * @summary Queries the custom header that is specified for a domain name.
+ * @summary Queries the custom headers for a domain name.
  *
  * @param request DescribeHeadersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4667,7 +4693,7 @@ DescribeHeadersResponse Client::describeHeadersWithOptions(const DescribeHeaders
 }
 
 /**
- * @summary Queries the custom header that is specified for a domain name.
+ * @summary Queries the custom headers for a domain name.
  *
  * @param request DescribeHeadersRequest
  * @return DescribeHeadersResponse
@@ -4762,11 +4788,11 @@ DescribeHealthCheckStatusResponse Client::describeHealthCheckStatus(const Descri
 }
 
 /**
- * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance, such as the IP address, status, and protection line of the instance.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeInstanceDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4797,11 +4823,11 @@ DescribeInstanceDetailsResponse Client::describeInstanceDetailsWithOptions(const
 }
 
 /**
- * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * @summary Queries the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the IP address and line information of an Anti-DDoS Pro or Anti-DDoS Premium instance, such as the IP address, status, and protection line of the instance.
+ * ### QPS limit
+ * You can invoke this operation up to 10 times per second per account. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeInstanceDetailsRequest
  * @return DescribeInstanceDetailsResponse
@@ -4862,7 +4888,11 @@ DescribeInstanceExtResponse Client::describeInstanceExt(const DescribeInstanceEx
 }
 
 /**
- * @summary The description of the instance.
+ * @summary Queries the IDs, editions, remarks, and IP types of Anti-DDoS Pro or Anti-DDoS Premium instances.
+ *
+ * @description This operation queries the IDs, editions, remarks, and IP types of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate.
  *
  * @param request DescribeInstanceIdsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4901,7 +4931,11 @@ DescribeInstanceIdsResponse Client::describeInstanceIdsWithOptions(const Describ
 }
 
 /**
- * @summary The description of the instance.
+ * @summary Queries the IDs, editions, remarks, and IP types of Anti-DDoS Pro or Anti-DDoS Premium instances.
+ *
+ * @description This operation queries the IDs, editions, remarks, and IP types of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call the API operation at a reasonable rate.
  *
  * @param request DescribeInstanceIdsRequest
  * @return DescribeInstanceIdsResponse
@@ -4914,9 +4948,9 @@ DescribeInstanceIdsResponse Client::describeInstanceIds(const DescribeInstanceId
 /**
  * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
- * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances in batches, such as the clean bandwidth, mitigation bandwidth, feature edition, number of protected domain names, and number of ports.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
  *
  * @param request DescribeInstanceSpecsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4949,9 +4983,9 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecsWithOptions(const Des
 /**
  * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
- * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances in batches, such as the clean bandwidth, mitigation bandwidth, feature edition, number of protected domain names, and number of ports.
+ * ### QPS limits
+ * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
  *
  * @param request DescribeInstanceSpecsRequest
  * @return DescribeInstanceSpecsResponse
@@ -5004,7 +5038,7 @@ DescribeInstanceStatisticsResponse Client::describeInstanceStatistics(const Desc
 }
 
 /**
- * @summary Queries the status of a specified Anti-DDoS Proxy instance.
+ * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5039,7 +5073,7 @@ DescribeInstanceStatusResponse Client::describeInstanceStatusWithOptions(const D
 }
 
 /**
- * @summary Queries the status of a specified Anti-DDoS Proxy instance.
+ * @summary Queries the status of a specified Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeInstanceStatusRequest
  * @return DescribeInstanceStatusResponse
@@ -5050,9 +5084,11 @@ DescribeInstanceStatusResponse Client::describeInstanceStatus(const DescribeInst
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
- * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+ * @description Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances owned by the current Alibaba Cloud account by using paging. The details include the instance ID, edition, expiration time, and service traffic forwarding status.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 invocations per second. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation based on your business requirements.
  *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5127,9 +5163,11 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances.
  *
- * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+ * @description Queries the details of Anti-DDoS Pro or Anti-DDoS Premium instances owned by the current Alibaba Cloud account by using paging. The details include the instance ID, edition, expiration time, and service traffic forwarding status.
+ * ### QPS limit
+ * The QPS limit for a single user is 10 invocations per second. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation based on your business requirements.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -5140,7 +5178,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries an Anti-DDoS global mitigation policy.
+ * @summary Queries the Anti-DDoS Global Mitigation Policy.
  *
  * @param request DescribeL7GlobalRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5175,7 +5213,7 @@ DescribeL7GlobalRuleResponse Client::describeL7GlobalRuleWithOptions(const Descr
 }
 
 /**
- * @summary Queries an Anti-DDoS global mitigation policy.
+ * @summary Queries the Anti-DDoS Global Mitigation Policy.
  *
  * @param request DescribeL7GlobalRuleRequest
  * @return DescribeL7GlobalRuleResponse
@@ -5236,7 +5274,7 @@ DescribeL7RsPolicyResponse Client::describeL7RsPolicy(const DescribeL7RsPolicyRe
 }
 
 /**
- * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
+ * @summary Queries the persistent connection settings for back-to-origin requests of a domain name.
  *
  * @param request DescribeL7UsKeepaliveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5267,7 +5305,7 @@ DescribeL7UsKeepaliveResponse Client::describeL7UsKeepaliveWithOptions(const Des
 }
 
 /**
- * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
+ * @summary Queries the persistent connection settings for back-to-origin requests of a domain name.
  *
  * @param request DescribeL7UsKeepaliveRequest
  * @return DescribeL7UsKeepaliveResponse
@@ -5362,7 +5400,7 @@ DescribeLogStoreExistStatusResponse Client::describeLogStoreExistStatus(const De
 }
 
 /**
- * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the Location Blacklist configuration for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeNetworkRegionBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5393,7 +5431,7 @@ DescribeNetworkRegionBlockResponse Client::describeNetworkRegionBlockWithOptions
 }
 
 /**
- * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the Location Blacklist configuration for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribeNetworkRegionBlockRequest
  * @return DescribeNetworkRegionBlockResponse
@@ -5404,7 +5442,7 @@ DescribeNetworkRegionBlockResponse Client::describeNetworkRegionBlock(const Desc
 }
 
 /**
- * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+ * @summary Queries the protection settings of port forwarding rules for non-website services, including session persistence and DDoS mitigation policies.
  *
  * @param request DescribeNetworkRuleAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5435,7 +5473,7 @@ DescribeNetworkRuleAttributesResponse Client::describeNetworkRuleAttributesWithO
 }
 
 /**
- * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+ * @summary Queries the protection settings of port forwarding rules for non-website services, including session persistence and DDoS mitigation policies.
  *
  * @param request DescribeNetworkRuleAttributesRequest
  * @return DescribeNetworkRuleAttributesResponse
@@ -5504,10 +5542,10 @@ DescribeNetworkRulesResponse Client::describeNetworkRules(const DescribeNetworkR
 }
 
 /**
- * @summary Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
+ * @summary Queries the operation logs of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
- * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
+ * Operation log types include: settings for elastic protection specifications of an instance, Unblock (deactivation of blackhole filtering), settings for near-origin traffic diversion, offsetting with anti-DDoS mitigation plans, changing an ECS IP address, and clearing full logs.
  *
  * @param request DescribeOpEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5562,10 +5600,10 @@ DescribeOpEntitiesResponse Client::describeOpEntitiesWithOptions(const DescribeO
 }
 
 /**
- * @summary Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
+ * @summary Queries the operation logs of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
- * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland).
+ * Operation log types include: settings for elastic protection specifications of an instance, Unblock (deactivation of blackhole filtering), settings for near-origin traffic diversion, offsetting with anti-DDoS mitigation plans, changing an ECS IP address, and clearing full logs.
  *
  * @param request DescribeOpEntitiesRequest
  * @return DescribeOpEntitiesResponse
@@ -5576,9 +5614,9 @@ DescribeOpEntitiesResponse Client::describeOpEntities(const DescribeOpEntitiesRe
 }
 
 /**
- * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the port forwarding rules created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request DescribePortRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5625,9 +5663,9 @@ DescribePortResponse Client::describePortWithOptions(const DescribePortRequest &
 }
 
 /**
- * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Queries the port forwarding rules created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
- * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation supports integration with Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request DescribePortRequest
  * @return DescribePortResponse
@@ -5742,8 +5780,6 @@ DescribePortAutoCcStatusResponse Client::describePortAutoCcStatus(const Describe
 }
 
 /**
- * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
- *
  * @param request DescribePortCcAttackTopIPRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePortCcAttackTopIPResponse
@@ -5785,8 +5821,6 @@ DescribePortCcAttackTopIPResponse Client::describePortCcAttackTopIPWithOptions(c
 }
 
 /**
- * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
- *
  * @param request DescribePortCcAttackTopIPRequest
  * @return DescribePortCcAttackTopIPResponse
  */
@@ -5916,7 +5950,7 @@ DescribePortConnsListResponse Client::describePortConnsList(const DescribePortCo
 }
 
 /**
- * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
+ * @summary Queries the traffic data list of an Anti-DDoS Pro and Anti-DDoS Premium instance.
  *
  * @param request DescribePortFlowListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5963,7 +5997,7 @@ DescribePortFlowListResponse Client::describePortFlowListWithOptions(const Descr
 }
 
 /**
- * @summary Queries the traffic data of one or more Anti-DDoS Proxy instances.
+ * @summary Queries the traffic data list of an Anti-DDoS Pro and Anti-DDoS Premium instance.
  *
  * @param request DescribePortFlowListRequest
  * @return DescribePortFlowListResponse
@@ -5974,7 +6008,7 @@ DescribePortFlowListResponse Client::describePortFlowList(const DescribePortFlow
 }
 
 /**
- * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
+ * @summary Queries the peak connection information of ports on an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribePortMaxConnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6017,7 +6051,7 @@ DescribePortMaxConnsResponse Client::describePortMaxConnsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Proxy instances.
+ * @summary Queries the peak connection information of ports on an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request DescribePortMaxConnsRequest
  * @return DescribePortMaxConnsResponse
@@ -6082,12 +6116,12 @@ DescribePortViewSourceCountriesResponse Client::describePortViewSourceCountries(
 }
 
 /**
- * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+ * @summary Queries the distribution of request source ISPs for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
  *
- * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
- * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the distribution of request source Internet service providers (ISPs) for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
+ * > Because the Layer 4 transport-layer identity statistics algorithm of Anti-DDoS Pro and Anti-DDoS Premium has been updated, the data returned by this operation does not reflect the actual traffic volume. The data can only be used to calculate the proportion of requests from different ISPs (that is, the distribution of request source ISPs). To obtain request traffic data, call [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html).
+ * ### QPS limit
+ * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
  *
  * @param request DescribePortViewSourceIspsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6130,12 +6164,12 @@ DescribePortViewSourceIspsResponse Client::describePortViewSourceIspsWithOptions
 }
 
 /**
- * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+ * @summary Queries the distribution of request source ISPs for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
  *
- * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
- * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description Queries the distribution of request source Internet service providers (ISPs) for an Anti-DDoS Pro or Anti-DDoS Premium instance within a specified time period.
+ * > Because the Layer 4 transport-layer identity statistics algorithm of Anti-DDoS Pro and Anti-DDoS Premium has been updated, the data returned by this operation does not reflect the actual traffic volume. The data can only be used to calculate the proportion of requests from different ISPs (that is, the distribution of request source ISPs). To obtain request traffic data, call [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html).
+ * ### QPS limit
+ * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Call this operation as needed.
  *
  * @param request DescribePortViewSourceIspsRequest
  * @return DescribePortViewSourceIspsResponse
@@ -6256,11 +6290,11 @@ DescribeSceneDefenseObjectsResponse Client::describeSceneDefenseObjects(const De
 }
 
 /**
- * @summary Queries the configurations of a scenario-specific custom policy.
+ * @summary Queries the detailed configurations of scenario-specific policies.
  *
- * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the detailed configurations of created scenario-specific policies, such as the policy status, protected objects, and protection rules.
+ * ### QPS limit
+ * You can call this operation up to 10 times per second per user. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation within the limit.
  *
  * @param request DescribeSceneDefensePoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6299,11 +6333,11 @@ DescribeSceneDefensePoliciesResponse Client::describeSceneDefensePoliciesWithOpt
 }
 
 /**
- * @summary Queries the configurations of a scenario-specific custom policy.
+ * @summary Queries the detailed configurations of scenario-specific policies.
  *
- * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries the detailed configurations of created scenario-specific policies, such as the policy status, protected objects, and protection rules.
+ * ### QPS limit
+ * You can call this operation up to 10 times per second per user. If the number of calls exceeds the limit, throttling is triggered. This may affect your business. Call this operation within the limit.
  *
  * @param request DescribeSceneDefensePoliciesRequest
  * @return DescribeSceneDefensePoliciesResponse
@@ -6472,7 +6506,7 @@ DescribeSlsAuthStatusResponse Client::describeSlsAuthStatus(const DescribeSlsAut
 }
 
 /**
- * @summary Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+ * @summary Queries the log store information of Anti-DDoS Pro or Anti-DDoS Premium, such as log storage capacity and storage duration of logs.
  *
  * @param request DescribeSlsLogstoreInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6503,7 +6537,7 @@ DescribeSlsLogstoreInfoResponse Client::describeSlsLogstoreInfoWithOptions(const
 }
 
 /**
- * @summary Queries information about the Logstore of the Anti-DDoS Proxy instance, such as the log storage capacity and log storage duration.
+ * @summary Queries the log store information of Anti-DDoS Pro or Anti-DDoS Premium, such as log storage capacity and storage duration of logs.
  *
  * @param request DescribeSlsLogstoreInfoRequest
  * @return DescribeSlsLogstoreInfoResponse
@@ -6556,11 +6590,11 @@ DescribeSlsOpenStatusResponse Client::describeSlsOpenStatus(const DescribeSlsOpe
 }
 
 /**
- * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+ * @summary Queries whether Anti-DDoS Proxy are authorized to access other cloud services.
  *
- * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries whether your Alibaba Cloud account has authorized Anti-DDoS Pro and Anti-DDoS Premium to access other cloud services.
+ * ### QPS limits
+ * The maximum number of queries per second (QPS) for this operation is 10 per user. If the number of API calls exceeds this limit, throttling is triggered. This may affect your business operations. Ensure that you call this operation at an appropriate rate.
  *
  * @param request DescribeStsGrantStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6595,11 +6629,11 @@ DescribeStsGrantStatusResponse Client::describeStsGrantStatusWithOptions(const D
 }
 
 /**
- * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+ * @summary Queries whether Anti-DDoS Proxy are authorized to access other cloud services.
  *
- * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation queries whether your Alibaba Cloud account has authorized Anti-DDoS Pro and Anti-DDoS Premium to access other cloud services.
+ * ### QPS limits
+ * The maximum number of queries per second (QPS) for this operation is 10 per user. If the number of API calls exceeds this limit, throttling is triggered. This may affect your business operations. Ensure that you call this operation at an appropriate rate.
  *
  * @param request DescribeStsGrantStatusRequest
  * @return DescribeStsGrantStatusResponse
@@ -6610,12 +6644,12 @@ DescribeStsGrantStatusResponse Client::describeStsGrantStatus(const DescribeStsG
 }
 
 /**
- * @summary Queries the details of the bills for the burstable clean bandwidth.
+ * @summary Queries the billing details of burstable clean bandwidth.
  *
- * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
- * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation lets you query the system logs of Anti-DDoS Pro. System logs currently include only the billing logs of burstable clean bandwidth.
+ * If you have enabled burstable clean bandwidth, you can call this operation to query the billing details of burstable clean bandwidth.
+ * ### QPS limits
+ * The QPS limit for this operation is 10 per second per user. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business operations. Therefore, call this operation at an appropriate frequency.
  *
  * @param request DescribeSystemLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6666,12 +6700,12 @@ DescribeSystemLogResponse Client::describeSystemLogWithOptions(const DescribeSys
 }
 
 /**
- * @summary Queries the details of the bills for the burstable clean bandwidth.
+ * @summary Queries the billing details of burstable clean bandwidth.
  *
- * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
- * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation lets you query the system logs of Anti-DDoS Pro. System logs currently include only the billing logs of burstable clean bandwidth.
+ * If you have enabled burstable clean bandwidth, you can call this operation to query the billing details of burstable clean bandwidth.
+ * ### QPS limits
+ * The QPS limit for this operation is 10 per second per user. If the number of calls per second exceeds this limit, throttling is triggered. This may affect your business operations. Therefore, call this operation at an appropriate frequency.
  *
  * @param request DescribeSystemLogRequest
  * @return DescribeSystemLogResponse
@@ -6822,7 +6856,7 @@ DescribeTagResourcesResponse Client::describeTagResources(const DescribeTagResou
 }
 
 /**
- * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+ * @summary 新峰值接口
  *
  * @param request DescribeTotalAttackMaxFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6865,7 +6899,7 @@ DescribeTotalAttackMaxFlowResponse Client::describeTotalAttackMaxFlowWithOptions
 }
 
 /**
- * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+ * @summary 新峰值接口
  *
  * @param request DescribeTotalAttackMaxFlowRequest
  * @return DescribeTotalAttackMaxFlowResponse
@@ -6922,7 +6956,7 @@ DescribeUdpReflectResponse Client::describeUdpReflect(const DescribeUdpReflectRe
 }
 
 /**
- * @summary Queries the total quota and remaining quota for blackhole filtering deactivation.
+ * @summary Queries the number of times that blackhole filtering can be deactivated.
  *
  * @param request DescribeUnBlackholeCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6953,7 +6987,7 @@ DescribeUnBlackholeCountResponse Client::describeUnBlackholeCountWithOptions(con
 }
 
 /**
- * @summary Queries the total quota and remaining quota for blackhole filtering deactivation.
+ * @summary Queries the number of times that blackhole filtering can be deactivated.
  *
  * @param request DescribeUnBlackholeCountRequest
  * @return DescribeUnBlackholeCountResponse
@@ -6964,9 +6998,9 @@ DescribeUnBlackholeCountResponse Client::describeUnBlackholeCount(const Describe
 }
 
 /**
- * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
+ * @summary Queries the available near-origin traffic diversion quota.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
  *
  * @param request DescribeUnBlockCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6997,9 +7031,9 @@ DescribeUnBlockCountResponse Client::describeUnBlockCountWithOptions(const Descr
 }
 
 /**
- * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
+ * @summary Queries the available near-origin traffic diversion quota.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland) service.
  *
  * @param request DescribeUnBlockCountRequest
  * @return DescribeUnBlockCountResponse
@@ -7010,11 +7044,11 @@ DescribeUnBlockCountResponse Client::describeUnBlockCount(const DescribeUnBlockC
 }
 
 /**
- * @summary Checks whether the log analysis feature is enabled for all domain names.
+ * @summary Queries the full log switch status of all domain names.
  *
- * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the full log switch status of all domain names that are added to Anti-DDoS Pro for protection.
+ * ### QPS limit
+ * The QPS limit on this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a proper frequency.
  *
  * @param request DescribeWebAccessLogDispatchStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7053,11 +7087,11 @@ DescribeWebAccessLogDispatchStatusResponse Client::describeWebAccessLogDispatchS
 }
 
 /**
- * @summary Checks whether the log analysis feature is enabled for all domain names.
+ * @summary Queries the full log switch status of all domain names.
  *
- * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation is used to query the full log switch status of all domain names that are added to Anti-DDoS Pro for protection.
+ * ### QPS limit
+ * The QPS limit on this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. We recommend that you call this operation at a proper frequency.
  *
  * @param request DescribeWebAccessLogDispatchStatusRequest
  * @return DescribeWebAccessLogDispatchStatusResponse
@@ -7156,7 +7190,7 @@ DescribeWebAccessLogStatusResponse Client::describeWebAccessLogStatus(const Desc
 }
 
 /**
- * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Queries the access mode of website businesses.
  *
  * @param request DescribeWebAccessModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7187,7 +7221,7 @@ DescribeWebAccessModeResponse Client::describeWebAccessModeWithOptions(const Des
 }
 
 /**
- * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Queries the access mode of website businesses.
  *
  * @param request DescribeWebAccessModeRequest
  * @return DescribeWebAccessModeResponse
@@ -7198,7 +7232,7 @@ DescribeWebAccessModeResponse Client::describeWebAccessMode(const DescribeWebAcc
 }
 
 /**
- * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+ * @summary Queries the configuration information of the Location Blacklist feature (for domain names) in website services.
  *
  * @param request DescribeWebAreaBlockConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7233,7 +7267,7 @@ DescribeWebAreaBlockConfigsResponse Client::describeWebAreaBlockConfigsWithOptio
 }
 
 /**
- * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
+ * @summary Queries the configuration information of the Location Blacklist feature (for domain names) in website services.
  *
  * @param request DescribeWebAreaBlockConfigsRequest
  * @return DescribeWebAreaBlockConfigsResponse
@@ -7246,7 +7280,7 @@ DescribeWebAreaBlockConfigsResponse Client::describeWebAreaBlockConfigs(const De
 /**
  * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Queries the custom frequency control rules that are created for a website.
+ * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
  *
  * @param request DescribeWebCCRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7291,7 +7325,7 @@ DescribeWebCCRulesResponse Client::describeWebCCRulesWithOptions(const DescribeW
 /**
  * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Queries the custom frequency control rules that are created for a website.
+ * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
  *
  * @param request DescribeWebCCRulesRequest
  * @return DescribeWebCCRulesResponse
@@ -7302,7 +7336,7 @@ DescribeWebCCRulesResponse Client::describeWebCCRules(const DescribeWebCCRulesRe
 }
 
 /**
- * @summary Queries the custom frequency control rules that are created for a website.
+ * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
  *
  * @param request DescribeWebCCRulesV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -7345,7 +7379,7 @@ DescribeWebCCRulesV2Response Client::describeWebCCRulesV2WithOptions(const Descr
 }
 
 /**
- * @summary Queries the custom frequency control rules that are created for a website.
+ * @summary Queries the custom rules of frequency control (HTTP flood mitigation) for website services.
  *
  * @param request DescribeWebCCRulesV2Request
  * @return DescribeWebCCRulesV2Response
@@ -7410,7 +7444,7 @@ DescribeWebCacheConfigsResponse Client::describeWebCacheConfigs(const DescribeWe
 }
 
 /**
- * @summary Queries the status of each mitigation policy for a website.
+ * @summary Queries the status of protection features for website services.
  *
  * @param request DescribeWebCcProtectSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7445,7 +7479,7 @@ DescribeWebCcProtectSwitchResponse Client::describeWebCcProtectSwitchWithOptions
 }
 
 /**
- * @summary Queries the status of each mitigation policy for a website.
+ * @summary Queries the status of protection features for website services.
  *
  * @param request DescribeWebCcProtectSwitchRequest
  * @return DescribeWebCcProtectSwitchResponse
@@ -7456,7 +7490,7 @@ DescribeWebCcProtectSwitchResponse Client::describeWebCcProtectSwitch(const Desc
 }
 
 /**
- * @summary Queries the supported custom ports of a website.
+ * @summary Queries the range of custom ports supported by Anti-DDoS Proxy for website services.
  *
  * @param request DescribeWebCustomPortsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7487,7 +7521,7 @@ DescribeWebCustomPortsResponse Client::describeWebCustomPortsWithOptions(const D
 }
 
 /**
- * @summary Queries the supported custom ports of a website.
+ * @summary Queries the range of custom ports supported by Anti-DDoS Proxy for website services.
  *
  * @param request DescribeWebCustomPortsRequest
  * @return DescribeWebCustomPortsResponse
@@ -7498,7 +7532,7 @@ DescribeWebCustomPortsResponse Client::describeWebCustomPorts(const DescribeWebC
 }
 
 /**
- * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+ * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances associated with website services.
  *
  * @param request DescribeWebInstanceRelationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7533,7 +7567,7 @@ DescribeWebInstanceRelationsResponse Client::describeWebInstanceRelationsWithOpt
 }
 
 /**
- * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+ * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances associated with website services.
  *
  * @param request DescribeWebInstanceRelationsRequest
  * @return DescribeWebInstanceRelationsResponse
@@ -7544,7 +7578,7 @@ DescribeWebInstanceRelationsResponse Client::describeWebInstanceRelations(const 
 }
 
 /**
- * @summary Queries the accurate access control rules that are created for websites.
+ * @summary Queries the precise access control rules configured for a website.
  *
  * @param request DescribeWebPreciseAccessRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7583,7 +7617,7 @@ DescribeWebPreciseAccessRuleResponse Client::describeWebPreciseAccessRuleWithOpt
 }
 
 /**
- * @summary Queries the accurate access control rules that are created for websites.
+ * @summary Queries the precise access control rules configured for a website.
  *
  * @param request DescribeWebPreciseAccessRuleRequest
  * @return DescribeWebPreciseAccessRuleResponse
@@ -7594,7 +7628,7 @@ DescribeWebPreciseAccessRuleResponse Client::describeWebPreciseAccessRule(const 
 }
 
 /**
- * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+ * @summary 查询报表top IP
  *
  * @param request DescribeWebReportTopIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7645,7 +7679,7 @@ DescribeWebReportTopIpResponse Client::describeWebReportTopIpWithOptions(const D
 }
 
 /**
- * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+ * @summary 查询报表top IP
  *
  * @param request DescribeWebReportTopIpRequest
  * @return DescribeWebReportTopIpResponse
@@ -7656,12 +7690,12 @@ DescribeWebReportTopIpResponse Client::describeWebReportTopIp(const DescribeWebR
 }
 
 /**
- * @summary Query Configuration of Website Business Forwarding Rules.
+ * @summary Queries the configurations of website forwarding rules.
  *
- * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
- * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
- * ### QPS Limit
- * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+ * @description This operation is used to query the configurations of website forwarding rules that you have created by using paging. For example, you can query the forwarding protocol type, origin server address, HTTPS configuration, and IP blacklist configuration.
+ * Before you invoke this operation, you must have invoked [CreateWebRule](https://help.aliyun.com/document_detail/157463.html) to create website forwarding rules.
+ * ### QPS limit
+ * You can invoke this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeWebRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7716,12 +7750,12 @@ DescribeWebRulesResponse Client::describeWebRulesWithOptions(const DescribeWebRu
 }
 
 /**
- * @summary Query Configuration of Website Business Forwarding Rules.
+ * @summary Queries the configurations of website forwarding rules.
  *
- * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
- * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
- * ### QPS Limit
- * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
+ * @description This operation is used to query the configurations of website forwarding rules that you have created by using paging. For example, you can query the forwarding protocol type, origin server address, HTTPS configuration, and IP blacklist configuration.
+ * Before you invoke this operation, you must have invoked [CreateWebRule](https://help.aliyun.com/document_detail/157463.html) to create website forwarding rules.
+ * ### QPS limit
+ * You can invoke this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
  *
  * @param request DescribeWebRulesRequest
  * @return DescribeWebRulesResponse
@@ -7782,7 +7816,7 @@ DetachSceneDefenseObjectResponse Client::detachSceneDefenseObject(const DetachSc
 }
 
 /**
- * @summary Disables a scenario-specific custom policy.
+ * @summary Disables a scenario-specific policy.
  *
  * @param request DisableSceneDefensePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7813,7 +7847,7 @@ DisableSceneDefensePolicyResponse Client::disableSceneDefensePolicyWithOptions(c
 }
 
 /**
- * @summary Disables a scenario-specific custom policy.
+ * @summary Disables a scenario-specific policy.
  *
  * @param request DisableSceneDefensePolicyRequest
  * @return DisableSceneDefensePolicyResponse
@@ -7824,7 +7858,7 @@ DisableSceneDefensePolicyResponse Client::disableSceneDefensePolicy(const Disabl
 }
 
 /**
- * @summary Disables the log analysis feature for a website.
+ * @summary Shuts down full logs analysis for a website service.
  *
  * @param request DisableWebAccessLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7859,7 +7893,7 @@ DisableWebAccessLogConfigResponse Client::disableWebAccessLogConfigWithOptions(c
 }
 
 /**
- * @summary Disables the log analysis feature for a website.
+ * @summary Shuts down full logs analysis for a website service.
  *
  * @param request DisableWebAccessLogConfigRequest
  * @return DisableWebAccessLogConfigResponse
@@ -7916,7 +7950,7 @@ DisableWebCCResponse Client::disableWebCC(const DisableWebCCRequest &request) {
 }
 
 /**
- * @summary Disables custom frequency control rules for a website.
+ * @summary Disables the custom rule switch for frequency control (HTTP flood mitigation) of a website service.
  *
  * @param request DisableWebCCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7951,7 +7985,7 @@ DisableWebCCRuleResponse Client::disableWebCCRuleWithOptions(const DisableWebCCR
 }
 
 /**
- * @summary Disables custom frequency control rules for a website.
+ * @summary Disables the custom rule switch for frequency control (HTTP flood mitigation) of a website service.
  *
  * @param request DisableWebCCRuleRequest
  * @return DisableWebCCRuleResponse
@@ -8046,7 +8080,7 @@ EmptyAutoCcWhitelistResponse Client::emptyAutoCcWhitelist(const EmptyAutoCcWhite
 }
 
 /**
- * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Deletes the Logstore of Anti-DDoS Proxy.
  *
  * @param request EmptySlsLogstoreRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8077,7 +8111,7 @@ EmptySlsLogstoreResponse Client::emptySlsLogstoreWithOptions(const EmptySlsLogst
 }
 
 /**
- * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Deletes the Logstore of Anti-DDoS Proxy.
  *
  * @param request EmptySlsLogstoreRequest
  * @return EmptySlsLogstoreResponse
@@ -8222,7 +8256,7 @@ EnableWebCCResponse Client::enableWebCC(const EnableWebCCRequest &request) {
 }
 
 /**
- * @summary Enables custom frequency control rules for a website.
+ * @summary Enables a custom HTTP flood protection rule.
  *
  * @param request EnableWebCCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8257,7 +8291,7 @@ EnableWebCCRuleResponse Client::enableWebCCRuleWithOptions(const EnableWebCCRule
 }
 
 /**
- * @summary Enables custom frequency control rules for a website.
+ * @summary Enables a custom HTTP flood protection rule.
  *
  * @param request EnableWebCCRuleRequest
  * @return EnableWebCCRuleResponse
@@ -8268,9 +8302,7 @@ EnableWebCCRuleResponse Client::enableWebCCRule(const EnableWebCCRuleRequest &re
 }
 
 /**
- * @summary Switches between the metering methods of the burstable clean bandwidth feature.
- *
- * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+ * @summary 95计费切换模式
  *
  * @param request ModifyBizBandWidthModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8305,9 +8337,7 @@ ModifyBizBandWidthModeResponse Client::modifyBizBandWidthModeWithOptions(const M
 }
 
 /**
- * @summary Switches between the metering methods of the burstable clean bandwidth feature.
- *
- * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+ * @summary 95计费切换模式
  *
  * @param request ModifyBizBandWidthModeRequest
  * @return ModifyBizBandWidthModeResponse
@@ -8542,9 +8572,9 @@ ModifyDomainResourceResponse Client::modifyDomainResource(const ModifyDomainReso
 }
 
 /**
- * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+ * @summary Modifies the burstable protection bandwidth of an Anti-DDoS Pro or Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro (the Chinese mainland) service.
  *
  * @param request ModifyElasticBandWidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8579,9 +8609,9 @@ ModifyElasticBandWidthResponse Client::modifyElasticBandWidthWithOptions(const M
 }
 
 /**
- * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+ * @summary Modifies the burstable protection bandwidth of an Anti-DDoS Pro or Anti-DDoS Premium instance in the Chinese mainland.
  *
- * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+ * @description > This operation is applicable only to Anti-DDoS Pro (the Chinese mainland) service.
  *
  * @param request ModifyElasticBandWidthRequest
  * @return ModifyElasticBandWidthResponse
@@ -8592,9 +8622,7 @@ ModifyElasticBandWidthResponse Client::modifyElasticBandWidth(const ModifyElasti
 }
 
 /**
- * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
- *
- * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+ * @summary 修改弹性业务带宽
  *
  * @param request ModifyElasticBizBandWidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8633,9 +8661,7 @@ ModifyElasticBizBandWidthResponse Client::modifyElasticBizBandWidthWithOptions(c
 }
 
 /**
- * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
- *
- * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+ * @summary 修改弹性业务带宽
  *
  * @param request ModifyElasticBizBandWidthRequest
  * @return ModifyElasticBizBandWidthResponse
@@ -8648,7 +8674,7 @@ ModifyElasticBizBandWidthResponse Client::modifyElasticBizBandWidth(const Modify
 /**
  * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
  *
- * @description You can enable burstable QPS only for IPv4 instances.
+ * @description Both IPv4 and IPv6 instances support burstable QPS.
  *
  * @param request ModifyElasticBizQpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8689,7 +8715,7 @@ ModifyElasticBizQpsResponse Client::modifyElasticBizQpsWithOptions(const ModifyE
 /**
  * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
  *
- * @description You can enable burstable QPS only for IPv4 instances.
+ * @description Both IPv4 and IPv6 instances support burstable QPS.
  *
  * @param request ModifyElasticBizQpsRequest
  * @return ModifyElasticBizQpsResponse
@@ -8746,7 +8772,7 @@ ModifyFullLogTtlResponse Client::modifyFullLogTtl(const ModifyFullLogTtlRequest 
 }
 
 /**
- * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Modifies custom headers for a domain on an Anti-DDoS Pro instance.
  *
  * @param request ModifyHeadersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8789,7 +8815,7 @@ ModifyHeadersResponse Client::modifyHeadersWithOptions(const ModifyHeadersReques
 }
 
 /**
- * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Modifies custom headers for a domain on an Anti-DDoS Pro instance.
  *
  * @param request ModifyHeadersRequest
  * @return ModifyHeadersResponse
@@ -8908,7 +8934,7 @@ ModifyHttp2EnableResponse Client::modifyHttp2Enable(const ModifyHttp2EnableReque
 }
 
 /**
- * @summary Instance adjustment, similar to BSS adjustment
+ * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8995,7 +9021,7 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
- * @summary Instance adjustment, similar to BSS adjustment
+ * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
@@ -9006,7 +9032,7 @@ ModifyInstanceResponse Client::modifyInstance(const ModifyInstanceRequest &reque
 }
 
 /**
- * @summary Modifies the description of an Anti-DDoS Proxy instance.
+ * @summary Modifies the remark of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request ModifyInstanceRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9041,7 +9067,7 @@ ModifyInstanceRemarkResponse Client::modifyInstanceRemarkWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the description of an Anti-DDoS Proxy instance.
+ * @summary Modifies the remark of an Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request ModifyInstanceRemarkRequest
  * @return ModifyInstanceRemarkResponse
@@ -9052,7 +9078,7 @@ ModifyInstanceRemarkResponse Client::modifyInstanceRemark(const ModifyInstanceRe
 }
 
 /**
- * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+ * @summary Modifies the session persistence and DDoS mitigation policy settings for a port forwarding rule.
  *
  * @param request ModifyNetworkRuleAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9099,7 +9125,7 @@ ModifyNetworkRuleAttributeResponse Client::modifyNetworkRuleAttributeWithOptions
 }
 
 /**
- * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
+ * @summary Modifies the session persistence and DDoS mitigation policy settings for a port forwarding rule.
  *
  * @param request ModifyNetworkRuleAttributeRequest
  * @return ModifyNetworkRuleAttributeResponse
@@ -9162,7 +9188,7 @@ ModifyOcspStatusResponse Client::modifyOcspStatus(const ModifyOcspStatusRequest 
 /**
  * @summary Modifies a port forwarding rule.
  *
- * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation can be used with Terraform. For more information, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request ModifyPortRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9215,7 +9241,7 @@ ModifyPortResponse Client::modifyPortWithOptions(const ModifyPortRequest &reques
 /**
  * @summary Modifies a port forwarding rule.
  *
- * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+ * @description This operation can be used with Terraform. For more information, see [What is Terraform](https://help.aliyun.com/document_detail/95820.html).
  *
  * @param request ModifyPortRequest
  * @return ModifyPortResponse
@@ -9226,7 +9252,7 @@ ModifyPortResponse Client::modifyPort(const ModifyPortRequest &request) {
 }
 
 /**
- * @summary Modifies the Intelligent Protection configuration of a non-website service.
+ * @summary Configures AI-based intelligent protection for non-website services.
  *
  * @param request ModifyPortAutoCcStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9265,7 +9291,7 @@ ModifyPortAutoCcStatusResponse Client::modifyPortAutoCcStatusWithOptions(const M
 }
 
 /**
- * @summary Modifies the Intelligent Protection configuration of a non-website service.
+ * @summary Configures AI-based intelligent protection for non-website services.
  *
  * @param request ModifyPortAutoCcStatusRequest
  * @return ModifyPortAutoCcStatusResponse
@@ -9438,7 +9464,7 @@ ModifySchedulerRuleResponse Client::modifySchedulerRule(const ModifySchedulerRul
 }
 
 /**
- * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+ * @summary Modifies the TLS security policy of a website forwarding rule.
  *
  * @param request ModifyTlsConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9477,7 +9503,7 @@ ModifyTlsConfigResponse Client::modifyTlsConfigWithOptions(const ModifyTlsConfig
 }
 
 /**
- * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+ * @summary Modifies the TLS security policy of a website forwarding rule.
  *
  * @param request ModifyTlsConfigRequest
  * @return ModifyTlsConfigResponse
@@ -9588,7 +9614,7 @@ ModifyWebAIProtectSwitchResponse Client::modifyWebAIProtectSwitch(const ModifyWe
 }
 
 /**
- * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Sets the access mode for website services.
  *
  * @param request ModifyWebAccessModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9623,7 +9649,7 @@ ModifyWebAccessModeResponse Client::modifyWebAccessModeWithOptions(const ModifyW
 }
 
 /**
- * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+ * @summary Sets the access mode for website services.
  *
  * @param request ModifyWebAccessModeRequest
  * @return ModifyWebAccessModeResponse
@@ -9634,7 +9660,7 @@ ModifyWebAccessModeResponse Client::modifyWebAccessMode(const ModifyWebAccessMod
 }
 
 /**
- * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+ * @summary Sets the blocked regions for Location Blacklist (domain-specific) of website services.
  *
  * @param request ModifyWebAreaBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9673,7 +9699,7 @@ ModifyWebAreaBlockResponse Client::modifyWebAreaBlockWithOptions(const ModifyWeb
 }
 
 /**
- * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+ * @summary Sets the blocked regions for Location Blacklist (domain-specific) of website services.
  *
  * @param request ModifyWebAreaBlockRequest
  * @return ModifyWebAreaBlockResponse
@@ -9684,11 +9710,11 @@ ModifyWebAreaBlockResponse Client::modifyWebAreaBlock(const ModifyWebAreaBlockRe
 }
 
 /**
- * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+ * @summary Sets the status of the Location Blacklist feature for website services (for domain names).
  *
- * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation sets the status of the Location Blacklist feature for website services (for domain names).
+ * ### QPS limits
+ * The single-user queries per second (QPS) limit for this operation is 10. API calls that exceed the limit are throttled, which may affect your business. We recommend that you call this operation at an appropriate rate.
  *
  * @param request ModifyWebAreaBlockSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9727,11 +9753,11 @@ ModifyWebAreaBlockSwitchResponse Client::modifyWebAreaBlockSwitchWithOptions(con
 }
 
 /**
- * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+ * @summary Sets the status of the Location Blacklist feature for website services (for domain names).
  *
- * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
- * ### Limits
- * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+ * @description This operation sets the status of the Location Blacklist feature for website services (for domain names).
+ * ### QPS limits
+ * The single-user queries per second (QPS) limit for this operation is 10. API calls that exceed the limit are throttled, which may affect your business. We recommend that you call this operation at an appropriate rate.
  *
  * @param request ModifyWebAreaBlockSwitchRequest
  * @return ModifyWebAreaBlockSwitchResponse
@@ -9790,7 +9816,7 @@ ModifyWebCCGlobalSwitchResponse Client::modifyWebCCGlobalSwitch(const ModifyWebC
 /**
  * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Modifies the custom frequency control rule of a website.
+ * @summary Modifies a custom rule for website business frequency control protection (HTTP flood protection).
  *
  * @param request ModifyWebCCRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9855,7 +9881,7 @@ ModifyWebCCRuleResponse Client::modifyWebCCRuleWithOptions(const ModifyWebCCRule
 /**
  * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
  *
- * @summary Modifies the custom frequency control rule of a website.
+ * @summary Modifies a custom rule for website business frequency control protection (HTTP flood protection).
  *
  * @param request ModifyWebCCRuleRequest
  * @return ModifyWebCCRuleResponse
@@ -10074,7 +10100,7 @@ ModifyWebIpSetSwitchResponse Client::modifyWebIpSetSwitch(const ModifyWebIpSetSw
 }
 
 /**
- * @summary Creates or modifies an accurate access control rule of a website.
+ * @summary Creates or edits a precise access control rule for a website.
  *
  * @param request ModifyWebPreciseAccessRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10117,7 +10143,7 @@ ModifyWebPreciseAccessRuleResponse Client::modifyWebPreciseAccessRuleWithOptions
 }
 
 /**
- * @summary Creates or modifies an accurate access control rule of a website.
+ * @summary Creates or edits a precise access control rule for a website.
  *
  * @param request ModifyWebPreciseAccessRuleRequest
  * @return ModifyWebPreciseAccessRuleResponse
@@ -10178,10 +10204,7 @@ ModifyWebPreciseAccessSwitchResponse Client::modifyWebPreciseAccessSwitch(const 
 }
 
 /**
- * @summary Modifies the forwarding rule of a website.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+ * @summary Modifies an existing website forwarding rule.
  *
  * @param request ModifyWebRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10236,10 +10259,7 @@ ModifyWebRuleResponse Client::modifyWebRuleWithOptions(const ModifyWebRuleReques
 }
 
 /**
- * @summary Modifies the forwarding rule of a website.
- *
- * @description ## Debugging
- * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=ddoscoo\\&api=ModifyWebRule\\&type=RPC\\&version=2020-01-01)
+ * @summary Modifies an existing website forwarding rule.
  *
  * @param request ModifyWebRuleRequest
  * @return ModifyWebRuleResponse
@@ -10250,9 +10270,13 @@ ModifyWebRuleResponse Client::modifyWebRule(const ModifyWebRuleRequest &request)
 }
 
 /**
- * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Release an expired Anti-DDoS Proxy instance.
  *
- * @description The ID of the request, which is used to locate and troubleshoot issues.
+ * @description After an Anti-DDoS instance expires, it stops providing DDoS attack protection services. Seven days after expiration, it stops forwarding service traffic.
+ * - We recommend that you renew your instance before it expires to avoid impacts on service protection and forwarding. You can call [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) to query the expiration time of an instance. To renew the instance, go to the [Anti-DDoS console](https://yundun.console.aliyun.com/?p=ddoscoo) to perform the operation.
+ * - If you do not plan to renew the instance, we recommend that you restore the protected service IP (no longer use the Anti-DDoS IP as the service IP) or service DNS parsing (no longer parse service traffic to the CNAME address of Anti-DDoS) before the Anti-DDoS instance expires. This prevents service traffic from being forwarded to the Anti-DDoS instance and avoids disruption to normal service forwarding when the instance expires.
+ * After the instance expires, you can call this operation to release the specified Anti-DDoS instance.
+ * > Before releasing the specified instance, ensure that you have restored the protected service IP or service DNS parsing.
  *
  * @param request ReleaseInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10283,9 +10307,13 @@ ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstance
 }
 
 /**
- * @summary Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Release an expired Anti-DDoS Proxy instance.
  *
- * @description The ID of the request, which is used to locate and troubleshoot issues.
+ * @description After an Anti-DDoS instance expires, it stops providing DDoS attack protection services. Seven days after expiration, it stops forwarding service traffic.
+ * - We recommend that you renew your instance before it expires to avoid impacts on service protection and forwarding. You can call [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) to query the expiration time of an instance. To renew the instance, go to the [Anti-DDoS console](https://yundun.console.aliyun.com/?p=ddoscoo) to perform the operation.
+ * - If you do not plan to renew the instance, we recommend that you restore the protected service IP (no longer use the Anti-DDoS IP as the service IP) or service DNS parsing (no longer parse service traffic to the CNAME address of Anti-DDoS) before the Anti-DDoS instance expires. This prevents service traffic from being forwarded to the Anti-DDoS instance and avoids disruption to normal service forwarding when the instance expires.
+ * After the instance expires, you can call this operation to release the specified Anti-DDoS instance.
+ * > Before releasing the specified instance, ensure that you have restored the protected service IP or service DNS parsing.
  *
  * @param request ReleaseInstanceRequest
  * @return ReleaseInstanceResponse

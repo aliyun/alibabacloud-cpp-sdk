@@ -63,6 +63,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SslProtocols, sslProtocols_);
         DARABONBA_PTR_TO_JSON(Tls13CustomCiphers, tls13CustomCiphers_);
         DARABONBA_PTR_TO_JSON(UserCertName, userCertName_);
+        DARABONBA_PTR_TO_JSON(WafProtectionEnable, wafProtectionEnable_);
         DARABONBA_PTR_TO_JSON(WhiteList, whiteList_);
       };
       friend void from_json(const Darabonba::Json& j, WebRules& obj) { 
@@ -92,6 +93,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SslProtocols, sslProtocols_);
         DARABONBA_PTR_FROM_JSON(Tls13CustomCiphers, tls13CustomCiphers_);
         DARABONBA_PTR_FROM_JSON(UserCertName, userCertName_);
+        DARABONBA_PTR_FROM_JSON(WafProtectionEnable, wafProtectionEnable_);
         DARABONBA_PTR_FROM_JSON(WhiteList, whiteList_);
       };
       WebRules() = default ;
@@ -143,12 +145,12 @@ namespace Models
 
 
       protected:
-        // The address of the origin server.
+        // The origin server address.
         shared_ptr<string> realServer_ {};
         // The type of the origin server address. Valid values:
         // 
-        // *   **0**: IP address
-        // *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
+        // - **0**: the IP address of the origin server.
+        // - **1**: the domain name of the origin server. This is typically used when another proxy service (such as WAF) is deployed between the origin server and Anti-DDoS Pro or Anti-DDoS Premium. The value specifies the redirect address of the proxy service (such as the WAF CNAME address).
         shared_ptr<int32_t> rsType_ {};
       };
 
@@ -192,14 +194,13 @@ namespace Models
 
 
       protected:
-        // The ports.
+        // The list of ports.
         shared_ptr<vector<string>> proxyPorts_ {};
-        // The type of the protocol. Valid values:
-        // 
-        // *   **http**
-        // *   **https**
-        // *   **websocket**
-        // *   **websockets**
+        // The forwarding protocol type. Valid values:
+        // - **http**: HTTP.
+        // - **https**: HTTPS.
+        // - **websocket**: WebSocket.
+        // - **websockets**: WebSockets.
         shared_ptr<string> proxyType_ {};
       };
 
@@ -250,17 +251,17 @@ namespace Models
 
 
       protected:
-        // The ID of the SM certificate.
+        // The ID of the GM certificate.
         shared_ptr<string> certId_ {};
-        // Indicates whether Enable SM Certificate-based Verification is turned on.
+        // Indicates whether GM authentication is enabled.
         // 
-        // *   0: no
-        // *   1: yes
+        // - 0: Disabled.
+        // - 1: Enabled.
         shared_ptr<int64_t> gmEnable_ {};
-        // Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+        // Indicates whether only GM client access is supported.
         // 
-        // *   0: no
-        // *   1: yes
+        // - 0: Disabled.
+        // - 1: Enabled.
         shared_ptr<int64_t> gmOnly_ {};
       };
 
@@ -270,7 +271,7 @@ namespace Models
         && this->http2Enable_ == nullptr && this->http2HttpsEnable_ == nullptr && this->https2HttpEnable_ == nullptr && this->ocspEnabled_ == nullptr && this->policyMode_ == nullptr
         && this->proxyEnabled_ == nullptr && this->proxyTypes_ == nullptr && this->punishReason_ == nullptr && this->punishStatus_ == nullptr && this->realServers_ == nullptr
         && this->ssl13Enabled_ == nullptr && this->sslCiphers_ == nullptr && this->sslProtocols_ == nullptr && this->tls13CustomCiphers_ == nullptr && this->userCertName_ == nullptr
-        && this->whiteList_ == nullptr; };
+        && this->wafProtectionEnable_ == nullptr && this->whiteList_ == nullptr; };
       // blackList Field Functions 
       bool hasBlackList() const { return this->blackList_ != nullptr;};
       void deleteBlackList() { this->blackList_ = nullptr;};
@@ -465,6 +466,13 @@ namespace Models
       inline WebRules& setUserCertName(string userCertName) { DARABONBA_PTR_SET_VALUE(userCertName_, userCertName) };
 
 
+      // wafProtectionEnable Field Functions 
+      bool hasWafProtectionEnable() const { return this->wafProtectionEnable_ != nullptr;};
+      void deleteWafProtectionEnable() { this->wafProtectionEnable_ = nullptr;};
+      inline bool getWafProtectionEnable() const { DARABONBA_PTR_GET_DEFAULT(wafProtectionEnable_, false) };
+      inline WebRules& setWafProtectionEnable(bool wafProtectionEnable) { DARABONBA_PTR_SET_VALUE(wafProtectionEnable_, wafProtectionEnable) };
+
+
       // whiteList Field Functions 
       bool hasWhiteList() const { return this->whiteList_ != nullptr;};
       void deleteWhiteList() { this->whiteList_ = nullptr;};
@@ -475,109 +483,104 @@ namespace Models
 
 
     protected:
-      // The IP addresses in the blacklist for the domain name.
+      // The IP blacklist (for the domain name).
       shared_ptr<vector<string>> blackList_ {};
-      // Indicates whether the Frequency Control policy is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether Frequency Control (HTTP flood mitigation) is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> ccEnabled_ {};
-      // Indicates whether the Custom Rule switch of the Frequency Control policy is turned on. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether custom Frequency Control (HTTP flood mitigation) rules are enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> ccRuleEnabled_ {};
-      // The mode of the Frequency Control policy. Valid values:
-      // 
-      // *   **default**: the Normal mode
-      // *   **gf_under_attack**: the Emergency mode
-      // *   **gf_sos_verify**: the Strict mode
-      // *   **gf_sos_verify**: the Super Strict mode
+      // The mode of Frequency Control (HTTP flood mitigation). Valid values:
+      // - **default**: Normal mode.
+      // - **gf_under_attack**: Emergency mode.
+      // - **gf_sos_verify**: strict mode.
+      // - **gf_sos_enhance**: Super strict mode.
       shared_ptr<string> ccTemplate_ {};
+      // The expiration timestamp of the associated certificate.
+      // > This parameter is not currently in use.
       shared_ptr<int64_t> certExpireTime_ {};
-      // The name of the SSL certificate.
+      // The certificate name.
       shared_ptr<string> certName_ {};
-      // The region where the certificate is used. Valid values:
-      // 
-      // *   cn-hangzhou (default): the Chinese mainland
-      // *   ap-southeast-1: outside the Chinese mainland
+      // The certificate region. Valid values:
+      // - cn-hangzhou: the Chinese mainland (default).
+      // - ap-southeast-1: outside the Chinese mainland.
       shared_ptr<string> certRegion_ {};
-      // The CNAME provided by the Anti-DDoS Pro or Anti-DDoS Premium instance to which the domain name is added.
+      // The CNAME address assigned by Anti-DDoS Pro or Anti-DDoS Premium to the domain name.
       shared_ptr<string> cname_ {};
-      // The custom cipher suites.
+      // The list of custom cipher suites.
       shared_ptr<vector<string>> customCiphers_ {};
       // The domain name of the website.
       shared_ptr<string> domain_ {};
-      // The SM certificate settings.
+      // The China Cryptographic Standards (GM) certificate configuration.
       shared_ptr<WebRules::GmCert> gmCert_ {};
-      // Indicates whether Enable HTTP/2 is turned on. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether HTTP 2.0 is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> http2Enable_ {};
-      // Indicates whether Enable HTTPS Redirection was turned on. Valid values:
+      // Indicates whether the HTTPS forced redirect feature is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> http2HttpsEnable_ {};
-      // Indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Valid values:
+      // Indicates whether the HTTP back-to-origin feature is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> https2HttpEnable_ {};
       // Indicates whether the Online Certificate Status Protocol (OCSP) feature is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> ocspEnabled_ {};
-      // The load balancing algorithm for back-to-origin traffic. Valid values:
-      // 
-      // *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
-      // *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
-      // *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
+      // Deprecated. For more information, see the API operation DescribeL7RsPolicy.
       shared_ptr<string> policyMode_ {};
-      // Indicates whether the forwarding rule is enabled. Valid values:
+      // Indicates whether website forwarding is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> proxyEnabled_ {};
-      // The details of the protocol type and port number.
+      // The forwarding protocol and port configurations.
       shared_ptr<vector<WebRules::ProxyTypes>> proxyTypes_ {};
-      // The reason why the domain name is invalid. Valid values:
+      // The reason why the domain name is penalized for a violation. Valid values:
+      // - **1**: The domain name does not have an Internet Content Provider (ICP) filing.
+      // - **2**: The business operated on the domain name does not comply with regulatory requirements.
       // 
-      // *   **1**: No Content Provider (ICP) filing is completed for the domain name.
-      // *   **2**: The business for which you registered the domain name does not meet regulatory requirements.
-      // 
-      // If the two reasons are both involved, the value **2** is returned.
+      // If both reasons **1** and **2** apply, the value **2** is returned.
       shared_ptr<int32_t> punishReason_ {};
-      // Indicates whether the domain name is invalid. Valid values:
+      // Indicates whether the domain name is penalized for a violation. Valid values:
       // 
-      // *   **true**: You can view the specific reasons from the **PunishReason** parameter.
-      // *   **false**
+      // - **true**: The domain name is penalized. You can check the **PunishReason** parameter for the specific reason.
+      // - **false**: The domain name is not penalized.
       shared_ptr<bool> punishStatus_ {};
-      // The details of the origin server address.
+      // The origin server address information.
       shared_ptr<vector<WebRules::RealServers>> realServers_ {};
-      // Indicates whether TLS 1.3 is supported. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether TLS 1.3 is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> ssl13Enabled_ {};
-      // The type of the cipher suite. Valid values:
+      // The type of cipher suite. Valid values:
       // 
-      // *   **default**: custom cipher suites
-      // *   **all**: all cipher suites, which contain strong and weak cipher suites
-      // *   **strong**: strong cipher suites
+      // - **default**: custom cipher suites.
+      // - **all**: all cipher suites, including strong and weak cipher suites.
+      // - **strong**: strong cipher suites.
       shared_ptr<string> sslCiphers_ {};
-      // The version of the Transport Layer Security (TLS) protocol. Valid values:
+      // The supported TLS protocol version. Valid values:
       // 
-      // *   **tls1.0**: TLS 1.0 or later
-      // *   **tls1.1**: TLS 1.1 or later
-      // *   **tls1.2**: TLS 1.2 or later
+      // - **tls1.0**: TLS 1.0 and later.
+      // - **tls1.1**: TLS 1.1 and later.
+      // - **tls1.2**: TLS 1.2 and later.
       shared_ptr<string> sslProtocols_ {};
+      // The list of cipher suites used for TLS 1.3.
       shared_ptr<vector<string>> tls13CustomCiphers_ {};
-      // The name of the certificate uploaded by the user to the certificate center.
+      // The name of the certificate uploaded to SSL Certificates Service.
       shared_ptr<string> userCertName_ {};
-      // The IP addresses in the whitelist for the domain name.
+      // Indicates whether WAF protection is enabled for the domain name. Valid values: true: Enabled. false: Disabled.
+      // 
+      // This parameter is required.
+      shared_ptr<bool> wafProtectionEnable_ {};
+      // The IP whitelist (for the domain name).
       shared_ptr<vector<string>> whiteList_ {};
     };
 
@@ -607,11 +610,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of queried website business forwarding rules.
+    // The total number of website forwarding rules.
     shared_ptr<int64_t> totalCount_ {};
-    // The configurations of the forwarding rule.
+    // The configurations of website forwarding rules.
     shared_ptr<vector<DescribeWebRulesResponseBody::WebRules>> webRules_ {};
   };
 
