@@ -121,27 +121,24 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud order ID. This can be a virtual order ID.
+    // The Alibaba Cloud order ID, including virtual order IDs.
     shared_ptr<string> aliyunOrderId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The package type. Valid values:
-    // 
-    // - single_node_subscribe: single node (subscription)
-    // 
-    // - single_node_long_term: single node (long-term)
-    // 
-    // - primary_backup_subscribe: primary/standby (subscription)
-    // 
-    // - primary_backup_long_term: primary/standby (long-term)
-    // 
-    // - pre_generation_long_term: pre-generated (long-term)
+    // - single_node_subscribe: single node (subscription).
+    // - single_node_long_term: single node (long-term).
+    // - primary_backup_subscribe: primary/secondary (subscription).
+    // - primary_backup_long_term: primary/secondary (long-term).
+    // - pre_generation_long_term: pre-generation (long-term).
     shared_ptr<string> packageType_ {};
-    // The page number to query.
+    // The page number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
+    // The purchase channel. Valid values:
+    // - aliyun_market: Alibaba Cloud Marketplace.
+    // - aliyun_public: standard purchase page.
     shared_ptr<string> purchaseChannel_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

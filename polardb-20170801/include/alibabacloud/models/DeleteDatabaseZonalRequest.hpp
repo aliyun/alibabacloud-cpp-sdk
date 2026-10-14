@@ -84,7 +84,9 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
+    // 
+    // > Note: The DBClusterId must be the ID of a PolarDB on ENS cluster created by calling CreateDBCluster(CloudProvider=ENS, EnsRegionId=xxx).
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

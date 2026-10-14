@@ -125,14 +125,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The model API IDs.
+    // The IDs of the model APIs.
     shared_ptr<string> modelApiIds_ {};
-    // The model category. Valid values:
+    // The category. Valid values:
     // * **text**
     // * **embedding**
     // * **rerank**
     shared_ptr<string> modelCategory_ {};
-    // The model API name.
+    // The name of the model API.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -140,7 +140,6 @@ namespace Models
     // * **30**
     // * **50**
     // * **100**
-    // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // The API path prefix.
@@ -154,7 +153,7 @@ namespace Models
     shared_ptr<string> protocol_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The model API status.
+    // The status of the model API.
     shared_ptr<string> status_ {};
   };
 

@@ -117,27 +117,33 @@ namespace Models
 
 
     protected:
-      // The time when the configuration was created.
+      // The creation time.
+      // 
+      // The time is in the YYYY-MM-DDTHH:mm:ss format.
       shared_ptr<string> createdTime_ {};
-      // The day of the cycle.
+      // The cycle time.
       // 
-      // - If CycleType is set to Month, this parameter returns a number from 1 to 28 that indicates the day of the month. Multiple days are separated by commas (,).
-      // 
-      // - If CycleType is set to Week, this parameter returns a number from 1 to 7 that indicates the day of the week. Multiple days are separated by commas (,).
+      // - If CycleType is set to Month, a number from 1 to 28 is returned, indicating the day of the month. Multiple values are separated by commas (,).
+      // - If CycleType is set to Week, a number from 1 to 7 is returned, indicating the day of the week. Multiple values are separated by commas (,).
       shared_ptr<string> cycleTime_ {};
       // The cycle type. Valid values:
       // 
       // - Month: monthly
-      // 
       // - Week: weekly
       shared_ptr<int32_t> cycleType_ {};
       // The end time of the maintenance window.
+      // 
+      // The time is in UTC in the HH:mmZ format.
       shared_ptr<string> maintainEndTime_ {};
       // The start time of the maintenance window.
+      // 
+      // The time is in UTC. Example: 8:00Z.
       shared_ptr<string> maintainStartTime_ {};
-      // The time when the configuration was last modified.
+      // The modification time.
+      // 
+      // The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> modifiedTime_ {};
-      // Indicates whether the configuration is enabled. Valid values:1: Enabled2: Disabled
+      // Indicates whether the configuration is effective. Valid values: 1 (yes) and 2 (no).
       shared_ptr<int64_t> status_ {};
     };
 
@@ -169,7 +175,7 @@ namespace Models
   protected:
     // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
-    // Indicates whether a configuration has been set. Valid values:1: Yes0: NoThe value of this parameter is 0 for the first query.
+    // Indicates whether the configuration has been set. Valid values: 1 (yes) and 0 (no). On the first visit, HasConfig is 0.
     shared_ptr<int64_t> hasConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

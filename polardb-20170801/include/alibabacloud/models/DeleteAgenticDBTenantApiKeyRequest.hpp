@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> apiKeyId_ {};
-    // The AgenticDB cluster ID.
+    // The ID of the AgenticDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID, which is used for secondary authentication on the backend.
+    // The tenant ID, which is used for secondary verification on the backend.
     // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};

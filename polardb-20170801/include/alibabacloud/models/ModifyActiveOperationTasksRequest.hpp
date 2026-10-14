@@ -112,37 +112,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to immediately start scheduling. Valid values:
+    // Specifies whether to immediately start execution scheduling.
     // 
-    // *   0: No. This is the default value.
-    // *   1: Yes.
+    // - 0: No (default).
+    // - 1: Yes.
     // 
-    // > 
-    // 
-    // *   If you set this parameter to 0, you must specify the SwitchTime parameter.
-    // 
-    // *   If you set this parameter to 1, the SwitchTime parameter does not take effect. In this case, the start time of the event is set to the current time, and the system determines the switching time based on the start time. Scheduling is started immediately, which is a prerequisite for the switchover. Then, the switchover is performed. You can call the DescribeActiveOperationTasks operation and check the return value of the PrepareInterval parameter for the preparation time.
+    // >- If the value is 0, the SwitchTime parameter is required.
+    // >- If the value is 1, the SwitchTime parameter does not take effect. The event start time is set to the current time, and the switchover time is automatically calculated based on the new start time. The event immediately enters execution scheduling (not an immediate switchover) and begins pre-switchover preparations. The switchover is performed after the preparations are complete. You can call the DescribeActiveOperationTasks operation and obtain the preparation time from the PrepareInterval response parameter.
     shared_ptr<int32_t> immediateStart_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region information about all clusters within a specified account.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region information of all clusters under the target account.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The scheduled switching time that you want to specify. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The planned switchover time to set. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     // 
     // > 
-    // 
-    // *   The time that is specified by this parameter cannot be later than the latest execution time.
-    // 
-    // *   You can call the DescribeActiveOperationTasks operation and check the return value of the Deadline parameter for the latest execution time.
+    // > - The time cannot be later than the deadline.
+    // > - You can call the DescribeActiveOperationTasks operation and obtain the deadline from the Deadline response parameter.
     shared_ptr<string> switchTime_ {};
-    // The task IDs.
+    // The list of task IDs.
     // 
     // This parameter is required.
     shared_ptr<string> taskIds_ {};

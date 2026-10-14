@@ -112,14 +112,29 @@ namespace Models
 
 
   protected:
+    // The time when the project was created.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
+    // The ID of the default branch.
     shared_ptr<string> defaultBranchId_ {};
+    // The name of the default branch.
     shared_ptr<string> defaultBranchName_ {};
+    // The description of the project.
     shared_ptr<string> description_ {};
+    // Project ID
     shared_ptr<string> projectId_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The project status. Valid values:
+    // 
+    // - Active: Normal.
+    // - Destroying: Being destroyed.
+    // - Destroyed: Destroyed.
     shared_ptr<string> status_ {};
+    // The ID of the tenant to which the project belongs.
     shared_ptr<string> tenantId_ {};
   };
 

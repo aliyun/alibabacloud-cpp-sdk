@@ -152,13 +152,13 @@ namespace Models
     shared_ptr<string> message_ {};
     // The actual restart mode used.
     shared_ptr<string> mode_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> ok_ {};
     // The operation name. This value is returned when Async is set to true.
     shared_ptr<string> operation_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway has been confirmed available after the restart. This value is returned synchronously.
+    // Indicates whether the gateway is confirmed available after the restart. This value is returned synchronously.
     shared_ptr<bool> restarted_ {};
     // The initial state of the asynchronous task. This value is returned when Async is set to true.
     shared_ptr<string> state_ {};

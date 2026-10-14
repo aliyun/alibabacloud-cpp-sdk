@@ -78,6 +78,8 @@ namespace Models
     // The redemption code used for subsequent activation.
     shared_ptr<string> creditToken_ {};
     // The expiration time.
+    // 
+    // The time is in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // The ID of the AI gateway instance.
     shared_ptr<string> gatewayId_ {};

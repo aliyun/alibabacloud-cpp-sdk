@@ -86,13 +86,13 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Indicates whether the request was successful. A value of `true` indicates success.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The ID of the deleted MCP server.
     shared_ptr<string> serverName_ {};

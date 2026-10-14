@@ -160,67 +160,69 @@ namespace Models
   protected:
     // The description of the account. The description must meet the following requirements:
     // 
-    // - Cannot start with `http://` or `https://`.
+    // - It cannot start with `http://` or `https://`.
     // 
-    // - Be 2 to 256 characters in length.
+    // - It must be 2 to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
-    // The account name. The name must meet the following requirements:
+    // The name of the account. The name must meet the following requirements:
     // 
-    // - Start with a lowercase letter and end with a letter or a digit.
+    // - It must start with a lowercase letter and end with a letter or a digit.
     // 
-    // - Contain only lowercase letters, digits, and underscores (_).
+    // - It can contain lowercase letters, digits, and underscores (_).
     // 
-    // - Be 2 to 16 characters in length.
+    // - It must be 2 to 16 characters in length.
     // 
-    // - Cannot be a reserved username, such as root or admin.
+    // - It cannot be a reserved username, such as root or admin.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The account password. The password must meet the following requirements:
+    // The password of the account. The password must meet the following requirements:
     // 
-    // - Contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     // 
-    // - Be 8 to 32 characters in length.
+    // - It must be 8 to 32 characters in length.
     // 
-    // - Special characters are `!@#$%^&*()_+-=`.
+    // - Special characters include `!@#$%^&*()_+-=`.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
     // The permissions of the account. Valid values:
     // 
-    // - ReadWrite: read and write permissions.
+    // - ReadWrite: read and write permissions
     // 
-    // - ReadOnly: read-only permissions.
+    // - ReadOnly: read-only permissions
     // 
-    // - DMLOnly: DML permissions only.
+    // - DMLOnly: DML-only permissions
     // 
-    // - DDLOnly: DDL permissions only.
+    // - DDLOnly: DDL-only permissions
     // 
-    // - ReadIndex: read and index permissions.
+    // - ReadIndex: read and index permissions
     shared_ptr<string> accountPrivilege_ {};
-    // The account type. Valid values:
+    // The type of the account. Valid values:
     // 
-    // - Normal: a standard account.
+    // - Normal: standard account
     // 
-    // - Super: a privileged account.
+    // - Super: privileged account
     shared_ptr<string> accountType_ {};
-    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token is case-sensitive and can contain a maximum of 64 ASCII characters.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and is case-sensitive. It can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The cluster ID.
     // 
+    // > Note: Only edge cluster (Zonal) IDs are supported. You can query them by calling the DescribeDBClustersZonal operation. Standard PolarDB cluster IDs returned by DescribeDBClusters cannot be used for this API operation.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the database that the destination account can access. You can specify multiple database names. Separate them with commas (,).
+    // The names of the databases that the account is authorized to access. You can specify multiple database names separated by commas (,).
     shared_ptr<string> DBName_ {};
     // The node type.
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to grant permissions on all current and future databases in the cluster. Valid values:
+    // Specifies whether to grant the account permissions on all existing databases and all databases to be created in the cluster. Valid values:
     // 
-    // - 0 or empty: Does not grant permissions.
+    // - 0 or empty: no
     // 
-    // - 1: Grants permissions.
+    // - 1: yes
     shared_ptr<string> privForAllDB_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

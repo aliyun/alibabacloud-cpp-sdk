@@ -177,7 +177,7 @@ namespace Models
     protected:
       // The mount path inside the container.
       shared_ptr<string> mountPath_ {};
-      // The cloud disk name.
+      // The disk name.
       shared_ptr<string> name_ {};
       // The storage size.
       shared_ptr<string> sizeGB_ {};
@@ -468,9 +468,9 @@ namespace Models
 
 
       protected:
-        // The database connection address.
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
-        // The network type of the connection string. Valid values:
+        // The network type of the endpoint. Valid values:
         // * **Public**: public endpoint
         // * **Private**: private endpoint
         // * **Inner**: private endpoint (classic network)
@@ -677,9 +677,9 @@ namespace Models
       protected:
         // The actual mount path.
         shared_ptr<string> mountPath_ {};
-        // The cloud disk name.
+        // The disk name.
         shared_ptr<string> name_ {};
-        // The size of the storage cloud disk.
+        // The storage disk size.
         shared_ptr<string> sizeGB_ {};
         // The storage type.
         shared_ptr<string> storageCategory_ {};
@@ -821,6 +821,8 @@ namespace Models
       // The number of CPU cores of the node.
       shared_ptr<string> cpuCores_ {};
       // The creation time.
+      // 
+      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> creationTime_ {};
       // The cluster specifications.
       shared_ptr<string> DBNodeClass_ {};
@@ -851,7 +853,7 @@ namespace Models
       shared_ptr<string> publicIp_ {};
       // The supported APIs.
       shared_ptr<vector<DBNodes::SupportedApis>> supportedApis_ {};
-      // The ID of the Kubernetes virtual node.
+      // The Kubernetes virtual node ID.
       shared_ptr<string> VNodeId_ {};
       // The VPC ID.
       shared_ptr<string> VPCId_ {};
@@ -1176,6 +1178,8 @@ namespace Models
     // The API key.
     shared_ptr<string> apiKey_ {};
     // The time when the cluster was created.
+    // 
+    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The custom model OSS path currently used by the instance.
     shared_ptr<string> customOssPath_ {};
@@ -1207,11 +1211,13 @@ namespace Models
     shared_ptr<bool> dedicatedHostModel_ {};
     // The security group ID.
     shared_ptr<string> ecsSecurityGroupId_ {};
-    // The list of network connection addresses of the instance.
+    // The list of network endpoints of the instance.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
     // The expiration time of the cluster.
     // 
-    // > Only clusters whose billing method is **Prepaid** (subscription) return a specific value. **Postpaid** (pay-as-you-go) clusters return an empty value.
+    // > Only clusters with the billing method of **Prepaid** (subscription) return a specific value. **Postpaid** (pay-as-you-go) clusters return an empty value.
+    // 
+    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
@@ -1227,7 +1233,7 @@ namespace Models
     shared_ptr<string> KVCacheInstanceId_ {};
     // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
-    // The lock mode of the instance. The value **lock** indicates that the instance is automatically expired or has an overdue payment.
+    // The lock mode of the instance. The value is **lock**, which indicates that the instance is automatically expired or has an overdue payment.
     shared_ptr<string> lockMode_ {};
     // The maximum number of requests per minute.
     shared_ptr<string> maxQPM_ {};

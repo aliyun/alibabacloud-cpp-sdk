@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The keyword for searching knowledge bases.
+    // The keyword used to filter knowledge bases.
     shared_ptr<string> keyword_ {};
     // The unique identifier of the knowledge space.
     shared_ptr<string> knowledgeSpaceId_ {};

@@ -224,11 +224,11 @@ namespace Models
   protected:
     // Specifies whether to enable No-activity Suspension. Valid values:
     // 
-    // - **true**: Enables the feature.
+    // - **true**: Enabled.
     // 
-    // - **false** (default): Disables the feature.
+    // - **false** (default): Disabled.
     shared_ptr<string> allowShutDown_ {};
-    // The Cron expression.
+    // The cron expression.
     // 
     // This parameter is required.
     shared_ptr<string> cronExpression_ {};
@@ -238,9 +238,11 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The end time.
     // 
+    // Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the scheduled task.
+    // The scheduled task ID.
     shared_ptr<string> jobId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -254,27 +256,26 @@ namespace Models
     shared_ptr<string> scaleApRoNumMax_ {};
     // The minimum number of read-only column store nodes. Valid values: 0 to 15.
     shared_ptr<string> scaleApRoNumMin_ {};
-    // The maximum number of PCUs. Valid values: 1 to 32.
+    // The maximum value. Valid values: 1 to 32. Unit: PCU.
     shared_ptr<string> scaleMax_ {};
-    // The minimum number of PolarDB Capacity Units (PCUs). Valid values: 0.25 to 32. This value must be less than or equal to the value of ScaleMax.
+    // The minimum value. Valid values: 0.25 to 32. The minimum value must be less than or equal to the maximum value. Unit: PCU.
     shared_ptr<string> scaleMin_ {};
-    // The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+    // The maximum number of read-only nodes for scaling. The value cannot be less than the minimum value. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMax_ {};
     // The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
     shared_ptr<string> scaleRoNumMin_ {};
-    // The detection period for No-activity Suspension. Unit: minutes. Valid values: 5 to 1440. The value must be a multiple of 5.
+    // The detection duration for No-activity Suspension. Valid values: 5 to 1440. Unit: minutes. The detection duration must be a multiple of 5 minutes.
     shared_ptr<string> secondsUntilAutoPause_ {};
-    // The CPU utilization threshold for a scale-up. Unit: percent. Valid values: 40 to 100.
+    // The CPU scale-up threshold. Valid values: 40 to 100. Unit: %.
     shared_ptr<string> serverlessRuleCpuEnlargeThreshold_ {};
-    // The CPU utilization threshold for a scale-down. Unit: percent. Valid values: 10 to 100. The value of ServerlessRuleCpuEnlargeThreshold minus the value of this parameter must be greater than or equal to 30.
+    // The CPU scale-down threshold. Valid values: 10 to 100. Unit: %. The difference between the scale-up threshold and the scale-down threshold must be at least 30.
     shared_ptr<string> serverlessRuleCpuShrinkThreshold_ {};
     // The scaling sensitivity. Valid values:
     // 
-    // - normal
-    // 
-    // - flexible
+    // - normal: standard.
+    // - flexible: sensitive.
     shared_ptr<string> serverlessRuleMode_ {};
-    // The start time. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // The start time. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

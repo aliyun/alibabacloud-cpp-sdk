@@ -101,7 +101,7 @@ namespace Models
     shared_ptr<string> agentId_ {};
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The return code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};

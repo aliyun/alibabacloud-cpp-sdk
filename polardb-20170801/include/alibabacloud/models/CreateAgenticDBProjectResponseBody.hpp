@@ -106,6 +106,8 @@ namespace Models
     // The ID of the compute instance associated with the default branch.
     shared_ptr<string> branchComputeClusterId_ {};
     // The time when the project was created.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The default branch ID.
     shared_ptr<string> defaultBranchId_ {};

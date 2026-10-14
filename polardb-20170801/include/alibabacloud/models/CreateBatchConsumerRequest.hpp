@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<string> consumerGroupId_ {};
     // The number of user API keys.
     shared_ptr<int32_t> count_ {};
-    // The redemption code. If specified, the recharge-type activation branch is used, and the count and quota are populated from the database.
+    // The redemption code. If specified, the recharge activation branch is used, and the count and quota are populated from the database.
     shared_ptr<string> creditToken_ {};
     // The consumer description prefix.
     shared_ptr<string> description_ {};

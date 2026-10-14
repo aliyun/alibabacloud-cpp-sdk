@@ -186,22 +186,45 @@ namespace Models
 
 
   protected:
+    // The ID of the compute cluster associated with the branch.
     shared_ptr<string> branchComputeClusterId_ {};
+    // The number of compute nodes. The value is fixed to 1 in the initial phase.
     shared_ptr<int32_t> branchComputeNodeCount_ {};
+    // The branch ID.
     shared_ptr<string> branchId_ {};
+    // The branch name.
     shared_ptr<string> branchName_ {};
+    // The time when the branch was created.
+    // 
+    // The time is in the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
+    // The description of the branch.
     shared_ptr<string> description_ {};
+    // Indicates whether the branch is the default branch.
     shared_ptr<bool> isDefaultBranch_ {};
+    // The time when the branch was last activated.
     shared_ptr<string> lastActivatedAt_ {};
+    // The maximum compute unit.
     shared_ptr<string> maxCU_ {};
+    // The minimum compute unit.
     shared_ptr<string> minCU_ {};
+    // The ID of the parent branch.
     shared_ptr<string> parentBranchId_ {};
+    // The name of the parent branch.
     shared_ptr<string> parentBranchName_ {};
+    // The ID of the project to which the branch belongs.
     shared_ptr<string> projectId_ {};
+    // The name of the project to which the branch belongs.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the branch. Valid values:
+    // 
+    // - Running
+    // - Pending
+    // - Paused
     shared_ptr<string> status_ {};
+    // The ID of the tenant to which the branch belongs.
     shared_ptr<string> tenantId_ {};
   };
 

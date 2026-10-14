@@ -92,7 +92,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The project ID to which the resource belongs.
+    // The project ID.
     shared_ptr<string> projectId_ {};
     // The region ID.
     // 

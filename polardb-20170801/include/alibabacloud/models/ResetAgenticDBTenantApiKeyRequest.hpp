@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the target API key.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKeyId_ {};
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the target tenant.
+    // 
     // This parameter is required.
     shared_ptr<string> tenantId_ {};
   };

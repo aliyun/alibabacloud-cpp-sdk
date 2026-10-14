@@ -172,7 +172,7 @@ namespace Models
     protected:
       // The description of the account.
       shared_ptr<string> accountDescription_ {};
-      // The lock state of the account. Valid values:
+      // The lock status of the account. Valid values:
       // 
       // - UnLock: The account is not locked.
       // 
@@ -180,25 +180,25 @@ namespace Models
       shared_ptr<string> accountLockState_ {};
       // The name of the account.
       shared_ptr<string> accountName_ {};
-      // The time when the password expires.
+      // The expiration time of the password.
       shared_ptr<string> accountPasswordValidTime_ {};
       // The status of the account. Valid values:
       // 
-      // Creating: The account is being created.
+      // - Creating: The account is being created.
       // 
-      // Available: The account is active.
+      // - Available: The account is available.
       // 
-      // Deleting: The account is being deleted.
+      // - Deleting: The account is being deleted.
       shared_ptr<string> accountStatus_ {};
       // The type of the account. Valid values:
       // 
-      // - Normal: A standard account.
+      // - Normal: standard account.
       // 
-      // - Super: A privileged account.
+      // - Super: privileged account.
       // 
-      // - ReadOnly: A global read-only account.
+      // - ReadOnly: global read-only account.
       shared_ptr<string> accountType_ {};
-      // The details of the database permissions that the account has.
+      // The details of the database permissions granted to the account.
       shared_ptr<vector<Accounts::DatabasePrivileges>> databasePrivileges_ {};
     };
 
@@ -249,11 +249,11 @@ namespace Models
 
 
   protected:
-    // The details of the accounts.
+    // The details of the account information.
     shared_ptr<vector<DescribeAccountsZonalResponseBody::Accounts>> accounts_ {};
-    // The maximum number of entries returned in the request.
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If the results are not fully returned, this token is returned. You can use this token in the next request to retrieve the remaining results.
+    // The query token. Set the value to the NextToken value returned in the last API call. If no subsequent query is required, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

@@ -66,37 +66,24 @@ namespace Models
 
 
   protected:
-    // Indicates whether the resources are sufficient.
-    // 
-    // - **true**: The resources are sufficient.
-    // 
-    // - **false**: The resources are insufficient.
+    // Indicates whether sufficient resources are available.
+    // * **true**: Sufficient resources are available.
+    // * **false**: Resources are insufficient.
     shared_ptr<string> DBInstanceAvailable_ {};
-    // The database engine type. Valid values:
-    // 
+    // The type of the database engine. Valid values:
     // - **MySQL**
-    // 
     // - **PostgreSQL**
-    // 
     // - **Oracle**
     shared_ptr<string> DBType_ {};
-    // The version of the database engine.
-    // 
-    // - Valid values for MySQL:
-    // 
-    //   - **5.6**
-    // 
-    //   - **5.7**
-    // 
-    //   - **8.0**
-    // 
-    // - Valid values for PostgreSQL:
-    // 
-    //   - **11**
-    // 
-    //   - **14**
-    // 
-    // - Valid value for Oracle: **11**.
+    // The database DPI engine version number.
+    // * Valid version numbers for MySQL: 
+    //     * **5.6**
+    //     * **5.7**
+    //     * **8.0**
+    // * Valid version numbers for PostgreSQL:
+    //     * **11**
+    //     * **14**
+    // * Valid version number for Oracle: **11**.
     shared_ptr<string> DBVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

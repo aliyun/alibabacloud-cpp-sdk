@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(FeishuChatMemberStaleTtlSeconds, feishuChatMemberStaleTtlSeconds_);
       DARABONBA_PTR_TO_JSON(KnowledgeBaseId, knowledgeBaseId_);
       DARABONBA_PTR_TO_JSON(LinkName, linkName_);
       DARABONBA_PTR_TO_JSON(McpEndpoint, mcpEndpoint_);
@@ -27,11 +28,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(UserAccessToken, userAccessToken_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(UserRefreshToken, userRefreshToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateKBSyncLinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(FeishuChatMemberStaleTtlSeconds, feishuChatMemberStaleTtlSeconds_);
       DARABONBA_PTR_FROM_JSON(KnowledgeBaseId, knowledgeBaseId_);
       DARABONBA_PTR_FROM_JSON(LinkName, linkName_);
       DARABONBA_PTR_FROM_JSON(McpEndpoint, mcpEndpoint_);
@@ -43,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(UserAccessToken, userAccessToken_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(UserRefreshToken, userRefreshToken_);
     };
     CreateKBSyncLinkRequest() = default ;
     CreateKBSyncLinkRequest(const CreateKBSyncLinkRequest &) = default ;
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->clientSecret_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->linkName_ == nullptr && this->mcpEndpoint_ == nullptr
-        && this->regionId_ == nullptr && this->sheetMcpEndpoint_ == nullptr && this->sourceDir_ == nullptr && this->sourceType_ == nullptr && this->syncIntervalMinutes_ == nullptr
-        && this->tenantId_ == nullptr && this->userAccessToken_ == nullptr && this->userId_ == nullptr; };
+        && this->clientSecret_ == nullptr && this->description_ == nullptr && this->feishuChatMemberStaleTtlSeconds_ == nullptr && this->knowledgeBaseId_ == nullptr && this->linkName_ == nullptr
+        && this->mcpEndpoint_ == nullptr && this->regionId_ == nullptr && this->sheetMcpEndpoint_ == nullptr && this->sourceDir_ == nullptr && this->sourceType_ == nullptr
+        && this->syncIntervalMinutes_ == nullptr && this->tenantId_ == nullptr && this->userAccessToken_ == nullptr && this->userId_ == nullptr && this->userRefreshToken_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -78,6 +82,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateKBSyncLinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // feishuChatMemberStaleTtlSeconds Field Functions 
+    bool hasFeishuChatMemberStaleTtlSeconds() const { return this->feishuChatMemberStaleTtlSeconds_ != nullptr;};
+    void deleteFeishuChatMemberStaleTtlSeconds() { this->feishuChatMemberStaleTtlSeconds_ = nullptr;};
+    inline int32_t getFeishuChatMemberStaleTtlSeconds() const { DARABONBA_PTR_GET_DEFAULT(feishuChatMemberStaleTtlSeconds_, 0) };
+    inline CreateKBSyncLinkRequest& setFeishuChatMemberStaleTtlSeconds(int32_t feishuChatMemberStaleTtlSeconds) { DARABONBA_PTR_SET_VALUE(feishuChatMemberStaleTtlSeconds_, feishuChatMemberStaleTtlSeconds) };
 
 
     // knowledgeBaseId Field Functions 
@@ -157,6 +168,13 @@ namespace Models
     inline CreateKBSyncLinkRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
+    // userRefreshToken Field Functions 
+    bool hasUserRefreshToken() const { return this->userRefreshToken_ != nullptr;};
+    void deleteUserRefreshToken() { this->userRefreshToken_ = nullptr;};
+    inline string getUserRefreshToken() const { DARABONBA_PTR_GET_DEFAULT(userRefreshToken_, "") };
+    inline CreateKBSyncLinkRequest& setUserRefreshToken(string userRefreshToken) { DARABONBA_PTR_SET_VALUE(userRefreshToken_, userRefreshToken) };
+
+
   protected:
     // The client ID.
     // 
@@ -168,23 +186,25 @@ namespace Models
     shared_ptr<string> clientSecret_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
-    // The unique ID of the knowledge base.
+    // The validity period of the Lark group member snapshot for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, -1 takes effect.
+    shared_ptr<int32_t> feishuChatMemberStaleTtlSeconds_ {};
+    // The unique identifier of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The name of the synchronization link.
+    // The name of the link.
     // 
     // This parameter is required.
     shared_ptr<string> linkName_ {};
-    // The MCP Server endpoint for DingTalk documents.
+    // The endpoint of the DingTalk document MCP server.
     shared_ptr<string> mcpEndpoint_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The MCP Server endpoint for DingTalk spreadsheets.
+    // The endpoint of the DingTalk sheet MCP server.
     shared_ptr<string> sheetMcpEndpoint_ {};
-    // The directory address of the synchronization source.
+    // The source directory address for synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
@@ -192,14 +212,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // The synchronization interval. Unit: minutes.
+    // The synchronization interval, in minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     // The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
     shared_ptr<string> tenantId_ {};
-    // The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+    // The Lark user access token. This token is used only when the application identity cannot retrieve group members because the bot is not in the group chat.
     shared_ptr<string> userAccessToken_ {};
-    // The DingTalk user ID of the operator.
+    // The ID of the DingTalk operator.
     shared_ptr<string> userId_ {};
+    // The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for retrieving group members.
+    shared_ptr<string> userRefreshToken_ {};
   };
 
   } // namespace Models

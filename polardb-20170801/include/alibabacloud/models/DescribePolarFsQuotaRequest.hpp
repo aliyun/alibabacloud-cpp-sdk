@@ -76,12 +76,11 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // > To find the cluster ID for enterprise, basic, or data lakehouse edition clusters, call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation.
+    // > Enterprise Edition, Basic Edition, and Data Lakehouse Edition: You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query the cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The destination path.
+    // The target path.
     shared_ptr<string> path_ {};
-    // The PolarFS instance ID.
+    // The Polarlakebase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
@@ -89,7 +88,7 @@ namespace Models
     shared_ptr<string> quotaType_ {};
     // The region ID.
     // 
-    // > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to find the IDs of all available regions in your account.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
     shared_ptr<string> regionId_ {};
   };
 

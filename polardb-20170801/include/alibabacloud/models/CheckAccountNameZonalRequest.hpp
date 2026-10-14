@@ -90,6 +90,8 @@ namespace Models
     shared_ptr<string> accountName_ {};
     // The cluster ID.
     // 
+    // > Note: This parameter accepts only edge cluster IDs, which you can obtain by calling the DescribeDBClustersZonal operation. For common PolarDB clusters, use the CheckAccountName operation.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> ownerAccount_ {};

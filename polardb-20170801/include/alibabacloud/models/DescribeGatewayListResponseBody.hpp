@@ -170,17 +170,19 @@ namespace Models
 
 
     protected:
-      // The time when the gateway instance was created.
+      // The creation time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
-      // The expiration time of the gateway instance.
+      // The expiration time of the cluster.
+      // - If the billing method of the cluster is subscription, the actual expiration time is returned.
+      // - If the billing method of the cluster is pay-as-you-go, an empty value is returned.
       // 
-      // - For subscription instances, this parameter indicates the expiration time.
-      // 
-      // - This parameter is empty for pay-as-you-go instances.
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> expireTime_ {};
-      // Indicates whether the gateway instance has expired. Valid values:
+      // Indicates whether the cluster has expired. Valid values:
       // 
       // - **true**
       // 
@@ -188,27 +190,27 @@ namespace Models
       shared_ptr<bool> expired_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The description of the gateway instance.
+      // The gateway description.
       shared_ptr<string> gwDescription_ {};
-      // The time when the gateway instance was last modified.
+      // The last modification time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> modifyTime_ {};
-      // The billing method. Valid values:
+      // The billing method. Valid values: 
       // 
-      // - **Postpaid**: pay-as-you-go
-      // 
-      // - **Prepaid**: subscription
+      // - **Postpaid**: pay-as-you-go.
+      // - **Prepaid**: subscription.
       shared_ptr<string> payType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The status of the gateway instance. Valid values:
+      // The application status. Valid values:
       // 
-      // - **CREATE**: creating
-      // 
-      // - **ACTIVATION**: running
+      // - CREATE: being created.
+      // - ACTIVATION: running.
       shared_ptr<string> status_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the virtual private cloud (VPC).
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -259,23 +261,20 @@ namespace Models
 
 
   protected:
-    // A list of gateway instances.
+    // The list of gateway instances.
     shared_ptr<vector<DescribeGatewayListResponseBody::Items>> items_ {};
-    // The page number.
+    // The page number. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of entries per page.
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: 30.
     shared_ptr<string> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};

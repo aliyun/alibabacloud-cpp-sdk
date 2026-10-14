@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the source instance.
+    // The source instance ID.
     shared_ptr<string> sourceDBClusterId_ {};
     // The ID of the asynchronous task.
     shared_ptr<int64_t> taskId_ {};

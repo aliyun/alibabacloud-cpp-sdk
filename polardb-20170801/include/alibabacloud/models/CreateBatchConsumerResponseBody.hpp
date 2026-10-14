@@ -238,7 +238,7 @@ namespace Models
     protected:
       // Indicates whether the key is active.
       shared_ptr<bool> active_ {};
-      // The full API key. Returned only in this response.
+      // The complete API key. Returned only in this response.
       shared_ptr<string> apiKey_ {};
       // The MD5 hash of the API key.
       shared_ptr<string> apiKeyMd5_ {};
@@ -261,12 +261,14 @@ namespace Models
       // The application description or remarks.
       shared_ptr<string> description_ {};
       // The expiration time.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> expireTime_ {};
-      // Indicates whether the key is expired.
+      // Indicates whether the key has expired.
       shared_ptr<bool> expired_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The last modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};

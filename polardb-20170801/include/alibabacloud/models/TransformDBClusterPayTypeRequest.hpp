@@ -169,7 +169,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The subscription type of the subscription instance. Valid values:
+    // The unit of the subscription duration for the instance. Valid values:
     // 
     // - **Year**: yearly subscription
     // 
@@ -189,9 +189,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The subscription duration. Valid values:
     // 
-    // - If **Period** is set to **Year**, set **UsedTime** to a value from 1 to 3.
+    // - If **Period** is set to **Year**, set UsedTime to a value from 1 to 3.
     // 
-    // - If **Period** is set to **Month**, set **UsedTime** to a value from 1 to 9.
+    // - If **Period** is set to **Month**, set UsedTime to a value from 1 to 9.
     // 
     // > This parameter is required when **PayType** is set to **Prepaid**.
     shared_ptr<string> usedTime_ {};

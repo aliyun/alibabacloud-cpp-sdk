@@ -13,9 +13,11 @@ namespace Models
   class DescribeCostRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCostRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CostRuleId, costRuleId_);
       DARABONBA_PTR_TO_JSON(EffectiveTargetType, effectiveTargetType_);
       DARABONBA_PTR_TO_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
+      DARABONBA_PTR_TO_JSON(InputTokenTier, inputTokenTier_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(ModelServiceId, modelServiceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -23,9 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCostRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CostRuleId, costRuleId_);
       DARABONBA_PTR_FROM_JSON(EffectiveTargetType, effectiveTargetType_);
       DARABONBA_PTR_FROM_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
+      DARABONBA_PTR_FROM_JSON(InputTokenTier, inputTokenTier_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(ModelServiceId, modelServiceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -43,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->effectiveTargetType_ == nullptr
-        && this->effectiveTargetValue_ == nullptr && this->gwClusterId_ == nullptr && this->modelName_ == nullptr && this->modelServiceId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->costRuleId_ == nullptr
+        && this->effectiveTargetType_ == nullptr && this->effectiveTargetValue_ == nullptr && this->gwClusterId_ == nullptr && this->inputTokenTier_ == nullptr && this->modelName_ == nullptr
+        && this->modelServiceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+    // costRuleId Field Functions 
+    bool hasCostRuleId() const { return this->costRuleId_ != nullptr;};
+    void deleteCostRuleId() { this->costRuleId_ = nullptr;};
+    inline string getCostRuleId() const { DARABONBA_PTR_GET_DEFAULT(costRuleId_, "") };
+    inline DescribeCostRulesRequest& setCostRuleId(string costRuleId) { DARABONBA_PTR_SET_VALUE(costRuleId_, costRuleId) };
+
+
     // effectiveTargetType Field Functions 
     bool hasEffectiveTargetType() const { return this->effectiveTargetType_ != nullptr;};
     void deleteEffectiveTargetType() { this->effectiveTargetType_ = nullptr;};
@@ -65,6 +76,13 @@ namespace Models
     void deleteGwClusterId() { this->gwClusterId_ = nullptr;};
     inline string getGwClusterId() const { DARABONBA_PTR_GET_DEFAULT(gwClusterId_, "") };
     inline DescribeCostRulesRequest& setGwClusterId(string gwClusterId) { DARABONBA_PTR_SET_VALUE(gwClusterId_, gwClusterId) };
+
+
+    // inputTokenTier Field Functions 
+    bool hasInputTokenTier() const { return this->inputTokenTier_ != nullptr;};
+    void deleteInputTokenTier() { this->inputTokenTier_ = nullptr;};
+    inline string getInputTokenTier() const { DARABONBA_PTR_GET_DEFAULT(inputTokenTier_, "") };
+    inline DescribeCostRulesRequest& setInputTokenTier(string inputTokenTier) { DARABONBA_PTR_SET_VALUE(inputTokenTier_, inputTokenTier) };
 
 
     // modelName Field Functions 
@@ -103,17 +121,21 @@ namespace Models
 
 
   protected:
-    // Filters by effective target type. Valid values: global, consumerGroup, and consumer.
+    // The ID of the cost rule.
+    shared_ptr<string> costRuleId_ {};
+    // The type of the effective target. Valid values: global, consumerGroup, and consumer.
     shared_ptr<string> effectiveTargetType_ {};
-    // Filters by effective target value.
+    // The value of the effective target used to filter results.
     shared_ptr<string> effectiveTargetValue_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The model name, such as gpt-4 or qwen-turbo.
+    // The input token tier used to filter results. Rules that include this tier are returned. Valid values: 0-32K, 32K-64K, 64K-128K, 128K-256K, 256K-512K, 512K-1M, and 1M+.
+    shared_ptr<string> inputTokenTier_ {};
+    // The name of the model, such as gpt-4 or qwen-turbo.
     shared_ptr<string> modelName_ {};
-    // The model service ID.
+    // The ID of the model service.
     shared_ptr<string> modelServiceId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

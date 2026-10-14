@@ -101,7 +101,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The search mode. Valid values:
-    // 
     // * balanced (default): balanced mode
     // * precise: precise mode
     // * semantic: semantic mode

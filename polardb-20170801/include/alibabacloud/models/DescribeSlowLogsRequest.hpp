@@ -134,19 +134,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The database name.
+    // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end date of the query range. The end date cannot be earlier than the start date, and the interval between the start and end dates cannot exceed 31 days. Specify the date in `yyyy-MM-ddZ` format. The time is in UTC.
+    // The end date of the query. The end date must be later than or equal to the start date. The interval between the start date and the end date cannot exceed 31 days. Format: yyyy-MM-ddZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
     // 
-    // The default value is 1.
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of logs to return on each page. Valid values: 30 to 100. The default value is 30.
+    // The number of entries per page. Valid values: 30 to 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 
@@ -154,7 +154,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start date of the query range. The date can be up to 31 days in the past. Specify the date in `yyyy-MM-ddZ` format. The time is in UTC.
+    // The start date of the query. The interval between the start date and the current date cannot exceed 31 days. Format: yyyy-MM-ddZ (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

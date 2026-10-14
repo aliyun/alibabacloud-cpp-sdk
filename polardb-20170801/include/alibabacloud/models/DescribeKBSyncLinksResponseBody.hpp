@@ -143,6 +143,8 @@ namespace Models
       // The client ID.
       shared_ptr<string> clientId_ {};
       // The creation time.
+      // 
+      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> creationTime_ {};
       // The description of the synchronization link.
       shared_ptr<string> description_ {};

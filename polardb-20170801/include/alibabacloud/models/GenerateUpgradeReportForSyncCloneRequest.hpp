@@ -140,51 +140,42 @@ namespace Models
 
 
   protected:
-    // The product series. Valid values:
+    // The edition of the cluster. Valid values:
+    // * **Normal**: Cluster Edition (default)
+    // * **SENormal**: Standard Edition
     // 
-    // - **Normal**: Cluster Edition (default)
-    // 
-    // - **SENormal**: Standard Edition
-    // 
-    // See [Product series](https://help.aliyun.com/document_detail/183258.html).
+    // For more information about cluster editions, see [Product editions](https://help.aliyun.com/document_detail/183258.html).
     shared_ptr<string> creationCategory_ {};
-    // The creation method. Valid values:
+    // The creation pattern. Valid values: 
     // 
-    // - **MigrationFromRDS**: Migrate data from an existing RDS instance to a new PolarDB cluster. The created PolarDB cluster is in read-only mode and has binary logging enabled by default. For operations in the console, see [Upgrade an ApsaraDB RDS for MySQL instance to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
+    // * **MigrationFromRDS**: migrates data from an existing ApsaraDB RDS instance to a new PolarDB cluster. The created PolarDB cluster is in read-only mode and has binary logging enabled by default. For more information about the console operation, see [Upgrade an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121582.html).
     // 
-    // - **UpgradeFromPolarDB**: Upgrade and migrate data from a PolarDB cluster. See [Upgrade the major version](https://help.aliyun.com/document_detail/459712.html).
+    // * **UpgradeFromPolarDB**: performs instance migration from PolarDB. For more information about the console operation, see [Major engine version upgrade](https://help.aliyun.com/document_detail/459712.html).
     shared_ptr<string> creationOption_ {};
     // The name of the database. You can specify only one database name.
     // 
-    // > This parameter is supported only for PolarDB for PostgreSQL (Oracle Compatible) clusters.
+    // > Only PolarDB for PostgreSQL (Compatible with Oracle) clusters support this parameter.
     shared_ptr<string> DBName_ {};
     // The type of the database engine. Valid values:
-    // 
     // - **MySQL**
-    // 
     // - **Oracle**
     shared_ptr<string> DBType_ {};
-    // The version of the destination database engine.
-    // 
-    // - Valid values for MySQL:
-    // 
-    //   - **5.6**
-    // 
-    //   - **5.7**
-    // 
-    //   - **8.0**
-    // 
-    // - Valid value for Oracle: **14**.
+    // The version number of the destination database DPI engine.
+    // * Valid values for MySQL: 
+    //     * **5.6**
+    //     * **5.7**
+    //     * **8.0**
+    // * Valid value for Oracle: **14**.
     shared_ptr<string> DBVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // A reserved parameter in the JSON string format.
+    // The reserved parameter. The value is a JSON string.
     shared_ptr<string> reserve_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the source instance.
+    // The source instance ID.
     shared_ptr<string> sourceDBClusterId_ {};
   };
 

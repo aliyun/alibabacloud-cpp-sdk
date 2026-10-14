@@ -111,15 +111,19 @@ namespace Models
 
 
     protected:
-      // The cause code of the switchover.
+      // The switchover cause code.
       shared_ptr<string> switchCauseCode_ {};
-      // The cause of the switchover.
+      // The switchover cause.
       shared_ptr<string> switchCauseDetail_ {};
       // The end time of the switchover.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> switchFinishTime_ {};
       // The ID of the primary/secondary switchover log.
       shared_ptr<string> switchId_ {};
       // The start time of the switchover.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> switchStartTime_ {};
     };
 
@@ -194,24 +198,22 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The instance type. Valid values:
-    // 
-    // - **polardb_mysql_rw**: read-write instance.
+    // The instance type. Valid values: 
+    // - **polardb_mysql_rw**: read/write instance.
     // - **polardb_mysql_ro**: read-only instance.
     // - **polardb_mysql_standby**: standby instance.
     shared_ptr<string> DBInstanceType_ {};
-    // The list of primary/secondary 这里 AI 机翻使用了 failover，但代码里用了 switch，建议保持一致，都改为 swichover logs.
+    // The list of primary/secondary switchover logs.
     shared_ptr<vector<DescribeHALogsResponseBody::HaLogItems>> haLogItems_ {};
     // Indicates whether primary/secondary switchover records exist. Valid values:
-    // 
-    // - **1**: No
-    // - **0**: Yes
+    // - **1**: No records exist.
+    // - **0**: Records exist.
     shared_ptr<int32_t> haStatus_ {};
     // The number of items in the log list on the current page.
     shared_ptr<int32_t> itemsNumbers_ {};
-    // The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: 1.
+    // The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Valid values: 30 to 100. Default value: 30.
+    // The number of entries per page. Valid values: 30 to 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

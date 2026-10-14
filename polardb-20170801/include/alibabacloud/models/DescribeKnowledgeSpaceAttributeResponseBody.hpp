@@ -198,7 +198,7 @@ namespace Models
         protected:
           // The parameter details.
           shared_ptr<Strategy::Parameters> parameters_ {};
-          // The chunking strategy type used when a rule is matched.
+          // The chunking strategy type used when the rule is matched.
           shared_ptr<string> type_ {};
         };
 
@@ -534,16 +534,18 @@ namespace Models
 
   protected:
     // The access control list (ACL) mode of the knowledge space. Valid values:
-    // - DISABLED
-    // - ENFORCED
+    // - DISABLED: ACL is disabled.
+    // - ENFORCED: ACL is enforced.
     shared_ptr<string> ACLMode_ {};
-    // The time when the knowledge space was created.
+    // The creation time.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The ID of the PolarDB instance.
     shared_ptr<string> DBClusterId_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The type of the database engine. Valid values:
+    // The database engine type. Valid values:
     // * MySQL
     // * PostgreSQL
     shared_ptr<string> DBType_ {};
@@ -569,7 +571,7 @@ namespace Models
     shared_ptr<string> rerankModel_ {};
     // The chunk size in tokens.
     shared_ptr<int32_t> shardSize_ {};
-    // The default chunking strategy configuration of the knowledge space. This parameter may be empty if existing instances do not have the complete configuration saved.
+    // The default chunking strategy configuration of the knowledge space. This value may be empty if existing instances do not have a complete configuration saved.
     shared_ptr<DescribeKnowledgeSpaceAttributeResponseBody::ShardingStrategyConfig> shardingStrategyConfig_ {};
     // The instance status.
     shared_ptr<string> status_ {};

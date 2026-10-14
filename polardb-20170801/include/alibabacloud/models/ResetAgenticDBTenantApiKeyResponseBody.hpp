@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The new API key in plaintext. This value is returned only in this response.
     shared_ptr<string> apiKey_ {};
+    // The resource ID of the API key. This value remains unchanged after the reset.
     shared_ptr<string> apiKeyId_ {};
+    // The reset time, which is the effective period of the new key.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
+    // The expiration time.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The tenant name.
     shared_ptr<string> tenantName_ {};
   };
 

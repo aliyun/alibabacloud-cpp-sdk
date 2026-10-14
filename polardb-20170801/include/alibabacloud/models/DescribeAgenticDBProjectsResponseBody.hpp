@@ -140,9 +140,11 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the project was created.
+      // 
+      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
-      // The associated AgenticDB cluster ID.
+      // The ID of the associated AgenticDB cluster.
       shared_ptr<string> DBClusterId_ {};
       // The default branch ID.
       shared_ptr<string> defaultBranchId_ {};
@@ -154,8 +156,13 @@ namespace Models
       shared_ptr<string> projectId_ {};
       // The project name.
       shared_ptr<string> projectName_ {};
+      // The project status. Valid values:
+      // 
+      // - Active: Normal.
+      // - Destroying: Being destroyed.
+      // - Destroyed: Destroyed.
       shared_ptr<string> status_ {};
-      // The tenant ID to which the project belongs.
+      // The ID of the tenant to which the project belongs.
       shared_ptr<string> tenantId_ {};
     };
 

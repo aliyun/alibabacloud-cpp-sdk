@@ -140,37 +140,34 @@ namespace Models
 
 
   protected:
-    // The token used to retrieve the next page of results. This value is obtained from the response of a previous request. For the first request, leave this parameter empty.
+    // The initial token for this request. This parameter does not take effect when you query a list.
     shared_ptr<string> continuationToken_ {};
-    // The ID of the PolarDB cluster for AI model services.
+    // The instance ID of the PolarDB database for the AI model service.
     shared_ptr<string> DBClusterId_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
     // The type of the dataset. Valid values:
     // 
-    // - **train**: The training set.
-    // 
-    // - **eval**: The evaluation set.
+    // * **train**: training dataset.
+    // * **eval**: evaluation dataset.
     shared_ptr<string> datasetType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-    // 
+    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    //                               
     // Default value: **30**.
     shared_ptr<string> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The training mode. Valid values:
+    // The training mode of the dataset. Valid values:
     // 
-    // - **sft**: supervised fine-tuning.
-    // 
-    // - **grpo**: reinforcement learning.
-    // 
-    // - **text**: text generation.
+    // * **sft**: supervised fine-tuning.
+    // * **grpo**: reinforcement learning.
+    // * **text**: text generation.
     shared_ptr<string> trainMode_ {};
   };
 

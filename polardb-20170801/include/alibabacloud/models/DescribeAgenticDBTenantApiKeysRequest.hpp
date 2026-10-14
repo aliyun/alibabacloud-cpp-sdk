@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The AgenticDB cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Filters results by tenant name.
     shared_ptr<string> tenantName_ {};
   };
 

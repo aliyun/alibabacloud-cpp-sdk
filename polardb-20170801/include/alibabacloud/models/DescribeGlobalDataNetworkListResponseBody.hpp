@@ -165,15 +165,14 @@ namespace Models
           protected:
             // The source path.
             shared_ptr<string> sourceFileSystemPath_ {};
-            // The ID of the source Polarlakebase instance.
+            // The source Polarlakebase instance.
             shared_ptr<string> sourceId_ {};
-            // The region of the source.
+            // The source region.
             shared_ptr<string> sourceRegion_ {};
-            // The type of the source. Valid values:
+            // The source type. Valid values:
             // 
-            // - **pfs**: Polarlakebase High-performance Edition.
-            // 
-            // - **pcs**: Polarlakebase Cold Storage Edition.
+            //   - **pfs**: Polarlakebase High-performance Edition.
+            //   - **pcs**: Polarlakebase Cold Storage Edition.
             shared_ptr<string> sourceType_ {};
           };
 
@@ -235,15 +234,13 @@ namespace Models
           protected:
             // The destination path.
             shared_ptr<string> destinationFileSystemPath_ {};
-            // Destination PolarDB instance
+            // The destination Polarlakebase instance.
             shared_ptr<string> destinationId_ {};
-            // The region of the destination.
+            // The destination region.
             shared_ptr<string> destinationRegion_ {};
-            // The type of the destination. Valid values:
-            // 
-            // - **pfs**: Polarlakebase High-performance Edition.
-            // 
-            // - **pcs**: Polarlakebase Cold Storage Edition.
+            // The destination type. Valid values:
+            //   - **pfs**: Polarlakebase High-performance Edition.
+            //   - **pcs**: Polarlakebase Cold Storage Edition.
             shared_ptr<string> destinationType_ {};
           };
 
@@ -268,9 +265,9 @@ namespace Models
 
 
         protected:
-          // The synchronization destinations.
+          // The list of synchronization destinations.
           shared_ptr<vector<NetworkTopology::Destinations>> destinations_ {};
-          // The synchronization sources.
+          // The list of synchronization sources.
           shared_ptr<vector<NetworkTopology::Sources>> sources_ {};
         };
 
@@ -330,43 +327,30 @@ namespace Models
 
 
         protected:
-          // The ID of the synchronization channel.
+          // The synchronization channel ID.
           shared_ptr<string> channelId_ {};
-          // The status of the synchronization channel. Valid values:
+          // The synchronization channel status. Valid values:
           // 
-          // - **Creating**: The channel is being created.
-          // 
-          // - **Running**: The channel is running.
-          // 
-          // - **Syncing**: The channel is synchronizing data.
-          // 
-          // - **SyncFinished**: Data synchronization is complete.
-          // 
-          // - **SyncFailed**: Data synchronization failed.
-          // 
-          // - **SyncPartialFailed**: Data synchronization partially failed.
-          // 
-          // - **Stopped**: The channel is stopped.
-          // 
-          // - **Maintaining**: The channel is under maintenance.
-          // 
-          // - **Restarting**: The channel is restarting.
-          // 
-          // - **Locking**: The channel is being locked.
-          // 
-          // - **Locked**: The channel is locked.
-          // 
-          // - **Unlocking**: The channel is being unlocked.
-          // 
-          // - **Deleting**: The channel is being deleted.
-          // 
-          // - **Deleted**: The channel is deleted.
+          // - **Creating**: Being created.
+          // - **Running**: Running.
+          // - **Syncing**: Being synchronized.
+          // - **SyncFinished**: Synchronization completed.
+          // - **SyncFailed**: Synchronization failed.
+          // - **SyncPartialFailed**: Partial synchronization failed.
+          // - **Stopped**: Stopped.
+          // - **Maintaining**: Under maintenance.
+          // - **Restarting**: Being restarted.
+          // - **Locking**: Being locked.
+          // - **Locked**: Locked.
+          // - **Unlocking**: Being unlocked.
+          // - **Deleting**: Being deleted.
+          // - **Deleted**: Deleted.
           shared_ptr<string> channelStatus_ {};
-          // Indicates whether the source path is frozen during data transmission.
+          // Specifies whether to freeze the source path during the transfer.
           shared_ptr<bool> freezeSourceDuringSync_ {};
-          // The synchronization progress.
+          // The current synchronization progress.
           // 
-          // > The value is a percentage that is accurate to two decimal places.
+          // > The value is a floating-point percentage with two decimal places.
           shared_ptr<string> progress_ {};
         };
 
@@ -419,45 +403,34 @@ namespace Models
 
 
       protected:
-        // The synchronization channels.
+        // The list of synchronization channels.
         shared_ptr<vector<Networks::Channels>> channels_ {};
-        // The time when the GDN was created.
+        // The creation time of the GDN.
+        // 
+        // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> createTime_ {};
         // The description of the GDN.
         shared_ptr<string> networkDescription_ {};
-        // The ID of the GDN.
+        // GDN ID
         shared_ptr<string> networkId_ {};
-        // The status of the GDN. Valid values:
+        // The GDN status. Valid values:
         // 
-        // - **Creating**: The GDN is being created.
-        // 
-        // - **Running**: The GDN is running.
-        // 
-        // - **Syncing**: The GDN is synchronizing data.
-        // 
-        // - **SyncFinished**: Data synchronization is complete.
-        // 
-        // - **SyncFailed**: Data synchronization failed.
-        // 
-        // - **SyncPartialFailed**: Data synchronization partially failed.
-        // 
-        // - **Stopped**: The GDN is stopped.
-        // 
-        // - **Maintaining**: The GDN is under maintenance.
-        // 
-        // - **Restarting**: The GDN is restarting.
-        // 
-        // - **Locking**: The GDN is being locked.
-        // 
-        // - **Locked**: The GDN is locked.
-        // 
-        // - **Unlocking**: The GDN is being unlocked.
-        // 
-        // - **Deleting**: The GDN is being deleted.
-        // 
-        // - **Deleted**: The GDN is deleted.
+        // - **Creating**: Being created.
+        // - **Running**: Running.
+        // - **Syncing**: Being synchronized.
+        // - **SyncFinished**: Synchronization completed.
+        // - **SyncFailed**: Synchronization failed.
+        // - **SyncPartialFailed**: Partial synchronization failed.
+        // - **Stopped**: Stopped.
+        // - **Maintaining**: Under maintenance.
+        // - **Restarting**: Being restarted.
+        // - **Locking**: Being locked.
+        // - **Locked**: Locked.
+        // - **Unlocking**: Being unlocked.
+        // - **Deleting**: Being deleted.
+        // - **Deleted**: Deleted.
         shared_ptr<string> networkStatus_ {};
-        // The network topology of the GDN.
+        // The GDN network topology.
         shared_ptr<Networks::NetworkTopology> networkTopology_ {};
       };
 
@@ -516,7 +489,7 @@ namespace Models
 
 
   protected:
-    // The details of the Global Data Networks (GDNs).
+    // The GDN details.
     shared_ptr<DescribeGlobalDataNetworkListResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

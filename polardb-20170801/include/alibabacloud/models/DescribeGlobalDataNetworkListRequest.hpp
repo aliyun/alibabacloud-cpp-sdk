@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The page number to return.
+    // The page number of the query results.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records to return on each page.
+    // The number of records per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

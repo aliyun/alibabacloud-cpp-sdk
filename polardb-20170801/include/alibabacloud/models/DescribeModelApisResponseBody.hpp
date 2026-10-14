@@ -160,17 +160,18 @@ namespace Models
 
 
     protected:
-      // The model category. Valid values:
+      // The category. Valid values:
       // * **text**
       // * **embedding**
       // * **rerank**
       shared_ptr<string> category_ {};
+      // The gateway retry configuration.
       shared_ptr<string> config_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The model API IDs.
+      // The IDs of the model APIs.
       shared_ptr<string> modelApiId_ {};
-      // The model API name.
+      // The name of the model API.
       shared_ptr<string> name_ {};
       // The API path prefix.
       shared_ptr<string> pathPrefix_ {};
@@ -181,13 +182,13 @@ namespace Models
       // * **bailian**
       // * **vllm**
       shared_ptr<string> protocol_ {};
-      // The number of input tokens.
+      // The number of input points.
       shared_ptr<string> recordInput_ {};
-      // The number of output tokens.
+      // The number of output points.
       shared_ptr<string> recordOutput_ {};
-      // The routing rules list (JSON array string).
+      // The list of routing rules, formatted as a JSON array string.
       shared_ptr<string> routeRules_ {};
-      // The model API status.
+      // The status of the model API.
       shared_ptr<string> status_ {};
     };
 
@@ -242,15 +243,15 @@ namespace Models
     shared_ptr<vector<DescribeModelApisResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries per page. Valid values: **30**, **50**, or **100**.
+    // The number of entries per page. Valid values: **30**, **50**, and **100**.
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

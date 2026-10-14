@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The application ID. Example: pa-**************.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};

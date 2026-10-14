@@ -162,22 +162,30 @@ namespace Models
 
     protected:
       // The check time.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> checkTime_ {};
-      // The version of the destination instance.
+      // The version of the target instance.
       shared_ptr<string> dstVersion_ {};
-      // The effective time of the evaluation.
+      // The effective period of the assessment.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> effectiveTime_ {};
-      // The end time of the evaluation.
+      // The end time of the assessment.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> endTime_ {};
-      // The status of the evaluation task.
+      // The status of the assessment task.
       shared_ptr<string> result_ {};
       // The name of the source instance.
       shared_ptr<string> srcInsName_ {};
       // The version of the source instance.
       shared_ptr<string> srcVersion_ {};
-      // The start time of the evaluation.
+      // The start time of the assessment.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> startTime_ {};
-      // The task ID.
+      // The ID of the target task.
       shared_ptr<string> taskId_ {};
       // The upgrade mode.
       shared_ptr<string> upgradeMode_ {};
@@ -248,19 +256,17 @@ namespace Models
 
 
     protected:
-      // The Data Definition Language (DDL) statements for object synchronization.
+      // The DDL statement for object synchronization.
       shared_ptr<string> DDL_ {};
-      // The name of the evaluation object.
+      // The name of the assessed object.
       shared_ptr<string> name_ {};
-      // The schema of the evaluation object.
+      // The schema to which the assessed object belongs.
       shared_ptr<string> schema_ {};
-      // The result of the compatibility evaluation. Valid values:
-      // 
+      // The compatibility assessment result. Valid values:
       // - **0**: Failed.
-      // 
       // - **1**: Succeeded.
       shared_ptr<string> status_ {};
-      // The type of the evaluation object.
+      // The object type of the assessed object.
       shared_ptr<string> type_ {};
     };
 
@@ -351,39 +357,35 @@ namespace Models
   protected:
     // The details.
     shared_ptr<string> details_ {};
-    // The database type of the destination instance. Valid values:
+    // The database type of the target instance. Valid values:
     // 
-    // - **MySQL**
-    // 
-    // - **Oracle**
+    // - **MySQL**.
+    // - **Oracle**.
     shared_ptr<string> dstDBType_ {};
-    // The list of Oracle compatibility evaluation details.
-    // 
-    // > This parameter is supported only for **Oracle** instances.
+    // The Oracle compatibility assessment details list.
+    // > Only **Oracle** instances are supported.
     shared_ptr<vector<DescribeUpgradeReportResponseBody::Items>> items_ {};
-    // The number of entries in the list of Oracle compatibility evaluation details.
+    // The length of the Oracle compatibility assessment details list.
     shared_ptr<int64_t> itemsSize_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the source instance.
+    // The source instance ID.
     shared_ptr<string> sourceDBClusterId_ {};
     // The database type of the source instance. Valid values:
     // 
-    // - **MySQL**
-    // 
-    // - **Oracle**
+    // - **MySQL**.
+    // - **Oracle**.
     shared_ptr<string> srcDBType_ {};
     // The deletion status of the source instance. Valid values:
     // 
     // - **0**: Not deleted.
-    // 
     // - **1**: Deleted.
     shared_ptr<string> srcDeleted_ {};
-    // The total number of entries returned.
+    // The total number of entries in the query result.
     shared_ptr<int64_t> totalSize_ {};
-    // A special metric. This parameter is supported only for instances that use the Tair architecture.
+    // The special metric. Currently, only tair (PolarTair architecture) is supported.
     shared_ptr<string> type_ {};
-    // The list of evaluation reports.
+    // The list of assessment reports.
     shared_ptr<vector<DescribeUpgradeReportResponseBody::UpgradeReportList>> upgradeReportList_ {};
   };
 

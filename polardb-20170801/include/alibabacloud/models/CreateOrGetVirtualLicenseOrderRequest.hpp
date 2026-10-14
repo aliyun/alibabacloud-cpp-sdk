@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The type of the engine. Valid values: PG, Oracle, and MySQL.
+    // The engine type. Valid values: PG, Oracle, and MySQL.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};

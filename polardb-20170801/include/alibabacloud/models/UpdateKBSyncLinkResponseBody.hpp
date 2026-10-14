@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The synchronization link ID.
+    // The ID of the synchronization link.
     shared_ptr<string> linkId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The scheduled time of the synchronization task.
+    // The schedule time of the synchronization task.
     shared_ptr<string> syncSchedule_ {};
   };
 

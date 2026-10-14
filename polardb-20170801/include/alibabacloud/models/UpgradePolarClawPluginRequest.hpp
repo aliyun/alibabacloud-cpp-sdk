@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The PolarClaw application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The name and version of the new npm package.
+    // The new npm package name, including the version number.
     // 
     // This parameter is required.
     shared_ptr<string> npmPackage_ {};
-    // The ID of the plugin to upgrade.
+    // The ID of the plug-in to upgrade.
     // 
     // This parameter is required.
     shared_ptr<string> pluginId_ {};
-    // Specifies whether to restart the gateway after the upgrade. The default is true.
+    // Specifies whether to restart the gateway after the upgrade. Default value: true.
     shared_ptr<bool> restart_ {};
   };
 

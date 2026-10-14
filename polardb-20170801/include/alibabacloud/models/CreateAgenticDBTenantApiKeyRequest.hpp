@@ -87,7 +87,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant name. The name must be unique within the cluster and contain 2 to 64 characters.
+    // The tenant name. The name must be unique within the cluster and must be 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> tenantName_ {};

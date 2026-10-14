@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The plaintext API key to validate.
+    // The plaintext of the API key to be validated.
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};

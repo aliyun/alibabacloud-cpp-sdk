@@ -217,7 +217,7 @@ namespace Models
           protected:
             // The parameter list.
             shared_ptr<Strategy::Parameters> parameters_ {};
-            // The chunking strategy type applied after a rule is matched.
+            // The chunking strategy type after a rule is matched.
             shared_ptr<string> type_ {};
           };
 
@@ -524,11 +524,11 @@ namespace Models
       shared_ptr<string> fileId_ {};
       // The file name.
       shared_ptr<string> fileName_ {};
-      // The file size, in bytes.
+      // The file size in bytes.
       shared_ptr<int64_t> fileSize_ {};
       // The file type.
       shared_ptr<string> fileType_ {};
-      // Indicates whether the chunking strategy is inherited from the knowledge space.
+      // Indicates whether the knowledge space chunking strategy is inherited.
       shared_ptr<bool> inheritSpaceStrategy_ {};
       // The knowledge base ID.
       shared_ptr<string> knowledgeBaseId_ {};
@@ -540,15 +540,19 @@ namespace Models
       shared_ptr<string> OSSPath_ {};
       // The number of shards.
       shared_ptr<int32_t> shardCount_ {};
-      // The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing objects.
+      // The chunking strategy configuration currently in effect for the document. This value may be empty if the complete configuration was not saved for existing instances.
       shared_ptr<Items::ShardingStrategyConfig> shardingStrategyConfig_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
       // The status.
       shared_ptr<string> status_ {};
       // The update time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> updatedAt_ {};
       // The upload time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> uploadTime_ {};
     };
 

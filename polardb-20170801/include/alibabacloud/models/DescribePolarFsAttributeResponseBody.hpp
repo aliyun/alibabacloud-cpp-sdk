@@ -272,7 +272,7 @@ namespace Models
 
 
       protected:
-        // The endpoint of the protocol connection.
+        // The protocol endpoint.
         shared_ptr<string> connectionString_ {};
         // The IP address.
         shared_ptr<string> IPAddress_ {};
@@ -708,7 +708,7 @@ namespace Models
   protected:
     // The acceleration type.
     shared_ptr<string> accelerateType_ {};
-    // The acceleration storage space, in GB.
+    // The acceleration storage space. Unit: GB.
     shared_ptr<double> acceleratedStorageSpace_ {};
     // Indicates whether the acceleration cache is enabled. Valid values:
     // - **ON**: Enabled.
@@ -718,9 +718,9 @@ namespace Models
     shared_ptr<string> authorizedUserArnIds_ {};
     // The list of authorized UIDs, separated by commas.
     shared_ptr<string> authorizedUserIds_ {};
-    // The bandwidth, in MB/s.
+    // The bandwidth. Unit: MB/s.
     shared_ptr<double> bandwidth_ {};
-    // The bandwidth baseline, in MB/s/TiB.
+    // The bandwidth baseline. Unit: MB/s/TiB.
     shared_ptr<double> bandwidthBaseLine_ {};
     // The bucket ID.
     shared_ptr<string> bucketId_ {};
@@ -735,6 +735,8 @@ namespace Models
     // The client download URL.
     shared_ptr<string> clientDownloadPath_ {};
     // The creation time.
+    // 
+    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> createTime_ {};
     // The custom bucket path.
     shared_ptr<string> customBucketPath_ {};
@@ -746,11 +748,13 @@ namespace Models
     // * **MySQL**
     // * **PostgreSQL**
     shared_ptr<string> DBType_ {};
-    // The list of endpoints, including endpoint information for NAS, S3Gateway, and other types.
+    // The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
     shared_ptr<vector<DescribePolarFsAttributeResponseBody::EndpointItems>> endpointItems_ {};
     // The expiration time of the cluster.
     // 
     // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // 
+    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired.
     // > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
@@ -765,13 +769,13 @@ namespace Models
     shared_ptr<string> lockMode_ {};
     // The proxy endpoint ID.
     shared_ptr<string> maxscaleEndpointId_ {};
-    // The metadata service cluster endpoint.
+    // The cluster endpoint of the metadata service.
     shared_ptr<string> metaConnString_ {};
     // The metadata instance name.
     shared_ptr<string> metaInstanceName_ {};
-    // The metadata proxy service cluster endpoint.
+    // The cluster endpoint of the metadata proxy service.
     shared_ptr<string> metaMxsConnString_ {};
-    // The metadata address for Fuse mount (encrypted).
+    // The metadata address for Fuse mounting (encrypted).
     shared_ptr<string> metaUrl_ {};
     // The minor version of the instance.
     shared_ptr<string> minorVersion_ {};
@@ -789,8 +793,8 @@ namespace Models
     // The Polarlakebase instance status.
     shared_ptr<string> polarFsStatus_ {};
     // The instance version. Valid values:
-    // - **PolarFS 2.0**: 2.0
-    // - **PolarFS 1.0**: 1.0
+    // - **PolarFS 2.0**: 2.0.
+    // - **PolarFS 1.0**: 1.0.
     shared_ptr<string> polarFsType_ {};
     // The version.
     shared_ptr<string> polarFsVersion_ {};
@@ -804,16 +808,16 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The managed security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The storage space, in GB.
+    // The storage space. Unit: GB.
     shared_ptr<double> storageSpace_ {};
-    // The storage type for the High-performance Edition. Valid values:
+    // Storage types for the High-performance Edition. Valid values:
     // * **ESSDPL1**
     // * **ESSDPL0**
     // 
-    // The storage type for the Basic Edition. Valid values:
-    // * **city_redundancy**: cross-zone redundancy.
+    // Storage types for the Basic Edition. Valid values:
+    // * **city_redundancy**: zone-redundant storage.
     shared_ptr<string> storageType_ {};
-    // The storage usage, in bytes.
+    // The used storage space. Unit: bytes.
     shared_ptr<double> storageUsed_ {};
     // The default user account name for S3 Gateway.
     shared_ptr<string> userDefaultAccName_ {};

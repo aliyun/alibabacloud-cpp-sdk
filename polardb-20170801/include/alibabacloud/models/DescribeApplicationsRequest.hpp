@@ -141,11 +141,11 @@ namespace Models
 
 
   protected:
-    // The list of application IDs. If specified, only information about these applications is returned.
+    // The list of application IDs. If specified, only the information of these applications is returned.
     shared_ptr<string> applicationIds_ {};
     // The application engine filter.
     shared_ptr<string> applicationTypes_ {};
-    // The PolarDB instance ID. If specified, only application information related to this PolarDB instance is returned.
+    // The PolarDB instance ID. If specified, only the application information related to this PolarDB instance is returned.
     shared_ptr<string> DBClusterId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -160,7 +160,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tags.
+    // The tag.
     shared_ptr<vector<DescribeApplicationsRequest::Tag>> tag_ {};
   };
 

@@ -240,28 +240,28 @@ namespace Models
     // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
     shared_ptr<string> dataserviceMode_ {};
-    // The training dataset ID. This parameter is required for fine-tuning.
+    // The ID of the training dataset. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
-    // The validation dataset ID. This parameter is required for evaluation.
+    // The ID of the validation dataset. This parameter is required for evaluation.
     shared_ptr<string> evalDatasetPath_ {};
-    // The model service type. Valid values:
-    //  * **aitrain**: model operator tuning
+    // The type of the model service. Valid values:
+    //  * **aitrain**: Model operator tuning.
     // 
     // This parameter is required.
     shared_ptr<string> kubeType_ {};
-    // The model name.
-    // * **For a preset model, specify the name of the selected model.**
-    // * **For a custom model, specify the path where the model is stored (the model trained in a cold storage instance).**
+    // The name of the model.
+    // * **For a preset model, specify the selected model name.**
+    // * **For a custom model, specify the path of the model (the trained model in a cold storage instance).**
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
-    // The model source. Valid values:
-    // * **public**: preset model
-    // * **custom**: custom model
+    // The source of the model. Valid values:
+    // * **public**: Preset model.
+    // * **custom**: Custom model.
     // 
     // This parameter is required.
     shared_ptr<string> modelSource_ {};
-    // The custom model type.
+    // The type of the custom model.
     shared_ptr<string> modelType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -269,18 +269,18 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The running parameters in a JSON string.
+    // The runtime parameters. The value is a JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> runningParameter_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // The model service description.
+    // The description of the model service.
     shared_ptr<string> taskName_ {};
     shared_ptr<string> tuneArch_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
     // The zone ID.
     shared_ptr<string> zoneId_ {};

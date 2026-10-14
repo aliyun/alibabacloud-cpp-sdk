@@ -241,9 +241,12 @@ namespace Models
       // The number of compute nodes. The value is fixed to 1 in the first phase.
       shared_ptr<int32_t> computeNodeCount_ {};
       // The time when the compute instance was created.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description of the compute instance.
       shared_ptr<string> description_ {};
+      // Indicates whether the compute instance is the default branch.
       shared_ptr<bool> isDefaultBranch_ {};
       // The time when the compute instance was last activated.
       shared_ptr<string> lastActivatedAt_ {};
@@ -253,7 +256,9 @@ namespace Models
       shared_ptr<string> minCU_ {};
       // The operator type.
       shared_ptr<string> operatorType_ {};
+      // The ID of the parent branch. This value is an empty string for the root branch.
       shared_ptr<string> parentBranchId_ {};
+      // The name of the parent branch. This value is an empty string for the root branch.
       shared_ptr<string> parentBranchName_ {};
       // The ID of the associated project.
       shared_ptr<string> projectId_ {};
@@ -261,7 +266,7 @@ namespace Models
       shared_ptr<string> projectName_ {};
       // The status of the compute instance.
       shared_ptr<string> status_ {};
-      // The amount of used data, in bytes.
+      // The amount of data used, in bytes.
       shared_ptr<int64_t> storageSize_ {};
       // The ID of the associated tenant.
       shared_ptr<string> tenantId_ {};

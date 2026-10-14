@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The PolarClaw application ID. Example: pa-xxx.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
     // The restart mode. Valid values:
-    // - in-process: lightweight restart without applying environment variable changes. This is the default value.
-    // - pkill: cold start that applies environment variable changes.
+    // - in-process: lightweight restart. Environment variables do not take effect. This is the default value.
+    // - pkill: cold start. Environment variables take effect.
     shared_ptr<string> mode_ {};
   };
 

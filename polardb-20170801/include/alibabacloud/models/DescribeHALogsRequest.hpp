@@ -99,10 +99,9 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The node ID.
-    // 
-    // > 这是一个optional 字段，需要增加一个条件If specified,If specified, queries the high availability (HA) switchover records of `DBNodeId`. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the detailed information about all clusters under your account, including node IDs.
+    // > Queries the HA failover records of the specified DBNodeId. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including node IDs.
     shared_ptr<string> DBNodeId_ {};
-    // The end of the time range to query. The end time must be later than the start time. The time follows the `YYYY-MM-DDThh:mm:ssZ` format (UTC time).
+    // The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
     shared_ptr<string> endTime_ {};
     // The log type.
     // 
@@ -110,9 +109,9 @@ namespace Models
     shared_ptr<string> logType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 5 to 50. Default value: 10.
+    // The number of entries per page. Valid values: 5 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. The time follows the `YYYY-MM-DDThh:mm:ssZ` format (UTC time).
+    // The start time of the query. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

@@ -96,13 +96,12 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster node.
-      // 
-      // > If you specify this parameter, you must also specify DBNode.N.TargetClass. N represents the index of the node in the request, starting from 1.
+      // The cluster node ID.
+      // >If this parameter is specified, DBNode.N.TargetClass is required. N is an integer that starts from 1. Maximum value: 16 minus the current number of nodes.
       shared_ptr<string> DBNodeId_ {};
-      // The target specifications of the node. For more information about node specifications, see [compute node specifications](https://help.aliyun.com/document_detail/102542.html).
+      // The specifications of the node to be changed. For more information about node specifications, see [Compute node specifications](https://help.aliyun.com/document_detail/102542.html). 
       // 
-      // > If you specify this parameter, you must also specify DBNode.N.DBNodeId. N represents the index of the node in the request, starting from 1.
+      // >If this parameter is specified, DBNode.N.DBNodeId is required. N is an integer that starts from 1. Maximum value: 16 minus the current number of nodes.
       shared_ptr<string> targetClass_ {};
     };
 
@@ -218,15 +217,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically apply a coupon. Valid values:
-    // 
-    // - true (Default): A coupon is automatically applied.
-    // 
-    // - false: A coupon is not applied.
+    // Specifies whether to automatically use coupons. Valid values:
+    // * true (default): Uses coupons.
+    // * false: Does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
-    // A client-generated token to ensure request idempotence. This token must be unique for each request and must be a case-sensitive string of up to 64 ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // The cloud provider of the instance.
+    // The cloud service provider to which the instance belongs.
     shared_ptr<string> cloudProvider_ {};
     // The cluster ID.
     // 
@@ -236,7 +233,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<ModifyDBNodesClassRequest::DBNode>> DBNode_ {};
-    // The modification type. Valid values:
+    // The type of the specification change. Valid values:
     // 
     // - **Upgrade**: Upgrades the specifications.
     // 
@@ -246,31 +243,28 @@ namespace Models
     shared_ptr<string> modifyType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The latest time to begin the scheduled task. Specify the time in UTC using the `YYYY-MM-DDThh:mm:ssZ` format.
-    // 
-    // > - The latest start time must be at least 30 minutes later than the earliest start time.
-    // >
-    // > - If you specify `PlannedStartTime` but not this parameter, the task starts within 30 minutes of the `PlannedStartTime`. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task will start by `2021-01-14T09:30:00Z`.
+    // The latest time to start the scheduled task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+    // > * The latest time must be at least 30 minutes later than the start time.
+    // > * If `PlannedStartTime` is set but this parameter is not specified, the latest time to execute the task defaults to `start time + 30 minutes`. For example, if `PlannedStartTime` is set to `2021-01-14T09:00:00Z` and this parameter is left empty, the task starts no later than `2021-01-14T09:30:00Z`.
     shared_ptr<string> plannedEndTime_ {};
-    // The planned time for the transient disconnection.
-    shared_ptr<string> plannedFlashingOffTime_ {};
-    // The earliest time to begin the scheduled upgrade of the node specifications. Specify the time in UTC using the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The planned transient disconnection time.
     // 
-    // > - This parameter takes effect only when `ModifyType` is set to `Upgrade`.
-    // >
-    // > - The specified time must be within the next 24 hours.
-    // >
-    // > - If this parameter is not specified, the upgrade task runs immediately.
+    // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+    shared_ptr<string> plannedFlashingOffTime_ {};
+    // The earliest time to start the scheduled (executed within the target time period) specification upgrade task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+    // > * This parameter takes effect only when `ModifyType` is set to `Upgrade`.
+    // > * The start time can be any time point within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, the start time can range from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+    // > * If this parameter is left empty, the specification upgrade task is immediately executed by default.
     shared_ptr<string> plannedStartTime_ {};
-    // The coupon code. If you do not specify this parameter, a default coupon is applied.
+    // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The sub-category of the cluster. Valid values:
+    // The cluster sub-series. Valid values:
     // 
-    // - **normal_exclusive**: dedicated specifications
+    // - **normal_exclusive**: Dedicated
     // 
-    // - **normal_general**: general-purpose specifications
+    // - **normal_general**: General-purpose
     shared_ptr<string> subCategory_ {};
   };
 

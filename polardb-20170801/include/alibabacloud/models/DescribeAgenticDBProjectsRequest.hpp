@@ -110,7 +110,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The tenant ID to which the project belongs.
+    // The ID of the tenant to which the project belongs.
     shared_ptr<string> tenantId_ {};
   };
 

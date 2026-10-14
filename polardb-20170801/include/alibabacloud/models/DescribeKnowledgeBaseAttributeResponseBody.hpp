@@ -149,9 +149,11 @@ namespace Models
 
 
   protected:
-    // The number of AI applications bound to the knowledge base.
+    // The number of AI applications associated with the knowledge base.
     shared_ptr<int32_t> bindingAppCount_ {};
-    // The creation time.
+    // The time when the knowledge base was created.
+    // 
+    // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The description of the knowledge base.
     shared_ptr<string> description_ {};

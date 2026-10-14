@@ -85,14 +85,11 @@ namespace Models
 
   protected:
     // Specifies whether to clean up data. Valid values:
-    // 
-    // - **Enable**
-    // 
-    // - **Disable**
+    // - **Enable**: Enable data cleanup.
+    // - **Disable**: Disable data cleanup.
     shared_ptr<string> cleanData_ {};
     // The cluster ID.
-    // 
-    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters in a specific region, including cluster IDs.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in the specified region, including the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

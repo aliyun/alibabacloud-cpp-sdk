@@ -103,13 +103,13 @@ namespace Models
     shared_ptr<vector<string>> keyList_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

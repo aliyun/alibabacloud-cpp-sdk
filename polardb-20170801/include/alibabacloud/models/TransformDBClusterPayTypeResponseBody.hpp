@@ -85,6 +85,8 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The expiration time of the instance.
     // > This response parameter is returned only when **PayType** is set to **Prepaid**.
+    // 
+    // The time follows the ISO 8601 standard in the format of YYYY-MM-DDTHH:mm:ssZ. The time is displayed in UTC.
     shared_ptr<string> expiredTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

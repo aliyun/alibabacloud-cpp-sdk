@@ -68,17 +68,16 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The returned message.
-    // 
-    // > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message is returned, such as an error code.
+    // The message returned for the request.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // The result of the request. Valid values:
     // 
-    // - **true**
+    // - **true**: The request is successful.
     // 
-    // - **false**
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -96,11 +96,13 @@ namespace Models
   protected:
     // The cluster ID.
     // 
+    // > Note: Only edge cluster (Zonal) IDs are supported. Regular PolarDB cluster IDs are not supported. You can call DescribeDBClustersZonal to retrieve the list of edge clusters.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The cluster endpoint ID.
     shared_ptr<string> DBEndpointId_ {};
-    // Specifies whether to return information about AI nodes.
+    // Specifies whether to return AI node information.
     shared_ptr<string> describeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

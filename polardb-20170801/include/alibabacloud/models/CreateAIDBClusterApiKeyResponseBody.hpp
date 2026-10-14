@@ -98,7 +98,9 @@ namespace Models
     protected:
       // The API key for model serving.
       shared_ptr<string> apiKey_ {};
-      // The creation time.
+      // The time when the API key was created.
+      // 
+      // The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};

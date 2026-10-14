@@ -92,7 +92,7 @@ namespace Models
 
 
     protected:
-      // The tag key. You can filter the cluster list by tag. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key corresponds to Tag.n.Value.
+      // The tag key. You can filter clusters by tag. You can specify up to 20 tag key-value pairs. The number n in each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
       shared_ptr<string> key_ {};
       // The tag value that corresponds to the tag key.
       shared_ptr<string> value_ {};
@@ -196,36 +196,36 @@ namespace Models
 
 
   protected:
-    // The node type. Multiple types are supported. Separate two values with a comma (,).
+    // The node type. You can specify multiple types separated by commas (,). Valid values:
     // 
     // - vnode: managed by Kubernetes.
     // - container: logon-enabled container.
     // - maas: model service.
     shared_ptr<string> aiNodeType_ {};
-    // The cluster description. Fuzzy match is supported.
+    // The description of the cluster. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The cluster ID. Separate multiple cluster IDs with commas (,).
+    // The cluster IDs. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBClusterIds_ {};
-    // The cluster status. Valid values:
+    // The status of the cluster. Valid values:
     // 
-    // - **Creating**: being created.
-    // - **Running**: running.
-    // - **Deleting**: being released.
-    // - **Rebooting**: being restarted.
-    // - **DBNodeCreating**: a node is being added (increase).
-    // - **DBNodeDeleting**: a node is being deleted.
-    // - **ClassChanging**: node specifications are being changed.
-    // - **NetAddressCreating**: a network connectivity is being created.
-    // - **NetAddressDeleting**: a network connectivity is being deleted.
-    // - **NetAddressModifying**: a network connectivity is being modified. 
-    // - **Deleted**: released.
-    // * **ClassChanged**: resources are being revoked after a decrease the quota operation.
+    // - **Creating**: The cluster is being created.
+    // - **Running**: The cluster is running.
+    // - **Deleting**: The cluster is being released.
+    // - **Rebooting**: The cluster is being restarted.
+    // - **DBNodeCreating**: Nodes are being increased.
+    // - **DBNodeDeleting**: Nodes are being deleted.
+    // - **ClassChanging**: The node specifications are being changed.
+    // - **NetAddressCreating**: The network connectivity is being created.
+    // - **NetAddressDeleting**: The network connectivity is being deleted.
+    // - **NetAddressModifying**: The network connectivity is being modified. 
+    // - **Deleted**: The cluster is released.
+    // - **ClassChanged**: Resources are being revoked after you upgrade or decrease the quota.
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **30**, **50**, and **100**.
+    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
     //                               
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
@@ -240,7 +240,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of tags.
+    // The tag list.
     shared_ptr<vector<DescribeAIDBClustersRequest::Tag>> tag_ {};
   };
 

@@ -113,7 +113,7 @@ namespace Models
     protected:
       // The capacity. Unit: bytes.
       shared_ptr<int64_t> capacity_ {};
-      // The total number of inodes.
+      // Inodes
       shared_ptr<int64_t> inodes_ {};
       // The directory path.
       shared_ptr<string> path_ {};
@@ -243,37 +243,33 @@ namespace Models
 
 
     protected:
-      // The TTL of the access time. Unit: seconds.
+      // The TTL for access time. Unit: seconds.
       shared_ptr<int64_t> accessTTL_ {};
-      // The TTL of the change time. Unit: seconds.
+      // The TTL for change time. Unit: seconds.
       shared_ptr<int64_t> changeTTL_ {};
       // The rule description.
       shared_ptr<string> description_ {};
-      // Indicates whether the rule is enabled. Valid values:
+      // Specifies whether the rule is enabled. Valid values:
       // 
-      // - **true**: The rule takes effect immediately for new events. This is the default value.
-      // 
-      // - **false**: The rule does not take effect for new events.
+      // - **true**: The new event takes effect immediately for new transactions. This is the default value.
+      // - **false**: The new event does not take effect for new transactions.
       shared_ptr<bool> enabled_ {};
-      // The glob pattern of paths to exclude.
-      // 
-      // - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+      // The matching rule for excluding specific paths.
+      // - A path pattern that starts with `/` (supports `*`, `?`, and `**` glob syntax).
       shared_ptr<string> exclude_ {};
-      // The maximum number of files in the directory.
+      // The file count limit for users in the directory.
       shared_ptr<int64_t> fileCountLimit_ {};
       // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The glob pattern for paths to include.
-      // 
-      // - The pattern must start with `/` and supports glob syntax, including `*`, `?`, and `**`.
+      // The glob pattern for matching paths.
+      // - A path pattern that starts with `/` (supports `*`, `?`, and `**` glob syntax).
       shared_ptr<string> include_ {};
       // The rule name.
       shared_ptr<string> name_ {};
       // The priority of the quota rule.
       shared_ptr<int32_t> priority_ {};
-      // The maximum total size of files in the directory. Unit: GB.
-      // 
-      // - The value must be greater than or equal to 1.
+      // The total file capacity limit for the directory. Unit: GB.
+      // - Note: The value must be at least 1 GB.
       shared_ptr<int64_t> sizeLimit_ {};
     };
 
@@ -350,21 +346,21 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The number of entries per page. Valid values: 5 to 50. Default value: 10.
+    // The number of records per page. Valid values: 5 to 50. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The path of the directory.
+    // The directory path.
     shared_ptr<string> path_ {};
-    // The PolarFS instance ID.
+    // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The details of the rules.
+    // The rule details.
     shared_ptr<vector<DescribePolarFsQuotaResponseBody::PolicyItems>> policyItems_ {};
     // The quota information.
     shared_ptr<vector<DescribePolarFsQuotaResponseBody::QuotaItems>> quotaItems_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

@@ -201,7 +201,7 @@ namespace Models
 
 
     protected:
-      // The compute cluster ID of the branch.
+      // The ID of the compute cluster associated with the branch.
       shared_ptr<string> branchComputeClusterId_ {};
       // The branch description.
       shared_ptr<string> branchDescription_ {};
@@ -210,8 +210,10 @@ namespace Models
       // The branch name.
       shared_ptr<string> branchName_ {};
       // The time when the branch was created.
+      // 
+      // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
-      // The depth relative to the anchor branch. The anchor branch has a depth of 0. Ancestor branches have negative values. Descendant branches have positive values.
+      // The depth relative to the anchor branch. The anchor branch has a depth of 0. Ancestor branches have negative values, and descendant branches have positive values.
       shared_ptr<int32_t> depth_ {};
       // The total number of direct child branches.
       shared_ptr<int32_t> directChildCount_ {};
@@ -221,12 +223,13 @@ namespace Models
       shared_ptr<bool> hasMoreChildren_ {};
       // Indicates whether the branch is the anchor branch.
       shared_ptr<bool> isAnchor_ {};
+      // Indicates whether the branch is the default branch.
       shared_ptr<bool> isDefaultBranch_ {};
       // Indicates whether the branch is the primary branch.
       shared_ptr<bool> isRoot_ {};
-      // The parent branch ID.
+      // The ID of the parent branch.
       shared_ptr<string> parentBranchId_ {};
-      // The parent branch name.
+      // The name of the parent branch.
       shared_ptr<string> parentBranchName_ {};
       // The branch status. Valid values:
       // - Active
@@ -296,11 +299,11 @@ namespace Models
 
 
   protected:
-    // The anchor branch ID.
+    // The ID of the anchor branch.
     shared_ptr<string> anchorBranchId_ {};
     // The list of lineage nodes.
     shared_ptr<vector<DescribeAgenticDBBranchLineageResponseBody::Items>> items_ {};
-    // The total number of returned nodes.
+    // The total number of nodes returned.
     shared_ptr<int32_t> nodeCount_ {};
     // The project ID.
     shared_ptr<string> projectId_ {};
@@ -308,7 +311,7 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The primary branch ID.
+    // The ID of the primary branch.
     shared_ptr<string> rootBranchId_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

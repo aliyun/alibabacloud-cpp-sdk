@@ -303,20 +303,24 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the task belongs.
+    // The cluster ID associated with the task.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query.
+    // The end time of the query.
+    // 
+    // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
     shared_ptr<string> endTime_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range to query.
+    // The start time of the query.
+    // 
+    // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mmZ).
     shared_ptr<string> startTime_ {};
     shared_ptr<DescribeTasksResponseBody::Tasks> tasks_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

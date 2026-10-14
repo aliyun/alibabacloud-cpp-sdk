@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> branchId_ {};
-    // The AgenticDB cluster ID.
+    // The ID of the AgenticDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

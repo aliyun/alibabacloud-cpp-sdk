@@ -148,7 +148,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> netType_ {};
-    // The new endpoint prefix.
+    // The new endpoint address prefix.
     shared_ptr<string> newConnectionStringPrefix_ {};
     // The list of new ports.
     shared_ptr<vector<ModifyApplicationEndpointAddressRequest::NewPorts>> newPorts_ {};

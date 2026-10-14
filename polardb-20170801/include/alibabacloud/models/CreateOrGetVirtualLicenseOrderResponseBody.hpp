@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // The number of generated activation codes.
+    // The number of activation codes that have been generated.
     shared_ptr<int32_t> activatedCodeCount_ {};
-    // The maximum number of activation codes that you can apply for.
+    // The quota of activation codes that can be requested.
     shared_ptr<int32_t> activationCodeQuota_ {};
-    // The Alibaba Cloud order ID (including the virtual order ID).
+    // The Alibaba Cloud order ID, which includes the virtual order ID.
     shared_ptr<string> aliyunOrderId_ {};
-    // Indicates whether activation codes can be generated without the system identifier.
+    // Indicates whether the System Identifier can be left empty when generating an activation code.
     shared_ptr<bool> allowEmptySystemIdentifier_ {};
     // The time when the order was created.
     shared_ptr<string> gmtCreated_ {};
     // The time when the order was last updated.
     shared_ptr<string> gmtModified_ {};
-    // Indicates whether the order is a virtual order (virtual orders allow pre-generation of activation codes).
+    // Indicates whether the order is a virtual order. Virtual orders allow pre-generation of activation codes.
     shared_ptr<bool> isVirtualOrder_ {};
-    // Indicates whether the virtual order is frozen (activation codes cannot be generated for a frozen virtual order).
+    // Indicates whether the virtual order is frozen. A frozen virtual order does not allow further generation of activation codes.
     shared_ptr<bool> isVirtualOrderFrozen_ {};
-    // The plan type.
+    // The package type.
     shared_ptr<string> packageType_ {};
-    // The validity period of the plan, which is one year (common) or thirty years (long-term).
+    // The validity period of the package. Typical values are one year or long-term (30 years).
     shared_ptr<string> packageValidity_ {};
     // The purchase channel.
     shared_ptr<string> purchaseChannel_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the virtual order.
+    // The virtual order ID.
     shared_ptr<string> virtualOrderId_ {};
   };
 

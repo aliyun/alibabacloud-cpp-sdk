@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> applicationId_ {};
-    // The response status code.
+    // The HTTP status code.
     shared_ptr<int32_t> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -113,11 +113,11 @@ namespace Models
     shared_ptr<string> npmPackage_ {};
     // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
-    // The ID of the upgraded plugin.
+    // The ID of the upgraded plug-in.
     shared_ptr<string> pluginId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the gateway restarted.
+    // Indicates whether the gateway was restarted.
     shared_ptr<bool> restarted_ {};
   };
 

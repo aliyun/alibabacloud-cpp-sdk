@@ -225,12 +225,16 @@ namespace Models
 
     protected:
       // The task completion time.
+      // 
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> completedTime_ {};
       // The creation time.
+      // 
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The node description.
       shared_ptr<string> DBNodeDescription_ {};
-      // The template operator instance ID.
+      // The model operator instance ID.
       shared_ptr<string> DBNodeId_ {};
       // The instance status. This parameter may not be returned.
       shared_ptr<string> DBNodeStatus_ {};
@@ -240,7 +244,7 @@ namespace Models
       shared_ptr<string> dataZoneId_ {};
       // The cluster engine.
       shared_ptr<string> engine_ {};
-      // The database engine version.
+      // The DPI engine version.
       shared_ptr<string> engineVersion_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
@@ -248,15 +252,17 @@ namespace Models
       shared_ptr<string> modelPath_ {};
       // The model source.
       shared_ptr<string> modelSource_ {};
-      // The running parameters.
+      // The runtime parameters.
       shared_ptr<string> runningTimes_ {};
       // The task start time.
+      // 
+      // The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The mode.
       shared_ptr<string> trainMode_ {};
       // The type.
       shared_ptr<string> trainType_ {};
-      // The tuning framework.
+      // The fine-tuning framework.
       shared_ptr<string> tuneArch_ {};
     };
 
@@ -338,13 +344,13 @@ namespace Models
   protected:
     // The cluster engine.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The DPI engine version.
     shared_ptr<string> engineVersion_ {};
     // The cluster endpoint details.
     shared_ptr<vector<DescribeAIDBClusterTasksResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The total number of records on the current page.
+    // The total number of records on the page.
     shared_ptr<string> pageRecordCount_ {};
     // The number of records per page.
     shared_ptr<string> pageSize_ {};

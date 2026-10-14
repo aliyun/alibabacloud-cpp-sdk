@@ -134,21 +134,23 @@ namespace Models
     shared_ptr<string> accountName_ {};
     // The cluster ID.
     // 
+    // > Note: Only the IDs of edge clusters (clusters created by setting the CloudProvider parameter to ENS when calling CreateDBCluster) are supported. If you specify the ID of common clusters, the CrossCloudOpenAPI.CallError error is returned.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The maximum number of entries to return in a single request.
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. You do not need to specify this parameter for the first request. In a subsequent request, set this parameter to the NextToken value returned in the previous response.
+    // The query token. Set the value to the NextToken value returned in the last API call. If no subsequent query is required, do not specify this parameter.
     shared_ptr<string> nextToken_ {};
-    // The node type. This parameter is required when you query the accounts of a PolarDB Search node.
+    // The node type. This parameter is required when you query the accounts of PolarDB Search nodes. Valid values:
     // 
     // - Search
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer that is greater than 0. The default value is 1.
+    // The page number. Valid values: integers greater than 0 and less than or equal to the maximum value of the Integer type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
     // - 30
     // 
@@ -156,7 +158,7 @@ namespace Models
     // 
     // - 100
     // 
-    // The default value is 30.
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

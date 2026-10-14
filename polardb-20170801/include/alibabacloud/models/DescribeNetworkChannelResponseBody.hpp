@@ -145,22 +145,23 @@ namespace Models
     protected:
       // The channel name.
       shared_ptr<string> channelName_ {};
-      // The ID of the source cluster.
+      // The source instance name.
       shared_ptr<string> DBClusterId_ {};
+      // The ID of the elastic network interfaces (ENIs) used by the reverse access link of the network channel. The network interface controller (NIC) is used for the connection.
       shared_ptr<string> eniId_ {};
-      // The notes about the channel.
+      // The remarks.
       shared_ptr<string> notes_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the target cluster.
+      // The target instance name.
       shared_ptr<string> targetDBClusterId_ {};
-      // The IP address of the target cluster.
+      // The IP address of the target instance.
       shared_ptr<string> targetIp_ {};
-      // The port of the target cluster.
+      // The port of the target instance.
       shared_ptr<string> targetPort_ {};
-      // The type of the target cluster.
+      // The target instance type.
       shared_ptr<string> targetType_ {};
-      // The ID of the VPC that contains the endpoint.
+      // The ID of the VPC where the access endpoint resides.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -183,9 +184,9 @@ namespace Models
 
 
   protected:
-    // A list of network channels.
+    // The list of network channels.
     shared_ptr<vector<DescribeNetworkChannelResponseBody::ChannelInfos>> channelInfos_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

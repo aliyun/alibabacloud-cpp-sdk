@@ -84,11 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
+    // 
+    // > Note: This parameter accepts only edge cluster IDs obtained by calling DescribeDBClustersZonal. Regular PolarDB cluster IDs obtained by calling DescribeDBClusters are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the database.
+    // The database name.
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

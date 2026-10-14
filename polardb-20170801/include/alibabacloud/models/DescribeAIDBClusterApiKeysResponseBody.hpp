@@ -104,6 +104,8 @@ namespace Models
       // The API key of the model service.
       shared_ptr<string> apiKey_ {};
       // The creation time.
+      // 
+      // The time is displayed in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The description of the API key.
       shared_ptr<string> description_ {};

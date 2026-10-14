@@ -84,6 +84,7 @@ namespace Models
 
 
   protected:
+    // The compute instance ID for fuzzy match (pc-xxxx), such as pc-2ze8k.
     shared_ptr<string> computeClusterId_ {};
     // The AgenticDB cluster ID.
     // 
@@ -97,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The status filter. Valid values: Running, Stopped, and Waiting.
+    // Filters compute instances by status. Valid values: Running, Stopped, and Waiting.
     shared_ptr<string> status_ {};
   };
 

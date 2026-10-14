@@ -243,21 +243,21 @@ namespace Models
     protected:
       // The allowed operation information.
       // 
-      // > This feature is not supported yet.
+      // > This feature is not supported.
       shared_ptr<string> actionInfo_ {};
       // The request source. Valid values:
-      // 
-      // - **System**: system
-      // 
-      // - **User**: user
+      // * **System**: system.
+      // * **User**: user.
       shared_ptr<string> callerSource_ {};
-      // The ID of the requesting user. If `CallerSource` is `User`, this is the user\\"s UID.
+      // The ID of the requesting user. When CallerSource is set to User, this value represents the user UID.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step being executed. If this parameter is empty, the task has not started.
+      // The name of the current step being executed. An empty value indicates that the task has not started.
       shared_ptr<string> currentStepName_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
-      // The end time of the task.
+      // The task end time.
+      // 
+      // The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> endTime_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
@@ -267,33 +267,29 @@ namespace Models
       shared_ptr<string> instanceType_ {};
       // The product.
       shared_ptr<string> product_ {};
-      // The completion progress of the task, from 0.0 to 100.0.
+      // The current progress.
       shared_ptr<float> progress_ {};
-      // The reason for initiating the current task.
+      // The reason why the current task was initiated.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The estimated remaining execution time, in seconds (s).
+      // The estimated remaining execution duration. Unit: seconds.
       // 
-      // > This value is for reference only. The actual execution time prevails.
+      // > This value is for reference only. The actual execution duration may vary.
       shared_ptr<int32_t> remainTime_ {};
-      // The start time of the task.
+      // The task start time.
+      // 
+      // The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // The final status of the task.
+      // The task status.
       // 
-      // - Scheduled: waiting for execution
-      // 
-      // - Running: executing
-      // 
-      // - Succeed: executed successfully
-      // 
-      // - Failed: execution failed
-      // 
-      // - Cancelling: stopping
-      // 
-      // - Canceled: stopped
-      // 
-      // - Waiting: waiting for preset time
+      // * Scheduled: Waiting for execution.
+      // * Running: Running.
+      // * Succeed: Succeeded.
+      // * Failed: Failed.
+      // * Cancelling: Being canceled.
+      // * Canceled: Canceled.
+      // * Waiting: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The task details.
       shared_ptr<string> taskDetail_ {};
@@ -301,7 +297,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The UID of the account that owns the resource.
+      // The ID of the user to whom the resource belongs.
       shared_ptr<string> uid_ {};
     };
 
@@ -345,15 +341,15 @@ namespace Models
 
 
   protected:
-    // The list of tasks.
+    // The task list.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The page number of the query result.
+    // The page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of tasks that meet the conditions, regardless of paging factors.
+    // The total number of tasks that meet the filter conditions, regardless of pagination.
     shared_ptr<string> totalCount_ {};
   };
 

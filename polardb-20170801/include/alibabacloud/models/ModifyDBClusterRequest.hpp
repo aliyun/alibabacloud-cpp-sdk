@@ -188,36 +188,37 @@ namespace Models
   protected:
     // Enables storage compression. Set the value to **ON**.
     shared_ptr<string> compressStorage_ {};
+    // The connection resource quota of the AgenticDB cluster.
     shared_ptr<int64_t> connectionResourceQuota_ {};
     // The cluster ID.
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query information about all clusters in the specified region, including cluster IDs.
+    // > You can call the DescribeDBClusters operation to query all clusters in the specified region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The list of node instance names for the disaster recovery drill.
-    // > Node-level drills support only a single node. For zone-level drills, you can leave this parameter empty or specify all nodes.
+    // The list of drill node instance names.
+    // > Node dimension drills support only a single node. For zone dimension drills, you can omit this parameter or pass all nodes.
     shared_ptr<string> DBNodeCrashList_ {};
     // The cross-zone data replication mode of the cluster. Valid values:
     // 
-    // - **AsyncSync**: asynchronous
-    // - **SemiSync**: semi-synchronous
+    // - **AsyncSync**: Asynchronous.
+    // - **SemiSync**: Semi-synchronous.
     shared_ptr<string> dataSyncMode_ {};
     // The fault injection method. Valid values:
     // 
-    // - 0: instance fault injection based on `Crash SQL`
+    // - 0: Instance fault injection based on `Crash SQL`.
     shared_ptr<string> faultInjectionType_ {};
-    // The dimension of the disaster recovery drill for the cluster. Valid values:
-    // - `0` or `FaultInjection`: primary zone-level disaster recovery drill.
-    // - `1`: node-level disaster recovery drill.
-    // > - In the **primary zone-level disaster recovery drill** scenario, all compute nodes in the primary zone become unavailable. The failover in this scenario causes service interruptions.
-    // > - In the **node-level disaster recovery drill** scenario, only a single compute node is supported for the drill. Specify the desired compute node name by using `DBNodeCrashList`.
+    // The fault drill dimension for the cluster. Valid values:
+    // - `0` or `FaultInjection`: Primary zone dimension fault drill.
+    // - `1`: Node dimension fault drill.
+    // > - In the **primary zone dimension fault drill** scenario, all compute nodes in the primary zone become unavailable, and the disaster recovery switchover in this scenario is lossy.
+    // > - In the **node dimension fault drill** scenario, only a single compute node can be drilled. Pass the desired compute node name through `DBNodeCrashList`.
     shared_ptr<string> faultSimulateMode_ {};
     // The automatic IMCI-based query acceleration feature. Valid values:
-    // - `ON`: enabled.
-    // - `OFF`: disabled.
+    // - `ON`: Enabled.
+    // - `OFF`: Disabled.
     // 
     // > - Only PolarDB for MySQL clusters are supported.
-    // > - For cluster version requirements, see [Automatic acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
+    // > - For cluster version limits, refer to [Automatic IMCI-based query acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
     shared_ptr<string> imciAutoIndex_ {};
     // Modifies the row compression settings.
     shared_ptr<string> modifyRowCompression_ {};
@@ -227,19 +228,19 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The cross-zone automatic switchover mode of the cluster. Valid values:
     // 
-    // - **ON**: enables cross-zone automatic switchover.
-    // - **OFF**: disables cross-zone automatic switchover.
+    // - **ON**: Enables cross-zone automatic switchover.
+    // - **OFF**: Disables cross-zone automatic switchover.
     shared_ptr<string> standbyHAMode_ {};
-    // Specifies whether to enable automatic storage scaling for the Standard Edition cluster. Valid values:
+    // Specifies whether to enable automatic storage scaling for a Standard Edition cluster. Valid values:
     // 
-    // - Enable: enables automatic storage scaling.
-    // - Disable: disables automatic storage scaling.
+    // - Enable: Enables automatic storage scaling.
+    // - Disable: Disables automatic storage scaling.
     shared_ptr<string> storageAutoScale_ {};
-    // The upper limit for automatic storage scaling of the Standard Edition cluster. Unit: GB.
+    // The upper limit for automatic storage scaling of a Standard Edition cluster. Unit: GB.
     // 
     // > The maximum value is 32000.
     shared_ptr<int64_t> storageUpperBound_ {};
-    // The JSON string that contains the information about the databases and tables to be restored. The values of the database and table information are strings.
+    // The JSON string of the target database and table information to be restored. The values of the database and table information are all of the string type.
     // Example: `[
     //    {
     //        "tables":[
@@ -254,7 +255,7 @@ namespace Models
     //        "newname":"testdb_restore"
     //    }
     // ]`.
-    // > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query the names of databases and tables that can be restored, and then specify the information in the corresponding fields in the preceding example.
+    // > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to view the details of the database and table names that support restoration, and fill the supported database and table information into the corresponding positions in the preceding example.
     shared_ptr<string> tableMeta_ {};
   };
 

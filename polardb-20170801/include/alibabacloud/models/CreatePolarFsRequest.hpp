@@ -297,7 +297,7 @@ namespace Models
 
 
   protected:
-    // The acceleration storage space for Basic Edition with acceleration enabled. Unit: GB.
+    // The acceleration storage space for the Basic Edition with acceleration enabled. Unit: GB.
     shared_ptr<int64_t> accelerateStorageSize_ {};
     // The acceleration mode. Valid values:
     // 
@@ -309,7 +309,7 @@ namespace Models
     // - **juice**: file system acceleration.
     // - **alluxio**: transparent acceleration.
     shared_ptr<string> accelerateType_ {};
-    // The list of authorized account IDs for Cold Storage Edition instances, separated by commas (,).
+    // The list of authorized account IDs for the Cold Storage Edition instance, separated by commas (,).
     shared_ptr<string> authorizedUserIds_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
@@ -321,7 +321,7 @@ namespace Models
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     shared_ptr<bool> autoRenew_ {};
     // Specifies whether to automatically use coupons. Valid values:
-    // - **true**: Coupons are used (default).
+    // - **true**: Coupons are automatically used (default).
     // - **false**: Coupons are not used.
     shared_ptr<bool> autoUseCoupon_ {};
     // The edition. Valid values:
@@ -340,7 +340,7 @@ namespace Models
     shared_ptr<string> customBucketPath_ {};
     // The bucket and path information.
     // 
-    // > This parameter is required for transparent acceleration scenarios.
+    // > This parameter is required for the transparent acceleration scenario.
     shared_ptr<vector<CreatePolarFsRequest::CustomBucketPathList>> customBucketPathList_ {};
     // The custom AccessKey ID.
     shared_ptr<string> customOssAk_ {};
@@ -357,36 +357,36 @@ namespace Models
     // - **Postpaid**: pay-as-you-go.
     // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // This parameter is required when **PayType** is set to **Prepaid**. Specifies whether the subscription cluster uses a yearly or monthly billing cycle. You must pass this parameter when the billing method is subscription. 
+    // The unit of the subscription duration. This parameter is required if PayType is set to **Prepaid**. Specifies whether the subscription cluster uses a yearly or monthly billing cycle. Valid values: 
     // 
-    // - **Year**: The subscription period is measured in years.
-    // - **Month**: The subscription period is measured in months.
+    // - **Year**: The subscription duration is measured in years.
+    // - **Month**: The subscription duration is measured in months.
     shared_ptr<string> period_ {};
     // The coupon code. If this parameter is not specified, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
-    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
+    // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The storage space. Unit: GB.
     shared_ptr<int64_t> storageSpace_ {};
-    // Valid values for high-performance storage type:
+    // Valid values for the high-performance storage type:
     // - **ESSDPL0**
     // - **ESSDPL1**
     // 
-    // Valid values for Basic Edition storage type:
+    // Valid values for the Basic Edition storage type:
     // - **city_redundancy (zone-redundant)**
     // 
-    // Valid values for Cold Storage Edition storage type:
+    // Valid values for the Cold Storage Edition storage type:
     // - **city_redundancy (zone-redundant)**
     // - **local_redundancy (locally redundant)**
     shared_ptr<string> storageType_ {};
-    // This parameter is required when **PayType** is set to **Prepaid**.
-    // - When **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
-    // - When **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
+    // The subscription duration. This parameter is required when PayType is set to **Prepaid**.
+    // - If **Period** is set to **Month**, valid values of **UsedTime** are integers in the range of `[1-9]`.
+    // - If **Period** is set to **Year**, valid values of **UsedTime** are integers in the range of `[1-3]`.
     shared_ptr<string> usedTime_ {};
-    // The VPC ID.
+    // The virtual private cloud (VPC) ID.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

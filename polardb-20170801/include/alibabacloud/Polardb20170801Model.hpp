@@ -763,6 +763,9 @@
 #include <alibabacloud/models/DescribeHistoryTasksStatRequest.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponseBody.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponse.hpp>
+#include <alibabacloud/models/DescribeKBSyncLinkAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeKBSyncLinkAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeKBSyncLinkAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeKBSyncLinksRequest.hpp>
 #include <alibabacloud/models/DescribeKBSyncLinksResponseBody.hpp>
 #include <alibabacloud/models/DescribeKBSyncLinksResponse.hpp>

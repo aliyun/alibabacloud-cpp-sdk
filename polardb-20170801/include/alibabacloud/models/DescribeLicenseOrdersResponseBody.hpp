@@ -179,37 +179,35 @@ namespace Models
     protected:
       // The number of activation codes that have been generated.
       shared_ptr<int32_t> activatedCodeCount_ {};
-      // The quota for requesting activation codes.
+      // The quota of activation codes that can be requested.
       shared_ptr<int32_t> activationCodeQuota_ {};
       // The Alibaba Cloud order ID or virtual order ID.
       shared_ptr<string> aliyunOrderId_ {};
-      // Specifies whether the System Identifier can be left empty when an activation code is generated.
+      // Indicates whether the System Identifier field can be left empty when generating an activation code.
       shared_ptr<bool> allowEmptySystemIdentifier_ {};
-      // The database type, such as PG, Oracle, or MySQL.
+      // The database engine type, such as PG, Oracle, or MySQL.
       shared_ptr<string> engine_ {};
-      // The creation time.
+      // The time when the order was created.
       shared_ptr<string> gmtCreated_ {};
-      // The update time.
+      // The time when the order was last updated.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether the order is a virtual order. Virtual orders allow for pre-generating activation codes.
+      // Indicates whether the order is a virtual order. Virtual orders allow pre-generation of activation codes.
       shared_ptr<bool> isVirtualOrder_ {};
-      // Indicates whether the virtual order is frozen. No more activation codes can be generated from a frozen order.
+      // Indicates whether the virtual order is frozen. A frozen virtual order does not allow further generation of activation codes.
       shared_ptr<bool> isVirtualOrderFrozen_ {};
       // The package type. Valid values:
       // 
-      // - single_node_subscribe: single node (subscription)
-      // 
-      // - single_node_long_term: single node (long-term)
-      // 
-      // - primary_backup_subscribe: primary/standby (subscription)
-      // 
-      // - primary_backup_long_term: primary/standby (long-term)
-      // 
-      // - pre_generation_long_term: pre-generated (long-term)
+      // - single_node_subscribe: single node (subscription).
+      // - single_node_long_term: single node (long-term).
+      // - primary_backup_subscribe: primary/secondary (subscription).
+      // - primary_backup_long_term: primary/secondary (long-term).
+      // - pre_generation_long_term: pre-generation (long-term).
       shared_ptr<string> packageType_ {};
-      // The validity period of the package. Common options are one year or long-term (30 years).
+      // The validity period of the package. Typical values are one year or long-term (30 years).
       shared_ptr<string> packageValidity_ {};
-      // The purchase channel. Valid values: \\`aliyun_market\\` (Alibaba Cloud Marketplace) and \\`aliyun_public\\` (standard purchase page).
+      // The purchase channel. Valid values:
+      // - aliyun_market: Alibaba Cloud Marketplace.
+      // - aliyun_public: standard purchase page.
       shared_ptr<string> purchaseChannel_ {};
       // The virtual order ID.
       shared_ptr<string> virtualAliyunOrderId_ {};

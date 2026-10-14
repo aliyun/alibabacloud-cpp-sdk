@@ -108,7 +108,7 @@ namespace Models
 
 
     protected:
-      // The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The number n for each tag pair must be unique and must be a consecutive integer that starts from 1. The Tag.n.Key parameter is paired with the Tag.n.Value parameter.
+      // The tag key. You can filter the cluster list based on tags. You can specify up to 20 tag key-value pairs. The number n in each tag key-value pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
       // 
       // > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
       shared_ptr<string> key_ {};
@@ -277,21 +277,21 @@ namespace Models
     shared_ptr<string> connectionString_ {};
     // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The cluster ID. Separate multiple cluster IDs with commas (,).
+    // The cluster IDs. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBClusterIds_ {};
     // The cluster status. For valid values, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
     shared_ptr<string> DBClusterStatus_ {};
-    // The node ID. You can specify multiple node IDs, separated by commas (,).
+    // The node IDs. You can specify multiple node IDs and separate them with commas (,).
     shared_ptr<string> DBNodeIds_ {};
     // The database type. Valid values:
     // * **MySQL**
     // * **PostgreSQL**
     // * **Oracle**
     shared_ptr<string> DBType_ {};
-    // The database engine version.
+    // The database version.
     shared_ptr<string> DBVersion_ {};
-    // The query mode for the list. Set the value to Simple to use the simple mode, which returns only basic metadata of clusters.
-    // > If you do not specify this parameter, the detailed mode is used by default, which returns detailed information about clusters.
+    // The query mode for the list. A value of Simple indicates the brief mode, in which only the basic metadata of the clusters is returned.
+    // > If this parameter is not specified, the detailed mode is used by default, and the detailed information of the clusters is returned.
     shared_ptr<string> describeType_ {};
     // Specifies whether the cluster has expired. Valid values:
     // 
@@ -309,12 +309,12 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The billing method. Valid values: 
     // 
-    // - **Postpaid**: pay-as-you-go.
-    // - **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go
+    // - **Prepaid**: subscription
     shared_ptr<string> payType_ {};
-    // Filters clusters created within the last N days. Valid values: 0 to 15.
+    // Filters the clusters created in the last N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentCreationInterval_ {};
-    // Filters clusters that expire within the next N days. Valid values: 0 to 15.
+    // Filters the clusters that expire in N days. Valid values: 0 to 15.
     shared_ptr<int32_t> recentExpirationInterval_ {};
     // The region ID.
     // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
@@ -325,7 +325,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeDBClustersRequest::Tag>> tag_ {};
   };
 

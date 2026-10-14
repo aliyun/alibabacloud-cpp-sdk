@@ -738,11 +738,11 @@ namespace Models
     shared_ptr<DescribeDBClustersResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of clusters on the current page.
+    // The number of clusters returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

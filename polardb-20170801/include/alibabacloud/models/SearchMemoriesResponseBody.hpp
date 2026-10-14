@@ -134,6 +134,8 @@ namespace Models
 
     protected:
       // The creation time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The memory ID.
       shared_ptr<string> id_ {};
@@ -148,6 +150,8 @@ namespace Models
       // The score.
       shared_ptr<string> score_ {};
       // The update time.
+      // 
+      // The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> updateTime_ {};
     };
 

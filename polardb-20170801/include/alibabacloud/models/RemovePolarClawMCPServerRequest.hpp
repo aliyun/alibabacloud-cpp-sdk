@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The application ID.
+    // The PolarClaw application ID.
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
