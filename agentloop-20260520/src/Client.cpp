@@ -194,7 +194,7 @@ CreateAgentSpaceResponse Client::createAgentSpace(const CreateAgentSpaceRequest 
 }
 
 /**
- * @summary Creates a context store.
+ * @summary Creates a context library.
  *
  * @param request CreateContextStoreRequest
  * @param headers map
@@ -245,7 +245,7 @@ CreateContextStoreResponse Client::createContextStoreWithOptions(const string &a
 }
 
 /**
- * @summary Creates a context store.
+ * @summary Creates a context library.
  *
  * @param request CreateContextStoreRequest
  * @return CreateContextStoreResponse
@@ -790,6 +790,124 @@ CreateExperimentRunResponse Client::createExperimentRun(const string &agentSpace
 }
 
 /**
+ * @summary Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+ *
+ * @param request CreateOptimizeRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOptimizeRunResponse
+ */
+CreateOptimizeRunResponse Client::createOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const CreateOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasInput()) {
+    body["input"] = request.getInput();
+  }
+
+  if (!!request.hasPreview()) {
+    body["preview"] = request.getPreview();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateOptimizeRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName) , "/runs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOptimizeRunResponse>();
+}
+
+/**
+ * @summary Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+ *
+ * @param request CreateOptimizeRunRequest
+ * @return CreateOptimizeRunResponse
+ */
+CreateOptimizeRunResponse Client::createOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const CreateOptimizeRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createOptimizeRunWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+}
+
+/**
+ * @summary Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+ *
+ * @param request CreateOptimizeTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOptimizeTaskResponse
+ */
+CreateOptimizeTaskResponse Client::createOptimizeTaskWithOptions(const string &agentSpace, const CreateOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasOptimizeTaskName()) {
+    body["optimizeTaskName"] = request.getOptimizeTaskName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateOptimizeTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOptimizeTaskResponse>();
+}
+
+/**
+ * @summary Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+ *
+ * @param request CreateOptimizeTaskRequest
+ * @return CreateOptimizeTaskResponse
+ */
+CreateOptimizeTaskResponse Client::createOptimizeTask(const string &agentSpace, const CreateOptimizeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createOptimizeTaskWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
  * @summary Creates a pipeline.
  *
  * @param request CreatePipelineRequest
@@ -1291,6 +1409,51 @@ DeleteExperimentRunResponse Client::deleteExperimentRun(const string &agentSpace
 }
 
 /**
+ * @summary Deletes an optimization task in a specified AgentSpace.
+ *
+ * @param request DeleteOptimizeTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteOptimizeTaskResponse
+ */
+DeleteOptimizeTaskResponse Client::deleteOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const DeleteOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteOptimizeTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteOptimizeTaskResponse>();
+}
+
+/**
+ * @summary Deletes an optimization task in a specified AgentSpace.
+ *
+ * @param request DeleteOptimizeTaskRequest
+ * @return DeleteOptimizeTaskResponse
+ */
+DeleteOptimizeTaskResponse Client::deleteOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const DeleteOptimizeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a pipeline.
  *
  * @param request DeletePipelineRequest
@@ -1505,7 +1668,7 @@ GetAgentSpaceResponse Client::getAgentSpace(const string &agentSpace, const GetA
 }
 
 /**
- * @summary Queries a context store.
+ * @summary Queries the context store.
  *
  * @param request GetContextStoreRequest
  * @param headers map
@@ -1532,7 +1695,7 @@ GetContextStoreResponse Client::getContextStoreWithOptions(const string &agentSp
 }
 
 /**
- * @summary Queries a context store.
+ * @summary Queries the context store.
  *
  * @param request GetContextStoreRequest
  * @return GetContextStoreResponse
@@ -1880,6 +2043,84 @@ GetExperimentRunResponse Client::getExperimentRun(const string &agentSpace, cons
 }
 
 /**
+ * @summary 查询优化任务执行详情
+ *
+ * @param request GetOptimizeRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOptimizeRunResponse
+ */
+GetOptimizeRunResponse Client::getOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const GetOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOptimizeRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(optimizeRunId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOptimizeRunResponse>();
+}
+
+/**
+ * @summary 查询优化任务执行详情
+ *
+ * @param request GetOptimizeRunRequest
+ * @return GetOptimizeRunResponse
+ */
+GetOptimizeRunResponse Client::getOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const GetOptimizeRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getOptimizeRunWithOptions(agentSpace, optimizeTaskName, optimizeRunId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询优化任务
+ *
+ * @param request GetOptimizeTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOptimizeTaskResponse
+ */
+GetOptimizeTaskResponse Client::getOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const GetOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetOptimizeTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOptimizeTaskResponse>();
+}
+
+/**
+ * @summary 查询优化任务
+ *
+ * @param request GetOptimizeTaskRequest
+ * @return GetOptimizeTaskResponse
+ */
+GetOptimizeTaskResponse Client::getOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const GetOptimizeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+}
+
+/**
  * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
@@ -2121,7 +2362,7 @@ ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeys(const string &ag
 }
 
 /**
- * @summary Queries a list of context stores.
+ * @summary Queries the list of context stores.
  *
  * @param request ListContextStoresRequest
  * @param headers map
@@ -2170,7 +2411,7 @@ ListContextStoresResponse Client::listContextStoresWithOptions(const string &age
 }
 
 /**
- * @summary Queries a list of context stores.
+ * @summary Queries the list of context stores.
  *
  * @param request ListContextStoresRequest
  * @return ListContextStoresResponse
@@ -2639,7 +2880,125 @@ ListExperimentRunsResponse Client::listExperimentRuns(const string &agentSpace, 
 }
 
 /**
- * @summary Queries the execution history list of a pipeline.
+ * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+ *
+ * @param request ListOptimizeRunsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOptimizeRunsResponse
+ */
+ListOptimizeRunsResponse Client::listOptimizeRunsWithOptions(const string &agentSpace, const string &optimizeTaskName, const ListOptimizeRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasWindowStartTimeBegin()) {
+    query["windowStartTimeBegin"] = request.getWindowStartTimeBegin();
+  }
+
+  if (!!request.hasWindowStartTimeEnd()) {
+    query["windowStartTimeEnd"] = request.getWindowStartTimeEnd();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOptimizeRuns"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName) , "/runs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOptimizeRunsResponse>();
+}
+
+/**
+ * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+ *
+ * @param request ListOptimizeRunsRequest
+ * @return ListOptimizeRunsResponse
+ */
+ListOptimizeRunsResponse Client::listOptimizeRuns(const string &agentSpace, const string &optimizeTaskName, const ListOptimizeRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOptimizeRunsWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+ *
+ * @param request ListOptimizeTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOptimizeTasksResponse
+ */
+ListOptimizeTasksResponse Client::listOptimizeTasksWithOptions(const string &agentSpace, const ListOptimizeTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOptimizeTasks"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOptimizeTasksResponse>();
+}
+
+/**
+ * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+ *
+ * @param request ListOptimizeTasksRequest
+ * @return ListOptimizeTasksResponse
+ */
+ListOptimizeTasksResponse Client::listOptimizeTasks(const string &agentSpace, const ListOptimizeTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOptimizeTasksWithOptions(agentSpace, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
  *
  * @param request ListPipelineRunsRequest
  * @param headers map
@@ -2692,7 +3051,7 @@ ListPipelineRunsResponse Client::listPipelineRunsWithOptions(const string &agent
 }
 
 /**
- * @summary Queries the execution history list of a pipeline.
+ * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
  *
  * @param request ListPipelineRunsRequest
  * @return ListPipelineRunsResponse
@@ -2704,7 +3063,7 @@ ListPipelineRunsResponse Client::listPipelineRuns(const string &agentSpace, cons
 }
 
 /**
- * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+ * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
  *
  * @param request ListPipelinesRequest
  * @param headers map
@@ -2757,7 +3116,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+ * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -2977,7 +3336,7 @@ RunPipelineResponse Client::runPipeline(const string &agentSpace, const string &
 }
 
 /**
- * @summary Searches contexts.
+ * @summary Searches the context.
  *
  * @param request SearchContextRequest
  * @param headers map
@@ -3038,7 +3397,7 @@ SearchContextResponse Client::searchContextWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary Searches contexts.
+ * @summary Searches the context.
  *
  * @param request SearchContextRequest
  * @return SearchContextResponse
@@ -3540,7 +3899,7 @@ UpdateEvaluatorSkillResponse Client::updateEvaluatorSkill(const string &name, co
 /**
  * @summary Updates an experiment plan.
  *
- * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+ * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
  *
  * @param request UpdateExperimentPlanRequest
  * @param headers map
@@ -3615,7 +3974,7 @@ UpdateExperimentPlanResponse Client::updateExperimentPlanWithOptions(const strin
 /**
  * @summary Updates an experiment plan.
  *
- * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+ * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
  *
  * @param request UpdateExperimentPlanRequest
  * @return UpdateExperimentPlanResponse
@@ -3703,6 +4062,116 @@ UpdateExperimentRunResponse Client::updateExperimentRun(const string &agentSpace
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateExperimentRunWithOptions(agentSpace, recordId, request, headers, runtime);
+}
+
+/**
+ * @summary Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+ *
+ * @param request UpdateOptimizeRunRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOptimizeRunResponse
+ */
+UpdateOptimizeRunResponse Client::updateOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const UpdateOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasExtra()) {
+    body["extra"] = request.getExtra();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateOptimizeRun"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(optimizeRunId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOptimizeRunResponse>();
+}
+
+/**
+ * @summary Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+ *
+ * @param request UpdateOptimizeRunRequest
+ * @return UpdateOptimizeRunResponse
+ */
+UpdateOptimizeRunResponse Client::updateOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const UpdateOptimizeRunRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOptimizeRunWithOptions(agentSpace, optimizeTaskName, optimizeRunId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新优化任务
+ *
+ * @param request UpdateOptimizeTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOptimizeTaskResponse
+ */
+UpdateOptimizeTaskResponse Client::updateOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const UpdateOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateOptimizeTask"},
+    {"version" , "2026-05-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/agentspace/" , Darabonba::Encode::Encoder::percentEncode(agentSpace) , "/optimizetasks/" , Darabonba::Encode::Encoder::percentEncode(optimizeTaskName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOptimizeTaskResponse>();
+}
+
+/**
+ * @summary 更新优化任务
+ *
+ * @param request UpdateOptimizeTaskRequest
+ * @return UpdateOptimizeTaskResponse
+ */
+UpdateOptimizeTaskResponse Client::updateOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const UpdateOptimizeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOptimizeTaskWithOptions(agentSpace, optimizeTaskName, request, headers, runtime);
 }
 
 /**

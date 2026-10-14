@@ -163,7 +163,9 @@ namespace Models
 
 
           protected:
+            // The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed column agent_trajectory, and this parameter no longer affects the output.
             shared_ptr<vector<string>> columns_ {};
+            // Specifies whether to enable trajectory enrichment.
             shared_ptr<bool> enabled_ {};
           };
 
@@ -178,6 +180,7 @@ namespace Models
 
 
         protected:
+          // The trajectory enrichment configuration. It mounts trajectory data into the scrubbing result based on the trace_id. When writing to the dataset, the data is stored in the fixed column agent_trajectory, and the column value is the trajectory JSON content.
           shared_ptr<Trajectory::Enrich> enrich_ {};
         };
 
@@ -232,7 +235,7 @@ namespace Models
           shared_ptr<string> logstore_ {};
           // The name of the SLS project.
           shared_ptr<string> project_ {};
-          // The data filtered query statement in SLS query/analysis syntax.
+          // The data filtered query statement, which uses the SLS query and analysis syntax.
           shared_ptr<string> query_ {};
         };
 
@@ -274,7 +277,9 @@ namespace Models
 
 
         protected:
+          // The name of the field.
           shared_ptr<string> name_ {};
+          // The type of the field. Valid values: text, long, double, and json.
           shared_ptr<string> type_ {};
         };
 
@@ -370,11 +375,13 @@ namespace Models
       protected:
         // The dataset datasource config in the current AgentSpace.
         shared_ptr<Source::Dataset> dataset_ {};
+        // The input fields and their types, applicable to all data source types.
         shared_ptr<vector<Source::InputFields>> inputFields_ {};
         // The Simple Log Service (SLS) Logstore datasource config.
         shared_ptr<Source::Logstore> logstore_ {};
+        // The trajectory data configuration. This parameter is optional and takes effect only when the type is trace. It obtains ATIF standard trajectory data from the trajectory scrubbing service and extends it by feature.
         shared_ptr<Source::Trajectory> trajectory_ {};
-        // The data source type. Valid values: logstore or dataset.
+        // The data source type. Valid values: logstore, dataset, and trace. The trace value indicates a trajectory signal-driven processing mode. The validity of the enumerated values is verified by the server.
         shared_ptr<string> type_ {};
       };
 
@@ -577,7 +584,7 @@ namespace Models
             protected:
               // The destination dataset of the route.
               shared_ptr<Sink::Dataset> dataset_ {};
-              // The type of the route destination. Currently, only dataset is supported.
+              // The destination type of the route. Currently, only dataset is supported.
               shared_ptr<string> type_ {};
             };
 
@@ -607,9 +614,9 @@ namespace Models
 
 
           protected:
-            // The route expression in SPL. Only where, project, and extend are supported.
+            // The route expression in Search Processing Language (SPL). Only where, project, and extend are supported.
             shared_ptr<string> expression_ {};
-            // The route ID.
+            // The ID of the route.
             shared_ptr<string> id_ {};
             // The write destination of the route.
             shared_ptr<Routes::Sink> sink_ {};
@@ -701,7 +708,7 @@ namespace Models
           protected:
             // The default destination dataset.
             shared_ptr<DefaultSink::Dataset> dataset_ {};
-            // The type of the default destination. Currently, only dataset is supported.
+            // The default destination type. Currently, only dataset is supported.
             shared_ptr<string> type_ {};
           };
 
@@ -733,11 +740,11 @@ namespace Models
 
 
         protected:
-          // The default write destination that is used when no condition route is matched.
+          // The default write destination used when no conditional route is matched.
           shared_ptr<Condition::DefaultSink> defaultSink_ {};
           // The route matching mode. Currently, only all is supported.
           shared_ptr<string> matchMode_ {};
-          // The list of condition routes.
+          // The list of conditional routes.
           shared_ptr<vector<Condition::Routes>> routes_ {};
         };
 
@@ -769,11 +776,11 @@ namespace Models
 
 
       protected:
-        // The conditional routing configuration. This parameter is used only when sink.type is set to condition.
+        // The conditional routing configuration. This is used only when the sink type is condition.
         shared_ptr<Sink::Condition> condition_ {};
-        // The destination dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
+        // The destination dataset configuration for the dataset sink. This is used only when the sink type is dataset.
         shared_ptr<Sink::Dataset> dataset_ {};
-        // The destination type. Valid values: dataset or condition.
+        // The destination type. Valid values: dataset, condition.
         shared_ptr<string> type_ {};
       };
 
@@ -840,9 +847,9 @@ namespace Models
 
 
         protected:
-          // The scheduling start time, in UNIX millisecond timestamp format.
+          // The scheduling start time as a UNIX timestamp in seconds.
           shared_ptr<int64_t> fromTime_ {};
-          // The scheduling interval, such as 1h or 30m.
+          // The scheduling interval. Valid values: 1h, 6h, 12h, and 1d.
           shared_ptr<string> interval_ {};
         };
 
@@ -884,9 +891,9 @@ namespace Models
 
 
         protected:
-          // The start of the time slice, in UNIX millisecond timestamp format.
+          // The start time of the time slice as a UNIX timestamp in seconds.
           shared_ptr<int64_t> fromTime_ {};
-          // The end of the time slice, in UNIX millisecond timestamp format.
+          // The end time of the time slice as a UNIX timestamp in seconds.
           shared_ptr<int64_t> toTime_ {};
         };
 
@@ -918,6 +925,7 @@ namespace Models
 
 
         protected:
+          // The bootstrap history start time as a UNIX timestamp in seconds. It has the same precision as runOnce or scheduled fromTime. Millisecond values greater than or equal to 1e12 are automatically converted. The cursor starts from the grid-aligned time and catches up window by window. After catching up, it switches to minute intervals. By default, it starts from the current time and only processes incremental data.
           shared_ptr<int64_t> fromTime_ {};
         };
 
@@ -958,14 +966,13 @@ namespace Models
 
 
       protected:
+        // The continuous execution configuration. This is used when the type is trace. The processing frequency is a fixed value managed by the server.
         shared_ptr<ExecutePolicy::Continuous> continuous_ {};
-        // The scheduling mode. Valid values:
-        // - RunOnce: one-time execution.
-        // - Scheduled: periodic scheduling.
+        // The scheduling mode. Valid values: RunOnce for single execution, Scheduled for periodic execution, and Continuous for continuous execution. Continuous mode is only for trace data sources. The processing frequency is a fixed value managed by the server, and data is automatically processed at minute intervals after the trace is completed.
         shared_ptr<string> mode_ {};
-        // The parameters for one-time execution. This parameter has a value only when mode is set to RunOnce.
+        // The parameters for single execution. This field has a value only when the mode is RunOnce.
         shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
-        // The parameters for periodic scheduling. This parameter has a value only when mode is set to Scheduled.
+        // The parameters for periodic scheduling. This field has a value only when the mode is Scheduled.
         shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
       };
 
@@ -1068,21 +1075,15 @@ namespace Models
       shared_ptr<string> pipelineName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The scheduling status. Valid values:
-      // - None: no scheduling. This value is returned for RunOnce pipelines.
-      // - Active: active.
-      // - Paused: paused.
-      // - Terminated: terminated.
+      // The scheduling status. Valid values: None for no scheduling in RunOnce pipelines, Active, Paused, and Terminated.
       shared_ptr<string> scheduleStatus_ {};
-      // The scheduling type. Valid values:
-      // - RunOnce: one-time execution.
-      // - Scheduled: periodic scheduling.
+      // The scheduling type. Valid values: RunOnce for single execution, Scheduled for periodic scheduling, and Continuous for continuous execution driven by trace source signals.
       shared_ptr<string> scheduleType_ {};
-      // The pipeline sink (data write destination).
+      // The pipeline sink, which is the destination for data writing.
       shared_ptr<Pipelines::Sink> sink_ {};
-      // The pipeline data source.
+      // The data source of the pipeline.
       shared_ptr<Pipelines::Source> source_ {};
-      // The time when the pipeline was last updated, in ISO 8601 UTC format.
+      // The time when the pipeline was last updated. The time is in the ISO 8601 UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
@@ -1130,15 +1131,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page that was specified in the request. This value is echoed back.
+    // The maximum number of entries per page specified in the request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page. An empty string indicates that the current page is the last page.
     shared_ptr<string> nextToken_ {};
     // The list of pipelines.
     shared_ptr<vector<ListPipelinesResponseBody::Pipelines>> pipelines_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of pipelines that match the filter conditions.
+    // The total number of pipelines that meet the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

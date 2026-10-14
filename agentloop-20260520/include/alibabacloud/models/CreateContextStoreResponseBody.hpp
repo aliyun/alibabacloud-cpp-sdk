@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID, which is used to locate the request when troubleshooting issues.
     shared_ptr<string> requestId_ {};
+    // The currently effective strategy version number for the memory type.
     shared_ptr<int32_t> strategyVersion_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The content, which supports {{variable name}} placeholders.
     shared_ptr<string> content_ {};
+    // The role: system/user/assistant.
     shared_ptr<string> role_ {};
   };
 

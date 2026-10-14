@@ -79,17 +79,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether Chinese is included. This parameter is required only when the **type** parameter is set to **text**. Valid values:
-    //   - true: Chinese is included.
-    //   - false: Chinese is not included.
+    // Specifies whether the field contains Chinese characters. This parameter is required only when the **type** parameter is set to **text**. Valid values:
+    // - true: The field contains Chinese characters.
+    // - false: The field does not contain Chinese characters.
     shared_ptr<bool> chn_ {};
-    // The description.
+    // The field description.
     shared_ptr<string> description_ {};
-    // The field embedding type.
+    // The embedding type of the field.
     shared_ptr<string> embedding_ {};
-    // The JSON subfields. This parameter takes effect only when type is set to json.
+    // The JSON subfields. This property takes effect only when the type is set to json.
     shared_ptr<map<string, IndexJsonKey>> jsonKeys_ {};
-    // The type.
+    // The field type.
     shared_ptr<string> type_ {};
   };
 

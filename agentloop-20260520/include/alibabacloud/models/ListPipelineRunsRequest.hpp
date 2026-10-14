@@ -84,15 +84,17 @@ namespace Models
 
 
   protected:
+    // The upper bound for filtering by trigger time (triggered_at <= endTime), in UNIX seconds.
     shared_ptr<int64_t> endTime_ {};
-    // The maximum number of entries to return. Default value: 50. Maximum value: 200.
+    // The maximum number of entries to return in the current request. Default value: 50. Maximum value: 200.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first request.
+    // The pagination token. Pass the nextToken value from the previous response to retrieve the next page. Do not specify this parameter for the first request.
     shared_ptr<string> nextToken_ {};
+    // The lower bound for filtering by trigger time (triggered_at >= startTime), in UNIX seconds.
     shared_ptr<int64_t> startTime_ {};
-    // Filters by run status. Valid values: Pending, Running, Succeeded, Failed, and Cancelled. If this parameter is not specified, no filtering is applied.
+    // Filters runs by status. Valid values: Pending, Running, Succeeded, Failed, and Cancelled. If you do not specify this parameter, no filtering is applied.
     shared_ptr<string> status_ {};
-    // Filters by trigger type. Valid values: Manual, Scheduled, and RunOnce. If this parameter is not specified, no filtering is applied.
+    // Filters runs by trigger type. Valid values: Continuous, RunOnce, and Scheduled. If you do not specify this parameter, no filtering is applied.
     shared_ptr<string> triggerType_ {};
   };
 

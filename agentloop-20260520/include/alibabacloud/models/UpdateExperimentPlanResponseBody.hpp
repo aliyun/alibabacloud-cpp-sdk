@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
-    // The experiment plan ID.
+    // The ID of the experiment plan.
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

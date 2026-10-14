@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // The channel type: custom or apig. This parameter is optional for model_service and defaults to custom.
+    // The channel type. Valid values: custom and apig. This parameter is optional for model_service. Default value: custom.
     shared_ptr<string> channelType_ {};
-    // The sample request body provided by the user for verifying endpoint connectivity. This parameter is required when dryRun is set to All and type is set to agent_app. The value is not persisted.
+    // Specifies the sample request body provided by the user to verify endpoint connectivity. This parameter is required when dryRun is set to All and type is set to agent_app. The request body is not persisted.
     shared_ptr<string> dryRunRequestBody_ {};
-    // The number of retries after a failed invocation of the dial-test registration service. Valid values: 0 to 10. Default value: 3.
+    // The number of retry attempts after a failed service invocation when you invoke the synthetic monitoring registration service. Valid values: 0 to 10. Default value: 3.
     shared_ptr<string> maxRetries_ {};
     // The list of supported models in comma-separated format. This parameter is required for model_service.
     shared_ptr<string> modelList_ {};
-    // The network type: internet or aliyun-vpc.
+    // The network type. Valid values: internet and aliyun-vpc.
     shared_ptr<string> network_ {};
-    // The protocol type: openai, openai-compatible, or anthropic. This parameter is required for model_service.
+    // The protocol type. Valid values: openai, openai-compatible, and anthropic. This parameter is required for model_service.
     shared_ptr<string> protocol_ {};
-    // The QPS limit for the dial-test registration service. A value of 0 indicates no throttling. Otherwise, valid values: 0.1 to 1000. Default value: 20 for agent_app, 100 for model_service.
+    // The queries per second (QPS) limit for the dial test registration service. A value of 0 indicates no throttling. Otherwise, valid values are 0.1 to 1000. Default value: 20 for agent_app and 100 for model_service.
     shared_ptr<string> qpsLimit_ {};
     // The region. This parameter is required when the network type is aliyun-vpc.
     shared_ptr<string> region_ {};
-    // The JSON Path extraction path for the response body. This parameter is optional for agent_app.
+    // The JSONPath extraction path for the response body. This parameter is optional for agent_app.
     shared_ptr<string> responseBodyPath_ {};
-    // The security group ID. This parameter is optional for agent_app.
+    // The ID of the security group. This parameter is optional for agent_app.
     shared_ptr<string> securityGroupId_ {};
-    // The timeout for a single call, in milliseconds. Valid values: 1000 to 1800000. Default value: 300000.
+    // The timeout period for a single call in milliseconds. Valid values: 1000 to 1800000. Default value: 300000.
     shared_ptr<string> timeoutMs_ {};
-    // The vSwitch ID. This parameter is optional for agent_app.
+    // The ID of the vSwitch. This parameter is optional for agent_app.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC ID. This parameter is optional for agent_app.
+    // The ID of the virtual private cloud (VPC). This parameter is optional for agent_app.
     shared_ptr<string> vpcId_ {};
   };
 

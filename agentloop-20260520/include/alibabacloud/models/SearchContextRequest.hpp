@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // Agent Id
       shared_ptr<string> agentId_ {};
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The run ID.
       shared_ptr<string> runId_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -171,17 +175,19 @@ namespace Models
   protected:
     // The structured filter conditions. The key is the field name, and the value is the expected matching value.
     Darabonba::Json filter_ {};
-    // Specifies whether to apply structured formatting to the returned results.
+    // Specifies whether to structurally format the returned results.
     shared_ptr<bool> formatted_ {};
+    // Specifies whether to include memories with sourceState=inactive. Default value: false.
     shared_ptr<bool> includeInactive_ {};
-    // The maximum number of returned results (similarity Top-N).
+    // The maximum number of returned results, which corresponds to the Top-N similarity.
     shared_ptr<int32_t> limit_ {};
     // The retrieval query text. Natural language is supported.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The retrieval options that control the retrieval strategy.
+    // The retrieval options used to control the retrieval strategy.
     shared_ptr<string> retrievalOption_ {};
+    // The recall scope. If a field with the same name conflicts with the filter, a 400 ScopeFilterConflict error is returned.
     shared_ptr<SearchContextRequest::Scope> scope_ {};
     // The similarity threshold. Results with a similarity score lower than this value are filtered out. Valid values: 0 to 1.
     shared_ptr<double> threshold_ {};

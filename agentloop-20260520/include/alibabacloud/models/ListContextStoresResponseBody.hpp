@@ -172,13 +172,15 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The description of the context store.
       shared_ptr<string> description_ {};
-      // The region ID of the context store.
+      // The ID of the region where the context store resides.
       shared_ptr<string> regionId_ {};
-      // The list of service names. This parameter has a value only for context stores of the experience type. The service names are used together with the data source AgentSpace to locate trace data sources.
+      // The list of service names. This parameter has a value only for the experience type. It is used together with the data source AgentSpace to locate the trace data source.
       shared_ptr<vector<string>> serviceNames_ {};
+      // The memory data source type, such as manual, trajectory, or dataset. This parameter has a value only for the memory type.
       shared_ptr<string> sourceType_ {};
-      // The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
+      // The status of the context store. Valid values include ACTIVE, INITIALIZING, and FAILED.
       shared_ptr<string> status_ {};
+      // The memory storage mode, such as event or upsert. This parameter has a value only for the memory type.
       shared_ptr<string> storageMode_ {};
       // The time when the context store was last updated, in ISO 8601 UTC format.
       // 
@@ -226,15 +228,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page that was specified in the request. This value is echoed back.
+    // The maximum number of results per page specified in the request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page. An empty string indicates that the current page is the last page.
+    // The token for the next page. An empty string indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
-    // The request ID. You can use this ID to locate and troubleshoot issues.
+    // The request ID, which can be used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
     // The list of context stores.
     shared_ptr<vector<ListContextStoresResponseBody::Results>> results_ {};
-    // The total number of context stores that match the query conditions.
+    // The total number of context stores that meet the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

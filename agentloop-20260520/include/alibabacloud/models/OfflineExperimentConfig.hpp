@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The experiment description.
     shared_ptr<string> desc_ {};
+    // The experiment label.
     shared_ptr<string> label_ {};
+    // The experiment name.
     shared_ptr<string> name_ {};
   };
 

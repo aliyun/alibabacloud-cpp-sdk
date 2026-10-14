@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The frequency penalty. Positive values reduce repetition. Valid values: -2.0 to 2.0.
     shared_ptr<float> frequencyPenalty_ {};
+    // The maximum number of output tokens.
     shared_ptr<int64_t> maxTokens_ {};
+    // The presence penalty. Positive values encourage new topics. Valid values: -2.0 to 2.0.
     shared_ptr<float> presencePenalty_ {};
+    // The stop sequences. Generation stops immediately when any of these sequences is encountered.
     shared_ptr<vector<string>> stopSequences_ {};
+    // The temperature parameter that controls the randomness of the output. Valid values: 0 to 2.
     shared_ptr<float> temperature_ {};
+    // The top-k sampling parameter. Valid values: 1 to 100.
     shared_ptr<int32_t> topK_ {};
+    // The top-p sampling parameter. Valid values: 0 to 1.
     shared_ptr<float> topP_ {};
   };
 

@@ -245,27 +245,49 @@ namespace Models
 
 
   protected:
+    // The completion time in milliseconds.
     shared_ptr<int64_t> completedAt_ {};
+    // The number of completed tasks.
     shared_ptr<int32_t> completedTasks_ {};
+    // The data source type. Valid values: simple, dataset-full, and dataset-partial.
     shared_ptr<string> dataSourceType_ {};
+    // The dataset ID.
     shared_ptr<string> datasetId_ {};
+    // The SLS project where the dataset is located.
     shared_ptr<string> datasetProject_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The ID of the associated evaluation task.
     shared_ptr<string> evaluationTaskId_ {};
+    // The list of evaluators.
     shared_ptr<vector<Evaluator>> evaluators_ {};
+    // The execution time in milliseconds.
     shared_ptr<int64_t> executedAt_ {};
+    // The list of experiment configurations.
     shared_ptr<vector<ExperimentConfig>> experimentConfig_ {};
+    // The ID of the associated experiment plan.
     shared_ptr<string> experimentPlanId_ {};
+    // The number of failed tasks.
     shared_ptr<int32_t> failedTasks_ {};
+    // The single-line input in SIMPLE mode.
     Darabonba::Json input_ {};
+    // The list of model names used.
     shared_ptr<vector<string>> modelNames_ {};
+    // The name of the associated experiment plan.
     shared_ptr<string> planName_ {};
+    // The execution progress, ranging from 0 to 1.
     shared_ptr<float> progress_ {};
+    // The custom query SQL clause in dataset-partial mode.
     shared_ptr<string> querySql_ {};
+    // The experiment record ID.
     shared_ptr<string> recordId_ {};
+    // The experiment record name.
     shared_ptr<string> recordName_ {};
+    // The list of selected data item IDs in dataset-partial mode.
     shared_ptr<vector<string>> selectedItemIds_ {};
+    // The status. Valid values: pending, running, completed, and failed.
     shared_ptr<string> status_ {};
+    // The total number of tasks.
     shared_ptr<int32_t> totalTasks_ {};
   };
 

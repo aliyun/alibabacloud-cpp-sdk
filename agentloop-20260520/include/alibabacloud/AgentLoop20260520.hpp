@@ -75,7 +75,7 @@ namespace AgentLoop20260520
       Models::CreateAgentSpaceResponse createAgentSpace(const Models::CreateAgentSpaceRequest &request);
 
       /**
-       * @summary Creates a context store.
+       * @summary Creates a context library.
        *
        * @param request CreateContextStoreRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace AgentLoop20260520
       Models::CreateContextStoreResponse createContextStoreWithOptions(const string &agentSpace, const Models::CreateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a context store.
+       * @summary Creates a context library.
        *
        * @param request CreateContextStoreRequest
        * @return CreateContextStoreResponse
@@ -231,6 +231,42 @@ namespace AgentLoop20260520
        * @return CreateExperimentRunResponse
        */
       Models::CreateExperimentRunResponse createExperimentRun(const string &agentSpace, const Models::CreateExperimentRunRequest &request);
+
+      /**
+       * @summary Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+       *
+       * @param request CreateOptimizeRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOptimizeRunResponse
+       */
+      Models::CreateOptimizeRunResponse createOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::CreateOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+       *
+       * @param request CreateOptimizeRunRequest
+       * @return CreateOptimizeRunResponse
+       */
+      Models::CreateOptimizeRunResponse createOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const Models::CreateOptimizeRunRequest &request);
+
+      /**
+       * @summary Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+       *
+       * @param request CreateOptimizeTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOptimizeTaskResponse
+       */
+      Models::CreateOptimizeTaskResponse createOptimizeTaskWithOptions(const string &agentSpace, const Models::CreateOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+       *
+       * @param request CreateOptimizeTaskRequest
+       * @return CreateOptimizeTaskResponse
+       */
+      Models::CreateOptimizeTaskResponse createOptimizeTask(const string &agentSpace, const Models::CreateOptimizeTaskRequest &request);
 
       /**
        * @summary Creates a pipeline.
@@ -439,6 +475,24 @@ namespace AgentLoop20260520
       Models::DeleteExperimentRunResponse deleteExperimentRun(const string &agentSpace, const string &recordId, const Models::DeleteExperimentRunRequest &request);
 
       /**
+       * @summary Deletes an optimization task in a specified AgentSpace.
+       *
+       * @param request DeleteOptimizeTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteOptimizeTaskResponse
+       */
+      Models::DeleteOptimizeTaskResponse deleteOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::DeleteOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an optimization task in a specified AgentSpace.
+       *
+       * @param request DeleteOptimizeTaskRequest
+       * @return DeleteOptimizeTaskResponse
+       */
+      Models::DeleteOptimizeTaskResponse deleteOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const Models::DeleteOptimizeTaskRequest &request);
+
+      /**
        * @summary Deletes a pipeline.
        *
        * @param request DeletePipelineRequest
@@ -517,7 +571,7 @@ namespace AgentLoop20260520
       Models::GetAgentSpaceResponse getAgentSpace(const string &agentSpace, const Models::GetAgentSpaceRequest &request);
 
       /**
-       * @summary Queries a context store.
+       * @summary Queries the context store.
        *
        * @param request GetContextStoreRequest
        * @param headers map
@@ -527,7 +581,7 @@ namespace AgentLoop20260520
       Models::GetContextStoreResponse getContextStoreWithOptions(const string &agentSpace, const string &contextStoreName, const Models::GetContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a context store.
+       * @summary Queries the context store.
        *
        * @param request GetContextStoreRequest
        * @return GetContextStoreResponse
@@ -687,6 +741,42 @@ namespace AgentLoop20260520
       Models::GetExperimentRunResponse getExperimentRun(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request);
 
       /**
+       * @summary 查询优化任务执行详情
+       *
+       * @param request GetOptimizeRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOptimizeRunResponse
+       */
+      Models::GetOptimizeRunResponse getOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::GetOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询优化任务执行详情
+       *
+       * @param request GetOptimizeRunRequest
+       * @return GetOptimizeRunResponse
+       */
+      Models::GetOptimizeRunResponse getOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::GetOptimizeRunRequest &request);
+
+      /**
+       * @summary 查询优化任务
+       *
+       * @param request GetOptimizeTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOptimizeTaskResponse
+       */
+      Models::GetOptimizeTaskResponse getOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::GetOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询优化任务
+       *
+       * @param request GetOptimizeTaskRequest
+       * @return GetOptimizeTaskResponse
+       */
+      Models::GetOptimizeTaskResponse getOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const Models::GetOptimizeTaskRequest &request);
+
+      /**
        * @summary Queries a pipeline.
        *
        * @param request GetPipelineRequest
@@ -781,7 +871,7 @@ namespace AgentLoop20260520
       Models::ListContextStoreAPIKeysResponse listContextStoreAPIKeys(const string &agentSpace, const string &contextStoreName, const Models::ListContextStoreAPIKeysRequest &request);
 
       /**
-       * @summary Queries a list of context stores.
+       * @summary Queries the list of context stores.
        *
        * @param request ListContextStoresRequest
        * @param headers map
@@ -791,7 +881,7 @@ namespace AgentLoop20260520
       Models::ListContextStoresResponse listContextStoresWithOptions(const string &agentSpace, const Models::ListContextStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of context stores.
+       * @summary Queries the list of context stores.
        *
        * @param request ListContextStoresRequest
        * @return ListContextStoresResponse
@@ -933,7 +1023,43 @@ namespace AgentLoop20260520
       Models::ListExperimentRunsResponse listExperimentRuns(const string &agentSpace, const Models::ListExperimentRunsRequest &request);
 
       /**
-       * @summary Queries the execution history list of a pipeline.
+       * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+       *
+       * @param request ListOptimizeRunsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOptimizeRunsResponse
+       */
+      Models::ListOptimizeRunsResponse listOptimizeRunsWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::ListOptimizeRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+       *
+       * @param request ListOptimizeRunsRequest
+       * @return ListOptimizeRunsResponse
+       */
+      Models::ListOptimizeRunsResponse listOptimizeRuns(const string &agentSpace, const string &optimizeTaskName, const Models::ListOptimizeRunsRequest &request);
+
+      /**
+       * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+       *
+       * @param request ListOptimizeTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOptimizeTasksResponse
+       */
+      Models::ListOptimizeTasksResponse listOptimizeTasksWithOptions(const string &agentSpace, const Models::ListOptimizeTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+       *
+       * @param request ListOptimizeTasksRequest
+       * @return ListOptimizeTasksResponse
+       */
+      Models::ListOptimizeTasksResponse listOptimizeTasks(const string &agentSpace, const Models::ListOptimizeTasksRequest &request);
+
+      /**
+       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
        *
        * @param request ListPipelineRunsRequest
        * @param headers map
@@ -943,7 +1069,7 @@ namespace AgentLoop20260520
       Models::ListPipelineRunsResponse listPipelineRunsWithOptions(const string &agentSpace, const string &pipelineName, const Models::ListPipelineRunsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the execution history list of a pipeline.
+       * @summary Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
        *
        * @param request ListPipelineRunsRequest
        * @return ListPipelineRunsResponse
@@ -951,7 +1077,7 @@ namespace AgentLoop20260520
       Models::ListPipelineRunsResponse listPipelineRuns(const string &agentSpace, const string &pipelineName, const Models::ListPipelineRunsRequest &request);
 
       /**
-       * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+       * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
        *
        * @param request ListPipelinesRequest
        * @param headers map
@@ -961,7 +1087,7 @@ namespace AgentLoop20260520
       Models::ListPipelinesResponse listPipelinesWithOptions(const string &agentSpace, const Models::ListPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+       * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
        *
        * @param request ListPipelinesRequest
        * @return ListPipelinesResponse
@@ -1055,7 +1181,7 @@ namespace AgentLoop20260520
       Models::RunPipelineResponse runPipeline(const string &agentSpace, const string &pipelineName, const Models::RunPipelineRequest &request);
 
       /**
-       * @summary Searches contexts.
+       * @summary Searches the context.
        *
        * @param request SearchContextRequest
        * @param headers map
@@ -1065,7 +1191,7 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContextWithOptions(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Searches contexts.
+       * @summary Searches the context.
        *
        * @param request SearchContextRequest
        * @return SearchContextResponse
@@ -1219,7 +1345,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+       * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
        *
        * @param request UpdateExperimentPlanRequest
        * @param headers map
@@ -1231,7 +1357,7 @@ namespace AgentLoop20260520
       /**
        * @summary Updates an experiment plan.
        *
-       * @description Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+       * @description Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
        *
        * @param request UpdateExperimentPlanRequest
        * @return UpdateExperimentPlanResponse
@@ -1259,6 +1385,42 @@ namespace AgentLoop20260520
        * @return UpdateExperimentRunResponse
        */
       Models::UpdateExperimentRunResponse updateExperimentRun(const string &agentSpace, const string &recordId, const Models::UpdateExperimentRunRequest &request);
+
+      /**
+       * @summary Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+       *
+       * @param request UpdateOptimizeRunRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOptimizeRunResponse
+       */
+      Models::UpdateOptimizeRunResponse updateOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::UpdateOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+       *
+       * @param request UpdateOptimizeRunRequest
+       * @return UpdateOptimizeRunResponse
+       */
+      Models::UpdateOptimizeRunResponse updateOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::UpdateOptimizeRunRequest &request);
+
+      /**
+       * @summary 更新优化任务
+       *
+       * @param request UpdateOptimizeTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOptimizeTaskResponse
+       */
+      Models::UpdateOptimizeTaskResponse updateOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::UpdateOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新优化任务
+       *
+       * @param request UpdateOptimizeTaskRequest
+       * @return UpdateOptimizeTaskResponse
+       */
+      Models::UpdateOptimizeTaskResponse updateOptimizeTask(const string &agentSpace, const string &optimizeTaskName, const Models::UpdateOptimizeTaskRequest &request);
 
       /**
        * @summary Updates a pipeline.

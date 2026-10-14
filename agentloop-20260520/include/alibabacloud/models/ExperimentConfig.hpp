@@ -128,11 +128,11 @@ namespace Models
 
 
   protected:
-    // The endpoint connector ID. This parameter is required in user/agent mode.
+    // The endpoint connector ID, which is required in user or agent mode.
     shared_ptr<string> endpointConnectorId_ {};
-    // The experiment label (A/B/C/D/E).
+    // The experiment label (A, B, C, D, or E).
     shared_ptr<string> label_ {};
-    // The model name. You can set this parameter to agent in agent scenarios.
+    // The model name, which can be set to agent for agent scenarios.
     shared_ptr<string> modelName_ {};
     // The model parameters.
     shared_ptr<ModelParameters> modelParameters_ {};
@@ -140,11 +140,11 @@ namespace Models
     shared_ptr<string> modelProvider_ {};
     // The experiment name.
     shared_ptr<string> name_ {};
-    // The prompt message template. Supports {{variable name}} placeholders.
+    // The prompt message template, which supports {{variable name}} placeholders.
     shared_ptr<vector<PromptTemplateItem>> promptTemplate_ {};
-    // The agent request body template. This parameter is required in agent mode. Supports {{variable name}} placeholders.
+    // The agent request body template, which is required in agent mode and supports {{variable name}} placeholders.
     shared_ptr<string> requestBodyTemplate_ {};
-    // The agent request header template. This parameter is optional in agent mode. Supports {{variable name}} placeholders.
+    // The agent request header template, which is optional in agent mode and supports {{variable name}} placeholders.
     shared_ptr<string> requestHeaderTemplate_ {};
     // The agent request method. Valid values: POST (default) and GET.
     shared_ptr<string> requestMethod_ {};
