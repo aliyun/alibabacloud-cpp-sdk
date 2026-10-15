@@ -50,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MetaInfo, metaInfo_);
       DARABONBA_PTR_TO_JSON(Mobile, mobile_);
       DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(NeedMultiFaceCheck, needMultiFaceCheck_);
       DARABONBA_PTR_TO_JSON(Ocr, ocr_);
       DARABONBA_PTR_TO_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_TO_JSON(Pages, pages_);
@@ -113,6 +114,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MetaInfo, metaInfo_);
       DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(NeedMultiFaceCheck, needMultiFaceCheck_);
       DARABONBA_PTR_FROM_JSON(Ocr, ocr_);
       DARABONBA_PTR_FROM_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_FROM_JSON(Pages, pages_);
@@ -157,11 +159,12 @@ namespace Models
         && this->faceGroupCodes_ == nullptr && this->facePictureBase64_ == nullptr && this->facePictureFile_ == nullptr && this->facePictureUrl_ == nullptr && this->faceRegisterGroupCode_ == nullptr
         && this->faceVerifyThreshold_ == nullptr && this->idFaceQuality_ == nullptr && this->idSpoof_ == nullptr && this->idThreshold_ == nullptr && this->languageConfig_ == nullptr
         && this->MRTDInput_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr && this->metaInfo_ == nullptr && this->mobile_ == nullptr
-        && this->model_ == nullptr && this->ocr_ == nullptr && this->ocrValueStandard_ == nullptr && this->pages_ == nullptr && this->procedurePriority_ == nullptr
-        && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr && this->returnUrl_ == nullptr && this->saveFacePicture_ == nullptr
-        && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr && this->showGuidePage_ == nullptr && this->showOcrResult_ == nullptr
-        && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFile_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->templateConfig_ == nullptr
-        && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->updateFaceIfUserExists_ == nullptr && this->useNFC_ == nullptr && this->verifyModel_ == nullptr; };
+        && this->model_ == nullptr && this->needMultiFaceCheck_ == nullptr && this->ocr_ == nullptr && this->ocrValueStandard_ == nullptr && this->pages_ == nullptr
+        && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr && this->returnUrl_ == nullptr
+        && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr && this->showGuidePage_ == nullptr
+        && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFile_ == nullptr && this->targetFacePictureUrl_ == nullptr
+        && this->templateConfig_ == nullptr && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->updateFaceIfUserExists_ == nullptr && this->useNFC_ == nullptr
+        && this->verifyModel_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -419,6 +422,13 @@ namespace Models
     void deleteModel() { this->model_ = nullptr;};
     inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline InitializeV2ShrinkRequest& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // needMultiFaceCheck Field Functions 
+    bool hasNeedMultiFaceCheck() const { return this->needMultiFaceCheck_ != nullptr;};
+    void deleteNeedMultiFaceCheck() { this->needMultiFaceCheck_ = nullptr;};
+    inline string getNeedMultiFaceCheck() const { DARABONBA_PTR_GET_DEFAULT(needMultiFaceCheck_, "") };
+    inline InitializeV2ShrinkRequest& setNeedMultiFaceCheck(string needMultiFaceCheck) { DARABONBA_PTR_SET_VALUE(needMultiFaceCheck_, needMultiFaceCheck) };
 
 
     // ocr Field Functions 
@@ -689,6 +699,7 @@ namespace Models
     // > - For supported SDK versions, see [SDK release notes](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
     // > - Colorful light dual detection is not supported on PCs.
     shared_ptr<string> model_ {};
+    shared_ptr<string> needMultiFaceCheck_ {};
     // Specifies whether to enable OCR. This is an input parameter for the IDV product.
     shared_ptr<string> ocr_ {};
     // Specifies whether to additionally return OCR recognition results in a standardized format:

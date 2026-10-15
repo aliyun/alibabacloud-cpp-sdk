@@ -3268,7 +3268,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntl(const FaceDupl
 }
 
 /**
- * @summary Server-side API for the international Face Guard service.
+ * @summary Provides the server-side API for international Face Guard.
  *
  * @param request FaceGuardRiskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3315,7 +3315,7 @@ FaceGuardRiskResponse Client::faceGuardRiskWithOptions(const FaceGuardRiskReques
 }
 
 /**
- * @summary Server-side API for the international Face Guard service.
+ * @summary Provides the server-side API for international Face Guard.
  *
  * @param request FaceGuardRiskRequest
  * @return FaceGuardRiskResponse
@@ -4308,6 +4308,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["Model"] = request.getModel();
   }
 
+  if (!!request.hasNeedMultiFaceCheck()) {
+    query["NeedMultiFaceCheck"] = request.getNeedMultiFaceCheck();
+  }
+
   if (!!request.hasOcr()) {
     query["Ocr"] = request.getOcr();
   }
@@ -4592,6 +4596,10 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 
   if (!!request.hasModel()) {
     query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasNeedMultiFaceCheck()) {
+    query["NeedMultiFaceCheck"] = request.getNeedMultiFaceCheck();
   }
 
   if (!!request.hasOcr()) {

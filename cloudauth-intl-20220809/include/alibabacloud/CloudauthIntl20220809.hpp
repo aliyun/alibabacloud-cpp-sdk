@@ -620,7 +620,7 @@ namespace CloudauthIntl20220809
       Models::FaceDuplicationCheckIntlResponse faceDuplicationCheckIntl(const Models::FaceDuplicationCheckIntlRequest &request);
 
       /**
-       * @summary Server-side API for the international Face Guard service.
+       * @summary Provides the server-side API for international Face Guard.
        *
        * @param request FaceGuardRiskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -629,7 +629,7 @@ namespace CloudauthIntl20220809
       Models::FaceGuardRiskResponse faceGuardRiskWithOptions(const Models::FaceGuardRiskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Server-side API for the international Face Guard service.
+       * @summary Provides the server-side API for international Face Guard.
        *
        * @param request FaceGuardRiskRequest
        * @return FaceGuardRiskResponse

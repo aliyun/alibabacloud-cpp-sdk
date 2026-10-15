@@ -93,13 +93,13 @@ namespace Models
     protected:
       // The device risk probability predicted by the Face Guard algorithm. A higher score indicates a higher device risk.
       // 
-      // Value range: 0 to 100.
+      // Valid values: 0 to 100.
       shared_ptr<double> guardRiskScore_ {};
-      // The extended information in JSON format. The response is customized based on tenant requirements.
+      // The extended information in JSON format. The returned content is customized based on tenant requirements.
       shared_ptr<string> riskExtends_ {};
       // The device risk tags.
       // 
-      // - Multiple device risk tags are separated by commas (,), such as "ROOT,VPN,HOOK".
+      // - Multiple device risk tags are separated by commas (,), such as ROOT,VPN,HOOK.
       // 
       // - For more information about device risk tags and their meanings, refer to the Face Guard tag description in the official documentation.
       shared_ptr<string> riskTags_ {};
@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The return result.
     shared_ptr<FaceGuardRiskResponseBody::Result> result_ {};
   };
 
