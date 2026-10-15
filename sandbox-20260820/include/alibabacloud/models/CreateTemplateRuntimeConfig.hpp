@@ -103,12 +103,19 @@ namespace Models
 
 
   protected:
+    // The CPU specification of the sandboxed container instance, in cores.
     shared_ptr<float> cpu_ {};
+    // The disk specification of the sandboxed container instance, in MB.
     shared_ptr<int32_t> diskSize_ {};
+    // Specifies whether the sandboxed container instance is allowed to access the Internet.
     shared_ptr<bool> internetAccess_ {};
+    // The log delivery configuration of the sandboxed container instance.
     shared_ptr<CreateTemplateLogConfig> logConfig_ {};
+    // The memory specification of the sandboxed container instance, in MB.
     shared_ptr<int32_t> memorySize_ {};
+    // The image and startup configuration of the sandboxed container instance.
     shared_ptr<CreateTemplateSandboxConfig> sandboxConfig_ {};
+    // The VPC configuration of the sandboxed container instance.
     shared_ptr<CreateTemplateVPCConfig> vpcConfig_ {};
   };
 

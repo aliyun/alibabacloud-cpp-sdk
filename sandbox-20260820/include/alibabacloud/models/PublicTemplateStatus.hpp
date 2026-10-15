@@ -60,8 +60,16 @@ namespace Models
 
 
   protected:
+    // The time when the template reached the current desired state, in UTC and RFC 3339 format. This parameter is empty when the template is still being built or updated.
     shared_ptr<string> finishedAt_ {};
+    // The reason why the template entered a failure state. This parameter is returned only when state is error or updateFailed.
     shared_ptr<PublicTemplateStatusReason> reason_ {};
+    // The template status. Valid values:
+    // - building: The template is being built.
+    // - ready: The template is active.
+    // - updating: The template is being updated.
+    // - updateFailed: The template failed to be updated.
+    // - error: The template failed to be built.
     shared_ptr<string> state_ {};
   };
 

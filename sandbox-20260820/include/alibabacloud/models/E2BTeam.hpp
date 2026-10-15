@@ -121,15 +121,32 @@ namespace Models
 
 
   protected:
+    // Specifies whether the team name can be modified. The default team does not allow modification.
     shared_ptr<bool> allowUpdateTeamName_ {};
+    // The creation time of the team in UTC, in RFC 3339 format.
     shared_ptr<string> createdTime_ {};
+    // The team description.
     shared_ptr<string> description_ {};
+    // The team plan specification. Valid values:
+    // - eco: economy.
+    // - std: standard.
+    // - pro: professional.
+    // - ent: enterprise.
     shared_ptr<string> plan_ {};
+    // Indicates whether the current caller has read-only access to the team. If the value is true, the team configuration cannot be modified.
     shared_ptr<bool> readOnly_ {};
+    // The ID of the Alibaba Cloud resource group to which the team belongs.
     shared_ptr<string> resourceGroupID_ {};
+    // The team status. Valid values:
+    // - active: Normal.
+    // - deleting: Being deleted.
+    // - delete_failed: Failed to delete.
     shared_ptr<string> status_ {};
+    // The ID of the team to which the resource belongs, in UUID format.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The user ID of the team creator, in UUID format.
     shared_ptr<string> userID_ {};
   };
 

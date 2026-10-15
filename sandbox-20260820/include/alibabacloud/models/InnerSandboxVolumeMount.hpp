@@ -118,10 +118,19 @@ namespace Models
 
 
       protected:
+        // The bucket name.
         shared_ptr<string> bucketName_ {};
+        // The OSS bucket path to mount.
         shared_ptr<string> bucketPath_ {};
+        // The OSS endpoint address.
         shared_ptr<string> endpoint_ {};
+        // The local mount directory.
         shared_ptr<string> mountDir_ {};
+        // Specifies whether the mount is read-only. Valid values:
+        // 
+        // - **true**: Read-only.
+        // 
+        // - **false**: Not read-only.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -136,6 +145,7 @@ namespace Models
 
 
     protected:
+      // The mount point configuration.
       shared_ptr<vector<Oss::MountPoints>> mountPoints_ {};
     };
 
@@ -196,7 +206,9 @@ namespace Models
 
 
       protected:
+        // The local mount directory.
         shared_ptr<string> mountDir_ {};
+        // The volume name.
         shared_ptr<string> volumeName_ {};
       };
 
@@ -211,6 +223,7 @@ namespace Models
 
 
     protected:
+      // The mount point configuration.
       shared_ptr<vector<Named::MountPoints>> mountPoints_ {};
     };
 
@@ -302,10 +315,15 @@ namespace Models
 
 
       protected:
+        // The access point ID.
         shared_ptr<string> accessPointID_ {};
+        // The AgenticSpace workspace ID.
         shared_ptr<string> agenticSpaceID_ {};
+        // The file system ID.
         shared_ptr<string> fileSystemID_ {};
+        // The local mount directory.
         shared_ptr<string> mountDir_ {};
+        // The access point mount address.
         shared_ptr<string> serverAddr_ {};
       };
 
@@ -335,8 +353,11 @@ namespace Models
 
 
     protected:
+      // The local mount group ID.
       shared_ptr<int32_t> groupID_ {};
+      // The AgenticFS mount point configuration.
       shared_ptr<vector<AgenticFs::MountPoints>> mountPoints_ {};
+      // The local mount user ID.
       shared_ptr<int32_t> userID_ {};
     };
 
@@ -370,8 +391,11 @@ namespace Models
 
 
   protected:
+    // The AgenticFS mount configuration.
     shared_ptr<InnerSandboxVolumeMount::AgenticFs> agenticFs_ {};
+    // The predefined volume mount configuration.
     shared_ptr<InnerSandboxVolumeMount::Named> named_ {};
+    // The OSS mount configuration.
     shared_ptr<InnerSandboxVolumeMount::Oss> oss_ {};
   };
 

@@ -154,17 +154,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether the sandbox is allowed to access external networks.
     shared_ptr<bool> allowInternetAccess_ {};
+    // Specifies whether to automatically pause after timeout.
     shared_ptr<bool> autoPause_ {};
+    // Specifies whether to automatically resume.
     shared_ptr<bool> autoResume_ {};
+    // The environment variable configuration.
     shared_ptr<map<string, string>> envVars_ {};
+    // The metadata configuration.
     shared_ptr<map<string, string>> metadata_ {};
+    // The network configuration.
     shared_ptr<E2BNetwork> network_ {};
+    // The runtime configuration.
     shared_ptr<InnerSandboxRuntimeConfig> runtime_ {};
+    // Specifies whether authentication is required to access the sandbox envd.
     shared_ptr<bool> secure_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
+    // The timeout period. Unit: seconds.
     shared_ptr<int32_t> timeout_ {};
+    // The volume mount configuration.
     shared_ptr<InnerCreateSandboxVolumeMounts> volumeMounts_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The team ID.
     shared_ptr<string> teamID_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
   };
 

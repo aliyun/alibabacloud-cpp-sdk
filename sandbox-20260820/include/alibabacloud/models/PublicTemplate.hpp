@@ -109,13 +109,21 @@ namespace Models
 
 
   protected:
+    // The creation time of the template, in UTC and formatted as RFC 3339.
     shared_ptr<string> createdTime_ {};
+    // The template name, which is unique within the same team.
     shared_ptr<string> name_ {};
+    // The ID of the Alibaba Cloud resource group to which the team belongs.
     shared_ptr<string> resourceGroupID_ {};
+    // The runtime configuration of the template, which determines the specifications and environment of sandbox instances created from this template.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
+    // The current status of the template.
     shared_ptr<PublicTemplateStatus> status_ {};
+    // The ID of the team to which the resource belongs, in UUID format.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The sandbox template ID.
     shared_ptr<string> templateID_ {};
   };
 

@@ -81,10 +81,17 @@ namespace Models
 
 
   protected:
+    // The new name of the API key. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
     shared_ptr<string> apiKeyName_ {};
+    // The expiration time of the API key, in UTC, in RFC 3339 format. Leave this parameter empty to indicate that the API key never expires.
     shared_ptr<string> expireTime_ {};
+    // The IP blacklist. If specified, the existing blacklist is entirely overwritten. This parameter is mutually exclusive with ipWhitelist.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The IP whitelist. If specified, the existing whitelist is entirely overwritten. This parameter is mutually exclusive with ipBlacklist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
+    // The new status of the API key. Valid values:
+    // - active: Enabled.
+    // - inactive: Disabled.
     shared_ptr<string> status_ {};
   };
 

@@ -219,24 +219,53 @@ namespace Models
 
 
   protected:
+    // The template build status. Valid values:
+    // - waiting: Waiting to build.
+    // - building: Building in progress.
+    // - ready: Build succeeded.
+    // - error: Build failed.
     shared_ptr<string> buildStatus_ {};
+    // The template category. Valid values:
+    // - builtin: Built-in system template.
+    // - custom: User-created custom template.
     shared_ptr<string> category_ {};
+    // The container image configuration of the template.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
+    // The CPU specification of the sandbox instance, in cores.
     shared_ptr<int32_t> cpuCount_ {};
+    // The creation time in UTC, in RFC 3339 format.
     shared_ptr<string> createdAt_ {};
+    // The log delivery configuration of the template.
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // The memory specification of the sandbox instance, in MB.
     shared_ptr<int32_t> memoryMB_ {};
+    // The list of template names, including the template name and all its aliases.
     shared_ptr<vector<string>> names_ {};
+    // The network configuration of the template.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // Indicates whether the template is public to all teams.
     shared_ptr<bool> public_ {};
+    // The Alibaba Cloud resource group ID to which the team belongs.
     shared_ptr<string> resourceGroupID_ {};
+    // The desensitized description of the reason why the template build failed. This value is empty when the build succeeds.
     shared_ptr<string> statusReason_ {};
+    // The list of template tags. Each tag points to a specific build.
     shared_ptr<vector<E2BTemplateTag>> tags_ {};
+    // The ID of the team to which the resource belongs, in UUID format.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The team plan specification. Valid values:
+    // - eco: economy.
+    // - std: standard.
+    // - pro: professional.
+    // - ent: enterprise.
     shared_ptr<string> teamPlan_ {};
+    // The sandbox template ID.
     shared_ptr<string> templateID_ {};
+    // The last update time in UTC, in RFC 3339 format.
     shared_ptr<string> updatedAt_ {};
+    // The user ID of the resource creator, in UUID format.
     shared_ptr<string> userID_ {};
   };
 

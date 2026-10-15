@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The VPC configuration used to access the image repository.
     shared_ptr<PublicTemplateRegistryNetworkConfig> networkConfig_ {};
   };
 

@@ -71,9 +71,13 @@ namespace Models
 
 
   protected:
+    // The allowlist for outbound access from the sandbox. After configuration, the sandbox can access only the destinations in the list.
     shared_ptr<vector<string>> allowOut_ {};
+    // Specifies whether to allow Direct Internet Access to the sandbox.
     shared_ptr<bool> allowPublicTraffic_ {};
+    // The denylist for outbound access from the sandbox. After configuration, the sandbox cannot access the destinations in the list.
     shared_ptr<vector<string>> denyOut_ {};
+    // The domain name used to rewrite the request Host header when accessing the sandbox. If this parameter is not specified, the original Host is retained.
     shared_ptr<string> maskRequestHost_ {};
   };
 

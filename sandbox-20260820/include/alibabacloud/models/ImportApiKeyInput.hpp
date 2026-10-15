@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The API key name. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
     shared_ptr<string> apiKeyName_ {};
+    // The plaintext value of the API key to import. After the import, the source of the key is set to custom.
     shared_ptr<string> apiKeyValue_ {};
+    // The expiration time of the API key in UTC. The time is in RFC 3339 format. If this parameter is left empty, the API key never expires.
     shared_ptr<string> expireTime_ {};
+    // The ID of the team to which the API key belongs, in UUID format. If this parameter is not specified, the default team of the current account is used.
     shared_ptr<string> teamID_ {};
   };
 

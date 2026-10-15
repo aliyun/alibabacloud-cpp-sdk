@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The instruction parameter list.
     shared_ptr<vector<string>> args_ {};
+    // The instruction type.
     shared_ptr<string> type_ {};
   };
 

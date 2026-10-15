@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The description of the IP rule. The description can be up to 128 characters in length.
     shared_ptr<string> description_ {};
+    // The IPv4 address or CIDR block. IPv6 is not supported.
     shared_ptr<string> ipAddress_ {};
   };
 

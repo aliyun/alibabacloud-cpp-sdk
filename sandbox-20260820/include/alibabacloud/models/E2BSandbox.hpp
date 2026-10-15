@@ -292,32 +292,68 @@ namespace Models
 
 
   protected:
+    // The access endpoint.
     shared_ptr<string> accessEndpoint_ {};
+    // Specifies whether the sandbox is allowed to access external networks.
     shared_ptr<bool> allowInternetAccess_ {};
+    // The vCPU specifications.
     shared_ptr<int32_t> cpuCount_ {};
+    // The ephemeral disk specifications.
     shared_ptr<int32_t> diskSizeMB_ {};
+    // The access domain name of the sandbox.
     shared_ptr<string> domain_ {};
+    // The end time.
     shared_ptr<string> endAt_ {};
+    // The environment variables.
     shared_ptr<map<string, string>> envVars_ {};
+    // The authentication credential for accessing the envd daemon process inside the sandbox, in UUID format. Automatically generated only when secure is set to true.
     shared_ptr<string> envdAccessToken_ {};
+    // The Function Compute function name.
     shared_ptr<string> fcFunctionName_ {};
+    // The Function Compute instance ID.
     shared_ptr<string> fcInstanceID_ {};
+    // The Function Compute session ID corresponding to the sandbox, in UUID format. Used to locate the underlying session when pausing, resuming, or deleting the sandbox.
     shared_ptr<string> fcSessionID_ {};
+    // The sandbox version.
     shared_ptr<int32_t> generation_ {};
+    // The memory specifications.
     shared_ptr<int32_t> memoryMB_ {};
+    // The metadata configuration.
     shared_ptr<map<string, string>> metadata_ {};
+    // The network configuration.
     shared_ptr<E2BNetwork> network_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The runtime configuration.
     shared_ptr<InnerSandboxRuntimeConfig> runtime_ {};
+    // The unique identifier of the sandbox.
     shared_ptr<string> sandboxID_ {};
+    // The start time.
     shared_ptr<string> startedAt_ {};
+    // The sandbox status. Valid values:
+    // - running: Running.
+    // - pausing: Pausing.
+    // - paused: Paused.
+    // - resuming: Resuming.
+    // - pause_fail: Pause failed.
+    // - resume_fail: Resume failed.
+    // - snapshotting: Creating a snapshot.
+    // - snapshot_failed: Snapshot creation failed.
+    // - terminated: Terminated.
     shared_ptr<string> state_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The QoS version.
     shared_ptr<string> teamPlan_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
+    // The mount configuration.
     shared_ptr<InnerSandboxVolumeMount> volumeMounts_ {};
   };
 

@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The creation time in UTC.
     shared_ptr<string> createdTime_ {};
+    // The digest of the cached image.
     shared_ptr<string> imageDigest_ {};
+    // The size of the cached image, in MB.
     shared_ptr<int32_t> imageSizeMB_ {};
+    // The prefetch progress percentage.
     shared_ptr<int32_t> progress_ {};
+    // The ready time in UTC.
     shared_ptr<string> readyTime_ {};
+    // The cache status. Valid values: InProgress, Success, Failed, Deleting, and Evicted.
     shared_ptr<string> status_ {};
+    // The reason for the status. This parameter is backfilled when the status is not Success.
     shared_ptr<string> statusReason_ {};
+    // The team ID.
     shared_ptr<string> teamID_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
   };
 

@@ -72,9 +72,13 @@ namespace Models
 
 
   protected:
+    // The build configuration of the template. The build process is specified in blocks by action. If this parameter is not specified, the service automatically infers the configuration based on the source image: public runtime images are used directly without building, and other images automatically execute copy and envdInject.
     shared_ptr<CreateTemplateBuildConfig> buildConfig_ {};
+    // The template name, which must be unique within the same team.
     shared_ptr<string> name_ {};
+    // The runtime configuration of the template. This configuration determines the specifications and environment of sandbox instances created from this template.
     shared_ptr<CreateTemplateRuntimeConfig> runtimeConfig_ {};
+    // The ID of the team to which the template belongs, in UUID format. If this parameter is not specified, the default team of the current account is used.
     shared_ptr<string> teamID_ {};
   };
 

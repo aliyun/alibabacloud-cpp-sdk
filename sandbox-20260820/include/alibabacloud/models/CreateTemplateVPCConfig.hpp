@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The ARN of the RAM role assumed by the sandboxed container instance when accessing the VPC. Format: acs:ram::{account ID}:role/{role name}.
     shared_ptr<string> role_ {};
+    // The ID of the security group used by the sandboxed container instance.
     shared_ptr<string> securityGroupId_ {};
+    // The list of vSwitch IDs that the sandboxed container instance connects to. Configure vSwitches in multiple zones to improve availability.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The ID of the VPC that the sandboxed container instance connects to.
     shared_ptr<string> vpcId_ {};
   };
 

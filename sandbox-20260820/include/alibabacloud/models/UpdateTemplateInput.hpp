@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The new container image configuration of the template. When passed in, this overwrites the existing configuration entirely.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
+    // The new log delivery configuration of the template. When passed in, this overwrites the existing configuration entirely.
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // The new network configuration of the template. When passed in, this overwrites the existing configuration entirely.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // The ID of the team to which the template belongs, in UUID format. This parameter is used to locate the template to be updated.
     shared_ptr<string> teamID_ {};
   };
 

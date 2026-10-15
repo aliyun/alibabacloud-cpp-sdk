@@ -179,21 +179,46 @@ namespace Models
 
 
   protected:
+    // The number of vCPUs.
     shared_ptr<int32_t> cpuCount_ {};
+    // The temporary disk specification.
     shared_ptr<int32_t> diskSizeMB_ {};
+    // The end time.
     shared_ptr<string> endAt_ {};
+    // The sandbox version.
     shared_ptr<int32_t> generation_ {};
+    // The memory specification.
     shared_ptr<int32_t> memoryMB_ {};
+    // The metadata.
     shared_ptr<map<string, string>> metadata_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The sandbox ID.
     shared_ptr<string> sandboxID_ {};
+    // The start time.
     shared_ptr<string> startedAt_ {};
+    // The sandbox status. Valid values:
+    // - running: Running.
+    // - pausing: Being paused.
+    // - paused: Paused.
+    // - resuming: Being resumed.
+    // - pause_fail: Failed to pause.
+    // - resume_fail: Failed to resume.
+    // - snapshotting: Creating a snapshot.
+    // - snapshot_failed: Failed to create a snapshot.
+    // - terminated: Terminated.
     shared_ptr<string> state_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The QoS version.
     shared_ptr<string> teamPlan_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
   };
 

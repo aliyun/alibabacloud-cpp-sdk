@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The details of the failure reason.
     shared_ptr<string> message_ {};
+    // The identity of the failed step.
     shared_ptr<string> step_ {};
   };
 

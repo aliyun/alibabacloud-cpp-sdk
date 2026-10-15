@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the envd injection action. This parameter is required when this action block is specified.
     shared_ptr<bool> enabled_ {};
   };
 

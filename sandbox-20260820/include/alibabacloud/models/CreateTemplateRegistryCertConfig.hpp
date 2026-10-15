@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to skip HTTPS certificate validation for the image repository. Enable this option only for private repositories that use self-signed certificates.
     shared_ptr<bool> insecure_ {};
   };
 

@@ -19,9 +19,6 @@ namespace Sandbox20260820
 
 AlibabaCloud::Sandbox20260820::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hangzhou" , "sandbox-vpc.cn-hangzhou.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("sandbox", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }

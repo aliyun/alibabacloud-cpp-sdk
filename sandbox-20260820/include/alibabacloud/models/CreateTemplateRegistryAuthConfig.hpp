@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The logon password or access token for the image repository. The value is encrypted on the server side and is not returned in plaintext when queried.
     shared_ptr<string> password_ {};
+    // The username for logging on to the image repository.
     shared_ptr<string> userName_ {};
   };
 

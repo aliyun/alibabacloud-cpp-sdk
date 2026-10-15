@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_PUBLICTEMPLATESANDBOXCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryConfig.hpp>
+#include <vector>
+#include <alibabacloud/models/PublicTemplateStep.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(readyCommand, readyCommand_);
       DARABONBA_PTR_TO_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_TO_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_TO_JSON(steps, steps_);
     };
     friend void from_json(const Darabonba::Json& j, PublicTemplateSandboxConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(acrInstanceId, acrInstanceId_);
@@ -30,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(readyCommand, readyCommand_);
       DARABONBA_PTR_FROM_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_FROM_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_FROM_JSON(steps, steps_);
     };
     PublicTemplateSandboxConfig() = default ;
     PublicTemplateSandboxConfig(const PublicTemplateSandboxConfig &) = default ;
@@ -44,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
         && this->generation_ == nullptr && this->image_ == nullptr && this->osType_ == nullptr && this->readyCommand_ == nullptr && this->registryConfig_ == nullptr
-        && this->startCommand_ == nullptr; };
+        && this->startCommand_ == nullptr && this->steps_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -96,14 +100,32 @@ namespace Models
     inline PublicTemplateSandboxConfig& setStartCommand(string startCommand) { DARABONBA_PTR_SET_VALUE(startCommand_, startCommand) };
 
 
+    // steps Field Functions 
+    bool hasSteps() const { return this->steps_ != nullptr;};
+    void deleteSteps() { this->steps_ = nullptr;};
+    inline const vector<PublicTemplateStep> & getSteps() const { DARABONBA_PTR_GET_CONST(steps_, vector<PublicTemplateStep>) };
+    inline vector<PublicTemplateStep> getSteps() { DARABONBA_PTR_GET(steps_, vector<PublicTemplateStep>) };
+    inline PublicTemplateSandboxConfig& setSteps(const vector<PublicTemplateStep> & steps) { DARABONBA_PTR_SET_VALUE(steps_, steps) };
+    inline PublicTemplateSandboxConfig& setSteps(vector<PublicTemplateStep> && steps) { DARABONBA_PTR_SET_RVALUE(steps_, steps) };
+
+
   protected:
+    // The ID of the Container Registry Enterprise instance. This parameter is required when registryType is set to acree.
     shared_ptr<string> acrInstanceId_ {};
+    // The sandbox generation. Valid values: 1 (first generation) and 2 (second generation). Default value: 1.
     shared_ptr<int32_t> generation_ {};
+    // The address of the sandbox base image.
     shared_ptr<string> image_ {};
+    // The operating system type of the second-generation sandbox. Valid values: linux-amd64, android-36-osworld, and windows-osworld.
     shared_ptr<string> osType_ {};
+    // The readiness probe command for the sandbox. A successful execution indicates that the sandbox is ready to receive requests. This parameter is supported only by first-generation sandboxes.
     shared_ptr<string> readyCommand_ {};
+    // The configuration used to access the image repository. For security reasons, only the network configuration is returned in query responses, and logon credentials are not returned.
     shared_ptr<PublicTemplateRegistryConfig> registryConfig_ {};
+    // The startup command for the sandbox container. This parameter is supported only by first-generation sandboxes.
     shared_ptr<string> startCommand_ {};
+    // The list of custom build steps.
+    shared_ptr<vector<PublicTemplateStep>> steps_ {};
   };
 
   } // namespace Models

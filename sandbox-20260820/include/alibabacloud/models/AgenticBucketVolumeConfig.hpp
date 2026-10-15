@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The name of the AgenticBucket.
     shared_ptr<string> agenticBucket_ {};
+    // The name of the OSS bucket.
     shared_ptr<string> bucketName_ {};
+    // The path of the mounted OSS bucket.
     shared_ptr<string> bucketPath_ {};
+    // The OSS endpoint address.
     shared_ptr<string> endpoint_ {};
+    // Specifies whether the mount directory has read-only access permissions after the OSS bucket is mounted. Valid values:
+    // - true: Read-only.
+    // - false: Read and write.
     shared_ptr<bool> readOnly_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the team.
     shared_ptr<string> description_ {};
+    // The plan specification of the team. Valid values: eco (economy), std (standard), pro (professional), ent (enterprise).
     shared_ptr<string> plan_ {};
+    // The ID of the Alibaba Cloud resource group to which the team belongs. If this parameter is not specified, the default resource group of the account is used.
     shared_ptr<string> resourceGroupID_ {};
+    // The name of the team.
     shared_ptr<string> teamName_ {};
   };
 

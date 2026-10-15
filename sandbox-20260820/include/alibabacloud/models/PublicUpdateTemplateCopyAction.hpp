@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The ID of the destination ACR Enterprise instance.
     shared_ptr<string> acrInstanceId_ {};
+    // Indicates whether image replication is enabled.
     shared_ptr<bool> enabled_ {};
+    // The destination image address for replication.
     shared_ptr<string> image_ {};
+    // The image repository configuration.
     shared_ptr<PublicUpdateTemplateRegistryConfig> registryConfig_ {};
+    // The type of the destination repository.
     shared_ptr<string> registryType_ {};
   };
 

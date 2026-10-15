@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the SLS Logstore.
     shared_ptr<string> logstore_ {};
+    // The name of the Simple Log Service (SLS) project.
     shared_ptr<string> project_ {};
   };
 

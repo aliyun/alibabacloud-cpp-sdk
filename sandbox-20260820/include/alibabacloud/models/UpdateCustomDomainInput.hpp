@@ -63,8 +63,11 @@ namespace Models
 
 
   protected:
+    // The new HTTPS certificate configuration for the domain name. When specified, this overwrites the existing configuration.
     shared_ptr<CertConfig> certConfig_ {};
+    // The new description of the custom domain name.
     shared_ptr<string> description_ {};
+    // The new TLS protocol configuration for the domain name. When specified, this overwrites the existing configuration.
     shared_ptr<TLSConfig> tlsConfig_ {};
   };
 

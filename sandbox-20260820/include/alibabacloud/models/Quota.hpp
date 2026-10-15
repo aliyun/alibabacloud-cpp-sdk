@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The vCPU quota. Unit: cores.
     shared_ptr<int32_t> cpuCores_ {};
+    // The quota for the number of running instances.
     shared_ptr<int32_t> instanceCount_ {};
+    // The memory quota. Unit: GB.
     shared_ptr<int32_t> memoryGB_ {};
+    // The quota tag value, which is set to the team ID. Quotas are independently calculated based on this dimension.
     shared_ptr<string> tagValue_ {};
   };
 

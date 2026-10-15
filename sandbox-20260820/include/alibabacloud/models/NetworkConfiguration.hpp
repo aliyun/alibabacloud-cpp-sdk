@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The network access mode. Valid values: PUBLIC (public network only), PRIVATE (VPC only), PUBLIC_AND_PRIVATE (both public network and VPC are reachable).
     shared_ptr<string> networkMode_ {};
+    // The ID of the security group used by the sandboxed container instances.
     shared_ptr<string> securityGroupID_ {};
+    // The ID of the VPC to which the sandboxed container instances are connected.
     shared_ptr<string> vpcID_ {};
+    // The list of vSwitch IDs to which the sandboxed container instances are connected. Configure vSwitches in multiple zones to improve availability.
     shared_ptr<vector<string>> vswitchIDs_ {};
   };
 

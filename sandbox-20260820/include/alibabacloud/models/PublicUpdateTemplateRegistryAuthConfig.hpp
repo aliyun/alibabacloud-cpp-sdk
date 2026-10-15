@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The repository password.
     shared_ptr<string> password_ {};
+    // The repository username.
     shared_ptr<string> userName_ {};
   };
 

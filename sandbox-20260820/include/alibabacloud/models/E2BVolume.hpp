@@ -182,20 +182,38 @@ namespace Models
 
 
   protected:
+    // The AgenticBucket volume configuration.
     shared_ptr<AgenticBucketVolumeConfig> agenticBucketVolumeConfig_ {};
+    // The AgenticFS volume configuration.
     shared_ptr<AgenticFSVolumeConfig> agenticFSVolumeConfig_ {};
+    // The time when the volume was created, in UTC. The time is in the yyyy-MM-ddTHH:mm:ss.SSSSSSZ format, with exactly 6 decimal places for fractional seconds (microsecond precision).
     shared_ptr<string> createdAt_ {};
+    // The JuiceFS volume configuration.
     shared_ptr<JuiceFSVolumeConfig> juiceFSVolumeConfig_ {};
+    // The mount configuration.
     shared_ptr<VolumeMountConfig> mountConfig_ {};
+    // The OSS volume configuration.
     shared_ptr<OSSVolumeConfig> ossVolumeConfig_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The volume status. Valid values:
+    // - AVAILABLE
     shared_ptr<string> status_ {};
+    // The status reason.
     shared_ptr<string> statusReason_ {};
+    // The storage type. Valid values:
+    // - OSS
+    // - AGENTIC_FS
     shared_ptr<string> storageClass_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The time when the volume was last updated, in UTC. The time is in the yyyy-MM-ddTHH:mm:ss.SSSSSSZ format, with exactly 6 decimal places for fractional seconds (microsecond precision).
     shared_ptr<string> updatedAt_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
+    // The unique identifier of the volume.
     shared_ptr<string> volumeID_ {};
+    // The name, which is unique within the team.
     shared_ptr<string> volumeName_ {};
   };
 

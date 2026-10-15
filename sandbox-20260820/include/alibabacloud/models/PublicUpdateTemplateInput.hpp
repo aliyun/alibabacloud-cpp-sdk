@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The build configuration.
     shared_ptr<PublicUpdateTemplateBuildConfig> buildConfig_ {};
+    // The runtime configuration.
     shared_ptr<PublicUpdateTemplateRuntimeConfig> runtimeConfig_ {};
   };
 

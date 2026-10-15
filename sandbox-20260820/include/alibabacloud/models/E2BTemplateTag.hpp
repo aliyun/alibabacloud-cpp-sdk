@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the template build output that this label points to, in UUID format.
     shared_ptr<string> buildID_ {};
+    // The creation time of the label, in UTC and RFC 3339 format.
     shared_ptr<string> createdAt_ {};
+    // The label name.
     shared_ptr<string> tag_ {};
   };
 

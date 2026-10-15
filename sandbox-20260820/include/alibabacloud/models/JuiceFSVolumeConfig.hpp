@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The additional mount parameters.
     shared_ptr<vector<string>> args_ {};
+    // The access point address.
     shared_ptr<string> baseURL_ {};
+    // The remote mount directory.
     shared_ptr<string> remoteDir_ {};
+    // The access token.
     shared_ptr<string> token_ {};
+    // The JuiceFS volume name.
     shared_ptr<string> volumeName_ {};
   };
 

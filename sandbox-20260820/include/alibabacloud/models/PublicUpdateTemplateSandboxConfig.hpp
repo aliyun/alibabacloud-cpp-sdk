@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The ID of the Container Registry Enterprise instance.
     shared_ptr<string> acrInstanceId_ {};
+    // The sandbox generation. A value of 1 indicates rund, and a value of 2 indicates micro.
     shared_ptr<int32_t> generation_ {};
+    // The image address.
     shared_ptr<string> image_ {};
+    // The operating system type.
     shared_ptr<string> osType_ {};
+    // The readiness probe command for the micro sandbox. Only the second generation supports this parameter.
     shared_ptr<string> readyCommand_ {};
+    // The image repository configuration.
     shared_ptr<PublicUpdateTemplateRegistryConfig> registryConfig_ {};
+    // The image repository type.
     shared_ptr<string> registryType_ {};
+    // The startup command for the micro sandbox. Only the second generation supports this parameter.
     shared_ptr<string> startCommand_ {};
   };
 

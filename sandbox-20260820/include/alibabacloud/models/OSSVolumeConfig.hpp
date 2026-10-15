@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the OSS bucket to mount as a storage volume.
     shared_ptr<string> bucketName_ {};
+    // The path prefix within the bucket to use as the mount source. If this parameter is not specified, the entire bucket is mounted.
     shared_ptr<string> bucketPath_ {};
+    // The OSS service registration address used to access the bucket. Use an internal network address in the same region as the sandboxed container.
     shared_ptr<string> endpoint_ {};
+    // Specifies whether the storage volume is mounted as read-only in the sandboxed container.
     shared_ptr<bool> readOnly_ {};
   };
 

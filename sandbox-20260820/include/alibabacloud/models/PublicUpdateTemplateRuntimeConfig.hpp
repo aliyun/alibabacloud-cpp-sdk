@@ -103,12 +103,19 @@ namespace Models
 
 
   protected:
+    // The number of vCPUs.
     shared_ptr<float> cpu_ {};
+    // The system cloud disk size, in MB.
     shared_ptr<int32_t> diskSize_ {};
+    // Specifies whether the sandbox is allowed to access the Internet.
     shared_ptr<bool> internetAccess_ {};
+    // The log configuration.
     shared_ptr<PublicUpdateTemplateLogConfig> logConfig_ {};
+    // The memory size, in MB.
     shared_ptr<int32_t> memorySize_ {};
+    // The sandbox configuration.
     shared_ptr<PublicUpdateTemplateSandboxConfig> sandboxConfig_ {};
+    // The VPC network configuration.
     shared_ptr<PublicUpdateTemplateVPCConfig> vpcConfig_ {};
   };
 

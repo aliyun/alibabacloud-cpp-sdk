@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The image repository authentication configuration.
     shared_ptr<PublicUpdateTemplateRegistryAuthConfig> authConfig_ {};
+    // The image repository certificate configuration.
     shared_ptr<PublicUpdateTemplateRegistryCertConfig> certConfig_ {};
+    // The image repository network configuration.
     shared_ptr<PublicUpdateTemplateRegistryNetworkConfig> networkConfig_ {};
   };
 

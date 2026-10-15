@@ -119,14 +119,23 @@ namespace Models
 
 
   protected:
+    // The ID of the Container Registry Enterprise instance. This parameter is required when registryType is set to acree.
     shared_ptr<string> acrInstanceId_ {};
+    // The sandbox generation. Valid values: 1 (first generation) and 2 (second generation). Default value: 1.
     shared_ptr<int32_t> generation_ {};
+    // The address of the sandbox base image.
     shared_ptr<string> image_ {};
+    // The operating system type of the second-generation sandbox. Valid values: linux-amd64, android-36-osworld, and windows-osworld.
     shared_ptr<string> osType_ {};
+    // The sandbox readiness probe command. A successful execution indicates that the sandbox is ready to accept requests. This parameter is supported only for first-generation sandboxes.
     shared_ptr<string> readyCommand_ {};
+    // The credential, TLS, and network configuration required to access the source image repository.
     shared_ptr<CreateTemplateRegistryConfig> registryConfig_ {};
+    // The image repository type. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), and acree (Container Registry Enterprise Edition). If not specified, the type is inferred from the image address.
     shared_ptr<string> registryType_ {};
+    // The startup command for the sandbox container. This parameter is supported only for first-generation sandboxes.
     shared_ptr<string> startCommand_ {};
+    // The list of custom build instructions. This is not supported in the current version. Passing a non-empty list returns an error.
     shared_ptr<vector<CreateTemplateStep>> steps_ {};
   };
 

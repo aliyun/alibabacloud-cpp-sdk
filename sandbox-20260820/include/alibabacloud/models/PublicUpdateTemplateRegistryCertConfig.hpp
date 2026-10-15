@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to skip repository certificate verification.
     shared_ptr<bool> insecure_ {};
   };
 
