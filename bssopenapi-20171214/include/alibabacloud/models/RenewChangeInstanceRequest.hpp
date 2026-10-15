@@ -80,8 +80,12 @@ namespace Models
 
 
     protected:
+      // The code configuration for the Nth module property. The value of N can be an integer from 1 to 100. If you have multiple module properties, create a separate parameter for each by setting n to 1, 2, 3, and so on.
+      // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      // The value configuration for the nth module property. The value of n ranges from 1 to 100.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -141,14 +145,31 @@ namespace Models
 
 
   protected:
+    // Ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Module list
     shared_ptr<vector<RenewChangeInstanceRequest::Parameter>> parameter_ {};
+    // The product code. To obtain it, call **QueryProductList**.
+    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
+    // Product type
     shared_ptr<string> productType_ {};
+    // The subscription renewal duration, in months. Valid values:
+    // 
+    // - 1-9
+    // 
+    // - 12
+    // 
+    // - 24
+    // 
+    // - 36
+    // 
     // This parameter is required.
     shared_ptr<int64_t> renewPeriod_ {};
   };

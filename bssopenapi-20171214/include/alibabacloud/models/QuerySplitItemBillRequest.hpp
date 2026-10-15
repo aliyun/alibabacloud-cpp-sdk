@@ -103,22 +103,25 @@ namespace Models
 
 
   protected:
-    // The ID of the member. If you specify a value for this parameter, you can query the split bills of the specified member. If you leave this parameter empty, the split bills of the current account are queried by default.
+    // The ID of the account that owns the resource. The resource owner is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle, in the YYYY-MM format.
+    // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The billing method. Valid values: Subscription: subscription PayAsYouGo: pay-as-you-go This parameter must be used together with the ProductCode parameter.
+    // The subscription type. Valid values:
+    // Subscription: subscription.
+    // PayAsYouGo: pay-as-you-go.
+    // Note: This parameter must be used with the ProductCode parameter.
     shared_ptr<string> subscriptionType_ {};
   };
 

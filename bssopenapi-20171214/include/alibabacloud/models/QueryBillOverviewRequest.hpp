@@ -75,20 +75,19 @@ namespace Models
 
 
   protected:
-    // The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle, in the YYYY-MM format.
+    // The billing date in the YYYY-MM format.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The billing method. Valid values:
-    // 
-    // *   Subscription: the subscription billing method
-    // *   PayAsYouGo: the pay-as-you-go billing method
+    // The subscription type. Valid values:
+    // - Subscription: upfront.
+    // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };
 

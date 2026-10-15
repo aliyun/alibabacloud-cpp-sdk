@@ -270,11 +270,8 @@ namespace Models
 
 
                 protected:
-                  // The attribute code of the configured item.
                   shared_ptr<string> code_ {};
-                  // The attribute name of the configured item.
                   shared_ptr<string> name_ {};
-                  // The attribute value of the configured item.
                   shared_ptr<string> value_ {};
                 };
 
@@ -318,11 +315,8 @@ namespace Models
 
 
             protected:
-              // The code of the configuration item.
               shared_ptr<string> code_ {};
-              // The attributes of the configured item.
               shared_ptr<OriginalModuleConfigItem::ModuleProperties> moduleProperties_ {};
-              // The name of the configuration item.
               shared_ptr<string> name_ {};
             };
 
@@ -450,11 +444,8 @@ namespace Models
 
 
                 protected:
-                  // The attribute code of the configured item.
                   shared_ptr<string> attrApiCode_ {};
-                  // The API code of the configured item.
                   shared_ptr<string> moduleApiCode_ {};
-                  // The attribute value of the configuration item.
                   shared_ptr<string> value_ {};
                 };
 
@@ -505,13 +496,9 @@ namespace Models
 
 
             protected:
-              // The API code of the configuration item.
               shared_ptr<string> apiCode_ {};
-              // The attributes of the configured item.
               shared_ptr<BillModuleConfigItem::BillModuleProperties> billModuleProperties_ {};
-              // The code of the configuration item.
               shared_ptr<string> code_ {};
-              // The name of the configuration item.
               shared_ptr<string> name_ {};
             };
 
@@ -753,65 +740,35 @@ namespace Models
 
 
         protected:
-          // The aftertaxt amount of the order.
           shared_ptr<string> afterTaxAmount_ {};
-          // The billing information about the configurations.
           shared_ptr<Order::BillModuleConfig> billModuleConfig_ {};
-          // The commodity code.
           shared_ptr<string> commodityCode_ {};
-          // The configurations of the main service.
           shared_ptr<string> config_ {};
-          // The time when the order was created.
           shared_ptr<string> createTime_ {};
-          // The currency. Valid values: CNY, USD, and JPY.
           shared_ptr<string> currency_ {};
-          // The additional information about the order.
           shared_ptr<map<string, string>> extendInfos_ {};
-          // The instance IDs.
           shared_ptr<string> instanceIDs_ {};
-          // The ID of the Resource Access Management (RAM) user that performs operations on the order. If no RAM user is involved, this parameter is empty.
           shared_ptr<string> operator_ {};
-          // The order ID.
           shared_ptr<string> orderId_ {};
-          // The type of the suborder. A value of productsuborder indicates service suborder. A value of refundsuborder indicates refund suborder.
           shared_ptr<string> orderSubType_ {};
-          // The type of the order. Valid values: new, renew, upgrade, and refund.
           shared_ptr<string> orderType_ {};
-          // The configuration information that is not formatted.
           shared_ptr<string> originalConfig_ {};
-          // The information about the configurations.
           shared_ptr<Order::OriginalModuleConfig> originalModuleConfig_ {};
-          // The currency used for payment. Valid values: CNY, USD, and JPY.
           shared_ptr<string> paymentCurrency_ {};
-          // The payment state. Valid values: unpaid, paid, and canceled.
           shared_ptr<string> paymentStatus_ {};
-          // The time of payment.
           shared_ptr<string> paymentTime_ {};
-          // The pretax amount of the order.
           shared_ptr<string> pretaxAmount_ {};
-          // The pretax amount of the order in local currency.
           shared_ptr<string> pretaxAmountLocal_ {};
-          // The pretax gross amount of the order.
           shared_ptr<string> pretaxGrossAmount_ {};
-          // The code of the main service.
           shared_ptr<string> productCode_ {};
-          // The type of the main service.
           shared_ptr<string> productType_ {};
-          // The number of main services.
           shared_ptr<string> quantity_ {};
-          // The region ID.
           shared_ptr<string> region_ {};
-          // The ID of the associated order.
           shared_ptr<string> relatedOrderId_ {};
-          // The ID of the suborder.
           shared_ptr<string> subOrderId_ {};
-          // The billing method. Valid values: Subscription and PayAsYouGo.
           shared_ptr<string> subscriptionType_ {};
-          // The tax of the order.
           shared_ptr<string> tax_ {};
-          // The time when the service ends.
           shared_ptr<string> usageEndTime_ {};
-          // The time when the service starts.
           shared_ptr<string> usageStartTime_ {};
         };
 
@@ -871,13 +828,12 @@ namespace Models
     protected:
       // The hostname.
       shared_ptr<string> hostName_ {};
-      // The orders returned.
       shared_ptr<Data::OrderList> orderList_ {};
       // The page number.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -921,7 +877,7 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<GetOrderDetailResponseBody::Data> data_ {};
@@ -929,7 +885,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

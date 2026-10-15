@@ -113,13 +113,13 @@ namespace Models
 
 
       protected:
-        // The user ID of the owner of the cost center.
+        // The ID of the owner of the new financial unit.
         shared_ptr<int64_t> ownerUid_ {};
-        // The ID of the parent cost center. A value of -1 indicates the root cost center.
+        // The ID of the parent financial unit. A value of -1 indicates the root financial unit.
         shared_ptr<int64_t> parentUnitId_ {};
-        // The ID of the cost center.
+        // The ID of the financial unit.
         shared_ptr<int64_t> unitId_ {};
-        // The name of the cost center.
+        // The name of the financial unit.
         shared_ptr<string> unitName_ {};
       };
 
@@ -134,7 +134,7 @@ namespace Models
 
 
     protected:
-      // The list of cost center entities.
+      // The list of financial unit entities.
       shared_ptr<vector<Data::CostUnitDtoList>> costUnitDtoList_ {};
     };
 
@@ -180,13 +180,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<CreateCostUnitResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

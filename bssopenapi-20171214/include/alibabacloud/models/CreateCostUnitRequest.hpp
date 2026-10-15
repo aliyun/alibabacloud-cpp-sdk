@@ -77,15 +77,15 @@ namespace Models
 
 
     protected:
-      // The user ID of the owner of the cost center.
+      // The ID of the owner of the new financial unit.
       // 
       // This parameter is required.
       shared_ptr<int64_t> ownerUid_ {};
-      // The ID of the parent cost center. A value of -1 indicates the root cost center.
+      // The ID of the parent financial unit. A value of -1 indicates the root financial unit.
       // 
       // This parameter is required.
       shared_ptr<int64_t> parentUnitId_ {};
-      // The name of the cost center.
+      // The name of the financial unit.
       // 
       // This parameter is required.
       shared_ptr<string> unitName_ {};
@@ -102,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The list of cost centers.
+    // The list of financial units.
     shared_ptr<vector<CreateCostUnitRequest::UnitEntityList>> unitEntityList_ {};
   };
 

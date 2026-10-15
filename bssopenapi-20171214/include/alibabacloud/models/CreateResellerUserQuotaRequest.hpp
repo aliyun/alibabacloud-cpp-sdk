@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The amount in CNY. This parameter is required to activate a quota.
+    // 
     // This parameter is required.
     shared_ptr<string> amount_ {};
+    // The currency.
+    // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
+    // The business transaction ID of the external system.
     shared_ptr<string> outBizId_ {};
     // This parameter is required.
     shared_ptr<int64_t> ownerId_ {};

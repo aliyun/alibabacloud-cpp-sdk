@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the relationship. Set this parameter to the value of the RelationId response parameter returned by calling the QueryRelationList operation.
+    // The relationship ID. Obtain this ID from the RelationId parameter in the response of the QueryRelationList operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> relationId_ {};

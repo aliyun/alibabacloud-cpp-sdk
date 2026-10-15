@@ -111,21 +111,23 @@ namespace Models
 
 
     protected:
-      // The available balance of the account.
+      // The available credit.
       shared_ptr<string> availableAmount_ {};
-      // The available balance in cash.
+      // The available cash balance.
       shared_ptr<string> availableCashAmount_ {};
-      // The credit balance of the account.
+      // The credit limit.
       shared_ptr<string> creditAmount_ {};
-      // The type of the currency. Valid values:
+      // The currency. Valid values:
       // 
-      // *   CNY: Chinese Yuan
-      // *   USD: US dollar
-      // *   JPY: Japanese Yen
+      // - CNY: Chinese Yuan
+      // 
+      // - USD: US Dollar
+      // 
+      // - JPY: Japanese Yen
       shared_ptr<string> currency_ {};
-      // The credit line controlled by MYbank.
+      // The credit limit granted by MYbank.
       shared_ptr<string> mybankCreditAmount_ {};
-      // The quota limit for eco customers.
+      // The quota limit for ecosystem customers.
       shared_ptr<string> quotaLimit_ {};
     };
 
@@ -169,15 +171,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryAccountBalanceResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

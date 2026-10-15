@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account that is used as the member. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+    // The UID of the RAM user. You must specify either the RelationId parameter, or the ParentUserId, ChildUserId, and RelationType parameters.
     shared_ptr<int64_t> childUserId_ {};
-    // The ID of the Alibaba Cloud account that is used as the management account. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+    // The UID of the Alibaba Cloud account. You must specify either the RelationId parameter, or the ParentUserId, ChildUserId, and RelationType parameters.
     shared_ptr<int64_t> parentUserId_ {};
-    // The ID of the financial relationship between the management account and the member. You must set the RelationId parameter or all of the ParentUserId, ChildUserId, and RelationType parameters.
+    // The ID of the account association. You must specify either the RelationId parameter, or the ParentUserId, ChildUserId, and RelationType parameters.
     shared_ptr<int64_t> relationId_ {};
-    // The type of the financial relationship. Set the value to enterprise_group.
+    // The relationship type. Only enterprise_group is supported.
     shared_ptr<string> relationType_ {};
-    // The unique ID of the request. The ID is used to mark a request and troubleshoot a problem.
+    // The unique ID of the request. This ID is used to troubleshoot issues.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};

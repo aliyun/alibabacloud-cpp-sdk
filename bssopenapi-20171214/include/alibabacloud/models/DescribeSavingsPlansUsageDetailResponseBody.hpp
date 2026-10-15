@@ -202,31 +202,32 @@ namespace Models
       protected:
         // The currency.
         shared_ptr<string> currency_ {};
-        // The used amount of the savings plan.
+        // The amount spent from the savings plan, which is the used commitment.
         shared_ptr<float> deductValue_ {};
         // The end time.
         shared_ptr<string> endPeriod_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
         // The total amount of the savings plan.
         shared_ptr<float> poolValue_ {};
-        // The pay-as-you-go cost.
+        // The standard pay-as-you-go cost.
         shared_ptr<float> postpaidCost_ {};
-        // The amount that is saved.
+        // The net savings amount.
         shared_ptr<float> savedCost_ {};
         // The start time.
         shared_ptr<string> startPeriod_ {};
-        // The status of the instance.
+        // The current status. Valid values:
         // 
-        // A value of -1 indicates that the payment is overdue. A value of 1 indicates that the instance is active.
+        // - -1: overdue payment.
+        // - 1: active.
         shared_ptr<string> status_ {};
-        // The type of the savings plan. Valid values: universal and ECS compute.
+        // The type of the savings plan, such as general-purpose or ECS compute.
         shared_ptr<string> type_ {};
-        // The usage.
+        // The usage percentage.
         shared_ptr<float> usagePercentage_ {};
-        // The ID of the account.
+        // The account ID.
         shared_ptr<int64_t> userId_ {};
-        // The username of the account.
+        // The account name.
         shared_ptr<string> userName_ {};
       };
 
@@ -256,11 +257,11 @@ namespace Models
 
 
     protected:
-      // The data entries.
+      // The data items.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The token of the next page.
+      // The token for the next page.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries.
+      // The total number of data records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -306,13 +307,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The return data.
+    // The returned data.
     shared_ptr<DescribeSavingsPlansUsageDetailResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

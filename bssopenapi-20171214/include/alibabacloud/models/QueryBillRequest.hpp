@@ -130,41 +130,37 @@ namespace Models
 
 
   protected:
-    // The ID of the member.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
     // The billing cycle, in the YYYY-MM format.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // Specifies whether to display local currency information in bills. The parameter will be discontinued.
     shared_ptr<bool> isDisplayLocalCurrency_ {};
-    // Specifies whether to filter out a bill whose pretax gross amount is 0. By default, a bill whose pretax gross amount is 0 is not filtered out. Valid values:
-    // 
-    // *   true: filters out a bill whose pretax gross amount is 0.
-    // *   false: does not filter out a bill whose pretax gross amount is 0.
+    // Specifies whether to filter out bills with a original price (PretaxGrossAmount) of 0. Default value: false (compatible with existing logic). Valid values:
+    // - true: filters out zero-charge bills.
+    // - false: does not filter out zero-charge bills.
     shared_ptr<bool> isHideZeroCharge_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The billing method. Valid values:
+    // The subscription type. Valid values:
+    // - Subscription
+    // - PayAsYouGo
     // 
-    // *   Subscription
-    // *   PayAsYouGo
-    // 
-    // This parameter must be used together with the ProductCode parameter.
+    // > This parameter must be used together with the ProductCode parameter.
     shared_ptr<string> subscriptionType_ {};
-    // The type of the bill. Valid values:
-    // 
-    // *   SubscriptionOrder
-    // *   PayAsYouGoBill
-    // *   Refund
-    // *   Adjustment
+    // The type. Valid values:
+    // - SubscriptionOrder
+    // - PayAsYouGoBill
+    // - Refund
+    // - Adjustment
     shared_ptr<string> type_ {};
   };
 

@@ -98,16 +98,15 @@ namespace Models
 
 
     protected:
-      // The TagFilter.N parameter is used to query bills that match a specified tag. The value of the TagFilter.N parameter must be a key-value pair. The tag key must be 1 to 128 characters in length. Valid values of N: 1 to 20.
+      // TagFilter.N is used to query bills that match the specified tags. It consists of a key-value pair. The tag key must be 1 to 128 characters in length. Valid values of N: 1 to 20.
       // 
-      // *   If only the TagFilter.N.TagKey parameter is specified, all bills associated with the tag key are queried.
-      // *   If you specify multiple tag key-value pairs at the same time, bills that meet any one of the tag key-value pairs are queried.
-      // *   If the tags added to resources change, you can query only the bills that are generated within the period in which the tags and resources are associated.
+      // - If you specify only TagFilter.N.TagKey, all bills associated with the tag key are returned.
+      // - If you specify multiple tag key-value pairs, bills that match any of the tag key-value pairs are returned.
+      // - If the tags on a resource change, you can only query the bills generated during the period when the tags were attached to the resource.
       shared_ptr<string> tagKey_ {};
-      // You can specify the TagValues.N parameter to query bills that match the specified tag value. The value of the TagValues.N parameter must be a string. The tag value must be 1 to 128 characters in length. Valid values of N: 1 to 20.
-      // 
-      // *   If you specify the TagValues.N parameter, the TagFilter.N.TagKey parameter is required. Otherwise, the error message InvalidParameter.TagValues is returned.
-      // *   If you specify multiple tag values, split bills that match one of the tag values are queried.
+      // TagValues.N is used to query bills that match the specified tag values. It consists of a list of strings. The tag value must be 1 to 128 characters in length. Valid values of N: 1 to 20.
+      // - If you specify TagValues.N, you must also specify TagFilter.N.TagKey. Otherwise, the InvalidParameter.TagValues error is reported.
+      // - If you specify multiple tag values, bills that match any of the tag values are returned.
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -223,44 +222,48 @@ namespace Models
 
 
   protected:
-    // The ID of the member. If you specify this parameter, the bills of the member are queried. If you do not specify this parameter, the bills of the current account are queried by default.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle. Specify the parameter in the YYYY-MM format.
+    // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The billing date. This parameter is required only when the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+    // The billing date. This parameter is required only when Granularity is set to DAILY. Format: YYYY-MM-DD.
     shared_ptr<string> billingDate_ {};
     // The granularity at which bills are queried. Valid values:
+    // - MONTHLY: monthly. This value corresponds to the monthly bills on the Split Bill page in the User Center.
+    // - DAILY: daily. This value corresponds to the daily bills on the Split Bill page in the User Center.
     // 
-    // *   MONTHLY: queries bills on a monthly basis. The data that you query is the same as the data that is queried by billing cycles in the Split Bill module of the User Center console.
-    // *   DAILY: queries bills on a daily basis. The data that you query is the same as the data that is queried by days in the Split Bill module of the User Center console.
-    // 
-    // If you specify DAILY for this parameter, the BillingDate parameter is required.
+    // > If you set this parameter to DAILY, you must specify the BillingDate parameter.
     shared_ptr<string> granularity_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceID_ {};
-    // Specifies whether to filter bills if both the pretax gross amount and pretax amount are 0. Valid values:
+    // Specifies whether to filter out bills where both the original price (PretaxGrossAmount) and the payable amount (PretaxAmount) are 0. Valid values:
     // 
-    // *   false: does not filter bills.
-    // *   true: filters bills.
+    // - false: does not filter out the bills.
+    // - true: filters out the bills.
     shared_ptr<bool> isHideZeroCharge_ {};
-    // The maximum number of entries to query. Default value: 20. Maximum value: 300.
+    // The maximum number of entries to return in the current call. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for the next query. The parameter must be left empty or set to the value of the NextToken parameter returned in the last call. Otherwise, an error is returned. If the parameter is left empty, the data is queried from the first entry.
+    // The token that specifies the position from which the current call starts to read data. The value must be empty or the value of NextToken returned in the previous response. Otherwise, an error occurs. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The code of the service. The code is the same as that in Cost Center.
+    // The product code. This value is the same as the product code in the bills of the User Center.
     shared_ptr<string> pipCode_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The ID of the split item.
+    // The ID of the attached resource.
     shared_ptr<string> splitItemID_ {};
-    // The billing method. Valid values: Subscription: the subscription billing method. PayAsYouGo: the pay-as-you-go billing method. This parameter must be used with the ProductCode parameter.
+    // The subscription type. Valid values:
+    // 
+    // - Subscription: subscription.
+    // - PayAsYouGo: pay-as-you-go.
+    // 
+    // > This parameter must be used together with the ProductCode parameter.
     shared_ptr<string> subscriptionType_ {};
-    // The tags that are used to filter split bills. You can specify multiple tag values. If you specify multiple tag values, split bills that match one of the tag values are queried.
+    // The tag filter conditions. Multiple sets of TagValues query conditions are supported. The logical relationship between multiple sets of TagValues conditions is OR.
     shared_ptr<vector<DescribeSplitItemBillRequest::TagFilter>> tagFilter_ {};
   };
 

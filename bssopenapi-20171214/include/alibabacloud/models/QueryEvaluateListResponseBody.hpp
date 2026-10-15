@@ -300,57 +300,26 @@ namespace Models
 
 
         protected:
-          // The billing cycle.
           shared_ptr<string> billCycle_ {};
-          // The ID of the bill.
           shared_ptr<int64_t> billId_ {};
-          // The time.
           shared_ptr<string> bizTime_ {};
-          // The market type in the invoice. Valid values:
-          // 
-          // *   ALIYUN: Alibaba Cloud
-          // *   MARKETPLACE: Alibaba Cloud Marketplace
           shared_ptr<string> bizType_ {};
-          // The invoiceable amount.
           shared_ptr<int64_t> canInvoiceAmount_ {};
-          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // The ID of the invoice.
           shared_ptr<int64_t> id_ {};
-          // The invoiced amount.
           shared_ptr<int64_t> invoicedAmount_ {};
-          // The ID of the item.
           shared_ptr<int64_t> itemId_ {};
-          // The name of the object to be invoiced.
           shared_ptr<string> name_ {};
-          // If a refund is issued due to an order such as an unsubscription order or a configuration downgrade order, the refund amount is used to offset the amount of the invoice. The value is consistent with the value of the **OffsetCostAmount** parameter.
           shared_ptr<int64_t> offsetAcceptAmount_ {};
-          // The refund amount used to offset the amount of the invoice. If a refund is issued due to an order such as an unsubscription order or a configuration downgrade order, the refund amount is used to offset the amount of the invoice. The value is consistent with the value of the **OffsetAcceptAmount** parameter.
           shared_ptr<int64_t> offsetCostAmount_ {};
-          // The ID of the external object.
           shared_ptr<string> opId_ {};
-          // The original amount.
           shared_ptr<int64_t> originalAmount_ {};
-          // The ID of the external order.
           shared_ptr<string> outBizId_ {};
-          // The balance.
           shared_ptr<int64_t> presentAmount_ {};
-          // The status of the invoiceable amount.
           shared_ptr<int32_t> status_ {};
-          // The type of orders that are queried. Valid values:
-          // 
-          // *   1: the orders in which the invoiceable amount is negative.
-          // *   2: the orders in which the invoiceable amount is positive.
-          // *   3: the orders in which the invoiceable amount is not 0.
-          // *   4: the orders in which the amount that has been invoiced is greater than 0.
-          // 
-          // >  By default, this parameter is left empty. If this parameter is left empty, all orders are queried.
           shared_ptr<int32_t> type_ {};
-          // The ID of the user.
           shared_ptr<int64_t> userId_ {};
-          // The nickname of the user.
           shared_ptr<string> userNick_ {};
         };
 
@@ -423,19 +392,18 @@ namespace Models
 
 
     protected:
-      // The data returned.
       shared_ptr<Data::EvaluateList> evaluateList_ {};
       // The ID of the host.
       shared_ptr<string> hostId_ {};
-      // The number of the page returned.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
-      // The invoiced amount that meets the query conditions. Unit: Cent.
+      // The total invoiced amount that meets the filter criteria. Unit: cents.
       shared_ptr<int64_t> totalInvoiceAmount_ {};
-      // The invoiceable amount that meets the query conditions. Unit: Cent.
+      // The total invoiceable amount that meets the filter criteria. Unit: cents.
       shared_ptr<int64_t> totalUnAppliedInvoiceAmount_ {};
     };
 
@@ -481,11 +449,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryEvaluateListResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

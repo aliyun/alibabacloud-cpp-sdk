@@ -310,62 +310,27 @@ namespace Models
 
 
         protected:
-          // The amount deducted by using credit refunds.
           shared_ptr<float> adjustAmount_ {};
-          // The ID of the account to which the bill belongs.
           shared_ptr<string> billAccountID_ {};
-          // The name of the account to which the bill belongs.
           shared_ptr<string> billAccountName_ {};
-          // The billing date.
           shared_ptr<string> billingDate_ {};
-          // The business type.
           shared_ptr<string> bizType_ {};
-          // The amount paid in cash. The amount that was deducted by using credit refunds is not included.
           shared_ptr<float> cashAmount_ {};
-          // The cost center.
           shared_ptr<string> costUnit_ {};
-          // The type of the currency. Valid values:
-          // 
-          // *   CNY
-          // *   USD
-          // *   JPY
           shared_ptr<string> currency_ {};
-          // The amount deducted by using vouchers.
           shared_ptr<float> deductedByCashCoupons_ {};
-          // The amount deducted by using coupons.
           shared_ptr<float> deductedByCoupons_ {};
-          // The amount deducted by using prepaid cards.
           shared_ptr<float> deductedByPrepaidCard_ {};
-          // The discount amount.
           shared_ptr<float> invoiceDiscount_ {};
-          // The unsettled amount or the amount settled with credits.
           shared_ptr<float> outstandingAmount_ {};
-          // The ID of the member.
           shared_ptr<string> ownerID_ {};
-          // The name of the member.
           shared_ptr<string> ownerName_ {};
-          // The amount paid in cash. The amount that was deducted by using credit refunds is included.
           shared_ptr<float> paymentAmount_ {};
-          // The code of the service. The service code is consistent with that displayed in User Center.
           shared_ptr<string> pipCode_ {};
-          // The pretax amount.
           shared_ptr<float> pretaxAmount_ {};
-          // The pretax gross amount.
           shared_ptr<float> pretaxGrossAmount_ {};
-          // The code of the service.
-          // 
-          // > A value is returned only if the **IsGroupByProduct** parameter is set to true.
           shared_ptr<string> productCode_ {};
-          // The name of the service.
-          // 
-          // > A value is returned only if the **IsGroupByProduct** parameter is set to true.
           shared_ptr<string> productName_ {};
-          // The billing method. Valid values:
-          // 
-          // *   Subscription: the subscription billing method
-          // *   PayAsYouGo: the pay-as-you-go billing method
-          // 
-          // > A value is returned only if the IsGroupByProduct parameter is set to true.
           shared_ptr<string> subscriptionType_ {};
         };
 
@@ -438,19 +403,18 @@ namespace Models
 
 
     protected:
-      // The ID of your Alibaba Cloud account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The name of the Alibaba Cloud account.
+      // The account name.
       shared_ptr<string> accountName_ {};
       // The billing cycle. Format: YYYY-MM.
       shared_ptr<string> billingCycle_ {};
-      // The details of the bills.
       shared_ptr<Data::Items> items_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries displayed per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -494,15 +458,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryAccountBillResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

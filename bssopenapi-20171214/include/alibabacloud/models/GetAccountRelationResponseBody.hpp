@@ -130,29 +130,28 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account that is used as a member.
+      // The UID of the child account.
       shared_ptr<int64_t> childUserId_ {};
-      // The time when the financial relationship between the management account and the member was terminated.
+      // The end time of the account linking, in the YYYY-MM-DD format.
       shared_ptr<int64_t> endTime_ {};
-      // The time when the financial relationship between the management account and the member was modified.
+      // The update time of the account linking.
       shared_ptr<int64_t> gmtModified_ {};
-      // The ID of the financial relationship.
+      // The account linking ID.
       shared_ptr<int64_t> id_ {};
-      // The ID of the Alibaba Cloud account that is used as the management account.
+      // The UID of the parent account.
       shared_ptr<int64_t> parentUserId_ {};
-      // The time when the financial relationship between the management account and the member was established.
+      // The start time of the account linking, in the YYYY-MM-DD format.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the financial relationship between the management account and the member.
-      // 
-      // - RELATED [Association established]
-      // - CONFIRMING [To be confirmed by the other party]
-      // - REJECTED [Refused by the other party]
-      // - CONNECTION_CANCELED [Financial sub-account cancel request]
-      // - CONNECTION_MASTER_CANCEL [Financial master account cancel invitation]
-      // - CHANGE_CONFIRMING [Relationship change to be confirmed]
-      // - INITIAL [Initial new relationship status]
+      // The account linking status. Valid values:
+      // - RELATED: linked.
+      // - CONFIRMING: pending confirmation from the other party.
+      // - REJECTED: rejected by the other party.
+      // - CONNECTION_CANCELED: application canceled by the child account.
+      // - CONNECTION_MASTER_CANCEL: invitation canceled by the main account.
+      // - CHANGE_CONFIRMING: pending confirmation for relationship change.
+      // - INITIAL: initial status of a newly created linking.
       shared_ptr<string> status_ {};
-      // The type of the financial relationship.
+      // The account linking type.
       shared_ptr<string> type_ {};
     };
 
@@ -196,15 +195,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The request status code.
     shared_ptr<string> code_ {};
     // data
     shared_ptr<GetAccountRelationResponseBody::Data> data_ {};
-    // The message returned.
+    // The message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

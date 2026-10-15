@@ -77,15 +77,15 @@ namespace Models
 
 
     protected:
-      // The new name of the cost center.
+      // The new name of the financial unit.
       // 
       // This parameter is required.
       shared_ptr<string> newUnitName_ {};
-      // The user ID of the cost center owner.
+      // The user ID of the financial unit owner.
       // 
       // This parameter is required.
       shared_ptr<int64_t> ownerUid_ {};
-      // The ID of the cost center.
+      // The ID of the financial unit.
       // 
       // This parameter is required.
       shared_ptr<int64_t> unitId_ {};
@@ -102,7 +102,7 @@ namespace Models
 
 
   protected:
-    // The cost centers to be modified.
+    // The list of financial units.
     shared_ptr<vector<ModifyCostUnitRequest::UnitEntityList>> unitEntityList_ {};
   };
 

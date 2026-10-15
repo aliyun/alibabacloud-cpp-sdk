@@ -124,15 +124,15 @@ namespace Models
 
 
       protected:
-        // The total costs of pay-as-you-go instances.
+        // The total cost of pay-as-you-go instances.
         shared_ptr<float> postpaidCost_ {};
-        // The total potential savings.
+        // The potential total savings.
         shared_ptr<float> potentialSavedCost_ {};
-        // The fee of purchased resource plans.
+        // The total resource purchase cost.
         shared_ptr<float> reservationCost_ {};
         // The total savings.
         shared_ptr<float> savedCost_ {};
-        // The total usage of resource plans.
+        // The total usage.
         shared_ptr<float> usagePercentage_ {};
       };
 
@@ -176,7 +176,7 @@ namespace Models
       protected:
         // The period.
         shared_ptr<string> period_ {};
-        // The usage of resource plans.
+        // The usage percentage.
         shared_ptr<float> usagePercentage_ {};
       };
 
@@ -201,9 +201,9 @@ namespace Models
 
 
     protected:
-      // The usage of resource plans in the specified period.
+      // The usage by period.
       shared_ptr<vector<Data::PeriodCoverage>> periodCoverage_ {};
-      // The total usage of resource plans.
+      // The total usage.
       shared_ptr<Data::TotalUsage> totalUsage_ {};
     };
 
@@ -247,11 +247,11 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The queried data.
+    // The data.
     shared_ptr<DescribeResourceUsageTotalResponseBody::Data> data_ {};
-    // The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

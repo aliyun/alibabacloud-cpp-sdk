@@ -184,23 +184,14 @@ namespace Models
 
 
         protected:
-          // The time when the fees are deducted by using the RI.
           shared_ptr<string> deductDate_ {};
-          // The total amount of computing power of the RI or capacity of SCU in the time period.
           shared_ptr<float> deductFactorTotal_ {};
-          // The deduct factor. This parameter is returned only if the RICommodityCode parameter is set to ecsRi.
           shared_ptr<string> deductHours_ {};
-          // The computing power or capacity of the pay-as-you-go instance whose fees are deducted by using the RI.
           shared_ptr<float> deductQuantity_ {};
-          // The code of the service whose fees are deducted by using the RI.
           shared_ptr<string> deductedCommodityCode_ {};
-          // The ID of the instance whose fees are deducted by using the RI.
           shared_ptr<string> deductedInstanceId_ {};
-          // The name of the service whose fees are deducted by using the RI.
           shared_ptr<string> deductedProductDetail_ {};
-          // The instance type of the instance whose fees are deducted by using the RI.
           shared_ptr<string> instanceSpec_ {};
-          // The ID of the RI.
           shared_ptr<string> RIInstanceId_ {};
         };
 
@@ -251,13 +242,12 @@ namespace Models
 
 
     protected:
-      // The usage details of the RI.
       shared_ptr<Data::DetailList> detailList_ {};
-      // The number of the returned page.
+      // The page number.
       shared_ptr<int64_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -303,13 +293,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryRIUtilizationDetailResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

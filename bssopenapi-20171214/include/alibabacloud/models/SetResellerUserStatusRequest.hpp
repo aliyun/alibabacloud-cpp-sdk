@@ -66,20 +66,25 @@ namespace Models
 
 
   protected:
-    // The type of the business. Valid values: FREEZE: the frozen business of the account. TRUSTEESHIP: the hosted business of the account.
+    // The type of business operation. Valid values:
+    // FREEZE: Freeze operations.
+    // TRUSTEESHIP: Hosting operations.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // This parameter is required.
     shared_ptr<string> ownerId_ {};
-    // The account status that you want to set. Valid values: Freeze: The account is frozen. Thaw: The account is unfrozen. Trusteeship: The account is hosted. TrusteeshipCancel: The account is not hosted.
+    // The status to set for the user account. Valid values:
+    // Freeze: The user account is frozen.
+    // Thaw: The user account is restored.
+    // Trusteeship: The user account is hosted.
+    // TrusteeshipCancel: The user account is not hosted.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // 停机模式
-    // 取值：
-    //     0：普通停机
-    //     1：立即停机
+    // The stopping mode. Valid values:
+    // 0: Normal shutdown.
+    // 1: Immediate shutdown.
     shared_ptr<string> stopMode_ {};
   };
 

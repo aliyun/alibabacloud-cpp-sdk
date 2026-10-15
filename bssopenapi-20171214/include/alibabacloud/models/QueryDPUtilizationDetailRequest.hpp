@@ -121,32 +121,31 @@ namespace Models
 
 
   protected:
-    // The code of the resource, such as ecsRi and scu_bag. If this parameter is specified, the ProdCode parameter does not take effect for the request.
+    // The commodity code, such as ecsRi and scu_bag. If this parameter is specified, the ProdCode parameter does not take effect.
     shared_ptr<string> commodityCode_ {};
-    // The ID of the deducted instance. If this parameter is not specified, the details of all instances are returned.
+    // The ID of the deducted instance. If this parameter is left empty, the details of all instances are returned.
     shared_ptr<string> deductedInstanceId_ {};
-    // The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+    // The end time. Format: YYYY-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to query the resource plan usage of linked accounts. Valid values:
-    // 
-    // *   true: queries the resource plan usage of linked accounts.
-    // *   false: does not query the resource plan usage of linked accounts.
+    // Specifies whether to include the resource plan usage of member accounts in finance trusteeship. Valid values:
+    // - true: Included.
+    // - false: Not included.
     // 
     // This parameter is required.
     shared_ptr<bool> includeShare_ {};
-    // The ID of the instance to query. If this parameter is not specified, the details of all used instances are returned.
+    // The instance ID for the filtered query. If this parameter is left empty, the details of all used instances are returned.
     shared_ptr<string> instanceId_ {};
-    // The instance type of the instance.
+    // The instance type.
     shared_ptr<string> instanceSpec_ {};
-    // The token that is used to retrieve the next page of results. For the first query, set the value to null. For subsequent queries, set the value to the token that is obtained from the NextToken parameter.
+    // The token that specifies the start position of the query. Set this parameter to null for the first query. For subsequent queries, use the NextToken value returned in the previous response.
     shared_ptr<string> lastToken_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries to return per query. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> limit_ {};
-    // The code of the service. Example: ecs.
+    // The product code, such as ecs.
     shared_ptr<string> prodCode_ {};
-    // The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+    // The start time. Format: YYYY-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

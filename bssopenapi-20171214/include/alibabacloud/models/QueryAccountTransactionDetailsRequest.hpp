@@ -112,23 +112,45 @@ namespace Models
 
 
   protected:
-    // The end of the creation time range to query.
+    // The end time of creation.
     shared_ptr<string> createTimeEnd_ {};
-    // The beginning of the creation time range to query.
+    // The start time of creation.
     shared_ptr<string> createTimeStart_ {};
-    // This parameter is invalid.
+    // An invalid parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for paging.
+    // The paging token for the paged query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the order or bill.
+    // The order ID or bill ID.
     shared_ptr<string> recordID_ {};
-    // The transaction channel.
+    // The transaction channel. If you specify one of the following transaction channel types, the query returns results of the specified type. If no results are found, an empty result is returned. If you do not specify this parameter, all types are returned by default.
+    // 
+    // Valid values:
+    // 
+    // - AccountBalance: account balance
+    // - BankTransfer: bank transfer
+    // - Alipay: Alipay
+    // - AntCreditPay: Ant Credit Pay
+    // - OfflineRemittance: offline remittance
+    // - RegularBankCreditRefund: credit limit refund
+    // - CreditCard: credit card
+    // - MyBankCredit: MYbank credit
+    // - HuaxiaBankCInstallment: Huaxia Bank installment
+    // - ApplePay: Apple Pay
     shared_ptr<string> transactionChannel_ {};
-    // The serial number of the transaction channel.
+    // The payment reference No. of the transaction channel.
     shared_ptr<string> transactionChannelSN_ {};
-    // The number of the transaction.
+    // The transaction number.
     shared_ptr<string> transactionNumber_ {};
-    // The type of the transaction.
+    // The transaction type. If you specify one of the following transaction types, the query returns results of the specified type. If no results are found, an empty result is returned. If you do not specify this parameter, all types are returned by default.
+    // 
+    // Valid values:
+    // 
+    // - Payment: top-up
+    // - Withdraw: withdrawal
+    // - Refund: refund
+    // - Consumption: consumption
+    // - Transfer: transfer
+    // - Adjust: adjustment
     shared_ptr<string> transactionType_ {};
   };
 

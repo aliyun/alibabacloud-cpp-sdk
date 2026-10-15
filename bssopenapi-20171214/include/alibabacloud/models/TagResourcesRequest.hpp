@@ -72,11 +72,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can create N tag keys at a time. Valid values of N: 1 to 20. The value of this parameter can be an empty string.
+      // The tag key. An empty string is allowed.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of the tag N. Valid values of N: 1 to 20.
+      // The tag value.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -110,15 +110,15 @@ namespace Models
 
 
   protected:
-    // The IDs of resources.
+    // The list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Specify savings plan instance as the type of the resource.
+    // The resource type. Set the value to instance for savings plan instances.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The list of tags. You can add 1 to 20 tags at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

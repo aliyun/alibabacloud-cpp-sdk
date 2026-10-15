@@ -140,50 +140,52 @@ namespace Models
 
 
   protected:
-    // The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
+    // The ID of the account that owns the resources. This account is the actual user of the resources.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle. Format: YYYY-MM.
+    // The billing cycle in YYYY-MM format. Data from the last 18 months is supported.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
+    // The billing date. This parameter is required only when the **Granularity** parameter is set to DAILY. The value must be in the YYYY-MM-DD format.
     shared_ptr<string> billingDate_ {};
-    // The granularity at which bills are queried. Valid values:
+    // The granularity at which to query bills. Valid values:
     // 
-    // *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
-    // *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
+    // - MONTHLY: queries bills by month. The data is consistent with the bill details on the Billing Cycle tab of the Bills page in the User Center.
     // 
-    // You must set the **BillingDate** parameter before you can set the Granularity parameter to DAILY.
+    // - DAILY: queries bills by day. The data is consistent with the bill details on the By Day tab of the Bills page in the User Center.
+    // 
+    // If you set this parameter to DAILY, you must also specify the **BillingDate** parameter.
     shared_ptr<string> granularity_ {};
-    // Specifies whether to query data by billable item. Valid values:
+    // Specifies whether to query data by billable item.
     // 
-    // *   false: does not query data by billable item. The data queried is consistent with the data that is displayed for the specified instance on the Billing Details tab of the Bill Details page in User Center.
-    // *   true: queries data by billable item. The data queried is consistent with the data that is displayed for the specified billable item on the Billing Details tab of the Bill Details page in User Center.
+    // - false: The data is consistent with the bill details on the Instance tab of the Bills page in the User Center.
+    // 
+    // - true: The data is consistent with the bill details on the Billable Item tab of the Bills page in the User Center.
     // 
     // Default value: false.
     shared_ptr<bool> isBillingItem_ {};
-    // Specifies whether to filter out a bill whose pretax gross amount and pretax amount are 0. Default value: false.******** Valid values:
+    // Specifies whether to filter out bills for which the pretax gross amount (**PretaxGrossAmount**) and pretax amount (**PretaxAmount**) are both 0. Valid values:
     // 
-    // *   false: does not filter the bill.
-    // *   true: filters the bill.
+    // - false.
+    // 
+    // - true.
     shared_ptr<bool> isHideZeroCharge_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service.
+    // The code of the product.
     shared_ptr<string> productCode_ {};
-    // The type of the service. This parameter is required if the ProductCode parameter is set to the service code of Alibaba Cloud Marketplace.
+    // The type of the product. Required when the ProductCode parameter is set to the code of an Alibaba Cloud Marketplace product.
     shared_ptr<string> productType_ {};
-    // The billing method. Valid values:
+    // The subscription type. Valid values:
     // 
-    // *   Subscription: the subscription billing method
-    // *   PayAsYouGo: the pay-as-you-go billing method
+    // - Subscription: subscription.
     // 
-    // **
+    // - PayAsYouGo: pay-as-you-go.
     // 
-    // ****This parameter must be used together with the **ProductCode** parameter.
+    // > This parameter must be used with the **ProductCode** parameter.
     shared_ptr<string> subscriptionType_ {};
   };
 

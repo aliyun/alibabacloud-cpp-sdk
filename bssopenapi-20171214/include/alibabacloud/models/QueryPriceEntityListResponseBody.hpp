@@ -129,11 +129,11 @@ namespace Models
 
 
         protected:
-          // The code of the factor.
+          // The code of the pricing factor.
           shared_ptr<string> priceFactorCode_ {};
-          // The name of the factor.
+          // The name of the pricing factor.
           shared_ptr<string> priceFactorName_ {};
-          // The values of the factor.
+          // The list of pricing factor values.
           shared_ptr<vector<string>> priceFactorValueList_ {};
         };
 
@@ -163,11 +163,11 @@ namespace Models
 
 
       protected:
-        // The code of the billable item.
+        // The code of the pricing entity.
         shared_ptr<string> priceEntityCode_ {};
-        // The name of the billable item.
+        // The name of the pricing entity.
         shared_ptr<string> priceEntityName_ {};
-        // The factors of the billable item.
+        // The list of pricing factors for the pricing entity.
         shared_ptr<vector<PriceEntityInfoList::PriceFactorList>> priceFactorList_ {};
       };
 
@@ -182,7 +182,7 @@ namespace Models
 
 
     protected:
-      // The information about the billable items.
+      // The list of pricing entities.
       shared_ptr<vector<Data::PriceEntityInfoList>> priceEntityInfoList_ {};
     };
 
@@ -226,15 +226,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data that is returned.
+    // The returned data.
     shared_ptr<QueryPriceEntityListResponseBody::Data> data_ {};
-    // The message that is returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

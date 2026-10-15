@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The site where the host runs.
       shared_ptr<string> hostId_ {};
+      // The ID of the successfully created order.
       shared_ptr<string> orderId_ {};
     };
 
@@ -119,11 +121,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data that is returned.
     shared_ptr<RenewChangeInstanceResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // success=true indicates that the call was successful. success=false indicates that an error occurred.
     shared_ptr<bool> success_ {};
   };
 

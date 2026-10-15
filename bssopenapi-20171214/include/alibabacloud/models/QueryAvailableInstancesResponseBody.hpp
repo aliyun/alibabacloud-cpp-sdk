@@ -248,51 +248,48 @@ namespace Models
 
 
       protected:
-        // The time when the specified instance was created.
+        // The creation time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> createTime_ {};
-        // The time when the instance was expired.
+        // The end time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> endTime_ {};
-        // The time when the specified instance was expected to be released.
+        // The expected release time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> expectedReleaseTime_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceID_ {};
-        // The ID of the instance owner.
+        // The owner ID.
         shared_ptr<int64_t> ownerId_ {};
-        // The code of the service.
+        // The product code.
         shared_ptr<string> productCode_ {};
-        // The type of the service.
+        // The product type.
         shared_ptr<string> productType_ {};
-        // The ID of the region in which the instance resides.
+        // The region.
         shared_ptr<string> region_ {};
-        // The time when the instance was released.
+        // The release time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> releaseTime_ {};
-        // The renewal status of the specified instance. Valid values:
-        // 
-        // *   AutoRenewal: The instance is automatically renewed.
-        // *   ManualRenewal: The instance is manually renewed.
-        // *   NotRenewal: The instance is not renewed.
+        // The renewal status. Valid values:
+        // - AutoRenewal: auto-renewal.
+        // - ManualRenewal: manual renewal.
+        // - NotRenewal: no renewal.
         shared_ptr<string> renewStatus_ {};
-        // The number of auto-renewal cycles.
+        // The number of auto-renewal epochs.
         shared_ptr<int32_t> renewalDuration_ {};
-        // The unit of the auto-renewal cycle. Valid values:
-        // 
-        // *   M: month
-        // *   Y: year
+        // The unit of the auto-renewal epoch. Valid values:
+        // - M: month.
+        // - Y: year.
         shared_ptr<string> renewalDurationUnit_ {};
         // The seller.
         shared_ptr<string> seller_ {};
-        // The ID of the seller.
+        // The seller ID.
         shared_ptr<int64_t> sellerId_ {};
-        // The status of the instance.
+        // The status.
         shared_ptr<string> status_ {};
-        // The time when the specified instance was suspended.
+        // The stop time. The time is in the ISO 8601 standard in the UTC format (YYYY-MM-DDTHH:mm:ssZ).
         shared_ptr<string> stopTime_ {};
-        // The sub-status of the specified instance.
+        // The sub-status.
         shared_ptr<string> subStatus_ {};
-        // The billing method. Valid values:
-        // 
-        // *   Subscription: subscription
-        // *   PayAsYouGo: pay-as-you-go
+        // The subscription type. Valid values:
+        // - Subscription: subscription.
+        // - PayAsYouGo: pay-as-you-go.
         shared_ptr<string> subscriptionType_ {};
       };
 
@@ -329,13 +326,13 @@ namespace Models
 
 
     protected:
-      // The instances returned.
+      // The list of instance information.
       shared_ptr<vector<Data::InstanceList>> instanceList_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -379,13 +376,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryAvailableInstancesResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

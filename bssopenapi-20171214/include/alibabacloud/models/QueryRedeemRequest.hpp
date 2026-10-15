@@ -75,20 +75,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether the redemption coupon takes effect. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether the redemption ticket is effective. Valid values:
+    // - true: Effective.
+    // - false: Not effective.
     // 
     // Default value: false.
     shared_ptr<bool> effectiveOrNot_ {};
-    // The end time when the redemption coupon expires. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The end time of the expiration period. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> expiryTimeEnd_ {};
-    // The start time when the redemption coupon expires. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time of the expiration period. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> expiryTimeStart_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page. The value cannot exceed 300.
     shared_ptr<int32_t> pageSize_ {};
   };
 

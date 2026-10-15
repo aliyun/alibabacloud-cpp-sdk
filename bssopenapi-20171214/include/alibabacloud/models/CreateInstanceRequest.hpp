@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The code property of the Nth module. Value of N: 1 to 100. If multiple module property parameters are involved, concatenate multiple parameters based on the value of N in sequence.
+      // The code of the Nth module property. Valid values of N: 1 to 100. If multiple module properties exist, concatenate them in the format of N=1, 2, 3...N.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
-      // The value property of the Nth module. Value of N: 1 to 100.
+      // The value of the Nth module property. Valid values of N: 1 to 100.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -181,46 +181,45 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. The server checks whether a request that uses the same client token has been received. If a request that uses the same client token has been received, the server returns the same request result as the previous request.
+    // The client idempotency token. The server checks whether a request with the same ClientToken has been made. If yes, the server returns the result of the previous call.
     shared_ptr<string> clientToken_ {};
-    // The logistics address of this order. This parameter is generally valid for physical orders.
+    // The logistics address for this order. This parameter is typically valid for orders of physical products.
     shared_ptr<string> logistics_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The details of the modules.
+    // The list of modules.
     shared_ptr<vector<CreateInstanceRequest::Parameter>> parameter_ {};
-    // The subscription duration. Unit: month. The value must be an integral multiple of 12.
-    // 
-    // >  This parameter is required if you create a subscription instance.
+    // The subscription period. Unit: months. For yearly subscription products, specify a multiple of 12.
     shared_ptr<int32_t> period_ {};
-    // The cycle type of the prepaid period
-    // - PricingCycle=1 indicates that the unit of the prepaid period is in years; 
-    // - PricingCycle=2 indicates that the unit of the prepaid period is in months; 
-    // - PricingCycle=3 indicates that the unit of the prepaid period is in days;
-    // - Default value: PricingCycle=2
+    // The unit of the subscription period.
     // 
-    // Applicable only to certain product types (ProductType being ddos_originpre_public_cn, ddosDip, ddoscoo, ddos_originpre_public_intl, ddosDip_intl, ddoscoo_intl)
+    // - PricingCycle=1: The unit of the subscription period is year.
+    // 
+    // - PricingCycle=2: The unit of the subscription period is month.
+    // 
+    // - PricingCycle=3: The unit of the subscription period is day.
+    // 
+    // Default value: PricingCycle=2.
+    // 
+    // This parameter is applicable only to specific product types (ProductType is ddos_originpre_public_cn, ddosDip, ddoscoo, ddos_originpre_public_intl, ddosDip_intl, or ddoscoo_intl).
     shared_ptr<int64_t> pricingCycle_ {};
-    // The code of the service to which the instance belongs. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
+    // The product code. You can call the **QueryProductList** operation to query the product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The auto-renewal period. Unit: month.
-    // 
-    // >  This parameter is required if the **RenewalStatus** parameter is set to **AutoRenewal**.
+    // The auto-renewal epoch. Unit: months.
+    // > This parameter is required when you set **RenewalStatus** to **AutoRenewal** in Settings.
     shared_ptr<int32_t> renewPeriod_ {};
-    // The renewal method. Valid values:
-    // 
-    // *   AutoRenewal: The instance is automatically renewed.
-    // *   ManualRenewal: The instance is manually renewed.
+    // The auto-renewal status. Valid values:
+    // - AutoRenewal: auto-renewal is enabled.
+    // - ManualRenewal: manual renewal.
     // 
     // Default value: ManualRenewal.
     shared_ptr<string> renewalStatus_ {};
     // The billing method. Valid values:
-    // 
-    // *   Subscription: the subscription billing method.
-    // *   PayAsYouGo: the pay-as-you-go billing method.
+    // - Subscription: subscription.
+    // - PayAsYouGo: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionType_ {};

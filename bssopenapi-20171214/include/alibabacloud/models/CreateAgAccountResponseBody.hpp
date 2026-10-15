@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // The ID of the account that is used to call the CreateAgAccount operation.
+      // The UID of the master account (MPK).
       shared_ptr<string> mpk_ {};
-      // The ID of the account that is created.
+      // The UID of the member account (PK) that is managed by the master account (MPK).
       shared_ptr<string> pk_ {};
-      // The role of the account that is created.
+      // The name of the RAM role.
       shared_ptr<string> ramAdminRoleName_ {};
-      // The type of the relationship.
+      // The type of the account linking relationship.
       shared_ptr<string> type_ {};
     };
 
@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // The relationship between the account that is used to call the CreateAgAccount operation and the account that is created.
+    // The level 2 relationship between the master account (MPK) and the member account (PK).
     shared_ptr<CreateAgAccountResponseBody::AgRelationDto> agRelationDto_ {};
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

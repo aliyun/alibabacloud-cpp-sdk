@@ -226,36 +226,19 @@ namespace Models
 
 
         protected:
-          // The deduction date.
           shared_ptr<string> deductDate_ {};
-          // The total computing capacity or storage capacity of the RI or SCU during the deduction.
           shared_ptr<float> deductFactorTotal_ {};
-          // The deduct factor. This parameter is returned only if the CommodityCode parameter is set to ecsRi.
           shared_ptr<float> deductHours_ {};
-          // The original measured amount.
           shared_ptr<float> deductMeasure_ {};
-          // The computing capacity or storage capacity that is deducted in a pay-as-you-go instance.
           shared_ptr<float> deductQuantity_ {};
-          // The code of the deducted service.
           shared_ptr<string> deductedCommodityCode_ {};
-          // The ID of the deducted instance.
           shared_ptr<string> deductedInstanceId_ {};
-          // The name of the deducted service.
           shared_ptr<string> deductedProductDetail_ {};
-          // The ID of the RI.
           shared_ptr<string> instanceId_ {};
-          // The instance type of the deducted instance.
           shared_ptr<string> instanceSpec_ {};
-          // The region in which the instance resides. This parameter can be left empty.
           shared_ptr<string> region_ {};
-          // The billable item.
           shared_ptr<string> resCode_ {};
-          // The UID of the deducted instance.
-          // 
-          // *   If the deduction is shared, the value of this parameter indicates the UID of the deducted instance.
-          // *   If the deduction is not shared, the value of this parameter is the same as that of the uid parameter.
           shared_ptr<int64_t> shareUid_ {};
-          // The UID of the deducted instance.
           shared_ptr<int64_t> uid_ {};
         };
 
@@ -292,9 +275,8 @@ namespace Models
 
 
     protected:
-      // The detailed resource plan usage.
       shared_ptr<Data::DetailList> detailList_ {};
-      // The token that is used to retrieve the next page of results. You can set the LastToken parameter to this value in the next request. If null is returned, all results are queried.
+      // The token that specifies the start position of the next query. Pass this value to the LastToken parameter in the next request. If this parameter is returned as null, the query is complete.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -338,13 +320,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryDPUtilizationDetailResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

@@ -248,37 +248,45 @@ namespace Models
 
 
       protected:
-        // The billable item for which the fee is deducted.
+        // The deducted billable item.
         shared_ptr<string> billModule_ {};
+        // The billing cycle.
         shared_ptr<string> billingCycle_ {};
+        // The list price of the deducted bill, in CNY.
         shared_ptr<string> billingOfficialPrice_ {};
-        // The service for which the fee is deducted.
+        // The deducted service.
         shared_ptr<string> deductCommodity_ {};
-        // The deducted amount.
+        // The deducted fee, in CNY.
         shared_ptr<string> deductFee_ {};
-        // The ID of the instance for which the fee is deducted.
+        // The ID of the deducted cloud service instance.
         shared_ptr<string> deductInstanceId_ {};
         // The deduction rate.
         shared_ptr<string> deductRate_ {};
+        // The list price of the deducted amount, in CNY.
         shared_ptr<string> deductedOfficialPrice_ {};
-        // The discount used for the current deduction.
+        // The discount that is used for the deduction.
         shared_ptr<string> discountRate_ {};
-        // The end of the billing cycle for which the fee is deducted.
+        // The end time.
         shared_ptr<string> endTime_ {};
         // The ID of the savings plan instance.
         shared_ptr<string> instanceId_ {};
+        // The instance type of the deducted instance.
         shared_ptr<string> instanceSpec_ {};
+        // The instance family of the deducted instance.
         shared_ptr<string> instanceTypeFamily_ {};
+        // The ID of the owner.
         shared_ptr<int64_t> ownerId_ {};
+        // The region of the deducted instance.
         shared_ptr<string> region_ {};
         // The type of the savings plan. Valid values:
         // 
-        // *   universal: general-purpose
-        // *   ecs: ECS compute
+        // - universal: general-purpose
+        // 
+        // - ecs: compute-optimized
         shared_ptr<string> savingsType_ {};
-        // The beginning of the billing cycle for which the fee is deducted. The time is in the format of yyyy-MM-dd HH:mm:ss.
+        // The start time.
         shared_ptr<string> startTime_ {};
-        // The ID of the user.
+        // The user ID.
         shared_ptr<int64_t> userId_ {};
       };
 
@@ -315,11 +323,11 @@ namespace Models
 
 
     protected:
-      // The deduction details.
+      // The list of deduction details.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number of the returned page.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -367,13 +375,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The return data.
+    // The returned data.
     shared_ptr<QuerySavingsPlansDeductLogResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

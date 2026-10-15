@@ -223,57 +223,18 @@ namespace Models
 
 
         protected:
-          // The amount.
           shared_ptr<string> amount_ {};
-          // The balance of the account.
           shared_ptr<string> balance_ {};
-          // The billing cycle. Format: YYYY-MM.
           shared_ptr<string> billingCycle_ {};
-          // The type of transaction payment. Valid values:
-          // 
-          // *   Cash: pay for the transaction in cash.
-          // *   Deposit: pay for the transaction with deposit.
-          // *   RegularBankCreditRefund: pay for the transaction with credit refund controlled by a bank.
-          // *   DirectPay: directly pay for the transaction.
           shared_ptr<string> fundType_ {};
-          // The number of the order or bill.
           shared_ptr<string> recordID_ {};
-          // The remarks on the transaction.
           shared_ptr<string> remarks_ {};
-          // The transaction account. For example, the account is a recharge account in Alipay or a transfer account.
           shared_ptr<string> transactionAccount_ {};
-          // The transaction channel.
-          // 
-          // *   AccountBalance
-          // *   BankTransfer
-          // *   Alipay
-          // *   AntCreditPay
-          // *   OfflineRemittance
-          // *   RegularBankCreditRefund
-          // *   CreditCard
-          // *   MyBankCredit
-          // *   HuaxiaBankCInstallment
-          // *   ApplePay
           shared_ptr<string> transactionChannel_ {};
-          // The serial number of the transaction channel.
           shared_ptr<string> transactionChannelSN_ {};
-          // The type of the transaction flow.
-          // 
-          // *   Income
-          // *   Expense
           shared_ptr<string> transactionFlow_ {};
-          // The number of the transaction.
           shared_ptr<string> transactionNumber_ {};
-          // The time when the transaction was made.
           shared_ptr<string> transactionTime_ {};
-          // The type of the transaction.
-          // 
-          // *   Payment
-          // *   Withdraw
-          // *   Refund
-          // *   Consumption
-          // *   Transfer
-          // *   Adjust
           shared_ptr<string> transactionType_ {};
         };
 
@@ -331,15 +292,14 @@ namespace Models
 
 
     protected:
-      // The name of your Alibaba Cloud account.
+      // The user account.
       shared_ptr<string> accountName_ {};
-      // The information about transactions.
       shared_ptr<Data::AccountTransactionsList> accountTransactionsList_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -383,13 +343,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryAccountTransactionsResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

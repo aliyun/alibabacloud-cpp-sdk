@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The user ID of the cost center owner.
+    // The ID of the owner of the financial unit.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ownerUid_ {};
-    // The ID of the cost center. A value of -1 indicates the root cost center.
+    // The ID of the financial unit. A value of -1 indicates the root financial unit.
     // 
     // This parameter is required.
     shared_ptr<int64_t> unitId_ {};

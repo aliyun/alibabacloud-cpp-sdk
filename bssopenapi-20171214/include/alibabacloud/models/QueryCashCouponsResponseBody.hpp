@@ -177,31 +177,16 @@ namespace Models
 
 
       protected:
-        // The service to which the voucher is applicable.
         shared_ptr<string> applicableProducts_ {};
-        // The scenario to which the voucher is applicable.
         shared_ptr<string> applicableScenarios_ {};
-        // The remaining quota of the voucher.
         shared_ptr<string> balance_ {};
-        // The ID of the voucher.
         shared_ptr<int64_t> cashCouponId_ {};
-        // The code of the voucher.
         shared_ptr<string> cashCouponNo_ {};
-        // The description of the voucher.
         shared_ptr<string> description_ {};
-        // The time when the voucher took effect.
         shared_ptr<string> effectiveTime_ {};
-        // The time when the voucher expired.
         shared_ptr<string> expiryTime_ {};
-        // The time when the voucher was released.
         shared_ptr<string> grantedTime_ {};
-        // The denomination of the voucher.
         shared_ptr<string> nominalValue_ {};
-        // The state of the voucher. Valid values:
-        // 
-        // *   Available: The voucher is valid.
-        // *   Expired: The voucher has expired.
-        // *   Cancelled: The voucher is canceled.
         shared_ptr<string> status_ {};
       };
 
@@ -261,13 +246,12 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
     shared_ptr<QueryCashCouponsResponseBody::Data> data_ {};
-    // The message returned.
+    // The execution result message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call is successful. Valid values: true (the call is successful) and false (the call fails).
     shared_ptr<bool> success_ {};
   };
 

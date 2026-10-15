@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the host.
+      // The host ID.
       shared_ptr<string> hostId_ {};
     };
 
@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned information.
     shared_ptr<CancelOrderResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

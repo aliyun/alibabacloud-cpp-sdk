@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // The code of the service.
+    // The commodity code. You can call the **QueryCommodityList** operation to query the commodity code.
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
+    // The language. Default value: zh (Chinese).
     shared_ptr<string> lang_ {};
   };
 

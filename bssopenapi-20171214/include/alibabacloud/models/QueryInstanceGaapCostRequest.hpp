@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // The billing cycle, in the YYYY-MM format.
+    // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The product code.
     shared_ptr<string> productCode_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
+    // The billing method. Valid values:
+    // 
+    // - `Subscription`: subscription
+    // 
+    // - `PayAsYouGo`: pay-as-you-go
     shared_ptr<string> subscriptionType_ {};
   };
 

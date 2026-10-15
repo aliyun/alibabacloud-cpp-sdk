@@ -170,27 +170,29 @@ namespace Models
 
 
       protected:
-        // The details of the service.
+        // The product details.
         shared_ptr<string> commodityName_ {};
-        // The contracted discount.
+        // The contract discount rate.
         shared_ptr<string> contractDiscountRate_ {};
-        // The cycle based on which queries were performed.
+        // The query cycle.
         shared_ptr<string> cycle_ {};
-        // The discount provided by the official website.
+        // The official discount rate.
         shared_ptr<string> discountRate_ {};
         // The name of the pricing module.
         shared_ptr<string> moduleName_ {};
-        // The payment mode. Valid values:
+        // The payment mode.
         // 
-        // *   total: all upfront
-        // *   half: half upfront
-        // *   zero: no upfront
+        // - total: All upfront
+        // 
+        // - half: Partial upfront
+        // 
+        // - zero: No upfront
         shared_ptr<string> payMode_ {};
-        // The ID of the region.
+        // The region.
         shared_ptr<string> region_ {};
-        // The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query the region ID of the instance.
+        // The ID of the region where the instance resides. For more information, see [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html).
         shared_ptr<string> regionCode_ {};
-        // The type of the resource.
+        // The resource type.
         shared_ptr<string> spec_ {};
         // The type of the savings plan.
         shared_ptr<string> spnType_ {};
@@ -215,9 +217,9 @@ namespace Models
 
 
     protected:
-      // The IP address of the request.
+      // The request IP address.
       shared_ptr<string> hostId_ {};
-      // The information about the discounts on saving plans.
+      // The list of discount information.
       shared_ptr<vector<Data::Items>> items_ {};
     };
 
@@ -261,15 +263,15 @@ namespace Models
 
 
   protected:
-    // The error code returned.
+    // The error code.
     shared_ptr<string> code_ {};
-    // data
+    // The returned data.
     shared_ptr<QuerySavingsPlansDiscountResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

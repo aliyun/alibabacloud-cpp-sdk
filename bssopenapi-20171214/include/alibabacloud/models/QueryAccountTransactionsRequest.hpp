@@ -121,46 +121,43 @@ namespace Models
 
 
   protected:
-    // The end of the creation time range to query. By default, the transactions in the last month are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-01-01T00:00:00Z.
+    // The end time of the creation time range. If not specified, the default value is the current time. Example: 2018-01-01T00:00:00Z.
     shared_ptr<string> createTimeEnd_ {};
-    // The beginning of the creation time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-01-01T00:00:00Z.
+    // The start time of the creation time range. If not specified, the default value is one month before the current time. Example: 2018-01-01T00:00:00Z.
     shared_ptr<string> createTimeStart_ {};
-    // The number of the page to return. Default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value is 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the order or bill.
+    // The order or bill number.
     shared_ptr<string> recordID_ {};
-    // The transaction channel. If you specify one of the following transaction channels for this parameter, the results for the specified transaction channel are returned. If the transaction channel that you specify does not belong to the following transaction channels, no result is returned. If you leave this parameter empty, the results for all the following transaction channels are returned by default. Valid values:
-    // 
-    // *   AccountBalance
-    // *   BankTransfer
-    // *   Alipay
-    // *   AntCreditPay
-    // *   OfflineRemittance
-    // *   RegularBankCreditRefund
-    // *   CreditCard
-    // *   MyBankCredit
-    // *   HuaxiaBankCInstallment
-    // *   ApplePay
+    // The transaction channel. If you specify a transaction channel, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // - AccountBalance: Account balance.
+    // - BankTransfer: Bank transfer.
+    // - Alipay: Alipay.
+    // - AntCreditPay: Ant Credit Pay.
+    // - OfflineRemittance: Offline remittance.
+    // - RegularBankCreditRefund: Credit-based payment refund.
+    // - CreditCard: Credit card.
+    // - MyBankCredit: MYbank Credit.
+    // - HuaxiaBankCInstallment: Huaxia Bank installment.
+    // - ApplePay: Apple Pay.
     shared_ptr<string> transactionChannel_ {};
-    // The serial number of the transaction channel.
+    // The payment reference No.
     shared_ptr<string> transactionChannelSN_ {};
-    // The type of the transaction flow. If you specify one of the following types for this parameter, the results for the specified type are returned. If the type that you specify does not belong to the following types, no result is returned. If you leave this parameter empty, the results for the following two types are returned by default. Valid values:
-    // 
-    // *   Income
-    // *   Expense
+    // The income and expense type. If you specify an income and expense type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // - Income: Income.
+    // - Expense: Expense.
     shared_ptr<string> transactionFlow_ {};
-    // The number of the transaction.
+    // The transaction number.
     shared_ptr<string> transactionNumber_ {};
-    // The type of the transaction. If you specify one of the following transaction types for this parameter, the results for the specified transaction type are returned. If the transaction type that you specify does not belong to the following types, no result is returned. If you leave this parameter empty, the results for all the following transaction types are returned by default. Valid values:
-    // 
-    // *   Payment
-    // *   Withdraw
-    // *   Refund
-    // *   Consumption
-    // *   Transfer
-    // *   Adjust
+    // The transaction type. If you specify a transaction type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // - Payment: Top-up.
+    // - Withdraw: Withdrawal.
+    // - Refund: Refund.
+    // - Consumption: Consumption.
+    // - Transfer: Transfer.
+    // - Adjust: Adjustment.
     shared_ptr<string> transactionType_ {};
   };
 

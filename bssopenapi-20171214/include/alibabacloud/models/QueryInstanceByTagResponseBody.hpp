@@ -135,9 +135,9 @@ namespace Models
     protected:
       // The ID of the resource.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource. The returned resource type indicates a savings plan instance.
+      // The type of the resource. `instance` indicates a savings plan instance.
       shared_ptr<string> resourceType_ {};
-      // The tags.
+      // A list of tags.
       shared_ptr<vector<TagResource::Tag>> tag_ {};
     };
 
@@ -188,17 +188,17 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the QueryInstanceByTag operation was called.
+    // The token used to query the next page of results. This is the `NextToken` value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The instances returned.
+    // A list of instance information.
     shared_ptr<vector<QueryInstanceByTagResponseBody::TagResource>> tagResource_ {};
   };
 

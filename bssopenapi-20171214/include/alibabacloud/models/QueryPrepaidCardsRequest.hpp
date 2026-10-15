@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the prepaid card takes effect. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Specifies whether the card package is effective. Valid values:
+    // - true: Effective.
+    // - false: Ineffective.
     shared_ptr<bool> effectiveOrNot_ {};
-    // The end of the expiration time of prepaid cards to query. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The end time of card package expiration. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> expiryTimeEnd_ {};
-    // The start of the expiration time of prepaid cards to query. The value must be in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time of card package expiration. Format: yyyy-MM-dd.
     shared_ptr<string> expiryTimeStart_ {};
   };
 

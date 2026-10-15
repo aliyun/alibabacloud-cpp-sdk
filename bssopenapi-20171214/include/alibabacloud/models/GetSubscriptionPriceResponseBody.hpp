@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DiscountPrice, discountPrice_);
         DARABONBA_PTR_TO_JSON(ModuleDetails, moduleDetails_);
         DARABONBA_PTR_TO_JSON(OriginalPrice, originalPrice_);
+        DARABONBA_PTR_TO_JSON(PaymentScheme, paymentScheme_);
         DARABONBA_PTR_TO_JSON(PromotionDetails, promotionDetails_);
         DARABONBA_PTR_TO_JSON(Quantity, quantity_);
         DARABONBA_PTR_TO_JSON(TradePrice, tradePrice_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DiscountPrice, discountPrice_);
         DARABONBA_PTR_FROM_JSON(ModuleDetails, moduleDetails_);
         DARABONBA_PTR_FROM_JSON(OriginalPrice, originalPrice_);
+        DARABONBA_PTR_FROM_JSON(PaymentScheme, paymentScheme_);
         DARABONBA_PTR_FROM_JSON(PromotionDetails, promotionDetails_);
         DARABONBA_PTR_FROM_JSON(Quantity, quantity_);
         DARABONBA_PTR_FROM_JSON(TradePrice, tradePrice_);
@@ -135,11 +137,8 @@ namespace Models
 
 
         protected:
-          // The description of the discount.
           shared_ptr<string> promotionDesc_ {};
-          // The ID of the discount.
           shared_ptr<int64_t> promotionId_ {};
-          // The name of the discount.
           shared_ptr<string> promotionName_ {};
         };
 
@@ -155,6 +154,85 @@ namespace Models
 
       protected:
         shared_ptr<vector<PromotionDetails::PromotionDetail>> promotionDetail_ {};
+      };
+
+      class PaymentScheme : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PaymentScheme& obj) { 
+          DARABONBA_PTR_TO_JSON(OrderDownPaymentFee, orderDownPaymentFee_);
+          DARABONBA_PTR_TO_JSON(OrderDownPaymentSettleFee, orderDownPaymentSettleFee_);
+          DARABONBA_PTR_TO_JSON(OrderTotalFee, orderTotalFee_);
+          DARABONBA_PTR_TO_JSON(OrderTotalSettleFee, orderTotalSettleFee_);
+          DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
+        };
+        friend void from_json(const Darabonba::Json& j, PaymentScheme& obj) { 
+          DARABONBA_PTR_FROM_JSON(OrderDownPaymentFee, orderDownPaymentFee_);
+          DARABONBA_PTR_FROM_JSON(OrderDownPaymentSettleFee, orderDownPaymentSettleFee_);
+          DARABONBA_PTR_FROM_JSON(OrderTotalFee, orderTotalFee_);
+          DARABONBA_PTR_FROM_JSON(OrderTotalSettleFee, orderTotalSettleFee_);
+          DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
+        };
+        PaymentScheme() = default ;
+        PaymentScheme(const PaymentScheme &) = default ;
+        PaymentScheme(PaymentScheme &&) = default ;
+        PaymentScheme(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PaymentScheme() = default ;
+        PaymentScheme& operator=(const PaymentScheme &) = default ;
+        PaymentScheme& operator=(PaymentScheme &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->orderDownPaymentFee_ == nullptr
+        && this->orderDownPaymentSettleFee_ == nullptr && this->orderTotalFee_ == nullptr && this->orderTotalSettleFee_ == nullptr && this->paymentType_ == nullptr; };
+        // orderDownPaymentFee Field Functions 
+        bool hasOrderDownPaymentFee() const { return this->orderDownPaymentFee_ != nullptr;};
+        void deleteOrderDownPaymentFee() { this->orderDownPaymentFee_ = nullptr;};
+        inline string getOrderDownPaymentFee() const { DARABONBA_PTR_GET_DEFAULT(orderDownPaymentFee_, "") };
+        inline PaymentScheme& setOrderDownPaymentFee(string orderDownPaymentFee) { DARABONBA_PTR_SET_VALUE(orderDownPaymentFee_, orderDownPaymentFee) };
+
+
+        // orderDownPaymentSettleFee Field Functions 
+        bool hasOrderDownPaymentSettleFee() const { return this->orderDownPaymentSettleFee_ != nullptr;};
+        void deleteOrderDownPaymentSettleFee() { this->orderDownPaymentSettleFee_ = nullptr;};
+        inline string getOrderDownPaymentSettleFee() const { DARABONBA_PTR_GET_DEFAULT(orderDownPaymentSettleFee_, "") };
+        inline PaymentScheme& setOrderDownPaymentSettleFee(string orderDownPaymentSettleFee) { DARABONBA_PTR_SET_VALUE(orderDownPaymentSettleFee_, orderDownPaymentSettleFee) };
+
+
+        // orderTotalFee Field Functions 
+        bool hasOrderTotalFee() const { return this->orderTotalFee_ != nullptr;};
+        void deleteOrderTotalFee() { this->orderTotalFee_ = nullptr;};
+        inline string getOrderTotalFee() const { DARABONBA_PTR_GET_DEFAULT(orderTotalFee_, "") };
+        inline PaymentScheme& setOrderTotalFee(string orderTotalFee) { DARABONBA_PTR_SET_VALUE(orderTotalFee_, orderTotalFee) };
+
+
+        // orderTotalSettleFee Field Functions 
+        bool hasOrderTotalSettleFee() const { return this->orderTotalSettleFee_ != nullptr;};
+        void deleteOrderTotalSettleFee() { this->orderTotalSettleFee_ = nullptr;};
+        inline string getOrderTotalSettleFee() const { DARABONBA_PTR_GET_DEFAULT(orderTotalSettleFee_, "") };
+        inline PaymentScheme& setOrderTotalSettleFee(string orderTotalSettleFee) { DARABONBA_PTR_SET_VALUE(orderTotalSettleFee_, orderTotalSettleFee) };
+
+
+        // paymentType Field Functions 
+        bool hasPaymentType() const { return this->paymentType_ != nullptr;};
+        void deletePaymentType() { this->paymentType_ = nullptr;};
+        inline string getPaymentType() const { DARABONBA_PTR_GET_DEFAULT(paymentType_, "") };
+        inline PaymentScheme& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
+
+
+      protected:
+        // The payable amount for the order, in cents.
+        shared_ptr<string> orderDownPaymentFee_ {};
+        // The payable amount in the settlement currency for the order, in cents.
+        shared_ptr<string> orderDownPaymentSettleFee_ {};
+        // The total payable amount for the order, including the prepayment and installment parts, in cents.
+        shared_ptr<string> orderTotalFee_ {};
+        // The total payable amount in the settlement currency for the order, including the prepayment and installment parts, in cents.
+        shared_ptr<string> orderTotalSettleFee_ {};
+        // The fixed-fee installment type. Valid values:
+        // - PAYMENT_NORMAL: non-fixed-fee installment products.
+        // - PAYMENT_PHASED: fixed-fee installment products.
+        shared_ptr<string> paymentType_ {};
       };
 
       class ModuleDetails : public Darabonba::Model {
@@ -241,15 +319,10 @@ namespace Models
 
 
         protected:
-          // The discount price.
           shared_ptr<float> costAfterDiscount_ {};
-          // The discount that was applied.
           shared_ptr<float> invoiceDiscount_ {};
-          // The identifier of the pricing module.
           shared_ptr<string> moduleCode_ {};
-          // The original price of the service.
           shared_ptr<float> originalCost_ {};
-          // The unit price.
           shared_ptr<float> unitPrice_ {};
         };
 
@@ -268,8 +341,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->currency_ == nullptr
-        && this->discountPrice_ == nullptr && this->moduleDetails_ == nullptr && this->originalPrice_ == nullptr && this->promotionDetails_ == nullptr && this->quantity_ == nullptr
-        && this->tradePrice_ == nullptr; };
+        && this->discountPrice_ == nullptr && this->moduleDetails_ == nullptr && this->originalPrice_ == nullptr && this->paymentScheme_ == nullptr && this->promotionDetails_ == nullptr
+        && this->quantity_ == nullptr && this->tradePrice_ == nullptr; };
       // currency Field Functions 
       bool hasCurrency() const { return this->currency_ != nullptr;};
       void deleteCurrency() { this->currency_ = nullptr;};
@@ -300,6 +373,15 @@ namespace Models
       inline Data& setOriginalPrice(float originalPrice) { DARABONBA_PTR_SET_VALUE(originalPrice_, originalPrice) };
 
 
+      // paymentScheme Field Functions 
+      bool hasPaymentScheme() const { return this->paymentScheme_ != nullptr;};
+      void deletePaymentScheme() { this->paymentScheme_ = nullptr;};
+      inline const Data::PaymentScheme & getPaymentScheme() const { DARABONBA_PTR_GET_CONST(paymentScheme_, Data::PaymentScheme) };
+      inline Data::PaymentScheme getPaymentScheme() { DARABONBA_PTR_GET(paymentScheme_, Data::PaymentScheme) };
+      inline Data& setPaymentScheme(const Data::PaymentScheme & paymentScheme) { DARABONBA_PTR_SET_VALUE(paymentScheme_, paymentScheme) };
+      inline Data& setPaymentScheme(Data::PaymentScheme && paymentScheme) { DARABONBA_PTR_SET_RVALUE(paymentScheme_, paymentScheme) };
+
+
       // promotionDetails Field Functions 
       bool hasPromotionDetails() const { return this->promotionDetails_ != nullptr;};
       void deletePromotionDetails() { this->promotionDetails_ = nullptr;};
@@ -324,23 +406,22 @@ namespace Models
 
 
     protected:
-      // The type of currency. Valid values:
-      // 
-      // *   CNY: Chinese Yuan
-      // *   USD: US dollar
-      // *   JPY: Japanese Yen
+      // The currency. Valid values:
+      // - CNY: Chinese yuan.
+      // - USD: US dollar.
+      // - JPY: Japanese yen.
       shared_ptr<string> currency_ {};
-      // The discount that was applied.
+      // The discount amount.
       shared_ptr<float> discountPrice_ {};
-      // The price details of the pricing module.
       shared_ptr<Data::ModuleDetails> moduleDetails_ {};
-      // The original price of the service.
+      // The original price.
       shared_ptr<float> originalPrice_ {};
-      // The details of the discount.
+      // The parameters for fixed-fee installments.
+      shared_ptr<Data::PaymentScheme> paymentScheme_ {};
       shared_ptr<Data::PromotionDetails> promotionDetails_ {};
       // The quantity.
       shared_ptr<int32_t> quantity_ {};
-      // The discount price.
+      // The discounted price.
       shared_ptr<float> tradePrice_ {};
     };
 
@@ -386,11 +467,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The information about the service price.
+    // The product price information.
     shared_ptr<GetSubscriptionPriceResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

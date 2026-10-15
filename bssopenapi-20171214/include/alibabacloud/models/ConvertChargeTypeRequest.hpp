@@ -84,30 +84,28 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration. Unit: months. This parameter is required if you switch the billing method to subscription. Valid values:
-    // 
-    // *   1 to 9
-    // *   12
-    // *   24
-    // *   36
+    // The subscription period in months. If you convert the billing method to subscription, specify the subscription period. Valid values:
+    // - 1 to 9.
+    // - 12.
+    // - 24.
+    // - 36.
     shared_ptr<int32_t> period_ {};
-    // The code of the service to which the instance belongs.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The type of the service to which the instance belongs.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The billing method of the instance. Valid values:
+    // The current billing method of the instance. Valid values:
+    // - Subscription: subscription.
+    // - PayAsYouGo: pay-as-you-go.
     // 
-    // *   Subscription: subscription
-    // *   PayAsYouGo: pay-as-you-go
-    // 
-    // >  After the call is successful, the billing method of the instance is switched.
+    // > After a successful call, the resource is changed to the opposite billing method.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionType_ {};

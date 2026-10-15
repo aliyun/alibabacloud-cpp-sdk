@@ -115,13 +115,13 @@ namespace Models
 
 
       protected:
-        // The total amount of the savings plan.
+        // The total amount of savings plans.
         shared_ptr<float> poolValue_ {};
         // The pay-as-you-go cost.
         shared_ptr<float> postpaidCost_ {};
-        // The amount that is saved.
+        // The amount saved.
         shared_ptr<float> savedCost_ {};
-        // The total usage.
+        // The total usage percentage.
         shared_ptr<float> usagePercentage_ {};
       };
 
@@ -163,11 +163,9 @@ namespace Models
 
 
       protected:
-        // The usage.
+        // The usage percentage.
         shared_ptr<float> percentage_ {};
-        // The period.
-        // 
-        // The value is in the format of yyyyMMddHH.
+        // The time period to which the data belongs. Format: yyyyMMddHH.
         shared_ptr<string> period_ {};
       };
 
@@ -192,9 +190,9 @@ namespace Models
 
 
     protected:
-      // The usage in different periods.
+      // The usage data for each time period.
       shared_ptr<vector<Data::PeriodCoverage>> periodCoverage_ {};
-      // The usage summary.
+      // The total usage overview.
       shared_ptr<Data::TotalUsage> totalUsage_ {};
     };
 
@@ -240,13 +238,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The return data.
+    // The returned query data.
     shared_ptr<DescribeSavingsPlansUsageTotalResponseBody::Data> data_ {};
-    // The message returned.
+    // The message returned for the API call.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

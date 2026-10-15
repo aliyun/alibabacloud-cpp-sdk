@@ -359,73 +359,33 @@ namespace Models
 
 
         protected:
-          // The amount deducted by using credit refunds.
           shared_ptr<float> adjustAmount_ {};
-          // The amount paid after the tax is deducted.
           shared_ptr<float> afterTaxAmount_ {};
-          // The ID of the account to which the bill belongs.
           shared_ptr<string> billAccountID_ {};
-          // The name of the account to which the bill belongs.
           shared_ptr<string> billAccountName_ {};
-          // The business type.
           shared_ptr<string> bizType_ {};
-          // The amount paid in cash. The amount that was deducted by using credit refunds is not included.
           shared_ptr<float> cashAmount_ {};
-          // The code of the commodity. The commodity code is the same as that displayed in User Center.
           shared_ptr<string> commodityCode_ {};
-          // The type of the currency. Valid values:
-          // 
-          // *   CNY
-          // *   USD
-          // *   JPY
           shared_ptr<string> currency_ {};
-          // The amount deducted by using vouchers.
           shared_ptr<float> deductedByCashCoupons_ {};
-          // The amount deducted by using coupons.
           shared_ptr<float> deductedByCoupons_ {};
-          // The amount deducted by using prepaid cards.
           shared_ptr<float> deductedByPrepaidCard_ {};
-          // The discount amount.
           shared_ptr<float> invoiceDiscount_ {};
-          // The type of the bill. Valid values:
-          // 
-          // *   SubscriptionOrder
-          // *   PayAsYouGoBill
-          // *   Refund
-          // *   Adjustment
           shared_ptr<string> item_ {};
-          // The unsettled amount or the amount deducted by using credits. This may be an unsettled amount of a regular user or credits consumed by a credit user.
           shared_ptr<float> outstandingAmount_ {};
-          // The ID of the bill owner.
           shared_ptr<string> ownerID_ {};
-          // The amount paid in cash. The amount that was deducted by using credit refunds is included.
           shared_ptr<float> paymentAmount_ {};
-          // The currency used for payment.
           shared_ptr<string> paymentCurrency_ {};
-          // The code of the service. The service code is the same as that displayed in User Center.
           shared_ptr<string> pipCode_ {};
-          // The pretax amount.
           shared_ptr<float> pretaxAmount_ {};
-          // The pretax amount paid in local currency.
           shared_ptr<float> pretaxAmountLocal_ {};
-          // The pretax gross amount.
           shared_ptr<float> pretaxGrossAmount_ {};
-          // The code of the service.
           shared_ptr<string> productCode_ {};
-          // The details of the service.
           shared_ptr<string> productDetail_ {};
-          // The name of the service.
           shared_ptr<string> productName_ {};
-          // The type of the service.
           shared_ptr<string> productType_ {};
-          // The round down discount.
           shared_ptr<string> roundDownDiscount_ {};
-          // The billing method. Valid values:
-          // 
-          // *   Subscription: the subscription billing method
-          // *   PayAsYouGo: the pay-as-you-go billing method
           shared_ptr<string> subscriptionType_ {};
-          // The tax.
           shared_ptr<float> tax_ {};
         };
 
@@ -476,13 +436,12 @@ namespace Models
 
 
     protected:
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The name of the account.
+      // The account name.
       shared_ptr<string> accountName_ {};
-      // The billing cycle, in the YYYY-MM format.
+      // The billing cycle in the YYYY-MM format.
       shared_ptr<string> billingCycle_ {};
-      // The details of the bills.
       shared_ptr<Data::Items> items_ {};
     };
 
@@ -526,15 +485,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryBillOverviewResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

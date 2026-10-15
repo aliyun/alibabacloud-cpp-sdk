@@ -166,9 +166,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The value of the tag.
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -349,59 +349,78 @@ namespace Models
 
 
       protected:
-        // The allocation status. Valid values:
+        // The allocation status.
         // 
-        // *   unallocated
-        // *   allocated
-        // *   beAllocated
+        // - unallocated: Not allocated.
+        // 
+        // - allocated: Allocating.
+        // 
+        // - beAllocated: Allocated to this account.
         shared_ptr<string> allocationStatus_ {};
+        // The commodity code.
         shared_ptr<string> commodityCode_ {};
-        // The currency. Valid values: CNY and USD.
+        // The currency. Valid values: CNY: Chinese Yuan. USD: US Dollar.
         shared_ptr<string> currency_ {};
+        // For a savings plan with a monthly cycle, this is the commitment for the current cycle. Unit: CNY.
         shared_ptr<string> currentPoolValue_ {};
+        // The purchased duration.
         shared_ptr<string> cycle_ {};
+        // The deduction cycle.
+        // HOUR: hourly
+        // DAY: daily
+        // ONCE: one-time (the total amount decreases over time)
         shared_ptr<string> deductCycleType_ {};
-        // The time when the instance expires. The time is in the format of yyyy-MM-dd HH:mm:ss.
+        // The expiration time of the instance. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> endTime_ {};
+        // The end timestamp.
         shared_ptr<int64_t> endTimestamp_ {};
-        // The instance family information. For an instance of the Elastic Compute Service (ECS) compute type, the value indicates the ECS instance family or the ECS instance family package.
+        // For a compute-optimized savings plan, this parameter indicates the corresponding instance family or instance family package.
         shared_ptr<string> instanceFamily_ {};
         // The ID of the savings plan instance.
         shared_ptr<string> instanceId_ {};
+        // The total deduction amount in the previous cycle. Unit: CNY.
         shared_ptr<string> lastBillTotalUsage_ {};
+        // The utilization in the previous cycle.
         shared_ptr<string> lastBillUtilization_ {};
-        // The payment type. Valid values:
+        // The payment type.
         // 
-        // *   total: All Upfront
-        // *   half: Partial Upfront
-        // *   zero: No Upfront
+        // - total: All Upfront
+        // 
+        // - half: Partial Upfront
+        // 
+        // - zero: No Upfront
         shared_ptr<string> payMode_ {};
-        // The commitment.
+        // The commitment. Unit: CNY.
         shared_ptr<string> poolValue_ {};
-        // The prepaid amount.
+        // The upfront payment. Unit: CNY.
         shared_ptr<string> prepayFee_ {};
         // The region.
         shared_ptr<string> region_ {};
+        // For a flexible savings plan with a monthly or daily commitment, this is the remaining amount in the current cycle. Unit: CNY.
         shared_ptr<string> restPoolValue_ {};
-        // The type of the savings plan. Valid values:
+        // The type of the savings plan.
         // 
-        // *   universal: general-purpose
-        // *   ecs: ECS compute
+        // - unversal: general-purpose
+        // 
+        // - ecs: compute-optimized
         shared_ptr<string> savingsType_ {};
-        // The time when the instance takes effect. The time is in the format of yyyy-MM-dd HH:mm:ss.
+        // The effective time of the instance. The time is in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> startTime_ {};
+        // The start timestamp.
         shared_ptr<int64_t> startTimestamp_ {};
-        // The status of the instance. Valid values:
+        // The current status.
         // 
-        // *   NORMAL: normal
-        // *   LIMIT: stopped due to overdue payment
-        // *   RELEASE: released
+        // - NORMAL: The instance is active.
+        // 
+        // - LIMIT: The instance is suspended due to an overdue payment.
+        // 
+        // - RELEASE: The instance is released.
         shared_ptr<string> status_ {};
-        // The details about the tags.
+        // The list of tag information.
         shared_ptr<vector<Items::Tags>> tags_ {};
-        // The total amount that is saved.
+        // The total savings. Unit: CNY.
         shared_ptr<string> totalSave_ {};
-        // The total usage.
+        // The total utilization.
         shared_ptr<string> utilization_ {};
       };
 
@@ -438,7 +457,7 @@ namespace Models
 
 
     protected:
-      // The details about the instances.
+      // The list of instance information.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number of the returned page.
       shared_ptr<int32_t> pageNum_ {};
@@ -490,13 +509,13 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The return data.
+    // The returned data.
     shared_ptr<QuerySavingsPlansInstanceResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -94,18 +94,18 @@ namespace Models
 
 
   protected:
-    // The end of the expiration time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The expiration end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> expiryTimeEnd_ {};
-    // The beginning of the expiration time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The expiration start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> expiryTimeStart_ {};
-    // Specifies whether partners are involved.
+    // Specifies whether to include partners.
     shared_ptr<bool> includePartner_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
   };
 

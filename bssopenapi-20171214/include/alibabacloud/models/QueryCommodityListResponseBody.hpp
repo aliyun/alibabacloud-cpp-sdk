@@ -104,11 +104,13 @@ namespace Models
 
 
       protected:
-        // The payment type. Valid values: POSTPAY (pay-as-you-go) and PREPAY (subscription).
+        // The billing method. Valid values:
+        // - POSTPAY: pay-as-you-go.
+        // - PREPAY: subscription.
         shared_ptr<string> chargeType_ {};
-        // The code of the service, which is the same as that on the Billing Management page.
+        // The commodity code, which is the same as the product detail code in Billing Management.
         shared_ptr<string> commodityCode_ {};
-        // The name of the service.
+        // The commodity name.
         shared_ptr<string> commodityName_ {};
       };
 
@@ -123,7 +125,7 @@ namespace Models
 
 
     protected:
-      // The information about the service.
+      // The commodity list.
       shared_ptr<vector<Data::CommodityList>> commodityList_ {};
     };
 
@@ -167,15 +169,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryCommodityListResponseBody::Data> data_ {};
-    // The returned message.
+    // The additional information about the call result.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the information about the service was queried.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

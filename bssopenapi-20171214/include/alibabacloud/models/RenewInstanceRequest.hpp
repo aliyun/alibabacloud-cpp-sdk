@@ -86,23 +86,22 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The code of the service to which the instance belongs.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The duration of the subscription renewal. Unit: months. Valid values:
-    // 
-    // *   1 to 9
-    // *   12
-    // *   24
-    // *   36
+    // The renewal period for the subscription instance. Unit: months. Valid values:
+    // - 1 to 9.
+    // - 12.
+    // - 24.
+    // - 36.
     // 
     // This parameter is required.
     shared_ptr<int32_t> renewPeriod_ {};

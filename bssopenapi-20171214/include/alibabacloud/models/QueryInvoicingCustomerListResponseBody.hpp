@@ -288,56 +288,26 @@ namespace Models
 
 
         protected:
-          // The type of invoice that was changed to.
           shared_ptr<int64_t> adjustType_ {};
-          // The bank that issues the invoice.
           shared_ptr<string> bank_ {};
-          // The bank account number.
           shared_ptr<string> bankNo_ {};
-          // The authentication type of Alipay. Valid values:
-          // 
-          // *   1: individual
-          // *   2: company
           shared_ptr<int64_t> customerType_ {};
-          // The default note that is attached when the title is specified.
           shared_ptr<string> defaultRemark_ {};
-          // The time when the payment ended.
           shared_ptr<int64_t> endCycle_ {};
-          // The time when the invoice was created. The time was in the yyyy-mm-dd hh:mm:ss format.
           shared_ptr<string> gmtCreate_ {};
-          // The ID of the invoice.
           shared_ptr<int64_t> id_ {};
-          // The company name in the invoice title.
           shared_ptr<string> invoiceTitle_ {};
-          // The type of issue.
           shared_ptr<int64_t> issueType_ {};
-          // The address of the business license.
           shared_ptr<string> operatingLicenseAddress_ {};
-          // The phone number of the business license.
           shared_ptr<string> operatingLicensePhone_ {};
-          // The tax registration number.
           shared_ptr<string> registerNo_ {};
-          // The time when the payment started.
           shared_ptr<int64_t> startCycle_ {};
-          // The status of the invoice title.
           shared_ptr<int64_t> status_ {};
-          // The path and file name of the scanned copy of the tax registration certificate.
           shared_ptr<string> taxationLicense_ {};
-          // The type of the taxpayer. Valid values:
-          // 
-          // *   1: general taxpayer
-          // *   2: special taxpayer
           shared_ptr<int64_t> taxpayerType_ {};
-          // The instruction document of the invoice title change.
           shared_ptr<string> titleChangeInstructions_ {};
-          // The type of the invoice. Valid values:
-          // 
-          // *   0: plain value-added tax (VAT) invoice
-          // *   1: special VAT invoice
           shared_ptr<int64_t> type_ {};
-          // The ID of the user.
           shared_ptr<int64_t> userId_ {};
-          // The nickname of the user.
           shared_ptr<string> userNick_ {};
         };
 
@@ -366,7 +336,6 @@ namespace Models
 
 
     protected:
-      // The information about the invoice.
       shared_ptr<Data::CustomerInvoiceList> customerInvoiceList_ {};
     };
 
@@ -412,11 +381,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryInvoicingCustomerListResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

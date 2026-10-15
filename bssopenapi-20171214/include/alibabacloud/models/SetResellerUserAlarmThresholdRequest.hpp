@@ -57,7 +57,10 @@ namespace Models
 
 
   protected:
+    // The list of user alert rules for this alert type. If this parameter is not specified, no alert threshold is set.
     shared_ptr<string> alarmThresholds_ {};
+    // The alert type. Valid value: quota_low_balance, which indicates a low-balance alert for quotas.
+    // 
     // This parameter is required.
     shared_ptr<string> alarmType_ {};
     // This parameter is required.

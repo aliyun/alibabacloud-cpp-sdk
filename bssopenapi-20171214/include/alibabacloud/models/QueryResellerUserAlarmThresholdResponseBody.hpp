@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The denominator of the alert percentage. This parameter is valid only when ThresholdType is set to 1.
       shared_ptr<int32_t> denominator_ {};
+      // The numerator of the alert percentage. This parameter is valid only when ThresholdType is set to 1.
       shared_ptr<int32_t> numerator_ {};
+      // The alert threshold in amount. This parameter is valid only when ThresholdType is set to 0.
       shared_ptr<string> thresholdAmount_ {};
+      // The type of the alert threshold. Valid values: 0 (amount) and 1 (percentage).
       shared_ptr<int32_t> thresholdType_ {};
     };
 
@@ -149,11 +153,17 @@ namespace Models
 
 
   protected:
+    // The status code of the request. If the call fails, an error code is returned.
     shared_ptr<string> code_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> count_ {};
+    // The data returned.
     shared_ptr<vector<QueryResellerUserAlarmThresholdResponseBody::Data>> data_ {};
+    // The message returned. If the call fails, an error message is returned.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

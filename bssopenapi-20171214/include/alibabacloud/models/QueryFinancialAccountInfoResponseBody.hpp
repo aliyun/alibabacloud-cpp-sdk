@@ -111,17 +111,21 @@ namespace Models
 
 
     protected:
-      // The type of the financial account. A value of MASTER indicates that the account is a management account. A value of MEMBER indicates that the account is a member.
+      // The enterprise financial account type. Valid values:
+      // - MASTER: primary account.
+      // - MEMBER: member accounts.
       shared_ptr<string> accountType_ {};
-      // Indicates whether the account is a financial account. A value of true indicates that the account is a financial account. A value of false indicates that the account is not a financial account.
+      // Indicates whether the account is an enterprise financial account. Valid values:
+      // - true: The account is an enterprise financial account.
+      // - false: The account is not an enterprise financial account.
       shared_ptr<bool> isFinancialAccount_ {};
-      // The ID of the group to which the member belongs.
+      // The ID of the group to which the member accounts belong.
       shared_ptr<int64_t> memberGroupId_ {};
-      // The name of the group to which the member belongs.
+      // The name of the group to which the member accounts belong.
       shared_ptr<string> memberGroupName_ {};
-      // The display name of the member.
+      // The display name of the member accounts.
       shared_ptr<string> memberNickName_ {};
-      // The username of the account.
+      // The logon name of the account.
       shared_ptr<string> userName_ {};
     };
 
@@ -167,11 +171,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The data message body.
     shared_ptr<QueryFinancialAccountInfoResponseBody::Data> data_ {};
-    // The message returned.
+    // The message description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

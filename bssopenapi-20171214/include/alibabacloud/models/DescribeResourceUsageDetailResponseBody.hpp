@@ -294,51 +294,51 @@ namespace Models
 
 
       protected:
-        // The unit that is used to measure the resources that are deducted.
+        // The deduction unit.
         shared_ptr<string> capacityUnit_ {};
-        // The type of the currency.
+        // The currency.
         shared_ptr<string> currency_ {};
-        // The amount of the deducted resources.
+        // The deducted amount.
         shared_ptr<float> deductQuantity_ {};
-        // The end of the time range in which the usage details were queried.
+        // The end time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
         // The operating system.
         shared_ptr<string> imageType_ {};
         // The instance type.
         shared_ptr<string> instanceSpec_ {};
-        // The equivalent of pay-as-you-go costs.
+        // The equivalent pay-as-you-go cost.
         shared_ptr<string> postpaidCost_ {};
         // The potential net savings.
         shared_ptr<string> potentialSavedCost_ {};
-        // The number of deduction plans.
+        // The resource count.
         shared_ptr<int64_t> quantity_ {};
         // The region.
         shared_ptr<string> region_ {};
-        // The code of the region.
+        // The region ID.
         shared_ptr<string> regionNo_ {};
-        // The fee of the deduction plan.
+        // The purchase cost of the resource.
         shared_ptr<string> reservationCost_ {};
-        // The ID of the deduction plan.
+        // The instance ID.
         shared_ptr<string> resourceInstanceId_ {};
         // The net savings.
         shared_ptr<string> savedCost_ {};
-        // The beginning of the time range in which the usage details were queried.
+        // The start time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The status of the deduction plan.
+        // The status.
         shared_ptr<string> status_ {};
-        // The name of the status.
+        // The status name.
         shared_ptr<string> statusName_ {};
-        // The total capacity of the deduction plan.
+        // The total number of resources.
         shared_ptr<float> totalQuantity_ {};
-        // The usage rate of the deduction plan.
+        // The usage rate.
         shared_ptr<float> usagePercentage_ {};
         // The account ID.
         shared_ptr<string> userId_ {};
-        // The username of the account.
+        // The account name.
         shared_ptr<string> userName_ {};
         // The zone.
         shared_ptr<string> zone_ {};
-        // The code of the zone.
+        // The zone ID.
         shared_ptr<string> zoneName_ {};
       };
 
@@ -377,11 +377,11 @@ namespace Models
     protected:
       // The data entries.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The number of entries returned on the current page.
+      // The maximum number of entries to return in a single request. Default value: 20. Maximum value: 300.
       shared_ptr<int32_t> maxResults_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The token for the next page.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -425,15 +425,15 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The HTTP status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeResourceUsageDetailResponseBody::Data> data_ {};
-    // The returned message.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

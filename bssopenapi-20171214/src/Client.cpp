@@ -168,7 +168,7 @@ AddAccountRelationResponse Client::addAccountRelation(const AddAccountRelationRe
 }
 
 /**
- * @summary Transfers resource instances from the source cost center to the destination cost center.
+ * @summary Allocates resource instances (instance-based and attached-resource-based) from a source financial unit to a destination financial unit.
  *
  * @param request AllocateCostUnitResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +215,7 @@ AllocateCostUnitResourceResponse Client::allocateCostUnitResourceWithOptions(con
 }
 
 /**
- * @summary Transfers resource instances from the source cost center to the destination cost center.
+ * @summary Allocates resource instances (instance-based and attached-resource-based) from a source financial unit to a destination financial unit.
  *
  * @param request AllocateCostUnitResourceRequest
  * @return AllocateCostUnitResourceResponse
@@ -226,7 +226,7 @@ AllocateCostUnitResourceResponse Client::allocateCostUnitResource(const Allocate
 }
 
 /**
- * @summary Submits an application for an invoice.
+ * @summary Submits an invoice application.
  *
  * @param request ApplyInvoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -297,7 +297,7 @@ ApplyInvoiceResponse Client::applyInvoiceWithOptions(const ApplyInvoiceRequest &
 }
 
 /**
- * @summary Submits an application for an invoice.
+ * @summary Submits an invoice application.
  *
  * @param request ApplyInvoiceRequest
  * @return ApplyInvoiceResponse
@@ -354,6 +354,10 @@ CancelOrderResponse Client::cancelOrder(const CancelOrderRequest &request) {
 }
 
 /**
+ * @summary Deducts user quota consumption.
+ *
+ * @description Deducts user quota consumption.
+ *
  * @param request ChangeResellerConsumeAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChangeResellerConsumeAmountResponse
@@ -411,6 +415,10 @@ ChangeResellerConsumeAmountResponse Client::changeResellerConsumeAmountWithOptio
 }
 
 /**
+ * @summary Deducts user quota consumption.
+ *
+ * @description Deducts user quota consumption.
+ *
  * @param request ChangeResellerConsumeAmountRequest
  * @return ChangeResellerConsumeAmountResponse
  */
@@ -420,9 +428,10 @@ ChangeResellerConsumeAmountResponse Client::changeResellerConsumeAmount(const Ch
 }
 
 /**
- * @summary Confirms the invitation initiated by the master account.
+ * @summary Confirms an invitation initiated by the main account for a linked account.
  *
- * @description 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+ * @description 1. Currently, only financial management linking is supported. The linked account needs to confirm the invitation only when the real-name verification information of the main account and the linked account is inconsistent.
+ * 2. The permissions to be confirmed must be exactly the same as the permissions specified in the invitation initiated by the main account for the confirmation to succeed.
  *
  * @param request ConfirmRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -477,9 +486,10 @@ ConfirmRelationResponse Client::confirmRelationWithOptions(const ConfirmRelation
 }
 
 /**
- * @summary Confirms the invitation initiated by the master account.
+ * @summary Confirms an invitation initiated by the main account for a linked account.
  *
- * @description 1\\. A member needs to confirm an invitation only if a financial management relationship is established between the management account and the member and enterprise names used by the management account and the member for real-name verification are different. 2. The permissions to be confirmed must be the same as those granted to the member when the management account initiates the invitation.
+ * @description 1. Currently, only financial management linking is supported. The linked account needs to confirm the invitation only when the real-name verification information of the main account and the linked account is inconsistent.
+ * 2. The permissions to be confirmed must be exactly the same as the permissions specified in the invitation initiated by the main account for the confirmation to succeed.
  *
  * @param request ConfirmRelationRequest
  * @return ConfirmRelationResponse
@@ -490,7 +500,7 @@ ConfirmRelationResponse Client::confirmRelation(const ConfirmRelationRequest &re
 }
 
 /**
- * @summary Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
+ * @summary Changes the subscription type for an instance. Currently, this operation supports converting pay-as-you-go instances of SLB, EIP, and NAT Gateway to subscription instances, and converting subscription instances of SLB and EIP to pay-as-you-go instances.
  *
  * @param request ConvertChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +551,7 @@ ConvertChargeTypeResponse Client::convertChargeTypeWithOptions(const ConvertChar
 }
 
 /**
- * @summary Changes the billing method of an instance. You can call this operation to switch the billing method from pay-as-you-go to subscription for Server Load Balancer (SLB) instances, elastic IP addresses (EIPs), and NAT gateways, and switch the billing method from subscription to pay-as-you-go for SLB instances and EIPs.
+ * @summary Changes the subscription type for an instance. Currently, this operation supports converting pay-as-you-go instances of SLB, EIP, and NAT Gateway to subscription instances, and converting subscription instances of SLB and EIP to pay-as-you-go instances.
  *
  * @param request ConvertChargeTypeRequest
  * @return ConvertChargeTypeResponse
@@ -552,9 +562,9 @@ ConvertChargeTypeResponse Client::convertChargeType(const ConvertChargeTypeReque
 }
 
 /**
- * @summary Creates an account to establish a financial relationship.
+ * @summary Creates an account linking relationship.
  *
- * @description You can call this operation to create an account so as to establish a master-member financial relationship.
+ * @description Creates a master-member relationship for financial management.
  *
  * @param request CreateAgAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -617,9 +627,9 @@ CreateAgAccountResponse Client::createAgAccountWithOptions(const CreateAgAccount
 }
 
 /**
- * @summary Creates an account to establish a financial relationship.
+ * @summary Creates an account linking relationship.
  *
- * @description You can call this operation to create an account so as to establish a master-member financial relationship.
+ * @description Creates a master-member relationship for financial management.
  *
  * @param request CreateAgAccountRequest
  * @return CreateAgAccountResponse
@@ -630,7 +640,7 @@ CreateAgAccountResponse Client::createAgAccount(const CreateAgAccountRequest &re
 }
 
 /**
- * @summary Creates a cost center. You can create multiple cost centers at a time.
+ * @summary Creates financial units. Batch creation is supported.
  *
  * @param request CreateCostUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +671,7 @@ CreateCostUnitResponse Client::createCostUnitWithOptions(const CreateCostUnitReq
 }
 
 /**
- * @summary Creates a cost center. You can create multiple cost centers at a time.
+ * @summary Creates financial units. Batch creation is supported.
  *
  * @param request CreateCostUnitRequest
  * @return CreateCostUnitResponse
@@ -672,7 +682,7 @@ CreateCostUnitResponse Client::createCostUnit(const CreateCostUnitRequest &reque
 }
 
 /**
- * @summary Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
+ * @summary Creates an instance resource. This operation creates an order for a new instance resource and completes automatic payment. ECS and RDS product series are not supported.
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +753,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates an instance. If you call this operation, an order for a new instance is created and the order is automatically paid for. You cannot create Elastic Compute Service (ECS) instances or ApsaraDB RDS instances by calling the operation.
+ * @summary Creates an instance resource. This operation creates an order for a new instance resource and completes automatic payment. ECS and RDS product series are not supported.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -754,7 +764,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+ * @summary Creates a user quota ledger and a quota consumption ledger.
  *
  * @param request CreateResellerUserQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -797,7 +807,7 @@ CreateResellerUserQuotaResponse Client::createResellerUserQuotaWithOptions(const
 }
 
 /**
- * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+ * @summary Creates a user quota ledger and a quota consumption ledger.
  *
  * @param request CreateResellerUserQuotaRequest
  * @return CreateResellerUserQuotaResponse
@@ -808,7 +818,7 @@ CreateResellerUserQuotaResponse Client::createResellerUserQuota(const CreateRese
 }
 
 /**
- * @summary Creates a resource plan.
+ * @summary 创建资源包
  *
  * @param request CreateResourcePackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +873,7 @@ CreateResourcePackageResponse Client::createResourcePackageWithOptions(const Cre
 }
 
 /**
- * @summary Creates a resource plan.
+ * @summary 创建资源包
  *
  * @param request CreateResourcePackageRequest
  * @return CreateResourcePackageResponse
@@ -874,7 +884,7 @@ CreateResourcePackageResponse Client::createResourcePackage(const CreateResource
 }
 
 /**
- * @summary Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
+ * @summary 创建节省计划实例
  *
  * @param tmpReq CreateSavingsPlansInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +965,7 @@ CreateSavingsPlansInstanceResponse Client::createSavingsPlansInstanceWithOptions
 }
 
 /**
- * @summary Creates a savings plan. After you call this operation, a savings plan is purchased and paid for.
+ * @summary 创建节省计划实例
  *
  * @param request CreateSavingsPlansInstanceRequest
  * @return CreateSavingsPlansInstanceResponse
@@ -966,7 +976,7 @@ CreateSavingsPlansInstanceResponse Client::createSavingsPlansInstance(const Crea
 }
 
 /**
- * @summary Deletes a cost center.
+ * @summary Deletes a financial unit.
  *
  * @param request DeleteCostUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1001,7 +1011,7 @@ DeleteCostUnitResponse Client::deleteCostUnitWithOptions(const DeleteCostUnitReq
 }
 
 /**
- * @summary Deletes a cost center.
+ * @summary Deletes a financial unit.
  *
  * @param request DeleteCostUnitRequest
  * @return DeleteCostUnitResponse
@@ -1012,9 +1022,9 @@ DeleteCostUnitResponse Client::deleteCostUnit(const DeleteCostUnitRequest &reque
 }
 
 /**
- * @summary Query the summary information of the user "Cost Management-Budget".
+ * @summary Queries a summary of cost budgets.
  *
- * @description This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+ * @description This OpenAPI is in beta and available only to whitelisted users. Excessive calls may cause performance issues, such as response timeouts.
  *
  * @param request DescribeCostBudgetsSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1061,9 +1071,9 @@ DescribeCostBudgetsSummaryResponse Client::describeCostBudgetsSummaryWithOptions
 }
 
 /**
- * @summary Query the summary information of the user "Cost Management-Budget".
+ * @summary Queries a summary of cost budgets.
  *
- * @description This operation is in beta testing and is only available for specific users in the whitelist. Excessive calls may result in performance issues. For example, the response times out.
+ * @description This OpenAPI is in beta and available only to whitelisted users. Excessive calls may cause performance issues, such as response timeouts.
  *
  * @param request DescribeCostBudgetsSummaryRequest
  * @return DescribeCostBudgetsSummaryResponse
@@ -1074,9 +1084,14 @@ DescribeCostBudgetsSummaryResponse Client::describeCostBudgetsSummary(const Desc
 }
 
 /**
- * @summary Queries the monthly allocated costs of instances by allocation month.
+ * @summary Queries the monthly amortized costs of instances for a specified amortization month.
  *
- * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+ * @description - Amortized costs cannot be used for settlement or reconciliation. They are used to allocate your subscription and pay-as-you-go fees based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. The reason for this delay is that scenarios such as delayed billing, refunds, bill adjustments, and overdue payment write-offs can occur during the month. The data for the current month does not include unsettled pay-as-you-go fees for which bills have not yet been generated.
+ * - Amortized cost data from the last 12 months is available.
+ * - Data for attached resources is reflected in the amortized costs 48 hours after the split bill is generated. To use this feature, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for items that are not attached resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs are not updated intra-month. They are updated only after 12:00 on the sixth day of the following month. Consequently, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for these months.
+ * - Amortized cost data is available for querying 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
  *
  * @param request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1147,9 +1162,14 @@ DescribeInstanceAmortizedCostByAmortizationPeriodResponse Client::describeInstan
 }
 
 /**
- * @summary Queries the monthly allocated costs of instances by allocation month.
+ * @summary Queries the monthly amortized costs of instances for a specified amortization month.
  *
- * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+ * @description - Amortized costs cannot be used for settlement or reconciliation. They are used to allocate your subscription and pay-as-you-go fees based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. The reason for this delay is that scenarios such as delayed billing, refunds, bill adjustments, and overdue payment write-offs can occur during the month. The data for the current month does not include unsettled pay-as-you-go fees for which bills have not yet been generated.
+ * - Amortized cost data from the last 12 months is available.
+ * - Data for attached resources is reflected in the amortized costs 48 hours after the split bill is generated. To use this feature, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for items that are not attached resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs are not updated intra-month. They are updated only after 12:00 on the sixth day of the following month. Consequently, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for these months.
+ * - Amortized cost data is available for querying 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
  *
  * @param request DescribeInstanceAmortizedCostByAmortizationPeriodRequest
  * @return DescribeInstanceAmortizedCostByAmortizationPeriodResponse
@@ -1246,7 +1266,14 @@ DescribeInstanceAmortizedCostByAmortizationPeriodDateResponse Client::describeIn
 }
 
 /**
- * @summary 实例账期月摊销成本
+ * @summary Queries the monthly amortized cost of an instance by billing cycle.
+ *
+ * @description - Amortized costs are not used for settlement or reconciliation. They are used to allocate your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. This delay accounts for events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs. Data for the current month does not include unsettled pay-as-you-go fees.
+ * - Amortized cost data is available for the past 12 months.
+ * - Data for attached resources in the amortized costs is updated 48 hours after the split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for other resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs are not updated mid-month. They are updated only after 12:00 on the sixth day of the following month. In addition, specific costs for attached resources, such as domain names, buckets, and EIPs, of products such as CDN, OSS, and Internet Shared Bandwidth, are not provided for this period.
+ * - Amortized cost data is available only after you enable the [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data becomes available 48 hours after enablement.
  *
  * @param request DescribeInstanceAmortizedCostByConsumePeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1317,7 +1344,14 @@ DescribeInstanceAmortizedCostByConsumePeriodResponse Client::describeInstanceAmo
 }
 
 /**
- * @summary 实例账期月摊销成本
+ * @summary Queries the monthly amortized cost of an instance by billing cycle.
+ *
+ * @description - Amortized costs are not used for settlement or reconciliation. They are used to allocate your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. This delay accounts for events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs. Data for the current month does not include unsettled pay-as-you-go fees.
+ * - Amortized cost data is available for the past 12 months.
+ * - Data for attached resources in the amortized costs is updated 48 hours after the split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data for other resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs are not updated mid-month. They are updated only after 12:00 on the sixth day of the following month. In addition, specific costs for attached resources, such as domain names, buckets, and EIPs, of products such as CDN, OSS, and Internet Shared Bandwidth, are not provided for this period.
+ * - Amortized cost data is available only after you enable the [Amortized Costs](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data becomes available 48 hours after enablement.
  *
  * @param request DescribeInstanceAmortizedCostByConsumePeriodRequest
  * @return DescribeInstanceAmortizedCostByConsumePeriodResponse
@@ -1328,11 +1362,15 @@ DescribeInstanceAmortizedCostByConsumePeriodResponse Client::describeInstanceAmo
 }
 
 /**
- * @summary Queries the billing information about instances or billable items in a billing cycle.
+ * @summary Queries the consumption summary of all product instances or billable items for a user within a specific billing cycle.
  *
- * @description *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
- * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
- * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
+ * @description - The query results for the current month are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be viewed or exported after 12:00 on the 3rd day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - The bill data for the current month does not include unsettled pay-as-you-go data that is unbilled or accumulating.
+ * - Data for the last 18 months is supported. 
+ * - Bill data is updated with a 24-hour delay compared to actual consumption. Information related to the instance ID, such as instance configuration, instance type, instance alias, resource group, public IP address, private IP address, and zone, is updated with a 48-hour delay.  
+ * - Bill data does not provide the specific costs of individual split items, such as domain names, buckets, and EIPs, for split-type cloud services, such as CDN, OSS, and Internet Shared Bandwidth. To view data that includes split items, go to the split bill page.
+ * - For cloud communication products, only detail data from June 2020 onwards is supported. For HiChina products, including domain names and trademarks, only detail data from November 2020 onwards is supported.
+ * - The rate limit is 10 requests per second per user. If a timeout occurs, retry the request.
  *
  * @param request DescribeInstanceBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,11 +1453,15 @@ DescribeInstanceBillResponse Client::describeInstanceBillWithOptions(const Descr
 }
 
 /**
- * @summary Queries the billing information about instances or billable items in a billing cycle.
+ * @summary Queries the consumption summary of all product instances or billable items for a user within a specific billing cycle.
  *
- * @description *   Instance bills are generated after the total bill is split. In most cases, the instance bills do not include data generated on the last day of the specified billing cycle.
- * *   The instance information may change during the billing cycle. The instance configurations and types in monthly bills are subject to the point in time when you query bills. For more information, see the corresponding bill details.
- * *   You can query data generated after June 2020 for Cloud Communications services. You can query data generated after November 2020 for Alibaba Cloud Domains.
+ * @description - The query results for the current month are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be viewed or exported after 12:00 on the 3rd day of the next month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - The bill data for the current month does not include unsettled pay-as-you-go data that is unbilled or accumulating.
+ * - Data for the last 18 months is supported. 
+ * - Bill data is updated with a 24-hour delay compared to actual consumption. Information related to the instance ID, such as instance configuration, instance type, instance alias, resource group, public IP address, private IP address, and zone, is updated with a 48-hour delay.  
+ * - Bill data does not provide the specific costs of individual split items, such as domain names, buckets, and EIPs, for split-type cloud services, such as CDN, OSS, and Internet Shared Bandwidth. To view data that includes split items, go to the split bill page.
+ * - For cloud communication products, only detail data from June 2020 onwards is supported. For HiChina products, including domain names and trademarks, only detail data from November 2020 onwards is supported.
+ * - The rate limit is 10 requests per second per user. If a timeout occurs, retry the request.
  *
  * @param request DescribeInstanceBillRequest
  * @return DescribeInstanceBillResponse
@@ -1508,7 +1550,7 @@ DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse Client::describe
 }
 
 /**
- * @summary Queries the pricing information about an Alibaba Cloud service.
+ * @summary Queries the module information of a specific Alibaba Cloud product.
  *
  * @param request DescribePricingModuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1551,7 +1593,7 @@ DescribePricingModuleResponse Client::describePricingModuleWithOptions(const Des
 }
 
 /**
- * @summary Queries the pricing information about an Alibaba Cloud service.
+ * @summary Queries the module information of a specific Alibaba Cloud product.
  *
  * @param request DescribePricingModuleRequest
  * @return DescribePricingModuleResponse
@@ -1562,9 +1604,14 @@ DescribePricingModuleResponse Client::describePricingModule(const DescribePricin
 }
 
 /**
- * @summary Queries the allocated costs of services by allocation month.
+ * @summary Queries the monthly amortized cost of products for a specified month.
  *
- * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+ * @description - Amortized costs are for cost allocation purposes only and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. Data for the current month is not final. This is because it does not include unsettled pay-as-you-go fees and may change due to events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - Amortized cost data for the past 12 months is available.
+ * - Data for attached resources, which requires you to enable [split bills](https://usercenter2.aliyun.com/finance/split-bill), is updated 48 hours after the split bill is generated. Data for other resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs were not updated during the month. They were updated only after 12:00 on the sixth day of the following month. In addition, cost details for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for this period.
+ * - Amortized cost data becomes available 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
  *
  * @param request DescribeProductAmortizedCostByAmortizationPeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1631,9 +1678,14 @@ DescribeProductAmortizedCostByAmortizationPeriodResponse Client::describeProduct
 }
 
 /**
- * @summary Queries the allocated costs of services by allocation month.
+ * @summary Queries the monthly amortized cost of products for a specified month.
  *
- * @description You can view and export the allocated costs of the current month after 10:00 on the fourth day of the next month. The allocated costs of a single allocation month may involve orders or bills in different billing cycles. If a historical allocated amount is incorrect, the historical allocated costs need to be adjusted. As a result, the allocated costs displayed for a single allocation month may be different at different time points.
+ * @description - Amortized costs are for cost allocation purposes only and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified allocation rules.
+ * - The final data for a month is available after 12:00 on the sixth day of the following month. Data for the current month is not final. This is because it does not include unsettled pay-as-you-go fees and may change due to events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - Amortized cost data for the past 12 months is available.
+ * - Data for attached resources, which requires you to enable [split bills](https://usercenter2.aliyun.com/finance/split-bill), is updated 48 hours after the split bill is generated. Data for other resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs were not updated during the month. They were updated only after 12:00 on the sixth day of the following month. In addition, cost details for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available for this period.
+ * - Amortized cost data becomes available 48 hours after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature.
  *
  * @param request DescribeProductAmortizedCostByAmortizationPeriodRequest
  * @return DescribeProductAmortizedCostByAmortizationPeriodResponse
@@ -1644,7 +1696,14 @@ DescribeProductAmortizedCostByAmortizationPeriodResponse Client::describeProduct
 }
 
 /**
- * @summary 产品账期月摊销成本
+ * @summary Queries the monthly amortized cost of a product for a specific billing cycle.
+ *
+ * @description - Amortized costs are used for cost allocation and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified rules.
+ * - The final data for a given month is available after 12:00 on the sixth day of the following month. This delay ensures that potential mid-month events, such as delayed billing, refunds, bill adjustments, and overdue payment write-offs, are included. Data for the current month does not include unsettled pay-as-you-go fees that have not yet been billed or are still accumulating.
+ * - Amortized cost data for the past 12 months is available.
+ * - Data related to attached resources is updated in the amortized costs 48 hours after the corresponding split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data that is not related to attached resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs were not updated mid-month and were only updated after 12:00 on the sixth day of the following month. Additionally, for this period, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available.
+ * - Amortized cost data is provided only after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after you enable it.
  *
  * @param request DescribeProductAmortizedCostByConsumePeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1711,7 +1770,14 @@ DescribeProductAmortizedCostByConsumePeriodResponse Client::describeProductAmort
 }
 
 /**
- * @summary 产品账期月摊销成本
+ * @summary Queries the monthly amortized cost of a product for a specific billing cycle.
+ *
+ * @description - Amortized costs are used for cost allocation and cannot be used for settlement or reconciliation. This feature allocates your cloud expenses, including both subscription and pay-as-you-go fees, based on specified rules.
+ * - The final data for a given month is available after 12:00 on the sixth day of the following month. This delay ensures that potential mid-month events, such as delayed billing, refunds, bill adjustments, and overdue payment write-offs, are included. Data for the current month does not include unsettled pay-as-you-go fees that have not yet been billed or are still accumulating.
+ * - Amortized cost data for the past 12 months is available.
+ * - Data related to attached resources is updated in the amortized costs 48 hours after the corresponding split bill is generated. To view the costs of attached resources, you must first enable [split bills](https://usercenter2.aliyun.com/finance/split-bill). Data that is not related to attached resources is updated 48 hours after the detailed bill is generated.
+ * - For months before August 2021, amortized costs were not updated mid-month and were only updated after 12:00 on the sixth day of the following month. Additionally, for this period, specific costs for attached resources, such as domain names, buckets, and EIPs, for products such as CDN, OSS, and Internet Shared Bandwidth are not available.
+ * - Amortized cost data is provided only after you enable the [Amortized Cost](https://usercenter2.aliyun.com/finance/amortized-costs) feature. The data is available 48 hours after you enable it.
  *
  * @param request DescribeProductAmortizedCostByConsumePeriodRequest
  * @return DescribeProductAmortizedCostByConsumePeriodResponse
@@ -1722,11 +1788,11 @@ DescribeProductAmortizedCostByConsumePeriodResponse Client::describeProductAmort
 }
 
 /**
- * @summary Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the coverage details of reserved instances and storage capacity units (SCUs).
  *
- * @description 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
- * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
- * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+ * @description 1. The data is consistent with the list data in the Coverage Overview section of the Resource Instance Management menu in the User Center.
+ * 2. Currently, coverage queries are supported for reserved instances (RIs) and storage capacity units (SCUs).
+ * 3. Coverage queries are provided in three dimensions: hour, day, and month.
  *
  * @param request DescribeResourceCoverageDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1781,11 +1847,11 @@ DescribeResourceCoverageDetailResponse Client::describeResourceCoverageDetailWit
 }
 
 /**
- * @summary Queries the coverage details of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the coverage details of reserved instances and storage capacity units (SCUs).
  *
- * @description 1\\. The queried coverage details are the same as those displayed in the table on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
- * 2\\. You can call this operation to query the coverage details of RIs or SCUs.
- * 3\\. You can call this operation to query coverage details at an hourly, daily, or monthly granularity.
+ * @description 1. The data is consistent with the list data in the Coverage Overview section of the Resource Instance Management menu in the User Center.
+ * 2. Currently, coverage queries are supported for reserved instances (RIs) and storage capacity units (SCUs).
+ * 3. Coverage queries are provided in three dimensions: hour, day, and month.
  *
  * @param request DescribeResourceCoverageDetailRequest
  * @return DescribeResourceCoverageDetailResponse
@@ -1796,10 +1862,10 @@ DescribeResourceCoverageDetailResponse Client::describeResourceCoverageDetail(co
 }
 
 /**
- * @summary Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the coverage summary of reserved instances and storage capacity units (SCUs).
  *
- * @description The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
- * You can call this operation to query the total coverage data of RIs or SCUs.
+ * @description Returns the same summary data as the Coverage Overview in the Resource Instance Management menu of the User Center.
+ * Currently, coverage queries are supported for two resource types: reserved instances (RIs) and storage capacity units (SCUs).
  *
  * @param request DescribeResourceCoverageTotalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1846,10 +1912,10 @@ DescribeResourceCoverageTotalResponse Client::describeResourceCoverageTotalWithO
 }
 
 /**
- * @summary Queries the total coverage data of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the coverage summary of reserved instances and storage capacity units (SCUs).
  *
- * @description The queried total coverage data is the same as the aggregated data displayed on the Coverage tab of the Manage Reserved Instances page in the Billing Management console.
- * You can call this operation to query the total coverage data of RIs or SCUs.
+ * @description Returns the same summary data as the Coverage Overview in the Resource Instance Management menu of the User Center.
+ * Currently, coverage queries are supported for two resource types: reserved instances (RIs) and storage capacity units (SCUs).
  *
  * @param request DescribeResourceCoverageTotalRequest
  * @return DescribeResourceCoverageTotalResponse
@@ -1902,7 +1968,7 @@ DescribeResourcePackageProductResponse Client::describeResourcePackageProduct(co
 }
 
 /**
- * @summary Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the usage details of reserved instances and storage capacity units (SCUs).
  *
  * @param request DescribeResourceUsageDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1957,7 +2023,7 @@ DescribeResourceUsageDetailResponse Client::describeResourceUsageDetailWithOptio
 }
 
 /**
- * @summary Queries the usage details of reserved instances (RIs) or storage capacity units (SCUs).
+ * @summary Queries the usage details of reserved instances and storage capacity units (SCUs).
  *
  * @param request DescribeResourceUsageDetailRequest
  * @return DescribeResourceUsageDetailResponse
@@ -1968,7 +2034,7 @@ DescribeResourceUsageDetailResponse Client::describeResourceUsageDetail(const De
 }
 
 /**
- * @summary Queries the total usage data of reserved instances or storage capacity units (SCUs).
+ * @summary Queries the usage summary of reserved instances and storage capacity units (SCUs).
  *
  * @param request DescribeResourceUsageTotalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2015,7 +2081,7 @@ DescribeResourceUsageTotalResponse Client::describeResourceUsageTotalWithOptions
 }
 
 /**
- * @summary Queries the total usage data of reserved instances or storage capacity units (SCUs).
+ * @summary Queries the usage summary of reserved instances and storage capacity units (SCUs).
  *
  * @param request DescribeResourceUsageTotalRequest
  * @return DescribeResourceUsageTotalResponse
@@ -2098,7 +2164,7 @@ DescribeSavingsPlansCoverageDetailResponse Client::describeSavingsPlansCoverageD
 }
 
 /**
- * @summary Queries the coverage summary of savings plans.
+ * @summary Queries the summary of savings plan coverage.
  *
  * @param tmpReq DescribeSavingsPlansCoverageTotalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2151,7 +2217,7 @@ DescribeSavingsPlansCoverageTotalResponse Client::describeSavingsPlansCoverageTo
 }
 
 /**
- * @summary Queries the coverage summary of savings plans.
+ * @summary Queries the summary of savings plan coverage.
  *
  * @param request DescribeSavingsPlansCoverageTotalRequest
  * @return DescribeSavingsPlansCoverageTotalResponse
@@ -2300,9 +2366,11 @@ DescribeSavingsPlansUsageTotalResponse Client::describeSavingsPlansUsageTotal(co
 /**
  * @summary Queries split bills.
  *
- * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
- * *   You can query split bills that were generated within the last 12 months by calling this operation.
- * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
+ * @description - The query results for the current month\\"s split bills are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be queried after 12:00 on the 4th day of the next month. The split bill data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+ * - Split bill data is available for the last 12 months.
+ * - Split bill data is updated with a 48-hour delay compared to actual expenses. For split cloud services (such as CDN, OSS, and Internet Shared Bandwidth), the specific expenses for each attached resource (such as domain names, buckets, and EIPs) are updated with a 72-hour delay.
+ * - Split bill data is available only after you enable the feature on the <props="china">[Split Bill](https://usercenter2.aliyun.com/finance/split-bill)<props="intl">[Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) page in the console. The data becomes available 24 hours after you enable the feature.
+ * - The rate limit is 10 requests per second per user. If a timeout occurs, retry the request.
  *
  * @param request DescribeSplitItemBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2391,9 +2459,11 @@ DescribeSplitItemBillResponse Client::describeSplitItemBillWithOptions(const Des
 /**
  * @summary Queries split bills.
  *
- * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
- * *   You can query split bills that were generated within the last 12 months by calling this operation.
- * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
+ * @description - The query results for the current month\\"s split bills are for reference only and cannot be used as the basis for reconciliation. The final bill for the current month can be queried after 12:00 on the 4th day of the next month. The split bill data for the current month does not include unsettled pay-as-you-go data (unbilled or being accumulated).
+ * - Split bill data is available for the last 12 months.
+ * - Split bill data is updated with a 48-hour delay compared to actual expenses. For split cloud services (such as CDN, OSS, and Internet Shared Bandwidth), the specific expenses for each attached resource (such as domain names, buckets, and EIPs) are updated with a 72-hour delay.
+ * - Split bill data is available only after you enable the feature on the <props="china">[Split Bill](https://usercenter2.aliyun.com/finance/split-bill)<props="intl">[Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) page in the console. The data becomes available 24 hours after you enable the feature.
+ * - The rate limit is 10 requests per second per user. If a timeout occurs, retry the request.
  *
  * @param request DescribeSplitItemBillRequest
  * @return DescribeSplitItemBillResponse
@@ -2404,7 +2474,7 @@ DescribeSplitItemBillResponse Client::describeSplitItemBill(const DescribeSplitI
 }
 
 /**
- * @summary Queries the details of a financial relationship.
+ * @summary Queries the details of an account linking.
  *
  * @param request GetAccountRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2501,7 @@ GetAccountRelationResponse Client::getAccountRelationWithOptions(const GetAccoun
 }
 
 /**
- * @summary Queries the details of a financial relationship.
+ * @summary Queries the details of an account linking.
  *
  * @param request GetAccountRelationRequest
  * @return GetAccountRelationResponse
@@ -2442,7 +2512,7 @@ GetAccountRelationResponse Client::getAccountRelation(const GetAccountRelationRe
 }
 
 /**
- * @summary Queries the account information about a customer of a virtual network operator (VNO).
+ * @summary Queries the account information of an end customer under a partner.
  *
  * @param request GetCustomerAccountInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2473,7 +2543,7 @@ GetCustomerAccountInfoResponse Client::getCustomerAccountInfoWithOptions(const G
 }
 
 /**
- * @summary Queries the account information about a customer of a virtual network operator (VNO).
+ * @summary Queries the account information of an end customer under a partner.
  *
  * @param request GetCustomerAccountInfoRequest
  * @return GetCustomerAccountInfoResponse
@@ -2484,11 +2554,10 @@ GetCustomerAccountInfoResponse Client::getCustomerAccountInfo(const GetCustomerA
 }
 
 /**
- * @summary Queries the IDs of customers of a virtual network operator (VNO).
+ * @summary Queries the list of end customer UIDs under a partner.
  *
- * @description The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+ * @description The system queries the list of associated end customer UIDs based on the AccessKey pair in the request.
  *
- * @param request GetCustomerListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCustomerListResponse
  */
@@ -2509,9 +2578,9 @@ GetCustomerListResponse Client::getCustomerListWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary Queries the IDs of customers of a virtual network operator (VNO).
+ * @summary Queries the list of end customer UIDs under a partner.
  *
- * @description The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
+ * @description The system queries the list of associated end customer UIDs based on the AccessKey pair in the request.
  *
  * @return GetCustomerListResponse
  */
@@ -2521,7 +2590,7 @@ GetCustomerListResponse Client::getCustomerList() {
 }
 
 /**
- * @summary Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
+ * @summary Queries the details of a specific order for a user or a distribution customer.
  *
  * @param request GetOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2556,7 +2625,7 @@ GetOrderDetailResponse Client::getOrderDetailWithOptions(const GetOrderDetailReq
 }
 
 /**
- * @summary Queries the details of an order that belongs to your Alibaba Cloud account or distributors.
+ * @summary Queries the details of a specific order for a user or a distribution customer.
  *
  * @param request GetOrderDetailRequest
  * @return GetOrderDetailResponse
@@ -2567,12 +2636,12 @@ GetOrderDetailResponse Client::getOrderDetail(const GetOrderDetailRequest &reque
 }
 
 /**
- * @summary Queries the pay-as-you-go price of an Alibaba Cloud service.
+ * @summary Queries the price of a pay-as-you-go product.
  *
- * @description ### Usage notes
- * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
- * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
- * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
+ * @description ### Operation description
+ * 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
+ * 2. Call the DescribePricingModule operation to obtain the configuration parameters of a product. For more information, see [Query pricing module information](https://help.aliyun.com/document_detail/96469.html).
+ * 3. Call this operation with the obtained product configuration parameters to query the price of a pay-as-you-go product.
  *
  * @param request GetPayAsYouGoPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2623,12 +2692,12 @@ GetPayAsYouGoPriceResponse Client::getPayAsYouGoPriceWithOptions(const GetPayAsY
 }
 
 /**
- * @summary Queries the pay-as-you-go price of an Alibaba Cloud service.
+ * @summary Queries the price of a pay-as-you-go product.
  *
- * @description ### Usage notes
- * 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
- * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
- * 3.  Call the GetPayAsYouGoPrice operation to obtain the pay-as-you-go price of the service based on the returned configuration parameters.
+ * @description ### Operation description
+ * 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
+ * 2. Call the DescribePricingModule operation to obtain the configuration parameters of a product. For more information, see [Query pricing module information](https://help.aliyun.com/document_detail/96469.html).
+ * 3. Call this operation with the obtained product configuration parameters to query the price of a pay-as-you-go product.
  *
  * @param request GetPayAsYouGoPriceRequest
  * @return GetPayAsYouGoPriceResponse
@@ -2713,11 +2782,12 @@ GetResourcePackagePriceResponse Client::getResourcePackagePrice(const GetResourc
 }
 
 /**
- * @summary Queries the subscription price of an Alibaba Cloud service.
+ * @summary Queries the prices of subscription products.
  *
- * @description 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
- * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
- * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
+ * @description 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
+ * 2. Call the DescribePricingModule operation to obtain the configuration parameters of the product. For more information, see [Query product module information](https://help.aliyun.com/document_detail/96469.html).
+ * 3. Call this operation to query the prices of subscription products based on the obtained product configuration parameters.
+ * 4. Concatenate the Config parameter under ModuleList based on the config parameter returned by the DescribePricingModule operation. Do not omit any parameters. Otherwise, an error occurs during the price inquiry.
  *
  * @param request GetSubscriptionPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2788,11 +2858,12 @@ GetSubscriptionPriceResponse Client::getSubscriptionPriceWithOptions(const GetSu
 }
 
 /**
- * @summary Queries the subscription price of an Alibaba Cloud service.
+ * @summary Queries the prices of subscription products.
  *
- * @description 1.  Call the QueryProductList operation to obtain the code of the service. For more information, see [QueryProductList](https://help.aliyun.com/document_detail/95984.html).
- * 2.  Call the DescribePricingModule operation to obtain the configuration parameters of the service. For more information, see [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html).
- * 3.  Call the GetSubscriptionPrice operation to obtain the pricing of the service based on the returned configuration parameters.
+ * @description 1. Call QueryProductList to obtain the product code. For more information, see [Query product information](https://help.aliyun.com/document_detail/95984.html).
+ * 2. Call the DescribePricingModule operation to obtain the configuration parameters of the product. For more information, see [Query product module information](https://help.aliyun.com/document_detail/96469.html).
+ * 3. Call this operation to query the prices of subscription products based on the obtained product configuration parameters.
+ * 4. Concatenate the Config parameter under ModuleList based on the config parameter returned by the DescribePricingModule operation. Do not omit any parameters. Otherwise, an error occurs during the price inquiry.
  *
  * @param request GetSubscriptionPriceRequest
  * @return GetSubscriptionPriceResponse
@@ -2803,11 +2874,11 @@ GetSubscriptionPriceResponse Client::getSubscriptionPrice(const GetSubscriptionP
 }
 
 /**
- * @summary Queries the refundable amount for an instance from which you want to unsubscribe.
+ * @summary Queries the refund amount for an instance that you want to unsubscribe from.
  *
- * @description 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
- * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
- * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/user-guide/refund-rules).
+ * @description 1. **Carefully verify the information about the resource to be unsubscribed, and confirm the unsubscription terms and refund amount. Resources cannot be recovered after unsubscription.**
+ * 2. Only the actual paid amount is refunded. Used vouchers are not refunded.
+ * 3. For other questions, refer to: <props="china">[Refund rules](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM)<props="intl">[Refund rules for Alibaba Cloud International Website](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules)
  *
  * @param request InquiryPriceRefundInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2850,11 +2921,11 @@ InquiryPriceRefundInstanceResponse Client::inquiryPriceRefundInstanceWithOptions
 }
 
 /**
- * @summary Queries the refundable amount for an instance from which you want to unsubscribe.
+ * @summary Queries the refund amount for an instance that you want to unsubscribe from.
  *
- * @description 1.  **Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.**
- * 2.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
- * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/user-guide/refund-rules).
+ * @description 1. **Carefully verify the information about the resource to be unsubscribed, and confirm the unsubscription terms and refund amount. Resources cannot be recovered after unsubscription.**
+ * 2. Only the actual paid amount is refunded. Used vouchers are not refunded.
+ * 3. For other questions, refer to: <props="china">[Refund rules](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM)<props="intl">[Refund rules for Alibaba Cloud International Website](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules)
  *
  * @param request InquiryPriceRefundInstanceRequest
  * @return InquiryPriceRefundInstanceResponse
@@ -2865,7 +2936,7 @@ InquiryPriceRefundInstanceResponse Client::inquiryPriceRefundInstance(const Inqu
 }
 
 /**
- * @summary Adds or removes permissions granted to a member in a financial relationship.
+ * @summary Adds or deletes permissions for an account linking relationship.
  *
  * @param request ModifyAccountRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2928,7 +2999,7 @@ ModifyAccountRelationResponse Client::modifyAccountRelationWithOptions(const Mod
 }
 
 /**
- * @summary Adds or removes permissions granted to a member in a financial relationship.
+ * @summary Adds or deletes permissions for an account linking relationship.
  *
  * @param request ModifyAccountRelationRequest
  * @return ModifyAccountRelationResponse
@@ -2939,7 +3010,7 @@ ModifyAccountRelationResponse Client::modifyAccountRelation(const ModifyAccountR
 }
 
 /**
- * @summary Modifies one or more cost centers.
+ * @summary Modifies financial units. Batch modification is supported.
  *
  * @param request ModifyCostUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2970,7 +3041,7 @@ ModifyCostUnitResponse Client::modifyCostUnitWithOptions(const ModifyCostUnitReq
 }
 
 /**
- * @summary Modifies one or more cost centers.
+ * @summary Modifies financial units. Batch modification is supported.
  *
  * @param request ModifyCostUnitRequest
  * @return ModifyCostUnitResponse
@@ -2981,7 +3052,7 @@ ModifyCostUnitResponse Client::modifyCostUnit(const ModifyCostUnitRequest &reque
 }
 
 /**
- * @summary Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
+ * @summary Modifies the resource configuration of an instance. Invoking this operation creates an order for the Upgrade/Downgrade of instance resources and processes automatic payment. This operation does not support configuration changes for ECS or RDS products. Use the dedicated API of the corresponding product to execute the Upgrade/Downgrade.
  *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3040,7 +3111,7 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
- * @summary Modifies the configurations of an instance. When you call this operation, the system generates a modification order and automatically completes the payment. You cannot call this operation to modify the configurations of an Elastic Compute Service (ECS) instance or ApsaraDB RDS instance. To modify the configurations of an ECS or ApsaraDB RDS instance, call the dedicated operation of the corresponding service.
+ * @summary Modifies the resource configuration of an instance. Invoking this operation creates an order for the Upgrade/Downgrade of instance resources and processes automatic payment. This operation does not support configuration changes for ECS or RDS products. Use the dedicated API of the corresponding product to execute the Upgrade/Downgrade.
  *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
@@ -3117,9 +3188,8 @@ PayOrderResponse Client::payOrder(const PayOrderRequest &request) {
 }
 
 /**
- * @summary Queries the balance of your account.
+ * @summary Queries the user\\"s account balance.
  *
- * @param request QueryAccountBalanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryAccountBalanceResponse
  */
@@ -3140,7 +3210,7 @@ QueryAccountBalanceResponse Client::queryAccountBalanceWithOptions(const Darabon
 }
 
 /**
- * @summary Queries the balance of your account.
+ * @summary Queries the user\\"s account balance.
  *
  * @return QueryAccountBalanceResponse
  */
@@ -3150,11 +3220,14 @@ QueryAccountBalanceResponse Client::queryAccountBalance() {
 }
 
 /**
- * @summary Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
+ * @summary Queries account spending within a billing cycle and aggregates the data by resource owner.
  *
- * @description Before you call this operation, take note of the following items:
- * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
- * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
+ * @description - Data for the current month is for reference only. Do not use it for reconciliation. The final bill for the current month is available to view or export after 12:00 on the third day of the next month. This delay accounts for mid-month events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - Data from the last 18 months is available.
+ * - Billing data is updated 24 hours after actual resource consumption. Information related to instance IDs, such as instance configurations, instance types, instance nicknames, resource groups, public IP addresses, private IP addresses, and zones, is updated with a 48-hour delay.
+ * - Billing data does not include the costs of attached resources, such as domain names, buckets, and elastic IP addresses (EIPs), for products such as CDN, OSS, and Internet Shared Bandwidth. To view statistics that include data for attached resources, go to Split Bill.
+ * - For Alibaba Cloud Communications products, detailed data is available only from June 2020 onwards. For HiChina products, such as Domain Names and trademarks, detailed data is available only from November 2020 onwards.
+ * - Each account is limited to 10 queries per second. If a timeout occurs, retry the request.
  *
  * @param request QueryAccountBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3217,11 +3290,14 @@ QueryAccountBillResponse Client::queryAccountBillWithOptions(const QueryAccountB
 }
 
 /**
- * @summary Queries the bills of your Alibaba Cloud account within a billing cycle. You can summarize the bills by resource owner.
+ * @summary Queries account spending within a billing cycle and aggregates the data by resource owner.
  *
- * @description Before you call this operation, take note of the following items:
- * *   Account bills are summarized based on instance bills. In most cases, the account bills do not include the data generated on the last day of the specified period.
- * *   You can query the data generated in June 2020 or later for Cloud Communications services. However, the query results do not include the data of Alibaba Cloud Domains.
+ * @description - Data for the current month is for reference only. Do not use it for reconciliation. The final bill for the current month is available to view or export after 12:00 on the third day of the next month. This delay accounts for mid-month events such as delayed billing, refunds, bill adjustments, and overdue payment write-offs.
+ * - Data from the last 18 months is available.
+ * - Billing data is updated 24 hours after actual resource consumption. Information related to instance IDs, such as instance configurations, instance types, instance nicknames, resource groups, public IP addresses, private IP addresses, and zones, is updated with a 48-hour delay.
+ * - Billing data does not include the costs of attached resources, such as domain names, buckets, and elastic IP addresses (EIPs), for products such as CDN, OSS, and Internet Shared Bandwidth. To view statistics that include data for attached resources, go to Split Bill.
+ * - For Alibaba Cloud Communications products, detailed data is available only from June 2020 onwards. For HiChina products, such as Domain Names and trademarks, detailed data is available only from November 2020 onwards.
+ * - Each account is limited to 10 queries per second. If a timeout occurs, retry the request.
  *
  * @param request QueryAccountBillRequest
  * @return QueryAccountBillResponse
@@ -3232,7 +3308,7 @@ QueryAccountBillResponse Client::queryAccountBill(const QueryAccountBillRequest 
 }
 
 /**
- * @summary Queries the details of transactions within your account.
+ * @summary Queries the income and expenditure details of account transactions.
  *
  * @param request QueryAccountTransactionDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3295,7 +3371,7 @@ QueryAccountTransactionDetailsResponse Client::queryAccountTransactionDetailsWit
 }
 
 /**
- * @summary Queries the details of transactions within your account.
+ * @summary Queries the income and expenditure details of account transactions.
  *
  * @param request QueryAccountTransactionDetailsRequest
  * @return QueryAccountTransactionDetailsResponse
@@ -3306,7 +3382,7 @@ QueryAccountTransactionDetailsResponse Client::queryAccountTransactionDetails(co
 }
 
 /**
- * @summary Queries transactions within your Alibaba Cloud account.
+ * @summary Queries the transaction records of a user account.
  *
  * @param request QueryAccountTransactionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3449,7 @@ QueryAccountTransactionsResponse Client::queryAccountTransactionsWithOptions(con
 }
 
 /**
- * @summary Queries transactions within your Alibaba Cloud account.
+ * @summary Queries the transaction records of a user account.
  *
  * @param request QueryAccountTransactionsRequest
  * @return QueryAccountTransactionsResponse
@@ -3384,7 +3460,7 @@ QueryAccountTransactionsResponse Client::queryAccountTransactions(const QueryAcc
 }
 
 /**
- * @summary Queries available instances.
+ * @summary Queries the list of available instances for the user.
  *
  * @param request QueryAvailableInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3463,7 +3539,7 @@ QueryAvailableInstancesResponse Client::queryAvailableInstancesWithOptions(const
 }
 
 /**
- * @summary Queries available instances.
+ * @summary Queries the list of available instances for the user.
  *
  * @param request QueryAvailableInstancesRequest
  * @return QueryAvailableInstancesResponse
@@ -3474,7 +3550,7 @@ QueryAvailableInstancesResponse Client::queryAvailableInstances(const QueryAvail
 }
 
 /**
- * @summary Queries the bills in a billing cycle.
+ * @summary Queries the settlement bills of a user within a specific billing cycle.
  *
  * @param request QueryBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3545,7 +3621,7 @@ QueryBillResponse Client::queryBillWithOptions(const QueryBillRequest &request, 
 }
 
 /**
- * @summary Queries the bills in a billing cycle.
+ * @summary Queries the settlement bills of a user within a specific billing cycle.
  *
  * @param request QueryBillRequest
  * @return QueryBillResponse
@@ -3556,7 +3632,7 @@ QueryBillResponse Client::queryBill(const QueryBillRequest &request) {
 }
 
 /**
- * @summary Queries the bill overview information in a billing cycle.
+ * @summary Queries the bill overview of a user for a specific billing cycle.
  *
  * @param request QueryBillOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3603,7 +3679,7 @@ QueryBillOverviewResponse Client::queryBillOverviewWithOptions(const QueryBillOv
 }
 
 /**
- * @summary Queries the bill overview information in a billing cycle.
+ * @summary Queries the bill overview of a user for a specific billing cycle.
  *
  * @param request QueryBillOverviewRequest
  * @return QueryBillOverviewResponse
@@ -3614,9 +3690,8 @@ QueryBillOverviewResponse Client::queryBillOverview(const QueryBillOverviewReque
 }
 
 /**
- * @summary Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
+ * @summary Queries the records of bill subscriptions to OSS buckets.
  *
- * @param request QueryBillToOSSSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryBillToOSSSubscriptionResponse
  */
@@ -3637,7 +3712,7 @@ QueryBillToOSSSubscriptionResponse Client::queryBillToOSSSubscriptionWithOptions
 }
 
 /**
- * @summary Queries the subscribed bills that are stored in Object Storage Service (OSS) bucket.
+ * @summary Queries the records of bill subscriptions to OSS buckets.
  *
  * @return QueryBillToOSSSubscriptionResponse
  */
@@ -3647,7 +3722,7 @@ QueryBillToOSSSubscriptionResponse Client::queryBillToOSSSubscription() {
 }
 
 /**
- * @summary Queries the information about vouchers.
+ * @summary Queries user voucher information.
  *
  * @param request QueryCashCouponsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3686,7 +3761,7 @@ QueryCashCouponsResponse Client::queryCashCouponsWithOptions(const QueryCashCoup
 }
 
 /**
- * @summary Queries the information about vouchers.
+ * @summary Queries user voucher information.
  *
  * @param request QueryCashCouponsRequest
  * @return QueryCashCouponsResponse
@@ -3697,9 +3772,9 @@ QueryCashCouponsResponse Client::queryCashCoupons(const QueryCashCouponsRequest 
 }
 
 /**
- * @summary Queries the information about a service based on the service code.
+ * @summary Retrieves a list of commodity information based on a product code.
  *
- * @description You can call this operation to query the information about a service based on the service code.
+ * @description Retrieves a list of commodity information based on a product code.
  *
  * @param request QueryCommodityListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3726,9 +3801,9 @@ QueryCommodityListResponse Client::queryCommodityListWithOptions(const QueryComm
 }
 
 /**
- * @summary Queries the information about a service based on the service code.
+ * @summary Retrieves a list of commodity information based on a product code.
  *
- * @description You can call this operation to query the information about a service based on the service code.
+ * @description Retrieves a list of commodity information based on a product code.
  *
  * @param request QueryCommodityListRequest
  * @return QueryCommodityListResponse
@@ -3739,7 +3814,7 @@ QueryCommodityListResponse Client::queryCommodityList(const QueryCommodityListRe
 }
 
 /**
- * @summary Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
+ * @summary Queries all financial unit nodes under the current node of the financial unit tree. If ParentUnitId is set to -1, all financial units are queried.
  *
  * @param request QueryCostUnitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3782,7 +3857,7 @@ QueryCostUnitResponse Client::queryCostUnitWithOptions(const QueryCostUnitReques
 }
 
 /**
- * @summary Queries all cost centers within the current node of the cost center tree. If the ParentUnitId parameter is set to -1, all cost centers are queried.
+ * @summary Queries all financial unit nodes under the current node of the financial unit tree. If ParentUnitId is set to -1, all financial units are queried.
  *
  * @param request QueryCostUnitRequest
  * @return QueryCostUnitResponse
@@ -3793,7 +3868,7 @@ QueryCostUnitResponse Client::queryCostUnit(const QueryCostUnitRequest &request)
 }
 
 /**
- * @summary Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
+ * @summary Queries the list of resource instances that belong to a financial unit of a user. When UnitId is set to 0, the query returns unallocated primary and sub-resource instances.
  *
  * @param request QueryCostUnitResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3836,7 +3911,7 @@ QueryCostUnitResourceResponse Client::queryCostUnitResourceWithOptions(const Que
 }
 
 /**
- * @summary Queries the resource instances that are allocated to a cost center. If the unitId parameter is set to 0, the unallocated primary resource instances and sub-resource instances are queried.
+ * @summary Queries the list of resource instances that belong to a financial unit of a user. When UnitId is set to 0, the query returns unallocated primary and sub-resource instances.
  *
  * @param request QueryCostUnitResourceRequest
  * @return QueryCostUnitResourceResponse
@@ -3847,7 +3922,7 @@ QueryCostUnitResourceResponse Client::queryCostUnitResource(const QueryCostUnitR
 }
 
 /**
- * @summary Queries the addresses to which invoices are mailed.
+ * @summary Queries the Alibaba Cloud invoice mailing address information service.
  *
  * @param request QueryCustomerAddressListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3878,7 +3953,7 @@ QueryCustomerAddressListResponse Client::queryCustomerAddressListWithOptions(con
 }
 
 /**
- * @summary Queries the addresses to which invoices are mailed.
+ * @summary Queries the Alibaba Cloud invoice mailing address information service.
  *
  * @param request QueryCustomerAddressListRequest
  * @return QueryCustomerAddressListResponse
@@ -3892,7 +3967,7 @@ QueryCustomerAddressListResponse Client::queryCustomerAddressList(const QueryCus
  * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
  *
  * @description Limits:
- * *   Only the usage records within the past year can be queried.
+ * - Only usage records from the past year are supported.
  *
  * @param request QueryDPUtilizationDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3962,7 +4037,7 @@ QueryDPUtilizationDetailResponse Client::queryDPUtilizationDetailWithOptions(con
  * @summary Queries the usage of resource plans, including reserved instances (RIs) and storage capacity units (SCUs).
  *
  * @description Limits:
- * *   Only the usage records within the past year can be queried.
+ * - Only usage records from the past year are supported.
  *
  * @param request QueryDPUtilizationDetailRequest
  * @return QueryDPUtilizationDetailResponse
@@ -3973,7 +4048,7 @@ QueryDPUtilizationDetailResponse Client::queryDPUtilizationDetail(const QueryDPU
 }
 
 /**
- * @summary Queries the information about the orders for which you want to apply for invoices.
+ * @summary Queries a list of objects that are eligible for invoicing.
  *
  * @param request QueryEvaluateListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4056,7 +4131,7 @@ QueryEvaluateListResponse Client::queryEvaluateListWithOptions(const QueryEvalua
 }
 
 /**
- * @summary Queries the information about the orders for which you want to apply for invoices.
+ * @summary Queries a list of objects that are eligible for invoicing.
  *
  * @param request QueryEvaluateListRequest
  * @return QueryEvaluateListResponse
@@ -4067,7 +4142,7 @@ QueryEvaluateListResponse Client::queryEvaluateList(const QueryEvaluateListReque
 }
 
 /**
- * @summary Queries the information about a financial account.
+ * @summary Queries the enterprise financial account information of an account that has primary-subsidiary relationship permissions.
  *
  * @param request QueryFinancialAccountInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4098,7 +4173,7 @@ QueryFinancialAccountInfoResponse Client::queryFinancialAccountInfoWithOptions(c
 }
 
 /**
- * @summary Queries the information about a financial account.
+ * @summary Queries the enterprise financial account information of an account that has primary-subsidiary relationship permissions.
  *
  * @param request QueryFinancialAccountInfoRequest
  * @return QueryFinancialAccountInfoResponse
@@ -4109,13 +4184,16 @@ QueryFinancialAccountInfoResponse Client::queryFinancialAccountInfo(const QueryF
 }
 
 /**
- * @summary Queries the bills of instances or billable items in a billing cycle.
+ * @summary Queries the usage summary of all product instances or billable items for an account in a billing cycle. This operation has been upgraded to DescribeInstanceBill. This operation no longer queries data beyond the 50,000th row.
  *
- * @description ##
- * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
- * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
- * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
- * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
+ * @description ## API description
+ * Note the following when you call this operation:
+ * - The API for instance bills has been upgraded. We recommend that you use the new operation [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html). This operation no longer supports querying data beyond the 50,000th row.
+ * - Instance bills are generated based on split billing data. A delay of about one day may occur.
+ * - Instance information may change within a billing cycle. The instance Config and Spec in the monthly summary reflect the information at the time the record was generated. For more information, see the corresponding detailed bill.
+ * - Data for Alibaba Cloud Communications products is available from June 2020. Data for HiChina products is available from November 2020.
+ * <props="intl">
+ * - For the international site (alibabacloud.com), select Singapore as the endpoint.
  *
  * @param request QueryInstanceBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4190,13 +4268,16 @@ QueryInstanceBillResponse Client::queryInstanceBillWithOptions(const QueryInstan
 }
 
 /**
- * @summary Queries the bills of instances or billable items in a billing cycle.
+ * @summary Queries the usage summary of all product instances or billable items for an account in a billing cycle. This operation has been upgraded to DescribeInstanceBill. This operation no longer queries data beyond the 50,000th row.
  *
- * @description ##
- * *   This API operation has been upgraded to DescribeInstanceBill. We recommend that you call the [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html) operation to query the bills of instances or billable items in a billing cycle. You can call the QueryInstanceBill operation to query a maximum of 50,000 data rows in a bill.
- * *   Instance bills are generated after bills are split. In most cases, the instance bills do not include data generated on the last day of the specified period.
- * *   The instance information changes within a billing cycle. The instance configurations and specifications and the time when the instance was used in the billing cycle are all recorded. For more information, see the corresponding bill details.
- * *   You can query the data generated in June 2020 or later for Cloud Communications services, and the data generated in November 2020 or later for Alibaba Cloud Domains.
+ * @description ## API description
+ * Note the following when you call this operation:
+ * - The API for instance bills has been upgraded. We recommend that you use the new operation [DescribeInstanceBill](https://help.aliyun.com/document_detail/209402.html). This operation no longer supports querying data beyond the 50,000th row.
+ * - Instance bills are generated based on split billing data. A delay of about one day may occur.
+ * - Instance information may change within a billing cycle. The instance Config and Spec in the monthly summary reflect the information at the time the record was generated. For more information, see the corresponding detailed bill.
+ * - Data for Alibaba Cloud Communications products is available from June 2020. Data for HiChina products is available from November 2020.
+ * <props="intl">
+ * - For the international site (alibabacloud.com), select Singapore as the endpoint.
  *
  * @param request QueryInstanceBillRequest
  * @return QueryInstanceBillResponse
@@ -4207,7 +4288,7 @@ QueryInstanceBillResponse Client::queryInstanceBill(const QueryInstanceBillReque
 }
 
 /**
- * @summary Queries instances by tag.
+ * @summary Queries a list of instances by tags.
  *
  * @param request QueryInstanceByTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4246,7 +4327,7 @@ QueryInstanceByTagResponse Client::queryInstanceByTagWithOptions(const QueryInst
 }
 
 /**
- * @summary Queries instances by tag.
+ * @summary Queries a list of instances by tags.
  *
  * @param request QueryInstanceByTagRequest
  * @return QueryInstanceByTagResponse
@@ -4257,7 +4338,7 @@ QueryInstanceByTagResponse Client::queryInstanceByTag(const QueryInstanceByTagRe
 }
 
 /**
- * @summary The code of the service.
+ * @summary This API is deprecated. Use the following APIs to retrieve the amortized cost: `DescribeInstanceAmortizedCostByAmortizationPeriod` - retrieves instance costs by amortization period; `DescribeProductAmortizedCostByAmortizationPeriod` - retrieves product costs by amortization period; `DescribeInstanceAmortizedCostByConsumePeriod` - retrieves instance costs by consume period; `DescribeProductAmortizedCostByConsumePeriod` - retrieves product costs by consume period.
  *
  * @param request QueryInstanceGaapCostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4308,7 +4389,7 @@ QueryInstanceGaapCostResponse Client::queryInstanceGaapCostWithOptions(const Que
 }
 
 /**
- * @summary The code of the service.
+ * @summary This API is deprecated. Use the following APIs to retrieve the amortized cost: `DescribeInstanceAmortizedCostByAmortizationPeriod` - retrieves instance costs by amortization period; `DescribeProductAmortizedCostByAmortizationPeriod` - retrieves product costs by amortization period; `DescribeInstanceAmortizedCostByConsumePeriod` - retrieves instance costs by consume period; `DescribeProductAmortizedCostByConsumePeriod` - retrieves product costs by consume period.
  *
  * @param request QueryInstanceGaapCostRequest
  * @return QueryInstanceGaapCostResponse
@@ -4319,7 +4400,7 @@ QueryInstanceGaapCostResponse Client::queryInstanceGaapCost(const QueryInstanceG
 }
 
 /**
- * @summary Queries the information about invoice titles.
+ * @summary Queries the invoicing information of an Alibaba Cloud user.
  *
  * @param request QueryInvoicingCustomerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4350,7 +4431,7 @@ QueryInvoicingCustomerListResponse Client::queryInvoicingCustomerListWithOptions
 }
 
 /**
- * @summary Queries the information about invoice titles.
+ * @summary Queries the invoicing information of an Alibaba Cloud user.
  *
  * @param request QueryInvoicingCustomerListRequest
  * @return QueryInvoicingCustomerListResponse
@@ -4361,7 +4442,7 @@ QueryInvoicingCustomerListResponse Client::queryInvoicingCustomerList(const Quer
 }
 
 /**
- * @summary Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the orders of users or distribution customers. By default, this operation queries orders created within the last hour. To query orders over a longer period, specify the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request QueryOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4428,7 +4509,7 @@ QueryOrdersResponse Client::queryOrdersWithOptions(const QueryOrdersRequest &req
 }
 
 /**
- * @summary Queries the orders of your Alibaba Cloud account or distributors. By default, orders within the last hour are queried. To query earlier orders, specify the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the orders of users or distribution customers. By default, this operation queries orders created within the last hour. To query orders over a longer period, specify the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request QueryOrdersRequest
  * @return QueryOrdersResponse
@@ -4439,7 +4520,7 @@ QueryOrdersResponse Client::queryOrders(const QueryOrdersRequest &request) {
 }
 
 /**
- * @summary Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
+ * @summary Queries the permissions for a master-member relationship based on the relationship ID.
  *
  * @param request QueryPermissionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4470,7 +4551,7 @@ QueryPermissionListResponse Client::queryPermissionListWithOptions(const QueryPe
 }
 
 /**
- * @summary Queries, by relationship ID, permissions granted to accounts between which a management-member relationship is established.
+ * @summary Queries the permissions for a master-member relationship based on the relationship ID.
  *
  * @param request QueryPermissionListRequest
  * @return QueryPermissionListResponse
@@ -4481,7 +4562,7 @@ QueryPermissionListResponse Client::queryPermissionList(const QueryPermissionLis
 }
 
 /**
- * @summary Queries prepaid cards.
+ * @summary Queries user card package information.
  *
  * @param request QueryPrepaidCardsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4520,7 +4601,7 @@ QueryPrepaidCardsResponse Client::queryPrepaidCardsWithOptions(const QueryPrepai
 }
 
 /**
- * @summary Queries prepaid cards.
+ * @summary Queries user card package information.
  *
  * @param request QueryPrepaidCardsRequest
  * @return QueryPrepaidCardsResponse
@@ -4531,9 +4612,9 @@ QueryPrepaidCardsResponse Client::queryPrepaidCards(const QueryPrepaidCardsReque
 }
 
 /**
- * @summary Queries the billable items of a service.
+ * @summary Queries the pricing entities under a commodity. A pricing entity is the smallest product capability used for metering and cost calculation.
  *
- * @description You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+ * @description Queries the pricing entities under a commodity. A pricing entity is the smallest product capability used for metering and cost calculation.
  *
  * @param request QueryPriceEntityListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4560,9 +4641,9 @@ QueryPriceEntityListResponse Client::queryPriceEntityListWithOptions(const Query
 }
 
 /**
- * @summary Queries the billable items of a service.
+ * @summary Queries the pricing entities under a commodity. A pricing entity is the smallest product capability used for metering and cost calculation.
  *
- * @description You can call this operation to query the billable items of a service. A billable item is the minimum unit used to calculate costs.
+ * @description Queries the pricing entities under a commodity. A pricing entity is the smallest product capability used for metering and cost calculation.
  *
  * @param request QueryPriceEntityListRequest
  * @return QueryPriceEntityListResponse
@@ -4573,7 +4654,7 @@ QueryPriceEntityListResponse Client::queryPriceEntityList(const QueryPriceEntity
 }
 
 /**
- * @summary Queries the information about all Alibaba Cloud services.
+ * @summary Queries the list of products available for the current account to order. The response includes the product code, product name, and subscription type (subscription or pay-as-you-go).
  *
  * @param request QueryProductListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4612,7 +4693,7 @@ QueryProductListResponse Client::queryProductListWithOptions(const QueryProductL
 }
 
 /**
- * @summary Queries the information about all Alibaba Cloud services.
+ * @summary Queries the list of products available for the current account to order. The response includes the product code, product name, and subscription type (subscription or pay-as-you-go).
  *
  * @param request QueryProductListRequest
  * @return QueryProductListResponse
@@ -4623,7 +4704,7 @@ QueryProductListResponse Client::queryProductList(const QueryProductListRequest 
 }
 
 /**
- * @summary Queries the usage details of a reserved instance (RI).
+ * @summary Queries the usage of reserved instances (RIs).
  *
  * @param request QueryRIUtilizationDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4682,7 +4763,7 @@ QueryRIUtilizationDetailResponse Client::queryRIUtilizationDetailWithOptions(con
 }
 
 /**
- * @summary Queries the usage details of a reserved instance (RI).
+ * @summary Queries the usage of reserved instances (RIs).
  *
  * @param request QueryRIUtilizationDetailRequest
  * @return QueryRIUtilizationDetailResponse
@@ -4693,7 +4774,7 @@ QueryRIUtilizationDetailResponse Client::queryRIUtilizationDetail(const QueryRIU
 }
 
 /**
- * @summary Queries the information about a redemption coupon.
+ * @summary Queries the redemption ticket information of a user.
  *
  * @param request QueryRedeemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4720,7 +4801,7 @@ QueryRedeemResponse Client::queryRedeemWithOptions(const QueryRedeemRequest &req
 }
 
 /**
- * @summary Queries the information about a redemption coupon.
+ * @summary Queries the redemption ticket information of a user.
  *
  * @param request QueryRedeemRequest
  * @return QueryRedeemResponse
@@ -4731,7 +4812,7 @@ QueryRedeemResponse Client::queryRedeem(const QueryRedeemRequest &request) {
 }
 
 /**
- * @summary Queries the members of a management account.
+ * @summary Queries a list of the relationships of member accounts.
  *
  * @param request QueryRelationListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4774,7 +4855,7 @@ QueryRelationListResponse Client::queryRelationListWithOptions(const QueryRelati
 }
 
 /**
- * @summary Queries the members of a management account.
+ * @summary Queries a list of the relationships of member accounts.
  *
  * @param request QueryRelationListRequest
  * @return QueryRelationListResponse
@@ -4785,7 +4866,7 @@ QueryRelationListResponse Client::queryRelationList(const QueryRelationListReque
 }
 
 /**
- * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+ * @summary Queries the available quota for a user in a reseller payment scenario.
  *
  * @param request QueryResellerAvailableQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4820,7 +4901,7 @@ QueryResellerAvailableQuotaResponse Client::queryResellerAvailableQuotaWithOptio
 }
 
 /**
- * @summary Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+ * @summary Queries the available quota for a user in a reseller payment scenario.
  *
  * @param request QueryResellerAvailableQuotaRequest
  * @return QueryResellerAvailableQuotaResponse
@@ -4831,7 +4912,7 @@ QueryResellerAvailableQuotaResponse Client::queryResellerAvailableQuota(const Qu
 }
 
 /**
- * @summary 查询用户的信控预警阀值,该接口暂未测试启用
+ * @description Queries the alarm thresholds for low quotas.
  *
  * @param request QueryResellerUserAlarmThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4866,7 +4947,7 @@ QueryResellerUserAlarmThresholdResponse Client::queryResellerUserAlarmThresholdW
 }
 
 /**
- * @summary 查询用户的信控预警阀值,该接口暂未测试启用
+ * @description Queries the alarm thresholds for low quotas.
  *
  * @param request QueryResellerUserAlarmThresholdRequest
  * @return QueryResellerUserAlarmThresholdResponse
@@ -4877,7 +4958,7 @@ QueryResellerUserAlarmThresholdResponse Client::queryResellerUserAlarmThreshold(
 }
 
 /**
- * @summary Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
+ * @summary Queries the instances of a specific resource plan for a user. Only valid resource plans are supported.
  *
  * @param request QueryResourcePackageInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4932,7 +5013,7 @@ QueryResourcePackageInstancesResponse Client::queryResourcePackageInstancesWithO
 }
 
 /**
- * @summary Queries the instances of a resource plan. You can query the resource plans that are expired within one year.
+ * @summary Queries the instances of a specific resource plan for a user. Only valid resource plans are supported.
  *
  * @param request QueryResourcePackageInstancesRequest
  * @return QueryResourcePackageInstancesResponse
@@ -4943,7 +5024,7 @@ QueryResourcePackageInstancesResponse Client::queryResourcePackageInstances(cons
 }
 
 /**
- * @summary Queries the deduction details of savings plans.
+ * @summary Queries the details of savings plan deductions.
  *
  * @param request QuerySavingsPlansDeductLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4998,7 +5079,7 @@ QuerySavingsPlansDeductLogResponse Client::querySavingsPlansDeductLogWithOptions
 }
 
 /**
- * @summary Queries the deduction details of savings plans.
+ * @summary Queries the details of savings plan deductions.
  *
  * @param request QuerySavingsPlansDeductLogRequest
  * @return QuerySavingsPlansDeductLogResponse
@@ -5009,7 +5090,7 @@ QuerySavingsPlansDeductLogResponse Client::querySavingsPlansDeductLog(const Quer
 }
 
 /**
- * @summary Queries discounts on savings plans.
+ * @summary Queries the discount information for savings plans.
  *
  * @param request QuerySavingsPlansDiscountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5036,7 +5117,7 @@ QuerySavingsPlansDiscountResponse Client::querySavingsPlansDiscountWithOptions(c
 }
 
 /**
- * @summary Queries discounts on savings plans.
+ * @summary Queries the discount information for savings plans.
  *
  * @param request QuerySavingsPlansDiscountRequest
  * @return QuerySavingsPlansDiscountResponse
@@ -5047,7 +5128,7 @@ QuerySavingsPlansDiscountResponse Client::querySavingsPlansDiscount(const QueryS
 }
 
 /**
- * @summary Queries the information about savings plan instances of the current user.
+ * @summary Queries information about your savings plan instances.
  *
  * @param request QuerySavingsPlansInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5110,7 +5191,7 @@ QuerySavingsPlansInstanceResponse Client::querySavingsPlansInstanceWithOptions(c
 }
 
 /**
- * @summary Queries the information about savings plan instances of the current user.
+ * @summary Queries information about your savings plan instances.
  *
  * @param request QuerySavingsPlansInstanceRequest
  * @return QuerySavingsPlansInstanceResponse
@@ -5121,7 +5202,13 @@ QuerySavingsPlansInstanceResponse Client::querySavingsPlansInstance(const QueryS
 }
 
 /**
- * @summary The code of the service.
+ * @summary Queries the settlement bills of a user for a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
+ *
+ * @description - The query results for the current month are for reference only and cannot be used for reconciliation. The final bill for the current month is available for viewing or export after 12:00 on the 2nd of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
+ * - Bill data is updated with a 5-hour delay relative to actual cost consumption.
+ * - For bills in the "Unsettled" state in historical billing cycles, the status is updated to settled 5 hours after payment. For bills in the "Unsettled" state in the current month, the status is updated to settled when the bill is generated at 12:00 on the 2nd of the following month.
+ * - This API supports graceful backoff with a request rate of 600/60(s).
+ * - The rate limit per user is 10 requests per second. If a timeout occurs, retry the request.
  *
  * @param request QuerySettleBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5196,7 +5283,13 @@ QuerySettleBillResponse Client::querySettleBillWithOptions(const QuerySettleBill
 }
 
 /**
- * @summary The code of the service.
+ * @summary Queries the settlement bills of a user for a specific billing cycle. Supports domestic accounts with more than 50,000 bill entries.
+ *
+ * @description - The query results for the current month are for reference only and cannot be used for reconciliation. The final bill for the current month is available for viewing or export after 12:00 on the 2nd of the following month. During the month, a few scenarios may occur, including but not limited to delayed billing, refunds, adjustments, and overdue payment write-offs.
+ * - Bill data is updated with a 5-hour delay relative to actual cost consumption.
+ * - For bills in the "Unsettled" state in historical billing cycles, the status is updated to settled 5 hours after payment. For bills in the "Unsettled" state in the current month, the status is updated to settled when the bill is generated at 12:00 on the 2nd of the following month.
+ * - This API supports graceful backoff with a request rate of 600/60(s).
+ * - The rate limit per user is 10 requests per second. If a timeout occurs, retry the request.
  *
  * @param request QuerySettleBillRequest
  * @return QuerySettleBillResponse
@@ -5207,7 +5300,7 @@ QuerySettleBillResponse Client::querySettleBill(const QuerySettleBillRequest &re
 }
 
 /**
- * @summary Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
+ * @summary Queries the list of SKUs and their list prices under a specified pricing entity of a commodity. A product feature typically has 1 to multiple SKUs, and some products can have tens of thousands of SKUs. The request parameters support filtered queries based on specific SKU configuration conditions.
  *
  * @param tmpReq QuerySkuPriceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5240,7 +5333,7 @@ QuerySkuPriceListResponse Client::querySkuPriceListWithOptions(const QuerySkuPri
 }
 
 /**
- * @summary Queries the stock keeping units (SKUs) of a service. In most cases, a service has one or more SKUs. A service may even have tens of thousands of SKUs. You can call this operation to query the SKUs of a specific service and the prices of the SKUs. You can configure request parameters to query the specified SKUs based on the configurations of the SKUs.
+ * @summary Queries the list of SKUs and their list prices under a specified pricing entity of a commodity. A product feature typically has 1 to multiple SKUs, and some products can have tens of thousands of SKUs. The request parameters support filtered queries based on specific SKU configuration conditions.
  *
  * @param request QuerySkuPriceListRequest
  * @return QuerySkuPriceListResponse
@@ -5251,12 +5344,12 @@ QuerySkuPriceListResponse Client::querySkuPriceList(const QuerySkuPriceListReque
 }
 
 /**
- * @summary Queries split bills.
+ * @summary Queries split bills. This API has been upgraded. We recommend that you use the new DescribeSplitItemBill operation.
  *
- * @description *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
- * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
- * *   You can call this operation to query split bills generated within the last 12 months.
- * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
+ * @description - The API for split bills is upgraded. We recommend that you use the new [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation. This operation no longer supports querying more than 50,000 rows of data.
+ * - The data is consistent with the split bill data for the specified billing cycle in the User Center.
+ * - You can query split bills that were generated within the last 12 months.
+ * - To use this feature, you must first enable it on the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) page in the console.
  *
  * @param request QuerySplitItemBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5315,12 +5408,12 @@ QuerySplitItemBillResponse Client::querySplitItemBillWithOptions(const QuerySpli
 }
 
 /**
- * @summary Queries split bills.
+ * @summary Queries split bills. This API has been upgraded. We recommend that you use the new DescribeSplitItemBill operation.
  *
- * @description *   This API operation has been upgraded to DescribeSplitItemBill. We recommend that you call the [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation to query split bills. You can call the QuerySplitItemBill operation to query a maximum of 50,000 data rows in a bill.
- * *   The data queried by calling the QuerySplitItemBill operation is consistent with the data that is displayed for the specified billing cycle on the Split Bill page in User Center.
- * *   You can call this operation to query split bills generated within the last 12 months.
- * *   This operation returns split bills only after you activate the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in User Center.
+ * @description - The API for split bills is upgraded. We recommend that you use the new [DescribeSplitItemBill](https://help.aliyun.com/document_detail/208169.html) operation. This operation no longer supports querying more than 50,000 rows of data.
+ * - The data is consistent with the split bill data for the specified billing cycle in the User Center.
+ * - You can query split bills that were generated within the last 12 months.
+ * - To use this feature, you must first enable it on the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) page in the console.
  *
  * @param request QuerySplitItemBillRequest
  * @return QuerySplitItemBillResponse
@@ -5331,13 +5424,13 @@ QuerySplitItemBillResponse Client::querySplitItemBill(const QuerySplitItemBillRe
 }
 
 /**
- * @summary Queries the usage data of an Alibaba Cloud service.
+ * @summary Queries the metering records for the specified cloud service.
  *
- * @description You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
- * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
- * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
- *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
- *     *   You can query the usage data that is recorded in the last quarter.
+ * @description ## API description
+ * - The specified cloud service parameter must be one of the following cloud service codes. The metering data types include hourly and daily.
+ * - The time format must comply with the ISO 8601 standard. Time specification constraints:
+ * 	-	Due to delays in data push, the data integrity of hourly metering data is guaranteed for the past 24 hours, and the data integrity of daily metering data is guaranteed for the past 2 days.
+ * 	-	The time span can cover the metering data of the most recent quarter.
  *
  * @param request QueryUserOmsDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5392,13 +5485,13 @@ QueryUserOmsDataResponse Client::queryUserOmsDataWithOptions(const QueryUserOmsD
 }
 
 /**
- * @summary Queries the usage data of an Alibaba Cloud service.
+ * @summary Queries the metering records for the specified cloud service.
  *
- * @description You can call this operation to query the usage data of an Alibaba Cloud service. Take note of the following items:
- * *   The service code that you specify for querying the usage data of a specific Alibaba Cloud service must be valid. You can query the usage data by hour or by day.
- * *   The time that you specify must follow the ISO8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
- *     *   Latency exists in data pushes. Therefore, if you set the DataType parameter to Hour, the integrity of usage data recorded in the last 24 hours can be ensured. If you set the DataType parameter to Day, the integrity of usage data recorded in the last two days can be ensured.
- *     *   You can query the usage data that is recorded in the last quarter.
+ * @description ## API description
+ * - The specified cloud service parameter must be one of the following cloud service codes. The metering data types include hourly and daily.
+ * - The time format must comply with the ISO 8601 standard. Time specification constraints:
+ * 	-	Due to delays in data push, the data integrity of hourly metering data is guaranteed for the past 24 hours, and the data integrity of daily metering data is guaranteed for the past 2 days.
+ * 	-	The time span can cover the metering data of the most recent quarter.
  *
  * @param request QueryUserOmsDataRequest
  * @return QueryUserOmsDataResponse
@@ -5411,9 +5504,10 @@ QueryUserOmsDataResponse Client::queryUserOmsData(const QueryUserOmsDataRequest 
 /**
  * @summary Unsubscribes from an instance that is no longer needed.
  *
- * @description 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
- * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
- * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/refund-rules).
+ * @description 1. Only the actual paid amount is refunded. Used vouchers are not refunded.
+ * 2. Carefully verify the information about the resource to be unsubscribed, and confirm the unsubscription terms and refund amount. Resources cannot be recovered after unsubscription.
+ * 1. This operation can be called only by direct customers. Reseller customers cannot use this operation.
+ * 4. For other questions, refer to: <props="china">[Refund policy](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM)<props="intl">[Refund rules for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules)
  *
  * @param request RefundInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5462,9 +5556,10 @@ RefundInstanceResponse Client::refundInstanceWithOptions(const RefundInstanceReq
 /**
  * @summary Unsubscribes from an instance that is no longer needed.
  *
- * @description 1.  Refunds are applicable only for the actual paid amount. Vouchers used for the purchase are non-refundable.
- * 2.  Check the information about unsubscription and confirm the unsubscription terms and refundable amount. The resource that is unsubscribed cannot be restored.
- * 3.  For more information, see [Rules for unsubscribing from resources](https://www.alibabacloud.com/help/en/user-center/refund-rules).
+ * @description 1. Only the actual paid amount is refunded. Used vouchers are not refunded.
+ * 2. Carefully verify the information about the resource to be unsubscribed, and confirm the unsubscription terms and refund amount. Resources cannot be recovered after unsubscription.
+ * 1. This operation can be called only by direct customers. Reseller customers cannot use this operation.
+ * 4. For other questions, refer to: <props="china">[Refund policy](https://help.aliyun.com/knowledge_detail/116043.html?spm=a2c81.e1d666e.app.2.62ae11271Kd6iM)<props="intl">[Refund rules for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/user-center/user-guide/refund-rules)
  *
  * @param request RefundInstanceRequest
  * @return RefundInstanceResponse
@@ -5545,7 +5640,7 @@ ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &re
 }
 
 /**
- * @summary Terminates a financial relationship between the management account and a member.
+ * @summary Disassociates a RAM user from an Alibaba Cloud account.
  *
  * @param request RelieveAccountRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5592,7 +5687,7 @@ RelieveAccountRelationResponse Client::relieveAccountRelationWithOptions(const R
 }
 
 /**
- * @summary Terminates a financial relationship between the management account and a member.
+ * @summary Disassociates a RAM user from an Alibaba Cloud account.
  *
  * @param request RelieveAccountRelationRequest
  * @return RelieveAccountRelationResponse
@@ -5603,7 +5698,7 @@ RelieveAccountRelationResponse Client::relieveAccountRelation(const RelieveAccou
 }
 
 /**
- * @summary 续费变配接口
+ * @summary Renews an instance and changes its configuration. The configuration change is applied after the renewal order takes effect. Payment is processed automatically. This operation cannot be used to create ECS or RDS instances.
  *
  * @param request RenewChangeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5658,7 +5753,7 @@ RenewChangeInstanceResponse Client::renewChangeInstanceWithOptions(const RenewCh
 }
 
 /**
- * @summary 续费变配接口
+ * @summary Renews an instance and changes its configuration. The configuration change is applied after the renewal order takes effect. Payment is processed automatically. This operation cannot be used to create ECS or RDS instances.
  *
  * @param request RenewChangeInstanceRequest
  * @return RenewChangeInstanceResponse
@@ -5669,7 +5764,7 @@ RenewChangeInstanceResponse Client::renewChangeInstance(const RenewChangeInstanc
 }
 
 /**
- * @summary Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
+ * @summary Renews a specified instance. This operation does not support renewing ECS, RDS, or Redis instances. To renew these instances, call the dedicated renewal API of the corresponding service.
  *
  * @param request RenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5720,7 +5815,7 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary Renews a specified instance. You cannot call this operation to renew Elastic Compute Service (ECS) instances, ApsaraDB RDS instances, or ApsaraDB for Redis instances. To renew these types of instances, call the dedicated operation of the corresponding service.
+ * @summary Renews a specified instance. This operation does not support renewing ECS, RDS, or Redis instances. To renew these instances, call the dedicated renewal API of the corresponding service.
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse
@@ -5731,7 +5826,7 @@ RenewInstanceResponse Client::renewInstance(const RenewInstanceRequest &request)
 }
 
 /**
- * @summary Renews a resource plan.
+ * @summary Renews a resource package instance.
  *
  * @param request RenewResourcePackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5778,7 +5873,7 @@ RenewResourcePackageResponse Client::renewResourcePackageWithOptions(const Renew
 }
 
 /**
- * @summary Renews a resource plan.
+ * @summary Renews a resource package instance.
  *
  * @param request RenewResourcePackageRequest
  * @return RenewResourcePackageResponse
@@ -5905,6 +6000,10 @@ SetRenewalResponse Client::setRenewal(const SetRenewalRequest &request) {
 }
 
 /**
+ * @summary Configures low-balance alert rules for quotas.
+ *
+ * @description Configures low-balance alert rules for quotas.
+ *
  * @param request SetResellerUserAlarmThresholdRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetResellerUserAlarmThresholdResponse
@@ -5942,6 +6041,10 @@ SetResellerUserAlarmThresholdResponse Client::setResellerUserAlarmThresholdWithO
 }
 
 /**
+ * @summary Configures low-balance alert rules for quotas.
+ *
+ * @description Configures low-balance alert rules for quotas.
+ *
  * @param request SetResellerUserAlarmThresholdRequest
  * @return SetResellerUserAlarmThresholdResponse
  */
@@ -5952,6 +6055,8 @@ SetResellerUserAlarmThresholdResponse Client::setResellerUserAlarmThreshold(cons
 
 /**
  * @summary Modify the quota ledger and consumption ledger.
+ *
+ * @description 设置用户配额账本的Quota额度
  *
  * @param request SetResellerUserQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5996,6 +6101,8 @@ SetResellerUserQuotaResponse Client::setResellerUserQuotaWithOptions(const SetRe
 /**
  * @summary Modify the quota ledger and consumption ledger.
  *
+ * @description 设置用户配额账本的Quota额度
+ *
  * @param request SetResellerUserQuotaRequest
  * @return SetResellerUserQuotaResponse
  */
@@ -6005,6 +6112,10 @@ SetResellerUserQuotaResponse Client::setResellerUserQuota(const SetResellerUserQ
 }
 
 /**
+ * @summary Enables or disables the SQL audit feature for users.
+ *
+ * @description Sets the status of a reseller\\"s user account, such as frozen or hosted.
+ *
  * @param request SetResellerUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SetResellerUserStatusResponse
@@ -6046,6 +6157,10 @@ SetResellerUserStatusResponse Client::setResellerUserStatusWithOptions(const Set
 }
 
 /**
+ * @summary Enables or disables the SQL audit feature for users.
+ *
+ * @description Sets the status of a reseller\\"s user account, such as frozen or hosted.
+ *
  * @param request SetResellerUserStatusRequest
  * @return SetResellerUserStatusResponse
  */
@@ -6121,35 +6236,44 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const Se
 }
 
 /**
- * @summary Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
+ * @summary Subscribes to bill files by using Object Storage Service (OSS), which stores billing data in a specified OSS bucket.
  *
- * @description Before you call this operation, take note of the following items:
- * *   You can subscribe to only one type of bill at a time.
- * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
- * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
- * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
- * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
- * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
- * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
- * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
- * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
- * 4.  4.  The directory name must be 1 to 254 characters in length.
- * *   File names:
- *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
- *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
- *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
- *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
- *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
- *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
- *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
- *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
- *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **SplitItemDetailDaily** (Split bills summarized by day)
- *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **MonthBill** (Monthly bill in the PDF format)
- *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
- * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+ * @description Before calling this operation, note the following information:
+ * - You can subscribe to one type of bill file at a time.
+ * - After subscription, the bill file generated on the previous day is pushed daily starting from the next day. On the 4th of each month, the full bill files for the entire billing cycle of the previous month are pushed. The monthly bill PDF is pushed on the 4th of each month for the previous month.
+ * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from earlier days that were delayed until the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > To use OSS subscription for the first time, grant the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission to the subscribing user. If the authorization is revoked, the system stops pushing files, and the user must re-authorize.
+ * - This subscription is the same feature as "Bill Data Storage" in the Expenses and Costs console. Subscriptions are synchronized between the two.
+ * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+ *     - Emojis are not allowed. Use valid UTF-8 characters.
+ *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - A subdirectory named .. is not allowed.
+ *     - The total length must be 1 to 254 characters.
+ * - File names:
+ *     - **BillingItemDetailForBillingPeriod** (billing item details)
+ *     
+ *         - Daily push file name format: `UID_BillingItemDetail_YYYYMMDD`, for example, `169**_BillingItemDetail_20190310`.
+ *     
+ *         - Full file name format at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`, for example, `169**_BillingItemDetail_201903`.
+ *     
+ *     - **InstanceDetailForBillingPeriod** (instance bill details)
+ *     
+ *         - Daily push file name format: `UID_InstanceDetail_YYYYMMDD`, for example, `169**_InstanceDetail_20190310`.
+ *     
+ *         - Full file name format at the beginning of the next month: `UID_InstanceDetail_YYYYMM`, for example, `169**_InstanceDetail_201903`.
+ *     - **InstanceDetailMonthly** (instance bill summary by billing cycle)
+ *     
+ *         - Daily push file name format: `UID_InstanceDetailMonthly_YYYYMM`, for example, `169**_InstanceDetailMonthly_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **BillingItemDetailMonthly** (billing item summary by billing cycle)
+ *     
+ *         - Daily push file name format: `UID_BillingItemDetailMonthly_YYYYMM`, for example, `169**_BillingItemDetailMonthly_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **SplitItemDetailDaily** (split bill daily summary)
+ *     
+ *         - Daily push file name format: `UID_SplitItemDetailDaily_YYYYMM`, for example, `169**_SplitItemDetailDaily_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **MonthBill** (monthly bill PDF)
+ *     
+ *         - Monthly push file name format: `UID_MonthBill_YYYYMM`, for example, `169**_MonthBill_201903`. The file for the previous month is pushed on the 4th of each month.
+ * - Except for MonthBill, which is a PDF file, all other file types are CSV files. If the number of rows in a bill file exceeds a certain threshold, the file is automatically split into multiple CSV files, which are then compressed into a single ZIP file. The ZIP file name follows the same format.
  *
  * @param request SubscribeBillToOSSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6208,35 +6332,44 @@ SubscribeBillToOSSResponse Client::subscribeBillToOSSWithOptions(const Subscribe
 }
 
 /**
- * @summary Subscribes to the bills that are stored in Object Storage Service (OSS) buckets.
+ * @summary Subscribes to bill files by using Object Storage Service (OSS), which stores billing data in a specified OSS bucket.
  *
- * @description Before you call this operation, take note of the following items:
- * *   You can subscribe to only one type of bill at a time.
- * *   The bills generated on the previous day are pushed on a daily basis the next day after you subscribe to the bills. The full-data bills for the previous month are pushed on the fourth day of each month. The monthly bills in the PDF format for the previous month are pushed on the fourth day of each month.
- * *   The daily bills may be delayed. The delayed bills are pushed the next day after they are generated. The delayed bills may include the bills that should have been pushed on the previous day. We recommend that you query the full-data bills for the previous month at the beginning of each month.
- * *   The bill subscriber must have the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission.
- * *   The SubscribeBillToOSS operation has the same functionality as the Save Expense Details to OSS Bucket feature in User Center.
- * *   To subscribe to the bills stored in an OSS bucket, make sure that the directory name specified for the OSS bucket conforms to the following naming rules:
- * 1.  1.  The directory name can contain only UTF-8 characters and cannot contain emoticons.
- * 2.  2.  Forward slashes (/) are used to separate paths and can be used to create subdirectories with ease. The directory name cannot start with a forward slash (/), a backslash (\\\\), or consecutive forward slashes (/).
- * 3.  3.  The name of a subdirectory cannot be set to two consecutive periods (..).
- * 4.  4.  The directory name must be 1 to 254 characters in length.
- * *   File names:
- *     *   **BillingItemDetailForBillingPeriod** (Detailed bills of billable items)
- *         *   File name format for a daily push: `UID_BillingItemDetail_YYYYMMDD`. Example: `169**_BillingItemDetail_20190310`.
- *         *   File name format for a full-data push at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`. Example: `169**_BillingItemDetail_201903`.
- *     *   **InstanceDetailForBillingPeriod** (Detailed bills of instances)
- *         *   File name format for a daily push: `UID_InstanceDetail_YYYYMMDD`. Example: `169**_InstanceDetail_20190310`.
- *         *   File name format for a full-data push at the beginning of the next month: `UID_InstanceDetail_YYYYMM`. Example: `169**_InstanceDetail_201903`.
- *     *   **InstanceDetailMonthly** (Instance-based bills summarized by billing cycle)
- *         *   File name format for a daily push: `UID_InstanceDetailMonthly_YYYYMM`. Example: `169**_InstanceDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **BillingItemDetailMonthly** (Billable item-based bills summarized by billing cycle)
- *         *   File name format for a daily push: `UID_BillingItemDetailMonthly_YYYYMM`. Example: `169**_BillingItemDetailMonthly_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **SplitItemDetailDaily** (Split bills summarized by day)
- *         *   File name format for a daily push: `UID_SplitItemDetailDaily_YYYYMM`. Example: `169**_SplitItemDetailDaily_201903`. A bill of this type contains the full data generated from the beginning of the month to the current day, and is updated every day until the fourth day of the next month.
- *     *   **MonthBill** (Monthly bill in the PDF format)
- *         *   File name format for a monthly push: `UID_MonthBill_YYYYMM`. Example: `169**_MonthBill_201903`. The bill for the previous month is pushed on the fourth day of each month.
- * *   The bills of the MonthBill type are PDF files, whereas the bills of other types are CSV files. If the number of data rows in a bill exceeds a threshold, the bill is automatically split into multiple CSV files. Then, the multiple CSV files are automatically merged and compressed into a ZIP file that has the same name format as the original file.
+ * @description Before calling this operation, note the following information:
+ * - You can subscribe to one type of bill file at a time.
+ * - After subscription, the bill file generated on the previous day is pushed daily starting from the next day. On the 4th of each month, the full bill files for the entire billing cycle of the previous month are pushed. The monthly bill PDF is pushed on the 4th of each month for the previous month.
+ * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from earlier days that were delayed until the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > To use OSS subscription for the first time, grant the [AliyunConsumeDump2OSSRole](https://ram.console.aliyun.com/#/role/authorize?request=%7B%22Requests%22:%20%7B%22request1%22:%20%7B%22RoleName%22:%20%22AliyunConsumeDump2OSSRole%22,%20%22TemplateId%22:%20%22Dump2OSSRole%22%7D%7D,%20%22ReturnUrl%22:%20%22https:%2F%2Fusercenter2.aliyun.com%22,%20%22Service%22:%20%22Consume%22%7D) permission to the subscribing user. If the authorization is revoked, the system stops pushing files, and the user must re-authorize.
+ * - This subscription is the same feature as "Bill Data Storage" in the Expenses and Costs console. Subscriptions are synchronized between the two.
+ * - When subscribing to a directory under a bucket, follow the directory naming conventions:
+ *     - Emojis are not allowed. Use valid UTF-8 characters.
+ *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - A subdirectory named .. is not allowed.
+ *     - The total length must be 1 to 254 characters.
+ * - File names:
+ *     - **BillingItemDetailForBillingPeriod** (billing item details)
+ *     
+ *         - Daily push file name format: `UID_BillingItemDetail_YYYYMMDD`, for example, `169**_BillingItemDetail_20190310`.
+ *     
+ *         - Full file name format at the beginning of the next month: `UID_BillingItemDetail_YYYYMM`, for example, `169**_BillingItemDetail_201903`.
+ *     
+ *     - **InstanceDetailForBillingPeriod** (instance bill details)
+ *     
+ *         - Daily push file name format: `UID_InstanceDetail_YYYYMMDD`, for example, `169**_InstanceDetail_20190310`.
+ *     
+ *         - Full file name format at the beginning of the next month: `UID_InstanceDetail_YYYYMM`, for example, `169**_InstanceDetail_201903`.
+ *     - **InstanceDetailMonthly** (instance bill summary by billing cycle)
+ *     
+ *         - Daily push file name format: `UID_InstanceDetailMonthly_YYYYMM`, for example, `169**_InstanceDetailMonthly_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **BillingItemDetailMonthly** (billing item summary by billing cycle)
+ *     
+ *         - Daily push file name format: `UID_BillingItemDetailMonthly_YYYYMM`, for example, `169**_BillingItemDetailMonthly_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **SplitItemDetailDaily** (split bill daily summary)
+ *     
+ *         - Daily push file name format: `UID_SplitItemDetailDaily_YYYYMM`, for example, `169**_SplitItemDetailDaily_201903`. This file is updated daily with full data from the beginning of the month to the current day, until the 4th of the next month.
+ *     - **MonthBill** (monthly bill PDF)
+ *     
+ *         - Monthly push file name format: `UID_MonthBill_YYYYMM`, for example, `169**_MonthBill_201903`. The file for the previous month is pushed on the 4th of each month.
+ * - Except for MonthBill, which is a PDF file, all other file types are CSV files. If the number of rows in a bill file exceeds a certain threshold, the file is automatically split into multiple CSV files, which are then compressed into a single ZIP file. The ZIP file name follows the same format.
  *
  * @param request SubscribeBillToOSSRequest
  * @return SubscribeBillToOSSResponse
@@ -6247,7 +6380,7 @@ SubscribeBillToOSSResponse Client::subscribeBillToOSS(const SubscribeBillToOSSRe
 }
 
 /**
- * @summary Add tags to resources.
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6286,7 +6419,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Add tags to resources.
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -6297,7 +6430,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
+ * @summary Cancels a detailed list export subscription.
  *
  * @param request UnsubscribeBillToOSSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6332,7 +6465,7 @@ UnsubscribeBillToOSSResponse Client::unsubscribeBillToOSSWithOptions(const Unsub
 }
 
 /**
- * @summary Unsubscribes from the bills that are stored in Object Storage Service (OSS) buckets.
+ * @summary Cancels a detailed list export subscription.
  *
  * @param request UnsubscribeBillToOSSRequest
  * @return UnsubscribeBillToOSSResponse

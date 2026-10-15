@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The language. If this parameter is not specified, the default value zh (Chinese) is used.
     shared_ptr<string> lang_ {};
-    // The code of the service.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

@@ -140,18 +140,38 @@ namespace Models
 
 
   protected:
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
+    // The billing cycle, in the format of YYYY-MM.
+    // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
     shared_ptr<bool> isDisplayLocalCurrency_ {};
+    // Specifies whether to filter based on whether the original price (PretaxGrossAmount) is 0. Default value: false (compatible with existing logic). Valid values:
+    // - true: Yes.
+    // - false: No.
     shared_ptr<bool> isHideZeroCharge_ {};
+    // The maximum number of data records to read in this request. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that marks the position from which the next query starts. Leave this parameter empty to start from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The product code.
     shared_ptr<string> productCode_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
+    // The order ID or bill ID.
     shared_ptr<string> recordID_ {};
+    // The subscription type. Valid values:
+    // - Subscription: subscription
+    // - PayAsYouGo: pay-as-you-go
+    // >  This parameter must be used together with the ProductCode parameter.
     shared_ptr<string> subscriptionType_ {};
+    // The type. Valid values:
+    // - SubscriptionOrder: prepaid order
+    // - PayAsYouGoBill: pay-as-you-go bill
+    // - Refund: refund bill
+    // - Adjustment: adjustment bill
     shared_ptr<string> type_ {};
   };
 

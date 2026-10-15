@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The list of customer IDs.
+      // The list of user UIDs.
       shared_ptr<vector<string>> uidList_ {};
     };
 
@@ -112,18 +112,17 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetCustomerListResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request. You can use the ID to query logs and troubleshoot issues.
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // *   **true**: The call is successful.
-    // *   **false**: The call failed.
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

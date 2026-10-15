@@ -193,13 +193,13 @@ namespace Models
 
 
             protected:
-              // The code of the pricing factor.
+              // The factor code.
               shared_ptr<string> factorCode_ {};
               // The maximum value.
               shared_ptr<string> max_ {};
               // The minimum value.
               shared_ptr<string> min_ {};
-              // The closure type of the interval.
+              // The interval closure type.
               shared_ptr<string> type_ {};
             };
 
@@ -265,7 +265,7 @@ namespace Models
 
 
           protected:
-            // The unique code of the SKU price.
+            // The CSKU code, which is the unique price identifier.
             shared_ptr<string> cskuCode_ {};
             // The currency.
             shared_ptr<string> currency_ {};
@@ -273,11 +273,11 @@ namespace Models
             shared_ptr<string> price_ {};
             // The pricing mode.
             shared_ptr<string> priceMode_ {};
-            // The pricing type.
+            // The price type.
             shared_ptr<string> priceType_ {};
-            // The unit of the price.
+            // The price unit.
             shared_ptr<string> priceUnit_ {};
-            // If the PriceMode parameter is set to STEP_ACCUMULATION or STEP_ARRIVE, the value of this field exists and specifies the range. If the PriceMode parameter is set to NORMAL_PRICE, the value of this field is null.
+            // This field has a value when PriceMode is STEP_ACCUMULATION or STEP_ARRIVE, specifying the range. When PriceMode is NORMAL_PRICE, this field is NULL.
             shared_ptr<vector<CskuPriceList::RangeList>> rangeList_ {};
             // The usage unit.
             shared_ptr<string> usageUnit_ {};
@@ -311,11 +311,11 @@ namespace Models
 
 
         protected:
-          // The prices of the SKUs.
+          // The SKU price list.
           shared_ptr<vector<SkuPriceList::CskuPriceList>> cskuPriceList_ {};
-          // The code of the SKU.
+          // sku code
           shared_ptr<string> skuCode_ {};
-          // The values of the pricing factors.
+          // The collection of factor values. Different commodities have their own factors under pricing entities. For example, the instance_type pricing entity of the ECS commodity has factors such as `vm_region_no, iooptimized, vm_os_kind, instance_type`.
           shared_ptr<map<string, string>> skuFactorMap_ {};
         };
 
@@ -345,9 +345,9 @@ namespace Models
 
 
       protected:
-        // The token that is used to query the next page.
+        // The token for the next page.
         shared_ptr<string> nextPageToken_ {};
-        // The SKUs.
+        // The SKU list.
         shared_ptr<vector<SkuPricePage::SkuPriceList>> skuPriceList_ {};
         // The total number of SKUs.
         shared_ptr<int32_t> totalCount_ {};
@@ -364,7 +364,7 @@ namespace Models
 
 
     protected:
-      // The SKUs of the pricing object.
+      // The pricing entity SKU information.
       shared_ptr<Data::SkuPricePage> skuPricePage_ {};
     };
 
@@ -408,15 +408,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data that is returned.
+    // The returned data.
     shared_ptr<QuerySkuPriceListResponseBody::Data> data_ {};
-    // The message that is returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

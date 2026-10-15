@@ -168,29 +168,15 @@ namespace Models
 
 
       protected:
-        // The services to which the prepaid card is applicable.
         shared_ptr<string> applicableProducts_ {};
-        // The scenario to which the prepaid card is applicable.
         shared_ptr<string> applicableScenarios_ {};
-        // The balance of the prepaid card.
         shared_ptr<string> balance_ {};
-        // The time when the prepaid card took effect.
         shared_ptr<string> effectiveTime_ {};
-        // The time when the prepaid card expired.
         shared_ptr<string> expiryTime_ {};
-        // The time when the prepaid card was issued.
         shared_ptr<string> grantedTime_ {};
-        // The nominal value of the prepaid card.
         shared_ptr<string> nominalValue_ {};
-        // The ID of the prepaid card.
         shared_ptr<int64_t> prepaidCardId_ {};
-        // The number of the prepaid card.
         shared_ptr<string> prepaidCardNo_ {};
-        // The status of the prepaid card. Valid values:
-        // 
-        // *   Available: The prepaid card is valid.
-        // *   Expired: The prepaid card expired.
-        // *   Cancelled: The prepaid card is invalid.
         shared_ptr<string> status_ {};
       };
 
@@ -248,13 +234,12 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
     shared_ptr<QueryPrepaidCardsResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

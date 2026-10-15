@@ -145,7 +145,13 @@ namespace Models
 
 
       protected:
-        // The information about the budget. The BudgetCycleType parameter indicates the cycle of the budget. Valid values: daily, monthly, quarterly, and yearly. The TotalBudgetAmount parameter indicates the total budget. The BudgetMemo parameter indicates the remarks of the budget.
+        // Information about the budget.
+        // 
+        // - BudgetCycleType: The budget period. Valid values: daily, monthly, quarterly, and yearly.
+        // 
+        // - TotalBudgetAmount: The total budget amount.
+        // 
+        // - BudgetMemo: The notes for the budget.
         Darabonba::Json budget_ {};
         // The name of the budget.
         shared_ptr<string> budgetName_ {};
@@ -153,9 +159,19 @@ namespace Models
         shared_ptr<string> budgetStatus_ {};
         // The type of the budget.
         shared_ptr<string> budgetType_ {};
-        // The information about the estimate-to-actual analysis. The ActualConsumeSum parameter indicates the accumulated actual value. The ActualAddForecastedAmount parameter indicates the sum of accumulated actual value and predicted value. If the BudgetType parameter is set to cost, the sum of actual value and predicted value includes the actual cost incurred from the budget start date to the current date and the predicted cost from the current date to the budget end date. If the BudgetType parameter is set to asset, the sum of actual value and predicted value includes the actual usage or coverage from the budget start date to the budget end date. If the budget end date minus the current date is more than one year, the part that exceeds one year is not included. The ActualAndBudgetComparison parameter indicates the comparison between the actual value and the predicted value. The value of the ActualAndBudgetComparison parameter is calculated based on the following formula: Accumulated actual value/Total budget × 100%.
+        // Information about the estimate-to-actual comparison.
+        // 
+        // - ActualConsumeSum: The accumulated actual consumption.
+        // 
+        // - ActualAddForecastedAmount: The sum of the accumulated actual value and the predicted value. For a cost budget, this value represents the actual spending to date plus the forecasted spending until the budget period ends.
+        // 
+        // - ActualAndBudgetComparison: The comparison of the actual consumption to the budget. This value is calculated using the following formula: (Accumulated actual value / Total budget amount) × 100%.
         Darabonba::Json calculatedValues_ {};
-        // The information about the billing cycle. The ConsumePeriodBegin parameter indicates the start date of the budget. The ConsumePeriodEnd parameter indicates the end date of the budget.
+        // Information about the billing cycle.
+        // 
+        // - ConsumePeriodBegin: The start date of the budget.
+        // 
+        // - ConsumePeriodEnd: The end date of the budget.
         Darabonba::Json consumePeriod_ {};
       };
 
@@ -199,15 +215,15 @@ namespace Models
 
 
     protected:
-      // The site of the host.
+      // The website.
       shared_ptr<string> hostId_ {};
-      // The data that is returned.
+      // The list of items.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries that are returned.
+      // The maximum number of entries returned on the current page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that is used to retrieve the next page
+      // The token for the next page of results.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that are returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -251,7 +267,7 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The data that is returned.
     shared_ptr<DescribeCostBudgetsSummaryResponseBody::Data> data_ {};
@@ -259,7 +275,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

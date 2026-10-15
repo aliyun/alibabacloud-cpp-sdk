@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // hostid
+      // The ID of the host.
       shared_ptr<string> hostId_ {};
     };
 
@@ -109,15 +109,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<RelieveAccountRelationResponseBody::Data> data_ {};
-    // The message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

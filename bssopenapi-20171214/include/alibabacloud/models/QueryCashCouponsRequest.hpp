@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the voucher takes effect. Valid values:
-    // 
-    // *   true: The voucher takes effect.
-    // *   false: The voucher does not take effect.
+    // Specifies whether the voucher is valid. Valid values:
+    // - true
+    // - false
     shared_ptr<bool> effectiveOrNot_ {};
-    // The end time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
+    // The end of the expiration time range for the voucher. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> expiryTimeEnd_ {};
-    // The start time of the validity period of the voucher. Specify the parameter in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2018-08-01T00:00:00Z.
+    // The start of the expiration time range for the voucher. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> expiryTimeStart_ {};
   };
 

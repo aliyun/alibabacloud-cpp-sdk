@@ -138,16 +138,9 @@ namespace Models
 
 
         protected:
-          // The code of the service.
           shared_ptr<string> productCode_ {};
-          // The name of the service.
           shared_ptr<string> productName_ {};
-          // The type of the service.
           shared_ptr<string> productType_ {};
-          // The billing method. Valid values:
-          // 
-          // *   Subscription: subscription
-          // *   PayAsYouGo: pay-as-you-go
           shared_ptr<string> subscriptionType_ {};
         };
 
@@ -198,13 +191,12 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned on each page.
+      // The number of records displayed per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The service definitions.
       shared_ptr<Data::ProductList> productList_ {};
-      // The total number of services.
+      // The total number of product records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -248,13 +240,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The information about all Alibaba Cloud services.
+    // The Alibaba Cloud product information.
     shared_ptr<QueryProductListResponseBody::Data> data_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

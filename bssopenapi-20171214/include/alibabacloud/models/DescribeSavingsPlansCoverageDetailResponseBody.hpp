@@ -200,7 +200,7 @@ namespace Models
 
 
       protected:
-        // The coverage.
+        // The coverage percentage.
         shared_ptr<float> coveragePercentage_ {};
         // The currency.
         shared_ptr<string> currency_ {};
@@ -208,10 +208,11 @@ namespace Models
         shared_ptr<float> deductAmount_ {};
         // The end time.
         shared_ptr<string> endPeriod_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The specifications.
+        // The instance type.
         shared_ptr<string> instanceSpec_ {};
+        // The ID of the owner of the deducted commodity.
         shared_ptr<int64_t> ownerId_ {};
         // The pay-as-you-go cost.
         shared_ptr<float> postpaidCost_ {};
@@ -221,9 +222,9 @@ namespace Models
         shared_ptr<string> startPeriod_ {};
         // The total expenditure.
         shared_ptr<float> totalAmount_ {};
-        // The ID of the account.
+        // The user ID.
         shared_ptr<int64_t> userId_ {};
-        // The username of the account.
+        // The username.
         shared_ptr<string> userName_ {};
       };
 
@@ -253,9 +254,9 @@ namespace Models
 
 
     protected:
-      // The data entries.
+      // The data items.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The token of the next page.
+      // The token for the next page.
       shared_ptr<string> nextToken_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -303,13 +304,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The return data.
+    // The returned query data.
     shared_ptr<DescribeSavingsPlansCoverageDetailResponseBody::Data> data_ {};
-    // The message returned.
+    // The message returned for the API call.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the API call was successful.
     shared_ptr<bool> success_ {};
   };
 

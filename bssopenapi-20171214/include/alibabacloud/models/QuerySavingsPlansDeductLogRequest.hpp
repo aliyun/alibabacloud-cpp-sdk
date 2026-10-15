@@ -94,25 +94,23 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The end of the time range to query.
     shared_ptr<string> endTime_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The type of the instance ID based on which the data is queried. Valid values:
+    // The query type. Valid values:
     // 
-    // *   spn: queries data based on the ID of the savings plan instance.
-    // *   product: queries data based on the ID of the cloud service instance.
+    // - spn: savings plan instance
+    // 
+    // - product: deducted cloud service instance
     shared_ptr<string> instanceType_ {};
-    // The language of the return data. Valid values:
-    // 
-    // *   ZH: Chinese
-    // *   EN: English
+    // The language of the response. Default value: ZH. Valid values: \\`ZH\\`: Chinese. \\`EN\\`: English.
     shared_ptr<string> locale_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};
   };
 

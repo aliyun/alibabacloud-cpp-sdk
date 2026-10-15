@@ -67,16 +67,16 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The service code. You can query the service code by calling the **QueryProductList** operation.
+    // The product code. You can call the **QueryProductList** operation to query product codes.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The type of the service. You can query the service type by calling the **QueryProductList** operation.
+    // The product type. You can call the **QueryProductList** operation to query product types.
+    // >Notice: The value must be the same as the product type returned by the **QueryProductList** operation.</notice>
     shared_ptr<string> productType_ {};
-    // The billing method. Valid values:
-    // 
-    // *   Subscription: subscription
-    // *   PayAsYouGo: pay-as-you-go
+    // The subscription type. Valid values:
+    // - Subscription: subscription.
+    // - PayAsYouGo: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionType_ {};

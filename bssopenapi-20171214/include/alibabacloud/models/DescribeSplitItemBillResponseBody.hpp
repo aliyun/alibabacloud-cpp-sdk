@@ -594,112 +594,116 @@ namespace Models
 
 
       protected:
-        // The amount deducted with credit refund.
         shared_ptr<float> adjustAmount_ {};
+        // The amount after discount, which includes the payable amount after coupon deduction. Calculation rule: Amount after discount = List price - Discount amount.
         shared_ptr<float> afterDiscountAmount_ {};
         // The ID of the account to which the bill belongs.
         shared_ptr<string> billAccountID_ {};
         // The name of the account to which the bill belongs.
         shared_ptr<string> billAccountName_ {};
-        // The billing date. Format: YYYY-MM-DD. This parameter is not supported.
+        // The billing date in the YYYY-MM-DD format. This parameter is not supported.
         shared_ptr<string> billingDate_ {};
-        // The billable item.
+        // The billing item.
         shared_ptr<string> billingItem_ {};
-        // The code of the billable item.
+        // The billing item code.
         shared_ptr<string> billingItemCode_ {};
         // The billing method.
         shared_ptr<string> billingType_ {};
-        // The type of the business.
+        // The business type.
         shared_ptr<string> bizType_ {};
-        // The amount paid in cash. The amount deducted with credit refund is not included.
         shared_ptr<float> cashAmount_ {};
-        // The code of the commodity. The code is the same as that displayed in the Split Bill module of the User Center console.
+        // The commodity code, which is the same as the product detail code in the User Center.
         shared_ptr<string> commodityCode_ {};
-        // The cost center.
+        // The cost unit.
         shared_ptr<string> costUnit_ {};
-        // The type of currency. Valid values: CNY, USD, and JPY.
+        // The currency. Valid values:
+        // - CNY
+        // - USD
+        // - JPY
         shared_ptr<string> currency_ {};
-        // The amount deducted with vouchers.
         shared_ptr<float> deductedByCashCoupons_ {};
-        // The amount deducted with coupons.
+        // The coupon discount amount.
         shared_ptr<float> deductedByCoupons_ {};
-        // The amount deducted with prepaid cards.
         shared_ptr<float> deductedByPrepaidCard_ {};
-        // The amount deducted with resource plans.
+        // The amount deducted by resource plans.
         shared_ptr<string> deductedByResourcePackage_ {};
-        // The configurations of the instance.
+        // The detailed instance configuration.
         shared_ptr<string> instanceConfig_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceID_ {};
-        // The type of the instance.
+        // The instance specifications.
         shared_ptr<string> instanceSpec_ {};
         // The public IP address.
         shared_ptr<string> internetIP_ {};
-        // The private IP address.
+        // The internal IP address.
         shared_ptr<string> intranetIP_ {};
         // The discount amount.
         shared_ptr<float> invoiceDiscount_ {};
-        // The type of the bill. Valid values: SubscriptionOrder: the subscription bill. PayAsYouGoBill: the pay-as-you-go bill. Refund: the refund. Adjustment: the adjustment bill.
+        // The bill type. Valid values:
+        // - SubscriptionOrder: Subscription order.
+        // - PayAsYouGoBill: Pay-as-you-go bill.
+        // - Refund: Refund.
+        // - Adjustment: Adjustment.
         shared_ptr<string> item_ {};
-        // The name of the split item.
+        // The item name.
         shared_ptr<string> itemName_ {};
         // The unit price.
         shared_ptr<string> listPrice_ {};
         // The unit of the unit price.
         shared_ptr<string> listPriceUnit_ {};
-        // The name of the instance.
+        // The instance nickname.
         shared_ptr<string> nickName_ {};
-        // The amount that is unsettled.
         shared_ptr<float> outstandingAmount_ {};
-        // The ID of the account that owns the resource. This parameter is returned in multi-account scenario.
+        // The account ID of the resource owner in multi-account payment scenarios.
         shared_ptr<string> ownerID_ {};
-        // The amount paid in cash. The amount deducted with credit refund is included.
         shared_ptr<float> paymentAmount_ {};
-        // The code of the service. The code is the same as that displayed in the Split Bill module of the User Center console.
+        // The product code, which is the same as the bill product code in the User Center.
         shared_ptr<string> pipCode_ {};
-        // The pretax amount.
+        // The payable amount.
         shared_ptr<float> pretaxAmount_ {};
-        // The pretax gross amount.
+        // The original amount.
         shared_ptr<float> pretaxGrossAmount_ {};
-        // The code of the service.
+        // The product code.
         shared_ptr<string> productCode_ {};
-        // The details of the service.
+        // The product detail.
         shared_ptr<string> productDetail_ {};
-        // The name of the service.
+        // The product name.
         shared_ptr<string> productName_ {};
-        // The type of the service.
+        // The product type.
         shared_ptr<string> productType_ {};
-        // The ID of the region.
+        // The region.
         shared_ptr<string> region_ {};
-        // The ID of the resource group.
+        // The resource group.
         shared_ptr<string> resourceGroup_ {};
-        // The duration of the service.
+        // The service duration.
         shared_ptr<string> servicePeriod_ {};
         // The unit of the service duration.
         shared_ptr<string> servicePeriodUnit_ {};
-        // The ID of the account to which the split bill belongs.
+        // The account ID of the attached resource.
         shared_ptr<string> splitAccountID_ {};
-        // The name of the account to which the split item belongs.
+        // The account name of the attached resource.
         shared_ptr<string> splitAccountName_ {};
-        // The billing cycle in which the bill is split.
+        // The split bill month.
         shared_ptr<string> splitBillingCycle_ {};
-        // The day on which the bill is split.
+        // The split bill date.
         shared_ptr<string> splitBillingDate_ {};
-        // The code of the split item.
+        // The commodity code of the attached resource.
         shared_ptr<string> splitCommodityCode_ {};
-        // The ID of the split item.
+        // The ID of the attached resource.
         shared_ptr<string> splitItemID_ {};
-        // The name of the split item.
+        // The name of the attached resource.
         shared_ptr<string> splitItemName_ {};
-        // The details of the service.
+        // The product detail name of the attached resource.
         shared_ptr<string> splitProductDetail_ {};
-        // The billing method. Valid values: Subscription: the subscription billing method. PayAsYouGo: the pay-as-you-go billing method.
+        // The subscription type. Valid values:
+        // - Subscription: Subscription.
+        // - PayAsYouGo: Pay-as-you-go.
         shared_ptr<string> subscriptionType_ {};
-        // The tag of the resource. If tags added to resources change, the bills generated during the period in which resources and tags are associated are returned.
+        // The resource tag. If a tag on a resource is changed, the bills generated during the validity period will include this tag.
         shared_ptr<string> tag_ {};
-        // The amount of resource usage.
+        // The usage.
         shared_ptr<string> usage_ {};
-        // The unit of usage.
+        // The usage unit.
         shared_ptr<string> usageUnit_ {};
         // The zone.
         shared_ptr<string> zone_ {};
@@ -760,19 +764,19 @@ namespace Models
 
 
     protected:
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The ID of the account.
+      // The user account.
       shared_ptr<string> accountName_ {};
       // The billing cycle. Format: YYYY-MM.
       shared_ptr<string> billingCycle_ {};
-      // The details of the bill.
+      // The bill details.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries returned.
+      // The maximum number of entries returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token used for the next query. If this parameter is empty, all the results are returned. When you perform the next query, you must set the NextToken parameter to this value.
+      // The token that indicates the position where the current call stops reading. An empty value indicates that all data has been read. Set this value to the NextToken request parameter in the next call.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -818,13 +822,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<DescribeSplitItemBillResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

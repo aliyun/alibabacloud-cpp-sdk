@@ -179,20 +179,9 @@ namespace Models
 
         protected:
           shared_ptr<Module::ConfigList> configList_ {};
-          // The currency. Default value: CNY.
           shared_ptr<string> currency_ {};
-          // The code of the pricing module.
           shared_ptr<string> moduleCode_ {};
-          // The name of the pricing module.
           shared_ptr<string> moduleName_ {};
-          // The price type. Valid values:
-          // 
-          // *   Usage: usage price
-          // *   Hour: hourly price
-          // *   Day: daily price
-          // *   Week: weekly price
-          // *   Month: monthly price
-          // *   Year: annual price
           shared_ptr<string> priceType_ {};
         };
 
@@ -329,18 +318,9 @@ namespace Models
 
 
             protected:
-              // The attribute value that corresponds to the module code.
               shared_ptr<string> name_ {};
-              // The description of the module values.
               shared_ptr<string> remark_ {};
-              // The type of the attribute value that corresponds to the module code. Valid values:
-              // 
-              // *   single_float: single value
-              // *   range_float: range value
               shared_ptr<string> type_ {};
-              // The attribute value that corresponds to the module code.
-              // 
-              // >  If the Type parameter is set to range_float, the valid values of this parameter range from 1024 to 1024000. A value of 1024 indicates that the step size is 1024.
               shared_ptr<string> value_ {};
             };
 
@@ -391,13 +371,9 @@ namespace Models
 
 
         protected:
-          // The code of the attribute.
           shared_ptr<string> code_ {};
-          // The name of the attribute.
           shared_ptr<string> name_ {};
-          // The unit of the attribute.
           shared_ptr<string> unit_ {};
-          // The attribute values.
           shared_ptr<Attribute::Values> values_ {};
         };
 
@@ -436,9 +412,7 @@ namespace Models
 
 
     protected:
-      // The module attributes.
       shared_ptr<Data::AttributeList> attributeList_ {};
-      // The pricing information of modules.
       shared_ptr<Data::ModuleList> moduleList_ {};
     };
 
@@ -484,13 +458,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribePricingModuleResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

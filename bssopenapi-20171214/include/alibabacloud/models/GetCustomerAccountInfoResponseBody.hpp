@@ -111,29 +111,36 @@ namespace Models
 
 
     protected:
-      // The type of the account. A value of 1 indicates an enterprise account. A value of 0 indicates an individual account.
+      // The account type. Valid values:
+      // 
+      // - 1: enterprise account.
+      // - 0: individual account.
       shared_ptr<string> accountType_ {};
-      // The business status of the customer. Valid values:
+      // The business type of the end user.
       // 
-      // Freeze: The business is frozen.
+      // Valid values:
       // 
-      // Thaw: The business is unfrozen.
+      // 1. Freeze: The user is in a frozen state.
       // 
-      // Trusteeship: The business is hosted.
+      // 2. Thaw: The user is in a thawed state.
       // 
-      // TrusteeshipCancel: The business is not hosted.
+      // 3. Trusteeship: The user is in a trusteeship state.
+      // 
+      // 4. TrusteeshipCancel: The user is in a non-trusteeship state.
       shared_ptr<string> creditLimitStatus_ {};
-      // The hosting status of the credit information and instances of the customer. If the credit information and instances of the customer are managed on Alibaba Cloud, Alibaba Cloud suspends a customer service upon overdue payment. Valid values:
+      // The hosting status. This parameter is provided by the credit control system and indicates whether the instance is managed by Alibaba Cloud. If the instance is managed, Alibaba Cloud handles resource suspension/resumption due to overdue payments.
       // 
-      // FREEZE: The business of the customer is frozen.
+      // Valid values:
       // 
-      // TRUSTEESHIP: The business of the customer is hosted.
+      // 1. FREEZE: The user\\"s business is frozen.
+      // 
+      // 2. TRUSTEESHIP: The user\\"s business is under trusteeship.
       shared_ptr<string> hostingStatus_ {};
-      // Indicates whether the account passes the real-name verification.
+      // The real-name verification status.
       shared_ptr<bool> isCertified_ {};
-      // The email address of the customer.
+      // The email address of the end customer.
       shared_ptr<string> loginEmail_ {};
-      // The ID of the management account.
+      // The MPK of the parent account.
       shared_ptr<int64_t> mpk_ {};
     };
 
@@ -177,15 +184,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetCustomerAccountInfoResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
+    // Indicates whether the call was successful. A value of true indicates that the call was completed. A value of false indicates that an error occurred.
     shared_ptr<bool> success_ {};
   };
 

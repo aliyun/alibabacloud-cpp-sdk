@@ -94,24 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the resource plan.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
-    // The data returned.
     shared_ptr<string> effectiveDate_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the order.
-    // 
     // This parameter is required.
     shared_ptr<string> packageType_ {};
     shared_ptr<string> pricingCycle_ {};
-    // Indicates whether the request is successful.
-    // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The ID of the order.
-    // 
     // This parameter is required.
     shared_ptr<string> specification_ {};
   };

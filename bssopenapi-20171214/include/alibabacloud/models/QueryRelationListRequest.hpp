@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of entries per page. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The states of the relationships between the management account and its members. The valid values of this parameter are the enumeration members of the RelationshipStatusEnum data type. If you do not specify this parameter, valid relationship states are queried by default.
+    // A list of relationship statuses. The value is an enumeration of RelationshipStatusEnum. If you do not specify this parameter, only relationships that are in effect are queried.
     shared_ptr<vector<string>> statusList_ {};
-    // The ID of the Alibaba Cloud account.
+    // The UID of the Alibaba Cloud account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

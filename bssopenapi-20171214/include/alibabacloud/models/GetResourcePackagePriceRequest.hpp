@@ -116,8 +116,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
-    // The time when the resource plan takes effect. If you do not specify this parameter, the resource plan immediately takes effect by default. 
-    // When the **OrderType** is **BUY**, resource packs with the **EffectiveDate longer than the current time of 6 months** are not supported. 
+    // The time when the resource plan takes effect. If you do not specify this parameter, the resource plan immediately takes effect by default.
+    // When the **OrderType** is **BUY**, resource packs with the **EffectiveDate longer than the current time of 6 months** are not supported.
     // If the **OrderType** is **UPGRADE**, the **EffectiveDate** **must be less than or equal to** the actual expiration time of the upgraded instance.
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> effectiveDate_ {};
@@ -125,9 +125,11 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the order. Valid values:
     // 
-    // *   BUY: You place the order to purchase an instance.
-    // *   UPGRADE: You place the order to upgrade an instance.
-    // *   RENEW: You place the order to renew an instance.
+    // - BUY: You place the order to purchase an instance.
+    // 
+    // - UPGRADE: You place the order to upgrade an instance.
+    // 
+    // - RENEW: You place the order to renew an instance.
     // 
     // Default value: BUY.
     shared_ptr<string> orderType_ {};
@@ -138,8 +140,9 @@ namespace Models
     shared_ptr<string> packageType_ {};
     // The unit of validity period of the resource plan. Valid values:
     // 
-    // *   Month
-    // *   Year
+    // - Month
+    // 
+    // - Year
     shared_ptr<string> pricingCycle_ {};
     // The code of service. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
     // 

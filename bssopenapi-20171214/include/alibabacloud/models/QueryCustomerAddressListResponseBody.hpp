@@ -206,29 +206,17 @@ namespace Models
 
 
         protected:
-          // The addressee.
           shared_ptr<string> addressee_ {};
-          // The business type.
           shared_ptr<string> bizType_ {};
-          // The city to which the invoice is mailed.
           shared_ptr<string> city_ {};
-          // The name of the district to which the invoice is mailed.
           shared_ptr<string> county_ {};
-          // The detailed address to which the invoice is mailed. This parameter is returned after fields are concatenated.
           shared_ptr<string> deliveryAddress_ {};
-          // The ID.
           shared_ptr<int64_t> id_ {};
-          // The phone number of the addressee.
           shared_ptr<string> phone_ {};
-          // The postcode.
           shared_ptr<string> postalCode_ {};
-          // The province to which the invoice is mailed.
           shared_ptr<string> province_ {};
-          // The name of the street to which the invoice is mailed.
           shared_ptr<string> street_ {};
-          // The ID of the user.
           shared_ptr<int64_t> userId_ {};
-          // The nickname of the user.
           shared_ptr<string> userNick_ {};
         };
 
@@ -257,7 +245,6 @@ namespace Models
 
 
     protected:
-      // The details of addresses to which invoices are mailed.
       shared_ptr<Data::CustomerInvoiceAddressList> customerInvoiceAddressList_ {};
     };
 
@@ -303,13 +290,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryCustomerAddressListResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

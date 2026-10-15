@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code that is returned if the call fails. For more information, see Error codes.
     shared_ptr<string> code_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates that the request was successful. A value of false indicates that the request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -139,17 +139,42 @@ namespace Models
 
 
   protected:
+    // The filter for the amortization month.
+    // Maximum number of elements: 10.
     shared_ptr<vector<string>> amortizationPeriodFilter_ {};
+    // The filter for the ID of the resource owner.
+    // The resource owner is the account that actually uses the resource.
+    // Maximum number of elements: 10.
     shared_ptr<vector<string>> billOwnerIdList_ {};
+    // The filter for the ID of the bill payer.
+    // This is the ID of a RAM user. If you specify this parameter, you can view the bills of the RAM user. If you leave this parameter empty, the bills of the current account and all its RAM users are returned.
+    // Maximum number of elements: 10.
     shared_ptr<vector<string>> billUserIdList_ {};
+    // The billing cycle.
+    // Format: YYYY-MM.
+    // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
+    // The code of the cost center.
     shared_ptr<string> costUnitCode_ {};
+    // The filter for the instance ID.
+    // You can query multiple instances. If you leave this parameter empty, all instances are queried.
+    // Maximum number of elements: 10.
     shared_ptr<vector<string>> instanceIdList_ {};
+    // The maximum number of data records to return in this call. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. You must set the value to the token that is returned in the previous call. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The product code.
+    // To obtain the value of this parameter, call QueryProductList to query product information, or call DescribeResourcePackageProduct to query information about a specific resource plan.
     shared_ptr<string> productCode_ {};
+    // The details of the product.
     shared_ptr<string> productDetail_ {};
+    // The subscription type. Valid values:
+    // 
+    // - Subscription: subscription.
+    // 
+    // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };
 

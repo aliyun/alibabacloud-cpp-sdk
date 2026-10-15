@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag to query.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of the tag to query.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -159,28 +159,29 @@ namespace Models
 
 
   protected:
+    // The commodity code.
     shared_ptr<string> commodityCode_ {};
-    // The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The end time. The time is in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> endTime_ {};
     // The ID of the savings plan instance.
     shared_ptr<string> instanceId_ {};
-    // The language of the return data. Valid values:
+    // The language of the response.
     // 
-    // *   ZH: Chinese
-    // *   EN: English
+    // - EN: English
+    // 
+    // - ZH: Chinese
     shared_ptr<string> locale_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start time. The time is in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> startTime_ {};
-    // The status of the Instance. 
-    // 
-    // *  NORMAL
-    // * RELEASE
+    // The status of the instance. Valid values:
+    // NORMAL: The instance is active.
+    // RELEASE: The instance is released.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The list of tag elements.
     shared_ptr<vector<QuerySavingsPlansInstanceRequest::Tag>> tag_ {};
   };
 

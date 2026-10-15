@@ -75,19 +75,24 @@ namespace Models
 
 
   protected:
-    // The ID of the account for which you want to query total coverage data. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The end of the query time range. Format: yyyy-MM-dd HH:mm:ss. The query excludes this time. If this parameter is left empty, the current time is used.
     shared_ptr<string> endPeriod_ {};
-    // The time granularity at which total coverage data is queried. Valid values: MONTH, DAY, and HOUR.
+    // The time granularity. Valid values:
+    // - MONTH: month
+    // - DAY: day
+    // - HOUR: hour
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // The type of deduction plans whose total coverage data is queried. Valid values: RI and SCU.
+    // The resource type. Valid values:
+    // - RI: reserved instance
+    // - SCU: storage capacity unit
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start of the query time range. Format: yyyy-MM-dd HH:mm:ss. The query includes this time.
     // 
     // This parameter is required.
     shared_ptr<string> startPeriod_ {};

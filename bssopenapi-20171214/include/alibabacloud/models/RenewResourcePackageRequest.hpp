@@ -75,23 +75,24 @@ namespace Models
 
 
   protected:
-    // The renewal period of the resource plan.
+    // The renewal duration of the resource package.
     // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
-    // The time when the resource plan takes effect. If you leave this parameter empty, the resource plan immediately takes effect by default.
+    // The time when the resource package takes effect. If you leave this parameter empty, the resource package takes effect immediately.
     // 
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time zone must be UTC.
     shared_ptr<string> effectiveDate_ {};
-    // The ID of the resource plan.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The unit of the validity period for the resource plan. Valid values:
+    // The unit of the renewal duration. Valid values:
     // 
-    // *   Month
-    // *   Year
+    // - Month
+    // 
+    // - Year
     // 
     // Default value: Month.
     // 

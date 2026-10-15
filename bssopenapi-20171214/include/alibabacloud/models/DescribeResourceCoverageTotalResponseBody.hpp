@@ -115,13 +115,13 @@ namespace Models
 
 
       protected:
-        // The unit that is used to measure the resources deducted from deduction plans.
+        // The offset unit.
         shared_ptr<string> capacityUnit_ {};
-        // The total coverage rate of deduction plans.
+        // The total coverage rate.
         shared_ptr<float> coveragePercentage_ {};
-        // The total amount of the resources deducted from deduction plans.
+        // The total offset amount.
         shared_ptr<float> deductQuantity_ {};
-        // The total amount of resources consumed.
+        // The total usage.
         shared_ptr<float> totalQuantity_ {};
       };
 
@@ -163,11 +163,9 @@ namespace Models
 
 
       protected:
-        // The coverage rate of deduction plans within the specified period.
+        // The coverage rate.
         shared_ptr<float> coveragePercentage_ {};
-        // The period.
-        // 
-        // The value is in the format of yyyyMMddHH.
+        // The time period. Format: yyyyMMddHH.
         shared_ptr<string> period_ {};
       };
 
@@ -192,9 +190,9 @@ namespace Models
 
 
     protected:
-      // The information about the coverage rate of deduction plans within a period.
+      // The coverage rate by time period.
       shared_ptr<vector<Data::PeriodCoverage>> periodCoverage_ {};
-      // The information about the total coverage data of deduction plans.
+      // The total coverage rate.
       shared_ptr<Data::TotalCoverage> totalCoverage_ {};
     };
 
@@ -242,11 +240,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeResourceCoverageTotalResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

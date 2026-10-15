@@ -97,35 +97,33 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account that is used as the member.
+    // The Alibaba Cloud UID of the linked account.
     shared_ptr<int64_t> childUserId_ {};
-    // The operation to be performed to confirm the invitation. Valid values:
-    // 
-    // *   child_agree: The member accepts the invitation.
-    // *   child_disagree: The member rejects the invitation.
-    // *   Canceled by the master account: The management account cancels the confirmation.
+    // The confirmation action. Valid values:
+    // - child_agree: The linked account agrees.
+    // - child_disagree: The linked account rejects.
+    // - 主账号取消确认: The main account cancels the confirmation.
     // 
     // This parameter is required.
     shared_ptr<string> confirmCode_ {};
-    // The ID of the Alibaba Cloud account that is used as the management account.
+    // The Alibaba Cloud UID of the main account.
     shared_ptr<int64_t> parentUserId_ {};
-    // The permissions that can be granted to the member. Valid values:
-    // 
-    // *   SYNCHRONIZE_FINANCE_IDENTITY: allows the credit control identity to be shared with the member.
-    // *   SYNCHRONIZE_FINANCE_DISCOUNT_POLICY_TO_TARGET: allows the discount policy to be shared with the member.
-    // *   FORBID_WITHDRAW_CASH: does not allow the member to withdraw the balance.
-    // *   FORBID_MANAGE_INVOICE: does not allow the member to manage invoices.
-    // *   CHECK_FINANCE_INFO: requests to view information about the financial relationship.
-    // *   MANAGE_TARGET_INVOICE: allows the member to manage invoices.
-    // *   CHECK_TARGET_CONSUMPTION: allows the member to view the bills.
+    // The permissions granted to the linked account. Valid values:
+    // - SYNCHRONIZE_FINANCE_IDENTITY: Allows synchronizing the credit-based payment identity to the linked account.
+    // - SYNCHRONIZE_FINANCE_DISCOUNT_POLICY_TO_TARGET: Allows synchronizing discounts to the linked account.
+    // - FORBID_WITHDRAW_CASH: Prohibits the linked account from withdrawing cash from the balance.
+    // - FORBID_MANAGE_INVOICE: Prohibits the linked account from managing invoices.
+    // - CHECK_FINANCE_INFO: Allows requesting to view the account linking information.
+    // - MANAGE_TARGET_INVOICE: Allows managing invoices of the target account.
+    // - CHECK_TARGET_CONSUMPTION: Allows viewing the consumption information of the linked account.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> permissionCodes_ {};
-    // The ID of the financial relationship. Set this parameter to the value of the RelationId response parameter returned by calling the QueryRelationList operation.
+    // The relationship ID. You can obtain the value from the relationId field in the response of the QueryRelationList operation.
     shared_ptr<int64_t> relationId_ {};
-    // The type of the financial relationship. Set the value to enterprise_group.
+    // The relationship type. Valid values: enterprise_group.
     shared_ptr<string> relationType_ {};
-    // The unique ID of the request.
+    // The unique identifier of the request.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};

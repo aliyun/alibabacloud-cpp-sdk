@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // You do not need to specify this parameter.
     shared_ptr<string> itemCodes_ {};
     // This parameter is required.
     shared_ptr<int64_t> ownerId_ {};

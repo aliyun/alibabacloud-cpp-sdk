@@ -535,12 +535,18 @@ namespace Models
 
 
     protected:
+      // The account ID.
       shared_ptr<string> accountID_ {};
+      // The account name.
       shared_ptr<string> accountName_ {};
+      // The billing cycle, in the format of YYYY-MM.
       shared_ptr<string> billingCycle_ {};
       shared_ptr<Data::Items> items_ {};
+      // The maximum number of records returned in this request.
       shared_ptr<int32_t> maxResults_ {};
+      // The token that indicates the position where the current call reads to. An empty value indicates that all data has been read.
       shared_ptr<string> nextToken_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -584,10 +590,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<QuerySettleBillResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

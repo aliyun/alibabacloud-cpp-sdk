@@ -2,6 +2,11 @@
 #ifndef ALIBABACLOUD_BSSOPENAPI20171214MODEL_HPP_
 #define ALIBABACLOUD_BSSOPENAPI20171214MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AttributeDetailDTO.hpp>
+#include <alibabacloud/models/AttributeValueInfoDTO.hpp>
+#include <alibabacloud/models/BaseAttributeInfoDTO.hpp>
+#include <alibabacloud/models/AttributeInfoDTO.hpp>
+#include <alibabacloud/models/SelectedComponentConfigDTO.hpp>
 #include <alibabacloud/models/AddAccountRelationRequest.hpp>
 #include <alibabacloud/models/AddAccountRelationResponseBody.hpp>
 #include <alibabacloud/models/AddAccountRelationResponse.hpp>

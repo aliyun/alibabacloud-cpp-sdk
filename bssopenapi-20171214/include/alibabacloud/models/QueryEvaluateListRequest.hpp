@@ -163,43 +163,46 @@ namespace Models
   protected:
     // The billing cycle.
     shared_ptr<string> billCycle_ {};
-    // The market types in invoices.
-    // 
-    // >  By default, this parameter is left empty. If this parameter is left empty, all market types are queried.
+    // The list of invoicing entities to which the invoiceable objects belong.
     shared_ptr<vector<string>> bizTypeList_ {};
-    // The maximum amount to be queried.
+    // The maximum amount for the query.
     shared_ptr<int64_t> endAmount_ {};
-    // The latest time when an order is paid Specify the time in the yyyy-mm-dd hh:mm:ss format.
+    // The end of the time range to query based on the successful payment time. The format is yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> endBizTime_ {};
     // The end of the time range to query.
     shared_ptr<string> endSearchTime_ {};
-    // The ID of the external order.
+    // The order ID, bill ID, or contract ID.
     shared_ptr<string> outBizId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the sort. Valid values:
+    // The sorting type. Valid values:
     // 
-    // *   1: Sort invoices by ID in descending order.
-    // *   2: Sort invoices by invoice type in descending order, and then sort invoices of the same type by ID in descending order.
-    // *   3: Sort invoices by invoice type in ascending order, and then sort invoices of the same type by ID in descending order.
+    // - 1: sorts the results by ID in descending order.
+    // 
+    // - 2: sorts the results by type in descending order, and then by ID in descending order.
+    // 
+    // - 3: sorts the results by type in ascending order, and then by ID in descending order.
     shared_ptr<int32_t> sortType_ {};
-    // The minimum amount to be queried.
+    // The minimum amount for the query.
     shared_ptr<int64_t> startAmount_ {};
-    // The earliest time when an order is paid. Specify the time in the yyyy-mm-dd hh:mm:ss format.
+    // The beginning of the time range to query based on the successful payment time. The format is yyyy-mm-dd hh:mm:ss.
     shared_ptr<string> startBizTime_ {};
-    // The beginning of the time range to query.
+    // The start of the time range to query.
     shared_ptr<string> startSearchTime_ {};
-    // The type of orders to be queried. Valid values:
+    // The type. Valid values:
     // 
-    // *   1: the orders in which the invoiceable amount is negative.
-    // *   2: the orders in which the invoiceable amount is positive.
-    // *   3: the orders in which the invoiceable amount is not 0.
-    // *   4: the orders in which the amount that has been invoiced is greater than 0.
+    // - 1: queries objects with a negative invoiceable amount.
     // 
-    // >  By default, this parameter is left empty. If this parameter is left empty, all orders are queried.
+    // - 2: queries objects with a positive invoiceable amount.
+    // 
+    // - 3: queries all objects with a non-zero invoiceable amount.
+    // 
+    // - 4: queries objects with an invoiced amount greater than 0.
+    // 
+    // > If you leave this parameter empty, all objects are queried.
     shared_ptr<int32_t> type_ {};
   };
 

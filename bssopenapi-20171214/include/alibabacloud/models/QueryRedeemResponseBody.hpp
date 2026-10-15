@@ -193,36 +193,15 @@ namespace Models
 
 
         protected:
-          // The services to which the redemption coupon is applicable.
           shared_ptr<string> applicableProducts_ {};
-          // The balance of the redemption coupon.
           shared_ptr<string> balance_ {};
-          // The time when the redemption coupon took effect.
           shared_ptr<string> effectiveTime_ {};
-          // The time when the redemption coupon expired.
           shared_ptr<string> expiryTime_ {};
-          // The time when the redemption coupon was issued.
           shared_ptr<string> grantedTime_ {};
-          // The nominal value of the redemption coupon.
           shared_ptr<string> nominalValue_ {};
-          // The ID of the redemption coupon.
           shared_ptr<string> redeemId_ {};
-          // The number of the redemption coupon.
           shared_ptr<string> redeemNo_ {};
-          // The specifications of the redemption coupon.
           shared_ptr<string> specification_ {};
-          // The status of the redemption coupon. Valid values:
-          // 
-          // *   Generated
-          // *   CallBack
-          // *   RefundPending
-          // *   Canceled
-          // *   Order_Canceled
-          // *   ActivePending
-          // *   ActiveSuccess
-          // *   ExchangePending
-          // *   ExchangeSuccess
-          // *   Expired
           shared_ptr<string> status_ {};
         };
 
@@ -273,13 +252,12 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int64_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The details of the redemption coupon.
       shared_ptr<Data::Redeem> redeem_ {};
-      // The total number of returned entries.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -323,13 +301,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryRedeemResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

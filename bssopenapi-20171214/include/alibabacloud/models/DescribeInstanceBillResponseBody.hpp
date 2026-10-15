@@ -521,110 +521,104 @@ namespace Models
 
 
       protected:
-        // The amount deducted with credit refund.
         shared_ptr<float> adjustAmount_ {};
+        // The amount after discount, including the payable amount after coupon deduction. Calculation rule: Amount after discount = List price - Discount amount.
         shared_ptr<float> afterDiscountAmount_ {};
         // The ID of the account to which the bill belongs.
         shared_ptr<string> billAccountID_ {};
         // The name of the account to which the bill belongs.
         shared_ptr<string> billAccountName_ {};
-        // The billing date. This parameter is returned only if the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+        // The billing date. This parameter has a value only when Granularity is set to DAILY. Format: YYYY-MM-DD.
         shared_ptr<string> billingDate_ {};
-        // The billable item. A value is returned only if the IsBillingItem parameter is set to true.
+        // The billable item. This parameter has a value only when IsBillingItem is set to true.
         shared_ptr<string> billingItem_ {};
-        // The code of the billable item.
+        // The billable item code.
         shared_ptr<string> billingItemCode_ {};
         // The billing method.
         shared_ptr<string> billingType_ {};
-        // The type of business.
+        // The business type.
         shared_ptr<string> bizType_ {};
-        // The amount paid in cash. The amount deducted with credit refund is not included.
         shared_ptr<float> cashAmount_ {};
-        // The code of the commodity. The code is the same as that in Cost Center.
+        // The commodity code, which is the same as the product detail code in the User Center.
         shared_ptr<string> commodityCode_ {};
-        // The cost center.
+        // The cost unit.
         shared_ptr<string> costUnit_ {};
-        // The type of currency. Valid values:
-        // 
-        // *   CNY
-        // *   USD
-        // *   JPY
+        // The currency. Valid values:
+        // - CNY
+        // - USD
+        // - JPY
         shared_ptr<string> currency_ {};
-        // The amount deducted with vouchers.
         shared_ptr<float> deductedByCashCoupons_ {};
-        // The amount deducted with coupons.
+        // The coupon discount amount.
         shared_ptr<float> deductedByCoupons_ {};
-        // The amount deducted with prepaid cards.
         shared_ptr<float> deductedByPrepaidCard_ {};
-        // The amount deducted with resource plans. This parameter is valid only when the isBillingItem parameter is set to true.
+        // The amount deducted by resource plans. This parameter is valid only when isBillingItem is set to true.
         shared_ptr<string> deductedByResourcePackage_ {};
-        // The configurations of the instance.
+        // The detailed instance configuration.
         shared_ptr<string> instanceConfig_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceID_ {};
-        // The type of the instance.
+        // The instance specifications.
         shared_ptr<string> instanceSpec_ {};
         // The public IP address.
         shared_ptr<string> internetIP_ {};
-        // The private IP address.
+        // The internal IP address.
         shared_ptr<string> intranetIP_ {};
         // The discount amount.
         shared_ptr<float> invoiceDiscount_ {};
-        // The type of the bill.
-        // 
-        // *   SubscriptionOrder: the subscription bill.
-        // *   PayAsYouGoBill: the pay-as-you-go bill,
-        // *   Refund: the refund.
-        // *   Adjustment: the adjustment bill.
+        // The bill type. Valid values:
+        // - SubscriptionOrder: subscription order
+        // - PayAsYouGoBill: pay-as-you-go bill
+        // - Refund: refund
+        // - Adjustment: adjustment
         shared_ptr<string> item_ {};
-        // The name of the project.
+        // The item name.
         shared_ptr<string> itemName_ {};
-        // The unit price of the service. This parameter is valid only when the isBillingItem parameter is set to true.
+        // The unit price. This parameter is valid only when isBillingItem is set to true.
         shared_ptr<string> listPrice_ {};
-        // The unit of the unit price. This parameter is valid only when the isBillingItem parameter is set to true.
+        // The unit of the unit price. This parameter is valid only when isBillingItem is set to true.
         shared_ptr<string> listPriceUnit_ {};
-        // The name of the instance.
+        // The instance nickname.
         shared_ptr<string> nickName_ {};
-        // The unsettled amount.
         shared_ptr<float> outstandingAmount_ {};
-        // The ID of the account that owns the resource. This parameter is returned in multi-account payment scenario.
+        // The account ID of the resource owner in multi-account payment scenarios.
         shared_ptr<string> ownerID_ {};
-        // The amount paid in cash. The amount deducted with credit refund is not included.
         shared_ptr<float> paymentAmount_ {};
-        // The code of the service. The code is the same as that in Cost Center.
+        // The product code, which is consistent with the product code in the bills of the User Center.
         shared_ptr<string> pipCode_ {};
-        // The pretax amount.
+        // The payable amount.
         shared_ptr<float> pretaxAmount_ {};
-        // The pretax gross amount.
+        // The original amount.
         shared_ptr<float> pretaxGrossAmount_ {};
-        // The code of the service.
+        // The product code.
         shared_ptr<string> productCode_ {};
-        // The details of the service.
+        // The product detail.
         shared_ptr<string> productDetail_ {};
-        // The name of the service.
+        // The product name.
         shared_ptr<string> productName_ {};
-        // The type of the service.
+        // The product type.
         shared_ptr<string> productType_ {};
-        // The ID of the region.
+        // The region.
         shared_ptr<string> region_ {};
-        // The ID of the resource group.
+        // The resource group.
         shared_ptr<string> resourceGroup_ {};
         // The service duration.
         shared_ptr<string> servicePeriod_ {};
         // The unit of the service duration.
         shared_ptr<string> servicePeriodUnit_ {};
-        // The billing method. Valid values:
-        // 
-        // *   Subscription: the subscription billing method.
-        // *   PayAsYouGo: the pay-as-you-go billing method.
+        // The subscription type. Valid values:
+        // - Subscription: subscription
+        // - PayAsYouGo: pay-as-you-go
         shared_ptr<string> subscriptionType_ {};
-        // The tag of the resource.
+        // The resource tag.
         shared_ptr<string> tag_ {};
-        // The usage of the service. This parameter is valid only when the isBillingItem parameter is set to true. The usage is the total usage in all bills in the billing cycle, not the amount that you purchase. For example, if 1 GB of storage is used and bills are generated every hour, the usage is 1 GB per hour. In this case, the usage is 24 GB per day.
+        // The usage.
+        // 
+        // > This parameter is valid only when isBillingItem is set to true. The usage data is the sum of usage across all bills within the cycle, not the actual purchased amount. For example, if 1 GB of storage is used and billed hourly, the hourly usage is 1 GB, and the daily aggregated bill usage is 1 GB × 24 = 24 GB.
         shared_ptr<string> usage_ {};
-        // The unit of usage. This parameter is valid only when the isBillingItem parameter is set to true.
+        // The usage unit. This parameter is valid only when isBillingItem is set to true.
         shared_ptr<string> usageUnit_ {};
-        // The ID of the zone.
+        // The zone.
         shared_ptr<string> zone_ {};
       };
 
@@ -683,19 +677,19 @@ namespace Models
 
 
     protected:
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The name of the account.
+      // The user account.
       shared_ptr<string> accountName_ {};
-      // The billing cycle in the YYYY-MM format.
+      // The billing date. Format: YYYY-MM.
       shared_ptr<string> billingCycle_ {};
-      // The details of the bill.
+      // The bill details.
       shared_ptr<vector<Data::Items>> items_ {};
-      // The maximum number of entries returned.
+      // The maximum number of records returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
-      // The position where the query stopped. If this parameter is left empty, all the results are returned. If you perform another call, you must set the NextToken parameter to the value of this parameter.
+      // The token that indicates the position from which the current call resumes reading. An empty value indicates that all data has been read. For the next call, set this value to the NextToken request parameter.
       shared_ptr<string> nextToken_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -741,13 +735,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeInstanceBillResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

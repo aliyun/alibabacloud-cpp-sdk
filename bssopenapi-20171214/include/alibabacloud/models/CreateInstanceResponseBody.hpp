@@ -75,7 +75,7 @@ namespace Models
 
 
     protected:
-      // The ID of the instance for which the order was created.
+      // The instance ID associated with the order.
       shared_ptr<string> instanceId_ {};
       // The ID of the order that was created.
       shared_ptr<string> orderId_ {};
@@ -123,11 +123,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<CreateInstanceResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

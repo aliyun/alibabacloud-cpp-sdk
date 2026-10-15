@@ -266,43 +266,43 @@ namespace Models
 
 
       protected:
-        // The unit that is used to measure the resources deducted from deduction plans.
+        // The deduction unit.
         shared_ptr<string> capacityUnit_ {};
-        // The code of the service.
+        // The code of the product detail.
         shared_ptr<string> commodityCode_ {};
-        // The name and billing method of the service.
+        // The product detail.
         shared_ptr<string> commodityName_ {};
-        // The coverage rate of a deduction plan.
+        // The coverage percentage.
         shared_ptr<float> coveragePercentage_ {};
-        // The currency in which deduction plans were priced.
+        // The currency.
         shared_ptr<string> currency_ {};
-        // The amount of the resources deducted from a deduction plan.
+        // The deducted quantity.
         shared_ptr<float> deductQuantity_ {};
-        // The end of the time range in which the coverage details were queried.
+        // The end time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The ID of a pay-as-you-go instance.
+        // The pay-as-you-go instance ID.
         shared_ptr<string> instanceId_ {};
-        // The specifications of a deduction plan.
+        // The instance type.
         shared_ptr<string> instanceSpec_ {};
-        // The amount of the bill.
+        // The bill amount.
         shared_ptr<float> paymentAmount_ {};
-        // The code of the service.
+        // The product code.
         shared_ptr<string> productCode_ {};
-        // The name of the service.
+        // The product name.
         shared_ptr<string> productName_ {};
         // The region.
         shared_ptr<string> region_ {};
-        // The code of the region.
+        // The region ID.
         shared_ptr<string> regionNo_ {};
-        // The beginning of the time range in which the coverage details were queried.
+        // The start time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The total amount of resources consumed.
+        // The total usage.
         shared_ptr<float> totalQuantity_ {};
-        // The ID of the account.
+        // The account ID.
         shared_ptr<string> userId_ {};
-        // The username of the account.
+        // The account name.
         shared_ptr<string> userName_ {};
-        // The code of the zone.
+        // The zone ID.
         shared_ptr<string> zone_ {};
         // The zone.
         shared_ptr<string> zoneName_ {};
@@ -341,13 +341,13 @@ namespace Models
 
 
     protected:
-      // The data entries.
+      // The data items.
       shared_ptr<vector<Data::Items>> items_ {};
       // The number of entries returned on the current page.
       shared_ptr<int32_t> maxResults_ {};
-      // The token of the next page.
+      // The token for the next page.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -395,11 +395,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<DescribeResourceCoverageDetailResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

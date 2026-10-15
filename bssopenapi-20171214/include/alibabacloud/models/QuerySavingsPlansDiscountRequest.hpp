@@ -130,37 +130,33 @@ namespace Models
 
 
   protected:
-    // The code of the service.
+    // The commodity code.
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The cycle based on which queries are performed.
+    // The query cycle.
     // 
     // This parameter is required.
     shared_ptr<string> cycle_ {};
-    // The identifier of the language.
-    // 
-    // Valid values:
-    // 
-    // *   EN: English.
-    // *   ZH: Chinese.
+    // The language of the response.
     shared_ptr<string> locale_ {};
-    // The code of the pricing module.
+    // The code of the module.
     shared_ptr<string> moduleCode_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The payment mode. Valid values: total: all upfront. half: half upfront. zero: no upfront.
+    // The payment mode. Valid values: total: all upfront. half: partial upfront. zero: no upfront.
     // 
     // This parameter is required.
     shared_ptr<string> payMode_ {};
-    // The ID of the region.
+    // The region.
     shared_ptr<string> region_ {};
-    // The type of the resource.
+    // The resource type.
     shared_ptr<string> spec_ {};
+    // The commodity code of the savings plan.
     shared_ptr<string> spnCommodityCode_ {};
-    // The type of the savings plan. Valid values: ecs: Elastic Compute Service (ECS) compute type. universal: general-purpose type.
+    // The type of the savings plan. Valid values: ecs: compute-optimized. universal: universal.
     // 
     // This parameter is required.
     shared_ptr<string> spnType_ {};

@@ -106,13 +106,13 @@ namespace Models
 
 
   protected:
-    // The IDs of resources.
+    // A list of resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Specify the savings plan instance as the type of the resource.
+    // The type of the resource. Set this parameter to `instance` to query savings plan instances.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // A list of tags.
     shared_ptr<vector<QueryInstanceByTagRequest::Tag>> tag_ {};
   };
 

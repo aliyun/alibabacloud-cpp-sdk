@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // The attribute of the account. To view the attribute of the account, use the account to log on to the Alibaba Cloud Management Console, move the pointer over the profile picture in the upper-right corner, and then click **Security Settings**.
+    // The properties of the new account. In the console, click Account Properties in the top menu bar to go to the **Security Settings** page and view the properties.
     shared_ptr<string> accountAttr_ {};
-    // The name of the city.
+    // The name of the city in English.
     shared_ptr<string> cityName_ {};
-    // The name of the enterprise.
+    // The name of the enterprise. This is the enterprise name that corresponds to the Unified Social Credit Code.
     shared_ptr<string> enterpriseName_ {};
-    // The first name.
+    // The first name of the user under the level 1 category.
     shared_ptr<string> firstName_ {};
-    // The last name.
+    // The last name of the user.
     // 
-    // The last name can be up to 64 characters in length.
+    // Maximum length: 64 characters.
     shared_ptr<string> lastName_ {};
-    // The email address used to log on to the account.
+    // The logon email address of the member account.
     // 
     // This parameter is required.
     shared_ptr<string> loginEmail_ {};
     // The country code.
     shared_ptr<string> nationCode_ {};
-    // The zip code.
+    // The postal code.
     shared_ptr<string> postcode_ {};
     // The name of the province. This parameter is optional.
     shared_ptr<string> provinceName_ {};

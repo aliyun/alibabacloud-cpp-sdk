@@ -273,36 +273,19 @@ namespace Models
 
 
         protected:
-          // The services to which the resource plan is applicable.
           shared_ptr<Instance::ApplicableProducts> applicableProducts_ {};
-          // The commodity code.
           shared_ptr<string> commodityCode_ {};
-          // The deduction type. Example: Absolute.
           shared_ptr<string> deductType_ {};
-          // The time when the resource plan took effect.
           shared_ptr<string> effectiveTime_ {};
-          // The time when the resource plan expired.
           shared_ptr<string> expiryTime_ {};
-          // The ID of the instance.
           shared_ptr<string> instanceId_ {};
-          // The type of the resource plan.
           shared_ptr<string> packageType_ {};
-          // The ID of the region.
           shared_ptr<string> region_ {};
-          // The remaining quota.
           shared_ptr<string> remainingAmount_ {};
-          // The unit of the remaining quota.
           shared_ptr<string> remainingAmountUnit_ {};
-          // The remarks on the resource plan. The remarks must be made in Chinese.
           shared_ptr<string> remark_ {};
-          // The status of the resource plan. Valid values:
-          // 
-          // *   Available
-          // *   Expired
           shared_ptr<string> status_ {};
-          // The total quota of the resource plan.
           shared_ptr<string> totalAmount_ {};
-          // The unit of the total quota.
           shared_ptr<string> totalAmountUnit_ {};
         };
 
@@ -360,15 +343,14 @@ namespace Models
 
 
     protected:
-      // The ID of the host.
+      // The host ID.
       shared_ptr<string> hostId_ {};
-      // The details of the instances.
       shared_ptr<Data::Instances> instances_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<string> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<string> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -434,21 +416,21 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryResourcePackageInstancesResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of returned entries.
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

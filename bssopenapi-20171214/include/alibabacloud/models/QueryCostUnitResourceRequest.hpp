@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The user ID of the cost center owner.
+    // The user ID of the financial unit owner.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ownerUid_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the cost center.
+    // The ID of the financial unit.
     // 
     // This parameter is required.
     shared_ptr<int64_t> unitId_ {};

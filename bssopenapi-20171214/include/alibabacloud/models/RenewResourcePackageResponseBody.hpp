@@ -77,7 +77,7 @@ namespace Models
 
 
     protected:
-      // The ID of the resource plan.
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
       // The ID of the order.
       shared_ptr<int64_t> orderId_ {};
@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<RenewResourcePackageResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
     // The ID of the order.
     shared_ptr<int64_t> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

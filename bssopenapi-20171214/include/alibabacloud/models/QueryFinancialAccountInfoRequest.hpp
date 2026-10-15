@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userId_ {};

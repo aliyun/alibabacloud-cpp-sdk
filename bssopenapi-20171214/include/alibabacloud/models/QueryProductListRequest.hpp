@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return.
+    // The current page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of records per page. Maximum value: 300. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to return the total number of services. Default value: false.
+    // Specifies whether to return the total number of products. Default value: false.
     shared_ptr<bool> queryTotalCount_ {};
   };
 

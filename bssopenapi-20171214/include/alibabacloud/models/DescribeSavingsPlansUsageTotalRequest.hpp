@@ -232,16 +232,16 @@ namespace Models
 
 
   protected:
-    // The ID of the account for which you want to query usage summary. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+    // The ID of the resource ownership account. The resource ownership account is the account that actually uses the resources.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The end of the time range to query. The end time is excluded from the time range. If you do not set this parameter, the end time is the current time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endPeriod_ {};
     shared_ptr<DescribeSavingsPlansUsageTotalRequest::FilterParam> filterParam_ {};
-    // The time granularity at which usage summary are queried. Valid values: MONTH, DAY, and HOUR.
+    // The time granularity of the usage summary. Valid values: MONTH, DAY, HOUR.
     // 
     // This parameter is required.
     shared_ptr<string> periodType_ {};
-    // The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+    // The start of the time range to query. The start time is included in the time range. Format: yyyy-MM-dd HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startPeriod_ {};

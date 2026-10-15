@@ -223,37 +223,18 @@ namespace Models
 
 
         protected:
-          // The amount of the transaction.
           shared_ptr<string> amount_ {};
-          // The balance of the account.
           shared_ptr<string> balance_ {};
-          // The billing cycle.
           shared_ptr<string> billingCycle_ {};
-          // The type of transaction payment. Valid values:
-          // 
-          // Cash: pay for the transaction in cash. Deposit: pay for the transaction with deposit. RegularBankCreditRefund: pay for the transaction with credit refund controlled by a bank. DirectPay: directly pay for the transaction.
           shared_ptr<string> fundType_ {};
-          // The ID of the order or bill.
           shared_ptr<string> recordID_ {};
-          // The remarks.
           shared_ptr<string> remarks_ {};
-          // The transaction account.
           shared_ptr<string> transactionAccount_ {};
-          // The transaction channel.
           shared_ptr<string> transactionChannel_ {};
-          // The serial number of the transaction channel.
           shared_ptr<string> transactionChannelSN_ {};
-          // Indicates whether the transaction is of the income type or the expenditure type. If one of the following types is specified, results for the specific type are returned. If the type that you specified for the parameter does not belong to the following types, no result is returned. If the parameter is left empty, results for transactions of the income and expenditure types are all returned. Valid values:
-          // 
-          // Income and Expense.
           shared_ptr<string> transactionFlow_ {};
-          // The number of the transaction.
           shared_ptr<string> transactionNumber_ {};
-          // The time when the transaction was made.
           shared_ptr<string> transactionTime_ {};
-          // The type of the transaction. If one of the following transaction types is specified, results for the specified transaction type are returned. If the transaction type that you specified does not belong to the following transaction types, no result is returned. If the parameter is left empty, results for all transaction types are returned. Valid values:
-          // 
-          // Payment, Withdraw, Refund, Consumption, Transfer, and Adjust.
           shared_ptr<string> transactionType_ {};
         };
 
@@ -311,15 +292,14 @@ namespace Models
 
 
     protected:
-      // The name of the account.
+      // The account name.
       shared_ptr<string> accountName_ {};
-      // The details of the transactions within the account.
       shared_ptr<Data::AccountTransactionsList> accountTransactionsList_ {};
-      // This parameter is invalid.
+      // An invalid parameter.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that is used for paging.
+      // The pagination token.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries returned.
+      // The total number of query results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -363,13 +343,13 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<QueryAccountTransactionDetailsResponseBody::Data> data_ {};
-    // The message returned.
+    // The result description.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

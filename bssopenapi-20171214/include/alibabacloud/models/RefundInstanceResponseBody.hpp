@@ -75,9 +75,9 @@ namespace Models
 
 
     protected:
-      // The site of the execution host.
+      // The site where the execution host resides.
       shared_ptr<string> hostId_ {};
-      // The ID of the refund order that is returned only if the instance is unsubscribed from.
+      // The refund order ID returned when the unsubscription is successful.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -121,15 +121,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // data
     shared_ptr<RefundInstanceResponseBody::Data> data_ {};
     // The description of the execution result.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The Tracing Analysis character string for the execute. Provide this string to the platform when troubleshooting issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the call is successful. A value of true indicates that the call is complete. A value of false indicates that an error occurred.
     shared_ptr<bool> success_ {};
   };
 

@@ -95,11 +95,11 @@ namespace Models
     protected:
       // The currency.
       shared_ptr<string> currency_ {};
-      // The site of the execution host.
+      // The site where the execution host resides.
       shared_ptr<string> hostId_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The refundable amount.
+      // The refund amount.
       shared_ptr<double> refundAmount_ {};
     };
 
@@ -143,15 +143,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The response code.
     shared_ptr<string> code_ {};
     // data
     shared_ptr<InquiryPriceRefundInstanceResponseBody::Data> data_ {};
     // The description of the execution result.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The Tracing Analysis character string for the execute operation. You can provide this string to the platform for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true and false.
+    // Indicates whether the call is successful. A value of true indicates that the call is complete. A value of false indicates that an error occurred.
     shared_ptr<bool> success_ {};
   };
 

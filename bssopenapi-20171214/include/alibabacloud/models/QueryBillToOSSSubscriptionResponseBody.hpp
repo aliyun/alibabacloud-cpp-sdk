@@ -164,27 +164,12 @@ namespace Models
 
 
         protected:
-          // The owner ID of the Object Storage Service (OSS) bucket.
           shared_ptr<int64_t> bucketOwnerId_ {};
-          // The path in the OSS bucket.
           shared_ptr<string> bucketPath_ {};
-          // The maximum number of data rows in a single file. If the number of data rows in a bill exceeds the upper limit, the bill is split into multiple files. Then, multiple files are merged and compressed into a package.
           shared_ptr<int32_t> rowLimitPerFile_ {};
-          // The ID of the OSS bucket that stores the subscribed bill.
           shared_ptr<string> subscribeBucket_ {};
-          // The code of the language.
-          // 
-          // Valid values:
-          // 
-          // *   en: English
-          // *   zh: Chinese
           shared_ptr<string> subscribeLanguage_ {};
-          // The time when the subscribed bill was stored in the OSS bucket. The time is displayed in the YYYY-MM-DD hh:mm:ss format.
           shared_ptr<string> subscribeTime_ {};
-          // The type of the subscribed bill. Valid values:
-          // 
-          // *   BillingItemDetailForBillingPeriod: the bill of a billable item.
-          // *   InstanceDetailForBillingPeriod: the bill of an instance.
           shared_ptr<string> subscribeType_ {};
         };
 
@@ -228,11 +213,10 @@ namespace Models
 
 
     protected:
-      // The ID of the account used to perform the query.
+      // The ID of the current query account.
       shared_ptr<string> accountID_ {};
-      // The name of the account used to perform the query.
+      // The name of the current query account.
       shared_ptr<string> accountName_ {};
-      // The details of the subscribed bill.
       shared_ptr<Data::Items> items_ {};
     };
 
@@ -276,15 +260,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryBillToOSSSubscriptionResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

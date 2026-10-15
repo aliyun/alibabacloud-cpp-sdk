@@ -87,26 +87,26 @@ namespace Models
 
 
     protected:
-      // The configuration of the Nth pricing module. Valid values of N: 1 to 50. Format: AA:aa,BB:bb. The values of AA and BB are the property IDs of the pricing module. The values of aa and bb are the property values of the pricing module.
+      // The configuration of the Nth pricing module. The value of N ranges from 1 to 50. Format: "AA:aa,BB:bb", where AA and BB are the property codes of the pricing module, and aa and bb are the corresponding property values.
       // 
-      // >  You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the configuration parameters of the pricing module.
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> config_ {};
-      // The code of the Nth pricing module.
+      // The module code of the Nth pricing module.
       // 
-      // >  You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the module code.
+      // 
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> moduleCode_ {};
       // The price type of the Nth pricing module. Valid values:
+      // - Hour: hourly price.
+      // - Usage: usage-based price.
+      // - Month: monthly price.
+      // - Year: yearly price.
       // 
-      // *   Hour: hourly price
-      // *   Usage: usage price
-      // *   Month: monthly price
-      // *   Year: annual price
-      // 
-      // >  You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the configuration parameters of the pricing module.
+      // > You can call the [DescribePricingModule](https://help.aliyun.com/document_detail/96469.html) operation to obtain the Module parameter.
       // 
       // This parameter is required.
       shared_ptr<string> priceType_ {};
@@ -159,20 +159,20 @@ namespace Models
 
 
   protected:
-    // The details of pricing modules.
+    // The list of pricing modules.
     // 
     // This parameter is required.
     shared_ptr<vector<GetPayAsYouGoPriceRequest::ModuleList>> moduleList_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The code of the service.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // The type of the service.
+    // The product type.
     shared_ptr<string> productType_ {};
-    // The ID of the region in which the instance resides.
+    // The region ID of the instance.
     shared_ptr<string> region_ {};
-    // The billing method. Set the value to PayAsYouGo.
+    // The subscription type. Valid values: PayAsYouGo.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionType_ {};

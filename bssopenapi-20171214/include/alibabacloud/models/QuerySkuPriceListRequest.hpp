@@ -88,22 +88,23 @@ namespace Models
 
 
   protected:
-    // The code of the service.
+    // The commodity code. You can call the **QueryCommodityList** operation to query the commodity code.
     // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
+    // The language. Default value: zh (Chinese).
     shared_ptr<string> lang_ {};
-    // The token that is used to retrieve the next page. You do not need to set this parameter if you query coverage details for the first time. The response returns a token that you can use to query coverage details of the next page. If a null value is returned for the NextPageToken parameter, no more coverage details can be queried.
+    // The pagination token. Leave this parameter empty for the first page query. The query result returns a token for the next page. An empty token in the result indicates that all data has been retrieved. You can obtain the next page token from the **NextPageToken** field in the query result.
     shared_ptr<string> nextPageToken_ {};
-    // The number of entries to be returned on each page. Maximum value: 50.
+    // The number of entries per page. Maximum value: 50.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the pricing object.
+    // The pricing entity code. You can call the **QueryPriceEntityList** operation to query the pricing entity code.
     // 
     // This parameter is required.
     shared_ptr<string> priceEntityCode_ {};
-    // The conditions of the pricing factors.
+    // The collection of pricing factor conditions. You can call the **QueryPriceEntityList** operation to query pricing factor codes and pricing factor values.
     shared_ptr<map<string, vector<string>>> priceFactorConditionMap_ {};
   };
 

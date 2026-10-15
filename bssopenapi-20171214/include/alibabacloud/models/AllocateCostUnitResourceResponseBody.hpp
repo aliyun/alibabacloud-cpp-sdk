@@ -84,14 +84,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether resources are allocated to the specified cost center. Valid values:
-      // 
-      // *   true: The resources are allocated to the specified cost center.
-      // *   false: The resources fail to be allocated to the specified cost center.
+      // Indicates whether the financial unit resource allocation is successful.
+      // - true: The allocation succeeded.
+      // - false: The allocation failed.
       shared_ptr<bool> isSuccess_ {};
-      // The ID of the destination cost center.
+      // The ID of the destination financial unit.
       shared_ptr<int64_t> toUnitId_ {};
-      // The user ID of the owner of the destination cost center.
+      // The ID of the owner of the destination financial unit.
       shared_ptr<int64_t> toUnitUserId_ {};
     };
 
@@ -135,13 +134,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The message code. Example: success.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<AllocateCostUnitResourceResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

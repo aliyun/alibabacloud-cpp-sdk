@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the call is complete.
+      // Indicates whether the operation is complete.
       shared_ptr<bool> isSuccess_ {};
-      // The user ID of the cost center owner.
+      // The ID of the owner of the financial unit.
       shared_ptr<int64_t> ownerUid_ {};
-      // The ID of the cost center.
+      // The ID of the new financial unit.
       shared_ptr<int64_t> unitId_ {};
     };
 
@@ -134,13 +134,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<DeleteCostUnitResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

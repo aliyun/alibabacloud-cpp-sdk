@@ -112,34 +112,36 @@ namespace Models
 
 
   protected:
-    // The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
+    // The ID of the account that owns and actually uses the resource.
     shared_ptr<int64_t> billOwnerId_ {};
-    // The billing cycle. Format: YYYY-MM.
+    // The billing date. Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The billing date. This parameter is required only if the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
+    // The billing date. This parameter is required only when you set Granularity to DAILY. Format: YYYY-MM-DD.
     shared_ptr<string> billingDate_ {};
-    // The granularity at which bills are queried. Valid values:
+    // The granularity for querying the bill. Valid values:
     // 
-    // *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
-    // *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
+    // - MONTHLY: Queries bills on a monthly basis. Corresponds to the monthly bills in **Expenses & Costs&#xA;**> **Bills&#xA;**> **Bill Details&#xA;**.
     // 
-    // You must set the BillingDate parameter before you can set the Granularity parameter to DAILY.
+    // - DAILY: Queries bills on a daily basis. Corresponds to the daily bills in **Expenses & Costs&#xA;**> **Bills&#xA;**> **Bill Details&#xA;**.
+    // 
+    // > If you set `Granularity` to `DAILY`, you must also specify the `BillingDate` parameter.
     shared_ptr<string> granularity_ {};
-    // Specifies whether to summarize bills based on service codes. Valid values:
+    // Specifies whether to aggregate the results by product code.
     // 
-    // *   true: summarizes bills based on service codes.
-    // *   false: does not summarize bills based on service codes.
+    // - true: Results are aggregated by product code.
+    // 
+    // - false: Results are not aggregated by product code.
     // 
     // Default value: false.
     shared_ptr<bool> isGroupByProduct_ {};
     shared_ptr<int64_t> ownerID_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. The default value is 20. The maximum value is 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service.
+    // The product code.
     shared_ptr<string> productCode_ {};
   };
 

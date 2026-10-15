@@ -260,53 +260,22 @@ namespace Models
 
 
         protected:
-          // The aftertax amount of the order.
           shared_ptr<string> afterTaxAmount_ {};
-          // The service code.
           shared_ptr<string> commodityCode_ {};
-          // The time when the order was created.
           shared_ptr<string> createTime_ {};
-          // The currency.
           shared_ptr<string> currency_ {};
-          // The ID of the order.
           shared_ptr<string> orderId_ {};
-          // The type of the order. Valid values:
-          // 
-          // *   New: purchases an instance.
-          // *   Renew: renews an instance.
-          // *   Upgrade: upgrades the configurations of an instance.
-          // *   Refund: applies for a refund.
           shared_ptr<string> orderType_ {};
-          // The currency of payment.
           shared_ptr<string> paymentCurrency_ {};
-          // The status of payment. Valid values for a non-refund order:
-          // 
-          // *   Unpaid: The order is not paid.
-          // *   Paid: The order is paid.
-          // *   Cancelled: The order is canceled.
-          // 
-          // > : The value is NULL for a refund order.
           shared_ptr<string> paymentStatus_ {};
-          // The time of payment.
           shared_ptr<string> paymentTime_ {};
-          // The pretax amount of the order.
           shared_ptr<string> pretaxAmount_ {};
-          // The pretax amount of the order in local currency.
           shared_ptr<string> pretaxAmountLocal_ {};
-          // The pretax gross amount of the order.
           shared_ptr<string> pretaxGrossAmount_ {};
-          // The code of the main service.
           shared_ptr<string> productCode_ {};
-          // The type of the main service.
           shared_ptr<string> productType_ {};
-          // The ID of the associated order.
           shared_ptr<string> relatedOrderId_ {};
-          // The billing method. Valid values:
-          // 
-          // *   Subscription: subscription
-          // *   PayAsYouGo: pay-as-you-go
           shared_ptr<string> subscriptionType_ {};
-          // The tax of the order.
           shared_ptr<string> tax_ {};
         };
 
@@ -366,13 +335,12 @@ namespace Models
     protected:
       // The hostname.
       shared_ptr<string> hostName_ {};
-      // The orders returned.
       shared_ptr<Data::OrderList> orderList_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page. Set this parameter to a maximum of 20. A larger value may cause a timeout.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -418,13 +386,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The message returned.
+    // The response data.
     shared_ptr<QueryOrdersResponseBody::Data> data_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

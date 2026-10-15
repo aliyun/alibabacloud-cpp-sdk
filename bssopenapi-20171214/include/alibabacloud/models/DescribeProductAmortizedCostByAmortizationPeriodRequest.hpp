@@ -128,30 +128,36 @@ namespace Models
 
 
   protected:
-    // The instance ID that is used to filter bills. You can specify multiple instance IDs to query bills of multiple instances. If you leave this parameter empty, the bills of all instances are queried by default. You can specify a maximum of 10 instance IDs.
+    // The IDs of resource owners. The resource owner is the account that uses the resources.
+    // You can specify a maximum of 10 IDs.
     shared_ptr<vector<string>> billOwnerIdList_ {};
-    // The ID of the member that needs to settle the bill. The member ID is used to filter bills. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account and all members of the current account are queried by default. You can specify a maximum of 10 IDs.
+    // The IDs of billable accounts. This parameter is used to filter bills by the RAM user who pays for the resources. If you specify this parameter, you can query the bills of the specified RAM user. If you leave this parameter empty, the bills of the current account and all its RAM users are queried.
+    // You can specify a maximum of 10 IDs.
     shared_ptr<vector<string>> billUserIdList_ {};
-    // The allocation month. Format: YYYY-MM.
+    // The amortization month.
+    // Format: YYYY-MM.
     // 
     // This parameter is required.
     shared_ptr<string> billingCycle_ {};
-    // The billing cycle that is used to filter bills. You can specify a maximum of 10 billing cycles.
+    // The filter for billing cycle months.
+    // You can specify a maximum of 10 elements.
     shared_ptr<vector<string>> consumePeriodFilter_ {};
     // The code of the cost center.
     shared_ptr<string> costUnitCode_ {};
     // The maximum number of entries to return. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which the query starts. The parameter must be left empty or set to the value of the NextToken parameter returned from the last call. Otherwise, an error is returned. If this parameter is left empty, data is queried from the beginning.
+    // The token that marks the position to start the query. If you leave this parameter empty, the query starts from the beginning. Set this parameter to the value of NextToken that is returned in the last response to query the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The code of the service. You can obtain the value of this parameter by calling the QueryProductList operation or the DescribeResourcePackageProduct operation.
+    // The product code.
+    // For more information about how to obtain this parameter, see QueryProductList and DescribeResourcePackageProduct.
     shared_ptr<string> productCode_ {};
-    // The specific service resource.
+    // The details of the product.
     shared_ptr<string> productDetail_ {};
-    // The billing method. Valid values:
+    // The subscription type. Valid values:
     // 
-    // *   Subscription: the subscription billing method
-    // *   PayAsYouGo: the pay-as-you-go billing method
+    // - Subscription: subscription.
+    // 
+    // - PayAsYouGo: pay-as-you-go.
     shared_ptr<string> subscriptionType_ {};
   };
 

@@ -127,11 +127,8 @@ namespace Models
 
 
         protected:
-          // The description of the discount.
           shared_ptr<string> promotionDesc_ {};
-          // The ID of the discount.
           shared_ptr<int64_t> promotionId_ {};
-          // The name of the discount.
           shared_ptr<string> promotionName_ {};
         };
 
@@ -233,15 +230,10 @@ namespace Models
 
 
         protected:
-          // The discount price.
           shared_ptr<float> costAfterDiscount_ {};
-          // The discount that was applied.
           shared_ptr<float> invoiceDiscount_ {};
-          // The code of the pricing module.
           shared_ptr<string> moduleCode_ {};
-          // The original price.
           shared_ptr<float> originalCost_ {};
-          // The unit price.
           shared_ptr<float> unitPrice_ {};
         };
 
@@ -287,15 +279,12 @@ namespace Models
 
 
     protected:
-      // The type of the currency. Valid values:
-      // 
-      // *   CNY: Chinese Yuan
-      // *   USD: US dollar
-      // *   JPY: Japanese Yen
+      // The currency. Valid values:
+      // - CNY: Chinese Yuan.
+      // - USD: US Dollar.
+      // - JPY: Japanese Yen.
       shared_ptr<string> currency_ {};
-      // The price details of the pricing module.
       shared_ptr<Data::ModuleDetails> moduleDetails_ {};
-      // The details of the discount.
       shared_ptr<Data::PromotionDetails> promotionDetails_ {};
     };
 
@@ -341,13 +330,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<GetPayAsYouGoPriceResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

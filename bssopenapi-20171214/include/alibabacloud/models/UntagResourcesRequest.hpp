@@ -71,17 +71,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags. This parameter is valid only if the TagKey.n parameter is not set. Valid values: true and false.
+    // Specifies whether to remove all tags. This parameter is valid only when `TagKey.N` is not specified. Valid values: `true` and `false`.
     shared_ptr<bool> all_ {};
-    // The IDs of resources.
+    // The list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. Specify the savings plan instance as the type of the resource.
+    // The resource type. Set the value to `instance`. This value indicates a savings plan instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys.
+    // The list of tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

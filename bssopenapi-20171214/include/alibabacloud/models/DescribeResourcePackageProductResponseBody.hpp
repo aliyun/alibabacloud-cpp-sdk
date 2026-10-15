@@ -255,16 +255,8 @@ namespace Models
 
 
                     protected:
-                      // The name of the validity period.
                       shared_ptr<string> name_ {};
-                      // The unit of the validity period for the resource plan. Valid values:
-                      // 
-                      // *   Month
-                      // *   Year
-                      // 
-                      // Default value: Month.
                       shared_ptr<string> unit_ {};
-                      // The value of the validity period.
                       shared_ptr<int32_t> value_ {};
                     };
 
@@ -308,11 +300,8 @@ namespace Models
 
 
                 protected:
-                  // The validity periods available for the resource plan.
                   shared_ptr<Specification::AvailableDurations> availableDurations_ {};
-                  // The name of the specification.
                   shared_ptr<string> name_ {};
-                  // The value of the specification.
                   shared_ptr<string> value_ {};
                 };
 
@@ -387,9 +376,7 @@ namespace Models
 
 
                 protected:
-                  // The name of the property.
                   shared_ptr<string> name_ {};
-                  // The value of the property.
                   shared_ptr<string> value_ {};
                 };
 
@@ -442,13 +429,9 @@ namespace Models
 
 
             protected:
-              // The code of the resource plan.
               shared_ptr<string> code_ {};
-              // The name of the resource plan type.
               shared_ptr<string> name_ {};
-              // The properties of the resource plan.
               shared_ptr<PackageType::Properties> properties_ {};
-              // The specifications of the resource plan.
               shared_ptr<PackageType::Specifications> specifications_ {};
             };
 
@@ -499,13 +482,9 @@ namespace Models
 
 
         protected:
-          // The name of the resource plan.
           shared_ptr<string> name_ {};
-          // The types of the resource plans.
           shared_ptr<ResourcePackage::PackageTypes> packageTypes_ {};
-          // The code of the service.
           shared_ptr<string> productCode_ {};
-          // The type of the service.
           shared_ptr<string> productType_ {};
         };
 
@@ -534,7 +513,6 @@ namespace Models
 
 
     protected:
-      // The details about the resource plans.
       shared_ptr<Data::ResourcePackages> resourcePackages_ {};
     };
 

@@ -122,9 +122,7 @@ namespace Models
 
 
         protected:
-          // The ID of the promotion.
           shared_ptr<int64_t> id_ {};
-          // The description of the discount.
           shared_ptr<string> name_ {};
         };
 
@@ -188,7 +186,6 @@ namespace Models
       shared_ptr<float> discountPrice_ {};
       // The original price. Unit: CNY.
       shared_ptr<float> originalPrice_ {};
-      // The details of the discount.
       shared_ptr<Data::Promotions> promotions_ {};
       // The price at which the transaction is made. Unit: CNY.
       shared_ptr<float> tradePrice_ {};

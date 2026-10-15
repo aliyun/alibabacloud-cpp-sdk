@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // The time when the permission expired. If no value is returned, the permission is still valid. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the permission expired at 20:00:00 on May 23, 2016 (UTC+8).
+        // The time when the permission expires. If this parameter is empty, the permission is still valid. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDThh:mm:ssZ. For example, 2016-05-23T12:00:00Z is 20:00:00 on May 23, 2016 in UTC+8.
         shared_ptr<string> endTime_ {};
-        // The code of the permission.
+        // The permission code.
         shared_ptr<string> permissionCode_ {};
-        // The name of the permission.
+        // The permission name.
         shared_ptr<string> permissionName_ {};
-        // The time when the permission took effect. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the permission took effect at 20:00:00 on May 23, 2016 (UTC+8).
+        // The time when the permission takes effect. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDThh:mm:ssZ. For example, 2016-05-23T12:00:00Z is 20:00:00 on May 23, 2016 in UTC+8.
         shared_ptr<string> startTime_ {};
       };
 
@@ -199,21 +199,21 @@ namespace Models
 
 
     protected:
-      // The time when the relationship expired. If no value is returned, the relationship is still valid.
+      // The time when the relationship expires. If this parameter is empty, the relationship has not expired.
       shared_ptr<string> endTime_ {};
-      // The ID of the management account.
+      // The ID of the Alibaba Cloud account.
       shared_ptr<int64_t> masterId_ {};
-      // The ID of the member.
+      // The ID of the member account.
       shared_ptr<int64_t> memberId_ {};
       // The list of permissions.
       shared_ptr<vector<Data::PermissionList>> permissionList_ {};
       // The type of the relationship. Valid values: FinancialManagement and FinancialTrusteeship.
       shared_ptr<string> relationType_ {};
-      // The time when the relationship was established. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the relationship was established at 20:00:00 on May 23, 2016 (UTC+8).
+      // The time when the relationship was established. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDThh:mm:ssZ. For example, 2016-05-23T12:00:00Z is 20:00:00 on May 23, 2016 in UTC+8.
       shared_ptr<string> setupTime_ {};
-      // The time when the relationship took effect. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC. For example, 2016-05-23T12:00:00Z indicates that the relationship took effect at 20:00:00 on May 23, 2016 (UTC+8).
+      // The time when the relationship takes effect. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDThh:mm:ssZ. For example, 2016-05-23T12:00:00Z is 20:00:00 on May 23, 2016 in UTC+8.
       shared_ptr<string> startTime_ {};
-      // The status of the relationship. For more information about valid values of this parameter, see the enumeration values of the RelationshipStatusEnum type in the following table.
+      // The status of the relationship. The value is an enumeration member of RelationshipStatusEnum.
       shared_ptr<string> state_ {};
     };
 
@@ -257,15 +257,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
     // The data returned.
     shared_ptr<QueryPermissionListResponseBody::Data> data_ {};
     // The message returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

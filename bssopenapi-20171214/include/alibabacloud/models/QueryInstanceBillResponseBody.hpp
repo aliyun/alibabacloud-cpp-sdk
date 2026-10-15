@@ -484,103 +484,46 @@ namespace Models
 
 
         protected:
-          // The amount deducted by using credit refunds.
           shared_ptr<float> adjustAmount_ {};
-          // The billing date. This parameter is returned only if the Granularity parameter is set to DAILY. Format: YYYY-MM-DD.
           shared_ptr<string> billingDate_ {};
-          // The billable item. This parameter is returned only if the IsBillingItem parameter is set to true.
           shared_ptr<string> billingItem_ {};
-          // The billing type.
           shared_ptr<string> billingType_ {};
-          // The amount paid in cash. The amount that was deducted by using credit refunds is not included.
           shared_ptr<float> cashAmount_ {};
-          // The code of the commodity. The commodity code is the same as that displayed in User Center.
           shared_ptr<string> commodityCode_ {};
-          // The cost center.
           shared_ptr<string> costUnit_ {};
-          // The type of the currency. Valid values:
-          // 
-          // *   CNY
-          // *   USD
-          // *   JPY
           shared_ptr<string> currency_ {};
-          // The amount deducted by using vouchers.
           shared_ptr<float> deductedByCashCoupons_ {};
-          // The amount deducted by using coupons.
           shared_ptr<float> deductedByCoupons_ {};
-          // The amount deducted by using prepaid cards.
           shared_ptr<float> deductedByPrepaidCard_ {};
-          // The amount deducted by using resource plans.
           shared_ptr<string> deductedByResourcePackage_ {};
-          // The configurations of the instance.
           shared_ptr<string> instanceConfig_ {};
-          // The ID of the instance.
           shared_ptr<string> instanceID_ {};
-          // The instance type of the instance.
           shared_ptr<string> instanceSpec_ {};
-          // The public IP address.
           shared_ptr<string> internetIP_ {};
-          // The private IP address.
           shared_ptr<string> intranetIP_ {};
-          // The discount amount.
           shared_ptr<float> invoiceDiscount_ {};
-          // The type of the bill.
-          // 
-          // *   SubscriptionOrder: subscription order
-          // *   PayAsYouGoBill: pay-as-you-go bill
-          // *   Refund: refund
-          // *   Adjustment: reconciliation
           shared_ptr<string> item_ {};
-          // The unit price. This parameter is returned only if the isBillingItem parameter is set to true.
           shared_ptr<string> listPrice_ {};
-          // The unit of the unit price. This parameter is returned only if the isBillingItem parameter is set to true.
           shared_ptr<string> listPriceUnit_ {};
-          // The name of the instance.
           shared_ptr<string> nickName_ {};
-          // The unsettled amount.
           shared_ptr<float> outstandingAmount_ {};
-          // The ID of the member account. This parameter is returned in a multi-account payment scenario.
           shared_ptr<string> ownerID_ {};
-          // The amount paid in cash.
           shared_ptr<float> paymentAmount_ {};
-          // The code of the service. The service code is the same as that displayed in User Center.
           shared_ptr<string> pipCode_ {};
-          // The pretax amount.
           shared_ptr<float> pretaxAmount_ {};
-          // The pretax gross amount.
           shared_ptr<float> pretaxGrossAmount_ {};
-          // The code of the service.
           shared_ptr<string> productCode_ {};
-          // The details of the service.
           shared_ptr<string> productDetail_ {};
-          // The name of the service.
           shared_ptr<string> productName_ {};
-          // The type of the service.
           shared_ptr<string> productType_ {};
-          // The region.
           shared_ptr<string> region_ {};
-          // The resource group.
           shared_ptr<string> resourceGroup_ {};
-          // The validity period.
           shared_ptr<string> servicePeriod_ {};
-          // The unit of the validity period.
           shared_ptr<string> servicePeriodUnit_ {};
-          // The billing method. Valid values:
-          // 
-          // *   Subscription: the subscription billing method
-          // *   PayAsYouGo: the pay-as-you-go billing method
-          // 
-          // **
-          // 
-          // ****This parameter is returned together with the ProductCode parameter.
           shared_ptr<string> subscriptionType_ {};
-          // The tag.
           shared_ptr<string> tag_ {};
-          // The usage of the billable item. This parameter is returned only if the isBillingItem parameter is set to true.
           shared_ptr<string> usage_ {};
-          // The unit of usage. This parameter is returned only if the isBillingItem parameter is set to true.
           shared_ptr<string> usageUnit_ {};
-          // The ID of the zone.
           shared_ptr<string> zone_ {};
         };
 
@@ -653,19 +596,18 @@ namespace Models
 
 
     protected:
-      // The ID of the account.
+      // The account ID.
       shared_ptr<string> accountID_ {};
-      // The name of the account.
+      // The user account.
       shared_ptr<string> accountName_ {};
-      // The billing cycle in the YYYY-MM format.
+      // The billing cycle in YYYY-MM format.
       shared_ptr<string> billingCycle_ {};
-      // The details of the bill.
       shared_ptr<Data::Items> items_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of returned entries.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -709,15 +651,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryInstanceBillResponseBody::Data> data_ {};
-    // The message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

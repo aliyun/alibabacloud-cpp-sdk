@@ -103,28 +103,27 @@ namespace Models
 
 
   protected:
-    // The ID of the instance whose fees are deducted by using the RI. If this parameter is left empty, the usage details of all instances are queried.
+    // The ID of the deducted instance. If this parameter is left empty, the details of all instances are returned.
     shared_ptr<string> deductedInstanceId_ {};
-    // The time when the RI expires. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The instance type of the RI.
+    // The instance type corresponding to the reserved instance.
     shared_ptr<string> instanceSpec_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 20. Maximum value: 300.
+    // The number of entries per page. Default value: 20. Maximum value: 300.
     shared_ptr<int32_t> pageSize_ {};
-    // The code of the service to which the RI is applied. Default value: ecsRi. Valid values:
-    // 
-    // *   ecsRi: ECS RI.
-    // *   scu_bag: storage capacity unit (SCU).
+    // Valid values:
+    // - ecsRi: ECS reserved instances. This is the default value.
+    // - scu_bag: Storage capacity unit (SCU) plans.
     // 
     // This parameter is required.
     shared_ptr<string> RICommodityCode_ {};
-    // The ID of the RI. If this parameter is left empty, the usage details of all RIs are queried.
+    // The instance ID of the reserved instance for the filtered query. If this parameter is left empty, the details of all used reserved instances are returned.
     shared_ptr<string> RIInstanceId_ {};
-    // The time when the RI was created. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
