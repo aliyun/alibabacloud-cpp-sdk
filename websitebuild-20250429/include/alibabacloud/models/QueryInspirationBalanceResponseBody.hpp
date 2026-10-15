@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The remaining quota, calculated as totalQuota minus totalUsed.
+      // The remaining quota, which is calculated by subtracting totalUsed from totalQuota.
       shared_ptr<int64_t> remaining_ {};
-      // The remaining quota in string format.
+      // The string representation of the remaining quota.
       shared_ptr<string> remainingStr_ {};
-      // The total quota, which is the sum of initQuota across all valid accounts.
+      // The total quota, which is the sum of the initQuota values of all valid accounts.
       shared_ptr<int64_t> totalQuota_ {};
-      // The total quota in string format.
+      // The string representation of the total quota.
       shared_ptr<string> totalQuotaStr_ {};
-      // The total consumed quota, which is the sum of used across all valid accounts.
+      // The used quota, which is the sum of the used values of all valid accounts.
       shared_ptr<int64_t> totalUsed_ {};
-      // The total consumed quota in string format.
+      // The string representation of the used quota.
       shared_ptr<string> totalUsedStr_ {};
     };
 
@@ -223,16 +223,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message used to replace `%s` in the error message of the **ErrMessage** response parameter. If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
@@ -244,7 +243,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

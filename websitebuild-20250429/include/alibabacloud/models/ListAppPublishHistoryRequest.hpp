@@ -146,21 +146,21 @@ namespace Models
     shared_ptr<string> deployChannel_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries to return for a single query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token used to start the next query. This parameter is empty if no next query is available.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The release environment.
     shared_ptr<string> publishEnv_ {};
-    // The sort method.
+    // The sort order.
     shared_ptr<string> sort_ {};
-    // The publish status.
+    // The release status.
     shared_ptr<string> status_ {};
+    // The release subchannel.
     shared_ptr<string> subchannel_ {};
     // The website domain name.
     shared_ptr<string> websiteDomain_ {};

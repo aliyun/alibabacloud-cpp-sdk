@@ -195,23 +195,41 @@ namespace Models
 
 
   protected:
+    // The campaign code.
     shared_ptr<string> activityCode_ {};
+    // The campaign name.
     shared_ptr<string> activityName_ {};
+    // The campaign type.
     shared_ptr<string> activityType_ {};
+    // The consumed quota.
     shared_ptr<int64_t> consumedQuota_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // The eligibility configuration in JSON format.
     shared_ptr<string> eligibilityConfig_ {};
+    // The end date.
     shared_ptr<string> endDate_ {};
+    // The privilege configuration in JSON format.
     shared_ptr<string> offerConfig_ {};
+    // The privilege configuration summary.
     shared_ptr<string> offerConfigSummary_ {};
+    // The remaining quota.
     shared_ptr<int64_t> remainingQuota_ {};
+    // The start date.
     shared_ptr<string> startDate_ {};
+    // The campaign status.
     shared_ptr<string> status_ {};
+    // The total quota.
     shared_ptr<int64_t> totalQuota_ {};
+    // The touchpoint configuration in JSON format.
     shared_ptr<string> touchpointConfig_ {};
+    // The update time.
     shared_ptr<string> updateTime_ {};
+    // The updater.
     shared_ptr<string> updatedBy_ {};
+    // The warning threshold.
     shared_ptr<int32_t> warningThreshold_ {};
   };
 

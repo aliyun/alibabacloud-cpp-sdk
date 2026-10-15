@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The name.
     shared_ptr<string> name_ {};
+    // The QR code.
     shared_ptr<string> qrCode_ {};
-    // 例如：dingtalk、wx 等
+    // The group type, such as dingtalk and wx.
     shared_ptr<string> type_ {};
+    // The URL.
     shared_ptr<string> url_ {};
   };
 

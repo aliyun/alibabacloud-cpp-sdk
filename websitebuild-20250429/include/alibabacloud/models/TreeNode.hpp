@@ -125,15 +125,25 @@ namespace Models
 
 
   protected:
+    // The list of child nodes.
     shared_ptr<vector<TreeNode>> children_ {};
+    // The final step number.
     shared_ptr<int32_t> finalStepNo_ {};
+    // The completion time.
     shared_ptr<int64_t> finishTime_ {};
+    // Specifies whether the node is a container node.
     shared_ptr<bool> isContainerNode_ {};
+    // The node ID.
     shared_ptr<string> nodeId_ {};
+    // The node name.
     shared_ptr<string> nodeName_ {};
+    // The node status.
     shared_ptr<string> nodeStatus_ {};
+    // The operator role.
     shared_ptr<string> operatorRole_ {};
+    // The parent node ID.
     shared_ptr<string> parentNodeId_ {};
+    // The step number.
     shared_ptr<int32_t> stepNo_ {};
   };
 

@@ -68,10 +68,11 @@ namespace Models
   protected:
     // The chat record ID.
     shared_ptr<string> chatId_ {};
-    // The session ID.
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
     // The last event ID.
     shared_ptr<int32_t> lastEventId_ {};
+    // The creation time of the latest message.
     shared_ptr<string> latestMessageCreateTime_ {};
   };
 

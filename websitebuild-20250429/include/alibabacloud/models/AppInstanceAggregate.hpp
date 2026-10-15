@@ -139,7 +139,13 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance. Valid values of N: **1** to **20**. If this parameter is specified, it cannot be an empty string.
+      // 
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the instance. Valid values of N: **1** to **20**. If this parameter is specified, it can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -260,11 +266,17 @@ namespace Models
 
       protected:
         shared_ptr<string> bizId_ {};
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
+        // The record ID.
         shared_ptr<string> id_ {};
+        // The mobile phone number.
         shared_ptr<string> mobile_ {};
+        // The primary key of the parent record.
         shared_ptr<string> parentPk_ {};
+        // The partner ID.
         shared_ptr<string> partnerId_ {};
         shared_ptr<string> userId_ {};
       };
@@ -295,7 +307,9 @@ namespace Models
 
 
     protected:
+      // data
       shared_ptr<PartnerDetail::BindData> bindData_ {};
+      // The partner ID.
       shared_ptr<string> partnerId_ {};
       shared_ptr<string> status_ {};
     };
@@ -562,39 +576,66 @@ namespace Models
 
   protected:
     shared_ptr<vector<AppAiStaff>> aiStaffList_ {};
+    // The application operation address.
     shared_ptr<AppOperationAddress> appOperationAddress_ {};
     shared_ptr<vector<AppServiceAggregate>> appServiceList_ {};
+    // The application subtype.
     shared_ptr<string> appSubType_ {};
+    // The application type.
     shared_ptr<string> appType_ {};
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
+    // The build type.
     shared_ptr<string> buildType_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // Indicates whether the instance is deleted.
     shared_ptr<int32_t> deleted_ {};
+    // The application description.
     shared_ptr<string> description_ {};
+    // The business ID of the design specification.
     shared_ptr<string> designSpecBizId_ {};
+    // The design specification ID.
     shared_ptr<string> designSpecId_ {};
+    // The primary domain name.
     shared_ptr<string> domain_ {};
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The ID of the associated delivery order.
     shared_ptr<string> espBizId_ {};
+    // The deletion time.
     shared_ptr<string> gmtDelete_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The publish time.
     shared_ptr<string> gmtPublish_ {};
+    // The application icon.
     shared_ptr<string> iconUrl_ {};
+    // The application name.
     shared_ptr<string> name_ {};
+    // The details.
     shared_ptr<AppInstanceAggregate::PartnerDetail> partnerDetail_ {};
     shared_ptr<AppInstanceProfile> profile_ {};
     shared_ptr<string> resourceGroupId_ {};
+    // The website domain name.
     shared_ptr<string> siteHost_ {};
+    // The application identifier.
     shared_ptr<string> slug_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
-    // Valid values: trial, draft, live, refunded, expired, released.
+    // trial,draft,live,refunded,expired,released
     shared_ptr<string> status_ {};
+    // The status text.
     shared_ptr<string> statusText_ {};
     shared_ptr<vector<AppInstanceAggregate::Tags>> tags_ {};
     shared_ptr<TemplateRecord> templateRecord_ {};
+    // The application thumbnail.
     shared_ptr<string> thumbnailUrl_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The version.
     shared_ptr<string> version_ {};
   };
 

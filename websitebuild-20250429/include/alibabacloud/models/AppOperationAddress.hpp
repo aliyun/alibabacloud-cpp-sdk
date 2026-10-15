@@ -127,15 +127,25 @@ namespace Models
 
 
   protected:
+    // The operation button list.
     shared_ptr<vector<AppOperateAction>> actions_ {};
+    // The customer service design URL.
     shared_ptr<string> aiCustomerConfigUrl_ {};
+    // The AI design URL.
     shared_ptr<string> aiDesignUrl_ {};
+    // The application publishing URL.
     shared_ptr<string> appPublishUrl_ {};
+    // The overview page operation button list.
     shared_ptr<vector<AppOperateAction>> dashboardActions_ {};
+    // The professional design URL.
     shared_ptr<string> designUrl_ {};
+    // The application instance logon URL.
     shared_ptr<string> instanceLoginUrl_ {};
+    // The renewal purchase URL.
     shared_ptr<string> renewBuyUrl_ {};
+    // The service delivery URL.
     shared_ptr<string> serverDeliveryUrl_ {};
+    // The upgrade purchase URL.
     shared_ptr<string> upgradeBuyUrl_ {};
   };
 

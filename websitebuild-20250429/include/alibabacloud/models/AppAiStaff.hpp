@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // The employee ID.
     shared_ptr<string> staffId_ {};
+    // The employee name.
     shared_ptr<string> staffName_ {};
+    // The employee type.
     shared_ptr<string> staffType_ {};
-    // 可能的值：unknown, init, testing, online
+    // Valid values: unknown, init, testing, and online.
     shared_ptr<string> status_ {};
   };
 

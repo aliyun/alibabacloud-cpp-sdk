@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BelongId, belongId_);
       DARABONBA_PTR_TO_JSON(BelongIdType, belongIdType_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(DesiredTotal, desiredTotal_);
       DARABONBA_PTR_TO_JSON(EspBizId, espBizId_);
       DARABONBA_PTR_TO_JSON(OrderComponentParams, orderComponentParams_);
       DARABONBA_PTR_TO_JSON(ResourceCode, resourceCode_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BelongId, belongId_);
       DARABONBA_PTR_FROM_JSON(BelongIdType, belongIdType_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(DesiredTotal, desiredTotal_);
       DARABONBA_PTR_FROM_JSON(EspBizId, espBizId_);
       DARABONBA_PTR_FROM_JSON(OrderComponentParams, orderComponentParams_);
       DARABONBA_PTR_FROM_JSON(ResourceCode, resourceCode_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->belongId_ == nullptr
-        && this->belongIdType_ == nullptr && this->bizType_ == nullptr && this->espBizId_ == nullptr && this->orderComponentParams_ == nullptr && this->resourceCode_ == nullptr
-        && this->resourceValue_ == nullptr; };
+        && this->belongIdType_ == nullptr && this->bizType_ == nullptr && this->desiredTotal_ == nullptr && this->espBizId_ == nullptr && this->orderComponentParams_ == nullptr
+        && this->resourceCode_ == nullptr && this->resourceValue_ == nullptr; };
     // belongId Field Functions 
     bool hasBelongId() const { return this->belongId_ != nullptr;};
     void deleteBelongId() { this->belongId_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline CheckResourceMeasureRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // desiredTotal Field Functions 
+    bool hasDesiredTotal() const { return this->desiredTotal_ != nullptr;};
+    void deleteDesiredTotal() { this->desiredTotal_ = nullptr;};
+    inline int64_t getDesiredTotal() const { DARABONBA_PTR_GET_DEFAULT(desiredTotal_, 0L) };
+    inline CheckResourceMeasureRequest& setDesiredTotal(int64_t desiredTotal) { DARABONBA_PTR_SET_VALUE(desiredTotal_, desiredTotal) };
 
 
     // espBizId Field Functions 
@@ -94,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The owner ID, which can be a website ID or an Alibaba Cloud account ID.
+    // The owner ID, which can be a website ID or an Alibaba Cloud user ID.
     shared_ptr<string> belongId_ {};
-    // The type of the owner ID. Valid values:
-    // - siteId
-    // - uid.
+    // The owner ID type. Valid values: siteId and uid.
     shared_ptr<string> belongIdType_ {};
     // The ESP business type.
     shared_ptr<string> bizType_ {};
+    // This parameter is used only for APP_WORKSPACE. It specifies the final total amount of issues or competitors after editing. For legacy APP or USER, it retains the incremental semantics of ResourceValue.
+    shared_ptr<int64_t> desiredTotal_ {};
     // The ESP business ID.
     shared_ptr<string> espBizId_ {};
-    // The order module information. If this parameter is empty, espBizId and bizType cannot be empty.
+    // The order component parameters. If this parameter is empty, EspBizId and BizType cannot be empty.
     shared_ptr<string> orderComponentParams_ {};
     // The resource identifier.
     shared_ptr<string> resourceCode_ {};
-    // The resource value. This parameter is empty by default and is required only for feature-type resources. Valid values:
-    // - 0: not supported
-    // - 1: supported.
+    // The resource value. This parameter is required only for feature resources and is empty by default. Valid values:
+    // - 0: Not supported.
+    // - 1: Supported.
     shared_ptr<int64_t> resourceValue_ {};
   };
 

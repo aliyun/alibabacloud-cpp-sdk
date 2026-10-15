@@ -211,44 +211,44 @@ namespace Models
       shared_ptr<string> botId_ {};
       // The chat ID.
       shared_ptr<string> chatId_ {};
-      // The current conversation status.
+      // The current chat status.
       shared_ptr<string> chatStatus_ {};
-      // The ID of the data API operation that is called.
+      // The ID of the called data API.
       shared_ptr<string> content_ {};
       // The content type.
       shared_ptr<string> contentType_ {};
       // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in seconds.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time. The value is in ISO 8601 format with the time zone set to UTC (Z).
+      // The update time in ISO 8601 format in the UTC time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
       // The message ID.
       shared_ptr<string> messageId_ {};
-      // The business extension metadata in Map format. The value must be a JSON string.
+      // The business extension metadata in map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
       // The probability of not wearing a mask, uniform, or hat.
       shared_ptr<int32_t> no_ {};
       // The role of the conversation participant. Valid values:
       // 
-      // - user: User.
+      // - user: User
       // 
-      // - assistant: Assistant.
+      // - assistant: Assistant
       // 
-      // - system: System.
-      // - function: Function.
+      // - system: System
+      // - function: Function
       // 
-      // - plugin: Plug-in.
+      // - plugin: Plug-in
       // 
-      // - tool: Tool.
+      // - tool: Tool
       shared_ptr<string> role_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can obtain this value by calling the [ListSites](~~ListSites~~) operation.
+      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
       // The file type.
       shared_ptr<string> type_ {};
@@ -339,18 +339,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reasons for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not currently used. Ignore this parameter.
+    // The dynamic code. This parameter is not used and can be ignored.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error arguments.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response object.
     shared_ptr<UpdateAppChatMessageResponseBody::Module> module_ {};

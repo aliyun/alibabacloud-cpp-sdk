@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The expiration time.
+      // The expiration time in UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> expireAtTime_ {};
-      // The temporary short URL.
+      // The temporary short link.
       shared_ptr<string> tempShortUrl_ {};
       // The full URL.
       shared_ptr<string> url_ {};
@@ -192,17 +192,17 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This field is currently unused and can be ignored.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<GetAppInstanceTempShortUrlResponseBody::Module> module_ {};
@@ -210,7 +210,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};

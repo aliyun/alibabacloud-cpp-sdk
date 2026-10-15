@@ -17,6 +17,10 @@
 #include <alibabacloud/models/AppMaterialFile.hpp>
 #include <alibabacloud/models/AppMaterialTask.hpp>
 #include <alibabacloud/models/AppService.hpp>
+#include <alibabacloud/models/BrandKnowledgeDocument.hpp>
+#include <alibabacloud/models/ContentPlan.hpp>
+#include <alibabacloud/models/ContentPlanGenerationTask.hpp>
+#include <alibabacloud/models/ContentPlanTopic.hpp>
 #include <alibabacloud/models/PromotionActivity.hpp>
 #include <alibabacloud/models/ModuleResultsValue.hpp>
 #include <alibabacloud/models/ModuleVersionsValueComponentsValuePropertiesValue.hpp>

@@ -261,6 +261,7 @@ namespace Models
       shared_ptr<string> canQuickRevert_ {};
       // The current step of the task.
       shared_ptr<string> currentStep_ {};
+      // The code of the current publish step.
       shared_ptr<string> currentStepCode_ {};
       // The deployment channel.
       shared_ptr<string> deployChannel_ {};
@@ -268,6 +269,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The publish process.
       shared_ptr<string> errorStep_ {};
+      // The code of the publish step where the error occurred.
       shared_ptr<string> errorStepCode_ {};
       // Indicates whether the task is completed.
       shared_ptr<bool> isFinish_ {};
@@ -275,12 +277,13 @@ namespace Models
       // 
       // - `true`: The call is successful.
       // 
-      // - `false`: The call failed.
+      // - `false`: The call fails.
       shared_ptr<bool> isSuccess_ {};
-      // The additional description.
+      // The additional information.
       shared_ptr<string> msg_ {};
-      // The sort type. Valid values: ASC and DESC.
+      // The sort order.
       shared_ptr<string> orderType_ {};
+      // The code of the publish order type.
       shared_ptr<string> orderTypeCode_ {};
       // The task completion percentage.
       shared_ptr<int32_t> percent_ {};
@@ -288,15 +291,17 @@ namespace Models
       shared_ptr<string> publishNumber_ {};
       // The publish order ID.
       shared_ptr<int64_t> publishOrderId_ {};
-      // The scheduled publish time.
+      // The scheduled publish time in the UTC format yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\".
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> publishTime_ {};
       // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
+      // The list of publish step codes.
       shared_ptr<vector<string>> stepCodes_ {};
       // The error level. Valid values: FATAL, ERROR, WARNING, and CRITICAL.
       shared_ptr<vector<string>> steps_ {};
+      // The publish subchannel.
       shared_ptr<string> subchannel_ {};
     };
 
@@ -385,9 +390,9 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -395,7 +400,7 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<GetAppPublishStatusResponseBody::Module> module_ {};

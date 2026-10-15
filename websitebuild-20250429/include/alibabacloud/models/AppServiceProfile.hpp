@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The design type.
     shared_ptr<string> designType_ {};
+    // The design type description.
     shared_ptr<string> designTypeText_ {};
+    // The Lingxiao instance ID.
     shared_ptr<string> instanceId_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The service specification.
     shared_ptr<string> serviceSpec_ {};
+    // The service specification description.
     shared_ptr<string> serviceSpecText_ {};
   };
 

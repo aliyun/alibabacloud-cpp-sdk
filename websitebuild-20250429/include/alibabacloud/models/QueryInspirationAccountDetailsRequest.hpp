@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The end time of the query. Specify the time in ISO 8601 format in UTC (Z).
+    // The end time of the query. The time is in ISO 8601 format and in the UTC (Z) time zone.
     shared_ptr<string> endTime_ {};
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
@@ -104,9 +104,9 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The source type filter. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+    // The filter for the source type. Examples: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
     shared_ptr<string> sourceType_ {};
-    // The start time of the query. Specify the time in ISO 8601 format in UTC (Z).
+    // The start time of the query. The time is in ISO 8601 format and in the UTC (Z) time zone.
     shared_ptr<string> startTime_ {};
   };
 

@@ -208,23 +208,41 @@ namespace Models
 
 
   protected:
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
+    // The deletion flag.
     shared_ptr<int32_t> deleted_ {};
+    // The end time. It is in ISO 8601 format and uses the UTC (Z) time zone.
     shared_ptr<string> endTime_ {};
+    // esp bizId
     shared_ptr<string> espBizId_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The modification time.
     shared_ptr<string> gmtModified_ {};
+    // The operation address of the application.
     shared_ptr<AppServiceGroup> group_ {};
+    // The associated business ID.
     shared_ptr<string> instanceBizId_ {};
+    // The service name.
     shared_ptr<string> name_ {};
+    // The list of flow nodes.
     shared_ptr<vector<TreeNode>> nodeList_ {};
+    // The unique identifier for an operation.
     shared_ptr<AppOperationAddress> operationAddress_ {};
+    // The configuration information of the application service.
     shared_ptr<AppServiceProfile> profile_ {};
+    // The service type.
     shared_ptr<string> serviceType_ {};
+    // The description of the service type.
     shared_ptr<string> serviceTypeText_ {};
+    // The application identifier.
     shared_ptr<string> slug_ {};
+    // The start time. It is a UNIX timestamp in milliseconds.
     shared_ptr<string> startTime_ {};
+    // The status.
     shared_ptr<string> status_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

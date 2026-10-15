@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // Filters by category.
+    // Filters the results by category.
     shared_ptr<string> category_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by platform (web/miniprogram).
+    // Filters the results by platform. Valid values: web and miniprogram.
     shared_ptr<string> platform_ {};
   };
 

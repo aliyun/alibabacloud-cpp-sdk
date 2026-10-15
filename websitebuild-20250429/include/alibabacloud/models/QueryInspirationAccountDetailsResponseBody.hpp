@@ -187,21 +187,21 @@ namespace Models
 
 
       protected:
-        // The acquisition time. Format: YYYY-MM-DD HH:mm:ss.
+        // The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> acquisitionTime_ {};
-        // The balance (initQuota - used).
+        // The balance, which is calculated by subtracting the used amount from the initial quota (initQuota - used).
         shared_ptr<int64_t> balance_ {};
-        // The balance as a precise value. This is a String type that supports decimal display.
+        // The exact value of the balance. The value is of the String type to support decimal display.
         shared_ptr<string> balanceStr_ {};
-        // The expiration time. Format: YYYY-MM-DD HH:mm:ss.
+        // The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the entry has expired (endDate < current time). The frontend grays out expired entries.
+        // Indicates whether the quota has expired (endDate < current time). The frontend displays the item in gray based on this value.
         shared_ptr<bool> expired_ {};
-        // The acquired quantity (initial quota).
+        // The acquired amount, which is the initial quota.
         shared_ptr<int64_t> initQuota_ {};
-        // The acquired quantity as a precise value. This is a String type that supports decimal display.
+        // The exact value of the acquired amount. The value is of the String type to support decimal display.
         shared_ptr<string> initQuotaStr_ {};
-        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+        // The code of the source type. Examples: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
         // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
@@ -318,24 +318,25 @@ namespace Models
 
 
       protected:
-        // The acquisition time. Format: YYYY-MM-DD HH:mm:ss.
+        // The acquisition time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> acquisitionTime_ {};
-        // The balance (initQuota - used).
+        // The balance, which is calculated by subtracting the used amount from the initial quota (initQuota - used).
         shared_ptr<int64_t> balance_ {};
-        // The balance as a precise value. This is a String type that supports decimal display.
+        // The exact value of the balance. The value is of the String type to support decimal display.
         shared_ptr<string> balanceStr_ {};
-        // The expiration time. Format: YYYY-MM-DD HH:mm:ss Z, where Z is the time zone offset.
+        // The expiration time of the validity period. The time is in the YYYY-MM-DD HH:mm:ss Z format, where Z is the time zone offset.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the entry has expired (endDate < current time). The frontend grays out expired entries.
+        // Indicates whether the quota has expired (endDate < current time). The frontend displays the item in gray based on this value.
         shared_ptr<bool> expired_ {};
-        // The acquired quantity (initial quota).
+        // The acquired amount, which is the initial quota.
         shared_ptr<int64_t> initQuota_ {};
-        // The acquired quantity as a precise value. This is a String type that supports decimal display.
+        // The exact value of the acquired amount. The value is of the String type to support decimal display.
         shared_ptr<string> initQuotaStr_ {};
-        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
+        // The code of the source type. Examples: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
         // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
+        // The status of the inspiration credit account.
         shared_ptr<string> status_ {};
       };
 
@@ -412,17 +413,17 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow down the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -517,17 +518,17 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed. Valid values:
-    // - false: Not allowed.
-    // - true: Allowed.
+    // Indicates whether retries are allowed. Valid values:
+    // - false: Retries are not allowed.
+    // - true: Retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application. The system queries the application with this name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The response data.
     shared_ptr<QueryInspirationAccountDetailsResponseBody::Module> module_ {};
@@ -535,7 +536,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};

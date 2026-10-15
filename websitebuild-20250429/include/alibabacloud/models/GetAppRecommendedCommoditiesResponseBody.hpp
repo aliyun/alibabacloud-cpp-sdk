@@ -192,25 +192,27 @@ namespace Models
 
 
       protected:
+        // The click action type. Valid values: CONSULT (add WeCom), BUY (purchase), and AUTO (automatic issuance).
         shared_ptr<string> actionType_ {};
-        // The commodity code. Applicable to both resource plans and marketing commodities.
+        // The commodity code. This parameter applies to both resource plans and marketing commodities.
         shared_ptr<string> commodityCode_ {};
+        // The display description of the recommendation.
         shared_ptr<string> description_ {};
-        // The extension fields, such as unsupportedReason.
+        // The extended fields, such as unsupportedReason.
         shared_ptr<map<string, string>> extend_ {};
-        // The order type. Valid values:
-        // - BUY: purchase.
-        // - UPGRADE: upgrade.
+        // The order type. Valid values: BUY (purchase) and UPGRADE (upgrade).
         shared_ptr<string> orderType_ {};
         // The sort priority. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The marketing commodity ID. Returned only for new purchases.
+        // The ID of the marketing commodity. This parameter is returned only for new purchases.
         shared_ptr<string> promotionCommodityId_ {};
+        // The recommendation type. Valid values: COMMODITY (commodity recommendation) and ACTIVITY (promotion activity recommendation).
         shared_ptr<string> recommendType_ {};
-        // The redirect URL. Returned when redirection is required, such as for upgrades.
+        // The redirect URL. This parameter is returned when a redirect is required in scenarios such as upgrades.
         shared_ptr<string> redirectUrl_ {};
-        // The commodity status.
+        // The status of the commodity.
         shared_ptr<string> status_ {};
+        // The display title of the recommendation.
         shared_ptr<string> title_ {};
       };
 
@@ -316,24 +318,24 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace `%s` in the error message returned by **ErrMessage**.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The data table module. Valid values:
+    // The data table module.
     // 
     // - ABTest: experiment data table
     // 
     // - ExperimentTool: experiment tool table
     // 
-    // - DataDiagnosis: data modeling diagnostics
+    // - DataDiagnosis: data diagnosis
     shared_ptr<GetAppRecommendedCommoditiesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

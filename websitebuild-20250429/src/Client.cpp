@@ -205,7 +205,7 @@ AuthorizeAppProxyOpsResponse Client::authorizeAppProxyOps(const AuthorizeAppProx
 /**
  * @summary Checks resource usage in batches.
  *
- * @description The Supabase instance information corresponding to the operated resources.
+ * @description Manages the Supabase instance information associated with the resources.
  *
  * @param request BatchCheckResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -258,7 +258,7 @@ BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasureWithOptions(c
 /**
  * @summary Checks resource usage in batches.
  *
- * @description The Supabase instance information corresponding to the operated resources.
+ * @description Manages the Supabase instance information associated with the resources.
  *
  * @param request BatchCheckResourceMeasureRequest
  * @return BatchCheckResourceMeasureResponse
@@ -410,6 +410,10 @@ CheckResourceMeasureResponse Client::checkResourceMeasureWithOptions(const Check
 
   if (!!request.hasBizType()) {
     query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasDesiredTotal()) {
+    query["DesiredTotal"] = request.getDesiredTotal();
   }
 
   if (!!request.hasEspBizId()) {
@@ -889,7 +893,7 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(
 }
 
 /**
- * @summary Initiates an AI conversation with Wan Xiaozhi.
+ * @summary Initiates an AI conversation with WanXiaoZhi.
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +954,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Initiates an AI conversation with Wan Xiaozhi.
+ * @summary Initiates an AI conversation with WanXiaoZhi.
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -997,7 +1001,7 @@ CreateAppChatResponse Client::createAppChatWithOptions(const CreateAppChatReques
 }
 
 /**
- * @summary Initiates an AI conversation with Wan Xiaozhi.
+ * @summary Initiates an AI conversation with WanXiaoZhi.
  *
  * @param request CreateAppChatRequest
  * @return CreateAppChatResponse
@@ -2784,7 +2788,7 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPrevie
 /**
  * @summary Retrieves the details of a code workspace.
  *
- * @description Queries application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2817,7 +2821,7 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetailWithOptions(c
 /**
  * @summary Retrieves the details of a code workspace.
  *
- * @description Queries application instance information.
+ * @description Queries the information of an application instance.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @return GetAppCodeWorkspaceDetailResponse
@@ -2830,7 +2834,7 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetail(const GetApp
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description API for creating an AI conversation in Wanxiaozhi 2.0.
+ * @description The API operation for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2867,7 +2871,7 @@ GetAppConversationResponse Client::getAppConversationWithOptions(const GetAppCon
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description API for creating an AI conversation in Wanxiaozhi 2.0.
+ * @description The API operation for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @return GetAppConversationResponse
@@ -3166,7 +3170,7 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstan
 }
 
 /**
- * @summary Queries instance details.
+ * @summary Queries the details of an instance.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -3199,7 +3203,7 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 }
 
 /**
- * @summary Queries instance details.
+ * @summary Queries the details of an instance.
  *
  * @description Retrieves the configuration information of the code generation plug-in.
  *
@@ -3212,9 +3216,9 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartner(const GetAppIn
 }
 
 /**
- * @summary Retrieves a temporary short URL for an application.
+ * @summary Retrieves the temporary short link for an application.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppInstanceTempShortUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3245,9 +3249,9 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrlWithOptions
 }
 
 /**
- * @summary Retrieves a temporary short URL for an application.
+ * @summary Retrieves the temporary short link for an application.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetAppInstanceTempShortUrlRequest
  * @return GetAppInstanceTempShortUrlResponse
@@ -3410,7 +3414,7 @@ GetAppPublishStatusResponse Client::getAppPublishStatus(const GetAppPublishStatu
 /**
  * @summary Queries recommended commodities.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3455,7 +3459,7 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOpt
 /**
  * @summary Queries recommended commodities.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @return GetAppRecommendedCommoditiesResponse
@@ -4712,9 +4716,9 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary Retrieves incremental SSE events for an AI agent conversation.
+ * @summary Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
  *
- * @description Retrieves the streaming output results of an AI conversation.
+ * @description Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
  *
  * @param request ListAIStaffChatEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4759,9 +4763,9 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEventsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves incremental SSE events for an AI agent conversation.
+ * @summary Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
  *
- * @description Retrieves the streaming output results of an AI conversation.
+ * @description Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
  *
  * @param request ListAIStaffChatEventsRequest
  * @return ListAIStaffChatEventsResponse
@@ -4882,9 +4886,9 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssis
 }
 
 /**
- * @summary Queries the message list of a specified chat.
+ * @summary Queries the messages in a specified chat.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
+ * @description Wanxiaozhi 2.0 - AI conversation history query API.
  *
  * @param request ListAppChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4931,9 +4935,9 @@ ListAppChatMessagesResponse Client::listAppChatMessagesWithOptions(const ListApp
 }
 
 /**
- * @summary Queries the message list of a specified chat.
+ * @summary Queries the messages in a specified chat.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
+ * @description Wanxiaozhi 2.0 - AI conversation history query API.
  *
  * @param request ListAppChatMessagesRequest
  * @return ListAppChatMessagesResponse
@@ -5224,7 +5228,7 @@ ListAppDomainRedirectRecordsResponse Client::listAppDomainRedirectRecords(const 
 }
 
 /**
- * @summary Queries the list of domain names bound to a website.
+ * @summary Queries the domain names bound to a website.
  *
  * @param request ListAppInstanceDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5291,7 +5295,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
 }
 
 /**
- * @summary Queries the list of domain names bound to a website.
+ * @summary Queries the domain names bound to a website.
  *
  * @param request ListAppInstanceDomainsRequest
  * @return ListAppInstanceDomainsResponse
@@ -5302,7 +5306,7 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInsta
 }
 
 /**
- * @summary Queries the list of application instances.
+ * @summary Queries application instances.
  *
  * @param tmpReq ListAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5395,7 +5399,7 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 }
 
 /**
- * @summary Queries the list of application instances.
+ * @summary Queries application instances.
  *
  * @param request ListAppInstancesRequest
  * @return ListAppInstancesResponse
@@ -5564,9 +5568,9 @@ ListAppPluginVersionsResponse Client::listAppPluginVersions(const ListAppPluginV
 }
 
 /**
- * @summary Queries the list of application plug-ins.
+ * @summary Lists application plugins.
  *
- * @description Retrieves the configuration information of code generation plug-ins.
+ * @description Retrieves the configuration information of code generation plugins.
  *
  * @param request ListAppPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5613,9 +5617,9 @@ ListAppPluginsResponse Client::listAppPluginsWithOptions(const ListAppPluginsReq
 }
 
 /**
- * @summary Queries the list of application plug-ins.
+ * @summary Lists application plugins.
  *
- * @description Retrieves the configuration information of code generation plug-ins.
+ * @description Retrieves the configuration information of code generation plugins.
  *
  * @param request ListAppPluginsRequest
  * @return ListAppPluginsResponse
@@ -5626,9 +5630,9 @@ ListAppPluginsResponse Client::listAppPlugins(const ListAppPluginsRequest &reque
 }
 
 /**
- * @summary Queries the publish history.
+ * @summary Queries the release history.
  *
- * @description Queries application instance information.
+ * @description Queries the information about application instances.
  *
  * @param request ListAppPublishHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5703,9 +5707,9 @@ ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const Lis
 }
 
 /**
- * @summary Queries the publish history.
+ * @summary Queries the release history.
  *
- * @description Queries application instance information.
+ * @description Queries the information about application instances.
  *
  * @param request ListAppPublishHistoryRequest
  * @return ListAppPublishHistoryResponse
@@ -5862,7 +5866,7 @@ ListAppTemplatesResponse Client::listAppTemplates(const ListAppTemplatesRequest 
 /**
  * @summary Queries the Alipay ISV plugin configuration.
  *
- * @description Retrieves the QR code generation plugin configuration information.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5903,7 +5907,7 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigsWithOptio
 /**
  * @summary Queries the Alipay ISV plugin configuration.
  *
- * @description Retrieves the QR code generation plugin configuration information.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @return ListIsvPaymentPluginConfigsResponse
@@ -5914,9 +5918,9 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigs(const Li
 }
 
 /**
- * @summary Queries the application plugin marketplace list.
+ * @summary Queries the list of application plug-ins in the marketplace.
  *
- * @description Retrieves the configuration information of code generation plugins.
+ * @description Retrieves the configuration information of code generation plug-ins.
  *
  * @param request ListMarketplaceAppPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5963,9 +5967,9 @@ ListMarketplaceAppPluginsResponse Client::listMarketplaceAppPluginsWithOptions(c
 }
 
 /**
- * @summary Queries the application plugin marketplace list.
+ * @summary Queries the list of application plug-ins in the marketplace.
  *
- * @description Retrieves the configuration information of code generation plugins.
+ * @description Retrieves the configuration information of code generation plug-ins.
  *
  * @param request ListMarketplaceAppPluginsRequest
  * @return ListMarketplaceAppPluginsResponse
@@ -6846,7 +6850,7 @@ MoveMaterialFileResponse Client::moveMaterialFile(const MoveMaterialFileRequest 
 /**
  * @summary Triggers a data change notification (for admin).
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request NotifyAppNotificationForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6891,7 +6895,7 @@ NotifyAppNotificationForAdminResponse Client::notifyAppNotificationForAdminWithO
 /**
  * @summary Triggers a data change notification (for admin).
  *
- * @description Queries application instance information.
+ * @description Queries the application instance information.
  *
  * @param request NotifyAppNotificationForAdminRequest
  * @return NotifyAppNotificationForAdminResponse
@@ -7370,9 +7374,9 @@ PushResourceMeasureResponse Client::pushResourceMeasure(const PushResourceMeasur
 }
 
 /**
- * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
+ * @summary Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information corresponding to the resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7427,9 +7431,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetailsWit
 }
 
 /**
- * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
+ * @summary Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information corresponding to the resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @return QueryInspirationAccountDetailsResponse
@@ -7440,9 +7444,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(co
 }
 
 /**
- * @summary Queries the overview of inspiration point balance.
+ * @summary Queries the overview of the inspiration value balance.
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information corresponding to the resource.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryInspirationBalanceResponse
@@ -7464,9 +7468,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const
 }
 
 /**
- * @summary Queries the overview of inspiration point balance.
+ * @summary Queries the overview of the inspiration value balance.
  *
- * @description Queries the Supabase instance information corresponding to a resource.
+ * @description Queries the Supabase instance information corresponding to the resource.
  *
  * @return QueryInspirationBalanceResponse
  */
@@ -7522,9 +7526,9 @@ QueryInspirationBalanceForPartnerResponse Client::queryInspirationBalanceForPart
 }
 
 /**
- * @summary Queries the details of inspiration point consumption.
+ * @summary Queries the consumption details of inspiration points.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7579,9 +7583,9 @@ QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecordsWit
 }
 
 /**
- * @summary Queries the details of inspiration point consumption.
+ * @summary Queries the consumption details of inspiration points.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @return QueryInspirationConsumeRecordsResponse
@@ -8406,9 +8410,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary Reconnects an AI conversation.
+ * @summary Reconnects to an AI conversation.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8465,9 +8469,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Reconnects an AI conversation.
+ * @summary Reconnects to an AI conversation.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8510,9 +8514,9 @@ ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppC
 }
 
 /**
- * @summary Reconnects an AI conversation.
+ * @summary Reconnects to an AI conversation.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ReconnectAppChatRequest
  * @return ReconnectAppChatResponse
@@ -9921,9 +9925,9 @@ UninstallAppPluginResponse Client::uninstallAppPlugin(const UninstallAppPluginRe
 }
 
 /**
- * @summary Updates message content.
+ * @summary Updates the message content.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
+ * @description Queries the AI conversation history for Wanxiaozhi 2.0.
  *
  * @param request UpdateAppChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9966,9 +9970,9 @@ UpdateAppChatMessageResponse Client::updateAppChatMessageWithOptions(const Updat
 }
 
 /**
- * @summary Updates message content.
+ * @summary Updates the message content.
  *
- * @description Wanxiaozhi 2.0 - API for querying AI conversation history.
+ * @description Queries the AI conversation history for Wanxiaozhi 2.0.
  *
  * @param request UpdateAppChatMessageRequest
  * @return UpdateAppChatMessageResponse

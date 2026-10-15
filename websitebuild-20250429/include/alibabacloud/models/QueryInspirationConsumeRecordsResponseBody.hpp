@@ -159,16 +159,17 @@ namespace Models
 
 
       protected:
-        // The number of inspiration points consumed.
+        // The number of consumed inspiration points.
         shared_ptr<int64_t> amount_ {};
-        // The number of inspiration points consumed. This is a precise value of the String type that supports decimal display.
+        // The exact number of consumed inspiration points. The value is a string that supports decimal display.
         shared_ptr<string> amountStr_ {};
         // The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> consumeTime_ {};
+        // The consumption type.
         shared_ptr<string> consumeType_ {};
         // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
-        // The consumption scenario name, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
+        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, or AI content creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -256,17 +257,19 @@ namespace Models
 
 
       protected:
-        // The number of inspiration points consumed.
+        // The number of consumed inspiration points.
         shared_ptr<int64_t> amount_ {};
-        // The number of inspiration points consumed. This is a precise value of the String type that supports decimal display.
+        // The exact number of consumed inspiration points. The value is a string that supports decimal display.
         shared_ptr<string> amountStr_ {};
         // The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> consumeTime_ {};
+        // The consumption type.
         shared_ptr<string> consumeType_ {};
         // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
+        // The unique identifier of the consumption record.
         shared_ptr<string> recordKey_ {};
-        // The consumption scenario name, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
+        // The name of the consumption scenario, such as AI application development, AI creative image generation, AI video creation, or AI content creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -343,17 +346,17 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The next feature ID.
+      // The ID of the next feature.
       shared_ptr<Module::Next> next_ {};
-      // Indicates whether a next page exists.
+      // Specifies whether a next page exists.
       shared_ptr<bool> nextPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Indicates whether a previous page exists.
+      // Specifies whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -448,25 +451,25 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retries are allowed.
+    // Specifies whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The name of the application to query.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not in use. Ignore this parameter.
+    // The dynamic message. This parameter is not used. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The returned result.
+    // Specifies whether the deletion is successful.
     shared_ptr<QueryInspirationConsumeRecordsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Specifies whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

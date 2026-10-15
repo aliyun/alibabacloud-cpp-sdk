@@ -165,10 +165,11 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    // The list of business IDs for the application instances.
     shared_ptr<vector<string>> bizIds_ {};
-    // The start time of the expiration range.
+    // The expiration start time.
     shared_ptr<string> endTimeBegin_ {};
-    // The end time of the expiration range.
+    // The expiration end time.
     shared_ptr<string> endTimeEnd_ {};
     // The extended information.
     shared_ptr<string> extend_ {};
@@ -176,19 +177,19 @@ namespace Models
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if there is no next query.
+    // The token used to start the next query. This parameter is empty if no next query exists.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The sort field.
     shared_ptr<string> orderColumn_ {};
-    // The sort type. Valid values: ASC and DESC.
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameter.
+    // The query parameters.
     shared_ptr<string> query_ {};
-    // The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as Profile, services, or AI Staff.
+    // The query mode. A value of CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
     shared_ptr<string> queryMode_ {};
     // The status range.
     shared_ptr<vector<string>> statusList_ {};

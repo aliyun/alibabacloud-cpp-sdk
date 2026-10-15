@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 用于唯一标识一个操作行为
+    // The key used to uniquely identify an action.
     shared_ptr<string> actionKey_ {};
-    // 用于在界面中展示操作名称
+    // The text used to display the action name in the user interface.
     shared_ptr<string> actionText_ {};
-    // 标识该操作是否可用
+    // Indicates whether the action is available.
     shared_ptr<bool> enable_ {};
-    // 点击操作时跳转的URL地址
+    // The URL to navigate to when the action is clicked.
     shared_ptr<string> href_ {};
   };
 

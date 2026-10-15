@@ -148,19 +148,15 @@ namespace Models
     shared_ptr<string> industry_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The number of results returned per query. Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The token used to start the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
-    // The sort field. Only copyCount and gmtModified are supported.
     shared_ptr<string> orderColumn_ {};
-    // The sort direction. Valid values: ASC and DESC. Default value: DESC.
     shared_ptr<string> orderType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The edition.
     shared_ptr<string> productVersion_ {};
