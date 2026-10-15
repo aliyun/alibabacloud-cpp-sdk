@@ -49,6 +49,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NewThreatAnalysis, newThreatAnalysis_);
       DARABONBA_PTR_TO_JSON(OnboardedAssets, onboardedAssets_);
       DARABONBA_PTR_TO_JSON(OpenTime, openTime_);
+      DARABONBA_PTR_TO_JSON(PostPaidFirstTrialTime, postPaidFirstTrialTime_);
+      DARABONBA_PTR_TO_JSON(PostPaidLastTrialTime, postPaidLastTrialTime_);
+      DARABONBA_PTR_TO_JSON(PostPaidTrialExpiredTime, postPaidTrialExpiredTime_);
       DARABONBA_PTR_TO_JSON(PostPayHostVersion, postPayHostVersion_);
       DARABONBA_PTR_TO_JSON(PostPayInstanceId, postPayInstanceId_);
       DARABONBA_PTR_TO_JSON(PostPayModuleSwitch, postPayModuleSwitch_);
@@ -114,6 +117,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NewThreatAnalysis, newThreatAnalysis_);
       DARABONBA_PTR_FROM_JSON(OnboardedAssets, onboardedAssets_);
       DARABONBA_PTR_FROM_JSON(OpenTime, openTime_);
+      DARABONBA_PTR_FROM_JSON(PostPaidFirstTrialTime, postPaidFirstTrialTime_);
+      DARABONBA_PTR_FROM_JSON(PostPaidLastTrialTime, postPaidLastTrialTime_);
+      DARABONBA_PTR_FROM_JSON(PostPaidTrialExpiredTime, postPaidTrialExpiredTime_);
       DARABONBA_PTR_FROM_JSON(PostPayHostVersion, postPayHostVersion_);
       DARABONBA_PTR_FROM_JSON(PostPayInstanceId, postPayInstanceId_);
       DARABONBA_PTR_FROM_JSON(PostPayModuleSwitch, postPayModuleSwitch_);
@@ -182,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The name of the trial sub-module.
+      // The name of the child trial module.
       shared_ptr<string> name_ {};
     };
 
@@ -193,13 +199,13 @@ namespace Models
         && this->hybridSwitch_ == nullptr && this->imageScanCapacity_ == nullptr && this->instanceBuyType_ == nullptr && this->instanceId_ == nullptr && this->intelligentAnalysisFlow_ == nullptr
         && this->isNewContainerVersion_ == nullptr && this->isNewMultiVersion_ == nullptr && this->isOverBalance_ == nullptr && this->isPostpay_ == nullptr && this->isTrialVersion_ == nullptr
         && this->lastTrailEndTime_ == nullptr && this->MVAuthCount_ == nullptr && this->MVUnusedAuthCount_ == nullptr && this->mergedVersion_ == nullptr && this->multiVersion_ == nullptr
-        && this->newPostPaidCspm_ == nullptr && this->newThreatAnalysis_ == nullptr && this->onboardedAssets_ == nullptr && this->openTime_ == nullptr && this->postPayHostVersion_ == nullptr
-        && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr && this->postPayOpenTime_ == nullptr && this->postPayStatus_ == nullptr && this->raspCapacity_ == nullptr
-        && this->releaseTime_ == nullptr && this->requestId_ == nullptr && this->sasEdrClientAuthCount_ == nullptr && this->sasEdrPostPaidInstanceId_ == nullptr && this->sasEdrPrePaidInstanceId_ == nullptr
-        && this->sasEdrPrePaidInstanceStatus_ == nullptr && this->sasEdrVersion_ == nullptr && this->sasLog_ == nullptr && this->sasScreen_ == nullptr && this->sdkAiPostPaidGray_ == nullptr
-        && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->trialModuleList_ == nullptr
-        && this->trialVersion_ == nullptr && this->userDefinedAlarms_ == nullptr && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr
-        && this->webLock_ == nullptr && this->webLockAuthCount_ == nullptr; };
+        && this->newPostPaidCspm_ == nullptr && this->newThreatAnalysis_ == nullptr && this->onboardedAssets_ == nullptr && this->openTime_ == nullptr && this->postPaidFirstTrialTime_ == nullptr
+        && this->postPaidLastTrialTime_ == nullptr && this->postPaidTrialExpiredTime_ == nullptr && this->postPayHostVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
+        && this->postPayOpenTime_ == nullptr && this->postPayStatus_ == nullptr && this->raspCapacity_ == nullptr && this->releaseTime_ == nullptr && this->requestId_ == nullptr
+        && this->sasEdrClientAuthCount_ == nullptr && this->sasEdrPostPaidInstanceId_ == nullptr && this->sasEdrPrePaidInstanceId_ == nullptr && this->sasEdrPrePaidInstanceStatus_ == nullptr && this->sasEdrVersion_ == nullptr
+        && this->sasLog_ == nullptr && this->sasScreen_ == nullptr && this->sdkAiPostPaidGray_ == nullptr && this->sdkCapacity_ == nullptr && this->slsCapacity_ == nullptr
+        && this->threatAnalysisCapacity_ == nullptr && this->threatAnalysisFlow_ == nullptr && this->trialModuleList_ == nullptr && this->trialVersion_ == nullptr && this->userDefinedAlarms_ == nullptr
+        && this->version_ == nullptr && this->vmCores_ == nullptr && this->vulFixCapacity_ == nullptr && this->webLock_ == nullptr && this->webLockAuthCount_ == nullptr; };
     // agentlessCapacity Field Functions 
     bool hasAgentlessCapacity() const { return this->agentlessCapacity_ != nullptr;};
     void deleteAgentlessCapacity() { this->agentlessCapacity_ = nullptr;};
@@ -445,6 +451,27 @@ namespace Models
     inline DescribeVersionConfigResponseBody& setOpenTime(int64_t openTime) { DARABONBA_PTR_SET_VALUE(openTime_, openTime) };
 
 
+    // postPaidFirstTrialTime Field Functions 
+    bool hasPostPaidFirstTrialTime() const { return this->postPaidFirstTrialTime_ != nullptr;};
+    void deletePostPaidFirstTrialTime() { this->postPaidFirstTrialTime_ = nullptr;};
+    inline int64_t getPostPaidFirstTrialTime() const { DARABONBA_PTR_GET_DEFAULT(postPaidFirstTrialTime_, 0L) };
+    inline DescribeVersionConfigResponseBody& setPostPaidFirstTrialTime(int64_t postPaidFirstTrialTime) { DARABONBA_PTR_SET_VALUE(postPaidFirstTrialTime_, postPaidFirstTrialTime) };
+
+
+    // postPaidLastTrialTime Field Functions 
+    bool hasPostPaidLastTrialTime() const { return this->postPaidLastTrialTime_ != nullptr;};
+    void deletePostPaidLastTrialTime() { this->postPaidLastTrialTime_ = nullptr;};
+    inline int64_t getPostPaidLastTrialTime() const { DARABONBA_PTR_GET_DEFAULT(postPaidLastTrialTime_, 0L) };
+    inline DescribeVersionConfigResponseBody& setPostPaidLastTrialTime(int64_t postPaidLastTrialTime) { DARABONBA_PTR_SET_VALUE(postPaidLastTrialTime_, postPaidLastTrialTime) };
+
+
+    // postPaidTrialExpiredTime Field Functions 
+    bool hasPostPaidTrialExpiredTime() const { return this->postPaidTrialExpiredTime_ != nullptr;};
+    void deletePostPaidTrialExpiredTime() { this->postPaidTrialExpiredTime_ = nullptr;};
+    inline int64_t getPostPaidTrialExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(postPaidTrialExpiredTime_, 0L) };
+    inline DescribeVersionConfigResponseBody& setPostPaidTrialExpiredTime(int64_t postPaidTrialExpiredTime) { DARABONBA_PTR_SET_VALUE(postPaidTrialExpiredTime_, postPaidTrialExpiredTime) };
+
+
     // postPayHostVersion Field Functions 
     bool hasPostPayHostVersion() const { return this->postPayHostVersion_ != nullptr;};
     void deletePostPayHostVersion() { this->postPayHostVersion_ = nullptr;};
@@ -644,159 +671,164 @@ namespace Models
 
 
   protected:
-    // The number of agentless detection licenses.
-    // > Agentless detection is not available for purchase. You can ignore this field.
+    // The agentless detection quota.
+    // > Agentless detection is not yet available for sale. You can ignore this field.
     shared_ptr<int64_t> agentlessCapacity_ {};
-    // Indicates whether pay-as-you-go purchasing is allowed. Valid values:
+    // Indicates whether pay-as-you-go purchase is allowed. Valid values:
     // - **0**: Not allowed.
     // - **1**: Allowed.
     shared_ptr<int32_t> allowPartialBuy_ {};
-    // The anti-ransomware backup capacity, in GB.
+    // The anti-ransomware backup capacity. Unit: GB.
     shared_ptr<int32_t> antiRansomwareCapacity_ {};
-    // The status of the anti-ransomware managed service. Valid values:
-    // - **0**: Not activated.
-    // - **1**: Activated.
+    // Indicates whether the anti-ransomware managed service is enabled. Valid values:
+    // - **0**: Not enabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> antiRansomwareService_ {};
-    // Indicates whether the application whitelist is enabled. Valid values:
+    // Indicates whether the application whitelist feature is enabled. Valid values:
     // - **0**: Not enabled.
     // - **2**: Enabled.
     shared_ptr<int32_t> appWhiteList_ {};
     // The number of application whitelist authorizations.
-    // > One authorization allows you to apply an application whitelist policy to one server. After the application whitelist feature is enabled, the account has 20 authorizations by default.
+    // > One authorization allows you to apply a whitelist policy to one server. After you enable the application whitelist feature, your account is granted 20 authorizations by default.
     shared_ptr<int64_t> appWhiteListAuthCount_ {};
-    // The number of purchased server authorization licenses.
+    // The number of purchased server authorizations.
     shared_ptr<int32_t> assetLevel_ {};
-    // Indicates whether EDR is purchased.
+    // Indicates whether Endpoint Detection and Response (EDR) is purchased.
     shared_ptr<string> buySasEdr_ {};
-    // Indicates whether the pay-as-you-go trial plan can be activated. Valid values:
+    // Indicates whether the pay-as-you-go trial plan is supported. Valid values:
     // - **0**: Not supported.
     // - **1**: Supported.
     shared_ptr<int32_t> canTryPostPaidPackage_ {};
-    // The number of purchased Cloud Security Posture Management (CSPM) scans, in scans per month.
+    // The number of purchased cloud platform configuration check scans. Unit: scans per month.
     shared_ptr<int64_t> cspmCapacity_ {};
     // The AI digital human analysis traffic.
     shared_ptr<int32_t> cspmInstanceCapacity_ {};
     // The highest purchased edition of Security Center. Valid values:
-    // - **1**: Free Edition.
-    // - **3**: Enterprise Edition.
-    // - **5**: Advanced Edition.
-    // - **6**: Anti-virus Edition.
-    // - **7**: Ultimate Edition.
-    // - **10**: Value-added services only.
-    // > If a single version is purchased, this value indicates the corresponding version. If multiple versions are purchased, this value indicates the highest version among the purchased editions of Security Center.
+    // - **1**: Free Edition
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Anti-virus Edition
+    // - **7**: Ultimate Edition
+    // - **10**: Value-added services only
+    // > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest edition among the purchased editions of Security Center.
     shared_ptr<int32_t> highestVersion_ {};
-    // The number of purchased honeypot authorization licenses.
+    // The number of purchased honeypot authorizations.
     shared_ptr<int64_t> honeypotCapacity_ {};
     // The canary release module for elastic billing.
     shared_ptr<string> hybridPaidGrayStatus_ {};
     // The AI digital human analysis traffic.
     shared_ptr<int32_t> hybridPaidModuleSwitchMap_ {};
-    // The status of the elastic billing switch.
+    // The elastic billing switch status.
     shared_ptr<int32_t> hybridPaidStatus_ {};
     // The AI digital human analysis traffic.
     shared_ptr<int32_t> hybridSwitch_ {};
-    // The number of purchased image scan authorization licenses.
+    // The number of purchased image scan authorizations.
     shared_ptr<int64_t> imageScanCapacity_ {};
     // The instance purchase type. Valid values:
     // - **0**: Self-purchased.
-    // - **1**: Allocated from a multi-account setup.
+    // - **1**: Multi-account allocation.
     shared_ptr<int32_t> instanceBuyType_ {};
-    // The instance ID of the purchased Security Center instance.
+    // The instance ID of the purchased Security Center.
     shared_ptr<string> instanceId_ {};
     // The AI digital human analysis traffic.
     shared_ptr<int32_t> intelligentAnalysisFlow_ {};
-    // Indicates whether the instance is the new Ultimate Edition. Valid values:
+    // Indicates whether the instance is the latest Ultimate Edition. Valid values:
     // - **true**: The instance is the latest version.
     // - **false**: The instance is not the latest version.
     shared_ptr<bool> isNewContainerVersion_ {};
-    // Indicates whether the instance is the new multi-version. Valid values:
-    // - **true**: The instance is the latest multi-version.
-    // - **false**: The instance is not the latest multi-version.
+    // Indicates whether the instance is the latest multi-edition. Valid values:
+    // - **true**: The instance is the latest multi-edition.
+    // - **false**: The instance is not the latest multi-edition.
     shared_ptr<bool> isNewMultiVersion_ {};
     // Indicates whether the number of existing servers exceeds the maximum number of purchased authorizations. Valid values:
     // - **false**: Not exceeded.
     // - **true**: Exceeded.
-    // 
-    // >Notice: This parameter is deprecated. You can ignore it.
+    // >Notice: **[Deprecated]** This parameter is deprecated. You can ignore it.</notice>
     shared_ptr<bool> isOverBalance_ {};
-    // Indicates whether pay-as-you-go billing is enabled. Valid values:
+    // Indicates whether the pay-as-you-go billing method is enabled. Valid values:
     // - **false**: Not enabled.
     // - **true**: Enabled.
     shared_ptr<bool> isPostpay_ {};
-    // Indicates whether the current Security Center edition is a trial version. Valid values:
-    // - **0**: Not a trial version.
-    // - **1**: Trial version.
+    // Indicates whether the current Security Center edition is a trial edition. Valid values:
+    // - **0**: No, it is not a trial edition.
+    // - **1**: Yes, it is a trial edition.
     shared_ptr<int32_t> isTrialVersion_ {};
-    // The end timestamp of the last trial of Security Center, in milliseconds.
+    // The end timestamp of the last Security Center trial. Unit: milliseconds.
     shared_ptr<int64_t> lastTrailEndTime_ {};
-    // The total number of authorizations when multiple versions are purchased.
+    // The total number of authorizations for the multi-edition purchase.
     shared_ptr<int32_t> MVAuthCount_ {};
-    // The total number of remaining authorizations when multiple versions are purchased.
+    // The total number of remaining authorizations for the multi-edition purchase.
     shared_ptr<int32_t> MVUnusedAuthCount_ {};
-    // The higher protection edition when both host protection and container protection are activated with subscription and pay-as-you-go billing methods in Security Center. Valid values:
-    // - **1**: Basic Edition.
-    // - **6**: Anti-virus Edition.
-    // - **5**: Advanced Edition.
-    // - **3**: Enterprise Edition.
-    // - **7**: Ultimate Edition.
+    // The higher protection edition between the subscription and pay-as-you-go services when both are enabled for Security Center host and container security. Valid values:
+    // - **1**: Free Edition
+    // - **6**: Anti-virus Edition
+    // - **5**: Advanced Edition
+    // - **3**: Enterprise Edition
+    // - **7**: Ultimate Edition
     shared_ptr<int32_t> mergedVersion_ {};
-    // The multi-version number and authorization usage information.
+    // The multi-edition version numbers and authorization usage.
     shared_ptr<string> multiVersion_ {};
     // The AI digital human analysis traffic.
     shared_ptr<int32_t> newPostPaidCspm_ {};
-    // Indicates whether the new version of Cloud Threat Detection and Response (CTDR) is enabled. The new version of CTDR supports purchasing traffic ingestion and log storage capacity. Valid values:
+    // Indicates whether the new version of Cloud Threat Detection and Response (CTDR) is enabled. The new version of CTDR supports the purchase of inbound traffic and log storage capacity. Valid values:
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> newThreatAnalysis_ {};
     // The AI digital human managed instances.
     shared_ptr<int32_t> onboardedAssets_ {};
-    // The timestamp when the service was activated, in milliseconds.
+    // The timestamp when the service is enabled. Unit: milliseconds.
     shared_ptr<int64_t> openTime_ {};
-    // The highest protection edition bound to assets when the pay-as-you-go host and container security service is activated. Valid values:
-    // - **1**: Free Edition.
-    // - **3**: Enterprise Edition.
-    // - **5**: Advanced Edition.
-    // - **6**: Anti-virus Edition.
-    // - **7**: Ultimate Edition.
+    // The first trial time for the pay-as-you-go billing method.
+    shared_ptr<int64_t> postPaidFirstTrialTime_ {};
+    // The latest trial time for the pay-as-you-go billing method.
+    shared_ptr<int64_t> postPaidLastTrialTime_ {};
+    // The trial expiration time for the pay-as-you-go billing method.
+    shared_ptr<int64_t> postPaidTrialExpiredTime_ {};
+    // The highest protection edition for bound assets when the pay-as-you-go service for host and container security is enabled. Valid values:
+    // - **1**: Free Edition
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Anti-virus Edition
+    // - **7**: Ultimate Edition
     shared_ptr<int32_t> postPayHostVersion_ {};
-    // The instance ID of the pay-as-you-go instance.
+    // The pay-as-you-go instance ID.
     shared_ptr<string> postPayInstanceId_ {};
-    // The status of pay-as-you-go module switches, in JSON string format. Valid values:
+    // The switch status of pay-as-you-go modules. The value is a JSON string. Valid values:
     // - Key:
-    //   - **VUL**: Vulnerability fix module.
-    //   - **CSPM**: Cloud Security Posture Management (CSPM) module.
-    //   - **AGENTLESS**: Agentless detection module.
-    //   - **SERVERLESS**: Serverless security module.
-    //   - **CTDR**: Cloud Threat Detection and Response (CTDR) module.
-    //   - **POST_HOST**: Host and container security module.
-    //   - **SDK**: Malicious file detection SDK module.
-    //   - **RASP**: Runtime application self-protection (RASP) module.
+    //   - **VUL**: Vulnerability fixing module
+    //   - **CSPM**: Cloud Security Posture Management (CSPM) module
+    //   - **AGENTLESS**: Agentless detection module
+    //   - **SERVERLESS**: Serverless security module
+    //   - **CTDR**: Cloud Threat Detection and Response (CTDR) module
+    //   - **POST_HOST**: Host and container security module
+    //   - **SDK**: Malicious file detection SDK module
+    //   - **RASP**: Application protection module
     // - Value: 0 indicates disabled, and 1 indicates enabled.
     shared_ptr<string> postPayModuleSwitch_ {};
-    // The time when pay-as-you-go billing was activated. The value is a UNIX timestamp, in milliseconds.
+    // The time when the pay-as-you-go billing method is enabled. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> postPayOpenTime_ {};
-    // The instance status of the pay-as-you-go instance. Valid values:
+    // The pay-as-you-go instance status. Valid values:
     // - **1**: Normal.
-    // - **2**: Suspended due to overdue payment.
+    // - **2**: Stopped due to overdue payment.
     shared_ptr<int32_t> postPayStatus_ {};
-    // The number of purchased application protection licenses, in licenses per month.
+    // The number of purchased application protection authorizations. Unit: authorizations per month.
     shared_ptr<int64_t> raspCapacity_ {};
-    // The UNIX timestamp when the Security Center instance expires, in milliseconds.
-    // > If you do not complete renewal within 7 days after the instance expires, your paid edition instance is downgraded to Free Edition. You can no longer use the features of the paid edition, and your previous Security Center configuration data and historical alerting data (such as DDoS alerts) become inaccessible. In this case, you must repurchase Security Center to enable the paid edition. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
+    // The expiration UNIX timestamp of the Security Center instance. Unit: milliseconds.
+    // > If you do not complete the renewal within 7 days after the instance expires, your paid instance is downgraded to the Free Edition. You cannot continue to use the features of the paid edition, and you cannot view your previous Security Center configuration data and historical alerting data, such as DDoS alerting. In this case, you must repurchase the paid edition of Security Center to enable the service. For more information, see [Purchase Security Center](https://help.aliyun.com/document_detail/42308.html).
     shared_ptr<int64_t> releaseTime_ {};
-    // The unique request ID generated by Alibaba Cloud for this request.
+    // The unique identifier generated by Alibaba Cloud for the request.
     shared_ptr<string> requestId_ {};
-    // The number of servers purchased for EDR.
+    // The number of machines purchased for EDR.
     shared_ptr<string> sasEdrClientAuthCount_ {};
-    // The pay-as-you-go instance ID of EDR.
+    // The pay-as-you-go EDR instance ID.
     shared_ptr<string> sasEdrPostPaidInstanceId_ {};
-    // The subscription instance ID of EDR.
+    // The subscription EDR instance.
     shared_ptr<string> sasEdrPrePaidInstanceId_ {};
-    // The instance status of the EDR upfront instance.
+    // The upfront EDR instance status.
     shared_ptr<string> sasEdrPrePaidInstanceStatus_ {};
-    // The purchased edition of EDR.
+    // The purchased EDR edition.
     shared_ptr<string> sasEdrVersion_ {};
-    // Indicates whether log analysis is purchased. Valid values:
+    // Indicates whether the log analysis feature is purchased. Valid values:
     // - **0**: Not purchased.
     // - **1**: Purchased.
     shared_ptr<int32_t> sasLog_ {};
@@ -804,42 +836,42 @@ namespace Models
     // - **0**: Not purchased.
     // - **1**: Purchased.
     shared_ptr<int32_t> sasScreen_ {};
-    // The canary release status of the pay-as-you-go SDK.
+    // The canary release status for the pay-as-you-go SDK.
     shared_ptr<int32_t> sdkAiPostPaidGray_ {};
-    // The number of malicious file detection SDK authorization licenses.
+    // The number of malicious file detection SDK authorizations.
     shared_ptr<int64_t> sdkCapacity_ {};
-    // The purchased log storage capacity, in GB. Valid values: 0 to 200000.
+    // The purchased log storage capacity. Unit: GB. Valid values: 0 to 200000.
     shared_ptr<int64_t> slsCapacity_ {};
-    // The purchased threat analysis capacity, in GB.
+    // The purchased threat analysis capacity. Unit: GB.
     shared_ptr<int64_t> threatAnalysisCapacity_ {};
-    // The purchased log ingestion traffic for Cloud Threat Detection and Response (CTDR), in GB per day.
+    // The purchased log inbound traffic for Cloud Threat Detection and Response (CTDR). Unit: GB per day.
     shared_ptr<int32_t> threatAnalysisFlow_ {};
-    // The list of trial sub-modules.
+    // The list of child trial modules.
     shared_ptr<vector<DescribeVersionConfigResponseBody::TrialModuleList>> trialModuleList_ {};
-    // The trial version.
+    // The trial edition.
     shared_ptr<int32_t> trialVersion_ {};
-    // Indicates whether the custom alerting feature is enabled. Valid values:
+    // Indicates whether the custom alert feature is enabled. Valid values:
     // - **0**: Not enabled.
     // - **2**: Enabled.
     shared_ptr<int32_t> userDefinedAlarms_ {};
-    // The purchased edition of Security Center. Valid values:  
-    // - **1**: Free Edition. 
-    // - **3**: Enterprise Edition.
-    // - **5**: Advanced Edition.
-    // - **6**: Anti-virus Edition.    
-    // - **7**: Ultimate Edition.   
-    // - **8**: Multi-version.   
-    // - **10**: Value-added services only.
+    // The purchased Security Center edition. Valid values:  
+    // - **1**: Free Edition 
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Anti-virus Edition    
+    // - **7**: Ultimate Edition   
+    // - **8**: Multi-edition   
+    // - **10**: Value-added services only
     shared_ptr<int32_t> version_ {};
     // The number of purchased authorized cores.
     shared_ptr<int32_t> vmCores_ {};
-    // The number of purchased vulnerability fixes, in fixes per month.
+    // The number of purchased vulnerability fixing quotas. Unit: fixes per month.
     shared_ptr<int64_t> vulFixCapacity_ {};
-    // Indicates whether web tamper-proofing is enabled. Valid values:
+    // Indicates whether the web tamper-proofing service is enabled. Valid values:
     // - **0**: Not enabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> webLock_ {};
-    // The number of purchased web tamper-proofing authorizations. One authorization enables web tamper-proofing protection for one server. Valid values: 0 to N.
+    // The number of purchased web tamper-proofing authorizations. One authorization enables web tamper-proofing for one server. Valid values: 0 to N.
     // > N is the number of servers that you own.
     shared_ptr<int64_t> webLockAuthCount_ {};
   };

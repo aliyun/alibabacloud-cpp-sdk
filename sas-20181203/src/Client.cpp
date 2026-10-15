@@ -24456,7 +24456,7 @@ DescribeVendorListResponse Client::describeVendorList() {
 }
 
 /**
- * @summary Queries the version details of a purchased Security Center instance.
+ * @summary Queries the edition details of a purchased Security Center instance.
  *
  * @param request DescribeVersionConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24491,7 +24491,7 @@ DescribeVersionConfigResponse Client::describeVersionConfigWithOptions(const Des
 }
 
 /**
- * @summary Queries the version details of a purchased Security Center instance.
+ * @summary Queries the edition details of a purchased Security Center instance.
  *
  * @param request DescribeVersionConfigRequest
  * @return DescribeVersionConfigResponse
@@ -26968,9 +26968,9 @@ ExportCustomizeReportResponse Client::exportCustomizeReport(const ExportCustomiz
 }
 
 /**
- * @summary Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+ * @summary Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
  *
- * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+ * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
  *
  * @param request ExportRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27017,9 +27017,9 @@ ExportRecordResponse Client::exportRecordWithOptions(const ExportRecordRequest &
 }
 
 /**
- * @summary Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+ * @summary Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
  *
- * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+ * @description After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
  *
  * @param request ExportRecordRequest
  * @return ExportRecordResponse
@@ -27294,7 +27294,9 @@ ExportVulResponse Client::exportVul(const ExportVulRequest &request) {
 /**
  * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
  *
- * @summary Exports baseline check results.
+ * @summary Exports the list of baseline check results. This operation is deprecated.
+ *
+ * @description Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
  *
  * @param request ExportWarningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27387,7 +27389,9 @@ ExportWarningResponse Client::exportWarningWithOptions(const ExportWarningReques
 /**
  * @deprecated OpenAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead.
  *
- * @summary Exports baseline check results.
+ * @summary Exports the list of baseline check results. This operation is deprecated.
+ *
+ * @description Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
  *
  * @param request ExportWarningRequest
  * @return ExportWarningResponse
@@ -28896,7 +28900,7 @@ GetBuildRiskDefineRuleConfigResponse Client::getBuildRiskDefineRuleConfig(const 
 }
 
 /**
- * @summary Checks whether the current user is qualified for the trial use of Security Center.
+ * @summary Queries whether you have trial permissions for Security Center.
  *
  * @param request GetCanTrySasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28931,7 +28935,7 @@ GetCanTrySasResponse Client::getCanTrySasWithOptions(const GetCanTrySasRequest &
 }
 
 /**
- * @summary Checks whether the current user is qualified for the trial use of Security Center.
+ * @summary Queries whether you have trial permissions for Security Center.
  *
  * @param request GetCanTrySasRequest
  * @return GetCanTrySasResponse
