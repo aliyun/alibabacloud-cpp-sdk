@@ -140,33 +140,33 @@ namespace Models
 
 
   protected:
-    // The instance ID for billing deduction.
+    // The ID of the instance for which the billing is deducted.
     shared_ptr<string> billInstanceId_ {};
-    // The commodity code of the deducted item.
+    // The commodity code for deduction.
     shared_ptr<string> billingCommodityCode_ {};
-    // The billing end time.
+    // The billing end time. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> billingEndTime_ {};
-    // The billing start time.
+    // The billing start time. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> billingStartTime_ {};
     // The commodity code.
     shared_ptr<string> commodityCode_ {};
-    // The enterprise and account list. If this parameter is empty, the current account is queried.
+    // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
-    // The resource dimension for the query.
+    // The resource dimension.
     shared_ptr<string> group_ {};
     // The instance name.
     shared_ptr<string> instanceId_ {};
-    // The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
     // The current page number.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The list of deduction accounts.
+    // The list of accounts for deduction.
     shared_ptr<string> relationAccountIdsShrink_ {};
   };
 

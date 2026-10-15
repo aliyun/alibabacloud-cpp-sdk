@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The list of account IDs to access. If this parameter is left empty, all accounts under the current entity ID are selected.
+      // The list of accessed accounts. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
-      // The enterprise entity ID.
+      // The ID of the enterprise entity.
       // 
       // This parameter is required.
       shared_ptr<string> ecId_ {};
@@ -141,9 +141,9 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<QueryCostCenterRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
+    // The ID of the level-1 sales site. If this parameter is left empty, the ID of the sales site to which the current user belongs is used by default.
     shared_ptr<string> nbid_ {};
-    // The ID of the user who owns the cost center.
+    // The ID of the owner account for the cost center.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ownerAccountId_ {};

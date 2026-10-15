@@ -139,9 +139,9 @@ namespace Models
       shared_ptr<int64_t> costCenterId_ {};
       // The name of the cost center. The name must be unique within the same account.
       shared_ptr<string> costCenterName_ {};
-      // The level of the cost center node.
+      // The node level of the cost center.
       shared_ptr<int32_t> level_ {};
-      // The ID of the user who owns the cost center.
+      // The ID of the owner account for the cost center.
       shared_ptr<int64_t> ownerAccountId_ {};
       // The ID of the parent cost center.
       shared_ptr<int64_t> parentCostCenterId_ {};
@@ -200,11 +200,11 @@ namespace Models
 
 
   protected:
-    // The list of cost center data.
+    // The data list.
     shared_ptr<vector<QueryCostCenterResponseBody::CostCenterDtoList>> costCenterDtoList_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The metadata of the response struct.
+    // The response metadata.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

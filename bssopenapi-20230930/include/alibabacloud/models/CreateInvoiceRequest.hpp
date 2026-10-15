@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // List of accounts to access. If empty, all accounts under the current entity ID are selected.
+      // The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
-      // Enterprise entity ID.
+      // The enterprise entity ID.
       shared_ptr<string> ecId_ {};
     };
 
@@ -165,38 +165,38 @@ namespace Models
 
 
   protected:
-    // Specifies the invoice amount. Supports up to two decimal places.
-    // - If not specified, the invoice will be issued for the total invoiceable amount of all invoiceCandidateIds.
-    // - If specified, the invoice will be issued for the specified amount. The specified amount cannot exceed the total invoiceable amount of all invoiceCandidateIds.
+    // Specifies the invoice amount. Two decimal places are supported.
+    // - If left empty, the invoice is issued for the total invoiceable amount of all invoice candidate IDs.
+    // - If specified, the invoice is issued for the specified amount. The specified amount cannot exceed the total invoiceable amount of all invoice candidate IDs.
     shared_ptr<string> amount_ {};
-    // Enterprise and account list. If empty, the current account is queried.
+    // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<vector<CreateInvoiceRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // List of invoice candidate IDs.
+    // The list of invoice candidate IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> invoiceCandidateIds_ {};
-    // Invoice mode.
-    // - 0: Independent invoicing. Expenses of multiple accounts under the enterprise are invoiced separately for each account.
-    // - 1: Consolidated invoicing. Expenses of multiple accounts under the enterprise are consolidated and invoiced under the invoicing entity.
-    // If only one account is passed in the AccountIds parameter, independent invoicing is applied.
+    // The invoicing mode. Valid values:
+    // - 0: Independent invoicing. The consumption of multiple accounts under an enterprise is invoiced independently for each account.
+    // - 1: Consolidated invoicing. The consumption of multiple accounts under an enterprise is consolidated and invoiced based on the invoicing entity.
+    // If only one account is specified in the AccountIds request parameter, independent invoicing is applied.
     // 
     // This parameter is required.
     shared_ptr<int32_t> invoiceMode_ {};
-    // Invoice remark.
+    // The invoice remark.
     shared_ptr<string> invoiceRemark_ {};
-    // Invoice title ID.
+    // The invoice title ID.
     // 
-    // - The ID parameter returned by the ListInvoiceTitle API for the current logged-in account.
+    // - The ID returned by the ListInvoiceTitle operation for the current logon account.
     // 
     // This parameter is required.
     shared_ptr<string> invoiceTitleId_ {};
-    // Invoice type.
+    // The invoice type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> invoiceType_ {};
-    // Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // List of email addresses to receive the invoice. A maximum of 3 can be specified.
+    // The list of email addresses that receive the invoice. You can specify up to three email addresses.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> recipientEmails_ {};

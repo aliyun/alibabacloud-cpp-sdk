@@ -338,9 +338,9 @@ namespace Models
       shared_ptr<Data::OrderList> orderList_ {};
       // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page. A maximum of 20 entries per page is recommended. Excessive entries may cause a timeout.
+      // The number of entries per page. Set this parameter to a maximum of 20. A larger value may cause a timeout.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -392,7 +392,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -188,40 +188,37 @@ namespace Models
 
 
     protected:
-      // The account ID of the user associated with the payment relationship, that is, the account that uses this account for payment.
+      // The account ID of the user associated with the payment relationship, which is the account that uses this account for payment.
       shared_ptr<string> accountId_ {};
-      // The user name.
+      // The username.
       shared_ptr<string> accountName_ {};
       // The enterprise entity ID of the user associated with the payment relationship.
       shared_ptr<string> ecid_ {};
-      // The time when the payment relationship takes effect.
+      // The effective period of the payment relationship. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> effectiveTime_ {};
       // The account ID.
       shared_ptr<string> fundAccountId_ {};
       // The Alibaba Cloud account ID of the account owner.
       shared_ptr<string> fundAccountOwnerAccountId_ {};
-      // The time when the payment relationship expires.
+      // The time when the payment relationship expires. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> ineffectiveTime_ {};
-      // The primary marketplace.
+      // The level-1 marketplace.
       shared_ptr<string> nbid_ {};
-      // The operator name.
-      // When the operator type is aliyun_pk, the operator name is the Alibaba Cloud nickname.
-      // When the operator type is system, the operator name is "Alibaba Cloud assistant".
+      // The name of the operator. If the operator type is aliyun_pk, the value is the Alibaba Cloud nickname. If the operator type is system, the value is "Alibaba Cloud Support".
       shared_ptr<string> operatorName_ {};
-      // The authorized operator.
-      // When the operator type is aliyun_pk, operatorNo is the Alibaba Cloud account ID.
+      // The authorized operator. If the operator type is aliyun_pk, the value is the Alibaba Cloud account ID.
       shared_ptr<string> operatorNo_ {};
-      // The type of the authorized operator.
-      // aliyun_pk: user.
-      // system: Alibaba Cloud system.
+      // The type of the authorized operator. Valid values:
+      // - aliyun_pk: User.
+      // - system: Alibaba Cloud system.
       shared_ptr<string> operatorType_ {};
-      // The relationship type, which can be collection relationship or payment relationship.
+      // The relationship type, which can be a collection relationship or a payment relationship.
       shared_ptr<string> relationType_ {};
       // The site.
       shared_ptr<string> site_ {};
-      // The relationship status.
-      // valid: valid.
-      // expired: invalid.
+      // The relationship status. Valid values:
+      // - valid: Valid.
+      // - expired: Invalid.
       shared_ptr<string> status_ {};
     };
 
@@ -278,7 +275,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data list.
     shared_ptr<vector<ListFundAccountPayRelationResponseBody::Data>> data_ {};
-    // The response metadata.
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

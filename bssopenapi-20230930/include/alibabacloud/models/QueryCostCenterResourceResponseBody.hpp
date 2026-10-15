@@ -381,9 +381,9 @@ namespace Models
 
 
     protected:
-      // The add strategy.
+      // The allocation strategy.
       shared_ptr<string> addStrategy_ {};
-      // The Policy Name of the add policy.
+      // The added policy name.
       shared_ptr<string> addStrategyName_ {};
       // The number of refreshed billing cycles.
       shared_ptr<int64_t> applicablePeriodNum_ {};
@@ -397,61 +397,61 @@ namespace Models
       shared_ptr<string> commodityName_ {};
       // The code of the cost center.
       shared_ptr<string> costCenterCode_ {};
-      // The time when the cost center was created.
+      // The creation time of the cost center. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> costCenterCreateTime_ {};
       // The ID of the cost center.
       shared_ptr<int64_t> costCenterId_ {};
       // The name of the cost center.
       shared_ptr<string> costCenterName_ {};
-      // The time when the cost center was last updated.
+      // The last update time of the cost center. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> costCenterUpdateTime_ {};
-      // The rule version.
+      // The version of the rule.
       shared_ptr<int64_t> financeUnitRuleVersion_ {};
-      // The billing granularity ID.
+      // The ID of the billing granularity.
       shared_ptr<string> instanceId_ {};
-      // The associated commodity code.
+      // The code of the associated commodity.
       shared_ptr<string> masterCommodityCode_ {};
       // The associated instance ID.
       shared_ptr<string> masterInstanceId_ {};
-      // The ID of the customer to whom the cost center belongs.
+      // The ID of the customer to which the cost center belongs.
       shared_ptr<int64_t> ownerAccountId_ {};
-      // The name of the customer to whom the cost center belongs.
+      // The name of the customer to which the cost center belongs.
       shared_ptr<string> ownerAccountName_ {};
       // The ID of the parent cost center.
       shared_ptr<int64_t> parentCostCenterId_ {};
-      // The product code, which is the same as the product code in User Center bills.
+      // The product code, which is the same as the product code in the User Center bill.
       shared_ptr<string> pipCode_ {};
-      // The product name.
+      // The name of the product.
       shared_ptr<string> pipName_ {};
-      // The most recent billing cycle.
+      // The latest billing cycle.
       shared_ptr<int64_t> recentBillingMonth_ {};
-      // The region name.
+      // The name of the region.
       shared_ptr<string> regionName_ {};
       // The region.
       shared_ptr<string> regionNo_ {};
       // The resource group to which the resource belongs.
       shared_ptr<string> resourceGroup_ {};
-      // The resource ID.
+      // The ID of the resource.
       shared_ptr<string> resourceId_ {};
       // The custom nickname of the resource.
       shared_ptr<string> resourceNick_ {};
-      // The resource source. Valid values:
-      // - AUTO_ALLOCATE: automatic allocation.
-      // - MANUAL_ALLOCATE: manual allocation.
+      // The source of the resource. Valid values:
+      // - AUTO_ALLOCATE: Automatic allocation.
+      // - MANUAL_ALLOCATE: Manual allocation.
       shared_ptr<string> resourceSource_ {};
       // The tag of the resource.
       shared_ptr<string> resourceTag_ {};
-      // The resource type.
+      // The type of the resource.
       shared_ptr<string> resourceType_ {};
-      // The time when the cost center was last updated. This is a reserved field and is currently unavailable.
+      // The last update time of the cost center. This is a reserved field and is currently unavailable. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> resourceUpdateTime_ {};
-      // The user ID of the resource owner.
+      // The ID of the user that owns the resource.
       shared_ptr<int64_t> resourceUserId_ {};
-      // The username of the resource owner.
+      // The name of the user that owns the resource.
       shared_ptr<string> resourceUserName_ {};
       // The ID of the root cost center.
       shared_ptr<int64_t> rootCostCenterId_ {};
-      // The billing cycle in which the rule takes effect.
+      // The billing cycle when the rule takes effect.
       shared_ptr<int64_t> startBillingMonth_ {};
     };
 
@@ -508,13 +508,13 @@ namespace Models
     shared_ptr<vector<QueryCostCenterResourceResponseBody::CostCenterResourceDtoList>> costCenterResourceDtoList_ {};
     // The maximum number of records to return in a single query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response metadata.
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // The token for the next query. If this parameter is empty, no more results exist.
+    // The token for the next query. An empty value indicates that no more results are available.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

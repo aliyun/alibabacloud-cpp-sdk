@@ -80,7 +80,7 @@ namespace Models
 
 
     protected:
-      // The list of account IDs to access. If this parameter is empty, all accounts under the current entity ID are selected.
+      // The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
       // The ID of the enterprise entity.
       // 
@@ -143,9 +143,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The ID of the primary marketplace. If this parameter is empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // The token for the next query. If this parameter is empty, no more results exist.
+    // The token for the next query. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The ID of the owner of the financial unit.
+    // The ID of the owner account for the financial unit.
     shared_ptr<int64_t> ownerAccountId_ {};
   };
 

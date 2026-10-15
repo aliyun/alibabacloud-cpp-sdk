@@ -156,35 +156,35 @@ namespace Models
 
 
     protected:
-      // Account creation time
+      // The time when the account was created. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createDate_ {};
-      // Account ID of the MA user associated with the account
+      // The account ID of the MA user corresponding to the account.
       shared_ptr<string> fundAccountAdminAccountId_ {};
-      // Name of the MA user associated with the account
+      // The username of the MA user corresponding to the account.
       shared_ptr<string> fundAccountAdminAccountName_ {};
-      // Account ID
+      // The fund account ID.
       shared_ptr<string> fundAccountId_ {};
-      // Account name
+      // The fund account name.
       shared_ptr<string> fundAccountName_ {};
-      // Account ID of the fund account owner
+      // The account ID of the fund account owner.
       shared_ptr<string> fundAccountOwnerAccountId_ {};
-      // Account status.
-      // VALID: valid.
-      // FROZEN: frozen.
-      // CLOSED: closed.
+      // The account status. Valid values:
+      // - VALID: Valid.
+      // - FROZEN: Frozen. 
+      // - CLOSED: Closed.
       shared_ptr<string> fundAccountStatus_ {};
-      // Account type.
-      // DIRECT_USER: Alibaba Cloud direct customer account.
-      // RESELLER_QUOTA: ecosystem account.
+      // The account type. Valid values:
+      // - DIRECT_USER: Alibaba Cloud direct customer account. 
+      // - RESELLER_QUOTA: Ecosystem account.
       shared_ptr<string> fundAccountType_ {};
-      // Level-1 marketplace
+      // The primary marketplace.
       shared_ptr<string> nbid_ {};
-      // Set of account permissions that the user has.
-      // using: use.
-      // manage: manage.
-      // owner: own.
+      // The set of account permissions owned by the user. Valid values:
+      // - using: Use.
+      // - manage: Manage.
+      // - owner: Own.
       shared_ptr<vector<string>> permissions_ {};
-      // Site
+      // The site.
       shared_ptr<string> site_ {};
     };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // Data list
+    // The data list.
     shared_ptr<vector<ListFundAccountResponseBody::Data>> data_ {};
-    // Response metadata
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

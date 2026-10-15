@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Level-1 marketplace ID. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
+    // The ID of the primary marketplace. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
     shared_ptr<string> nbid_ {};
-    // Specifies whether to query only the active account list. Default value: false.
+    // Specifies whether to query only in-use accounts. Default value: false.
     shared_ptr<bool> queryOnlyInUse_ {};
-    // Specifies whether to query only the managed account list. Default value: false.
+    // Specifies whether to query only managed accounts. Default value: false.
     shared_ptr<bool> queryOnlyManage_ {};
   };
 

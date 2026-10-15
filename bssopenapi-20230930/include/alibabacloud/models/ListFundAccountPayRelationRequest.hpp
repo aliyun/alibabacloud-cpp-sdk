@@ -77,17 +77,17 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Fund account ID.
+    // The fund account ID.
     // 
     // This parameter is required.
     shared_ptr<string> fundAccountId_ {};
-    // The primary marketplace ID. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
+    // The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The relationship status.
-    // valid: valid.
-    // expired: invalid.
+    // The relationship status. Valid values:
+    // - valid: Valid.
+    // - expired: Invalid.
     shared_ptr<string> status_ {};
   };
 

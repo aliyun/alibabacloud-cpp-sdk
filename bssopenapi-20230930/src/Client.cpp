@@ -632,7 +632,7 @@ CreateFundAccountPayRelationResponse Client::createFundAccountPayRelation(const 
 }
 
 /**
- * @summary Creates an account transfer or revocation.
+ * @summary Creates a fund allocation or revocation for an account.
  *
  * @param request CreateFundAccountTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -687,7 +687,7 @@ CreateFundAccountTransferResponse Client::createFundAccountTransferWithOptions(c
 }
 
 /**
- * @summary Creates an account transfer or revocation.
+ * @summary Creates a fund allocation or revocation for an account.
  *
  * @param request CreateFundAccountTransferRequest
  * @return CreateFundAccountTransferResponse
@@ -698,7 +698,7 @@ CreateFundAccountTransferResponse Client::createFundAccountTransfer(const Create
 }
 
 /**
- * @summary Apply for Invoice
+ * @summary Applies for an invoice.
  *
  * @param tmpReq CreateInvoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -775,7 +775,7 @@ CreateInvoiceResponse Client::createInvoiceWithOptions(const CreateInvoiceReques
 }
 
 /**
- * @summary Apply for Invoice
+ * @summary Applies for an invoice.
  *
  * @param request CreateInvoiceRequest
  * @return CreateInvoiceResponse
@@ -786,27 +786,27 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
 }
 
 /**
- * @summary Creates a bill report subscription.
+ * @summary Creates a billing report subscription.
  *
  * @description When you call this operation, note the following items:
- * - You can subscribe to one type of bill file at a time.
- * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
- * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
- * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
- * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
- * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
- * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
+ * - You can subscribe to only one type of billing file at a time.
+ * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+ * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
+ * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+ * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
  *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
  *     - Subdirectories named .. are not allowed.
  *     - The total length must be 1 to 254 characters.
  * - File names:
- *     - Example: **consumeDetailBillV2** (billing item bill details)
+ *     - Example: **consumeDetailBillV2** (billing item details)
  *     
- *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
- *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
- * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
+ *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
  *
  * @param tmpReq CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -897,27 +897,27 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 }
 
 /**
- * @summary Creates a bill report subscription.
+ * @summary Creates a billing report subscription.
  *
  * @description When you call this operation, note the following items:
- * - You can subscribe to one type of bill file at a time.
- * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
- * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
- * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
- * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
- * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
- * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
+ * - You can subscribe to only one type of billing file at a time.
+ * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+ * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
+ * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+ * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+ * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
  *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
  *     - Subdirectories named .. are not allowed.
  *     - The total length must be 1 to 254 characters.
  * - File names:
- *     - Example: **consumeDetailBillV2** (billing item bill details)
+ *     - Example: **consumeDetailBillV2** (billing item details)
  *     
- *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+ *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
- *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
- * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
+ *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+ * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
  *
  * @param request CreateReportDefinitionRequest
  * @return CreateReportDefinitionResponse
@@ -1866,7 +1866,7 @@ GetFundAccountLowAvailableAmountAlarmResponse Client::getFundAccountLowAvailable
 }
 
 /**
- * @summary Query fund account transaction details
+ * @summary Queries the transaction details of a fund account.
  *
  * @param tmpReq GetFundAccountTransactionDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1953,7 +1953,7 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
 }
 
 /**
- * @summary Query fund account transaction details
+ * @summary Queries the transaction details of a fund account.
  *
  * @param request GetFundAccountTransactionDetailsRequest
  * @return GetFundAccountTransactionDetailsResponse
@@ -1964,7 +1964,7 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
 }
 
 /**
- * @summary Queries the details of a specific order for a user or a reseller customer.
+ * @summary Queries the details of a specific order for a user or a distribution customer.
  *
  * @param request GetOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2003,7 +2003,7 @@ GetOrderDetailResponse Client::getOrderDetailWithOptions(const GetOrderDetailReq
 }
 
 /**
- * @summary Queries the details of a specific order for a user or a reseller customer.
+ * @summary Queries the details of a specific order for a user or a distribution customer.
  *
  * @param request GetOrderDetailRequest
  * @return GetOrderDetailResponse
@@ -2014,7 +2014,7 @@ GetOrderDetailResponse Client::getOrderDetail(const GetOrderDetailRequest &reque
 }
 
 /**
- * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the order list of a user or a distribution customer. By default, this operation queries orders created within the last hour. To query orders within a longer time range, specify the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2085,7 @@ GetOrdersResponse Client::getOrdersWithOptions(const GetOrdersRequest &request, 
 }
 
 /**
- * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the order list of a user or a distribution customer. By default, this operation queries orders created within the last hour. To query orders within a longer time range, specify the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @return GetOrdersResponse
@@ -2332,7 +2332,7 @@ ListCouponDeductTagResponse Client::listCouponDeductTag(const ListCouponDeductTa
 }
 
 /**
- * @summary Query fund account list
+ * @summary Queries the list of fund accounts.
  *
  * @param request ListFundAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2373,7 +2373,7 @@ ListFundAccountResponse Client::listFundAccountWithOptions(const ListFundAccount
 }
 
 /**
- * @summary Query fund account list
+ * @summary Queries the list of fund accounts.
  *
  * @param request ListFundAccountRequest
  * @return ListFundAccountResponse
@@ -2384,7 +2384,7 @@ ListFundAccountResponse Client::listFundAccount(const ListFundAccountRequest &re
 }
 
 /**
- * @summary Query payment relationships of an account
+ * @summary Queries the payment relationships of an account.
  *
  * @param request ListFundAccountPayRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2433,7 +2433,7 @@ ListFundAccountPayRelationResponse Client::listFundAccountPayRelationWithOptions
 }
 
 /**
- * @summary Query payment relationships of an account
+ * @summary Queries the payment relationships of an account.
  *
  * @param request ListFundAccountPayRelationRequest
  * @return ListFundAccountPayRelationResponse
@@ -2444,7 +2444,7 @@ ListFundAccountPayRelationResponse Client::listFundAccountPayRelation(const List
 }
 
 /**
- * @summary Query invoice candidate data, which can be used for invoicing.
+ * @summary Queries invoice object data that can be used for invoicing.
  *
  * @param tmpReq ListInvoiceCandidateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2541,7 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidateWithOptions(const ListI
 }
 
 /**
- * @summary Query invoice candidate data, which can be used for invoicing.
+ * @summary Queries invoice object data that can be used for invoicing.
  *
  * @param request ListInvoiceCandidateRequest
  * @return ListInvoiceCandidateResponse
@@ -2552,7 +2552,7 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidate(const ListInvoiceCandi
 }
 
 /**
- * @summary Query the list of available invoice titles
+ * @summary Queries available invoice titles.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInvoiceTitleResponse
@@ -2574,7 +2574,7 @@ ListInvoiceTitleResponse Client::listInvoiceTitleWithOptions(const Darabonba::Ru
 }
 
 /**
- * @summary Query the list of available invoice titles
+ * @summary Queries available invoice titles.
  *
  * @return ListInvoiceTitleResponse
  */
@@ -2584,7 +2584,7 @@ ListInvoiceTitleResponse Client::listInvoiceTitle() {
 }
 
 /**
- * @summary Queries the list of subscribed reports.
+ * @summary View subscribed report list
  *
  * @param request ListReportDefinitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2615,7 +2615,7 @@ ListReportDefinitionsResponse Client::listReportDefinitionsWithOptions(const Lis
 }
 
 /**
- * @summary Queries the list of subscribed reports.
+ * @summary View subscribed report list
  *
  * @param request ListReportDefinitionsRequest
  * @return ListReportDefinitionsResponse
@@ -2878,7 +2878,7 @@ QueryCostByCostCenterResponse Client::queryCostByCostCenter(const QueryCostByCos
 /**
  * @summary Queries cost centers.
  *
- * @description Queries a parent cost center and its child cost centers.
+ * @description Queries parent cost centers and their child cost centers.
  *
  * @param tmpReq QueryCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +2937,7 @@ QueryCostCenterResponse Client::queryCostCenterWithOptions(const QueryCostCenter
 /**
  * @summary Queries cost centers.
  *
- * @description Queries a parent cost center and its child cost centers.
+ * @description Queries parent cost centers and their child cost centers.
  *
  * @param request QueryCostCenterRequest
  * @return QueryCostCenterResponse
@@ -2948,7 +2948,7 @@ QueryCostCenterResponse Client::queryCostCenter(const QueryCostCenterRequest &re
 }
 
 /**
- * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
+ * @summary Queries the resource instances associated with a financial unit. If CostCenterId is set to 0, the operation queries unassigned parent and child resource instances.
  *
  * @param request QueryCostCenterResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3001,7 +3001,7 @@ QueryCostCenterResourceResponse Client::queryCostCenterResourceWithOptions(const
 }
 
 /**
- * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
+ * @summary Queries the resource instances associated with a financial unit. If CostCenterId is set to 0, the operation queries unassigned parent and child resource instances.
  *
  * @param request QueryCostCenterResourceRequest
  * @return QueryCostCenterResourceResponse
@@ -3568,11 +3568,11 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const Se
 }
 
 /**
- * @summary Claims SLA compensation coupons for the last two months.
+ * @summary Claims SLA compensation coupons for the recent two months.
  *
- * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
+ * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
  * 2. Claim by month or by record.
- * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
+ * Note: You can only claim compensation for the recent two months. Historical compensation has been automatically issued.
  *
  * @param request SubmitSlaCouponApplyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3617,11 +3617,11 @@ SubmitSlaCouponApplyResponse Client::submitSlaCouponApplyWithOptions(const Submi
 }
 
 /**
- * @summary Claims SLA compensation coupons for the last two months.
+ * @summary Claims SLA compensation coupons for the recent two months.
  *
- * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
+ * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
  * 2. Claim by month or by record.
- * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
+ * Note: You can only claim compensation for the recent two months. Historical compensation has been automatically issued.
  *
  * @param request SubmitSlaCouponApplyRequest
  * @return SubmitSlaCouponApplyResponse

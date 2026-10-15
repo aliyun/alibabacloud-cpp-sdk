@@ -234,73 +234,58 @@ namespace Models
 
 
     protected:
-      // Balance after the operation
+      // The balance after the operation.
       shared_ptr<string> balance_ {};
-      // Order number or bill number
+      // The order number or bill number.
       shared_ptr<string> billNumber_ {};
-      // External transaction serial number
+      // The external transaction serial number.
       shared_ptr<string> channelTransactionNumber_ {};
-      // Transaction amount currency
+      // The currency of the transaction amount.
       shared_ptr<string> currency_ {};
-      // Enterprise entity ID
+      // The enterprise entity ID.
       shared_ptr<string> fundAccountEcid_ {};
-      // Account ID
+      // The account ID.
       shared_ptr<int64_t> fundAccountId_ {};
-      // Account name
+      // The account name.
       shared_ptr<string> fundAccountName_ {};
-      // Alibaba Cloud account ID of the account owner
+      // The Alibaba Cloud account ID of the account owner.
       shared_ptr<int64_t> fundAccountOwnerAccountId_ {};
-      // Fund type
+      // The fund type.
       shared_ptr<string> fundType_ {};
-      // Primary marketplace
+      // The primary marketplace.
       shared_ptr<string> nbid_ {};
-      // Remarks
+      // The remark.
       shared_ptr<string> remark_ {};
-      // Site
+      // The site.
       shared_ptr<string> site_ {};
-      // Corresponding transaction account, such as the Alipay top-up account or the counterparty account for transfers.
+      // The corresponding transaction account, such as the Alipay top-up account or the counterparty account for a transfer.
       shared_ptr<string> transactionAccount_ {};
-      // Transaction amount
+      // The transaction amount.
       shared_ptr<string> transactionAmount_ {};
-      // Transaction channel. If specified, the query filters by transaction channel. If not specified, all channels are queried by default.
-      // 
-      // User balance: ACCT_CASH.
-      // 
-      // Alipay: ALIPAY.
-      // 
-      // Alipay Zhifutong: ALIPAY_ZHIFUTONG.
-      // 
-      // Offline remittance: OFFLINE_REMIT.
-      // 
-      // Credit control quota refund: REFUND.
-      // 
-      // Online banking: UNION_PAY_BANK.
-      // 
-      // Credit card: CREDIT_CARD. (International site only)
-      // 
-      // PayPal: PAYPAL. (International site only)
+      // The list of transaction channels. If you specify this parameter, transactions are queried by channel. If you do not specify this parameter, all channels are queried by default. Valid values:
+      // - ACCT_CASH: User balance.
+      // - ALIPAY: Alipay.
+      // - ALIPAY_ZHIFUTONG: Alipay Zhifutong.
+      // - OFFLINE_REMIT: Corporate remittance.
+      // - REFUND: Credit limit refund.
+      // - UNION_PAY_BANK: Online banking.
+      // - CREDIT_CARD: Credit card. Available only on the international site.
+      // - AYPAL: PayPal. Available only on the international site.
       shared_ptr<string> transactionChannel_ {};
-      // Transaction direction: in/out (income/expenditure)
+      // The transaction direction. Valid values: in (income) and out (expense).
       shared_ptr<string> transactionDirection_ {};
-      // Transaction serial number
+      // The transaction number.
       shared_ptr<int64_t> transactionNumber_ {};
-      // Formatted transaction time string
+      // The formatted string of the transaction time.
       shared_ptr<string> transactionTime_ {};
-      // Transaction type. If a transaction type is specified, only results of that type are returned. If the specified type does not exist, the result is empty. If not specified, all types are returned by default.
-      // 
-      // Top-up: CHARGE.
-      // 
-      // Withdrawal: WITHDRAW.
-      // 
-      // Refund: REFUND.
-      // 
-      // Payment: PAY.
-      // 
-      // Transfer: TRANSFER.
-      // 
-      // Adjustment: ADJUST.
-      // 
-      // Order expiration refund: PAY_FAILED.
+      // The transaction type. If you specify a transaction type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+      // - CHARGE: Top-up.
+      // - WITHDRAW: Withdrawal.
+      // - REFUND: Refund.
+      // - PAY: Payment.
+      // - TRANSFER: Transfer.
+      // - ADJUST: Adjustment.
+      // - PAY_FAILED: Refund for failed order.
       shared_ptr<string> transactionType_ {};
     };
 
@@ -353,17 +338,17 @@ namespace Models
 
 
   protected:
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Data list
+    // The data list.
     shared_ptr<vector<GetFundAccountTransactionDetailsResponseBody::Data>> data_ {};
-    // Response structure metadata
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // Page size
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

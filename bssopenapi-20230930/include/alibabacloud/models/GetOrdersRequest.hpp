@@ -130,25 +130,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+    // The end of the time range during which orders were created. By default, orders created within the last hour are queried. Specify the time in the YYYY-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> createTimeEnd_ {};
-    // The start of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+    // The start of the time range during which orders were created. By default, orders created within the last hour are queried. Specify the time in the YYYY-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> createTimeStart_ {};
-    // The UID of a member account in the enterprise multi-account management. Leave this parameter empty if this scenario does not apply.
+    // The UID of the member accounts in the enterprise multi-account architecture. Leave this parameter empty if this scenario does not apply.
     shared_ptr<int64_t> memberUid_ {};
     // The order type. Valid values:
-    // - New: new purchase.
-    // - Renew: renewal.
-    // - Upgrade: upgrade.
-    // - TempUpgrade: temporary upgrade.
-    // - Downgrade: downgrade.
-    // - Refund: refund.
-    // - Convert: billing method conversion.
-    // - ResizeDisk: cloud disk resizing.
-    // - CompensatoryRenew: compensatory renewal.
-    // - IncreaseUpgrade: bandwidth upgrade.
-    // - Exchange: exchange.
-    // - ChangeOperatingSystem: operating system change.
+    // - New: new purchase
+    // - Renew: renewal
+    // - Upgrade: upgrade
+    // - TempUpgrade: temporary upgrade
+    // - Downgrade: downgrade
+    // - Refund: refund
+    // - Convert: billing method change
+    // - ResizeDisk: disk resizing
+    // - CompensatoryRenew: compensatory renewal
+    // - IncreaseUpgrade: bandwidth upgrade
+    // - Exchange: exchange
+    // - ChangeOperatingSystem: operating system replacement
     shared_ptr<string> orderType_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
@@ -156,19 +156,19 @@ namespace Models
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The payment status. For non-refund orders, valid values:
-    // - Unpaid: unpaid.
-    // - Paid: paid.
-    // - Cancelled: cancelled.
+    // - Unpaid: unpaid
+    // - Paid: paid
+    // - Cancelled: cancelled
     // 
-    // > For refund orders, this parameter can be set to NULL.
+    // > For refund orders, this parameter can be NULL.
     shared_ptr<string> paymentStatus_ {};
     // The product code.
     shared_ptr<string> productCode_ {};
     // The product type.
     shared_ptr<string> productType_ {};
     // The subscription type. Valid values:
-    // - Subscription: upfront.
-    // - PayAsYouGo: pay-as-you-go.
+    // - Subscription: subscription
+    // - PayAsYouGo: pay-as-you-go
     shared_ptr<string> subscriptionType_ {};
   };
 

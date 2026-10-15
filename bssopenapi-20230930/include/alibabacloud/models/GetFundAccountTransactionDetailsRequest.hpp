@@ -145,59 +145,44 @@ namespace Models
 
 
   protected:
-    // Transaction order number
+    // The transaction order number.
     shared_ptr<string> billNumber_ {};
-    // Transaction channel serial number
+    // The payment reference No.
     shared_ptr<string> channelTransactionNumber_ {};
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Query end timestamp (milliseconds)
+    // The end timestamp for the query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Fund account ID. If not specified, the account ID owned by the current account (owner) is used by default.
+    // The ID of the fund account. If you do not specify this parameter, the ID of the account owned by the current user is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
-    // Page size (maximum 200)
+    // The number of entries per page. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
-    // Query start timestamp (milliseconds)
+    // The start timestamp for the query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // Transaction channel. If specified, the query filters by transaction channel. If not specified, all channels are queried by default.
-    // 
-    // User balance: ACCT_CASH.
-    // 
-    // Alipay: ALIPAY.
-    // 
-    // Alipay Zhifutong: ALIPAY_ZHIFUTONG.
-    // 
-    // Offline remittance: OFFLINE_REMIT.
-    // 
-    // Credit control quota refund: REFUND.
-    // 
-    // Online banking: UNION_PAY_BANK.
-    // 
-    // Credit card: CREDIT_CARD. (International site only)
-    // 
-    // PayPal: PAYPAL. (International site only)
+    // The list of transaction channels. If you specify this parameter, transactions are queried by channel. If you do not specify this parameter, all channels are queried by default. Valid values:
+    // - ACCT_CASH: User balance.
+    // - ALIPAY: Alipay.
+    // - ALIPAY_ZHIFUTONG: Alipay Zhifutong.
+    // - OFFLINE_REMIT: Corporate remittance.
+    // - REFUND: Credit limit refund.
+    // - UNION_PAY_BANK: Online banking.
+    // - CREDIT_CARD: Credit card. Available only on the international site.
+    // - AYPAL: PayPal. Available only on the international site.
     shared_ptr<vector<string>> transactionChannelList_ {};
-    // Transaction direction: in/out (fund inflow/outflow)
+    // The direction of the transaction.
     shared_ptr<string> transactionDirection_ {};
-    // Transaction serial number
+    // The transaction number.
     shared_ptr<int64_t> transactionNumber_ {};
-    // Transaction type. If a transaction type is specified, only results of that type are returned. If the specified type does not exist, the result is empty. If not specified, all types are returned by default.
-    // 
-    // Top-up: CHARGE.
-    // 
-    // Withdrawal: WITHDRAW.
-    // 
-    // Refund: REFUND.
-    // 
-    // Payment: PAY.
-    // 
-    // Transfer: TRANSFER.
-    // 
-    // Adjustment: ADJUST.
-    // 
-    // Order expiration refund: PAY_FAILED.
+    // The transaction type. If you specify a transaction type, the query returns results of the corresponding type. If no results exist, an empty result is returned. If you do not specify this parameter, all types are returned by default. Valid values:
+    // - CHARGE: Top-up.
+    // - WITHDRAW: Withdrawal.
+    // - REFUND: Refund.
+    // - PAY: Payment.
+    // - TRANSFER: Transfer.
+    // - ADJUST: Adjustment.
+    // - PAY_FAILED: Refund for failed order.
     shared_ptr<string> transactionType_ {};
-    // Transaction type list. Supports querying with multiple parameters.
+    // The list of transaction types. You can specify multiple parameters for a parameter query.
     shared_ptr<vector<string>> transactionTypeList_ {};
   };
 

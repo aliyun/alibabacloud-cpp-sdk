@@ -271,9 +271,9 @@ namespace Models
 
 
       protected:
-        // The commitment cycle code.
+        // The commitment period code.
         shared_ptr<string> code_ {};
-        // The commitment cycle name.
+        // The commitment period name.
         shared_ptr<string> name_ {};
       };
 
@@ -801,19 +801,19 @@ namespace Models
       shared_ptr<Data::BillingCommodity> billingCommodity_ {};
       // The deducted commodity code.
       shared_ptr<string> billingCommodityCode_ {};
-      // The deducted commodity name.
+      // The name of the offset commodity.
       shared_ptr<string> billingCommodityName_ {};
-      // The expiration time.
+      // The expiration time, specified as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> billingEndTime_ {};
-      // The deduction instance.
+      // The offset instance.
       shared_ptr<string> billingInstanceId_ {};
-      // The deduction billable item.
+      // The offset billable item.
       shared_ptr<Data::BillingPriceField> billingPriceField_ {};
-      // The deduction billable item code.
+      // The offset billable item code.
       shared_ptr<string> billingPriceFieldCode_ {};
-      // The deduction billable item name.
+      // The offset billable item name.
       shared_ptr<string> billingPriceFieldName_ {};
-      // The effective period.
+      // The effective period, specified as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> billingStartTime_ {};
       // The display unit of the capacity after deduction.
       shared_ptr<string> capacityAfterDeductViewUnit_ {};
@@ -839,33 +839,33 @@ namespace Models
       shared_ptr<string> commodityCode_ {};
       // The commodity name.
       shared_ptr<string> commodityName_ {};
-      // The commitment cycle.
+      // The commitment period.
       shared_ptr<Data::CycleType> cycleType_ {};
-      // The commitment cycle code.
+      // The commitment period code.
       shared_ptr<string> cycleTypeCode_ {};
-      // The commitment cycle name.
+      // The commitment period name.
       shared_ptr<string> cycleTypeName_ {};
-      // The deduction time.
+      // The deduction time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> deductTime_ {};
-      // The deduction factor.
+      // The offset factor.
       shared_ptr<string> factor_ {};
-      // The ID of the account to which the instance belongs.
+      // The account ID of the instance owner.
       shared_ptr<int64_t> instanceBelongAccountId_ {};
-      // The name of the account to which the instance belongs.
+      // The account name of the instance owner.
       shared_ptr<string> instanceBelongAccountName_ {};
       // The instance name.
       shared_ptr<string> instanceId_ {};
-      // The display unit of the metering amount after deduction.
+      // The display unit of the metered amount after offset.
       shared_ptr<string> measureAfterDeductViewUnit_ {};
-      // The display value of the metering amount after deduction.
+      // The display value of the metered amount after offset.
       shared_ptr<string> measureAfterDeductViewValue_ {};
-      // The display unit of the metering amount before deduction.
+      // The display unit of the metered amount before offset.
       shared_ptr<string> measureBeforeDeductViewUnit_ {};
-      // The display value of the metering amount before deduction.
+      // The display value of the metered amount before offset.
       shared_ptr<string> measureBeforeDeductViewValue_ {};
-      // The display unit of the deducted metering amount.
+      // The display unit of the metered offset amount.
       shared_ptr<string> measureDeductedViewUnit_ {};
-      // The display value of the deducted metering amount.
+      // The display value of the metered offset amount.
       shared_ptr<string> measureDeductedViewValue_ {};
       // The product.
       shared_ptr<Data::Product> product_ {};
@@ -873,9 +873,9 @@ namespace Models
       shared_ptr<string> productCode_ {};
       // The product name.
       shared_ptr<string> productName_ {};
-      // The deduction account ID.
+      // The ID of the account for deduction.
       shared_ptr<int64_t> relationAccountId_ {};
-      // The deduction account name.
+      // The name of the deduction account.
       shared_ptr<string> relationAccountName_ {};
       // The template.
       shared_ptr<Data::Template> template_ {};

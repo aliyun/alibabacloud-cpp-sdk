@@ -262,15 +262,15 @@ namespace Models
       shared_ptr<int32_t> billingCycle_ {};
       // The business document number.
       shared_ptr<string> businessId_ {};
-      // The time when the business event occurred.
+      // The time when the transaction occurred, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> businessTime_ {};
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
       // The commodity name.
       shared_ptr<string> commodityName_ {};
-      // The creation time.
+      // The creation time, in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The ID of the invoice candidate.
+      // The ID of the invoicing object.
       shared_ptr<string> id_ {};
       // The invoice issuer.
       shared_ptr<string> invoiceIssuer_ {};
@@ -284,15 +284,15 @@ namespace Models
       shared_ptr<string> productCode_ {};
       // The product name.
       shared_ptr<string> productName_ {};
-      // The ID of the resource owner account.
+      // The resource ownership account ID.
       shared_ptr<int64_t> resourceOwnerAccountId_ {};
-      // The name of the resource owner account.
+      // The resource ownership account name.
       shared_ptr<string> resourceOwnerAccountName_ {};
-      // The status of the invoice candidate.
+      // The invoice object status.
       shared_ptr<int32_t> status_ {};
       // The total amount.
       shared_ptr<string> totalAmount_ {};
-      // The type of the invoice candidate.
+      // The invoice object type.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -347,9 +347,9 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of data entries.
+    // The data list.
     shared_ptr<vector<ListInvoiceCandidateResponseBody::Data>> data_ {};
-    // The metadata of the response.
+    // The response structure metadata.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

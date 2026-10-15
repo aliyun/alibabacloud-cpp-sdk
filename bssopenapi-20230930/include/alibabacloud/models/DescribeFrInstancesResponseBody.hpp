@@ -187,9 +187,9 @@ namespace Models
 
 
       protected:
-        // The property code.
+        // The attribute code.
         shared_ptr<string> code_ {};
-        // The property name.
+        // The attribute name.
         shared_ptr<string> name_ {};
       };
 
@@ -231,9 +231,9 @@ namespace Models
 
 
       protected:
-        // The property code.
+        // The attribute code.
         shared_ptr<string> code_ {};
-        // The property name.
+        // The attribute name.
         shared_ptr<string> name_ {};
       };
 
@@ -275,9 +275,9 @@ namespace Models
 
 
       protected:
-        // The property code.
+        // The attribute code.
         shared_ptr<string> code_ {};
-        // The property name.
+        // The attribute name.
         shared_ptr<string> name_ {};
       };
 
@@ -319,9 +319,9 @@ namespace Models
 
 
       protected:
-        // The deductible region code.
+        // The code of the region where deductions are applicable.
         shared_ptr<string> code_ {};
-        // The deductible region.
+        // The region where deductions are applicable.
         shared_ptr<string> name_ {};
       };
 
@@ -363,9 +363,9 @@ namespace Models
 
 
       protected:
-        // The commitment cycle code.
+        // The commitment period code.
         shared_ptr<string> code_ {};
-        // The commitment cycle name.
+        // The commitment period name.
         shared_ptr<string> name_ {};
       };
 
@@ -407,9 +407,9 @@ namespace Models
 
 
       protected:
-        // The property code.
+        // The attribute code.
         shared_ptr<string> code_ {};
-        // The property name.
+        // The attribute name.
         shared_ptr<string> name_ {};
       };
 
@@ -451,9 +451,9 @@ namespace Models
 
 
       protected:
-        // The property code.
+        // The attribute code.
         shared_ptr<string> code_ {};
-        // The property name.
+        // The attribute name.
         shared_ptr<string> name_ {};
       };
 
@@ -504,8 +504,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the resource has been auto-purchased.
         shared_ptr<bool> alreadyAutoPurchase_ {};
+        // Indicates whether auto-purchase is configured.
         shared_ptr<bool> settingAutoPurchase_ {};
+        // Indicates whether auto-purchase is supported.
         shared_ptr<bool> supportAutoPurchase_ {};
       };
 
@@ -870,6 +873,7 @@ namespace Models
       shared_ptr<int64_t> accountId_ {};
       // The account name.
       shared_ptr<string> accountName_ {};
+      // The auto-purchase information.
       shared_ptr<Data::AutoPurchase> autoPurchase_ {};
       // The capacity type name.
       shared_ptr<string> capacitiyTypeName_ {};
@@ -891,24 +895,25 @@ namespace Models
       shared_ptr<string> currCapacityViewUnit_ {};
       // The current capacity display value.
       shared_ptr<string> currCapacityViewValue_ {};
-      // The commitment cycle.
+      // The commitment period.
       shared_ptr<Data::CycleType> cycleType_ {};
-      // The commitment cycle code.
+      // The commitment period code.
       shared_ptr<string> cycleTypeCode_ {};
-      // The commitment cycle name.
+      // The commitment period name.
       shared_ptr<string> cycleTypeName_ {};
-      // The list of deductible regions.
+      // The list of regions where deductions are applicable.
       shared_ptr<vector<Data::DeductRegions>> deductRegions_ {};
+      // Indicates whether the deduction rule is enabled.
       shared_ptr<bool> enableDeductRule_ {};
-      // Indicates whether exchange is supported.
+      // Indicates whether exchanges are supported.
       shared_ptr<bool> enableExchange_ {};
       // Indicates whether renewal is supported.
       shared_ptr<bool> enableRenew_ {};
-      // Indicates whether upgrade is supported.
+      // Indicates whether upgrades are supported.
       shared_ptr<bool> enableUpgrade_ {};
-      // The expiration time.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The exchange commodity code.
+      // The commodity code for exchange.
       shared_ptr<string> exchangeCommodityCode_ {};
       // The initial capacity base unit.
       shared_ptr<string> initCapacityBaseUnit_ {};
@@ -924,7 +929,7 @@ namespace Models
       shared_ptr<string> periodCapacityViewUnit_ {};
       // The period capacity display value.
       shared_ptr<string> periodCapacityViewValue_ {};
-      // The period time.
+      // The period time unit, such as hour for hours.
       shared_ptr<string> periodTime_ {};
       // The product.
       shared_ptr<Data::Product> product_ {};
@@ -932,15 +937,15 @@ namespace Models
       shared_ptr<string> productCode_ {};
       // The product name.
       shared_ptr<string> productName_ {};
-      // The purchase time.
+      // The purchase time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> purchaseTime_ {};
       // The region.
       shared_ptr<string> region_ {};
       // The region name.
       shared_ptr<string> regionName_ {};
-      // The specification.
+      // The specifications.
       shared_ptr<string> spec_ {};
-      // The effective period.
+      // The effective period. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The resource status.
       shared_ptr<Data::Status> status_ {};

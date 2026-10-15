@@ -339,6 +339,7 @@ namespace Models
     protected:
       // The face value.
       shared_ptr<string> amount_ {};
+      // CertainAmount
       shared_ptr<string> certainAmount_ {};
       // The coupon ID.
       shared_ptr<int64_t> couponId_ {};
@@ -350,13 +351,13 @@ namespace Models
       shared_ptr<string> couponTypeName_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // The end time.
+      // The end time in ISO 8601 format. The time is displayed in UTC.
       shared_ptr<string> endTime_ {};
-      // Indicates whether there is a first purchase restriction.
+      // Indicates whether the coupon is limited to first-time purchases.
       shared_ptr<bool> firstBuy_ {};
-      // The coupon issuance time.
+      // The time when the coupon was issued.
       shared_ptr<string> gmtCreate_ {};
-      // The product code list.
+      // The list of product codes.
       shared_ptr<vector<string>> itemNames_ {};
       // The amount limit.
       shared_ptr<string> moneyLimit_ {};
@@ -364,27 +365,27 @@ namespace Models
       shared_ptr<string> orderTimeRule_ {};
       // The remaining amount.
       shared_ptr<string> remainAmount_ {};
-      // The remarks.
+      // The remark.
       shared_ptr<string> remark_ {};
-      // The shared account list.
+      // The list of shared accounts.
       shared_ptr<vector<Data::ShareUidList>> shareUidList_ {};
-      // Indicates whether to display the tag deduction button.
+      // Specifies whether the tag deduction button is displayed.
       shared_ptr<bool> showSetDeductTagButton_ {};
       // The site.
       shared_ptr<string> site_ {};
       // The site name.
       shared_ptr<string> siteName_ {};
-      // The start time.
+      // The start time in ISO 8601 format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The status.
       shared_ptr<string> status_ {};
       // The applicable account.
       shared_ptr<string> suitAccount_ {};
-      // The applicable product type. Valid values: all, which indicates that the coupon is applicable to all products. white, which indicates that the coupon is applicable to specified products. black, which indicates that the coupon is not applicable to specified products.
+      // The applicable product type: all for all products, white for specified applicable products, and black for specified inapplicable products.
       shared_ptr<string> suitItemType_ {};
-      // The coupon applicable scope.
+      // The application scope of the coupon.
       shared_ptr<string> universalType_ {};
-      // The list of order types applicable to the coupon.
+      // The list of applicable order types for the coupon.
       shared_ptr<vector<string>> yhOrderTypes_ {};
     };
 
@@ -432,7 +433,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data list.
     shared_ptr<vector<DescribeCouponResponseBody::Data>> data_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
