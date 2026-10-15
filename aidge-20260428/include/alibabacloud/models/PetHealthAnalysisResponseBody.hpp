@@ -65,7 +65,6 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID used for QueryAsyncTaskResult queries.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,15 +108,10 @@ namespace Models
 
 
   protected:
-    // The error code.
     shared_ptr<string> code_ {};
-    // The asynchronous task submit status.
     shared_ptr<PetHealthAnalysisResponseBody::Data> data_ {};
-    // The response message or failure description.
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

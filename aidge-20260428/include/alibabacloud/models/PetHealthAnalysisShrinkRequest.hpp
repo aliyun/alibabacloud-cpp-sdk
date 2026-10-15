@@ -57,13 +57,9 @@ namespace Models
 
 
   protected:
-    // The list of HTTPS URLs of images to analyze. At least one accessible image must be provided.
-    // 
     // This parameter is required.
     shared_ptr<string> imageUrlShrink_ {};
-    // The system prompt used to specify the response role or requirements. The value must comply with JSON string escaping rules.
     shared_ptr<string> systemPrompt_ {};
-    // The custom analysis requirement. If not specified or set to an empty string, excrement analysis is performed by default. The value must comply with JSON string escaping rules.
     shared_ptr<string> userPrompt_ {};
   };
 

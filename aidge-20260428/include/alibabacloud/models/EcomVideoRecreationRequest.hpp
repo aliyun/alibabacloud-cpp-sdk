@@ -79,7 +79,7 @@ namespace Models
 
 
     protected:
-      // The target duration in seconds. Set to ``"auto"`` (default) to let the system decide. For product replacement, specify an integer from 5 to 60. For person replacement, only `"auto"` is supported.
+      // The target duration in seconds. In `reference` mode, the input value is ignored and forced to -1, which follows the duration of the original video. In `rebuild` mode, you can pass an integer from 5 to 60, or pass -1 to indicate an automatic duration.
       shared_ptr<int32_t> duration_ {};
       // The output resolution. Default value: `720p`.
       shared_ptr<string> quality_ {};
@@ -95,6 +95,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PersonReferenceImageUrls, personReferenceImageUrls_);
         DARABONBA_PTR_TO_JSON(ProductImageUrls, productImageUrls_);
         DARABONBA_PTR_TO_JSON(ProductInfo, productInfo_);
+        DARABONBA_PTR_TO_JSON(RecreateMode, recreateMode_);
         DARABONBA_PTR_TO_JSON(SourceVideoUrl, sourceVideoUrl_);
       };
       friend void from_json(const Darabonba::Json& j, Input& obj) { 
@@ -103,6 +104,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PersonReferenceImageUrls, personReferenceImageUrls_);
         DARABONBA_PTR_FROM_JSON(ProductImageUrls, productImageUrls_);
         DARABONBA_PTR_FROM_JSON(ProductInfo, productInfo_);
+        DARABONBA_PTR_FROM_JSON(RecreateMode, recreateMode_);
         DARABONBA_PTR_FROM_JSON(SourceVideoUrl, sourceVideoUrl_);
       };
       Input() = default ;
@@ -164,18 +166,19 @@ namespace Models
 
       protected:
         // The product category.  
-        // Example: Womenswear/Sun-protective clothing
+        // Example value: Women\\"s clothing/Sun protection clothing.
         shared_ptr<string> category_ {};
-        // The actual product information (SKU, brand, color, material, size, specifications, logo, and usage), used to constrain voiceover facts.  
-        // Example: Light yellow, cooling fabric, sun protection to the back of the hand, UPF50+
+        // The actual product information, such as SKU, brand, color, material, size, specifications, logo, and usage instructions. This information is used to constrain the facts in the voiceover.  
+        // Example value: Pale moon yellow, cool-touch fabric, sun protection down to the back of the hand, UPF50+
         shared_ptr<string> detail_ {};
-        // The name of the target product. This parameter is required for product replacement mode. Maximum length: 200 characters.  
-        // Example: Light yellow cooling sun-protective jacket
+        // The name of the target product. This parameter is required for product replacement. The maximum length is 200 characters.  
+        // Example value: Pale moon yellow cool-touch sun protection clothing.
         shared_ptr<string> title_ {};
       };
 
       virtual bool empty() const override { return this->changeDescription_ == nullptr
-        && this->mode_ == nullptr && this->personReferenceImageUrls_ == nullptr && this->productImageUrls_ == nullptr && this->productInfo_ == nullptr && this->sourceVideoUrl_ == nullptr; };
+        && this->mode_ == nullptr && this->personReferenceImageUrls_ == nullptr && this->productImageUrls_ == nullptr && this->productInfo_ == nullptr && this->recreateMode_ == nullptr
+        && this->sourceVideoUrl_ == nullptr; };
       // changeDescription Field Functions 
       bool hasChangeDescription() const { return this->changeDescription_ != nullptr;};
       void deleteChangeDescription() { this->changeDescription_ = nullptr;};
@@ -217,6 +220,13 @@ namespace Models
       inline Input& setProductInfo(Input::ProductInfo && productInfo) { DARABONBA_PTR_SET_RVALUE(productInfo_, productInfo) };
 
 
+      // recreateMode Field Functions 
+      bool hasRecreateMode() const { return this->recreateMode_ != nullptr;};
+      void deleteRecreateMode() { this->recreateMode_ = nullptr;};
+      inline string getRecreateMode() const { DARABONBA_PTR_GET_DEFAULT(recreateMode_, "") };
+      inline Input& setRecreateMode(string recreateMode) { DARABONBA_PTR_SET_VALUE(recreateMode_, recreateMode) };
+
+
       // sourceVideoUrl Field Functions 
       bool hasSourceVideoUrl() const { return this->sourceVideoUrl_ != nullptr;};
       void deleteSourceVideoUrl() { this->sourceVideoUrl_ = nullptr;};
@@ -225,20 +235,22 @@ namespace Models
 
 
     protected:
-      // The description or supplementary constraints for the target person in person replacement mode. The value must be 1 to 500 characters in length. This parameter is required if PersonReferenceImageUrls is not provided.   
-      // Example: The target person is an adult male. Retain the original clothing and actions.
+      // The description or supplementary constraints for the target person in person replacement. The length is 1 to 500 characters. This parameter is required when PersonReferenceImageUrls is not provided.   
+      // Example value: The target person is an adult male, retaining the original clothing and actions.
       shared_ptr<string> changeDescription_ {};
       // The replacement mode. Valid values: `product_replacement` (default) and `person_replacement`.
       shared_ptr<string> mode_ {};
-      // The URLs of reference images for the target person in person replacement mode. You can specify 1 to 5 images, which must be of the same person. Arrange the images in the following order: facial close-up, front view, 45-degree view, side view, and back view.  
-      // Example: ["https://example.com/person.jpg"]
+      // The URLs of the reference images for the target person in person replacement. You can provide 1 to 5 images, which must be of the same person. We recommend that you arrange the images in the order of facial close-up, front, 45-degree angle, side, and back.  
+      // Example value: ["https://example.com/person.jpg"]
       shared_ptr<vector<string>> personReferenceImageUrls_ {};
-      // The URLs of target product images. This parameter is required for product replacement mode. You can upload 1 to 8 images for the same SKU. Use images with a clear subject, no occlusion, and a clean background.   
-      // Example: ["https://example.com/product.png"]
+      // The URLs of the target product images. This parameter is required for product replacement. You can upload 1 to 8 images for the same SKU. We recommend that the main subject is clear, unobstructed, and has a clean background.   
+      // Example value: ["https://example.com/product.png"]
       shared_ptr<vector<string>> productImageUrls_ {};
-      // The target product information. Specify this parameter to improve voiceover accuracy.
+      // The target product information. We recommend that you specify this parameter to improve the accuracy of the voiceover.
       shared_ptr<Input::ProductInfo> productInfo_ {};
-      // The HTTP(S) URL of the reference video. The video duration must be 2 to 360 seconds. The URL must remain accessible during task execution. A validity period of at least 24 hours is recommended.
+      // The generation mode. Default value: `reference`. Valid values: `reference` (directly references the original video) and `rebuild` (breaks down the original video before regenerating it).
+      shared_ptr<string> recreateMode_ {};
+      // The HTTP(S) URL of the reference video. The duration ranges from 2 to 360 seconds. The URL must remain accessible during task execution. We recommend that the validity period is no less than 24 hours.
       // 
       // This parameter is required.
       shared_ptr<string> sourceVideoUrl_ {};
@@ -265,11 +277,11 @@ namespace Models
 
 
   protected:
-    // The input parameters for video multiplication.
+    // The input parameters for video variation generation.
     // 
     // This parameter is required.
     shared_ptr<EcomVideoRecreationRequest::Input> input_ {};
-    // The output specifications for the final video.
+    // The output specifications for the generated video.
     shared_ptr<EcomVideoRecreationRequest::Output> output_ {};
   };
 

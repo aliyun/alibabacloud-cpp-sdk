@@ -15,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const VideoTranslationRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Capabilities, capabilities_);
+      DARABONBA_PTR_TO_JSON(EnableQualityCheck, enableQualityCheck_);
       DARABONBA_PTR_TO_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_TO_JSON(TargetLanguage, targetLanguage_);
       DARABONBA_PTR_TO_JSON(VideoUrl, videoUrl_);
     };
     friend void from_json(const Darabonba::Json& j, VideoTranslationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Capabilities, capabilities_);
+      DARABONBA_PTR_FROM_JSON(EnableQualityCheck, enableQualityCheck_);
       DARABONBA_PTR_FROM_JSON(SourceLanguage, sourceLanguage_);
       DARABONBA_PTR_FROM_JSON(TargetLanguage, targetLanguage_);
       DARABONBA_PTR_FROM_JSON(VideoUrl, videoUrl_);
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->capabilities_ == nullptr
-        && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->videoUrl_ == nullptr; };
+        && this->enableQualityCheck_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->videoUrl_ == nullptr; };
     // capabilities Field Functions 
     bool hasCapabilities() const { return this->capabilities_ != nullptr;};
     void deleteCapabilities() { this->capabilities_ = nullptr;};
@@ -45,6 +47,13 @@ namespace Models
     inline vector<string> getCapabilities() { DARABONBA_PTR_GET(capabilities_, vector<string>) };
     inline VideoTranslationRequest& setCapabilities(const vector<string> & capabilities) { DARABONBA_PTR_SET_VALUE(capabilities_, capabilities) };
     inline VideoTranslationRequest& setCapabilities(vector<string> && capabilities) { DARABONBA_PTR_SET_RVALUE(capabilities_, capabilities) };
+
+
+    // enableQualityCheck Field Functions 
+    bool hasEnableQualityCheck() const { return this->enableQualityCheck_ != nullptr;};
+    void deleteEnableQualityCheck() { this->enableQualityCheck_ = nullptr;};
+    inline bool getEnableQualityCheck() const { DARABONBA_PTR_GET_DEFAULT(enableQualityCheck_, false) };
+    inline VideoTranslationRequest& setEnableQualityCheck(bool enableQualityCheck) { DARABONBA_PTR_SET_VALUE(enableQualityCheck_, enableQualityCheck) };
 
 
     // sourceLanguage Field Functions 
@@ -69,17 +78,19 @@ namespace Models
 
 
   protected:
-    // The array of translation capabilities. Valid values: ["visual"].
+    // The array of translation capabilities. Current valid value: ["visual"].
     // 
     // This parameter is required.
     shared_ptr<vector<string>> capabilities_ {};
-    // The source language. This parameter is optional. Default value: auto, which indicates automatic detection.
+    // Specifies whether to enable the visual quality check. This parameter takes effect only when Capabilities includes visual.
+    shared_ptr<bool> enableQualityCheck_ {};
+    // The source language. This parameter is optional. Default value: auto, which indicates automatic recognition.
     shared_ptr<string> sourceLanguage_ {};
     // The target language. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // The URL of the video (MP4/MOV, ≤ 200 MB).
+    // The video URL. Supported formats: MP4 and MOV. Maximum size: 200 MB.
     // 
     // This parameter is required.
     shared_ptr<string> videoUrl_ {};

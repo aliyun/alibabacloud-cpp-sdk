@@ -870,11 +870,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data. ResultList contains the URLs of the translation results. GenFiles contains EditInfo, which includes the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls, such as "The content contains sensitive data. Try other input."
+    // The error message. "Success" is returned if the call is successful. A specific error message is returned if the call fails, such as "The content contains sensitive data. Try other input."
     shared_ptr<string> message_ {};
     // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call is successful. Valid values:
+    // - true: The call is successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

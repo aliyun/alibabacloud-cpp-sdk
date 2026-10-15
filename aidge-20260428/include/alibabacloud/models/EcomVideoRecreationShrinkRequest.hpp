@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The input parameters for video multiplication.
+    // The input parameters for video variation generation.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
-    // The output specifications for the final video.
+    // The output specifications for the generated video.
     shared_ptr<string> outputShrink_ {};
   };
 
