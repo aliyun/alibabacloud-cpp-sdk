@@ -57,7 +57,7 @@ namespace Milvus20231012
       Models::CreateAclGroupResponse createAclGroup(const Models::CreateAclGroupRequest &request);
 
       /**
-       * @summary Creates the server role required by Milvus to access other cloud products.
+       * @summary Creates the service role required by Milvus to access other cloud products.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,7 +66,7 @@ namespace Milvus20231012
       Models::CreateDefaultRoleResponse createDefaultRoleWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates the server role required by Milvus to access other cloud products.
+       * @summary Creates the service role required by Milvus to access other cloud products.
        *
        * @return CreateDefaultRoleResponse
        */
@@ -127,7 +127,7 @@ namespace Milvus20231012
       Models::DescribeAccessControlListResponse describeAccessControlList(const Models::DescribeAccessControlListRequest &request);
 
       /**
-       * @summary Get information about the custom configuration of each component of Milvus.
+       * @summary Retrieves the custom configuration information of each Milvus component.
        *
        * @param request DescribeInstanceConfigsRequest
        * @param headers map
@@ -137,7 +137,7 @@ namespace Milvus20231012
       Models::DescribeInstanceConfigsResponse describeInstanceConfigsWithOptions(const Models::DescribeInstanceConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get information about the custom configuration of each component of Milvus.
+       * @summary Retrieves the custom configuration information of each Milvus component.
        *
        * @param request DescribeInstanceConfigsRequest
        * @return DescribeInstanceConfigsResponse
@@ -181,7 +181,7 @@ namespace Milvus20231012
       Models::GetInstanceDetailResponse getInstanceDetail(const Models::GetInstanceDetailRequest &request);
 
       /**
-       * @summary Retrieves one or more access control list (ACL) groups.
+       * @summary Retrieves the group information and content for the current user.
        *
        * @param request ListAclGroupsRequest
        * @param headers map
@@ -191,7 +191,7 @@ namespace Milvus20231012
       Models::ListAclGroupsResponse listAclGroupsWithOptions(const Models::ListAclGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves one or more access control list (ACL) groups.
+       * @summary Retrieves the group information and content for the current user.
        *
        * @param request ListAclGroupsRequest
        * @return ListAclGroupsResponse
@@ -199,7 +199,7 @@ namespace Milvus20231012
       Models::ListAclGroupsResponse listAclGroups(const Models::ListAclGroupsRequest &request);
 
       /**
-       * @summary Retrieves the list of Milvus instances under the current account.
+       * @summary Retrieves a list of Milvus instances under the current account.
        *
        * @param tmpReq ListInstancesRequest
        * @param headers map
@@ -209,7 +209,7 @@ namespace Milvus20231012
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of Milvus instances under the current account.
+       * @summary Retrieves a list of Milvus instances under the current account.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -235,17 +235,17 @@ namespace Milvus20231012
       Models::ListInstancesV2Response listInstancesV2(const Models::ListInstancesV2Request &request);
 
       /**
-       * @summary Updates the configuration parameters of various Milvus components.
+       * @summary Updates the configuration parameters of Milvus components.
        *
-       * @param request ModifyInstanceConfigRequest
+       * @param tmpReq ModifyInstanceConfigRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyInstanceConfigResponse
        */
-      Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration parameters of various Milvus components.
+       * @summary Updates the configuration parameters of Milvus components.
        *
        * @param request ModifyInstanceConfigRequest
        * @return ModifyInstanceConfigResponse
@@ -361,7 +361,7 @@ namespace Milvus20231012
       Models::UpdateInstanceNameResponse updateInstanceName(const Models::UpdateInstanceNameRequest &request);
 
       /**
-       * @summary Enables or disables public network access for a Milvus instance.
+       * @summary Enables or disables public network access for a Milvus cluster.
        *
        * @param request UpdatePublicNetworkStatusRequest
        * @param headers map
@@ -371,7 +371,7 @@ namespace Milvus20231012
       Models::UpdatePublicNetworkStatusResponse updatePublicNetworkStatusWithOptions(const Models::UpdatePublicNetworkStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables public network access for a Milvus instance.
+       * @summary Enables or disables public network access for a Milvus cluster.
        *
        * @param request UpdatePublicNetworkStatusRequest
        * @return UpdatePublicNetworkStatusResponse

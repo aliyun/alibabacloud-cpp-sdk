@@ -145,9 +145,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
           // - index
           // - data
           shared_ptr<string> componentType_ {};
-          // The number of CUs.
+          // The number of compute units (CUs).
           shared_ptr<int32_t> cuNum_ {};
           // The disk size.
           shared_ptr<int32_t> diskSize_ {};
@@ -339,9 +339,9 @@ namespace Models
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
         // The proxy port.
         shared_ptr<int32_t> proxyPort_ {};
-        // The ID of the resource owner account.
+        // The account ID of the resource owner.
         shared_ptr<string> resourceOwnerId_ {};
-        // The number of CUs.
+        // The number of compute units (CUs).
         shared_ptr<int32_t> totalCuNum_ {};
         // The total disk size.
         shared_ptr<int32_t> totalDiskSize_ {};
@@ -521,35 +521,35 @@ namespace Models
     protected:
       // Indicates whether automatic backup is enabled.
       shared_ptr<bool> autoBackup_ {};
-      // The start time.
+      // The start time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> beginTime_ {};
       // The instance details.
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
-      // The expiration time.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
-      // - creating: Being created.
-      // - running: Running.
-      // - updating: Being upgraded. This includes specification changes, configuration changes, and enabling or disabling public network access.
-      // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
-      // - deleting: Being deleted.
-      // - deleted: Deleted.
+      // - creating: The instance is being created.
+      // - running: The instance is running.
+      // - updating: The instance is being upgraded, such as cluster specification changes, configuration modifications, and public endpoint toggling.
+      // - disable: The instance is unavailable because the cluster has expired and requires renewal.
+      // - deleting: The instance is being deleted.
+      // - deleted: The instance is deleted.
       shared_ptr<string> instanceStatus_ {};
       // The node type.
       shared_ptr<string> nodeType_ {};
-      // Indicates whether public network access is enabled.
+      // Indicates whether the public endpoint is enabled.
       shared_ptr<bool> openPublicNet_ {};
-      // The edition. Valid values:
-      // - trial: Trial Edition.
-      // - standard: Standard Edition.
+      // The edition details. Valid values:
+      // - trial: trial edition
+      // - standard: standard edition
       shared_ptr<string> packageType_ {};
-      // The billing type. Valid values:
-      // - 0: Pay-as-you-go.
-      // - 1: Subscription.
+      // The billing method. Valid values:
+      // - 0: pay-as-you-go
+      // - 1: subscription
       shared_ptr<int32_t> payType_ {};
       // The commodity code.
       shared_ptr<string> productCode_ {};
@@ -557,15 +557,17 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The ID of the resource owner account.
+      // The account ID of the resource owner.
       shared_ptr<string> resourceOwnerId_ {};
-      // The running time.
+      // The running duration of the instance, in seconds.
       shared_ptr<int32_t> runningTime_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
       // The tag information.
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The software stack version.
       shared_ptr<string> templateVersion_ {};
+      // The Milvus version.
       shared_ptr<string> version_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -637,9 +639,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -649,7 +651,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total count.
     shared_ptr<int32_t> total_ {};

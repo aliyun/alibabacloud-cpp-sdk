@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<bool> data_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

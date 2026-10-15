@@ -56,6 +56,7 @@
 #include <alibabacloud/models/ListInstancesV2ResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesV2Response.hpp>
 #include <alibabacloud/models/ModifyInstanceConfigRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceConfigResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>

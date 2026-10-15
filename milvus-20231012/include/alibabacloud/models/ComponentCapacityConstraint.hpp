@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The component type.
     shared_ptr<string> componentType_ {};
+    // The maximum capacity allowed for the component.
     shared_ptr<int32_t> maxCapacity_ {};
+    // The minimum capacity allowed for the component.
     shared_ptr<int32_t> minCapacity_ {};
   };
 

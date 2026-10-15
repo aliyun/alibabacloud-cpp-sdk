@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The CIDR block.
     shared_ptr<string> cidr_ {};
-    // The component type. Valid value:
+    // The component type. Valid values:
     // 
     // - Proxy
     // 
@@ -78,7 +78,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to enable public network access.
+    // Specifies whether public network access is enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> publicNetworkEnabled_ {};

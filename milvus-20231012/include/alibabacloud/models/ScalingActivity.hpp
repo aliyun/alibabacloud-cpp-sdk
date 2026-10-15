@@ -149,31 +149,31 @@ namespace Models
 
 
   protected:
-    // The types of components involved in the scaling activity.
+    // The types of components involved in the auto scaling activity.
     shared_ptr<string> componentTypes_ {};
-    // The description of the scaling activity.
+    // The detailed description of the auto scaling activity, which can be used to identify the cause when the activity fails.
     shared_ptr<string> description_ {};
-    // The end time of the scaling activity.
+    // The end time of the auto scaling activity.
     shared_ptr<string> endTime_ {};
-    // The ID of the instance.
+    // The ID of the Milvus instance.
     shared_ptr<string> instanceId_ {};
-    // The type of the scaling policy.
+    // The type of the elastic scaling policy.
     shared_ptr<string> policyType_ {};
-    // The ID of the scaling activity.
+    // The ID of the elastic scaling activity.
     shared_ptr<string> scalingActivityId_ {};
-    // The state of the scaling activity.
+    // The execution status of the auto scaling activity.
     shared_ptr<string> scalingActivityState_ {};
-    // The ID of the scaling policy.
+    // The ID of the elastic scaling policy.
     shared_ptr<string> scalingPolicyId_ {};
-    // The details of the scaling rule.
+    // The details of the elastic scaling rule.
     shared_ptr<string> scalingRuleDetail_ {};
-    // The ID of the scaling rule.
+    // The ID of the elastic scaling rule.
     shared_ptr<string> scalingRuleId_ {};
-    // The name of the scaling rule that triggered the activity.
+    // The name of the rule that triggered the auto scaling activity.
     shared_ptr<string> scalingRuleName_ {};
-    // The start time of the scaling activity.
+    // The start time of the auto scaling activity.
     shared_ptr<string> startTime_ {};
-    // The time zone of the scaling activity.
+    // The time zone used by the elastic scaling rule.
     shared_ptr<string> timeZone_ {};
   };
 

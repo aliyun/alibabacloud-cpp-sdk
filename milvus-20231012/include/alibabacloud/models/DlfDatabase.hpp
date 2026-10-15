@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the database.
+    // The database name.
     shared_ptr<string> databaseName_ {};
-    // The description of the database.
+    // The database description.
     shared_ptr<string> description_ {};
-    // The number of tables in the database. Read-only.
+    // The number of tables.
     shared_ptr<int32_t> tableCount_ {};
   };
 

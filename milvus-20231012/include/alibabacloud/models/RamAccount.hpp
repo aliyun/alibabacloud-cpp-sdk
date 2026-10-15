@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the RamAccount can be bound to other resources.
+    // Indicates whether the RAM user can be bound.
     shared_ptr<bool> bindable_ {};
-    // The display name for the RamAccount, which appears in the console.
+    // The display name.
     shared_ptr<string> displayName_ {};
-    // The unique identifier for the RamAccount.
+    // The Alibaba Cloud UID.
     shared_ptr<string> uid_ {};
-    // The user name for the RamAccount.
+    // The RAM username.
     shared_ptr<string> userName_ {};
   };
 

@@ -233,7 +233,9 @@ namespace Models
 
 
       protected:
+        // The Pod ID.
         shared_ptr<string> podId_ {};
+        // The pod name.
         shared_ptr<string> podName_ {};
       };
 
@@ -293,9 +295,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable the data cloud disk for the query node.
         shared_ptr<bool> enabled_ {};
+        // The performance level of the ESSD.
         shared_ptr<string> performanceLevel_ {};
+        // The capacity of the data cloud disk, in GiB.
         shared_ptr<int32_t> size_ {};
+        // The storage class of the data cloud disk.
         shared_ptr<string> storageClass_ {};
       };
 
@@ -367,10 +373,13 @@ namespace Models
       shared_ptr<int32_t> cuNum_ {};
       // The CU type.
       shared_ptr<string> cuType_ {};
+      // The query node data cloud disk configuration.
       shared_ptr<Components::DataDisk> dataDisk_ {};
-      // The disk size type for the Query Node. Set this parameter to Large for storage-optimized configurations, and to Normal for other configurations.
+      // The disk size type of the query node. The value is Large for storage-optimized configurations, and Normal for other configurations.
       shared_ptr<string> diskSizeType_ {};
+      // The billing method of the component.
       shared_ptr<string> payType_ {};
+      // The pod list of the component.
       shared_ptr<vector<Components::PodsList>> podsList_ {};
       // The number of replicas.
       shared_ptr<int32_t> replica_ {};
@@ -554,7 +563,7 @@ namespace Models
 
 
   protected:
-    // The automatic backup configuration.
+    // The automatic backup.
     shared_ptr<bool> autoBackup_ {};
     // The component information.
     shared_ptr<vector<InstanceDetail::Components>> components_ {};
@@ -566,25 +575,27 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The instance version.
     shared_ptr<string> dbVersion_ {};
-    // Indicates whether data encryption is enabled.
+    // Specifies whether data encryption is enabled.
     shared_ptr<bool> encrypted_ {};
     // The expiration time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> expireTime_ {};
-    // Indicates whether high availability is enabled.
+    // Specifies whether high availability is enabled.
     shared_ptr<bool> ha_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // kms key Id。
+    // The KMS key ID.
     shared_ptr<string> kmsKeyId_ {};
-    // The multi-zone deployment mode.
+    // The multi-zone mode.
     shared_ptr<string> multiZoneMode_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The billing method. Valid values: PayAsYouGo: pay-as-you-go billing method. Subscription: subscription.
+    // The billing method. Valid values:
+    // - PayAsYouGo: pay-as-you-go billing method.
+    // - Subscription: subscription.
     shared_ptr<string> paymentType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -595,13 +606,12 @@ namespace Models
     // The security group IDs.
     shared_ptr<vector<string>> securityGroupIds_ {};
     // The instance status. Valid values:
-    // 
-    // - creating: Being created.
-    // - running: Running.
-    // - updating: Being upgraded. This includes specification changes, configuration changes, and public network access changes.
-    // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
-    // - deleting: Being deleted.
-    // - deleted: Deleted.
+    // - creating: The instance is being created.
+    // - running: The instance is running.
+    // - updating: The instance is being upgraded, such as cluster scaling, configuration changes, and enabling or disabling public network access.
+    // - disable: The instance is unavailable. The cluster has expired and must be renewed for activation.
+    // - deleting: The instance is being deleted.
+    // - deleted: The instance is deleted.
     shared_ptr<string> status_ {};
     // The tags.
     shared_ptr<vector<InstanceDetail::Tags>> tags_ {};

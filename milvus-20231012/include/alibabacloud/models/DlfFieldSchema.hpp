@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // A comment for the field.
+    // The field comment.
     shared_ptr<string> comment_ {};
-    // The dimension of the vector field. This parameter applies only when `isVectorField` is `true`.
+    // The vector dimensions.
     shared_ptr<int32_t> dimension_ {};
     // The DLF field type.
     shared_ptr<string> dlfFieldType_ {};
@@ -131,15 +131,15 @@ namespace Models
     shared_ptr<string> fieldName_ {};
     // Indicates whether the field is a primary key.
     shared_ptr<bool> isPrimaryKey_ {};
-    // Indicates whether the DLF field type can be mapped to a Milvus field type.
+    // Indicates whether mapping is supported.
     shared_ptr<bool> isSupported_ {};
     // Indicates whether the field is a vector field.
     shared_ptr<bool> isVectorField_ {};
-    // The corresponding Milvus field type.
+    // The Milvus field type.
     shared_ptr<string> milvusFieldType_ {};
     // Indicates whether the field can be null.
     shared_ptr<bool> nullable_ {};
-    // The reason the DLF field type is unsupported. This field is present only when `isSupported` is `false`.
+    // The reason mapping is not supported.
     shared_ptr<string> unsupportedReason_ {};
   };
 

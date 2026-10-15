@@ -154,7 +154,7 @@ CreateAclGroupResponse Client::createAclGroup(const CreateAclGroupRequest &reque
 }
 
 /**
- * @summary Creates the server role required by Milvus to access other cloud products.
+ * @summary Creates the service role required by Milvus to access other cloud products.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +179,7 @@ CreateDefaultRoleResponse Client::createDefaultRoleWithOptions(const map<string,
 }
 
 /**
- * @summary Creates the server role required by Milvus to access other cloud products.
+ * @summary Creates the service role required by Milvus to access other cloud products.
  *
  * @return CreateDefaultRoleResponse
  */
@@ -439,7 +439,7 @@ DescribeAccessControlListResponse Client::describeAccessControlList(const Descri
 }
 
 /**
- * @summary Get information about the custom configuration of each component of Milvus.
+ * @summary Retrieves the custom configuration information of each Milvus component.
  *
  * @param request DescribeInstanceConfigsRequest
  * @param headers map
@@ -472,7 +472,7 @@ DescribeInstanceConfigsResponse Client::describeInstanceConfigsWithOptions(const
 }
 
 /**
- * @summary Get information about the custom configuration of each component of Milvus.
+ * @summary Retrieves the custom configuration information of each Milvus component.
  *
  * @param request DescribeInstanceConfigsRequest
  * @return DescribeInstanceConfigsResponse
@@ -578,7 +578,7 @@ GetInstanceDetailResponse Client::getInstanceDetail(const GetInstanceDetailReque
 }
 
 /**
- * @summary Retrieves one or more access control list (ACL) groups.
+ * @summary Retrieves the group information and content for the current user.
  *
  * @param request ListAclGroupsRequest
  * @param headers map
@@ -615,7 +615,7 @@ ListAclGroupsResponse Client::listAclGroupsWithOptions(const ListAclGroupsReques
 }
 
 /**
- * @summary Retrieves one or more access control list (ACL) groups.
+ * @summary Retrieves the group information and content for the current user.
  *
  * @param request ListAclGroupsRequest
  * @return ListAclGroupsResponse
@@ -627,7 +627,7 @@ ListAclGroupsResponse Client::listAclGroups(const ListAclGroupsRequest &request)
 }
 
 /**
- * @summary Retrieves the list of Milvus instances under the current account.
+ * @summary Retrieves a list of Milvus instances under the current account.
  *
  * @param tmpReq ListInstancesRequest
  * @param headers map
@@ -690,7 +690,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Retrieves the list of Milvus instances under the current account.
+ * @summary Retrieves a list of Milvus instances under the current account.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -785,15 +785,21 @@ ListInstancesV2Response Client::listInstancesV2(const ListInstancesV2Request &re
 }
 
 /**
- * @summary Updates the configuration parameters of various Milvus components.
+ * @summary Updates the configuration parameters of Milvus components.
  *
- * @param request ModifyInstanceConfigRequest
+ * @param tmpReq ModifyInstanceConfigRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyInstanceConfigResponse
  */
-ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const ModifyInstanceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const ModifyInstanceConfigRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyInstanceConfigShrinkRequest request = ModifyInstanceConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
@@ -807,10 +813,16 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
     query["UserConfig"] = request.getUserConfig();
   }
 
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "ModifyInstanceConfig"},
     {"version" , "2023-10-12"},
@@ -819,14 +831,14 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "json"},
+    {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyInstanceConfigResponse>();
 }
 
 /**
- * @summary Updates the configuration parameters of various Milvus components.
+ * @summary Updates the configuration parameters of Milvus components.
  *
  * @param request ModifyInstanceConfigRequest
  * @return ModifyInstanceConfigResponse
@@ -1200,7 +1212,7 @@ UpdateInstanceNameResponse Client::updateInstanceName(const UpdateInstanceNameRe
 }
 
 /**
- * @summary Enables or disables public network access for a Milvus instance.
+ * @summary Enables or disables public network access for a Milvus cluster.
  *
  * @param request UpdatePublicNetworkStatusRequest
  * @param headers map
@@ -1245,7 +1257,7 @@ UpdatePublicNetworkStatusResponse Client::updatePublicNetworkStatusWithOptions(c
 }
 
 /**
- * @summary Enables or disables public network access for a Milvus instance.
+ * @summary Enables or disables public network access for a Milvus cluster.
  *
  * @param request UpdatePublicNetworkStatusRequest
  * @return UpdatePublicNetworkStatusResponse

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The unique ID of the DLF instance.
+    // The DLF instance ID.
     shared_ptr<string> instanceId_ {};
-    // The name of the DLF instance.
+    // The DLF instance name.
     shared_ptr<string> instanceName_ {};
-    // The type of the DLF instance.
+    // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The ID of the region where the DLF instance is located.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The current status of the DLF instance.
+    // The instance status.
     shared_ptr<string> status_ {};
   };
 

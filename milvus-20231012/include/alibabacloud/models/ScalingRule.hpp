@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The type of the component to be adjusted.
+      // index  query data proxy streaming mix_coordinator
       shared_ptr<string> componentType_ {};
-      // The target value for the adjustment.
+      // The target number of nodes for the component after the rule is executed.
       shared_ptr<string> targetValue_ {};
     };
 
@@ -150,21 +150,21 @@ namespace Models
 
 
   protected:
-    // The adjustment information of the scaling rule.
+    // The list of target resource configurations for each component.
     shared_ptr<vector<ScalingRule::AdjustInfos>> adjustInfos_ {};
-    // The cron expression for the scaling schedule.
+    // The scheduled execution expression of the rule.
     shared_ptr<string> cronStr_ {};
-    // Indicates whether the scaling rule is disabled.
+    // Indicates whether the rule is disabled.
     shared_ptr<bool> disabled_ {};
-    // The end time of the scaling rule. Unit: milliseconds.
+    // The end time of the effective period for the rule.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the scaling rule.
+    // The ID of the elastic scaling rule.
     shared_ptr<string> ruleId_ {};
-    // The name of the scaling rule.
+    // The name of the elastic scaling rule.
     shared_ptr<string> scalingRuleName_ {};
-    // The start time of the scaling rule. Unit: milliseconds.
+    // The start time of the effective period for the rule.
     shared_ptr<int64_t> startTime_ {};
-    // The time zone of the scaling rule.
+    // The time zone used for the execution time of the rule.
     shared_ptr<string> timeZone_ {};
   };
 

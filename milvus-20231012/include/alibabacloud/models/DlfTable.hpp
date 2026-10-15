@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // A description of the table.
+    // The table description.
     shared_ptr<string> description_ {};
-    // The location of the table data, specified as an Object Storage Service (OSS) URI.
+    // The table storage location.
     shared_ptr<string> location_ {};
-    // The table format, such as `PAIMON`.
+    // The table format.
     shared_ptr<string> tableFormat_ {};
     // The table name.
     shared_ptr<string> tableName_ {};
-    // The table type. For example, `MANAGED` indicates that DLF manages the data and metadata lifecycle.
+    // The table type.
     shared_ptr<string> tableType_ {};
   };
 

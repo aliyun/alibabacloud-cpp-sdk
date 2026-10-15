@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique identifier (UID) of the bound RAM user.
+    // The bound Alibaba Cloud UID.
     shared_ptr<string> boundUid_ {};
-    // The bound RAM username.
+    // The name of the bound RAM user.
     shared_ptr<string> boundUserName_ {};
-    // The Milvus username.
+    // The Milvus database username.
     shared_ptr<string> milvusUsername_ {};
   };
 

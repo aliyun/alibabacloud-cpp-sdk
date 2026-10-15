@@ -149,15 +149,15 @@ namespace Models
       protected:
         // The default number of replicas for the component.
         shared_ptr<int32_t> defaultReplicas_ {};
-        // The maximum number of replicas for the component.
+        // The maximum number of replicas allowed for the component.
         shared_ptr<int32_t> maxReplicas_ {};
-        // The minimum number of replicas for the component.
+        // The minimum number of replicas allowed for the component.
         shared_ptr<int32_t> minReplicas_ {};
         // The name of the component.
         shared_ptr<string> name_ {};
-        // The available specifications for the component.
+        // The list of specifications supported by the component.
         shared_ptr<vector<string>> specs_ {};
-        // The step size for scaling the number of replicas.
+        // The step size for adjusting the number of replicas for the component.
         shared_ptr<int32_t> step_ {};
         // The type of the component.
         shared_ptr<string> type_ {};
@@ -203,15 +203,15 @@ namespace Models
 
 
     protected:
-      // The component specifications.
+      // The list of component specification configurations.
       shared_ptr<vector<Specs::ComponentSpecs>> componentSpecs_ {};
-      // Indicates whether the high availability (HA) edition is supported.
+      // Specifies whether high-availability deployment is supported.
       shared_ptr<bool> isHA_ {};
-      // Indicates whether the Standalone edition is supported.
+      // Specifies whether standalone deployment is supported.
       shared_ptr<bool> isStandalone_ {};
-      // Indicates whether the Standalone Pro edition is supported.
+      // Specifies whether Standalone Pro deployment is supported.
       shared_ptr<bool> isStandalonePro_ {};
-      // The zone mode of the specification.
+      // The zone deployment mode supported by the specification.
       shared_ptr<string> zoneMode_ {};
     };
 
@@ -241,11 +241,11 @@ namespace Models
 
 
   protected:
-    // The specifications supported by the version.
+    // The list of specifications supported by the database version.
     shared_ptr<vector<DBVersionDetail::Specs>> specs_ {};
-    // The status of the version.
+    // The status of the database version.
     shared_ptr<string> status_ {};
-    // The version number.
+    // The database version.
     shared_ptr<string> version_ {};
   };
 

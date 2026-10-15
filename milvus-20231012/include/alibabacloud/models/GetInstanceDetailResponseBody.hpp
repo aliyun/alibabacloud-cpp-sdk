@@ -165,7 +165,9 @@ namespace Models
 
 
       protected:
+        // The vSwitch ID.
         shared_ptr<string> vswId_ {};
+        // The zone ID of the vSwitch.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -207,9 +209,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -324,23 +326,23 @@ namespace Models
 
 
       protected:
-        // The number of CUs for data nodes.
+        // The number of compute units (CUs) for data nodes.
         shared_ptr<int32_t> dataNodeCuNum_ {};
         // The number of replicas for data nodes.
         shared_ptr<int32_t> dataNodeReplica_ {};
-        // The number of CUs for index nodes.
+        // The number of compute units (CUs) for index nodes.
         shared_ptr<int32_t> indexNodeCuNum_ {};
         // The number of replicas for index nodes.
         shared_ptr<int32_t> indexNodeReplica_ {};
-        // The number of CUs for MixCoordinator nodes.
+        // The number of compute units (CUs) for MixCoordinator nodes.
         shared_ptr<int32_t> mixCoodinatorNodeCuNum_ {};
         // The number of replicas for MixCoordinator nodes.
         shared_ptr<int32_t> mixCoodinatorNodeReplica_ {};
-        // The number of CUs for proxy nodes.
+        // The number of compute units (CUs) for proxy nodes.
         shared_ptr<int32_t> proxyNodeCuNum_ {};
         // The number of replicas for proxy nodes.
         shared_ptr<int32_t> proxyNodeReplica_ {};
-        // The number of CUs for query nodes.
+        // The number of compute units (CUs) for query nodes.
         shared_ptr<int32_t> queryNodeCuNum_ {};
         // The number of replicas for query nodes.
         shared_ptr<int32_t> queryNodeReplica_ {};
@@ -402,9 +404,13 @@ namespace Models
 
 
       protected:
+        // The current active zone.
         shared_ptr<string> currentActiveAZ_ {};
+        // The high availability pattern.
         shared_ptr<string> mode_ {};
+        // The ID of the primary zone in the high availability deployment.
         shared_ptr<string> primaryZoneId_ {};
+        // The ID of the secondary zone in the high availability deployment.
         shared_ptr<string> secondaryZoneId_ {};
       };
 
@@ -532,7 +538,9 @@ namespace Models
 
 
           protected:
+            // The pod ID.
             shared_ptr<string> podId_ {};
+            // The name of the pod.
             shared_ptr<string> podName_ {};
           };
 
@@ -638,23 +646,26 @@ namespace Models
           // The number of compute units (CUs).
           shared_ptr<int32_t> cuNum_ {};
           // The CU specification. Valid values:
-          // * 4: 1 core corresponds to 4 GB.
-          // * 8: 1 core corresponds to 8 GB.
+          // - 4: 1 core corresponds to 4 GB.
+          // - 8: 1 core corresponds to 8 GB.
           shared_ptr<int32_t> cuRatio_ {};
           // The disk size.
           shared_ptr<int32_t> diskSize_ {};
           // The disk type.
           shared_ptr<string> diskType_ {};
+          // The billing method of the component.
           shared_ptr<string> payType_ {};
           // The number of replicas.
           shared_ptr<int32_t> replica_ {};
+          // The ID of the zone where the component is deployed.
           shared_ptr<string> zoneId_ {};
           // Indicates whether the data cloud disk is enabled.
           shared_ptr<bool> dataDiskEnabled_ {};
-          // The data cloud disk capacity, in GiB.
+          // The capacity of the data cloud disk. Unit: GiB.
           shared_ptr<int32_t> dataDiskSize_ {};
-          // The StorageClass of the data cloud disk.
+          // The storage class of the data cloud disk.
           shared_ptr<string> dataDiskStorageClass_ {};
+          // The list of pods for the component.
           shared_ptr<vector<MilvusResourceInfoList::PodsList>> podsList_ {};
         };
 
@@ -763,9 +774,9 @@ namespace Models
 
 
       protected:
-        // The Attu component port.
+        // The port of the Attu component.
         shared_ptr<int32_t> attuPort_ {};
-        // The HTTPS download URL of the CA certificate.
+        // The HTTPS download URL for the CA certificate.
         shared_ptr<string> caCertUrl_ {};
         // The certificate trust type.
         shared_ptr<string> certificateTrust_ {};
@@ -775,11 +786,11 @@ namespace Models
         shared_ptr<string> intranetUrl_ {};
         // The resource details.
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
-        // The OSS storage data size.
+        // The size of data stored in OSS.
         shared_ptr<string> ossStorageSize_ {};
-        // The OSS storage metric timestamp.
+        // The time when the OSS storage metric is collected.
         shared_ptr<int64_t> ossStorageTimestamp_ {};
-        // The proxy port.
+        // The port of the proxy.
         shared_ptr<int32_t> proxyPort_ {};
         // The TLS public domain name.
         shared_ptr<string> secureInternetUrl_ {};
@@ -1050,9 +1061,9 @@ namespace Models
 
 
     protected:
-      // The public network access control ACL ID.
+      // The ID of the public network access control list (ACL).
       shared_ptr<string> aclId_ {};
-      // The start time.
+      // The start time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> beginTime_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
@@ -1062,42 +1073,46 @@ namespace Models
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
-      // Indicates whether high availability (HA) is enabled.
+      // Indicates whether high availability is enabled.
       shared_ptr<bool> enableHa_ {};
+      // The encryption information of the instance.
       shared_ptr<string> encrypted_ {};
-      // The expiration time.
+      // The expiration time. It is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
+      // The high availability configuration information of the instance.
       shared_ptr<Data::HighAvailability> highAvailability_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
-      // - creating: Being created.
-      // - running: Running.
-      // - updating: Being upgraded. This includes specification changes, configuration changes, and public network access toggling.
-      // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
-      // - deleting: Being deleted.
-      // - deleted: Deleted.
+      // - creating: The instance is being created.
+      // - running: The instance is running.
+      // - updating: The instance is being updated. This includes specification changes, configuration changes, and enabling or disabling public network access.
+      // - disable: The instance is unavailable. The cluster has expired and must be renewed to be activated.
+      // - deleting: The instance is being deleted.
+      // - deleted: The instance is deleted.
       shared_ptr<string> instanceStatus_ {};
+      // The KMS key ID.
       shared_ptr<string> kmsKeyId_ {};
+      // The maintenance window of the instance.
       shared_ptr<string> maintainablePeriod_ {};
       // The configuration information.
       shared_ptr<Data::MeasureConfig> measureConfig_ {};
-      // Single,Two,Three
+      // The zone deployment mode of the instance.
       shared_ptr<string> multiZoneMode_ {};
       // The node type. Valid values:
-      // * perf: compute-optimized instance.
-      // * cap: storage-optimized.
+      // * perf: compute-optimized
+      // * cap: storage-optimized
       shared_ptr<string> nodeType_ {};
       // Indicates whether public network access is enabled.
       shared_ptr<bool> openPublicNet_ {};
-      // The edition. Valid values:
+      // The edition details. Valid values:
       // 
-      // - trial: Trial Edition.
-      // - standard: Standard Edition.
+      // - trial: starter edition
+      // - standard: standard edition
       shared_ptr<string> packageType_ {};
-      // The billing type. Valid values:
-      // - 0: pay-as-you-go.
-      // - 1: subscription.
+      // The billing method. Valid values:
+      // - 0: pay-as-you-go
+      // - 1: subscription
       shared_ptr<int32_t> payType_ {};
       // The commodity code.
       shared_ptr<string> productCode_ {};
@@ -1105,7 +1120,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The running time.
+      // The running time of the instance, in seconds.
       shared_ptr<int64_t> runningTime_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
@@ -1113,8 +1128,9 @@ namespace Models
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The software stack version.
       shared_ptr<string> templateVersion_ {};
-      // The user-defined configuration.
+      // The custom user configuration.
       shared_ptr<string> userConfig_ {};
+      // The list of vSwitches associated with the instance.
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
       // The Milvus version.
       shared_ptr<string> version_ {};
@@ -1182,7 +1198,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<GetInstanceDetailResponseBody::Data> data_ {};
@@ -1194,7 +1210,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

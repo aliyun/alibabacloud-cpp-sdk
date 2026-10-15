@@ -105,9 +105,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned data.
+    // The returned result.
     shared_ptr<CreateInstanceResponseBody::Data> data_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
