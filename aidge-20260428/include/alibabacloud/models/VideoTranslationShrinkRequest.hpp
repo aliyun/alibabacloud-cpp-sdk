@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The array of translation capabilities. Current valid value: ["visual"].
+    // The list of translation features. Valid values: `speech` and `visual`. You can select both. At least one feature is required. Duplicate values are not accepted.
     // 
     // This parameter is required.
     shared_ptr<string> capabilitiesShrink_ {};
-    // Specifies whether to enable the visual quality check. This parameter takes effect only when Capabilities includes visual.
+    // Default value: false. If `visual` is included and this parameter is explicitly set to true, the quality check for on-screen text processing is enabled. If only `speech` is selected, this parameter is ignored. No quality check is performed, no quality check fields are returned, and no errors are reported due to this parameter. Enabling the quality check may increase the waiting time. Do not enable it unless necessary.
     shared_ptr<bool> enableQualityCheck_ {};
-    // The source language. This parameter is optional. Default value: auto, which indicates automatic recognition.
+    // The source language. For supported languages, see "Supported languages".
     shared_ptr<string> sourceLanguage_ {};
     // The target language. This parameter is required.
     // 
