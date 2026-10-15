@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The target status of the volume.
     shared_ptr<string> status_ {};
+    // The unique identifier of the team to which the volume belongs.
     shared_ptr<string> teamID_ {};
   };
 

@@ -194,22 +194,25 @@ namespace Models
   protected:
     // The unique identifier of the API key.
     shared_ptr<string> apiKeyID_ {};
-    // The masked display value of the API key.
+    // The display value of the API key.
     shared_ptr<string> apiKeyMask_ {};
     // The name of the API key.
     shared_ptr<string> apiKeyName_ {};
     // The value of the API key.
     shared_ptr<string> apiKeyValue_ {};
-    // The time when the API key was created.
+    // The creation time.
     shared_ptr<string> createdTime_ {};
     // The expiration time.
     shared_ptr<string> expireTime_ {};
+    // The list of IP addresses that are prohibited from using the API key.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The list of IP addresses that are allowed to use the API key.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
-    // The time when the API key was last used.
+    // The last used time.
     shared_ptr<string> lastUsedTime_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupID_ {};
+    // The source of the API key.
     shared_ptr<string> source_ {};
     // The status. Valid values:
     // - active
@@ -219,6 +222,7 @@ namespace Models
     shared_ptr<string> teamID_ {};
     // The name of the team.
     shared_ptr<string> teamName_ {};
+    // The plan of the team to which the API key belongs.
     shared_ptr<string> teamPlan_ {};
     // The UID of the creator.
     shared_ptr<string> userID_ {};

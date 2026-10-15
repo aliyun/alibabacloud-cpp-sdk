@@ -81,11 +81,13 @@ namespace Models
 
 
   protected:
-    // The API key name.
+    // The name of the API key.
     shared_ptr<string> apiKeyName_ {};
     // The expiration time.
     shared_ptr<string> expireTime_ {};
+    // The list of IP addresses that are blocked from using the API key.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The list of IP addresses that are allowed to use the API key.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};

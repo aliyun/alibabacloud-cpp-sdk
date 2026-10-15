@@ -17,10 +17,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PublicUpdateTemplateBuildConfig& obj) { 
       DARABONBA_PTR_TO_JSON(copy, copy_);
       DARABONBA_PTR_TO_JSON(envdInject, envdInject_);
+      DARABONBA_PTR_TO_JSON(installStorageClients, installStorageClients_);
     };
     friend void from_json(const Darabonba::Json& j, PublicUpdateTemplateBuildConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(copy, copy_);
       DARABONBA_PTR_FROM_JSON(envdInject, envdInject_);
+      DARABONBA_PTR_FROM_JSON(installStorageClients, installStorageClients_);
     };
     PublicUpdateTemplateBuildConfig() = default ;
     PublicUpdateTemplateBuildConfig(const PublicUpdateTemplateBuildConfig &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->copy_ == nullptr
-        && this->envdInject_ == nullptr; };
+        && this->envdInject_ == nullptr && this->installStorageClients_ == nullptr; };
     // copy Field Functions 
     bool hasCopy() const { return this->copy_ != nullptr;};
     void deleteCopy() { this->copy_ = nullptr;};
@@ -53,11 +55,20 @@ namespace Models
     inline PublicUpdateTemplateBuildConfig& setEnvdInject(PublicUpdateTemplateEnvdInjectAction && envdInject) { DARABONBA_PTR_SET_RVALUE(envdInject_, envdInject) };
 
 
+    // installStorageClients Field Functions 
+    bool hasInstallStorageClients() const { return this->installStorageClients_ != nullptr;};
+    void deleteInstallStorageClients() { this->installStorageClients_ = nullptr;};
+    inline bool getInstallStorageClients() const { DARABONBA_PTR_GET_DEFAULT(installStorageClients_, false) };
+    inline PublicUpdateTemplateBuildConfig& setInstallStorageClients(bool installStorageClients) { DARABONBA_PTR_SET_VALUE(installStorageClients_, installStorageClients) };
+
+
   protected:
     // The image copy action configuration.
     shared_ptr<PublicUpdateTemplateCopyAction> copy_ {};
     // The envd injection action configuration.
     shared_ptr<PublicUpdateTemplateEnvdInjectAction> envdInject_ {};
+    // The client installation required for storage mounting.
+    shared_ptr<bool> installStorageClients_ {};
   };
 
   } // namespace Models

@@ -75,7 +75,7 @@ namespace FCSandbox20260509
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
-       * @summary 创建模板缓存
+       * @summary Creates a template cache.
        *
        * @param request CreateTemplateCacheRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace FCSandbox20260509
       Models::CreateTemplateCacheResponse createTemplateCacheWithOptions(const Models::CreateTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板缓存
+       * @summary Creates a template cache.
        *
        * @param request CreateTemplateCacheRequest
        * @return CreateTemplateCacheResponse
@@ -183,7 +183,7 @@ namespace FCSandbox20260509
       Models::DeleteTemplateResponse deleteTemplate(const string &templateID, const Models::DeleteTemplateRequest &request);
 
       /**
-       * @summary 删除模板缓存
+       * @summary Deletes the template cache.
        *
        * @param request DeleteTemplateCacheRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace FCSandbox20260509
       Models::DeleteTemplateCacheResponse deleteTemplateCacheWithOptions(const string &templateID, const Models::DeleteTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模板缓存
+       * @summary Deletes the template cache.
        *
        * @param request DeleteTemplateCacheRequest
        * @return DeleteTemplateCacheResponse
@@ -219,7 +219,7 @@ namespace FCSandbox20260509
       Models::DeleteVolumeResponse deleteVolume(const string &volumeID, const Models::DeleteVolumeRequest &request);
 
       /**
-       * @summary Queries an API key.
+       * @summary Retrieves an API key.
        *
        * @param request DescribeApiKeyRequest
        * @param headers map
@@ -229,7 +229,7 @@ namespace FCSandbox20260509
       Models::DescribeApiKeyResponse describeApiKeyWithOptions(const string &apiKeyID, const Models::DescribeApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an API key.
+       * @summary Retrieves an API key.
        *
        * @param request DescribeApiKeyRequest
        * @return DescribeApiKeyResponse
@@ -399,7 +399,7 @@ namespace FCSandbox20260509
       Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
-       * @summary Queries a list of templates.
+       * @summary Lists templates.
        *
        * @param request ListTemplatesRequest
        * @param headers map
@@ -409,7 +409,7 @@ namespace FCSandbox20260509
       Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of templates.
+       * @summary Lists templates.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse

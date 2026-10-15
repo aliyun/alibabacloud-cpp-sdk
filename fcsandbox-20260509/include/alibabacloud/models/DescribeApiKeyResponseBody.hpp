@@ -118,16 +118,19 @@ namespace Models
 
 
   protected:
-    // The Bailian API key.
+    // The Model Studio API key.
     shared_ptr<ApiKey> apiKey_ {};
     // The error code.
     shared_ptr<string> code_ {};
+    // The set of permissions currently in effect for the API key.
     shared_ptr<EffectivePermissions> effectivePermissions_ {};
+    // The list of IP addresses that are blocked from using the API key.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
     // The IP whitelist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The response message.
     shared_ptr<string> message_ {};
+    // The access policy configured for the API key.
     shared_ptr<PermissionPolicy> permissionPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The description of the IP configuration.
     shared_ptr<string> description_ {};
+    // The IP address or CIDR block.
     shared_ptr<string> ipAddress_ {};
   };
 

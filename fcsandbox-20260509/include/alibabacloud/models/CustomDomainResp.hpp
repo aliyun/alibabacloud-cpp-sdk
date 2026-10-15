@@ -90,11 +90,17 @@ namespace Models
 
 
   protected:
+    // The certificate configuration used by the domain name.
     shared_ptr<CertConfig> certConfig_ {};
+    // The creation time of the custom domain name.
     shared_ptr<int64_t> createdAt_ {};
+    // The description of the custom domain name.
     shared_ptr<string> description_ {};
+    // The custom domain name.
     shared_ptr<string> domainName_ {};
+    // The TLS configuration used by the domain name.
     shared_ptr<TLSConfig> tlsConfig_ {};
+    // The last update time of the custom domain name.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

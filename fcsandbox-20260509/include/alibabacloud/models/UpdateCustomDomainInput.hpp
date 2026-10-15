@@ -63,8 +63,11 @@ namespace Models
 
 
   protected:
+    // The certificate configuration for the domain name.
     shared_ptr<CertConfig> certConfig_ {};
+    // The description of the custom domain name.
     shared_ptr<string> description_ {};
+    // The TLS configuration for the domain name.
     shared_ptr<TLSConfig> tlsConfig_ {};
   };
 

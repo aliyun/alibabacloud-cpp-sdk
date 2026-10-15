@@ -48,6 +48,7 @@
 #include <alibabacloud/models/PublicTemplateLogConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryNetworkConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRegistryConfig.hpp>
+#include <alibabacloud/models/PublicTemplateStep.hpp>
 #include <alibabacloud/models/PublicTemplateSandboxConfig.hpp>
 #include <alibabacloud/models/PublicTemplateVPCConfig.hpp>
 #include <alibabacloud/models/PublicTemplateRuntimeConfig.hpp>

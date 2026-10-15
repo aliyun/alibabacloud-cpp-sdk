@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The group ID (GID) for accessing the mounted directory in the sandbox.
     shared_ptr<int32_t> groupID_ {};
+    // The service address of the AgenticFS access point.
     shared_ptr<string> serverAddr_ {};
+    // The user ID (UID) for accessing the mounted directory in the sandbox.
     shared_ptr<int32_t> userID_ {};
   };
 

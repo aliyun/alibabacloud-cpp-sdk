@@ -121,17 +121,19 @@ namespace Models
 
 
   protected:
-    // Indicates whether the team name can be modified.
+    // Specifies whether the team name can be modified.
     shared_ptr<bool> allowUpdateTeamName_ {};
-    // The time when the team was created.
+    // The creation time.
     shared_ptr<string> createdTime_ {};
     // The description.
     shared_ptr<string> description_ {};
+    // The plan used by the team.
     shared_ptr<string> plan_ {};
+    // Specifies whether the team is read-only.
     shared_ptr<bool> readOnly_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupID_ {};
-    // The status of the team.
+    // The status.
     shared_ptr<string> status_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};

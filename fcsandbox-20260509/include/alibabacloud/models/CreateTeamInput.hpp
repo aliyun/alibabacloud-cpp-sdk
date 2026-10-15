@@ -68,6 +68,7 @@ namespace Models
   protected:
     // The description.
     shared_ptr<string> description_ {};
+    // The plan used by the team.
     shared_ptr<string> plan_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};

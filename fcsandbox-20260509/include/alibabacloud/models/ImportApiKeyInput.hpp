@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the API key.
     shared_ptr<string> apiKeyName_ {};
+    // The value of the API key to import.
     shared_ptr<string> apiKeyValue_ {};
+    // The expiration time of the API key.
     shared_ptr<string> expireTime_ {};
+    // The unique identifier of the team to which the API key belongs.
     shared_ptr<string> teamID_ {};
   };
 

@@ -93,11 +93,13 @@ namespace Models
 
 
   protected:
-    // API Key。
+    // The API key.
     shared_ptr<ApiKey> apiKey_ {};
     // The response status code.
     shared_ptr<string> code_ {};
+    // The list of IP addresses blocked from using the API key.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The list of IP addresses allowed to use the API key.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
     // The response message.
     shared_ptr<string> message_ {};

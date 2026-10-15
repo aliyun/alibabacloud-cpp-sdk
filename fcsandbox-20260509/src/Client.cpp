@@ -157,7 +157,7 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
- * @summary 创建模板缓存
+ * @summary Creates a template cache.
  *
  * @param request CreateTemplateCacheRequest
  * @param headers map
@@ -185,7 +185,7 @@ CreateTemplateCacheResponse Client::createTemplateCacheWithOptions(const CreateT
 }
 
 /**
- * @summary 创建模板缓存
+ * @summary Creates a template cache.
  *
  * @param request CreateTemplateCacheRequest
  * @return CreateTemplateCacheResponse
@@ -405,7 +405,7 @@ DeleteTemplateResponse Client::deleteTemplate(const string &templateID, const De
 }
 
 /**
- * @summary 删除模板缓存
+ * @summary Deletes the template cache.
  *
  * @param request DeleteTemplateCacheRequest
  * @param headers map
@@ -438,7 +438,7 @@ DeleteTemplateCacheResponse Client::deleteTemplateCacheWithOptions(const string 
 }
 
 /**
- * @summary 删除模板缓存
+ * @summary Deletes the template cache.
  *
  * @param request DeleteTemplateCacheRequest
  * @return DeleteTemplateCacheResponse
@@ -495,7 +495,7 @@ DeleteVolumeResponse Client::deleteVolume(const string &volumeID, const DeleteVo
 }
 
 /**
- * @summary Queries an API key.
+ * @summary Retrieves an API key.
  *
  * @param request DescribeApiKeyRequest
  * @param headers map
@@ -522,7 +522,7 @@ DescribeApiKeyResponse Client::describeApiKeyWithOptions(const string &apiKeyID,
 }
 
 /**
- * @summary Queries an API key.
+ * @summary Retrieves an API key.
  *
  * @param request DescribeApiKeyRequest
  * @return DescribeApiKeyResponse
@@ -993,7 +993,7 @@ ListTemplateCacheResponse Client::listTemplateCache(const ListTemplateCacheReque
 }
 
 /**
- * @summary Queries a list of templates.
+ * @summary Lists templates.
  *
  * @param request ListTemplatesRequest
  * @param headers map
@@ -1034,7 +1034,7 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 }
 
 /**
- * @summary Queries a list of templates.
+ * @summary Lists templates.
  *
  * @param request ListTemplatesRequest
  * @return ListTemplatesResponse

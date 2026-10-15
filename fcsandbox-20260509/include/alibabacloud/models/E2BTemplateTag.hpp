@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the template build associated with the tag.
     shared_ptr<string> buildID_ {};
+    // The creation time of the tag.
     shared_ptr<string> createdAt_ {};
+    // The name of the template tag.
     shared_ptr<string> tag_ {};
   };
 

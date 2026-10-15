@@ -138,23 +138,23 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The time when the template was created.
+    // The creation time in UTC format that complies with RFC 3339, such as 2026-08-31T12:00:00Z.
     shared_ptr<string> createdTime_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The template name.
+    // The name of the template.
     shared_ptr<string> name_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupID_ {};
     // The runtime configuration of the template.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
-    // The template status.
+    // The status of the template.
     shared_ptr<PublicTemplateStatus> status_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
-    // The team name.
+    // The name of the team.
     shared_ptr<string> teamName_ {};
     // The unique identifier of the template.
     shared_ptr<string> templateID_ {};

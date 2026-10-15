@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The request struct.
+    // The request structure.
     shared_ptr<CreateTemplateInput> body_ {};
   };
 

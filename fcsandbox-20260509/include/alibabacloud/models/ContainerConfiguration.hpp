@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // The password of the image repository.
       shared_ptr<string> password_ {};
+      // The username of the image repository.
       shared_ptr<string> username_ {};
     };
 
@@ -101,8 +103,11 @@ namespace Models
 
 
   protected:
+    // The ID of the ACR Enterprise instance to which the container image belongs.
     shared_ptr<string> acrInstanceId_ {};
+    // The container image address.
     shared_ptr<string> image_ {};
+    // The repository credentials used to pull private images.
     shared_ptr<ContainerConfiguration::RegistryCredential> registryCredential_ {};
   };
 

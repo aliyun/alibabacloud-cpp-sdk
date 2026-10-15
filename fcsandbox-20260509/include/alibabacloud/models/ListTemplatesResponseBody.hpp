@@ -90,11 +90,11 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The maximum number of entries to return.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page.
+    // The next page token.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

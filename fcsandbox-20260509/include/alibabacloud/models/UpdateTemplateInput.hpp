@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The container image configuration of the template.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
+    // The Log Service configuration of the template.
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // The VPC configuration of the template.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    // The unique identifier of the team to which the template belongs.
     shared_ptr<string> teamID_ {};
   };
 

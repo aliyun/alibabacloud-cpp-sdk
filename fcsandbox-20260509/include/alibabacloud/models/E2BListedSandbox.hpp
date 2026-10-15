@@ -170,20 +170,35 @@ namespace Models
 
 
   protected:
+    // The number of CPU cores used by the sandbox.
     shared_ptr<int32_t> cpuCount_ {};
+    // The disk size of the sandbox, in MB.
     shared_ptr<int32_t> diskSizeMB_ {};
+    // The end time of the sandbox.
     shared_ptr<string> endAt_ {};
+    // The memory size of the sandbox, in MB.
     shared_ptr<int32_t> memoryMB_ {};
+    // The custom metadata of the sandbox.
     shared_ptr<map<string, string>> metadata_ {};
+    // The ID of the resource group to which the sandbox belongs.
     shared_ptr<string> resourceGroupID_ {};
+    // The ID of the sandbox.
     shared_ptr<string> sandboxID_ {};
+    // The start time of the sandbox.
     shared_ptr<string> startedAt_ {};
+    // The current status of the sandbox.
     shared_ptr<string> state_ {};
+    // The unique identifier of the team to which the sandbox belongs.
     shared_ptr<string> teamID_ {};
+    // The name of the team to which the sandbox belongs.
     shared_ptr<string> teamName_ {};
+    // The plan of the team to which the sandbox belongs.
     shared_ptr<string> teamPlan_ {};
+    // The ID of the template used to create the sandbox.
     shared_ptr<string> templateID_ {};
+    // The name of the template.
     shared_ptr<string> templateName_ {};
+    // The ID of the user who created the sandbox.
     shared_ptr<string> userID_ {};
   };
 

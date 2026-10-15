@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

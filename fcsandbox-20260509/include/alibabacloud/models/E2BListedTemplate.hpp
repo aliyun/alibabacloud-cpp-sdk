@@ -216,24 +216,43 @@ namespace Models
 
 
   protected:
+    // The build status of the template.
     shared_ptr<string> buildStatus_ {};
+    // The category of the template.
     shared_ptr<string> category_ {};
+    // The container image configuration of the template.
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
+    // The number of CPU cores configured for the template.
     shared_ptr<int32_t> cpuCount_ {};
+    // The time when the template was created.
     shared_ptr<string> createdAt_ {};
+    // The name of the Function Compute function corresponding to the template.
     shared_ptr<string> functionName_ {};
+    // The log configuration of the template.
     shared_ptr<LogConfiguration> logConfiguration_ {};
+    // The memory size configured for the template, in MB.
     shared_ptr<int32_t> memoryMB_ {};
+    // The list of template names.
     shared_ptr<vector<string>> names_ {};
+    // Indicates whether the template is publicly available.
     shared_ptr<bool> public_ {};
+    // The ID of the resource group to which the template belongs.
     shared_ptr<string> resourceGroupID_ {};
+    // The reason for the build status of the template.
     shared_ptr<string> statusReason_ {};
+    // The list of tags for the template.
     shared_ptr<vector<E2BTemplateTag>> tags_ {};
+    // The unique identifier of the team to which the template belongs.
     shared_ptr<string> teamID_ {};
+    // The name of the team to which the template belongs.
     shared_ptr<string> teamName_ {};
+    // The plan of the team to which the template belongs.
     shared_ptr<string> teamPlan_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
+    // The time when the template was last updated.
     shared_ptr<string> updatedAt_ {};
+    // The ID of the user who created the template.
     shared_ptr<string> userID_ {};
   };
 
