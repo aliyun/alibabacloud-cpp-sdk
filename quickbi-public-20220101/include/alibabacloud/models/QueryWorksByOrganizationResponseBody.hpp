@@ -168,13 +168,13 @@ namespace Models
 
 
         protected:
-          // ID of the directory to which it belongs.
+          // The ID of the directory.
           shared_ptr<string> id_ {};
-          // Name of the directory to which it belongs.
+          // The name of the directory.
           shared_ptr<string> name_ {};
-          // Hierarchical structure of the directory ID, separated by『/』.
+          // The hierarchical structure of directory IDs, separated by forward slashes (/).
           shared_ptr<string> pathId_ {};
-          // Hierarchical structure of the directory name, separated by『/』.
+          // The hierarchical structure of directory names, separated by forward slashes (/).
           shared_ptr<string> pathName_ {};
         };
 
@@ -305,52 +305,52 @@ namespace Models
 
 
       protected:
-        // Third-party embedding status. Possible values:
+        // The third-party embedding status. Valid values:
         // 
-        // - 0: Embedding not enabled
-        // - 1: Embedding enabled
+        // - 0: Embedding is not enabled.
+        // - 1: Embedding is enabled.
         shared_ptr<int32_t> auth3rdFlag_ {};
-        // Notes for the work.
+        // The description of the work.
         shared_ptr<string> description_ {};
-        // Directory to which the work belongs.
+        // The directory to which the work belongs.
         shared_ptr<Data::Directory> directory_ {};
-        // Timestamp (in milliseconds) when the work was created.
+        // The timestamp when the work was created, in milliseconds.
         shared_ptr<string> gmtCreate_ {};
-        // Millisecond-level timestamp of the work modification.
+        // The timestamp when the work was last modified, in milliseconds.
         shared_ptr<string> gmtModify_ {};
-        // The Alibaba Cloud account name of the work modifier.
+        // The Alibaba Cloud account name of the user who last modified the work.
         shared_ptr<string> modifyName_ {};
-        // The UserID of the work\\"s owner in Quick BI.
+        // The Quick BI user ID of the work owner.
         shared_ptr<string> ownerId_ {};
-        // The Alibaba Cloud account name of the work\\"s owner.
+        // The Alibaba Cloud account name of the work owner.
         shared_ptr<string> ownerName_ {};
-        // Whether it is public
+        // Indicates whether the work is public.
         shared_ptr<bool> publicFlag_ {};
-        // The expiration date for the report to be made public
+        // The expiration date for the public report, in UNIX timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> publicInvalidTime_ {};
-        // The security policy for collaborative authorization of the work. Values:
-        // - 0: Private
-        // - 12: Authorize specific members
-        // - 1 or 11: Authorize all space members
+        // The security policy for collaborative authorization of the work. Valid values:
+        // - 0: Private.
+        // - 12: Authorized to specified members.
+        // - 1 or 11: Authorized to all workspace members.
         // 
-        // >- If you are using the old version of permissions, the returned value is 1.
-        // >- If you are using the new version of permissions, the returned value is 11.
+        // >- If you use the legacy permissions, the return value is 1.
+        // >- If you use the new permissions, the return value is 11.
         shared_ptr<string> securityLevel_ {};
-        // The status of the report. Value range:
+        // The report status. Valid values:
         // 
-        // - 0: Unpublished
-        // - 1: Published
-        // - 2: Modified but not published
-        // - 3: Offline
+        // - 0: Unpublished.
+        // - 1: Published.
+        // - 2: Modified but not published.
+        // - 3: Offline.
         shared_ptr<int32_t> status_ {};
         // The name of the work.
         shared_ptr<string> workName_ {};
-        // The type of the work. Value range:
+        // The type of the work. Valid values:
         // 
-        // - DATAPRODUCT: Data portal
-        // - PAGE: Dashboard
-        // - REPORT: Spreadsheet
-        // - dashboardOfflineQuery: Self-service data retrieval
+        // - DATAPRODUCT: data portal
+        // - PAGE: dashboard
+        // - REPORT: workbook
+        // - dashboardOfflineQuery: custom query
         shared_ptr<string> workType_ {};
         // The ID of the work.
         shared_ptr<string> worksId_ {};
@@ -400,15 +400,15 @@ namespace Models
 
 
     protected:
-      // Details of the work list.
+      // The details of the works list.
       shared_ptr<vector<Result::Data>> data_ {};
-      // Page number.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of rows per page set when requesting the interface.
+      // The number of rows per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of rows.
+      // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -438,14 +438,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns a list of all works under the organization that meet the request criteria.
+    // The list of all works in the organization that match the request conditions.
     shared_ptr<QueryWorksByOrganizationResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

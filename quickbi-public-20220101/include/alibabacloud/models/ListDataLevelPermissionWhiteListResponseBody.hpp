@@ -99,9 +99,9 @@ namespace Models
 
 
       protected:
-        // UserGroups.
+        // The list of user group IDs.
         shared_ptr<vector<string>> userGroups_ {};
-        // Users.
+        // The list of Quick BI user IDs.
         shared_ptr<vector<string>> users_ {};
       };
 
@@ -131,14 +131,14 @@ namespace Models
 
 
     protected:
-      // Dataset ID.
+      // The dataset ID.
       shared_ptr<string> cubeId_ {};
-      // Type of dataset row and column permissions. Possible values:
+      // The type of row and column permission for the dataset. Valid values:
       // 
-      // - ROW_LEVEL: Row-level permission
-      // - COLUMN_LEVEL: Column-level permission
+      // - ROW_LEVEL: row-level permission
+      // - COLUMN_LEVEL: column-level permission
       shared_ptr<string> ruleType_ {};
-      // Whitelist information.
+      // The whitelist information.
       shared_ptr<Result::UsersModel> usersModel_ {};
     };
 
@@ -168,14 +168,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whitelist for the specified row-level permission type.
+    // The whitelist of the specified row-level or column-level permission type.
     shared_ptr<ListDataLevelPermissionWhiteListResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -80,7 +80,7 @@ namespace QuickbiPublic20220101
       Models::AddDataSourceResponse addDataSource(const Models::AddDataSourceRequest &request);
 
       /**
-       * @summary Add a sharing configuration for data works.
+       * @summary Adds a sharing configuration for a data work.
        *
        * @param request AddShareReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ namespace QuickbiPublic20220101
       Models::AddShareReportResponse addShareReportWithOptions(const Models::AddShareReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add a sharing configuration for data works.
+       * @summary Adds a sharing configuration for a data work.
        *
        * @param request AddShareReportRequest
        * @return AddShareReportResponse
@@ -97,7 +97,7 @@ namespace QuickbiPublic20220101
       Models::AddShareReportResponse addShareReport(const Models::AddShareReportRequest &request);
 
       /**
-       * @summary Add organization members.
+       * @summary Adds an organization member.
        *
        * @param request AddUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -106,7 +106,7 @@ namespace QuickbiPublic20220101
       Models::AddUserResponse addUserWithOptions(const Models::AddUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Add organization members.
+       * @summary Adds an organization member.
        *
        * @param request AddUserRequest
        * @return AddUserResponse
@@ -199,7 +199,7 @@ namespace QuickbiPublic20220101
       Models::AddWorksAuthorizationResponse addWorksAuthorization(const Models::AddWorksAuthorizationRequest &request);
 
       /**
-       * @summary Batch add members to the workspace.
+       * @summary Adds members to a workspace in batches.
        *
        * @param request AddWorkspaceUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,7 +208,7 @@ namespace QuickbiPublic20220101
       Models::AddWorkspaceUsersResponse addWorkspaceUsersWithOptions(const Models::AddWorkspaceUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch add members to the workspace.
+       * @summary Adds members to a workspace in batches.
        *
        * @param request AddWorkspaceUsersRequest
        * @return AddWorkspaceUsersResponse
@@ -810,7 +810,7 @@ namespace QuickbiPublic20220101
       Models::GetMailTaskStatusResponse getMailTaskStatus(const Models::GetMailTaskStatusRequest &request);
 
       /**
-       * @summary Search for user group information based on the keyword of the user group name.
+       * @summary Searches for user group information by user group name keyword.
        *
        * @param request GetUserGroupInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -819,7 +819,7 @@ namespace QuickbiPublic20220101
       Models::GetUserGroupInfoResponse getUserGroupInfoWithOptions(const Models::GetUserGroupInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Search for user group information based on the keyword of the user group name.
+       * @summary Searches for user group information by user group name keyword.
        *
        * @param request GetUserGroupInfoRequest
        * @return GetUserGroupInfoResponse
@@ -827,7 +827,7 @@ namespace QuickbiPublic20220101
       Models::GetUserGroupInfoResponse getUserGroupInfo(const Models::GetUserGroupInfoRequest &request);
 
       /**
-       * @summary Query the list of embedded reports
+       * @summary Queries the list of embedded reports.
        *
        * @param request GetWorksEmbedListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -836,7 +836,7 @@ namespace QuickbiPublic20220101
       Models::GetWorksEmbedListResponse getWorksEmbedListWithOptions(const Models::GetWorksEmbedListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of embedded reports
+       * @summary Queries the list of embedded reports.
        *
        * @param request GetWorksEmbedListRequest
        * @return GetWorksEmbedListResponse
@@ -844,7 +844,7 @@ namespace QuickbiPublic20220101
       Models::GetWorksEmbedListResponse getWorksEmbedList(const Models::GetWorksEmbedListRequest &request);
 
       /**
-       * @summary Configures the IP address whitelist for data security.
+       * @summary Configures the IP whitelist for data security.
        *
        * @param request IpWhiteListConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -853,7 +853,7 @@ namespace QuickbiPublic20220101
       Models::IpWhiteListConfigResponse ipWhiteListConfigWithOptions(const Models::IpWhiteListConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures the IP address whitelist for data security.
+       * @summary Configures the IP whitelist for data security.
        *
        * @param request IpWhiteListConfigRequest
        * @return IpWhiteListConfigResponse
@@ -861,7 +861,7 @@ namespace QuickbiPublic20220101
       Models::IpWhiteListConfigResponse ipWhiteListConfig(const Models::IpWhiteListConfigRequest &request);
 
       /**
-       * @summary Retrieves information about acceleration tasks in a workspace.
+       * @summary Retrieves acceleration engine task information from the management page of a workspace.
        *
        * @param request ListAccelerationOfWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -870,7 +870,7 @@ namespace QuickbiPublic20220101
       Models::ListAccelerationOfWorkspaceResponse listAccelerationOfWorkspaceWithOptions(const Models::ListAccelerationOfWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about acceleration tasks in a workspace.
+       * @summary Retrieves acceleration engine task information from the management page of a workspace.
        *
        * @param request ListAccelerationOfWorkspaceRequest
        * @return ListAccelerationOfWorkspaceResponse
@@ -878,9 +878,9 @@ namespace QuickbiPublic20220101
       Models::ListAccelerationOfWorkspaceResponse listAccelerationOfWorkspace(const Models::ListAccelerationOfWorkspaceRequest &request);
 
       /**
-       * @summary Queries API data sources.
+       * @summary Queries the list of API data sources.
        *
-       * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+       * @description For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
        *
        * @param request ListApiDatasourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -889,9 +889,9 @@ namespace QuickbiPublic20220101
       Models::ListApiDatasourceResponse listApiDatasourceWithOptions(const Models::ListApiDatasourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries API data sources.
+       * @summary Queries the list of API data sources.
        *
-       * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+       * @description For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
        *
        * @param request ListApiDatasourceRequest
        * @return ListApiDatasourceResponse
@@ -899,7 +899,24 @@ namespace QuickbiPublic20220101
       Models::ListApiDatasourceResponse listApiDatasource(const Models::ListApiDatasourceRequest &request);
 
       /**
-       * @summary Queries user group information at a time by user group ID.
+       * @summary Queries the collaborative authorization records of a resource.
+       *
+       * @param request ListAuthConfigByResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthConfigByResourceResponse
+       */
+      Models::ListAuthConfigByResourceResponse listAuthConfigByResourceWithOptions(const Models::ListAuthConfigByResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the collaborative authorization records of a resource.
+       *
+       * @param request ListAuthConfigByResourceRequest
+       * @return ListAuthConfigByResourceResponse
+       */
+      Models::ListAuthConfigByResourceResponse listAuthConfigByResource(const Models::ListAuthConfigByResourceRequest &request);
+
+      /**
+       * @summary Queries information about user groups in batch by user group ID.
        *
        * @param request ListByUserGroupIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -908,7 +925,7 @@ namespace QuickbiPublic20220101
       Models::ListByUserGroupIdResponse listByUserGroupIdWithOptions(const Models::ListByUserGroupIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries user group information at a time by user group ID.
+       * @summary Queries information about user groups in batch by user group ID.
        *
        * @param request ListByUserGroupIdRequest
        * @return ListByUserGroupIdResponse
@@ -954,9 +971,9 @@ namespace QuickbiPublic20220101
       Models::ListCubeDataLevelPermissionConfigResponse listCubeDataLevelPermissionConfig(const Models::ListCubeDataLevelPermissionConfigRequest &request);
 
       /**
-       * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+       * @summary Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
        *
-       * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+       * @description >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request ListDataLevelPermissionWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,9 +982,9 @@ namespace QuickbiPublic20220101
       Models::ListDataLevelPermissionWhiteListResponse listDataLevelPermissionWhiteListWithOptions(const Models::ListDataLevelPermissionWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+       * @summary Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
        *
-       * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+       * @description >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request ListDataLevelPermissionWhiteListRequest
        * @return ListDataLevelPermissionWhiteListResponse
@@ -1092,7 +1109,7 @@ namespace QuickbiPublic20220101
       Models::ListPortalMenusResponse listPortalMenus(const Models::ListPortalMenusRequest &request);
 
       /**
-       * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+       * @summary Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
        *
        * @param request ListRecentViewReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1118,7 @@ namespace QuickbiPublic20220101
       Models::ListRecentViewReportsResponse listRecentViewReportsWithOptions(const Models::ListRecentViewReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+       * @summary Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
        *
        * @param request ListRecentViewReportsRequest
        * @return ListRecentViewReportsResponse
@@ -1283,7 +1300,7 @@ namespace QuickbiPublic20220101
       Models::ModifyDashboardNl2sqlStatusResponse modifyDashboardNl2sqlStatus(const Models::ModifyDashboardNl2sqlStatusRequest &request);
 
       /**
-       * @summary Queries the run logs of acceleration tasks for a specified dataset.
+       * @summary Retrieves the execution logs of acceleration tasks for a specified dataset.
        *
        * @param request QueryAccelerationLogByCubeIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1309,7 @@ namespace QuickbiPublic20220101
       Models::QueryAccelerationLogByCubeIdResponse queryAccelerationLogByCubeIdWithOptions(const Models::QueryAccelerationLogByCubeIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the run logs of acceleration tasks for a specified dataset.
+       * @summary Retrieves the execution logs of acceleration tasks for a specified dataset.
        *
        * @param request QueryAccelerationLogByCubeIdRequest
        * @return QueryAccelerationLogByCubeIdResponse
@@ -1561,7 +1578,7 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetInfoResponse queryDatasetInfo(const Models::QueryDatasetInfoRequest &request);
 
       /**
-       * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+       * @summary Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
        *
        * @param request QueryDatasetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1570,7 +1587,7 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetListResponse queryDatasetListWithOptions(const Models::QueryDatasetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+       * @summary Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
        *
        * @param request QueryDatasetListRequest
        * @return QueryDatasetListResponse
@@ -1699,7 +1716,7 @@ namespace QuickbiPublic20220101
       Models::QueryOrganizationRoleConfigResponse queryOrganizationRoleConfig(const Models::QueryOrganizationRoleConfigRequest &request);
 
       /**
-       * @summary Lists the workspaces in the current organization.
+       * @summary Retrieves the list of workspaces in the current organization.
        *
        * @param request QueryOrganizationWorkspaceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1708,7 +1725,7 @@ namespace QuickbiPublic20220101
       Models::QueryOrganizationWorkspaceListResponse queryOrganizationWorkspaceListWithOptions(const Models::QueryOrganizationWorkspaceListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the workspaces in the current organization.
+       * @summary Retrieves the list of workspaces in the current organization.
        *
        * @param request QueryOrganizationWorkspaceListRequest
        * @return QueryOrganizationWorkspaceListResponse
@@ -1990,7 +2007,7 @@ namespace QuickbiPublic20220101
       Models::QueryUserTagValueListResponse queryUserTagValueList(const Models::QueryUserTagValueListRequest &request);
 
       /**
-       * @summary Queries information about a specified data work.
+       * @summary Queries the information of a specified data work.
        *
        * @param request QueryWorksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1999,7 +2016,7 @@ namespace QuickbiPublic20220101
       Models::QueryWorksResponse queryWorksWithOptions(const Models::QueryWorksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a specified data work.
+       * @summary Queries the information of a specified data work.
        *
        * @param request QueryWorksRequest
        * @return QueryWorksResponse
@@ -2024,7 +2041,7 @@ namespace QuickbiPublic20220101
       Models::QueryWorksBloodRelationshipResponse queryWorksBloodRelationship(const Models::QueryWorksBloodRelationshipRequest &request);
 
       /**
-       * @summary Query all works under the entire organization, with the option to specify the type of work.
+       * @summary Queries all works in an organization. You can specify the work type.
        *
        * @param request QueryWorksByOrganizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2033,7 +2050,7 @@ namespace QuickbiPublic20220101
       Models::QueryWorksByOrganizationResponse queryWorksByOrganizationWithOptions(const Models::QueryWorksByOrganizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query all works under the entire organization, with the option to specify the type of work.
+       * @summary Queries all works in an organization. You can specify the work type.
        *
        * @param request QueryWorksByOrganizationRequest
        * @return QueryWorksByOrganizationResponse
@@ -2227,9 +2244,9 @@ namespace QuickbiPublic20220101
       Models::SmartqAuthorizeResponse smartqAuthorize(const Models::SmartqAuthorizeRequest &request);
 
       /**
-       * @summary Runs an intelligent Q&A query.
+       * @summary Queries data by using the Smart Q&A feature.
        *
-       * @description Note: Authorized users can query data as another user by passing the userId of the target user.
+       * @description Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
        *
        * @param request SmartqQueryAbilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2238,9 +2255,9 @@ namespace QuickbiPublic20220101
       Models::SmartqQueryAbilityResponse smartqQueryAbilityWithOptions(const Models::SmartqQueryAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs an intelligent Q&A query.
+       * @summary Queries data by using the Smart Q&A feature.
        *
-       * @description Note: Authorized users can query data as another user by passing the userId of the target user.
+       * @description Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
        *
        * @param request SmartqQueryAbilityRequest
        * @return SmartqQueryAbilityResponse
@@ -2263,6 +2280,23 @@ namespace QuickbiPublic20220101
        * @return TransferUsergroupResponse
        */
       Models::TransferUsergroupResponse transferUsergroup(const Models::TransferUsergroupRequest &request);
+
+      /**
+       * @summary Modifies the permission attributes of resource collaborative authorization.
+       *
+       * @param request UpdateAuthorizationAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAuthorizationAttributesResponse
+       */
+      Models::UpdateAuthorizationAttributesResponse updateAuthorizationAttributesWithOptions(const Models::UpdateAuthorizationAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the permission attributes of resource collaborative authorization.
+       *
+       * @param request UpdateAuthorizationAttributesRequest
+       * @return UpdateAuthorizationAttributesResponse
+       */
+      Models::UpdateAuthorizationAttributesResponse updateAuthorizationAttributes(const Models::UpdateAuthorizationAttributesRequest &request);
 
       /**
        * @summary Updates a custom SQL dataset.
@@ -2422,7 +2456,7 @@ namespace QuickbiPublic20220101
       Models::UpdateUserTagValueResponse updateUserTagValue(const Models::UpdateUserTagValueRequest &request);
 
       /**
-       * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+       * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
        *
        * @param request UpdateWorkspaceUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2465,7 @@ namespace QuickbiPublic20220101
       Models::UpdateWorkspaceUserRoleResponse updateWorkspaceUserRoleWithOptions(const Models::UpdateWorkspaceUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+       * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
        *
        * @param request UpdateWorkspaceUserRoleRequest
        * @return UpdateWorkspaceUserRoleResponse
@@ -2439,7 +2473,7 @@ namespace QuickbiPublic20220101
       Models::UpdateWorkspaceUserRoleResponse updateWorkspaceUserRole(const Models::UpdateWorkspaceUserRoleRequest &request);
 
       /**
-       * @summary Batch update the role information of workspace members, existing roles will be overwritten
+       * @summary Updates the roles of workspace members in batches. Existing roles are overwritten.
        *
        * @param request UpdateWorkspaceUsersRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2448,7 +2482,7 @@ namespace QuickbiPublic20220101
       Models::UpdateWorkspaceUsersRoleResponse updateWorkspaceUsersRoleWithOptions(const Models::UpdateWorkspaceUsersRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch update the role information of workspace members, existing roles will be overwritten
+       * @summary Updates the roles of workspace members in batches. Existing roles are overwritten.
        *
        * @param request UpdateWorkspaceUsersRoleRequest
        * @return UpdateWorkspaceUsersRoleResponse

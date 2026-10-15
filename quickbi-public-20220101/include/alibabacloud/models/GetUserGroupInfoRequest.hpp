@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Keyword of the user group name.
+    // The keyword of the user group name.
     // 
     // This parameter is required.
     shared_ptr<string> keyword_ {};

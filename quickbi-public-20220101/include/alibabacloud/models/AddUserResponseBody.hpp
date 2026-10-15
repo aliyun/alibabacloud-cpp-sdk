@@ -133,41 +133,32 @@ namespace Models
     protected:
       // The Alibaba Cloud account.
       shared_ptr<string> accountName_ {};
-      // Indicates whether the organization administrator role is assigned. Valid values:
+      // Indicates whether the organization administrator role is bound. Valid values:
       // 
-      // - true
+      // - true: Yes.
+      // - false: No.
       // 
-      // - false
-      // 
-      // >Notice: 
-      // 
-      // This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
+      // <notice>This parameter is deprecated. When RoleIdList is specified, this parameter does not take effect.</notice>
       shared_ptr<bool> adminUser_ {};
-      // Indicates whether the permission administrator role is assigned. Valid values:
+      // Indicates whether the permission management administrator role is attached. Valid values:
       // 
-      // - true
+      // - true: Yes.
+      // - false: No.
       // 
-      // - false
-      // 
-      // >Notice: 
-      // 
-      // This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
+      // <notice>This parameter has expired and is no longer recommended. When RoleIdList is specified, this parameter does not take effect.</notice>
       shared_ptr<bool> authAdminUser_ {};
-      // The Copilot modules for which the user has a quota.
+      // The intelligent module quotas owned by the user.
       shared_ptr<vector<string>> copilotModules_ {};
       // The nickname of the Alibaba Cloud account.
       shared_ptr<string> nickName_ {};
-      // A list of organization role IDs assigned to the user.
+      // The list of organization role IDs bound to the user.
       shared_ptr<vector<int64_t>> roleIdList_ {};
       // The user ID in Quick BI.
       shared_ptr<string> userId_ {};
-      // The user type. Valid values:
-      // 
-      // - 1: developer
-      // 
-      // - 2: viewer
-      // 
-      // - 3: analyst
+      // The user type of the organization member. Valid values:
+      // - 1: Developer.
+      // - 2: Visitor.
+      // - 3: Analyst.
       shared_ptr<int32_t> userType_ {};
     };
 
@@ -203,9 +194,8 @@ namespace Models
     shared_ptr<AddUserResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - true
-    // 
-    // - false
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

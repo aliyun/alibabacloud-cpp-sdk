@@ -18,18 +18,6 @@ namespace QuickbiPublic20220101
 
 AlibabaCloud::QuickbiPublic20220101::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-northeast-1" , "quickbi-public.ap-northeast-1.aliyuncs.com"},
-    {"ap-southeast-1" , "quickbi-public.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "quickbi-public.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-5" , "quickbi-public.ap-southeast-5.aliyuncs.com"},
-    {"cn-hangzhou" , "quickbi-public.cn-hangzhou.aliyuncs.com"},
-    {"cn-hongkong" , "quickbi-public.cn-hongkong.aliyuncs.com"},
-    {"us-east-1" , "quickbi-public.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "quickbi-public.eu-central-1.aliyuncs.com"},
-    {"me-central-1" , "quickbi-public.me-central-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "quickbi-public.cn-shanghai-finance-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("quickbi-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -198,7 +186,7 @@ AddDataSourceResponse Client::addDataSource(const AddDataSourceRequest &request)
 }
 
 /**
- * @summary Add a sharing configuration for data works.
+ * @summary Adds a sharing configuration for a data work.
  *
  * @param request AddShareReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -245,7 +233,7 @@ AddShareReportResponse Client::addShareReportWithOptions(const AddShareReportReq
 }
 
 /**
- * @summary Add a sharing configuration for data works.
+ * @summary Adds a sharing configuration for a data work.
  *
  * @param request AddShareReportRequest
  * @return AddShareReportResponse
@@ -256,7 +244,7 @@ AddShareReportResponse Client::addShareReport(const AddShareReportRequest &reque
 }
 
 /**
- * @summary Add organization members.
+ * @summary Adds an organization member.
  *
  * @param request AddUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -317,7 +305,7 @@ AddUserResponse Client::addUserWithOptions(const AddUserRequest &request, const 
 }
 
 /**
- * @summary Add organization members.
+ * @summary Adds an organization member.
  *
  * @param request AddUserRequest
  * @return AddUserResponse
@@ -578,7 +566,7 @@ AddWorksAuthorizationResponse Client::addWorksAuthorization(const AddWorksAuthor
 }
 
 /**
- * @summary Batch add members to the workspace.
+ * @summary Adds members to a workspace in batches.
  *
  * @param request AddWorkspaceUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -617,7 +605,7 @@ AddWorkspaceUsersResponse Client::addWorkspaceUsersWithOptions(const AddWorkspac
 }
 
 /**
- * @summary Batch add members to the workspace.
+ * @summary Adds members to a workspace in batches.
  *
  * @param request AddWorkspaceUsersRequest
  * @return AddWorkspaceUsersResponse
@@ -2348,7 +2336,7 @@ GetMailTaskStatusResponse Client::getMailTaskStatus(const GetMailTaskStatusReque
 }
 
 /**
- * @summary Search for user group information based on the keyword of the user group name.
+ * @summary Searches for user group information by user group name keyword.
  *
  * @param request GetUserGroupInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2379,7 +2367,7 @@ GetUserGroupInfoResponse Client::getUserGroupInfoWithOptions(const GetUserGroupI
 }
 
 /**
- * @summary Search for user group information based on the keyword of the user group name.
+ * @summary Searches for user group information by user group name keyword.
  *
  * @param request GetUserGroupInfoRequest
  * @return GetUserGroupInfoResponse
@@ -2390,7 +2378,7 @@ GetUserGroupInfoResponse Client::getUserGroupInfo(const GetUserGroupInfoRequest 
 }
 
 /**
- * @summary Query the list of embedded reports
+ * @summary Queries the list of embedded reports.
  *
  * @param request GetWorksEmbedListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2437,7 +2425,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedListWithOptions(const GetWorksEmb
 }
 
 /**
- * @summary Query the list of embedded reports
+ * @summary Queries the list of embedded reports.
  *
  * @param request GetWorksEmbedListRequest
  * @return GetWorksEmbedListResponse
@@ -2448,7 +2436,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedList(const GetWorksEmbedListReque
 }
 
 /**
- * @summary Configures the IP address whitelist for data security.
+ * @summary Configures the IP whitelist for data security.
  *
  * @param request IpWhiteListConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2483,7 +2471,7 @@ IpWhiteListConfigResponse Client::ipWhiteListConfigWithOptions(const IpWhiteList
 }
 
 /**
- * @summary Configures the IP address whitelist for data security.
+ * @summary Configures the IP whitelist for data security.
  *
  * @param request IpWhiteListConfigRequest
  * @return IpWhiteListConfigResponse
@@ -2494,7 +2482,7 @@ IpWhiteListConfigResponse Client::ipWhiteListConfig(const IpWhiteListConfigReque
 }
 
 /**
- * @summary Retrieves information about acceleration tasks in a workspace.
+ * @summary Retrieves acceleration engine task information from the management page of a workspace.
  *
  * @param request ListAccelerationOfWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2529,7 @@ ListAccelerationOfWorkspaceResponse Client::listAccelerationOfWorkspaceWithOptio
 }
 
 /**
- * @summary Retrieves information about acceleration tasks in a workspace.
+ * @summary Retrieves acceleration engine task information from the management page of a workspace.
  *
  * @param request ListAccelerationOfWorkspaceRequest
  * @return ListAccelerationOfWorkspaceResponse
@@ -2552,9 +2540,9 @@ ListAccelerationOfWorkspaceResponse Client::listAccelerationOfWorkspace(const Li
 }
 
 /**
- * @summary Queries API data sources.
+ * @summary Queries the list of API data sources.
  *
- * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+ * @description For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
  *
  * @param request ListApiDatasourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2597,9 +2585,9 @@ ListApiDatasourceResponse Client::listApiDatasourceWithOptions(const ListApiData
 }
 
 /**
- * @summary Queries API data sources.
+ * @summary Queries the list of API data sources.
  *
- * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+ * @description For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
  *
  * @param request ListApiDatasourceRequest
  * @return ListApiDatasourceResponse
@@ -2610,7 +2598,65 @@ ListApiDatasourceResponse Client::listApiDatasource(const ListApiDatasourceReque
 }
 
 /**
- * @summary Queries user group information at a time by user group ID.
+ * @summary Queries the collaborative authorization records of a resource.
+ *
+ * @param request ListAuthConfigByResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthConfigByResourceResponse
+ */
+ListAuthConfigByResourceResponse Client::listAuthConfigByResourceWithOptions(const ListAuthConfigByResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHasAuth()) {
+    query["HasAuth"] = request.getHasAuth();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasShareToType()) {
+    query["ShareToType"] = request.getShareToType();
+  }
+
+  if (!!request.hasWorksType()) {
+    query["WorksType"] = request.getWorksType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthConfigByResource"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthConfigByResourceResponse>();
+}
+
+/**
+ * @summary Queries the collaborative authorization records of a resource.
+ *
+ * @param request ListAuthConfigByResourceRequest
+ * @return ListAuthConfigByResourceResponse
+ */
+ListAuthConfigByResourceResponse Client::listAuthConfigByResource(const ListAuthConfigByResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthConfigByResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries information about user groups in batch by user group ID.
  *
  * @param request ListByUserGroupIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2641,7 +2687,7 @@ ListByUserGroupIdResponse Client::listByUserGroupIdWithOptions(const ListByUserG
 }
 
 /**
- * @summary Queries user group information at a time by user group ID.
+ * @summary Queries information about user groups in batch by user group ID.
  *
  * @param request ListByUserGroupIdRequest
  * @return ListByUserGroupIdResponse
@@ -2744,9 +2790,9 @@ ListCubeDataLevelPermissionConfigResponse Client::listCubeDataLevelPermissionCon
 }
 
 /**
- * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+ * @summary Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
  *
- * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+ * @description >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request ListDataLevelPermissionWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2781,9 +2827,9 @@ ListDataLevelPermissionWhiteListResponse Client::listDataLevelPermissionWhiteLis
 }
 
 /**
- * @summary Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+ * @summary Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
  *
- * @description > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+ * @description >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request ListDataLevelPermissionWhiteListRequest
  * @return ListDataLevelPermissionWhiteListResponse
@@ -3103,7 +3149,7 @@ ListPortalMenusResponse Client::listPortalMenus(const ListPortalMenusRequest &re
 }
 
 /**
- * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+ * @summary Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
  *
  * @param request ListRecentViewReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3154,7 +3200,7 @@ ListRecentViewReportsResponse Client::listRecentViewReportsWithOptions(const Lis
 }
 
 /**
- * @summary You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+ * @summary Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
  *
  * @param request ListRecentViewReportsRequest
  * @return ListRecentViewReportsResponse
@@ -3641,7 +3687,7 @@ ModifyDashboardNl2sqlStatusResponse Client::modifyDashboardNl2sqlStatus(const Mo
 }
 
 /**
- * @summary Queries the run logs of acceleration tasks for a specified dataset.
+ * @summary Retrieves the execution logs of acceleration tasks for a specified dataset.
  *
  * @param request QueryAccelerationLogByCubeIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3688,7 +3734,7 @@ QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeIdWithOpt
 }
 
 /**
- * @summary Queries the run logs of acceleration tasks for a specified dataset.
+ * @summary Retrieves the execution logs of acceleration tasks for a specified dataset.
  *
  * @param request QueryAccelerationLogByCubeIdRequest
  * @return QueryAccelerationLogByCubeIdResponse
@@ -4413,7 +4459,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfo(const QueryDatasetInfoRequest 
 }
 
 /**
- * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+ * @summary Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
  *
  * @param request QueryDatasetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4464,7 +4510,7 @@ QueryDatasetListResponse Client::queryDatasetListWithOptions(const QueryDatasetL
 }
 
 /**
- * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+ * @summary Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
  *
  * @param request QueryDatasetListRequest
  * @return QueryDatasetListResponse
@@ -4763,7 +4809,7 @@ QueryOrganizationRoleConfigResponse Client::queryOrganizationRoleConfig(const Qu
 }
 
 /**
- * @summary Lists the workspaces in the current organization.
+ * @summary Retrieves the list of workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4806,7 +4852,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceListWit
 }
 
 /**
- * @summary Lists the workspaces in the current organization.
+ * @summary Retrieves the list of workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @return QueryOrganizationWorkspaceListResponse
@@ -5527,7 +5573,7 @@ QueryUserTagValueListResponse Client::queryUserTagValueList(const QueryUserTagVa
 }
 
 /**
- * @summary Queries information about a specified data work.
+ * @summary Queries the information of a specified data work.
  *
  * @param request QueryWorksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5558,7 +5604,7 @@ QueryWorksResponse Client::queryWorksWithOptions(const QueryWorksRequest &reques
 }
 
 /**
- * @summary Queries information about a specified data work.
+ * @summary Queries the information of a specified data work.
  *
  * @param request QueryWorksRequest
  * @return QueryWorksResponse
@@ -5611,7 +5657,7 @@ QueryWorksBloodRelationshipResponse Client::queryWorksBloodRelationship(const Qu
 }
 
 /**
- * @summary Query all works under the entire organization, with the option to specify the type of work.
+ * @summary Queries all works in an organization. You can specify the work type.
  *
  * @param request QueryWorksByOrganizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5658,7 +5704,7 @@ QueryWorksByOrganizationResponse Client::queryWorksByOrganizationWithOptions(con
 }
 
 /**
- * @summary Query all works under the entire organization, with the option to specify the type of work.
+ * @summary Queries all works in an organization. You can specify the work type.
  *
  * @param request QueryWorksByOrganizationRequest
  * @return QueryWorksByOrganizationResponse
@@ -6181,9 +6227,9 @@ SmartqAuthorizeResponse Client::smartqAuthorize(const SmartqAuthorizeRequest &re
 }
 
 /**
- * @summary Runs an intelligent Q&A query.
+ * @summary Queries data by using the Smart Q&A feature.
  *
- * @description Note: Authorized users can query data as another user by passing the userId of the target user.
+ * @description Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
  *
  * @param request SmartqQueryAbilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6226,9 +6272,9 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
 }
 
 /**
- * @summary Runs an intelligent Q&A query.
+ * @summary Queries data by using the Smart Q&A feature.
  *
- * @description Note: Authorized users can query data as another user by passing the userId of the target user.
+ * @description Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
  *
  * @param request SmartqQueryAbilityRequest
  * @return SmartqQueryAbilityResponse
@@ -6282,6 +6328,60 @@ TransferUsergroupResponse Client::transferUsergroupWithOptions(const TransferUse
 TransferUsergroupResponse Client::transferUsergroup(const TransferUsergroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return transferUsergroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the permission attributes of resource collaborative authorization.
+ *
+ * @param request UpdateAuthorizationAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAuthorizationAttributesResponse
+ */
+UpdateAuthorizationAttributesResponse Client::updateAuthorizationAttributesWithOptions(const UpdateAuthorizationAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEditPermissionType()) {
+    query["EditPermissionType"] = request.getEditPermissionType();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasUsePermissionType()) {
+    query["UsePermissionType"] = request.getUsePermissionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAuthorizationAttributes"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAuthorizationAttributesResponse>();
+}
+
+/**
+ * @summary Modifies the permission attributes of resource collaborative authorization.
+ *
+ * @param request UpdateAuthorizationAttributesRequest
+ * @return UpdateAuthorizationAttributesResponse
+ */
+UpdateAuthorizationAttributesResponse Client::updateAuthorizationAttributes(const UpdateAuthorizationAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAuthorizationAttributesWithOptions(request, runtime);
 }
 
 /**
@@ -6755,7 +6855,7 @@ UpdateUserTagValueResponse Client::updateUserTagValue(const UpdateUserTagValueRe
 }
 
 /**
- * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+ * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
  *
  * @param request UpdateWorkspaceUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6798,7 +6898,7 @@ UpdateWorkspaceUserRoleResponse Client::updateWorkspaceUserRoleWithOptions(const
 }
 
 /**
- * @summary Modify the role of a specified member under the workspace, existing roles will be overwritten.
+ * @summary Modifies the role of a specified member in a workspace. The existing role is overwritten.
  *
  * @param request UpdateWorkspaceUserRoleRequest
  * @return UpdateWorkspaceUserRoleResponse
@@ -6809,7 +6909,7 @@ UpdateWorkspaceUserRoleResponse Client::updateWorkspaceUserRole(const UpdateWork
 }
 
 /**
- * @summary Batch update the role information of workspace members, existing roles will be overwritten
+ * @summary Updates the roles of workspace members in batches. Existing roles are overwritten.
  *
  * @param request UpdateWorkspaceUsersRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6848,7 +6948,7 @@ UpdateWorkspaceUsersRoleResponse Client::updateWorkspaceUsersRoleWithOptions(con
 }
 
 /**
- * @summary Batch update the role information of workspace members, existing roles will be overwritten
+ * @summary Updates the roles of workspace members in batches. Existing roles are overwritten.
  *
  * @param request UpdateWorkspaceUsersRoleRequest
  * @return UpdateWorkspaceUsersRoleResponse

@@ -157,21 +157,21 @@ namespace Models
 
 
       protected:
-        // The time when the Secret was created.
+        // The creation time in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
-        // The UserID of the creator in the Quick BI.
+        // The UserID of the creator in Quick BI.
         shared_ptr<string> createUser_ {};
         // The path of the user group.
         shared_ptr<string> identifiedPath_ {};
-        // The time when the protection policy was last modified.
+        // The modification time in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifiedTime_ {};
-        // The UserID of the modifier in the Quick BI.
+        // The UserID of the modifier in Quick BI.
         shared_ptr<string> modifyUser_ {};
         // The ID of the parent user group.
         shared_ptr<string> parentUsergroupId_ {};
         // The description of the user group.
         shared_ptr<string> usergroupDesc_ {};
-        // The ID of the user group.
+        // The user group ID.
         shared_ptr<string> usergroupId_ {};
         // The name of the user group.
         shared_ptr<string> usergroupName_ {};
@@ -198,9 +198,9 @@ namespace Models
 
 
     protected:
-      // List of failed user groups.
+      // The list of user group IDs that failed to be queried.
       shared_ptr<vector<string>> failedUserGroupIds_ {};
-      // The details of the user group that was queried.
+      // The details of the queried user groups.
       shared_ptr<vector<Result::UserGroupModels>> userGroupModels_ {};
     };
 
@@ -230,14 +230,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The user group query result is returned.
+    // The query results of the user groups.
     shared_ptr<ListByUserGroupIdResponseBody::Result> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

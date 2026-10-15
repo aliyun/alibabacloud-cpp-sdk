@@ -220,15 +220,15 @@ namespace Models
 
 
       protected:
-        // Queries whether the user has collected the work.
+        // Indicates whether the queried user has added the work to favorites.
         shared_ptr<bool> favorite_ {};
         // The timestamp when the work was created.
         shared_ptr<string> gmtCreate_ {};
-        // The timestamp when the work was modified.
+        // The timestamp when the work was last modified.
         shared_ptr<string> gmtModified_ {};
-        // The query user has the editing rights of the work.
+        // Indicates whether the queried user has edit permissions on the work.
         shared_ptr<bool> hasEditAuth_ {};
-        // The query user has the permission to view the work.
+        // Indicates whether the queried user has view permissions on the work.
         shared_ptr<bool> hasViewAuth_ {};
         // The timestamp when the work was last accessed.
         shared_ptr<string> latestViewTime_ {};
@@ -238,22 +238,20 @@ namespace Models
         shared_ptr<string> ownerName_ {};
         // The UserID of the work owner.
         shared_ptr<string> ownerNum_ {};
-        // The publication status of the work. Valid values:
-        // 
-        // *   0: unpublished
-        // *   1: published
-        // *   2: modified and saved but not published.
-        // *   3: unpublished
+        // The publish status of the work. Valid values:
+        // - 0: Unpublished.
+        // - 1: Published.
+        // - 2: Modified and saved but not published.
+        // - 3: Offline.
         shared_ptr<int32_t> publishStatus_ {};
         // The ID of the work.
         shared_ptr<string> treeId_ {};
         // The type of the work. Valid values:
-        // 
-        // *   DATAPRODUCT: BI portal
-        // *   PAGE: Dashboard
-        // *   REPORT: workbook
+        // - DATAPRODUCT: data portal
+        // - PAGE: dashboard
+        // - REPORT: workbook
         shared_ptr<string> type_ {};
-        // The number of times the work was accessed.
+        // The number of times the work has been accessed.
         shared_ptr<int64_t> viewCount_ {};
         // The ID of the workspace to which the work belongs.
         shared_ptr<string> workspaceId_ {};
@@ -308,20 +306,20 @@ namespace Models
 
 
     protected:
-      // Attention
+      // The notice indicating that pagination parameters (such as TotalNum) returned by this API will be deprecated soon.
       shared_ptr<string> attention_ {};
       // The list of queried works.
       shared_ptr<vector<Result::Data>> data_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       // 
-      // *   Default value: 10.
-      // *   Maximum of 100 articles
+      // - Default value: 10.
+      // - Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of rows in the table.
+      // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
-      // The total number of pages returned.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -351,14 +349,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The query results are returned.
+    // The query result.
     shared_ptr<ListRecentViewReportsResponseBody::Result> result_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

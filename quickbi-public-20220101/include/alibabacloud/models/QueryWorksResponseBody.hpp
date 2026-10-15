@@ -143,9 +143,18 @@ namespace Models
 
 
       protected:
+        // The field type. Valid values:
+        // 
+        // - enum: enumeration
+        // - string: text
+        // - number: numeric
+        // - datetime: date
         shared_ptr<string> dataType_ {};
+        // The parameter alias.
         shared_ptr<string> paramAlias_ {};
+        // The parameter name.
         shared_ptr<string> paramName_ {};
+        // Indicates whether the parameter is required.
         shared_ptr<bool> required_ {};
       };
 
@@ -205,13 +214,13 @@ namespace Models
 
 
       protected:
-        // The ID of the directory.
+        // The ID of the directory to which the data work belongs.
         shared_ptr<string> id_ {};
-        // The name of the directory.
+        // The directory name.
         shared_ptr<string> name_ {};
-        // The hierarchical structure of the directory ID to which the directory belongs. Separate the hierarchical structure with a /.
+        // The hierarchical path of the directory IDs, separated by a forward slash (/).
         shared_ptr<string> pathId_ {};
-        // The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
+        // The hierarchical path of the directory names, separated by a forward slash (/).
         shared_ptr<string> pathName_ {};
       };
 
@@ -351,64 +360,61 @@ namespace Models
 
 
     protected:
-      // Third-party embedding status. Valid values:
+      // The third-party embedding status. Valid values:
       // 
-      // *   0: The embed service is not enabled.
-      // *   1: Embed is enabled.
+      // - 0: Embedding is not enabled.
+      // - 1: Embedding is enabled.
       shared_ptr<int32_t> auth3rdFlag_ {};
-      // Remarks on the work.
+      // The remarks of the data work.
       shared_ptr<string> description_ {};
-      // The directory to which the work belongs.
+      // The directory to which the data work belongs.
       shared_ptr<Result::Directory> directory_ {};
+      // The array of global parameters.
       shared_ptr<vector<Result::GlobalParamVoList>> globalParamVoList_ {};
-      // The timestamp of the creation of the work in milliseconds.
+      // The timestamp when the data work was created, in milliseconds.
       shared_ptr<string> gmtCreate_ {};
-      // The timestamp of the modification of the work in milliseconds.
+      // The timestamp when the data work was last modified, in milliseconds.
       shared_ptr<string> gmtModify_ {};
-      // The Alibaba Cloud account name of the person who modified the work.
+      // The Alibaba Cloud account name of the user who last modified the data work.
       shared_ptr<string> modifyName_ {};
-      // The user ID of the work owner in the Quick BI.
+      // The Quick BI UserID of the data work owner.
       shared_ptr<string> ownerId_ {};
-      // The Alibaba Cloud account name of the work owner.
+      // The Alibaba Cloud account name of the data work owner.
       shared_ptr<string> ownerName_ {};
-      // Is it public
+      // Indicates whether the data work is public.
       shared_ptr<bool> publicFlag_ {};
-      // Deadline for the public release of the report
+      // The expiration date for the public access of the report. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> publicInvalidTime_ {};
-      // Security policies for collaborative authorization of works. Valid values:
+      // The security policy for collaborative authorization of the data work. Valid values:
+      // - 0: Private.
+      // - 12: Authorized to specified members.
+      // - 1 or 11: Authorized to all workspace members.
       // 
-      // *   0: private
-      // *   12: Authorize specified members
-      // *   1 or 11: Authorize all workspace members
-      // 
-      // > 
-      // 
-      // *   If you use legacy permissions, the return value is 1.
-      // 
-      // *   If you use the new permissions, the return value is 11.
+      // >- If you use the legacy permission model, the return value is 1.
+      // >- If you use the new permission model, the return value is 11.
       shared_ptr<string> securityLevel_ {};
-      // The status of the report. Valid values:
+      // The report status. Valid values:
       // 
-      // *   0: unpublished
-      // *   1: published
-      // *   2: modified but not published
-      // *   3: unpublished
+      // - 0: Unpublished.
+      // - 1: Published.
+      // - 2: Modified but not published.
+      // - 3: Offline.
       shared_ptr<int32_t> status_ {};
-      // The name of the work.
+      // The name of the data work.
       shared_ptr<string> workName_ {};
-      // Queries the types of works. Fill in the blanks to query all types. Valid values:
+      // The type of the data work. Leave this parameter empty to query all types. Valid values:
       // 
-      // *   DATAPRODUCT: BI portal
-      // *   PAGE: Dashboard
-      // *   FULLPAGE: full-screen dashboards
-      // *   REPORT: workbook
-      // *   dashboardOfflineQuery: self-service data retrieval
+      // - DATAPRODUCT: data portal
+      // - PAGE: dashboard
+      // - FULLPAGE: full-screen dashboard
+      // - REPORT: workbook
+      // - dashboardOfflineQuery: custom query
       shared_ptr<string> workType_ {};
-      // The ID of the work.
+      // The ID of the data work.
       shared_ptr<string> worksId_ {};
-      // The ID of the workspace to which the work belongs.
+      // The ID of the workspace to which the data work belongs.
       shared_ptr<string> workspaceId_ {};
-      // The name of the workspace to which the work belongs.
+      // The name of the workspace to which the data work belongs.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -438,14 +444,14 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the work.
+    // The details of the data work.
     shared_ptr<QueryWorksResponseBody::Result> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

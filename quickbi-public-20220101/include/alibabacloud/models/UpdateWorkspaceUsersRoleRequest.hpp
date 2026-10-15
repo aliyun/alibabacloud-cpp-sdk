@@ -57,21 +57,21 @@ namespace Models
 
 
   protected:
-    // Preset space role ID, existing roles will be overwritten. Value range:
-    // - 25: Space Administrator
-    // - 26: Space Developer
-    // - 27: Space Analyst
-    // - 30: Space Viewer
+    // The ID of the preset workspace role. Existing roles are overwritten. Valid values:
+    // - 25: workspace administrator
+    // - 26: workspace developer
+    // - 27: workspace analyst
+    // - 30: workspace viewer
     // 
     // This parameter is required.
     shared_ptr<int64_t> roleId_ {};
-    // User ID. This is the UserID for Quick BI, not the UID for Alibaba Cloud.
+    // The user IDs. The IDs are Quick BI user IDs, not Alibaba Cloud UIDs.
     // 
-    // - Supports batch parameters, separate user IDs with a comma (,).
+    // - You can specify multiple user IDs separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> userIds_ {};
-    // Workspace ID.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

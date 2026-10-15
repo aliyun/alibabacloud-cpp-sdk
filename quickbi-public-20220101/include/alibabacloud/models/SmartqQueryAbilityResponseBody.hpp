@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // The data values in a row.
+        // The data values for each row.
         shared_ptr<vector<string>> row_ {};
       };
 
@@ -144,15 +144,14 @@ namespace Models
 
 
       protected:
-        // The name of the column tuple.
+        // The column tuple name.
         shared_ptr<string> key_ {};
-        // The type of the metadata. Valid values:
+        // The metadata row or column type.
         // 
-        // - Dimension
-        // 
-        // - Measure
+        // - Dimension: dimension
+        // - Measure: measure
         shared_ptr<string> type_ {};
-        // The type of the column tuple.
+        // The column tuple type.
         shared_ptr<string> value_ {};
       };
 
@@ -207,17 +206,17 @@ namespace Models
 
 
     protected:
-      // The recommended chart type.
+      // The suggested chart type.
       shared_ptr<string> chartType_ {};
-      // The summary.
+      // The summary information.
       shared_ptr<string> conclusionText_ {};
-      // The list of data that is returned only in multi-step scenarios. Each element corresponds to a set of chart data.
+      // The data list returned only in multi-step scenarios. Each element corresponds to a chart dataset.
       shared_ptr<vector<string>> dataList_ {};
-      // The visual logical SQL statement.
+      // The visualization logic SQL.
       shared_ptr<string> logicSql_ {};
-      // A list of column tuple types.
+      // The list of column tuple types.
       shared_ptr<vector<Result::MetaType>> metaType_ {};
-      // An array of data value lists.
+      // The array of data value lists.
       shared_ptr<vector<Result::Values>> values_ {};
     };
 
@@ -247,7 +246,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<SmartqQueryAbilityResponseBody::Result> result_ {};

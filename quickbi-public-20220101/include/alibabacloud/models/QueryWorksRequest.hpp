@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Report ID
+    // The report ID.
     // 
     // This parameter is required.
     shared_ptr<string> worksId_ {};

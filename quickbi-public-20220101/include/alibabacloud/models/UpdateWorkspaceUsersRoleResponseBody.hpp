@@ -91,13 +91,13 @@ namespace Models
 
 
     protected:
-      // Number of users that failed to update.
+      // The number of users whose roles failed to be updated.
       shared_ptr<int32_t> failure_ {};
-      // Reasons for the update failures.
+      // The reasons for the update failures.
       Darabonba::Json failureDetail_ {};
-      // Number of users that were updated successfully.
+      // The number of users whose roles were successfully updated.
       shared_ptr<int32_t> success_ {};
-      // Modify the total number of users.
+      // The total number of users to be updated.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -127,14 +127,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns the result of the interface execution.
+    // The execution result of the operation.
     shared_ptr<UpdateWorkspaceUsersRoleResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Value range:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful, some members may have been updated successfully while others failed, refer to FailureDetail in the response for reasons of failure
-    // - false: The request failed, no data will be persisted
+    // - true: The request is successful. Some members may be updated successfully while others fail. For the failure reasons, refer to FailureDetail in the response.
+    // - false: The request fails and no data is persisted.
     shared_ptr<bool> success_ {};
   };
 

@@ -64,7 +64,7 @@ namespace Models
 
 
     protected:
-      // The IP address whitelist array.
+      // The IP whitelist array.
       shared_ptr<vector<string>> ipWhiteList_ {};
     };
 
@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IP address whitelist.
+    // The IP whitelist.
     shared_ptr<IpWhiteListConfigResponseBody::Result> result_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -66,21 +66,19 @@ namespace Models
 
 
   protected:
-    // The keyword for searching workspaces.
+    // The keyword of the workspace name.
     shared_ptr<string> keyword_ {};
-    // The page number to return.
+    // The page number of the workspace list.
     // 
-    // - Start value: 1
-    // 
-    // - Default value: 1
+    // - Minimum value: 1.
+    // - Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of workspaces per page.
+    // The number of rows per page in a paged query.
     // 
-    // - Default value: 10
-    // 
-    // - Maximum value: 1000
+    // - Default value: 10.
+    // - Maximum value: 1000.
     shared_ptr<int32_t> pageSize_ {};
-    // The user ID in Quick BI.
+    // The ID of the user in Quick BI.
     shared_ptr<string> userId_ {};
   };
 

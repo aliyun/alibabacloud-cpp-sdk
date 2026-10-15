@@ -75,22 +75,22 @@ namespace Models
 
 
   protected:
-    // Report name (fuzzy match)
+    // The report name for fuzzy match.
     shared_ptr<string> keyword_ {};
-    // Page number (defaults to 1 if empty)
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
-    // Number of items per page (defaults to 10 if empty)
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // Report type
+    // The report type. Valid values:
     // 
-    // - page, Dashboard
-    // - screen, Data Screen
-    // - report, Spreadsheet
-    // - ANALYSIS, Ad-hoc Analysis
-    // - dashboardOfflineQuery, Self-service Data Retrieval
-    // - dataForm, Data Entry Form
+    // - page: dashboard.
+    // - screen: data screen.
+    // - report: workbook.
+    // - ANALYSIS: ad hoc analysis.
+    // - dashboardOfflineQuery: self-service data retrieval.
+    // - dataForm: data entry form.
     shared_ptr<string> worksType_ {};
-    // Workspace ID
+    // The workspace ID.
     shared_ptr<string> wsId_ {};
   };
 

@@ -68,15 +68,15 @@ namespace Models
   protected:
     // The keyword of the API data source name.
     shared_ptr<string> keyWord_ {};
-    // Current page number for API data source list:
+    // The page number of the API data source list.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1.
+    // - Minimum value: 1.
+    // - Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
     // The number of rows per page in a paged query.
     // 
-    // *   Default value: 10.
-    // *   Valid values: 1 to 100.
+    // - Default value: 10.
+    // - Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The workspace ID.
     // 

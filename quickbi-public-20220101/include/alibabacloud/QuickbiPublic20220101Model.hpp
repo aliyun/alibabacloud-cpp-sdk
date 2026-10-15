@@ -152,6 +152,9 @@
 #include <alibabacloud/models/ListApiDatasourceRequest.hpp>
 #include <alibabacloud/models/ListApiDatasourceResponseBody.hpp>
 #include <alibabacloud/models/ListApiDatasourceResponse.hpp>
+#include <alibabacloud/models/ListAuthConfigByResourceRequest.hpp>
+#include <alibabacloud/models/ListAuthConfigByResourceResponseBody.hpp>
+#include <alibabacloud/models/ListAuthConfigByResourceResponse.hpp>
 #include <alibabacloud/models/ListByUserGroupIdRequest.hpp>
 #include <alibabacloud/models/ListByUserGroupIdResponseBody.hpp>
 #include <alibabacloud/models/ListByUserGroupIdResponse.hpp>
@@ -377,6 +380,9 @@
 #include <alibabacloud/models/TransferUsergroupRequest.hpp>
 #include <alibabacloud/models/TransferUsergroupResponseBody.hpp>
 #include <alibabacloud/models/TransferUsergroupResponse.hpp>
+#include <alibabacloud/models/UpdateAuthorizationAttributesRequest.hpp>
+#include <alibabacloud/models/UpdateAuthorizationAttributesResponseBody.hpp>
+#include <alibabacloud/models/UpdateAuthorizationAttributesResponse.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlRequest.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlResponseBody.hpp>
 #include <alibabacloud/models/UpdateCubeBySqlResponse.hpp>

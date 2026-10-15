@@ -66,20 +66,20 @@ namespace Models
 
 
   protected:
-    // Preset workspace role ID, existing roles will be overwritten. Value range:
-    // - 25: Workspace Administrator
-    // - 26: Workspace Developer
-    // - 27: Workspace Analyst
-    // - 30: Workspace Viewer
+    // The preset workspace role ID. The existing role is overwritten. Valid values:
+    // - 25: workspace administrator
+    // - 26: workspace developer
+    // - 27: workspace analyst
+    // - 30: workspace viewer
     shared_ptr<int64_t> roleId_ {};
-    // Multiple workspace role IDs, separated by commas. If this value is provided, it takes precedence.
+    // Multiple workspace role IDs, separated by commas. If this parameter is specified, it takes precedence.
     // >Notice: roleId and roleIds cannot both be empty
     shared_ptr<string> roleIds_ {};
-    // Quick BI user ID.
+    // The Quick BI user ID.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
-    // Workspace ID.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

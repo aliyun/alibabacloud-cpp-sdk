@@ -172,35 +172,26 @@ namespace Models
       protected:
         // The ID of the API data source.
         shared_ptr<string> apiId_ {};
-        // The parameter configuration of the query statement in JSON format. You can customize the parameter configuration.
+        // The query statement parameter settings in JSON format, which can be user-defined.
         shared_ptr<string> body_ {};
         // The data volume of the API data source.
-        // 
-        // *   Unit: Kbit/s
+        // - Unit: KB.
         shared_ptr<float> dataSize_ {};
-        // The last synchronization time of the API data source.
+        // The last synchronization time of the API data source. Format example: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> dateUpdateTime_ {};
-        // The time when the quota plan was created.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the optimization job was modified.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The job ID.
+        // The task ID.
         shared_ptr<string> jobId_ {};
-        // The parameter configurations in the JSONArray format.
-        // 
-        // *   name: parameter name
-        // *   value: the parameter value
+        // The parameter settings in JSONArray format.
+        // - name: the parameter name.
+        // - value: the parameter value.
         shared_ptr<string> parameters_ {};
         // The name of the API data source.
         shared_ptr<string> showName_ {};
-        // The status of the API data source synchronization task.
-        // 
-        // Valid values:
-        // 
-        // *   0: the to be run.
-        // *   1: The is running.
-        // *   2: The is successfully.
-        // *   3: failed.
+        // The synchronization task status of the API data source.
         shared_ptr<int32_t> statusType_ {};
       };
 
@@ -237,11 +228,11 @@ namespace Models
 
 
     protected:
-      // The list of API data sources that were queried.
+      // The list of API data sources.
       shared_ptr<vector<Result::Data>> data_ {};
-      // The page number.
+      // The page number of the returned data, used for pagination.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of rows per page set when the interface is requested.
+      // The number of rows per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
@@ -275,12 +266,12 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The query results are returned.
+    // The query result.
     shared_ptr<ListApiDatasourceResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

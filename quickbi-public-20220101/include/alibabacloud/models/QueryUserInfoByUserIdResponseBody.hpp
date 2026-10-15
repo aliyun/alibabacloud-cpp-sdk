@@ -172,46 +172,42 @@ namespace Models
       shared_ptr<string> accountId_ {};
       // The Alibaba Cloud account name.
       shared_ptr<string> accountName_ {};
-      // Indicates whether the organization administrator role is assigned to the user. Valid values:
+      // Indicates whether the user is an organization administrator. Valid values:
       // 
-      // - true: The role is assigned.
+      // - true: Yes.
+      // - false: No.
       // 
-      // - false: The role is not assigned.
-      // 
-      // >Notice: 
-      // 
-      // This parameter is deprecated. Use the `RoleIdList` parameter instead.
+      // <notice>This parameter is deprecated. Use the RoleIdList parameter instead.</notice>
       shared_ptr<bool> adminUser_ {};
-      // Indicates whether the permission administrator role is assigned to the user. Valid values:
+      // Indicates whether the user has the permission management administrator role attached. Valid values:
       // 
-      // - true: The role is assigned.
+      // - true: Yes.
+      // - false: No.
       // 
-      // - false: The role is not assigned.
-      // 
-      // >Notice: 
-      // 
-      // This parameter is deprecated. Use the `RoleIdList` parameter instead.
+      // <notice>This parameter has expired and is no longer recommended. Use the RoleIList parameter instead.</notice>
       shared_ptr<bool> authAdminUser_ {};
-      // The list of `CopilotModules` available to the user.
+      // The intelligent quota owned by the user.
       shared_ptr<vector<string>> copilotModules_ {};
-      // The email address of the user.
+      // The email address.
       shared_ptr<string> email_ {};
+      // Indicates whether the user is disabled. Valid values:
+      // 
+      // - true: Disabled.
+      // - false: Active.
       shared_ptr<bool> isDeleted_ {};
-      // The nickname of the user.
+      // The nickname.
       shared_ptr<string> nickName_ {};
-      // The phone number of the user.
+      // The phone number.
       shared_ptr<string> phone_ {};
-      // The list of organization role IDs that are assigned to the user.
+      // The list of organization role IDs bound to the user.
       shared_ptr<vector<int64_t>> roleIdList_ {};
-      // The user ID in Quick BI.
+      // The UserID in Quick BI.
       shared_ptr<string> userId_ {};
       // The user type of the organization member. Valid values:
       // 
-      // - `1`: developer
-      // 
-      // - `2`: viewer
-      // 
-      // - `3`: analyst
+      // - 1: Developer.
+      // - 2: Viewer.
+      // - 3: Analyst.
       shared_ptr<int32_t> userType_ {};
     };
 
@@ -241,14 +237,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the organization user.
+    // The organization user information returned.
     shared_ptr<QueryUserInfoByUserIdResponseBody::Result> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: The request is successful.
-    // 
+    // - true: The request was successful.
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

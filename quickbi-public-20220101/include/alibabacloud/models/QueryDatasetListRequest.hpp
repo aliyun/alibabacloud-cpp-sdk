@@ -84,29 +84,26 @@ namespace Models
 
 
   protected:
-    // The ID of the folder.
+    // The directory ID.
     // 
-    // - If you specify this parameter, all datasets in the folder are returned.
+    // - If this parameter is specified, all datasets in the specified directory are returned.
     shared_ptr<string> directoryId_ {};
-    // The keyword used to search for datasets by name.
+    // The keyword used to search for dataset names.
     shared_ptr<string> keyword_ {};
     // The page number of the dataset list.
     // 
-    // - Start value: 1
-    // 
+    // - Minimum value: 1
     // - Default value: 1
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page.
+    // The number of rows per page for a paged query.
     // 
     // - Default value: 10
-    // 
     // - Maximum value: 1000
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether to recursively include datasets in subdirectories. Valid values:
     // 
-    // - true: Returns all datasets in the folder specified by DirectoryId and its subdirectories.
-    // 
-    // - false: Returns only the datasets in the folder specified by DirectoryId.
+    // - true: Returns datasets in all recursive subdirectories under the directory specified by directoryId.
+    // - false: Returns only datasets in the directory specified by directoryId, excluding subdirectories.
     shared_ptr<bool> withChildren_ {};
     // The workspace ID.
     // 

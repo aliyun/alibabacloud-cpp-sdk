@@ -64,7 +64,7 @@ namespace Models
     // - Minimum value: 1
     // - Default value: 1
     shared_ptr<int32_t> pageNum_ {};
-    // The number of rows per page in a paged query.
+    // The number of rows per page for a paged query.
     // 
     // - Default value: 10
     // - Maximum value: 1000

@@ -136,23 +136,23 @@ namespace Models
 
 
     protected:
-      // Creation time of the user group.
+      // The time when the user group was created, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
-      // Creator of the sub-user group. This is the UserID in Quick BI, not the UID in Alibaba Cloud.
+      // The creator of the child user group. This is the UserID in Quick BI, not the UID of the Alibaba Cloud account.
       shared_ptr<string> createUser_ {};
-      // Directory level of the user group.
+      // The folder hierarchy of the user group.
       shared_ptr<string> identifiedPath_ {};
-      // Last modified time of the user group.
+      // The time when the user group was last modified, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> modifiedTime_ {};
-      // Modifier of the user group. This is the UserID in Quick BI, not the UID in Alibaba Cloud.
+      // The user who last modified the user group. This is the UserID in Quick BI, not the UID of the Alibaba Cloud account.
       shared_ptr<string> modifyUser_ {};
-      // Parent user group ID.
+      // The ID of the parent user group.
       shared_ptr<string> parentUsergroupId_ {};
-      // Description of the user group.
+      // The description of the user group.
       shared_ptr<string> usergroupDesc_ {};
-      // User group ID.
+      // The ID of the user group.
       shared_ptr<string> usergroupId_ {};
-      // Name of the user group.
+      // The name of the user group.
       shared_ptr<string> usergroupName_ {};
     };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // User group information.
+    // The user group information.
     shared_ptr<vector<GetUserGroupInfoResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
     // - true: The request was successful.
     // - false: The request failed.

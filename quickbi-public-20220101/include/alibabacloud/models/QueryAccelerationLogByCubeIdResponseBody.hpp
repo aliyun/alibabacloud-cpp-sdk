@@ -139,29 +139,24 @@ namespace Models
 
 
       protected:
-        // The task duration in seconds.
+        // The duration. Unit: seconds.
         shared_ptr<string> duration_ {};
         // The task history ID.
         shared_ptr<string> jobHistoryId_ {};
         // The task ID.
         shared_ptr<string> jobId_ {};
-        // The status of the task.
+        // The task status. Valid values:
         // 
-        // - 0: Pending
-        // 
-        // - 1: Running
-        // 
-        // - 2: Succeeded
-        // 
-        // - 3: Failed
-        // 
-        // - 4: Canceled
-        // 
-        // - 5: Warning
+        // - 0: pending
+        // - 1: running
+        // - 2: succeeded
+        // - 3: failed
+        // - 4: canceled
+        // - 5: warning
         shared_ptr<string> jobStatus_ {};
-        // The start time of the task.
+        // The task start time. Format: yyyy/MM/dd HH:mm:ss. Time zone: UTC+8.
         shared_ptr<string> jonStartDate_ {};
-        // The log content.
+        // The log.
         shared_ptr<string> log_ {};
       };
 
@@ -220,7 +215,7 @@ namespace Models
 
 
     protected:
-      // An array of acceleration task logs.
+      // The array of acceleration task logs.
       shared_ptr<vector<Result::Data>> data_ {};
       // The next page. A value of NULL or 0 indicates that no next page exists.
       shared_ptr<int32_t> next_ {};
@@ -264,16 +259,14 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the API request.
+    // The execution result of the operation. Valid values:
     // 
     // - true: The execution succeeded.
-    // 
     // - false: The execution failed.
     shared_ptr<QueryAccelerationLogByCubeIdResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - true: The request was successful.
-    // 
+    // - true: The request succeeded.
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

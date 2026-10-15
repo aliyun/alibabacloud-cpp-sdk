@@ -126,15 +126,15 @@ namespace Models
 
 
       protected:
-        // Embed time
+        // The time when the report was embedded, in the format of YYYY-mm-DD hh:MM:ss.
         shared_ptr<string> embedTime_ {};
-        // Report ID
+        // The report ID.
         shared_ptr<string> worksId_ {};
-        // Report name
+        // The report name.
         shared_ptr<string> worksName_ {};
-        // Report type
+        // The report type.
         shared_ptr<string> worksType_ {};
-        // Workspace ID
+        // The ID of the workspace to which the report belongs.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -178,15 +178,15 @@ namespace Models
 
 
     protected:
-      // Array of reports
+      // The report array.
       shared_ptr<vector<Result::Data>> data_ {};
-      // Page number
+      // The page number.
       shared_ptr<int64_t> pageNo_ {};
-      // Number of items per page
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // Total number of items
+      // The total number of entries.
       shared_ptr<int64_t> totalNum_ {};
-      // Total number of pages
+      // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
     };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Array of report objects
+    // The report array object.
     shared_ptr<GetWorksEmbedListResponseBody::Result> result_ {};
-    // Whether the request was successful
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

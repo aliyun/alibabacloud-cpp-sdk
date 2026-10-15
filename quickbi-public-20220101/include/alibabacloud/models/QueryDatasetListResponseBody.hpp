@@ -160,13 +160,13 @@ namespace Models
 
 
         protected:
-          // The folder ID.
+          // The directory ID.
           shared_ptr<string> id_ {};
-          // The folder name.
+          // The directory name.
           shared_ptr<string> name_ {};
-          // The ID of the folder path.
+          // The ID of the directory path.
           shared_ptr<string> pathId_ {};
-          // The name of the folder path.
+          // The name of the directory path.
           shared_ptr<string> pathName_ {};
         };
 
@@ -325,9 +325,9 @@ namespace Models
 
 
       protected:
-        // The time when the dataset was created.
+        // The creation time, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> createTime_ {};
-        // The information about the data source to which the dataset belongs.
+        // The data source information of the dataset.
         shared_ptr<Data::DataSource> dataSource_ {};
         // The dataset ID.
         shared_ptr<string> datasetId_ {};
@@ -335,25 +335,23 @@ namespace Models
         shared_ptr<string> datasetName_ {};
         // The description of the dataset.
         shared_ptr<string> description_ {};
-        // The information about the folder in which the dataset is located.
+        // The directory information of the dataset.
         shared_ptr<Data::Directory> directory_ {};
-        // The time when the dataset was last modified.
+        // The modification time, in the yyyy-MM-dd HH:mm:ss format.
         shared_ptr<string> modifyTime_ {};
-        // Indicates whether extraction-based acceleration is enabled. Valid values:
+        // Indicates whether extraction acceleration is enabled. Valid values:
         // 
-        // - true: Enabled
-        // 
-        // - false: Disabled
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> openOfflineAcceleration_ {};
-        // The user ID of the dataset owner in Quick BI.
+        // The Quick BI user ID of the dataset owner.
         shared_ptr<string> ownerId_ {};
         // The nickname of the dataset owner.
         shared_ptr<string> ownerName_ {};
         // Indicates whether row-level permissions are enabled. Valid values:
         // 
-        // - true: Enabled
-        // 
-        // - false: Disabled
+        // - true: Enabled.
+        // - false: Disabled.
         shared_ptr<bool> rowLevel_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
@@ -405,9 +403,9 @@ namespace Models
       shared_ptr<vector<Result::Data>> data_ {};
       // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of entries per page specified in the request.
+      // The number of rows per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
@@ -441,12 +439,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The paged results of the dataset list. The details of the datasets are returned in the Data parameter.
+    // The paginated result of the dataset list. The detailed information of the dataset list is stored in the Data response parameter.
     shared_ptr<QueryDatasetListResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // - true: The request was successful.
-    // 
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

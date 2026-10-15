@@ -195,39 +195,39 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud account ID. For users who are not added through RAM self-service, the Alibaba Cloud ID can only be obtained after they log on.
+        // The Alibaba Cloud account ID. For users who are not added through RAM self-service reading, the Alibaba Cloud account ID can be obtained only after they log on.
         shared_ptr<string> accountId_ {};
         // The Alibaba Cloud account name.
         shared_ptr<string> accountName_ {};
-        // Indicates whether the user is bound to the organization administrator role. Valid values:
+        // Indicates whether the organization administrator role is bound. Valid values:
         // 
         // - true: Yes.
         // - false: No.
         // 
         // <notice>This parameter is deprecated. Use the RoleIdList parameter instead.</notice>
         shared_ptr<bool> adminUser_ {};
-        // Indicates whether the user is attached to the permission management administrator role. Valid values:
+        // Indicates whether the permission management administrator role is attached. Valid values:
         // 
         // - true: Yes.
         // - false: No.
         // 
-        // <notice>This parameter has expired and is no longer recommended. Use the RoleIdList parameter instead.</notice>
+        // <notice>This parameter is expired and no longer recommended. Use the RoleIdList parameter instead.</notice>
         shared_ptr<bool> authAdminUser_ {};
         // The intelligent module quota of the user.
         // 
         // - qreport: Q report
-        // - qExploreNum: Q exploration edition
-        // - smartQAskNum: Q data inquiry
+        // - qExploreNum: Q explore edition
+        // - smartQAskNum: Q data query
         // - smartQDevNum: Q builder
         shared_ptr<vector<string>> copilotModules_ {};
         // The user status. Valid values: 
         // 
-        // - false: active
-        // - true: inactive
+        // - false: activated
+        // - true: deactivated
         shared_ptr<bool> isDeleted_ {};
-        // The date when the member joined the organization.
+        // The date when the member joined the organization. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> joinedDate_ {};
-        // The last logon time.
+        // The last logon time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> lastLoginTime_ {};
         // The nickname of the organization member.
         shared_ptr<string> nickName_ {};

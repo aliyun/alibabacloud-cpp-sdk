@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // Required for increase and delete operations. The IP whitelist. Separate multiple IP addresses with commas.
+    // Required for add and delete operations. The IP whitelist. Separate multiple IP addresses with commas.
     shared_ptr<string> ipWhiteList_ {};
     // The operation type. Valid values:
     // 
-    // - ADD: incrementally adds entries.
-    // - DELETE: deletes entries.
-    // - QUERY: queries entries.
+    // - ADD: Incrementally adds entries.
+    // - DELETE: Deletes entries.
+    // - QUERY: Queries entries.
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};

@@ -75,32 +75,32 @@ namespace Models
 
 
   protected:
-    // The scope of authorization. Valid values:
+    // The authorization type. Valid values:
     // 
-    // *   1: view only
-    // *   3: View and export
+    // - 1: View only.
+    // - 3: View and export.
     // 
     // This parameter is required.
     shared_ptr<int32_t> authPoint_ {};
-    // The validity period of the share. The value is a timestamp in milliseconds.
+    // The expiration time of the sharing, in millisecond-level UNIX timestamp format.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireDate_ {};
-    // The ID of the person to be shared, which may be the user ID of the Quick BI or the user group ID.
+    // The ID of the share recipient. The value can be a Quick BI user ID or a user group ID.
     // 
-    // *   If ShareToType is 0 (user), ShareTo is the user ID.
-    // *   When ShareToType is set to 1 (user group), ShareTo is the user group ID.
-    // *   When ShareToType=2 (organization), ShareTo is the ID of the organization.
+    // - ShareToType=0 (user): ShareTo is the user ID.
+    // - ShareToType=1 (user group): ShareTo is the user group ID.
+    // - ShareToType=2 (organization): ShareTo is the organization ID.
     shared_ptr<string> shareToId_ {};
-    // The share type of the template. Valid values:
+    // The sharing type. Valid values:
     // 
-    // *   0: user
-    // *   1: user group
-    // *   2: organization
+    // - 0: user
+    // - 1: user group
+    // - 2: organization
     // 
     // This parameter is required.
     shared_ptr<int32_t> shareToType_ {};
-    // The ID of the shared work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
+    // The ID of the work to share. Works include data portals, dashboards, workbooks, and ad hoc queries.
     // 
     // This parameter is required.
     shared_ptr<string> worksId_ {};

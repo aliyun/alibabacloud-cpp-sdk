@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // Keyword of the name of the work.
+    // The keyword in the name of the work.
     shared_ptr<string> keyword_ {};
-    // The number of days to query data in the last few days. Default value: 10.
+    // The number of recent days to query data for. Default value: 10.
     shared_ptr<int32_t> offsetDay_ {};
-    // Query the number of rows in the work list:
+    // The number of rows in the work list to query:
     // 
-    // *   Default value: 10.
-    // *   Maximum value: 9999
+    // - Default value: 10.
+    // - Maximum value: 9999.
     shared_ptr<int32_t> pageSize_ {};
     // The query mode. Valid values:
     // 
-    // *   1: Sort by number of visits
-    // *   2: Sort by Last Access Time
+    // - 1: Sorted by number of visits.
+    // - 2: Sorted by most recent visit time.
     shared_ptr<string> queryMode_ {};
-    // Query the type of the work (fill in the blank to query all types). Valid values:
-    // 
-    // *   DATAPRODUCT: BI portal
-    // *   PAGE: Dashboard
-    // *   REPORT: workbook
+    // The type of work to query. Leave this parameter empty to query all types. Valid values:
+    // - DATAPRODUCT: data portal
+    // - PAGE: dashboard
+    // - REPORT: workbook
     shared_ptr<string> treeType_ {};
-    // The UserID of the user in the Quick BI.
+    // The UserID of the user to query in Quick BI.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
