@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListKeywordLibsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_TO_JSON(TenantCode, tenantCode_);
     };
     friend void from_json(const Darabonba::Json& j, ListKeywordLibsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_FROM_JSON(TenantCode, tenantCode_);
     };
     ListKeywordLibsRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && this->tenantCode_ == nullptr; };
+        && this->serviceCode_ == nullptr && this->tenantCode_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListKeywordLibsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // serviceCode Field Functions 
+    bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
+    void deleteServiceCode() { this->serviceCode_ = nullptr;};
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline ListKeywordLibsRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
 
 
     // tenantCode Field Functions 
@@ -50,9 +59,10 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The service code. If specified, the PreprocessList for each library under this service dimension is returned.
+    shared_ptr<string> serviceCode_ {};
     // The library code.
-    // 
-    // - desensitize: desensitization library.
+    // - desensitize: Desensitization library
     shared_ptr<string> tenantCode_ {};
   };
 

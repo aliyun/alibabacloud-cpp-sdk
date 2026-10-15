@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetKeywordLibRequest& obj) { 
       DARABONBA_PTR_TO_JSON(LibId, libId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_TO_JSON(TenantCode, tenantCode_);
     };
     friend void from_json(const Darabonba::Json& j, GetKeywordLibRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(LibId, libId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
       DARABONBA_PTR_FROM_JSON(TenantCode, tenantCode_);
     };
     GetKeywordLibRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->libId_ == nullptr
-        && this->regionId_ == nullptr && this->tenantCode_ == nullptr; };
+        && this->regionId_ == nullptr && this->serviceCode_ == nullptr && this->tenantCode_ == nullptr; };
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline GetKeywordLibRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // serviceCode Field Functions 
+    bool hasServiceCode() const { return this->serviceCode_ != nullptr;};
+    void deleteServiceCode() { this->serviceCode_ = nullptr;};
+    inline string getServiceCode() const { DARABONBA_PTR_GET_DEFAULT(serviceCode_, "") };
+    inline GetKeywordLibRequest& setServiceCode(string serviceCode) { DARABONBA_PTR_SET_VALUE(serviceCode_, serviceCode) };
+
+
     // tenantCode Field Functions 
     bool hasTenantCode() const { return this->tenantCode_ != nullptr;};
     void deleteTenantCode() { this->tenantCode_ = nullptr;};
@@ -57,13 +66,15 @@ namespace Models
 
 
   protected:
-    // The keyword library ID.
+    // The ID of the keyword library.
     shared_ptr<string> libId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The library code.
+    // The service code. This parameter is required when you query the preprocessing configurations (PreprocessList) of the library.
+    shared_ptr<string> serviceCode_ {};
+    // The code of the keyword library.
     // 
-    // - desensitize: masking library
+    // - desensitize: Desensitization keyword library.
     shared_ptr<string> tenantCode_ {};
   };
 

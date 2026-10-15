@@ -1038,7 +1038,7 @@ namespace Green20220926
       Models::GetKeywordImportResultResponse getKeywordImportResult(const Models::GetKeywordImportResultRequest &request);
 
       /**
-       * @summary Retrieves keyword library information.
+       * @summary Retrieves the information about a keyword library.
        *
        * @param request GetKeywordLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1047,7 @@ namespace Green20220926
       Models::GetKeywordLibResponse getKeywordLibWithOptions(const Models::GetKeywordLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves keyword library information.
+       * @summary Retrieves the information about a keyword library.
        *
        * @param request GetKeywordLibRequest
        * @return GetKeywordLibResponse
@@ -1586,7 +1586,7 @@ namespace Green20220926
       Models::ListImagesFromLibResponse listImagesFromLib(const Models::ListImagesFromLibRequest &request);
 
       /**
-       * @summary Queries the list of keyword libraries.
+       * @summary Queries a list of keyword libraries.
        *
        * @param request ListKeywordLibsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1595,7 +1595,7 @@ namespace Green20220926
       Models::ListKeywordLibsResponse listKeywordLibsWithOptions(const Models::ListKeywordLibsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of keyword libraries.
+       * @summary Queries a list of keyword libraries.
        *
        * @param request ListKeywordLibsRequest
        * @return ListKeywordLibsResponse

@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KeywordCount, keywordCount_);
         DARABONBA_PTR_TO_JSON(LibId, libId_);
         DARABONBA_PTR_TO_JSON(LibName, libName_);
+        DARABONBA_PTR_TO_JSON(PreprocessList, preprocessList_);
         DARABONBA_PTR_TO_JSON(ServiceCodes, serviceCodes_);
         DARABONBA_PTR_TO_JSON(Uid, uid_);
       };
@@ -53,6 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KeywordCount, keywordCount_);
         DARABONBA_PTR_FROM_JSON(LibId, libId_);
         DARABONBA_PTR_FROM_JSON(LibName, libName_);
+        DARABONBA_PTR_FROM_JSON(PreprocessList, preprocessList_);
         DARABONBA_PTR_FROM_JSON(ServiceCodes, serviceCodes_);
         DARABONBA_PTR_FROM_JSON(Uid, uid_);
       };
@@ -68,7 +70,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->gmtModified_ == nullptr
-        && this->keywordCount_ == nullptr && this->libId_ == nullptr && this->libName_ == nullptr && this->serviceCodes_ == nullptr && this->uid_ == nullptr; };
+        && this->keywordCount_ == nullptr && this->libId_ == nullptr && this->libName_ == nullptr && this->preprocessList_ == nullptr && this->serviceCodes_ == nullptr
+        && this->uid_ == nullptr; };
       // gmtModified Field Functions 
       bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
       void deleteGmtModified() { this->gmtModified_ = nullptr;};
@@ -97,6 +100,15 @@ namespace Models
       inline Data& setLibName(string libName) { DARABONBA_PTR_SET_VALUE(libName_, libName) };
 
 
+      // preprocessList Field Functions 
+      bool hasPreprocessList() const { return this->preprocessList_ != nullptr;};
+      void deletePreprocessList() { this->preprocessList_ = nullptr;};
+      inline const vector<string> & getPreprocessList() const { DARABONBA_PTR_GET_CONST(preprocessList_, vector<string>) };
+      inline vector<string> getPreprocessList() { DARABONBA_PTR_GET(preprocessList_, vector<string>) };
+      inline Data& setPreprocessList(const vector<string> & preprocessList) { DARABONBA_PTR_SET_VALUE(preprocessList_, preprocessList) };
+      inline Data& setPreprocessList(vector<string> && preprocessList) { DARABONBA_PTR_SET_RVALUE(preprocessList_, preprocessList) };
+
+
       // serviceCodes Field Functions 
       bool hasServiceCodes() const { return this->serviceCodes_ != nullptr;};
       void deleteServiceCodes() { this->serviceCodes_ = nullptr;};
@@ -116,13 +128,15 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The number of keywords.
       shared_ptr<string> keywordCount_ {};
-      // The library ID.
+      // The ID of the library.
       shared_ptr<string> libId_ {};
-      // The library name.
+      // The name of the library.
       shared_ptr<string> libName_ {};
-      // The service codes.
+      // The preprocessing list of the library. If ServiceCode is not specified or not configured, an empty array is returned.
+      shared_ptr<vector<string>> preprocessList_ {};
+      // The associated services.
       shared_ptr<string> serviceCodes_ {};
-      // UID。
+      // The UID.
       shared_ptr<string> uid_ {};
     };
 
@@ -170,9 +184,9 @@ namespace Models
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<vector<ListKeywordLibsResponseBody::Data>> data_ {};
-    // The description of the error code.
+    // The detailed description of the error code.
     shared_ptr<string> msg_ {};
-    // The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

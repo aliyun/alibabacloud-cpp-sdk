@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileConfig, fileConfig_);
       DARABONBA_PTR_TO_JSON(KeywordFilterLibs, keywordFilterLibs_);
       DARABONBA_PTR_TO_JSON(KeywordHitLibs, keywordHitLibs_);
+      DARABONBA_PTR_TO_JSON(KeywordLibProcessConf, keywordLibProcessConf_);
       DARABONBA_PTR_TO_JSON(ManualMachineConfig, manualMachineConfig_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileConfig, fileConfig_);
       DARABONBA_PTR_FROM_JSON(KeywordFilterLibs, keywordFilterLibs_);
       DARABONBA_PTR_FROM_JSON(KeywordHitLibs, keywordHitLibs_);
+      DARABONBA_PTR_FROM_JSON(KeywordLibProcessConf, keywordLibProcessConf_);
       DARABONBA_PTR_FROM_JSON(ManualMachineConfig, manualMachineConfig_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->fileConfig_ == nullptr && this->keywordFilterLibs_ == nullptr && this->keywordHitLibs_ == nullptr && this->manualMachineConfig_ == nullptr
-        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->scene_ == nullptr && this->sceneConfig_ == nullptr && this->serviceCode_ == nullptr
-        && this->serviceConfig_ == nullptr && this->videoConfig_ == nullptr; };
+        && this->dryRun_ == nullptr && this->fileConfig_ == nullptr && this->keywordFilterLibs_ == nullptr && this->keywordHitLibs_ == nullptr && this->keywordLibProcessConf_ == nullptr
+        && this->manualMachineConfig_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->scene_ == nullptr && this->sceneConfig_ == nullptr
+        && this->serviceCode_ == nullptr && this->serviceConfig_ == nullptr && this->videoConfig_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     void deleteKeywordHitLibs() { this->keywordHitLibs_ = nullptr;};
     inline string getKeywordHitLibs() const { DARABONBA_PTR_GET_DEFAULT(keywordHitLibs_, "") };
     inline UpdateServiceConfigRequest& setKeywordHitLibs(string keywordHitLibs) { DARABONBA_PTR_SET_VALUE(keywordHitLibs_, keywordHitLibs) };
+
+
+    // keywordLibProcessConf Field Functions 
+    bool hasKeywordLibProcessConf() const { return this->keywordLibProcessConf_ != nullptr;};
+    void deleteKeywordLibProcessConf() { this->keywordLibProcessConf_ = nullptr;};
+    inline string getKeywordLibProcessConf() const { DARABONBA_PTR_GET_DEFAULT(keywordLibProcessConf_, "") };
+    inline UpdateServiceConfigRequest& setKeywordLibProcessConf(string keywordLibProcessConf) { DARABONBA_PTR_SET_VALUE(keywordLibProcessConf_, keywordLibProcessConf) };
 
 
     // manualMachineConfig Field Functions 
@@ -149,16 +158,18 @@ namespace Models
 
 
   protected:
-    // The client-generated idempotency token used to prevent duplicate operations caused by network retries. The token must be unique across requests and contain only printable ASCII characters (ASCII 32-126).
+    // The client-generated idempotency token. It prevents duplicate operations caused by network retries and must be unique across different requests. Only printable ASCII characters (ASCII 32-126) are supported.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. When set to true, only parameter validation and business logic checks are performed without actually creating or updating resources.
+    // Specifies whether to enable dry run mode. When set to true, only parameter validation and business logic checks are performed, and resources are not actually created or updated.
     shared_ptr<bool> dryRun_ {};
     // The document configuration.
     shared_ptr<string> fileConfig_ {};
     // The keyword filter libraries.
     shared_ptr<string> keywordFilterLibs_ {};
-    // The keyword hit libraries.
+    // The matched keyword libraries.
     shared_ptr<string> keywordHitLibs_ {};
+    // The keyword library preprocessing configuration in JSON format. The format maps a libId to a list of preprocessing types, such as {"libId":["fps"]}. If this parameter is not passed, the configuration is not updated. An empty object {} clears all configurations. An empty array for a libId clears the configuration for that library.
+    shared_ptr<string> keywordLibProcessConf_ {};
     // The human-machine moderation configuration.
     shared_ptr<string> manualMachineConfig_ {};
     // The region ID.
@@ -167,7 +178,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The moderation scenario.
     shared_ptr<string> scene_ {};
-    // The scenario configuration.
+    // The scenario configuration information.
     shared_ptr<string> sceneConfig_ {};
     // The service code.
     shared_ptr<string> serviceCode_ {};

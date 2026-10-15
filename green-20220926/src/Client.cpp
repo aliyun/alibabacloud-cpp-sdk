@@ -3484,7 +3484,7 @@ GetKeywordImportResultResponse Client::getKeywordImportResult(const GetKeywordIm
 }
 
 /**
- * @summary Retrieves keyword library information.
+ * @summary Retrieves the information about a keyword library.
  *
  * @param request GetKeywordLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3506,6 +3506,10 @@ GetKeywordLibResponse Client::getKeywordLibWithOptions(const GetKeywordLibReques
     body["LibId"] = request.getLibId();
   }
 
+  if (!!request.hasServiceCode()) {
+    body["ServiceCode"] = request.getServiceCode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -3525,7 +3529,7 @@ GetKeywordLibResponse Client::getKeywordLibWithOptions(const GetKeywordLibReques
 }
 
 /**
- * @summary Retrieves keyword library information.
+ * @summary Retrieves the information about a keyword library.
  *
  * @param request GetKeywordLibRequest
  * @return GetKeywordLibResponse
@@ -5262,7 +5266,7 @@ ListImagesFromLibResponse Client::listImagesFromLib(const ListImagesFromLibReque
 }
 
 /**
- * @summary Queries the list of keyword libraries.
+ * @summary Queries a list of keyword libraries.
  *
  * @param request ListKeywordLibsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5273,6 +5277,10 @@ ListKeywordLibsResponse Client::listKeywordLibsWithOptions(const ListKeywordLibs
   json query = {};
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.getServiceCode();
   }
 
   if (!!request.hasTenantCode()) {
@@ -5297,7 +5305,7 @@ ListKeywordLibsResponse Client::listKeywordLibsWithOptions(const ListKeywordLibs
 }
 
 /**
- * @summary Queries the list of keyword libraries.
+ * @summary Queries a list of keyword libraries.
  *
  * @param request ListKeywordLibsRequest
  * @return ListKeywordLibsResponse
@@ -7281,6 +7289,10 @@ UpdateServiceConfigResponse Client::updateServiceConfigWithOptions(const UpdateS
 
   if (!!request.hasKeywordHitLibs()) {
     body["KeywordHitLibs"] = request.getKeywordHitLibs();
+  }
+
+  if (!!request.hasKeywordLibProcessConf()) {
+    body["KeywordLibProcessConf"] = request.getKeywordLibProcessConf();
   }
 
   if (!!request.hasManualMachineConfig()) {
