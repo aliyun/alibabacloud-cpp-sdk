@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Unique webhook identifiers.
+    // The unique identifiers of the webhooks.
     // 
     // This parameter is required.
     shared_ptr<string> webhookIdsShrink_ {};

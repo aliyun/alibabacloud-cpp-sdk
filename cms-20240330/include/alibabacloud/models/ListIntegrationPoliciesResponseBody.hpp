@@ -174,7 +174,7 @@ namespace Models
 
 
       protected:
-        // The ENI ID of the managed probe. Example: eni-xxxx.
+        // The ID of the elastic network interface (ENI) for the managed probe. Example: eni-xxxx.
         shared_ptr<string> eniId_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
@@ -402,9 +402,9 @@ namespace Models
 
 
           protected:
-            // The IP CIDR block.
+            // The IP address CIDR block.
             shared_ptr<string> ipCidr_ {};
-            // The key of the IP field.
+            // The key of the IP address field.
             shared_ptr<string> ipFieldKey_ {};
           };
 
@@ -459,7 +459,7 @@ namespace Models
           protected:
             // The unique identifier of the field.
             shared_ptr<string> fieldKey_ {};
-            // The field values. Multiple values are separated by commas (,).
+            // The field values. Separate multiple values with commas (,).
             shared_ptr<vector<string>> fieldValues_ {};
             // The operation to perform.
             shared_ptr<string> op_ {};
@@ -613,7 +613,7 @@ namespace Models
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
           // The instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
-          // The IP match rule.
+          // The IP address matching rule.
           shared_ptr<EntityRules::IpMatchRule> ipMatchRule_ {};
           // The labels.
           shared_ptr<vector<EntityRules::Labels>> labels_ {};
@@ -710,12 +710,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const BindResource& obj) { 
           DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
           DARABONBA_PTR_TO_JSON(clusterType, clusterType_);
+          DARABONBA_PTR_TO_JSON(entityUserId, entityUserId_);
           DARABONBA_PTR_TO_JSON(vpcCidr, vpcCidr_);
           DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
         };
         friend void from_json(const Darabonba::Json& j, BindResource& obj) { 
           DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
           DARABONBA_PTR_FROM_JSON(clusterType, clusterType_);
+          DARABONBA_PTR_FROM_JSON(entityUserId, entityUserId_);
           DARABONBA_PTR_FROM_JSON(vpcCidr, vpcCidr_);
           DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
         };
@@ -731,7 +733,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->clusterType_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr; };
+        && this->clusterType_ == nullptr && this->entityUserId_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr; };
         // clusterId Field Functions 
         bool hasClusterId() const { return this->clusterId_ != nullptr;};
         void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -744,6 +746,13 @@ namespace Models
         void deleteClusterType() { this->clusterType_ = nullptr;};
         inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
         inline BindResource& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
+        // entityUserId Field Functions 
+        bool hasEntityUserId() const { return this->entityUserId_ != nullptr;};
+        void deleteEntityUserId() { this->entityUserId_ = nullptr;};
+        inline string getEntityUserId() const { DARABONBA_PTR_GET_DEFAULT(entityUserId_, "") };
+        inline BindResource& setEntityUserId(string entityUserId) { DARABONBA_PTR_SET_VALUE(entityUserId_, entityUserId) };
 
 
         // vpcCidr Field Functions 
@@ -765,9 +774,11 @@ namespace Models
         shared_ptr<string> clusterId_ {};
         // The cluster type.
         shared_ptr<string> clusterType_ {};
+        // The UID of the actual owner of the bound resource in cross-account scenarios.
+        shared_ptr<string> entityUserId_ {};
         // The VPC CIDR block.
         shared_ptr<string> vpcCidr_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -884,29 +895,29 @@ namespace Models
 
 
     protected:
-      // The names of all components installed in this policy.
+      // The names of all add-ons installed in this policy.
       shared_ptr<vector<string>> addonNames_ {};
-      // The bound resource information.
+      // The information about the bound resources.
       shared_ptr<Policies::BindResource> bindResource_ {};
-      // The umodel installation status in the container environment.
+      // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
       // The entity group.
       shared_ptr<Policies::EntityGroup> entityGroup_ {};
       // The billing type.
       shared_ptr<string> feePackage_ {};
-      // The policy network management information.
+      // The network management information of the policy.
       shared_ptr<Policies::ManagedInfo> managedInfo_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
       // The rule name.
       shared_ptr<string> policyName_ {};
-      // The access center policy type.
+      // The Access Center policy type.
       shared_ptr<string> policyType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The sub-release count.
+      // The number of sub-releases.
       shared_ptr<Policies::SubAddonRelease> subAddonRelease_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -954,7 +965,11 @@ namespace Models
 
 
   protected:
-    // The page size.
+    // The maximum number of entries per page.
+    // Default value:
+    // 	50
+    // Maximum value:
+    // 	50
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

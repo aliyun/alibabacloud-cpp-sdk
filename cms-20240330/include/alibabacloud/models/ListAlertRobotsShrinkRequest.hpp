@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The robot name. Prefix fuzzy match is supported.
+    // The name of the chatbot. Prefix-based fuzzy match is supported.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The robot IDs.
+    // The chatbot IDs.
     shared_ptr<string> robotIdsShrink_ {};
-    // The robot types.
+    // The chatbot types.
     shared_ptr<string> typesShrink_ {};
-    // The workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

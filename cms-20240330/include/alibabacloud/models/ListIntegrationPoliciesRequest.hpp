@@ -205,17 +205,17 @@ namespace Models
 
 
   protected:
-    // The addon name.
+    // The add-on name.
     shared_ptr<string> addonName_ {};
     // The ID of the bound resource.
     shared_ptr<string> bindResourceId_ {};
-    // The entity IDs used for filtering. Separate multiple IDs with commas (,).
+    // The entity IDs used for filtering, separated by commas.
     shared_ptr<string> entityGroupIds_ {};
-    // The region IDs used for region-based queries. Separate multiple region IDs with commas (,).
+    // The region IDs used for the query, separated by commas.
     shared_ptr<string> filterRegionIds_ {};
     // The maximum number of results to return. Default value: 30. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve more results. You do not need to specify this parameter for the first query. For subsequent queries, use the token obtained from the previous response.
+    // The token used to retrieve more results. This parameter is not required for the first query. For subsequent queries, use the token returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
@@ -225,11 +225,11 @@ namespace Models
     shared_ptr<string> policyType_ {};
     // The instance ID.
     shared_ptr<string> prometheusInstanceId_ {};
-    // The general query string.
+    // The query string for general queries.
     shared_ptr<string> query_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListIntegrationPoliciesRequest::Tag>> tag_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

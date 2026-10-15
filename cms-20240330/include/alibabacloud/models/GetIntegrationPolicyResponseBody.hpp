@@ -499,7 +499,7 @@ namespace Models
             shared_ptr<string> op_ {};
             // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag values.
+            // The tag value.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -592,17 +592,17 @@ namespace Models
           shared_ptr<vector<string>> entityTypes_ {};
           // The list of property rules.
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
-          // The instance IDs.
+          // The instance ID.
           shared_ptr<vector<string>> instanceIds_ {};
           // The IP matching rule.
           shared_ptr<EntityRules::IpMatchRule> ipMatchRule_ {};
-          // The labels.
+          // The tags.
           shared_ptr<vector<EntityRules::Labels>> labels_ {};
           // The list of region IDs.
           shared_ptr<vector<string>> regionIds_ {};
           // The resource group ID.
           shared_ptr<string> resourceGroupId_ {};
-          // The tag values.
+          // The tag value.
           shared_ptr<vector<EntityRules::Tags>> tags_ {};
         };
 
@@ -676,7 +676,7 @@ namespace Models
         shared_ptr<string> entityGroupName_ {};
         // The entity rules.
         shared_ptr<EntityGroup::EntityRules> entityRules_ {};
-        // Used for querying.
+        // The query.
         shared_ptr<string> query_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -691,12 +691,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const BindResource& obj) { 
           DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
           DARABONBA_PTR_TO_JSON(clusterType, clusterType_);
+          DARABONBA_PTR_TO_JSON(entityUserId, entityUserId_);
           DARABONBA_PTR_TO_JSON(vpcCidr, vpcCidr_);
           DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
         };
         friend void from_json(const Darabonba::Json& j, BindResource& obj) { 
           DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
           DARABONBA_PTR_FROM_JSON(clusterType, clusterType_);
+          DARABONBA_PTR_FROM_JSON(entityUserId, entityUserId_);
           DARABONBA_PTR_FROM_JSON(vpcCidr, vpcCidr_);
           DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
         };
@@ -712,7 +714,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->clusterType_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr; };
+        && this->clusterType_ == nullptr && this->entityUserId_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr; };
         // clusterId Field Functions 
         bool hasClusterId() const { return this->clusterId_ != nullptr;};
         void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -725,6 +727,13 @@ namespace Models
         void deleteClusterType() { this->clusterType_ = nullptr;};
         inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
         inline BindResource& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
+        // entityUserId Field Functions 
+        bool hasEntityUserId() const { return this->entityUserId_ != nullptr;};
+        void deleteEntityUserId() { this->entityUserId_ = nullptr;};
+        inline string getEntityUserId() const { DARABONBA_PTR_GET_DEFAULT(entityUserId_, "") };
+        inline BindResource& setEntityUserId(string entityUserId) { DARABONBA_PTR_SET_VALUE(entityUserId_, entityUserId) };
 
 
         // vpcCidr Field Functions 
@@ -746,6 +755,8 @@ namespace Models
         shared_ptr<string> clusterId_ {};
         // The cluster type.
         shared_ptr<string> clusterType_ {};
+        // The UID of the actual owner of the bound resource in cross-account scenarios.
+        shared_ptr<string> entityUserId_ {};
         // The VPC CIDR block.
         shared_ptr<string> vpcCidr_ {};
         // The VPC ID.
@@ -858,11 +869,11 @@ namespace Models
 
 
     protected:
-      // The names of all components installed in this policy.
+      // The names of all components installed in the policy.
       shared_ptr<vector<string>> addonNames_ {};
-      // The bound resource information.
+      // The information about the bound resource.
       shared_ptr<Policy::BindResource> bindResource_ {};
-      // The umodel installation status in the container environment.
+      // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
       // The entity group.
       shared_ptr<Policy::EntityGroup> entityGroup_ {};

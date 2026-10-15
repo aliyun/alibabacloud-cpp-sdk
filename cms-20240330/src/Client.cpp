@@ -676,7 +676,7 @@ CreateBizTraceResponse Client::createBizTrace(const CreateBizTraceRequest &reque
 }
 
 /**
- * @summary Creates a cloud resource.
+ * @summary Creates a cloud resource center.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +701,7 @@ CreateCloudResourceResponse Client::createCloudResourceWithOptions(const map<str
 }
 
 /**
- * @summary Creates a cloud resource.
+ * @summary Creates a cloud resource center.
  *
  * @return CreateCloudResourceResponse
  */
@@ -2075,7 +2075,7 @@ DeleteAlertRobotsResponse Client::deleteAlertRobots(const DeleteAlertRobotsReque
 }
 
 /**
- * @summary Deletes one or more alert webhooks.
+ * @summary Deletes a webhook.
  *
  * @param tmpReq DeleteAlertWebhooksRequest
  * @param headers map
@@ -2114,7 +2114,7 @@ DeleteAlertWebhooksResponse Client::deleteAlertWebhooksWithOptions(const DeleteA
 }
 
 /**
- * @summary Deletes one or more alert webhooks.
+ * @summary Deletes a webhook.
  *
  * @param request DeleteAlertWebhooksRequest
  * @return DeleteAlertWebhooksResponse
@@ -2165,7 +2165,7 @@ DeleteBizTraceResponse Client::deleteBizTrace(const string &bizTraceId, const De
 }
 
 /**
- * @summary Deletes a cloud resource.
+ * @summary Deletes the Cloud Resource Center.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2190,7 @@ DeleteCloudResourceResponse Client::deleteCloudResourceWithOptions(const map<str
 }
 
 /**
- * @summary Deletes a cloud resource.
+ * @summary Deletes the Cloud Resource Center.
  *
  * @return DeleteCloudResourceResponse
  */
@@ -3959,7 +3959,7 @@ GetBizTraceResponse Client::getBizTrace(const string &bizTraceId, const GetBizTr
 }
 
 /**
- * @summary Retrieves information about cloud resources.
+ * @summary Queries the cloud resource center.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3984,7 +3984,7 @@ GetCloudResourceResponse Client::getCloudResourceWithOptions(const map<string, s
 }
 
 /**
- * @summary Retrieves information about cloud resources.
+ * @summary Queries the cloud resource center.
  *
  * @return GetCloudResourceResponse
  */
@@ -4425,7 +4425,7 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 }
 
 /**
- * @summary Queries the policy information of the DDoS Access Center.
+ * @summary Queries Access Center policy information.
  *
  * @param request GetIntegrationPolicyRequest
  * @param headers map
@@ -4452,7 +4452,7 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const strin
 }
 
 /**
- * @summary Queries the policy information of the DDoS Access Center.
+ * @summary Queries Access Center policy information.
  *
  * @param request GetIntegrationPolicyRequest
  * @return GetIntegrationPolicyResponse
@@ -5625,9 +5625,9 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
- * @summary Queries alert robots.
+ * @summary Queries chatbots.
  *
- * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+ * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
  *
  * @param tmpReq ListAlertRobotsRequest
  * @param headers map
@@ -5690,9 +5690,9 @@ ListAlertRobotsResponse Client::listAlertRobotsWithOptions(const ListAlertRobots
 }
 
 /**
- * @summary Queries alert robots.
+ * @summary Queries chatbots.
  *
- * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+ * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
  *
  * @param request ListAlertRobotsRequest
  * @return ListAlertRobotsResponse
@@ -5895,9 +5895,9 @@ ListContactGroupsResponse Client::listContactGroups(const ListContactGroupsReque
 }
 
 /**
- * @summary Queries alert contacts.
+ * @summary Queries contacts.
  *
- * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+ * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
  *
  * @param tmpReq ListContactsRequest
  * @param headers map
@@ -5968,9 +5968,9 @@ ListContactsResponse Client::listContactsWithOptions(const ListContactsRequest &
 }
 
 /**
- * @summary Queries alert contacts.
+ * @summary Queries contacts.
  *
- * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+ * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
  *
  * @param request ListContactsRequest
  * @return ListContactsResponse
@@ -6261,9 +6261,9 @@ ListDeliveryTasksResponse Client::listDeliveryTasks(const ListDeliveryTasksReque
 }
 
 /**
- * @summary Queries the list of access center policies.
+ * @summary Queries the list of integration center policies.
  *
- * @description Queries the integration list.
+ * @description Queries the list of integrations.
  *
  * @param tmpReq ListIntegrationPoliciesRequest
  * @param headers map
@@ -6354,9 +6354,9 @@ ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const
 }
 
 /**
- * @summary Queries the list of access center policies.
+ * @summary Queries the list of integration center policies.
  *
- * @description Queries the integration list.
+ * @description Queries the list of integrations.
  *
  * @param request ListIntegrationPoliciesRequest
  * @return ListIntegrationPoliciesResponse
@@ -7153,9 +7153,9 @@ ListPrometheusInstancesResponse Client::listPrometheusInstances(const ListPromet
 }
 
 /**
- * @summary Queries the list of Prometheus view instances.
+ * @summary Queries a list of Prometheus view instances.
  *
- * @description Queries the list of Prometheus view instances.
+ * @description Queries a list of Prometheus view instances.
  *
  * @param tmpReq ListPrometheusViewsRequest
  * @param headers map
@@ -7230,9 +7230,9 @@ ListPrometheusViewsResponse Client::listPrometheusViewsWithOptions(const ListPro
 }
 
 /**
- * @summary Queries the list of Prometheus view instances.
+ * @summary Queries a list of Prometheus view instances.
  *
- * @description Queries the list of Prometheus view instances.
+ * @description Queries a list of Prometheus view instances.
  *
  * @param request ListPrometheusViewsRequest
  * @return ListPrometheusViewsResponse
@@ -7892,7 +7892,7 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param tmpReq QueryAlertRulesRequest
  * @param headers map
@@ -7951,7 +7951,7 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request QueryAlertRulesRequest
  * @return QueryAlertRulesResponse

@@ -27,6 +27,7 @@
 #include <alibabacloud/models/AlertRuleRcaConfig.hpp>
 #include <alibabacloud/models/AlertRuleSend.hpp>
 #include <alibabacloud/models/AlertRuleTemplate.hpp>
+#include <alibabacloud/models/AlertRuleTemplateApplyRecord.hpp>
 #include <alibabacloud/models/ArmsIntegrationConfig.hpp>
 #include <alibabacloud/models/CompareList.hpp>
 #include <alibabacloud/models/CloudMonitoringCompositeEscalationEntry.hpp>

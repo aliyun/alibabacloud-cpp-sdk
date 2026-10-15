@@ -132,7 +132,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> slsProject_ {};
-    // The tags attached to the workspace when it is created.
+    // The tags bound to the workspace when it is created.
     shared_ptr<vector<PutWorkspaceRequest::Tags>> tags_ {};
   };
 

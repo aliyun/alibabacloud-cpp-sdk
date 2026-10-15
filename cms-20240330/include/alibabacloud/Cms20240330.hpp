@@ -173,7 +173,7 @@ namespace Cms20240330
       Models::CreateBizTraceResponse createBizTrace(const Models::CreateBizTraceRequest &request);
 
       /**
-       * @summary Creates a cloud resource.
+       * @summary Creates a cloud resource center.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -182,7 +182,7 @@ namespace Cms20240330
       Models::CreateCloudResourceResponse createCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud resource.
+       * @summary Creates a cloud resource center.
        *
        * @return CreateCloudResourceResponse
        */
@@ -649,7 +649,7 @@ namespace Cms20240330
       Models::DeleteAlertRobotsResponse deleteAlertRobots(const Models::DeleteAlertRobotsRequest &request);
 
       /**
-       * @summary Deletes one or more alert webhooks.
+       * @summary Deletes a webhook.
        *
        * @param tmpReq DeleteAlertWebhooksRequest
        * @param headers map
@@ -659,7 +659,7 @@ namespace Cms20240330
       Models::DeleteAlertWebhooksResponse deleteAlertWebhooksWithOptions(const Models::DeleteAlertWebhooksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes one or more alert webhooks.
+       * @summary Deletes a webhook.
        *
        * @param request DeleteAlertWebhooksRequest
        * @return DeleteAlertWebhooksResponse
@@ -685,7 +685,7 @@ namespace Cms20240330
       Models::DeleteBizTraceResponse deleteBizTrace(const string &bizTraceId, const Models::DeleteBizTraceRequest &request);
 
       /**
-       * @summary Deletes a cloud resource.
+       * @summary Deletes the Cloud Resource Center.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -694,7 +694,7 @@ namespace Cms20240330
       Models::DeleteCloudResourceResponse deleteCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a cloud resource.
+       * @summary Deletes the Cloud Resource Center.
        *
        * @return DeleteCloudResourceResponse
        */
@@ -1457,7 +1457,7 @@ namespace Cms20240330
       Models::GetBizTraceResponse getBizTrace(const string &bizTraceId, const Models::GetBizTraceRequest &request);
 
       /**
-       * @summary Retrieves information about cloud resources.
+       * @summary Queries the cloud resource center.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1466,7 +1466,7 @@ namespace Cms20240330
       Models::GetCloudResourceResponse getCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about cloud resources.
+       * @summary Queries the cloud resource center.
        *
        * @return GetCloudResourceResponse
        */
@@ -1661,7 +1661,7 @@ namespace Cms20240330
       Models::GetEntityStoreDataResponse getEntityStoreData(const string &workspace, const Models::GetEntityStoreDataRequest &request);
 
       /**
-       * @summary Queries the policy information of the DDoS Access Center.
+       * @summary Queries Access Center policy information.
        *
        * @param request GetIntegrationPolicyRequest
        * @param headers map
@@ -1671,7 +1671,7 @@ namespace Cms20240330
       Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const Models::GetIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the policy information of the DDoS Access Center.
+       * @summary Queries Access Center policy information.
        *
        * @param request GetIntegrationPolicyRequest
        * @return GetIntegrationPolicyResponse
@@ -2147,9 +2147,9 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
-       * @summary Queries alert robots.
+       * @summary Queries chatbots.
        *
-       * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+       * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
        *
        * @param tmpReq ListAlertRobotsRequest
        * @param headers map
@@ -2159,9 +2159,9 @@ namespace Cms20240330
       Models::ListAlertRobotsResponse listAlertRobotsWithOptions(const Models::ListAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert robots.
+       * @summary Queries chatbots.
        *
-       * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+       * @description Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
        *
        * @param request ListAlertRobotsRequest
        * @return ListAlertRobotsResponse
@@ -2227,9 +2227,9 @@ namespace Cms20240330
       Models::ListContactGroupsResponse listContactGroups(const Models::ListContactGroupsRequest &request);
 
       /**
-       * @summary Queries alert contacts.
+       * @summary Queries contacts.
        *
-       * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+       * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
        * @param tmpReq ListContactsRequest
        * @param headers map
@@ -2239,9 +2239,9 @@ namespace Cms20240330
       Models::ListContactsResponse listContactsWithOptions(const Models::ListContactsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert contacts.
+       * @summary Queries contacts.
        *
-       * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+       * @description This topic provides an example of creating an alert contact group named `ECS_Group`.
        *
        * @param request ListContactsRequest
        * @return ListContactsResponse
@@ -2343,9 +2343,9 @@ namespace Cms20240330
       Models::ListDeliveryTasksResponse listDeliveryTasks(const Models::ListDeliveryTasksRequest &request);
 
       /**
-       * @summary Queries the list of access center policies.
+       * @summary Queries the list of integration center policies.
        *
-       * @description Queries the integration list.
+       * @description Queries the list of integrations.
        *
        * @param tmpReq ListIntegrationPoliciesRequest
        * @param headers map
@@ -2355,9 +2355,9 @@ namespace Cms20240330
       Models::ListIntegrationPoliciesResponse listIntegrationPoliciesWithOptions(const Models::ListIntegrationPoliciesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of access center policies.
+       * @summary Queries the list of integration center policies.
        *
-       * @description Queries the integration list.
+       * @description Queries the list of integrations.
        *
        * @param request ListIntegrationPoliciesRequest
        * @return ListIntegrationPoliciesResponse
@@ -2635,9 +2635,9 @@ namespace Cms20240330
       Models::ListPrometheusInstancesResponse listPrometheusInstances(const Models::ListPrometheusInstancesRequest &request);
 
       /**
-       * @summary Queries the list of Prometheus view instances.
+       * @summary Queries a list of Prometheus view instances.
        *
-       * @description Queries the list of Prometheus view instances.
+       * @description Queries a list of Prometheus view instances.
        *
        * @param tmpReq ListPrometheusViewsRequest
        * @param headers map
@@ -2647,9 +2647,9 @@ namespace Cms20240330
       Models::ListPrometheusViewsResponse listPrometheusViewsWithOptions(const Models::ListPrometheusViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of Prometheus view instances.
+       * @summary Queries a list of Prometheus view instances.
        *
-       * @description Queries the list of Prometheus view instances.
+       * @description Queries a list of Prometheus view instances.
        *
        * @param request ListPrometheusViewsRequest
        * @return ListPrometheusViewsResponse
@@ -2859,7 +2859,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param tmpReq QueryAlertRulesRequest
        * @param headers map
@@ -2871,7 +2871,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert rules.
        *
-       * @description This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+       * @description This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param request QueryAlertRulesRequest
        * @return QueryAlertRulesResponse

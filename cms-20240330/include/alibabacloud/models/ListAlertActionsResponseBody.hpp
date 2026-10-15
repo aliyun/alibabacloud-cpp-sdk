@@ -193,9 +193,9 @@ namespace Models
 
 
       protected:
-        // The name of the Simple Log Service Logstore.
+        // The name of the Logstore in Simple Log Service.
         shared_ptr<string> logstore_ {};
-        // The name of the Simple Log Service project.
+        // The name of the project in Simple Log Service.
         shared_ptr<string> project_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -239,9 +239,9 @@ namespace Models
 
 
       protected:
-        // The integration key of PagerDuty.
+        // The integration key for PagerDuty.
         shared_ptr<string> key_ {};
-        // The integration webhook of PagerDuty. V1 and V2 versions are supported.
+        // The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
         shared_ptr<string> url_ {};
       };
 
@@ -292,9 +292,9 @@ namespace Models
 
 
       protected:
-        // The resource type of Simple Message Queue (formerly MNS).
+        // The resource type in Simple Message Queue (formerly MNS).
         shared_ptr<string> mnsType_ {};
-        // The resource name.
+        // The name of the resource.
         // 
         // - If the resource type is queue, the resource name is the queue name.
         // - If the resource type is topic, the resource name is the topic name.
@@ -350,7 +350,7 @@ namespace Models
 
 
       protected:
-        // The function name of the Function Compute service.
+        // The name of the function in Function Compute.
         shared_ptr<string> function_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -405,7 +405,7 @@ namespace Models
 
 
       protected:
-        // The function name of the Function Compute service.
+        // The name of the function in Function Compute.
         shared_ptr<string> function_ {};
         // The version or alias of the function.
         shared_ptr<string> qualifier_ {};
@@ -631,9 +631,9 @@ namespace Models
 
 
     protected:
-      // The unique IDs of the action integrations.
+      // The unique identifiers of the alert action integrations.
       shared_ptr<string> alertActionId_ {};
-      // The name of the action integration.
+      // The name of the alert action integration.
       shared_ptr<string> alertActionName_ {};
       // The EventBridge parameters.
       shared_ptr<AlertActions::EbParam> ebParam_ {};
@@ -649,7 +649,7 @@ namespace Models
       shared_ptr<AlertActions::PagerDutyParam> pagerDutyParam_ {};
       // The Simple Log Service parameters.
       shared_ptr<AlertActions::SlsParam> slsParam_ {};
-      // The type of the action integration.
+      // The type of the alert action integration.
       shared_ptr<string> type_ {};
       // The webhook parameters.
       shared_ptr<AlertActions::WebhookParam> webhookParam_ {};
@@ -695,7 +695,7 @@ namespace Models
 
 
   protected:
-    // The list of action integration configurations.
+    // The list of alert action integration configurations.
     shared_ptr<vector<ListAlertActionsResponseBody::AlertActions>> alertActions_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

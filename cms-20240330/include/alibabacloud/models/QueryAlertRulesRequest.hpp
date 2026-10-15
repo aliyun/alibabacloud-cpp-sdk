@@ -80,13 +80,13 @@ namespace Models
   protected:
     // The request body for querying alert rules.
     shared_ptr<QueryAlertRulesInput> body_ {};
-    // The idempotency token.
+    // The client token that is used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
-    // The maximum number of data records to read in this request.
+    // The maximum number of data records to return in the current read operation.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
+    // The token that specifies the starting position for the current read operation. If this parameter is left empty, the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The query filter condition. The value is a JSON string whose fields have the same semantics as the request body. Supported fields include filter (uuid, displayName, labels, status, enabled, and more. Fields at the same level have an AND relationship), pagination (pageNumber and pageSize), and workspace. Specify either this parameter or the request body. If both are specified, the request body takes precedence.
+    // The query filter conditions in JSON string format. The field semantics are the same as those in the request body. Supported fields include filter (such as uuid, displayName, labels, status, and enabled, where sibling fields use the AND logical operator), pagination (pageNumber and pageSize), and workspace. You must specify either this parameter or the body parameter. If both are specified, the body parameter takes precedence.
     shared_ptr<string> queryJson_ {};
   };
 

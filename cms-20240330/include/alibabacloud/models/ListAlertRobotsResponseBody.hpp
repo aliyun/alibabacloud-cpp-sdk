@@ -135,15 +135,15 @@ namespace Models
       shared_ptr<string> digitalEmployeeName_ {};
       // The language.
       shared_ptr<string> lang_ {};
-      // The robot name.
+      // The name of the chatbot.
       shared_ptr<string> name_ {};
-      // The unique ID of the robot.
+      // The unique ID of the chatbot.
       shared_ptr<string> robotId_ {};
-      // The signing key of the robot.
+      // The signature key of the chatbot.
       shared_ptr<string> robotSignKey_ {};
-      // The robot types.
+      // The chatbot types.
       shared_ptr<string> type_ {};
-      // The webhook URL of the robot.
+      // The webhook URL of the chatbot.
       shared_ptr<string> url_ {};
       // The workspace ID.
       shared_ptr<string> workspace_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The robot IDs.
+    // The chatbot IDs.
     shared_ptr<vector<ListAlertRobotsResponseBody::Robots>> robots_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

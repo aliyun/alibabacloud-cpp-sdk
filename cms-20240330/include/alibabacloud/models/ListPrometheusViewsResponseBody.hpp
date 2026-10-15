@@ -186,31 +186,31 @@ namespace Models
 
 
     protected:
-      // The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
+      // The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
       shared_ptr<string> createTime_ {};
-      // The instance type:
-      // prom-view: aggregated view of the new version.
-      // global-view: aggregated view of the legacy version.
+      // The instance type. Valid values:
+      // - prom-view: new version of the aggregate view
+      // - global-view: legacy version of the aggregate view
       shared_ptr<string> instanceType_ {};
-      // The billing type. Currently, the fixed value is FREE.
+      // The billing method. The value is fixed to FREE.
       shared_ptr<string> paymentType_ {};
-      // The product to which the Prometheus instance belongs (arms or cms).
+      // The product to which the Prometheus instance belongs, such as ARMS or CMS.
       shared_ptr<string> product_ {};
       // The number of Prometheus instances included in the view.
       shared_ptr<int32_t> prometheusInstanceCount_ {};
-      // The Prometheus view ID.
+      // The ID of the Prometheus view.
       shared_ptr<string> prometheusViewId_ {};
-      // The Prometheus view name.
+      // The name of the Prometheus view.
       shared_ptr<string> prometheusViewName_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The fixed value: PrometheusView.
+      // The resource type. The value is fixed to PrometheusView.
       shared_ptr<string> resourceType_ {};
-      // The backend data storage status.
+      // The status of the backend data storage.
       shared_ptr<string> status_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<string> userId_ {};
       // The version.
       shared_ptr<string> version_ {};

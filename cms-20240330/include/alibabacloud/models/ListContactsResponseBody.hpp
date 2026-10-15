@@ -163,27 +163,27 @@ namespace Models
 
 
     protected:
-      // The ID of the alert contact.
+      // The ID of the on-duty contact.
       shared_ptr<string> contactId_ {};
-      // The email address of the alert contact.
+      // The email address of the contact.
       shared_ptr<string> email_ {};
-      // Indicates whether the email address is verified.
+      // Indicates whether the email address is activated.
       shared_ptr<bool> emailVerify_ {};
-      // The contact groups to which the alert contact belongs.
+      // The contact groups to which the contact belongs.
       shared_ptr<vector<string>> groupList_ {};
-      // The mapping of instant messaging user IDs. Multiple instant messaging tools are supported.
+      // The IM user ID mapping. Multiple instant messaging tools are supported.
       shared_ptr<map<string, string>> imUserIds_ {};
       // The language.
       shared_ptr<string> lang_ {};
-      // The name of the alert contact.
+      // The name of the contact.
       shared_ptr<string> name_ {};
-      // The phone number of the alert contact.
+      // The mobile phone number of the contact.
       shared_ptr<string> phone_ {};
-      // Indicates whether the phone number of the alert contact is verified.
+      // Indicates whether the mobile phone number of the contact is activated.
       shared_ptr<bool> phoneVerify_ {};
-      // The time when the alert contact was last updated. Format: yyyy-MM-dd HH:mm:ss.
+      // The update time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> updateTime_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -227,7 +227,7 @@ namespace Models
 
 
   protected:
-    // The list of alert contacts.
+    // The list of contacts.
     shared_ptr<vector<ListContactsResponseBody::Contacts>> contacts_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
@@ -235,7 +235,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 
