@@ -14,6 +14,9 @@
 #include <alibabacloud/models/BindPasswordFreeLoginUserRequest.hpp>
 #include <alibabacloud/models/BindPasswordFreeLoginUserResponseBody.hpp>
 #include <alibabacloud/models/BindPasswordFreeLoginUserResponse.hpp>
+#include <alibabacloud/models/CreateUserInvitationCodeRequest.hpp>
+#include <alibabacloud/models/CreateUserInvitationCodeResponseBody.hpp>
+#include <alibabacloud/models/CreateUserInvitationCodeResponse.hpp>
 #include <alibabacloud/models/DeleteClientsRequest.hpp>
 #include <alibabacloud/models/DeleteClientsResponseBody.hpp>
 #include <alibabacloud/models/DeleteClientsResponse.hpp>

@@ -252,6 +252,80 @@ BindPasswordFreeLoginUserResponse Client::bindPasswordFreeLoginUser(const BindPa
 }
 
 /**
+ * @summary Creates dedicated terminal management invitation codes for one or more users under the current Alibaba Cloud account, generates an eight-digit code for each user, and uniformly specifies the terminal group and validity period.
+ *
+ * @description ## Usage notes
+ * - Call this operation over HTTPS POST, sign the request with an AccessKey pair or STS credentials, and grant the ecd:CreateUserInvitationCode permission. You can only create management codes for users and terminal groups that belong to the Alibaba Cloud account of the caller identity.
+ * - You must specify either EndUserIds or the single-user compatible parameter EndUserId. Batch requests support 1 to 100 users. An independent eight-digit management code is generated for each user. Empty items or duplicate users are not supported.
+ * - Users in a single request share the same TerminalGroupId and ValidityMinutes. Repeated calls can create multiple different management codes for the same user.
+ * - Both users and groups must already exist and belong to the current account. The group cannot be in a deleted state. After parameter and user validation passes, the entire batch is written. The system does not create codes user by user and return partial results.
+ * - A management code is a terminal redemption credential. Provide it to the corresponding user only through trusted channels and avoid recording the complete code in public logs.
+ * - The returned Data is always an array, even if only one code is created, in which case it is a single-element array. Creating a code does not mean that the terminal has completed management. A UUID and binding time are generated only after the device uses the code to complete management.
+ * - Status indicates only the usage status: ACTIVE means unused, and USED means used. To determine whether a code has expired, refer to the Expired field returned by the server. The EXPIRED status is not used.
+ * - This operation does not have a ClientToken parameter for business idempotence. Resending a creation request may generate a new management code. If you encounter uncertain results such as timeouts, check whether the code has been created before retrying unconditionally.
+ *
+ * @param request CreateUserInvitationCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserInvitationCodeResponse
+ */
+CreateUserInvitationCodeResponse Client::createUserInvitationCodeWithOptions(const CreateUserInvitationCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndUserId()) {
+    body["EndUserId"] = request.getEndUserId();
+  }
+
+  if (!!request.hasEndUserIds()) {
+    body["EndUserIds"] = request.getEndUserIds();
+  }
+
+  if (!!request.hasTerminalGroupId()) {
+    body["TerminalGroupId"] = request.getTerminalGroupId();
+  }
+
+  if (!!request.hasValidityMinutes()) {
+    body["ValidityMinutes"] = request.getValidityMinutes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateUserInvitationCode"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserInvitationCodeResponse>();
+}
+
+/**
+ * @summary Creates dedicated terminal management invitation codes for one or more users under the current Alibaba Cloud account, generates an eight-digit code for each user, and uniformly specifies the terminal group and validity period.
+ *
+ * @description ## Usage notes
+ * - Call this operation over HTTPS POST, sign the request with an AccessKey pair or STS credentials, and grant the ecd:CreateUserInvitationCode permission. You can only create management codes for users and terminal groups that belong to the Alibaba Cloud account of the caller identity.
+ * - You must specify either EndUserIds or the single-user compatible parameter EndUserId. Batch requests support 1 to 100 users. An independent eight-digit management code is generated for each user. Empty items or duplicate users are not supported.
+ * - Users in a single request share the same TerminalGroupId and ValidityMinutes. Repeated calls can create multiple different management codes for the same user.
+ * - Both users and groups must already exist and belong to the current account. The group cannot be in a deleted state. After parameter and user validation passes, the entire batch is written. The system does not create codes user by user and return partial results.
+ * - A management code is a terminal redemption credential. Provide it to the corresponding user only through trusted channels and avoid recording the complete code in public logs.
+ * - The returned Data is always an array, even if only one code is created, in which case it is a single-element array. Creating a code does not mean that the terminal has completed management. A UUID and binding time are generated only after the device uses the code to complete management.
+ * - Status indicates only the usage status: ACTIVE means unused, and USED means used. To determine whether a code has expired, refer to the Expired field returned by the server. The EXPIRED status is not used.
+ * - This operation does not have a ClientToken parameter for business idempotence. Resending a creation request may generate a new management code. If you encounter uncertain results such as timeouts, check whether the code has been created before retrying unconditionally.
+ *
+ * @param request CreateUserInvitationCodeRequest
+ * @return CreateUserInvitationCodeResponse
+ */
+CreateUserInvitationCodeResponse Client::createUserInvitationCode(const CreateUserInvitationCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUserInvitationCodeWithOptions(request, runtime);
+}
+
+/**
  * @summary Removes managed terminal devices by UUID.
  *
  * @param request DeleteClientsRequest

@@ -89,6 +89,43 @@ namespace Wyota20210420
       Models::BindPasswordFreeLoginUserResponse bindPasswordFreeLoginUser(const Models::BindPasswordFreeLoginUserRequest &request);
 
       /**
+       * @summary Creates dedicated terminal management invitation codes for one or more users under the current Alibaba Cloud account, generates an eight-digit code for each user, and uniformly specifies the terminal group and validity period.
+       *
+       * @description ## Usage notes
+       * - Call this operation over HTTPS POST, sign the request with an AccessKey pair or STS credentials, and grant the ecd:CreateUserInvitationCode permission. You can only create management codes for users and terminal groups that belong to the Alibaba Cloud account of the caller identity.
+       * - You must specify either EndUserIds or the single-user compatible parameter EndUserId. Batch requests support 1 to 100 users. An independent eight-digit management code is generated for each user. Empty items or duplicate users are not supported.
+       * - Users in a single request share the same TerminalGroupId and ValidityMinutes. Repeated calls can create multiple different management codes for the same user.
+       * - Both users and groups must already exist and belong to the current account. The group cannot be in a deleted state. After parameter and user validation passes, the entire batch is written. The system does not create codes user by user and return partial results.
+       * - A management code is a terminal redemption credential. Provide it to the corresponding user only through trusted channels and avoid recording the complete code in public logs.
+       * - The returned Data is always an array, even if only one code is created, in which case it is a single-element array. Creating a code does not mean that the terminal has completed management. A UUID and binding time are generated only after the device uses the code to complete management.
+       * - Status indicates only the usage status: ACTIVE means unused, and USED means used. To determine whether a code has expired, refer to the Expired field returned by the server. The EXPIRED status is not used.
+       * - This operation does not have a ClientToken parameter for business idempotence. Resending a creation request may generate a new management code. If you encounter uncertain results such as timeouts, check whether the code has been created before retrying unconditionally.
+       *
+       * @param request CreateUserInvitationCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserInvitationCodeResponse
+       */
+      Models::CreateUserInvitationCodeResponse createUserInvitationCodeWithOptions(const Models::CreateUserInvitationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates dedicated terminal management invitation codes for one or more users under the current Alibaba Cloud account, generates an eight-digit code for each user, and uniformly specifies the terminal group and validity period.
+       *
+       * @description ## Usage notes
+       * - Call this operation over HTTPS POST, sign the request with an AccessKey pair or STS credentials, and grant the ecd:CreateUserInvitationCode permission. You can only create management codes for users and terminal groups that belong to the Alibaba Cloud account of the caller identity.
+       * - You must specify either EndUserIds or the single-user compatible parameter EndUserId. Batch requests support 1 to 100 users. An independent eight-digit management code is generated for each user. Empty items or duplicate users are not supported.
+       * - Users in a single request share the same TerminalGroupId and ValidityMinutes. Repeated calls can create multiple different management codes for the same user.
+       * - Both users and groups must already exist and belong to the current account. The group cannot be in a deleted state. After parameter and user validation passes, the entire batch is written. The system does not create codes user by user and return partial results.
+       * - A management code is a terminal redemption credential. Provide it to the corresponding user only through trusted channels and avoid recording the complete code in public logs.
+       * - The returned Data is always an array, even if only one code is created, in which case it is a single-element array. Creating a code does not mean that the terminal has completed management. A UUID and binding time are generated only after the device uses the code to complete management.
+       * - Status indicates only the usage status: ACTIVE means unused, and USED means used. To determine whether a code has expired, refer to the Expired field returned by the server. The EXPIRED status is not used.
+       * - This operation does not have a ClientToken parameter for business idempotence. Resending a creation request may generate a new management code. If you encounter uncertain results such as timeouts, check whether the code has been created before retrying unconditionally.
+       *
+       * @param request CreateUserInvitationCodeRequest
+       * @return CreateUserInvitationCodeResponse
+       */
+      Models::CreateUserInvitationCodeResponse createUserInvitationCode(const Models::CreateUserInvitationCodeRequest &request);
+
+      /**
        * @summary Removes managed terminal devices by UUID.
        *
        * @param request DeleteClientsRequest
