@@ -86,36 +86,36 @@ namespace Models
   protected:
     // Specifies whether to enable DryRun mode. Valid values:
     // 
-    // - true: enables DryRun mode.
-    // - false (default): disables DryRun mode.
+    // - true: Enables DryRun mode.
+    // - false (default): Disables DryRun mode.
     // 
-    // DryRun mode is used to test API calls and verify whether you have the required permissions on the corresponding resources and whether the request parameters are correctly configured. When DryRun mode is enabled, KMS always returns a failure and provides the failure reason. Failure reasons include:
+    // DryRun mode is used to test API calls, verify whether you have the required permissions on the specified resources, and check whether the request parameters are configured correctly. When DryRun mode is enabled, KMS always returns a failure with the reason for the failure. Possible failure reasons include:
     // 
-    // - DryRunOperationError: The request would succeed without the DryRun parameter.
-    // - ValidationError: The parameters specified in the request are invalid.
-    // - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+    // - DryRunOperationError: The request would succeed if the DryRun parameter were not configured.
+    // - ValidationError: A parameter specified in the request is invalid.
+    // - AccessDeniedError: You do not have permission to perform this operation on the KMS resource.
     shared_ptr<string> dryRun_ {};
     // Specifies whether to retrieve the extended configuration of the secret. Valid values:
     // 
-    // - true: retrieves the extended configuration.
-    // - false (default): does not retrieve the extended configuration.
+    // - true: Retrieves the extended configuration.
+    // - false (default): Does not retrieve the extended configuration.
     // 
-    // > Generic secrets do not support extended configurations. This parameter is ignored if specified.
+    // > Generic secrets do not support extended configuration. If you set this parameter, it is ignored.
     shared_ptr<bool> fetchExtendedConfig_ {};
     shared_ptr<string> recipient_ {};
     // The secret name or secret Alibaba Cloud Resource Name (ARN).
-    // >To access a secret in another Alibaba Cloud account, you must specify the secret ARN. The format of the secret ARN is `acs:kms:${region}:${account}:secret/${secret-name}`.
+    // >When accessing a secret in another Alibaba Cloud account, you must enter the secret ARN. The format of the secret ARN is `acs:kms:${region}:${account}:secret/${secret-name}`.
     // 
     // This parameter is required.
     shared_ptr<string> secretName_ {};
     // The version number.
     // 
-    // > ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets do not support specifying VersionId. This parameter is ignored if specified.
+    // > Specifying VersionId is not supported for ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, dynamic RAM secrets, or dynamic ECS secrets. If you set this parameter, it is ignored.
     shared_ptr<string> versionId_ {};
-    // The version stage. Default value: ACSCurrent.
+    // The version status. Default value: ACSCurrent.
     // 
-    // If you specify this parameter, the secret value of the specified version stage is returned. If you do not specify this parameter, the secret value of the ACSCurrent version stage is returned.
-    // > For ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, RAM secrets, and ECS secrets, you can retrieve only the secret values of the ACSPrevious and ACSCurrent versions.
+    // If you specify this parameter, the secret value of the specified version status is returned. If you do not specify this parameter, the secret value of the ACSCurrent version status is returned.
+    // > For ApsaraDB RDS secrets, PolarDB secrets, Redis/Tair secrets, dynamic RAM secrets, and dynamic ECS secrets, only the secret values corresponding to ACSPrevious and ACSCurrent can be retrieved.
     shared_ptr<string> versionStage_ {};
   };
 

@@ -88,33 +88,29 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> algorithm_ {};
-    // The ciphertext to be decrypted. The ciphertext is encoded in Base64.
+    // The ciphertext to decrypt, encoded in Base64. 
     // 
-    // > You can generate a ciphertext by calling the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation.
+    // > You can call the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation to generate the ciphertext.
     // 
     // This parameter is required.
     shared_ptr<string> ciphertextBlob_ {};
-    // Specifies whether to enable the dry run feature.
+    // Specifies whether to enable DryRun mode. Valid values:
     // 
-    // - true: enables the dry run feature.
+    // - true: Enabled.
+    // - false (default): Disabled.
     // 
-    // - false: disables the dry run feature. This is the default value.
+    // DryRun mode is used to test API calls, verify that you have the required permissions on the relevant resources, and check whether the request parameters are configured correctly. When DryRun mode is enabled, KMS always returns a failure with a reason. The failure reasons include the following:
     // 
-    // The dry run feature is used to test API calls, verify the permissions on the specified resources, and check the validity of the request parameters. If you enable the dry run feature, KMS always returns a failure response and the cause of the failure. The causes of the failure include the following:
-    // 
-    // - DryRunOperationError: The request would have succeeded if the DryRun parameter is not specified.
-    // 
-    // - ValidationError: The specified parameter in the request is invalid.
-    // 
-    // - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+    // - DryRunOperationError: The request would succeed if the DryRun parameter were not specified.
+    // - ValidationError: A parameter specified in the request is invalid.
+    // - AccessDeniedError: You do not have permission to perform this operation on the KMS resource.
     shared_ptr<string> dryRun_ {};
-    // The ID of the key. You can also specify the alias or Amazon Resource Name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
-    // 
-    // > When you access a key in another Alibaba Cloud account, you must specify the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
+    // The ID of the key. You can also specify a key alias or a key Amazon Resource Name (ARN). For more information about aliases, see [Manage key aliases](https://help.aliyun.com/document_detail/480655.html).
+    // > To access a key that belongs to another Alibaba Cloud account, you must specify the key ARN. The key ARN format is `acs:kms:${region}:${account}:key/${keyid}`.
     // 
     // This parameter is required.
     shared_ptr<string> keyId_ {};
-    // The ID of the key version. The globally unique identifier of the key version.
+    // The key version ID. The globally unique identifier of the key version.
     // 
     // This parameter is required.
     shared_ptr<string> keyVersionId_ {};
