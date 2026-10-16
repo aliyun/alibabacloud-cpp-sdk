@@ -117,9 +117,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // Indicates whether the call is successful. Valid values: true (successful) and false (failed).
     shared_ptr<bool> success_ {};
   };
 
