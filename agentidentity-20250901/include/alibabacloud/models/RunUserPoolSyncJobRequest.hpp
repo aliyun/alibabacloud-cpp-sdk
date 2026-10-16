@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The identity provider type. Currently, only DingTalk is supported.
     shared_ptr<string> identityProviderType_ {};
+    // The maximum number of users to synchronize in a single task.
     shared_ptr<string> maxSyncUsers_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

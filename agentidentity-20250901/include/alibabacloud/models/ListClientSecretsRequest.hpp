@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The client name.
     shared_ptr<string> clientName_ {};
+    // The user pool name.
     shared_ptr<string> userPoolName_ {};
   };
 

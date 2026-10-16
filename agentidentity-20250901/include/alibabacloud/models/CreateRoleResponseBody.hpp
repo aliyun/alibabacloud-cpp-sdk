@@ -105,11 +105,19 @@ namespace Models
 
 
     protected:
+      // The time when the role was created. The time is displayed in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The description of the role.
       shared_ptr<string> description_ {};
+      // The ID of the role.
       shared_ptr<string> roleId_ {};
+      // The name of the role.
       shared_ptr<string> roleName_ {};
+      // The type of the role. Valid values:
+      // - Default: the default role that is automatically provisioned when the user pool is created
+      // - Manual: a custom role that is manually created by calling an API operation
       shared_ptr<string> type_ {};
+      // The time when the role was updated. The time is displayed in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -132,7 +140,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The role information.
     shared_ptr<CreateRoleResponseBody::Role> role_ {};
   };
 

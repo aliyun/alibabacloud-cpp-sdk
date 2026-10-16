@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The ARN of the target gateway.
     shared_ptr<string> gatewayArn_ {};
+    // The gateway type. Valid values:
+    // 
+    // - AIGateway: Alibaba Cloud AI Gateway.
+    // - AgentRunMCP: AgentRun MCP tool.
+    // 
+    // Default value: AIGateway.
     shared_ptr<string> gatewayType_ {};
+    // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> policySetName_ {};
   };
 

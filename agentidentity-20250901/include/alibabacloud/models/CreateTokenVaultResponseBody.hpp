@@ -98,7 +98,11 @@ namespace Models
 
 
       protected:
+        // The type of the encryption key. Valid values:
+        // - SERVICE_MANAGED_KEY: service-managed key
+        // - CUSTOMER_MANAGED_KEY: customer-managed KMS key
         shared_ptr<string> keyType_ {};
+        // The ARN of the KMS key used when KeyType is set to CUSTOMER_MANAGED_KEY.
         shared_ptr<string> kmsKeyArn_ {};
       };
 
@@ -149,11 +153,17 @@ namespace Models
 
 
     protected:
+      // The time when the token vault was created, in UTC ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The description of the token vault.
       shared_ptr<string> description_ {};
+      // The encryption configuration of the token vault.
       shared_ptr<TokenVault::EncryptionConfig> encryptionConfig_ {};
+      // The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used to authorize the AgentIdentity service to access other cloud resources such as KMS.
       shared_ptr<string> roleArn_ {};
+      // The ARN of the token vault.
       shared_ptr<string> tokenVaultArn_ {};
+      // The name of the token vault. The name must be unique within the current Alibaba Cloud account.
       shared_ptr<string> tokenVaultName_ {};
     };
 
@@ -176,7 +186,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // The details of the token vault.
     shared_ptr<CreateTokenVaultResponseBody::TokenVault> tokenVault_ {};
   };
 

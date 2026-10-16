@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the user pool to delete.
     shared_ptr<string> userPoolName_ {};
   };
 

@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The ID of the client.
       shared_ptr<string> clientId_ {};
+      // The name of the client.
       shared_ptr<string> clientName_ {};
+      // The client key ID.
       shared_ptr<string> clientSecretId_ {};
+      // The plaintext client secret. This value is returned only once upon creation and cannot be retrieved later. Store it securely.
       shared_ptr<string> clientSecretValue_ {};
+      // The time when the client secret was created, in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The name of the user pool.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -132,7 +138,9 @@ namespace Models
 
 
   protected:
+    // The client secret information.
     shared_ptr<CreateClientSecretResponseBody::ClientSecret> clientSecret_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The description of the user pool. The description must be 0 to 128 characters in length.
     shared_ptr<string> description_ {};
+    // The name of the user pool. The name must be unique within the same Alibaba Cloud account and must be 3 to 64 characters in length.
     shared_ptr<string> userPoolName_ {};
   };
 

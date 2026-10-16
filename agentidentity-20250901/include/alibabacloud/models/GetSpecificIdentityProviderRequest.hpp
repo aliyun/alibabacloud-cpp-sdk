@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The type of the identity provider. Currently, only DingTalk is supported.
     shared_ptr<string> identityProviderType_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

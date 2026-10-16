@@ -122,12 +122,18 @@ namespace Models
 
 
     protected:
+      // The name of the credential provider.
       shared_ptr<string> APIKeyCredentialProviderName_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ARN of the credential provider.
       shared_ptr<string> credentialProviderArn_ {};
+      // The description of the credential provider.
       shared_ptr<string> description_ {};
       shared_ptr<string> sourcePlatform_ {};
+      // The name of the TokenVault.
       shared_ptr<string> tokenVaultName_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -171,10 +177,15 @@ namespace Models
 
 
   protected:
+    // The list of API key credential provider summaries.
     shared_ptr<vector<ListAPIKeyCredentialProvidersResponseBody::APIKeyCredentialProviders>> APIKeyCredentialProviders_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request. For subsequent requests, specify the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of credential providers.
     shared_ptr<int32_t> totalCount_ {};
   };
 

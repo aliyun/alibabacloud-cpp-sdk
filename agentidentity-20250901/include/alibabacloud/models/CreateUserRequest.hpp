@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // The description of the user. It must be 0 to 256 characters in length.
     shared_ptr<string> description_ {};
+    // The display name of the user. It must be 0 to 128 characters in length.
     shared_ptr<string> displayName_ {};
+    // The email address of the user.
     shared_ptr<string> email_ {};
+    // The status of the user. Valid values:
+    // - Enabled: Enabled.
+    // - Disabled: Disabled.
     shared_ptr<string> status_ {};
+    // The username. It can contain letters, digits, underscores (_), periods (.), and hyphens (-), and must be 3 to 128 characters in length.
     shared_ptr<string> userName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

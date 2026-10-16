@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The ARN of the RAM role used to grant the AgentIdentity service access to other cloud resources such as KMS.
     shared_ptr<string> roleArn_ {};
+    // The name of the token vault. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> tokenVaultName_ {};
   };
 

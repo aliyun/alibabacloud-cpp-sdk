@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The description of the token vault.
     shared_ptr<string> description_ {};
+    // The encryption configuration of the token vault. The value is a JSON string.
     shared_ptr<EncryptionConfig> encryptionConfig_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used to authorize the AgentIdentity service to access other cloud resources such as KMS.
     shared_ptr<string> roleArn_ {};
+    // The name of the token vault. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> tokenVaultName_ {};
   };
 

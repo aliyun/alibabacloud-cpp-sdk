@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The certificate ID.
       shared_ptr<string> certificateId_ {};
+      // The content of the X.509 certificate in PEM format.
       shared_ptr<string> x509Certificate_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of X.509 certificates.
     shared_ptr<vector<ListSAMLIdentityProviderCertificatesResponseBody::X509Certificates>> x509Certificates_ {};
   };
 

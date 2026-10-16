@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The system-generated random password returned when GenerateRandomPassword is set to true.
     shared_ptr<string> randomPassword_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

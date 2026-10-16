@@ -115,12 +115,18 @@ namespace Models
 
 
     protected:
+      // The name of the credential provider.
       shared_ptr<string> APIKeyCredentialProviderName_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ARN of the credential provider.
       shared_ptr<string> credentialProviderArn_ {};
+      // The description of the credential provider.
       shared_ptr<string> description_ {};
       shared_ptr<string> sourcePlatform_ {};
+      // The name of the TokenVault.
       shared_ptr<string> tokenVaultName_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -143,7 +149,9 @@ namespace Models
 
 
   protected:
+    // The API key credential provider.
     shared_ptr<GetAPIKeyCredentialProviderResponseBody::APIKeyCredentialProvider> APIKeyCredentialProvider_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

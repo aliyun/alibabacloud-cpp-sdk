@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the certificate to delete.
     shared_ptr<string> certificateId_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

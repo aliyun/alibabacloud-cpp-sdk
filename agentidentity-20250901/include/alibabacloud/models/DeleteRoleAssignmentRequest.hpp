@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the identity. If PrincipalType is set to User, specify the username.
     shared_ptr<string> principalName_ {};
+    // The identity type. Currently, only User is supported.
     shared_ptr<string> principalType_ {};
+    // The name of the role to be removed.
     shared_ptr<string> roleName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

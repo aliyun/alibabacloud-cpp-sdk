@@ -198,20 +198,35 @@ namespace Models
 
 
     protected:
+      // The unique callback URL assigned to the provider. You must configure this URL in the list of allowed callback URLs of the identity provider.
+      // Format: https://agentidentitydata.{{region}}.aliyuncs.com/oauth2/callback/{{UUID}}
+      // If a value is specified, the specified value is used.
+      // If no value is specified, the server automatically generates one.
       shared_ptr<string> callbackURL_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ARN of the credential provider.
       shared_ptr<string> credentialProviderArn_ {};
+      // The vendor of the provider, such as AliyunOAuth2, AlibabaCloudOAuth2, DingTalkOAuth2, FeiShuOAuth2, and CustomOAuth2.
       shared_ptr<string> credentialProviderVendor_ {};
+      // The description of the OAuth 2.0 credential provider.
       shared_ptr<string> description_ {};
+      // The IDaaS instance ID.
       shared_ptr<string> IDaaSInstanceId_ {};
+      // The name of the credential provider.
       shared_ptr<string> OAuth2CredentialProviderName_ {};
+      // The object that contains provider-specific configurations, such as clientId and clientSecret.
       shared_ptr<OAuth2ProviderConfig> OAuth2ProviderConfig_ {};
       shared_ptr<string> OAuthType_ {};
+      // The ID of the outbound application.
       shared_ptr<string> outboundApplicationId_ {};
+      // The outbound audience.
       shared_ptr<string> outboundAudience_ {};
+      // The outbound client ID.
       shared_ptr<string> outboundClientId_ {};
       shared_ptr<string> sourcePlatform_ {};
       shared_ptr<string> tokenVaultName_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -255,10 +270,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results.
+    // 
+    // Leave this parameter empty for the first request. For subsequent requests, specify the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The credential providers.
     shared_ptr<vector<ListOAuth2CredentialProvidersResponseBody::OAuth2CredentialProviders>> OAuth2CredentialProviders_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of credential providers.
     shared_ptr<int32_t> totalCount_ {};
   };
 

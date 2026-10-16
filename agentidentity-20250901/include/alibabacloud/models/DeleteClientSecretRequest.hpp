@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The client ID. Specify either this parameter or ClientName. If both are specified, ClientId takes precedence.
     shared_ptr<string> clientId_ {};
+    // The client name. Specify either this parameter or ClientId.
     shared_ptr<string> clientName_ {};
+    // The key ID of the client secret to delete.
     shared_ptr<string> clientSecretId_ {};
+    // The user pool name.
     shared_ptr<string> userPoolName_ {};
   };
 

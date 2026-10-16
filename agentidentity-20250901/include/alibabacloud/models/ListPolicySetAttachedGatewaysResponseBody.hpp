@@ -103,10 +103,21 @@ namespace Models
 
 
     protected:
+      // The name of the policy set that is currently in effect on the gateway.
       shared_ptr<string> attachedPolicySetName_ {};
+      // The time when the policy set was attached to the gateway, in UTC and ISO 8601 format.
       shared_ptr<string> attachedTime_ {};
+      // The policy enforcement mode. Valid values:
+      // 
+      // - ENFORCE: Blocks non-compliant requests and allows compliant requests.
+      // - LOG_ONLY: Only logs non-compliant requests without blocking them.
       shared_ptr<string> enforcementMode_ {};
+      // The ARN of the target gateway.
       shared_ptr<string> gatewayArn_ {};
+      // The gateway type. Valid values:
+      // 
+      // - AIGateway: Alibaba Cloud AI Gateway
+      // - AgentRunMCP: AgentRun MCP tool
       shared_ptr<string> gatewayType_ {};
     };
 
@@ -150,10 +161,15 @@ namespace Models
 
 
   protected:
+    // The list of attached gateways.
     shared_ptr<vector<ListPolicySetAttachedGatewaysResponseBody::AttachedGateways>> attachedGateways_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used for pagination. You do not need to specify this parameter for the first call. For subsequent calls, pass the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

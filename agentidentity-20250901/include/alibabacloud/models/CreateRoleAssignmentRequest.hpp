@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The name of the principal. When PrincipalType is set to User, specify the username.
     shared_ptr<string> principalName_ {};
+    // The type of the principal. Valid values:
+    // - User: User. Only this value is currently supported.
     shared_ptr<string> principalType_ {};
+    // The name of the role to assign.
     shared_ptr<string> roleName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

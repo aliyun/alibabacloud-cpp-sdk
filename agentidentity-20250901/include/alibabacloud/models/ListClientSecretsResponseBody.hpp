@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The client ID.
       shared_ptr<string> clientId_ {};
+      // The client name.
       shared_ptr<string> clientName_ {};
+      // The client key ID.
       shared_ptr<string> clientSecretId_ {};
+      // The creation time of the client secret in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The user pool name.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The list of client secrets.
     shared_ptr<vector<ListClientSecretsResponseBody::ClientSecrets>> clientSecrets_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

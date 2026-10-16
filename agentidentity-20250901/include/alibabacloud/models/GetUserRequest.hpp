@@ -67,8 +67,10 @@ namespace Models
 
   protected:
     shared_ptr<string> userId_ {};
+    // The username.
     shared_ptr<string> userName_ {};
     shared_ptr<string> userPoolId_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

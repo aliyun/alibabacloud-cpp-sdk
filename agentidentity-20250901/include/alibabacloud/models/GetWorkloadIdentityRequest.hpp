@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The unique name of the workload identity.
     shared_ptr<string> workloadIdentityName_ {};
   };
 

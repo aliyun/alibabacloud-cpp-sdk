@@ -118,12 +118,19 @@ namespace Models
 
 
     protected:
+      // The creation time in UTC ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The policy definition content.
       shared_ptr<Definition> definition_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The ARN of the policy.
       shared_ptr<string> policyArn_ {};
+      // The name of the policy. The name must be unique within the associated policy set.
       shared_ptr<string> policyName_ {};
+      // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
       shared_ptr<string> policySetName_ {};
+      // The update time in UTC ISO 8601 format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -146,7 +153,9 @@ namespace Models
 
 
   protected:
+    // The policy details.
     shared_ptr<GetPolicyResponseBody::Policy> policy_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

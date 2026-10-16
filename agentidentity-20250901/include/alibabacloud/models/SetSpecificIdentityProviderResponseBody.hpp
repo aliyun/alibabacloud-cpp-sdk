@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The IdP metadata content.
       shared_ptr<string> IDPMetadata_ {};
+      // The type of the identity provider.
       shared_ptr<string> identityProviderType_ {};
+      // The SSO enabling status.
       shared_ptr<string> SSOStatus_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The configuration information of the identity provider.
     shared_ptr<SetSpecificIdentityProviderResponseBody::SpecificIdentityProviderConfiguration> specificIdentityProviderConfiguration_ {};
   };
 

@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The allowed audiences. A token is allowed if its aud claim contains any of the specified audiences.
     shared_ptr<vector<string>> allowedAudience_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The metadata URL used to retrieve the OpenID configuration or authorization server metadata.
     shared_ptr<string> discoveryURL_ {};
+    // The name of the identity provider.
     shared_ptr<string> identityProviderName_ {};
   };
 

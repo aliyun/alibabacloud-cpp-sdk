@@ -124,13 +124,21 @@ namespace Models
 
 
     protected:
+      // The creation time in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The description of the user pool.
       shared_ptr<string> description_ {};
+      // The discovery URL for the OpenID Connect (OIDC) protocol.
       shared_ptr<string> OIDCDiscoveryURL_ {};
+      // The base URL for logon.
       shared_ptr<string> signinBaseURL_ {};
+      // The source platform.
       shared_ptr<string> sourcePlatform_ {};
+      // The update time in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
+      // The ID of the user pool.
       shared_ptr<string> userPoolId_ {};
+      // The name of the user pool.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -153,7 +161,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user pool information.
     shared_ptr<GetUserPoolResponseBody::UserPool> userPool_ {};
   };
 

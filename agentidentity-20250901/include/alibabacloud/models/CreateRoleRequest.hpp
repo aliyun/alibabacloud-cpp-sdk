@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the role. The description must be 0 to 128 characters in length.
     shared_ptr<string> description_ {};
+    // The name of the role. The name must be unique within the user pool and must be 3 to 64 characters in length.
     shared_ptr<string> roleName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

@@ -120,9 +120,13 @@ namespace Models
 
 
       protected:
+        // The statistics of created users in JSON format, including the following four fields: total (total count), success (success count), failed (failure count), and skipped (skipped count).
         shared_ptr<string> created_ {};
+        // The statistics of deleted users in JSON format, including the following four fields: total (total count), success (success count), failed (failure count), and skipped (skipped count).
         shared_ptr<string> deleted_ {};
+        // The statistics of unchanged users in JSON format, including the following four fields: total (total count), success (success count), failed (failure count), and skipped (skipped count).
         shared_ptr<string> same_ {};
+        // The statistics of updated users in JSON format, including the following four fields: total (total count), success (success count), failed (failure count), and skipped (skipped count).
         shared_ptr<string> updated_ {};
       };
 
@@ -188,13 +192,31 @@ namespace Models
 
 
     protected:
+      // The end time of the synchronization.
       shared_ptr<string> endTime_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The type of the identity provider.
       shared_ptr<string> identityProviderType_ {};
+      // The synchronization result statistics information.
       shared_ptr<SynchronizationJob::JobSummary> jobSummary_ {};
+      // The start time of the synchronization.
       shared_ptr<string> startTime_ {};
+      // The status of the synchronization task. Valid values:
+      // 
+      // - Pending: The initial state.
+      // 
+      // - Running: The task is running.
+      // 
+      // - Failed: The task failed.
+      // 
+      // - PartialSuccess: The task partially succeeded.
+      // 
+      // - Success: The task succeeded.
       shared_ptr<string> status_ {};
+      // The ID of the synchronization task.
       shared_ptr<string> synchronizationJobId_ {};
+      // The trigger type of the synchronization task. Valid values: Manual (manually triggered). Only manual triggering is supported.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -217,7 +239,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The synchronization task information.
     shared_ptr<GetUserPoolSyncJobResponseBody::SynchronizationJob> synchronizationJob_ {};
   };
 

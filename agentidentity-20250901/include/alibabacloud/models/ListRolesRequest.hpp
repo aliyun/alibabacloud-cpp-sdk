@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return per page. Valid values: 1 to 1000. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to query the next page of data. This parameter is not required for the first call. If a NextToken is returned in the response of a previous call, specify it in the current call to retrieve the next page.
     shared_ptr<string> nextToken_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the client to delete.
     shared_ptr<string> clientName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

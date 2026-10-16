@@ -191,20 +191,36 @@ namespace Models
 
 
     protected:
+      // The unique callback URL assigned to the provider, which must be configured in the list of allowed callback URLs of the identity provider.
+      // Format: https://agentidentitydata.{{region}}.aliyuncs.com/oauth2/callback/{{UUID}}
+      // If a value is specified, the specified value is used.
+      // If no value is specified, the server automatically generates one.
       shared_ptr<string> callbackURL_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ARN of the credential provider.
       shared_ptr<string> credentialProviderArn_ {};
+      // The vendor of the provider, such as AliyunOAuth2, AlibabaCloudOAuth2, DingTalkOAuth2, FeiShuOAuth2, or CustomOAuth2.
       shared_ptr<string> credentialProviderVendor_ {};
+      // The description of the OAuth 2.0 credential provider.
       shared_ptr<string> description_ {};
+      // The IDaaS instance ID.
       shared_ptr<string> IDaaSInstanceId_ {};
+      // The name of the credential provider.
       shared_ptr<string> OAuth2CredentialProviderName_ {};
+      // The object that contains provider-specific configurations, such as clientId and clientSecret.
       shared_ptr<OAuth2ProviderConfig> OAuth2ProviderConfig_ {};
       shared_ptr<string> OAuthType_ {};
+      // The ID of the outbound application.
       shared_ptr<string> outboundApplicationId_ {};
+      // The outbound audience.
       shared_ptr<string> outboundAudience_ {};
+      // The client ID of the outbound application.
       shared_ptr<string> outboundClientId_ {};
       shared_ptr<string> sourcePlatform_ {};
+      // The name of the TokenVault.
       shared_ptr<string> tokenVaultName_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -227,7 +243,9 @@ namespace Models
 
 
   protected:
+    // The credential provider.
     shared_ptr<GetOAuth2CredentialProviderResponseBody::OAuth2CredentialProvider> OAuth2CredentialProvider_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

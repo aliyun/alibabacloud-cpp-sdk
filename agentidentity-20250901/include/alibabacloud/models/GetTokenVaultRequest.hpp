@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the token vault. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> tokenVaultName_ {};
   };
 

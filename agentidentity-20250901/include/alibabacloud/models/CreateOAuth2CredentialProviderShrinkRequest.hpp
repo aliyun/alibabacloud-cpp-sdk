@@ -94,12 +94,21 @@ namespace Models
 
 
   protected:
+    // The unique callback URL assigned to the provider. You must configure this URL in the list of allowed callback URLs of the identity provider.
+    // Format: https://agentidentitydata.{{region}}.aliyuncs.com/oauth2/callback/{{UUID}}
+    // If you specify this parameter, the specified value is used.
+    // If you do not specify this parameter, the server automatically generates a value.
     shared_ptr<string> callbackURL_ {};
+    // The vendor of the provider, such as AliyunOAuth2, AlibabaCloudOAuth2, DingTalkOAuth2, FeiShuOAuth2, or CustomOAuth2.
     shared_ptr<string> credentialProviderVendor_ {};
+    // The description of the OAuth 2.0 credential provider.
     shared_ptr<string> description_ {};
+    // The name of the credential provider.
     shared_ptr<string> OAuth2CredentialProviderName_ {};
+    // The object that contains provider-specific configurations, such as clientId and clientSecret.
     shared_ptr<string> OAuth2ProviderConfigShrink_ {};
     shared_ptr<string> OAuthType_ {};
+    // The name of the token vault.
     shared_ptr<string> tokenVaultName_ {};
   };
 

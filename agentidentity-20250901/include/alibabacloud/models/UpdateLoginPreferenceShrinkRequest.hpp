@@ -58,7 +58,9 @@ namespace Models
 
   protected:
     shared_ptr<string> allowedPostLogoutRedirectUrisShrink_ {};
+    // The logon preference configuration object. It contains the logon configuration fields to be updated.
     shared_ptr<string> loginPreferenceShrink_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

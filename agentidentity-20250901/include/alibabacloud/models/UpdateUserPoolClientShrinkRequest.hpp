@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnforcePKCE, enforcePKCE_);
       DARABONBA_PTR_TO_JSON(RedirectURIs, redirectURIsShrink_);
       DARABONBA_PTR_TO_JSON(RefreshTokenValidity, refreshTokenValidity_);
+      DARABONBA_PTR_TO_JSON(Scopes, scopesShrink_);
       DARABONBA_PTR_TO_JSON(SecretRequired, secretRequired_);
       DARABONBA_PTR_TO_JSON(UserPoolName, userPoolName_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnforcePKCE, enforcePKCE_);
       DARABONBA_PTR_FROM_JSON(RedirectURIs, redirectURIsShrink_);
       DARABONBA_PTR_FROM_JSON(RefreshTokenValidity, refreshTokenValidity_);
+      DARABONBA_PTR_FROM_JSON(Scopes, scopesShrink_);
       DARABONBA_PTR_FROM_JSON(SecretRequired, secretRequired_);
       DARABONBA_PTR_FROM_JSON(UserPoolName, userPoolName_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessTokenValidity_ == nullptr
-        && this->clientName_ == nullptr && this->enforcePKCE_ == nullptr && this->redirectURIsShrink_ == nullptr && this->refreshTokenValidity_ == nullptr && this->secretRequired_ == nullptr
-        && this->userPoolName_ == nullptr; };
+        && this->clientName_ == nullptr && this->enforcePKCE_ == nullptr && this->redirectURIsShrink_ == nullptr && this->refreshTokenValidity_ == nullptr && this->scopesShrink_ == nullptr
+        && this->secretRequired_ == nullptr && this->userPoolName_ == nullptr; };
     // accessTokenValidity Field Functions 
     bool hasAccessTokenValidity() const { return this->accessTokenValidity_ != nullptr;};
     void deleteAccessTokenValidity() { this->accessTokenValidity_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline UpdateUserPoolClientShrinkRequest& setRefreshTokenValidity(string refreshTokenValidity) { DARABONBA_PTR_SET_VALUE(refreshTokenValidity_, refreshTokenValidity) };
 
 
+    // scopesShrink Field Functions 
+    bool hasScopesShrink() const { return this->scopesShrink_ != nullptr;};
+    void deleteScopesShrink() { this->scopesShrink_ = nullptr;};
+    inline string getScopesShrink() const { DARABONBA_PTR_GET_DEFAULT(scopesShrink_, "") };
+    inline UpdateUserPoolClientShrinkRequest& setScopesShrink(string scopesShrink) { DARABONBA_PTR_SET_VALUE(scopesShrink_, scopesShrink) };
+
+
     // secretRequired Field Functions 
     bool hasSecretRequired() const { return this->secretRequired_ != nullptr;};
     void deleteSecretRequired() { this->secretRequired_ = nullptr;};
@@ -94,12 +103,21 @@ namespace Models
 
 
   protected:
+    // The validity period of the access token, in seconds. Valid values: 900 to 10800. Default value: 3600.
     shared_ptr<string> accessTokenValidity_ {};
+    // The name of the client.
     shared_ptr<string> clientName_ {};
+    // Specifies whether Proof Key for Code Exchange (PKCE) is enforced.
     shared_ptr<bool> enforcePKCE_ {};
+    // The new list of OAuth callback URLs. Specifying this parameter replaces all existing callback URLs.
     shared_ptr<string> redirectURIsShrink_ {};
+    // The validity period of the refresh token, in seconds. Valid values: 7200 to 31536000 (90 days). Default value: 2592000 (30 days).
     shared_ptr<string> refreshTokenValidity_ {};
+    // The scopes granted to the application. You can specify multiple scopes.
+    shared_ptr<string> scopesShrink_ {};
+    // Specifies whether an application secret is required. A value of true indicates a confidential client, and a value of false indicates a public client.
     shared_ptr<bool> secretRequired_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

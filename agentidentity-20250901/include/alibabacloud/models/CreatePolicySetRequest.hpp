@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreatePolicySetRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(PolicySetName, policySetName_);
+      DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePolicySetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(PolicySetName, policySetName_);
+      DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
     };
     CreatePolicySetRequest() = default ;
     CreatePolicySetRequest(const CreatePolicySetRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->policySetName_ == nullptr; };
+        && this->policySetName_ == nullptr && this->sourcePlatform_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -47,9 +49,20 @@ namespace Models
     inline CreatePolicySetRequest& setPolicySetName(string policySetName) { DARABONBA_PTR_SET_VALUE(policySetName_, policySetName) };
 
 
+    // sourcePlatform Field Functions 
+    bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+    void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+    inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+    inline CreatePolicySetRequest& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
+
+
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> policySetName_ {};
+    // The source platform.
+    shared_ptr<string> sourcePlatform_ {};
   };
 
   } // namespace Models

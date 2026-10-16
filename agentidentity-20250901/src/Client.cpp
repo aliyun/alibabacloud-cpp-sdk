@@ -82,7 +82,10 @@ AddSAMLIdentityProviderCertificateResponse Client::addSAMLIdentityProviderCertif
 }
 
 /**
- * @summary 策略集关联网关
+ * @summary Attaches a policy set to a gateway.
+ *
+ * @description Attaches a policy set to a target gateway.
+ * The attachment relationship is 1:1. A gateway can have only one policy set attached at a time. If you attach a policy set multiple times, the latest attachment takes effect. You can specify the policy enforcement mode by using the EnforcementMode parameter. Valid values: ENFORCE (blocks non-compliant requests) and LOG_ONLY (records non-compliant requests but allows them, which is commonly used for canary release observation).
  *
  * @param request AttachPolicySetToGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +128,10 @@ AttachPolicySetToGatewayResponse Client::attachPolicySetToGatewayWithOptions(con
 }
 
 /**
- * @summary 策略集关联网关
+ * @summary Attaches a policy set to a gateway.
+ *
+ * @description Attaches a policy set to a target gateway.
+ * The attachment relationship is 1:1. A gateway can have only one policy set attached at a time. If you attach a policy set multiple times, the latest attachment takes effect. You can specify the policy enforcement mode by using the EnforcementMode parameter. Valid values: ENFORCE (blocks non-compliant requests) and LOG_ONLY (records non-compliant requests but allows them, which is commonly used for canary release observation).
  *
  * @param request AttachPolicySetToGatewayRequest
  * @return AttachPolicySetToGatewayResponse
@@ -136,7 +142,7 @@ AttachPolicySetToGatewayResponse Client::attachPolicySetToGateway(const AttachPo
 }
 
 /**
- * @summary 创建一个 API 密钥凭证提供商
+ * @summary Creates an API key credential provider.
  *
  * @param request CreateAPIKeyCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +185,7 @@ CreateAPIKeyCredentialProviderResponse Client::createAPIKeyCredentialProviderWit
 }
 
 /**
- * @summary 创建一个 API 密钥凭证提供商
+ * @summary Creates an API key credential provider.
  *
  * @param request CreateAPIKeyCredentialProviderRequest
  * @return CreateAPIKeyCredentialProviderResponse
@@ -190,7 +196,9 @@ CreateAPIKeyCredentialProviderResponse Client::createAPIKeyCredentialProvider(co
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a workload identity.
+ *
+ * @description The response includes the plaintext client secret (ClientSecretValue). For security reasons, the plaintext secret is returned only once upon creation and cannot be retrieved later. Store it securely.
  *
  * @param request CreateClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -229,7 +237,9 @@ CreateClientSecretResponse Client::createClientSecretWithOptions(const CreateCli
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a workload identity.
+ *
+ * @description The response includes the plaintext client secret (ClientSecretValue). For security reasons, the plaintext secret is returned only once upon creation and cannot be retrieved later. Store it securely.
  *
  * @param request CreateClientSecretRequest
  * @return CreateClientSecretResponse
@@ -300,7 +310,7 @@ CreateIdentityProviderResponse Client::createIdentityProvider(const CreateIdenti
 }
 
 /**
- * @summary 创建 OAuth2 凭证提供商
+ * @summary Creates an OAuth 2.0 credential provider.
  *
  * @param tmpReq CreateOAuth2CredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +371,7 @@ CreateOAuth2CredentialProviderResponse Client::createOAuth2CredentialProviderWit
 }
 
 /**
- * @summary 创建 OAuth2 凭证提供商
+ * @summary Creates an OAuth 2.0 credential provider.
  *
  * @param request CreateOAuth2CredentialProviderRequest
  * @return CreateOAuth2CredentialProviderResponse
@@ -372,7 +382,9 @@ CreateOAuth2CredentialProviderResponse Client::createOAuth2CredentialProvider(co
 }
 
 /**
- * @summary 创建一个权限策略
+ * @summary Creates an access policy.
+ *
+ * @description Calls the CreatePolicy operation to add a policy to an existing policy set. The policy defines specific control rules, such as throttling thresholds, admission conditions, and allow or block actions, through the Definition field. After a policy set is mounted to a gateway, requests on the gateway are evaluated and controlled based on the merged results of all policies in the policy set.
  *
  * @param tmpReq CreatePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +433,9 @@ CreatePolicyResponse Client::createPolicyWithOptions(const CreatePolicyRequest &
 }
 
 /**
- * @summary 创建一个权限策略
+ * @summary Creates an access policy.
+ *
+ * @description Calls the CreatePolicy operation to add a policy to an existing policy set. The policy defines specific control rules, such as throttling thresholds, admission conditions, and allow or block actions, through the Definition field. After a policy set is mounted to a gateway, requests on the gateway are evaluated and controlled based on the merged results of all policies in the policy set.
  *
  * @param request CreatePolicyRequest
  * @return CreatePolicyResponse
@@ -432,7 +446,9 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary 创建一个权限策略集合
+ * @summary Creates an access policy set.
+ *
+ * @description Calls CreatePolicySet to create a policy set in the current account. A policy set is a container for a group of policies. After a policy set is mounted to a gateway, all policies in the set evaluate requests to the gateway as a whole.
  *
  * @param request CreatePolicySetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -447,6 +463,10 @@ CreatePolicySetResponse Client::createPolicySetWithOptions(const CreatePolicySet
 
   if (!!request.hasPolicySetName()) {
     body["PolicySetName"] = request.getPolicySetName();
+  }
+
+  if (!!request.hasSourcePlatform()) {
+    body["SourcePlatform"] = request.getSourcePlatform();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -467,7 +487,9 @@ CreatePolicySetResponse Client::createPolicySetWithOptions(const CreatePolicySet
 }
 
 /**
- * @summary 创建一个权限策略集合
+ * @summary Creates an access policy set.
+ *
+ * @description Calls CreatePolicySet to create a policy set in the current account. A policy set is a container for a group of policies. After a policy set is mounted to a gateway, all policies in the set evaluate requests to the gateway as a whole.
  *
  * @param request CreatePolicySetRequest
  * @return CreatePolicySetResponse
@@ -478,7 +500,10 @@ CreatePolicySetResponse Client::createPolicySet(const CreatePolicySetRequest &re
 }
 
 /**
- * @summary 创建Role
+ * @summary Creates a role.
+ *
+ * @description Users in a user pool can be allocated roles to enable quick authorization. Administrators can specify permissions for roles in an access policy.
+ * When a user pool is created, the platform automatically provisions a default role, and newly created users are automatically allocated this default role. This operation creates a custom role of the Manual type, which must be explicitly allocated to users by calling CreateRoleAssignment.
  *
  * @param request CreateRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +542,10 @@ CreateRoleResponse Client::createRoleWithOptions(const CreateRoleRequest &reques
 }
 
 /**
- * @summary 创建Role
+ * @summary Creates a role.
+ *
+ * @description Users in a user pool can be allocated roles to enable quick authorization. Administrators can specify permissions for roles in an access policy.
+ * When a user pool is created, the platform automatically provisions a default role, and newly created users are automatically allocated this default role. This operation creates a custom role of the Manual type, which must be explicitly allocated to users by calling CreateRoleAssignment.
  *
  * @param request CreateRoleRequest
  * @return CreateRoleResponse
@@ -528,7 +556,10 @@ CreateRoleResponse Client::createRole(const CreateRoleRequest &request) {
 }
 
 /**
- * @summary 策略集关联网关
+ * @summary Associates a policy set with a gateway.
+ *
+ * @description Users must be assigned roles to complete authorization. When a user is created through JIT, a default role is automatically assigned. Administrators can use this operation to assign additional custom roles to users.
+ * PrincipalType currently supports only User. A single identity can have multiple role assignments.
  *
  * @param request CreateRoleAssignmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -571,7 +602,10 @@ CreateRoleAssignmentResponse Client::createRoleAssignmentWithOptions(const Creat
 }
 
 /**
- * @summary 策略集关联网关
+ * @summary Associates a policy set with a gateway.
+ *
+ * @description Users must be assigned roles to complete authorization. When a user is created through JIT, a default role is automatically assigned. Administrators can use this operation to assign additional custom roles to users.
+ * PrincipalType currently supports only User. A single identity can have multiple role assignments.
  *
  * @param request CreateRoleAssignmentRequest
  * @return CreateRoleAssignmentResponse
@@ -582,7 +616,10 @@ CreateRoleAssignmentResponse Client::createRoleAssignment(const CreateRoleAssign
 }
 
 /**
- * @summary 创建一个凭证库
+ * @summary Creates a token vault.
+ *
+ * @description Calls the CreateTokenVault operation to create a token vault within the current Alibaba Cloud account. A token vault is a container used by the AgentIdentity service to securely store sensitive credentials such as OAuth2 tokens and API keys. Each token is encrypted when it is written to the vault.
+ * You can specify the encryption configuration when you create the vault. By default, a service-managed key (SERVICE_MANAGED_KEY) is used. For greater control over the key, you can use a customer-managed Key Management Service (KMS) key (CUSTOMER_MANAGED_KEY). To use a customer-managed key, specify the Alibaba Cloud Resource Name (ARN) of the KMS key and use the RoleArn parameter to authorize the AgentIdentity service to access the KMS key.
  *
  * @param tmpReq CreateTokenVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -631,7 +668,10 @@ CreateTokenVaultResponse Client::createTokenVaultWithOptions(const CreateTokenVa
 }
 
 /**
- * @summary 创建一个凭证库
+ * @summary Creates a token vault.
+ *
+ * @description Calls the CreateTokenVault operation to create a token vault within the current Alibaba Cloud account. A token vault is a container used by the AgentIdentity service to securely store sensitive credentials such as OAuth2 tokens and API keys. Each token is encrypted when it is written to the vault.
+ * You can specify the encryption configuration when you create the vault. By default, a service-managed key (SERVICE_MANAGED_KEY) is used. For greater control over the key, you can use a customer-managed Key Management Service (KMS) key (CUSTOMER_MANAGED_KEY). To use a customer-managed key, specify the Alibaba Cloud Resource Name (ARN) of the KMS key and use the RoleArn parameter to authorize the AgentIdentity service to access the KMS key.
  *
  * @param request CreateTokenVaultRequest
  * @return CreateTokenVaultResponse
@@ -642,7 +682,9 @@ CreateTokenVaultResponse Client::createTokenVault(const CreateTokenVaultRequest 
 }
 
 /**
- * @summary 创建用户池用户
+ * @summary Creates a user in a user pool.
+ *
+ * @description Creates a user in a specified user pool. The type of the created user is Manual, and the default status is Enabled. The username must be unique within the user pool and can contain letters, digits, underscores (_), periods (.), and hyphens (-), and must be 3 to 128 characters in length. The email address must be unique within the user pool. After the user is created, you can call the SetUserPassword operation to set a logon password for the user and call the CreateRoleAssignment operation to assign a role to the user.
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +735,9 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 }
 
 /**
- * @summary 创建用户池用户
+ * @summary Creates a user in a user pool.
+ *
+ * @description Creates a user in a specified user pool. The type of the created user is Manual, and the default status is Enabled. The username must be unique within the user pool and can contain letters, digits, underscores (_), periods (.), and hyphens (-), and must be 3 to 128 characters in length. The email address must be unique within the user pool. After the user is created, you can call the SetUserPassword operation to set a logon password for the user and call the CreateRoleAssignment operation to assign a role to the user.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -704,7 +748,9 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary 创建UserPool
+ * @summary Creates a user pool.
+ *
+ * @description A user pool is a secure and isolated user folder designed by the Agent Identity platform for the AI agent ecosystem. You can create multiple user pools under a single Alibaba Cloud account for the independent user identity management of different AI agents. When you create a user pool, you only need to specify the name (UserPoolName). The description is optional. After the user pool is created, the platform automatically generates a default role for the user pool. Users subsequently created through SAML SSO just-in-time (JIT) synchronization are automatically allocated this default role.
  *
  * @param request CreateUserPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -739,7 +785,9 @@ CreateUserPoolResponse Client::createUserPoolWithOptions(const CreateUserPoolReq
 }
 
 /**
- * @summary 创建UserPool
+ * @summary Creates a user pool.
+ *
+ * @description A user pool is a secure and isolated user folder designed by the Agent Identity platform for the AI agent ecosystem. You can create multiple user pools under a single Alibaba Cloud account for the independent user identity management of different AI agents. When you create a user pool, you only need to specify the name (UserPoolName). The description is optional. After the user pool is created, the platform automatically generates a default role for the user pool. Users subsequently created through SAML SSO just-in-time (JIT) synchronization are automatically allocated this default role.
  *
  * @param request CreateUserPoolRequest
  * @return CreateUserPoolResponse
@@ -750,7 +798,9 @@ CreateUserPoolResponse Client::createUserPool(const CreateUserPoolRequest &reque
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a WorkloadIdentity.
+ *
+ * @description A client represents an application that is integrated with a user pool. When you create a client, you must specify the client name and redirect URIs. You can configure whether an application secret is required, whether to enforce Proof Key for Code Exchange (PKCE), the access token validity period, and the refresh token validity period. The application scopes are generated by the platform by default. If SecretRequired is set to true, you must call CreateClientSecret to create a client secret.
  *
  * @param tmpReq CreateUserPoolClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -762,6 +812,10 @@ CreateUserPoolClientResponse Client::createUserPoolClientWithOptions(const Creat
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRedirectURIs()) {
     request.setRedirectURIsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRedirectURIs(), "RedirectURIs", "json"));
+  }
+
+  if (!!tmpReq.hasScopes()) {
+    request.setScopesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScopes(), "Scopes", "json"));
   }
 
   json body = {};
@@ -783,6 +837,10 @@ CreateUserPoolClientResponse Client::createUserPoolClientWithOptions(const Creat
 
   if (!!request.hasRefreshTokenValidity()) {
     body["RefreshTokenValidity"] = request.getRefreshTokenValidity();
+  }
+
+  if (!!request.hasScopesShrink()) {
+    body["Scopes"] = request.getScopesShrink();
   }
 
   if (!!request.hasSecretRequired()) {
@@ -811,7 +869,9 @@ CreateUserPoolClientResponse Client::createUserPoolClientWithOptions(const Creat
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a WorkloadIdentity.
+ *
+ * @description A client represents an application that is integrated with a user pool. When you create a client, you must specify the client name and redirect URIs. You can configure whether an application secret is required, whether to enforce Proof Key for Code Exchange (PKCE), the access token validity period, and the refresh token validity period. The application scopes are generated by the platform by default. If SecretRequired is set to true, you must call CreateClientSecret to create a client secret.
  *
  * @param request CreateUserPoolClientRequest
  * @return CreateUserPoolClientResponse
@@ -822,7 +882,7 @@ CreateUserPoolClientResponse Client::createUserPoolClient(const CreateUserPoolCl
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Create a workload identity for an AI Agent to uniquely identify it.
  *
  * @param tmpReq CreateWorkloadIdentityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +959,7 @@ CreateWorkloadIdentityResponse Client::createWorkloadIdentityWithOptions(const C
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Create a workload identity for an AI Agent to uniquely identify it.
  *
  * @param request CreateWorkloadIdentityRequest
  * @return CreateWorkloadIdentityResponse
@@ -910,7 +970,7 @@ CreateWorkloadIdentityResponse Client::createWorkloadIdentity(const CreateWorklo
 }
 
 /**
- * @summary 删除一个 API 密钥凭证提供商
+ * @summary Deletes a specified API key credential provider.
  *
  * @param request DeleteAPIKeyCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -945,7 +1005,7 @@ DeleteAPIKeyCredentialProviderResponse Client::deleteAPIKeyCredentialProviderWit
 }
 
 /**
- * @summary 删除一个 API 密钥凭证提供商
+ * @summary Deletes a specified API key credential provider.
  *
  * @param request DeleteAPIKeyCredentialProviderRequest
  * @return DeleteAPIKeyCredentialProviderResponse
@@ -956,7 +1016,9 @@ DeleteAPIKeyCredentialProviderResponse Client::deleteAPIKeyCredentialProvider(co
 }
 
 /**
- * @summary 删除IdentityProvider
+ * @summary Deletes an identity provider.
+ *
+ * @description Deletes a specified client secret by client ID and key ID. The secret becomes invalid immediately after deletion, and all OAuth authentication flows that use this secret will fail.
  *
  * @param request DeleteClientSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1061,9 @@ DeleteClientSecretResponse Client::deleteClientSecretWithOptions(const DeleteCli
 }
 
 /**
- * @summary 删除IdentityProvider
+ * @summary Deletes an identity provider.
+ *
+ * @description Deletes a specified client secret by client ID and key ID. The secret becomes invalid immediately after deletion, and all OAuth authentication flows that use this secret will fail.
  *
  * @param request DeleteClientSecretRequest
  * @return DeleteClientSecretResponse
@@ -1010,7 +1074,7 @@ DeleteClientSecretResponse Client::deleteClientSecret(const DeleteClientSecretRe
 }
 
 /**
- * @summary 删除IdentityProvider
+ * @summary Deletes a specified identity provider.
  *
  * @param request DeleteIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1041,7 +1105,7 @@ DeleteIdentityProviderResponse Client::deleteIdentityProviderWithOptions(const D
 }
 
 /**
- * @summary 删除IdentityProvider
+ * @summary Deletes a specified identity provider.
  *
  * @param request DeleteIdentityProviderRequest
  * @return DeleteIdentityProviderResponse
@@ -1052,7 +1116,7 @@ DeleteIdentityProviderResponse Client::deleteIdentityProvider(const DeleteIdenti
 }
 
 /**
- * @summary 删除 OAuth2 凭证提供商
+ * @summary Deletes a specified OAuth 2.0 credential provider.
  *
  * @param request DeleteOAuth2CredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1087,7 +1151,7 @@ DeleteOAuth2CredentialProviderResponse Client::deleteOAuth2CredentialProviderWit
 }
 
 /**
- * @summary 删除 OAuth2 凭证提供商
+ * @summary Deletes a specified OAuth 2.0 credential provider.
  *
  * @param request DeleteOAuth2CredentialProviderRequest
  * @return DeleteOAuth2CredentialProviderResponse
@@ -1098,7 +1162,9 @@ DeleteOAuth2CredentialProviderResponse Client::deleteOAuth2CredentialProvider(co
 }
 
 /**
- * @summary 删除一个权限策略
+ * @summary Deletes an access policy.
+ *
+ * @description Calls DeletePolicy to remove a policy from a specified policy set. The policy becomes invalid immediately after deletion, and gateways that depend on the policy set do not need to be remounted.
  *
  * @param request DeletePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1133,7 +1199,9 @@ DeletePolicyResponse Client::deletePolicyWithOptions(const DeletePolicyRequest &
 }
 
 /**
- * @summary 删除一个权限策略
+ * @summary Deletes an access policy.
+ *
+ * @description Calls DeletePolicy to remove a policy from a specified policy set. The policy becomes invalid immediately after deletion, and gateways that depend on the policy set do not need to be remounted.
  *
  * @param request DeletePolicyRequest
  * @return DeletePolicyResponse
@@ -1144,7 +1212,10 @@ DeletePolicyResponse Client::deletePolicy(const DeletePolicyRequest &request) {
 }
 
 /**
- * @summary 删除一个权限策略集合
+ * @summary Deletes an access policy set.
+ *
+ * @description Calls DeletePolicySet to delete a policy set that is no longer in use.
+ * Before deleting the policy set, ensure that it is unmounted from all gateways (you can query this by calling ListPolicySetAttachedGateways) and contains no policies. Otherwise, the deletion fails.
  *
  * @param request DeletePolicySetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1175,7 +1246,10 @@ DeletePolicySetResponse Client::deletePolicySetWithOptions(const DeletePolicySet
 }
 
 /**
- * @summary 删除一个权限策略集合
+ * @summary Deletes an access policy set.
+ *
+ * @description Calls DeletePolicySet to delete a policy set that is no longer in use.
+ * Before deleting the policy set, ensure that it is unmounted from all gateways (you can query this by calling ListPolicySetAttachedGateways) and contains no policies. Otherwise, the deletion fails.
  *
  * @param request DeletePolicySetRequest
  * @return DeletePolicySetResponse
@@ -1186,7 +1260,9 @@ DeletePolicySetResponse Client::deletePolicySet(const DeletePolicySetRequest &re
 }
 
 /**
- * @summary 删除Role
+ * @summary Deletes a role.
+ *
+ * @description Before deletion, the system checks whether the role has any bound users. If role assignments exist, the deletion is rejected. You must call DeleteRoleAssignment to remove the assignments before deleting the role. Default roles (Type=Default) cannot be deleted.
  *
  * @param request DeleteRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1221,7 +1297,9 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
 }
 
 /**
- * @summary 删除Role
+ * @summary Deletes a role.
+ *
+ * @description Before deletion, the system checks whether the role has any bound users. If role assignments exist, the deletion is rejected. You must call DeleteRoleAssignment to remove the assignments before deleting the role. Default roles (Type=Default) cannot be deleted.
  *
  * @param request DeleteRoleRequest
  * @return DeleteRoleResponse
@@ -1232,7 +1310,9 @@ DeleteRoleResponse Client::deleteRole(const DeleteRoleRequest &request) {
 }
 
 /**
- * @summary 网关取消关联策略集
+ * @summary Disassociates a policy set from a gateway.
+ *
+ * @description Removes the role assignment relationship between an identity and a role.
  *
  * @param request DeleteRoleAssignmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1275,7 +1355,9 @@ DeleteRoleAssignmentResponse Client::deleteRoleAssignmentWithOptions(const Delet
 }
 
 /**
- * @summary 网关取消关联策略集
+ * @summary Disassociates a policy set from a gateway.
+ *
+ * @description Removes the role assignment relationship between an identity and a role.
  *
  * @param request DeleteRoleAssignmentRequest
  * @return DeleteRoleAssignmentResponse
@@ -1286,7 +1368,9 @@ DeleteRoleAssignmentResponse Client::deleteRoleAssignment(const DeleteRoleAssign
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a workload identity.
+ *
+ * @description Cleans up expired or unused certificates after certificate rotation is complete. Before deleting the certificate, ensure that it is no longer used for SAML assertion signature verification. Otherwise, SSO logon may fail.
  *
  * @param request DeleteSAMLIdentityProviderCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1321,7 +1405,9 @@ DeleteSAMLIdentityProviderCertificateResponse Client::deleteSAMLIdentityProvider
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a workload identity.
+ *
+ * @description Cleans up expired or unused certificates after certificate rotation is complete. Before deleting the certificate, ensure that it is no longer used for SAML assertion signature verification. Otherwise, SSO logon may fail.
  *
  * @param request DeleteSAMLIdentityProviderCertificateRequest
  * @return DeleteSAMLIdentityProviderCertificateResponse
@@ -1332,7 +1418,10 @@ DeleteSAMLIdentityProviderCertificateResponse Client::deleteSAMLIdentityProvider
 }
 
 /**
- * @summary 删除一个指定的凭证库。
+ * @summary Deletes a specified token vault.
+ *
+ * @description Call DeleteTokenVault to delete a token vault that is no longer in use.
+ * Before deletion, ensure that the token vault is not referenced by any credential provider. Otherwise, the deletion may cause credentials that depend on the token vault to become unavailable. This operation cannot be undone.
  *
  * @param request DeleteTokenVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1452,10 @@ DeleteTokenVaultResponse Client::deleteTokenVaultWithOptions(const DeleteTokenVa
 }
 
 /**
- * @summary 删除一个指定的凭证库。
+ * @summary Deletes a specified token vault.
+ *
+ * @description Call DeleteTokenVault to delete a token vault that is no longer in use.
+ * Before deletion, ensure that the token vault is not referenced by any credential provider. Otherwise, the deletion may cause credentials that depend on the token vault to become unavailable. This operation cannot be undone.
  *
  * @param request DeleteTokenVaultRequest
  * @return DeleteTokenVaultResponse
@@ -1374,7 +1466,9 @@ DeleteTokenVaultResponse Client::deleteTokenVault(const DeleteTokenVaultRequest 
 }
 
 /**
- * @summary 删除User
+ * @summary Deletes a user.
+ *
+ * @description Deleting a user forcibly clears all role assignments of the user in the user pool. This operation is irreversible. Proceed with caution.
  *
  * @param request DeleteUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1409,7 +1503,9 @@ DeleteUserResponse Client::deleteUserWithOptions(const DeleteUserRequest &reques
 }
 
 /**
- * @summary 删除User
+ * @summary Deletes a user.
+ *
+ * @description Deleting a user forcibly clears all role assignments of the user in the user pool. This operation is irreversible. Proceed with caution.
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -1420,7 +1516,9 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary 删除UserPool
+ * @summary Deletes a user pool.
+ *
+ * @description Before deleting a user pool, you must clean up all resources in the user pool, including all users, roles, clients, SAML IdPs, and role assignments. Calls to this operation are rejected if the resources are not cleaned up. This operation is irreversible. Proceed with caution.
  *
  * @param request DeleteUserPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1451,7 +1549,9 @@ DeleteUserPoolResponse Client::deleteUserPoolWithOptions(const DeleteUserPoolReq
 }
 
 /**
- * @summary 删除UserPool
+ * @summary Deletes a user pool.
+ *
+ * @description Before deleting a user pool, you must clean up all resources in the user pool, including all users, roles, clients, SAML IdPs, and role assignments. Calls to this operation are rejected if the resources are not cleaned up. This operation is irreversible. Proceed with caution.
  *
  * @param request DeleteUserPoolRequest
  * @return DeleteUserPoolResponse
@@ -1462,7 +1562,9 @@ DeleteUserPoolResponse Client::deleteUserPool(const DeleteUserPoolRequest &reque
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a WorkloadIdentity.
+ *
+ * @description Deleting a client also removes all its associated client secrets. After deletion, the client can no longer be used for OAuth authentication and authorization flows. Proceed with caution.
  *
  * @param request DeleteUserPoolClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1599,9 @@ DeleteUserPoolClientResponse Client::deleteUserPoolClientWithOptions(const Delet
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a WorkloadIdentity.
+ *
+ * @description Deleting a client also removes all its associated client secrets. After deletion, the client can no longer be used for OAuth authentication and authorization flows. Proceed with caution.
  *
  * @param request DeleteUserPoolClientRequest
  * @return DeleteUserPoolClientResponse
@@ -1508,7 +1612,7 @@ DeleteUserPoolClientResponse Client::deleteUserPoolClient(const DeleteUserPoolCl
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a specified workload identity.
  *
  * @param request DeleteWorkloadIdentityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1539,7 +1643,7 @@ DeleteWorkloadIdentityResponse Client::deleteWorkloadIdentityWithOptions(const D
 }
 
 /**
- * @summary 删除WorkloadIdentity
+ * @summary Deletes a specified workload identity.
  *
  * @param request DeleteWorkloadIdentityRequest
  * @return DeleteWorkloadIdentityResponse
@@ -1550,7 +1654,9 @@ DeleteWorkloadIdentityResponse Client::deleteWorkloadIdentity(const DeleteWorklo
 }
 
 /**
- * @summary 网关取消关联策略集
+ * @summary Detaches a policy set from a gateway.
+ *
+ * @description Detaches a policy set from a gateway. After the policy set is detached, requests on the gateway are no longer governed by the policies in the policy set.
  *
  * @param request DetachPolicySetFromGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1589,7 +1695,9 @@ DetachPolicySetFromGatewayResponse Client::detachPolicySetFromGatewayWithOptions
 }
 
 /**
- * @summary 网关取消关联策略集
+ * @summary Detaches a policy set from a gateway.
+ *
+ * @description Detaches a policy set from a gateway. After the policy set is detached, requests on the gateway are no longer governed by the policies in the policy set.
  *
  * @param request DetachPolicySetFromGatewayRequest
  * @return DetachPolicySetFromGatewayResponse
@@ -1600,7 +1708,7 @@ DetachPolicySetFromGatewayResponse Client::detachPolicySetFromGateway(const Deta
 }
 
 /**
- * @summary 查询一个 API 密钥凭证提供商
+ * @summary Retrieves the details of a specified API key credential provider.
  *
  * @param request GetAPIKeyCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1743,7 @@ GetAPIKeyCredentialProviderResponse Client::getAPIKeyCredentialProviderWithOptio
 }
 
 /**
- * @summary 查询一个 API 密钥凭证提供商
+ * @summary Retrieves the details of a specified API key credential provider.
  *
  * @param request GetAPIKeyCredentialProviderRequest
  * @return GetAPIKeyCredentialProviderResponse
@@ -1646,7 +1754,9 @@ GetAPIKeyCredentialProviderResponse Client::getAPIKeyCredentialProvider(const Ge
 }
 
 /**
- * @summary 查询网关策略配置
+ * @summary Queries the gateway policy configuration.
+ *
+ * @description Calls the GetGatewayPolicyConfig operation to query the currently effective policy configuration of a gateway, including the ARN of the mounted policy set and the enforcement mode.
  *
  * @param request GetGatewayPolicyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1681,7 +1791,9 @@ GetGatewayPolicyConfigResponse Client::getGatewayPolicyConfigWithOptions(const G
 }
 
 /**
- * @summary 查询网关策略配置
+ * @summary Queries the gateway policy configuration.
+ *
+ * @description Calls the GetGatewayPolicyConfig operation to query the currently effective policy configuration of a gateway, including the ARN of the mounted policy set and the enforcement mode.
  *
  * @param request GetGatewayPolicyConfigRequest
  * @return GetGatewayPolicyConfigResponse
@@ -1734,7 +1846,65 @@ GetIdentityProviderResponse Client::getIdentityProvider(const GetIdentityProvide
 }
 
 /**
- * @summary 获取用户池登录相关配置
+ * @summary 查询身份源同步范围与统计（已选部门有效性 + 展开部门数/预计人数）
+ *
+ * @description 目标用户池需已配置指定类型的身份源。本接口使用已保存的身份源配置，无需传入钉钉或飞书应用密钥。
+ * 同步范围支持 AllAuthorized 和 SelectedDepartments。未显式配置范围时默认为 AllAuthorized，表示第三方应用授权可见范围内的全部用户。SelectedDepartments 包含选中部门及其全部后代部门；人员有任一当前所属部门命中展开集合，即命中同步范围。
+ * 本接口不修改范围、不创建人员同步任务。查询可能触发后台统计；EstimateStatus 表示范围统计状态，不是人员同步任务状态。统计结果可能复用缓存，也可能来自同一范围最近一次同步结果；跨部门重复用户可能重复计数，不应视为实时、精确去重人数。
+ * 对应身份源未配置时返回 EntityNotExists.IdpConfiguration；目录权限或通讯录可见范围不足时，返回 DingTalkApiPermissionDenied 或 FeishuApiPermissionDenied，不会将权限问题当作部门不存在。
+ *
+ * @param request GetIdentityProviderSyncScopeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIdentityProviderSyncScopeResponse
+ */
+GetIdentityProviderSyncScopeResponse Client::getIdentityProviderSyncScopeWithOptions(const GetIdentityProviderSyncScopeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIdentityProviderType()) {
+    body["IdentityProviderType"] = request.getIdentityProviderType();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetIdentityProviderSyncScope"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIdentityProviderSyncScopeResponse>();
+}
+
+/**
+ * @summary 查询身份源同步范围与统计（已选部门有效性 + 展开部门数/预计人数）
+ *
+ * @description 目标用户池需已配置指定类型的身份源。本接口使用已保存的身份源配置，无需传入钉钉或飞书应用密钥。
+ * 同步范围支持 AllAuthorized 和 SelectedDepartments。未显式配置范围时默认为 AllAuthorized，表示第三方应用授权可见范围内的全部用户。SelectedDepartments 包含选中部门及其全部后代部门；人员有任一当前所属部门命中展开集合，即命中同步范围。
+ * 本接口不修改范围、不创建人员同步任务。查询可能触发后台统计；EstimateStatus 表示范围统计状态，不是人员同步任务状态。统计结果可能复用缓存，也可能来自同一范围最近一次同步结果；跨部门重复用户可能重复计数，不应视为实时、精确去重人数。
+ * 对应身份源未配置时返回 EntityNotExists.IdpConfiguration；目录权限或通讯录可见范围不足时，返回 DingTalkApiPermissionDenied 或 FeishuApiPermissionDenied，不会将权限问题当作部门不存在。
+ *
+ * @param request GetIdentityProviderSyncScopeRequest
+ * @return GetIdentityProviderSyncScopeResponse
+ */
+GetIdentityProviderSyncScopeResponse Client::getIdentityProviderSyncScope(const GetIdentityProviderSyncScopeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getIdentityProviderSyncScopeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the logon-related configurations of a user pool.
+ *
+ * @description Retrieves the logon configuration and password policy of a specified user pool. The logon configuration includes preference settings such as whether to enable password logon. The password policy includes rules for password complexity, length limits, and logon failure lockouts. The password policy is read-only and does not support custom modifications.
  *
  * @param request GetLoginPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1765,7 +1935,9 @@ GetLoginPreferenceResponse Client::getLoginPreferenceWithOptions(const GetLoginP
 }
 
 /**
- * @summary 获取用户池登录相关配置
+ * @summary Retrieves the logon-related configurations of a user pool.
+ *
+ * @description Retrieves the logon configuration and password policy of a specified user pool. The logon configuration includes preference settings such as whether to enable password logon. The password policy includes rules for password complexity, length limits, and logon failure lockouts. The password policy is read-only and does not support custom modifications.
  *
  * @param request GetLoginPreferenceRequest
  * @return GetLoginPreferenceResponse
@@ -1776,7 +1948,7 @@ GetLoginPreferenceResponse Client::getLoginPreference(const GetLoginPreferenceRe
 }
 
 /**
- * @summary 查询 OAuth2 凭证提供商
+ * @summary Retrieves the details of a specified OAuth 2.0 credential provider.
  *
  * @param request GetOAuth2CredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1811,7 +1983,7 @@ GetOAuth2CredentialProviderResponse Client::getOAuth2CredentialProviderWithOptio
 }
 
 /**
- * @summary 查询 OAuth2 凭证提供商
+ * @summary Retrieves the details of a specified OAuth 2.0 credential provider.
  *
  * @param request GetOAuth2CredentialProviderRequest
  * @return GetOAuth2CredentialProviderResponse
@@ -1822,7 +1994,9 @@ GetOAuth2CredentialProviderResponse Client::getOAuth2CredentialProvider(const Ge
 }
 
 /**
- * @summary 查询一个 权限策略
+ * @summary Queries an access policy.
+ *
+ * @description Calls GetPolicy to retrieve the complete configuration of a single policy, including its definition, associated policy set, and creation and update times.
  *
  * @param request GetPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1857,7 +2031,9 @@ GetPolicyResponse Client::getPolicyWithOptions(const GetPolicyRequest &request, 
 }
 
 /**
- * @summary 查询一个 权限策略
+ * @summary Queries an access policy.
+ *
+ * @description Calls GetPolicy to retrieve the complete configuration of a single policy, including its definition, associated policy set, and creation and update times.
  *
  * @param request GetPolicyRequest
  * @return GetPolicyResponse
@@ -1868,7 +2044,9 @@ GetPolicyResponse Client::getPolicy(const GetPolicyRequest &request) {
 }
 
 /**
- * @summary 查询一个 权限策略集合
+ * @summary Queries an access policy set.
+ *
+ * @description Calls GetPolicySet to query the complete configuration of a single policy set, including the ARN, description, creation time, and update time.
  *
  * @param request GetPolicySetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1899,7 +2077,9 @@ GetPolicySetResponse Client::getPolicySetWithOptions(const GetPolicySetRequest &
 }
 
 /**
- * @summary 查询一个 权限策略集合
+ * @summary Queries an access policy set.
+ *
+ * @description Calls GetPolicySet to query the complete configuration of a single policy set, including the ARN, description, creation time, and update time.
  *
  * @param request GetPolicySetRequest
  * @return GetPolicySetResponse
@@ -1910,7 +2090,9 @@ GetPolicySetResponse Client::getPolicySet(const GetPolicySetRequest &request) {
 }
 
 /**
- * @summary 获取Role
+ * @summary Retrieves a role.
+ *
+ * @description Returns the complete information about a specified role, including the role ID, name, description, type (Default or Manual), and creation and update times.
  *
  * @param request GetRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1945,7 +2127,9 @@ GetRoleResponse Client::getRoleWithOptions(const GetRoleRequest &request, const 
 }
 
 /**
- * @summary 获取Role
+ * @summary Retrieves a role.
+ *
+ * @description Returns the complete information about a specified role, including the role ID, name, description, type (Default or Manual), and creation and update times.
  *
  * @param request GetRoleRequest
  * @return GetRoleResponse
@@ -1956,7 +2140,9 @@ GetRoleResponse Client::getRole(const GetRoleRequest &request) {
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Returns the complete configuration of the SAML IdP, including the EntityId, logon URL, X509 certificate list, and the enabling status of SSO and JIT synchronization.
  *
  * @param request GetSAMLIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1987,7 +2173,9 @@ GetSAMLIdentityProviderResponse Client::getSAMLIdentityProviderWithOptions(const
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Returns the complete configuration of the SAML IdP, including the EntityId, logon URL, X509 certificate list, and the enabling status of SSO and JIT synchronization.
  *
  * @param request GetSAMLIdentityProviderRequest
  * @return GetSAMLIdentityProviderResponse
@@ -2040,7 +2228,9 @@ GetSAMLServiceProviderInfoResponse Client::getSAMLServiceProviderInfo(const GetS
 }
 
 /**
- * @summary 获取指定的身份提供商
+ * @summary Retrieves the specified identity provider.
+ *
+ * @description Queries the SSO configuration of a specific type of identity provider in a specified user pool. Returns information such as the enabling status, synchronization callback status, and metadata of the IdP. For security reasons, sensitive fields such as appSecret, encryptKey, and verificationToken are not returned in the response.
  *
  * @param request GetSpecificIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2075,7 +2265,9 @@ GetSpecificIdentityProviderResponse Client::getSpecificIdentityProviderWithOptio
 }
 
 /**
- * @summary 获取指定的身份提供商
+ * @summary Retrieves the specified identity provider.
+ *
+ * @description Queries the SSO configuration of a specific type of identity provider in a specified user pool. Returns information such as the enabling status, synchronization callback status, and metadata of the IdP. For security reasons, sensitive fields such as appSecret, encryptKey, and verificationToken are not returned in the response.
  *
  * @param request GetSpecificIdentityProviderRequest
  * @return GetSpecificIdentityProviderResponse
@@ -2086,7 +2278,9 @@ GetSpecificIdentityProviderResponse Client::getSpecificIdentityProvider(const Ge
 }
 
 /**
- * @summary 获取指定凭证库的详细配置。
+ * @summary Retrieves the detailed configuration of a specified token vault.
+ *
+ * @description Calls GetTokenVault to retrieve the complete configuration of a single token vault, including the encryption method, associated RAM role ARN, creation time, and update time.
  *
  * @param request GetTokenVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2117,7 +2311,9 @@ GetTokenVaultResponse Client::getTokenVaultWithOptions(const GetTokenVaultReques
 }
 
 /**
- * @summary 获取指定凭证库的详细配置。
+ * @summary Retrieves the detailed configuration of a specified token vault.
+ *
+ * @description Calls GetTokenVault to retrieve the complete configuration of a single token vault, including the encryption method, associated RAM role ARN, creation time, and update time.
  *
  * @param request GetTokenVaultRequest
  * @return GetTokenVaultResponse
@@ -2128,7 +2324,9 @@ GetTokenVaultResponse Client::getTokenVault(const GetTokenVaultRequest &request)
 }
 
 /**
- * @summary 获取用户
+ * @summary Retrieves a user.
+ *
+ * @description Returns the complete information of a specified user, including the user ID, username, display name, description, and creation and update times.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2171,7 +2369,9 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary 获取用户
+ * @summary Retrieves a user.
+ *
+ * @description Returns the complete information of a specified user, including the user ID, username, display name, description, and creation and update times.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -2182,7 +2382,9 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
 }
 
 /**
- * @summary 获取UserPool
+ * @summary Retrieves a user pool.
+ *
+ * @description Returns the complete configuration information of a specified user pool, including the user pool ID, name, description, creation time, and update time.
  *
  * @param request GetUserPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2213,7 +2415,9 @@ GetUserPoolResponse Client::getUserPoolWithOptions(const GetUserPoolRequest &req
 }
 
 /**
- * @summary 获取UserPool
+ * @summary Retrieves a user pool.
+ *
+ * @description Returns the complete configuration information of a specified user pool, including the user pool ID, name, description, creation time, and update time.
  *
  * @param request GetUserPoolRequest
  * @return GetUserPoolResponse
@@ -2224,7 +2428,9 @@ GetUserPoolResponse Client::getUserPool(const GetUserPoolRequest &request) {
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Returns the complete configuration information of a client, including the client ID, name, redirect URIs, token validity periods, SecretRequired and EnforcePKCE settings, and default client scopes.
  *
  * @param request GetUserPoolClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2259,7 +2465,9 @@ GetUserPoolClientResponse Client::getUserPoolClientWithOptions(const GetUserPool
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Returns the complete configuration information of a client, including the client ID, name, redirect URIs, token validity periods, SecretRequired and EnforcePKCE settings, and default client scopes.
  *
  * @param request GetUserPoolClientRequest
  * @return GetUserPoolClientResponse
@@ -2270,7 +2478,9 @@ GetUserPoolClientResponse Client::getUserPoolClient(const GetUserPoolClientReque
 }
 
 /**
- * @summary 获取UserPool
+ * @summary Retrieves the details of a synchronization task in a user pool.
+ *
+ * @description Queries the execution details of a single synchronization task in a specified user pool, including the task status, start and end times, synchronization result statistics (the number of created, updated, deleted, and unchanged users), and error messages.
  *
  * @param request GetUserPoolSyncJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2305,7 +2515,9 @@ GetUserPoolSyncJobResponse Client::getUserPoolSyncJobWithOptions(const GetUserPo
 }
 
 /**
- * @summary 获取UserPool
+ * @summary Retrieves the details of a synchronization task in a user pool.
+ *
+ * @description Queries the execution details of a single synchronization task in a specified user pool, including the task status, start and end times, synchronization result statistics (the number of created, updated, deleted, and unchanged users), and error messages.
  *
  * @param request GetUserPoolSyncJobRequest
  * @return GetUserPoolSyncJobResponse
@@ -2316,7 +2528,7 @@ GetUserPoolSyncJobResponse Client::getUserPoolSyncJob(const GetUserPoolSyncJobRe
 }
 
 /**
- * @summary 创建应用
+ * @summary Queries the detailed configuration of a workload identity by name.
  *
  * @param request GetWorkloadIdentityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2347,7 +2559,7 @@ GetWorkloadIdentityResponse Client::getWorkloadIdentityWithOptions(const GetWork
 }
 
 /**
- * @summary 创建应用
+ * @summary Queries the detailed configuration of a workload identity by name.
  *
  * @param request GetWorkloadIdentityRequest
  * @return GetWorkloadIdentityResponse
@@ -2358,7 +2570,7 @@ GetWorkloadIdentityResponse Client::getWorkloadIdentity(const GetWorkloadIdentit
 }
 
 /**
- * @summary 列出 API 密钥凭证提供商
+ * @summary Lists all API key credential providers in the account.
  *
  * @param request ListAPIKeyCredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2397,7 +2609,7 @@ ListAPIKeyCredentialProvidersResponse Client::listAPIKeyCredentialProvidersWithO
 }
 
 /**
- * @summary 列出 API 密钥凭证提供商
+ * @summary Lists all API key credential providers in the account.
  *
  * @param request ListAPIKeyCredentialProvidersRequest
  * @return ListAPIKeyCredentialProvidersResponse
@@ -2408,7 +2620,9 @@ ListAPIKeyCredentialProvidersResponse Client::listAPIKeyCredentialProviders(cons
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all secrets of a client, including the client key ID and creation time. For security reasons, the plaintext secret (ClientSecretValue) is not returned in the list.
  *
  * @param request ListClientSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2443,7 +2657,9 @@ ListClientSecretsResponse Client::listClientSecretsWithOptions(const ListClientS
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all secrets of a client, including the client key ID and creation time. For security reasons, the plaintext secret (ClientSecretValue) is not returned in the list.
  *
  * @param request ListClientSecretsRequest
  * @return ListClientSecretsResponse
@@ -2451,6 +2667,72 @@ ListClientSecretsResponse Client::listClientSecretsWithOptions(const ListClientS
 ListClientSecretsResponse Client::listClientSecrets(const ListClientSecretsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listClientSecretsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询身份源部门树（按层懒加载，供控制台勾选同步范围）
+ *
+ * @description 用户池需已配置相应身份源，且应用具有目标部门的通讯录访问权限。本接口使用已保存的身份源配置，无需传入应用密钥。
+ * 本接口仅返回指定父部门的直属子部门，不包含父部门本身，不递归返回整棵部门树。未传父部门时，钉钉默认查询根部门1下的直属子部门，飞书默认查询根部门0下的直属子部门。部门浏览受应用授权可见范围限制，不受当前保存的同步范围限制。
+ * 本接口不修改同步范围，不触发人员同步。
+ *
+ * @param request ListIdentityProviderDepartmentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIdentityProviderDepartmentsResponse
+ */
+ListIdentityProviderDepartmentsResponse Client::listIdentityProviderDepartmentsWithOptions(const ListIdentityProviderDepartmentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIdentityProviderType()) {
+    body["IdentityProviderType"] = request.getIdentityProviderType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasParentDepartmentId()) {
+    body["ParentDepartmentId"] = request.getParentDepartmentId();
+  }
+
+  if (!!request.hasUserPoolName()) {
+    body["UserPoolName"] = request.getUserPoolName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListIdentityProviderDepartments"},
+    {"version" , "2025-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIdentityProviderDepartmentsResponse>();
+}
+
+/**
+ * @summary 查询身份源部门树（按层懒加载，供控制台勾选同步范围）
+ *
+ * @description 用户池需已配置相应身份源，且应用具有目标部门的通讯录访问权限。本接口使用已保存的身份源配置，无需传入应用密钥。
+ * 本接口仅返回指定父部门的直属子部门，不包含父部门本身，不递归返回整棵部门树。未传父部门时，钉钉默认查询根部门1下的直属子部门，飞书默认查询根部门0下的直属子部门。部门浏览受应用授权可见范围限制，不受当前保存的同步范围限制。
+ * 本接口不修改同步范围，不触发人员同步。
+ *
+ * @param request ListIdentityProviderDepartmentsRequest
+ * @return ListIdentityProviderDepartmentsResponse
+ */
+ListIdentityProviderDepartmentsResponse Client::listIdentityProviderDepartments(const ListIdentityProviderDepartmentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listIdentityProviderDepartmentsWithOptions(request, runtime);
 }
 
 /**
@@ -2500,7 +2782,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const ListIdentityPr
 }
 
 /**
- * @summary 列出 OAuth2 凭证提供商
+ * @summary Lists all OAuth 2.0 credential providers in the account.
  *
  * @param request ListOAuth2CredentialProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2539,7 +2821,7 @@ ListOAuth2CredentialProvidersResponse Client::listOAuth2CredentialProvidersWithO
 }
 
 /**
- * @summary 列出 OAuth2 凭证提供商
+ * @summary Lists all OAuth 2.0 credential providers in the account.
  *
  * @param request ListOAuth2CredentialProvidersRequest
  * @return ListOAuth2CredentialProvidersResponse
@@ -2600,7 +2882,9 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary 列出网关策略配置
+ * @summary Lists gateway policy configurations.
+ *
+ * @description Calls ListPolicySetAttachedGateways to query the gateways to which a specific policy set is currently attached. Call this operation before deleting a policy set to verify that no residual attachments exist.
  *
  * @param request ListPolicySetAttachedGatewaysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2643,7 +2927,9 @@ ListPolicySetAttachedGatewaysResponse Client::listPolicySetAttachedGatewaysWithO
 }
 
 /**
- * @summary 列出网关策略配置
+ * @summary Lists gateway policy configurations.
+ *
+ * @description Calls ListPolicySetAttachedGateways to query the gateways to which a specific policy set is currently attached. Call this operation before deleting a policy set to verify that no residual attachments exist.
  *
  * @param request ListPolicySetAttachedGatewaysRequest
  * @return ListPolicySetAttachedGatewaysResponse
@@ -2762,7 +3048,9 @@ ListRoleAssignmentsResponse Client::listRoleAssignments(const ListRoleAssignment
 }
 
 /**
- * @summary 列出Roles
+ * @summary Lists roles.
+ *
+ * @description Returns summary information about all roles in a user pool, including the default role Default and custom roles Manual. The information includes the role ID, name, description, creation time, update time, and role type.
  *
  * @param request ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2801,7 +3089,9 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
 }
 
 /**
- * @summary 列出Roles
+ * @summary Lists roles.
+ *
+ * @description Returns summary information about all roles in a user pool, including the default role Default and custom roles Manual. The information includes the role ID, name, description, creation time, update time, and role type.
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -2812,7 +3102,9 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns a list of all X.509 certificates under the SAML IdP configuration of the user pool to help administrators manage the certificate lifecycle and perform certificate rotation.
  *
  * @param request ListSAMLIdentityProviderCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2843,7 +3135,9 @@ ListSAMLIdentityProviderCertificatesResponse Client::listSAMLIdentityProviderCer
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns a list of all X.509 certificates under the SAML IdP configuration of the user pool to help administrators manage the certificate lifecycle and perform certificate rotation.
  *
  * @param request ListSAMLIdentityProviderCertificatesRequest
  * @return ListSAMLIdentityProviderCertificatesResponse
@@ -2900,7 +3194,9 @@ ListTokenVaultsResponse Client::listTokenVaults(const ListTokenVaultsRequest &re
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all clients in a user pool, including the client ID, name, redirect URIs, creation time, and configurations such as PKCE, client secret, and token validity periods.
  *
  * @param request ListUserPoolClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2939,7 +3235,9 @@ ListUserPoolClientsResponse Client::listUserPoolClientsWithOptions(const ListUse
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all clients in a user pool, including the client ID, name, redirect URIs, creation time, and configurations such as PKCE, client secret, and token validity periods.
  *
  * @param request ListUserPoolClientsRequest
  * @return ListUserPoolClientsResponse
@@ -3000,7 +3298,9 @@ ListUserPoolSyncJobsResponse Client::listUserPoolSyncJobs(const ListUserPoolSync
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all user pools within the current account, including the user pool ID, name, description, and creation and update times. Supports pagination by using NextToken.
  *
  * @param request ListUserPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3035,7 +3335,9 @@ ListUserPoolsResponse Client::listUserPoolsWithOptions(const ListUserPoolsReques
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists identity providers.
+ *
+ * @description Returns summary information about all user pools within the current account, including the user pool ID, name, description, and creation and update times. Supports pagination by using NextToken.
  *
  * @param request ListUserPoolsRequest
  * @return ListUserPoolsResponse
@@ -3046,7 +3348,9 @@ ListUserPoolsResponse Client::listUserPools(const ListUserPoolsRequest &request)
 }
 
 /**
- * @summary 列出用户
+ * @summary Lists users.
+ *
+ * @description Returns the summary information of all users in a user pool, including the user ID, username, display name, description, creation time, and update time.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3085,7 +3389,9 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary 列出用户
+ * @summary Lists users.
+ *
+ * @description Returns the summary information of all users in a user pool, including the user ID, username, display name, description, creation time, and update time.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -3096,7 +3402,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists workload identities with pagination.
  *
  * @param request ListWorkloadIdentitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3131,7 +3437,7 @@ ListWorkloadIdentitiesResponse Client::listWorkloadIdentitiesWithOptions(const L
 }
 
 /**
- * @summary 列出IdentityProvider
+ * @summary Lists workload identities with pagination.
  *
  * @param request ListWorkloadIdentitiesRequest
  * @return ListWorkloadIdentitiesResponse
@@ -3142,7 +3448,9 @@ ListWorkloadIdentitiesResponse Client::listWorkloadIdentities(const ListWorkload
 }
 
 /**
- * @summary 创建UserPool
+ * @summary Triggers a user synchronization task in a user pool.
+ *
+ * @description Creates and immediately executes a user synchronization task in a specified user pool. The system pulls user data from the specified identity provider and synchronizes the data to the user pool. The task runs asynchronously. The operation completes after the task ID is returned. You can call GetUserPoolSyncJob to query the execution progress and results. Only one synchronization task can run in a user pool at a time.
  *
  * @param request RunUserPoolSyncJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3181,7 +3489,9 @@ RunUserPoolSyncJobResponse Client::runUserPoolSyncJobWithOptions(const RunUserPo
 }
 
 /**
- * @summary 创建UserPool
+ * @summary Triggers a user synchronization task in a user pool.
+ *
+ * @description Creates and immediately executes a user synchronization task in a specified user pool. The system pulls user data from the specified identity provider and synchronizes the data to the user pool. The task runs asynchronously. The operation completes after the task ID is returned. You can call GetUserPoolSyncJob to query the execution progress and results. Only one synchronization task can run in a user pool at a time.
  *
  * @param request RunUserPoolSyncJobRequest
  * @return RunUserPoolSyncJobResponse
@@ -3192,7 +3502,9 @@ RunUserPoolSyncJobResponse Client::runUserPoolSyncJob(const RunUserPoolSyncJobRe
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a workload identity.
+ *
+ * @description This operation sets or updates the core configurations of a SAML identity provider (IdP), including the IdP identifier (EntityId), logon URL (LoginURL), X.509 certificates, single sign-on (SSO) status, and Just-In-Time (JIT) user provisioning and update settings. If you specify X509Certificates, all existing certificates in the user pool are replaced. To append certificates while retaining the existing ones, use AddSAMLIdentityProviderCertificate.
  *
  * @param tmpReq SetSAMLIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3257,7 +3569,9 @@ SetSAMLIdentityProviderResponse Client::setSAMLIdentityProviderWithOptions(const
 }
 
 /**
- * @summary 创建WorkloadIdentity
+ * @summary Creates a workload identity.
+ *
+ * @description This operation sets or updates the core configurations of a SAML identity provider (IdP), including the IdP identifier (EntityId), logon URL (LoginURL), X.509 certificates, single sign-on (SSO) status, and Just-In-Time (JIT) user provisioning and update settings. If you specify X509Certificates, all existing certificates in the user pool are replaced. To append certificates while retaining the existing ones, use AddSAMLIdentityProviderCertificate.
  *
  * @param request SetSAMLIdentityProviderRequest
  * @return SetSAMLIdentityProviderResponse
@@ -3268,7 +3582,9 @@ SetSAMLIdentityProviderResponse Client::setSAMLIdentityProvider(const SetSAMLIde
 }
 
 /**
- * @summary 通用IdP配置
+ * @summary Configures the SSO settings for a specified type of identity provider in a user pool.
+ *
+ * @description Configures a specific type of identity provider for a specified user pool. This operation is used to configure SSO logon and address book synchronization for non-SAML IdPs such as DingTalk. A user pool does not support enabling multiple identity providers at the same time. You must disable other enabled IdPs before enabling a new IdP.
  *
  * @param request SetSpecificIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3311,7 +3627,9 @@ SetSpecificIdentityProviderResponse Client::setSpecificIdentityProviderWithOptio
 }
 
 /**
- * @summary 通用IdP配置
+ * @summary Configures the SSO settings for a specified type of identity provider in a user pool.
+ *
+ * @description Configures a specific type of identity provider for a specified user pool. This operation is used to configure SSO logon and address book synchronization for non-SAML IdPs such as DingTalk. A user pool does not support enabling multiple identity providers at the same time. You must disable other enabled IdPs before enabling a new IdP.
  *
  * @param request SetSpecificIdentityProviderRequest
  * @return SetSpecificIdentityProviderResponse
@@ -3322,7 +3640,9 @@ SetSpecificIdentityProviderResponse Client::setSpecificIdentityProvider(const Se
 }
 
 /**
- * @summary 修改用户登录密码
+ * @summary Modifies the logon password of a user.
+ *
+ * @description Sets or resets the logon password for a user in a specified user pool. Two methods are supported: specifying a password (Password) or generating a random password (GenerateRandomPassword). The two methods are mutually exclusive, and you must select exactly one. If you specify a password, it must meet the password policy requirements: a minimum length of 8 characters, containing at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters, and it must not contain the username. Passwords are managed independently of the user creation process and are not passed through CreateUser.
  *
  * @param request SetUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3365,7 +3685,9 @@ SetUserPasswordResponse Client::setUserPasswordWithOptions(const SetUserPassword
 }
 
 /**
- * @summary 修改用户登录密码
+ * @summary Modifies the logon password of a user.
+ *
+ * @description Sets or resets the logon password for a user in a specified user pool. Two methods are supported: specifying a password (Password) or generating a random password (GenerateRandomPassword). The two methods are mutually exclusive, and you must select exactly one. If you specify a password, it must meet the password policy requirements: a minimum length of 8 characters, containing at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters, and it must not contain the username. Passwords are managed independently of the user creation process and are not passed through CreateUser.
  *
  * @param request SetUserPasswordRequest
  * @return SetUserPasswordResponse
@@ -3376,7 +3698,7 @@ SetUserPasswordResponse Client::setUserPassword(const SetUserPasswordRequest &re
 }
 
 /**
- * @summary 更新一个 API 密钥凭证提供商
+ * @summary Updates an existing API key credential provider.
  *
  * @param request UpdateAPIKeyCredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3419,7 +3741,7 @@ UpdateAPIKeyCredentialProviderResponse Client::updateAPIKeyCredentialProviderWit
 }
 
 /**
- * @summary 更新一个 API 密钥凭证提供商
+ * @summary Updates an existing API key credential provider.
  *
  * @param request UpdateAPIKeyCredentialProviderRequest
  * @return UpdateAPIKeyCredentialProviderResponse
@@ -3430,7 +3752,9 @@ UpdateAPIKeyCredentialProviderResponse Client::updateAPIKeyCredentialProvider(co
 }
 
 /**
- * @summary 查询网关策略配置
+ * @summary Queries the gateway policy configuration.
+ *
+ * @description Calls UpdateGatewayPolicyConfig to adjust the policy enforcement mode on a gateway. Common usage: Use LOG_ONLY for observation and verification during the initial rollout of a policy. After confirming that everything is correct, switch the gateway to ENFORCE to enforce interception. This operation does not modify the attached policy set itself. To replace the policy set, call AttachPolicySetToGateway.
  *
  * @param request UpdateGatewayPolicyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3469,7 +3793,9 @@ UpdateGatewayPolicyConfigResponse Client::updateGatewayPolicyConfigWithOptions(c
 }
 
 /**
- * @summary 查询网关策略配置
+ * @summary Queries the gateway policy configuration.
+ *
+ * @description Calls UpdateGatewayPolicyConfig to adjust the policy enforcement mode on a gateway. Common usage: Use LOG_ONLY for observation and verification during the initial rollout of a policy. After confirming that everything is correct, switch the gateway to ENFORCE to enforce interception. This operation does not modify the attached policy set itself. To replace the policy set, call AttachPolicySetToGateway.
  *
  * @param request UpdateGatewayPolicyConfigRequest
  * @return UpdateGatewayPolicyConfigResponse
@@ -3480,7 +3806,7 @@ UpdateGatewayPolicyConfigResponse Client::updateGatewayPolicyConfig(const Update
 }
 
 /**
- * @summary 更新IdentityProvider
+ * @summary Updates the specified identity provider.
  *
  * @param tmpReq UpdateIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3529,7 +3855,7 @@ UpdateIdentityProviderResponse Client::updateIdentityProviderWithOptions(const U
 }
 
 /**
- * @summary 更新IdentityProvider
+ * @summary Updates the specified identity provider.
  *
  * @param request UpdateIdentityProviderRequest
  * @return UpdateIdentityProviderResponse
@@ -3540,7 +3866,9 @@ UpdateIdentityProviderResponse Client::updateIdentityProvider(const UpdateIdenti
 }
 
 /**
- * @summary 更新用户池登录配置
+ * @summary Updates the logon configuration of a user pool.
+ *
+ * @description Updates the logon configuration of a specified user pool. Currently, only logon preferences, such as whether password logon is enabled, can be updated. The password policy cannot be modified. Specify only the fields to be updated. Unspecified fields remain unchanged.
  *
  * @param tmpReq UpdateLoginPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3591,7 +3919,9 @@ UpdateLoginPreferenceResponse Client::updateLoginPreferenceWithOptions(const Upd
 }
 
 /**
- * @summary 更新用户池登录配置
+ * @summary Updates the logon configuration of a user pool.
+ *
+ * @description Updates the logon configuration of a specified user pool. Currently, only logon preferences, such as whether password logon is enabled, can be updated. The password policy cannot be modified. Specify only the fields to be updated. Unspecified fields remain unchanged.
  *
  * @param request UpdateLoginPreferenceRequest
  * @return UpdateLoginPreferenceResponse
@@ -3602,7 +3932,7 @@ UpdateLoginPreferenceResponse Client::updateLoginPreference(const UpdateLoginPre
 }
 
 /**
- * @summary 修改 OAuth2 凭证提供商
+ * @summary Updates the configuration of an existing OAuth 2.0 credential provider.
  *
  * @param tmpReq UpdateOAuth2CredentialProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3659,7 +3989,7 @@ UpdateOAuth2CredentialProviderResponse Client::updateOAuth2CredentialProviderWit
 }
 
 /**
- * @summary 修改 OAuth2 凭证提供商
+ * @summary Updates the configuration of an existing OAuth 2.0 credential provider.
  *
  * @param request UpdateOAuth2CredentialProviderRequest
  * @return UpdateOAuth2CredentialProviderResponse
@@ -3670,7 +4000,9 @@ UpdateOAuth2CredentialProviderResponse Client::updateOAuth2CredentialProvider(co
 }
 
 /**
- * @summary 更新一个权限策略
+ * @summary Updates an access policy.
+ *
+ * @description Calls the UpdatePolicy operation to update the description and definition of an existing policy. The updated definition takes effect immediately for all gateways to which the policy set is mounted.
  *
  * @param tmpReq UpdatePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3719,7 +4051,9 @@ UpdatePolicyResponse Client::updatePolicyWithOptions(const UpdatePolicyRequest &
 }
 
 /**
- * @summary 更新一个权限策略
+ * @summary Updates an access policy.
+ *
+ * @description Calls the UpdatePolicy operation to update the description and definition of an existing policy. The updated definition takes effect immediately for all gateways to which the policy set is mounted.
  *
  * @param request UpdatePolicyRequest
  * @return UpdatePolicyResponse
@@ -3730,7 +4064,9 @@ UpdatePolicyResponse Client::updatePolicy(const UpdatePolicyRequest &request) {
 }
 
 /**
- * @summary 更新一个权限策略集合
+ * @summary Updates an access policy set.
+ *
+ * @description Calls UpdatePolicySet to update the description of an existing policy set. To modify specific policies in the policy set, use UpdatePolicy. To change the mount relationship, use AttachPolicySetToGateway or DetachPolicySetFromGateway.
  *
  * @param request UpdatePolicySetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3765,7 +4101,9 @@ UpdatePolicySetResponse Client::updatePolicySetWithOptions(const UpdatePolicySet
 }
 
 /**
- * @summary 更新一个权限策略集合
+ * @summary Updates an access policy set.
+ *
+ * @description Calls UpdatePolicySet to update the description of an existing policy set. To modify specific policies in the policy set, use UpdatePolicy. To change the mount relationship, use AttachPolicySetToGateway or DetachPolicySetFromGateway.
  *
  * @param request UpdatePolicySetRequest
  * @return UpdatePolicySetResponse
@@ -3776,7 +4114,9 @@ UpdatePolicySetResponse Client::updatePolicySet(const UpdatePolicySetRequest &re
 }
 
 /**
- * @summary 更新Role
+ * @summary Updates a role.
+ *
+ * @description Updates the Description field of a role. The RoleName field serves as a unique identifier and cannot be modified.
  *
  * @param request UpdateRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3815,7 +4155,9 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
 }
 
 /**
- * @summary 更新Role
+ * @summary Updates a role.
+ *
+ * @description Updates the Description field of a role. The RoleName field serves as a unique identifier and cannot be modified.
  *
  * @param request UpdateRoleRequest
  * @return UpdateRoleResponse
@@ -3826,7 +4168,9 @@ UpdateRoleResponse Client::updateRole(const UpdateRoleRequest &request) {
 }
 
 /**
- * @summary 更新凭证库。
+ * @summary Updates a token vault.
+ *
+ * @description Updates the description and role configuration of an existing token vault. Note: The encryption configuration (KeyType or KmsKeyArn) of a token vault cannot be changed after it is created.
  *
  * @param request UpdateTokenVaultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3865,7 +4209,9 @@ UpdateTokenVaultResponse Client::updateTokenVaultWithOptions(const UpdateTokenVa
 }
 
 /**
- * @summary 更新凭证库。
+ * @summary Updates a token vault.
+ *
+ * @description Updates the description and role configuration of an existing token vault. Note: The encryption configuration (KeyType or KmsKeyArn) of a token vault cannot be changed after it is created.
  *
  * @param request UpdateTokenVaultRequest
  * @return UpdateTokenVaultResponse
@@ -3876,7 +4222,9 @@ UpdateTokenVaultResponse Client::updateTokenVault(const UpdateTokenVaultRequest 
 }
 
 /**
- * @summary 更新用户池用户
+ * @summary Updates a user in a user pool.
+ *
+ * @description Updates the attribute information of a user in a specified user pool. Specify only the fields that you want to update. Unspecified fields remain unchanged. UserName is the user identifier and cannot be modified. You can update the display name, description, email address, and status. Email addresses must be unique within the user pool.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3927,7 +4275,9 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary 更新用户池用户
+ * @summary Updates a user in a user pool.
+ *
+ * @description Updates the attribute information of a user in a specified user pool. Specify only the fields that you want to update. Unspecified fields remain unchanged. UserName is the user identifier and cannot be modified. You can update the display name, description, email address, and status. Email addresses must be unique within the user pool.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse
@@ -3984,7 +4334,9 @@ UpdateUserPoolResponse Client::updateUserPool(const UpdateUserPoolRequest &reque
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Updates the callback URLs (RedirectURIs), whether an application secret is required (SecretRequired), whether Proof Key for Code Exchange (PKCE) is enforced (EnforcePKCE), and the validity periods of the access token and refresh token. The client name (ClientName) serves as a unique identifier and cannot be modified.
  *
  * @param tmpReq UpdateUserPoolClientRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3996,6 +4348,10 @@ UpdateUserPoolClientResponse Client::updateUserPoolClientWithOptions(const Updat
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasRedirectURIs()) {
     request.setRedirectURIsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRedirectURIs(), "RedirectURIs", "json"));
+  }
+
+  if (!!tmpReq.hasScopes()) {
+    request.setScopesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScopes(), "Scopes", "json"));
   }
 
   json body = {};
@@ -4017,6 +4373,10 @@ UpdateUserPoolClientResponse Client::updateUserPoolClientWithOptions(const Updat
 
   if (!!request.hasRefreshTokenValidity()) {
     body["RefreshTokenValidity"] = request.getRefreshTokenValidity();
+  }
+
+  if (!!request.hasScopesShrink()) {
+    body["Scopes"] = request.getScopesShrink();
   }
 
   if (!!request.hasSecretRequired()) {
@@ -4045,7 +4405,9 @@ UpdateUserPoolClientResponse Client::updateUserPoolClientWithOptions(const Updat
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates an application.
+ *
+ * @description Updates the callback URLs (RedirectURIs), whether an application secret is required (SecretRequired), whether Proof Key for Code Exchange (PKCE) is enforced (EnforcePKCE), and the validity periods of the access token and refresh token. The client name (ClientName) serves as a unique identifier and cannot be modified.
  *
  * @param request UpdateUserPoolClientRequest
  * @return UpdateUserPoolClientResponse
@@ -4056,7 +4418,7 @@ UpdateUserPoolClientResponse Client::updateUserPoolClient(const UpdateUserPoolCl
 }
 
 /**
- * @summary 创建应用
+ * @summary Updates the specified workload identity.
  *
  * @param tmpReq UpdateWorkloadIdentityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4121,7 +4483,7 @@ UpdateWorkloadIdentityResponse Client::updateWorkloadIdentityWithOptions(const U
 }
 
 /**
- * @summary 创建应用
+ * @summary Updates the specified workload identity.
  *
  * @param request UpdateWorkloadIdentityRequest
  * @return UpdateWorkloadIdentityResponse

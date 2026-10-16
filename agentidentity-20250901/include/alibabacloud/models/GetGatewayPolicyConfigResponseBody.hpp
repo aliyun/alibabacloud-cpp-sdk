@@ -69,7 +69,11 @@ namespace Models
 
 
     protected:
+      // The policy enforcement mode. Valid values:
+      // - ENFORCE: Blocks non-compliant requests and allows compliant requests.
+      // - LOG_ONLY: Records non-compliant requests without blocking them.
       shared_ptr<string> enforcementMode_ {};
+      // The ARN of the policy set.
       shared_ptr<string> policySetArn_ {};
     };
 
@@ -92,7 +96,9 @@ namespace Models
 
 
   protected:
+    // The gateway policy configuration.
     shared_ptr<GetGatewayPolicyConfigResponseBody::GatewayPolicyConfig> gatewayPolicyConfig_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -154,16 +154,25 @@ namespace Models
 
 
     protected:
+      // The unique callback URL assigned to the provider. You must configure this URL in the list of allowed callback URLs of the identity provider.
       shared_ptr<string> callbackURL_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The ARN of the newly created credential provider.
       shared_ptr<string> credentialProviderArn_ {};
+      // The vendor of the provider.
       shared_ptr<string> credentialProviderVendor_ {};
+      // The description of the OAuth 2.0 credential provider.
       shared_ptr<string> description_ {};
+      // The name of the credential provider.
       shared_ptr<string> OAuth2CredentialProviderName_ {};
+      // The object that contains provider-specific configurations, such as clientId and clientSecret.
       shared_ptr<OAuth2ProviderConfig> OAuth2ProviderConfig_ {};
       shared_ptr<string> OAuthType_ {};
       shared_ptr<string> sourcePlatform_ {};
+      // The name of the token vault.
       shared_ptr<string> tokenVaultName_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -186,7 +195,9 @@ namespace Models
 
 
   protected:
+    // The credential provider.
     shared_ptr<CreateOAuth2CredentialProviderResponseBody::OAuth2CredentialProvider> OAuth2CredentialProvider_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

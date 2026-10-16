@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The IdP metadata. For the DingTalk type, the metadata is in JSON format and includes fields such as corpId, appKey, appSecret, encryptKey, verificationToken, and syncCallbackStatus.
     shared_ptr<string> IDPMetadata_ {};
+    // The type of the identity provider. Currently, only DingTalk is supported.
     shared_ptr<string> identityProviderType_ {};
+    // The SSO enabling status. Valid values:
+    // - Enabled: Enabled.
+    // - Disabled: Disabled.
     shared_ptr<string> SSOStatus_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

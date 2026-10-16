@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The creation time in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The description of the role.
       shared_ptr<string> description_ {};
+      // The role ID.
       shared_ptr<string> roleId_ {};
+      // The name of the role.
       shared_ptr<string> roleName_ {};
+      // The type of the role. Default indicates a default role, and Manual indicates a custom role.
       shared_ptr<string> type_ {};
+      // The update time in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -132,7 +138,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role information.
     shared_ptr<GetRoleResponseBody::Role> role_ {};
   };
 

@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The certificate ID.
         shared_ptr<string> certificateId_ {};
+        // The content of the X509 certificate in PEM format.
         shared_ptr<string> x509Certificate_ {};
       };
 
@@ -160,12 +162,27 @@ namespace Models
 
 
     protected:
+      // The IdP identifier.
       shared_ptr<string> entityId_ {};
+      // The enabling status of just-in-time (JIT) user provisioning. Valid values:
+      // - Enabled: JIT user provisioning is enabled.
+      // - Disabled: JIT user provisioning is disabled.
       shared_ptr<string> JITProvisionStatus_ {};
+      // The enabling status of updating user information through synchronization. Valid values:
+      // - Enabled: The feature is enabled.
+      // - Disabled: The feature is disabled.
       shared_ptr<string> JITUpdateStatus_ {};
+      // The logon URL of the IdP.
       shared_ptr<string> loginURL_ {};
+      // The SAML protocol binding type. Valid values:
+      // - HTTP-Redirect
+      // - HTTP-POST
       shared_ptr<string> SAMLBindingType_ {};
+      // The enabling status of single sign-on (SSO). Valid values:
+      // - Enabled: SSO is enabled.
+      // - Disabled: SSO is disabled.
       shared_ptr<string> SSOStatus_ {};
+      // The list of X509 certificates.
       shared_ptr<vector<SSOIdentityProviderConfiguration::X509Certificates>> x509Certificates_ {};
     };
 
@@ -188,7 +205,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The detailed configuration of the identity provider.
     shared_ptr<GetSAMLIdentityProviderResponseBody::SSOIdentityProviderConfiguration> SSOIdentityProviderConfiguration_ {};
   };
 

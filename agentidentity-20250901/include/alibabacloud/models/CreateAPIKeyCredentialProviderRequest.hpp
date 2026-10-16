@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The API key value to be securely stored.
     shared_ptr<string> APIKey_ {};
+    // The name of the credential provider.
     shared_ptr<string> APIKeyCredentialProviderName_ {};
+    // The description of the credential provider.
     shared_ptr<string> description_ {};
+    // The TokenVault name.
     shared_ptr<string> tokenVaultName_ {};
   };
 

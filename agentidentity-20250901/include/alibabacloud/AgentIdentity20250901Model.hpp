@@ -117,6 +117,9 @@
 #include <alibabacloud/models/GetIdentityProviderRequest.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponse.hpp>
+#include <alibabacloud/models/GetIdentityProviderSyncScopeRequest.hpp>
+#include <alibabacloud/models/GetIdentityProviderSyncScopeResponseBody.hpp>
+#include <alibabacloud/models/GetIdentityProviderSyncScopeResponse.hpp>
 #include <alibabacloud/models/GetLoginPreferenceRequest.hpp>
 #include <alibabacloud/models/GetLoginPreferenceResponseBody.hpp>
 #include <alibabacloud/models/GetLoginPreferenceResponse.hpp>
@@ -165,6 +168,9 @@
 #include <alibabacloud/models/ListClientSecretsRequest.hpp>
 #include <alibabacloud/models/ListClientSecretsResponseBody.hpp>
 #include <alibabacloud/models/ListClientSecretsResponse.hpp>
+#include <alibabacloud/models/ListIdentityProviderDepartmentsRequest.hpp>
+#include <alibabacloud/models/ListIdentityProviderDepartmentsResponseBody.hpp>
+#include <alibabacloud/models/ListIdentityProviderDepartmentsResponse.hpp>
 #include <alibabacloud/models/ListIdentityProvidersRequest.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponse.hpp>

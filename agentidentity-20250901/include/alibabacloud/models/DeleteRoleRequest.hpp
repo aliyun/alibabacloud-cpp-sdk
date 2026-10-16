@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the role to delete.
     shared_ptr<string> roleName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

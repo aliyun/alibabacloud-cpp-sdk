@@ -115,12 +115,19 @@ namespace Models
 
 
     protected:
+      // The time when the role assignment was created, in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The ID of the principal. When PrincipalType is User, this is the user ID.
       shared_ptr<string> principalId_ {};
+      // The name of the principal. When PrincipalType is User, this is the username.
       shared_ptr<string> principalName_ {};
+      // The type of the principal. Only User is currently supported.
       shared_ptr<string> principalType_ {};
+      // The ID of the role.
       shared_ptr<string> roleId_ {};
+      // The name of the role.
       shared_ptr<string> roleName_ {};
+      // The ID of the user pool.
       shared_ptr<string> userPoolId_ {};
     };
 
@@ -143,7 +150,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role assignment.
     shared_ptr<CreateRoleAssignmentResponseBody::RoleAssignment> roleAssignment_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the credential provider.
     shared_ptr<string> OAuth2CredentialProviderName_ {};
+    // The name of the TokenVault.
     shared_ptr<string> tokenVaultName_ {};
   };
 

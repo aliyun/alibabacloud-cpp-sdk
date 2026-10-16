@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // The description of the scope.
         shared_ptr<string> description_ {};
+        // The name of the scope.
         shared_ptr<string> scopeName_ {};
       };
 
@@ -214,17 +216,28 @@ namespace Models
 
 
     protected:
+      // The validity period of the access token, in seconds.
       shared_ptr<string> accessTokenValidity_ {};
+      // The client ID.
       shared_ptr<string> clientId_ {};
+      // The client name.
       shared_ptr<string> clientName_ {};
+      // The list of default scopes for the client.
       shared_ptr<vector<Clients::ClientScopes>> clientScopes_ {};
       shared_ptr<string> clientType_ {};
+      // The time when the client was created, in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // Indicates whether PKCE is enforced.
       shared_ptr<bool> enforcePKCE_ {};
+      // The list of OAuth redirect URIs.
       shared_ptr<vector<string>> redirectURIs_ {};
+      // The validity period of the refresh token, in seconds.
       shared_ptr<string> refreshTokenValidity_ {};
+      // Indicates whether a client secret is required.
       shared_ptr<bool> secretRequired_ {};
+      // The time when the client was updated, in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
+      // The name of the user pool.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -268,10 +281,15 @@ namespace Models
 
 
   protected:
+    // The list of clients.
     shared_ptr<vector<ListUserPoolClientsResponseBody::Clients>> clients_ {};
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of clients that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The creation time in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The role description.
       shared_ptr<string> description_ {};
+      // The role ID.
       shared_ptr<string> roleId_ {};
+      // The role name.
       shared_ptr<string> roleName_ {};
+      // The role type. Default indicates a default role. Manual indicates a custom role.
       shared_ptr<string> type_ {};
+      // The update time in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to query the next page of data. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of roles.
     shared_ptr<vector<ListRolesResponseBody::Roles>> roles_ {};
+    // The total number of roles that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

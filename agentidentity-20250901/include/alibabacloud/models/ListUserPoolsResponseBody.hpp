@@ -131,13 +131,21 @@ namespace Models
 
 
     protected:
+      // The creation time in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The description of the user pool.
       shared_ptr<string> description_ {};
+      // The OpenID Connect (OIDC) discovery URL.
       shared_ptr<string> OIDCDiscoveryURL_ {};
+      // The base sign-in URL.
       shared_ptr<string> signinBaseURL_ {};
+      // The creation source.
       shared_ptr<string> sourcePlatform_ {};
+      // The update time in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
+      // The ID of the user pool.
       shared_ptr<string> userPoolId_ {};
+      // The name of the user pool.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -181,10 +189,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to query the next page of data. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of user pools that meet the conditions.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of user pools.
     shared_ptr<vector<ListUserPoolsResponseBody::UserPools>> userPools_ {};
   };
 

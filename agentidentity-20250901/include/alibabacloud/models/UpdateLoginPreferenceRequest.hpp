@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable password logon for users.
       shared_ptr<bool> enablePasswordLogin_ {};
     };
 
@@ -94,7 +95,9 @@ namespace Models
 
   protected:
     shared_ptr<vector<string>> allowedPostLogoutRedirectUris_ {};
+    // The logon preference configuration object. It contains the logon configuration fields to be updated.
     shared_ptr<UpdateLoginPreferenceRequest::LoginPreference> loginPreference_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

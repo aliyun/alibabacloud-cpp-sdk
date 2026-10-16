@@ -133,14 +133,20 @@ namespace Models
 
 
     protected:
+      // The creation time in ISO 8601 format (UTC).
       shared_ptr<string> createTime_ {};
+      // The description of the user.
       shared_ptr<string> description_ {};
+      // The display name of the user.
       shared_ptr<string> displayName_ {};
       shared_ptr<string> email_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> type_ {};
+      // The update time in ISO 8601 format (UTC).
       shared_ptr<string> updateTime_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -163,7 +169,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user information.
     shared_ptr<GetUserResponseBody::User> user_ {};
   };
 

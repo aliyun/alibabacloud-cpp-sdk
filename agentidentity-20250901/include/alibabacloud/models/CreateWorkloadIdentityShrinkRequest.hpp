@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The allowlist of Consent authorization callback URLs for the workload identity, which constrains the allowed redirect addresses during the offline delegation (OfflineAccess) authorization flow.
     shared_ptr<string> allowedConsentCallbackURLsShrink_ {};
+    // The list of allowed OAuth2 return URLs.
     shared_ptr<string> allowedResourceOAuth2ReturnURLsShrink_ {};
+    // Specifies whether to automatically create an associated RAM role. When set to true, the system automatically creates a RAM role with the same name as the workload identity.
     shared_ptr<bool> createRAMRole_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The configured identity provider.
     shared_ptr<string> identityProviderName_ {};
+    // The ARN of the RAM role.
     shared_ptr<string> roleArn_ {};
+    // Specifies whether to enable session binding. When enabled, each session is bound to a specific workload identity instance.
     shared_ptr<bool> sessionBindingEnabled_ {};
+    // The ARN of the source agent.
     shared_ptr<string> sourceAgentArn_ {};
+    // The source platform.
     shared_ptr<string> sourcePlatform_ {};
+    // The unique name of the workload identity.
     shared_ptr<string> workloadIdentityName_ {};
   };
 

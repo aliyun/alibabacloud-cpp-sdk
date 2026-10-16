@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The gateway type. Valid values:
+    // 
+    // - AIGateway: Alibaba Cloud AI Gateway
+    // - AgentRunMCP: AgentRun MCP tool
+    // 
+    // Default value: AIGateway.
     shared_ptr<string> gatewayType_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used for pagination. You do not need to specify this parameter for the first call. For subsequent calls, pass the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
+    // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> policySetName_ {};
   };
 

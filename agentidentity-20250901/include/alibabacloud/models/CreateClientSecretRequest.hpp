@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the client. If you specify ClientId, you do not need to specify UserPoolName. Specify either ClientName or ClientId. If both are specified, ClientId takes precedence.
     shared_ptr<string> clientId_ {};
+    // The name of the client. Specify either ClientName or ClientId.
     shared_ptr<string> clientName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

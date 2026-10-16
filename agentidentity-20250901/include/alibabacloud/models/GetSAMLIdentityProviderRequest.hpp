@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

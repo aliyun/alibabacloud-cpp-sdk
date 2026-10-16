@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(PolicySetArn, policySetArn_);
         DARABONBA_PTR_TO_JSON(PolicySetName, policySetName_);
+        DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, PolicySets& obj) { 
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(PolicySetArn, policySetArn_);
         DARABONBA_PTR_FROM_JSON(PolicySetName, policySetName_);
+        DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       PolicySets() = default ;
@@ -66,7 +68,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->policySetArn_ == nullptr && this->policySetName_ == nullptr && this->updateTime_ == nullptr; };
+        && this->description_ == nullptr && this->policySetArn_ == nullptr && this->policySetName_ == nullptr && this->sourcePlatform_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
       inline PolicySets& setPolicySetName(string policySetName) { DARABONBA_PTR_SET_VALUE(policySetName_, policySetName) };
 
 
+      // sourcePlatform Field Functions 
+      bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+      void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+      inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+      inline PolicySets& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
+
+
       // updateTime Field Functions 
       bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
       void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -107,6 +116,7 @@ namespace Models
       shared_ptr<string> description_ {};
       shared_ptr<string> policySetArn_ {};
       shared_ptr<string> policySetName_ {};
+      shared_ptr<string> sourcePlatform_ {};
       shared_ptr<string> updateTime_ {};
     };
 

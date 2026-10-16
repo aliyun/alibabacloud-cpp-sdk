@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The new API key value.
     shared_ptr<string> APIKey_ {};
+    // The name of the credential provider to update.
     shared_ptr<string> APIKeyCredentialProviderName_ {};
+    // The new description of the credential provider.
     shared_ptr<string> description_ {};
+    // The name of the token vault. Default value: default.
     shared_ptr<string> tokenVaultName_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to generate a random password. If this parameter is set to true, the system automatically generates a random password that complies with the password policy. This parameter is mutually exclusive with Password.
     shared_ptr<bool> generateRandomPassword_ {};
+    // The password of the user. The password must comply with the password policy of the user pool and is mutually exclusive with GenerateRandomPassword.
     shared_ptr<string> password_ {};
+    // The username.
     shared_ptr<string> userName_ {};
+    // The name of the user pool.
     shared_ptr<string> userPoolName_ {};
   };
 

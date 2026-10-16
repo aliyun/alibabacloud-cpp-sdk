@@ -140,14 +140,20 @@ namespace Models
 
 
     protected:
+      // The creation time. The time is in the ISO 8601 format in UTC.
       shared_ptr<string> createTime_ {};
+      // The description of the user.
       shared_ptr<string> description_ {};
+      // The display name of the user.
       shared_ptr<string> displayName_ {};
       shared_ptr<string> email_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> type_ {};
+      // The update time. The time is in the ISO 8601 format in UTC.
       shared_ptr<string> updateTime_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -191,10 +197,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to query the next page of data. An empty value indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of users that meet the conditions.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of users.
     shared_ptr<vector<ListUsersResponseBody::Users>> users_ {};
   };
 

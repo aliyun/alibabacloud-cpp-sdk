@@ -38,12 +38,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(PolicySetArn, policySetArn_);
         DARABONBA_PTR_TO_JSON(PolicySetName, policySetName_);
+        DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
       };
       friend void from_json(const Darabonba::Json& j, PolicySet& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(PolicySetArn, policySetArn_);
         DARABONBA_PTR_FROM_JSON(PolicySetName, policySetName_);
+        DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
       };
       PolicySet() = default ;
       PolicySet(const PolicySet &) = default ;
@@ -57,7 +59,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->policySetArn_ == nullptr && this->policySetName_ == nullptr; };
+        && this->description_ == nullptr && this->policySetArn_ == nullptr && this->policySetName_ == nullptr && this->sourcePlatform_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -86,11 +88,24 @@ namespace Models
       inline PolicySet& setPolicySetName(string policySetName) { DARABONBA_PTR_SET_VALUE(policySetName_, policySetName) };
 
 
+      // sourcePlatform Field Functions 
+      bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+      void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+      inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+      inline PolicySet& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
+
+
     protected:
+      // The creation time in UTC ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The ARN of the policy set.
       shared_ptr<string> policySetArn_ {};
+      // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
       shared_ptr<string> policySetName_ {};
+      // The source platform.
+      shared_ptr<string> sourcePlatform_ {};
     };
 
     virtual bool empty() const override { return this->policySet_ == nullptr
@@ -112,7 +127,9 @@ namespace Models
 
 
   protected:
+    // The policy set details.
     shared_ptr<CreatePolicySetResponseBody::PolicySet> policySet_ {};
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

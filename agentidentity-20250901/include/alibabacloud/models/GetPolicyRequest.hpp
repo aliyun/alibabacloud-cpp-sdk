@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the policy. The name must be unique within the associated policy set.
     shared_ptr<string> policyName_ {};
+    // The name of the policy set. The name must be unique within the current Alibaba Cloud account.
     shared_ptr<string> policySetName_ {};
   };
 

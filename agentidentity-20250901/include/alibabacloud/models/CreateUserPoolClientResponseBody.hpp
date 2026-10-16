@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // The description of the scope.
         shared_ptr<string> description_ {};
+        // The name of the scope.
         shared_ptr<string> scopeName_ {};
       };
 
@@ -208,17 +210,29 @@ namespace Models
 
 
     protected:
+      // The validity period of the access token, in seconds.
       shared_ptr<string> accessTokenValidity_ {};
+      // The ID of the client.
       shared_ptr<string> clientId_ {};
+      // The name of the client.
       shared_ptr<string> clientName_ {};
+      // The list of default scopes for the client.
       shared_ptr<vector<Client::ClientScopes>> clientScopes_ {};
+      // The type of the client.
       shared_ptr<string> clientType_ {};
+      // The time when the client was created, in the ISO 8601 format in UTC.
       shared_ptr<string> createTime_ {};
+      // Indicates whether PKCE is enforced.
       shared_ptr<bool> enforcePKCE_ {};
+      // The list of OAuth redirect URIs.
       shared_ptr<vector<string>> redirectURIs_ {};
+      // The validity period of the refresh token, in seconds.
       shared_ptr<string> refreshTokenValidity_ {};
+      // Indicates whether an application secret is required.
       shared_ptr<bool> secretRequired_ {};
+      // The time when the client was updated, in the ISO 8601 format in UTC.
       shared_ptr<string> updateTime_ {};
+      // The name of the user pool.
       shared_ptr<string> userPoolName_ {};
     };
 
@@ -241,7 +255,9 @@ namespace Models
 
 
   protected:
+    // The client information.
     shared_ptr<CreateUserPoolClientResponseBody::Client> client_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

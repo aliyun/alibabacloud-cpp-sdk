@@ -144,15 +144,25 @@ namespace Models
 
 
     protected:
+      // Indicates whether logon is prohibited after a password expires. A value of true indicates that the password must be reset by an administrator before the user can log on.
       shared_ptr<bool> hardExpire_ {};
+      // The maximum number of consecutive logon failures. Default value: 5. This value cannot be modified.
       shared_ptr<int64_t> maxLoginAttempts_ {};
+      // The maximum validity period of a password in days. Default value: 7. This value cannot be modified.
       shared_ptr<int64_t> maxPasswordAge_ {};
+      // The maximum length of the password. Fixed value: 32.
       shared_ptr<int32_t> maxPasswordLength_ {};
+      // The minimum length of the password. Fixed value: 8.
       shared_ptr<int32_t> minPasswordLength_ {};
+      // Indicates whether the password must not contain the username.
       shared_ptr<bool> passwordNotContainUserName_ {};
+      // Indicates whether lowercase letters are required.
       shared_ptr<bool> requireLowerCaseChars_ {};
+      // Indicates whether numbers are required.
       shared_ptr<bool> requireNumbers_ {};
+      // Indicates whether special characters are required.
       shared_ptr<bool> requireSymbols_ {};
+      // Indicates whether uppercase letters are required.
       shared_ptr<bool> requireUpperCaseChars_ {};
     };
 
@@ -184,6 +194,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether password logon is enabled.
       shared_ptr<bool> enablePasswordLogin_ {};
     };
 
@@ -215,8 +226,11 @@ namespace Models
 
 
   protected:
+    // The logon preference configuration.
     shared_ptr<GetLoginPreferenceResponseBody::LoginPreference> loginPreference_ {};
+    // The password policy configuration.
     shared_ptr<GetLoginPreferenceResponseBody::PasswordPolicy> passwordPolicy_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

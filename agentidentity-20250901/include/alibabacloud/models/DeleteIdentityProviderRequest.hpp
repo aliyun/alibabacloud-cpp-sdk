@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the identity provider.
     shared_ptr<string> identityProviderName_ {};
   };
 

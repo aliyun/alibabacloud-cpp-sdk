@@ -115,12 +115,25 @@ namespace Models
 
 
     protected:
+      // The description of the user.
       shared_ptr<string> description_ {};
+      // The display name of the user.
       shared_ptr<string> displayName_ {};
+      // The email address of the user.
       shared_ptr<string> email_ {};
+      // The status of the user. Valid values:
+      // - Enabled: Enabled.
+      // - Disabled: Disabled.
       shared_ptr<string> status_ {};
+      // The type of the user. Valid values:
+      // - Manual: The user is manually created by calling an API operation.
+      // - JIT: The user is created through JIT.
+      // - SCIM: The user is synchronized through the System for Cross-domain Identity Management protocol.
+      // - SYNC_DINGTALK: The user is synchronized from DingTalk.
       shared_ptr<string> type_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -143,7 +156,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The user information.
     shared_ptr<CreateUserResponseBody::User> user_ {};
   };
 

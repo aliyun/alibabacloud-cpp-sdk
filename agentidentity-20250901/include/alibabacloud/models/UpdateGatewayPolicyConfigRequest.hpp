@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The policy enforcement mode. Valid values:
+    // - ENFORCE: Intercepts non-compliant requests and allows compliant requests.
+    // - LOG_ONLY: Only logs non-compliant requests without intercepting them.
     shared_ptr<string> enforcementMode_ {};
+    // The ARN of the target gateway.
     shared_ptr<string> gatewayArn_ {};
+    // The gateway type. Valid values:
+    // - AIGateway: Alibaba Cloud AI gateway.
+    // - AgentRunMCP: AgentRun MCP tool.
+    // If you do not specify this parameter, the default value is AIGateway.
     shared_ptr<string> gatewayType_ {};
   };
 

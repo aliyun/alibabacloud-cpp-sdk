@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the created synchronization task. You can call GetUserPoolSyncJob to query the execution details of the task.
     shared_ptr<string> synchronizationJobId_ {};
   };
 

@@ -172,17 +172,29 @@ namespace Models
 
 
     protected:
+      // The whitelist of consent authorization callback URLs for the workload identity. This whitelist restricts the allowed callback addresses in the offline delegation (OfflineAccess) authorization flow.
       shared_ptr<vector<string>> allowedConsentCallbackURLs_ {};
+      // The list of allowed OAuth2 return URLs.
       shared_ptr<vector<string>> allowedResourceOAuth2ReturnURLs_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The configured identity provider.
       shared_ptr<string> identityProviderName_ {};
+      // The ARN of the RAM role.
       shared_ptr<string> roleArn_ {};
+      // Specifies whether session binding is enabled.
       shared_ptr<bool> sessionBindingEnabled_ {};
+      // The ARN of the source agent.
       shared_ptr<string> sourceAgentArn_ {};
+      // The creation source.
       shared_ptr<string> sourcePlatform_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
+      // The ARN of the workload identity.
       shared_ptr<string> workloadIdentityArn_ {};
+      // The unique name of the workload identity.
       shared_ptr<string> workloadIdentityName_ {};
     };
 
@@ -226,10 +238,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. This field is not returned if no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of workload identities.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of workload identities.
     shared_ptr<vector<ListWorkloadIdentitiesResponseBody::WorkloadIdentities>> workloadIdentities_ {};
   };
 
