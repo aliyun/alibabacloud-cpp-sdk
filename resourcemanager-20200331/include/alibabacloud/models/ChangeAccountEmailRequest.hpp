@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member.
+    // The member account ID.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
-    // The email address to be bound to the member.
+    // The email address of the member account.
     // 
-    // >  The system automatically sends a verification email to the email address. After the verification is passed, the email address takes effect, and the system changes both the logon email address and secure email address of the member.
+    // > The system automatically sends a verification email to the specified email address. The modification takes effect only after the verification is complete. After the verification is complete, the system synchronously updates the email address and security email address of the account.
     // 
     // This parameter is required.
     shared_ptr<string> email_ {};

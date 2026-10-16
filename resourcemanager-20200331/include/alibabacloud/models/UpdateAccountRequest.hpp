@@ -57,20 +57,19 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account that corresponds to the member.
+    // The ID of the member.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
     // The new type of the member. Valid values:
     // 
-    // *   ResourceAccount: resource account
-    // *   CloudAccount: cloud account
+    // - ResourceAccount: switches the specified cloud account to a resource account.
+    // - CloudAccount: switches the specified resource account to a cloud account.
     // 
-    // >  You can configure either the `NewDisplayName` or `NewAccountType` parameter.
+    // > Set either NewDisplayName or NewAccountType. You cannot set both of them at the same time.
     shared_ptr<string> newAccountType_ {};
-    // The new display name of the member.
-    // 
-    // >  You can configure either the `NewDisplayName` or `NewAccountType` parameter.
+    // The new name of the member.
+    // > Set either NewDisplayName or NewAccountType. You cannot set both of them at the same time.
     shared_ptr<string> newDisplayName_ {};
   };
 

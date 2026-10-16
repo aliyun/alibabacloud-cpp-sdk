@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // The time when the resource directory was enabled.
+      // The time when the resource directory was enabled. The time is displayed in UTC in RFC 3339 format, indicated by Z.
       shared_ptr<string> createTime_ {};
       // The ID of the management account.
       shared_ptr<string> masterAccountId_ {};
@@ -104,7 +104,7 @@ namespace Models
       shared_ptr<string> masterAccountName_ {};
       // The ID of the resource directory.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The ID of the Root folder.
+      // The ID of the root folder.
       shared_ptr<string> rootFolderId_ {};
     };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the resource directory.
+    // The resource directory information.
     shared_ptr<EnableResourceDirectoryResponseBody::ResourceDirectory> resourceDirectory_ {};
   };
 

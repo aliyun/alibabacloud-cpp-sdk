@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The language in which you want to return the descriptions of the RAM roles. Valid values:
+    // The language type. The role description is returned in the specified language. Valid values:
     // 
-    // *   en: English
-    // *   zh-CN: Chinese
-    // *   ja: Japanese
+    // - en: English.
+    // - zh-CN: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 

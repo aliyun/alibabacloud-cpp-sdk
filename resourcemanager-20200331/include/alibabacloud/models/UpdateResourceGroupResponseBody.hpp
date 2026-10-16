@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the resource group belongs.
+      // The Alibaba Cloud account ID to which the resource group belongs.
       shared_ptr<string> accountId_ {};
-      // The time when the resource group was created. The time is displayed in UTC.
+      // The time when the resource group was created (UTC).
       shared_ptr<string> createDate_ {};
       // The display name of the resource group.
       shared_ptr<string> displayName_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> id_ {};
       // The unique identifier of the resource group.
       shared_ptr<string> name_ {};
@@ -127,9 +127,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the resource group.
+    // The resource group information.
     shared_ptr<UpdateResourceGroupResponseBody::ResourceGroup> resourceGroup_ {};
   };
 

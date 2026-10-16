@@ -38,10 +38,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the member deletion feature. Valid values:
+    // Specifies whether to enable or disable the member deletion permission. Valid values:
     // 
-    // *   Enabled: enables the member deletion feature
-    // *   Disabled: disables the member deletion feature
+    // - Enabled: enables the member deletion permission.
+    // - Disabled: disables the member deletion permission.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};

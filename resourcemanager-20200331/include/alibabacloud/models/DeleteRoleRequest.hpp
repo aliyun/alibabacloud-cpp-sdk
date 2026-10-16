@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the role.
+    // The role name.
     // 
     // The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     // 

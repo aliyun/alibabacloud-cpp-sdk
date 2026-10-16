@@ -57,22 +57,22 @@ namespace Models
 
 
   protected:
-    // The language in which you want to return the description of the system permission policy. Valid values:
+    // The language type. The description of the system access policy is returned in this language. Valid values:
     // 
-    // *   en: English
-    // *   zh-CN: Chinese
-    // *   ja: Japanese
+    // - en: English.
+    // - zh-CN: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
-    // The name of the permission policy.
+    // Policy Name of the access policy.
     // 
-    // The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
+    // Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> policyName_ {};
-    // The type of the permission policy. Valid values:
+    // The type of the access policy. Valid values:
     // 
-    // *   Custom
-    // *   System
+    // - Custom: custom policy.
+    // - System: system policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};

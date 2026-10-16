@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The number of the resources.
+      // The resource count.
       shared_ptr<int64_t> count_ {};
-      // The dimension by which resources are queried.
+      // The grouping dimension for resource count statistics.
       shared_ptr<string> groupByKey_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The numbers of the resources.
+    // The resource count.
     shared_ptr<vector<GetResourceGroupResourceCountsResponseBody::ResourceCounts>> resourceCounts_ {};
   };
 

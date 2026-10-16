@@ -124,24 +124,24 @@ namespace Models
 
 
     protected:
-      // The number of references to the permission policy.
+      // The number of references.
       shared_ptr<int32_t> attachmentCount_ {};
-      // The time when the permission policy was created.
+      // The time when the access policy was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
-      // The default version of the permission policy.
+      // The default version of the access policy.
       shared_ptr<string> defaultVersion_ {};
-      // The description of the permission policy.
+      // The description of the access policy.
       shared_ptr<string> description_ {};
-      // The document of the permission policy.
+      // The content of the access policy.
       shared_ptr<string> policyDocument_ {};
-      // The name of the permission policy.
+      // The Policy Name of the access policy.
       shared_ptr<string> policyName_ {};
-      // The type of the permission policy. Valid values:
+      // The type of the access policy. Valid values:
       // 
-      // *   Custom
-      // *   System
+      // - Custom: custom policy.
+      // - System: system policy.
       shared_ptr<string> policyType_ {};
-      // The time when the permission policy was updated.
+      // The time when the access policy was last updated. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -164,7 +164,7 @@ namespace Models
 
 
   protected:
-    // The information about the permission policy.
+    // The access policy information.
     shared_ptr<GetPolicyResponseBody::Policy> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

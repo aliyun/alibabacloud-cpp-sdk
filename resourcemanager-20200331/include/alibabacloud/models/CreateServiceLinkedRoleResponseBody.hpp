@@ -124,24 +124,24 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the role.
+      // The resource descriptor of the role.
       shared_ptr<string> arn_ {};
-      // The document of the trust policy for the role.
+      // The trust policy of the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the role was created. The time is displayed in UTC.
+      // The time when the role was created (UTC).
       shared_ptr<string> createDate_ {};
       // The description of the role.
       shared_ptr<string> description_ {};
       // Indicates whether the role is a service-linked role. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The role is a service-linked role.
+      // - false: The role is not a service-linked role.
       shared_ptr<bool> isServiceLinkedRole_ {};
-      // The ID of the role.
+      // The role ID.
       shared_ptr<string> roleId_ {};
-      // The name of the role.
+      // The role name.
       shared_ptr<string> roleName_ {};
-      // The role name that uses a domain name as the suffix.
+      // The role name with the domain name suffix.
       shared_ptr<string> rolePrincipalName_ {};
     };
 
@@ -166,7 +166,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the role.
+    // The role information.
     shared_ptr<CreateServiceLinkedRoleResponseBody::Role> role_ {};
   };
 

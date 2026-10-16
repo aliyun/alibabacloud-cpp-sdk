@@ -142,36 +142,36 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account that corresponds to the member.
+      // The ID of the member.
       shared_ptr<string> accountId_ {};
-      // The name of the Alibaba Cloud account that corresponds to the member.
+      // The name of the Alibaba Cloud account.
       shared_ptr<string> accountName_ {};
-      // The display name of the member.
+      // The name of the member.
       shared_ptr<string> displayName_ {};
       // The ID of the folder.
       shared_ptr<string> folderId_ {};
-      // The way in which the member joins the resource directory. Valid values:
+      // The method used by the member to join the resource directory. Valid values:
       // 
-      // *   invited: The member is invited to join the resource directory.
-      // *   created: The member is directly created in the resource directory.
+      // - invited: invited.
+      // - created: created.
       shared_ptr<string> joinMethod_ {};
-      // The time when the member joined the resource directory. The time is displayed in UTC.
+      // The time when the member joined the resource directory (UTC).
       shared_ptr<string> joinTime_ {};
-      // The time when the member was modified. The time is displayed in UTC.
+      // The time when the member was last modified (UTC).
       shared_ptr<string> modifyTime_ {};
       // The ID of the resource directory.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The status of the member. Valid values:
+      // The join status of the member. Valid values:
       // 
-      // *   CreateSuccess: The member is created.
-      // *   InviteSuccess: The member accepts the invitation.
-      // *   Removed: The member is removed.
-      // *   SwitchSuccess: The type of the member is switched.
+      // - CreateSuccess: Created.
+      // - InviteSuccess: Invited.
+      // - Removed: Removed.
+      // - SwitchSuccess: Switched.
       shared_ptr<string> status_ {};
       // The type of the member. Valid values:
       // 
-      // *   CloudAccount: cloud account
-      // *   ResourceAccount: resource account
+      // - CloudAccount: cloud account.
+      // - ResourceAccount: resource account.
       shared_ptr<string> type_ {};
     };
 
@@ -194,9 +194,9 @@ namespace Models
 
 
   protected:
-    // The information of the member.
+    // The member information.
     shared_ptr<UpdateAccountResponseBody::Account> account_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

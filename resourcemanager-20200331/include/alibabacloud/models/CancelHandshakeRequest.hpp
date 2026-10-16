@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the invitation.
+    // The handshake ID.
     // 
     // This parameter is required.
     shared_ptr<string> handshakeId_ {};

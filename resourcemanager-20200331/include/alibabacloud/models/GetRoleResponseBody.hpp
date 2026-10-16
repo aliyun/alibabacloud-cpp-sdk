@@ -108,7 +108,7 @@ namespace Models
 
 
       protected:
-        // The time when the deletion task was created.
+        // The time when the deletion task was created. The time is in RFC 3339 UTC format, indicated by Z.
         shared_ptr<string> createDate_ {};
         // The ID of the deletion task.
         shared_ptr<string> deletionTaskId_ {};
@@ -197,17 +197,17 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the role.
+      // The resource descriptor of the role.
       shared_ptr<string> arn_ {};
-      // The document of the policy in which the identity that can assume the role is specified.
+      // The content of the access policy that specifies one or more entities entrusted to assume the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the role was created.
+      // The time when the role was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
       // The description of the role.
       shared_ptr<string> description_ {};
       // Indicates whether the role is a service-linked role.
       shared_ptr<bool> isServiceLinkedRole_ {};
-      // The information of the most recent deletion task.
+      // The information about the most recent deletion task.
       shared_ptr<Role::LatestDeletionTask> latestDeletionTask_ {};
       // The maximum session duration of the role.
       shared_ptr<int64_t> maxSessionDuration_ {};
@@ -215,9 +215,9 @@ namespace Models
       shared_ptr<string> roleId_ {};
       // The name of the role.
       shared_ptr<string> roleName_ {};
-      // The name of the role after authorization.
+      // The name of the authorized role.
       shared_ptr<string> rolePrincipalName_ {};
-      // The time when the role was updated.
+      // The time when the role was last updated. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -242,7 +242,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the role.
+    // The role information.
     shared_ptr<GetRoleResponseBody::Role> role_ {};
   };
 

@@ -88,16 +88,17 @@ namespace Models
 
 
     protected:
+      // The resource center resource type code.
       shared_ptr<string> resourceCenterResourceType_ {};
       // The resource type.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> resourceType_ {};
-      // The service code.
+      // The cloud service code.
       // 
-      // You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> service_ {};
-      // Indicates whether a specific resource type or cloud service supports resource group events.
+      // Specifies whether resource group events are supported.
       shared_ptr<bool> supportResourceGroupEvent_ {};
     };
 
@@ -120,7 +121,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether a specific resource type or cloud service supports resource group events.
+    // The list of capability items.
     shared_ptr<vector<ListResourceGroupCapabilityResponseBody::Capabilities>> capabilities_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

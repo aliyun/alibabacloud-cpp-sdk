@@ -237,9 +237,9 @@ namespace Models
 
 
     protected:
-      // The type of the resource change event.
+      // The change type of the event.
       shared_ptr<string> changeType_ {};
-      // The time when the event was triggered.
+      // The event time in RFC 3339 UTC format, indicated by Z for UTC.
       shared_ptr<string> eventTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -251,15 +251,15 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The resource type.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the value from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> resourceType_ {};
-      // The service code.
+      // The cloud service code.
       // 
-      // You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the value from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> service_ {};
       // The source resource group.
       shared_ptr<Events::SourceResourceGroupInfo> sourceResourceGroupInfo_ {};
-      // The destination resource group.
+      // The target resource group.
       shared_ptr<Events::TargetResourceGroupInfo> targetResourceGroupInfo_ {};
     };
 
@@ -289,9 +289,9 @@ namespace Models
 
 
   protected:
-    // The queried events.
+    // The list of events.
     shared_ptr<vector<LookupResourceGroupEventsResponseBody::Events>> events_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

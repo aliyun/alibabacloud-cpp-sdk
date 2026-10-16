@@ -124,25 +124,24 @@ namespace Models
 
 
     protected:
-      // The status of the Control Policy feature. Valid values:
+      // The status of the control policy. Valid values:
       // 
-      // *   Enabled: The feature is enabled.
-      // *   PendingEnable: The feature is being enabled.
-      // *   Disabled: The feature is disabled.
-      // *   PendingDisable: The feature is being disabled.
+      // - Enabled: Enabled.
+      // - PendingEnable: Being enabled.
+      // - Disabled: Disabled.
+      // - PendingDisable: Being disabled.
       shared_ptr<string> controlPolicyStatus_ {};
-      // The time when the resource directory was enabled.
+      // The time when the resource directory was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
       shared_ptr<string> createTime_ {};
-      // The real-name verification information.
+      // The real-name verification information of the member.
       shared_ptr<string> identityInformation_ {};
       // The ID of the management account.
       shared_ptr<string> masterAccountId_ {};
       // The name of the management account.
       shared_ptr<string> masterAccountName_ {};
-      // The status of the member deletion feature. Valid values:
-      // 
-      // *   Enabled: The feature is enabled. You can call the [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) operation to delete members of the resource account type.
-      // *   Disabled: The feature is disabled. You cannot delete members of the resource account type.
+      // Indicates whether member deletion is enabled. Valid values:
+      // - Enabled: Enabled. You can call [DeleteAccount](https://help.aliyun.com/document_detail/311546.html) to delete members of the resource account type.
+      // - Disabled: Disabled. You cannot delete members of the resource account type.
       shared_ptr<string> memberDeletionStatus_ {};
       // The ID of the resource directory.
       shared_ptr<string> resourceDirectoryId_ {};
@@ -169,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the resource directory.
+    // The resource directory information.
     shared_ptr<GetResourceDirectoryResponseBody::ResourceDirectory> resourceDirectory_ {};
   };
 

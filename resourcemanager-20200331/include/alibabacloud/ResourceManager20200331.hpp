@@ -21,10 +21,10 @@ namespace ResourceManager20200331
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Accepts an invitation.
+       * @summary Accepts an invitation by the invited Alibaba Cloud account by calling AcceptHandshake.
        *
-       * @description After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-       * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+       * @description After the invited Alibaba Cloud account successfully joins a resource directory, the account becomes a member of the resource directory. The resource directory uses the name of the invited Alibaba Cloud account as the display name and account name of the member by default.
+       * This topic provides an example on how the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The handshake ID is `h-Ih8IuPfvV0t0****`.
        *
        * @param request AcceptHandshakeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -33,10 +33,10 @@ namespace ResourceManager20200331
       Models::AcceptHandshakeResponse acceptHandshakeWithOptions(const Models::AcceptHandshakeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Accepts an invitation.
+       * @summary Accepts an invitation by the invited Alibaba Cloud account by calling AcceptHandshake.
        *
-       * @description After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-       * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+       * @description After the invited Alibaba Cloud account successfully joins a resource directory, the account becomes a member of the resource directory. The resource directory uses the name of the invited Alibaba Cloud account as the display name and account name of the member by default.
+       * This topic provides an example on how the invited Alibaba Cloud account `177242285274****` accepts an invitation from the resource directory `rd-3G****`. The handshake ID is `h-Ih8IuPfvV0t0****`.
        *
        * @param request AcceptHandshakeRequest
        * @return AcceptHandshakeResponse
@@ -44,13 +44,13 @@ namespace ResourceManager20200331
       Models::AcceptHandshakeResponse acceptHandshake(const Models::AcceptHandshakeRequest &request);
 
       /**
-       * @summary Attaches an access control policy.
+       * @summary Attaches a control policy to a specified target.
        *
-       * @description After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
-       * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
-       * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
-       * A maximum of 10 access control policies can be attached to a folder or member.
-       * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
+       * @description After the control policy is attached, the resource folder or member immediately becomes subject to the control policy. Make sure that the result of the attach operation is as expected to avoid affecting your business.
+       * The system attaches the system policy FullAliyunAccess to resource folders and members by default.
+       * A control policy takes effect on the entire node to which it is attached. A control policy attached to a parent resource folder also takes effect on its child resource folders and members.
+       * Each node (resource folder or member) can have a maximum of 10 control policies attached.
+       * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the resource folder `fd-ZDNPiT****`.
        *
        * @param request AttachControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -59,13 +59,13 @@ namespace ResourceManager20200331
       Models::AttachControlPolicyResponse attachControlPolicyWithOptions(const Models::AttachControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches an access control policy.
+       * @summary Attaches a control policy to a specified target.
        *
-       * @description After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
-       * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
-       * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
-       * A maximum of 10 access control policies can be attached to a folder or member.
-       * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
+       * @description After the control policy is attached, the resource folder or member immediately becomes subject to the control policy. Make sure that the result of the attach operation is as expected to avoid affecting your business.
+       * The system attaches the system policy FullAliyunAccess to resource folders and members by default.
+       * A control policy takes effect on the entire node to which it is attached. A control policy attached to a parent resource folder also takes effect on its child resource folders and members.
+       * Each node (resource folder or member) can have a maximum of 10 control policies attached.
+       * This topic provides an example on how to attach the custom policy `cp-jExXAqIYkwHN****` to the resource folder `fd-ZDNPiT****`.
        *
        * @param request AttachControlPolicyRequest
        * @return AttachControlPolicyResponse
@@ -73,9 +73,7 @@ namespace ResourceManager20200331
       Models::AttachControlPolicyResponse attachControlPolicy(const Models::AttachControlPolicyRequest &request);
 
       /**
-       * @summary Attaches a permission policy to an object, which can be a RAM user, RAM user group, or RAM role. After you attach a permission policy to an object, the object has the operation permissions on the resources in a specific resource group or within a specific Alibaba Cloud account.
-       *
-       * @description In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+       * @summary Invokes AttachPolicy to add an access policy to an authorization object (a Resource Access Management (RAM) user, RAM user group, or RAM role), which is authorization. After the authorization is complete, the authorized object obtains access permissions on resources within the specified resource group or Alibaba Cloud account.
        *
        * @param request AttachPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -84,9 +82,7 @@ namespace ResourceManager20200331
       Models::AttachPolicyResponse attachPolicyWithOptions(const Models::AttachPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches a permission policy to an object, which can be a RAM user, RAM user group, or RAM role. After you attach a permission policy to an object, the object has the operation permissions on the resources in a specific resource group or within a specific Alibaba Cloud account.
-       *
-       * @description In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+       * @summary Invokes AttachPolicy to add an access policy to an authorization object (a Resource Access Management (RAM) user, RAM user group, or RAM role), which is authorization. After the authorization is complete, the authorized object obtains access permissions on resources within the specified resource group or Alibaba Cloud account.
        *
        * @param request AttachPolicyRequest
        * @return AttachPolicyResponse
@@ -94,11 +90,11 @@ namespace ResourceManager20200331
       Models::AttachPolicyResponse attachPolicy(const Models::AttachPolicyRequest &request);
 
       /**
-       * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
+       * @summary Sets a secure phone number for a member of the resource account type.
        *
-       * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
-       * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-       * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+       * @description This API operation is used only to set a secure phone number for a resource account for the first time. It cannot be used to modify an existing secure phone number.
+       * To ensure that the system can record the specific author of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
+       * This topic provides an example of how to set a secure phone number for the member `138660628348****`.
        *
        * @param request BindSecureMobilePhoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -107,11 +103,11 @@ namespace ResourceManager20200331
       Models::BindSecureMobilePhoneResponse bindSecureMobilePhoneWithOptions(const Models::BindSecureMobilePhoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
+       * @summary Sets a secure phone number for a member of the resource account type.
        *
-       * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
-       * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-       * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+       * @description This API operation is used only to set a secure phone number for a resource account for the first time. It cannot be used to modify an existing secure phone number.
+       * To ensure that the system can record the specific author of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
+       * This topic provides an example of how to set a secure phone number for the member `138660628348****`.
        *
        * @param request BindSecureMobilePhoneRequest
        * @return BindSecureMobilePhoneResponse
@@ -119,7 +115,7 @@ namespace ResourceManager20200331
       Models::BindSecureMobilePhoneResponse bindSecureMobilePhone(const Models::BindSecureMobilePhoneRequest &request);
 
       /**
-       * @summary Cancels the email address change of a member.
+       * @summary Cancels the modification of a member account email address.
        *
        * @param request CancelChangeAccountEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -128,7 +124,7 @@ namespace ResourceManager20200331
       Models::CancelChangeAccountEmailResponse cancelChangeAccountEmailWithOptions(const Models::CancelChangeAccountEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels the email address change of a member.
+       * @summary Cancels the modification of a member account email address.
        *
        * @param request CancelChangeAccountEmailRequest
        * @return CancelChangeAccountEmailResponse
@@ -136,7 +132,7 @@ namespace ResourceManager20200331
       Models::CancelChangeAccountEmailResponse cancelChangeAccountEmail(const Models::CancelChangeAccountEmailRequest &request);
 
       /**
-       * @summary Cancels the creation of a cloud account.
+       * @summary Cancels the creation of a member of the cloud account type in a resource directory.
        *
        * @param request CancelCreateCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -145,7 +141,7 @@ namespace ResourceManager20200331
       Models::CancelCreateCloudAccountResponse cancelCreateCloudAccountWithOptions(const Models::CancelCreateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels the creation of a cloud account.
+       * @summary Cancels the creation of a member of the cloud account type in a resource directory.
        *
        * @param request CancelCreateCloudAccountRequest
        * @return CancelCreateCloudAccountResponse
@@ -153,9 +149,9 @@ namespace ResourceManager20200331
       Models::CancelCreateCloudAccountResponse cancelCreateCloudAccount(const Models::CancelCreateCloudAccountRequest &request);
 
       /**
-       * @summary Cancels an invitation.
+       * @summary Cancels a handshake.
        *
-       * @description This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+       * @description This topic provides an example on how to cancel the handshake whose ID is `h-ycm4rp****`.
        *
        * @param request CancelHandshakeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -164,9 +160,9 @@ namespace ResourceManager20200331
       Models::CancelHandshakeResponse cancelHandshakeWithOptions(const Models::CancelHandshakeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels an invitation.
+       * @summary Cancels a handshake.
        *
-       * @description This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+       * @description This topic provides an example on how to cancel the handshake whose ID is `h-ycm4rp****`.
        *
        * @param request CancelHandshakeRequest
        * @return CancelHandshakeResponse
@@ -174,7 +170,7 @@ namespace ResourceManager20200331
       Models::CancelHandshakeResponse cancelHandshake(const Models::CancelHandshakeRequest &request);
 
       /**
-       * @summary Cancels the upgrade from a resource account to a cloud account.
+       * @summary Cancels the upgrade of a resource directory resource account to an Alibaba Cloud account.
        *
        * @param request CancelPromoteResourceAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +179,7 @@ namespace ResourceManager20200331
       Models::CancelPromoteResourceAccountResponse cancelPromoteResourceAccountWithOptions(const Models::CancelPromoteResourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels the upgrade from a resource account to a cloud account.
+       * @summary Cancels the upgrade of a resource directory resource account to an Alibaba Cloud account.
        *
        * @param request CancelPromoteResourceAccountRequest
        * @return CancelPromoteResourceAccountResponse
@@ -191,7 +187,7 @@ namespace ResourceManager20200331
       Models::CancelPromoteResourceAccountResponse cancelPromoteResourceAccount(const Models::CancelPromoteResourceAccountRequest &request);
 
       /**
-       * @summary Changes the email address that is bound to a member.
+       * @summary Modifies the email address of a member account by calling ChangeAccountEmail.
        *
        * @param request ChangeAccountEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +196,7 @@ namespace ResourceManager20200331
       Models::ChangeAccountEmailResponse changeAccountEmailWithOptions(const Models::ChangeAccountEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the email address that is bound to a member.
+       * @summary Modifies the email address of a member account by calling ChangeAccountEmail.
        *
        * @param request ChangeAccountEmailRequest
        * @return ChangeAccountEmailResponse
@@ -208,10 +204,9 @@ namespace ResourceManager20200331
       Models::ChangeAccountEmailResponse changeAccountEmail(const Models::ChangeAccountEmailRequest &request);
 
       /**
-       * @summary Performs a member deletion check.
+       * @summary Calls CheckAccountDelete to perform a member account deletion check task.
        *
-       * @description Before you delete a member, you must call this API operation to check whether the member can be deleted.
-       * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+       * @description Before deleting a member account, call this API to perform a pre-deletion condition check on the target member account.
        *
        * @param request CheckAccountDeleteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -220,10 +215,9 @@ namespace ResourceManager20200331
       Models::CheckAccountDeleteResponse checkAccountDeleteWithOptions(const Models::CheckAccountDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a member deletion check.
+       * @summary Calls CheckAccountDelete to perform a member account deletion check task.
        *
-       * @description Before you delete a member, you must call this API operation to check whether the member can be deleted.
-       * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+       * @description Before deleting a member account, call this API to perform a pre-deletion condition check on the target member account.
        *
        * @param request CheckAccountDeleteRequest
        * @return CheckAccountDeleteResponse
@@ -231,9 +225,9 @@ namespace ResourceManager20200331
       Models::CheckAccountDeleteResponse checkAccountDelete(const Models::CheckAccountDeleteRequest &request);
 
       /**
-       * @summary Creates a transfer rule. Custom transfer rules and transfer rules for associated resources are supported.
+       * @summary Creates an automatic allocation rule by calling CreateAutoGroupingRule. Two types are supported: custom allocation rules and attached-resource allocation rules.
        *
-       * @description You can create up to 10 custom transfer rules. Each custom transfer rule can contain up to 10 content records.
+       * @description You can create up to 10 custom allocation rules, and each custom allocation rule supports up to 10 rule content entries.
        *
        * @param request CreateAutoGroupingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,9 +236,9 @@ namespace ResourceManager20200331
       Models::CreateAutoGroupingRuleResponse createAutoGroupingRuleWithOptions(const Models::CreateAutoGroupingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a transfer rule. Custom transfer rules and transfer rules for associated resources are supported.
+       * @summary Creates an automatic allocation rule by calling CreateAutoGroupingRule. Two types are supported: custom allocation rules and attached-resource allocation rules.
        *
-       * @description You can create up to 10 custom transfer rules. Each custom transfer rule can contain up to 10 content records.
+       * @description You can create up to 10 custom allocation rules, and each custom allocation rule supports up to 10 rule content entries.
        *
        * @param request CreateAutoGroupingRuleRequest
        * @return CreateAutoGroupingRuleResponse
@@ -252,12 +246,12 @@ namespace ResourceManager20200331
       Models::CreateAutoGroupingRuleResponse createAutoGroupingRule(const Models::CreateAutoGroupingRuleRequest &request);
 
       /**
-       * @summary Creates a cloud account.
+       * @summary Creates a member of the cloud account type in a resource directory.
        *
-       * @description A resource directory supports two types of member accounts: resource accounts and cloud accounts.
-       * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
-       * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html) .
-       * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+       * @description A resource directory contains two types of members: resource accounts and cloud accounts. 
+       * - Resource account (recommended): A resource account serves only as a resource container and fully depends on the resource directory. It is a more secure account type that is easier to create. To create a resource account type member, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html). 
+       * > A resource account can also be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html).
+       * - Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root logon access.
        *
        * @param request CreateCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -266,12 +260,12 @@ namespace ResourceManager20200331
       Models::CreateCloudAccountResponse createCloudAccountWithOptions(const Models::CreateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud account.
+       * @summary Creates a member of the cloud account type in a resource directory.
        *
-       * @description A resource directory supports two types of member accounts: resource accounts and cloud accounts.
-       * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html).
-       * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html) .
-       * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+       * @description A resource directory contains two types of members: resource accounts and cloud accounts. 
+       * - Resource account (recommended): A resource account serves only as a resource container and fully depends on the resource directory. It is a more secure account type that is easier to create. To create a resource account type member, see [CreateResourceAccount](https://help.aliyun.com/document_detail/159392.html). 
+       * > A resource account can also be upgraded to a cloud account. For more information, see [PromoteResourceAccount](https://help.aliyun.com/document_detail/159395.html).
+       * - Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root logon access.
        *
        * @param request CreateCloudAccountRequest
        * @return CreateCloudAccountResponse
@@ -279,9 +273,9 @@ namespace ResourceManager20200331
       Models::CreateCloudAccountResponse createCloudAccount(const Models::CreateCloudAccountRequest &request);
 
       /**
-       * @summary Creates a custom access control policy.
+       * @summary Calls CreateControlPolicy to create a custom control policy.
        *
-       * @description This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
+       * @description This topic provides an example on how to create a control policy named `ExampleControlPolicy` that prohibits modifications to the ResourceDirectoryAccountAccessRole role and its permissions.
        *
        * @param request CreateControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -290,9 +284,9 @@ namespace ResourceManager20200331
       Models::CreateControlPolicyResponse createControlPolicyWithOptions(const Models::CreateControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom access control policy.
+       * @summary Calls CreateControlPolicy to create a custom control policy.
        *
-       * @description This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
+       * @description This topic provides an example on how to create a control policy named `ExampleControlPolicy` that prohibits modifications to the ResourceDirectoryAccountAccessRole role and its permissions.
        *
        * @param request CreateControlPolicyRequest
        * @return CreateControlPolicyResponse
@@ -300,10 +294,10 @@ namespace ResourceManager20200331
       Models::CreateControlPolicyResponse createControlPolicy(const Models::CreateControlPolicyRequest &request);
 
       /**
-       * @summary Creates a folder.
+       * @summary Creates a resource folder by calling CreateFolder.
        *
-       * @description >  A maximum of five levels of folders can be created under the root folder.
-       * In this example, a folder named `rdFolder` is created under the root folder.
+       * @description > You can create a maximum of five levels of resource folders.
+       * This topic provides an example of how to create a resource folder named `rdFolder` under the Root folder.
        *
        * @param request CreateFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -312,10 +306,10 @@ namespace ResourceManager20200331
       Models::CreateFolderResponse createFolderWithOptions(const Models::CreateFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a folder.
+       * @summary Creates a resource folder by calling CreateFolder.
        *
-       * @description >  A maximum of five levels of folders can be created under the root folder.
-       * In this example, a folder named `rdFolder` is created under the root folder.
+       * @description > You can create a maximum of five levels of resource folders.
+       * This topic provides an example of how to create a resource folder named `rdFolder` under the Root folder.
        *
        * @param request CreateFolderRequest
        * @return CreateFolderResponse
@@ -323,7 +317,7 @@ namespace ResourceManager20200331
       Models::CreateFolderResponse createFolder(const Models::CreateFolderRequest &request);
 
       /**
-       * @summary Creates a permission policy.
+       * @summary Creates an access policy.
        *
        * @param request CreatePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -332,7 +326,7 @@ namespace ResourceManager20200331
       Models::CreatePolicyResponse createPolicyWithOptions(const Models::CreatePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a permission policy.
+       * @summary Creates an access policy.
        *
        * @param request CreatePolicyRequest
        * @return CreatePolicyResponse
@@ -340,7 +334,7 @@ namespace ResourceManager20200331
       Models::CreatePolicyResponse createPolicy(const Models::CreatePolicyRequest &request);
 
       /**
-       * @summary Creates a version for a permission policy.
+       * @summary Creates a version of an access policy by calling CreatePolicyVersion.
        *
        * @param request CreatePolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -349,7 +343,7 @@ namespace ResourceManager20200331
       Models::CreatePolicyVersionResponse createPolicyVersionWithOptions(const Models::CreatePolicyVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a version for a permission policy.
+       * @summary Creates a version of an access policy by calling CreatePolicyVersion.
        *
        * @param request CreatePolicyVersionRequest
        * @return CreatePolicyVersionResponse
@@ -357,9 +351,9 @@ namespace ResourceManager20200331
       Models::CreatePolicyVersionResponse createPolicyVersion(const Models::CreatePolicyVersionRequest &request);
 
       /**
-       * @summary Creates a member of the resource account type.
+       * @summary Creates a member of the resource account type by calling CreateResourceAccount.
        *
-       * @description A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+       * @description In a resource directory, a member serves as a resource container and is a resource grouping unit. A member typically represents a project or application. Resources in each member are physically isolated from resources in other members.
        *
        * @param request CreateResourceAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -368,9 +362,9 @@ namespace ResourceManager20200331
       Models::CreateResourceAccountResponse createResourceAccountWithOptions(const Models::CreateResourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a member of the resource account type.
+       * @summary Creates a member of the resource account type by calling CreateResourceAccount.
        *
-       * @description A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+       * @description In a resource directory, a member serves as a resource container and is a resource grouping unit. A member typically represents a project or application. Resources in each member are physically isolated from resources in other members.
        *
        * @param request CreateResourceAccountRequest
        * @return CreateResourceAccountResponse
@@ -380,7 +374,7 @@ namespace ResourceManager20200331
       /**
        * @summary Creates a resource group.
        *
-       * @description > A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+       * @description > You can create a maximum of 30 resource groups within an Alibaba Cloud account.
        *
        * @param request CreateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +385,7 @@ namespace ResourceManager20200331
       /**
        * @summary Creates a resource group.
        *
-       * @description > A maximum of 30 resource groups can be created within an Alibaba Cloud account.
+       * @description > You can create a maximum of 30 resource groups within an Alibaba Cloud account.
        *
        * @param request CreateResourceGroupRequest
        * @return CreateResourceGroupResponse
@@ -399,7 +393,7 @@ namespace ResourceManager20200331
       Models::CreateResourceGroupResponse createResourceGroup(const Models::CreateResourceGroupRequest &request);
 
       /**
-       * @summary Creates a RAM role.
+       * @summary Creates a role by calling CreateRole.
        *
        * @param request CreateRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +402,7 @@ namespace ResourceManager20200331
       Models::CreateRoleResponse createRoleWithOptions(const Models::CreateRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a RAM role.
+       * @summary Creates a role by calling CreateRole.
        *
        * @param request CreateRoleRequest
        * @return CreateRoleResponse
@@ -433,7 +427,7 @@ namespace ResourceManager20200331
       Models::CreateServiceLinkedRoleResponse createServiceLinkedRole(const Models::CreateServiceLinkedRoleRequest &request);
 
       /**
-       * @summary Rejects an invitation.
+       * @summary Declines a handshake invitation by the invited Alibaba Cloud account.
        *
        * @param request DeclineHandshakeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +436,7 @@ namespace ResourceManager20200331
       Models::DeclineHandshakeResponse declineHandshakeWithOptions(const Models::DeclineHandshakeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rejects an invitation.
+       * @summary Declines a handshake invitation by the invited Alibaba Cloud account.
        *
        * @param request DeclineHandshakeRequest
        * @return DeclineHandshakeResponse
@@ -450,10 +444,10 @@ namespace ResourceManager20200331
       Models::DeclineHandshakeResponse declineHandshake(const Models::DeclineHandshakeRequest &request);
 
       /**
-       * @summary Deletes a member of the resource account type.
+       * @summary Deletes a member of the resource account type by calling DeleteAccount.
        *
-       * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
-       * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+       * @description Before deleting a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to perform a pre-deletion check on the member. Only members that meet the deletion conditions can be successfully deleted by calling DeleteAccount.
+       * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You can no longer log on to or use the member, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
        *
        * @param tmpReq DeleteAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -462,10 +456,10 @@ namespace ResourceManager20200331
       Models::DeleteAccountResponse deleteAccountWithOptions(const Models::DeleteAccountRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a member of the resource account type.
+       * @summary Deletes a member of the resource account type by calling DeleteAccount.
        *
-       * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
-       * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+       * @description Before deleting a member, call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) to perform a pre-deletion check on the member. Only members that meet the deletion conditions can be successfully deleted by calling DeleteAccount.
+       * After you successfully submit a member deletion request, you can call [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) to query the deletion status. Once a member is deleted, all resources and data in the member are deleted. You can no longer log on to or use the member, and the data cannot be recovered. Proceed with caution. For more information about member deletion, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
        *
        * @param request DeleteAccountRequest
        * @return DeleteAccountResponse
@@ -473,7 +467,7 @@ namespace ResourceManager20200331
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary Deletes a transfer rule.
+       * @summary Deletes an automatic group transfer rule.
        *
        * @param request DeleteAutoGroupingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -482,7 +476,7 @@ namespace ResourceManager20200331
       Models::DeleteAutoGroupingRuleResponse deleteAutoGroupingRuleWithOptions(const Models::DeleteAutoGroupingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a transfer rule.
+       * @summary Deletes an automatic group transfer rule.
        *
        * @param request DeleteAutoGroupingRuleRequest
        * @return DeleteAutoGroupingRuleResponse
@@ -492,8 +486,8 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a custom control policy.
        *
-       * @description If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
-       * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+       * @description To delete a custom control policy that is attached to a resource folder or member accounts, invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach the policy first.
+       * This topic provides an example on how to delete the custom control policy cp-SImPt8GCEwiq****.
        *
        * @param request DeleteControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -504,8 +498,8 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a custom control policy.
        *
-       * @description If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
-       * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+       * @description To delete a custom control policy that is attached to a resource folder or member accounts, invoke [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) to detach the policy first.
+       * This topic provides an example on how to delete the custom control policy cp-SImPt8GCEwiq****.
        *
        * @param request DeleteControlPolicyRequest
        * @return DeleteControlPolicyResponse
@@ -515,7 +509,7 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a folder.
        *
-       * @description >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
+       * @description > Before deleting a folder, make sure that the folder does not contain any member accounts or subfolders.
        *
        * @param request DeleteFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -526,7 +520,7 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a folder.
        *
-       * @description >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
+       * @description > Before deleting a folder, make sure that the folder does not contain any member accounts or subfolders.
        *
        * @param request DeleteFolderRequest
        * @return DeleteFolderResponse
@@ -534,11 +528,10 @@ namespace ResourceManager20200331
       Models::DeleteFolderResponse deleteFolder(const Models::DeleteFolderRequest &request);
 
       /**
-       * @summary Deletes a permission policy.
+       * @summary Deletes a specified access policy.
        *
-       * @description > 
-       * *   Before you delete a permission policy, you must delete its all non-default versions. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-       * *   Before you delete a permission policy, you must make sure that the policy is not attached to a RAM user, a RAM user group, or a RAM role. For information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+       * @description > - Before deleting an access policy, delete all non-default versions of the policy. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+       * > - Before deleting an access policy, make sure that the policy is not referenced, meaning it is not attached to any Resource Access Management (RAM) user, user group, or RAM role. For information about how to remove an authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
        *
        * @param request DeletePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -547,11 +540,10 @@ namespace ResourceManager20200331
       Models::DeletePolicyResponse deletePolicyWithOptions(const Models::DeletePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a permission policy.
+       * @summary Deletes a specified access policy.
        *
-       * @description > 
-       * *   Before you delete a permission policy, you must delete its all non-default versions. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
-       * *   Before you delete a permission policy, you must make sure that the policy is not attached to a RAM user, a RAM user group, or a RAM role. For information about how to detach a policy, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
+       * @description > - Before deleting an access policy, delete all non-default versions of the policy. For information about how to delete a policy version, see [DeletePolicyVersion](https://help.aliyun.com/document_detail/159041.html).
+       * > - Before deleting an access policy, make sure that the policy is not referenced, meaning it is not attached to any Resource Access Management (RAM) user, user group, or RAM role. For information about how to remove an authorization, see [DetachPolicy](https://help.aliyun.com/document_detail/159168.html).
        *
        * @param request DeletePolicyRequest
        * @return DeletePolicyResponse
@@ -559,9 +551,9 @@ namespace ResourceManager20200331
       Models::DeletePolicyResponse deletePolicy(const Models::DeletePolicyRequest &request);
 
       /**
-       * @summary Deletes a version of a permission policy.
+       * @summary Deletes a version of an access policy.
        *
-       * @description >  The default version of a policy cannot be deleted.
+       * @description > The default version of an access policy cannot be deleted.
        *
        * @param request DeletePolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -570,9 +562,9 @@ namespace ResourceManager20200331
       Models::DeletePolicyVersionResponse deletePolicyVersionWithOptions(const Models::DeletePolicyVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a version of a permission policy.
+       * @summary Deletes a version of an access policy.
        *
-       * @description >  The default version of a policy cannot be deleted.
+       * @description > The default version of an access policy cannot be deleted.
        *
        * @param request DeletePolicyVersionRequest
        * @return DeletePolicyVersionResponse
@@ -582,8 +574,7 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a resource group.
        *
-       * @description >  Before you delete a resource group, you must delete all the resources in it.
-       * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+       * @description > Before you delete a resource group, delete all resources in the resource group.
        *
        * @param request DeleteResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -594,8 +585,7 @@ namespace ResourceManager20200331
       /**
        * @summary Deletes a resource group.
        *
-       * @description >  Before you delete a resource group, you must delete all the resources in it.
-       * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+       * @description > Before you delete a resource group, delete all resources in the resource group.
        *
        * @param request DeleteResourceGroupRequest
        * @return DeleteResourceGroupResponse
@@ -603,7 +593,7 @@ namespace ResourceManager20200331
       Models::DeleteResourceGroupResponse deleteResourceGroup(const Models::DeleteResourceGroupRequest &request);
 
       /**
-       * @summary Deletes a RAM role.
+       * @summary Deletes a role.
        *
        * @param request DeleteRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +602,7 @@ namespace ResourceManager20200331
       Models::DeleteRoleResponse deleteRoleWithOptions(const Models::DeleteRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a RAM role.
+       * @summary Deletes a role.
        *
        * @param request DeleteRoleRequest
        * @return DeleteRoleResponse
@@ -637,10 +627,9 @@ namespace ResourceManager20200331
       Models::DeleteServiceLinkedRoleResponse deleteServiceLinkedRole(const Models::DeleteServiceLinkedRoleRequest &request);
 
       /**
-       * @summary Removes a delegated administrator account for a trusted service.
+       * @summary Calls the DeregisterDelegatedAdministrator operation to remove the delegated administrator account of a trusted service.
        *
-       * @description >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-       * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+       * @description > If the delegated administrator account being removed has historical management tasks in the trusted service, the removal may affect the normal use of the trusted service. Carefully consider the potential impact before performing the removal.
        *
        * @param request DeregisterDelegatedAdministratorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -649,10 +638,9 @@ namespace ResourceManager20200331
       Models::DeregisterDelegatedAdministratorResponse deregisterDelegatedAdministratorWithOptions(const Models::DeregisterDelegatedAdministratorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a delegated administrator account for a trusted service.
+       * @summary Calls the DeregisterDelegatedAdministrator operation to remove the delegated administrator account of a trusted service.
        *
-       * @description >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-       * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+       * @description > If the delegated administrator account being removed has historical management tasks in the trusted service, the removal may affect the normal use of the trusted service. Carefully consider the potential impact before performing the removal.
        *
        * @param request DeregisterDelegatedAdministratorRequest
        * @return DeregisterDelegatedAdministratorResponse
@@ -660,35 +648,34 @@ namespace ResourceManager20200331
       Models::DeregisterDelegatedAdministratorResponse deregisterDelegatedAdministrator(const Models::DeregisterDelegatedAdministratorRequest &request);
 
       /**
-       * @summary Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+       * @summary Closes a resource directory by calling DestroyResourceDirectory. This operation is irreversible. Proceed with caution.
        *
-       * @description Before you disable a resource directory, make sure that the following requirements are met:
-       * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
-       * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+       * @description Before closing a resource directory, make sure that you have completed the following operations:
+       * - All members in the resource directory have been removed. For information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+       * - All folders except the Root folder in the resource directory have been deleted. For information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
        *
-       * @param request DestroyResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DestroyResourceDirectoryResponse
        */
       Models::DestroyResourceDirectoryResponse destroyResourceDirectoryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+       * @summary Closes a resource directory by calling DestroyResourceDirectory. This operation is irreversible. Proceed with caution.
        *
-       * @description Before you disable a resource directory, make sure that the following requirements are met:
-       * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
-       * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
+       * @description Before closing a resource directory, make sure that you have completed the following operations:
+       * - All members in the resource directory have been removed. For information about how to remove a member, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
+       * - All folders except the Root folder in the resource directory have been deleted. For information about how to delete a folder, see [DeleteFolder](https://help.aliyun.com/document_detail/159432.html).
        *
        * @return DestroyResourceDirectoryResponse
        */
       Models::DestroyResourceDirectoryResponse destroyResourceDirectory();
 
       /**
-       * @summary Detaches an access control policy.
+       * @summary Detaches a control policy from a resource folder or member.
        *
-       * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
-       * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
-       * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+       * @description After the control policy is detached, the resource folder or member that was previously associated with the policy immediately loses the governance enforced by the policy. Make sure that the result of the detach operation is as expected to avoid impact on your business.
+       * Both system policies and custom control policies can be detached. However, the last control policy associated with a resource folder or member cannot be detached.
+       * This topic provides an example on how to detach the custom policy `cp-jExXAqIYkwHN****` from the resource folder `fd-ZDNPiT****`.
        *
        * @param request DetachControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,11 +684,11 @@ namespace ResourceManager20200331
       Models::DetachControlPolicyResponse detachControlPolicyWithOptions(const Models::DetachControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches an access control policy.
+       * @summary Detaches a control policy from a resource folder or member.
        *
-       * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
-       * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
-       * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+       * @description After the control policy is detached, the resource folder or member that was previously associated with the policy immediately loses the governance enforced by the policy. Make sure that the result of the detach operation is as expected to avoid impact on your business.
+       * Both system policies and custom control policies can be detached. However, the last control policy associated with a resource folder or member cannot be detached.
+       * This topic provides an example on how to detach the custom policy `cp-jExXAqIYkwHN****` from the resource folder `fd-ZDNPiT****`.
        *
        * @param request DetachControlPolicyRequest
        * @return DetachControlPolicyResponse
@@ -709,7 +696,7 @@ namespace ResourceManager20200331
       Models::DetachControlPolicyResponse detachControlPolicy(const Models::DetachControlPolicyRequest &request);
 
       /**
-       * @summary Detaches a permission policy from an object. After you detach a policy from an object, the object does not have the operation permissions on the current resource group or the resources within the current account.
+       * @summary Detaches an access policy from a specified identity. After the policy is detached, the identity loses the permissions to manage resources in the specified resource group or Alibaba Cloud account.
        *
        * @param request DetachPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,7 +705,7 @@ namespace ResourceManager20200331
       Models::DetachPolicyResponse detachPolicyWithOptions(const Models::DetachPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detaches a permission policy from an object. After you detach a policy from an object, the object does not have the operation permissions on the current resource group or the resources within the current account.
+       * @summary Detaches an access policy from a specified identity. After the policy is detached, the identity loses the permissions to manage resources in the specified resource group or Alibaba Cloud account.
        *
        * @param request DetachPolicyRequest
        * @return DetachPolicyResponse
@@ -726,122 +713,115 @@ namespace ResourceManager20200331
       Models::DetachPolicyResponse detachPolicy(const Models::DetachPolicyRequest &request);
 
       /**
-       * @summary Disables the Transfer Associated Resources feature.
+       * @summary Disables the attached-resource allocation feature for associated resources.
        *
-       * @param request DisableAssociatedTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableAssociatedTransferResponse
        */
       Models::DisableAssociatedTransferResponse disableAssociatedTransferWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the Transfer Associated Resources feature.
+       * @summary Disables the attached-resource allocation feature for associated resources.
        *
        * @return DisableAssociatedTransferResponse
        */
       Models::DisableAssociatedTransferResponse disableAssociatedTransfer();
 
       /**
-       * @summary Disables the Automatic Resource Transfer feature. After the feature is disabled, existing custom transfer rules and existing transfer rules for associated resources are deleted. However, existing relationships between resources and resource groups are not affected. If you still want to use this feature, you can enable it again 1 minute later.
+       * @summary Disables automatic resource group transfer. After this feature is disabled, the custom condition rules and attached-resource transfer rules that have been configured are deleted. The resource groups of existing resources are not affected. If needed, you can re-enable this feature 1 minute after disabling it.
        *
-       * @param request DisableAutoGroupingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableAutoGroupingResponse
        */
       Models::DisableAutoGroupingResponse disableAutoGroupingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the Automatic Resource Transfer feature. After the feature is disabled, existing custom transfer rules and existing transfer rules for associated resources are deleted. However, existing relationships between resources and resource groups are not affected. If you still want to use this feature, you can enable it again 1 minute later.
+       * @summary Disables automatic resource group transfer. After this feature is disabled, the custom condition rules and attached-resource transfer rules that have been configured are deleted. The resource groups of existing resources are not affected. If needed, you can re-enable this feature 1 minute after disabling it.
        *
        * @return DisableAutoGroupingResponse
        */
       Models::DisableAutoGroupingResponse disableAutoGrouping();
 
       /**
-       * @summary Disables the Control Policy feature.
+       * @summary Disables the control policy feature.
        *
-       * @description After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
-       * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+       * @description After you disable the control policy feature, all control policies that are attached to resource folders and member accounts are automatically detached. However, the control policies are not deleted. They cannot be attached to any target nodes.
+       * > Disabling the control policy feature affects the permissions of resource folders and member accounts in the entire resource directory. Proceed with caution.
        *
-       * @param request DisableControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableControlPolicyResponse
        */
       Models::DisableControlPolicyResponse disableControlPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the Control Policy feature.
+       * @summary Disables the control policy feature.
        *
-       * @description After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
-       * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+       * @description After you disable the control policy feature, all control policies that are attached to resource folders and member accounts are automatically detached. However, the control policies are not deleted. They cannot be attached to any target nodes.
+       * > Disabling the control policy feature affects the permissions of resource folders and member accounts in the entire resource directory. Proceed with caution.
        *
        * @return DisableControlPolicyResponse
        */
       Models::DisableControlPolicyResponse disableControlPolicy();
 
       /**
-       * @summary Disables group event notification.
+       * @summary Disables a resource group event notification that is currently enabled. If the notification is already disabled, the error code `UnsupportedOperation.RepeatDisableResourceGroupNotification` is returned. You can call `EnableResourceGroupNotification` to enable the notification first.
        *
-       * @param request DisableResourceGroupNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DisableResourceGroupNotificationResponse
        */
       Models::DisableResourceGroupNotificationResponse disableResourceGroupNotificationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables group event notification.
+       * @summary Disables a resource group event notification that is currently enabled. If the notification is already disabled, the error code `UnsupportedOperation.RepeatDisableResourceGroupNotification` is returned. You can call `EnableResourceGroupNotification` to enable the notification first.
        *
        * @return DisableResourceGroupNotificationResponse
        */
       Models::DisableResourceGroupNotificationResponse disableResourceGroupNotification();
 
       /**
-       * @summary Enables the Transfer Associated Resources feature.
+       * @summary Enables the attached-resource allocation feature for resource group transfers.
        *
-       * @param request EnableAssociatedTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableAssociatedTransferResponse
        */
       Models::EnableAssociatedTransferResponse enableAssociatedTransferWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Transfer Associated Resources feature.
+       * @summary Enables the attached-resource allocation feature for resource group transfers.
        *
        * @return EnableAssociatedTransferResponse
        */
       Models::EnableAssociatedTransferResponse enableAssociatedTransfer();
 
       /**
-       * @summary Enables the Automatic Resource Transfer feature. After the feature is enabled, you can create, update, delete, and query transfer rules.
+       * @summary Enables automatic grouping. After automatic grouping is enabled, you can create, update, delete, and query automatic grouping rules.
        *
-       * @param request EnableAutoGroupingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableAutoGroupingResponse
        */
       Models::EnableAutoGroupingResponse enableAutoGroupingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Automatic Resource Transfer feature. After the feature is enabled, you can create, update, delete, and query transfer rules.
+       * @summary Enables automatic grouping. After automatic grouping is enabled, you can create, update, delete, and query automatic grouping rules.
        *
        * @return EnableAutoGroupingResponse
        */
       Models::EnableAutoGroupingResponse enableAutoGrouping();
 
       /**
-       * @summary Enables the Control Policy feature.
+       * @summary Enables the control policy feature by calling EnableControlPolicy.
        *
-       * @description The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+       * @description A resource directory control policy is an access control policy based on the resource structure (resource folders or member accounts). It allows you to centrally manage the access permissions border for resource access at each level of the resource directory and establish overall or localized access control principles for your enterprise. Control policies define only the access permissions border and do not actually grant permissions. You must also set permissions by using Resource Access Management (RAM) in a member account before the corresponding identity can have access permissions to resources. For more information, see [Overview of control policies](https://help.aliyun.com/document_detail/178671.html).
        *
-       * @param request EnableControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableControlPolicyResponse
        */
       Models::EnableControlPolicyResponse enableControlPolicyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Control Policy feature.
+       * @summary Enables the control policy feature by calling EnableControlPolicy.
        *
-       * @description The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+       * @description A resource directory control policy is an access control policy based on the resource structure (resource folders or member accounts). It allows you to centrally manage the access permissions border for resource access at each level of the resource directory and establish overall or localized access control principles for your enterprise. Control policies define only the access permissions border and do not actually grant permissions. You must also set permissions by using Resource Access Management (RAM) in a member account before the corresponding identity can have access permissions to resources. For more information, see [Overview of control policies](https://help.aliyun.com/document_detail/178671.html).
        *
        * @return EnableControlPolicyResponse
        */
@@ -850,8 +830,8 @@ namespace ResourceManager20200331
       /**
        * @summary Enables a resource directory.
        *
-       * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
-       * In this example, the current account is used to enable a resource directory.
+       * @description You can enable a resource directory by using the current logon account or by creating a new management account. For more information, refer to [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+       * This topic provides an example of how to enable a resource directory by using the current logon account.
        *
        * @param request EnableResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -862,8 +842,8 @@ namespace ResourceManager20200331
       /**
        * @summary Enables a resource directory.
        *
-       * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
-       * In this example, the current account is used to enable a resource directory.
+       * @description You can enable a resource directory by using the current logon account or by creating a new management account. For more information, refer to [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+       * This topic provides an example of how to enable a resource directory by using the current logon account.
        *
        * @param request EnableResourceDirectoryRequest
        * @return EnableResourceDirectoryResponse
@@ -871,25 +851,22 @@ namespace ResourceManager20200331
       Models::EnableResourceDirectoryResponse enableResourceDirectory(const Models::EnableResourceDirectoryRequest &request);
 
       /**
-       * @summary Enables group event notification.
+       * @summary Enables resource group event notifications by calling EnableResourceGroupNotification.
        *
-       * @param request EnableResourceGroupNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableResourceGroupNotificationResponse
        */
       Models::EnableResourceGroupNotificationResponse enableResourceGroupNotificationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables group event notification.
+       * @summary Enables resource group event notifications by calling EnableResourceGroupNotification.
        *
        * @return EnableResourceGroupNotificationResponse
        */
       Models::EnableResourceGroupNotificationResponse enableResourceGroupNotification();
 
       /**
-       * @summary Queries the information of a member.
-       *
-       * @description This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
+       * @summary Calls GetAccount to retrieve member account information.
        *
        * @param request GetAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -898,9 +875,7 @@ namespace ResourceManager20200331
       Models::GetAccountResponse getAccountWithOptions(const Models::GetAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a member.
-       *
-       * @description This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
+       * @summary Calls GetAccount to retrieve member account information.
        *
        * @param request GetAccountRequest
        * @return GetAccountResponse
@@ -908,10 +883,10 @@ namespace ResourceManager20200331
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
 
       /**
-       * @summary Queries the result of a member deletion check.
+       * @summary Queries the result of a member deletion check by calling GetAccountDeletionCheckResult.
        *
-       * @description After you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-       * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+       * @description After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to perform a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the deletion check requirements are met, the member account can be deleted. Otherwise, manually handle the non-compliant items until all requirements are met.
+       * This topic provides an example on how to query the deletion check result of the member account `179855839641****` that you want to delete. The response shows that the member account does not meet the deletion requirements.
        *
        * @param request GetAccountDeletionCheckResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,10 +895,10 @@ namespace ResourceManager20200331
       Models::GetAccountDeletionCheckResultResponse getAccountDeletionCheckResultWithOptions(const Models::GetAccountDeletionCheckResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the result of a member deletion check.
+       * @summary Queries the result of a member deletion check by calling GetAccountDeletionCheckResult.
        *
-       * @description After you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-       * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+       * @description After you call [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) to perform a member deletion check task, you can call GetAccountDeletionCheckResult to query the result of the member deletion check. If the deletion check requirements are met, the member account can be deleted. Otherwise, manually handle the non-compliant items until all requirements are met.
+       * This topic provides an example on how to query the deletion check result of the member account `179855839641****` that you want to delete. The response shows that the member account does not meet the deletion requirements.
        *
        * @param request GetAccountDeletionCheckResultRequest
        * @return GetAccountDeletionCheckResultResponse
@@ -931,9 +906,9 @@ namespace ResourceManager20200331
       Models::GetAccountDeletionCheckResultResponse getAccountDeletionCheckResult(const Models::GetAccountDeletionCheckResultRequest &request);
 
       /**
-       * @summary 获取账号删除状态
+       * @summary Queries the deletion status of a member account.
        *
-       * @description This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+       * @description This topic provides an example on how to query the deletion status of the member account `169946124551****`. The response shows that the member account has been successfully deleted.
        *
        * @param request GetAccountDeletionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -942,9 +917,9 @@ namespace ResourceManager20200331
       Models::GetAccountDeletionStatusResponse getAccountDeletionStatusWithOptions(const Models::GetAccountDeletionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取账号删除状态
+       * @summary Queries the deletion status of a member account.
        *
-       * @description This topic provides an example on how to call the API operation to query the deletion status of the member whose Alibaba Cloud account ID is `169946124551****`. The response shows that the member is deleted.
+       * @description This topic provides an example on how to query the deletion status of the member account `169946124551****`. The response shows that the member account has been successfully deleted.
        *
        * @param request GetAccountDeletionStatusRequest
        * @return GetAccountDeletionStatusResponse
@@ -952,7 +927,7 @@ namespace ResourceManager20200331
       Models::GetAccountDeletionStatusResponse getAccountDeletionStatus(const Models::GetAccountDeletionStatusRequest &request);
 
       /**
-       * @summary Queries the information about a transfer rule.
+       * @summary Queries the information about an automatic resource group transfer rule.
        *
        * @param request GetAutoGroupingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -961,7 +936,7 @@ namespace ResourceManager20200331
       Models::GetAutoGroupingRuleResponse getAutoGroupingRuleWithOptions(const Models::GetAutoGroupingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a transfer rule.
+       * @summary Queries the information about an automatic resource group transfer rule.
        *
        * @param request GetAutoGroupingRuleRequest
        * @return GetAutoGroupingRuleResponse
@@ -969,25 +944,24 @@ namespace ResourceManager20200331
       Models::GetAutoGroupingRuleResponse getAutoGroupingRule(const Models::GetAutoGroupingRuleRequest &request);
 
       /**
-       * @summary Queries the status of the Automatic Resource Transfer feature.
+       * @summary Queries the status of automatic resource group transfer settings by calling GetAutoGroupingStatus.
        *
-       * @param request GetAutoGroupingStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAutoGroupingStatusResponse
        */
       Models::GetAutoGroupingStatusResponse getAutoGroupingStatusWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the Automatic Resource Transfer feature.
+       * @summary Queries the status of automatic resource group transfer settings by calling GetAutoGroupingStatus.
        *
        * @return GetAutoGroupingStatusResponse
        */
       Models::GetAutoGroupingStatusResponse getAutoGroupingStatus();
 
       /**
-       * @summary Queries the details of an access control policy.
+       * @summary Queries the details of a control policy.
        *
-       * @description This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
+       * @description This topic provides an example on how to query the details of the control policy whose ID is `cp-SImPt8GCEwiq****`.
        *
        * @param request GetControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -996,9 +970,9 @@ namespace ResourceManager20200331
       Models::GetControlPolicyResponse getControlPolicyWithOptions(const Models::GetControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an access control policy.
+       * @summary Queries the details of a control policy.
        *
-       * @description This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
+       * @description This topic provides an example on how to query the details of the control policy whose ID is `cp-SImPt8GCEwiq****`.
        *
        * @param request GetControlPolicyRequest
        * @return GetControlPolicyResponse
@@ -1006,25 +980,22 @@ namespace ResourceManager20200331
       Models::GetControlPolicyResponse getControlPolicy(const Models::GetControlPolicyRequest &request);
 
       /**
-       * @summary Queries the status of the Control Policy feature.
+       * @summary Queries the enabling status of the control policy feature.
        *
-       * @param request GetControlPolicyEnablementStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetControlPolicyEnablementStatusResponse
        */
       Models::GetControlPolicyEnablementStatusResponse getControlPolicyEnablementStatusWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the Control Policy feature.
+       * @summary Queries the enabling status of the control policy feature.
        *
        * @return GetControlPolicyEnablementStatusResponse
        */
       Models::GetControlPolicyEnablementStatusResponse getControlPolicyEnablementStatus();
 
       /**
-       * @summary Queries the information of a folder.
-       *
-       * @description In this example, the information of the folder `fd-Jyl5U7****` is queried.
+       * @summary Calls GetFolder to retrieve the information about a folder.
        *
        * @param request GetFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,9 +1004,7 @@ namespace ResourceManager20200331
       Models::GetFolderResponse getFolderWithOptions(const Models::GetFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a folder.
-       *
-       * @description In this example, the information of the folder `fd-Jyl5U7****` is queried.
+       * @summary Calls GetFolder to retrieve the information about a folder.
        *
        * @param request GetFolderRequest
        * @return GetFolderResponse
@@ -1043,9 +1012,9 @@ namespace ResourceManager20200331
       Models::GetFolderResponse getFolder(const Models::GetFolderRequest &request);
 
       /**
-       * @summary Queries the information of an invitation.
+       * @summary Retrieves handshake information by calling GetHandshake.
        *
-       * @description In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+       * @description This topic provides an example on how to retrieve the information about the handshake whose ID is `h-ycm4rp****`.
        *
        * @param request GetHandshakeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1054,9 +1023,9 @@ namespace ResourceManager20200331
       Models::GetHandshakeResponse getHandshakeWithOptions(const Models::GetHandshakeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of an invitation.
+       * @summary Retrieves handshake information by calling GetHandshake.
        *
-       * @description In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+       * @description This topic provides an example on how to retrieve the information about the handshake whose ID is `h-ycm4rp****`.
        *
        * @param request GetHandshakeRequest
        * @return GetHandshakeResponse
@@ -1064,7 +1033,7 @@ namespace ResourceManager20200331
       Models::GetHandshakeResponse getHandshake(const Models::GetHandshakeRequest &request);
 
       /**
-       * @summary Queries the information of a settlement account.
+       * @summary Retrieves the billing account information of a member account by calling GetPayerForAccount.
        *
        * @param request GetPayerForAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1073,7 +1042,7 @@ namespace ResourceManager20200331
       Models::GetPayerForAccountResponse getPayerForAccountWithOptions(const Models::GetPayerForAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a settlement account.
+       * @summary Retrieves the billing account information of a member account by calling GetPayerForAccount.
        *
        * @param request GetPayerForAccountRequest
        * @return GetPayerForAccountResponse
@@ -1081,7 +1050,7 @@ namespace ResourceManager20200331
       Models::GetPayerForAccountResponse getPayerForAccount(const Models::GetPayerForAccountRequest &request);
 
       /**
-       * @summary Queries the information about a permission policy.
+       * @summary Retrieves information about a specified access policy.
        *
        * @param request GetPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1090,7 +1059,7 @@ namespace ResourceManager20200331
       Models::GetPolicyResponse getPolicyWithOptions(const Models::GetPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a permission policy.
+       * @summary Retrieves information about a specified access policy.
        *
        * @param request GetPolicyRequest
        * @return GetPolicyResponse
@@ -1098,7 +1067,7 @@ namespace ResourceManager20200331
       Models::GetPolicyResponse getPolicy(const Models::GetPolicyRequest &request);
 
       /**
-       * @summary Queries the information about a version of a permission policy.
+       * @summary Retrieves a version of an access policy.
        *
        * @param request GetPolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1107,7 +1076,7 @@ namespace ResourceManager20200331
       Models::GetPolicyVersionResponse getPolicyVersionWithOptions(const Models::GetPolicyVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a version of a permission policy.
+       * @summary Retrieves a version of an access policy.
        *
        * @param request GetPolicyVersionRequest
        * @return GetPolicyVersionResponse
@@ -1115,27 +1084,26 @@ namespace ResourceManager20200331
       Models::GetPolicyVersionResponse getPolicyVersion(const Models::GetPolicyVersionRequest &request);
 
       /**
-       * @summary Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
+       * @summary Queries resource directory information. When called by a management account, returns the details of the resource directory created by the management account. When called by a member, returns the details of the resource directory to which the member belongs.
        *
-       * @description This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+       * @description This topic provides an example of how to use a management account to query the details of the resource directory created by the management account.
        *
-       * @param request GetResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetResourceDirectoryResponse
        */
       Models::GetResourceDirectoryResponse getResourceDirectoryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
+       * @summary Queries resource directory information. When called by a management account, returns the details of the resource directory created by the management account. When called by a member, returns the details of the resource directory to which the member belongs.
        *
-       * @description This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+       * @description This topic provides an example of how to use a management account to query the details of the resource directory created by the management account.
        *
        * @return GetResourceDirectoryResponse
        */
       Models::GetResourceDirectoryResponse getResourceDirectory();
 
       /**
-       * @summary Queries the information of a resource group.
+       * @summary Queries the information about a resource group.
        *
        * @param request GetResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1144,7 +1112,7 @@ namespace ResourceManager20200331
       Models::GetResourceGroupResponse getResourceGroupWithOptions(const Models::GetResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a resource group.
+       * @summary Queries the information about a resource group.
        *
        * @param request GetResourceGroupRequest
        * @return GetResourceGroupResponse
@@ -1152,39 +1120,37 @@ namespace ResourceManager20200331
       Models::GetResourceGroupResponse getResourceGroup(const Models::GetResourceGroupRequest &request);
 
       /**
-       * @summary Queries the configurations of a resource group administrator.
+       * @summary Queries the administrator settings of a resource group.
        *
-       * @param request GetResourceGroupAdminSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetResourceGroupAdminSettingResponse
        */
       Models::GetResourceGroupAdminSettingResponse getResourceGroupAdminSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of a resource group administrator.
+       * @summary Queries the administrator settings of a resource group.
        *
        * @return GetResourceGroupAdminSettingResponse
        */
       Models::GetResourceGroupAdminSettingResponse getResourceGroupAdminSetting();
 
       /**
-       * @summary Queries the notification settings of a resource group.
+       * @summary Queries the notification settings of a resource group by calling GetResourceGroupNotificationSetting.
        *
-       * @param request GetResourceGroupNotificationSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetResourceGroupNotificationSettingResponse
        */
       Models::GetResourceGroupNotificationSettingResponse getResourceGroupNotificationSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the notification settings of a resource group.
+       * @summary Queries the notification settings of a resource group by calling GetResourceGroupNotificationSetting.
        *
        * @return GetResourceGroupNotificationSettingResponse
        */
       Models::GetResourceGroupNotificationSettingResponse getResourceGroupNotificationSetting();
 
       /**
-       * @summary Queries the number of resources in a visible resource group.
+       * @summary Queries the resource count in visible resource groups.
        *
        * @param request GetResourceGroupResourceCountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1159,7 @@ namespace ResourceManager20200331
       Models::GetResourceGroupResourceCountsResponse getResourceGroupResourceCountsWithOptions(const Models::GetResourceGroupResourceCountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of resources in a visible resource group.
+       * @summary Queries the resource count in visible resource groups.
        *
        * @param request GetResourceGroupResourceCountsRequest
        * @return GetResourceGroupResourceCountsResponse
@@ -1201,7 +1167,7 @@ namespace ResourceManager20200331
       Models::GetResourceGroupResourceCountsResponse getResourceGroupResourceCounts(const Models::GetResourceGroupResourceCountsRequest &request);
 
       /**
-       * @summary Queries the information about a RAM role.
+       * @summary Queries the information about a role by calling GetRole.
        *
        * @param request GetRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1210,7 +1176,7 @@ namespace ResourceManager20200331
       Models::GetRoleResponse getRoleWithOptions(const Models::GetRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a RAM role.
+       * @summary Queries the information about a role by calling GetRole.
        *
        * @param request GetRoleRequest
        * @return GetRoleResponse
@@ -1218,7 +1184,7 @@ namespace ResourceManager20200331
       Models::GetRoleResponse getRole(const Models::GetRoleRequest &request);
 
       /**
-       * @summary Queries the status of the task that is used to delete a service-linked role.
+       * @summary Queries the status of a task that deletes a service-linked role.
        *
        * @param request GetServiceLinkedRoleDeletionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1227,7 +1193,7 @@ namespace ResourceManager20200331
       Models::GetServiceLinkedRoleDeletionStatusResponse getServiceLinkedRoleDeletionStatusWithOptions(const Models::GetServiceLinkedRoleDeletionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the task that is used to delete a service-linked role.
+       * @summary Queries the status of a task that deletes a service-linked role.
        *
        * @param request GetServiceLinkedRoleDeletionStatusRequest
        * @return GetServiceLinkedRoleDeletionStatusResponse
@@ -1235,33 +1201,30 @@ namespace ResourceManager20200331
       Models::GetServiceLinkedRoleDeletionStatusResponse getServiceLinkedRoleDeletionStatus(const Models::GetServiceLinkedRoleDeletionStatusRequest &request);
 
       /**
-       * @summary Enables a resource directory. After you enable a resource directory, the system automatically creates a root folder and sets the current account as the enterprise management account of the resource directory. The enterprise management account has all administrative permissions on this resource direc
+       * @summary Calls InitResourceDirectory to enable a resource directory. After you enable a resource directory, the system creates a Root folder and sets the current account as the management account. The management account has all permissions to manage the resource directory.
        *
-       * @description > 
-       * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
-       * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+       * @description > - Use an account that has passed enterprise real-name verification to enable a resource directory. An account that has passed only individual real-name verification cannot enable a resource directory.
+       * > - Use the management account only as the administrator of the resource directory. Do not purchase cloud service resources with the management account.
        *
-       * @param request InitResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return InitResourceDirectoryResponse
        */
       Models::InitResourceDirectoryResponse initResourceDirectoryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a resource directory. After you enable a resource directory, the system automatically creates a root folder and sets the current account as the enterprise management account of the resource directory. The enterprise management account has all administrative permissions on this resource direc
+       * @summary Calls InitResourceDirectory to enable a resource directory. After you enable a resource directory, the system creates a Root folder and sets the current account as the management account. The management account has all permissions to manage the resource directory.
        *
-       * @description > 
-       * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
-       * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+       * @description > - Use an account that has passed enterprise real-name verification to enable a resource directory. An account that has passed only individual real-name verification cannot enable a resource directory.
+       * > - Use the management account only as the administrator of the resource directory. Do not purchase cloud service resources with the management account.
        *
        * @return InitResourceDirectoryResponse
        */
       Models::InitResourceDirectoryResponse initResourceDirectory();
 
       /**
-       * @summary Invites an account to join a resource directory.
+       * @summary Invites an external account to join a resource directory.
        *
-       * @description This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+       * @description This topic provides an example on how to invite the external account `someone@example.com` to join a resource directory.
        *
        * @param request InviteAccountToResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1270,9 +1233,9 @@ namespace ResourceManager20200331
       Models::InviteAccountToResourceDirectoryResponse inviteAccountToResourceDirectoryWithOptions(const Models::InviteAccountToResourceDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invites an account to join a resource directory.
+       * @summary Invites an external account to join a resource directory.
        *
-       * @description This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+       * @description This topic provides an example on how to invite the external account `someone@example.com` to join a resource directory.
        *
        * @param request InviteAccountToResourceDirectoryRequest
        * @return InviteAccountToResourceDirectoryResponse
@@ -1280,9 +1243,9 @@ namespace ResourceManager20200331
       Models::InviteAccountToResourceDirectoryResponse inviteAccountToResourceDirectory(const Models::InviteAccountToResourceDirectoryRequest &request);
 
       /**
-       * @summary Queries all the members in a resource directory.
+       * @summary Queries the list of all member accounts in a resource directory by calling ListAccounts.
        *
-       * @description You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+       * @description The management account of the resource directory and the delegated administrator accounts of trusted services can call this operation.
        *
        * @param request ListAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1291,9 +1254,9 @@ namespace ResourceManager20200331
       Models::ListAccountsResponse listAccountsWithOptions(const Models::ListAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all the members in a resource directory.
+       * @summary Queries the list of all member accounts in a resource directory by calling ListAccounts.
        *
-       * @description You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+       * @description The management account of the resource directory and the delegated administrator accounts of trusted services can call this operation.
        *
        * @param request ListAccountsRequest
        * @return ListAccountsResponse
@@ -1301,7 +1264,7 @@ namespace ResourceManager20200331
       Models::ListAccountsResponse listAccounts(const Models::ListAccountsRequest &request);
 
       /**
-       * @summary Queries the information of members in a folder.
+       * @summary Queries the list of member accounts in a resource folder by calling ListAccountsForParent.
        *
        * @param request ListAccountsForParentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1310,7 +1273,7 @@ namespace ResourceManager20200331
       Models::ListAccountsForParentResponse listAccountsForParentWithOptions(const Models::ListAccountsForParentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of members in a folder.
+       * @summary Queries the list of member accounts in a resource folder by calling ListAccountsForParent.
        *
        * @param request ListAccountsForParentRequest
        * @return ListAccountsForParentResponse
@@ -1318,7 +1281,7 @@ namespace ResourceManager20200331
       Models::ListAccountsForParentResponse listAccountsForParent(const Models::ListAccountsForParentRequest &request);
 
       /**
-       * @summary Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+       * @summary Queries information about all parent folders of a specified folder. The results are displayed in order from top to bottom.
        *
        * @param request ListAncestorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1327,7 +1290,7 @@ namespace ResourceManager20200331
       Models::ListAncestorsResponse listAncestorsWithOptions(const Models::ListAncestorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+       * @summary Queries information about all parent folders of a specified folder. The results are displayed in order from top to bottom.
        *
        * @param request ListAncestorsRequest
        * @return ListAncestorsResponse
@@ -1335,23 +1298,22 @@ namespace ResourceManager20200331
       Models::ListAncestorsResponse listAncestors(const Models::ListAncestorsRequest &request);
 
       /**
-       * @summary Queries the settings of the Transfer Associated Resources feature.
+       * @summary Retrieves the settings of the associated resource group transfer feature.
        *
-       * @param request ListAssociatedTransferSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAssociatedTransferSettingResponse
        */
       Models::ListAssociatedTransferSettingResponse listAssociatedTransferSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the settings of the Transfer Associated Resources feature.
+       * @summary Retrieves the settings of the associated resource group transfer feature.
        *
        * @return ListAssociatedTransferSettingResponse
        */
       Models::ListAssociatedTransferSettingResponse listAssociatedTransferSetting();
 
       /**
-       * @summary Queries a list of automatic grouping remediation records.
+       * @summary Lists auto-grouping remediation records.
        *
        * @param request ListAutoGroupingRemediationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1360,7 +1322,7 @@ namespace ResourceManager20200331
       Models::ListAutoGroupingRemediationsResponse listAutoGroupingRemediationsWithOptions(const Models::ListAutoGroupingRemediationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of automatic grouping remediation records.
+       * @summary Lists auto-grouping remediation records.
        *
        * @param request ListAutoGroupingRemediationsRequest
        * @return ListAutoGroupingRemediationsResponse
@@ -1368,7 +1330,7 @@ namespace ResourceManager20200331
       Models::ListAutoGroupingRemediationsResponse listAutoGroupingRemediations(const Models::ListAutoGroupingRemediationsRequest &request);
 
       /**
-       * @summary Queries a list of transfer rules.
+       * @summary Queries the list of automatic group transfer rules.
        *
        * @param request ListAutoGroupingRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1377,7 +1339,7 @@ namespace ResourceManager20200331
       Models::ListAutoGroupingRulesResponse listAutoGroupingRulesWithOptions(const Models::ListAutoGroupingRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of transfer rules.
+       * @summary Queries the list of automatic group transfer rules.
        *
        * @param request ListAutoGroupingRulesRequest
        * @return ListAutoGroupingRulesResponse
@@ -1385,9 +1347,7 @@ namespace ResourceManager20200331
       Models::ListAutoGroupingRulesResponse listAutoGroupingRules(const Models::ListAutoGroupingRulesRequest &request);
 
       /**
-       * @summary Queries access control policies.
-       *
-       * @description This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+       * @summary Queries a list of control policies.
        *
        * @param request ListControlPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1396,9 +1356,7 @@ namespace ResourceManager20200331
       Models::ListControlPoliciesResponse listControlPoliciesWithOptions(const Models::ListControlPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries access control policies.
-       *
-       * @description This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+       * @summary Queries a list of control policies.
        *
        * @param request ListControlPoliciesRequest
        * @return ListControlPoliciesResponse
@@ -1406,9 +1364,9 @@ namespace ResourceManager20200331
       Models::ListControlPoliciesResponse listControlPolicies(const Models::ListControlPoliciesRequest &request);
 
       /**
-       * @summary Queries the access control policies that are attached to a folder or member.
+       * @summary Queries the list of control policies attached to a resource folder or member account.
        *
-       * @description This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
+       * @description This topic provides an example on how to query the list of control policies attached to the resource folder `fd-ZDNPiT****`.
        *
        * @param request ListControlPolicyAttachmentsForTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1417,9 +1375,9 @@ namespace ResourceManager20200331
       Models::ListControlPolicyAttachmentsForTargetResponse listControlPolicyAttachmentsForTargetWithOptions(const Models::ListControlPolicyAttachmentsForTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the access control policies that are attached to a folder or member.
+       * @summary Queries the list of control policies attached to a resource folder or member account.
        *
-       * @description This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
+       * @description This topic provides an example on how to query the list of control policies attached to the resource folder `fd-ZDNPiT****`.
        *
        * @param request ListControlPolicyAttachmentsForTargetRequest
        * @return ListControlPolicyAttachmentsForTargetResponse
@@ -1427,9 +1385,7 @@ namespace ResourceManager20200331
       Models::ListControlPolicyAttachmentsForTargetResponse listControlPolicyAttachmentsForTarget(const Models::ListControlPolicyAttachmentsForTargetRequest &request);
 
       /**
-       * @summary Queries delegated administrator accounts.
-       *
-       * @description This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+       * @summary Queries the list of delegated administrator accounts for a trusted service.
        *
        * @param request ListDelegatedAdministratorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1438,9 +1394,7 @@ namespace ResourceManager20200331
       Models::ListDelegatedAdministratorsResponse listDelegatedAdministratorsWithOptions(const Models::ListDelegatedAdministratorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries delegated administrator accounts.
-       *
-       * @description This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+       * @summary Queries the list of delegated administrator accounts for a trusted service.
        *
        * @param request ListDelegatedAdministratorsRequest
        * @return ListDelegatedAdministratorsResponse
@@ -1448,9 +1402,7 @@ namespace ResourceManager20200331
       Models::ListDelegatedAdministratorsResponse listDelegatedAdministrators(const Models::ListDelegatedAdministratorsRequest &request);
 
       /**
-       * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
-       *
-       * @description This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+       * @summary Queries the trusted services for which a specified member is set as a delegated administrator account.
        *
        * @param request ListDelegatedServicesForAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1459,9 +1411,7 @@ namespace ResourceManager20200331
       Models::ListDelegatedServicesForAccountResponse listDelegatedServicesForAccountWithOptions(const Models::ListDelegatedServicesForAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
-       *
-       * @description This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+       * @summary Queries the trusted services for which a specified member is set as a delegated administrator account.
        *
        * @param request ListDelegatedServicesForAccountRequest
        * @return ListDelegatedServicesForAccountResponse
@@ -1469,9 +1419,9 @@ namespace ResourceManager20200331
       Models::ListDelegatedServicesForAccountResponse listDelegatedServicesForAccount(const Models::ListDelegatedServicesForAccountRequest &request);
 
       /**
-       * @summary Queries the information of all subfolders of a folder.
+       * @summary Queries the subfolders of a specified folder.
        *
-       * @description >  You can view the information of only the first-level subfolders of a folder.
+       * @description > You can query only the subfolders at the next level of the specified folder. You cannot query subfolders at deeper levels.
        *
        * @param request ListFoldersForParentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1480,9 +1430,9 @@ namespace ResourceManager20200331
       Models::ListFoldersForParentResponse listFoldersForParentWithOptions(const Models::ListFoldersForParentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of all subfolders of a folder.
+       * @summary Queries the subfolders of a specified folder.
        *
-       * @description >  You can view the information of only the first-level subfolders of a folder.
+       * @description > You can query only the subfolders at the next level of the specified folder. You cannot query subfolders at deeper levels.
        *
        * @param request ListFoldersForParentRequest
        * @return ListFoldersForParentResponse
@@ -1490,9 +1440,9 @@ namespace ResourceManager20200331
       Models::ListFoldersForParentResponse listFoldersForParent(const Models::ListFoldersForParentRequest &request);
 
       /**
-       * @summary Queries the invitations that are associated with an account.
+       * @summary Queries the invitation records under the current account.
        *
-       * @description This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+       * @description This topic provides an example on how to query the invitation records of the current management account `172841235500****`.
        *
        * @param request ListHandshakesForAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1501,9 +1451,9 @@ namespace ResourceManager20200331
       Models::ListHandshakesForAccountResponse listHandshakesForAccountWithOptions(const Models::ListHandshakesForAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the invitations that are associated with an account.
+       * @summary Queries the invitation records under the current account.
        *
-       * @description This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+       * @description This topic provides an example on how to query the invitation records of the current management account `172841235500****`.
        *
        * @param request ListHandshakesForAccountRequest
        * @return ListHandshakesForAccountResponse
@@ -1511,7 +1461,7 @@ namespace ResourceManager20200331
       Models::ListHandshakesForAccountResponse listHandshakesForAccount(const Models::ListHandshakesForAccountRequest &request);
 
       /**
-       * @summary Queries invitations in a resource directory.
+       * @summary Queries all invitations in a resource directory.
        *
        * @param request ListHandshakesForResourceDirectoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1520,7 +1470,7 @@ namespace ResourceManager20200331
       Models::ListHandshakesForResourceDirectoryResponse listHandshakesForResourceDirectoryWithOptions(const Models::ListHandshakesForResourceDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries invitations in a resource directory.
+       * @summary Queries all invitations in a resource directory.
        *
        * @param request ListHandshakesForResourceDirectoryRequest
        * @return ListHandshakesForResourceDirectoryResponse
@@ -1528,7 +1478,7 @@ namespace ResourceManager20200331
       Models::ListHandshakesForResourceDirectoryResponse listHandshakesForResourceDirectory(const Models::ListHandshakesForResourceDirectoryRequest &request);
 
       /**
-       * @summary Queries a list of permission policies.
+       * @summary Calls ListPolicies to query a list of access policies.
        *
        * @param request ListPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1537,7 +1487,7 @@ namespace ResourceManager20200331
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of permission policies.
+       * @summary Calls ListPolicies to query a list of access policies.
        *
        * @param request ListPoliciesRequest
        * @return ListPoliciesResponse
@@ -1545,12 +1495,12 @@ namespace ResourceManager20200331
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
 
       /**
-       * @summary Queries policy attachment records.
+       * @summary Queries the list of policy attachments by calling ListPolicyAttachments.
        *
-       * @description You can view the following information:
-       * *   Policy attachment records within an Alibaba Cloud account or a resource group
-       * *   Permission policies attached to RAM users, RAM user groups, or RAM roles
-       * *   RAM users, RAM user groups, or RAM roles to which permission policies are attached within an Alibaba Cloud account or a resource group
+       * @description You can query the following information:
+       * - All authorization records under an Alibaba Cloud account or a resource group.
+       * - All access policies granted to a Resource Access Management (RAM) user, RAM user group, or RAM role.
+       * - RAM users, RAM user groups, and RAM roles that have a specific permission under an Alibaba Cloud account or a resource group.
        *
        * @param request ListPolicyAttachmentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1559,12 +1509,12 @@ namespace ResourceManager20200331
       Models::ListPolicyAttachmentsResponse listPolicyAttachmentsWithOptions(const Models::ListPolicyAttachmentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries policy attachment records.
+       * @summary Queries the list of policy attachments by calling ListPolicyAttachments.
        *
-       * @description You can view the following information:
-       * *   Policy attachment records within an Alibaba Cloud account or a resource group
-       * *   Permission policies attached to RAM users, RAM user groups, or RAM roles
-       * *   RAM users, RAM user groups, or RAM roles to which permission policies are attached within an Alibaba Cloud account or a resource group
+       * @description You can query the following information:
+       * - All authorization records under an Alibaba Cloud account or a resource group.
+       * - All access policies granted to a Resource Access Management (RAM) user, RAM user group, or RAM role.
+       * - RAM users, RAM user groups, and RAM roles that have a specific permission under an Alibaba Cloud account or a resource group.
        *
        * @param request ListPolicyAttachmentsRequest
        * @return ListPolicyAttachmentsResponse
@@ -1572,7 +1522,7 @@ namespace ResourceManager20200331
       Models::ListPolicyAttachmentsResponse listPolicyAttachments(const Models::ListPolicyAttachmentsRequest &request);
 
       /**
-       * @summary Queries a list of versions of a policy.
+       * @summary Queries the versions of an access policy.
        *
        * @param request ListPolicyVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1581,7 +1531,7 @@ namespace ResourceManager20200331
       Models::ListPolicyVersionsResponse listPolicyVersionsWithOptions(const Models::ListPolicyVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of versions of a policy.
+       * @summary Queries the versions of an access policy.
        *
        * @param request ListPolicyVersionsRequest
        * @return ListPolicyVersionsResponse
@@ -1589,7 +1539,7 @@ namespace ResourceManager20200331
       Models::ListPolicyVersionsResponse listPolicyVersions(const Models::ListPolicyVersionsRequest &request);
 
       /**
-       * @summary Queries whether a specific resource type or a given cloud service supports resource group events.
+       * @summary Lists the capability items of resource groups.
        *
        * @param request ListResourceGroupCapabilityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1598,7 +1548,7 @@ namespace ResourceManager20200331
       Models::ListResourceGroupCapabilityResponse listResourceGroupCapabilityWithOptions(const Models::ListResourceGroupCapabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries whether a specific resource type or a given cloud service supports resource group events.
+       * @summary Lists the capability items of resource groups.
        *
        * @param request ListResourceGroupCapabilityRequest
        * @return ListResourceGroupCapabilityResponse
@@ -1606,10 +1556,9 @@ namespace ResourceManager20200331
       Models::ListResourceGroupCapabilityResponse listResourceGroupCapability(const Models::ListResourceGroupCapabilityRequest &request);
 
       /**
-       * @summary Queries resource groups.
+       * @summary Queries the list of resource groups.
        *
-       * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
-       * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
+       * @description You can call this operation to query all resource groups under the current account. You can also filter resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
        *
        * @param request ListResourceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1618,10 +1567,9 @@ namespace ResourceManager20200331
       Models::ListResourceGroupsResponse listResourceGroupsWithOptions(const Models::ListResourceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource groups.
+       * @summary Queries the list of resource groups.
        *
-       * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
-       * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
+       * @description You can call this operation to query all resource groups under the current account. You can also filter resource groups by resource group status, resource group ID, resource group identifier, or resource group display name.
        *
        * @param request ListResourceGroupsRequest
        * @return ListResourceGroupsResponse
@@ -1629,7 +1577,7 @@ namespace ResourceManager20200331
       Models::ListResourceGroupsResponse listResourceGroups(const Models::ListResourceGroupsRequest &request);
 
       /**
-       * @summary Queries resource groups and their user authorization information.
+       * @summary Lists resource groups along with user authorization details.
        *
        * @param request ListResourceGroupsWithAuthDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1638,7 +1586,7 @@ namespace ResourceManager20200331
       Models::ListResourceGroupsWithAuthDetailsResponse listResourceGroupsWithAuthDetailsWithOptions(const Models::ListResourceGroupsWithAuthDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resource groups and their user authorization information.
+       * @summary Lists resource groups along with user authorization details.
        *
        * @param request ListResourceGroupsWithAuthDetailsRequest
        * @return ListResourceGroupsWithAuthDetailsResponse
@@ -1646,10 +1594,9 @@ namespace ResourceManager20200331
       Models::ListResourceGroupsWithAuthDetailsResponse listResourceGroupsWithAuthDetails(const Models::ListResourceGroupsWithAuthDetailsRequest &request);
 
       /**
-       * @summary Queries resources that can be accessed by the current account in resource groups.
+       * @summary Queries the resources in the resource groups accessible to the current account.
        *
-       * @description >  You can use a RAM role that is not associated with a session policy to call this API operation.
-       * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+       * @description > This API can be called by assuming a RAM role, but session policies for the role are not supported.
        *
        * @param request ListResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1658,10 +1605,9 @@ namespace ResourceManager20200331
       Models::ListResourcesResponse listResourcesWithOptions(const Models::ListResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries resources that can be accessed by the current account in resource groups.
+       * @summary Queries the resources in the resource groups accessible to the current account.
        *
-       * @description >  You can use a RAM role that is not associated with a session policy to call this API operation.
-       * This topic provides an example on how to call the API operation to query resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+       * @description > This API can be called by assuming a RAM role, but session policies for the role are not supported.
        *
        * @param request ListResourcesRequest
        * @return ListResourcesResponse
@@ -1669,7 +1615,7 @@ namespace ResourceManager20200331
       Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
 
       /**
-       * @summary Queries a list of RAM roles.
+       * @summary Queries the list of roles by calling ListRoles.
        *
        * @param request ListRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1678,7 +1624,7 @@ namespace ResourceManager20200331
       Models::ListRolesResponse listRolesWithOptions(const Models::ListRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of RAM roles.
+       * @summary Queries the list of roles by calling ListRoles.
        *
        * @param request ListRolesRequest
        * @return ListRolesResponse
@@ -1686,9 +1632,7 @@ namespace ResourceManager20200331
       Models::ListRolesResponse listRoles(const Models::ListRolesRequest &request);
 
       /**
-       * @summary Queries tag keys.
-       *
-       * @description This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+       * @summary Queries the tag key list of resource directory member accounts by calling ListTagKeys.
        *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1697,9 +1641,7 @@ namespace ResourceManager20200331
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries tag keys.
-       *
-       * @description This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+       * @summary Queries the tag key list of resource directory member accounts by calling ListTagKeys.
        *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
@@ -1707,9 +1649,7 @@ namespace ResourceManager20200331
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary Queries the tags that are added to resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+       * @summary Queries the tags that are attached to a resource group or a resource directory member.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1718,9 +1658,7 @@ namespace ResourceManager20200331
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags that are added to resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+       * @summary Queries the tags that are attached to a resource group or a resource directory member.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1728,9 +1666,10 @@ namespace ResourceManager20200331
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Queries the tag values of a tag key.
+       * @summary Queries the tag values of a specified tag key by calling ListTagValues.
        *
-       * @description This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+       * @description ### Usage notes
+       * This topic provides an example on how to query the tag values of the tag key k1. The response shows that the tag value corresponding to the tag key k1 is v1.
        *
        * @param request ListTagValuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1739,9 +1678,10 @@ namespace ResourceManager20200331
       Models::ListTagValuesResponse listTagValuesWithOptions(const Models::ListTagValuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tag values of a tag key.
+       * @summary Queries the tag values of a specified tag key by calling ListTagValues.
        *
-       * @description This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+       * @description ### Usage notes
+       * This topic provides an example on how to query the tag values of the tag key k1. The response shows that the tag value corresponding to the tag key k1 is v1.
        *
        * @param request ListTagValuesRequest
        * @return ListTagValuesResponse
@@ -1749,9 +1689,7 @@ namespace ResourceManager20200331
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
 
       /**
-       * @summary Queries the objects to which a specific control policy is attached.
-       *
-       * @description In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+       * @summary Queries the nodes to which a control policy is attached.
        *
        * @param request ListTargetAttachmentsForControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1760,9 +1698,7 @@ namespace ResourceManager20200331
       Models::ListTargetAttachmentsForControlPolicyResponse listTargetAttachmentsForControlPolicyWithOptions(const Models::ListTargetAttachmentsForControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the objects to which a specific control policy is attached.
-       *
-       * @description In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+       * @summary Queries the nodes to which a control policy is attached.
        *
        * @param request ListTargetAttachmentsForControlPolicyRequest
        * @return ListTargetAttachmentsForControlPolicyResponse
@@ -1770,10 +1706,9 @@ namespace ResourceManager20200331
       Models::ListTargetAttachmentsForControlPolicyResponse listTargetAttachmentsForControlPolicy(const Models::ListTargetAttachmentsForControlPolicyRequest &request);
 
       /**
-       * @summary Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+       * @summary Queries the list of trusted services enabled by the management account or a delegated administrator account.
        *
-       * @description >  Only an enterprise management account or delegated administrator account can be used to call this operation.
-       * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
+       * @description > This operation can be called only by the management account or a delegated administrator account.
        *
        * @param request ListTrustedServiceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1782,10 +1717,9 @@ namespace ResourceManager20200331
       Models::ListTrustedServiceStatusResponse listTrustedServiceStatusWithOptions(const Models::ListTrustedServiceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+       * @summary Queries the list of trusted services enabled by the management account or a delegated administrator account.
        *
-       * @description >  Only an enterprise management account or delegated administrator account can be used to call this operation.
-       * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
+       * @description > This operation can be called only by the management account or a delegated administrator account.
        *
        * @param request ListTrustedServiceStatusRequest
        * @return ListTrustedServiceStatusResponse
@@ -1793,7 +1727,7 @@ namespace ResourceManager20200331
       Models::ListTrustedServiceStatusResponse listTrustedServiceStatus(const Models::ListTrustedServiceStatusRequest &request);
 
       /**
-       * @summary Queries the events of resource groups.
+       * @summary Queries resource group events.
        *
        * @param request LookupResourceGroupEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1802,7 +1736,7 @@ namespace ResourceManager20200331
       Models::LookupResourceGroupEventsResponse lookupResourceGroupEventsWithOptions(const Models::LookupResourceGroupEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the events of resource groups.
+       * @summary Queries resource group events.
        *
        * @param request LookupResourceGroupEventsRequest
        * @return LookupResourceGroupEventsResponse
@@ -1810,7 +1744,7 @@ namespace ResourceManager20200331
       Models::LookupResourceGroupEventsResponse lookupResourceGroupEvents(const Models::LookupResourceGroupEventsRequest &request);
 
       /**
-       * @summary Moves a member account from a folder to another.
+       * @summary Moves a member to another folder.
        *
        * @param request MoveAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1819,7 +1753,7 @@ namespace ResourceManager20200331
       Models::MoveAccountResponse moveAccountWithOptions(const Models::MoveAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a member account from a folder to another.
+       * @summary Moves a member to another folder.
        *
        * @param request MoveAccountRequest
        * @return MoveAccountResponse
@@ -1827,10 +1761,10 @@ namespace ResourceManager20200331
       Models::MoveAccountResponse moveAccount(const Models::MoveAccountRequest &request);
 
       /**
-       * @summary Moves resources from one resource group to another. You can move multiple resources that reside in different regions, are used by different Alibaba Cloud services, or belong to different resource groups.
+       * @summary Calls MoveResources to move resources from one resource group to another.
        *
-       * @description For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
-       * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+       * @description Supports batch transfer of resources across regions, cloud services, and resource groups.
+       * For cloud services that support resource group transfer, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
        *
        * @param request MoveResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1839,10 +1773,10 @@ namespace ResourceManager20200331
       Models::MoveResourcesResponse moveResourcesWithOptions(const Models::MoveResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves resources from one resource group to another. You can move multiple resources that reside in different regions, are used by different Alibaba Cloud services, or belong to different resource groups.
+       * @summary Calls MoveResources to move resources from one resource group to another.
        *
-       * @description For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
-       * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+       * @description Supports batch transfer of resources across regions, cloud services, and resource groups.
+       * For cloud services that support resource group transfer, see the **API** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
        *
        * @param request MoveResourcesRequest
        * @return MoveResourcesResponse
@@ -1850,7 +1784,7 @@ namespace ResourceManager20200331
       Models::MoveResourcesResponse moveResources(const Models::MoveResourcesRequest &request);
 
       /**
-       * @summary Upgrades a resource account to a cloud account.
+       * @summary Upgrades a resource account to an Alibaba Cloud account. This is an asynchronous operation.
        *
        * @param request PromoteResourceAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1859,7 +1793,7 @@ namespace ResourceManager20200331
       Models::PromoteResourceAccountResponse promoteResourceAccountWithOptions(const Models::PromoteResourceAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a resource account to a cloud account.
+       * @summary Upgrades a resource account to an Alibaba Cloud account. This is an asynchronous operation.
        *
        * @param request PromoteResourceAccountRequest
        * @return PromoteResourceAccountResponse
@@ -1867,14 +1801,13 @@ namespace ResourceManager20200331
       Models::PromoteResourceAccountResponse promoteResourceAccount(const Models::PromoteResourceAccountRequest &request);
 
       /**
-       * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+       * @summary Sets a member account in a resource directory as a delegated administrator account for a trusted service.
        *
-       * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
-       * When you call this operation, you must take note of the following limits:
-       * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-       * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
-       * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
-       * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
+       * @description After the settings are complete, the delegated administrator account is granted authorization to access the organizational information of the resource directory, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account in the specified trusted service.
+       * Limits:
+       * - Only some trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+       * - Only the management account of the resource directory and authorized Resource Access Management (RAM) users and RAM roles under the management account can invoke this API operation.
+       * - The maximum number of delegated administrator accounts that can be added is defined by each trusted service.
        *
        * @param request RegisterDelegatedAdministratorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1883,14 +1816,13 @@ namespace ResourceManager20200331
       Models::RegisterDelegatedAdministratorResponse registerDelegatedAdministratorWithOptions(const Models::RegisterDelegatedAdministratorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+       * @summary Sets a member account in a resource directory as a delegated administrator account for a trusted service.
        *
-       * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
-       * When you call this operation, you must take note of the following limits:
-       * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
-       * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
-       * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
-       * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
+       * @description After the settings are complete, the delegated administrator account is granted authorization to access the organizational information of the resource directory, which provides visibility into the organization members and structure. The delegated administrator account executes service-related management operations on behalf of the management account in the specified trusted service.
+       * Limits:
+       * - Only some trusted services support the delegated administrator feature. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
+       * - Only the management account of the resource directory and authorized Resource Access Management (RAM) users and RAM roles under the management account can invoke this API operation.
+       * - The maximum number of delegated administrator accounts that can be added is defined by each trusted service.
        *
        * @param request RegisterDelegatedAdministratorRequest
        * @return RegisterDelegatedAdministratorResponse
@@ -1898,9 +1830,7 @@ namespace ResourceManager20200331
       Models::RegisterDelegatedAdministratorResponse registerDelegatedAdministrator(const Models::RegisterDelegatedAdministratorRequest &request);
 
       /**
-       * @summary Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
-       *
-       * @description This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
+       * @summary Removes a member of the cloud account type. After the member is removed, it exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
        *
        * @param request RemoveCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1909,9 +1839,7 @@ namespace ResourceManager20200331
       Models::RemoveCloudAccountResponse removeCloudAccountWithOptions(const Models::RemoveCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
-       *
-       * @description This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
+       * @summary Removes a member of the cloud account type. After the member is removed, it exists as an independent Alibaba Cloud account and is no longer managed by the management account of the resource directory.
        *
        * @param request RemoveCloudAccountRequest
        * @return RemoveCloudAccountResponse
@@ -1919,7 +1847,7 @@ namespace ResourceManager20200331
       Models::RemoveCloudAccountResponse removeCloudAccount(const Models::RemoveCloudAccountRequest &request);
 
       /**
-       * @summary Resends an email that is used to confirm the creation of a cloud account.
+       * @summary Resends the confirmation email for creating a cloud account.
        *
        * @param request ResendCreateCloudAccountEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1928,7 +1856,7 @@ namespace ResourceManager20200331
       Models::ResendCreateCloudAccountEmailResponse resendCreateCloudAccountEmailWithOptions(const Models::ResendCreateCloudAccountEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resends an email that is used to confirm the creation of a cloud account.
+       * @summary Resends the confirmation email for creating a cloud account.
        *
        * @param request ResendCreateCloudAccountEmailRequest
        * @return ResendCreateCloudAccountEmailResponse
@@ -1936,7 +1864,7 @@ namespace ResourceManager20200331
       Models::ResendCreateCloudAccountEmailResponse resendCreateCloudAccountEmail(const Models::ResendCreateCloudAccountEmailRequest &request);
 
       /**
-       * @summary Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
+       * @summary Resends the confirmation email for upgrading a resource account to a cloud account.
        *
        * @param request ResendPromoteResourceAccountEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1945,7 +1873,7 @@ namespace ResourceManager20200331
       Models::ResendPromoteResourceAccountEmailResponse resendPromoteResourceAccountEmailWithOptions(const Models::ResendPromoteResourceAccountEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
+       * @summary Resends the confirmation email for upgrading a resource account to a cloud account.
        *
        * @param request ResendPromoteResourceAccountEmailRequest
        * @return ResendPromoteResourceAccountEmailResponse
@@ -1953,7 +1881,7 @@ namespace ResourceManager20200331
       Models::ResendPromoteResourceAccountEmailResponse resendPromoteResourceAccountEmail(const Models::ResendPromoteResourceAccountEmailRequest &request);
 
       /**
-       * @summary Resends a verification email for the email address change of a member.
+       * @summary Resends the confirmation email for changing the email address of a member account.
        *
        * @param request RetryChangeAccountEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1962,7 +1890,7 @@ namespace ResourceManager20200331
       Models::RetryChangeAccountEmailResponse retryChangeAccountEmailWithOptions(const Models::RetryChangeAccountEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resends a verification email for the email address change of a member.
+       * @summary Resends the confirmation email for changing the email address of a member account.
        *
        * @param request RetryChangeAccountEmailRequest
        * @return RetryChangeAccountEmailResponse
@@ -1970,10 +1898,9 @@ namespace ResourceManager20200331
       Models::RetryChangeAccountEmailResponse retryChangeAccountEmail(const Models::RetryChangeAccountEmailRequest &request);
 
       /**
-       * @summary Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
+       * @summary Sends a verification code to a secure phone number when you set the secure phone number for a member of the resource account type by calling SendVerificationCodeForBindSecureMobilePhone.
        *
-       * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-       * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+       * @description To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource directory management permission (AliyunResourceDirectoryFullAccess) to call this API operation.
        *
        * @param request SendVerificationCodeForBindSecureMobilePhoneRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1982,10 +1909,9 @@ namespace ResourceManager20200331
       Models::SendVerificationCodeForBindSecureMobilePhoneResponse sendVerificationCodeForBindSecureMobilePhoneWithOptions(const Models::SendVerificationCodeForBindSecureMobilePhoneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
+       * @summary Sends a verification code to a secure phone number when you set the secure phone number for a member of the resource account type by calling SendVerificationCodeForBindSecureMobilePhone.
        *
-       * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-       * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+       * @description To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource directory management permission (AliyunResourceDirectoryFullAccess) to call this API operation.
        *
        * @param request SendVerificationCodeForBindSecureMobilePhoneRequest
        * @return SendVerificationCodeForBindSecureMobilePhoneResponse
@@ -1993,9 +1919,9 @@ namespace ResourceManager20200331
       Models::SendVerificationCodeForBindSecureMobilePhoneResponse sendVerificationCodeForBindSecureMobilePhone(const Models::SendVerificationCodeForBindSecureMobilePhoneRequest &request);
 
       /**
-       * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+       * @summary Sends a verification code to the secure phone number of a new management account when you call SendVerificationCodeForEnableRD to enable a resource directory by creating a new management account.
        *
-       * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+       * @description Each Alibaba Cloud account can send up to 100 verification codes per day.
        *
        * @param request SendVerificationCodeForEnableRDRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2004,9 +1930,9 @@ namespace ResourceManager20200331
       Models::SendVerificationCodeForEnableRDResponse sendVerificationCodeForEnableRDWithOptions(const Models::SendVerificationCodeForEnableRDRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+       * @summary Sends a verification code to the secure phone number of a new management account when you call SendVerificationCodeForEnableRD to enable a resource directory by creating a new management account.
        *
-       * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+       * @description Each Alibaba Cloud account can send up to 100 verification codes per day.
        *
        * @param request SendVerificationCodeForEnableRDRequest
        * @return SendVerificationCodeForEnableRDResponse
@@ -2014,7 +1940,7 @@ namespace ResourceManager20200331
       Models::SendVerificationCodeForEnableRDResponse sendVerificationCodeForEnableRD(const Models::SendVerificationCodeForEnableRDRequest &request);
 
       /**
-       * @summary Sets a default version for a permission policy.
+       * @summary Sets the default version of an access policy.
        *
        * @param request SetDefaultPolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2023,7 +1949,7 @@ namespace ResourceManager20200331
       Models::SetDefaultPolicyVersionResponse setDefaultPolicyVersionWithOptions(const Models::SetDefaultPolicyVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets a default version for a permission policy.
+       * @summary Sets the default version of an access policy.
        *
        * @param request SetDefaultPolicyVersionRequest
        * @return SetDefaultPolicyVersionResponse
@@ -2031,9 +1957,9 @@ namespace ResourceManager20200331
       Models::SetDefaultPolicyVersionResponse setDefaultPolicyVersion(const Models::SetDefaultPolicyVersionRequest &request);
 
       /**
-       * @summary Enables or disables the member deletion feature.
+       * @summary Enables or disables the member deletion permission by calling SetMemberDeletionPermission.
        *
-       * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
+       * @description You can delete members of the resource account type only after the member deletion permission is enabled.
        *
        * @param request SetMemberDeletionPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2042,9 +1968,9 @@ namespace ResourceManager20200331
       Models::SetMemberDeletionPermissionResponse setMemberDeletionPermissionWithOptions(const Models::SetMemberDeletionPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or disables the member deletion feature.
+       * @summary Enables or disables the member deletion permission by calling SetMemberDeletionPermission.
        *
-       * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
+       * @description You can delete members of the resource account type only after the member deletion permission is enabled.
        *
        * @param request SetMemberDeletionPermissionRequest
        * @return SetMemberDeletionPermissionResponse
@@ -2052,9 +1978,7 @@ namespace ResourceManager20200331
       Models::SetMemberDeletionPermissionResponse setMemberDeletionPermission(const Models::SetMemberDeletionPermissionRequest &request);
 
       /**
-       * @summary Adds tags to resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+       * @summary Attaches labels to resource groups or member accounts of a resource directory.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2063,9 +1987,7 @@ namespace ResourceManager20200331
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+       * @summary Attaches labels to resource groups or member accounts of a resource directory.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2073,9 +1995,7 @@ namespace ResourceManager20200331
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+       * @summary Unbinds tags from resource groups or resource directory members.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2084,9 +2004,7 @@ namespace ResourceManager20200331
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from resource groups or the members in a resource directory.
-       *
-       * @description This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+       * @summary Unbinds tags from resource groups or resource directory members.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -2094,12 +2012,12 @@ namespace ResourceManager20200331
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Changes the display name of a member, or switches the type of a member.
+       * @summary Modifies the name of a member or switches the member type by calling UpdateAccount.
        *
-       * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-       * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
-       * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
-       * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
+       * @description ### Before you begin
+       * - To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
+       * - For the conditions that must be met to switch a resource account to a cloud account, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+       * - For the conditions that must be met to switch a cloud account to a resource account, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
        *
        * @param request UpdateAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2108,12 +2026,12 @@ namespace ResourceManager20200331
       Models::UpdateAccountResponse updateAccountWithOptions(const Models::UpdateAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the display name of a member, or switches the type of a member.
+       * @summary Modifies the name of a member or switches the member type by calling UpdateAccount.
        *
-       * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
-       * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
-       * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
-       * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
+       * @description ### Before you begin
+       * - To ensure that the system can record the specific operator of management operations, use a Resource Access Management (RAM) user or RAM role under the management account that has the resource folder management permission (AliyunResourceDirectoryFullAccess) to invoke this API operation.
+       * - For the conditions that must be met to switch a resource account to a cloud account, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
+       * - For the conditions that must be met to switch a cloud account to a resource account, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
        *
        * @param request UpdateAccountRequest
        * @return UpdateAccountResponse
@@ -2121,9 +2039,9 @@ namespace ResourceManager20200331
       Models::UpdateAccountResponse updateAccount(const Models::UpdateAccountRequest &request);
 
       /**
-       * @summary Updates the settings of the Transfer Associated Resources feature.
+       * @summary Updates the settings of the associated resource group transfer feature by calling UpdateAssociatedTransferSetting.
        *
-       * @description For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](https://help.aliyun.com/document_detail/606232.html).
+       * @description For cloud resources that support the attached-resource allocation feature, see [Attached-resource allocation](https://help.aliyun.com/document_detail/606232.html).
        *
        * @param request UpdateAssociatedTransferSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2132,9 +2050,9 @@ namespace ResourceManager20200331
       Models::UpdateAssociatedTransferSettingResponse updateAssociatedTransferSettingWithOptions(const Models::UpdateAssociatedTransferSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the settings of the Transfer Associated Resources feature.
+       * @summary Updates the settings of the associated resource group transfer feature by calling UpdateAssociatedTransferSetting.
        *
-       * @description For information about the resources that support the Transfer Associated Resources feature, see [Use the Transfer Associated Resources feature](https://help.aliyun.com/document_detail/606232.html).
+       * @description For cloud resources that support the attached-resource allocation feature, see [Attached-resource allocation](https://help.aliyun.com/document_detail/606232.html).
        *
        * @param request UpdateAssociatedTransferSettingRequest
        * @return UpdateAssociatedTransferSettingResponse
@@ -2142,7 +2060,7 @@ namespace ResourceManager20200331
       Models::UpdateAssociatedTransferSettingResponse updateAssociatedTransferSetting(const Models::UpdateAssociatedTransferSettingRequest &request);
 
       /**
-       * @summary Updates the configuration of the Automatic Resource Transfer feature. You can update only the configuration of the Transfer Existing Associated Resources feature.
+       * @summary Calls UpdateAutoGroupingConfig to update the automatic group transfer settings. Currently, only the setting for whether to enable existing associated resources to follow the group transfer task is supported.
        *
        * @param request UpdateAutoGroupingConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2151,7 +2069,7 @@ namespace ResourceManager20200331
       Models::UpdateAutoGroupingConfigResponse updateAutoGroupingConfigWithOptions(const Models::UpdateAutoGroupingConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of the Automatic Resource Transfer feature. You can update only the configuration of the Transfer Existing Associated Resources feature.
+       * @summary Calls UpdateAutoGroupingConfig to update the automatic group transfer settings. Currently, only the setting for whether to enable existing associated resources to follow the group transfer task is supported.
        *
        * @param request UpdateAutoGroupingConfigRequest
        * @return UpdateAutoGroupingConfigResponse
@@ -2159,7 +2077,7 @@ namespace ResourceManager20200331
       Models::UpdateAutoGroupingConfigResponse updateAutoGroupingConfig(const Models::UpdateAutoGroupingConfigRequest &request);
 
       /**
-       * @summary Updates a transfer rule.
+       * @summary Updates an automatic resource group transfer rule by calling UpdateAutoGroupingRule.
        *
        * @param request UpdateAutoGroupingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2168,7 +2086,7 @@ namespace ResourceManager20200331
       Models::UpdateAutoGroupingRuleResponse updateAutoGroupingRuleWithOptions(const Models::UpdateAutoGroupingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a transfer rule.
+       * @summary Updates an automatic resource group transfer rule by calling UpdateAutoGroupingRule.
        *
        * @param request UpdateAutoGroupingRuleRequest
        * @return UpdateAutoGroupingRuleResponse
@@ -2176,9 +2094,9 @@ namespace ResourceManager20200331
       Models::UpdateAutoGroupingRuleResponse updateAutoGroupingRule(const Models::UpdateAutoGroupingRuleRequest &request);
 
       /**
-       * @summary Updates a custom access control policy.
+       * @summary Modifies a custom control policy by calling UpdateControlPolicy.
        *
-       * @description In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
+       * @description This topic provides an example on how to modify the name of the control policy `cp-jExXAqIYkwHN****` to `NewControlPolicy`.
        *
        * @param request UpdateControlPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2187,9 +2105,9 @@ namespace ResourceManager20200331
       Models::UpdateControlPolicyResponse updateControlPolicyWithOptions(const Models::UpdateControlPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a custom access control policy.
+       * @summary Modifies a custom control policy by calling UpdateControlPolicy.
        *
-       * @description In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
+       * @description This topic provides an example on how to modify the name of the control policy `cp-jExXAqIYkwHN****` to `NewControlPolicy`.
        *
        * @param request UpdateControlPolicyRequest
        * @return UpdateControlPolicyResponse
@@ -2197,7 +2115,7 @@ namespace ResourceManager20200331
       Models::UpdateControlPolicyResponse updateControlPolicy(const Models::UpdateControlPolicyRequest &request);
 
       /**
-       * @summary Changes the name of a folder.
+       * @summary Modifies the name of a folder by calling UpdateFolder.
        *
        * @param request UpdateFolderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2206,7 +2124,7 @@ namespace ResourceManager20200331
       Models::UpdateFolderResponse updateFolderWithOptions(const Models::UpdateFolderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a folder.
+       * @summary Modifies the name of a folder by calling UpdateFolder.
        *
        * @param request UpdateFolderRequest
        * @return UpdateFolderResponse
@@ -2214,9 +2132,7 @@ namespace ResourceManager20200331
       Models::UpdateFolderResponse updateFolder(const Models::UpdateFolderRequest &request);
 
       /**
-       * @summary Updates the basic information of a resource group.
-       *
-       * @description In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
+       * @summary Modifies the display name of a resource group.
        *
        * @param request UpdateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2225,9 +2141,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupResponse updateResourceGroupWithOptions(const Models::UpdateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the basic information of a resource group.
-       *
-       * @description In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
+       * @summary Modifies the display name of a resource group.
        *
        * @param request UpdateResourceGroupRequest
        * @return UpdateResourceGroupResponse
@@ -2235,7 +2149,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupResponse updateResourceGroup(const Models::UpdateResourceGroupRequest &request);
 
       /**
-       * @summary Updates the configurations of a resource group administrator.
+       * @summary Updates the administrator settings of a resource group by calling UpdateResourceGroupAdminSetting.
        *
        * @param request UpdateResourceGroupAdminSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2244,7 +2158,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupAdminSettingResponse updateResourceGroupAdminSettingWithOptions(const Models::UpdateResourceGroupAdminSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of a resource group administrator.
+       * @summary Updates the administrator settings of a resource group by calling UpdateResourceGroupAdminSetting.
        *
        * @param request UpdateResourceGroupAdminSettingRequest
        * @return UpdateResourceGroupAdminSettingResponse
@@ -2252,9 +2166,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupAdminSettingResponse updateResourceGroupAdminSetting(const Models::UpdateResourceGroupAdminSettingRequest &request);
 
       /**
-       * @summary Updates the information about a Resource Access Management (RAM) role.
-       *
-       * @description In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+       * @summary Updates the information of a RAM role.
        *
        * @param request UpdateRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2263,9 +2175,7 @@ namespace ResourceManager20200331
       Models::UpdateRoleResponse updateRoleWithOptions(const Models::UpdateRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a Resource Access Management (RAM) role.
-       *
-       * @description In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+       * @summary Updates the information of a RAM role.
        *
        * @param request UpdateRoleRequest
        * @return UpdateRoleResponse

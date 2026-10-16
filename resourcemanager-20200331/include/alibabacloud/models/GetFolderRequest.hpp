@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the folder.
+    // The folder ID.
     // 
     // This parameter is required.
     shared_ptr<string> folderId_ {};

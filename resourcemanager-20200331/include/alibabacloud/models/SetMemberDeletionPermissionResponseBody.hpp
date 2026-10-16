@@ -68,14 +68,14 @@ namespace Models
   protected:
     // The ID of the management account of the resource directory.
     shared_ptr<string> managementAccountId_ {};
-    // The status of the member deletion feature. Valid values:
+    // The status of the member deletion permission. Valid values:
     // 
-    // *   Enabled: The feature is enabled.
-    // *   Disabled: The feature is disabled.
+    // - Enabled: The member deletion permission is enabled.
+    // - Disabled: The member deletion permission is disabled.
     shared_ptr<string> memberDeletionStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource directory.
+    // The resource directory ID.
     shared_ptr<string> resourceDirectoryId_ {};
   };
 

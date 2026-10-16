@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The tag key for a fuzzy query.
+    // The tag key for fuzzy match.
     shared_ptr<string> keyFilter_ {};
-    // The maximum number of entries to return for a single request.
+    // The maximum number of entries to return in a single request.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query.
+    // The token that determines the start point of the next query.
     shared_ptr<string> nextToken_ {};
     // The resource type.
     // 
-    // The value Account indicates the members of the resource directory.
+    // Set this parameter to Account, which indicates a member account of a resource directory.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

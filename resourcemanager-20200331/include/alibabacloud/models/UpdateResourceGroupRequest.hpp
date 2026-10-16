@@ -54,9 +54,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> newDisplayName_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the ID.
+    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to obtain the resource group ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

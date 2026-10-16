@@ -215,13 +215,13 @@ namespace Models
 
   protected:
     shared_ptr<ListControlPoliciesResponseBody::ControlPolicies> controlPolicies_ {};
-    // The number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of access control policies.
+    // The total number of control policies.
     shared_ptr<int32_t> totalCount_ {};
   };
 

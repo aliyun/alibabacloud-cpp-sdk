@@ -99,11 +99,11 @@ namespace Models
 
 
     protected:
-      // The condition for the range of resources that are automatically transferred.
+      // The scope condition for automatic resource group transfer. This parameter specifies the scope of resources that need to be automatically transferred.
       shared_ptr<string> autoGroupingScopeCondition_ {};
-      // The ID of the content record.
+      // The rule content ID.
       shared_ptr<string> ruleContentId_ {};
-      // The condition for the destination resource group.
+      // The target resource group condition. This parameter specifies the target resource group for automatic resource group transfer.
       // 
       // This parameter is required.
       shared_ptr<string> targetResourceGroupCondition_ {};
@@ -200,33 +200,33 @@ namespace Models
 
 
   protected:
-    // The IDs of regions to be excluded. Separate multiple IDs with commas (,).
+    // The excluded scope of region IDs. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // The IDs of resource groups to be excluded. Separate multiple IDs with commas (,).
+    // The excluded scope of resource group IDs. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The IDs of resources to be excluded. Separate multiple IDs with commas (,).
+    // The excluded scope of resource IDs. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // The resource types to be excluded. Separate multiple resource types with commas (,).
+    // The excluded scope of resource types. Separate multiple resource types with commas (,).
     shared_ptr<string> excludeResourceTypesScope_ {};
-    // The IDs of regions. Separate multiple IDs with commas (,).
+    // The scope of region IDs. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
-    // The IDs of resource groups. Separate multiple IDs with commas (,).
+    // The scope of resource group IDs. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // The IDs of resources. Separate multiple IDs with commas (,).
+    // The scope of resource IDs. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The resource types. Separate multiple resource types with commas (,).
+    // The scope of resource types. Separate multiple resource types with commas (,).
     shared_ptr<string> resourceTypesScope_ {};
-    // The content records of the rule.
+    // The list of rule contents.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateAutoGroupingRuleRequest::RuleContents>> ruleContents_ {};
-    // The description of the rule.
+    // The rule description.
     shared_ptr<string> ruleDesc_ {};
-    // The ID of the rule.
+    // The rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

@@ -76,11 +76,11 @@ namespace Models
     protected:
       // The resource type.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> resourceTypeCode_ {};
-      // The service code.
+      // The cloud service code.
       // 
-      // You can obtain the code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> service_ {};
     };
 
@@ -117,22 +117,16 @@ namespace Models
 
 
   protected:
-    // The dimension by which resources are queried.
-    // 
-    // > If you do not specify a dimension, no results are returned.
-    // 
-    // Valid values:
-    // 
-    // *   ResourceGroupId
-    // *   ResourceType
+    // The grouping dimension for resource count statistics.
+    // > Specify a grouping dimension. If you do not specify a grouping dimension, the response is empty.
     shared_ptr<string> groupByKey_ {};
     // The resource group ID.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to obtain the ID.
+    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) to obtain the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The region ID of the resources.
+    // The region to which the resource belongs.
     shared_ptr<string> resourceRegionId_ {};
-    // The resource types.
+    // The list of resource types.
     shared_ptr<vector<GetResourceGroupResourceCountsRequest::ResourceTypes>> resourceTypes_ {};
   };
 

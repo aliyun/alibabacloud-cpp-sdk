@@ -125,28 +125,27 @@ namespace Models
 
 
     protected:
-      // The error code returned.
+      // The error code.
       // 
-      // >  This parameter is returned if the resource failed to be moved.
+      // > This parameter is returned only when the resource transfer fails.
       shared_ptr<string> errorCode_ {};
-      // The error message returned.
-      // 
-      // >  This parameter is returned if the resource failed to be moved.
+      // The error message.
+      // > This parameter is returned only when the resource transfer fails.
       shared_ptr<string> errorMsg_ {};
       // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The ID of the request.
+      // The request ID.
       shared_ptr<string> requestId_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The ID of the Alibaba Cloud service.
+      // The cloud service code.
       shared_ptr<string> service_ {};
-      // The status of the move task. Valid values:
+      // The status. Valid values:
       // 
-      // *   SUCCESS
-      // *   FAIL
+      // - SUCCESS: Succeeded.
+      // - FAIL: Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -169,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The response results.
     shared_ptr<vector<MoveResourcesResponseBody::Responses>> responses_ {};
   };
 

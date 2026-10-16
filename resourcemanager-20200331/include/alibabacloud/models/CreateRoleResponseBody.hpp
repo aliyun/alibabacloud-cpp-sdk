@@ -124,11 +124,11 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the role.
+      // The resource descriptor of the role.
       shared_ptr<string> arn_ {};
-      // The document of the policy in which the entity that can assume the role is specified.
+      // The content of the access policy for assuming the role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the role was created.
+      // The time when the role was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
       // The description of the role.
       shared_ptr<string> description_ {};
@@ -138,7 +138,7 @@ namespace Models
       shared_ptr<string> roleId_ {};
       // The name of the role.
       shared_ptr<string> roleName_ {};
-      // The name of the role after authorization.
+      // The name of the authorized role.
       shared_ptr<string> rolePrincipalName_ {};
     };
 
@@ -163,7 +163,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the role.
+    // The role information.
     shared_ptr<CreateRoleResponseBody::Role> role_ {};
   };
 

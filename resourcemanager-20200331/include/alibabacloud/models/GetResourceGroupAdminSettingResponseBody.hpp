@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether enable the Use Creator as Administrator feature.
+    // Indicates whether the resource group creator is set as the resource group administrator.
     shared_ptr<bool> creatorAsAdmin_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

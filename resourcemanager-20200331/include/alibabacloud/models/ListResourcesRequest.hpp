@@ -14,6 +14,7 @@ namespace Models
   class ListResourcesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListResourcesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Region, region_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Service, service_);
     };
     friend void from_json(const Darabonba::Json& j, ListResourcesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Region, region_);
@@ -86,23 +88,28 @@ namespace Models
       // 
       // Valid values of N: 1 to 50.
       // 
-      // For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
-      // 
-      // >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+      // > The Service and ResourceType parameters in ResourceTypes must be specified at the same time. Otherwise, they do not take effect.
       shared_ptr<string> resourceType_ {};
-      // The ID of the Alibaba Cloud service.
+      // The code of the cloud service.
       // 
       // Valid values of N: 1 to 50.
       // 
-      // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
-      // 
-      // >  You must configure both `Service` and `ResourceType` in `ResourceTypes`. Otherwise, the two parameters do not take effect.
+      // You can obtain the code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
+      // > The Service and ResourceType parameters in ResourceTypes must be specified at the same time. Otherwise, they do not take effect.
       shared_ptr<string> service_ {};
     };
 
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
-        && this->resourceTypes_ == nullptr && this->service_ == nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr
+        && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr && this->service_ == nullptr; };
+    // count Field Functions 
+    bool hasCount() const { return this->count_ != nullptr;};
+    void deleteCount() { this->count_ = nullptr;};
+    inline bool getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, false) };
+    inline ListResourcesRequest& setCount(bool count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -162,9 +169,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query the total number of resources. Default value: true. Valid values:
+    // - true: Queries the total number of resources and returns the result in the TotalCount parameter.
+    // - false: Does not query the total number of resources. The TotalCount parameter returns -1, and the resources are still paginated based on the PageNumber and PageSize parameters.
+    shared_ptr<bool> count_ {};
     // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
@@ -178,15 +189,15 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The resource type.
     // 
-    // For more information about the supported resource types, see the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+    // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
     shared_ptr<string> resourceType_ {};
-    // The resource types. A maximum of 50 resource types are supported.
+    // The list of resource types. A maximum of 50 resource types are supported.
     // 
-    // >  If you configure `ResourceTypes`, you must configure both `Service` and `ResourceType`. Otherwise, the configured Service or ResourceType does not take effect.
+    // > If you configure the Settings for ResourceTypes, the Service and ResourceType request parameter specified separately do not take effect.
     shared_ptr<vector<ListResourcesRequest::ResourceTypes>> resourceTypes_ {};
-    // The ID of the Alibaba Cloud service.
+    // The code of the cloud service.
     // 
-    // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+    // You can obtain the code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
     shared_ptr<string> service_ {};
   };
 

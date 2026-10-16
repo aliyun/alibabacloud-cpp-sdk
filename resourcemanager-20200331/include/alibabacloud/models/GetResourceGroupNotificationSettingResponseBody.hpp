@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the group event notification is enabled.
+    // Indicates whether group event notification is enabled.
     shared_ptr<bool> resourceGroupNotificationEnableStatus_ {};
   };
 

@@ -133,23 +133,23 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the RAM role.
+      // The resource descriptor of the RAM role.
       shared_ptr<string> arn_ {};
       // The trust policy of the RAM role.
       shared_ptr<string> assumeRolePolicyDocument_ {};
-      // The time when the RAM role was created.
+      // The time when the RAM role was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
       // The description of the RAM role.
       shared_ptr<string> description_ {};
-      // The maximum session time of the RAM role.
+      // The maximum session duration of the RAM role.
       shared_ptr<int64_t> maxSessionDuration_ {};
       // The ID of the RAM role.
       shared_ptr<string> roleId_ {};
       // The name of the RAM role.
       shared_ptr<string> roleName_ {};
-      // The name of the RAM role after authorization.
+      // The name of the authorized RAM role.
       shared_ptr<string> rolePrincipalName_ {};
-      // The time when the RAM role was updated.
+      // The time when the RAM role was last updated. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -174,7 +174,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM role.
+    // The information of the RAM role.
     shared_ptr<UpdateRoleResponseBody::Role> role_ {};
   };
 

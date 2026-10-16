@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The key of the attribute.
+      // The key of the lookup attribute.
       shared_ptr<string> key_ {};
-      // The value of the attribute.
+      // The value of the lookup attribute.
       shared_ptr<string> value_ {};
     };
 
@@ -150,25 +150,25 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The time is displayed in UTC.
+    // The end time of the event. The format is YYYY-MM-DD HH:mm:ss and does not include a time zone identifier.
     shared_ptr<string> endTime_ {};
     // The event type.
     // 
     // This parameter is required.
     shared_ptr<string> eventCategory_ {};
-    // The attributes used for advanced search.
+    // The lookup attributes.
     shared_ptr<vector<LookupResourceGroupEventsRequest::LookupAttributes>> lookupAttributes_ {};
     // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<string> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The resource group name.
     shared_ptr<string> resourceGroupDisplayName_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The time is displayed in UTC.
+    // The start time of the event. The format is YYYY-MM-DD HH:mm:ss and does not include a time zone identifier.
     shared_ptr<string> startTime_ {};
   };
 

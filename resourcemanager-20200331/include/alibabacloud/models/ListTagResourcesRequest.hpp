@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // A tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // A tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -124,20 +124,24 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The resource ID.
-    shared_ptr<vector<string>> resourceId_ {};
-    // The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
+    // The resource group ID or resource directory member ID. This parameter is used as a filter condition.
     // 
-    // *   ResourceGroup: resource group. This is the default value.
-    // *   Account: member.
+    // > To query the tags that are attached to a resource directory member, you must specify both `ResourceId` and `ResourceType`, and set `ResourceType` to `Account`.
+    shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. This parameter is used as a filter condition. Valid values:
+    // 
+    // - ResourceGroup (default): queries the tags of a resource group.
+    // - Account: queries the tags of a resource directory member.
     shared_ptr<string> resourceType_ {};
-    // The tag key and value.
+    // The tags. This parameter is used as a filter condition.
+    // 
+    // You can specify up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

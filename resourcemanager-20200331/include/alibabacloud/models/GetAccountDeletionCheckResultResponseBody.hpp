@@ -106,7 +106,7 @@ namespace Models
       protected:
         // The ID of the check item.
         shared_ptr<string> checkId_ {};
-        // The name of the cloud service to which the check item belongs.
+        // The service name of the cloud service to which the check item belongs.
         shared_ptr<string> checkName_ {};
         // The description of the check item.
         shared_ptr<string> description_ {};
@@ -161,7 +161,7 @@ namespace Models
       protected:
         // The ID of the check item.
         shared_ptr<string> checkId_ {};
-        // The name of the cloud service to which the check item belongs.
+        // The service name of the cloud service to which the check item belongs.
         shared_ptr<string> checkName_ {};
         // The description of the check item.
         shared_ptr<string> description_ {};
@@ -202,23 +202,21 @@ namespace Models
 
 
     protected:
-      // The check items that you can choose to ignore for the member deletion.
+      // The check items that you can choose to abandon and proceed with the member deletion.
       // 
-      // >  This parameter may be returned if the value of AllowDelete is true.
+      // > This parameter may be returned when AllowDelete is set to true.
       shared_ptr<vector<AccountDeletionCheckResultInfo::AbandonableChecks>> abandonableChecks_ {};
-      // Indicates whether the member can be deleted. Valid values:
-      // 
-      // *   true: The member can be deleted.
-      // *   false: The member cannot be deleted.
+      // Indicates whether the member account can be deleted. Valid values:
+      // - true: The member account can be deleted.
+      // - false: The member account cannot be deleted.
       shared_ptr<string> allowDelete_ {};
-      // The reasons why the member cannot be deleted.
-      // 
-      // >  This parameter is returned only if the value of AllowDelete is false.
+      // The reasons why the member account cannot be deleted.
+      // > This parameter is returned only when AllowDelete is set to false.
       shared_ptr<vector<AccountDeletionCheckResultInfo::NotAllowReason>> notAllowReason_ {};
-      // The status of the check. Valid values:
+      // The check status. Valid values:
       // 
-      // *   PreCheckComplete: The check is complete.
-      // *   PreChecking: The check is in progress.
+      // - PreCheckComplete: The check is complete.
+      // - PreChecking: The check is in progress.
       shared_ptr<string> status_ {};
     };
 
@@ -241,9 +239,9 @@ namespace Models
 
 
   protected:
-    // The result of the deletion check for the member.
+    // The result of the member deletion check.
     shared_ptr<GetAccountDeletionCheckResultResponseBody::AccountDeletionCheckResultInfo> accountDeletionCheckResultInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

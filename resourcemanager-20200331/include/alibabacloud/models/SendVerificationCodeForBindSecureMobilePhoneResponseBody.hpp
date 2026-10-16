@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The time when the verification code expires.
+    // The expiration time of the verification code. The time is in RFC 3339 UTC format, indicated by Z for UTC.
     shared_ptr<string> expirationDate_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

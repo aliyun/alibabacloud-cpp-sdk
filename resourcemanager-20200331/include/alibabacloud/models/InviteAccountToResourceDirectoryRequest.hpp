@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // A tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // A tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,20 +113,20 @@ namespace Models
 
 
   protected:
-    // The comment on the invitation.
+    // The remarks.
     // 
-    // The comment can be up to 1,024 characters in length.
+    // Maximum length: 1024 characters.
     shared_ptr<string> note_ {};
-    // The tag key and value.
+    // The tags.
     shared_ptr<vector<InviteAccountToResourceDirectoryRequest::Tag>> tag_ {};
-    // The ID or logon email address of the account that you want to invite.
+    // The ID or logon email address of the account that is invited.
     // 
     // This parameter is required.
     shared_ptr<string> targetEntity_ {};
-    // The type of the account. Valid values:
+    // The type of the account that is invited. Valid values:
     // 
-    // *   Account: indicates the ID of the account.
-    // *   Email: indicates the logon email address of the account.
+    // - Account: account ID.
+    // - Email: logon email address of the account.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

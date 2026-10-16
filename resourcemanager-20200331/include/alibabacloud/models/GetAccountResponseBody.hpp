@@ -117,9 +117,9 @@ namespace Models
 
 
       protected:
-        // A tag key.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // A tag value.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -235,55 +235,54 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account ID of the member.
+      // The member account ID.
       shared_ptr<string> accountId_ {};
-      // The Alibaba Cloud account name of the member.
+      // The name of the account.
       shared_ptr<string> accountName_ {};
-      // The display name of the member.
+      // The display name of the member account.
       shared_ptr<string> displayName_ {};
-      // The status of the modification for the email address bound to the member. Valid values:
+      // The email status. Valid values:
       // 
-      // *   WAIT_MODIFY: in progress
-      // *   CANCELLED: canceled
-      // *   EXPIRED: expired
-      // 
-      // If the value of this parameter is empty, no modification is performed for the email address.
+      // - Empty: No email modification record exists.
+      // - WAIT_MODIFY: The modification is in progress.
+      // - CANCELLED: The modification is canceled.
+      // - EXPIRED: The modification has expired.
       shared_ptr<string> emailStatus_ {};
       // The ID of the folder.
       shared_ptr<string> folderId_ {};
       // The real-name verification information.
       shared_ptr<string> identityInformation_ {};
-      // The way in which the member joins the resource directory. Valid values:
+      // The method used by the member account to join the resource directory. Valid values:
       // 
-      // *   invited: The member is invited to join the resource directory.
-      // *   created: The member is directly created in the resource directory.
+      // - invited: Invited.
+      // - created: Created.
       shared_ptr<string> joinMethod_ {};
-      // The time when the member joined the resource directory.
+      // The time when the member account joined the resource directory. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
       shared_ptr<string> joinTime_ {};
-      // The location of the member in the resource directory.
+      // The location of the member account in the resource directory.
       shared_ptr<string> location_ {};
-      // The time when the member was modified.
+      // The time when the member account was last modified. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
       shared_ptr<string> modifyTime_ {};
       // The ID of the resource directory.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The path of the member in the resource directory.
+      // The path ID (RDPath) of the member account in the resource directory.
       shared_ptr<string> resourceDirectoryPath_ {};
-      // The status of the member. Valid values:
+      // The join status of the member account. Valid values:
       // 
-      // *   CreateSuccess: The member is created.
-      // *   PromoteVerifying: The upgrade of the member is being confirmed.
-      // *   PromoteFailed: The upgrade of the member fails.
-      // *   PromoteExpired: The upgrade of the member expires.
-      // *   PromoteCancelled: The upgrade of the member is canceled.
-      // *   PromoteSuccess: The member is upgraded.
-      // *   InviteSuccess: The member accepts the invitation.
+      // - CreateSuccess: Created.
+      // - PromoteVerifying: Upgrade is being confirmed.
+      // - PromoteFailed: Upgrade failed.
+      // - PromoteExpired: Upgrade expired.
+      // - PromoteCancelled: Upgrade canceled.
+      // - PromoteSuccess: Upgrade succeeded.
+      // - InviteSuccess: Invitation succeeded.
       shared_ptr<string> status_ {};
-      // The tags that are added to the member.
+      // The tags.
       shared_ptr<vector<Account::Tags>> tags_ {};
-      // The type of the member. Valid values:
+      // The type of the member account. Valid values:
       // 
-      // *   CloudAccount: cloud account
-      // *   ResourceAccount: resource account
+      // - CloudAccount: Cloud account.
+      // - ResourceAccount: Resource account.
       shared_ptr<string> type_ {};
     };
 
@@ -306,9 +305,9 @@ namespace Models
 
 
   protected:
-    // The information of the member.
+    // The member account information.
     shared_ptr<GetAccountResponseBody::Account> account_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

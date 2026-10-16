@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // A tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // A tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,20 +113,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return the information of tags. Valid values:
-    // 
-    // *   false (default value)
-    // *   true
+    // Specifies whether to return tag information. Valid values:
+    // - false (default): does not return tag information.
+    // - true: returns tag information.
     shared_ptr<bool> includeTags_ {};
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The tag key and value.
+    // The tags used to filter member accounts.
     shared_ptr<vector<ListAccountsRequest::Tag>> tag_ {};
   };
 

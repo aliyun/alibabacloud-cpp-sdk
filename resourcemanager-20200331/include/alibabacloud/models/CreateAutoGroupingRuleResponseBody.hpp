@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the rule.
+    // The rule ID.
     shared_ptr<string> ruleId_ {};
   };
 

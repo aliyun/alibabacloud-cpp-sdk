@@ -151,36 +151,36 @@ namespace Models
 
 
     protected:
-      // The time when the invitation was created. The time is displayed in UTC.
+      // The creation time of the handshake (UTC).
       shared_ptr<string> createTime_ {};
-      // The time when the invitation expires. The time is displayed in UTC.
+      // The expiration time of the handshake (UTC).
       shared_ptr<string> expireTime_ {};
-      // The ID of the invitation.
+      // The handshake ID.
       shared_ptr<string> handshakeId_ {};
       // The ID of the management account of the resource directory.
       shared_ptr<string> masterAccountId_ {};
       // The name of the management account of the resource directory.
       shared_ptr<string> masterAccountName_ {};
-      // The time when the invitation was modified. The time is displayed in UTC.
+      // The modification time of the handshake (UTC).
       shared_ptr<string> modifyTime_ {};
-      // The comment on the invitation.
+      // The remarks.
       shared_ptr<string> note_ {};
-      // The ID of the resource directory.
+      // The resource directory ID.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The status of the invitation. Valid values:
+      // The status of the handshake. Valid values:
       // 
-      // *   Pending: The invitation is waiting for confirmation.
-      // *   Accepted: The invitation is accepted.
-      // *   Cancelled: The invitation is canceled.
-      // *   Declined: The invitation is rejected.
-      // *   Expired: The invitation expires.
+      // - Pending: waiting for confirmation.
+      // - Accepted: accepted.
+      // - Cancelled: canceled.
+      // - Declined: rejected.
+      // - Expired: expired.
       shared_ptr<string> status_ {};
-      // The ID or logon email address of the invited Alibaba Cloud account.
+      // The Alibaba Cloud account ID or logon email address of the invited account.
       shared_ptr<string> targetEntity_ {};
       // The type of the invited Alibaba Cloud account. Valid values:
       // 
-      // *   Account: indicates the ID of the Alibaba Cloud account.
-      // *   Email: indicates the logon email address of the Alibaba Cloud account.
+      // - Account: Alibaba Cloud account ID.
+      // - Email: logon email address of the Alibaba Cloud account.
       shared_ptr<string> targetType_ {};
     };
 
@@ -203,9 +203,9 @@ namespace Models
 
 
   protected:
-    // The information of the invitation.
+    // The handshake information.
     shared_ptr<AcceptHandshakeResponseBody::Handshake> handshake_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -38,10 +38,10 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the Transfer Existing Associated Resources feature. Valid values:
+    // Specifies whether to enable existing associated resources to follow the group transfer task. Valid values:
     // 
-    // *   false
-    // *   true
+    // - false: Existing associated resources do not follow the group transfer task.
+    // - true: Existing associated resources follow the group transfer task.
     shared_ptr<bool> enableExistingResourcesTransfer_ {};
   };
 

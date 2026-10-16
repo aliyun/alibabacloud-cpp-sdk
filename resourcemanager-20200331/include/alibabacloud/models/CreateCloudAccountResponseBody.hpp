@@ -142,41 +142,41 @@ namespace Models
 
 
     protected:
-      // The ID of the member account.
+      // The account ID.
       shared_ptr<string> accountId_ {};
-      // The name of the member account.
+      // The account name.
       shared_ptr<string> accountName_ {};
-      // The display name of the member account.
+      // The member name.
       shared_ptr<string> displayName_ {};
-      // The ID of the folder.
+      // The folder ID.
       shared_ptr<string> folderId_ {};
-      // The way in which the member account joined the resource directory. Valid values:
+      // The method used by the member to join the resource directory. Valid values:
       // 
-      // *   invited: The member account is invited to join the resource directory.
-      // *   created: The member account is directly created in the resource directory.
+      // - invited: The member is invited to join.
+      // - created: The member is created in the resource directory.
       shared_ptr<string> joinMethod_ {};
-      // The time when the member account was modified.
+      // The time when the member was last modified. The time is displayed in UTC, as specified by RFC 3339, with Z indicating UTC.
       shared_ptr<string> modifyTime_ {};
       // The account record ID.
       shared_ptr<string> recordId_ {};
-      // The ID of the resource directory.
+      // The resource directory ID.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The status of the member account. Valid values:
+      // The status of the member. Valid values:
       // 
-      // *   CreateSuccess: The member account is created.
-      // *   CreateVerifying: The creation of the member account is under confirmation.
-      // *   CreateFailed: The member account failed to be created.
-      // *   CreateExpired: The creation of the member account expired.
-      // *   CreateCancelled: The creation of the member account is canceled.
-      // *   PromoteVerifying: The upgrade of the member account is under confirmation.
-      // *   PromoteFailed: The member account failed to be upgraded.
-      // *   PromoteExpired: The upgrade of the member account expired.
-      // *   PromoteCancelled: The upgrade of the member account is canceled.
-      // *   PromoteSuccess: The member account is upgraded.
-      // *   InviteSuccess: The owner of the member account accepted the invitation.
-      // *   Removed: The member account is removed from the resource directory.
+      // - CreateSuccess: The member is created.
+      // - CreateVerifying: The creation is being confirmed.
+      // - CreateFailed: The member failed to be created.
+      // - CreateExpired: The creation has expired.
+      // - CreateCancelled: The creation is canceled.
+      // - PromoteVerifying: The upgrade is being confirmed.
+      // - PromoteFailed: The member failed to be upgraded.
+      // - PromoteExpired: The upgrade has expired.
+      // - PromoteCancelled: The upgrade is canceled.
+      // - PromoteSuccess: The member is upgraded.
+      // - InviteSuccess: The member is invited.
+      // - Removed: The member is removed.
       shared_ptr<string> status_ {};
-      // The type of the member account. The value CloudAccount indicates that the member account is a cloud account.
+      // The member type. The value CloudAccount indicates a cloud account.
       shared_ptr<string> type_ {};
     };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
   protected:
-    // The information of the member account.
+    // The member information.
     shared_ptr<CreateCloudAccountResponseBody::Account> account_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

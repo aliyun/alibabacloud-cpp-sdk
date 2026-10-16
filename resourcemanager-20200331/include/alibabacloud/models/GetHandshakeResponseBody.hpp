@@ -170,15 +170,15 @@ namespace Models
 
 
     protected:
-      // The time when the invitation was created. The time is displayed in UTC.
+      // The creation time of the handshake (UTC).
       shared_ptr<string> createTime_ {};
-      // The time when the invitation expires. The time is displayed in UTC.
+      // The expiration time of the handshake (UTC).
       shared_ptr<string> expireTime_ {};
-      // The ID of the invitation.
+      // The handshake ID.
       shared_ptr<string> handshakeId_ {};
-      // The real-name verification information of the invitee.
+      // The real-name verification information of the invited account.
       // 
-      // >  This parameter is available only when an invitee calls this operation.
+      // > This parameter is visible only when the invited account calls this operation.
       shared_ptr<string> invitedAccountRealName_ {};
       // The ID of the management account of the resource directory.
       shared_ptr<string> masterAccountId_ {};
@@ -186,28 +186,28 @@ namespace Models
       shared_ptr<string> masterAccountName_ {};
       // The real-name verification information of the management account of the resource directory.
       // 
-      // >  This parameter is available only when an invitee calls this operation.
+      // > This parameter is visible only when the invited account calls this operation.
       shared_ptr<string> masterAccountRealName_ {};
-      // The time when the invitation was modified. The time is displayed in UTC.
+      // The modification time of the handshake (UTC).
       shared_ptr<string> modifyTime_ {};
-      // The comment on the invitation.
+      // The remarks.
       shared_ptr<string> note_ {};
-      // The ID of the resource directory.
+      // The resource directory ID.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The status of the invitation. Valid values:
+      // The status of the handshake. Valid values:
       // 
-      // *   Pending: The invitation is waiting for confirmation.
-      // *   Accepted: The invitation is accepted.
-      // *   Cancelled: The invitation is canceled.
-      // *   Declined: The invitation is rejected.
-      // *   Expired: The invitation expires.
+      // - Pending: Waiting for confirmation.
+      // - Accepted: Accepted.
+      // - Cancelled: Cancelled.
+      // - Declined: Rejected.
+      // - Expired: Expired.
       shared_ptr<string> status_ {};
       // The ID or logon email address of the invited account.
       shared_ptr<string> targetEntity_ {};
       // The type of the invited account. Valid values:
       // 
-      // *   Account: indicates the ID of the account.
-      // *   Email: indicates the logon email address of the account.
+      // - Account: account ID.
+      // - Email: logon email address of the account.
       shared_ptr<string> targetType_ {};
     };
 
@@ -230,9 +230,9 @@ namespace Models
 
 
   protected:
-    // The information of the invitation.
+    // The handshake information.
     shared_ptr<GetHandshakeResponseBody::Handshake> handshake_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

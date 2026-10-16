@@ -38,9 +38,9 @@ namespace Models
 
 
   protected:
-    // The name of the permission policy.
+    // Policy Name of the access policy.
     // 
-    // The name must be 1 to 128 characters in length and can contain letters, digits, and hyphen (-).
+    // Policy Name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> policyName_ {};

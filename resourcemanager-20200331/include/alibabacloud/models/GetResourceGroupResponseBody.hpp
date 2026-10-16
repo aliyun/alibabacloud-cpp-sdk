@@ -279,22 +279,22 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the resource group belongs.
+      // The Alibaba Cloud account ID to which the resource group belongs.
       shared_ptr<string> accountId_ {};
-      // The time when the resource group was created. The time is displayed in UTC.
+      // The time when the resource group was created (UTC).
       shared_ptr<string> createDate_ {};
       // The display name of the resource group.
       shared_ptr<string> displayName_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> id_ {};
-      // The identifier of the resource group.
+      // The unique identifier of the resource group.
       shared_ptr<string> name_ {};
       shared_ptr<ResourceGroup::RegionStatuses> regionStatuses_ {};
       // The status of the resource group. Valid values:
       // 
-      // *   Creating: The resource group is being created.
-      // *   OK: The resource group is created.
-      // *   PendingDelete: The resource group is waiting to be deleted.
+      // - Creating: The resource group is being created.
+      // - OK: The resource group is created.
+      // - PendingDelete: The resource group is waiting to be deleted.
       shared_ptr<string> status_ {};
       shared_ptr<ResourceGroup::Tags> tags_ {};
     };
@@ -318,9 +318,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the resource group.
+    // The resource group information.
     shared_ptr<GetResourceGroupResponseBody::ResourceGroup> resourceGroup_ {};
   };
 

@@ -90,12 +90,12 @@ namespace Models
 
 
     protected:
-      // The ID of the resource group or member.
+      // The resource group ID or resource directory member ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the object whose tags are queried. Valid values:
+      // The resource type. Valid values:
       // 
-      // *   resourcegroup: resource group
-      // *   Account: member
+      // - resourcegroup: resource group.
+      // - Account: resource directory member.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -129,12 +129,12 @@ namespace Models
 
 
   protected:
-    // Indicates whether the next query is required.
+    // Indicates whether the `NextToken` parameter is returned for the next query. Valid values:
     // 
-    // *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-    // *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+    // - If `NextToken` is empty, which is displayed as `"NextToken": ""`, no next query exists.
+    // - If `NextToken` is returned with a value, the value is the token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};

@@ -167,7 +167,7 @@ namespace Models
 
   protected:
     shared_ptr<ListControlPolicyAttachmentsForTargetResponseBody::ControlPolicyAttachments> controlPolicyAttachments_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

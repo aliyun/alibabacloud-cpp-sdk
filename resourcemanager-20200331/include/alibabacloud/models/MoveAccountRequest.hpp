@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the account you want to move.
+    // The ID of the account to be moved.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};

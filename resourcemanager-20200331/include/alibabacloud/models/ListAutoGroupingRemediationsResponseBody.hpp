@@ -170,19 +170,19 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The remediation record ID.
       shared_ptr<string> remediationId_ {};
-      // The remediation time.
+      // The remediation time. The format is YYYY-MM-DD HH:mm:ss without a time zone identifier.
       shared_ptr<string> remediationTime_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The resource type.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> resourceType_ {};
-      // The ID of the Alibaba Cloud service.
+      // The cloud service ID.
       // 
-      // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> service_ {};
-      // The information about the new resource group.
+      // The information about the target resource group for remediation.
       shared_ptr<Remediations::TargetResourceGroupInfo> targetResourceGroupInfo_ {};
     };
 
@@ -223,7 +223,7 @@ namespace Models
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The remediation records.
     shared_ptr<vector<ListAutoGroupingRemediationsResponseBody::Remediations>> remediations_ {};

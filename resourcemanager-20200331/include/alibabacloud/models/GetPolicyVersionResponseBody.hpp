@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The time when the policy version was created.
+      // The time when the access policy version was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
-      // Indicates whether the policy version is the default version.
+      // Indicates whether the version is the default version of the access policy.
       shared_ptr<bool> isDefaultVersion_ {};
-      // The document of the permission policy.
+      // The content of the access policy.
       shared_ptr<string> policyDocument_ {};
-      // The ID of the policy version.
+      // The ID of the access policy version.
       shared_ptr<string> versionId_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The information about the policy version.
+    // The version information of the access policy.
     shared_ptr<GetPolicyVersionResponseBody::PolicyVersion> policyVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

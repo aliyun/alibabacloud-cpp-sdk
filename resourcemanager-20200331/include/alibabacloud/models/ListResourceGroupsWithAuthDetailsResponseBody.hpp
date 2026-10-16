@@ -170,23 +170,22 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the resource group belongs.
+      // The Alibaba Cloud account ID to which the resource group belongs.
       shared_ptr<string> accountId_ {};
-      // The time when the resource group was created. The time is displayed in UTC.
+      // The time when the resource group was created (UTC).
       shared_ptr<string> createDate_ {};
       // The display name of the resource group.
       shared_ptr<string> displayName_ {};
-      // The ID of your Alibaba Cloud resource group.
+      // The resource group ID.
       shared_ptr<string> id_ {};
       // The unique identifier of the resource group.
       shared_ptr<string> name_ {};
       // The status of the resource group. Valid values:
-      // 
-      // *   Creating: The resource group is being created.
-      // *   OK: The resource group is created.
-      // *   PendingDelete: The resource group is waiting to be deleted.
+      // - Creating: Being created.
+      // - OK: Created.
+      // - PendingDelete: Pending deletion.
       shared_ptr<string> status_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<ResourceGroups::Tags>> tags_ {};
     };
 
@@ -253,7 +252,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the user has permissions on the resource group for the specified resource type.
+        // Indicates whether the resource group has permissions.
         shared_ptr<bool> hasPermission_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
@@ -292,17 +291,17 @@ namespace Models
 
 
     protected:
-      // Indicates whether the user has account-level authorization for this resource type.
+      // Indicates whether the user has account-level authorization for the resource type.
       shared_ptr<bool> accountScopeAuth_ {};
-      // The permission details for the resource groups on the specified resource types.
+      // The permissions of resource groups on the resource type.
       shared_ptr<vector<AuthDetails::AuthOfResourceGroups>> authOfResourceGroups_ {};
       // The resource type.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> resourceType_ {};
-      // The ID of the Alibaba Cloud service.
+      // The cloud service ID.
       // 
-      // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service ID from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> service_ {};
     };
 
@@ -355,17 +354,17 @@ namespace Models
 
 
   protected:
-    // The authorization details for resource groups.
+    // The list of authorization details for resource groups.
     shared_ptr<vector<ListResourceGroupsWithAuthDetailsResponseBody::AuthDetails>> authDetails_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The response parameters.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the resource groups.
+    // The list of resource groups.
     shared_ptr<vector<ListResourceGroupsWithAuthDetailsResponseBody::ResourceGroups>> resourceGroups_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

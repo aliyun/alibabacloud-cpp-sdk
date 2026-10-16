@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the member that you want to delete.
+    // The ID of the member account to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};

@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID of the member.
+    // The member account ID.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
-    // Specifies whether to return the information of tags. Valid values:
+    // Specifies whether to return tag information. Valid values:
     // 
-    // *   false (default value)
-    // *   true
+    // - false (default): Does not return tag information.
+    // - true: Returns tag information.
     shared_ptr<bool> includeTags_ {};
   };
 

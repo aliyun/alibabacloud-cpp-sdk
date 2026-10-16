@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The time when the folder was created.
+      // The time when the resource folder was created. The time is displayed in UTC in RFC 3339 format, indicated by Z.
       shared_ptr<string> createTime_ {};
-      // The ID of the folder.
+      // The ID of the resource folder.
       shared_ptr<string> folderId_ {};
-      // The name of the folder.
+      // The name of the resource folder.
       shared_ptr<string> folderName_ {};
       // The ID of the parent folder.
       shared_ptr<string> parentFolderId_ {};
@@ -116,9 +116,9 @@ namespace Models
 
 
   protected:
-    // The information of the folder.
+    // The information about the resource folder.
     shared_ptr<CreateFolderResponseBody::Folder> folder_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

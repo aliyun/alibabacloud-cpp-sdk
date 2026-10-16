@@ -57,18 +57,17 @@ namespace Models
 
 
   protected:
-    // The ID of the enterprise management account or delegated administrator account.
+    // The management account or delegated administrator account. Valid values:
+    // - Management account (default): Queries the list of trusted services enabled by the management account.
+    // - Delegated administrator account: Queries the list of trusted services enabled by the delegated administrator account.
     // 
-    // *   If you set this parameter to the ID of an enterprise management account, the trusted services that are enabled within the enterprise management account are queried. The default value of this parameter is the ID of an enterprise management account.
-    // *   If you set this parameter to the ID of a delegated administrator account, the trusted services that are enabled within the delegated administrator account are queried.
-    // 
-    // For more information about trusted services and delegated administrator accounts, see [Overview of trusted services](https://help.aliyun.com/document_detail/208133.html) and [Delegated administrator accounts](https://help.aliyun.com/document_detail/208117.html).
+    // For more information about trusted services and delegated administrator accounts, see [Overview of trusted services](https://help.aliyun.com/document_detail/208133.html) and [Manage delegated administrator accounts](https://help.aliyun.com/document_detail/208117.html).
     shared_ptr<string> adminAccountId_ {};
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

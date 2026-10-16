@@ -97,26 +97,26 @@ namespace Models
 
 
     protected:
-      // The type of the associated resource.
+      // The resource type of the associated resource.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> associatedResourceType_ {};
-      // The service code of the associated resource.
+      // The cloud service code of the associated resource.
       // 
-      // You can obtain the service code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> associatedService_ {};
-      // The type of the primary resource.
+      // The resource type of the master resource.
       // 
-      // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the resource type from the **Resource Type** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> masterResourceType_ {};
-      // The service code of the primary resource.
+      // The cloud service code of the master resource.
       // 
-      // You can obtain the service code from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
+      // You can obtain the cloud service code from the **Cloud Service Code** column in [Cloud services that support resource groups](https://help.aliyun.com/document_detail/94479.html).
       shared_ptr<string> masterService_ {};
-      // The status of the Transfer Associated Resources feature. Valid values:
+      // The enabling status of the associated resource group transfer feature. Valid values:
       // 
-      // *   Enable: enabled
-      // *   Disable: disabled
+      // - Enable: Enabled.
+      // - Disable: Disabled.
       // 
       // This parameter is required.
       shared_ptr<string> status_ {};
@@ -141,12 +141,12 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the Transfer Existing Associated Resources feature. Valid values:
+    // Specifies whether to start the task for transferring existing associated resources to the resource group. Valid values:
     // 
-    // *   false
-    // *   true
+    // - false: Does not start the task for transferring existing associated resources to the resource group.
+    // - true: Starts the task for transferring existing associated resources to the resource group.
     shared_ptr<string> enableExistingResourcesTransfer_ {};
-    // The settings of transfer rules.
+    // The rule settings of the associated resource group transfer feature.
     shared_ptr<vector<UpdateAssociatedTransferSettingRequest::RuleSettings>> ruleSettings_ {};
   };
 

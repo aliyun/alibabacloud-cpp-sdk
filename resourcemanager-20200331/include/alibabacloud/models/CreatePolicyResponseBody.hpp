@@ -96,18 +96,17 @@ namespace Models
 
 
     protected:
-      // The time when the permission policy was created.
+      // The time when the access policy was created. The time is in RFC 3339 UTC format, indicated by Z.
       shared_ptr<string> createDate_ {};
-      // The version number of the permission policy. Default value: v1.
+      // The version number of the access policy. Default value: v1.
       shared_ptr<string> defaultVersion_ {};
-      // The description of the permission policy.
+      // The description of the access policy.
       shared_ptr<string> description_ {};
-      // The name of the permission policy.
+      // The Policy Name of the access policy.
       shared_ptr<string> policyName_ {};
-      // The type of the permission policy. Valid values:
-      // 
-      // *   Custom
-      // *   System
+      // The type of the access policy. Valid values:
+      // - Custom: custom policy.
+      // - System: system policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -130,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The information about the permission policy.
+    // The access policy information.
     shared_ptr<CreatePolicyResponseBody::Policy> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

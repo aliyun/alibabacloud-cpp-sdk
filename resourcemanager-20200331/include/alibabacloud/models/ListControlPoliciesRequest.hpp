@@ -66,26 +66,26 @@ namespace Models
 
 
   protected:
-    // The language in which you want to return the descriptions of the access control policies. Valid values:
+    // The language in which you want the description of the control policy to be returned. Valid values:
     // 
-    // - zh-CN (default value): Chinese
-    // - en: English
-    // - ja: Japanese
+    // - zh-CN (default): Chinese.
+    // - en: English.
+    // - ja: Japanese.
     // 
-    // >  This parameter is valid only for system access control policies.
+    // > This parameter is valid only for system control policies.
     shared_ptr<string> language_ {};
-    // The number of the page to return. 
+    // The page number.
     // 
-    // Page start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. 
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the access control policy. Valid values:
+    // The type of the control policy. Valid values:
     // 
-    // - System: system access control policy
-    // - Custom: custom access control policy
+    // - System: system control policy.
+    // - Custom: custom control policy.
     shared_ptr<string> policyType_ {};
   };
 

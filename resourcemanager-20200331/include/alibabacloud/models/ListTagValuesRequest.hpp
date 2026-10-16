@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return for a single request.
+    // The maximum number of entries to return in a single request.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
@@ -83,15 +83,15 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The resource type.
     // 
-    // The value Account indicates the members of the resource directory.
+    // Set the value to Account, which indicates a member of a resource directory.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag key. This parameter specifies a filter condition for the query.
+    // The tag key that is used as a filter condition for the query.
     // 
     // This parameter is required.
     shared_ptr<string> tagKey_ {};
-    // The tag value for a fuzzy query.
+    // The tag value for fuzzy match.
     shared_ptr<string> valueFilter_ {};
   };
 

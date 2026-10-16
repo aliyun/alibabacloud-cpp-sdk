@@ -161,48 +161,50 @@ namespace Models
 
 
   protected:
-    // The display name of the resource group. This parameter specifies a filter condition for the query. Fuzzy match is supported.
+    // The display name of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
     // 
-    // The display name can be a maximum of 50 characters in length.
+    // The value cannot exceed 50 characters in length.
     shared_ptr<string> displayName_ {};
-    // Specifies whether to return the information of tags. Valid values:
+    // Specifies whether to return tag information. Valid values:
     // 
-    // *   false (default value)
-    // *   true
+    // - false (default): Tag information is not returned.
     // 
-    // >  If you configure the Tag parameter, the system returns the information of tags regardless of the setting of the `IncludeTags` parameter.
+    // - true: Tag information is returned.
+    // > If you specify tag-based filter conditions, tag information is always returned regardless of the value of IncludeTags.
     shared_ptr<bool> includeTags_ {};
-    // The identifier of the resource group. This parameter specifies a filter condition for the query. Fuzzy match is supported.
+    // The unique identifier of the resource group. This parameter is used as a filter condition. Fuzzy match is supported.
     // 
-    // The identifier can be a maximum of 50 characters in length and can contain letters, digits, and hyphens (-).
+    // The value cannot exceed 50 characters in length and can contain letters, digits, and hyphens (-).
     shared_ptr<string> name_ {};
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group. This parameter specifies a filter condition for the query.
+    // The resource group ID. This parameter is used as a filter condition.
     // 
-    // The ID can be a maximum of 18 characters in length and must start with `rg-`.
+    // The value cannot exceed 18 characters in length and must start with `rg-`.
     // 
-    // >  This parameter is incorporated into the `ResourceGroupIds` parameter. If you configure both the `ResourceGroupId` and `ResourceGroupIds` parameters, the value of the `ResourceGroupIds` parameter prevails.
+    // > This parameter has been incorporated into the ResourceGroupIds parameter. If you set both ResourceGroupId and ResourceGroupIds, the value of ResourceGroupIds takes precedence.
     shared_ptr<string> resourceGroupId_ {};
-    // The IDs of the resource groups. This parameter specifies a filter condition for the query.
+    // The list of resource group IDs. This parameter is used as a filter condition.
     // 
-    // You can specify a maximum of 100 resource group IDs.
+    // You can specify up to 100 resource group IDs.
     // 
-    // >  If you configure both the `ResourceGroupId` and `ResourceGroupIds` parameters, the value of the `ResourceGroupIds` parameter prevails.
+    // > If you set both ResourceGroupId and ResourceGroupIds, the value of ResourceGroupIds takes precedence.
     shared_ptr<vector<string>> resourceGroupIds_ {};
-    // The status of the resource group. This parameter specifies a filter condition for the query. Valid values:
+    // The resource group status. This parameter is used as a filter condition. Valid values:
     // 
-    // *   Creating: The resource group is being created.
-    // *   OK: The resource group is created.
-    // *   PendingDelete: The resource group is waiting to be deleted.
+    // - Creating: The resource group is being created.
+    // - OK: The resource group is created.
+    // - PendingDelete: The resource group is pending deletion.
     shared_ptr<string> status_ {};
-    // The tag. This parameter specifies a filter condition for the query.
+    // The tags. This parameter is used as a filter condition.
+    // 
+    // You can specify up to 20 tags.
     shared_ptr<vector<ListResourceGroupsRequest::Tag>> tag_ {};
   };
 

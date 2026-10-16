@@ -48,15 +48,15 @@ namespace Models
 
 
   protected:
-    // The language in which you want to return the description of the role. Valid values:
+    // The language type. The role description is returned in the specified language. Valid values:
     // 
-    // *   en: English
-    // *   zh-CN: Chinese
-    // *   ja: Japanese
+    // - en: English.
+    // - zh-CN: Chinese.
+    // - ja: Japanese.
     shared_ptr<string> language_ {};
-    // The name of the role.
+    // The role name.
     // 
-    // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+    // The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> roleName_ {};

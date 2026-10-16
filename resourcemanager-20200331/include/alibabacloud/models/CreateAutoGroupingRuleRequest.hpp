@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The condition for the range of resources to be automatically transferred.
+      // The scope condition for automatic allocation. Specifies the scope of resources to be automatically allocated.
       shared_ptr<string> autoGroupingScopeCondition_ {};
-      // The condition for the destination resource group.
+      // The target resource group condition. Specifies the target resource group for automatic allocation.
       // 
       // This parameter is required.
       shared_ptr<string> targetResourceGroupCondition_ {};
@@ -189,36 +189,35 @@ namespace Models
 
 
   protected:
-    // The IDs of regions to be excluded. Separate multiple IDs with commas (,).
+    // The region IDs to exclude. Separate multiple region IDs with commas (,).
     shared_ptr<string> excludeRegionIdsScope_ {};
-    // The IDs of resource groups to be excluded. Separate multiple IDs with commas (,).
+    // The resource group IDs to exclude. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> excludeResourceGroupIdsScope_ {};
-    // The IDs of resources to be excluded. Separate multiple IDs with commas (,).
+    // The resource IDs to exclude. Separate multiple resource IDs with commas (,).
     shared_ptr<string> excludeResourceIdsScope_ {};
-    // The resource types to be excluded. Separate multiple resource types with commas (,).
+    // The resource types to exclude. Separate multiple resource types with commas (,).
     shared_ptr<string> excludeResourceTypesScope_ {};
-    // The IDs of regions. Separate multiple IDs with commas (,).
+    // The scope of region IDs. Separate multiple region IDs with commas (,).
     shared_ptr<string> regionIdsScope_ {};
-    // The IDs of resource groups. Separate multiple IDs with commas (,).
+    // The scope of resource group IDs. Separate multiple resource group IDs with commas (,).
     shared_ptr<string> resourceGroupIdsScope_ {};
-    // The IDs of resources. Separate multiple IDs with commas (,).
+    // The scope of resource IDs. Separate multiple resource IDs with commas (,).
     shared_ptr<string> resourceIdsScope_ {};
-    // The resource types. Separate multiple resource types with commas (,).
+    // The scope of resource types. Separate multiple resource types with commas (,).
     shared_ptr<string> resourceTypesScope_ {};
-    // The content records of the rule.
+    // The list of rule content entries.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateAutoGroupingRuleRequest::RuleContents>> ruleContents_ {};
-    // The description of the rule.
+    // The rule description.
     shared_ptr<string> ruleDesc_ {};
-    // The name of the rule.
+    // The rule name.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // The type of the rule. Valid values:
-    // 
-    // *   custom_condition: custom transfer rule
-    // *   associated_transfer: transfer rule for associated resources
+    // The rule type. Valid values:
+    // - custom_condition: custom allocation rule.
+    // - associated_transfer: attached-resource allocation rule.
     // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};

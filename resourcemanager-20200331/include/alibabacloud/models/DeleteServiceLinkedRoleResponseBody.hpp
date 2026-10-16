@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the deletion task.
+    // The deletion task ID.
     shared_ptr<string> deletionTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

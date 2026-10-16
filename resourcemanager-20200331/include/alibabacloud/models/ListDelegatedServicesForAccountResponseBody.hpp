@@ -137,7 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<ListDelegatedServicesForAccountResponseBody::DelegatedServices> delegatedServices_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

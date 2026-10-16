@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // A tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // A tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -131,27 +131,26 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return the information of tags. Valid values:
+    // Specifies whether to return tag information. Valid values:
     // 
-    // false (default value)
-    // 
-    // true
+    // - false (default): Does not return tag information.
+    // - true: Returns tag information.
     shared_ptr<bool> includeTags_ {};
-    // The number of the page to return.
+    // The page number.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the folder.
+    // The ID of the resource folder.
     shared_ptr<string> parentFolderId_ {};
-    // The keyword used for the query, such as the display name of a member.
+    // The query keyword, such as the member name.
     // 
     // Fuzzy match is supported.
     shared_ptr<string> queryKeyword_ {};
-    // The tag key and value.
+    // The tags used to filter member accounts.
     shared_ptr<vector<ListAccountsForParentRequest::Tag>> tag_ {};
   };
 

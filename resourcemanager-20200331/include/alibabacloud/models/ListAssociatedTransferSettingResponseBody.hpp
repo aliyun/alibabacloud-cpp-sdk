@@ -122,18 +122,18 @@ namespace Models
 
 
       protected:
-        // The type of the associated resource.
+        // The resource type of the associated resource.
         shared_ptr<string> associatedResourceType_ {};
-        // The service code of the associated resource.
+        // The cloud service code of the associated resource.
         shared_ptr<string> associatedService_ {};
-        // The type of the primary resource.
+        // The resource type of the master resource.
         shared_ptr<string> masterResourceType_ {};
-        // The service code of the primary resource.
+        // The cloud service code of the master resource.
         shared_ptr<string> masterService_ {};
-        // The status of the Transfer Associated Resources feature. Valid values:
+        // The status of the associated resource group transfer feature. Valid values:
         // 
-        // *   Enable: enabled
-        // *   Disable: disabled
+        // - Enable: enabled.
+        // - Disable: disabled.
         shared_ptr<string> status_ {};
       };
 
@@ -170,19 +170,19 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> accountId_ {};
-      // Indicates whether the Transfer Existing Associated Resources feature is enabled. Valid values:
+      // Indicates whether the task for transferring existing associated resources to the same resource group is started. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: The task is not started.
+      // - true: The task is started.
       shared_ptr<string> enableExistingResourcesTransfer_ {};
-      // The settings of transfer rules.
+      // The rule settings of the associated resource group transfer feature.
       shared_ptr<vector<AssociatedTransferSetting::RuleSettings>> ruleSettings_ {};
-      // The status of the Transfer Associated Resources feature. Valid values:
+      // The status of the associated resource group transfer feature. Valid values:
       // 
-      // *   Enable: enabled
-      // *   Disable: disabled
+      // - Enable: enabled.
+      // - Disable: disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -205,7 +205,7 @@ namespace Models
 
 
   protected:
-    // The settings of the Transfer Associated Resources feature.
+    // The settings of the associated resource group transfer feature.
     shared_ptr<ListAssociatedTransferSettingResponseBody::AssociatedTransferSetting> associatedTransferSetting_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

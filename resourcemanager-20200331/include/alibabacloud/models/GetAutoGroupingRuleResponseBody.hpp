@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // The condition for the range of resources that are automatically transferred.
+        // The scope condition for automatic group transfer, which specifies the range of resources to be automatically transferred to a resource group.
         shared_ptr<string> autoGroupingScopeCondition_ {};
-        // The ID of the content record.
+        // The rule content ID.
         shared_ptr<string> ruleContentId_ {};
-        // The condition for the destination resource group.
+        // The target resource group condition, which specifies the destination resource group for automatic grouping.
         shared_ptr<string> targetResourceGroupCondition_ {};
       };
 
@@ -246,38 +246,37 @@ namespace Models
 
 
     protected:
-      // The time when the rule was created.
+      // The time when the rule was created, in RFC 3339 format with a UTC offset of +08:00.
       shared_ptr<string> createTime_ {};
-      // The IDs of excluded regions. Multiple IDs are separated by commas (,).
+      // The excluded region IDs. Multiple region IDs are separated by commas (,).
       shared_ptr<string> excludeRegionIdsScope_ {};
-      // The IDs of excluded resource groups. Multiple IDs are separated by commas (,).
+      // The excluded resource group IDs. Multiple resource group IDs are separated by commas (,).
       shared_ptr<string> excludeResourceGroupIdsScope_ {};
-      // The IDs of excluded resources. Multiple IDs are separated by commas (,).
+      // The excluded resource IDs. Multiple resource IDs are separated by commas (,).
       shared_ptr<string> excludeResourceIdsScope_ {};
       // The excluded resource types. Multiple resource types are separated by commas (,).
       shared_ptr<string> excludeResourceTypesScope_ {};
-      // The time when the rule was modified.
+      // The time when the rule was last modified, in RFC 3339 format with a UTC offset of +08:00.
       shared_ptr<string> modifyTime_ {};
-      // The IDs of regions. Multiple IDs are separated by commas (,).
+      // The region IDs in scope. Multiple region IDs are separated by commas (,).
       shared_ptr<string> regionIdsScope_ {};
-      // The IDs of resource groups. Multiple IDs are separated by commas (,).
+      // The resource group IDs in scope. Multiple resource group IDs are separated by commas (,).
       shared_ptr<string> resourceGroupIdsScope_ {};
-      // The IDs of resources. Multiple IDs are separated by commas (,).
+      // The resource IDs in scope. Multiple resource IDs are separated by commas (,).
       shared_ptr<string> resourceIdsScope_ {};
-      // The resource types. Multiple resource types are separated by commas (,).
+      // The resource types in scope. Multiple resource types are separated by commas (,).
       shared_ptr<string> resourceTypesScope_ {};
-      // The content records of the rule.
+      // The list of rule contents.
       shared_ptr<vector<Rule::RuleContents>> ruleContents_ {};
-      // The description of the rule.
+      // The rule description.
       shared_ptr<string> ruleDesc_ {};
-      // The ID of the rule.
+      // The rule ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The type of the rule. Valid values:
-      // 
-      // *   custom_condition: custom transfer rule
-      // *   associated_transfer: transfer rule for associated resources
+      // The rule type. Valid values:
+      // - custom_condition: Transfer based on custom rules.
+      // - associated_transfer: Transfer associated resources together.
       shared_ptr<string> ruleType_ {};
     };
 
@@ -302,7 +301,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the rule.
+    // The rule information.
     shared_ptr<GetAutoGroupingRuleResponseBody::Rule> rule_ {};
   };
 

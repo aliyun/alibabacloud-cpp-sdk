@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the settlement account.
+    // The ID of the billing account.
     shared_ptr<string> payerAccountId_ {};
-    // The name of the settlement account.
+    // The name of the billing account.
     shared_ptr<string> payerAccountName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

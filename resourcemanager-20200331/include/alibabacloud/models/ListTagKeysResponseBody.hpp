@@ -92,14 +92,14 @@ namespace Models
 
 
   protected:
-    // Indicates whether the next query is required.
+    // Indicates whether a next query token is available. Valid values:
     // 
-    // *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
-    // *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+    // - If NextToken is empty, that is, `"NextToken": ""`, no additional results exist.
+    // - If NextToken has a value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the tag keys.
+    // The tag key information.
     shared_ptr<vector<ListTagKeysResponseBody::Tags>> tags_ {};
   };
 

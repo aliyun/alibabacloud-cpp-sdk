@@ -70,17 +70,17 @@ namespace Models
     shared_ptr<string> newAssumeRolePolicyDocument_ {};
     // The description of the RAM role.
     // 
-    // The description must be 1 to 1,024 characters in length.
+    // The description must be 1 to 1024 characters in length.
     shared_ptr<string> newDescription_ {};
-    // The maximum session time of the RAM role.
+    // The maximum session duration of the RAM role.
     // 
     // Valid values: 3600 to 43200. Unit: seconds. Default value: 3600.
     // 
-    // If you do not specify this parameter, the default value is used.
+    // If this parameter is left empty, the default value is used.
     shared_ptr<int64_t> newMaxSessionDuration_ {};
     // The name of the RAM role.
     // 
-    // The name must be 1 to 64 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
+    // The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> roleName_ {};

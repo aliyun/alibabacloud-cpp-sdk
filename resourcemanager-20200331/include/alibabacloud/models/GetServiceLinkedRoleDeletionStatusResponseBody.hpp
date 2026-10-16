@@ -184,7 +184,7 @@ namespace Models
 
 
     protected:
-      // The failure information.
+      // The error message.
       shared_ptr<string> message_ {};
       shared_ptr<Reason::RoleUsages> roleUsages_ {};
     };
@@ -215,17 +215,17 @@ namespace Models
 
 
   protected:
-    // The cause for the failure of the deletion task.
+    // The reason why the deletion task failed.
     shared_ptr<GetServiceLinkedRoleDeletionStatusResponseBody::Reason> reason_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the task.
+    // The task status. Valid values:
     // 
-    // *   SUCCEEDED
-    // *   IN_PROGRESS
-    // *   FAILED
-    // *   NOT_STARTED
-    // *   INTERNAL_ERROR
+    // - SUCCEEDED: The deletion was successful.
+    // - IN_PROGRESS: The deletion is in progress.
+    // - FAILED: The deletion failed.
+    // - NOT_STARTED: The deletion has not started.
+    // - INTERNAL_ERROR: An internal error occurred.
     shared_ptr<string> status_ {};
   };
 

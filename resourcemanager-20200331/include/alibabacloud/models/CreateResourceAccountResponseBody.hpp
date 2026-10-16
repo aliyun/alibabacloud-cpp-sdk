@@ -144,26 +144,26 @@ namespace Models
     protected:
       // The ID of the member.
       shared_ptr<string> accountId_ {};
-      // The Alibaba Cloud account ID of the member.
+      // The name of the account.
       shared_ptr<string> accountName_ {};
       // The display name of the member.
       shared_ptr<string> displayName_ {};
       // The ID of the folder.
       shared_ptr<string> folderId_ {};
-      // The way in which the member joins the resource directory. Valid values:
+      // The method used by the member to join the resource directory. Valid values:
       // 
-      // *   invited: The member is invited to join the resource directory.
-      // *   created: The member is directly created in the resource directory.
+      // - invited: invited.
+      // - created: created.
       shared_ptr<string> joinMethod_ {};
-      // The time when the member joined the resource directory. The time is displayed in UTC.
+      // The time when the member joined the resource directory (UTC).
       shared_ptr<string> joinTime_ {};
-      // The time when the member was modified. The time is displayed in UTC.
+      // The time when the member was last modified (UTC).
       shared_ptr<string> modifyTime_ {};
       // The ID of the resource directory.
       shared_ptr<string> resourceDirectoryId_ {};
-      // The status of the member. The value CreateSuccess indicates that the member is created.
+      // The join status of the member. The value CreateSuccess indicates that the member is created.
       shared_ptr<string> status_ {};
-      // The type of the member. The value ResourceAccount indicates that the member is a resource account.
+      // The type of the member. The value ResourceAccount indicates a resource account.
       shared_ptr<string> type_ {};
     };
 
@@ -186,7 +186,7 @@ namespace Models
 
 
   protected:
-    // The information about the member.
+    // The member information.
     shared_ptr<CreateResourceAccountResponseBody::Account> account_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The display name of the member account.
+    // The member name.
     // 
     // The name must be 2 to 50 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
     // 
-    // The name must be unique in the current resource directory.
+    // The member name must be unique within the resource directory.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
@@ -80,7 +80,7 @@ namespace Models
     shared_ptr<string> email_ {};
     // The ID of the parent folder.
     shared_ptr<string> parentFolderId_ {};
-    // The ID of the settlement account. If you do not specify this parameter, the current account is used for settlement.
+    // The ID of the settlement account. If this parameter is left empty, the current account is used for settlement.
     shared_ptr<string> payerAccountId_ {};
   };
 

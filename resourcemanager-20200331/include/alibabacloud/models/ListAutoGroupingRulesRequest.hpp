@@ -75,18 +75,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return for a single request. Valid values: 1 to 50.
+    // The maximum number of entries to return in a single request. Valid values: 1 to 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // If the response is truncated, you can use NextToken to send another request to retrieve the content after the current truncation point.
     shared_ptr<string> nextToken_ {};
-    // The ID of the rule.
+    // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // The type of the rule. Valid values:
-    // 
-    // *   custom_condition: custom transfer rule
-    // *   associated_transfer: transfer rule for associated resources
+    // The rule type. Valid values:
+    // - custom_condition: custom rule-based group transfer.
+    // - associated_transfer: attached-resource allocation group transfer.
     shared_ptr<string> ruleType_ {};
   };
 
