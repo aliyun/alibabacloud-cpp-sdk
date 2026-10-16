@@ -56,9 +56,13 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_TO_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_FROM_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_FROM_JSON(vpc, vpc_);
         };
         NetworkConfiguration() = default ;
@@ -121,15 +125,30 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable VPC networking.
+          // Specifies whether to enable the VPC network.
           shared_ptr<bool> enabled_ {};
-          // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be specified, and all vSwitches must belong to the VPC specified by VpcId.
+          // The list of vSwitch IDs. When the VPC network is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The VPC ID of the user.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->publicEgressEnabled_ == nullptr
+        && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        // publicEgressEnabled Field Functions 
+        bool hasPublicEgressEnabled() const { return this->publicEgressEnabled_ != nullptr;};
+        void deletePublicEgressEnabled() { this->publicEgressEnabled_ = nullptr;};
+        inline bool getPublicEgressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicEgressEnabled_, false) };
+        inline NetworkConfiguration& setPublicEgressEnabled(bool publicEgressEnabled) { DARABONBA_PTR_SET_VALUE(publicEgressEnabled_, publicEgressEnabled) };
+
+
+        // publicIngressEnabled Field Functions 
+        bool hasPublicIngressEnabled() const { return this->publicIngressEnabled_ != nullptr;};
+        void deletePublicIngressEnabled() { this->publicIngressEnabled_ = nullptr;};
+        inline bool getPublicIngressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicIngressEnabled_, false) };
+        inline NetworkConfiguration& setPublicIngressEnabled(bool publicIngressEnabled) { DARABONBA_PTR_SET_VALUE(publicIngressEnabled_, publicIngressEnabled) };
+
+
         // vpc Field Functions 
         bool hasVpc() const { return this->vpc_ != nullptr;};
         void deleteVpc() { this->vpc_ = nullptr;};
@@ -140,9 +159,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to allow public egress access from the platform. If this parameter is not specified, the original value is retained. Disabling this feature asynchronously cascades to disable the public network switch for agents. Re-enabling this feature does not automatically restore the agent switch. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        shared_ptr<bool> publicEgressEnabled_ {};
+        // Specifies whether to allow public ingress access. If this parameter is not specified, the original value is retained. This parameter can be modified together with PublicEgressEnabled and takes effect asynchronously through a unified task. After this feature is disabled, the public ingress for all agent endpoints in the workspace is closed. After this feature is re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+        shared_ptr<bool> publicIngressEnabled_ {};
         // The VPC network configuration of the user.
-        // 
-        // This parameter is required.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -165,7 +186,7 @@ namespace Models
 
 
     protected:
-      // The updated workspace name.
+      // The updated name of the workspace.
       shared_ptr<string> name_ {};
       // The updated network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
@@ -192,7 +213,7 @@ namespace Models
   protected:
     // The request body for updating a workspace.
     shared_ptr<UpdateWorkspaceRequest::Body> body_ {};
-    // The client idempotency token.
+    // The client token used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
   };
 

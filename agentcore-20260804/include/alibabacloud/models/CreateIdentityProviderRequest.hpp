@@ -132,13 +132,13 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // Required. The secret of the external identity provider application. This parameter is write-only and is not returned by query operations.
+        // Required. The application secret of the external identity provider. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> appSecret_ {};
         // The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+        // The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
+        // The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -175,17 +175,15 @@ namespace Models
 
 
     protected:
-      // The type of the external identity provider. Valid values:
-      // - DingTalk
-      // - Feishu
+      // The type of the external identity provider. Valid values: DingTalk and Feishu.
       // 
       // This parameter is required.
       shared_ptr<string> identityProviderType_ {};
-      // Specifies whether workspace users are allowed to log on through this external identity provider.
+      // Specifies whether workspace users can log on through the external identity provider.
       shared_ptr<bool> loginEnabled_ {};
-      // The application configuration of the external identity provider. When binding DingTalk, you must provide appKey, appSecret, and corpId. When binding Lark, you must provide appId and appSecret.
+      // The application configuration for the external identity provider. When you bind DingTalk, you must provide appKey, appSecret, and corpId. When you bind Feishu, you must provide appId and appSecret.
       shared_ptr<Body::Metadata> metadata_ {};
-      // Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+      // Specifies whether to enable organization member synchronization. If enabled, organization members are synchronized to workspace users from the external identity provider.
       shared_ptr<bool> syncEnabled_ {};
     };
 

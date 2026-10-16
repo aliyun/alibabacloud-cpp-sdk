@@ -95,7 +95,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must include exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -141,7 +141,7 @@ namespace Models
       protected:
         // The agent ID.
         shared_ptr<string> agentId_ {};
-        // The role of the agent in the team. Valid values: LEADER, WORKER.
+        // The role of the agent in the team. Valid values: LEADER and WORKER.
         shared_ptr<string> teamRole_ {};
       };
 
@@ -184,11 +184,11 @@ namespace Models
       shared_ptr<vector<Body::Agents>> agents_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+      // The team name. The name can only contain lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The list of user members in the team. The list must include exactly one member with the ADMIN role.
+      // The list of user members in the team. The list must contain exactly one member with the ADMIN role.
       shared_ptr<vector<Body::Users>> users_ {};
     };
 

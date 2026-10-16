@@ -152,15 +152,15 @@ namespace Models
 
 
       protected:
-        // The target agent ID. Returned when the target type is AGENT_VERSION.
+        // The target agent ID. This parameter is returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentId_ {};
-        // The target agent version number. Returned when the target type is AGENT_VERSION.
+        // The target agent version. This parameter is returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentVersion_ {};
-        // The collaboration component type. Returned when the target type is TEAM_COLLABORATION.
+        // The collaboration component type. This parameter is returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> collaborationComponent_ {};
-        // The workspace resource binding ID associated with the target collaboration component. Returned when the target type is TEAM_COLLABORATION.
+        // The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> resourceBindingId_ {};
-        // The target type. Valid values: AGENT_VERSION, TEAM_COLLABORATION.
+        // The target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
         shared_ptr<string> targetType_ {};
       };
 
@@ -192,7 +192,7 @@ namespace Models
 
 
       protected:
-        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key through the x-api-key request header.
+        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the x-api-key request header.
         shared_ptr<string> type_ {};
       };
 
@@ -252,11 +252,11 @@ namespace Models
 
 
       protected:
-        // The access URL type. Valid values: INTERNET, VPC.
+        // The access URL type. Valid values: INTERNET and VPC.
         shared_ptr<string> accessType_ {};
-        // The access URL status. Valid values: CREATING, READY, DEGRADED.
+        // The access URL status. Valid values: CREATING, READY, and DEGRADED.
         shared_ptr<string> status_ {};
-        // The reason for the access URL status. A specific reason is returned when the status is abnormal.
+        // The reason for the access URL status. The specific reason is returned when the status is abnormal.
         shared_ptr<string> statusReason_ {};
         // The access URL.
         shared_ptr<string> url_ {};
@@ -361,23 +361,23 @@ namespace Models
       shared_ptr<vector<Items::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Items::Authentication> authentication_ {};
-      // The creation time in UTC, formatted in RFC 3339.
+      // The creation time in UTC format compliant with RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
+      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
       shared_ptr<string> endpointType_ {};
-      // The service endpoint name. The name is unique within the workspace and is 1 to 128 characters in length.
+      // The service endpoint name. The name must be unique within the workspace and 1 to 128 characters in length.
       shared_ptr<string> name_ {};
       // The region ID of the service endpoint.
       shared_ptr<string> regionId_ {};
       // The service endpoint ID.
       shared_ptr<string> serviceEndpointId_ {};
-      // The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, DELETING.
+      // The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
       shared_ptr<string> status_ {};
-      // The reason for the service endpoint status. A specific reason is returned when the status is abnormal.
+      // The reason for the service endpoint status. The specific reason is returned when the status is abnormal.
       shared_ptr<string> statusReason_ {};
       // The target routing configuration of the service endpoint.
       shared_ptr<Items::Target> target_ {};
-      // The time of the last modification in UTC, formatted in RFC 3339.
+      // The last update time in UTC format compliant with RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -458,17 +458,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of service endpoints.
     shared_ptr<vector<ListServiceEndpointsResponseBody::Items>> items_ {};
-    // The maximum number of records per page that takes effect for this query.
+    // The maximum number of records per page that takes effect in this query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message. An error description is returned when the request fails.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This value is empty when no more pages are available.
+    // The cursor for the next page. This parameter is empty if no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of service endpoints that match the query conditions.
+    // The total number of service endpoints that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -175,11 +175,11 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+        // Indicates whether the model supports tool calling and is able to invoke multiple tools in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Indicates whether the model supports streaming tool calling.
+        // Indicates whether the model supports tool calling and is able to invoke tools in a streaming manner.
         shared_ptr<bool> streamToolCall_ {};
         // Indicates whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -272,23 +272,23 @@ namespace Models
 
 
     protected:
-      // The model capability configuration.
+      // The capability configurations of the model.
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The model context window size, in tokens. The value must be a positive integer.
+      // The context window size of the model, in tokens. It must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
       // The time when the resource was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description, up to 255 characters.
+      // The description of the model, up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per model generation.
+      // The maximum number of output tokens supported by the model in a single generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
-      // The upstream model name.
+      // The name of the upstream model.
       shared_ptr<string> modelName_ {};
-      // The region ID to which the resource belongs.
+      // The ID of the region to which the resource belongs.
       shared_ptr<string> regionId_ {};
       // The time when the resource was last updated, in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
@@ -345,7 +345,7 @@ namespace Models
   protected:
     // The business status code. A value of SUCCESS indicates success.
     shared_ptr<string> code_ {};
-    // The model details.
+    // The detailed information about the model.
     shared_ptr<GetModelResponseBody::Data> data_ {};
     // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -353,7 +353,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

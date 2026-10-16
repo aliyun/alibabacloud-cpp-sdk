@@ -128,11 +128,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values:
-        // - ADMIN
-        // - MEMBER
-        // 
-        // Each team must have exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -191,9 +187,7 @@ namespace Models
         shared_ptr<string> agentId_ {};
         // The agent name.
         shared_ptr<string> agentName_ {};
-        // The role of the agent in the team. Valid values:
-        // - LEADER
-        // - WORKER
+        // The role of the agent in the team. Valid values: LEADER, WORKER.
         shared_ptr<string> teamRole_ {};
       };
 
@@ -270,23 +264,17 @@ namespace Models
     protected:
       // The list of agent members in the team.
       shared_ptr<vector<Items::Agents>> agents_ {};
-      // The creation time in UTC, formatted according to RFC 3339.
+      // The creation time in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+      // The team name. It can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // The team status. Valid values:
-      // - Creating
-      // - Active
-      // - Updating
-      // - Deleting
-      // - Failed
-      // - Deleted
+      // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, and Deleted.
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
-      // The time of the last modification in UTC, formatted according to RFC 3339.
+      // The time of the last modification in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The list of user members in the team.
       shared_ptr<vector<Items::Users>> users_ {};
@@ -369,17 +357,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of teams.
     shared_ptr<vector<ListTeamsResponseBody::Items>> items_ {};
-    // The maximum number of records per page that took effect for this query.
+    // The maximum number of records per page applied to this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request failed.
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This value is empty if no more pages are available.
+    // The pagination token for the next page. This parameter is empty if no next page exists.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of teams that match the query conditions.
+    // The total number of teams that meet the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

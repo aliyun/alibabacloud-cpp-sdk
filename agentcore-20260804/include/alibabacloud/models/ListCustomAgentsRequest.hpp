@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The maximum number of entries to return per page. Valid values: 1 to 100. If this parameter is omitted or set to 0, the default value 20 is used.
     shared_ptr<int32_t> maxResults_ {};
-    // The opaque token used to query the next page. Omit this parameter in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. Do not construct the token yourself.
+    // The opaque token used to query the next page. Omit this parameter in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. Do not construct this token.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -113,11 +113,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values:
-        // - ADMIN
-        // - MEMBER
-        // 
-        // Each team must have exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -163,11 +159,7 @@ namespace Models
       protected:
         // The agent ID.
         shared_ptr<string> agentId_ {};
-        // The role of the agent in the team. Valid values:
-        // - LEADER
-        // - WORKER
-        // 
-        // Each team must have exactly one LEADER.
+        // The role of the agent in the team. Valid values: LEADER, WORKER. Each team must have exactly one LEADER.
         shared_ptr<string> teamRole_ {};
       };
 
@@ -242,27 +234,21 @@ namespace Models
 
 
     protected:
-      // The agent member list of the team.
+      // The list of agent members in the team.
       shared_ptr<vector<Data::Agents>> agents_ {};
-      // The creation time in UTC, formatted in RFC 3339.
+      // The creation time in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
-      // The team name. The name can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 128 characters in length.
+      // The team name. The name can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // The team status. Valid values:
-      // - Creating
-      // - Active
-      // - Updating
-      // - Deleting
-      // - Failed
-      // - Deleted
+      // The team status. Valid values: Creating, Active, Updating, Deleting, Failed, Deleted.
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
-      // The time of the last modification in UTC, formatted in RFC 3339.
+      // The time of the last update in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
-      // The user member list of the team.
+      // The list of user members in the team.
       shared_ptr<vector<Data::Users>> users_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -321,11 +307,11 @@ namespace Models
     shared_ptr<UpdateTeamResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request failed.
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

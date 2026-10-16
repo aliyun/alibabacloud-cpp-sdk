@@ -43,7 +43,7 @@ namespace AgentCore20260804
       Models::AddMemoriesResponse addMemories(const string &workspaceId, const string &memoryStoreName, const Models::AddMemoriesRequest &request);
 
       /**
-       * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
+       * @summary Deletes multiple models in a specified workspace. If any model is in use, the entire batch request fails.
        *
        * @param tmpReq BatchDeleteModelsRequest
        * @param headers map
@@ -53,7 +53,7 @@ namespace AgentCore20260804
       Models::BatchDeleteModelsResponse batchDeleteModelsWithOptions(const string &workspaceId, const Models::BatchDeleteModelsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
+       * @summary Deletes multiple models in a specified workspace. If any model is in use, the entire batch request fails.
        *
        * @param request BatchDeleteModelsRequest
        * @return BatchDeleteModelsResponse
@@ -61,10 +61,10 @@ namespace AgentCore20260804
       Models::BatchDeleteModelsResponse batchDeleteModels(const string &workspaceId, const Models::BatchDeleteModelsRequest &request);
 
       /**
-       * @summary Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+       * @summary Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
        *
-       * @description ## Operation description
-       * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+       * @description ## Request description
+       * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
        *
        * @param tmpReq BatchUploadSkillsViaOssRequest
        * @param headers map
@@ -74,10 +74,10 @@ namespace AgentCore20260804
       Models::BatchUploadSkillsViaOssResponse batchUploadSkillsViaOssWithOptions(const string &workspaceId, const Models::BatchUploadSkillsViaOssRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+       * @summary Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
        *
-       * @description ## Operation description
-       * Uploads Skill ZIP packages in bulk through OSS and returns the processing result of each Skill.
+       * @description ## Request description
+       * Uploads skill ZIP packages in batches through OSS and returns the processing result for each skill.
        *
        * @param request BatchUploadSkillsViaOssRequest
        * @return BatchUploadSkillsViaOssResponse
@@ -85,9 +85,9 @@ namespace AgentCore20260804
       Models::BatchUploadSkillsViaOssResponse batchUploadSkillsViaOss(const string &workspaceId, const Models::BatchUploadSkillsViaOssRequest &request);
 
       /**
-       * @summary Converts an MCP to free editing.
+       * @summary Converts an MCP to free-edit mode.
        *
-       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags, but no longer appears on the usage page.
        *
        * @param request ConvertMcpToFreeEditRequest
        * @param headers map
@@ -97,9 +97,9 @@ namespace AgentCore20260804
       Models::ConvertMcpToFreeEditResponse convertMcpToFreeEditWithOptions(const string &workspaceId, const string &mcpServerId, const Models::ConvertMcpToFreeEditRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts an MCP to free editing.
+       * @summary Converts an MCP to free-edit mode.
        *
-       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags, but no longer appears on the usage page.
        *
        * @param request ConvertMcpToFreeEditRequest
        * @return ConvertMcpToFreeEditResponse
@@ -107,9 +107,9 @@ namespace AgentCore20260804
       Models::ConvertMcpToFreeEditResponse convertMcpToFreeEdit(const string &workspaceId, const string &mcpServerId, const Models::ConvertMcpToFreeEditRequest &request);
 
       /**
-       * @summary Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+       * @summary Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
        *
-       * @description Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+       * @description Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
        *
        * @param tmpReq CreateAgentIMChannelRequest
        * @param headers map
@@ -119,9 +119,9 @@ namespace AgentCore20260804
       Models::CreateAgentIMChannelResponse createAgentIMChannelWithOptions(const string &workspaceId, const string &agentId, const Models::CreateAgentIMChannelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+       * @summary Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
        *
-       * @description Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
+       * @description Creates an IM channel for a specified agent and binds it to a publicly accessible ServiceEndpoint.
        *
        * @param request CreateAgentIMChannelRequest
        * @return CreateAgentIMChannelResponse
@@ -129,10 +129,10 @@ namespace AgentCore20260804
       Models::CreateAgentIMChannelResponse createAgentIMChannel(const string &workspaceId, const string &agentId, const Models::CreateAgentIMChannelRequest &request);
 
       /**
-       * @summary Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+       * @summary Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
        *
-       * @description ## Operation description
-       * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+       * @description ## Request description
+       * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
        *
        * @param tmpReq CreateAgentSpecRequest
        * @param headers map
@@ -142,10 +142,10 @@ namespace AgentCore20260804
       Models::CreateAgentSpecResponse createAgentSpecWithOptions(const string &workspaceId, const Models::CreateAgentSpecRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+       * @summary Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
        *
-       * @description ## Operation description
-       * Creates an AgentSpec in the specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
+       * @description ## Request description
+       * Creates an AgentSpec in a specified workspace and generates the first draft version. Returns a resource conflict error if an AgentSpec with the same name already exists.
        *
        * @param request CreateAgentSpecRequest
        * @return CreateAgentSpecResponse
@@ -153,10 +153,10 @@ namespace AgentCore20260804
       Models::CreateAgentSpecResponse createAgentSpec(const string &workspaceId, const Models::CreateAgentSpecRequest &request);
 
       /**
-       * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+       * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
        *
        * @description ## Request description
-       * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+       * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
        *
        * @param tmpReq CreateAgentSpecVersionRequest
        * @param headers map
@@ -166,10 +166,10 @@ namespace AgentCore20260804
       Models::CreateAgentSpecVersionResponse createAgentSpecVersionWithOptions(const string &workspaceId, const string &agentSpecName, const Models::CreateAgentSpecVersionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+       * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
        *
        * @description ## Request description
-       * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
+       * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist and must not have a draft currently being edited.
        *
        * @param request CreateAgentSpecVersionRequest
        * @return CreateAgentSpecVersionResponse
@@ -177,7 +177,7 @@ namespace AgentCore20260804
       Models::CreateAgentSpecVersionResponse createAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const Models::CreateAgentSpecVersionRequest &request);
 
       /**
-       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed as a JSON string through credentialMetadata and can only be queried in a desensitized format after it is written.
        *
        * @description Creates a credential in a workspace for authentication of services such as Connector.
        *
@@ -189,7 +189,7 @@ namespace AgentCore20260804
       Models::CreateCredentialResponse createCredentialWithOptions(const string &workspaceId, const Models::CreateCredentialRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed as a JSON string through credentialMetadata and can only be queried in a desensitized format after it is written.
        *
        * @description Creates a credential in a workspace for authentication of services such as Connector.
        *
@@ -199,12 +199,12 @@ namespace AgentCore20260804
       Models::CreateCredentialResponse createCredential(const string &workspaceId, const Models::CreateCredentialRequest &request);
 
       /**
-       * @summary Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+       * @summary Creates a custom agent in a specified workspace and submits a container image deployment configuration. The creation is an asynchronous process. You can call GetCustomAgent to query the deployment result.
        *
-       * @description Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+       * @description Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and a runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
        * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
-       * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
-       * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+       * The creation is an asynchronous process. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+       * The clientToken parameter does not currently provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
        *
        * @param tmpReq CreateCustomAgentRequest
        * @param headers map
@@ -214,12 +214,12 @@ namespace AgentCore20260804
       Models::CreateCustomAgentResponse createCustomAgentWithOptions(const string &workspaceId, const Models::CreateCustomAgentRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+       * @summary Creates a custom agent in a specified workspace and submits a container image deployment configuration. The creation is an asynchronous process. You can call GetCustomAgent to query the deployment result.
        *
-       * @description Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+       * @description Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and a runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
        * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
-       * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
-       * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+       * The creation is an asynchronous process. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+       * The clientToken parameter does not currently provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
        *
        * @param request CreateCustomAgentRequest
        * @return CreateCustomAgentResponse
@@ -249,9 +249,9 @@ namespace AgentCore20260804
       Models::CreateExternalAgentResponse createExternalAgent(const string &workspaceId, const Models::CreateExternalAgentRequest &request);
 
       /**
-       * @summary Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+       * @summary Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
        *
-       * @description Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+       * @description Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
        *
        * @param request CreateExternalAgentBootstrapTokenRequest
        * @param headers map
@@ -261,9 +261,9 @@ namespace AgentCore20260804
       Models::CreateExternalAgentBootstrapTokenResponse createExternalAgentBootstrapTokenWithOptions(const string &workspaceId, const string &agentId, const Models::CreateExternalAgentBootstrapTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+       * @summary Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
        *
-       * @description Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
+       * @description Creates the Bootstrap token and CMS configuration required to onboard a specified external agent.
        *
        * @param request CreateExternalAgentBootstrapTokenRequest
        * @return CreateExternalAgentBootstrapTokenResponse
@@ -271,7 +271,7 @@ namespace AgentCore20260804
       Models::CreateExternalAgentBootstrapTokenResponse createExternalAgentBootstrapToken(const string &workspaceId, const string &agentId, const Models::CreateExternalAgentBootstrapTokenRequest &request);
 
       /**
-       * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
+       * @summary Binds an external identity provider to a specified workspace to enable single sign-on and organization member synchronization for workspace users. Each workspace can be bound to a maximum of one external identity provider. This is an asynchronous operation. After the API call returns, you can call GetIdentityProvider to query the status and track the progress.
        *
        * @param tmpReq CreateIdentityProviderRequest
        * @param headers map
@@ -281,7 +281,7 @@ namespace AgentCore20260804
       Models::CreateIdentityProviderResponse createIdentityProviderWithOptions(const string &workspaceId, const Models::CreateIdentityProviderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
+       * @summary Binds an external identity provider to a specified workspace to enable single sign-on and organization member synchronization for workspace users. Each workspace can be bound to a maximum of one external identity provider. This is an asynchronous operation. After the API call returns, you can call GetIdentityProvider to query the status and track the progress.
        *
        * @param request CreateIdentityProviderRequest
        * @return CreateIdentityProviderResponse
@@ -353,7 +353,7 @@ namespace AgentCore20260804
       Models::CreateMemoryStoreResponse createMemoryStore(const string &workspaceId, const Models::CreateMemoryStoreRequest &request);
 
       /**
-       * @summary Creates a model configuration under a specified model connection in a workspace.
+       * @summary Creates a model configuration for model creation under a model connection in a specified workspace.
        *
        * @param tmpReq CreateModelRequest
        * @param headers map
@@ -363,7 +363,7 @@ namespace AgentCore20260804
       Models::CreateModelResponse createModelWithOptions(const string &workspaceId, const Models::CreateModelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model configuration under a specified model connection in a workspace.
+       * @summary Creates a model configuration for model creation under a model connection in a specified workspace.
        *
        * @param request CreateModelRequest
        * @return CreateModelResponse
@@ -371,7 +371,7 @@ namespace AgentCore20260804
       Models::CreateModelResponse createModel(const string &workspaceId, const Models::CreateModelRequest &request);
 
       /**
-       * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+       * @summary Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials to support model creation.
        *
        * @param tmpReq CreateModelConnectionRequest
        * @param headers map
@@ -381,7 +381,7 @@ namespace AgentCore20260804
       Models::CreateModelConnectionResponse createModelConnectionWithOptions(const string &workspaceId, const Models::CreateModelConnectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+       * @summary Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials to support model creation.
        *
        * @param request CreateModelConnectionRequest
        * @return CreateModelConnectionResponse
@@ -413,7 +413,7 @@ namespace AgentCore20260804
       Models::CreateSkillDraftResponse createSkillDraft(const string &workspaceId, const Models::CreateSkillDraftRequest &request);
 
       /**
-       * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
+       * @summary Creates a team in a specified workspace and configures user members and agent members at the same time. Exactly one user member must have the ADMIN role, and agent members can only have the LEADER or WORKER role.
        *
        * @param tmpReq CreateTeamRequest
        * @param headers map
@@ -423,7 +423,7 @@ namespace AgentCore20260804
       Models::CreateTeamResponse createTeamWithOptions(const string &workspaceId, const Models::CreateTeamRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
+       * @summary Creates a team in a specified workspace and configures user members and agent members at the same time. Exactly one user member must have the ADMIN role, and agent members can only have the LEADER or WORKER role.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse
@@ -431,7 +431,7 @@ namespace AgentCore20260804
       Models::CreateTeamResponse createTeam(const string &workspaceId, const Models::CreateTeamRequest &request);
 
       /**
-       * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
+       * @summary Creates a user in a specified workspace. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, and cannot use reserved names such as manager, admin, or names starting with worker-. If the password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
        *
        * @param tmpReq CreateUserRequest
        * @param headers map
@@ -441,7 +441,7 @@ namespace AgentCore20260804
       Models::CreateUserResponse createUserWithOptions(const string &workspaceId, const Models::CreateUserRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
+       * @summary Creates a user in a specified workspace. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, and cannot use reserved names such as manager, admin, or names starting with worker-. If the password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -451,7 +451,7 @@ namespace AgentCore20260804
       /**
        * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
        *
-       * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+       * @description ## Request description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param tmpReq CreateWorkspaceRequest
        * @param headers map
@@ -463,7 +463,7 @@ namespace AgentCore20260804
       /**
        * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
        *
-       * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+       * @description ## Request description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -511,10 +511,10 @@ namespace AgentCore20260804
       Models::DeleteAgentIMChannelResponse deleteAgentIMChannel(const string &workspaceId, const string &agentId, const string &imChannelId, const Models::DeleteAgentIMChannelRequest &request);
 
       /**
-       * @summary Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+       * @summary Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
        *
-       * @description ## Request description
-       * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+       * @description ## Operation description
+       * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
        *
        * @param request DeleteAgentSpecRequest
        * @param headers map
@@ -524,10 +524,10 @@ namespace AgentCore20260804
       Models::DeleteAgentSpecResponse deleteAgentSpecWithOptions(const string &workspaceId, const string &agentSpecName, const Models::DeleteAgentSpecRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+       * @summary Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
        *
-       * @description ## Request description
-       * Deletes a specified AgentSpec along with all its versions and metadata. This operation is irreversible.
+       * @description ## Operation description
+       * Deletes the specified AgentSpec and all its versions and metadata. The deletion is irreversible.
        *
        * @param request DeleteAgentSpecRequest
        * @return DeleteAgentSpecResponse
@@ -559,9 +559,9 @@ namespace AgentCore20260804
       Models::DeleteAgentSpecVersionResponse deleteAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const Models::DeleteAgentSpecVersionRequest &request);
 
       /**
-       * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+       * @summary Deletes a credential in a specified workspace and deletes the ciphertext hosted in the credential service. After deletion, agents bound to the credential can no longer obtain the credential content.
        *
-       * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
+       * @description Deletes an access credential in a specified workspace. A credential cannot be deleted if it is still bound to an MCP service.
        *
        * @param request DeleteCredentialRequest
        * @param headers map
@@ -571,9 +571,9 @@ namespace AgentCore20260804
       Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::DeleteCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+       * @summary Deletes a credential in a specified workspace and deletes the ciphertext hosted in the credential service. After deletion, agents bound to the credential can no longer obtain the credential content.
        *
-       * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
+       * @description Deletes an access credential in a specified workspace. A credential cannot be deleted if it is still bound to an MCP service.
        *
        * @param request DeleteCredentialRequest
        * @return DeleteCredentialResponse
@@ -581,10 +581,10 @@ namespace AgentCore20260804
       Models::DeleteCredentialResponse deleteCredential(const string &workspaceId, const string &credentialId, const Models::DeleteCredentialRequest &request);
 
       /**
-       * @summary Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+       * @summary Deletes a custom agent from a specified workspace. A successful request indicates that the deletion is accepted. The runtime resources are subsequently cleaned up in the background.
        *
-       * @description Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
-       * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+       * @description Before calling this operation, ensure that the workspace is writable. If the agent is still associated with a team, you must dissociate it from the team first.
+       * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already in the deletion process, a subsequent request returns the current summary.
        * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
        *
        * @param request DeleteCustomAgentRequest
@@ -595,10 +595,10 @@ namespace AgentCore20260804
       Models::DeleteCustomAgentResponse deleteCustomAgentWithOptions(const string &workspaceId, const string &agentId, const Models::DeleteCustomAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+       * @summary Deletes a custom agent from a specified workspace. A successful request indicates that the deletion is accepted. The runtime resources are subsequently cleaned up in the background.
        *
-       * @description Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
-       * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+       * @description Before calling this operation, ensure that the workspace is writable. If the agent is still associated with a team, you must dissociate it from the team first.
+       * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already in the deletion process, a subsequent request returns the current summary.
        * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
        *
        * @param request DeleteCustomAgentRequest
@@ -665,10 +665,10 @@ namespace AgentCore20260804
       Models::DeleteManagedAgentResponse deleteManagedAgent(const string &workspaceId, const string &agentId, const Models::DeleteManagedAgentRequest &request);
 
       /**
-       * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+       * @summary Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
        *
-       * @description ## Operation description
-       * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+       * @description ## Request description
+       * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
        *
        * @param request DeleteMcpRequest
        * @param headers map
@@ -678,10 +678,10 @@ namespace AgentCore20260804
       Models::DeleteMcpResponse deleteMcpWithOptions(const string &mcpServerId, const string &workspaceId, const Models::DeleteMcpRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+       * @summary Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
        *
-       * @description ## Operation description
-       * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
+       * @description ## Request description
+       * Deletes a specified MCP server. The deletion is an asynchronous process, and the MCP server is no longer returned after the process is complete.
        *
        * @param request DeleteMcpRequest
        * @return DeleteMcpResponse
@@ -853,9 +853,9 @@ namespace AgentCore20260804
       Models::DeleteUserResponse deleteUser(const string &workspaceId, const string &agentCoreUserId, const Models::DeleteUserRequest &request);
 
       /**
-       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. The server processes repeated deletion requests for workspaces in the Deleting or Deleted state idempotently.
        *
-       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. The server processes repeated deletion requests for workspaces in the `Deleting` or `Deleted` state idempotently.\\n.
        *
        * @param request DeleteWorkspaceRequest
        * @param headers map
@@ -865,9 +865,9 @@ namespace AgentCore20260804
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. When you repeatedly delete a workspace that is in the Deleting or Deleted state, the server handles the request with idempotence semantics.
+       * @summary Deletes the control plane record of a specified workspace. The server completes the state transition from Deleting to Deleted within the same transaction. The server processes repeated deletion requests for workspaces in the Deleting or Deleted state idempotently.
        *
-       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. When you repeatedly delete a workspace that is in the `Deleting` or `Deleted` state, the server handles the request with idempotence semantics.\\n.
+       * @description ## Request description\\nDeletes the control plane record of a specified workspace. The server completes the state transition from `Deleting` to `Deleted` within the same transaction. The server processes repeated deletion requests for workspaces in the `Deleting` or `Deleted` state idempotently.\\n.
        *
        * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
@@ -897,10 +897,10 @@ namespace AgentCore20260804
       Models::DisableConnectorResponse disableConnector(const string &workspaceId, const string &connectorName, const Models::DisableConnectorRequest &request);
 
       /**
-       * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+       * @summary Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
        *
-       * @description ## Operation description
-       * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+       * @description ## Request description
+       * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
        *
        * @param request DownloadAgentSpecViaOssRequest
        * @param headers map
@@ -910,10 +910,10 @@ namespace AgentCore20260804
       Models::DownloadAgentSpecViaOssResponse downloadAgentSpecViaOssWithOptions(const string &workspaceId, const string &agentSpecName, const Models::DownloadAgentSpecViaOssRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+       * @summary Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
        *
-       * @description ## Operation description
-       * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
+       * @description ## Request description
+       * Retrieves the presigned OSS download URL of a specified AgentSpec to download the AgentSpec ZIP package.
        *
        * @param request DownloadAgentSpecViaOssRequest
        * @return DownloadAgentSpecViaOssResponse
@@ -1015,7 +1015,7 @@ namespace AgentCore20260804
       /**
        * @summary Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
        *
        * @param request GetAgentSpecRequest
@@ -1028,7 +1028,7 @@ namespace AgentCore20260804
       /**
        * @summary Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * Queries the governance details of a specified AgentSpec, including basic information, governance pointers, and summaries of all versions.
        *
        * @param request GetAgentSpecRequest
@@ -1037,10 +1037,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecResponse getAgentSpec(const string &workspaceId, const string &agentSpecName, const Models::GetAgentSpecRequest &request);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @summary Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
        *
-       * @description ## Operation description
-       * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @description ## Request description
+       * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
        *
        * @param request GetAgentSpecImportFileUrlRequest
        * @param headers map
@@ -1050,10 +1050,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecImportFileUrlResponse getAgentSpecImportFileUrlWithOptions(const string &workspaceId, const Models::GetAgentSpecImportFileUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @summary Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
        *
-       * @description ## Operation description
-       * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @description ## Request description
+       * Retrieves the OSS presigned upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, you can call the AgentSpec OSS upload API to complete the import.
        *
        * @param request GetAgentSpecImportFileUrlRequest
        * @return GetAgentSpecImportFileUrlResponse
@@ -1085,10 +1085,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecLatestResponse getAgentSpecLatest(const string &workspaceId, const string &agentSpecName, const Models::GetAgentSpecLatestRequest &request);
 
       /**
-       * @summary Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+       * @summary Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
        *
-       * @description ## Operation description
-       * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+       * @description ## Request description
+       * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
        *
        * @param request GetAgentSpecVersionRequest
        * @param headers map
@@ -1098,10 +1098,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecVersionResponse getAgentSpecVersionWithOptions(const string &workspaceId, const string &agentSpecName, const string &agentSpecVersion, const Models::GetAgentSpecVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+       * @summary Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
        *
-       * @description ## Operation description
-       * Queries the complete content of a specified AgentSpec version, including manifest content, resource files, and metadata.
+       * @description ## Request description
+       * Queries the complete content of a specified AgentSpec version, including the manifest content, resource files, and metadata.
        *
        * @param request GetAgentSpecVersionRequest
        * @return GetAgentSpecVersionResponse
@@ -1109,7 +1109,7 @@ namespace AgentCore20260804
       Models::GetAgentSpecVersionResponse getAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const string &agentSpecVersion, const Models::GetAgentSpecVersionRequest &request);
 
       /**
-       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in a masked format.
        *
        * @description Queries the details of a single credential. Sensitive fields are not returned.
        *
@@ -1121,7 +1121,7 @@ namespace AgentCore20260804
       Models::GetCredentialResponse getCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::GetCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in a masked format.
        *
        * @description Queries the details of a single credential. Sensitive fields are not returned.
        *
@@ -1131,11 +1131,11 @@ namespace AgentCore20260804
       Models::GetCredentialResponse getCredential(const string &workspaceId, const string &credentialId, const Models::GetCredentialRequest &request);
 
       /**
-       * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
+       * @summary Queries the details of a custom agent in a specified workspace, including the deployment configuration, the execute status of the latest configuration version, and the running instance status statistics.
        *
-       * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
-       * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
-       * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
+       * @description After creating or updating a custom agent, you can poll this operation to query the execution result of the latest configuration version. latestVersionStatus corresponds to latestSpecVersion. latestExecutionError indicates the cause of the pending or failed status for this version. If retryable is true, you can query again later.
+       * The returned configuration is the latest submitted configuration and may not have taken effect. Check latestVersionStatus, the overall agent status, and the running instance statistics in sandboxPhaseCounts to confirm the deployment and running status.
+       * If you query a custom agent that does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
        *
        * @param request GetCustomAgentRequest
        * @param headers map
@@ -1145,11 +1145,11 @@ namespace AgentCore20260804
       Models::GetCustomAgentResponse getCustomAgentWithOptions(const string &workspaceId, const string &agentId, const Models::GetCustomAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a custom agent in a specified workspace, including deployment configurations, the execute status of the latest configuration version, and running instance status statistics.
+       * @summary Queries the details of a custom agent in a specified workspace, including the deployment configuration, the execute status of the latest configuration version, and the running instance status statistics.
        *
-       * @description After creating or updating a custom agent, you can poll this operation to query the execution results of the latest configuration version. `latestVersionStatus` corresponds to `latestSpecVersion`. `latestExecutionError` indicates the reason for the pending or failed status of this version. If `retryable` is true, you can query again later.
-       * The returned configuration is the most recently submitted configuration and may not have taken effect. Verify the deployment and running status by checking `latestVersionStatus`, the overall agent status `status`, and the running instance statistics `sandboxPhaseCounts`.
-       * If the queried custom agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
+       * @description After creating or updating a custom agent, you can poll this operation to query the execution result of the latest configuration version. latestVersionStatus corresponds to latestSpecVersion. latestExecutionError indicates the cause of the pending or failed status for this version. If retryable is true, you can query again later.
+       * The returned configuration is the latest submitted configuration and may not have taken effect. Check latestVersionStatus, the overall agent status, and the running instance statistics in sandboxPhaseCounts to confirm the deployment and running status.
+       * If you query a custom agent that does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
        *
        * @param request GetCustomAgentRequest
        * @return GetCustomAgentResponse
@@ -1179,9 +1179,9 @@ namespace AgentCore20260804
       Models::GetExternalAgentResponse getExternalAgent(const string &workspaceId, const string &agentId, const Models::GetExternalAgentRequest &request);
 
       /**
-       * @summary Queries the available network types for a specified external agent.
+       * @summary Queries the available access network types for a specified external agent.
        *
-       * @description Queries the available network types for a specified external agent.
+       * @description Queries the available access network types for a specified external agent.
        *
        * @param request GetExternalAgentBootstrapOptionsRequest
        * @param headers map
@@ -1191,9 +1191,9 @@ namespace AgentCore20260804
       Models::GetExternalAgentBootstrapOptionsResponse getExternalAgentBootstrapOptionsWithOptions(const string &workspaceId, const string &agentId, const Models::GetExternalAgentBootstrapOptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the available network types for a specified external agent.
+       * @summary Queries the available access network types for a specified external agent.
        *
-       * @description Queries the available network types for a specified external agent.
+       * @description Queries the available access network types for a specified external agent.
        *
        * @param request GetExternalAgentBootstrapOptionsRequest
        * @return GetExternalAgentBootstrapOptionsResponse
@@ -1201,7 +1201,7 @@ namespace AgentCore20260804
       Models::GetExternalAgentBootstrapOptionsResponse getExternalAgentBootstrapOptions(const string &workspaceId, const string &agentId, const Models::GetExternalAgentBootstrapOptionsRequest &request);
 
       /**
-       * @summary Queries the binding details of an external identity provider for a specified workspace, including the binding status, application configuration, and callback URLs that need to be configured on the identity provider side. Application secret configurations are not returned.
+       * @summary Queries the binding details of the external identity provider for a specified workspace, including the binding status, application configurations, and callback URLs to be configured on the identity provider side. Application secret configurations are not returned.
        *
        * @param request GetIdentityProviderRequest
        * @param headers map
@@ -1211,7 +1211,7 @@ namespace AgentCore20260804
       Models::GetIdentityProviderResponse getIdentityProviderWithOptions(const string &workspaceId, const string &identityProviderType, const Models::GetIdentityProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the binding details of an external identity provider for a specified workspace, including the binding status, application configuration, and callback URLs that need to be configured on the identity provider side. Application secret configurations are not returned.
+       * @summary Queries the binding details of the external identity provider for a specified workspace, including the binding status, application configurations, and callback URLs to be configured on the identity provider side. Application secret configurations are not returned.
        *
        * @param request GetIdentityProviderRequest
        * @return GetIdentityProviderResponse
@@ -1407,9 +1407,9 @@ namespace AgentCore20260804
       Models::GetServiceEndpointResponse getServiceEndpoint(const string &workspaceId, const string &serviceEndpointId, const Models::GetServiceEndpointRequest &request);
 
       /**
-       * @summary Queries the currently active API Key and its invocation method for a specified service endpoint within a workspace.
+       * @summary Queries the currently active API key and its invocation method for a service endpoint in a specified workspace.
        *
-       * @description Queries the currently active API Key for a specified service endpoint. The call succeeds only when the service endpoint has API_KEY authentication enabled and the gateway consumer and credentials are ready. The service reads the API Key from the gateway in real time. AgentCore does not persist the plaintext. Keep the returned API Key secure and avoid logging it or exposing it in public configurations.
+       * @description Queries the currently active API key for a specified service endpoint. The call succeeds only when API key authentication is enabled for the service endpoint and the gateway consumer and credentials are ready. The service reads the API key from the gateway in real time, and AgentCore does not persist the plaintext. Keep the returned API key secure and avoid logging it or exposing it in public configurations.
        *
        * @param request GetServiceEndpointApiKeyRequest
        * @param headers map
@@ -1419,9 +1419,9 @@ namespace AgentCore20260804
       Models::GetServiceEndpointApiKeyResponse getServiceEndpointApiKeyWithOptions(const string &workspaceId, const string &serviceEndpointId, const Models::GetServiceEndpointApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the currently active API Key and its invocation method for a specified service endpoint within a workspace.
+       * @summary Queries the currently active API key and its invocation method for a service endpoint in a specified workspace.
        *
-       * @description Queries the currently active API Key for a specified service endpoint. The call succeeds only when the service endpoint has API_KEY authentication enabled and the gateway consumer and credentials are ready. The service reads the API Key from the gateway in real time. AgentCore does not persist the plaintext. Keep the returned API Key secure and avoid logging it or exposing it in public configurations.
+       * @description Queries the currently active API key for a specified service endpoint. The call succeeds only when API key authentication is enabled for the service endpoint and the gateway consumer and credentials are ready. The service reads the API key from the gateway in real time, and AgentCore does not persist the plaintext. Keep the returned API key secure and avoid logging it or exposing it in public configurations.
        *
        * @param request GetServiceEndpointApiKeyRequest
        * @return GetServiceEndpointApiKeyResponse
@@ -1453,10 +1453,10 @@ namespace AgentCore20260804
       Models::GetSkillDetailResponse getSkillDetail(const string &workspaceId, const string &skillName, const Models::GetSkillDetailRequest &request);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+       * @summary Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
        *
        * @description ## Request description
-       * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+       * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
        *
        * @param request GetSkillImportFileUrlRequest
        * @param headers map
@@ -1466,10 +1466,10 @@ namespace AgentCore20260804
       Models::GetSkillImportFileUrlResponse getSkillImportFileUrlWithOptions(const string &workspaceId, const Models::GetSkillImportFileUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+       * @summary Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
        *
        * @description ## Request description
-       * Retrieves the OSS pre-signed upload URL and object name required for importing a Skill ZIP package. After the upload is complete, call the Skill OSS upload operation to complete the import.
+       * Retrieves the OSS presigned upload URL and object name required to import a Skill ZIP package. After the upload is complete, you can call the Skill OSS upload API to complete the import.
        *
        * @param request GetSkillImportFileUrlRequest
        * @return GetSkillImportFileUrlResponse
@@ -1519,7 +1519,7 @@ namespace AgentCore20260804
       Models::GetTeamResponse getTeam(const string &workspaceId, const string &teamId, const Models::GetTeamRequest &request);
 
       /**
-       * @summary Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
+       * @summary Queries the details of a specific user in a specified workspace. Returns an error if the user does not exist.
        *
        * @param request GetUserRequest
        * @param headers map
@@ -1529,7 +1529,7 @@ namespace AgentCore20260804
       Models::GetUserResponse getUserWithOptions(const string &workspaceId, const string &agentCoreUserId, const Models::GetUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
+       * @summary Queries the details of a specific user in a specified workspace. Returns an error if the user does not exist.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -1537,9 +1537,9 @@ namespace AgentCore20260804
       Models::GetUserResponse getUser(const string &workspaceId, const string &agentCoreUserId, const Models::GetUserRequest &request);
 
       /**
-       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.
        *
-       * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       * @description ## Request description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.\\n.
        *
        * @param request GetWorkspaceRequest
        * @param headers map
@@ -1549,9 +1549,9 @@ namespace AgentCore20260804
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.
        *
-       * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       * @description ## Request description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policies.\\n.
        *
        * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
@@ -1559,9 +1559,9 @@ namespace AgentCore20260804
       Models::GetWorkspaceResponse getWorkspace(const string &workspaceId, const Models::GetWorkspaceRequest &request);
 
       /**
-       * @summary Queries the ACR RAM authorization URL for a workspace.
+       * @summary Queries the RAM authorization URL for ACR in a workspace.
        *
-       * @description ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+       * @description ACR and user OSS mounts share the workspace role. If no existing role is found, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. Returns the role resolved by the backend and the authorization URL for the target repository. This operation does not create ACR or agent execution versions, nor does it deliver runtime configurations. After authorization is complete, you can verify it and then create or update the agent without calling a separate Ensure operation.
        *
        * @param request GetWorkspaceAcrRamAuthorizeUrlRequest
        * @param headers map
@@ -1571,9 +1571,9 @@ namespace AgentCore20260804
       Models::GetWorkspaceAcrRamAuthorizeUrlResponse getWorkspaceAcrRamAuthorizeUrlWithOptions(const string &workspaceId, const Models::GetWorkspaceAcrRamAuthorizeUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the ACR RAM authorization URL for a workspace.
+       * @summary Queries the RAM authorization URL for ACR in a workspace.
        *
-       * @description ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+       * @description ACR and user OSS mounts share the workspace role. If no existing role is found, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. Returns the role resolved by the backend and the authorization URL for the target repository. This operation does not create ACR or agent execution versions, nor does it deliver runtime configurations. After authorization is complete, you can verify it and then create or update the agent without calling a separate Ensure operation.
        *
        * @param request GetWorkspaceAcrRamAuthorizeUrlRequest
        * @return GetWorkspaceAcrRamAuthorizeUrlResponse
@@ -1583,7 +1583,7 @@ namespace AgentCore20260804
       /**
        * @summary Queries the RAM authorization URL for mounting AgenticFS in a workspace.
        *
-       * @description The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+       * @description Determines the account, region, and shared role based on the workspace, and concatenates the resource ARN based on the provided fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check the resource status, and returns an authorization URL that contains only the target NAS policy. After completing RAM authorization, you must call the verification API.
        *
        * @param request GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
        * @param headers map
@@ -1595,7 +1595,7 @@ namespace AgentCore20260804
       /**
        * @summary Queries the RAM authorization URL for mounting AgenticFS in a workspace.
        *
-       * @description The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+       * @description Determines the account, region, and shared role based on the workspace, and concatenates the resource ARN based on the provided fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check the resource status, and returns an authorization URL that contains only the target NAS policy. After completing RAM authorization, you must call the verification API.
        *
        * @param request GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
        * @return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
@@ -1647,9 +1647,9 @@ namespace AgentCore20260804
       Models::InstallMcpMarketItemResponse installMcpMarketItem(const string &workspaceId, const string &marketItemId, const Models::InstallMcpMarketItemRequest &request);
 
       /**
-       * @summary Installs a plugin for a specified AgentCore workspace. Currently supports the collaboration plugin. The installation process is executed asynchronously.
+       * @summary Installs a plugin for a specified AgentCore workspace. Currently, only the collaboration plugin is supported. The installation process runs asynchronously.
        *
-       * @description ## Operation description\\nInstalls a plugin for a specified AgentCore workspace. Currently supports the `collaboration` plugin. Plugin configuration is passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify VPC and public network access policies. The installation process is executed asynchronously. When you repeatedly call this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status with idempotent semantics if the configuration is the same. If the configuration is different, the operation returns an operation conflict error.\\n.
+       * @description ## Request description\\nInstalls a plugin for a specified AgentCore workspace. Currently, only the `collaboration` plugin is supported. Plugin configurations are passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify the VPC and public network access policy. The installation procedure executes asynchronously. If you repeatedly invoke this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status based on idempotent semantics if the configurations are identical. If the configurations are different, the operation returns an operation conflict.\\n
        *
        * @param tmpReq InstallWorkspacePluginRequest
        * @param headers map
@@ -1659,9 +1659,9 @@ namespace AgentCore20260804
       Models::InstallWorkspacePluginResponse installWorkspacePluginWithOptions(const string &workspaceId, const string &pluginName, const Models::InstallWorkspacePluginRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs a plugin for a specified AgentCore workspace. Currently supports the collaboration plugin. The installation process is executed asynchronously.
+       * @summary Installs a plugin for a specified AgentCore workspace. Currently, only the collaboration plugin is supported. The installation process runs asynchronously.
        *
-       * @description ## Operation description\\nInstalls a plugin for a specified AgentCore workspace. Currently supports the `collaboration` plugin. Plugin configuration is passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify VPC and public network access policies. The installation process is executed asynchronously. When you repeatedly call this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status with idempotent semantics if the configuration is the same. If the configuration is different, the operation returns an operation conflict error.\\n.
+       * @description ## Request description\\nInstalls a plugin for a specified AgentCore workspace. Currently, only the `collaboration` plugin is supported. Plugin configurations are passed through the `Config` parameter, and different plugins can define their own configuration structures. The `collaboration` plugin uses `Config.NetworkConfiguration` to specify the VPC and public network access policy. The installation procedure executes asynchronously. If you repeatedly invoke this operation for a plugin with the same name that is being installed or already installed, the operation returns the current status based on idempotent semantics if the configurations are identical. If the configurations are different, the operation returns an operation conflict.\\n
        *
        * @param request InstallWorkspacePluginRequest
        * @return InstallWorkspacePluginResponse
@@ -1715,7 +1715,7 @@ namespace AgentCore20260804
       Models::ListAgentSpecsResponse listAgentSpecs(const string &workspaceId, const Models::ListAgentSpecsRequest &request);
 
       /**
-       * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
+       * @summary Queries the teams to which specified agents belong. Specify the agent IDs by using agentIds to retrieve the membership information of each agent in the teams, including the team ID, team name, and the role of the agent in the team.
        *
        * @param tmpReq ListAgentTeamsRequest
        * @param headers map
@@ -1725,7 +1725,7 @@ namespace AgentCore20260804
       Models::ListAgentTeamsResponse listAgentTeamsWithOptions(const string &workspaceId, const Models::ListAgentTeamsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
+       * @summary Queries the teams to which specified agents belong. Specify the agent IDs by using agentIds to retrieve the membership information of each agent in the teams, including the team ID, team name, and the role of the agent in the team.
        *
        * @param request ListAgentTeamsRequest
        * @return ListAgentTeamsResponse
@@ -1777,9 +1777,9 @@ namespace AgentCore20260804
       Models::ListConnectorsResponse listConnectors(const string &workspaceId, const Models::ListConnectorsRequest &request);
 
       /**
-       * @summary Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+       * @summary Performs a paged query for credentials in a specified workspace. Filters by type using credentialType, performs fuzzy filtering by credential name using nameLike, configures paging by specifying the maximum number of records per page using maxResults, and retrieves the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
        *
-       * @description Queries credentials in a workspace with paging. Supports filtering by type and name.
+       * @description Performs a paged query for the credential list in a workspace, and supports filtering by type and name during paging.
        *
        * @param request ListCredentialsRequest
        * @param headers map
@@ -1789,9 +1789,9 @@ namespace AgentCore20260804
       Models::ListCredentialsResponse listCredentialsWithOptions(const string &workspaceId, const Models::ListCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+       * @summary Performs a paged query for credentials in a specified workspace. Filters by type using credentialType, performs fuzzy filtering by credential name using nameLike, configures paging by specifying the maximum number of records per page using maxResults, and retrieves the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
        *
-       * @description Queries credentials in a workspace with paging. Supports filtering by type and name.
+       * @description Performs a paged query for the credential list in a workspace, and supports filtering by type and name during paging.
        *
        * @param request ListCredentialsRequest
        * @return ListCredentialsResponse
@@ -1799,10 +1799,10 @@ namespace AgentCore20260804
       Models::ListCredentialsResponse listCredentials(const string &workspaceId, const Models::ListCredentialsRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+       * @summary Queries the summaries of custom agents in a specified workspace by using paging. For the complete configuration and the execution results of the latest version, call GetCustomAgent.
        *
        * @description The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
-       * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+       * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it. If the token in the response is empty, it indicates that no more pages are available.
        * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
        *
        * @param request ListCustomAgentsRequest
@@ -1813,10 +1813,10 @@ namespace AgentCore20260804
       Models::ListCustomAgentsResponse listCustomAgentsWithOptions(const string &workspaceId, const Models::ListCustomAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+       * @summary Queries the summaries of custom agents in a specified workspace by using paging. For the complete configuration and the execution results of the latest version, call GetCustomAgent.
        *
        * @description The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
-       * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+       * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it. If the token in the response is empty, it indicates that no more pages are available.
        * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
        *
        * @param request ListCustomAgentsRequest
@@ -1847,7 +1847,7 @@ namespace AgentCore20260804
       Models::ListExternalAgentsResponse listExternalAgents(const string &workspaceId, const Models::ListExternalAgentsRequest &request);
 
       /**
-       * @summary Queries the external identity provider bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
+       * @summary Queries the external identity providers bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
        *
        * @param request ListIdentityProvidersRequest
        * @param headers map
@@ -1857,7 +1857,7 @@ namespace AgentCore20260804
       Models::ListIdentityProvidersResponse listIdentityProvidersWithOptions(const string &workspaceId, const Models::ListIdentityProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the external identity provider bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
+       * @summary Queries the external identity providers bound to a specified workspace. Each workspace can be bound to at most one external identity provider, so the response returns at most one record. Application secret configurations are not returned.
        *
        * @param request ListIdentityProvidersRequest
        * @return ListIdentityProvidersResponse
@@ -2085,7 +2085,7 @@ namespace AgentCore20260804
       Models::ListModelsResponse listModels(const string &workspaceId, const Models::ListModelsRequest &request);
 
       /**
-       * @summary 查询预定义模型供应商目录
+       * @summary Queries the providers supported by the built-in model catalog of AgentCore and their default service configurations.
        *
        * @param request ListPredefinedModelProvidersRequest
        * @param headers map
@@ -2095,7 +2095,7 @@ namespace AgentCore20260804
       Models::ListPredefinedModelProvidersResponse listPredefinedModelProvidersWithOptions(const Models::ListPredefinedModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询预定义模型供应商目录
+       * @summary Queries the providers supported by the built-in model catalog of AgentCore and their default service configurations.
        *
        * @param request ListPredefinedModelProvidersRequest
        * @return ListPredefinedModelProvidersResponse
@@ -2103,7 +2103,7 @@ namespace AgentCore20260804
       Models::ListPredefinedModelProvidersResponse listPredefinedModelProviders(const Models::ListPredefinedModelProvidersRequest &request);
 
       /**
-       * @summary Queries the models and their capability information for a specified provider in the AgentCore built-in model catalog.
+       * @summary Queries the models and their capabilities in the built-in model catalog of AgentCore for a specified provider.
        *
        * @param request ListPredefinedModelsRequest
        * @param headers map
@@ -2113,7 +2113,7 @@ namespace AgentCore20260804
       Models::ListPredefinedModelsResponse listPredefinedModelsWithOptions(const string &providerType, const Models::ListPredefinedModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the models and their capability information for a specified provider in the AgentCore built-in model catalog.
+       * @summary Queries the models and their capabilities in the built-in model catalog of AgentCore for a specified provider.
        *
        * @param request ListPredefinedModelsRequest
        * @return ListPredefinedModelsResponse
@@ -2165,9 +2165,9 @@ namespace AgentCore20260804
       Models::ListSandboxesResponse listSandboxes(const string &workspaceId, const string &agentId, const Models::ListSandboxesRequest &request);
 
       /**
-       * @summary Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
+       * @summary Queries service endpoints in a specified workspace with paging and supports filtering by target type, agent, collaboration component, and status.
        *
-       * @description ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+       * @description ## Request description\\nQueries service endpoints in a specified workspace with paging. You can filter the results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
        *
        * @param request ListServiceEndpointsRequest
        * @param headers map
@@ -2177,9 +2177,9 @@ namespace AgentCore20260804
       Models::ListServiceEndpointsResponse listServiceEndpointsWithOptions(const string &workspaceId, const Models::ListServiceEndpointsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
+       * @summary Queries service endpoints in a specified workspace with paging and supports filtering by target type, agent, collaboration component, and status.
        *
-       * @description ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+       * @description ## Request description\\nQueries service endpoints in a specified workspace with paging. You can filter the results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
        *
        * @param request ListServiceEndpointsRequest
        * @return ListServiceEndpointsResponse
@@ -2187,7 +2187,7 @@ namespace AgentCore20260804
       Models::ListServiceEndpointsResponse listServiceEndpoints(const string &workspaceId, const Models::ListServiceEndpointsRequest &request);
 
       /**
-       * @summary Queries the reference relationships of a skill.
+       * @summary Queries skill reference relationships.
        *
        * @param request ListSkillReferencesRequest
        * @param headers map
@@ -2197,7 +2197,7 @@ namespace AgentCore20260804
       Models::ListSkillReferencesResponse listSkillReferencesWithOptions(const string &workspaceId, const string &skillName, const Models::ListSkillReferencesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the reference relationships of a skill.
+       * @summary Queries skill reference relationships.
        *
        * @param request ListSkillReferencesRequest
        * @return ListSkillReferencesResponse
@@ -2229,7 +2229,7 @@ namespace AgentCore20260804
       Models::ListSkillsResponse listSkills(const string &workspaceId, const Models::ListSkillsRequest &request);
 
       /**
-       * @summary Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+       * @summary Queries teams in a specified workspace by using paging. You can use nameLike to filter teams by fuzzy matching the team name, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. The member information in the list includes only the member identifier, name, and team role.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -2239,7 +2239,7 @@ namespace AgentCore20260804
       Models::ListTeamsResponse listTeamsWithOptions(const string &workspaceId, const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+       * @summary Queries teams in a specified workspace by using paging. You can use nameLike to filter teams by fuzzy matching the team name, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. The member information in the list includes only the member identifier, name, and team role.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -2265,9 +2265,9 @@ namespace AgentCore20260804
       Models::ListUsersResponse listUsers(const string &workspaceId, const Models::ListUsersRequest &request);
 
       /**
-       * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       * @summary Performs a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging.
        *
-       * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       * @description ## Request description\\nPerforms a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging. You can use nextToken to obtain the next page, skip to skip a specified number of workspaces, maxResults to specify the maximum number of records per page, and nameLike to perform fuzzy filtering by workspace name. If maxResults is not specified or is set to 0, the server returns 20 records by default.\\n
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -2277,9 +2277,9 @@ namespace AgentCore20260804
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       * @summary Performs a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging.
        *
-       * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       * @description ## Request description\\nPerforms a paged query on the workspaces under the current tenant. By default, the list does not return soft-deleted records with the Deleted status. The server performs stable sorting on the results by creation order to facilitate paging. You can use nextToken to obtain the next page, skip to skip a specified number of workspaces, maxResults to specify the maximum number of records per page, and nameLike to perform fuzzy filtering by workspace name. If maxResults is not specified or is set to 0, the server returns 20 records by default.\\n
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -2407,7 +2407,7 @@ namespace AgentCore20260804
       Models::RedraftSkillVersionResponse redraftSkillVersion(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::RedraftSkillVersionRequest &request);
 
       /**
-       * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
+       * @summary Resets the logon password of a specified user. You can specify the user by using agentCoreUserId or username, and you must specify at least one of them. This operation only supports resetting passwords for users who use local password authentication in the workspace. If you do not specify the password parameter, the server generates a random password and returns it in the response.
        *
        * @param tmpReq ResetUserPasswordRequest
        * @param headers map
@@ -2417,7 +2417,7 @@ namespace AgentCore20260804
       Models::ResetUserPasswordResponse resetUserPasswordWithOptions(const string &workspaceId, const Models::ResetUserPasswordRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
+       * @summary Resets the logon password of a specified user. You can specify the user by using agentCoreUserId or username, and you must specify at least one of them. This operation only supports resetting passwords for users who use local password authentication in the workspace. If you do not specify the password parameter, the server generates a random password and returns it in the response.
        *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
@@ -2447,10 +2447,10 @@ namespace AgentCore20260804
       Models::SearchMemoriesResponse searchMemories(const string &workspaceId, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
 
       /**
-       * @summary Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+       * @summary Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
        *
-       * @description ## Operation description
-       * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+       * @description ## Request description
+       * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
        *
        * @param tmpReq SubmitAgentSpecVersionRequest
        * @param headers map
@@ -2460,10 +2460,10 @@ namespace AgentCore20260804
       Models::SubmitAgentSpecVersionResponse submitAgentSpecVersionWithOptions(const string &workspaceId, const string &agentSpecName, const string &agentSpecVersion, const Models::SubmitAgentSpecVersionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+       * @summary Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
        *
-       * @description ## Operation description
-       * Submits a specified AgentSpec draft version for review. If no release pipeline is configured, the version is published directly to online status.
+       * @description ## Request description
+       * Submits a specified draft version of an AgentSpec for review. If no release pipeline is configured, the version is directly published online.
        *
        * @param request SubmitAgentSpecVersionRequest
        * @return SubmitAgentSpecVersionResponse
@@ -2495,9 +2495,9 @@ namespace AgentCore20260804
       Models::SubmitSkillVersionResponse submitSkillVersion(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::SubmitSkillVersionRequest &request);
 
       /**
-       * @summary Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+       * @summary Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
        *
-       * @description Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+       * @description Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
        *
        * @param tmpReq UpdateAgentIMChannelRequest
        * @param headers map
@@ -2507,9 +2507,9 @@ namespace AgentCore20260804
       Models::UpdateAgentIMChannelResponse updateAgentIMChannelWithOptions(const string &workspaceId, const string &agentId, const string &imChannelId, const Models::UpdateAgentIMChannelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+       * @summary Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
        *
-       * @description Updates the ServiceEndpoint binding, enabled/disabled status, or channel behavior configuration of an IM channel. At least one updatable field must be provided.
+       * @description Updates the ServiceEndpoint, enablement status, or channel behavior configuration bound to an IM channel. At least one updatable field must be provided.
        *
        * @param request UpdateAgentIMChannelRequest
        * @return UpdateAgentIMChannelResponse
@@ -2517,9 +2517,9 @@ namespace AgentCore20260804
       Models::UpdateAgentIMChannelResponse updateAgentIMChannel(const string &workspaceId, const string &agentId, const string &imChannelId, const Models::UpdateAgentIMChannelRequest &request);
 
       /**
-       * @summary Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+       * @summary Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
        *
-       * @description Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+       * @description Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
        *
        * @param tmpReq UpdateAgentIMChannelCredentialRequest
        * @param headers map
@@ -2529,9 +2529,9 @@ namespace AgentCore20260804
       Models::UpdateAgentIMChannelCredentialResponse updateAgentIMChannelCredentialWithOptions(const string &workspaceId, const string &agentId, const string &imChannelId, const Models::UpdateAgentIMChannelCredentialRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+       * @summary Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
        *
-       * @description Performs a full update of the channel credential for a specified IM channel of an agent. Secrets are not returned in the response.
+       * @description Fully updates the channel credentials of a specified IM channel. Secrets are not returned in the response.
        *
        * @param request UpdateAgentIMChannelCredentialRequest
        * @return UpdateAgentIMChannelCredentialResponse
@@ -2585,9 +2585,9 @@ namespace AgentCore20260804
       Models::UpdateConnectorResponse updateConnector(const string &workspaceId, const string &connectorName, const Models::UpdateConnectorRequest &request);
 
       /**
-       * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+       * @summary Updates the content or description of a specified credential. You must specify at least one of credentialMetadata and description. Unspecified attributes remain unchanged. The credential name and credential type cannot be modified after creation.
        *
-       * @description Updates the metadata or resource scope of a specified credential.
+       * @description Updates the metadata or application scope of a specified credential.
        *
        * @param tmpReq UpdateCredentialRequest
        * @param headers map
@@ -2597,9 +2597,9 @@ namespace AgentCore20260804
       Models::UpdateCredentialResponse updateCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::UpdateCredentialRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+       * @summary Updates the content or description of a specified credential. You must specify at least one of credentialMetadata and description. Unspecified attributes remain unchanged. The credential name and credential type cannot be modified after creation.
        *
-       * @description Updates the metadata or resource scope of a specified credential.
+       * @description Updates the metadata or application scope of a specified credential.
        *
        * @param request UpdateCredentialRequest
        * @return UpdateCredentialResponse
@@ -2609,10 +2609,10 @@ namespace AgentCore20260804
       /**
        * @summary Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
        *
-       * @description Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+       * @description Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced as a whole. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
        * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
-       * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
-       * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+       * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or some of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, you must provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still restricted by the workspace network configurations. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+       * The update is an asynchronous process. A successful response indicates that the request is accepted. You can call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
        * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
        *
        * @param tmpReq UpdateCustomAgentRequest
@@ -2625,10 +2625,10 @@ namespace AgentCore20260804
       /**
        * @summary Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
        *
-       * @description Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+       * @description Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced as a whole. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
        * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
-       * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
-       * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+       * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or some of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, you must provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still restricted by the workspace network configurations. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+       * The update is an asynchronous process. A successful response indicates that the request is accepted. You can call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
        * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
        *
        * @param request UpdateCustomAgentRequest
@@ -2785,11 +2785,11 @@ namespace AgentCore20260804
       Models::UpdateMemoryStoreResponse updateMemoryStore(const string &workspaceId, const string &memoryStoreName, const Models::UpdateMemoryStoreRequest &request);
 
       /**
-       * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+       * @summary Updates the description, context token limit, maximum output token count, or capability configurations of a specified model.
        *
-       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-       * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-       * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. You must specify at least one non-null parameter. Parameters that are not specified or are set to null retain their original values. The capabilities parameter is replaced as a whole object. Capability fields that are not specified in the object are treated as false.
+       * Modifying only the description does not refresh the model configurations of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Repeatedly submitting the same configuration does not trigger a new model configuration refresh.
+       * A successful response indicates that the model configuration has been saved, but does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. You can call GetModel to query the saved model configuration.
        *
        * @param tmpReq UpdateModelRequest
        * @param headers map
@@ -2799,11 +2799,11 @@ namespace AgentCore20260804
       Models::UpdateModelResponse updateModelWithOptions(const string &workspaceId, const string &modelId, const Models::UpdateModelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+       * @summary Updates the description, context token limit, maximum output token count, or capability configurations of a specified model.
        *
-       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
-       * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
-       * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
+       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. You must specify at least one non-null parameter. Parameters that are not specified or are set to null retain their original values. The capabilities parameter is replaced as a whole object. Capability fields that are not specified in the object are treated as false.
+       * Modifying only the description does not refresh the model configurations of associated agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed agents that reference the model within the same workspace, as well as external agents whose model source is PLATFORM. External agents whose model source is RUNTIME are not affected. Repeatedly submitting the same configuration does not trigger a new model configuration refresh.
+       * A successful response indicates that the model configuration has been saved, but does not indicate that associated agents have completed the configuration refresh or that the runtime has loaded the new configuration. You can call GetModel to query the saved model configuration.
        *
        * @param request UpdateModelRequest
        * @return UpdateModelResponse
@@ -2811,7 +2811,7 @@ namespace AgentCore20260804
       Models::UpdateModelResponse updateModel(const string &workspaceId, const string &modelId, const Models::UpdateModelRequest &request);
 
       /**
-       * @summary Updates the mutable configuration of a specified model connection and resubmits the publish task. The protocol cannot be modified after the model connection is created.
+       * @summary Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
        *
        * @param tmpReq UpdateModelConnectionRequest
        * @param headers map
@@ -2821,7 +2821,7 @@ namespace AgentCore20260804
       Models::UpdateModelConnectionResponse updateModelConnectionWithOptions(const string &workspaceId, const string &connectionId, const Models::UpdateModelConnectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the mutable configuration of a specified model connection and resubmits the publish task. The protocol cannot be modified after the model connection is created.
+       * @summary Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
        *
        * @param request UpdateModelConnectionRequest
        * @return UpdateModelConnectionResponse
@@ -2829,10 +2829,10 @@ namespace AgentCore20260804
       Models::UpdateModelConnectionResponse updateModelConnection(const string &workspaceId, const string &connectionId, const Models::UpdateModelConnectionRequest &request);
 
       /**
-       * @summary Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+       * @summary Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
        *
-       * @description ## Operation description
-       * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+       * @description ## Request description
+       * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
        *
        * @param tmpReq UpdateSkillBizTagsRequest
        * @param headers map
@@ -2842,10 +2842,10 @@ namespace AgentCore20260804
       Models::UpdateSkillBizTagsResponse updateSkillBizTagsWithOptions(const string &workspaceId, const string &skillName, const Models::UpdateSkillBizTagsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+       * @summary Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
        *
-       * @description ## Operation description
-       * Updates the business tags of a specified Skill. Other attributes that are not included in the request remain unchanged.
+       * @description ## Request description
+       * Updates the business tags of a specified skill. Other attributes not provided in the request remain unchanged.
        *
        * @param request UpdateSkillBizTagsRequest
        * @return UpdateSkillBizTagsResponse
@@ -2901,7 +2901,7 @@ namespace AgentCore20260804
       Models::UpdateSkillScopeResponse updateSkillScope(const string &workspaceId, const string &skillName, const Models::UpdateSkillScopeRequest &request);
 
       /**
-       * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
+       * @summary Updates the description and members of a specified team. When users or agents are passed, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not passed remain unchanged. The team name cannot be modified after creation.
        *
        * @param tmpReq UpdateTeamRequest
        * @param headers map
@@ -2911,7 +2911,7 @@ namespace AgentCore20260804
       Models::UpdateTeamResponse updateTeamWithOptions(const string &workspaceId, const string &teamId, const Models::UpdateTeamRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
+       * @summary Updates the description and members of a specified team. When users or agents are passed, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not passed remain unchanged. The team name cannot be modified after creation.
        *
        * @param request UpdateTeamRequest
        * @return UpdateTeamResponse
@@ -2919,7 +2919,7 @@ namespace AgentCore20260804
       Models::UpdateTeamResponse updateTeam(const string &workspaceId, const string &teamId, const Models::UpdateTeamRequest &request);
 
       /**
-       * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
+       * @summary Updates the display name, email address, or note of a specified user. You must specify at least one of the displayName, email, and note parameters. Unspecified attributes remain unchanged. The username cannot be modified after creation.
        *
        * @param tmpReq UpdateUserRequest
        * @param headers map
@@ -2929,7 +2929,7 @@ namespace AgentCore20260804
       Models::UpdateUserResponse updateUserWithOptions(const string &workspaceId, const string &agentCoreUserId, const Models::UpdateUserRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
+       * @summary Updates the display name, email address, or note of a specified user. You must specify at least one of the displayName, email, and note parameters. Unspecified attributes remain unchanged. The username cannot be modified after creation.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
@@ -2937,9 +2937,9 @@ namespace AgentCore20260804
       Models::UpdateUserResponse updateUser(const string &workspaceId, const string &agentCoreUserId, const Models::UpdateUserRequest &request);
 
       /**
-       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this API operation.
        *
-       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+       * @description ## Request description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this API operation. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param tmpReq UpdateWorkspaceRequest
        * @param headers map
@@ -2949,9 +2949,9 @@ namespace AgentCore20260804
       Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const string &workspaceId, const Models::UpdateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this API operation.
        *
-       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
+       * @description ## Request description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this API operation. The network configuration uses `Enabled` to specify whether to enable the VPC network. If enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param request UpdateWorkspaceRequest
        * @return UpdateWorkspaceResponse
@@ -2959,10 +2959,10 @@ namespace AgentCore20260804
       Models::UpdateWorkspaceResponse updateWorkspace(const string &workspaceId, const Models::UpdateWorkspaceRequest &request);
 
       /**
-       * @summary Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+       * @summary Imports an AgentSpec into the current workspace by retrieving and parsing an uploaded AgentSpec ZIP package from OSS.
        *
-       * @description ## Operation description
-       * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+       * @description ## Request description
+       * Retrieves an uploaded AgentSpec ZIP package from OSS, parses the package, and imports the AgentSpec into the current workspace.
        *
        * @param tmpReq UploadAgentSpecViaOssRequest
        * @param headers map
@@ -2972,10 +2972,10 @@ namespace AgentCore20260804
       Models::UploadAgentSpecViaOssResponse uploadAgentSpecViaOssWithOptions(const string &workspaceId, const Models::UploadAgentSpecViaOssRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+       * @summary Imports an AgentSpec into the current workspace by retrieving and parsing an uploaded AgentSpec ZIP package from OSS.
        *
-       * @description ## Operation description
-       * Retrieves an uploaded AgentSpec ZIP package from OSS, parses it, and imports the AgentSpec into the current workspace.
+       * @description ## Request description
+       * Retrieves an uploaded AgentSpec ZIP package from OSS, parses the package, and imports the AgentSpec into the current workspace.
        *
        * @param request UploadAgentSpecViaOssRequest
        * @return UploadAgentSpecViaOssResponse
@@ -3029,9 +3029,9 @@ namespace AgentCore20260804
       Models::VerifyConnectorResponse verifyConnector(const string &workspaceId, const string &connectorName, const Models::VerifyConnectorRequest &request);
 
       /**
-       * @summary Verifies the ACR RAM authorization of a workspace.
+       * @summary Verifies the ACR RAM authorization for a workspace.
        *
-       * @description ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+       * @description ACR and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisites. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached, without parsing the policy content or simulating the final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require ACR configurations to be delivered. Creating or updating an agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through agent details.
        *
        * @param request VerifyWorkspaceAcrRamAuthorizationRequest
        * @param headers map
@@ -3041,9 +3041,9 @@ namespace AgentCore20260804
       Models::VerifyWorkspaceAcrRamAuthorizationResponse verifyWorkspaceAcrRamAuthorizationWithOptions(const string &workspaceId, const Models::VerifyWorkspaceAcrRamAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies the ACR RAM authorization of a workspace.
+       * @summary Verifies the ACR RAM authorization for a workspace.
        *
-       * @description ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+       * @description ACR and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is retained and only new permissions are appended without overwriting existing OSS policies. Fixed historical shared roles continue to be reused and are not recreated or renamed due to new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisites. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached, without parsing the policy content or simulating the final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require ACR configurations to be delivered. Creating or updating an agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through agent details.
        *
        * @param request VerifyWorkspaceAcrRamAuthorizationRequest
        * @return VerifyWorkspaceAcrRamAuthorizationResponse

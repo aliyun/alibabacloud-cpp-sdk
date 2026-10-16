@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The Content-Type of the upload file.
+      // The Content-Type of the uploaded file.
       shared_ptr<string> contentType_ {};
-      // The maximum file size allowed for upload, in bytes.
+      // The maximum allowed file size for upload, in bytes.
       shared_ptr<string> maxSize_ {};
       // The OSS object name.
       shared_ptr<string> ossObjectName_ {};
-      // The OSS pre-signed upload URL.
+      // The OSS presigned upload URL.
       shared_ptr<string> uploadUrl_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<GetSkillImportFileUrlResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

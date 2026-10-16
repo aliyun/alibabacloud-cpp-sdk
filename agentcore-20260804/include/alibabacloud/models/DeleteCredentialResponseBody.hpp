@@ -88,7 +88,7 @@ namespace Models
     protected:
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The credential name. The name must be unique within the workspace and can contain only letters, digits, periods (.), underscores (_), and hyphens (-). The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+      // The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 128 characters in length. Runtime reserved names cannot be used.
       shared_ptr<string> name_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -151,7 +151,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

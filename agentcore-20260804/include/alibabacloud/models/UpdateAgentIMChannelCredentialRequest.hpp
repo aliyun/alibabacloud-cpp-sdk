@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The channel credential. All fields must be provided and field values must be non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
+      // The channel credentials. All fields must be provided and the field values must be non-empty strings. For DingTalk, use clientID and clientSecret. For Lark, use appId and appSecret. For WeCom, use botId and secret.
       // 
       // This parameter is required.
       shared_ptr<map<string, string>> credential_ {};
@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateAgentIMChannelCredentialRequest::Body> body_ {};
-    // Reserved idempotency token. The backend does not provide persistent idempotence guarantees in the current version.
+    // The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

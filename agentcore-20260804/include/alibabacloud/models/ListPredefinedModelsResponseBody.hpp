@@ -164,11 +164,11 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Indicates whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Indicates whether the model supports streaming tool calling.
+        // Specifies whether the model is able to invoke streaming tool calling.
         shared_ptr<bool> streamToolCall_ {};
         // Indicates whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -218,15 +218,15 @@ namespace Models
 
 
     protected:
-      // The model capability configuration.
+      // The model capability configurations.
       shared_ptr<Data::Capabilities> capabilities_ {};
-      // The model context window size in tokens. The value must be a positive integer.
+      // The context window size of the model, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
       // The maximum number of output tokens supported by the model in a single generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The model release date in the format of YYYY-MM-DD.
+      // The release date of the model. The format is YYYY-MM-DD.
       shared_ptr<string> releaseDate_ {};
     };
 
@@ -277,17 +277,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The list of predefined models.
     shared_ptr<vector<ListPredefinedModelsResponseBody::Data>> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message indicating the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

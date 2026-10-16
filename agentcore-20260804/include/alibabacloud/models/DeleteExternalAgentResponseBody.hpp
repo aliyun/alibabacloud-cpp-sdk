@@ -175,13 +175,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The runtime type reported by the external agent.
       shared_ptr<string> runtime_ {};
-      // The status of the external agent. Valid values:
-      // - Creating: The agent is being created.
-      // - Running: The agent is running.
-      // - Failed: The agent has failed.
-      // - Updating: The agent is being updated.
-      // - Deleting: The agent is being deleted.
-      // - Deleted: The agent has been deleted.
+      // The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -236,17 +230,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned if the request is successful.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The summary information of the deleted external agent.
     shared_ptr<DeleteExternalAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 is returned if the request is successful.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned for the request processing result.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

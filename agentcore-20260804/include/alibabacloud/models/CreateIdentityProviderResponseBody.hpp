@@ -104,24 +104,22 @@ namespace Models
 
 
     protected:
-      // The type of the external identity provider. Valid values:
-      // - DingTalk
-      // - Feishu
+      // The type of the external identity provider. Valid values: DingTalk and Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // Specifies whether workspace users are allowed to log on through this external identity provider.
+      // Specifies whether workspace users can log on through the external identity provider.
       shared_ptr<bool> loginEnabled_ {};
       // The binding status. Valid values:
-      // - CONFIGURED: The configuration has been accepted and is waiting for user pool provisioning.
+      // - CONFIGURED: The configuration is accepted, and the system is waiting to activate the user pool.
       // - SYNCING: Organization members are being synchronized.
-      // - SYNCED: Organization member synchronization is complete.
-      // - READY: The binding is active.
+      // - SYNCED: Organization member synchronization is completed.
+      // - READY: The binding is in effect.
       // - SYNC_FAILED: Organization member synchronization failed.
       // - UPDATING: The configuration is being updated.
       // - UPDATE_FAILED: The configuration update failed.
-      // - DISCONNECTING: The binding is being removed.
+      // - DISCONNECTING: The unbinding is in progress.
       // - DISCONNECT_FAILED: The unbinding failed.
       shared_ptr<string> status_ {};
-      // Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+      // Specifies whether to enable organization member synchronization. If enabled, organization members are synchronized to workspace users from the external identity provider.
       shared_ptr<bool> syncEnabled_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -180,11 +178,11 @@ namespace Models
     shared_ptr<CreateIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request failed.
+    // The response message. If the request fails, an error description is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

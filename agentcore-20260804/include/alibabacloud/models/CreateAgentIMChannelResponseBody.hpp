@@ -280,29 +280,26 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The channel behavior configuration.
       shared_ptr<Data::ChannelConfig> channelConfig_ {};
-      // The IM channel type. Valid values:
-      // - DINGTALK: DingTalk.
-      // - FEISHU: Lark.
-      // - WECOM: WeCom.
+      // The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
       shared_ptr<string> channelType_ {};
       // The creation time in RFC 3339 format.
       shared_ptr<string> createTime_ {};
       // The channel credential summary. Only non-sensitive fields and configured secret field names are returned. Secret values are not returned.
       shared_ptr<Data::CredentialSummary> credentialSummary_ {};
-      // Specifies whether to enable the IM channel. Default value during creation: true.
+      // Specifies whether to enable the IM channel. Default value: true.
       shared_ptr<bool> enabled_ {};
-      // The public network access URL of the attached ServiceEndpoint.
+      // The public network access address of the bound ServiceEndpoint.
       shared_ptr<string> endpointUrl_ {};
       // The IM channel ID.
       shared_ptr<string> imChannelId_ {};
-      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public network address.
       shared_ptr<string> serviceEndpointId_ {};
       // The IM channel status. Valid values:
-      // - CREATING: Being created.
+      // - CREATING: Creating.
       // - READY: Ready.
-      // - UPDATING: Being updated.
+      // - UPDATING: Updating.
       // - FAILED: Failed.
-      // - DELETING: Being deleted.
+      // - DELETING: Deleting.
       // - DELETE_FAILED: Deletion failed.
       shared_ptr<string> status_ {};
       // The reason for the current status of the IM channel.
@@ -360,17 +357,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS when the request succeeds.
+    // The business status code. The value is SUCCESS when the request is successful.
     shared_ptr<string> code_ {};
     // The IM channel information after creation.
     shared_ptr<CreateAgentIMChannelResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 when the request succeeds.
+    // The HTTP status code. The value is 200 when the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

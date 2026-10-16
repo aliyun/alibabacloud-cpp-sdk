@@ -172,15 +172,13 @@ namespace Models
     protected:
       // The external agent ID.
       shared_ptr<string> agentId_ {};
-      // The bootstrap token used for connecting the external agent.
+      // The Bootstrap token used to onboard the external agent.
       shared_ptr<string> bootstrapToken_ {};
-      // The CMS configuration used for connecting the external agent.
+      // The CMS configuration used to onboard the external agent.
       shared_ptr<Data::Cms> cms_ {};
-      // The network type for connection. Valid values:
-      // - INTERNET: public network
-      // - INTRANET: internal network
+      // The network type for onboarding. Valid values: INTRANET (internal network) and INTERNET (Internet).
       shared_ptr<string> networkType_ {};
-      // The fingerprint of the bootstrap token.
+      // The fingerprint of the Bootstrap token.
       shared_ptr<string> tokenFingerprint_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -233,17 +231,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned if the request is successful.
+    // The business status code. The value is SUCCESS when the operation is successful.
     shared_ptr<string> code_ {};
-    // The bootstrap token and CMS configuration required for connecting the external agent.
+    // The Bootstrap token and CMS configuration required to onboard the external agent.
     shared_ptr<CreateExternalAgentBootstrapTokenResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 is returned if the request is successful.
+    // The HTTP status code. The value is 200 when the operation is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message that indicates the result of the request.
+    // The result message of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

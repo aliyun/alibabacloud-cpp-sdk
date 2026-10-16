@@ -101,11 +101,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the network access type is available.
+        // Indicates whether the access network is available.
         shared_ptr<bool> available_ {};
-        // The network type. Valid values:
-        // - INTRANET: internal network.
-        // - INTERNET: public network.
+        // The access network type. Valid values: INTRANET (internal network) and INTERNET (public network).
         shared_ptr<string> networkType_ {};
       };
 
@@ -137,7 +135,7 @@ namespace Models
     protected:
       // The external agent ID.
       shared_ptr<string> agentId_ {};
-      // The list of available network access options.
+      // The list of available access networks.
       shared_ptr<vector<Data::NetworkOptions>> networkOptions_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -190,17 +188,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned if the request succeeds.
+    // The business status code. The value is SUCCESS when the request is successful.
     shared_ptr<string> code_ {};
-    // The network access information available for the external agent.
+    // The access network information available for the external agent.
     shared_ptr<GetExternalAgentBootstrapOptionsResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 is returned if the request succeeds.
+    // The HTTP status code. The value is 200 when the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

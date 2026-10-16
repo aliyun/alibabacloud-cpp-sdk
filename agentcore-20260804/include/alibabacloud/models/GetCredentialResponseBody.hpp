@@ -130,7 +130,7 @@ namespace Models
       protected:
         // The unique identifier of the resource.
         shared_ptr<string> resourceId_ {};
-        // The resource name. This value is empty if the resource has been deleted.
+        // The resource name. This field is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
         // The resource type, such as agent.
         shared_ptr<string> resourceType_ {};
@@ -275,25 +275,25 @@ namespace Models
     protected:
       // The list of agents bound to the credential.
       shared_ptr<vector<Data::BoundAgents>> boundAgents_ {};
-      // The creation time in UTC, formatted according to RFC 3339.
+      // The creation time in UTC format compliant with RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The masked content of the credential. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of equal length.
+      // The masked result of the credential content. When credentialType is apiKey, the value of apiKey is returned as asterisks (*) of the same length.
       shared_ptr<string> credentialMetadata_ {};
       // The credential type. Currently, only apiKey is supported.
       shared_ptr<string> credentialType_ {};
-      // The credential description, up to 256 characters in length.
+      // The credential description, which cannot exceed 256 characters in length.
       shared_ptr<string> description_ {};
-      // The credential name. The name must be unique within the workspace and can contain only letters, digits, periods (.), underscores (_), and hyphens (-). The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+      // The credential name. It must be unique within the workspace, contain only letters, digits, periods (.), underscores (_), and hyphens (-), be 3 to 128 characters in length, and cannot use runtime reserved names.
       shared_ptr<string> name_ {};
-      // The region ID where the resource resides.
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // Each item contains resourceType, resourceId, and resourceName. If the resource has been deleted, resourceName is empty.
+      // Each item includes resourceType, resourceId, and resourceName. If the resource is deleted, resourceName is empty.
       shared_ptr<vector<Data::ResourceRefs>> resourceRefs_ {};
-      // The scope of resources to which the credential applies.
+      // The application scope of the credential resource.
       shared_ptr<string> resourceScope_ {};
-      // The time of the last modification in UTC, formatted according to RFC 3339.
+      // The time of the last modification in UTC format compliant with RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -356,7 +356,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

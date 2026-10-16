@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The version number. If this parameter is not specified, the version corresponding to the latest label is downloaded.
+    // The version number. If you do not specify this parameter, the version associated with the latest tag is downloaded.
     shared_ptr<string> agentSpecVersion_ {};
   };
 

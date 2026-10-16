@@ -159,13 +159,13 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the custom agent. You can retrieve it from the response of CreateCustomAgent or ListCustomAgents.
+      // The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
       shared_ptr<string> agentId_ {};
       // The creation method of the agent. The value is CUSTOM for custom agents.
       shared_ptr<string> createMode_ {};
       // The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. Custom agents are deployed and managed by the platform, and the value is MANAGED.
+      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
       shared_ptr<string> deployType_ {};
       // The description of the agent\\"s purpose.
       shared_ptr<string> description_ {};
@@ -175,7 +175,14 @@ namespace Models
       shared_ptr<string> name_ {};
       // The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
       shared_ptr<string> runtime_ {};
-      // The overall status of the agent. Valid values: Creating: The agent is being created. Running: The agent is running. Failed: The agent failed. Updating: The agent is being updated. Deleting: The agent is being deleted. Deleted: The agent is deleted. To query the execution progress of the latest configuration, call GetCustomAgent.
+      // The overall status of the agent. Valid values:
+      // - Creating: The agent is being created.
+      // - Running: The agent is running.
+      // - Failed: The agent is in a failed state.
+      // - Updating: The agent is being updated.
+      // - Deleting: The agent is being deleted.
+      // - Deleted: The agent has been deleted.
+      // Call GetCustomAgent to retrieve the latest configuration execution progress.
       shared_ptr<string> status_ {};
       // The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
@@ -240,7 +247,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
     shared_ptr<bool> success_ {};
   };
 

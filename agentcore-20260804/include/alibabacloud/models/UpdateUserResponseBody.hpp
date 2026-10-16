@@ -161,15 +161,15 @@ namespace Models
     protected:
       // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
-      // The authentication method of the user. password indicates local password authentication within the workspace. dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
+      // The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
       shared_ptr<string> authMethod_ {};
-      // The creation time in UTC, formatted in RFC 3339.
+      // The creation time, in UTC and RFC 3339 format.
       shared_ptr<string> createdAt_ {};
-      // The display name of the user. The name is 1 to 32 characters in length.
+      // The display name of the user. The name must be 1 to 32 characters in length.
       shared_ptr<string> displayName_ {};
-      // The email address of the user. The address can be up to 256 characters in length.
+      // The email address of the user. The email address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
-      // The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit and be 1 to 32 characters in length.
+      // The username. The username must be unique within the workspace, can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
       // The note for the user. The note can be up to 1,024 characters in length.
       shared_ptr<string> note_ {};
@@ -177,7 +177,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The user status. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
       shared_ptr<string> status_ {};
-      // The time of the last modification in UTC, formatted in RFC 3339.
+      // The time of the last update, in UTC and RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -240,7 +240,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

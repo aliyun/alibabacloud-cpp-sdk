@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The Content-Type of the upload file. Default value: application/zip.
+    // The Content-Type of the uploaded file. Default value: application/zip.
     shared_ptr<string> contentType_ {};
   };
 

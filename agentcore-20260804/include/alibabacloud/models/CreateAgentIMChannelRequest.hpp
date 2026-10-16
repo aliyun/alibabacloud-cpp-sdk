@@ -147,20 +147,17 @@ namespace Models
     protected:
       // The channel behavior configuration.
       shared_ptr<Body::ChannelConfig> channelConfig_ {};
-      // The IM channel type. Valid values:
-      // - DINGTALK: DingTalk.
-      // - FEISHU: Lark.
-      // - WECOM: WeCom.
+      // The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
       // 
       // This parameter is required.
       shared_ptr<string> channelType_ {};
-      // The channel credential. All fields must be provided and field values must be non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
+      // The channel credentials. You must pass all fields and ensure that the field values are non-empty strings. For DingTalk, use clientID and clientSecret. For Lark, use appId and appSecret. For WeCom, use botId and secret.
       // 
       // This parameter is required.
       shared_ptr<map<string, string>> credential_ {};
-      // Specifies whether to enable the IM channel. Default value during creation: true.
+      // Specifies whether to enable the IM channel. Default value: true.
       shared_ptr<bool> enabled_ {};
-      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public network address.
       // 
       // This parameter is required.
       shared_ptr<string> serviceEndpointId_ {};
@@ -187,7 +184,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateAgentIMChannelRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
+    // The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

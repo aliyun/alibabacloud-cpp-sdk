@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The default model service endpoint of the provider.
       shared_ptr<string> defaultEndpoint_ {};
+      // The default model invocation protocol of the provider.
       shared_ptr<string> defaultProtocol_ {};
+      // The display name of the model provider.
       shared_ptr<string> displayName_ {};
+      // The model provider type.
       shared_ptr<string> providerType_ {};
     };
 
@@ -149,11 +153,17 @@ namespace Models
 
 
   protected:
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
+    // The list of predefined model providers.
     shared_ptr<vector<ListPredefinedModelProvidersResponseBody::Data>> data_ {};
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

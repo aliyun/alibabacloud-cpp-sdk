@@ -149,7 +149,7 @@ namespace Models
 
 
         protected:
-          // The description of the purpose of the current API path.
+          // The description of the current API path.
           shared_ptr<string> description_ {};
           // The API path corresponding to the current protocol.
           // 
@@ -189,7 +189,10 @@ namespace Models
         shared_ptr<map<string, string>> headers_ {};
         // The list of API paths corresponding to the current protocol.
         shared_ptr<vector<Protocol::Paths>> paths_ {};
-        // The invoke Protocol Type. Valid values: agui: AG-UI protocol. openai-chat-completion: OpenAI Chat Completions compatible protocol. custom: custom protocol.
+        // The invocation protocol type. Valid values:
+        // - agui: AG-UI protocol.
+        // - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+        // - custom: Custom protocol.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -286,15 +289,15 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the custom agent. You can obtain the value from the response of CreateCustomAgent or ListCustomAgents.
+      // The unique identifier of the custom agent. You can obtain this value from the response of CreateCustomAgent or ListCustomAgents.
       shared_ptr<string> agentId_ {};
       // The creation method of the agent. The value is CUSTOM for custom agents.
       shared_ptr<string> createMode_ {};
-      // The time when the agent was created. The time is displayed in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
+      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
       shared_ptr<string> deployType_ {};
-      // The description of the agent\\"s purpose.
+      // The description of the agent.
       shared_ptr<string> description_ {};
       // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       shared_ptr<int64_t> latestSpecVersion_ {};
@@ -304,9 +307,16 @@ namespace Models
       shared_ptr<vector<Items::Protocol>> protocol_ {};
       // The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
       shared_ptr<string> runtime_ {};
-      // The overall status of the agent. Valid values: Creating: The agent is being created. Running: The agent is running. Failed: The agent failed to run. Updating: The agent is being updated. Deleting: The agent is being deleted. Deleted: The agent is deleted. To query the execution progress of the latest configuration, call GetCustomAgent.
+      // The overall status of the agent. Valid values:
+      // - Creating: The agent is being created.
+      // - Running: The agent is running.
+      // - Failed: The agent failed.
+      // - Updating: The agent is being updated.
+      // - Deleting: The agent is being deleted.
+      // - Deleted: The agent is deleted.
+      // To check the execution progress of the latest configuration, call GetCustomAgent.
       shared_ptr<string> status_ {};
-      // The time when the agent was last updated. The time is displayed in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was last updated. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
       // The ID of the workspace to which the custom agent belongs.
       shared_ptr<string> workspaceId_ {};
@@ -391,11 +401,11 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The description of the processing result for this request. The value is success if the request is successful.
     shared_ptr<string> message_ {};
-    // The opaque token used to query the next page. An empty value indicates that there are no more pages. Pass the token as is in subsequent requests.
+    // The opaque token used to query the next page. If this value is empty, no more pages are available. Pass this value as is in subsequent requests.
     shared_ptr<string> nextToken_ {};
-    // The unique identifier of the request. You can use the ID to locate and troubleshoot issues.
+    // The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not indicate that the background operation is complete.
     shared_ptr<bool> success_ {};
     // The total number of custom agents that meet the query conditions in the specified workspace.
     shared_ptr<int64_t> totalCount_ {};

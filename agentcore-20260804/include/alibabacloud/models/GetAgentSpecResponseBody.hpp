@@ -169,9 +169,9 @@ namespace Models
 
 
       protected:
-        // The version author.
+        // The author of the version.
         shared_ptr<string> author_ {};
-        // The creation time. This value is a UNIX timestamp in milliseconds.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
@@ -181,7 +181,7 @@ namespace Models
         shared_ptr<string> publishPipelineInfo_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The update time. This value is a UNIX timestamp in milliseconds.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
         // The version number.
         shared_ptr<string> version_ {};
@@ -293,9 +293,9 @@ namespace Models
       shared_ptr<string> description_ {};
       // The number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
-      // The version that is currently being edited.
+      // The version currently being edited.
       shared_ptr<string> editingVersion_ {};
-      // Indicates whether the AgentSpec is enabled.
+      // Indicates whether it is enabled.
       shared_ptr<bool> enable_ {};
       // The source.
       shared_ptr<string> from_ {};
@@ -305,11 +305,11 @@ namespace Models
       shared_ptr<string> name_ {};
       // The number of online versions.
       shared_ptr<int32_t> onlineCnt_ {};
-      // The version that is currently under review.
+      // The version currently under review.
       shared_ptr<string> reviewingVersion_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};
-      // The update time. This value is a UNIX timestamp in milliseconds.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The list of version summaries.
       shared_ptr<vector<Data::Versions>> versions_ {};

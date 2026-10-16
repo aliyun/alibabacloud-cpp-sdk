@@ -57,7 +57,7 @@ namespace Models
 
 
     protected:
-      // The business tags as a JSON array string.
+      // The JSON array string of business tags.
       // 
       // This parameter is required.
       shared_ptr<string> bizTags_ {};

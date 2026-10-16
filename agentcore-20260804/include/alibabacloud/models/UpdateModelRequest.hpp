@@ -149,21 +149,38 @@ namespace Models
 
 
       protected:
-        // Specifies whether the model supports audio input or output. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model supports audio input or output. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> audio_ {};
-        // Specifies whether the model supports document input. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model supports document input. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model supports invoking multiple tools in a single response. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model is able to invoke tool calling multiple times in a single response. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> multiToolCall_ {};
-        // Specifies whether the model supports reasoning. A value of true indicates that it is supported. A value of false indicates that it is not supported. This field is a capability marker and is not used to set reasoning intensity or reasoning token budget.
+        // Specifies whether the model supports reasoning capabilities. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
+        // This field is a capability flag and is not used to set the reasoning intensity or reasoning token budget.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model supports streaming tool invocation. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model is able to invoke streaming tool calling. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> streamToolCall_ {};
-        // Specifies whether the model supports tool invocation. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model is able to invoke tool calling. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> toolCall_ {};
-        // Specifies whether the model supports video input. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model supports video input. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> video_ {};
-        // Specifies whether the model supports image input. A value of true indicates that it is supported. A value of false indicates that it is not supported.
+        // Specifies whether the model supports image input. Valid values:
+        // - true: Supported.
+        // - false: Not supported.
         shared_ptr<bool> vision_ {};
       };
 
@@ -200,13 +217,13 @@ namespace Models
 
 
     protected:
-      // The model capability configuration. When an object is provided, it replaces the existing capability configuration as a whole. Capability fields not included in the object are treated as false. Providing an empty object {} sets all capabilities to false. If this parameter is not provided or set to null, the original configuration is retained.
+      // The model capability configuration. When an object is passed, the original capability configuration is replaced as a whole. Capability fields that are not specified in the object are treated as false. Passing an empty object {} sets all capabilities to false. If this parameter is not passed or is set to null, the original configuration is retained.
       shared_ptr<Body::Capabilities> capabilities_ {};
-      // The context token limit of the model. The minimum value is 1000. The updated value must not be less than maxTokens. If maxTokens is not provided in this request, the existing value is used for validation. If this parameter is not provided or set to null, the original value is retained.
+      // The context token limit of the model. The minimum value is 1000. The updated value must not be less than maxTokens. If maxTokens is not specified in the current request, the existing value is used for validation. If this parameter is not passed or is set to null, the original value is retained.
       shared_ptr<int64_t> contextSize_ {};
-      // The model description. The maximum length is 255 characters after leading and trailing whitespace is removed. Providing an empty string clears the description. If this parameter is not provided or set to null, the original value is retained. Modifying only the description does not refresh the model configuration of associated Agents.
+      // The model description. The maximum length is 255 characters after leading and trailing whitespace is removed. Passing an empty string clears the description. If this parameter is not passed or is set to null, the original value is retained. Modifying only the description does not refresh the model configurations of associated agents.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens per generation. The value must be a positive integer. If contextSize is configured, the updated maxTokens must not exceed contextSize. If contextSize is not provided in this request, the existing value is used for validation. If this parameter is not provided or set to null, the original value is retained.
+      // The maximum number of output tokens for a single generation of the model. The value must be a positive integer. If contextSize is configured, the updated maxTokens must not be greater than contextSize. If contextSize is not specified in the current request, the existing value is used for validation. If this parameter is not passed or is set to null, the original value is retained.
       shared_ptr<int64_t> maxTokens_ {};
     };
 
@@ -229,9 +246,9 @@ namespace Models
 
 
   protected:
-    // The model update request body. At least one non-null parameter must be provided among description, contextSize, maxTokens, and capabilities.
+    // The model update request body. You must specify at least one non-null parameter among description, contextSize, maxTokens, and capabilities.
     shared_ptr<UpdateModelRequest::Body> body_ {};
-    // The client token for idempotency. Not currently supported.
+    // The client token used for idempotence. This parameter is not supported.
     shared_ptr<string> clientToken_ {};
   };
 

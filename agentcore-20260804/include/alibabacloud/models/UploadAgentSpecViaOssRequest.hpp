@@ -76,13 +76,13 @@ namespace Models
 
 
     protected:
-      // The OSS object name (full path).
+      // The name of the OSS object, including the full path.
       // 
       // This parameter is required.
       shared_ptr<string> ossObjectName_ {};
-      // Specifies whether to overwrite the existing draft. Default value: false.
+      // Specifies whether to overwrite existing drafts. Default value: false.
       shared_ptr<bool> overwrite_ {};
-      // Specifies whether to publish directly after upload. Default value: false.
+      // Specifies whether to publish and bring the AgentSpec online immediately after the upload. Default value: false.
       shared_ptr<bool> publish_ {};
     };
 

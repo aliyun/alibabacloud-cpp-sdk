@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The model update request body. At least one non-null parameter must be provided among description, contextSize, maxTokens, and capabilities.
+    // The model update request body. You must specify at least one non-null parameter among description, contextSize, maxTokens, and capabilities.
     shared_ptr<string> bodyShrink_ {};
-    // The client token for idempotency. Not currently supported.
+    // The client token used for idempotence. This parameter is not supported.
     shared_ptr<string> clientToken_ {};
   };
 

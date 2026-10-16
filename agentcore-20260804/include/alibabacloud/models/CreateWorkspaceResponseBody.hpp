@@ -138,9 +138,13 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_TO_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_FROM_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_FROM_JSON(vpc, vpc_);
         };
         NetworkConfiguration() = default ;
@@ -203,15 +207,30 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable VPC networking.
+          // Specifies whether to enable the VPC network.
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the user VPC.
+          // The user VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->publicEgressEnabled_ == nullptr
+        && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        // publicEgressEnabled Field Functions 
+        bool hasPublicEgressEnabled() const { return this->publicEgressEnabled_ != nullptr;};
+        void deletePublicEgressEnabled() { this->publicEgressEnabled_ = nullptr;};
+        inline bool getPublicEgressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicEgressEnabled_, false) };
+        inline NetworkConfiguration& setPublicEgressEnabled(bool publicEgressEnabled) { DARABONBA_PTR_SET_VALUE(publicEgressEnabled_, publicEgressEnabled) };
+
+
+        // publicIngressEnabled Field Functions 
+        bool hasPublicIngressEnabled() const { return this->publicIngressEnabled_ != nullptr;};
+        void deletePublicIngressEnabled() { this->publicIngressEnabled_ = nullptr;};
+        inline bool getPublicIngressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicIngressEnabled_, false) };
+        inline NetworkConfiguration& setPublicIngressEnabled(bool publicIngressEnabled) { DARABONBA_PTR_SET_VALUE(publicIngressEnabled_, publicIngressEnabled) };
+
+
         // vpc Field Functions 
         bool hasVpc() const { return this->vpc_ != nullptr;};
         void deleteVpc() { this->vpc_ = nullptr;};
@@ -222,7 +241,11 @@ namespace Models
 
 
       protected:
-        // The VPC network configuration of the user.
+        // Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public network egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public network egress of the user VPC.
+        shared_ptr<bool> publicEgressEnabled_ {};
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed. The original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter.
+        shared_ptr<bool> publicIngressEnabled_ {};
+        // The user VPC network configuration.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -340,37 +363,37 @@ namespace Models
 
 
     protected:
-      // The AI Registry namespace ID. This value is returned after the related resources are bound. It may be empty during initialization.
+      // The AI Registry namespace ID. It is returned after related resources are bound and may be empty during initialization.
       shared_ptr<string> aiRegistryNamespaceId_ {};
       // The OSS storage authorization status.
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The CloudMonitor workspace ID. This value is returned after the related resources are bound. It may be empty during initialization.
+      // The CloudMonitor workspace ID. It is returned after related resources are bound and may be empty during initialization.
       shared_ptr<string> cmsWorkspaceId_ {};
       // The time when the workspace was created, in ISO 8601 format.
       // 
       // This parameter is required.
       shared_ptr<string> createTime_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
-      // The region ID of the workspace.
+      // The ID of the region where the workspace resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
+      // The ID of the resource group to which the workspace belongs. It may be empty if no resource group is specified.
       shared_ptr<string> resourceGroupId_ {};
-      // The workspace status.
+      // The status of the workspace.
       shared_ptr<string> status_ {};
-      // The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending. It may be empty under normal conditions.
+      // The supplementary reason for the current status of the workspace. It is used to display the specific reason when initialization fails or when waiting for authorization. It may be empty under normal circumstances.
       shared_ptr<string> statusReason_ {};
       // The storage type of the workspace.
       shared_ptr<string> storageType_ {};
-      // The list of workspace tags. An empty array is returned if no tags are set.
+      // The list of tags for the workspace. An empty array is returned if no tags are set.
       // 
       // This parameter is required.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The ID of the tenant to which the workspace belongs.
+      // The ID of the tenant.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -433,7 +456,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

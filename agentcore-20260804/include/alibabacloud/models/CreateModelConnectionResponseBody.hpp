@@ -178,29 +178,29 @@ namespace Models
 
 
     protected:
-      // The number of API keys configured in the model connection.
+      // The number of API keys configured for the model connection.
       shared_ptr<int32_t> apiKeyCount_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The time when the resource was created, in RFC 3339 UTC format.
+      // The time when the resource was created. The time is in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // Indicates whether access credentials have been configured for the model connection.
+      // Indicates whether access credentials are configured for the model connection.
       shared_ptr<bool> credentialConfigured_ {};
       // The description of the model connection. The description can be up to 255 characters in length.
       shared_ptr<string> description_ {};
-      // The absolute HTTP or HTTPS address of the upstream model service. The address can be up to 1024 characters in length.
+      // The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
       shared_ptr<string> endpoint_ {};
-      // The model connection name. The name must be 1 to 128 non-whitespace characters in length.
+      // The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
       shared_ptr<string> name_ {};
-      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not configured in Settings during model creation, this default value is used.
+      // The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
       shared_ptr<string> protocol_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
       // The resource status.
       shared_ptr<string> status_ {};
-      // The failure summary returned when the model connection fails to be published or fails to be deleted but remains in the Deleting state. This parameter is empty for other states.
+      // The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the Deleting state. This field is empty in other states.
       shared_ptr<string> statusReason_ {};
-      // The time when the resource was last updated, in RFC 3339 UTC format.
+      // The time when the resource was last updated. The time is in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -253,17 +253,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The model connection information after creation.
+    // The information about the created model connection.
     shared_ptr<CreateModelConnectionResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

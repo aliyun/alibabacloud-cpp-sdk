@@ -173,11 +173,11 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Specifies whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model is able to invoke multiple tools in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Specifies whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model supports streaming tool calling.
+        // Specifies whether the model is able to invoke tool calling in a streaming manner.
         shared_ptr<bool> streamToolCall_ {};
         // Specifies whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -263,23 +263,23 @@ namespace Models
 
 
     protected:
-      // The model capability configuration.
+      // The model capability configurations.
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The model context window size, in tokens. The value must be a positive integer.
+      // The context window size of the model, in tokens. It must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
-      // The resource creation time in RFC 3339 UTC format.
+      // The time when the resource was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
       // The model description. Maximum length: 255 characters.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per model generation.
+      // The maximum number of output tokens supported per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
       // The upstream model name.
       shared_ptr<string> modelName_ {};
-      // The resource last update time in RFC 3339 UTC format.
+      // The time when the resource was last updated, in RFC 3339 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -332,17 +332,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. A value of SUCCESS indicates a successful request.
     shared_ptr<string> code_ {};
     // The model information after creation.
     shared_ptr<CreateModelResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request processing result message.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

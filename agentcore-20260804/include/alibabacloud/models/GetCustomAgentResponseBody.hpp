@@ -171,9 +171,9 @@ namespace Models
           shared_ptr<string> headerName_ {};
           // The session policy type. Valid values:
           // - AFFINITY: Session affinity.
-          // - ISOLATED_HEADER_FIELD: Associates sessions by using the request header specified in headerName.
-          // - ISOLATED_COOKIE: Not recommended.
-          // The compatible value DISABLED in requests is returned as AFFINITY.
+          // - ISOLATED_HEADER_FIELD: Uses the request header specified by headerName to associate sessions.
+          // - ISOLATED_COOKIE: Cookie-based session isolation. Not recommended.
+          // Note: The compatible value DISABLED in a request is returned as AFFINITY.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -256,7 +256,7 @@ namespace Models
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The configured minimum number of runtime instances.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The configured session idle timeout limit in seconds.
+          // The configured session idle timeout limit, in seconds.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -400,7 +400,7 @@ namespace Models
 
 
         protected:
-          // The purpose description of the current API path.
+          // The usage description of the current API path.
           shared_ptr<string> description_ {};
           // The API path corresponding to the current protocol.
           // 
@@ -507,11 +507,11 @@ namespace Models
       protected:
         // The name of the mounted OSS bucket.
         shared_ptr<string> bucketName_ {};
-        // The OSS mount directory in the container, which is located under /mnt/oss/.
+        // The OSS mount directory in the container, located under /mnt/oss/.
         shared_ptr<string> mountPath_ {};
         // The object directory prefix in the mounted bucket.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates a read-only mount. A value of false indicates a read-write mount.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read-write mount.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -564,7 +564,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still limited by the workspace configuration.
+          // Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still restricted by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -596,7 +596,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether Internet access is allowed on the agent side. The actual access is still limited by the workspace configuration.
+          // Specifies whether Internet access is allowed on the agent side. The actual access is still restricted by the workspace.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -621,9 +621,9 @@ namespace Models
 
 
       protected:
-        // The Internet access configuration of the agent. If this field is not configured, Internet access is allowed on the agent side, but is still limited by the workspace configuration.
+        // The Internet access configuration of the agent. If this field is not configured, Internet access is allowed on the agent side but is still restricted by the workspace.
         shared_ptr<Network::AccessInternet> accessInternet_ {};
-        // The user VPC access configuration of the agent. If this field is not configured, user VPC access is allowed on the agent side, but is still limited by the workspace configuration.
+        // The user VPC access configuration of the agent. If this field is not configured, user VPC access is allowed on the agent side but is still restricted by the workspace.
         shared_ptr<Network::AccessVpc> accessVpc_ {};
       };
 
@@ -752,11 +752,11 @@ namespace Models
 
 
       protected:
-        // The reason code for the waiting or execution failure of the latest configuration. This code is used to determine the subsequent processing method.
+        // The cause code for the waiting or execution failure of the latest configuration. This code is used to determine the subsequent handling method.
         shared_ptr<string> code_ {};
-        // The description of the reason why the latest configuration failed to execute or is waiting. Check the code and retryable fields to determine what to do next.
+        // The reason why the latest configuration is pending or failed to execute. Determine what to do next based on the code and retryable fields.
         shared_ptr<string> message_ {};
-        // Specifies whether the system automatically retries. A value of true indicates that you can query again later. A value of false indicates that you must check and fix the configuration based on the reason, and then resubmit the agent.
+        // Specifies whether automatic retries are performed. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the cause, and then resubmit.
         shared_ptr<bool> retryable_ {};
       };
 
@@ -838,7 +838,7 @@ namespace Models
         shared_ptr<int32_t> healthyThreshold_ {};
         // The interval between two consecutive health checks, in seconds.
         shared_ptr<int32_t> intervalSeconds_ {};
-        // The HTTP Health Check Path.
+        // The HTTP health check path.
         shared_ptr<string> path_ {};
         // The port accessed for the HTTP health check.
         shared_ptr<int32_t> port_ {};
@@ -1144,7 +1144,7 @@ namespace Models
         shared_ptr<Artifact::Code> code_ {};
         // The latest submitted ACR container image configuration.
         shared_ptr<Artifact::Container> container_ {};
-        // The TCP port listened to by the agent service.
+        // The TCP port listened on by the agent service.
         // 
         // This parameter is required.
         shared_ptr<int32_t> port_ {};
@@ -1206,13 +1206,13 @@ namespace Models
 
 
       protected:
-        // The AgenticFS mount directory in the container, which is located under /mnt/agenticfs/.
+        // The AgenticFS mount directory in the container, located under /mnt/agenticfs/.
         shared_ptr<string> mountPath_ {};
-        // The relative directory in the mounted AccessPoint.
+        // The relative directory within the mounted access point.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates a read-only mount. A value of false indicates a read-write mount.
+        // Specifies whether the mount is read-only. A value of true indicates a read-only mount, and a value of false indicates a read-write mount.
         shared_ptr<bool> readOnly_ {};
-        // The AgenticFS AccessPoint domain name used for the mount.
+        // The AgenticFS access point domain name used for the mount.
         shared_ptr<string> server_ {};
       };
 
@@ -1421,33 +1421,33 @@ namespace Models
       shared_ptr<Data::Artifact> artifact_ {};
       // The creation method of the agent. The value is CUSTOM for custom agents.
       shared_ptr<string> createMode_ {};
-      // The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The creation time of the agent. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> createdAt_ {};
-      // The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
+      // The deployment method of the agent. Custom agents are deployed and managed by the platform, and the value is MANAGED.
       shared_ptr<string> deployType_ {};
       // The description of the agent.
       shared_ptr<string> description_ {};
       // The environment variable configuration for the agent process.
       shared_ptr<Data::Environment> environment_ {};
-      // The HTTP health check configuration of the agent. This field is empty if no health check is configured.
+      // The HTTP health check configuration of the agent. This field is empty if not configured.
       shared_ptr<Data::HealthCheck> healthCheck_ {};
       // The waiting or execution error of the latest configuration version. This field is returned only when the version is waiting for a retry or fails to execute.
       shared_ptr<Data::LatestExecutionError> latestExecutionError_ {};
-      // The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
+      // The current latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The execution status corresponding to the latestSpecVersion field. Valid values:
-      // - pending: waiting for execution
-      // - processing: executing
-      // - waiting_retry: waiting for a retry
-      // - succeeded: executed successfully
-      // - failed: execution failed
-      // - superseded: superseded by a subsequent version
+      // The execution status corresponding to latestSpecVersion. Valid values:
+      // - pending: Waiting for execution.
+      // - processing: Executing.
+      // - waiting_retry: Waiting for a retry.
+      // - succeeded: Executed successfully.
+      // - failed: Execution failed.
+      // - superseded: Superseded by a subsequent version.
       shared_ptr<string> latestVersionStatus_ {};
       // The latest submitted log delivery configuration.
       shared_ptr<Data::Logging> logging_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The network access configuration of the agent. The actual access scope is also limited by the workspace network configuration.
+      // The network access configuration of the agent. The actual access scope is also restricted by the workspace network configuration.
       shared_ptr<Data::Network> network_ {};
       // The latest submitted list of OSS directory mounts.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
@@ -1459,18 +1459,18 @@ namespace Models
       shared_ptr<string> roleArn_ {};
       // The latest committed runtime configuration, including compute specifications, session policy, and elastic policy.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The count of instances by runtime phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
+      // The counts by runtime instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
       // The overall status of the agent. Valid values:
-      // - Creating: Creating.
-      // - Running: Running.
-      // - Failed: Failed.
-      // - Updating: Updating.
-      // - Deleting: Deleting.
-      // - Deleted: Deleted.
+      // - Creating: The agent is being created.
+      // - Running: The agent is running.
+      // - Failed: The agent failed.
+      // - Updating: The agent is being updated.
+      // - Deleting: The agent is being deleted.
+      // - Deleted: The agent is deleted.
       // To check the execution progress of the latest configuration, query latestVersionStatus.
       shared_ptr<string> status_ {};
-      // The last update time of the agent in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+      // The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
       shared_ptr<string> updatedAt_ {};
       // The ID of the workspace to which the custom agent belongs.
       shared_ptr<string> workspaceId_ {};
@@ -1529,11 +1529,11 @@ namespace Models
     shared_ptr<GetCustomAgentResponseBody::Data> data_ {};
     // The HTTP status code of the request. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The description of the request processing result. The value is success when the request is successful.
+    // The result message of the request. The value is success when the request is successful.
     shared_ptr<string> message_ {};
     // The unique identifier of the request, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
+    // Indicates whether the request was processed successfully. A value of true indicates success. Note that a successful creation, update, or deletion response does not mean that the background operation is complete.
     shared_ptr<bool> success_ {};
   };
 

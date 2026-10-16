@@ -82,11 +82,15 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(publicEgressEnabled, publicEgressEnabled_);
           DARABONBA_PTR_TO_JSON(publicEgressIp, publicEgressIp_);
+          DARABONBA_PTR_TO_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(publicEgressEnabled, publicEgressEnabled_);
           DARABONBA_PTR_FROM_JSON(publicEgressIp, publicEgressIp_);
+          DARABONBA_PTR_FROM_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_FROM_JSON(vpc, vpc_);
         };
         NetworkConfiguration() = default ;
@@ -153,17 +157,31 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The user VPC ID.
+          // The VPC ID of the user.
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->publicEgressIp_ == nullptr
-        && this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->publicEgressEnabled_ == nullptr
+        && this->publicEgressIp_ == nullptr && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        // publicEgressEnabled Field Functions 
+        bool hasPublicEgressEnabled() const { return this->publicEgressEnabled_ != nullptr;};
+        void deletePublicEgressEnabled() { this->publicEgressEnabled_ = nullptr;};
+        inline bool getPublicEgressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicEgressEnabled_, false) };
+        inline NetworkConfiguration& setPublicEgressEnabled(bool publicEgressEnabled) { DARABONBA_PTR_SET_VALUE(publicEgressEnabled_, publicEgressEnabled) };
+
+
         // publicEgressIp Field Functions 
         bool hasPublicEgressIp() const { return this->publicEgressIp_ != nullptr;};
         void deletePublicEgressIp() { this->publicEgressIp_ = nullptr;};
         inline string getPublicEgressIp() const { DARABONBA_PTR_GET_DEFAULT(publicEgressIp_, "") };
         inline NetworkConfiguration& setPublicEgressIp(string publicEgressIp) { DARABONBA_PTR_SET_VALUE(publicEgressIp_, publicEgressIp) };
+
+
+        // publicIngressEnabled Field Functions 
+        bool hasPublicIngressEnabled() const { return this->publicIngressEnabled_ != nullptr;};
+        void deletePublicIngressEnabled() { this->publicIngressEnabled_ = nullptr;};
+        inline bool getPublicIngressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicIngressEnabled_, false) };
+        inline NetworkConfiguration& setPublicIngressEnabled(bool publicIngressEnabled) { DARABONBA_PTR_SET_VALUE(publicIngressEnabled_, publicIngressEnabled) };
 
 
         // vpc Field Functions 
@@ -176,9 +194,13 @@ namespace Models
 
 
       protected:
+        // Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This setting only controls the use of the platform public egress for the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+        shared_ptr<bool> publicEgressEnabled_ {};
         // The public egress IP address of the workspace.
         shared_ptr<string> publicEgressIp_ {};
-        // The user VPC network configuration.
+        // Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public ingress for all agent endpoints in the workspace is closed. When re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+        shared_ptr<bool> publicIngressEnabled_ {};
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -269,11 +291,11 @@ namespace Models
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The time when the workspace was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
-      // The workspace network configuration.
+      // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
@@ -281,7 +303,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The reason for the workspace status.
       shared_ptr<string> statusReason_ {};
-      // The workspace storage type.
+      // The storage type of the workspace.
       shared_ptr<string> storageType_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
@@ -346,7 +368,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

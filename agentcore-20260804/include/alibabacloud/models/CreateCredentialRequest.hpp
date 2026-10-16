@@ -110,9 +110,9 @@ namespace Models
       protected:
         // The unique identifier of the resource.
         shared_ptr<string> resourceId_ {};
-        // The resource name. This value is empty if the resource has been deleted.
+        // The name of the resource. This parameter is empty if the resource is deleted.
         shared_ptr<string> resourceName_ {};
-        // The resource type, such as agent.
+        // The type of the resource, such as agent.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -163,7 +163,7 @@ namespace Models
 
 
     protected:
-      // The credential content. The value is a JSON string. When credentialType is set to apiKey, the content can contain only the apiKey field, and the value cannot be empty. After being written, the content can only be queried in masked form.
+      // The credential content, which is a JSON string. If credentialType is apiKey, this parameter can only contain the apiKey field, and the value cannot be empty. After the credential is written, only desensitized queries are supported.
       // 
       // This parameter is required.
       shared_ptr<string> credentialMetadata_ {};
@@ -171,15 +171,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> credentialType_ {};
-      // The credential description. The description can be up to 256 characters in length.
+      // The description of the credential. The description can be up to 256 characters in length.
       shared_ptr<string> description_ {};
-      // The credential name. The name must be unique within the workspace and can contain only letters, digits, periods (.), underscores (_), and hyphens (-). The name must be 3 to 128 characters in length and cannot use runtime reserved names.
+      // The name of the credential. The name must be unique within the workspace, can only contain letters, digits, periods, underscores, and hyphens, and must be 3 to 128 characters in length. Runtime reserved names cannot be used.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // This parameter is required and must be a non-empty array when resourceScope is set to SPECIFIED. Each item contains resourceType and resourceId. resourceName is optional.
+      // If resourceScope is SPECIFIED, this parameter must be a non-empty array. Each item must contain resourceType and resourceId. resourceName is optional.
       shared_ptr<vector<Body::ResourceRefs>> resourceRefs_ {};
-      // ALL indicates all resources. SPECIFIED indicates that the credential applies only to the resources specified in resourceRefs.
+      // The application scope of the credential resource. A value of ALL indicates all resources. A value of SPECIFIED indicates that the credential is applied only to the resources specified by resourceRefs.
       shared_ptr<string> resourceScope_ {};
     };
 

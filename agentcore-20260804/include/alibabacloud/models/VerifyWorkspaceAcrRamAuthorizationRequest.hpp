@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ACR Enterprise instance ID.
+    // The ID of the ACR Enterprise instance.
     // 
     // This parameter is required.
     shared_ptr<string> acrInstanceId_ {};
-    // The target ACR namespace, which corresponds to Agent artifact.container.namespace. This is not a Kubernetes namespace. Together with the instance and repository, it determines the authorization scope.
+    // The target ACR namespace, which corresponds to artifact.container.namespace of the agent. This is not a Kubernetes namespace. It determines the authorization scope together with the instance and repository.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The target repository name, which corresponds to Agent artifact.container.repo. It does not include a tag, namespace, or path separator. Wildcards are not accepted.
+    // The target repository name, which corresponds to artifact.container.repo of the agent. It does not include tags, namespaces, or path separators. Wildcards are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> repository_ {};

@@ -141,7 +141,7 @@ namespace Models
 
 
       protected:
-        // The ID of the referencing entity (the identifier of the Agent or AgentSpec).
+        // The ID of the referencing entity, which is the identifier of the agent or agent spec.
         shared_ptr<string> ownerId_ {};
         // The type of the referencing entity. Valid values: AGENT and AGENTSPEC.
         shared_ptr<string> ownerType_ {};
@@ -149,11 +149,11 @@ namespace Models
         shared_ptr<string> ownerVersion_ {};
         // The reference selector type. Valid values: LABEL and VERSION.
         shared_ptr<string> selectorType_ {};
-        // The reference selector value, such as latest, a named label, HEAD, or a specific version.
+        // The reference selector value. Valid values: latest, a named label, HEAD, or a specific version.
         shared_ptr<string> selectorValue_ {};
         // The name of the referenced skill.
         shared_ptr<string> skillName_ {};
-        // The workspace ID to which the reference belongs.
+        // The ID of the workspace to which the reference belongs.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -196,7 +196,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The total number of available pages.
       shared_ptr<int32_t> pagesAvailable_ {};
-      // The total number of reference relationships that match the filter conditions.
+      // The total number of reference relationships that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -219,9 +219,9 @@ namespace Models
 
 
   protected:
-    // The skill reference relationship data returned by the paged query. The data is returned with paging.
+    // The skill reference relationship data returned by the paging query.
     shared_ptr<ListSkillReferencesResponseBody::Data> data_ {};
-    // The request ID, which is used for troubleshooting.
+    // The request ID used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

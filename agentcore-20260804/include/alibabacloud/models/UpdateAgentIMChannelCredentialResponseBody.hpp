@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The list of configured secret field names. Secret values are not included.
+      // The list of configured secret field names, excluding the secret values.
       shared_ptr<vector<string>> configuredSecretFields_ {};
       // The non-sensitive credential fields and their values.
       shared_ptr<map<string, string>> nonSecretFields_ {};
@@ -136,17 +136,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value is SUCCESS if the request succeeds.
+    // The business status code. The value is SUCCESS when the request is successful.
     shared_ptr<string> code_ {};
-    // The summary of the updated IM channel credential.
+    // The summary of the updated IM channel credentials.
     shared_ptr<UpdateAgentIMChannelCredentialResponseBody::Data> data_ {};
-    // The HTTP status code. The value is 200 if the request succeeds.
+    // The HTTP status code. The value is 200 when the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The message indicating the request processing result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

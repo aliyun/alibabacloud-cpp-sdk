@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};
-      // The latest specification version number.
+      // The latest specification version.
       shared_ptr<int64_t> latestSpecVersion_ {};
       // The name of the managed agent.
       shared_ptr<string> name_ {};
@@ -230,17 +230,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned if the request succeeds.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
     // The summary information of the deleted managed agent.
     shared_ptr<DeleteManagedAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 is returned if the request succeeds.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned for the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

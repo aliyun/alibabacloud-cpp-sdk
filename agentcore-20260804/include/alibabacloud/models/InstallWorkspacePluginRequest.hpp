@@ -140,13 +140,13 @@ namespace Models
 
 
           protected:
-            // Specifies whether the collaboration plugin uses VPC networking. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
+            // Explicitly controls whether the collaboration plugin uses the VPC network. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
             shared_ptr<bool> enabled_ {};
             // The list of vSwitch IDs. The collaboration plugin requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
             // 
             // This parameter is required.
             shared_ptr<vector<string>> vSwitchIds_ {};
-            // The VPC ID.
+            // The user VPC ID.
             // 
             // This parameter is required.
             shared_ptr<string> vpcId_ {};
@@ -180,7 +180,7 @@ namespace Models
 
 
           protected:
-            // Specifies whether to enable public network access. If set to true without a VPC specified, PUB_NET is used. If set to true with a VPC specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. At least one of public network or VPC must be configured.
+            // Specifies whether to enable Internet access. If set to true and no VPC is specified, PUB_NET is used. If set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. At least one of Internet access and VPC must be configured.
             shared_ptr<bool> enabled_ {};
           };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
         protected:
-          // Controls whether the collaboration component is allowed to access the public network. This configuration only controls public network access capability and does not expose the component service to the public network.
+          // Specifies whether to allow public network access for collaboration components. This configuration only controls public network access capabilities and does not expose component services to the public network.
           shared_ptr<Network::Internet> internet_ {};
-          // The user VPC and vSwitch list used for deploying the collaboration plugin. The zones corresponding to the vSwitches are queried by the server and do not need to be provided by the user.
+          // The user VPC and vSwitch list used for deploying the collaboration plugin. The zones corresponding to the vSwitches are queried by the server, and users do not need to pass in Zones.
           shared_ptr<Network::Vpc> vpc_ {};
         };
 

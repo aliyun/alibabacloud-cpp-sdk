@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The request body for updating the team.
+    // The request body for updating a team.
     shared_ptr<string> bodyShrink_ {};
     // Not supported.
     shared_ptr<string> clientToken_ {};

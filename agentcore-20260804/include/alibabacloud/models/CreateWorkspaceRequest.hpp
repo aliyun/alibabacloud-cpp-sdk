@@ -58,9 +58,13 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_TO_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(publicEgressEnabled, publicEgressEnabled_);
+          DARABONBA_PTR_FROM_JSON(publicIngressEnabled, publicIngressEnabled_);
           DARABONBA_PTR_FROM_JSON(vpc, vpc_);
         };
         NetworkConfiguration() = default ;
@@ -123,15 +127,30 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable VPC networking.
+          // Specifies whether to enable the VPC network.
           shared_ptr<bool> enabled_ {};
-          // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
+          // The list of vSwitch IDs. When the VPC network is enabled, the list must contain at least one vSwitch, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the user VPC.
+          // The user VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->publicEgressEnabled_ == nullptr
+        && this->publicIngressEnabled_ == nullptr && this->vpc_ == nullptr; };
+        // publicEgressEnabled Field Functions 
+        bool hasPublicEgressEnabled() const { return this->publicEgressEnabled_ != nullptr;};
+        void deletePublicEgressEnabled() { this->publicEgressEnabled_ = nullptr;};
+        inline bool getPublicEgressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicEgressEnabled_, false) };
+        inline NetworkConfiguration& setPublicEgressEnabled(bool publicEgressEnabled) { DARABONBA_PTR_SET_VALUE(publicEgressEnabled_, publicEgressEnabled) };
+
+
+        // publicIngressEnabled Field Functions 
+        bool hasPublicIngressEnabled() const { return this->publicIngressEnabled_ != nullptr;};
+        void deletePublicIngressEnabled() { this->publicIngressEnabled_ = nullptr;};
+        inline bool getPublicIngressEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicIngressEnabled_, false) };
+        inline NetworkConfiguration& setPublicIngressEnabled(bool publicIngressEnabled) { DARABONBA_PTR_SET_VALUE(publicIngressEnabled_, publicIngressEnabled) };
+
+
         // vpc Field Functions 
         bool hasVpc() const { return this->vpc_ != nullptr;};
         void deleteVpc() { this->vpc_ = nullptr;};
@@ -142,9 +161,11 @@ namespace Models
 
 
       protected:
-        // The VPC network configuration of the user.
-        // 
-        // This parameter is required.
+        // Specifies whether to allow public outbound access from the platform. If this parameter is not specified, the default value is true. This setting only controls whether the latest versions of managed and custom agents use the public outbound endpoint of the platform. It does not affect fixed historical versions, model or MCP proxy endpoints, or the public outbound endpoint of the user VPC.
+        shared_ptr<bool> publicEgressEnabled_ {};
+        // Specifies whether to allow public inbound access. If this parameter is not specified, the default value is true. If disabled, the public inbound endpoints of all agent endpoints in the workspace are closed, and the original public inbound endpoints are restored when re-enabled. INNER_DIRECT and user VPC endpoints are not affected. Collaboration and Element Web endpoints are not controlled by this parameter.
+        shared_ptr<bool> publicIngressEnabled_ {};
+        // The user VPC network configuration.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -174,15 +195,13 @@ namespace Models
 
 
     protected:
-      // The workspace name.
+      // The name of the workspace.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
-      // The storage type of the workspace. Valid values:
-      // - PLATFORM: Platform-managed storage.
-      // - PRIVATE: User-owned private OSS storage.
+      // The workspace storage type. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
       shared_ptr<string> storageType_ {};
     };
 
@@ -205,7 +224,7 @@ namespace Models
 
 
   protected:
-    // The request body for creating a workspace.
+    // The workspace creation request body.
     shared_ptr<CreateWorkspaceRequest::Body> body_ {};
     // The client idempotency token.
     shared_ptr<string> clientToken_ {};

@@ -166,7 +166,7 @@ namespace Models
 
 
     protected:
-      // The external agent ID.
+      // The ID of the external agent.
       shared_ptr<string> agentId_ {};
       // The creation mode.
       shared_ptr<string> createMode_ {};
@@ -182,13 +182,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The runtime type reported by the external agent.
       shared_ptr<string> runtime_ {};
-      // The status of the external agent. Valid values:
-      // - Creating: The agent is being created.
-      // - Running: The agent is running.
-      // - Failed: The agent has failed.
-      // - Updating: The agent is being updated.
-      // - Deleting: The agent is being deleted.
-      // - Deleted: The agent has been deleted.
+      // The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -265,23 +259,23 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned for a successful request.
+    // The business status code. The value is SUCCESS if the request is successful.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value 200 is returned for a successful request.
+    // The HTTP status code. The value is 200 if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of external agents.
     shared_ptr<vector<ListExternalAgentsResponseBody::Items>> items_ {};
     // The maximum number of entries returned per page for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The message that indicates the result of the request.
+    // The message about the request processing result.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates that the last page has been reached.
+    // The token for the next page. An empty value indicates that the last page is reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of records that match the query conditions.
+    // The total number of records that meet the conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

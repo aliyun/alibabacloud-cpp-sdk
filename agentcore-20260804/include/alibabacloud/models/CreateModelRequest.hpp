@@ -157,11 +157,11 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Specifies whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Specifies whether the model is able to invoke multiple tools in a single response.
+        // Specifies whether the model is able to invoke multiple tool calling operations in a single response.
         shared_ptr<bool> multiToolCall_ {};
         // Specifies whether the model supports reasoning capabilities.
         shared_ptr<bool> reasoning_ {};
-        // Specifies whether the model supports streaming tool calling.
+        // Specifies whether the model is able to invoke tool calling in a streaming manner.
         shared_ptr<bool> streamToolCall_ {};
         // Specifies whether the model supports tool calling.
         shared_ptr<bool> toolCall_ {};
@@ -218,17 +218,17 @@ namespace Models
 
 
     protected:
-      // The model capability configuration.
+      // The model capability configurations.
       shared_ptr<Body::Capabilities> capabilities_ {};
       // The model connection ID.
       // 
       // This parameter is required.
       shared_ptr<string> connectionId_ {};
-      // The model context window size, in tokens. The value must be a positive integer.
+      // The context window size of the model, in tokens. It must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
       // The model description. Maximum length: 255 characters.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per model generation.
+      // The maximum number of output tokens supported per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The upstream model name.
       // 
@@ -257,7 +257,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateModelRequest::Body> body_ {};
-    // The client token for idempotence. Not currently supported.
+    // The client token used for idempotence. This parameter is not supported.
     shared_ptr<string> clientToken_ {};
   };
 

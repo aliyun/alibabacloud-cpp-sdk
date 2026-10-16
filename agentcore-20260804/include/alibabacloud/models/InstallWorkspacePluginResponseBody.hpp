@@ -158,11 +158,11 @@ namespace Models
     shared_ptr<InstallWorkspacePluginResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. Returns an error description when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

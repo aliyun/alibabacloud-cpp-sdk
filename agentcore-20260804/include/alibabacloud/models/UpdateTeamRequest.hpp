@@ -93,11 +93,7 @@ namespace Models
 
 
       protected:
-        // The role of the user in the team. Valid values:
-        // - ADMIN
-        // - MEMBER
-        // 
-        // Each team must have exactly one ADMIN.
+        // The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
         shared_ptr<string> teamRole_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -143,9 +139,7 @@ namespace Models
       protected:
         // The agent ID.
         shared_ptr<string> agentId_ {};
-        // The role of the agent in the team. Valid values:
-        // - LEADER
-        // - WORKER
+        // The role of the agent in the team. Valid values: LEADER, WORKER.
         shared_ptr<string> teamRole_ {};
       };
 
@@ -177,11 +171,11 @@ namespace Models
 
 
     protected:
-      // The new agent member list. Replaces the existing agent members using full overwrite semantics. If not specified, the existing agent members remain unchanged.
+      // The new list of agent members. The existing agent members are replaced based on full overwrite semantics. If this parameter is not specified, the existing agent members remain unchanged.
       shared_ptr<vector<Body::Agents>> agents_ {};
-      // The new team description. If not specified, the existing description remains unchanged.
+      // The new team description. If this parameter is not specified, the existing description remains unchanged.
       shared_ptr<string> description_ {};
-      // The new user member list. Replaces the existing user members using full overwrite semantics. When specified, the list must contain exactly one member with the ADMIN role. If not specified, the existing user members remain unchanged.
+      // The new list of user members. The existing user members are replaced based on full overwrite semantics. If this parameter is specified, it must contain exactly one member with the ADMIN role. If this parameter is not specified, the existing user members remain unchanged.
       shared_ptr<vector<Body::Users>> users_ {};
     };
 
@@ -204,7 +198,7 @@ namespace Models
 
 
   protected:
-    // The request body for updating the team.
+    // The request body for updating a team.
     shared_ptr<UpdateTeamRequest::Body> body_ {};
     // Not supported.
     shared_ptr<string> clientToken_ {};

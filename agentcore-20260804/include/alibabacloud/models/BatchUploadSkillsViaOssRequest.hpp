@@ -71,7 +71,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> ossObjectName_ {};
-      // Specifies whether to overwrite an existing Skill. Default value: false.
+      // Specifies whether to overwrite existing skills. Default value: false.
       shared_ptr<bool> overwrite_ {};
     };
 

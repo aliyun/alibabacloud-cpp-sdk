@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The Content-Type to use for the OSS PUT request.
+      // The Content-Type used for the OSS PUT request.
       shared_ptr<string> contentType_ {};
       // The maximum number of bytes allowed for the upload.
       shared_ptr<string> maxSize_ {};
       // The OSS object name.
       shared_ptr<string> ossObjectName_ {};
-      // The OSS pre-signed upload URL.
+      // The OSS presigned upload URL.
       shared_ptr<string> uploadUrl_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<GetAgentSpecImportFileUrlResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -71,7 +71,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> agentSpecName_ {};
-      // The draft version number. If not specified, the default value is 0.0.1.
+      // Specifies the draft version number. If not specified, the default value is 0.0.1.
       shared_ptr<string> targetVersion_ {};
     };
 
