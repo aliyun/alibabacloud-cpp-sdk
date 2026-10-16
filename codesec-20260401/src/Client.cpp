@@ -259,7 +259,7 @@ CreateScanResponse Client::createScan(const string &projectId, const CreateScanR
 }
 
 /**
- * @summary 生成 SBOM / 许可证清单的短时下载链接
+ * @summary Generates a download link for an SBOM or license manifest that includes producer metadata.
  *
  * @param request CreateScanSbomExportRequest
  * @param headers map
@@ -296,7 +296,7 @@ CreateScanSbomExportResponse Client::createScanSbomExportWithOptions(const strin
 }
 
 /**
- * @summary 生成 SBOM / 许可证清单的短时下载链接
+ * @summary Generates a download link for an SBOM or license manifest that includes producer metadata.
  *
  * @param request CreateScanSbomExportRequest
  * @return CreateScanSbomExportResponse
@@ -469,7 +469,7 @@ DescribeScanResultsByEngineResponse Client::describeScanResultsByEngine(const st
 }
 
 /**
- * @summary Lists scan tasks under a specified project with pagination.
+ * @summary Queries the scan tasks of a specific project in a paginated manner.
  *
  * @param request DescribeScansRequest
  * @param headers map
@@ -485,6 +485,10 @@ DescribeScansResponse Client::describeScansWithOptions(const string &projectId, 
 
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.getQuery();
   }
 
   if (!!request.hasStatus()) {
@@ -514,7 +518,7 @@ DescribeScansResponse Client::describeScansWithOptions(const string &projectId, 
 }
 
 /**
- * @summary Lists scan tasks under a specified project with pagination.
+ * @summary Queries the scan tasks of a specific project in a paginated manner.
  *
  * @param request DescribeScansRequest
  * @return DescribeScansResponse

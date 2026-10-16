@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeScansRequest& obj) { 
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(taskName, taskName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeScansRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(taskName, taskName_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->status_ == nullptr && this->taskName_ == nullptr; };
+        && this->nextToken_ == nullptr && this->query_ == nullptr && this->status_ == nullptr && this->taskName_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeScansRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // query Field Functions 
+    bool hasQuery() const { return this->query_ != nullptr;};
+    void deleteQuery() { this->query_ = nullptr;};
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline DescribeScansRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // status Field Functions 
@@ -66,16 +75,18 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Default value: 20. Maximum value: 100.
+    // The maximum number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
+    // The pagination token. To query the first page, leave this parameter empty or do not specify it. To query subsequent pages, pass the nextToken value returned in the previous response. If the nextToken value in the response is empty, the last page is returned.
     shared_ptr<string> nextToken_ {};
-    // The task status. Valid values:
-    // * running: Running.
-    // * completed: Completed.
-    // * failed: Failed.
+    // The query string. You can perform a fuzzy match by project name or prompt.
+    shared_ptr<string> query_ {};
+    // The status of the task. Valid values:
+    // * running: The task is running.
+    // * completed: The task is completed.
+    // * failed: The task failed.
     shared_ptr<string> status_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
   };
 

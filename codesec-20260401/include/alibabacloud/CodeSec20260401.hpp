@@ -93,7 +93,7 @@ namespace CodeSec20260401
       Models::CreateScanResponse createScan(const string &projectId, const Models::CreateScanRequest &request);
 
       /**
-       * @summary 生成 SBOM / 许可证清单的短时下载链接
+       * @summary Generates a download link for an SBOM or license manifest that includes producer metadata.
        *
        * @param request CreateScanSbomExportRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace CodeSec20260401
       Models::CreateScanSbomExportResponse createScanSbomExportWithOptions(const string &projectId, const string &scanId, const Models::CreateScanSbomExportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成 SBOM / 许可证清单的短时下载链接
+       * @summary Generates a download link for an SBOM or license manifest that includes producer metadata.
        *
        * @param request CreateScanSbomExportRequest
        * @return CreateScanSbomExportResponse
@@ -165,7 +165,7 @@ namespace CodeSec20260401
       Models::DescribeScanResultsByEngineResponse describeScanResultsByEngine(const string &projectId, const string &scanId, const string &engine, const Models::DescribeScanResultsByEngineRequest &request);
 
       /**
-       * @summary Lists scan tasks under a specified project with pagination.
+       * @summary Queries the scan tasks of a specific project in a paginated manner.
        *
        * @param request DescribeScansRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace CodeSec20260401
       Models::DescribeScansResponse describeScansWithOptions(const string &projectId, const Models::DescribeScansRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists scan tasks under a specified project with pagination.
+       * @summary Queries the scan tasks of a specific project in a paginated manner.
        *
        * @param request DescribeScansRequest
        * @return DescribeScansResponse

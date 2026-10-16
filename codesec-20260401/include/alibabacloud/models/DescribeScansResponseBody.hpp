@@ -149,7 +149,7 @@ namespace Models
         shared_ptr<int64_t> fileCount_ {};
         // The number of lines of code.
         shared_ptr<int64_t> linesOfCode_ {};
-        // Deprecated.
+        // **[Deprecated]**
         shared_ptr<int64_t> tokenTotal_ {};
       };
 
@@ -318,49 +318,49 @@ namespace Models
 
 
     protected:
-      // The code bundle ID.
+      // The ID of the code package.
       shared_ptr<int64_t> codeBundleId_ {};
       // The time when the task was created.
       shared_ptr<string> createdAt_ {};
-      // The user ID of the task creator.
+      // The ID of the user who created the task.
       shared_ptr<string> createdBy_ {};
-      // The scan phase. Valid values:
-      // * threat_model: Threat modeling.
-      // * discovery: Vulnerability discovery.
-      // * panel: Vulnerability review.
-      // * adversarial: Adversarial verification.
-      // * finalize: Report generation.
+      // The current scan phase. Valid values:
+      // * threat_model: threat modeling
+      // * discovery: vulnerability discovery
+      // * panel: vulnerability review
+      // * adversarial: adversarial verification
+      // * finalize: report compilation
       shared_ptr<string> currentPhase_ {};
-      // The supported scan types.
+      // The supported types.
       shared_ptr<Items::EngineSnapshot> engineSnapshot_ {};
-      // The time when the scan finished.
+      // The time when the scan ended.
       shared_ptr<string> finishedAt_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<int64_t> id_ {};
       // The scan type. Valid values:
-      // * full: Full scan.
-      // * incremental: Incremental scan.
+      // * full: full scan
+      // * incremental: incremental scan
       shared_ptr<string> kind_ {};
-      // The project ID.
+      // The ID of the project.
       shared_ptr<int64_t> projectId_ {};
-      // The scan result statistics information.
+      // The statistics information of the scan results.
       shared_ptr<Items::ScanMetrics> scanMetrics_ {};
-      // The task progress.
+      // The progress of the task.
       shared_ptr<int64_t> scanProgress_ {};
       // The time when the task started.
       shared_ptr<string> startedAt_ {};
-      // The task status. Valid values:
-      // * running: Running.
-      // * completed: Completed.
-      // * failed: Failed.
-      // * canceling: Being canceled. 
-      // * canceled: Canceled.
+      // The status of the task. Valid values:
+      // * running: The task is running.
+      // * completed: The task is completed.
+      // * failed: The task failed.
+      // * canceling: The task is being canceled. 
+      // * canceled: The task is canceled.
       shared_ptr<string> status_ {};
-      // The task name.
+      // The name of the task.
       shared_ptr<string> taskName_ {};
-      // The time when the task was last updated.
+      // The time when the task was updated.
       shared_ptr<string> updatedAt_ {};
-      // Deprecated.
+      // **[Deprecated]**
       shared_ptr<string> workerId_ {};
     };
 
@@ -404,11 +404,11 @@ namespace Models
 
 
   protected:
-    // The task list.
+    // The list of tasks.
     shared_ptr<vector<DescribeScansResponseBody::Items>> items_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. An empty value indicates the last page.
+    // The pagination token. An empty value indicates that the last page is returned.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
