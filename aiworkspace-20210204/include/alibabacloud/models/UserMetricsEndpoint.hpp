@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The HTTP path of the metric collection API.
     shared_ptr<string> path_ {};
+    // The port number on which the metric collection service listens.
     shared_ptr<int32_t> port_ {};
   };
 

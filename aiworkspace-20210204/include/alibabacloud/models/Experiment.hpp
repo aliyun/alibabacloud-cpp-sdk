@@ -166,11 +166,11 @@ namespace Models
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the experiment was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The list of labels for the experiment.
+    // The list of experiment labels.
     shared_ptr<vector<ExperimentLabel>> labels_ {};
-    // LatestRun
+    // The information about the latest run associated with the experiment.
     shared_ptr<Run> latestRun_ {};
-    // The name of the experiment.
+    // The experiment name.
     shared_ptr<string> name_ {};
     // The Alibaba Cloud account ID of the experiment owner.
     shared_ptr<string> ownerId_ {};

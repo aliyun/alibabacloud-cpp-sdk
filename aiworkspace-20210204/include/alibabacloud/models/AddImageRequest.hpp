@@ -179,19 +179,20 @@ namespace Models
   protected:
     // The visibility of the image. Valid values:
     // 
-    // - PUBLIC: All members in the current workspace can access the image.
-    // - PRIVATE: Only the creator can access the image.
+    // - PUBLIC: All members in the current workspace can manage the image.
+    // - PRIVATE: Only the creator can manage the image.
     shared_ptr<string> accessibility_ {};
     // The description of the image.
     shared_ptr<string> description_ {};
-    // The image ID. If you do not specify this parameter, the system automatically generates one. The format is image- followed by 18 uppercase or lowercase letters or digits.
+    // The ID of the image. If you do not specify this parameter, the system automatically generates an image ID.
+    // The format is image- followed by 18 uppercase or lowercase letters or digits.
     shared_ptr<string> imageId_ {};
-    // The image URI, which can be duplicated. For information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
+    // The URI of the image. The URI can be duplicated. For more information about how to view the image URI, see [ListImage](https://help.aliyun.com/document_detail/449118.html).
     // 
     // This parameter is required.
     shared_ptr<string> imageUri_ {};
-    // The image labels. This is an array in which each item contains a key field and a value field.
-    // Official images have the following label: system.official=true
+    // The labels of the image. This parameter is an array, and each item in the array contains the key and value fields.
+    // Official images have the following label: system.official=true.
     // The following keys are supported:
     // 
     // - system.chipType
@@ -213,24 +214,24 @@ namespace Models
     // - system.supported.dlc
     // - system.supported.dsw
     shared_ptr<vector<AddImageRequest::Labels>> labels_ {};
-    // The image name. Naming rules:
+    // The name of the image. The naming rules are as follows:
     // - The name must be 1 to 50 characters in length.
     // - The name can contain lowercase letters, digits, and hyphens (-), and must start with a letter.
     // - The name must be unique within the same workspace.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The image size, in GB.
+    // The size of the image. Unit: GB.
     shared_ptr<int64_t> size_ {};
-    // The image source ID. If the image source type is Build, the source ID corresponds to the image build ID.
+    // The source ID of the image. If the source type of the image is Build, the source ID is the image build ID.
     shared_ptr<string> sourceId_ {};
-    // The image source type. Valid values:
-    // - Import: import.
-    // - Build: generate.
+    // The source type of the image. Valid values:
+    // - Import: The image is imported.
+    // - Build: The image is built.
     shared_ptr<string> sourceType_ {};
     // The user ID (UID) of the image creator.
     shared_ptr<string> userId_ {};
-    // The ID of the workspace to which the image belongs. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The ID of the workspace to which the image belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -4007,6 +4007,10 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &WorkspaceId, co
     query["Labels"] = request.getLabels();
   }
 
+  if (!!request.hasOptions()) {
+    query["Options"] = request.getOptions();
+  }
+
   if (!!request.hasVerbose()) {
     query["Verbose"] = request.getVerbose();
   }

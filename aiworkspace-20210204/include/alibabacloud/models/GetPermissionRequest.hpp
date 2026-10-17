@@ -125,19 +125,20 @@ namespace Models
   protected:
     // The access type. Valid values:
     // 
-    // - PUBLIC: All members in the current workspace can access the instance.
+    // - PUBLIC: All members of the current workspace can access the instance.
     // - PRIVATE: Only the creator can access the instance.
     shared_ptr<string> accessibility_ {};
     shared_ptr<string> callerAccessKeyId_ {};
     shared_ptr<string> callerSecurityToken_ {};
     shared_ptr<string> callerType_ {};
     shared_ptr<string> callerUid_ {};
-    // The Alibaba Cloud account UID of the workspace permission creator.
+    // The Alibaba Cloud account UID of the creator of the workspace permission.
     shared_ptr<string> creator_ {};
+    // The labels.
     Darabonba::Json labels_ {};
     // The optional configurations. Separate multiple configurations with commas (,). Valid values:
-    // - ResourceEmpty: The resource is empty. The resource is empty if Resource is not specified.
-    // - DisableRam: RAM authentication is not performed.
+    // - ResourceEmpty: The resource is empty. If Resource is not specified, this value is empty.
+    // - DisableRam: Disables RAM checks.
     shared_ptr<string> option_ {};
     // The resource.
     shared_ptr<string> resource_ {};

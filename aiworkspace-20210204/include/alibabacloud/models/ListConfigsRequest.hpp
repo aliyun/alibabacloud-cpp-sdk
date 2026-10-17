@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_TO_JSON(ConfigKeys, configKeys_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(Verbose, verbose_);
     };
     friend void from_json(const Darabonba::Json& j, ListConfigsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_FROM_JSON(ConfigKeys, configKeys_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(Verbose, verbose_);
     };
     ListConfigsRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && this->configKeys_ == nullptr && this->labels_ == nullptr && this->verbose_ == nullptr; };
+        && this->configKeys_ == nullptr && this->labels_ == nullptr && this->options_ == nullptr && this->verbose_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline ListConfigsRequest& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
 
 
+    // options Field Functions 
+    bool hasOptions() const { return this->options_ != nullptr;};
+    void deleteOptions() { this->options_ = nullptr;};
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline ListConfigsRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
+
+
     // verbose Field Functions 
     bool hasVerbose() const { return this->verbose_ != nullptr;};
     void deleteVerbose() { this->verbose_ = nullptr;};
@@ -66,29 +75,28 @@ namespace Models
 
 
   protected:
-    // The category of the configuration item. The following categories are supported:
-    // 
-    // - CommonResourceConfig: common resource configuration.
-    // - DLCAutoRecycle: DLC automatic recycling.
-    // - DLCPriorityConfig: DLC priority settings.
-    // - DSWPriorityConfig: DSW priority settings.
-    // - QuotaMaximumDuration: maximum runtime duration configuration for DLC jobs in a quota.
-    // - CommonTagConfig: tag settings.
+    // The categorization of the configuration item. Valid values:
+    // - CommonResourceConfig: general resource configuration
+    // - DLCAutoRecycle: automatic DLC revoke
+    // - DLCPriorityConfig: DLC priority settings
+    // - DSWPriorityConfig: DSW priority settings
+    // - QuotaMaximumDuration: maximum runtime configuration of DLC nodes for a quota
+    // - CommonTagConfig: label settings
     shared_ptr<string> categoryName_ {};
-    // The keys of the configuration items. The following keys are supported:
-    // 
-    // - tempStoragePath: the temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
-    // - isAutoRecycle: the automatic recycling configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
-    // - priorityConfig: the priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-    // - quotaMaximumDuration: the maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
-    // - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
+    // The keys of the configuration items. Valid values:
+    // - tempStoragePath: Temporary storage path. This key is allowed only when CategoryName is set to CommonResourceConfig.
+    // - isAutoRecycle: Automatic revoke configuration. This key is allowed only when CategoryName is set to DLCAutoRecycle.
+    // - priorityConfig: Priority configuration. This key is allowed only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+    // - quotaMaximumDuration: Maximum runtime configuration of DLC nodes for a quota. This key is allowed only when CategoryName is set to QuotaMaximumDuration.
+    // - predefinedTags: Preset labels for the workspace. Resources created must have these labels.
     shared_ptr<string> configKeys_ {};
-    // The labels used as filter conditions. Separate multiple conditions with commas. These conditions are evaluated using a logical AND.
+    // The labels used as filter conditions. Separate multiple conditions with commas. These conditions are combined by using the AND operator.
     shared_ptr<string> labels_ {};
+    // The additional options. Currently, only ThrowExceptionOnError is supported, which indicates that an error is thrown when an exception occurs.
+    shared_ptr<string> options_ {};
     // Specifies whether to display label information. Valid values:
-    // 
-    // - true: Display label information.
-    // - false: Do not display label information.
+    // - true: Displays label information.
+    // - false: Does not display label information.
     shared_ptr<string> verbose_ {};
   };
 

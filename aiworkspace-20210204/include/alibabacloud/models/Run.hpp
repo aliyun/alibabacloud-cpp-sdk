@@ -177,21 +177,21 @@ namespace Models
 
 
   protected:
-    // The visibility of the run.
+    // The accessibility.
     shared_ptr<string> accessibility_ {};
     // The ID of the experiment associated with the run.
     shared_ptr<string> experimentId_ {};
-    // The time when the run was created.
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the run was last modified.
+    // The modification time.
     shared_ptr<string> gmtModifiedTime_ {};
     // The list of labels for the run.
     shared_ptr<vector<RunLabel>> labels_ {};
     // The list of metrics for the run.
     shared_ptr<vector<RunMetric>> metrics_ {};
-    // Name
+    // The name.
     shared_ptr<string> name_ {};
-    // The ID of the owner\\"s root account.
+    // The Alibaba Cloud account ID of the owner.
     shared_ptr<string> ownerId_ {};
     // The list of hyperparameters for the run.
     shared_ptr<vector<RunParam>> params_ {};
