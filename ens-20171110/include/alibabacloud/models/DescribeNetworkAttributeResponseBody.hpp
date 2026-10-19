@@ -680,11 +680,11 @@ namespace Models
     // The IPv4 CIDR block of the network.
     shared_ptr<string> cidrBlock_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::CloudResources> cloudResources_ {};
-    // The time at which the network was created. The time is in UTC and is formatted as yyyy-MM-ddTHH:mm:ssZ.
+    // The creation time. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> createdTime_ {};
     // The description of the network.
     shared_ptr<string> description_ {};
-    // The ID of the ENS node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
     // The gateway route table ID.
     shared_ptr<string> gatewayRouteTableId_ {};
@@ -710,9 +710,8 @@ namespace Models
     shared_ptr<DescribeNetworkAttributeResponseBody::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
     // The status of the network. Valid values:
     // 
-    // - Pending: The network is being configured.
-    // 
-    // - Available: The network is ready for use.
+    // - Pending: Configuring.
+    // - Available: Available.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeNetworkAttributeResponseBody::VSwitchIds> vSwitchIds_ {};
   };

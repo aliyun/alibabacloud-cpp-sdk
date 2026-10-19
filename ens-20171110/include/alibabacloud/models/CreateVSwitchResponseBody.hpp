@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of the VSwitch.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
   };
 

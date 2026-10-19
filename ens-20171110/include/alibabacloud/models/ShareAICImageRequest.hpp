@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The image name.
+    // The ID of the AIC image. You can call DescribeAICImages to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The user group.
+    // The user groups.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> users_ {};

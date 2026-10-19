@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The component information.
+    // The add-on information.
     shared_ptr<string> addonsShrink_ {};
     // The cluster ID.
     // 

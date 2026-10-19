@@ -151,7 +151,7 @@ namespace Models
     protected:
       // The schema for the custom parameters of the component.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
-      // The plug-in name.
+      // The add-on name.
       shared_ptr<string> name_ {};
       // The version number.
       shared_ptr<string> version_ {};
@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The component information.
+    // The add-on information.
     // 
     // This parameter is required.
     shared_ptr<vector<InstallClusterAddonsRequest::Addons>> addons_ {};

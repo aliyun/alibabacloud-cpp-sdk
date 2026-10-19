@@ -341,15 +341,14 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in the current query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // A collection of VSwitches.
     shared_ptr<DescribeVSwitchesResponseBody::VSwitches> vSwitches_ {};
   };
 

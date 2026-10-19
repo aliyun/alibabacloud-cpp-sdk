@@ -356,33 +356,32 @@ namespace Models
     shared_ptr<int64_t> availableIpAddressCount_ {};
     // The IPv4 CIDR block of the network.
     shared_ptr<string> cidrBlock_ {};
-    // The time when the vSwitch was created. This value uses UTC and follows the yyyy-MM-ddTHH:mm:ssZ format.
+    // The creation time. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> createdTime_ {};
     // The description of the vSwitch.
     shared_ptr<string> description_ {};
-    // The ID of the ENS edge zone.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::HaVipIds> haVipIds_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::InstanceIds> instanceIds_ {};
+    // The IPv6 CIDR block of the vSwitch.
     shared_ptr<string> ipv6CidrBlock_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::LoadBalancerIds> loadBalancerIds_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::NatGatewayIds> natGatewayIds_ {};
-    // The ID of the network.
+    // The network ID.
     shared_ptr<string> networkId_ {};
     shared_ptr<DescribeVSwitchAttributesResponseBody::NetworkInterfaceIds> networkInterfaceIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the vSwitch. Valid values:
     // 
     // - Pending: The vSwitch is being configured.
-    // 
-    // - Available: The vSwitch is active.
-    // 
+    // - Available: The vSwitch is available.
     // - Releasing: The vSwitch is being released.
     shared_ptr<string> status_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The name of the vSwitch.
+    // The vSwitch name.
     shared_ptr<string> vSwitchName_ {};
   };
 

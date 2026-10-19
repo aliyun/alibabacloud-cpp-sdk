@@ -75,13 +75,15 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> clusterId_ {};
+    // The cluster type. Valid values: Kubernetes and ManagedKubernetes. A value of Kubernetes indicates an ECK cluster. A value of ManagedKubernetes indicates a serverless virtual cluster. This parameter must be used together with the profile parameter.
     shared_ptr<string> clusterType_ {};
-    // The ENS region ID where the cluster resides.
+    // The ENS region ID of the cluster.
     shared_ptr<string> ensRegionId_ {};
-    // The cluster name.
+    // The name of the cluster.
     shared_ptr<string> name_ {};
+    // The cluster profile. Valid values: Default and Serverless. A value of Default indicates an ECK cluster. A value of Serverless indicates a serverless virtual cluster. This parameter must be used together with the cluster_type parameter.
     shared_ptr<string> profile_ {};
   };
 

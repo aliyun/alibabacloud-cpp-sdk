@@ -585,13 +585,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNetworksResponseBody::Networks> networks_ {};
-    // Current page number.
+    // The page number of the current query.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of entries per page in the current query.
+    // The number of entries per page in the current query.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

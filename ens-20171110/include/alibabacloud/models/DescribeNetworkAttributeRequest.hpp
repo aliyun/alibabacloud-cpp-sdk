@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the network.
+    // The network ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkId_ {};

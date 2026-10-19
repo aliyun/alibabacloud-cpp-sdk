@@ -80,15 +80,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key of the instance. Valid values of N: **1** to **20**.
       // 
       // - The tag key cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
-      // 
-      // - The tag key can be up to 64 characters long.
-      // 
+      // - The tag key can be up to 64 characters in length.
       // - The tag key cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The value of the tag. It can be up to 128 characters long, can be an empty string, and cannot start with `acs:` or contain `http://` or `https://`.
+      // The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with acs: or contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -147,36 +145,35 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the VSwitch. The following requirements apply:
-    // 
-    // - The prefix length must be an integer from 16 to 29.
-    // 
-    // - The CIDR block of the VSwitch must be a subset of the CIDR block of the VPC to which the VSwitch belongs.
-    // 
-    // - The CIDR block of the VSwitch cannot be the same as the destination CIDR block of an existing route in the VPC, but it can be a subset of the destination CIDR block.
+    // The CIDR block of the vSwitch. The CIDR block must meet the following requirements:
+    // - The subnet mask length of the vSwitch CIDR block must be 16 to 29 bits.
+    // - The vSwitch CIDR block must fall within the CIDR block of the VPC to which the vSwitch belongs.
+    // - The vSwitch CIDR block cannot be the same as the destination CIDR block of a route entry in the VPC, but it can be a subset of the destination CIDR block.
     // 
     // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
-    // The description of the VSwitch.
+    // The description of the vSwitch.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The ID of the ENS node.
+    // The ID of the ENS edge zone.
     // 
     // This parameter is required.
     shared_ptr<string> ensRegionId_ {};
+    // The IPv6 CIDR block of the vSwitch.
+    // 
+    // > You can specify this parameter to assign an IPv6 CIDR block to the vSwitch only when IPv6 is enabled for the network to which the vSwitch belongs. After the IPv6 CIDR block is assigned, it cannot be changed. Make sure that the IPv6 CIDR block does not overlap with the CIDR blocks of other vSwitches in the same network.
     shared_ptr<string> ipv6CidrBlock_ {};
-    // The ID of the network to which the VSwitch belongs.
+    // The ID of the network to which the new vSwitch belongs.
     shared_ptr<string> networkId_ {};
-    // The tags of the resource. You can specify up to 20 tags.
+    // The resource tags.
     shared_ptr<vector<CreateVSwitchRequest::Tag>> tag_ {};
-    // The name of the VSwitch. The following requirements apply:
+    // The name of the vSwitch. The name must meet the following requirements:
     // 
     // - The name must be 2 to 128 characters in length.
+    // - The name must start with a letter or a Chinese character, and cannot start with http:// or https://. It can contain digits, half-width colons (:), underscores (_), and hyphens (-).
     // 
-    // - The name must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
-    // 
-    // Default value: an empty string.
+    // Default value: empty.
     shared_ptr<string> vSwitchName_ {};
   };
 

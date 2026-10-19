@@ -112,7 +112,9 @@ namespace Models
 
 
     protected:
+      // The number of pods in the Running state.
       shared_ptr<int32_t> running_ {};
+      // The total number of pods.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -154,7 +156,9 @@ namespace Models
 
 
     protected:
+      // The number of ready nodes.
       shared_ptr<int32_t> ready_ {};
+      // The total number of nodes.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -217,7 +221,9 @@ namespace Models
 
 
       protected:
+        // The private endpoint of the API server.
         shared_ptr<string> privateUrl_ {};
+        // The public address of the API server.
         shared_ptr<string> publicUrl_ {};
       };
 
@@ -268,8 +274,11 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The instance IP address.
         shared_ptr<string> ip_ {};
+        // The node name.
         shared_ptr<string> name_ {};
       };
 
@@ -294,7 +303,9 @@ namespace Models
 
 
     protected:
+      // The master node information.
       shared_ptr<vector<ControlPlaneMeta::MasterInstances>> masterInstances_ {};
+      // The API server address.
       shared_ptr<ControlPlaneMeta::MasterUrl> masterUrl_ {};
     };
 
@@ -382,17 +393,17 @@ namespace Models
 
 
     protected:
-      // The container runtime type.
+      // The runtime type.
       shared_ptr<string> containerRuntime_ {};
-      // The image ID of the control plane virtual machine.
+      // The ID of the control plane virtual machine image.
       shared_ptr<string> imageId_ {};
-      // The node instance type.
+      // The instance type of the node.
       shared_ptr<string> instanceSpec_ {};
       // The node service port range.
       shared_ptr<string> nodePortRange_ {};
       // The number of control plane nodes.
       shared_ptr<int64_t> size_ {};
-      // The system cloud disk type of the node.
+      // The system cloud disk category of the node.
       shared_ptr<string> systemDiskCategory_ {};
       // The system cloud disk size of the node.
       shared_ptr<int64_t> systemDiskSize_ {};
@@ -586,43 +597,49 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The cluster kubeconfig.
     Darabonba::Json config_ {};
-    // The CIDR block for pods.
+    // The pod CIDR block.
     shared_ptr<string> containerCidr_ {};
     // The control plane configuration.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneConfig> controlPlaneConfig_ {};
+    // The control plane metadata.
     shared_ptr<DescribeClusterDetailResponseBody::ControlPlaneMeta> controlPlaneMeta_ {};
+    // The time when the cluster was created.
     shared_ptr<string> created_ {};
     // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
+    // The ISP information.
     shared_ptr<string> isp_ {};
-    // The authentication token for cluster access.
+    // The authentication token for joining the cluster.
     shared_ptr<string> joinToken_ {};
-    // The cluster version, which is consistent with the Kubernetes community baseline version. We recommend that you select the latest version. If you do not specify this parameter, the latest version is used by default.
+    // The cluster version, which aligns with the Kubernetes community baseline version. Select the latest version. If not specified, the latest version is used by default.
     shared_ptr<string> kubernetesVersion_ {};
-    // The CLB instance ID of the API server.
+    // The ID of the Classic Load Balancer (CLB) instance for the API server.
     shared_ptr<string> loadBalancerId_ {};
     // The cluster name.
     shared_ptr<string> name_ {};
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The number of nodes in the cluster.
     shared_ptr<DescribeClusterDetailResponseBody::NodeCount> nodeCount_ {};
+    // The pod status information of the cluster.
     shared_ptr<DescribeClusterDetailResponseBody::PodStatus> podStatus_ {};
-    // The vSwitch IDs for pods.
+    // The pod vSwitch IDs.
     shared_ptr<vector<string>> podVswitchIds_ {};
     // Indicates whether public network access is enabled.
     shared_ptr<bool> publicAccess_ {};
-    // Id of the request。
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The CIDR block for services.
+    // The service CIDR block.
     shared_ptr<string> serviceCidr_ {};
-    // The cluster status. Valid values:
-    // - **initial**: Being created.
+    // The cluster state. Valid values:
+    // - **initial**: Creating.
     // - **failed**: Creation failed.
     // - **running**: Running.
-    // - **deleting**: Being released.
+    // - **deleting**: Releasing.
     shared_ptr<string> state_ {};
     // The VPC used by the cluster.
     shared_ptr<string> vpcId_ {};
-    // The vSwitch IDs of the cluster nodes.
+    // The vSwitch IDs where the cluster nodes reside.
     shared_ptr<vector<string>> vswitchIds_ {};
   };
 

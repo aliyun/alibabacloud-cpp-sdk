@@ -50,9 +50,9 @@ namespace Models
 
 
   protected:
-    // The kubeconfig file of the cluster.
+    // The KubeConfig of the cluster.
     Darabonba::Json config_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

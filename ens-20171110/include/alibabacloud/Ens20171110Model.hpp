@@ -36,6 +36,9 @@
 #include <alibabacloud/models/AssociateHaVipRequest.hpp>
 #include <alibabacloud/models/AssociateHaVipResponseBody.hpp>
 #include <alibabacloud/models/AssociateHaVipResponse.hpp>
+#include <alibabacloud/models/AssociateNetworkCidrBlockRequest.hpp>
+#include <alibabacloud/models/AssociateNetworkCidrBlockResponseBody.hpp>
+#include <alibabacloud/models/AssociateNetworkCidrBlockResponse.hpp>
 #include <alibabacloud/models/AttachDiskRequest.hpp>
 #include <alibabacloud/models/AttachDiskResponseBody.hpp>
 #include <alibabacloud/models/AttachDiskResponse.hpp>
@@ -1046,6 +1049,9 @@
 #include <alibabacloud/models/UnassociateNetworkAclRequest.hpp>
 #include <alibabacloud/models/UnassociateNetworkAclResponseBody.hpp>
 #include <alibabacloud/models/UnassociateNetworkAclResponse.hpp>
+#include <alibabacloud/models/UnassociateNetworkCidrBlockRequest.hpp>
+#include <alibabacloud/models/UnassociateNetworkCidrBlockResponseBody.hpp>
+#include <alibabacloud/models/UnassociateNetworkCidrBlockResponse.hpp>
 #include <alibabacloud/models/UnloadRegionSDGRequest.hpp>
 #include <alibabacloud/models/UnloadRegionSDGShrinkRequest.hpp>
 #include <alibabacloud/models/UnloadRegionSDGResponseBody.hpp>

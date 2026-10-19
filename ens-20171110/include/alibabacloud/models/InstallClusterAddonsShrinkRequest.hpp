@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The component information.
+    // The add-on information.
     // 
     // This parameter is required.
     shared_ptr<string> addonsShrink_ {};

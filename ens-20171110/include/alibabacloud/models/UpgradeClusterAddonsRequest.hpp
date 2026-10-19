@@ -117,9 +117,9 @@ namespace Models
         shared_ptr<string> appVersion_ {};
         // The configuration version.
         shared_ptr<string> configVersion_ {};
-        // The component name.
+        // The add-on name.
         shared_ptr<string> name_ {};
-        // The custom parameters for the component.
+        // The custom parameters of the add-on.
         Darabonba::Json params_ {};
       };
 
@@ -149,9 +149,9 @@ namespace Models
 
 
     protected:
-      // The schema of the custom parameters for the component.
+      // The schema of the custom parameters for the add-on.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
-      // The component name.
+      // The add-on name.
       shared_ptr<string> name_ {};
       // The target version for the upgrade.
       shared_ptr<string> nextVersion_ {};
@@ -176,7 +176,7 @@ namespace Models
 
 
   protected:
-    // The component information.
+    // The add-on information.
     shared_ptr<vector<UpgradeClusterAddonsRequest::Addons>> addons_ {};
     // The cluster ID.
     // 

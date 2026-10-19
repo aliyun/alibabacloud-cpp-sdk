@@ -119,7 +119,7 @@ namespace Models
         shared_ptr<string> appVersion_ {};
         // The configuration version.
         shared_ptr<string> configVersion_ {};
-        // The name of the component.
+        // The component name.
         shared_ptr<string> name_ {};
         // The custom parameters of the component.
         Darabonba::Json params_ {};
@@ -158,13 +158,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether to automatically clean up associated cloud resources.
+      // Indicates whether associated cloud resources are automatically cleaned up.
       shared_ptr<bool> cleanupCloudResources_ {};
-      // The schemas for the custom parameters of the component.
+      // The list of schemas for custom parameters of the component.
       shared_ptr<vector<Addons::ConfigSchema>> configSchema_ {};
-      // The name of the component.
+      // The component name.
       shared_ptr<string> name_ {};
-      // The version of the component.
+      // The component version.
       shared_ptr<string> version_ {};
     };
 
@@ -187,7 +187,7 @@ namespace Models
 
 
   protected:
-    // A list of component information.
+    // The list of component information.
     shared_ptr<vector<ListAddonsResponseBody::Addons>> addons_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

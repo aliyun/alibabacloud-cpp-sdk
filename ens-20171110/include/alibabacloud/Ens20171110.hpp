@@ -174,6 +174,29 @@ namespace Ens20171110
       Models::AssociateHaVipResponse associateHaVip(const Models::AssociateHaVipRequest &request);
 
       /**
+       * @summary Adds a secondary CIDR block to a network.
+       *
+       * @description The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+       * - A network supports up to five secondary IPv4 CIDR blocks.
+       *
+       * @param request AssociateNetworkCidrBlockRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssociateNetworkCidrBlockResponse
+       */
+      Models::AssociateNetworkCidrBlockResponse associateNetworkCidrBlockWithOptions(const Models::AssociateNetworkCidrBlockRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds a secondary CIDR block to a network.
+       *
+       * @description The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+       * - A network supports up to five secondary IPv4 CIDR blocks.
+       *
+       * @param request AssociateNetworkCidrBlockRequest
+       * @return AssociateNetworkCidrBlockResponse
+       */
+      Models::AssociateNetworkCidrBlockResponse associateNetworkCidrBlock(const Models::AssociateNetworkCidrBlockRequest &request);
+
+      /**
        * @summary Attaches a disk to an Edge Node Service (ENS) instance.
        *
        * @param request AttachDiskRequest
@@ -519,8 +542,8 @@ namespace Ens20171110
       /**
        * @summary Creates an edge container cluster.
        *
-       * @description - Single-user call frequency: 10 calls per second.
-       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - Rate limit per user: 10 calls per second.
+       * - Cluster creation is an asynchronous operation. After you call this operation, you must wait 10 to 20 minutes for the cluster to be initialized. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param tmpReq CreateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -531,8 +554,8 @@ namespace Ens20171110
       /**
        * @summary Creates an edge container cluster.
        *
-       * @description - Single-user call frequency: 10 calls per second.
-       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - Rate limit per user: 10 calls per second.
+       * - Cluster creation is an asynchronous operation. After you call this operation, you must wait 10 to 20 minutes for the cluster to be initialized. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -957,10 +980,10 @@ namespace Ens20171110
       Models::CreateNatGatewayResponse createNatGateway(const Models::CreateNatGatewayRequest &request);
 
       /**
-       * @summary Call CreateNetwork to create a virtual private cloud (VPC).
+       * @summary Creates a VPC.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 5 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 5 calls per second.
        *
        * @param request CreateNetworkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -969,10 +992,10 @@ namespace Ens20171110
       Models::CreateNetworkResponse createNetworkWithOptions(const Models::CreateNetworkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call CreateNetwork to create a virtual private cloud (VPC).
+       * @summary Creates a VPC.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 5 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 5 calls per second.
        *
        * @param request CreateNetworkRequest
        * @return CreateNetworkResponse
@@ -1162,7 +1185,7 @@ namespace Ens20171110
       Models::CreateStorageVolumeResponse createStorageVolume(const Models::CreateStorageVolumeRequest &request);
 
       /**
-       * @summary Creates a VSwitch.
+       * @summary Creates a vSwitch.
        *
        * @param request CreateVSwitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1171,7 +1194,7 @@ namespace Ens20171110
       Models::CreateVSwitchResponse createVSwitchWithOptions(const Models::CreateVSwitchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a VSwitch.
+       * @summary Creates a vSwitch.
        *
        * @param request CreateVSwitchRequest
        * @return CreateVSwitchResponse
@@ -1278,10 +1301,10 @@ namespace Ens20171110
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
-       * @summary You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+       * @summary Deletes an unused node pool. When a node pool is deleted, all pods on the nodes in the node pool are deleted. This may trigger rescheduling. If rescheduling fails, your services may be affected. Make sure that the cluster has sufficient resources for rescheduling.
        *
-       * @description - Each user is limited to 10 calls per second.
-       * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
+       * @description - Call frequency per user: 10 calls per second.
+       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request DeleteClusterNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1290,10 +1313,10 @@ namespace Ens20171110
       Models::DeleteClusterNodePoolResponse deleteClusterNodePoolWithOptions(const Models::DeleteClusterNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+       * @summary Deletes an unused node pool. When a node pool is deleted, all pods on the nodes in the node pool are deleted. This may trigger rescheduling. If rescheduling fails, your services may be affected. Make sure that the cluster has sufficient resources for rescheduling.
        *
-       * @description - Each user is limited to 10 calls per second.
-       * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
+       * @description - Call frequency per user: 10 calls per second.
+       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request DeleteClusterNodePoolRequest
        * @return DeleteClusterNodePoolResponse
@@ -2099,7 +2122,7 @@ namespace Ens20171110
       /**
        * @summary Queries the details of a cluster.
        *
-       * @description - Per-user call frequency: 100 calls per second.
+       * @description - Rate limit per user: 100 calls per second.
        *
        * @param request DescribeClusterDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2110,7 +2133,7 @@ namespace Ens20171110
       /**
        * @summary Queries the details of a cluster.
        *
-       * @description - Per-user call frequency: 100 calls per second.
+       * @description - Rate limit per user: 100 calls per second.
        *
        * @param request DescribeClusterDetailRequest
        * @return DescribeClusterDetailResponse
@@ -2181,9 +2204,9 @@ namespace Ens20171110
       Models::DescribeClusterNodesResponse describeClusterNodes(const Models::DescribeClusterNodesRequest &request);
 
       /**
-       * @summary A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+       * @summary Retrieves the KubeConfig of a specified cluster. KubeConfig is used to configure access credentials for an ECK cluster on the client side, including identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of the specified cluster.
        *
-       * @description - A single user is limited to 100 calls per second.
+       * @description - Rate limit per user: 100 calls per second.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2192,9 +2215,9 @@ namespace Ens20171110
       Models::DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfigWithOptions(const Models::DescribeClusterUserKubeconfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+       * @summary Retrieves the KubeConfig of a specified cluster. KubeConfig is used to configure access credentials for an ECK cluster on the client side, including identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of the specified cluster.
        *
-       * @description - A single user is limited to 100 calls per second.
+       * @description - Rate limit per user: 100 calls per second.
        *
        * @param request DescribeClusterUserKubeconfigRequest
        * @return DescribeClusterUserKubeconfigResponse
@@ -3360,10 +3383,10 @@ namespace Ens20171110
       Models::DescribeNetworkAclsResponse describeNetworkAcls(const Models::DescribeNetworkAclsRequest &request);
 
       /**
-       * @summary Use DescribeNetworkAttribute to query the configuration of a specific network.
+       * @summary Queries the configuration information of a specified network.
        *
-       * @description - API rate limit: 100 calls/sec.
-       * - Per-user rate limit: 10 calls/sec.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeNetworkAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3372,10 +3395,10 @@ namespace Ens20171110
       Models::DescribeNetworkAttributeResponse describeNetworkAttributeWithOptions(const Models::DescribeNetworkAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use DescribeNetworkAttribute to query the configuration of a specific network.
+       * @summary Queries the configuration information of a specified network.
        *
-       * @description - API rate limit: 100 calls/sec.
-       * - Per-user rate limit: 10 calls/sec.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeNetworkAttributeRequest
        * @return DescribeNetworkAttributeResponse
@@ -3417,10 +3440,10 @@ namespace Ens20171110
       Models::DescribeNetworkPeerConnectionsResponse describeNetworkPeerConnections(const Models::DescribeNetworkPeerConnectionsRequest &request);
 
       /**
-       * @summary Call DescribeNetworks to retrieve a list of networks.
+       * @summary Queries a list of networks.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 10 calls per second.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeNetworksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3429,10 +3452,10 @@ namespace Ens20171110
       Models::DescribeNetworksResponse describeNetworksWithOptions(const Models::DescribeNetworksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DescribeNetworks to retrieve a list of networks.
+       * @summary Queries a list of networks.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 10 calls per second.
+       * @description - API call rate: 100 calls per second.
+       * - Call rate per user: 10 calls per second.
        *
        * @param request DescribeNetworksRequest
        * @return DescribeNetworksResponse
@@ -3841,7 +3864,7 @@ namespace Ens20171110
       Models::DescribeUserBandWidthDataResponse describeUserBandWidthData(const Models::DescribeUserBandWidthDataRequest &request);
 
       /**
-       * @summary Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
+       * @summary Queries the configuration information of a specified vSwitch.
        *
        * @param request DescribeVSwitchAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3850,7 +3873,7 @@ namespace Ens20171110
       Models::DescribeVSwitchAttributesResponse describeVSwitchAttributesWithOptions(const Models::DescribeVSwitchAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
+       * @summary Queries the configuration information of a specified vSwitch.
        *
        * @param request DescribeVSwitchAttributesRequest
        * @return DescribeVSwitchAttributesResponse
@@ -3858,7 +3881,7 @@ namespace Ens20171110
       Models::DescribeVSwitchAttributesResponse describeVSwitchAttributes(const Models::DescribeVSwitchAttributesRequest &request);
 
       /**
-       * @summary Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
+       * @summary Queries information about vSwitches available for networking. Internal networks are organized by vSwitch.
        *
        * @param request DescribeVSwitchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3867,7 +3890,7 @@ namespace Ens20171110
       Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
+       * @summary Queries information about vSwitches available for networking. Internal networks are organized by vSwitch.
        *
        * @param request DescribeVSwitchesRequest
        * @return DescribeVSwitchesResponse
@@ -4265,10 +4288,10 @@ namespace Ens20171110
       Models::InitializeENSECKServiceRoleResponse initializeENSECKServiceRole();
 
       /**
-       * @summary To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+       * @summary Installs components in an ECK cluster to enhance Kubernetes capabilities. ECK clusters support various components, such as managed core components, as well as application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
        *
-       * @description - The call frequency for a single user is limited to 10 calls per second.
-       * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - The rate limit is 10 calls per second per user.
+       * - Cluster creation is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param tmpReq InstallClusterAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4277,10 +4300,10 @@ namespace Ens20171110
       Models::InstallClusterAddonsResponse installClusterAddonsWithOptions(const Models::InstallClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+       * @summary Installs components in an ECK cluster to enhance Kubernetes capabilities. ECK clusters support various components, such as managed core components, as well as application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
        *
-       * @description - The call frequency for a single user is limited to 10 calls per second.
-       * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - The rate limit is 10 calls per second per user.
+       * - Cluster creation is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request InstallClusterAddonsRequest
        * @return InstallClusterAddonsResponse
@@ -4402,7 +4425,7 @@ namespace Ens20171110
       Models::ListAICPublicKeysResponse listAICPublicKeys(const Models::ListAICPublicKeysRequest &request);
 
       /**
-       * @summary Retrieves details about cluster components.
+       * @summary Queries the details of cluster components.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAddonsResponse
@@ -4410,7 +4433,7 @@ namespace Ens20171110
       Models::ListAddonsResponse listAddonsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details about cluster components.
+       * @summary Queries the details of cluster components.
        *
        * @return ListAddonsResponse
        */
@@ -4572,10 +4595,10 @@ namespace Ens20171110
       Models::ModifyClusterAddonResponse modifyClusterAddon(const Models::ModifyClusterAddonRequest &request);
 
       /**
-       * @summary Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+       * @summary Modifies the node configuration in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes the configurations in batches and restarts kubelet, which may affect node and workload operations. Perform this operation during off-peak hours.
        *
-       * @description - Single-user call frequency: 10 calls per second.
-       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - Rate limit per user: 10 calls per second.
+       * - Cluster creation is an asynchronous operation. After you call the API operation, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param tmpReq ModifyClusterNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4584,10 +4607,10 @@ namespace Ens20171110
       Models::ModifyClusterNodePoolResponse modifyClusterNodePoolWithOptions(const Models::ModifyClusterNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+       * @summary Modifies the node configuration in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes the configurations in batches and restarts kubelet, which may affect node and workload operations. Perform this operation during off-peak hours.
        *
-       * @description - Single-user call frequency: 10 calls per second.
-       * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - Rate limit per user: 10 calls per second.
+       * - Cluster creation is an asynchronous operation. After you call the API operation, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request ModifyClusterNodePoolRequest
        * @return ModifyClusterNodePoolResponse
@@ -4995,10 +5018,10 @@ namespace Ens20171110
       Models::ModifySnatEntryResponse modifySnatEntry(const Models::ModifySnatEntryRequest &request);
 
       /**
-       * @summary Call ModifyVSwitchAttribute to modify network information.
+       * @summary Modifies the attributes of a vSwitch.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 5 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 5 calls per second.
        *
        * @param request ModifyVSwitchAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5007,10 +5030,10 @@ namespace Ens20171110
       Models::ModifyVSwitchAttributeResponse modifyVSwitchAttributeWithOptions(const Models::ModifyVSwitchAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call ModifyVSwitchAttribute to modify network information.
+       * @summary Modifies the attributes of a vSwitch.
        *
-       * @description - API call frequency: 100 calls per second.
-       * - Per-user call frequency: 5 calls per second.
+       * @description - API rate limit: 100 calls per second.
+       * - Rate limit per user: 5 calls per second.
        *
        * @param request ModifyVSwitchAttributeRequest
        * @return ModifyVSwitchAttributeResponse
@@ -6211,6 +6234,27 @@ namespace Ens20171110
       Models::UnassociateNetworkAclResponse unassociateNetworkAcl(const Models::UnassociateNetworkAclRequest &request);
 
       /**
+       * @summary Deletes a secondary CIDR block from a network.
+       *
+       * @description Before deleting a secondary CIDR block from a network, delete the vSwitches created in the secondary CIDR block.
+       *
+       * @param request UnassociateNetworkCidrBlockRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnassociateNetworkCidrBlockResponse
+       */
+      Models::UnassociateNetworkCidrBlockResponse unassociateNetworkCidrBlockWithOptions(const Models::UnassociateNetworkCidrBlockRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a secondary CIDR block from a network.
+       *
+       * @description Before deleting a secondary CIDR block from a network, delete the vSwitches created in the secondary CIDR block.
+       *
+       * @param request UnassociateNetworkCidrBlockRequest
+       * @return UnassociateNetworkCidrBlockResponse
+       */
+      Models::UnassociateNetworkCidrBlockResponse unassociateNetworkCidrBlock(const Models::UnassociateNetworkCidrBlockRequest &request);
+
+      /**
        * @summary Calls UnloadRegionSDG to delete preloaded data.
        *
        * @param tmpReq UnloadRegionSDGRequest
@@ -6336,10 +6380,10 @@ namespace Ens20171110
       Models::UpgradeApplicationResponse upgradeApplication(const Models::UpgradeApplicationRequest &request);
 
       /**
-       * @summary Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+       * @summary Upgrades the versions of cluster add-on instances.
        *
-       * @description - Each user can call this operation up to 10 times per second.
-       * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - The maximum call frequency per user is 10 calls per second.
+       * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param tmpReq UpgradeClusterAddonsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6348,10 +6392,10 @@ namespace Ens20171110
       Models::UpgradeClusterAddonsResponse upgradeClusterAddonsWithOptions(const Models::UpgradeClusterAddonsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+       * @summary Upgrades the versions of cluster add-on instances.
        *
-       * @description - Each user can call this operation up to 10 times per second.
-       * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+       * @description - The maximum call frequency per user is 10 calls per second.
+       * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
        *
        * @param request UpgradeClusterAddonsRequest
        * @return UpgradeClusterAddonsResponse

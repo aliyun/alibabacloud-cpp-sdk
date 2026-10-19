@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The data cloud disk type.
+        // The category of the data cloud disk.
         shared_ptr<string> category_ {};
-        // The data cloud disk size.
+        // The size of the data cloud disk.
         shared_ptr<int32_t> size_ {};
       };
 
@@ -190,21 +190,21 @@ namespace Models
     protected:
       // The data cloud disk information.
       shared_ptr<vector<ScalingGroup::DataDisks>> dataDisks_ {};
-      // The instance image ID.
+      // The ID of the instance image.
       shared_ptr<string> imageId_ {};
-      // The instance billing type.
+      // The billing method of the instance.
       shared_ptr<string> instanceChargeType_ {};
       // The instance types.
       shared_ptr<vector<string>> instanceTypes_ {};
-      // The instance key pair. This parameter is mutually exclusive with password.
+      // The name of the instance key pair. This parameter and Password are mutually exclusive.
       shared_ptr<string> keyPairName_ {};
-      // The instance password. This parameter is mutually exclusive with key_pair_name.
+      // The instance password. This parameter and key_pair_name are mutually exclusive.
       shared_ptr<string> password_ {};
-      // The system cloud disk type.
+      // The category of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The system cloud disk size.
+      // The size of the system cloud disk.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The vSwitches used by instances.
+      // The vSwitches used by the instances.
       shared_ptr<vector<string>> vswitchIds_ {};
     };
 
@@ -246,8 +246,9 @@ namespace Models
 
 
     protected:
+      // The name of the node pool.
       shared_ptr<string> name_ {};
-      // The node pool ID.
+      // The ID of the node pool.
       // 
       // This parameter is required.
       shared_ptr<string> nodepoolId_ {};
@@ -291,9 +292,9 @@ namespace Models
 
 
     protected:
-      // The script to run after instance creation but before joining the cluster. The content must be Base64-encoded.
+      // The script to be executed after the instance is created and before it joins the cluster. The content must be Base64-encoded.
       shared_ptr<string> preUserData_ {};
-      // The script to run after instance creation and after joining the cluster. The content must be Base64-encoded.
+      // The script to be executed after the instance is created and after it joins the cluster. The content must be Base64-encoded.
       shared_ptr<string> userData_ {};
     };
 
@@ -336,7 +337,7 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // Only ECK cluster IDs with the eck- prefix are supported. You can obtain the ID by calling the DescribeClustersV1 operation. Serverless cluster IDs returned by the DescribeCluster operation are not supported. The cluster must be in the running state. After creation, it typically takes 10 to 20 minutes to complete initialization.
+    // Only ECK cluster IDs with the eck- prefix are supported. You can obtain the ID by calling the DescribeClustersV1 operation. Serverless cluster IDs returned by the DescribeCluster operation are not supported. The cluster must be in the running state. After creation, it usually takes 10 to 20 minutes to complete initialization.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};

@@ -117,22 +117,27 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query vSwitches with IPv6 CIDR blocks enabled. Valid values:
+    // - true: Queries vSwitches with IPv6 CIDR blocks enabled in the specified region.
+    // - false: Does not query vSwitches with IPv6 CIDR blocks enabled in the specified region.
+    // 
+    // If you do not specify this parameter, the system queries all vSwitches by default.
     shared_ptr<bool> enableIpv6_ {};
-    // The ID of the ENS node.
+    // The ENS edge zone ID.
     shared_ptr<string> ensRegionId_ {};
-    // The IDs of the ENS nodes. You can specify 1 to 100 IDs.
+    // The array of ENS edge zone IDs. Array length: 1 to 100.
     shared_ptr<vector<string>> ensRegionIds_ {};
-    // The ID of the VPC to which the VSwitch belongs.
+    // The ID of the VPC to which the vSwitch to be queried belongs.
     shared_ptr<string> networkId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the VSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The IDs of the vSwitches. You can specify 1 to 100 IDs.
+    // The array of vSwitch IDs. Array length: 1 to 100.
     shared_ptr<vector<string>> vSwitchIds_ {};
-    // The name of the VSwitch.
+    // The vSwitch name.
     shared_ptr<string> vSwitchName_ {};
   };
 
