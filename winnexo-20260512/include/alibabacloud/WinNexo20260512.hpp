@@ -52,6 +52,50 @@ namespace WinNexo20260512
       Models::AddUserGroupMembersResponse addUserGroupMembers(const Models::AddUserGroupMembersRequest &request);
 
       /**
+       * @summary BatchCancelTodos
+       *
+       * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+       *
+       * @param tmpReq BatchCancelTodosRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCancelTodosResponse
+       */
+      Models::BatchCancelTodosResponse batchCancelTodosWithOptions(const Models::BatchCancelTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary BatchCancelTodos
+       *
+       * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+       *
+       * @param request BatchCancelTodosRequest
+       * @return BatchCancelTodosResponse
+       */
+      Models::BatchCancelTodosResponse batchCancelTodos(const Models::BatchCancelTodosRequest &request);
+
+      /**
+       * @summary BatchOperateWorkItems
+       *
+       * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+       *
+       * @param tmpReq BatchOperateWorkItemsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchOperateWorkItemsResponse
+       */
+      Models::BatchOperateWorkItemsResponse batchOperateWorkItemsWithOptions(const Models::BatchOperateWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary BatchOperateWorkItems
+       *
+       * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+       *
+       * @param request BatchOperateWorkItemsRequest
+       * @return BatchOperateWorkItemsResponse
+       */
+      Models::BatchOperateWorkItemsResponse batchOperateWorkItems(const Models::BatchOperateWorkItemsRequest &request);
+
+      /**
        * @summary Batch cancels digital employee precise object type subscriptions.
        *
        * @description Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
@@ -74,6 +118,72 @@ namespace WinNexo20260512
       Models::BatchRemoveOperatingObjectFavoritesResponse batchRemoveOperatingObjectFavorites(const Models::BatchRemoveOperatingObjectFavoritesRequest &request);
 
       /**
+       * @summary CancelTodo
+       *
+       * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+       *
+       * @param request CancelTodoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelTodoResponse
+       */
+      Models::CancelTodoResponse cancelTodoWithOptions(const Models::CancelTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CancelTodo
+       *
+       * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+       *
+       * @param request CancelTodoRequest
+       * @return CancelTodoResponse
+       */
+      Models::CancelTodoResponse cancelTodo(const Models::CancelTodoRequest &request);
+
+      /**
+       * @summary 检查应用内资源权限
+       *
+       * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+       *
+       * @param request CheckAppResourcePermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckAppResourcePermissionResponse
+       */
+      Models::CheckAppResourcePermissionResponse checkAppResourcePermissionWithOptions(const Models::CheckAppResourcePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检查应用内资源权限
+       *
+       * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+       *
+       * @param request CheckAppResourcePermissionRequest
+       * @return CheckAppResourcePermissionResponse
+       */
+      Models::CheckAppResourcePermissionResponse checkAppResourcePermission(const Models::CheckAppResourcePermissionRequest &request);
+
+      /**
+       * @summary 批量检查应用内资源权限
+       *
+       * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+       *
+       * @param tmpReq CheckAppResourcePermissionsBatchRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckAppResourcePermissionsBatchResponse
+       */
+      Models::CheckAppResourcePermissionsBatchResponse checkAppResourcePermissionsBatchWithOptions(const Models::CheckAppResourcePermissionsBatchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量检查应用内资源权限
+       *
+       * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+       *
+       * @param request CheckAppResourcePermissionsBatchRequest
+       * @return CheckAppResourcePermissionsBatchResponse
+       */
+      Models::CheckAppResourcePermissionsBatchResponse checkAppResourcePermissionsBatch(const Models::CheckAppResourcePermissionsBatchRequest &request);
+
+      /**
        * @summary Performs a service health check.
        *
        * @param request CheckHealthRequest
@@ -90,6 +200,28 @@ namespace WinNexo20260512
        * @return CheckHealthResponse
        */
       Models::CheckHealthResponse checkHealth(const Models::CheckHealthRequest &request);
+
+      /**
+       * @summary 按类型或全部清空自动记忆
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request ClearAutoMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClearAutoMemoryResponse
+       */
+      Models::ClearAutoMemoryResponse clearAutoMemoryWithOptions(const Models::ClearAutoMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按类型或全部清空自动记忆
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request ClearAutoMemoryRequest
+       * @return ClearAutoMemoryResponse
+       */
+      Models::ClearAutoMemoryResponse clearAutoMemory(const Models::ClearAutoMemoryRequest &request);
 
       /**
        * @summary Clears all follows of a specific object type for a digital employee.
@@ -112,6 +244,50 @@ namespace WinNexo20260512
        * @return ClearOperatingObjectFavoritesResponse
        */
       Models::ClearOperatingObjectFavoritesResponse clearOperatingObjectFavorites(const Models::ClearOperatingObjectFavoritesRequest &request);
+
+      /**
+       * @summary CloseWorkflowTodos
+       *
+       * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+       *
+       * @param request CloseWorkflowTodosRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloseWorkflowTodosResponse
+       */
+      Models::CloseWorkflowTodosResponse closeWorkflowTodosWithOptions(const Models::CloseWorkflowTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CloseWorkflowTodos
+       *
+       * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+       *
+       * @param request CloseWorkflowTodosRequest
+       * @return CloseWorkflowTodosResponse
+       */
+      Models::CloseWorkflowTodosResponse closeWorkflowTodos(const Models::CloseWorkflowTodosRequest &request);
+
+      /**
+       * @summary CountTodos
+       *
+       * @description 统计当前用户的待办角标（待处理数与未读数）
+       *
+       * @param request CountTodosRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CountTodosResponse
+       */
+      Models::CountTodosResponse countTodosWithOptions(const Models::CountTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CountTodos
+       *
+       * @description 统计当前用户的待办角标（待处理数与未读数）
+       *
+       * @param request CountTodosRequest
+       * @return CountTodosResponse
+       */
+      Models::CountTodosResponse countTodos(const Models::CountTodosRequest &request);
 
       /**
        * @summary Creates a service notice.
@@ -1206,6 +1382,28 @@ namespace WinNexo20260512
       Models::CreateTenantDirectoryResponse createTenantDirectory(const Models::CreateTenantDirectoryRequest &request);
 
       /**
+       * @summary CreateTodo
+       *
+       * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+       *
+       * @param tmpReq CreateTodoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTodoResponse
+       */
+      Models::CreateTodoResponse createTodoWithOptions(const Models::CreateTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateTodo
+       *
+       * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+       *
+       * @param request CreateTodoRequest
+       * @return CreateTodoResponse
+       */
+      Models::CreateTodoResponse createTodo(const Models::CreateTodoRequest &request);
+
+      /**
        * @summary Creates a user and adds the user to a tenant.
        *
        * @description Creates a user by using OpenAPI.
@@ -1306,6 +1504,94 @@ namespace WinNexo20260512
       Models::CreateUserWithGroupsResponse createUserWithGroups(const Models::CreateUserWithGroupsRequest &request);
 
       /**
+       * @summary CreateWorkItem
+       *
+       * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+       *
+       * @param tmpReq CreateWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkItemResponse
+       */
+      Models::CreateWorkItemResponse createWorkItemWithOptions(const Models::CreateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateWorkItem
+       *
+       * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+       *
+       * @param request CreateWorkItemRequest
+       * @return CreateWorkItemResponse
+       */
+      Models::CreateWorkItemResponse createWorkItem(const Models::CreateWorkItemRequest &request);
+
+      /**
+       * @summary 幂等创建工作流实例
+       *
+       * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+       *
+       * @param tmpReq CreateWorkflowInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkflowInstanceResponse
+       */
+      Models::CreateWorkflowInstanceResponse createWorkflowInstanceWithOptions(const Models::CreateWorkflowInstanceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 幂等创建工作流实例
+       *
+       * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+       *
+       * @param request CreateWorkflowInstanceRequest
+       * @return CreateWorkflowInstanceResponse
+       */
+      Models::CreateWorkflowInstanceResponse createWorkflowInstance(const Models::CreateWorkflowInstanceRequest &request);
+
+      /**
+       * @summary CreateWorkflowTemplate
+       *
+       * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+       *
+       * @param tmpReq CreateWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkflowTemplateResponse
+       */
+      Models::CreateWorkflowTemplateResponse createWorkflowTemplateWithOptions(const Models::CreateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateWorkflowTemplate
+       *
+       * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+       *
+       * @param request CreateWorkflowTemplateRequest
+       * @return CreateWorkflowTemplateResponse
+       */
+      Models::CreateWorkflowTemplateResponse createWorkflowTemplate(const Models::CreateWorkflowTemplateRequest &request);
+
+      /**
+       * @summary 批量删除应用内资源权限
+       *
+       * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+       *
+       * @param tmpReq DeleteAppResourcePermissionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppResourcePermissionsResponse
+       */
+      Models::DeleteAppResourcePermissionsResponse deleteAppResourcePermissionsWithOptions(const Models::DeleteAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除应用内资源权限
+       *
+       * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+       *
+       * @param request DeleteAppResourcePermissionsRequest
+       * @return DeleteAppResourcePermissionsResponse
+       */
+      Models::DeleteAppResourcePermissionsResponse deleteAppResourcePermissions(const Models::DeleteAppResourcePermissionsRequest &request);
+
+      /**
        * @summary Deletes a session.
        *
        * @description ## Request description
@@ -1398,6 +1684,50 @@ namespace WinNexo20260512
       Models::DeleteTenantDirectoryResponse deleteTenantDirectory(const Models::DeleteTenantDirectoryRequest &request);
 
       /**
+       * @summary DeleteWorkItem
+       *
+       * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+       *
+       * @param request DeleteWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkItemResponse
+       */
+      Models::DeleteWorkItemResponse deleteWorkItemWithOptions(const Models::DeleteWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteWorkItem
+       *
+       * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+       *
+       * @param request DeleteWorkItemRequest
+       * @return DeleteWorkItemResponse
+       */
+      Models::DeleteWorkItemResponse deleteWorkItem(const Models::DeleteWorkItemRequest &request);
+
+      /**
+       * @summary DeleteWorkflowTemplate
+       *
+       * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+       *
+       * @param request DeleteWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkflowTemplateResponse
+       */
+      Models::DeleteWorkflowTemplateResponse deleteWorkflowTemplateWithOptions(const Models::DeleteWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteWorkflowTemplate
+       *
+       * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+       *
+       * @param request DeleteWorkflowTemplateRequest
+       * @return DeleteWorkflowTemplateResponse
+       */
+      Models::DeleteWorkflowTemplateResponse deleteWorkflowTemplate(const Models::DeleteWorkflowTemplateRequest &request);
+
+      /**
        * @summary Disables an API token.
        *
        * @description Disables the INSTANCE token of a user.
@@ -1468,6 +1798,72 @@ namespace WinNexo20260512
        * @return EnableTokenResponse
        */
       Models::EnableTokenResponse enableToken(const Models::EnableTokenRequest &request);
+
+      /**
+       * @summary ExportWorkflowTemplate
+       *
+       * @description 有效成员导出可回流导入的精简模板定义
+       *
+       * @param request ExportWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportWorkflowTemplateResponse
+       */
+      Models::ExportWorkflowTemplateResponse exportWorkflowTemplateWithOptions(const Models::ExportWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ExportWorkflowTemplate
+       *
+       * @description 有效成员导出可回流导入的精简模板定义
+       *
+       * @param request ExportWorkflowTemplateRequest
+       * @return ExportWorkflowTemplateResponse
+       */
+      Models::ExportWorkflowTemplateResponse exportWorkflowTemplate(const Models::ExportWorkflowTemplateRequest &request);
+
+      /**
+       * @summary GenerateWorkflowTemplateDraft
+       *
+       * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+       *
+       * @param tmpReq GenerateWorkflowTemplateDraftRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateWorkflowTemplateDraftResponse
+       */
+      Models::GenerateWorkflowTemplateDraftResponse generateWorkflowTemplateDraftWithOptions(const Models::GenerateWorkflowTemplateDraftRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GenerateWorkflowTemplateDraft
+       *
+       * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+       *
+       * @param request GenerateWorkflowTemplateDraftRequest
+       * @return GenerateWorkflowTemplateDraftResponse
+       */
+      Models::GenerateWorkflowTemplateDraftResponse generateWorkflowTemplateDraft(const Models::GenerateWorkflowTemplateDraftRequest &request);
+
+      /**
+       * @summary GetAgentWorkLog
+       *
+       * @description 查询工作流 Agent 工作日志
+       *
+       * @param request GetAgentWorkLogRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentWorkLogResponse
+       */
+      Models::GetAgentWorkLogResponse getAgentWorkLogWithOptions(const Models::GetAgentWorkLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetAgentWorkLog
+       *
+       * @description 查询工作流 Agent 工作日志
+       *
+       * @param request GetAgentWorkLogRequest
+       * @return GetAgentWorkLogResponse
+       */
+      Models::GetAgentWorkLogResponse getAgentWorkLog(const Models::GetAgentWorkLogRequest &request);
 
       /**
        * @summary Retrieves DingTalk meeting minutes content for the Winnexo Lite Workbench.
@@ -1708,6 +2104,72 @@ namespace WinNexo20260512
        * @return GetKnowledgeBaseSourceResponse
        */
       Models::GetKnowledgeBaseSourceResponse getKnowledgeBaseSource(const Models::GetKnowledgeBaseSourceRequest &request);
+
+      /**
+       * @summary 查询自动记忆拾取开关
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request GetMemoryAutoExtractionSwitchRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryAutoExtractionSwitchResponse
+       */
+      Models::GetMemoryAutoExtractionSwitchResponse getMemoryAutoExtractionSwitchWithOptions(const Models::GetMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自动记忆拾取开关
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request GetMemoryAutoExtractionSwitchRequest
+       * @return GetMemoryAutoExtractionSwitchResponse
+       */
+      Models::GetMemoryAutoExtractionSwitchResponse getMemoryAutoExtractionSwitch(const Models::GetMemoryAutoExtractionSwitchRequest &request);
+
+      /**
+       * @summary 查询个人或协作空间记忆详情
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request GetMemoryDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMemoryDetailResponse
+       */
+      Models::GetMemoryDetailResponse getMemoryDetailWithOptions(const Models::GetMemoryDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询个人或协作空间记忆详情
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request GetMemoryDetailRequest
+       * @return GetMemoryDetailResponse
+       */
+      Models::GetMemoryDetailResponse getMemoryDetail(const Models::GetMemoryDetailRequest &request);
+
+      /**
+       * @summary GetNodeDetail
+       *
+       * @description 查询实例节点完整详情
+       *
+       * @param request GetNodeDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNodeDetailResponse
+       */
+      Models::GetNodeDetailResponse getNodeDetailWithOptions(const Models::GetNodeDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetNodeDetail
+       *
+       * @description 查询实例节点完整详情
+       *
+       * @param request GetNodeDetailRequest
+       * @return GetNodeDetailResponse
+       */
+      Models::GetNodeDetailResponse getNodeDetail(const Models::GetNodeDetailRequest &request);
 
       /**
        * @summary Retrieves the execution details of a scheduled task.
@@ -1970,6 +2432,50 @@ namespace WinNexo20260512
       Models::GetSourceUploadSignatureResponse getSourceUploadSignature(const Models::GetSourceUploadSignatureRequest &request);
 
       /**
+       * @summary GetTodo
+       *
+       * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+       *
+       * @param request GetTodoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTodoResponse
+       */
+      Models::GetTodoResponse getTodoWithOptions(const Models::GetTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTodo
+       *
+       * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+       *
+       * @param request GetTodoRequest
+       * @return GetTodoResponse
+       */
+      Models::GetTodoResponse getTodo(const Models::GetTodoRequest &request);
+
+      /**
+       * @summary GetTodoDetail
+       *
+       * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+       *
+       * @param request GetTodoDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTodoDetailResponse
+       */
+      Models::GetTodoDetailResponse getTodoDetailWithOptions(const Models::GetTodoDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTodoDetail
+       *
+       * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+       *
+       * @param request GetTodoDetailRequest
+       * @return GetTodoDetailResponse
+       */
+      Models::GetTodoDetailResponse getTodoDetail(const Models::GetTodoDetailRequest &request);
+
+      /**
        * @summary Retrieves an API token and ensures that it is active.
        *
        * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
@@ -2180,6 +2686,116 @@ namespace WinNexo20260512
       Models::GetUserInfoResponse getUserInfo(const Models::GetUserInfoRequest &request);
 
       /**
+       * @summary GetWorkItem
+       *
+       * @description 有效成员读取当前空间可见工作项详情
+       *
+       * @param request GetWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkItemResponse
+       */
+      Models::GetWorkItemResponse getWorkItemWithOptions(const Models::GetWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetWorkItem
+       *
+       * @description 有效成员读取当前空间可见工作项详情
+       *
+       * @param request GetWorkItemRequest
+       * @return GetWorkItemResponse
+       */
+      Models::GetWorkItemResponse getWorkItem(const Models::GetWorkItemRequest &request);
+
+      /**
+       * @summary GetWorkItemArtifactAccess
+       *
+       * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+       *
+       * @param request GetWorkItemArtifactAccessRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkItemArtifactAccessResponse
+       */
+      Models::GetWorkItemArtifactAccessResponse getWorkItemArtifactAccessWithOptions(const Models::GetWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetWorkItemArtifactAccess
+       *
+       * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+       *
+       * @param request GetWorkItemArtifactAccessRequest
+       * @return GetWorkItemArtifactAccessResponse
+       */
+      Models::GetWorkItemArtifactAccessResponse getWorkItemArtifactAccess(const Models::GetWorkItemArtifactAccessRequest &request);
+
+      /**
+       * @summary GetWorkItemAttachmentAccess
+       *
+       * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+       *
+       * @param request GetWorkItemAttachmentAccessRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkItemAttachmentAccessResponse
+       */
+      Models::GetWorkItemAttachmentAccessResponse getWorkItemAttachmentAccessWithOptions(const Models::GetWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetWorkItemAttachmentAccess
+       *
+       * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+       *
+       * @param request GetWorkItemAttachmentAccessRequest
+       * @return GetWorkItemAttachmentAccessResponse
+       */
+      Models::GetWorkItemAttachmentAccessResponse getWorkItemAttachmentAccess(const Models::GetWorkItemAttachmentAccessRequest &request);
+
+      /**
+       * @summary 查询工作流实例详情
+       *
+       * @description 以当前成员和工作项可见性读取实例。
+       *
+       * @param request GetWorkflowInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowInstanceResponse
+       */
+      Models::GetWorkflowInstanceResponse getWorkflowInstanceWithOptions(const Models::GetWorkflowInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询工作流实例详情
+       *
+       * @description 以当前成员和工作项可见性读取实例。
+       *
+       * @param request GetWorkflowInstanceRequest
+       * @return GetWorkflowInstanceResponse
+       */
+      Models::GetWorkflowInstanceResponse getWorkflowInstance(const Models::GetWorkflowInstanceRequest &request);
+
+      /**
+       * @summary GetWorkflowTemplate
+       *
+       * @description 有效成员读取协作空间工作流模板当前配置
+       *
+       * @param request GetWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowTemplateResponse
+       */
+      Models::GetWorkflowTemplateResponse getWorkflowTemplateWithOptions(const Models::GetWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetWorkflowTemplate
+       *
+       * @description 有效成员读取协作空间工作流模板当前配置
+       *
+       * @param request GetWorkflowTemplateRequest
+       * @return GetWorkflowTemplateResponse
+       */
+      Models::GetWorkflowTemplateResponse getWorkflowTemplate(const Models::GetWorkflowTemplateRequest &request);
+
+      /**
        * @summary Grants authorization to authorized users or user groups to use a digital human.
        *
        * @description Grants authorization to authorized users or user groups to use a specified digital human.
@@ -2212,6 +2828,28 @@ namespace WinNexo20260512
        * @return GrantAgentUsersResponse
        */
       Models::GrantAgentUsersResponse grantAgentUsers(const Models::GrantAgentUsersRequest &request);
+
+      /**
+       * @summary ImportWorkflowTemplate
+       *
+       * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+       *
+       * @param tmpReq ImportWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportWorkflowTemplateResponse
+       */
+      Models::ImportWorkflowTemplateResponse importWorkflowTemplateWithOptions(const Models::ImportWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ImportWorkflowTemplate
+       *
+       * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+       *
+       * @param request ImportWorkflowTemplateRequest
+       * @return ImportWorkflowTemplateResponse
+       */
+      Models::ImportWorkflowTemplateResponse importWorkflowTemplate(const Models::ImportWorkflowTemplateRequest &request);
 
       /**
        * @summary Queries currently effective service notices.
@@ -2360,6 +2998,50 @@ namespace WinNexo20260512
        * @return ListAliDingMinutesResponse
        */
       Models::ListAliDingMinutesResponse listAliDingMinutes(const Models::ListAliDingMinutesRequest &request);
+
+      /**
+       * @summary 查询应用内全部原始资源授权
+       *
+       * @description APP/MANAGE 授权后按安全应用前缀分页。
+       *
+       * @param tmpReq ListAppResourcePermissionRecordsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppResourcePermissionRecordsResponse
+       */
+      Models::ListAppResourcePermissionRecordsResponse listAppResourcePermissionRecordsWithOptions(const Models::ListAppResourcePermissionRecordsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询应用内全部原始资源授权
+       *
+       * @description APP/MANAGE 授权后按安全应用前缀分页。
+       *
+       * @param request ListAppResourcePermissionRecordsRequest
+       * @return ListAppResourcePermissionRecordsResponse
+       */
+      Models::ListAppResourcePermissionRecordsResponse listAppResourcePermissionRecords(const Models::ListAppResourcePermissionRecordsRequest &request);
+
+      /**
+       * @summary 查询用户应用内有效资源权限
+       *
+       * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+       *
+       * @param tmpReq ListAppResourceUserPermissionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppResourceUserPermissionsResponse
+       */
+      Models::ListAppResourceUserPermissionsResponse listAppResourceUserPermissionsWithOptions(const Models::ListAppResourceUserPermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户应用内有效资源权限
+       *
+       * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+       *
+       * @param request ListAppResourceUserPermissionsRequest
+       * @return ListAppResourceUserPermissionsResponse
+       */
+      Models::ListAppResourceUserPermissionsResponse listAppResourceUserPermissions(const Models::ListAppResourceUserPermissionsRequest &request);
 
       /**
        * @summary Queries the list of digital human names for which the caller has the specified permission.
@@ -2662,6 +3344,28 @@ namespace WinNexo20260512
       Models::ListGroupDirectoryResponse listGroupDirectory(const Models::ListGroupDirectoryRequest &request);
 
       /**
+       * @summary ListInstanceNodes
+       *
+       * @description 查询实例节点列表
+       *
+       * @param request ListInstanceNodesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceNodesResponse
+       */
+      Models::ListInstanceNodesResponse listInstanceNodesWithOptions(const Models::ListInstanceNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListInstanceNodes
+       *
+       * @description 查询实例节点列表
+       *
+       * @param request ListInstanceNodesRequest
+       * @return ListInstanceNodesResponse
+       */
+      Models::ListInstanceNodesResponse listInstanceNodes(const Models::ListInstanceNodesRequest &request);
+
+      /**
        * @summary Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
        *
        * @description ## Operation description
@@ -2725,12 +3429,12 @@ namespace WinNexo20260512
        * - Results are sorted by update time in descending order by default.
        * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
        *
-       * @param request ListOutputFilesRequest
+       * @param tmpReq ListOutputFilesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListOutputFilesResponse
        */
-      Models::ListOutputFilesResponse listOutputFilesWithOptions(const Models::ListOutputFilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListOutputFilesResponse listOutputFilesWithOptions(const Models::ListOutputFilesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the output list of the current user. Filtering by conditions and pagination are supported.
@@ -2932,6 +3636,28 @@ namespace WinNexo20260512
       Models::ListTenantDirectoryResponse listTenantDirectory(const Models::ListTenantDirectoryRequest &request);
 
       /**
+       * @summary ListTodos
+       *
+       * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+       *
+       * @param tmpReq ListTodosRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTodosResponse
+       */
+      Models::ListTodosResponse listTodosWithOptions(const Models::ListTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListTodos
+       *
+       * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+       *
+       * @param request ListTodosRequest
+       * @return ListTodosResponse
+       */
+      Models::ListTodosResponse listTodos(const Models::ListTodosRequest &request);
+
+      /**
        * @summary Returns the multi-level user group tree for the current tenant.
        *
        * @description ## Request description
@@ -3110,6 +3836,116 @@ namespace WinNexo20260512
       Models::ListVisibleKnowledgeBasesResponse listVisibleKnowledgeBases(const Models::ListVisibleKnowledgeBasesRequest &request);
 
       /**
+       * @summary ListWorkItemArtifacts
+       *
+       * @description 有效成员列出有权访问工作项的全部历史产物
+       *
+       * @param request ListWorkItemArtifactsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkItemArtifactsResponse
+       */
+      Models::ListWorkItemArtifactsResponse listWorkItemArtifactsWithOptions(const Models::ListWorkItemArtifactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListWorkItemArtifacts
+       *
+       * @description 有效成员列出有权访问工作项的全部历史产物
+       *
+       * @param request ListWorkItemArtifactsRequest
+       * @return ListWorkItemArtifactsResponse
+       */
+      Models::ListWorkItemArtifactsResponse listWorkItemArtifacts(const Models::ListWorkItemArtifactsRequest &request);
+
+      /**
+       * @summary ListWorkItems
+       *
+       * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       *
+       * @param tmpReq ListWorkItemsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkItemsResponse
+       */
+      Models::ListWorkItemsResponse listWorkItemsWithOptions(const Models::ListWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListWorkItems
+       *
+       * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       *
+       * @param request ListWorkItemsRequest
+       * @return ListWorkItemsResponse
+       */
+      Models::ListWorkItemsResponse listWorkItems(const Models::ListWorkItemsRequest &request);
+
+      /**
+       * @summary 分页筛选工作流实例
+       *
+       * @description 复用详情投影，避免工作项列表与实例状态混用。
+       *
+       * @param request ListWorkflowInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowInstancesResponse
+       */
+      Models::ListWorkflowInstancesResponse listWorkflowInstancesWithOptions(const Models::ListWorkflowInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页筛选工作流实例
+       *
+       * @description 复用详情投影，避免工作项列表与实例状态混用。
+       *
+       * @param request ListWorkflowInstancesRequest
+       * @return ListWorkflowInstancesResponse
+       */
+      Models::ListWorkflowInstancesResponse listWorkflowInstances(const Models::ListWorkflowInstancesRequest &request);
+
+      /**
+       * @summary ListWorkflowTemplates
+       *
+       * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       *
+       * @param request ListWorkflowTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowTemplatesResponse
+       */
+      Models::ListWorkflowTemplatesResponse listWorkflowTemplatesWithOptions(const Models::ListWorkflowTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListWorkflowTemplates
+       *
+       * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       *
+       * @param request ListWorkflowTemplatesRequest
+       * @return ListWorkflowTemplatesResponse
+       */
+      Models::ListWorkflowTemplatesResponse listWorkflowTemplates(const Models::ListWorkflowTemplatesRequest &request);
+
+      /**
+       * @summary MarkTodosRead
+       *
+       * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+       *
+       * @param tmpReq MarkTodosReadRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MarkTodosReadResponse
+       */
+      Models::MarkTodosReadResponse markTodosReadWithOptions(const Models::MarkTodosReadRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary MarkTodosRead
+       *
+       * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+       *
+       * @param request MarkTodosReadRequest
+       * @return MarkTodosReadResponse
+       */
+      Models::MarkTodosReadResponse markTodosRead(const Models::MarkTodosReadRequest &request);
+
+      /**
        * @summary Moves a resource within a collaboration space.
        *
        * @description Only valid members who are the resource creator or a space administrator can move a resource within the same physical folder tree of a space. The source and target must be real and different folder IDs, and the resource must be in the source folder. Referenced resources are read-only. The sourceId is preserved and not re-parsed. A successful local attach does not guarantee that the downstream path has been synchronized. Duplicate requests may report that the resource is not in the source folder. Query the location first.
@@ -3236,6 +4072,28 @@ namespace WinNexo20260512
        * @return OfflineAnnouncementResponse
        */
       Models::OfflineAnnouncementResponse offlineAnnouncement(const Models::OfflineAnnouncementRequest &request);
+
+      /**
+       * @summary PauseWorkItem
+       *
+       * @description 有效成员暂停工作项绑定的整个 Workflow
+       *
+       * @param request PauseWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseWorkItemResponse
+       */
+      Models::PauseWorkItemResponse pauseWorkItemWithOptions(const Models::PauseWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary PauseWorkItem
+       *
+       * @description 有效成员暂停工作项绑定的整个 Workflow
+       *
+       * @param request PauseWorkItemRequest
+       * @return PauseWorkItemResponse
+       */
+      Models::PauseWorkItemResponse pauseWorkItem(const Models::PauseWorkItemRequest &request);
 
       /**
        * @summary Previews a resource in a collaborative workspace.
@@ -3412,6 +4270,28 @@ namespace WinNexo20260512
       Models::QuerySyncResultResponse querySyncResult(const Models::QuerySyncResultRequest &request);
 
       /**
+       * @summary QueryWorkItemFeed
+       *
+       * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+       *
+       * @param tmpReq QueryWorkItemFeedRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryWorkItemFeedResponse
+       */
+      Models::QueryWorkItemFeedResponse queryWorkItemFeedWithOptions(const Models::QueryWorkItemFeedRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary QueryWorkItemFeed
+       *
+       * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+       *
+       * @param request QueryWorkItemFeedRequest
+       * @return QueryWorkItemFeedResponse
+       */
+      Models::QueryWorkItemFeedResponse queryWorkItemFeed(const Models::QueryWorkItemFeedRequest &request);
+
+      /**
        * @summary Generates next-step recommendations for a session.
        *
        * @description ## Request description
@@ -3444,6 +4324,28 @@ namespace WinNexo20260512
        * @return RecommendNextActionsResponse
        */
       Models::RecommendNextActionsResponse recommendNextActions(const Models::RecommendNextActionsRequest &request);
+
+      /**
+       * @summary 批量注册应用内资源权限
+       *
+       * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+       *
+       * @param tmpReq RegisterAppResourcePermissionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RegisterAppResourcePermissionsResponse
+       */
+      Models::RegisterAppResourcePermissionsResponse registerAppResourcePermissionsWithOptions(const Models::RegisterAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量注册应用内资源权限
+       *
+       * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+       *
+       * @param request RegisterAppResourcePermissionsRequest
+       * @return RegisterAppResourcePermissionsResponse
+       */
+      Models::RegisterAppResourcePermissionsResponse registerAppResourcePermissions(const Models::RegisterAppResourcePermissionsRequest &request);
 
       /**
        * @summary Removes a user from a tenant.
@@ -3688,6 +4590,28 @@ namespace WinNexo20260512
       Models::ReplaceKnowledgeBaseSourceFileResponse replaceKnowledgeBaseSourceFile(const Models::ReplaceKnowledgeBaseSourceFileRequest &request);
 
       /**
+       * @summary 覆盖或清空手动记忆
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request ReplaceManualMemoryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReplaceManualMemoryResponse
+       */
+      Models::ReplaceManualMemoryResponse replaceManualMemoryWithOptions(const Models::ReplaceManualMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 覆盖或清空手动记忆
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request ReplaceManualMemoryRequest
+       * @return ReplaceManualMemoryResponse
+       */
+      Models::ReplaceManualMemoryResponse replaceManualMemory(const Models::ReplaceManualMemoryRequest &request);
+
+      /**
        * @summary Replaces all object binding information under a specified data source.
        *
        * @description ## Operation description
@@ -3746,6 +4670,28 @@ namespace WinNexo20260512
        * @return ReplaceSourceFileResponse
        */
       Models::ReplaceSourceFileResponse replaceSourceFile(const Models::ReplaceSourceFileRequest &request);
+
+      /**
+       * @summary RerunNodeAI
+       *
+       * @description 重跑失败的工作流节点
+       *
+       * @param request RerunNodeAIRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RerunNodeAIResponse
+       */
+      Models::RerunNodeAIResponse rerunNodeAIWithOptions(const Models::RerunNodeAIRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RerunNodeAI
+       *
+       * @description 重跑失败的工作流节点
+       *
+       * @param request RerunNodeAIRequest
+       * @return RerunNodeAIResponse
+       */
+      Models::RerunNodeAIResponse rerunNodeAI(const Models::RerunNodeAIRequest &request);
 
       /**
        * @summary Resets the password of a user.
@@ -3822,6 +4768,72 @@ namespace WinNexo20260512
        * @return ResetTokenResponse
        */
       Models::ResetTokenResponse resetToken(const Models::ResetTokenRequest &request);
+
+      /**
+       * @summary ResolveWorkItemArtifactAccess
+       *
+       * @description 有效成员解析工作项产物短期签名下载地址
+       *
+       * @param request ResolveWorkItemArtifactAccessRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResolveWorkItemArtifactAccessResponse
+       */
+      Models::ResolveWorkItemArtifactAccessResponse resolveWorkItemArtifactAccessWithOptions(const Models::ResolveWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ResolveWorkItemArtifactAccess
+       *
+       * @description 有效成员解析工作项产物短期签名下载地址
+       *
+       * @param request ResolveWorkItemArtifactAccessRequest
+       * @return ResolveWorkItemArtifactAccessResponse
+       */
+      Models::ResolveWorkItemArtifactAccessResponse resolveWorkItemArtifactAccess(const Models::ResolveWorkItemArtifactAccessRequest &request);
+
+      /**
+       * @summary ResolveWorkItemAttachmentAccess
+       *
+       * @description 有效成员解析工作项输入附件短期预览地址
+       *
+       * @param request ResolveWorkItemAttachmentAccessRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResolveWorkItemAttachmentAccessResponse
+       */
+      Models::ResolveWorkItemAttachmentAccessResponse resolveWorkItemAttachmentAccessWithOptions(const Models::ResolveWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ResolveWorkItemAttachmentAccess
+       *
+       * @description 有效成员解析工作项输入附件短期预览地址
+       *
+       * @param request ResolveWorkItemAttachmentAccessRequest
+       * @return ResolveWorkItemAttachmentAccessResponse
+       */
+      Models::ResolveWorkItemAttachmentAccessResponse resolveWorkItemAttachmentAccess(const Models::ResolveWorkItemAttachmentAccessRequest &request);
+
+      /**
+       * @summary ResumeWorkItem
+       *
+       * @description 有效成员从当前 Plan 暂停点恢复工作项
+       *
+       * @param request ResumeWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeWorkItemResponse
+       */
+      Models::ResumeWorkItemResponse resumeWorkItemWithOptions(const Models::ResumeWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ResumeWorkItem
+       *
+       * @description 有效成员从当前 Plan 暂停点恢复工作项
+       *
+       * @param request ResumeWorkItemRequest
+       * @return ResumeWorkItemResponse
+       */
+      Models::ResumeWorkItemResponse resumeWorkItem(const Models::ResumeWorkItemRequest &request);
 
       /**
        * @summary Retries all failed data sources in a specified folder and its subfolders in batch.
@@ -4200,6 +5212,28 @@ namespace WinNexo20260512
       Models::SaveOutputFileToResourceResponse saveOutputFileToResource(const Models::SaveOutputFileToResourceRequest &request);
 
       /**
+       * @summary ScheduleWorkItem
+       *
+       * @description 有效成员幂等排产工作项并物化固定 Plan
+       *
+       * @param request ScheduleWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScheduleWorkItemResponse
+       */
+      Models::ScheduleWorkItemResponse scheduleWorkItemWithOptions(const Models::ScheduleWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ScheduleWorkItem
+       *
+       * @description 有效成员幂等排产工作项并物化固定 Plan
+       *
+       * @param request ScheduleWorkItemRequest
+       * @return ScheduleWorkItemResponse
+       */
+      Models::ScheduleWorkItemResponse scheduleWorkItem(const Models::ScheduleWorkItemRequest &request);
+
+      /**
        * @summary Winnexo 轻量工作台搜索阿里钉群聊。
        *
        * @description ## 请求说明
@@ -4228,9 +5262,9 @@ namespace WinNexo20260512
       Models::SearchAliDingGroupChatsResponse searchAliDingGroupChats(const Models::SearchAliDingGroupChatsRequest &request);
 
       /**
-       * @summary Sends a session message asynchronously.
+       * @summary Asynchronously sends a session message.
        *
-       * @description Sends a session message asynchronously.
+       * @description Asynchronously sends a session message.
        *
        * @param tmpReq SendAsyncChatMessageRequest
        * @param headers map
@@ -4240,9 +5274,9 @@ namespace WinNexo20260512
       Models::SendAsyncChatMessageResponse sendAsyncChatMessageWithOptions(const Models::SendAsyncChatMessageRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a session message asynchronously.
+       * @summary Asynchronously sends a session message.
        *
-       * @description Sends a session message asynchronously.
+       * @description Asynchronously sends a session message.
        *
        * @param request SendAsyncChatMessageRequest
        * @return SendAsyncChatMessageResponse
@@ -4302,6 +5336,28 @@ namespace WinNexo20260512
       Models::SendChatMessageResponse sendChatMessage(const Models::SendChatMessageRequest &request);
 
       /**
+       * @summary SetWorkItemPinned
+       *
+       * @description 有效成员设置工作项个人置顶
+       *
+       * @param request SetWorkItemPinnedRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetWorkItemPinnedResponse
+       */
+      Models::SetWorkItemPinnedResponse setWorkItemPinnedWithOptions(const Models::SetWorkItemPinnedRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SetWorkItemPinned
+       *
+       * @description 有效成员设置工作项个人置顶
+       *
+       * @param request SetWorkItemPinnedRequest
+       * @return SetWorkItemPinnedResponse
+       */
+      Models::SetWorkItemPinnedResponse setWorkItemPinned(const Models::SetWorkItemPinnedRequest &request);
+
+      /**
        * @summary Stops conversation generation.
        *
        * @param request StopChatMessageRequest
@@ -4354,6 +5410,28 @@ namespace WinNexo20260512
       Models::StreamChatMessageResponse streamChatMessage(const string &messageId, const Models::StreamChatMessageRequest &request);
 
       /**
+       * @summary SubmitTodo
+       *
+       * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+       *
+       * @param tmpReq SubmitTodoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitTodoResponse
+       */
+      Models::SubmitTodoResponse submitTodoWithOptions(const Models::SubmitTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SubmitTodo
+       *
+       * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+       *
+       * @param request SubmitTodoRequest
+       * @return SubmitTodoResponse
+       */
+      Models::SubmitTodoResponse submitTodo(const Models::SubmitTodoRequest &request);
+
+      /**
        * @summary Pushes organizational structure synchronization.
        *
        * @description Accepts a department tree and member relationships pushed from the client and creates an asynchronous synchronization task.
@@ -4390,6 +5468,28 @@ namespace WinNexo20260512
        * @return SyncOrgStructureResponse
        */
       Models::SyncOrgStructureResponse syncOrgStructure(const Models::SyncOrgStructureRequest &request);
+
+      /**
+       * @summary TerminateInstance
+       *
+       * @description 终止当前工作流实例
+       *
+       * @param request TerminateInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TerminateInstanceResponse
+       */
+      Models::TerminateInstanceResponse terminateInstanceWithOptions(const Models::TerminateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TerminateInstance
+       *
+       * @description 终止当前工作流实例
+       *
+       * @param request TerminateInstanceRequest
+       * @return TerminateInstanceResponse
+       */
+      Models::TerminateInstanceResponse terminateInstance(const Models::TerminateInstanceRequest &request);
 
       /**
        * @summary Follows or unfollows a specified primary object.
@@ -4480,6 +5580,28 @@ namespace WinNexo20260512
       Models::TranscribeChatVoiceResponse transcribeChatVoice(const Models::TranscribeChatVoiceRequest &request);
 
       Models::TranscribeChatVoiceResponse transcribeChatVoiceAdvance(const Models::TranscribeChatVoiceAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TransferTodo
+       *
+       * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+       *
+       * @param tmpReq TransferTodoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TransferTodoResponse
+       */
+      Models::TransferTodoResponse transferTodoWithOptions(const Models::TransferTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TransferTodo
+       *
+       * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+       *
+       * @param request TransferTodoRequest
+       * @return TransferTodoResponse
+       */
+      Models::TransferTodoResponse transferTodo(const Models::TransferTodoRequest &request);
 
       /**
        * @summary Updates the authorization mode for digital employee usage permissions.
@@ -4754,6 +5876,28 @@ namespace WinNexo20260512
       Models::UpdateKnowledgeBaseSourceTagsResponse updateKnowledgeBaseSourceTags(const Models::UpdateKnowledgeBaseSourceTagsRequest &request);
 
       /**
+       * @summary 更新自动记忆拾取开关
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request UpdateMemoryAutoExtractionSwitchRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMemoryAutoExtractionSwitchResponse
+       */
+      Models::UpdateMemoryAutoExtractionSwitchResponse updateMemoryAutoExtractionSwitchWithOptions(const Models::UpdateMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自动记忆拾取开关
+       *
+       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       *
+       * @param request UpdateMemoryAutoExtractionSwitchRequest
+       * @return UpdateMemoryAutoExtractionSwitchResponse
+       */
+      Models::UpdateMemoryAutoExtractionSwitchResponse updateMemoryAutoExtractionSwitch(const Models::UpdateMemoryAutoExtractionSwitchRequest &request);
+
+      /**
        * @summary Updates a scheduled task.
        *
        * @description Updates a scheduled task.
@@ -4924,6 +6068,50 @@ namespace WinNexo20260512
        * @return UpdateUserInfoResponse
        */
       Models::UpdateUserInfoResponse updateUserInfo(const Models::UpdateUserInfoRequest &request);
+
+      /**
+       * @summary UpdateWorkItem
+       *
+       * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+       *
+       * @param tmpReq UpdateWorkItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkItemResponse
+       */
+      Models::UpdateWorkItemResponse updateWorkItemWithOptions(const Models::UpdateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateWorkItem
+       *
+       * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+       *
+       * @param request UpdateWorkItemRequest
+       * @return UpdateWorkItemResponse
+       */
+      Models::UpdateWorkItemResponse updateWorkItem(const Models::UpdateWorkItemRequest &request);
+
+      /**
+       * @summary UpdateWorkflowTemplate
+       *
+       * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+       *
+       * @param tmpReq UpdateWorkflowTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkflowTemplateResponse
+       */
+      Models::UpdateWorkflowTemplateResponse updateWorkflowTemplateWithOptions(const Models::UpdateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateWorkflowTemplate
+       *
+       * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+       *
+       * @param request UpdateWorkflowTemplateRequest
+       * @return UpdateWorkflowTemplateResponse
+       */
+      Models::UpdateWorkflowTemplateResponse updateWorkflowTemplate(const Models::UpdateWorkflowTemplateRequest &request);
 
       /**
        * @summary Uploads a local file for a session.

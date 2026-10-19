@@ -118,6 +118,140 @@ AddUserGroupMembersResponse Client::addUserGroupMembers(const AddUserGroupMember
 }
 
 /**
+ * @summary BatchCancelTodos
+ *
+ * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+ *
+ * @param tmpReq BatchCancelTodosRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCancelTodosResponse
+ */
+BatchCancelTodosResponse Client::batchCancelTodosWithOptions(const BatchCancelTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCancelTodosShrinkRequest request = BatchCancelTodosShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTodoIds()) {
+    request.setTodoIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTodoIds(), "todoIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasTodoIdsShrink()) {
+    body["todoIds"] = request.getTodoIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchCancelTodos"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/batchCancelTodos")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCancelTodosResponse>();
+}
+
+/**
+ * @summary BatchCancelTodos
+ *
+ * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+ *
+ * @param request BatchCancelTodosRequest
+ * @return BatchCancelTodosResponse
+ */
+BatchCancelTodosResponse Client::batchCancelTodos(const BatchCancelTodosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchCancelTodosWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary BatchOperateWorkItems
+ *
+ * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+ *
+ * @param tmpReq BatchOperateWorkItemsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchOperateWorkItemsResponse
+ */
+BatchOperateWorkItemsResponse Client::batchOperateWorkItemsWithOptions(const BatchOperateWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchOperateWorkItemsShrinkRequest request = BatchOperateWorkItemsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkItemIds()) {
+    request.setWorkItemIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkItemIds(), "workItemIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.getAction();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  if (!!request.hasWorkItemIdsShrink()) {
+    body["workItemIds"] = request.getWorkItemIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchOperateWorkItems"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/batchOperateWorkItems")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchOperateWorkItemsResponse>();
+}
+
+/**
+ * @summary BatchOperateWorkItems
+ *
+ * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+ *
+ * @param request BatchOperateWorkItemsRequest
+ * @return BatchOperateWorkItemsResponse
+ */
+BatchOperateWorkItemsResponse Client::batchOperateWorkItems(const BatchOperateWorkItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchOperateWorkItemsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Batch cancels digital employee precise object type subscriptions.
  *
  * @description Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
@@ -191,6 +325,213 @@ BatchRemoveOperatingObjectFavoritesResponse Client::batchRemoveOperatingObjectFa
 }
 
 /**
+ * @summary CancelTodo
+ *
+ * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+ *
+ * @param request CancelTodoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelTodoResponse
+ */
+CancelTodoResponse Client::cancelTodoWithOptions(const CancelTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasTodoId()) {
+    body["todoId"] = request.getTodoId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CancelTodo"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/cancelTodo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelTodoResponse>();
+}
+
+/**
+ * @summary CancelTodo
+ *
+ * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+ *
+ * @param request CancelTodoRequest
+ * @return CancelTodoResponse
+ */
+CancelTodoResponse Client::cancelTodo(const CancelTodoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelTodoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 检查应用内资源权限
+ *
+ * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+ *
+ * @param request CheckAppResourcePermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAppResourcePermissionResponse
+ */
+CheckAppResourcePermissionResponse Client::checkAppResourcePermissionWithOptions(const CheckAppResourcePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPermission()) {
+    body["permission"] = request.getPermission();
+  }
+
+  if (!!request.hasResourceKey()) {
+    body["resourceKey"] = request.getResourceKey();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTargetUserId()) {
+    body["targetUserId"] = request.getTargetUserId();
+  }
+
+  if (!!request.hasTargetUserTenantId()) {
+    body["targetUserTenantId"] = request.getTargetUserTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckAppResourcePermission"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/checkAppResourcePermission")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAppResourcePermissionResponse>();
+}
+
+/**
+ * @summary 检查应用内资源权限
+ *
+ * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+ *
+ * @param request CheckAppResourcePermissionRequest
+ * @return CheckAppResourcePermissionResponse
+ */
+CheckAppResourcePermissionResponse Client::checkAppResourcePermission(const CheckAppResourcePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkAppResourcePermissionWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量检查应用内资源权限
+ *
+ * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+ *
+ * @param tmpReq CheckAppResourcePermissionsBatchRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckAppResourcePermissionsBatchResponse
+ */
+CheckAppResourcePermissionsBatchResponse Client::checkAppResourcePermissionsBatchWithOptions(const CheckAppResourcePermissionsBatchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CheckAppResourcePermissionsBatchShrinkRequest request = CheckAppResourcePermissionsBatchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChecks()) {
+    request.setChecksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChecks(), "checks", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasChecksShrink()) {
+    body["checks"] = request.getChecksShrink();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  if (!!request.hasTargetUserId()) {
+    body["targetUserId"] = request.getTargetUserId();
+  }
+
+  if (!!request.hasTargetUserTenantId()) {
+    body["targetUserTenantId"] = request.getTargetUserTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckAppResourcePermissionsBatch"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/checkAppResourcePermissionsBatch")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckAppResourcePermissionsBatchResponse>();
+}
+
+/**
+ * @summary 批量检查应用内资源权限
+ *
+ * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+ *
+ * @param request CheckAppResourcePermissionsBatchRequest
+ * @return CheckAppResourcePermissionsBatchResponse
+ */
+CheckAppResourcePermissionsBatchResponse Client::checkAppResourcePermissionsBatch(const CheckAppResourcePermissionsBatchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return checkAppResourcePermissionsBatchWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Performs a service health check.
  *
  * @param request CheckHealthRequest
@@ -233,6 +574,69 @@ CheckHealthResponse Client::checkHealth(const CheckHealthRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return checkHealthWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按类型或全部清空自动记忆
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request ClearAutoMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClearAutoMemoryResponse
+ */
+ClearAutoMemoryResponse Client::clearAutoMemoryWithOptions(const ClearAutoMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOwnerType()) {
+    body["ownerType"] = request.getOwnerType();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ClearAutoMemory"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/clearAutoMemory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClearAutoMemoryResponse>();
+}
+
+/**
+ * @summary 按类型或全部清空自动记忆
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request ClearAutoMemoryRequest
+ * @return ClearAutoMemoryResponse
+ */
+ClearAutoMemoryResponse Client::clearAutoMemory(const ClearAutoMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return clearAutoMemoryWithOptions(request, headers, runtime);
 }
 
 /**
@@ -296,6 +700,120 @@ ClearOperatingObjectFavoritesResponse Client::clearOperatingObjectFavorites(cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return clearOperatingObjectFavoritesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary CloseWorkflowTodos
+ *
+ * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+ *
+ * @param request CloseWorkflowTodosRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloseWorkflowTodosResponse
+ */
+CloseWorkflowTodosResponse Client::closeWorkflowTodosWithOptions(const CloseWorkflowTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasSourceWorkflowId()) {
+    body["sourceWorkflowId"] = request.getSourceWorkflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CloseWorkflowTodos"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/closeWorkflowTodos")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloseWorkflowTodosResponse>();
+}
+
+/**
+ * @summary CloseWorkflowTodos
+ *
+ * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+ *
+ * @param request CloseWorkflowTodosRequest
+ * @return CloseWorkflowTodosResponse
+ */
+CloseWorkflowTodosResponse Client::closeWorkflowTodos(const CloseWorkflowTodosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return closeWorkflowTodosWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary CountTodos
+ *
+ * @description 统计当前用户的待办角标（待处理数与未读数）
+ *
+ * @param request CountTodosRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CountTodosResponse
+ */
+CountTodosResponse Client::countTodosWithOptions(const CountTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CountTodos"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/countTodos")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CountTodosResponse>();
+}
+
+/**
+ * @summary CountTodos
+ *
+ * @description 统计当前用户的待办角标（待处理数与未读数）
+ *
+ * @param request CountTodosRequest
+ * @return CountTodosResponse
+ */
+CountTodosResponse Client::countTodos(const CountTodosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return countTodosWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3594,6 +4112,99 @@ CreateTenantDirectoryResponse Client::createTenantDirectory(const CreateTenantDi
 }
 
 /**
+ * @summary CreateTodo
+ *
+ * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+ *
+ * @param tmpReq CreateTodoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTodoResponse
+ */
+CreateTodoResponse Client::createTodoWithOptions(const CreateTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateTodoShrinkRequest request = CreateTodoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssigneeUserIds()) {
+    request.setAssigneeUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAssigneeUserIds(), "assigneeUserIds", "json"));
+  }
+
+  if (!!tmpReq.hasQuestions()) {
+    request.setQuestionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuestions(), "questions", "json"));
+  }
+
+  if (!!tmpReq.hasSourceContext()) {
+    request.setSourceContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceContext(), "sourceContext", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAssigneeUserIdsShrink()) {
+    body["assigneeUserIds"] = request.getAssigneeUserIdsShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasPriority()) {
+    body["priority"] = request.getPriority();
+  }
+
+  if (!!request.hasQuestionsShrink()) {
+    body["questions"] = request.getQuestionsShrink();
+  }
+
+  if (!!request.hasSourceContextShrink()) {
+    body["sourceContext"] = request.getSourceContextShrink();
+  }
+
+  if (!!request.hasSourceType()) {
+    body["sourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTodo"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createTodo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTodoResponse>();
+}
+
+/**
+ * @summary CreateTodo
+ *
+ * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+ *
+ * @param request CreateTodoRequest
+ * @return CreateTodoResponse
+ */
+CreateTodoResponse Client::createTodo(const CreateTodoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTodoWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a user and adds the user to a tenant.
  *
  * @description Creates a user by using OpenAPI.
@@ -3849,6 +4460,334 @@ CreateUserWithGroupsResponse Client::createUserWithGroups(const CreateUserWithGr
 }
 
 /**
+ * @summary CreateWorkItem
+ *
+ * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+ *
+ * @param tmpReq CreateWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkItemResponse
+ */
+CreateWorkItemResponse Client::createWorkItemWithOptions(const CreateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateWorkItemShrinkRequest request = CreateWorkItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttachments()) {
+    request.setAttachmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttachments(), "attachments", "json"));
+  }
+
+  if (!!tmpReq.hasCollaboratorUserIds()) {
+    request.setCollaboratorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCollaboratorUserIds(), "collaboratorUserIds", "json"));
+  }
+
+  if (!!tmpReq.hasWorkflowTemplateIds()) {
+    request.setWorkflowTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowTemplateIds(), "workflowTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAcceptanceCriteria()) {
+    body["acceptanceCriteria"] = request.getAcceptanceCriteria();
+  }
+
+  if (!!request.hasAttachmentsShrink()) {
+    body["attachments"] = request.getAttachmentsShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasCollaboratorUserIdsShrink()) {
+    body["collaboratorUserIds"] = request.getCollaboratorUserIdsShrink();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["conversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasItemType()) {
+    body["itemType"] = request.getItemType();
+  }
+
+  if (!!request.hasOwnerUserId()) {
+    body["ownerUserId"] = request.getOwnerUserId();
+  }
+
+  if (!!request.hasPriority()) {
+    body["priority"] = request.getPriority();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkflowTemplateIdsShrink()) {
+    body["workflowTemplateIds"] = request.getWorkflowTemplateIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkItemResponse>();
+}
+
+/**
+ * @summary CreateWorkItem
+ *
+ * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+ *
+ * @param request CreateWorkItemRequest
+ * @return CreateWorkItemResponse
+ */
+CreateWorkItemResponse Client::createWorkItem(const CreateWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkItemWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 幂等创建工作流实例
+ *
+ * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+ *
+ * @param tmpReq CreateWorkflowInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkflowInstanceResponse
+ */
+CreateWorkflowInstanceResponse Client::createWorkflowInstanceWithOptions(const CreateWorkflowInstanceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateWorkflowInstanceShrinkRequest request = CreateWorkflowInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVariables()) {
+    request.setVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVariables(), "variables", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAcceptanceCriteria()) {
+    body["acceptanceCriteria"] = request.getAcceptanceCriteria();
+  }
+
+  if (!!request.hasBusinessId()) {
+    body["businessId"] = request.getBusinessId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInitiator()) {
+    body["initiator"] = request.getInitiator();
+  }
+
+  if (!!request.hasPriority()) {
+    body["priority"] = request.getPriority();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasVariablesShrink()) {
+    body["variables"] = request.getVariablesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkflowInstance"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createWorkflowInstance")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkflowInstanceResponse>();
+}
+
+/**
+ * @summary 幂等创建工作流实例
+ *
+ * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+ *
+ * @param request CreateWorkflowInstanceRequest
+ * @return CreateWorkflowInstanceResponse
+ */
+CreateWorkflowInstanceResponse Client::createWorkflowInstance(const CreateWorkflowInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkflowInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary CreateWorkflowTemplate
+ *
+ * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+ *
+ * @param tmpReq CreateWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkflowTemplateResponse
+ */
+CreateWorkflowTemplateResponse Client::createWorkflowTemplateWithOptions(const CreateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateWorkflowTemplateShrinkRequest request = CreateWorkflowTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDefinition()) {
+    request.setDefinitionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefinition(), "definition", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasDefinitionShrink()) {
+    body["definition"] = request.getDefinitionShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary CreateWorkflowTemplate
+ *
+ * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+ *
+ * @param request CreateWorkflowTemplateRequest
+ * @return CreateWorkflowTemplateResponse
+ */
+CreateWorkflowTemplateResponse Client::createWorkflowTemplate(const CreateWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkflowTemplateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量删除应用内资源权限
+ *
+ * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+ *
+ * @param tmpReq DeleteAppResourcePermissionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppResourcePermissionsResponse
+ */
+DeleteAppResourcePermissionsResponse Client::deleteAppResourcePermissionsWithOptions(const DeleteAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAppResourcePermissionsShrinkRequest request = DeleteAppResourcePermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItems()) {
+    request.setItemsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItems(), "items", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasItemsShrink()) {
+    body["items"] = request.getItemsShrink();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteAppResourcePermissions"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/deleteAppResourcePermissions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppResourcePermissionsResponse>();
+}
+
+/**
+ * @summary 批量删除应用内资源权限
+ *
+ * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+ *
+ * @param request DeleteAppResourcePermissionsRequest
+ * @return DeleteAppResourcePermissionsResponse
+ */
+DeleteAppResourcePermissionsResponse Client::deleteAppResourcePermissions(const DeleteAppResourcePermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAppResourcePermissionsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes a session.
  *
  * @description ## Request description
@@ -4042,6 +4981,124 @@ DeleteTenantDirectoryResponse Client::deleteTenantDirectory(const DeleteTenantDi
 }
 
 /**
+ * @summary DeleteWorkItem
+ *
+ * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+ *
+ * @param request DeleteWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkItemResponse
+ */
+DeleteWorkItemResponse Client::deleteWorkItemWithOptions(const DeleteWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/deleteWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkItemResponse>();
+}
+
+/**
+ * @summary DeleteWorkItem
+ *
+ * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+ *
+ * @param request DeleteWorkItemRequest
+ * @return DeleteWorkItemResponse
+ */
+DeleteWorkItemResponse Client::deleteWorkItem(const DeleteWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkItemWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary DeleteWorkflowTemplate
+ *
+ * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+ *
+ * @param request DeleteWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkflowTemplateResponse
+ */
+DeleteWorkflowTemplateResponse Client::deleteWorkflowTemplateWithOptions(const DeleteWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/deleteWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary DeleteWorkflowTemplate
+ *
+ * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+ *
+ * @param request DeleteWorkflowTemplateRequest
+ * @return DeleteWorkflowTemplateResponse
+ */
+DeleteWorkflowTemplateResponse Client::deleteWorkflowTemplate(const DeleteWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkflowTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Disables an API token.
  *
  * @description Disables the INSTANCE token of a user.
@@ -4177,6 +5234,201 @@ EnableTokenResponse Client::enableToken(const EnableTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return enableTokenWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ExportWorkflowTemplate
+ *
+ * @description 有效成员导出可回流导入的精简模板定义
+ *
+ * @param request ExportWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportWorkflowTemplateResponse
+ */
+ExportWorkflowTemplateResponse Client::exportWorkflowTemplateWithOptions(const ExportWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExportWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/exportWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary ExportWorkflowTemplate
+ *
+ * @description 有效成员导出可回流导入的精简模板定义
+ *
+ * @param request ExportWorkflowTemplateRequest
+ * @return ExportWorkflowTemplateResponse
+ */
+ExportWorkflowTemplateResponse Client::exportWorkflowTemplate(const ExportWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return exportWorkflowTemplateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GenerateWorkflowTemplateDraft
+ *
+ * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+ *
+ * @param tmpReq GenerateWorkflowTemplateDraftRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateWorkflowTemplateDraftResponse
+ */
+GenerateWorkflowTemplateDraftResponse Client::generateWorkflowTemplateDraftWithOptions(const GenerateWorkflowTemplateDraftRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenerateWorkflowTemplateDraftShrinkRequest request = GenerateWorkflowTemplateDraftShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPreviousDraft()) {
+    request.setPreviousDraftShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPreviousDraft(), "previousDraft", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasPreviousDraftShrink()) {
+    body["previousDraft"] = request.getPreviousDraftShrink();
+  }
+
+  if (!!request.hasRequirement()) {
+    body["requirement"] = request.getRequirement();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GenerateWorkflowTemplateDraft"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/generateWorkflowTemplateDraft")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateWorkflowTemplateDraftResponse>();
+}
+
+/**
+ * @summary GenerateWorkflowTemplateDraft
+ *
+ * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+ *
+ * @param request GenerateWorkflowTemplateDraftRequest
+ * @return GenerateWorkflowTemplateDraftResponse
+ */
+GenerateWorkflowTemplateDraftResponse Client::generateWorkflowTemplateDraft(const GenerateWorkflowTemplateDraftRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return generateWorkflowTemplateDraftWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetAgentWorkLog
+ *
+ * @description 查询工作流 Agent 工作日志
+ *
+ * @param request GetAgentWorkLogRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentWorkLogResponse
+ */
+GetAgentWorkLogResponse Client::getAgentWorkLogWithOptions(const GetAgentWorkLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAgentWorkLog"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getAgentWorkLog")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentWorkLogResponse>();
+}
+
+/**
+ * @summary GetAgentWorkLog
+ *
+ * @description 查询工作流 Agent 工作日志
+ *
+ * @param request GetAgentWorkLogRequest
+ * @return GetAgentWorkLogResponse
+ */
+GetAgentWorkLogResponse Client::getAgentWorkLog(const GetAgentWorkLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAgentWorkLogWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4681,6 +5933,187 @@ GetKnowledgeBaseSourceResponse Client::getKnowledgeBaseSource(const GetKnowledge
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getKnowledgeBaseSourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询自动记忆拾取开关
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request GetMemoryAutoExtractionSwitchRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryAutoExtractionSwitchResponse
+ */
+GetMemoryAutoExtractionSwitchResponse Client::getMemoryAutoExtractionSwitchWithOptions(const GetMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOwnerType()) {
+    body["ownerType"] = request.getOwnerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetMemoryAutoExtractionSwitch"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getMemoryAutoExtractionSwitch")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryAutoExtractionSwitchResponse>();
+}
+
+/**
+ * @summary 查询自动记忆拾取开关
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request GetMemoryAutoExtractionSwitchRequest
+ * @return GetMemoryAutoExtractionSwitchResponse
+ */
+GetMemoryAutoExtractionSwitchResponse Client::getMemoryAutoExtractionSwitch(const GetMemoryAutoExtractionSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryAutoExtractionSwitchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询个人或协作空间记忆详情
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request GetMemoryDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMemoryDetailResponse
+ */
+GetMemoryDetailResponse Client::getMemoryDetailWithOptions(const GetMemoryDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOwnerType()) {
+    body["ownerType"] = request.getOwnerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetMemoryDetail"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getMemoryDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMemoryDetailResponse>();
+}
+
+/**
+ * @summary 查询个人或协作空间记忆详情
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request GetMemoryDetailRequest
+ * @return GetMemoryDetailResponse
+ */
+GetMemoryDetailResponse Client::getMemoryDetail(const GetMemoryDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMemoryDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetNodeDetail
+ *
+ * @description 查询实例节点完整详情
+ *
+ * @param request GetNodeDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNodeDetailResponse
+ */
+GetNodeDetailResponse Client::getNodeDetailWithOptions(const GetNodeDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetNodeDetail"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getNodeDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNodeDetailResponse>();
+}
+
+/**
+ * @summary GetNodeDetail
+ *
+ * @description 查询实例节点完整详情
+ *
+ * @param request GetNodeDetailRequest
+ * @return GetNodeDetailResponse
+ */
+GetNodeDetailResponse Client::getNodeDetail(const GetNodeDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getNodeDetailWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5288,6 +6721,124 @@ GetSourceUploadSignatureResponse Client::getSourceUploadSignature(const GetSourc
 }
 
 /**
+ * @summary GetTodo
+ *
+ * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+ *
+ * @param request GetTodoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTodoResponse
+ */
+GetTodoResponse Client::getTodoWithOptions(const GetTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasMessageId()) {
+    body["messageId"] = request.getMessageId();
+  }
+
+  if (!!request.hasTodoId()) {
+    body["todoId"] = request.getTodoId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTodo"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getTodo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTodoResponse>();
+}
+
+/**
+ * @summary GetTodo
+ *
+ * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+ *
+ * @param request GetTodoRequest
+ * @return GetTodoResponse
+ */
+GetTodoResponse Client::getTodo(const GetTodoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTodoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetTodoDetail
+ *
+ * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+ *
+ * @param request GetTodoDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTodoDetailResponse
+ */
+GetTodoDetailResponse Client::getTodoDetailWithOptions(const GetTodoDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasTodoId()) {
+    body["todoId"] = request.getTodoId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTodoDetail"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getTodoDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTodoDetailResponse>();
+}
+
+/**
+ * @summary GetTodoDetail
+ *
+ * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+ *
+ * @param request GetTodoDetailRequest
+ * @return GetTodoDetailResponse
+ */
+GetTodoDetailResponse Client::getTodoDetail(const GetTodoDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTodoDetailWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves an API token and ensures that it is active.
  *
  * @description Retrieves the INSTANCE token for a user and ensures that it is in an active state (idempotent).
@@ -5686,6 +7237,301 @@ GetUserInfoResponse Client::getUserInfo(const GetUserInfoRequest &request) {
 }
 
 /**
+ * @summary GetWorkItem
+ *
+ * @description 有效成员读取当前空间可见工作项详情
+ *
+ * @param request GetWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkItemResponse
+ */
+GetWorkItemResponse Client::getWorkItemWithOptions(const GetWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkItemResponse>();
+}
+
+/**
+ * @summary GetWorkItem
+ *
+ * @description 有效成员读取当前空间可见工作项详情
+ *
+ * @param request GetWorkItemRequest
+ * @return GetWorkItemResponse
+ */
+GetWorkItemResponse Client::getWorkItem(const GetWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkItemWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetWorkItemArtifactAccess
+ *
+ * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+ *
+ * @param request GetWorkItemArtifactAccessRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkItemArtifactAccessResponse
+ */
+GetWorkItemArtifactAccessResponse Client::getWorkItemArtifactAccessWithOptions(const GetWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactId()) {
+    query["artifactId"] = request.getArtifactId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    query["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    query["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkItemArtifactAccess"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkItemArtifactAccess")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkItemArtifactAccessResponse>();
+}
+
+/**
+ * @summary GetWorkItemArtifactAccess
+ *
+ * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+ *
+ * @param request GetWorkItemArtifactAccessRequest
+ * @return GetWorkItemArtifactAccessResponse
+ */
+GetWorkItemArtifactAccessResponse Client::getWorkItemArtifactAccess(const GetWorkItemArtifactAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkItemArtifactAccessWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetWorkItemAttachmentAccess
+ *
+ * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+ *
+ * @param request GetWorkItemAttachmentAccessRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkItemAttachmentAccessResponse
+ */
+GetWorkItemAttachmentAccessResponse Client::getWorkItemAttachmentAccessWithOptions(const GetWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttachmentId()) {
+    query["attachmentId"] = request.getAttachmentId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    query["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    query["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkItemAttachmentAccess"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkItemAttachmentAccess")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkItemAttachmentAccessResponse>();
+}
+
+/**
+ * @summary GetWorkItemAttachmentAccess
+ *
+ * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+ *
+ * @param request GetWorkItemAttachmentAccessRequest
+ * @return GetWorkItemAttachmentAccessResponse
+ */
+GetWorkItemAttachmentAccessResponse Client::getWorkItemAttachmentAccess(const GetWorkItemAttachmentAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkItemAttachmentAccessWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询工作流实例详情
+ *
+ * @description 以当前成员和工作项可见性读取实例。
+ *
+ * @param request GetWorkflowInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowInstanceResponse
+ */
+GetWorkflowInstanceResponse Client::getWorkflowInstanceWithOptions(const GetWorkflowInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkflowInstance"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkflowInstance")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowInstanceResponse>();
+}
+
+/**
+ * @summary 查询工作流实例详情
+ *
+ * @description 以当前成员和工作项可见性读取实例。
+ *
+ * @param request GetWorkflowInstanceRequest
+ * @return GetWorkflowInstanceResponse
+ */
+GetWorkflowInstanceResponse Client::getWorkflowInstance(const GetWorkflowInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkflowInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary GetWorkflowTemplate
+ *
+ * @description 有效成员读取协作空间工作流模板当前配置
+ *
+ * @param request GetWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowTemplateResponse
+ */
+GetWorkflowTemplateResponse Client::getWorkflowTemplateWithOptions(const GetWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary GetWorkflowTemplate
+ *
+ * @description 有效成员读取协作空间工作流模板当前配置
+ *
+ * @param request GetWorkflowTemplateRequest
+ * @return GetWorkflowTemplateResponse
+ */
+GetWorkflowTemplateResponse Client::getWorkflowTemplate(const GetWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkflowTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Grants authorization to authorized users or user groups to use a digital human.
  *
  * @description Grants authorization to authorized users or user groups to use a specified digital human.
@@ -5780,6 +7626,71 @@ GrantAgentUsersResponse Client::grantAgentUsers(const GrantAgentUsersRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return grantAgentUsersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ImportWorkflowTemplate
+ *
+ * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+ *
+ * @param tmpReq ImportWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportWorkflowTemplateResponse
+ */
+ImportWorkflowTemplateResponse Client::importWorkflowTemplateWithOptions(const ImportWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ImportWorkflowTemplateShrinkRequest request = ImportWorkflowTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTemplate()) {
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTemplate(), "template", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasTemplateShrink()) {
+    body["template"] = request.getTemplateShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ImportWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/importWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary ImportWorkflowTemplate
+ *
+ * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+ *
+ * @param request ImportWorkflowTemplateRequest
+ * @return ImportWorkflowTemplateResponse
+ */
+ImportWorkflowTemplateResponse Client::importWorkflowTemplate(const ImportWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return importWorkflowTemplateWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6145,6 +8056,188 @@ ListAliDingMinutesResponse Client::listAliDingMinutes(const ListAliDingMinutesRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAliDingMinutesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询应用内全部原始资源授权
+ *
+ * @description APP/MANAGE 授权后按安全应用前缀分页。
+ *
+ * @param tmpReq ListAppResourcePermissionRecordsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppResourcePermissionRecordsResponse
+ */
+ListAppResourcePermissionRecordsResponse Client::listAppResourcePermissionRecordsWithOptions(const ListAppResourcePermissionRecordsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAppResourcePermissionRecordsShrinkRequest request = ListAppResourcePermissionRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPermissions()) {
+    request.setPermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermissions(), "permissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGranteeId()) {
+    body["granteeId"] = request.getGranteeId();
+  }
+
+  if (!!request.hasGranteeTenantId()) {
+    body["granteeTenantId"] = request.getGranteeTenantId();
+  }
+
+  if (!!request.hasGranteeType()) {
+    body["granteeType"] = request.getGranteeType();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPermissionsShrink()) {
+    body["permissions"] = request.getPermissionsShrink();
+  }
+
+  if (!!request.hasResourceKeyPrefix()) {
+    body["resourceKeyPrefix"] = request.getResourceKeyPrefix();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAppResourcePermissionRecords"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listAppResourcePermissionRecords")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppResourcePermissionRecordsResponse>();
+}
+
+/**
+ * @summary 查询应用内全部原始资源授权
+ *
+ * @description APP/MANAGE 授权后按安全应用前缀分页。
+ *
+ * @param request ListAppResourcePermissionRecordsRequest
+ * @return ListAppResourcePermissionRecordsResponse
+ */
+ListAppResourcePermissionRecordsResponse Client::listAppResourcePermissionRecords(const ListAppResourcePermissionRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAppResourcePermissionRecordsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询用户应用内有效资源权限
+ *
+ * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+ *
+ * @param tmpReq ListAppResourceUserPermissionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppResourceUserPermissionsResponse
+ */
+ListAppResourceUserPermissionsResponse Client::listAppResourceUserPermissionsWithOptions(const ListAppResourceUserPermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAppResourceUserPermissionsShrinkRequest request = ListAppResourceUserPermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPermissions()) {
+    request.setPermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermissions(), "permissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPermissionsShrink()) {
+    body["permissions"] = request.getPermissionsShrink();
+  }
+
+  if (!!request.hasResourceKeyPrefix()) {
+    body["resourceKeyPrefix"] = request.getResourceKeyPrefix();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTargetUserId()) {
+    body["targetUserId"] = request.getTargetUserId();
+  }
+
+  if (!!request.hasTargetUserTenantId()) {
+    body["targetUserTenantId"] = request.getTargetUserTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAppResourceUserPermissions"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listAppResourceUserPermissions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppResourceUserPermissionsResponse>();
+}
+
+/**
+ * @summary 查询用户应用内有效资源权限
+ *
+ * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+ *
+ * @param request ListAppResourceUserPermissionsRequest
+ * @return ListAppResourceUserPermissionsResponse
+ */
+ListAppResourceUserPermissionsResponse Client::listAppResourceUserPermissions(const ListAppResourceUserPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAppResourceUserPermissionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -6884,6 +8977,65 @@ ListGroupDirectoryResponse Client::listGroupDirectory(const ListGroupDirectoryRe
 }
 
 /**
+ * @summary ListInstanceNodes
+ *
+ * @description 查询实例节点列表
+ *
+ * @param request ListInstanceNodesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceNodesResponse
+ */
+ListInstanceNodesResponse Client::listInstanceNodesWithOptions(const ListInstanceNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListInstanceNodes"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listInstanceNodes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceNodesResponse>();
+}
+
+/**
+ * @summary ListInstanceNodes
+ *
+ * @description 查询实例节点列表
+ *
+ * @param request ListInstanceNodesRequest
+ * @return ListInstanceNodesResponse
+ */
+ListInstanceNodesResponse Client::listInstanceNodes(const ListInstanceNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstanceNodesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
  *
  * @description ## Operation description
@@ -7037,19 +9189,33 @@ ListOperatingObjectFavoritesResponse Client::listOperatingObjectFavorites(const 
  * - Results are sorted by update time in descending order by default.
  * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
  *
- * @param request ListOutputFilesRequest
+ * @param tmpReq ListOutputFilesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListOutputFilesResponse
  */
-ListOutputFilesResponse Client::listOutputFilesWithOptions(const ListOutputFilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListOutputFilesResponse Client::listOutputFilesWithOptions(const ListOutputFilesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListOutputFilesShrinkRequest request = ListOutputFilesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasTenantId()) {
     query["tenantId"] = request.getTenantId();
   }
 
   json body = {};
+  if (!!request.hasBizId()) {
+    body["bizId"] = request.getBizId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
   if (!!request.hasItemType()) {
     body["itemType"] = request.getItemType();
   }
@@ -7070,8 +9236,16 @@ ListOutputFilesResponse Client::listOutputFilesWithOptions(const ListOutputFiles
     body["pageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
   if (!!request.hasSharedOnly()) {
     body["sharedOnly"] = request.getSharedOnly();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["tags"] = request.getTagsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7568,6 +9742,119 @@ ListTenantDirectoryResponse Client::listTenantDirectory(const ListTenantDirector
 }
 
 /**
+ * @summary ListTodos
+ *
+ * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+ *
+ * @param tmpReq ListTodosRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTodosResponse
+ */
+ListTodosResponse Client::listTodosWithOptions(const ListTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListTodosShrinkRequest request = ListTodosShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPriorities()) {
+    request.setPrioritiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPriorities(), "priorities", "json"));
+  }
+
+  if (!!tmpReq.hasReadStatus()) {
+    request.setReadStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReadStatus(), "readStatus", "json"));
+  }
+
+  if (!!tmpReq.hasSourceTypes()) {
+    request.setSourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceTypes(), "sourceTypes", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "statuses", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPrioritiesShrink()) {
+    body["priorities"] = request.getPrioritiesShrink();
+  }
+
+  if (!!request.hasReadStatusShrink()) {
+    body["readStatus"] = request.getReadStatusShrink();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["sortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSourceTypesShrink()) {
+    body["sourceTypes"] = request.getSourceTypesShrink();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    body["statuses"] = request.getStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListTodos"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listTodos")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTodosResponse>();
+}
+
+/**
+ * @summary ListTodos
+ *
+ * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+ *
+ * @param request ListTodosRequest
+ * @return ListTodosResponse
+ */
+ListTodosResponse Client::listTodos(const ListTodosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTodosWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Returns the multi-level user group tree for the current tenant.
  *
  * @description ## Request description
@@ -8031,6 +10318,397 @@ ListVisibleKnowledgeBasesResponse Client::listVisibleKnowledgeBases(const ListVi
 }
 
 /**
+ * @summary ListWorkItemArtifacts
+ *
+ * @description 有效成员列出有权访问工作项的全部历史产物
+ *
+ * @param request ListWorkItemArtifactsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkItemArtifactsResponse
+ */
+ListWorkItemArtifactsResponse Client::listWorkItemArtifactsWithOptions(const ListWorkItemArtifactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListWorkItemArtifacts"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listWorkItemArtifacts")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkItemArtifactsResponse>();
+}
+
+/**
+ * @summary ListWorkItemArtifacts
+ *
+ * @description 有效成员列出有权访问工作项的全部历史产物
+ *
+ * @param request ListWorkItemArtifactsRequest
+ * @return ListWorkItemArtifactsResponse
+ */
+ListWorkItemArtifactsResponse Client::listWorkItemArtifacts(const ListWorkItemArtifactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkItemArtifactsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ListWorkItems
+ *
+ * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+ *
+ * @param tmpReq ListWorkItemsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkItemsResponse
+ */
+ListWorkItemsResponse Client::listWorkItemsWithOptions(const ListWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListWorkItemsShrinkRequest request = ListWorkItemsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBusinessStatuses()) {
+    request.setBusinessStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessStatuses(), "businessStatuses", "json"));
+  }
+
+  if (!!tmpReq.hasItemTypes()) {
+    request.setItemTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItemTypes(), "itemTypes", "json"));
+  }
+
+  if (!!tmpReq.hasPriorities()) {
+    request.setPrioritiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPriorities(), "priorities", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasBusinessStatusesShrink()) {
+    body["businessStatuses"] = request.getBusinessStatusesShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasItemTypesShrink()) {
+    body["itemTypes"] = request.getItemTypesShrink();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPrioritiesShrink()) {
+    body["priorities"] = request.getPrioritiesShrink();
+  }
+
+  if (!!request.hasScope()) {
+    body["scope"] = request.getScope();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListWorkItems"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listWorkItems")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkItemsResponse>();
+}
+
+/**
+ * @summary ListWorkItems
+ *
+ * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+ *
+ * @param request ListWorkItemsRequest
+ * @return ListWorkItemsResponse
+ */
+ListWorkItemsResponse Client::listWorkItems(const ListWorkItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkItemsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页筛选工作流实例
+ *
+ * @description 复用详情投影，避免工作项列表与实例状态混用。
+ *
+ * @param request ListWorkflowInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkflowInstancesResponse
+ */
+ListWorkflowInstancesResponse Client::listWorkflowInstancesWithOptions(const ListWorkflowInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasBusinessId()) {
+    body["businessId"] = request.getBusinessId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInitiator()) {
+    body["initiator"] = request.getInitiator();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["sortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["sortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListWorkflowInstances"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listWorkflowInstances")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkflowInstancesResponse>();
+}
+
+/**
+ * @summary 分页筛选工作流实例
+ *
+ * @description 复用详情投影，避免工作项列表与实例状态混用。
+ *
+ * @param request ListWorkflowInstancesRequest
+ * @return ListWorkflowInstancesResponse
+ */
+ListWorkflowInstancesResponse Client::listWorkflowInstances(const ListWorkflowInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkflowInstancesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ListWorkflowTemplates
+ *
+ * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+ *
+ * @param request ListWorkflowTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkflowTemplatesResponse
+ */
+ListWorkflowTemplatesResponse Client::listWorkflowTemplatesWithOptions(const ListWorkflowTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListWorkflowTemplates"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listWorkflowTemplates")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkflowTemplatesResponse>();
+}
+
+/**
+ * @summary ListWorkflowTemplates
+ *
+ * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+ *
+ * @param request ListWorkflowTemplatesRequest
+ * @return ListWorkflowTemplatesResponse
+ */
+ListWorkflowTemplatesResponse Client::listWorkflowTemplates(const ListWorkflowTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWorkflowTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary MarkTodosRead
+ *
+ * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+ *
+ * @param tmpReq MarkTodosReadRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MarkTodosReadResponse
+ */
+MarkTodosReadResponse Client::markTodosReadWithOptions(const MarkTodosReadRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MarkTodosReadShrinkRequest request = MarkTodosReadShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTodoIds()) {
+    request.setTodoIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTodoIds(), "todoIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasMarkAllRead()) {
+    body["markAllRead"] = request.getMarkAllRead();
+  }
+
+  if (!!request.hasTodoIdsShrink()) {
+    body["todoIds"] = request.getTodoIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MarkTodosRead"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/markTodosRead")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MarkTodosReadResponse>();
+}
+
+/**
+ * @summary MarkTodosRead
+ *
+ * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+ *
+ * @param request MarkTodosReadRequest
+ * @return MarkTodosReadResponse
+ */
+MarkTodosReadResponse Client::markTodosRead(const MarkTodosReadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return markTodosReadWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Moves a resource within a collaboration space.
  *
  * @description Only valid members who are the resource creator or a space administrator can move a resource within the same physical folder tree of a space. The source and target must be real and different folder IDs, and the resource must be in the source folder. Referenced resources are read-only. The sourceId is preserved and not re-parsed. A successful local attach does not guarantee that the downstream path has been synchronized. Duplicate requests may report that the resource is not in the source folder. Query the location first.
@@ -8320,6 +10998,65 @@ OfflineAnnouncementResponse Client::offlineAnnouncement(const OfflineAnnouncemen
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return offlineAnnouncementWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary PauseWorkItem
+ *
+ * @description 有效成员暂停工作项绑定的整个 Workflow
+ *
+ * @param request PauseWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseWorkItemResponse
+ */
+PauseWorkItemResponse Client::pauseWorkItemWithOptions(const PauseWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PauseWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/pauseWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseWorkItemResponse>();
+}
+
+/**
+ * @summary PauseWorkItem
+ *
+ * @description 有效成员暂停工作项绑定的整个 Workflow
+ *
+ * @param request PauseWorkItemRequest
+ * @return PauseWorkItemResponse
+ */
+PauseWorkItemResponse Client::pauseWorkItem(const PauseWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return pauseWorkItemWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8732,6 +11469,111 @@ QuerySyncResultResponse Client::querySyncResult(const QuerySyncResultRequest &re
 }
 
 /**
+ * @summary QueryWorkItemFeed
+ *
+ * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+ *
+ * @param tmpReq QueryWorkItemFeedRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryWorkItemFeedResponse
+ */
+QueryWorkItemFeedResponse Client::queryWorkItemFeedWithOptions(const QueryWorkItemFeedRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryWorkItemFeedShrinkRequest request = QueryWorkItemFeedShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBusinessStatuses()) {
+    request.setBusinessStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessStatuses(), "businessStatuses", "json"));
+  }
+
+  if (!!tmpReq.hasItemTypes()) {
+    request.setItemTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItemTypes(), "itemTypes", "json"));
+  }
+
+  if (!!tmpReq.hasPriorities()) {
+    request.setPrioritiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPriorities(), "priorities", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasBusinessStatusesShrink()) {
+    body["businessStatuses"] = request.getBusinessStatusesShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasCursor()) {
+    body["cursor"] = request.getCursor();
+  }
+
+  if (!!request.hasItemTypesShrink()) {
+    body["itemTypes"] = request.getItemTypesShrink();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPrioritiesShrink()) {
+    body["priorities"] = request.getPrioritiesShrink();
+  }
+
+  if (!!request.hasScope()) {
+    body["scope"] = request.getScope();
+  }
+
+  if (!!request.hasSourceTaskId()) {
+    body["sourceTaskId"] = request.getSourceTaskId();
+  }
+
+  if (!!request.hasView()) {
+    body["view"] = request.getView();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryWorkItemFeed"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/queryWorkItemFeed")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryWorkItemFeedResponse>();
+}
+
+/**
+ * @summary QueryWorkItemFeed
+ *
+ * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+ *
+ * @param request QueryWorkItemFeedRequest
+ * @return QueryWorkItemFeedResponse
+ */
+QueryWorkItemFeedResponse Client::queryWorkItemFeed(const QueryWorkItemFeedRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryWorkItemFeedWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Generates next-step recommendations for a session.
  *
  * @description ## Request description
@@ -8808,6 +11650,71 @@ RecommendNextActionsResponse Client::recommendNextActions(const RecommendNextAct
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return recommendNextActionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量注册应用内资源权限
+ *
+ * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+ *
+ * @param tmpReq RegisterAppResourcePermissionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RegisterAppResourcePermissionsResponse
+ */
+RegisterAppResourcePermissionsResponse Client::registerAppResourcePermissionsWithOptions(const RegisterAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RegisterAppResourcePermissionsShrinkRequest request = RegisterAppResourcePermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasItems()) {
+    request.setItemsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getItems(), "items", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasItemsShrink()) {
+    body["items"] = request.getItemsShrink();
+  }
+
+  if (!!request.hasResourceTenantId()) {
+    body["resourceTenantId"] = request.getResourceTenantId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RegisterAppResourcePermissions"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/registerAppResourcePermissions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RegisterAppResourcePermissionsResponse>();
+}
+
+/**
+ * @summary 批量注册应用内资源权限
+ *
+ * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+ *
+ * @param request RegisterAppResourcePermissionsRequest
+ * @return RegisterAppResourcePermissionsResponse
+ */
+RegisterAppResourcePermissionsResponse Client::registerAppResourcePermissions(const RegisterAppResourcePermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return registerAppResourcePermissionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -9389,6 +12296,69 @@ ReplaceKnowledgeBaseSourceFileResponse Client::replaceKnowledgeBaseSourceFile(co
 }
 
 /**
+ * @summary 覆盖或清空手动记忆
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request ReplaceManualMemoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReplaceManualMemoryResponse
+ */
+ReplaceManualMemoryResponse Client::replaceManualMemoryWithOptions(const ReplaceManualMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOwnerType()) {
+    body["ownerType"] = request.getOwnerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ReplaceManualMemory"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/replaceManualMemory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReplaceManualMemoryResponse>();
+}
+
+/**
+ * @summary 覆盖或清空手动记忆
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request ReplaceManualMemoryRequest
+ * @return ReplaceManualMemoryResponse
+ */
+ReplaceManualMemoryResponse Client::replaceManualMemory(const ReplaceManualMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return replaceManualMemoryWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Replaces all object binding information under a specified data source.
  *
  * @description ## Operation description
@@ -9545,6 +12515,69 @@ ReplaceSourceFileResponse Client::replaceSourceFile(const ReplaceSourceFileReque
 }
 
 /**
+ * @summary RerunNodeAI
+ *
+ * @description 重跑失败的工作流节点
+ *
+ * @param request RerunNodeAIRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RerunNodeAIResponse
+ */
+RerunNodeAIResponse Client::rerunNodeAIWithOptions(const RerunNodeAIRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["nodeId"] = request.getNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RerunNodeAI"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/rerunNodeAI")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RerunNodeAIResponse>();
+}
+
+/**
+ * @summary RerunNodeAI
+ *
+ * @description 重跑失败的工作流节点
+ *
+ * @param request RerunNodeAIRequest
+ * @return RerunNodeAIResponse
+ */
+RerunNodeAIResponse Client::rerunNodeAI(const RerunNodeAIRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return rerunNodeAIWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Resets the password of a user.
  *
  * @description Resets the password of a user through OpenAPI.
@@ -9688,6 +12721,191 @@ ResetTokenResponse Client::resetToken(const ResetTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return resetTokenWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ResolveWorkItemArtifactAccess
+ *
+ * @description 有效成员解析工作项产物短期签名下载地址
+ *
+ * @param request ResolveWorkItemArtifactAccessRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResolveWorkItemArtifactAccessResponse
+ */
+ResolveWorkItemArtifactAccessResponse Client::resolveWorkItemArtifactAccessWithOptions(const ResolveWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasArtifactId()) {
+    body["artifactId"] = request.getArtifactId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResolveWorkItemArtifactAccess"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/resolveWorkItemArtifactAccess")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResolveWorkItemArtifactAccessResponse>();
+}
+
+/**
+ * @summary ResolveWorkItemArtifactAccess
+ *
+ * @description 有效成员解析工作项产物短期签名下载地址
+ *
+ * @param request ResolveWorkItemArtifactAccessRequest
+ * @return ResolveWorkItemArtifactAccessResponse
+ */
+ResolveWorkItemArtifactAccessResponse Client::resolveWorkItemArtifactAccess(const ResolveWorkItemArtifactAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resolveWorkItemArtifactAccessWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ResolveWorkItemAttachmentAccess
+ *
+ * @description 有效成员解析工作项输入附件短期预览地址
+ *
+ * @param request ResolveWorkItemAttachmentAccessRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResolveWorkItemAttachmentAccessResponse
+ */
+ResolveWorkItemAttachmentAccessResponse Client::resolveWorkItemAttachmentAccessWithOptions(const ResolveWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAttachmentId()) {
+    body["attachmentId"] = request.getAttachmentId();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResolveWorkItemAttachmentAccess"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/resolveWorkItemAttachmentAccess")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResolveWorkItemAttachmentAccessResponse>();
+}
+
+/**
+ * @summary ResolveWorkItemAttachmentAccess
+ *
+ * @description 有效成员解析工作项输入附件短期预览地址
+ *
+ * @param request ResolveWorkItemAttachmentAccessRequest
+ * @return ResolveWorkItemAttachmentAccessResponse
+ */
+ResolveWorkItemAttachmentAccessResponse Client::resolveWorkItemAttachmentAccess(const ResolveWorkItemAttachmentAccessRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resolveWorkItemAttachmentAccessWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary ResumeWorkItem
+ *
+ * @description 有效成员从当前 Plan 暂停点恢复工作项
+ *
+ * @param request ResumeWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeWorkItemResponse
+ */
+ResumeWorkItemResponse Client::resumeWorkItemWithOptions(const ResumeWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResumeWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/resumeWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeWorkItemResponse>();
+}
+
+/**
+ * @summary ResumeWorkItem
+ *
+ * @description 有效成员从当前 Plan 暂停点恢复工作项
+ *
+ * @param request ResumeWorkItemRequest
+ * @return ResumeWorkItemResponse
+ */
+ResumeWorkItemResponse Client::resumeWorkItem(const ResumeWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumeWorkItemWithOptions(request, headers, runtime);
 }
 
 /**
@@ -10529,6 +13747,69 @@ SaveOutputFileToResourceResponse Client::saveOutputFileToResource(const SaveOutp
 }
 
 /**
+ * @summary ScheduleWorkItem
+ *
+ * @description 有效成员幂等排产工作项并物化固定 Plan
+ *
+ * @param request ScheduleWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScheduleWorkItemResponse
+ */
+ScheduleWorkItemResponse Client::scheduleWorkItemWithOptions(const ScheduleWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ScheduleWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/scheduleWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScheduleWorkItemResponse>();
+}
+
+/**
+ * @summary ScheduleWorkItem
+ *
+ * @description 有效成员幂等排产工作项并物化固定 Plan
+ *
+ * @param request ScheduleWorkItemRequest
+ * @return ScheduleWorkItemResponse
+ */
+ScheduleWorkItemResponse Client::scheduleWorkItem(const ScheduleWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return scheduleWorkItemWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Winnexo 轻量工作台搜索阿里钉群聊。
  *
  * @description ## 请求说明
@@ -10602,9 +13883,9 @@ SearchAliDingGroupChatsResponse Client::searchAliDingGroupChats(const SearchAliD
 }
 
 /**
- * @summary Sends a session message asynchronously.
+ * @summary Asynchronously sends a session message.
  *
- * @description Sends a session message asynchronously.
+ * @description Asynchronously sends a session message.
  *
  * @param tmpReq SendAsyncChatMessageRequest
  * @param headers map
@@ -10701,9 +13982,9 @@ SendAsyncChatMessageResponse Client::sendAsyncChatMessageWithOptions(const SendA
 }
 
 /**
- * @summary Sends a session message asynchronously.
+ * @summary Asynchronously sends a session message.
  *
- * @description Sends a session message asynchronously.
+ * @description Asynchronously sends a session message.
  *
  * @param request SendAsyncChatMessageRequest
  * @return SendAsyncChatMessageResponse
@@ -10959,6 +14240,69 @@ SendChatMessageResponse Client::sendChatMessage(const SendChatMessageRequest &re
 }
 
 /**
+ * @summary SetWorkItemPinned
+ *
+ * @description 有效成员设置工作项个人置顶
+ *
+ * @param request SetWorkItemPinnedRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetWorkItemPinnedResponse
+ */
+SetWorkItemPinnedResponse Client::setWorkItemPinnedWithOptions(const SetWorkItemPinnedRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasPinned()) {
+    body["pinned"] = request.getPinned();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetWorkItemPinned"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/setWorkItemPinned")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetWorkItemPinnedResponse>();
+}
+
+/**
+ * @summary SetWorkItemPinned
+ *
+ * @description 有效成员设置工作项个人置顶
+ *
+ * @param request SetWorkItemPinnedRequest
+ * @return SetWorkItemPinnedResponse
+ */
+SetWorkItemPinnedResponse Client::setWorkItemPinned(const SetWorkItemPinnedRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return setWorkItemPinnedWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Stops conversation generation.
  *
  * @param request StopChatMessageRequest
@@ -11114,6 +14458,71 @@ StreamChatMessageResponse Client::streamChatMessage(const string &messageId, con
 }
 
 /**
+ * @summary SubmitTodo
+ *
+ * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+ *
+ * @param tmpReq SubmitTodoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitTodoResponse
+ */
+SubmitTodoResponse Client::submitTodoWithOptions(const SubmitTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitTodoShrinkRequest request = SubmitTodoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAnswers()) {
+    request.setAnswersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAnswers(), "answers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAnswersShrink()) {
+    body["answers"] = request.getAnswersShrink();
+  }
+
+  if (!!request.hasTodoId()) {
+    body["todoId"] = request.getTodoId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitTodo"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/submitTodo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitTodoResponse>();
+}
+
+/**
+ * @summary SubmitTodo
+ *
+ * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+ *
+ * @param request SubmitTodoRequest
+ * @return SubmitTodoResponse
+ */
+SubmitTodoResponse Client::submitTodo(const SubmitTodoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return submitTodoWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Pushes organizational structure synchronization.
  *
  * @description Accepts a department tree and member relationships pushed from the client and creates an asynchronous synchronization task.
@@ -11212,6 +14621,69 @@ SyncOrgStructureResponse Client::syncOrgStructure(const SyncOrgStructureRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return syncOrgStructureWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary TerminateInstance
+ *
+ * @description 终止当前工作流实例
+ *
+ * @param request TerminateInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TerminateInstanceResponse
+ */
+TerminateInstanceResponse Client::terminateInstanceWithOptions(const TerminateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasReason()) {
+    body["reason"] = request.getReason();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TerminateInstance"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/terminateInstance")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TerminateInstanceResponse>();
+}
+
+/**
+ * @summary TerminateInstance
+ *
+ * @description 终止当前工作流实例
+ *
+ * @param request TerminateInstanceRequest
+ * @return TerminateInstanceResponse
+ */
+TerminateInstanceResponse Client::terminateInstance(const TerminateInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return terminateInstanceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -11478,6 +14950,75 @@ TranscribeChatVoiceResponse Client::transcribeChatVoiceAdvance(const TranscribeC
 
   TranscribeChatVoiceResponse transcribeChatVoiceResp = transcribeChatVoiceWithOptions(transcribeChatVoiceReq, headers, runtime);
   return transcribeChatVoiceResp;
+}
+
+/**
+ * @summary TransferTodo
+ *
+ * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+ *
+ * @param tmpReq TransferTodoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TransferTodoResponse
+ */
+TransferTodoResponse Client::transferTodoWithOptions(const TransferTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TransferTodoShrinkRequest request = TransferTodoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTargetUserIds()) {
+    request.setTargetUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTargetUserIds(), "targetUserIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["comment"] = request.getComment();
+  }
+
+  if (!!request.hasTargetUserIdsShrink()) {
+    body["targetUserIds"] = request.getTargetUserIdsShrink();
+  }
+
+  if (!!request.hasTodoId()) {
+    body["todoId"] = request.getTodoId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TransferTodo"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/transferTodo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TransferTodoResponse>();
+}
+
+/**
+ * @summary TransferTodo
+ *
+ * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+ *
+ * @param request TransferTodoRequest
+ * @return TransferTodoResponse
+ */
+TransferTodoResponse Client::transferTodo(const TransferTodoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return transferTodoWithOptions(request, headers, runtime);
 }
 
 /**
@@ -12134,6 +15675,73 @@ UpdateKnowledgeBaseSourceTagsResponse Client::updateKnowledgeBaseSourceTags(cons
 }
 
 /**
+ * @summary 更新自动记忆拾取开关
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request UpdateMemoryAutoExtractionSwitchRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMemoryAutoExtractionSwitchResponse
+ */
+UpdateMemoryAutoExtractionSwitchResponse Client::updateMemoryAutoExtractionSwitchWithOptions(const UpdateMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasClearExisting()) {
+    body["clearExisting"] = request.getClearExisting();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasOwnerType()) {
+    body["ownerType"] = request.getOwnerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMemoryAutoExtractionSwitch"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateMemoryAutoExtractionSwitch")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMemoryAutoExtractionSwitchResponse>();
+}
+
+/**
+ * @summary 更新自动记忆拾取开关
+ *
+ * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+ *
+ * @param request UpdateMemoryAutoExtractionSwitchRequest
+ * @return UpdateMemoryAutoExtractionSwitchResponse
+ */
+UpdateMemoryAutoExtractionSwitchResponse Client::updateMemoryAutoExtractionSwitch(const UpdateMemoryAutoExtractionSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMemoryAutoExtractionSwitchWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Updates a scheduled task.
  *
  * @description Updates a scheduled task.
@@ -12653,6 +16261,188 @@ UpdateUserInfoResponse Client::updateUserInfo(const UpdateUserInfoRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateUserInfoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary UpdateWorkItem
+ *
+ * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+ *
+ * @param tmpReq UpdateWorkItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkItemResponse
+ */
+UpdateWorkItemResponse Client::updateWorkItemWithOptions(const UpdateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateWorkItemShrinkRequest request = UpdateWorkItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttachments()) {
+    request.setAttachmentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttachments(), "attachments", "json"));
+  }
+
+  if (!!tmpReq.hasCollaboratorUserIds()) {
+    request.setCollaboratorUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCollaboratorUserIds(), "collaboratorUserIds", "json"));
+  }
+
+  if (!!tmpReq.hasWorkflowTemplateIds()) {
+    request.setWorkflowTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkflowTemplateIds(), "workflowTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAcceptanceCriteria()) {
+    body["acceptanceCriteria"] = request.getAcceptanceCriteria();
+  }
+
+  if (!!request.hasAttachmentsShrink()) {
+    body["attachments"] = request.getAttachmentsShrink();
+  }
+
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasCollaboratorUserIdsShrink()) {
+    body["collaboratorUserIds"] = request.getCollaboratorUserIdsShrink();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["conversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasOwnerUserId()) {
+    body["ownerUserId"] = request.getOwnerUserId();
+  }
+
+  if (!!request.hasPriority()) {
+    body["priority"] = request.getPriority();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkItemId()) {
+    body["workItemId"] = request.getWorkItemId();
+  }
+
+  if (!!request.hasWorkflowTemplateIdsShrink()) {
+    body["workflowTemplateIds"] = request.getWorkflowTemplateIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkItem"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateWorkItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkItemResponse>();
+}
+
+/**
+ * @summary UpdateWorkItem
+ *
+ * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+ *
+ * @param request UpdateWorkItemRequest
+ * @return UpdateWorkItemResponse
+ */
+UpdateWorkItemResponse Client::updateWorkItem(const UpdateWorkItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkItemWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary UpdateWorkflowTemplate
+ *
+ * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+ *
+ * @param tmpReq UpdateWorkflowTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkflowTemplateResponse
+ */
+UpdateWorkflowTemplateResponse Client::updateWorkflowTemplateWithOptions(const UpdateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateWorkflowTemplateShrinkRequest request = UpdateWorkflowTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDefinition()) {
+    request.setDefinitionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefinition(), "definition", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasCollaborationGroupId()) {
+    body["collaborationGroupId"] = request.getCollaborationGroupId();
+  }
+
+  if (!!request.hasDefinitionShrink()) {
+    body["definition"] = request.getDefinitionShrink();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWorkflowTemplate"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateWorkflowTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkflowTemplateResponse>();
+}
+
+/**
+ * @summary UpdateWorkflowTemplate
+ *
+ * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+ *
+ * @param request UpdateWorkflowTemplateRequest
+ * @return UpdateWorkflowTemplateResponse
+ */
+UpdateWorkflowTemplateResponse Client::updateWorkflowTemplate(const UpdateWorkflowTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWorkflowTemplateWithOptions(request, headers, runtime);
 }
 
 /**

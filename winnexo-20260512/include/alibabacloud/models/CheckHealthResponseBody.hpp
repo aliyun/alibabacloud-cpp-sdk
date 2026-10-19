@@ -109,9 +109,9 @@ namespace Models
     shared_ptr<string> callerType_ {};
     // The response status code.
     shared_ptr<string> code_ {};
-    // The name of the currently effective digital employee. This value is empty if not configured.
+    // The name of the currently effective digital employee. This field is empty if not configured.
     shared_ptr<string> digitalEmployeeName_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

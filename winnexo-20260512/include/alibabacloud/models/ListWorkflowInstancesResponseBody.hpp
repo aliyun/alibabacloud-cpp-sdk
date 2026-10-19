@@ -1,0 +1,601 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTWORKFLOWINSTANCESRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTWORKFLOWINSTANCESRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace WinNexo20260512
+{
+namespace Models
+{
+  class ListWorkflowInstancesResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListWorkflowInstancesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(items, items_);
+      DARABONBA_PTR_TO_JSON(message, message_);
+      DARABONBA_PTR_TO_JSON(page, page_);
+      DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(total, total_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListWorkflowInstancesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(items, items_);
+      DARABONBA_PTR_FROM_JSON(message, message_);
+      DARABONBA_PTR_FROM_JSON(page, page_);
+      DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(total, total_);
+    };
+    ListWorkflowInstancesResponseBody() = default ;
+    ListWorkflowInstancesResponseBody(const ListWorkflowInstancesResponseBody &) = default ;
+    ListWorkflowInstancesResponseBody(ListWorkflowInstancesResponseBody &&) = default ;
+    ListWorkflowInstancesResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListWorkflowInstancesResponseBody() = default ;
+    ListWorkflowInstancesResponseBody& operator=(const ListWorkflowInstancesResponseBody &) = default ;
+    ListWorkflowInstancesResponseBody& operator=(ListWorkflowInstancesResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Items : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(businessId, businessId_);
+        DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
+        DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_TO_JSON(currentNode, currentNode_);
+        DARABONBA_PTR_TO_JSON(currentNodes, currentNodes_);
+        DARABONBA_PTR_TO_JSON(endedAt, endedAt_);
+        DARABONBA_PTR_TO_JSON(initiator, initiator_);
+        DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(pauseScope, pauseScope_);
+        DARABONBA_PTR_TO_JSON(planId, planId_);
+        DARABONBA_PTR_TO_JSON(progress, progress_);
+        DARABONBA_PTR_TO_JSON(reviewStatus, reviewStatus_);
+        DARABONBA_PTR_TO_JSON(revision, revision_);
+        DARABONBA_PTR_TO_JSON(runId, runId_);
+        DARABONBA_PTR_TO_JSON(runtimeStatus, runtimeStatus_);
+        DARABONBA_PTR_TO_JSON(startedAt, startedAt_);
+        DARABONBA_PTR_TO_JSON(stateVersion, stateVersion_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(templateId, templateId_);
+        DARABONBA_PTR_TO_JSON(title, title_);
+        DARABONBA_PTR_TO_JSON(workItemId, workItemId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(businessId, businessId_);
+        DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
+        DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+        DARABONBA_PTR_FROM_JSON(currentNode, currentNode_);
+        DARABONBA_PTR_FROM_JSON(currentNodes, currentNodes_);
+        DARABONBA_PTR_FROM_JSON(endedAt, endedAt_);
+        DARABONBA_PTR_FROM_JSON(initiator, initiator_);
+        DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(pauseScope, pauseScope_);
+        DARABONBA_PTR_FROM_JSON(planId, planId_);
+        DARABONBA_PTR_FROM_JSON(progress, progress_);
+        DARABONBA_PTR_FROM_JSON(reviewStatus, reviewStatus_);
+        DARABONBA_PTR_FROM_JSON(revision, revision_);
+        DARABONBA_PTR_FROM_JSON(runId, runId_);
+        DARABONBA_PTR_FROM_JSON(runtimeStatus, runtimeStatus_);
+        DARABONBA_PTR_FROM_JSON(startedAt, startedAt_);
+        DARABONBA_PTR_FROM_JSON(stateVersion, stateVersion_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(templateId, templateId_);
+        DARABONBA_PTR_FROM_JSON(title, title_);
+        DARABONBA_PTR_FROM_JSON(workItemId, workItemId_);
+      };
+      Items() = default ;
+      Items(const Items &) = default ;
+      Items(Items &&) = default ;
+      Items(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Items() = default ;
+      Items& operator=(const Items &) = default ;
+      Items& operator=(Items &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Progress : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Progress& obj) { 
+          DARABONBA_PTR_TO_JSON(completedCount, completedCount_);
+          DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, Progress& obj) { 
+          DARABONBA_PTR_FROM_JSON(completedCount, completedCount_);
+          DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
+        };
+        Progress() = default ;
+        Progress(const Progress &) = default ;
+        Progress(Progress &&) = default ;
+        Progress(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Progress() = default ;
+        Progress& operator=(const Progress &) = default ;
+        Progress& operator=(Progress &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->completedCount_ == nullptr
+        && this->totalCount_ == nullptr; };
+        // completedCount Field Functions 
+        bool hasCompletedCount() const { return this->completedCount_ != nullptr;};
+        void deleteCompletedCount() { this->completedCount_ = nullptr;};
+        inline int64_t getCompletedCount() const { DARABONBA_PTR_GET_DEFAULT(completedCount_, 0L) };
+        inline Progress& setCompletedCount(int64_t completedCount) { DARABONBA_PTR_SET_VALUE(completedCount_, completedCount) };
+
+
+        // totalCount Field Functions 
+        bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+        void deleteTotalCount() { this->totalCount_ = nullptr;};
+        inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+        inline Progress& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+      protected:
+        // 已成功或跳过的可见节点数
+        shared_ptr<int64_t> completedCount_ {};
+        // 当前图可见节点总数，非固定六节点
+        shared_ptr<int64_t> totalCount_ {};
+      };
+
+      class CurrentNodes : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CurrentNodes& obj) { 
+          DARABONBA_PTR_TO_JSON(handler, handler_);
+          DARABONBA_PTR_TO_JSON(handlerId, handlerId_);
+          DARABONBA_PTR_TO_JSON(nodeId, nodeId_);
+          DARABONBA_PTR_TO_JSON(nodeName, nodeName_);
+          DARABONBA_PTR_TO_JSON(nodeType, nodeType_);
+          DARABONBA_PTR_TO_JSON(status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, CurrentNodes& obj) { 
+          DARABONBA_PTR_FROM_JSON(handler, handler_);
+          DARABONBA_PTR_FROM_JSON(handlerId, handlerId_);
+          DARABONBA_PTR_FROM_JSON(nodeId, nodeId_);
+          DARABONBA_PTR_FROM_JSON(nodeName, nodeName_);
+          DARABONBA_PTR_FROM_JSON(nodeType, nodeType_);
+          DARABONBA_PTR_FROM_JSON(status, status_);
+        };
+        CurrentNodes() = default ;
+        CurrentNodes(const CurrentNodes &) = default ;
+        CurrentNodes(CurrentNodes &&) = default ;
+        CurrentNodes(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CurrentNodes() = default ;
+        CurrentNodes& operator=(const CurrentNodes &) = default ;
+        CurrentNodes& operator=(CurrentNodes &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->handler_ == nullptr
+        && this->handlerId_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->nodeType_ == nullptr && this->status_ == nullptr; };
+        // handler Field Functions 
+        bool hasHandler() const { return this->handler_ != nullptr;};
+        void deleteHandler() { this->handler_ = nullptr;};
+        inline string getHandler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
+        inline CurrentNodes& setHandler(string handler) { DARABONBA_PTR_SET_VALUE(handler_, handler) };
+
+
+        // handlerId Field Functions 
+        bool hasHandlerId() const { return this->handlerId_ != nullptr;};
+        void deleteHandlerId() { this->handlerId_ = nullptr;};
+        inline string getHandlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, "") };
+        inline CurrentNodes& setHandlerId(string handlerId) { DARABONBA_PTR_SET_VALUE(handlerId_, handlerId) };
+
+
+        // nodeId Field Functions 
+        bool hasNodeId() const { return this->nodeId_ != nullptr;};
+        void deleteNodeId() { this->nodeId_ = nullptr;};
+        inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+        inline CurrentNodes& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+        // nodeName Field Functions 
+        bool hasNodeName() const { return this->nodeName_ != nullptr;};
+        void deleteNodeName() { this->nodeName_ = nullptr;};
+        inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+        inline CurrentNodes& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
+
+
+        // nodeType Field Functions 
+        bool hasNodeType() const { return this->nodeType_ != nullptr;};
+        void deleteNodeType() { this->nodeType_ = nullptr;};
+        inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+        inline CurrentNodes& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline CurrentNodes& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // 当前处理人展示名
+        shared_ptr<string> handler_ {};
+        // 处理人或数字员工标识
+        shared_ptr<string> handlerId_ {};
+        // 真实运行节点 nodeKey
+        shared_ptr<string> nodeId_ {};
+        // 节点展示名
+        shared_ptr<string> nodeName_ {};
+        // 真实节点类型 AGENT/HUMAN/CONDITION
+        shared_ptr<string> nodeType_ {};
+        // 节点运行状态
+        shared_ptr<string> status_ {};
+      };
+
+      class CurrentNode : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CurrentNode& obj) { 
+          DARABONBA_PTR_TO_JSON(handler, handler_);
+          DARABONBA_PTR_TO_JSON(handlerId, handlerId_);
+          DARABONBA_PTR_TO_JSON(nodeId, nodeId_);
+          DARABONBA_PTR_TO_JSON(nodeName, nodeName_);
+          DARABONBA_PTR_TO_JSON(nodeType, nodeType_);
+          DARABONBA_PTR_TO_JSON(status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, CurrentNode& obj) { 
+          DARABONBA_PTR_FROM_JSON(handler, handler_);
+          DARABONBA_PTR_FROM_JSON(handlerId, handlerId_);
+          DARABONBA_PTR_FROM_JSON(nodeId, nodeId_);
+          DARABONBA_PTR_FROM_JSON(nodeName, nodeName_);
+          DARABONBA_PTR_FROM_JSON(nodeType, nodeType_);
+          DARABONBA_PTR_FROM_JSON(status, status_);
+        };
+        CurrentNode() = default ;
+        CurrentNode(const CurrentNode &) = default ;
+        CurrentNode(CurrentNode &&) = default ;
+        CurrentNode(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CurrentNode() = default ;
+        CurrentNode& operator=(const CurrentNode &) = default ;
+        CurrentNode& operator=(CurrentNode &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->handler_ == nullptr
+        && this->handlerId_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr && this->nodeType_ == nullptr && this->status_ == nullptr; };
+        // handler Field Functions 
+        bool hasHandler() const { return this->handler_ != nullptr;};
+        void deleteHandler() { this->handler_ = nullptr;};
+        inline string getHandler() const { DARABONBA_PTR_GET_DEFAULT(handler_, "") };
+        inline CurrentNode& setHandler(string handler) { DARABONBA_PTR_SET_VALUE(handler_, handler) };
+
+
+        // handlerId Field Functions 
+        bool hasHandlerId() const { return this->handlerId_ != nullptr;};
+        void deleteHandlerId() { this->handlerId_ = nullptr;};
+        inline string getHandlerId() const { DARABONBA_PTR_GET_DEFAULT(handlerId_, "") };
+        inline CurrentNode& setHandlerId(string handlerId) { DARABONBA_PTR_SET_VALUE(handlerId_, handlerId) };
+
+
+        // nodeId Field Functions 
+        bool hasNodeId() const { return this->nodeId_ != nullptr;};
+        void deleteNodeId() { this->nodeId_ = nullptr;};
+        inline string getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
+        inline CurrentNode& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+        // nodeName Field Functions 
+        bool hasNodeName() const { return this->nodeName_ != nullptr;};
+        void deleteNodeName() { this->nodeName_ = nullptr;};
+        inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
+        inline CurrentNode& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
+
+
+        // nodeType Field Functions 
+        bool hasNodeType() const { return this->nodeType_ != nullptr;};
+        void deleteNodeType() { this->nodeType_ = nullptr;};
+        inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+        inline CurrentNode& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline CurrentNode& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        // 当前处理人展示名
+        shared_ptr<string> handler_ {};
+        // 处理人或数字员工标识
+        shared_ptr<string> handlerId_ {};
+        // 真实运行节点 nodeKey
+        shared_ptr<string> nodeId_ {};
+        // 节点展示名
+        shared_ptr<string> nodeName_ {};
+        // 真实节点类型 AGENT/HUMAN/CONDITION
+        shared_ptr<string> nodeType_ {};
+        // 节点运行状态
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->businessId_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->createdAt_ == nullptr && this->currentNode_ == nullptr && this->currentNodes_ == nullptr && this->endedAt_ == nullptr
+        && this->initiator_ == nullptr && this->instanceId_ == nullptr && this->pauseScope_ == nullptr && this->planId_ == nullptr && this->progress_ == nullptr
+        && this->reviewStatus_ == nullptr && this->revision_ == nullptr && this->runId_ == nullptr && this->runtimeStatus_ == nullptr && this->startedAt_ == nullptr
+        && this->stateVersion_ == nullptr && this->status_ == nullptr && this->templateId_ == nullptr && this->title_ == nullptr && this->workItemId_ == nullptr; };
+      // businessId Field Functions 
+      bool hasBusinessId() const { return this->businessId_ != nullptr;};
+      void deleteBusinessId() { this->businessId_ = nullptr;};
+      inline string getBusinessId() const { DARABONBA_PTR_GET_DEFAULT(businessId_, "") };
+      inline Items& setBusinessId(string businessId) { DARABONBA_PTR_SET_VALUE(businessId_, businessId) };
+
+
+      // collaborationGroupId Field Functions 
+      bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
+      void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
+      inline string getCollaborationGroupId() const { DARABONBA_PTR_GET_DEFAULT(collaborationGroupId_, "") };
+      inline Items& setCollaborationGroupId(string collaborationGroupId) { DARABONBA_PTR_SET_VALUE(collaborationGroupId_, collaborationGroupId) };
+
+
+      // createdAt Field Functions 
+      bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
+      void deleteCreatedAt() { this->createdAt_ = nullptr;};
+      inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+      inline Items& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+      // currentNode Field Functions 
+      bool hasCurrentNode() const { return this->currentNode_ != nullptr;};
+      void deleteCurrentNode() { this->currentNode_ = nullptr;};
+      inline const Items::CurrentNode & getCurrentNode() const { DARABONBA_PTR_GET_CONST(currentNode_, Items::CurrentNode) };
+      inline Items::CurrentNode getCurrentNode() { DARABONBA_PTR_GET(currentNode_, Items::CurrentNode) };
+      inline Items& setCurrentNode(const Items::CurrentNode & currentNode) { DARABONBA_PTR_SET_VALUE(currentNode_, currentNode) };
+      inline Items& setCurrentNode(Items::CurrentNode && currentNode) { DARABONBA_PTR_SET_RVALUE(currentNode_, currentNode) };
+
+
+      // currentNodes Field Functions 
+      bool hasCurrentNodes() const { return this->currentNodes_ != nullptr;};
+      void deleteCurrentNodes() { this->currentNodes_ = nullptr;};
+      inline const vector<Items::CurrentNodes> & getCurrentNodes() const { DARABONBA_PTR_GET_CONST(currentNodes_, vector<Items::CurrentNodes>) };
+      inline vector<Items::CurrentNodes> getCurrentNodes() { DARABONBA_PTR_GET(currentNodes_, vector<Items::CurrentNodes>) };
+      inline Items& setCurrentNodes(const vector<Items::CurrentNodes> & currentNodes) { DARABONBA_PTR_SET_VALUE(currentNodes_, currentNodes) };
+      inline Items& setCurrentNodes(vector<Items::CurrentNodes> && currentNodes) { DARABONBA_PTR_SET_RVALUE(currentNodes_, currentNodes) };
+
+
+      // endedAt Field Functions 
+      bool hasEndedAt() const { return this->endedAt_ != nullptr;};
+      void deleteEndedAt() { this->endedAt_ = nullptr;};
+      inline string getEndedAt() const { DARABONBA_PTR_GET_DEFAULT(endedAt_, "") };
+      inline Items& setEndedAt(string endedAt) { DARABONBA_PTR_SET_VALUE(endedAt_, endedAt) };
+
+
+      // initiator Field Functions 
+      bool hasInitiator() const { return this->initiator_ != nullptr;};
+      void deleteInitiator() { this->initiator_ = nullptr;};
+      inline string getInitiator() const { DARABONBA_PTR_GET_DEFAULT(initiator_, "") };
+      inline Items& setInitiator(string initiator) { DARABONBA_PTR_SET_VALUE(initiator_, initiator) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Items& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // pauseScope Field Functions 
+      bool hasPauseScope() const { return this->pauseScope_ != nullptr;};
+      void deletePauseScope() { this->pauseScope_ = nullptr;};
+      inline string getPauseScope() const { DARABONBA_PTR_GET_DEFAULT(pauseScope_, "") };
+      inline Items& setPauseScope(string pauseScope) { DARABONBA_PTR_SET_VALUE(pauseScope_, pauseScope) };
+
+
+      // planId Field Functions 
+      bool hasPlanId() const { return this->planId_ != nullptr;};
+      void deletePlanId() { this->planId_ = nullptr;};
+      inline string getPlanId() const { DARABONBA_PTR_GET_DEFAULT(planId_, "") };
+      inline Items& setPlanId(string planId) { DARABONBA_PTR_SET_VALUE(planId_, planId) };
+
+
+      // progress Field Functions 
+      bool hasProgress() const { return this->progress_ != nullptr;};
+      void deleteProgress() { this->progress_ = nullptr;};
+      inline const Items::Progress & getProgress() const { DARABONBA_PTR_GET_CONST(progress_, Items::Progress) };
+      inline Items::Progress getProgress() { DARABONBA_PTR_GET(progress_, Items::Progress) };
+      inline Items& setProgress(const Items::Progress & progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
+      inline Items& setProgress(Items::Progress && progress) { DARABONBA_PTR_SET_RVALUE(progress_, progress) };
+
+
+      // reviewStatus Field Functions 
+      bool hasReviewStatus() const { return this->reviewStatus_ != nullptr;};
+      void deleteReviewStatus() { this->reviewStatus_ = nullptr;};
+      inline string getReviewStatus() const { DARABONBA_PTR_GET_DEFAULT(reviewStatus_, "") };
+      inline Items& setReviewStatus(string reviewStatus) { DARABONBA_PTR_SET_VALUE(reviewStatus_, reviewStatus) };
+
+
+      // revision Field Functions 
+      bool hasRevision() const { return this->revision_ != nullptr;};
+      void deleteRevision() { this->revision_ = nullptr;};
+      inline int64_t getRevision() const { DARABONBA_PTR_GET_DEFAULT(revision_, 0L) };
+      inline Items& setRevision(int64_t revision) { DARABONBA_PTR_SET_VALUE(revision_, revision) };
+
+
+      // runId Field Functions 
+      bool hasRunId() const { return this->runId_ != nullptr;};
+      void deleteRunId() { this->runId_ = nullptr;};
+      inline string getRunId() const { DARABONBA_PTR_GET_DEFAULT(runId_, "") };
+      inline Items& setRunId(string runId) { DARABONBA_PTR_SET_VALUE(runId_, runId) };
+
+
+      // runtimeStatus Field Functions 
+      bool hasRuntimeStatus() const { return this->runtimeStatus_ != nullptr;};
+      void deleteRuntimeStatus() { this->runtimeStatus_ = nullptr;};
+      inline string getRuntimeStatus() const { DARABONBA_PTR_GET_DEFAULT(runtimeStatus_, "") };
+      inline Items& setRuntimeStatus(string runtimeStatus) { DARABONBA_PTR_SET_VALUE(runtimeStatus_, runtimeStatus) };
+
+
+      // startedAt Field Functions 
+      bool hasStartedAt() const { return this->startedAt_ != nullptr;};
+      void deleteStartedAt() { this->startedAt_ = nullptr;};
+      inline string getStartedAt() const { DARABONBA_PTR_GET_DEFAULT(startedAt_, "") };
+      inline Items& setStartedAt(string startedAt) { DARABONBA_PTR_SET_VALUE(startedAt_, startedAt) };
+
+
+      // stateVersion Field Functions 
+      bool hasStateVersion() const { return this->stateVersion_ != nullptr;};
+      void deleteStateVersion() { this->stateVersion_ = nullptr;};
+      inline int64_t getStateVersion() const { DARABONBA_PTR_GET_DEFAULT(stateVersion_, 0L) };
+      inline Items& setStateVersion(int64_t stateVersion) { DARABONBA_PTR_SET_VALUE(stateVersion_, stateVersion) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Items& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // templateId Field Functions 
+      bool hasTemplateId() const { return this->templateId_ != nullptr;};
+      void deleteTemplateId() { this->templateId_ = nullptr;};
+      inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+      inline Items& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+      // title Field Functions 
+      bool hasTitle() const { return this->title_ != nullptr;};
+      void deleteTitle() { this->title_ = nullptr;};
+      inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+      inline Items& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+      // workItemId Field Functions 
+      bool hasWorkItemId() const { return this->workItemId_ != nullptr;};
+      void deleteWorkItemId() { this->workItemId_ = nullptr;};
+      inline string getWorkItemId() const { DARABONBA_PTR_GET_DEFAULT(workItemId_, "") };
+      inline Items& setWorkItemId(string workItemId) { DARABONBA_PTR_SET_VALUE(workItemId_, workItemId) };
+
+
+    protected:
+      // 空间内唯一外部需求编号
+      shared_ptr<string> businessId_ {};
+      // 协作空间 ID
+      shared_ptr<string> collaborationGroupId_ {};
+      // 逻辑实例创建时间，ISO8601
+      shared_ptr<string> createdAt_ {};
+      // 首个活动节点，终态为 null
+      shared_ptr<Items::CurrentNode> currentNode_ {};
+      // 全部活动节点，支持并行 DAG
+      shared_ptr<vector<Items::CurrentNodes>> currentNodes_ {};
+      // 当前计划终态时间，未结束为 null
+      shared_ptr<string> endedAt_ {};
+      // 外部发起人标签，不参与鉴权
+      shared_ptr<string> initiator_ {};
+      // 稳定逻辑实例 ID，工作项重启不改变
+      shared_ptr<string> instanceId_ {};
+      // 原始计划暂停范围
+      shared_ptr<string> pauseScope_ {};
+      // 当前物理计划修订 ID
+      shared_ptr<string> planId_ {};
+      // 可见图进度
+      shared_ptr<Items::Progress> progress_ {};
+      // 原始计划审核状态
+      shared_ptr<string> reviewStatus_ {};
+      // 当前物理计划修订号
+      shared_ptr<int64_t> revision_ {};
+      // 当前运行 ID，重启后会改变
+      shared_ptr<string> runId_ {};
+      // 原始 BUILDING/RUNNING/SUCCEEDED/FAILED/CANCELLED
+      shared_ptr<string> runtimeStatus_ {};
+      // 当前计划节点首次开始时间，未执行为 null
+      shared_ptr<string> startedAt_ {};
+      // 运行状态版本
+      shared_ptr<int64_t> stateVersion_ {};
+      // Running/Completed/Failed/Terminated
+      shared_ptr<string> status_ {};
+      // 创建时绑定的工作流模板 ID
+      shared_ptr<string> templateId_ {};
+      // 当前需求标题
+      shared_ptr<string> title_ {};
+      // 关联工作项 ID
+      shared_ptr<string> workItemId_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->items_ == nullptr && this->message_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
+        && this->total_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ListWorkflowInstancesResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // items Field Functions 
+    bool hasItems() const { return this->items_ != nullptr;};
+    void deleteItems() { this->items_ = nullptr;};
+    inline const vector<ListWorkflowInstancesResponseBody::Items> & getItems() const { DARABONBA_PTR_GET_CONST(items_, vector<ListWorkflowInstancesResponseBody::Items>) };
+    inline vector<ListWorkflowInstancesResponseBody::Items> getItems() { DARABONBA_PTR_GET(items_, vector<ListWorkflowInstancesResponseBody::Items>) };
+    inline ListWorkflowInstancesResponseBody& setItems(const vector<ListWorkflowInstancesResponseBody::Items> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline ListWorkflowInstancesResponseBody& setItems(vector<ListWorkflowInstancesResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ListWorkflowInstancesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // page Field Functions 
+    bool hasPage() const { return this->page_ != nullptr;};
+    void deletePage() { this->page_ = nullptr;};
+    inline int64_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0L) };
+    inline ListWorkflowInstancesResponseBody& setPage(int64_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline ListWorkflowInstancesResponseBody& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListWorkflowInstancesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // total Field Functions 
+    bool hasTotal() const { return this->total_ != nullptr;};
+    void deleteTotal() { this->total_ = nullptr;};
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline ListWorkflowInstancesResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+  protected:
+    // 业务状态码，来自统一 POP 响应包装
+    shared_ptr<string> code_ {};
+    // 当前页实例列表
+    shared_ptr<vector<ListWorkflowInstancesResponseBody::Items>> items_ {};
+    // 用户可见错误描述，来自统一 POP 响应包装
+    shared_ptr<string> message_ {};
+    // 当前页码
+    shared_ptr<int64_t> page_ {};
+    // 每页数量
+    shared_ptr<int64_t> pageSize_ {};
+    // 请求追踪 ID
+    shared_ptr<string> requestId_ {};
+    // 筛选后可见实例总数
+    shared_ptr<int64_t> total_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace WinNexo20260512
+#endif
