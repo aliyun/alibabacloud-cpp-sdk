@@ -93,6 +93,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
           DARABONBA_PTR_TO_JSON(State, state_);
           DARABONBA_PTR_TO_JSON(TalkTime, talkTime_);
+          DARABONBA_PTR_TO_JSON(TalkTurns, talkTurns_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(AttemptedCount, attemptedCount_);
@@ -118,6 +119,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
           DARABONBA_PTR_FROM_JSON(State, state_);
           DARABONBA_PTR_FROM_JSON(TalkTime, talkTime_);
+          DARABONBA_PTR_FROM_JSON(TalkTurns, talkTurns_);
         };
         List() = default ;
         List(const List &) = default ;
@@ -208,7 +210,7 @@ namespace Models
         protected:
           // The candidate values of the label.
           shared_ptr<vector<string>> candidateValues_ {};
-          // Indicates whether the item is collected.
+          // Indicates whether the label is collected.
           shared_ptr<bool> collected_ {};
           // The description of the label.
           shared_ptr<string> description_ {};
@@ -216,7 +218,7 @@ namespace Models
           shared_ptr<string> matchedValue_ {};
           // The name of the label.
           shared_ptr<string> name_ {};
-          // The system label.
+          // Indicates whether the label is a system label.
           shared_ptr<bool> system_ {};
         };
 
@@ -225,7 +227,7 @@ namespace Models
         && this->customVariables_ == nullptr && this->dialingTime_ == nullptr && this->dispositionCode_ == nullptr && this->dispositionReason_ == nullptr && this->instanceId_ == nullptr
         && this->labels_ == nullptr && this->lastAttemptedTime_ == nullptr && this->phoneNumber_ == nullptr && this->priority_ == nullptr && this->referenceId_ == nullptr
         && this->ringingDuration_ == nullptr && this->ringingTime_ == nullptr && this->scriptId_ == nullptr && this->scriptName_ == nullptr && this->sessionId_ == nullptr
-        && this->state_ == nullptr && this->talkTime_ == nullptr; };
+        && this->state_ == nullptr && this->talkTime_ == nullptr && this->talkTurns_ == nullptr; };
         // attemptedCount Field Functions 
         bool hasAttemptedCount() const { return this->attemptedCount_ != nullptr;};
         void deleteAttemptedCount() { this->attemptedCount_ = nullptr;};
@@ -389,8 +391,15 @@ namespace Models
         inline List& setTalkTime(int64_t talkTime) { DARABONBA_PTR_SET_VALUE(talkTime_, talkTime) };
 
 
+        // talkTurns Field Functions 
+        bool hasTalkTurns() const { return this->talkTurns_ != nullptr;};
+        void deleteTalkTurns() { this->talkTurns_ = nullptr;};
+        inline int32_t getTalkTurns() const { DARABONBA_PTR_GET_DEFAULT(talkTurns_, 0) };
+        inline List& setTalkTurns(int32_t talkTurns) { DARABONBA_PTR_SET_VALUE(talkTurns_, talkTurns) };
+
+
       protected:
-        // The number of dial attempts.
+        // The number of call attempts.
         shared_ptr<int32_t> attemptedCount_ {};
         // The caller number.
         shared_ptr<string> callerNumber_ {};
@@ -400,7 +409,7 @@ namespace Models
         shared_ptr<string> campaignName_ {};
         // The case ID.
         shared_ptr<string> caseId_ {};
-        // The time when the case was created.
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
         // The custom variables in JSON string format.
         shared_ptr<string> customVariables_ {};
@@ -414,11 +423,11 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The list of labels.
         shared_ptr<vector<List::Labels>> labels_ {};
-        // The time of the last dial attempt.
+        // The time of the last call attempt.
         shared_ptr<int64_t> lastAttemptedTime_ {};
         // The called number.
         shared_ptr<string> phoneNumber_ {};
-        // The priority of the case.
+        // The priority.
         shared_ptr<int32_t> priority_ {};
         // The reference ID.
         shared_ptr<string> referenceId_ {};
@@ -432,10 +441,12 @@ namespace Models
         shared_ptr<string> scriptName_ {};
         // The session ID of the last call.
         shared_ptr<string> sessionId_ {};
-        // The case state.
+        // The case status.
         shared_ptr<string> state_ {};
-        // The talk time.
+        // The call duration.
         shared_ptr<int64_t> talkTime_ {};
+        // The number of dialogue turns.
+        shared_ptr<int32_t> talkTurns_ {};
       };
 
       virtual bool empty() const override { return this->list_ == nullptr
@@ -471,7 +482,7 @@ namespace Models
 
 
     protected:
-      // The list of cases.
+      // The case list.
       shared_ptr<vector<Data::List>> list_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -540,17 +551,17 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The paged data.
+    // The paginated data.
     shared_ptr<ListCasesResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The pass-through parameters.
+    // The pass-through parameter.
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
