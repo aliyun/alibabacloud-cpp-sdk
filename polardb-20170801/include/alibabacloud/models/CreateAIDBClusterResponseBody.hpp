@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
   };
 

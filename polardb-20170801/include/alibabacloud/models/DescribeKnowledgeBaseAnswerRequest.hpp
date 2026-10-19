@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The unique ID of the knowledge base.
+    // The unique identifier of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
-    // The unique ID of the Q&A task.
+    // The unique identifier of the Q&A task.
     // 
     // This parameter is required.
     shared_ptr<string> queryId_ {};

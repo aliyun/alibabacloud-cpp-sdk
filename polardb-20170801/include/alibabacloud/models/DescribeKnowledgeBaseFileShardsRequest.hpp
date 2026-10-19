@@ -79,13 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The unique ID of the knowledge base.
+    // The unique identifier of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     // 

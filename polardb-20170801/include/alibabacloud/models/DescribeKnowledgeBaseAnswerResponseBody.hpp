@@ -156,11 +156,11 @@ namespace Models
       protected:
         // The index of the source document to which the image belongs, starting from 0.
         shared_ptr<int32_t> documentIndex_ {};
-        // The unique ID of the image resource.
+        // The unique identifier of the image resource.
         shared_ptr<string> id_ {};
         // The element reference of the image in the Docling source document structure.
         shared_ptr<string> itemRef_ {};
-        // The media type of the image resource.
+        // The MIME type of the image resource.
         shared_ptr<string> mimeType_ {};
         // The OSS URI of the image resource.
         shared_ptr<string> uri_ {};
@@ -255,23 +255,23 @@ namespace Models
 
 
     protected:
-      // The chunk metadata.
+      // The shard metadata.
       Darabonba::Json chunkMetadata_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
       // The file name.
       shared_ptr<string> fileName_ {};
-      // The list of image resources associated with the referenced chunk in the Q&A.
+      // The list of image resources associated with the shard referenced in the Q&A.
       shared_ptr<vector<Sources::ImageResources>> imageResources_ {};
-      // The unique ID of the knowledge base.
+      // The unique identifier of the knowledge base.
       shared_ptr<string> knowledgeBaseId_ {};
       // The document metadata.
       Darabonba::Json metadata_ {};
-      // The list of page numbers to which the chunk belongs.
+      // The list of page numbers to which the shard belongs.
       shared_ptr<vector<int32_t>> pageNumbers_ {};
-      // The chunk content.
+      // The shard content.
       shared_ptr<string> shardContent_ {};
-      // The chunk ID.
+      // The shard ID.
       shared_ptr<int32_t> shardIndex_ {};
       // The similarity score.
       shared_ptr<double> similarityScore_ {};
@@ -364,27 +364,27 @@ namespace Models
   protected:
     // Agent ID
     shared_ptr<string> agentId_ {};
-    // The answer content.
+    // The content of the answer.
     shared_ptr<string> answer_ {};
-    // The cumulative number of tokens generated for completion.
+    // The cumulative number of completion tokens generated.
     shared_ptr<int32_t> completionTokens_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
     // The error type.
     shared_ptr<string> errorType_ {};
-    // The large language model ID.
+    // The ID of the large language model.
     shared_ptr<string> LLMModelId_ {};
-    // The cumulative number of tokens consumed by the prompt.
+    // The cumulative number of prompt tokens consumed.
     shared_ptr<int32_t> promptTokens_ {};
-    // The unique ID of the Q&A task.
+    // The unique identifier of the Q&A task.
     shared_ptr<string> queryId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The list of reference sources for the answer.
     shared_ptr<vector<DescribeKnowledgeBaseAnswerResponseBody::Sources>> sources_ {};
     // The status of the Q&A task. Valid values:
-    // - RUNNING: In progress.
-    // - COMPLETED: Completed.
+    // - RUNNING: The task is in progress.
+    // - COMPLETED: The task is completed.
     shared_ptr<string> status_ {};
   };
 

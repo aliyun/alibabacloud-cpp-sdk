@@ -2015,6 +2015,10 @@ CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBC
     query["AutoUseCoupon"] = request.getAutoUseCoupon();
   }
 
+  if (!!request.hasCapacity()) {
+    query["Capacity"] = request.getCapacity();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -7066,7 +7070,7 @@ DeleteAIDBClusterApiKeyResponse Client::deleteAIDBClusterApiKey(const DeleteAIDB
 }
 
 /**
- * @summary Deletes a custom model registration from an AI cluster.
+ * @summary Deletes a custom model registration for an AI cluster.
  *
  * @param request DeleteAIDBClusterCustomModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7075,10 +7079,6 @@ DeleteAIDBClusterApiKeyResponse Client::deleteAIDBClusterApiKey(const DeleteAIDB
 DeleteAIDBClusterCustomModelResponse Client::deleteAIDBClusterCustomModelWithOptions(const DeleteAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
-  }
-
   if (!!request.hasModelName()) {
     query["ModelName"] = request.getModelName();
   }
@@ -7105,7 +7105,7 @@ DeleteAIDBClusterCustomModelResponse Client::deleteAIDBClusterCustomModelWithOpt
 }
 
 /**
- * @summary Deletes a custom model registration from an AI cluster.
+ * @summary Deletes a custom model registration for an AI cluster.
  *
  * @param request DeleteAIDBClusterCustomModelRequest
  * @return DeleteAIDBClusterCustomModelResponse
@@ -12678,7 +12678,7 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegions(cons
 }
 
 /**
- * @summary Retrieves the list of models in an AI cluster.
+ * @summary Retrieves a list of models in an AI cluster.
  *
  * @param request DescribeAvailableModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12717,7 +12717,7 @@ DescribeAvailableModelsResponse Client::describeAvailableModelsWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of models in an AI cluster.
+ * @summary Retrieves a list of models in an AI cluster.
  *
  * @param request DescribeAvailableModelsRequest
  * @return DescribeAvailableModelsResponse
@@ -17786,7 +17786,7 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinks(const DescribeKBSyncLink
 }
 
 /**
- * @summary Queries the result of a single-round knowledge base question answering task.
+ * @summary Queries the single-turn Q&A results of a knowledge base.
  *
  * @param request DescribeKnowledgeBaseAnswerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17825,7 +17825,7 @@ DescribeKnowledgeBaseAnswerResponse Client::describeKnowledgeBaseAnswerWithOptio
 }
 
 /**
- * @summary Queries the result of a single-round knowledge base question answering task.
+ * @summary Queries the single-turn Q&A results of a knowledge base.
  *
  * @param request DescribeKnowledgeBaseAnswerRequest
  * @return DescribeKnowledgeBaseAnswerResponse
@@ -29503,13 +29503,27 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const 
 /**
  * @summary Registers a custom model for an AI cluster.
  *
- * @param request RegisterAIDBClusterCustomModelRequest
+ * @param tmpReq RegisterAIDBClusterCustomModelRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RegisterAIDBClusterCustomModelResponse
  */
-RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModelWithOptions(const RegisterAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModelWithOptions(const RegisterAIDBClusterCustomModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RegisterAIDBClusterCustomModelShrinkRequest request = RegisterAIDBClusterCustomModelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContainerEnv()) {
+    request.setContainerEnvShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContainerEnv(), "ContainerEnv", "json"));
+  }
+
+  if (!!tmpReq.hasModelParams()) {
+    request.setModelParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModelParams(), "ModelParams", "json"));
+  }
+
   json query = {};
+  if (!!request.hasContainerEnvShrink()) {
+    query["ContainerEnv"] = request.getContainerEnvShrink();
+  }
+
   if (!!request.hasCustomOssBucketName()) {
     query["CustomOssBucketName"] = request.getCustomOssBucketName();
   }
@@ -29518,20 +29532,44 @@ RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModelWit
     query["CustomOssBucketPath"] = request.getCustomOssBucketPath();
   }
 
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
+  if (!!request.hasDBInstanceClass()) {
+    query["DBInstanceClass"] = request.getDBInstanceClass();
+  }
+
+  if (!!request.hasDirectCommand()) {
+    query["DirectCommand"] = request.getDirectCommand();
   }
 
   if (!!request.hasDisplayModelName()) {
     query["DisplayModelName"] = request.getDisplayModelName();
   }
 
+  if (!!request.hasImageName()) {
+    query["ImageName"] = request.getImageName();
+  }
+
+  if (!!request.hasInferenceEngine()) {
+    query["InferenceEngine"] = request.getInferenceEngine();
+  }
+
   if (!!request.hasModelName()) {
     query["ModelName"] = request.getModelName();
   }
 
+  if (!!request.hasModelParamsShrink()) {
+    query["ModelParams"] = request.getModelParamsShrink();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRegistryPassword()) {
+    query["RegistryPassword"] = request.getRegistryPassword();
+  }
+
+  if (!!request.hasRegistryUsername()) {
+    query["RegistryUsername"] = request.getRegistryUsername();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -30269,6 +30307,60 @@ ResetGlobalDatabaseNetworkResponse Client::resetGlobalDatabaseNetwork(const Rese
 }
 
 /**
+ * @summary Adjusts the model capacity of an AI cluster.
+ *
+ * @param request ResizeAIDBClusterModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResizeAIDBClusterModelResponse
+ */
+ResizeAIDBClusterModelResponse Client::resizeAIDBClusterModelWithOptions(const ResizeAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTargetCapacity()) {
+    query["TargetCapacity"] = request.getTargetCapacity();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResizeAIDBClusterModel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResizeAIDBClusterModelResponse>();
+}
+
+/**
+ * @summary Adjusts the model capacity of an AI cluster.
+ *
+ * @param request ResizeAIDBClusterModelRequest
+ * @return ResizeAIDBClusterModelResponse
+ */
+ResizeAIDBClusterModelResponse Client::resizeAIDBClusterModel(const ResizeAIDBClusterModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resizeAIDBClusterModelWithOptions(request, runtime);
+}
+
+/**
  * @summary Restarts an AI cluster.
  *
  * @param request RestartAIDBClusterRequest
@@ -30633,7 +30725,7 @@ RestoreTableResponse Client::restoreTable(const RestoreTableRequest &request) {
 }
 
 /**
- * @summary Retrieves information from a knowledge base.
+ * @summary Searches a knowledge base.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30684,7 +30776,7 @@ RetrievalKnowledgeBaseResponse Client::retrievalKnowledgeBaseWithOptions(const R
 }
 
 /**
- * @summary Retrieves information from a knowledge base.
+ * @summary Searches a knowledge base.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @return RetrievalKnowledgeBaseResponse

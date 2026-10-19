@@ -306,13 +306,14 @@ namespace Models
 
     protected:
       // The network type. Valid values: 
+      // 
       // - vpc
       shared_ptr<string> netType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The security group ID.
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The security group name.
+      // The name of the security group.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -501,20 +502,32 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EmbedderModelName, embedderModelName_);
         DARABONBA_PTR_TO_JSON(GraphLlmModelName, graphLlmModelName_);
         DARABONBA_PTR_TO_JSON(LlmModelName, llmModelName_);
+        DARABONBA_PTR_TO_JSON(MemoryType, memoryType_);
+        DARABONBA_PTR_TO_JSON(MultimodalEnabled, multimodalEnabled_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(RerankerModelName, rerankerModelName_);
         DARABONBA_PTR_TO_JSON(SessionStore, sessionStore_);
         DARABONBA_PTR_TO_JSON(UserName, userName_);
+        DARABONBA_PTR_TO_JSON(VisualEmbedderDimensions, visualEmbedderDimensions_);
+        DARABONBA_PTR_TO_JSON(VisualEmbedderModelName, visualEmbedderModelName_);
+        DARABONBA_PTR_TO_JSON(VisualLlmModalities, visualLlmModalities_);
+        DARABONBA_PTR_TO_JSON(VisualLlmModelName, visualLlmModelName_);
       };
       friend void from_json(const Darabonba::Json& j, MemApplicationAttribute& obj) { 
         DARABONBA_PTR_FROM_JSON(DbName, dbName_);
         DARABONBA_PTR_FROM_JSON(EmbedderModelName, embedderModelName_);
         DARABONBA_PTR_FROM_JSON(GraphLlmModelName, graphLlmModelName_);
         DARABONBA_PTR_FROM_JSON(LlmModelName, llmModelName_);
+        DARABONBA_PTR_FROM_JSON(MemoryType, memoryType_);
+        DARABONBA_PTR_FROM_JSON(MultimodalEnabled, multimodalEnabled_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(RerankerModelName, rerankerModelName_);
         DARABONBA_PTR_FROM_JSON(SessionStore, sessionStore_);
         DARABONBA_PTR_FROM_JSON(UserName, userName_);
+        DARABONBA_PTR_FROM_JSON(VisualEmbedderDimensions, visualEmbedderDimensions_);
+        DARABONBA_PTR_FROM_JSON(VisualEmbedderModelName, visualEmbedderModelName_);
+        DARABONBA_PTR_FROM_JSON(VisualLlmModalities, visualLlmModalities_);
+        DARABONBA_PTR_FROM_JSON(VisualLlmModelName, visualLlmModelName_);
       };
       MemApplicationAttribute() = default ;
       MemApplicationAttribute(const MemApplicationAttribute &) = default ;
@@ -594,8 +607,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->dbName_ == nullptr
-        && this->embedderModelName_ == nullptr && this->graphLlmModelName_ == nullptr && this->llmModelName_ == nullptr && this->projectName_ == nullptr && this->rerankerModelName_ == nullptr
-        && this->sessionStore_ == nullptr && this->userName_ == nullptr; };
+        && this->embedderModelName_ == nullptr && this->graphLlmModelName_ == nullptr && this->llmModelName_ == nullptr && this->memoryType_ == nullptr && this->multimodalEnabled_ == nullptr
+        && this->projectName_ == nullptr && this->rerankerModelName_ == nullptr && this->sessionStore_ == nullptr && this->userName_ == nullptr && this->visualEmbedderDimensions_ == nullptr
+        && this->visualEmbedderModelName_ == nullptr && this->visualLlmModalities_ == nullptr && this->visualLlmModelName_ == nullptr; };
       // dbName Field Functions 
       bool hasDbName() const { return this->dbName_ != nullptr;};
       void deleteDbName() { this->dbName_ = nullptr;};
@@ -622,6 +636,20 @@ namespace Models
       void deleteLlmModelName() { this->llmModelName_ = nullptr;};
       inline string getLlmModelName() const { DARABONBA_PTR_GET_DEFAULT(llmModelName_, "") };
       inline MemApplicationAttribute& setLlmModelName(string llmModelName) { DARABONBA_PTR_SET_VALUE(llmModelName_, llmModelName) };
+
+
+      // memoryType Field Functions 
+      bool hasMemoryType() const { return this->memoryType_ != nullptr;};
+      void deleteMemoryType() { this->memoryType_ = nullptr;};
+      inline string getMemoryType() const { DARABONBA_PTR_GET_DEFAULT(memoryType_, "") };
+      inline MemApplicationAttribute& setMemoryType(string memoryType) { DARABONBA_PTR_SET_VALUE(memoryType_, memoryType) };
+
+
+      // multimodalEnabled Field Functions 
+      bool hasMultimodalEnabled() const { return this->multimodalEnabled_ != nullptr;};
+      void deleteMultimodalEnabled() { this->multimodalEnabled_ = nullptr;};
+      inline bool getMultimodalEnabled() const { DARABONBA_PTR_GET_DEFAULT(multimodalEnabled_, false) };
+      inline MemApplicationAttribute& setMultimodalEnabled(bool multimodalEnabled) { DARABONBA_PTR_SET_VALUE(multimodalEnabled_, multimodalEnabled) };
 
 
       // projectName Field Functions 
@@ -654,23 +682,65 @@ namespace Models
       inline MemApplicationAttribute& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
+      // visualEmbedderDimensions Field Functions 
+      bool hasVisualEmbedderDimensions() const { return this->visualEmbedderDimensions_ != nullptr;};
+      void deleteVisualEmbedderDimensions() { this->visualEmbedderDimensions_ = nullptr;};
+      inline int32_t getVisualEmbedderDimensions() const { DARABONBA_PTR_GET_DEFAULT(visualEmbedderDimensions_, 0) };
+      inline MemApplicationAttribute& setVisualEmbedderDimensions(int32_t visualEmbedderDimensions) { DARABONBA_PTR_SET_VALUE(visualEmbedderDimensions_, visualEmbedderDimensions) };
+
+
+      // visualEmbedderModelName Field Functions 
+      bool hasVisualEmbedderModelName() const { return this->visualEmbedderModelName_ != nullptr;};
+      void deleteVisualEmbedderModelName() { this->visualEmbedderModelName_ = nullptr;};
+      inline string getVisualEmbedderModelName() const { DARABONBA_PTR_GET_DEFAULT(visualEmbedderModelName_, "") };
+      inline MemApplicationAttribute& setVisualEmbedderModelName(string visualEmbedderModelName) { DARABONBA_PTR_SET_VALUE(visualEmbedderModelName_, visualEmbedderModelName) };
+
+
+      // visualLlmModalities Field Functions 
+      bool hasVisualLlmModalities() const { return this->visualLlmModalities_ != nullptr;};
+      void deleteVisualLlmModalities() { this->visualLlmModalities_ = nullptr;};
+      inline const vector<string> & getVisualLlmModalities() const { DARABONBA_PTR_GET_CONST(visualLlmModalities_, vector<string>) };
+      inline vector<string> getVisualLlmModalities() { DARABONBA_PTR_GET(visualLlmModalities_, vector<string>) };
+      inline MemApplicationAttribute& setVisualLlmModalities(const vector<string> & visualLlmModalities) { DARABONBA_PTR_SET_VALUE(visualLlmModalities_, visualLlmModalities) };
+      inline MemApplicationAttribute& setVisualLlmModalities(vector<string> && visualLlmModalities) { DARABONBA_PTR_SET_RVALUE(visualLlmModalities_, visualLlmModalities) };
+
+
+      // visualLlmModelName Field Functions 
+      bool hasVisualLlmModelName() const { return this->visualLlmModelName_ != nullptr;};
+      void deleteVisualLlmModelName() { this->visualLlmModelName_ = nullptr;};
+      inline string getVisualLlmModelName() const { DARABONBA_PTR_GET_DEFAULT(visualLlmModelName_, "") };
+      inline MemApplicationAttribute& setVisualLlmModelName(string visualLlmModelName) { DARABONBA_PTR_SET_VALUE(visualLlmModelName_, visualLlmModelName) };
+
+
     protected:
-      // The database name.
+      // The name of the database.
       shared_ptr<string> dbName_ {};
-      // The embedder model name.
+      // The name of the embedder model.
       shared_ptr<string> embedderModelName_ {};
       // The graph LLM model support.
       shared_ptr<string> graphLlmModelName_ {};
-      // The LLM model name.
+      // The name of the LLM model.
       shared_ptr<string> llmModelName_ {};
-      // The project name, which corresponds to the schema where project data is stored in the database.
+      // The active memory type.
+      shared_ptr<string> memoryType_ {};
+      // Indicates whether the multimodal feature is enabled.
+      shared_ptr<bool> multimodalEnabled_ {};
+      // The name of the project, which corresponds to the schema in the database where project data is stored.
       shared_ptr<string> projectName_ {};
-      // The reranker model name.
+      // The name of the reranker model.
       shared_ptr<string> rerankerModelName_ {};
       // The Mem0 full session information storage configuration.
       shared_ptr<MemApplicationAttribute::SessionStore> sessionStore_ {};
       // The username.
       shared_ptr<string> userName_ {};
+      // The current dimensions of the VisualEmbedder.
+      shared_ptr<int32_t> visualEmbedderDimensions_ {};
+      // The current VisualEmbedder model.
+      shared_ptr<string> visualEmbedderModelName_ {};
+      // The currently enabled understanding modalities.
+      shared_ptr<vector<string>> visualLlmModalities_ {};
+      // The current VisualLLM model.
+      shared_ptr<string> visualLlmModelName_ {};
     };
 
     class Endpoints : public Darabonba::Model {
@@ -760,17 +830,17 @@ namespace Models
       // The description of the endpoint.
       shared_ptr<string> description_ {};
       shared_ptr<string> domain_ {};
-      // The endpoint ID.
+      // The ID of the endpoint.
       shared_ptr<string> endpointId_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
-      // The endpoint type. Valid values:
+      // The type of the endpoint. Valid values:
       // - Private: VPC address.
-      // - Public: Internet address.
+      // - Public: public network address.
       shared_ptr<string> netType_ {};
       // The port.
       shared_ptr<string> port_ {};
-      // The port description.
+      // The description of the port.
       shared_ptr<string> portDescription_ {};
     };
 
@@ -848,17 +918,17 @@ namespace Models
 
 
     protected:
-      // The access address in the NatIp:FrontPort format. It can be directly used on the office network.
+      // The access address in the NatIp:FrontPort format, which can be directly used on the office network.
       shared_ptr<string> accessAddress_ {};
       // The backend service port.
       shared_ptr<int32_t> backendPort_ {};
-      // The DNAT entry ID.
+      // The ID of the DNAT entry.
       shared_ptr<string> entryId_ {};
       // The frontend port.
       shared_ptr<int32_t> frontPort_ {};
-      // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+      // The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
       shared_ptr<string> portName_ {};
-      // The entry status.
+      // The status of the entry.
       shared_ptr<string> status_ {};
     };
 
@@ -952,11 +1022,11 @@ namespace Models
 
 
       protected:
-        // The list of topology child node IDs or child node subcomponent types for the current application subcomponent.
+        // The list of topology child node IDs for the current application subcomponent, or the list of subcomponent types of the child nodes.
         shared_ptr<vector<string>> children_ {};
         // The topology layer of the topology information for the current application subcomponent.
         shared_ptr<string> layer_ {};
-        // The list of topology parent node IDs or parent node subcomponent types for the current application subcomponent.
+        // The list of topology parent node IDs for the current application subcomponent, or the list of subcomponent types of the parent nodes.
         shared_ptr<vector<string>> parents_ {};
       };
 
@@ -1094,13 +1164,14 @@ namespace Models
 
       protected:
         // The network type. Valid values: 
+        // 
         // - vpc
         shared_ptr<string> netType_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The security group ID.
+        // The ID of the security group.
         shared_ptr<string> securityGroupId_ {};
-        // The security group name.
+        // The name of the security group.
         shared_ptr<string> securityGroupName_ {};
       };
 
@@ -1193,15 +1264,15 @@ namespace Models
     protected:
       // The specifications of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The description of the application subcomponent specifications.
+      // The description of the specifications for the application subcomponent.
       shared_ptr<string> componentClassDescription_ {};
-      // The subcomponent ID.
+      // The ID of the subcomponent.
       shared_ptr<string> componentId_ {};
       // The maximum number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent.
       shared_ptr<int64_t> componentReplica_ {};
-      // The replica group name of the application subcomponent.
+      // The name of the replica group for the application subcomponent.
       shared_ptr<string> componentReplicaGroupName_ {};
       // The type of the application subcomponent.
       shared_ptr<string> componentType_ {};
@@ -1213,7 +1284,7 @@ namespace Models
       // 
       // If the whitelist at the subcomponent level is the same as that at the application level, this return value is omitted.
       shared_ptr<vector<Components::SecurityIPArrays>> securityIPArrays_ {};
-      // The component status. The valid values are the same as the application status.
+      // The status of the component. The valid values are the same as those of the application status.
       shared_ptr<string> status_ {};
       // The topology information of the application subcomponent.
       shared_ptr<Components::Topology> topology_ {};
@@ -1537,9 +1608,9 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // The PolarDB instance ID on which the application depends.
     shared_ptr<string> DBClusterId_ {};
-    // The application description.
+    // The description of the application.
     shared_ptr<string> description_ {};
-    // The NAT mapping: the list of DNAT mapping entries.
+    // The list of DNAT mapping entries for NAT mapping.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::DnatMappings>> dnatMappings_ {};
     // The list of endpoints for the application.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Endpoints>> endpoints_ {};
@@ -1557,8 +1628,8 @@ namespace Models
     shared_ptr<string> latestVersion_ {};
     // The lock mode. Valid values:
     // 
-    // - Unlock: Unlocked.
-    // - Lock: Locked.
+    // - Unlock: The application is not locked.
+    // - Lock: The application is locked.
     shared_ptr<string> lockMode_ {};
     // The end time of the maintenance window.
     // 
@@ -1574,13 +1645,13 @@ namespace Models
     shared_ptr<string> minorVersion_ {};
     // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
-    // The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This parameter refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
+    // The SNAT IP address bound to the vSwitch where the application resides for NAT mapping. This refers to customer-managed SNAT entries that are discovered and returned in real time by the control plane, and is independent of the Internet NAT gateway SNAT.
     shared_ptr<string> natMappingSnatIpAddress_ {};
     // The billing method.
     shared_ptr<string> payType_ {};
-    // The attributes of the PolarClaw application.
+    // The PolarClaw application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawApplicationAttribute> polarClawApplicationAttribute_ {};
-    // The attributes of the PolarClaw SaaS application.
+    // The PolarClaw SaaS application attributes.
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
     // The instance ID of the PolarFS Cold Storage Edition or High-performance Edition.
     shared_ptr<string> polarFSInstanceId_ {};
@@ -1605,9 +1676,9 @@ namespace Models
     // - ClassChanging: The application specifications are being changed.
     // - Transing: The application is being migrated.
     // - MinorVersionUpgrading: The minor version of the application is being upgraded.
-    // - NetCreating: The endpoint is being created.
-    // - NetDeleting: The endpoint is being deleted.
-    // - NetModifying: The endpoint is being modified.
+    // - NetCreating: The endpoint of the application is being created.
+    // - NetDeleting: The endpoint of the application is being deleted.
+    // - NetModifying: The endpoint of the application is being modified.
     // - Restarting: The application is being restarted.
     // - Locking: The application is being locked.
     // - Locked: The application is locked.
@@ -1616,7 +1687,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The storage resources.
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
-    // Indicates whether an upgrade is available.
+    // Specifies whether an upgrade is available.
     shared_ptr<string> upgradeAvailable_ {};
     // VPC ID
     shared_ptr<string> VPCId_ {};

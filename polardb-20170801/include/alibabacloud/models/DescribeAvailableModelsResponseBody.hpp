@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEAVAILABLEMODELSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEAVAILABLEMODELSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -43,13 +44,21 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(ContainerEnv, containerEnv_);
+        DARABONBA_PTR_TO_JSON(CustomImageSource, customImageSource_);
         DARABONBA_PTR_TO_JSON(CustomModelName, customModelName_);
+        DARABONBA_PTR_TO_JSON(DBInstanceClass, DBInstanceClass_);
+        DARABONBA_PTR_TO_JSON(DirectCommand, directCommand_);
         DARABONBA_PTR_TO_JSON(DisplayModelName, displayModelName_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(GpuRequired, gpuRequired_);
+        DARABONBA_PTR_TO_JSON(ImageImportStatus, imageImportStatus_);
+        DARABONBA_PTR_TO_JSON(ImageName, imageName_);
+        DARABONBA_PTR_TO_JSON(InferenceEngine, inferenceEngine_);
         DARABONBA_PTR_TO_JSON(MinimumCpu, minimumCpu_);
         DARABONBA_PTR_TO_JSON(MinimumMemory, minimumMemory_);
         DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+        DARABONBA_PTR_TO_JSON(ModelParams, modelParams_);
         DARABONBA_PTR_TO_JSON(ModelSeries, modelSeries_);
         DARABONBA_PTR_TO_JSON(ModelType, modelType_);
         DARABONBA_PTR_TO_JSON(OssPath, ossPath_);
@@ -57,13 +66,21 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TuneArch, tuneArch_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContainerEnv, containerEnv_);
+        DARABONBA_PTR_FROM_JSON(CustomImageSource, customImageSource_);
         DARABONBA_PTR_FROM_JSON(CustomModelName, customModelName_);
+        DARABONBA_PTR_FROM_JSON(DBInstanceClass, DBInstanceClass_);
+        DARABONBA_PTR_FROM_JSON(DirectCommand, directCommand_);
         DARABONBA_PTR_FROM_JSON(DisplayModelName, displayModelName_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(GpuRequired, gpuRequired_);
+        DARABONBA_PTR_FROM_JSON(ImageImportStatus, imageImportStatus_);
+        DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
+        DARABONBA_PTR_FROM_JSON(InferenceEngine, inferenceEngine_);
         DARABONBA_PTR_FROM_JSON(MinimumCpu, minimumCpu_);
         DARABONBA_PTR_FROM_JSON(MinimumMemory, minimumMemory_);
         DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+        DARABONBA_PTR_FROM_JSON(ModelParams, modelParams_);
         DARABONBA_PTR_FROM_JSON(ModelSeries, modelSeries_);
         DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
         DARABONBA_PTR_FROM_JSON(OssPath, ossPath_);
@@ -125,15 +142,46 @@ namespace Models
         shared_ptr<string> gpuModel_ {};
       };
 
-      virtual bool empty() const override { return this->customModelName_ == nullptr
-        && this->displayModelName_ == nullptr && this->gmtModified_ == nullptr && this->gpuRequired_ == nullptr && this->minimumCpu_ == nullptr && this->minimumMemory_ == nullptr
-        && this->modelName_ == nullptr && this->modelSeries_ == nullptr && this->modelType_ == nullptr && this->ossPath_ == nullptr && this->supportedGpuModels_ == nullptr
-        && this->tuneArch_ == nullptr; };
+      virtual bool empty() const override { return this->containerEnv_ == nullptr
+        && this->customImageSource_ == nullptr && this->customModelName_ == nullptr && this->DBInstanceClass_ == nullptr && this->directCommand_ == nullptr && this->displayModelName_ == nullptr
+        && this->gmtModified_ == nullptr && this->gpuRequired_ == nullptr && this->imageImportStatus_ == nullptr && this->imageName_ == nullptr && this->inferenceEngine_ == nullptr
+        && this->minimumCpu_ == nullptr && this->minimumMemory_ == nullptr && this->modelName_ == nullptr && this->modelParams_ == nullptr && this->modelSeries_ == nullptr
+        && this->modelType_ == nullptr && this->ossPath_ == nullptr && this->supportedGpuModels_ == nullptr && this->tuneArch_ == nullptr; };
+      // containerEnv Field Functions 
+      bool hasContainerEnv() const { return this->containerEnv_ != nullptr;};
+      void deleteContainerEnv() { this->containerEnv_ = nullptr;};
+      inline const map<string, string> & getContainerEnv() const { DARABONBA_PTR_GET_CONST(containerEnv_, map<string, string>) };
+      inline map<string, string> getContainerEnv() { DARABONBA_PTR_GET(containerEnv_, map<string, string>) };
+      inline Items& setContainerEnv(const map<string, string> & containerEnv) { DARABONBA_PTR_SET_VALUE(containerEnv_, containerEnv) };
+      inline Items& setContainerEnv(map<string, string> && containerEnv) { DARABONBA_PTR_SET_RVALUE(containerEnv_, containerEnv) };
+
+
+      // customImageSource Field Functions 
+      bool hasCustomImageSource() const { return this->customImageSource_ != nullptr;};
+      void deleteCustomImageSource() { this->customImageSource_ = nullptr;};
+      inline string getCustomImageSource() const { DARABONBA_PTR_GET_DEFAULT(customImageSource_, "") };
+      inline Items& setCustomImageSource(string customImageSource) { DARABONBA_PTR_SET_VALUE(customImageSource_, customImageSource) };
+
+
       // customModelName Field Functions 
       bool hasCustomModelName() const { return this->customModelName_ != nullptr;};
       void deleteCustomModelName() { this->customModelName_ = nullptr;};
       inline string getCustomModelName() const { DARABONBA_PTR_GET_DEFAULT(customModelName_, "") };
       inline Items& setCustomModelName(string customModelName) { DARABONBA_PTR_SET_VALUE(customModelName_, customModelName) };
+
+
+      // DBInstanceClass Field Functions 
+      bool hasDBInstanceClass() const { return this->DBInstanceClass_ != nullptr;};
+      void deleteDBInstanceClass() { this->DBInstanceClass_ = nullptr;};
+      inline string getDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
+      inline Items& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
+
+
+      // directCommand Field Functions 
+      bool hasDirectCommand() const { return this->directCommand_ != nullptr;};
+      void deleteDirectCommand() { this->directCommand_ = nullptr;};
+      inline string getDirectCommand() const { DARABONBA_PTR_GET_DEFAULT(directCommand_, "") };
+      inline Items& setDirectCommand(string directCommand) { DARABONBA_PTR_SET_VALUE(directCommand_, directCommand) };
 
 
       // displayModelName Field Functions 
@@ -159,6 +207,27 @@ namespace Models
       inline Items& setGpuRequired(vector<Items::GpuRequired> && gpuRequired) { DARABONBA_PTR_SET_RVALUE(gpuRequired_, gpuRequired) };
 
 
+      // imageImportStatus Field Functions 
+      bool hasImageImportStatus() const { return this->imageImportStatus_ != nullptr;};
+      void deleteImageImportStatus() { this->imageImportStatus_ = nullptr;};
+      inline string getImageImportStatus() const { DARABONBA_PTR_GET_DEFAULT(imageImportStatus_, "") };
+      inline Items& setImageImportStatus(string imageImportStatus) { DARABONBA_PTR_SET_VALUE(imageImportStatus_, imageImportStatus) };
+
+
+      // imageName Field Functions 
+      bool hasImageName() const { return this->imageName_ != nullptr;};
+      void deleteImageName() { this->imageName_ = nullptr;};
+      inline string getImageName() const { DARABONBA_PTR_GET_DEFAULT(imageName_, "") };
+      inline Items& setImageName(string imageName) { DARABONBA_PTR_SET_VALUE(imageName_, imageName) };
+
+
+      // inferenceEngine Field Functions 
+      bool hasInferenceEngine() const { return this->inferenceEngine_ != nullptr;};
+      void deleteInferenceEngine() { this->inferenceEngine_ = nullptr;};
+      inline string getInferenceEngine() const { DARABONBA_PTR_GET_DEFAULT(inferenceEngine_, "") };
+      inline Items& setInferenceEngine(string inferenceEngine) { DARABONBA_PTR_SET_VALUE(inferenceEngine_, inferenceEngine) };
+
+
       // minimumCpu Field Functions 
       bool hasMinimumCpu() const { return this->minimumCpu_ != nullptr;};
       void deleteMinimumCpu() { this->minimumCpu_ = nullptr;};
@@ -178,6 +247,15 @@ namespace Models
       void deleteModelName() { this->modelName_ = nullptr;};
       inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
       inline Items& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+      // modelParams Field Functions 
+      bool hasModelParams() const { return this->modelParams_ != nullptr;};
+      void deleteModelParams() { this->modelParams_ = nullptr;};
+      inline const map<string, string> & getModelParams() const { DARABONBA_PTR_GET_CONST(modelParams_, map<string, string>) };
+      inline map<string, string> getModelParams() { DARABONBA_PTR_GET(modelParams_, map<string, string>) };
+      inline Items& setModelParams(const map<string, string> & modelParams) { DARABONBA_PTR_SET_VALUE(modelParams_, modelParams) };
+      inline Items& setModelParams(map<string, string> && modelParams) { DARABONBA_PTR_SET_RVALUE(modelParams_, modelParams) };
 
 
       // modelSeries Field Functions 
@@ -218,20 +296,36 @@ namespace Models
 
 
     protected:
-      // The custom model registration key.
+      // The container startup environment variables registered for the custom model.
+      shared_ptr<map<string, string>> containerEnv_ {};
+      // The source image address registered by the customer.
+      shared_ptr<string> customImageSource_ {};
+      // The registration key of the custom model.
       shared_ptr<string> customModelName_ {};
+      // The deployment specifications registered for the custom model.
+      shared_ptr<string> DBInstanceClass_ {};
+      // The direct startup command registered for the custom model.
+      shared_ptr<string> directCommand_ {};
       // The display name of the model.
       shared_ptr<string> displayModelName_ {};
-      // The last modified time of the registration.
+      // The time when the registration was last modified.
       shared_ptr<string> gmtModified_ {};
-      // The supported GPU types.
+      // The supported GPU models.
       shared_ptr<vector<Items::GpuRequired>> gpuRequired_ {};
-      // The minimum number of CPUs.
+      // The image import status. Valid values: Importing, Available, and Failed.
+      shared_ptr<string> imageImportStatus_ {};
+      // The model service image address registered by the customer.
+      shared_ptr<string> imageName_ {};
+      // The inference engine registered for the custom model.
+      shared_ptr<string> inferenceEngine_ {};
+      // The minimum CPU requirement.
       shared_ptr<int64_t> minimumCpu_ {};
-      // The minimum memory size.
+      // The minimum memory requirement.
       shared_ptr<int64_t> minimumMemory_ {};
       // The model name.
       shared_ptr<string> modelName_ {};
+      // The startup parameters registered for the custom model.
+      shared_ptr<map<string, string>> modelParams_ {};
       // The model series.
       shared_ptr<string> modelSeries_ {};
       // The model type.
@@ -240,6 +334,7 @@ namespace Models
       shared_ptr<string> ossPath_ {};
       // The supported GPU models.
       shared_ptr<vector<string>> supportedGpuModels_ {};
+      // The model fine-tuning architecture.
       shared_ptr<string> tuneArch_ {};
     };
 
@@ -292,7 +387,7 @@ namespace Models
   protected:
     // The database engine.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The DPI engine version.
     shared_ptr<string> engineVersion_ {};
     // The list of models.
     shared_ptr<vector<DescribeAvailableModelsResponseBody::Items>> items_ {};

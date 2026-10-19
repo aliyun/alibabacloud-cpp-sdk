@@ -59,7 +59,7 @@ namespace Models
   protected:
     // aideploy
     shared_ptr<string> kubeType_ {};
-    // The model type. Valid values: custom or public. If this parameter is not specified, all models are returned.
+    // The model type. Valid values: custom and public. If you do not specify this parameter, all models are returned.
     shared_ptr<string> modelType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

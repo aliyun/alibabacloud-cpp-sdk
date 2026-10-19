@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AckAdmin, ackAdmin_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_TO_JSON(Capacity, capacity_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CreatePublicEndpoint, createPublicEndpoint_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AckAdmin, ackAdmin_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CreatePublicEndpoint, createPublicEndpoint_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
@@ -136,20 +138,20 @@ namespace Models
 
 
     protected:
-      // The start time of the task. The time is in the `YYYY-MM-DDThh:mm:ssZ` format (UTC).
+      // The start time of the task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
       shared_ptr<int64_t> beginTime_ {};
-      // The end time of the query. The end time must be later than the start time. The time is in the `YYYY-MM-DDThh:mmZ` format (UTC).
+      // The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
       shared_ptr<int64_t> endTime_ {};
     };
 
     virtual bool empty() const override { return this->ackAdmin_ == nullptr
-        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->createPublicEndpoint_ == nullptr && this->DBClusterDescription_ == nullptr
-        && this->DBClusterId_ == nullptr && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr
-        && this->kubeConfig_ == nullptr && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr
-        && this->modelName_ == nullptr && this->modelSpace_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr
-        && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->timeSlices_ == nullptr
-        && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->capacity_ == nullptr && this->clientToken_ == nullptr && this->createPublicEndpoint_ == nullptr
+        && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr
+        && this->kubeClusterId_ == nullptr && this->kubeConfig_ == nullptr && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr
+        && this->managementMode_ == nullptr && this->modelName_ == nullptr && this->modelSpace_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->password_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr
+        && this->timeSlices_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // ackAdmin Field Functions 
     bool hasAckAdmin() const { return this->ackAdmin_ != nullptr;};
     void deleteAckAdmin() { this->ackAdmin_ = nullptr;};
@@ -169,6 +171,13 @@ namespace Models
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
     inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline CreateAIDBClusterRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
+    // capacity Field Functions 
+    bool hasCapacity() const { return this->capacity_ != nullptr;};
+    void deleteCapacity() { this->capacity_ = nullptr;};
+    inline int64_t getCapacity() const { DARABONBA_PTR_GET_DEFAULT(capacity_, 0L) };
+    inline CreateAIDBClusterRequest& setCapacity(int64_t capacity) { DARABONBA_PTR_SET_VALUE(capacity_, capacity) };
 
 
     // clientToken Field Functions 
@@ -402,23 +411,25 @@ namespace Models
     shared_ptr<string> ackAdmin_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: Auto-renewal is enabled.
-    // - **false**: Auto-renewal is not enabled.
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal.
     // 
     // Default value: **false**.
     // 
-    // > This parameter takes effect only when **PayType** is set to **Prepaid**.
+    // > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
     shared_ptr<string> autoRenew_ {};
     // Specifies whether to automatically use coupons. Valid values:
-    // * true (default): Use coupons.
-    // * false: Do not use coupons.
+    // * true (default): uses coupons.
+    // * false: does not use coupons.
     shared_ptr<bool> autoUseCoupon_ {};
+    // The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N equivalent card.
+    shared_ptr<int64_t> capacity_ {};
     shared_ptr<string> clientToken_ {};
     // Specifies whether to create a public endpoint.
     shared_ptr<string> createPublicEndpoint_ {};
-    // The cluster description. Fuzzy match is supported.
+    // The description of the cluster. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
-    // The instance ID of the PolarDB instance on which the application depends.
+    // The PolarDB instance ID on which the application depends.
     shared_ptr<string> DBClusterId_ {};
     // The node specifications.
     shared_ptr<string> DBNodeClass_ {};
@@ -426,11 +437,11 @@ namespace Models
     shared_ptr<string> extension_ {};
     // The inference engine.
     shared_ptr<string> inferenceEngine_ {};
-    // The ACK cluster ID.
+    // The ID of the ACK cluster.
     shared_ptr<string> kubeClusterId_ {};
     // The Kubernetes configuration.
     shared_ptr<string> kubeConfig_ {};
-    // The Kubernetes cluster management mode.
+    // The management mode of the Kubernetes cluster.
     shared_ptr<string> kubeManagement_ {};
     // aideploy
     shared_ptr<string> kubeType_ {};
@@ -438,7 +449,7 @@ namespace Models
     shared_ptr<string> kubernetesConfig_ {};
     // The management mode.
     shared_ptr<string> managementMode_ {};
-    // The model name.
+    // The name of the model.
     shared_ptr<string> modelName_ {};
     // The model operator space.
     shared_ptr<string> modelSpace_ {};
@@ -453,12 +464,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // This parameter is required to pass parameter when **PayType** is set to **Prepaid**. Specifies the unit of the upfront payment duration for the subscription cluster. 
+    // If the billing method is **Prepaid**, you must pass parameter. Specifies the upfront cluster as yearly or monthly. Valid values: 
     // 
-    // - **Year**: The subscription duration is measured in years.
-    // - **Month**: The subscription duration is measured in months.
+    // - **Year**: yearly. The unit is year.
+    // - **Month**: monthly. The unit is month.
     shared_ptr<string> period_ {};
-    // The coupon code. If this parameter is not specified, the default coupon is used.
+    // The coupon code. If you do not specify this parameter, the default coupon is used.
     shared_ptr<string> promotionCode_ {};
     // The region ID.
     // 
@@ -466,23 +477,23 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The security group ID.
+    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
     // The storage space.
     shared_ptr<int32_t> storageSpace_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};
-    // The pay-as-you-go time intervals.
+    // The pay-as-you-go time ranges.
     shared_ptr<vector<CreateAIDBClusterRequest::TimeSlices>> timeSlices_ {};
-    // This parameter is required when **PayType** is set to **Prepaid**.
-    // - If **Period** is set to **Month**, the valid values of **UsedTime** are integers in the range of `[1-9]`.
-    // - If **Period** is set to **Year**, the valid values of **UsedTime** are integers in the range of `[1-3]`.
+    // The subscription duration. This parameter is required when the billing method is set to **Prepaid**.
+    // - If **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
+    // - If **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
     shared_ptr<string> usedTime_ {};
-    // The VPC ID.
+    // The ID of the virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

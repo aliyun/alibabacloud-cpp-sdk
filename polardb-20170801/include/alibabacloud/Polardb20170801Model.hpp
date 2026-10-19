@@ -1291,6 +1291,7 @@
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponseBody.hpp>
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponse.hpp>
 #include <alibabacloud/models/RegisterAIDBClusterCustomModelRequest.hpp>
+#include <alibabacloud/models/RegisterAIDBClusterCustomModelShrinkRequest.hpp>
 #include <alibabacloud/models/RegisterAIDBClusterCustomModelResponseBody.hpp>
 #include <alibabacloud/models/RegisterAIDBClusterCustomModelResponse.hpp>
 #include <alibabacloud/models/RegisterKnowledgeBaseFileRequest.hpp>
@@ -1330,6 +1331,9 @@
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkRequest.hpp>
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkResponseBody.hpp>
 #include <alibabacloud/models/ResetGlobalDatabaseNetworkResponse.hpp>
+#include <alibabacloud/models/ResizeAIDBClusterModelRequest.hpp>
+#include <alibabacloud/models/ResizeAIDBClusterModelResponseBody.hpp>
+#include <alibabacloud/models/ResizeAIDBClusterModelResponse.hpp>
 #include <alibabacloud/models/RestartAIDBClusterRequest.hpp>
 #include <alibabacloud/models/RestartAIDBClusterResponseBody.hpp>
 #include <alibabacloud/models/RestartAIDBClusterResponse.hpp>

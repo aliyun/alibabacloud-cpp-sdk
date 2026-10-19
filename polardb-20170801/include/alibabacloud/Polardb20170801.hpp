@@ -1729,7 +1729,7 @@ namespace Polardb20170801
       Models::DeleteAIDBClusterApiKeyResponse deleteAIDBClusterApiKey(const Models::DeleteAIDBClusterApiKeyRequest &request);
 
       /**
-       * @summary Deletes a custom model registration from an AI cluster.
+       * @summary Deletes a custom model registration for an AI cluster.
        *
        * @param request DeleteAIDBClusterCustomModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1738,7 +1738,7 @@ namespace Polardb20170801
       Models::DeleteAIDBClusterCustomModelResponse deleteAIDBClusterCustomModelWithOptions(const Models::DeleteAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a custom model registration from an AI cluster.
+       * @summary Deletes a custom model registration for an AI cluster.
        *
        * @param request DeleteAIDBClusterCustomModelRequest
        * @return DeleteAIDBClusterCustomModelResponse
@@ -3408,7 +3408,7 @@ namespace Polardb20170801
       Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
 
       /**
-       * @summary Retrieves the list of models in an AI cluster.
+       * @summary Retrieves a list of models in an AI cluster.
        *
        * @param request DescribeAvailableModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3417,7 +3417,7 @@ namespace Polardb20170801
       Models::DescribeAvailableModelsResponse describeAvailableModelsWithOptions(const Models::DescribeAvailableModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of models in an AI cluster.
+       * @summary Retrieves a list of models in an AI cluster.
        *
        * @param request DescribeAvailableModelsRequest
        * @return DescribeAvailableModelsResponse
@@ -4739,7 +4739,7 @@ namespace Polardb20170801
       Models::DescribeKBSyncLinksResponse describeKBSyncLinks(const Models::DescribeKBSyncLinksRequest &request);
 
       /**
-       * @summary Queries the result of a single-round knowledge base question answering task.
+       * @summary Queries the single-turn Q&A results of a knowledge base.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4748,7 +4748,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAnswerResponse describeKnowledgeBaseAnswerWithOptions(const Models::DescribeKnowledgeBaseAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the result of a single-round knowledge base question answering task.
+       * @summary Queries the single-turn Q&A results of a knowledge base.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @return DescribeKnowledgeBaseAnswerResponse
@@ -7851,11 +7851,11 @@ namespace Polardb20170801
       /**
        * @summary Registers a custom model for an AI cluster.
        *
-       * @param request RegisterAIDBClusterCustomModelRequest
+       * @param tmpReq RegisterAIDBClusterCustomModelRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RegisterAIDBClusterCustomModelResponse
        */
-      Models::RegisterAIDBClusterCustomModelResponse registerAIDBClusterCustomModelWithOptions(const Models::RegisterAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::RegisterAIDBClusterCustomModelResponse registerAIDBClusterCustomModelWithOptions(const Models::RegisterAIDBClusterCustomModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Registers a custom model for an AI cluster.
@@ -8082,6 +8082,23 @@ namespace Polardb20170801
       Models::ResetGlobalDatabaseNetworkResponse resetGlobalDatabaseNetwork(const Models::ResetGlobalDatabaseNetworkRequest &request);
 
       /**
+       * @summary Adjusts the model capacity of an AI cluster.
+       *
+       * @param request ResizeAIDBClusterModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResizeAIDBClusterModelResponse
+       */
+      Models::ResizeAIDBClusterModelResponse resizeAIDBClusterModelWithOptions(const Models::ResizeAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adjusts the model capacity of an AI cluster.
+       *
+       * @param request ResizeAIDBClusterModelRequest
+       * @return ResizeAIDBClusterModelResponse
+       */
+      Models::ResizeAIDBClusterModelResponse resizeAIDBClusterModel(const Models::ResizeAIDBClusterModelRequest &request);
+
+      /**
        * @summary Restarts an AI cluster.
        *
        * @param request RestartAIDBClusterRequest
@@ -8184,7 +8201,7 @@ namespace Polardb20170801
       Models::RestoreTableResponse restoreTable(const Models::RestoreTableRequest &request);
 
       /**
-       * @summary Retrieves information from a knowledge base.
+       * @summary Searches a knowledge base.
        *
        * @param request RetrievalKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8193,7 +8210,7 @@ namespace Polardb20170801
       Models::RetrievalKnowledgeBaseResponse retrievalKnowledgeBaseWithOptions(const Models::RetrievalKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information from a knowledge base.
+       * @summary Searches a knowledge base.
        *
        * @param request RetrievalKnowledgeBaseRequest
        * @return RetrievalKnowledgeBaseResponse

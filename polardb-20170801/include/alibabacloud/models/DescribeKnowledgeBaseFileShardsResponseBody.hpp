@@ -138,11 +138,11 @@ namespace Models
       protected:
         // The index of the source document to which the image belongs, starting from 0.
         shared_ptr<int32_t> documentIndex_ {};
-        // The unique ID of the image resource.
+        // The unique identifier of the image resource.
         shared_ptr<string> id_ {};
         // The element reference of the image in the Docling source document structure.
         shared_ptr<string> itemRef_ {};
-        // The media type of the image resource.
+        // The MIME type of the image resource.
         shared_ptr<string> mimeType_ {};
         // The OSS URI of the image resource.
         shared_ptr<string> uri_ {};
@@ -213,9 +213,9 @@ namespace Models
     protected:
       // The list of figure or table captions associated with the shard.
       shared_ptr<vector<string>> captions_ {};
-      // The list of Docling source document structured element references associated with the shard. You can use these references to precisely locate original document elements.
+      // The list of structured element references in the Docling source document associated with the shard, which can be used to precisely locate the original elements.
       shared_ptr<vector<string>> docItems_ {};
-      // The chain of section headings to which the shard belongs.
+      // The section heading chain to which the shard belongs.
       shared_ptr<vector<string>> headings_ {};
       // The list of image resources referenced by the shard.
       shared_ptr<vector<Shards::ImageResources>> imageResources_ {};
@@ -276,15 +276,15 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries per page in a paged query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The shard information.
     shared_ptr<vector<DescribeKnowledgeBaseFileShardsResponseBody::Shards>> shards_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 
