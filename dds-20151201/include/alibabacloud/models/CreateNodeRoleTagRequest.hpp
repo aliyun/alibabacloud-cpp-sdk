@@ -92,9 +92,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the shard node.
-    // 
-    // > - This parameter applies only to sharded cluster instances.
+    // The shard node ID.
+    // >- This parameter is available only when you create a role tag for a shard node of a sharded cluster instance.
     shared_ptr<string> shardList_ {};
   };
 

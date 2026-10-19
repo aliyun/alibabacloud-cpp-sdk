@@ -59,6 +59,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_TO_JSON(CharacterType, characterType_);
           DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+          DARABONBA_PTR_TO_JSON(DBName, DBName_);
+          DARABONBA_PTR_TO_JSON(Roles, roles_);
         };
         friend void from_json(const Darabonba::Json& j, Account& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountDescription, accountDescription_);
@@ -66,6 +68,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_FROM_JSON(CharacterType, characterType_);
           DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+          DARABONBA_PTR_FROM_JSON(DBName, DBName_);
+          DARABONBA_PTR_FROM_JSON(Roles, roles_);
         };
         Account() = default ;
         Account(const Account &) = default ;
@@ -78,8 +82,84 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Roles : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Roles& obj) { 
+            DARABONBA_PTR_TO_JSON(Role, role_);
+          };
+          friend void from_json(const Darabonba::Json& j, Roles& obj) { 
+            DARABONBA_PTR_FROM_JSON(Role, role_);
+          };
+          Roles() = default ;
+          Roles(const Roles &) = default ;
+          Roles(Roles &&) = default ;
+          Roles(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Roles() = default ;
+          Roles& operator=(const Roles &) = default ;
+          Roles& operator=(Roles &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Role : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Role& obj) { 
+              DARABONBA_PTR_TO_JSON(DBName, DBName_);
+              DARABONBA_PTR_TO_JSON(Role, role_);
+            };
+            friend void from_json(const Darabonba::Json& j, Role& obj) { 
+              DARABONBA_PTR_FROM_JSON(DBName, DBName_);
+              DARABONBA_PTR_FROM_JSON(Role, role_);
+            };
+            Role() = default ;
+            Role(const Role &) = default ;
+            Role(Role &&) = default ;
+            Role(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Role() = default ;
+            Role& operator=(const Role &) = default ;
+            Role& operator=(Role &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->DBName_ == nullptr
+        && this->role_ == nullptr; };
+            // DBName Field Functions 
+            bool hasDBName() const { return this->DBName_ != nullptr;};
+            void deleteDBName() { this->DBName_ = nullptr;};
+            inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+            inline Role& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
+
+
+            // role Field Functions 
+            bool hasRole() const { return this->role_ != nullptr;};
+            void deleteRole() { this->role_ = nullptr;};
+            inline string getRole() const { DARABONBA_PTR_GET_DEFAULT(role_, "") };
+            inline Role& setRole(string role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+
+
+          protected:
+            shared_ptr<string> DBName_ {};
+            shared_ptr<string> role_ {};
+          };
+
+          virtual bool empty() const override { return this->role_ == nullptr; };
+          // role Field Functions 
+          bool hasRole() const { return this->role_ != nullptr;};
+          void deleteRole() { this->role_ = nullptr;};
+          inline const vector<Roles::Role> & getRole() const { DARABONBA_PTR_GET_CONST(role_, vector<Roles::Role>) };
+          inline vector<Roles::Role> getRole() { DARABONBA_PTR_GET(role_, vector<Roles::Role>) };
+          inline Roles& setRole(const vector<Roles::Role> & role) { DARABONBA_PTR_SET_VALUE(role_, role) };
+          inline Roles& setRole(vector<Roles::Role> && role) { DARABONBA_PTR_SET_RVALUE(role_, role) };
+
+
+        protected:
+          shared_ptr<vector<Roles::Role>> role_ {};
+        };
+
         virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->characterType_ == nullptr && this->DBInstanceId_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->characterType_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr
+        && this->roles_ == nullptr; };
         // accountDescription Field Functions 
         bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
         void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -115,12 +195,30 @@ namespace Models
         inline Account& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
 
 
+        // DBName Field Functions 
+        bool hasDBName() const { return this->DBName_ != nullptr;};
+        void deleteDBName() { this->DBName_ = nullptr;};
+        inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+        inline Account& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
+
+
+        // roles Field Functions 
+        bool hasRoles() const { return this->roles_ != nullptr;};
+        void deleteRoles() { this->roles_ = nullptr;};
+        inline const Account::Roles & getRoles() const { DARABONBA_PTR_GET_CONST(roles_, Account::Roles) };
+        inline Account::Roles getRoles() { DARABONBA_PTR_GET(roles_, Account::Roles) };
+        inline Account& setRoles(const Account::Roles & roles) { DARABONBA_PTR_SET_VALUE(roles_, roles) };
+        inline Account& setRoles(Account::Roles && roles) { DARABONBA_PTR_SET_RVALUE(roles_, roles) };
+
+
       protected:
         shared_ptr<string> accountDescription_ {};
         shared_ptr<string> accountName_ {};
         shared_ptr<string> accountStatus_ {};
         shared_ptr<string> characterType_ {};
         shared_ptr<string> DBInstanceId_ {};
+        shared_ptr<string> DBName_ {};
+        shared_ptr<Account::Roles> roles_ {};
       };
 
       virtual bool empty() const override { return this->account_ == nullptr; };

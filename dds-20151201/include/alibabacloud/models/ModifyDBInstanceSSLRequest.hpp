@@ -107,41 +107,34 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to forcibly enable SSL encryption for connections. Valid values:
+    // Specifies whether to force Secure Sockets Layer (SSL) encryption for connections. Valid values:
     // 
-    // - **1**: Forcibly enable SSL encryption.
+    // - **1**: Forces Secure Sockets Layer (SSL) encryption.
+    // - **0**: Does not force Secure Sockets Layer (SSL) encryption.
     // 
-    // - **0**: Do not forcibly enable SSL encryption.
+    // > 
+    // > - Forced Secure Sockets Layer (SSL) encryption applies only to MongoDB 7.0 and 8.0 instances that use cloud disks and meet the following minor engine version requirements:
+    // >   - MongoDB 7.0: The minor engine version must be 8.0.13 or later.
+    // >   - MongoDB 8.0: The minor engine version must be 9.0.5 or later.
     // 
-    // > * Forced SSL encryption is supported only for MongoDB 7.0 and 8.0 instances that use cloud disks and meet the following minor engine version requirements:
-    // >
-    // > * - For version 7.0, the minor engine version must be 8.0.13 or later.
-    // >
-    // > * - For version 8.0, the minor engine version must be 9.0.5 or later.
-    // 
-    // >Warning: 
-    // 
-    // After you enable forced SSL encryption, only SSL connections to the instance are allowed.
+    // >Warning: After you enable forced Secure Sockets Layer (SSL) encryption, you cannot connect to the instance by using non-SSL connections.</warning>
     shared_ptr<string> forceEncryption_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The operation to perform on the SSL feature. Valid values:
-    // 
-    // - **Open**: Enable SSL encryption.
-    // 
-    // - **Close**: Disable SSL encryption.
-    // 
-    // - **Update**: Update the SSL certificate.
+    // - **Open**: Enables Secure Sockets Layer (SSL) encryption.
+    // - **Close**: Disables Secure Sockets Layer (SSL) encryption.
+    // - **Update**: Updates the SSL certificate.
     // 
     // This parameter is required.
     shared_ptr<string> SSLAction_ {};
-    // The time to modify the SSL configuration of the MongoDB instance. Valid values:
+    // The time when the SSL configuration of the MongoDB instance is modified. Valid values:
     // 
-    // - 0: Modify immediately.
+    // - 0: Modifies the configuration immediately.
     // 
-    // - 1: Modify within the maintenance window.
+    // - 1: Modifies the configuration within the O&M window.
     shared_ptr<string> switchMode_ {};
   };
 

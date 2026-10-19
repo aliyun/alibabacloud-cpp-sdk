@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(ParallelRestartMongos, parallelRestartMongos_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SwitchMode, switchMode_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(ParallelRestartMongos, parallelRestartMongos_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SwitchMode, switchMode_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->nodeId_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->switchMode_ == nullptr; };
+        && this->nodeId_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->parallelRestartMongos_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->switchMode_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline RestartDBInstanceRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // parallelRestartMongos Field Functions 
+    bool hasParallelRestartMongos() const { return this->parallelRestartMongos_ != nullptr;};
+    void deleteParallelRestartMongos() { this->parallelRestartMongos_ = nullptr;};
+    inline bool getParallelRestartMongos() const { DARABONBA_PTR_GET_DEFAULT(parallelRestartMongos_, false) };
+    inline RestartDBInstanceRequest& setParallelRestartMongos(bool parallelRestartMongos) { DARABONBA_PTR_SET_VALUE(parallelRestartMongos_, parallelRestartMongos) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -107,20 +116,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of a shard or Mongos node in a sharded cluster instance.
+    // The ID of the shard or mongos node in the sharded cluster instance.
     // 
-    // > If you do not specify this parameter for a sharded cluster instance, the entire instance is restarted.
+    // > If you do not specify this parameter for a sharded cluster instance, the entire sharded cluster instance is restarted.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to restart mongos nodes in parallel. This parameter takes effect only when you restart multiple mongos nodes at a time.
+    shared_ptr<bool> parallelRestartMongos_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The time to restart the instance. Valid values:
-    // 
-    // - 0: The instance is restarted immediately.
-    // 
-    // - 1: The instance is restarted within the maintenance window.
+    // The time when the instance is restarted. Valid values:
+    // - 0: Immediately.
+    // - 1: Within the O&M window.
     shared_ptr<string> switchMode_ {};
   };
 

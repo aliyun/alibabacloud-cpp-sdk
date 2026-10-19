@@ -121,50 +121,40 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The ID of the custom key.
-    // Custom keys are supported only in the following regions. In other regions, the default key is used.
-    // 
+    // Custom keys are supported only in the following regions. In other regions, the default key is used for encryption.
     // - Singapore (ap-southeast-1)
-    // 
     // - Hangzhou (cn-hangzhou)
-    // 
     // - Shanghai (cn-shanghai)
-    // 
     // - Beijing (cn-beijing)
-    // 
     // - Shenzhen (cn-shenzhen)
-    // 
-    // - Hong Kong (cn-hongkong)
-    // 
+    // - Hong Kong (China) (cn-hongkong)
     // - Malaysia (ap-southeast-3)
     shared_ptr<string> encryptionKey_ {};
-    // The encryption method. Set the value to **aes-256-cbc**.
+    // The encryption method. Valid values: **aes-256-cbc**.
     // 
-    // > This parameter is available only when **TDEStatus** is set to **enabled**.
+    // > This parameter is available only when the **TDEStatus** parameter is set to **enabled**.
     shared_ptr<string> encryptorName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the RAM role. The format is `acs:ram::$accountID:role/$roleName `.
-    // 
-    // > - `$accountID`: The ID of your Alibaba Cloud account. To view the ID, log on to the Alibaba Cloud Management Console, move the pointer over your profile picture in the upper-right corner, and then click Security Settings.
-    // >
-    // > - `$roleName`: The name of the RAM role. To view the name, log on to the RAM console, click RAM Role Management in the navigation pane on the left, and then view the role name in the RAM Role Name list.
+    // The ARN of the specified role. Format: `acs:ram::$accountID:role/$roleName`.
+    // > - `$accountID`: the ID of the Alibaba Cloud account. You can view the ID by logging on to the Alibaba Cloud Management Console, moving the pointer over the profile picture in the upper-right corner, and clicking Security Settings.
+    // > - `$roleName`: the name of the RAM role. You can view the name by logging on to the Resource Access Management (RAM) console, clicking RAM Roles in the left-side navigation pane, and viewing the RAM role name list.
     shared_ptr<string> roleARN_ {};
-    // Specifies when to enable TDE. Valid values:
+    // The time to modify the Transparent Data Encryption (TDE) status of the MongoDB instance. Valid values:
     // 
-    // - 0: Enables TDE immediately.
+    // - 0: immediately.
     // 
-    // - 1: Enables TDE during the maintenance window.
+    // - 1: within the O&M window.
     shared_ptr<string> switchMode_ {};
-    // The TDE status. Set the value to **enabled** to enable TDE.
-    // 
-    // > You cannot disable TDE after you enable it. Enable this feature with caution.
+    // The TDE status. Valid values: **enabled**, which indicates that TDE is enabled.
+    // > You cannot disable TDE after it is enabled. Proceed with caution.
     // 
     // This parameter is required.
     shared_ptr<string> TDEStatus_ {};

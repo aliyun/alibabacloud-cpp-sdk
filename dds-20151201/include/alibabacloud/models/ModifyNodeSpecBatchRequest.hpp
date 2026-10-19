@@ -13,6 +13,7 @@ namespace Models
   class ModifyNodeSpecBatchRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNodeSpecBatchRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlignPrimaryZone, alignPrimaryZone_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetZoneId, targetZoneId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNodeSpecBatchRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlignPrimaryZone, alignPrimaryZone_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -61,11 +63,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->DBInstanceId_ == nullptr && this->effectiveTime_ == nullptr
-        && this->nodesInfo_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->targetHiddenZoneId_ == nullptr && this->targetSecondaryZoneId_ == nullptr && this->targetVswitchId_ == nullptr
-        && this->targetZoneId_ == nullptr; };
+    virtual bool empty() const override { return this->alignPrimaryZone_ == nullptr
+        && this->autoPay_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->effectiveTime_ == nullptr && this->nodesInfo_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->targetHiddenZoneId_ == nullptr && this->targetSecondaryZoneId_ == nullptr
+        && this->targetVswitchId_ == nullptr && this->targetZoneId_ == nullptr; };
+    // alignPrimaryZone Field Functions 
+    bool hasAlignPrimaryZone() const { return this->alignPrimaryZone_ != nullptr;};
+    void deleteAlignPrimaryZone() { this->alignPrimaryZone_ = nullptr;};
+    inline bool getAlignPrimaryZone() const { DARABONBA_PTR_GET_DEFAULT(alignPrimaryZone_, false) };
+    inline ModifyNodeSpecBatchRequest& setAlignPrimaryZone(bool alignPrimaryZone) { DARABONBA_PTR_SET_VALUE(alignPrimaryZone_, alignPrimaryZone) };
+
+
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -186,127 +195,77 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically align the primary node to the primary zone after operations such as configuration changes for a multi-zone instance. If you choose not to align the node, one primary/secondary switchover (transient connection) is prevented. Default value: true.
+    shared_ptr<bool> alignPrimaryZone_ {};
     // Specifies whether to enable automatic payment. Valid values:
-    // 
-    // - **true**: Automatic payment is enabled. Make sure that your account has a sufficient balance.
-    // 
-    // <props="china">
-    // 
-    // - **false**: Manual payment is enabled. Log on to the ApsaraDB for MongoDB console. In the upper-right corner, choose **Expenses** > **Expenses and Costs**. In the navigation pane on the left, choose **Subscription Orders** > **My Orders**. On the **Product Orders** tab, find the target order and pay for it.
-    // 
-    // 
-    // 
-    // 
-    // <props="intl">
-    // 
-    // - **false**: Manual payment is enabled. Log on to the ApsaraDB for MongoDB console. In the upper-right corner, choose **Expenses** > **Expenses and Costs**. In the navigation pane on the left, click **Order Management**. On the **Product Orders** page, find the target order and pay for it.
-    // 
-    // 
-    // 
+    // - **true**: enables automatic payment. Make sure that your account has sufficient balance.
+    // <props="china">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, choose **Orders** > **My Orders** in the left-side navigation pane, and then find the target order on the **Orders** tab to complete the payment.
+    // <props="intl">- **false**: disables automatic payment. You can log on to the ApsaraDB for MongoDB console, choose **Expenses** > **Expenses and Costs** in the upper-right corner, click **Order Management** in the left-side navigation pane, and then find the target order on the **Orders** page to complete the payment.
     // 
     // Default value: **true**.
     shared_ptr<bool> autoPay_ {};
     // The business information.
     shared_ptr<string> businessInfo_ {};
-    // A client token. It is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to use a coupon. Valid values:
-    // 
-    // - **default** or **null** (default): A coupon is used.
-    // 
-    // - **youhuiquan_promotion_option_id_for_blank**: A coupon is not used.
+    // - **default** or **null**: uses a coupon. This is the default value.
+    // - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance for which you want to change configurations.
+    // The instance ID of the instance whose configurations you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The effective period of the configuration change. Valid values:
     // 
-    // - **Immediately**: The change takes effect immediately.
+    // - **Immediately**: The configuration change takes effect immediately.
+    // - **MaintainTime**: The configuration change takes effect during the maintenance window of the instance.
     // 
-    // - **MaintainTime**: The change takes effect during the maintenance window of the instance.
-    // 
-    // > * You can call the [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/62008.html) operation to change the maintenance window of an instance.
-    // >
-    // > * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the maintenance window of an instance.
+    // > - You can invoke the [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/62008.html) operation to modify the maintenance window of the instance.
+    // > - You can invoke the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the maintenance window of the instance.
     // 
     // Default value: **Immediately**.
     shared_ptr<string> effectiveTime_ {};
-    // The instance types of the Mongos and shard nodes that you want to change. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+    // The specifications of the Mongos or shard nodes to be modified. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
     // 
     // This parameter is required.
     shared_ptr<string> nodesInfo_ {};
-    // The type of configuration change. Valid values:
+    // The type of the configuration change. Valid values:
     // 
-    // - **UPGRADE**: Upgrades the instance configuration.
-    // 
-    // - **DOWNGRADE**: Downgrades the instance configuration.
+    // - **UPGRADE**: upgrades the configurations.
+    // - **DOWNGRADE**: downgrades the configurations.
     // 
     // > This parameter is available only when the billing method of the instance is subscription.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The destination zone of the hidden node for a configuration change that involves a zone migration.
+    // The destination zone of the hidden node when you migrate the instance across zones and change its configurations at the same time.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
+    // >Notice: The value of this parameter cannot be the same as the value of the TargetZoneId or TargetSecondaryZoneId parameter.</notice>
     // 
-    // >Notice: 
-    // 
-    // This parameter applies only to instances that use disks.
-    // 
-    // 
-    // 
-    // >Notice: 
-    // 
-    // The value of this parameter cannot be the same as the value of the TargetZoneId or TargetSecondaryZoneId parameter.
-    // 
-    // 
-    // 
-    // > - This parameter is required only for a configuration change that involves a zone migration.
+    // > 
+    // > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
     shared_ptr<string> targetHiddenZoneId_ {};
-    // The destination zone of the secondary node for a configuration change that involves a zone migration.
-    // 
-    // >Notice: 
-    // 
-    // This parameter applies only to instances that use disks.
-    // 
-    // 
-    // 
-    // >Notice: 
-    // 
-    // The value of this parameter cannot be the same as the value of the TargetZoneId or TargetHiddenZoneId parameter.
-    // 
-    // 
-    // 
-    // > - This parameter is required only for a configuration change that involves a zone migration.
+    // The destination zone of the secondary node when you migrate the instance across zones and change its configurations at the same time.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
+    // >Notice: The value of this parameter cannot be the same as the value of the TargetZoneId or TargetHiddenZoneId parameter.</notice>
+    // > 
+    // > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
     shared_ptr<string> targetSecondaryZoneId_ {};
-    // The ID of the destination virtual switch for a configuration change that involves a zone migration.
-    // 
-    // >Notice: 
-    // 
-    // This parameter applies only to instances that use disks.
-    // 
-    // 
-    // 
-    // > - This parameter is required only for a configuration change that involves a zone migration.
+    // The ID of the destination vSwitch when you migrate the instance across zones and change its configurations at the same time.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
+    // > 
+    // > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
     shared_ptr<string> targetVswitchId_ {};
-    // The destination zone of the primary node for a configuration change that involves a zone migration.
-    // 
-    // >Notice: 
-    // 
-    // This parameter applies only to instances that use disks.
-    // 
-    // 
-    // 
-    // >Notice: 
-    // 
-    // The value of this parameter cannot be the same as the value of the TargetSecondaryZoneId or TargetHiddenZoneId parameter.
-    // 
-    // 
-    // 
-    // > - This parameter is required only for a configuration change that involves a zone migration.
+    // The destination zone of the primary node when you migrate the instance across zones and change its configurations at the same time.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
+    // >Notice: The value of this parameter cannot be the same as the value of the TargetSecondaryZoneId or TargetHiddenZoneId parameter.</notice>
+    // > 
+    // > - You must specify this parameter only when you migrate the instance across zones and change its configurations at the same time.
     shared_ptr<string> targetZoneId_ {};
   };
 

@@ -72,6 +72,10 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DBInstanceType, DBInstanceType_);
           DARABONBA_PTR_TO_JSON(DestroyTime, destroyTime_);
           DARABONBA_PTR_TO_JSON(DisasterRecoveryInfo, disasterRecoveryInfo_);
+          DARABONBA_PTR_TO_JSON(EbsBandwidth, ebsBandwidth_);
+          DARABONBA_PTR_TO_JSON(EbsIOPS, ebsIOPS_);
+          DARABONBA_PTR_TO_JSON(EcsBandwidth, ecsBandwidth_);
+          DARABONBA_PTR_TO_JSON(EcsIOPS, ecsIOPS_);
           DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
           DARABONBA_PTR_TO_JSON(EncryptionKey, encryptionKey_);
           DARABONBA_PTR_TO_JSON(Engine, engine_);
@@ -133,6 +137,10 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DBInstanceType, DBInstanceType_);
           DARABONBA_PTR_FROM_JSON(DestroyTime, destroyTime_);
           DARABONBA_PTR_FROM_JSON(DisasterRecoveryInfo, disasterRecoveryInfo_);
+          DARABONBA_PTR_FROM_JSON(EbsBandwidth, ebsBandwidth_);
+          DARABONBA_PTR_FROM_JSON(EbsIOPS, ebsIOPS_);
+          DARABONBA_PTR_FROM_JSON(EcsBandwidth, ecsBandwidth_);
+          DARABONBA_PTR_FROM_JSON(EcsIOPS, ecsIOPS_);
           DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
           DARABONBA_PTR_FROM_JSON(EncryptionKey, encryptionKey_);
           DARABONBA_PTR_FROM_JSON(Engine, engine_);
@@ -390,6 +398,10 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const ShardAttribute& obj) { 
               DARABONBA_PTR_TO_JSON(ConnectString, connectString_);
               DARABONBA_PTR_TO_JSON(CurrentKernelVersion, currentKernelVersion_);
+              DARABONBA_PTR_TO_JSON(EbsBandwidth, ebsBandwidth_);
+              DARABONBA_PTR_TO_JSON(EbsIOPS, ebsIOPS_);
+              DARABONBA_PTR_TO_JSON(EcsBandwidth, ecsBandwidth_);
+              DARABONBA_PTR_TO_JSON(EcsIOPS, ecsIOPS_);
               DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
               DARABONBA_PTR_TO_JSON(MaxConnections, maxConnections_);
               DARABONBA_PTR_TO_JSON(MaxDiskMbps, maxDiskMbps_);
@@ -406,6 +418,10 @@ namespace Models
             friend void from_json(const Darabonba::Json& j, ShardAttribute& obj) { 
               DARABONBA_PTR_FROM_JSON(ConnectString, connectString_);
               DARABONBA_PTR_FROM_JSON(CurrentKernelVersion, currentKernelVersion_);
+              DARABONBA_PTR_FROM_JSON(EbsBandwidth, ebsBandwidth_);
+              DARABONBA_PTR_FROM_JSON(EbsIOPS, ebsIOPS_);
+              DARABONBA_PTR_FROM_JSON(EcsBandwidth, ecsBandwidth_);
+              DARABONBA_PTR_FROM_JSON(EcsIOPS, ecsIOPS_);
               DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
               DARABONBA_PTR_FROM_JSON(MaxConnections, maxConnections_);
               DARABONBA_PTR_FROM_JSON(MaxDiskMbps, maxDiskMbps_);
@@ -431,9 +447,10 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->connectString_ == nullptr
-        && this->currentKernelVersion_ == nullptr && this->lockMode_ == nullptr && this->maxConnections_ == nullptr && this->maxDiskMbps_ == nullptr && this->maxIOPS_ == nullptr
-        && this->nodeClass_ == nullptr && this->nodeDescription_ == nullptr && this->nodeId_ == nullptr && this->nodeStorage_ == nullptr && this->port_ == nullptr
-        && this->readonlyReplicas_ == nullptr && this->replicaSetName_ == nullptr && this->status_ == nullptr; };
+        && this->currentKernelVersion_ == nullptr && this->ebsBandwidth_ == nullptr && this->ebsIOPS_ == nullptr && this->ecsBandwidth_ == nullptr && this->ecsIOPS_ == nullptr
+        && this->lockMode_ == nullptr && this->maxConnections_ == nullptr && this->maxDiskMbps_ == nullptr && this->maxIOPS_ == nullptr && this->nodeClass_ == nullptr
+        && this->nodeDescription_ == nullptr && this->nodeId_ == nullptr && this->nodeStorage_ == nullptr && this->port_ == nullptr && this->readonlyReplicas_ == nullptr
+        && this->replicaSetName_ == nullptr && this->status_ == nullptr; };
             // connectString Field Functions 
             bool hasConnectString() const { return this->connectString_ != nullptr;};
             void deleteConnectString() { this->connectString_ = nullptr;};
@@ -446,6 +463,34 @@ namespace Models
             void deleteCurrentKernelVersion() { this->currentKernelVersion_ = nullptr;};
             inline string getCurrentKernelVersion() const { DARABONBA_PTR_GET_DEFAULT(currentKernelVersion_, "") };
             inline ShardAttribute& setCurrentKernelVersion(string currentKernelVersion) { DARABONBA_PTR_SET_VALUE(currentKernelVersion_, currentKernelVersion) };
+
+
+            // ebsBandwidth Field Functions 
+            bool hasEbsBandwidth() const { return this->ebsBandwidth_ != nullptr;};
+            void deleteEbsBandwidth() { this->ebsBandwidth_ = nullptr;};
+            inline int32_t getEbsBandwidth() const { DARABONBA_PTR_GET_DEFAULT(ebsBandwidth_, 0) };
+            inline ShardAttribute& setEbsBandwidth(int32_t ebsBandwidth) { DARABONBA_PTR_SET_VALUE(ebsBandwidth_, ebsBandwidth) };
+
+
+            // ebsIOPS Field Functions 
+            bool hasEbsIOPS() const { return this->ebsIOPS_ != nullptr;};
+            void deleteEbsIOPS() { this->ebsIOPS_ = nullptr;};
+            inline int32_t getEbsIOPS() const { DARABONBA_PTR_GET_DEFAULT(ebsIOPS_, 0) };
+            inline ShardAttribute& setEbsIOPS(int32_t ebsIOPS) { DARABONBA_PTR_SET_VALUE(ebsIOPS_, ebsIOPS) };
+
+
+            // ecsBandwidth Field Functions 
+            bool hasEcsBandwidth() const { return this->ecsBandwidth_ != nullptr;};
+            void deleteEcsBandwidth() { this->ecsBandwidth_ = nullptr;};
+            inline int32_t getEcsBandwidth() const { DARABONBA_PTR_GET_DEFAULT(ecsBandwidth_, 0) };
+            inline ShardAttribute& setEcsBandwidth(int32_t ecsBandwidth) { DARABONBA_PTR_SET_VALUE(ecsBandwidth_, ecsBandwidth) };
+
+
+            // ecsIOPS Field Functions 
+            bool hasEcsIOPS() const { return this->ecsIOPS_ != nullptr;};
+            void deleteEcsIOPS() { this->ecsIOPS_ = nullptr;};
+            inline int32_t getEcsIOPS() const { DARABONBA_PTR_GET_DEFAULT(ecsIOPS_, 0) };
+            inline ShardAttribute& setEcsIOPS(int32_t ecsIOPS) { DARABONBA_PTR_SET_VALUE(ecsIOPS_, ecsIOPS) };
 
 
             // lockMode Field Functions 
@@ -535,6 +580,10 @@ namespace Models
           protected:
             shared_ptr<string> connectString_ {};
             shared_ptr<string> currentKernelVersion_ {};
+            shared_ptr<int32_t> ebsBandwidth_ {};
+            shared_ptr<int32_t> ebsIOPS_ {};
+            shared_ptr<int32_t> ecsBandwidth_ {};
+            shared_ptr<int32_t> ecsIOPS_ {};
             shared_ptr<string> lockMode_ {};
             shared_ptr<int32_t> maxConnections_ {};
             shared_ptr<string> maxDiskMbps_ {};
@@ -1056,15 +1105,16 @@ namespace Models
         && this->burstingEnabled_ == nullptr && this->capacityUnit_ == nullptr && this->chargeType_ == nullptr && this->coldDataEnabled_ == nullptr && this->configserverList_ == nullptr
         && this->creationTime_ == nullptr && this->currentKernelVersion_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr
         && this->DBInstanceOrderStatus_ == nullptr && this->DBInstanceReleaseProtection_ == nullptr && this->DBInstanceStatus_ == nullptr && this->DBInstanceStorage_ == nullptr && this->DBInstanceType_ == nullptr
-        && this->destroyTime_ == nullptr && this->disasterRecoveryInfo_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr
-        && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr
-        && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr
-        && this->maxMBPS_ == nullptr && this->mongosList_ == nullptr && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr
-        && this->readonlyReplicas_ == nullptr && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr
-        && this->replicationFactor_ == nullptr && this->resourceGroupId_ == nullptr && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr
-        && this->secondaryZoneId_ == nullptr && this->shardList_ == nullptr && this->shardSearchNodes_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr
-        && this->syncPercent_ == nullptr && this->tags_ == nullptr && this->useClusterBackup_ == nullptr && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcAuthMode_ == nullptr && this->zoneId_ == nullptr; };
+        && this->destroyTime_ == nullptr && this->disasterRecoveryInfo_ == nullptr && this->ebsBandwidth_ == nullptr && this->ebsIOPS_ == nullptr && this->ecsBandwidth_ == nullptr
+        && this->ecsIOPS_ == nullptr && this->encrypted_ == nullptr && this->encryptionKey_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
+        && this->expireTime_ == nullptr && this->hiddenZoneId_ == nullptr && this->kindCode_ == nullptr && this->lastDowngradeTime_ == nullptr && this->lockMode_ == nullptr
+        && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIOPS_ == nullptr && this->maxMBPS_ == nullptr
+        && this->mongosList_ == nullptr && this->networkType_ == nullptr && this->protocolType_ == nullptr && this->provisionedIops_ == nullptr && this->readonlyReplicas_ == nullptr
+        && this->regionId_ == nullptr && this->replacateId_ == nullptr && this->replicaSetName_ == nullptr && this->replicaSets_ == nullptr && this->replicationFactor_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->searchNodeClass_ == nullptr && this->searchNodeCount_ == nullptr && this->searchNodeStorage_ == nullptr && this->secondaryZoneId_ == nullptr
+        && this->shardList_ == nullptr && this->shardSearchNodes_ == nullptr && this->storageEngine_ == nullptr && this->storageType_ == nullptr && this->syncPercent_ == nullptr
+        && this->tags_ == nullptr && this->useClusterBackup_ == nullptr && this->VPCCloudInstanceIds_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcAuthMode_ == nullptr && this->zoneId_ == nullptr; };
         // AIGatewayEnabled Field Functions 
         bool hasAIGatewayEnabled() const { return this->AIGatewayEnabled_ != nullptr;};
         void deleteAIGatewayEnabled() { this->AIGatewayEnabled_ = nullptr;};
@@ -1191,6 +1241,34 @@ namespace Models
         void deleteDisasterRecoveryInfo() { this->disasterRecoveryInfo_ = nullptr;};
         inline string getDisasterRecoveryInfo() const { DARABONBA_PTR_GET_DEFAULT(disasterRecoveryInfo_, "") };
         inline DBInstance& setDisasterRecoveryInfo(string disasterRecoveryInfo) { DARABONBA_PTR_SET_VALUE(disasterRecoveryInfo_, disasterRecoveryInfo) };
+
+
+        // ebsBandwidth Field Functions 
+        bool hasEbsBandwidth() const { return this->ebsBandwidth_ != nullptr;};
+        void deleteEbsBandwidth() { this->ebsBandwidth_ = nullptr;};
+        inline int32_t getEbsBandwidth() const { DARABONBA_PTR_GET_DEFAULT(ebsBandwidth_, 0) };
+        inline DBInstance& setEbsBandwidth(int32_t ebsBandwidth) { DARABONBA_PTR_SET_VALUE(ebsBandwidth_, ebsBandwidth) };
+
+
+        // ebsIOPS Field Functions 
+        bool hasEbsIOPS() const { return this->ebsIOPS_ != nullptr;};
+        void deleteEbsIOPS() { this->ebsIOPS_ = nullptr;};
+        inline int32_t getEbsIOPS() const { DARABONBA_PTR_GET_DEFAULT(ebsIOPS_, 0) };
+        inline DBInstance& setEbsIOPS(int32_t ebsIOPS) { DARABONBA_PTR_SET_VALUE(ebsIOPS_, ebsIOPS) };
+
+
+        // ecsBandwidth Field Functions 
+        bool hasEcsBandwidth() const { return this->ecsBandwidth_ != nullptr;};
+        void deleteEcsBandwidth() { this->ecsBandwidth_ = nullptr;};
+        inline int32_t getEcsBandwidth() const { DARABONBA_PTR_GET_DEFAULT(ecsBandwidth_, 0) };
+        inline DBInstance& setEcsBandwidth(int32_t ecsBandwidth) { DARABONBA_PTR_SET_VALUE(ecsBandwidth_, ecsBandwidth) };
+
+
+        // ecsIOPS Field Functions 
+        bool hasEcsIOPS() const { return this->ecsIOPS_ != nullptr;};
+        void deleteEcsIOPS() { this->ecsIOPS_ = nullptr;};
+        inline int32_t getEcsIOPS() const { DARABONBA_PTR_GET_DEFAULT(ecsIOPS_, 0) };
+        inline DBInstance& setEcsIOPS(int32_t ecsIOPS) { DARABONBA_PTR_SET_VALUE(ecsIOPS_, ecsIOPS) };
 
 
         // encrypted Field Functions 
@@ -1509,6 +1587,10 @@ namespace Models
         shared_ptr<string> DBInstanceType_ {};
         shared_ptr<string> destroyTime_ {};
         shared_ptr<string> disasterRecoveryInfo_ {};
+        shared_ptr<int32_t> ebsBandwidth_ {};
+        shared_ptr<int32_t> ebsIOPS_ {};
+        shared_ptr<int32_t> ecsBandwidth_ {};
+        shared_ptr<int32_t> ecsIOPS_ {};
         shared_ptr<bool> encrypted_ {};
         shared_ptr<string> encryptionKey_ {};
         shared_ptr<string> engine_ {};
@@ -1586,7 +1668,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceAttributeResponseBody::DBInstances> DBInstances_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

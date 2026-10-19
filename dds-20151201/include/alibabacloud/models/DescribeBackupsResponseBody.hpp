@@ -309,12 +309,10 @@ namespace Models
     shared_ptr<DescribeBackupsResponseBody::Backups> backups_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // - **30** (Default)
-    // 
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.

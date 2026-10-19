@@ -215,127 +215,97 @@ namespace Models
   protected:
     // The high-frequency backup frequency. Valid values:
     // 
-    // - **-1**: high-frequency backup is disabled.
-    // 
-    // - **15**: every 15 minutes.
-    // 
-    // - **30**: every 30 minutes.
-    // 
-    // - **60**: every 1 hour.
-    // 
-    // - **120**: every 2 hours.
-    // 
-    // - **180**: every 3 hours.
-    // 
-    // - **240**: every 4 hours.
-    // 
-    // - **360**: every 6 hours.
-    // 
-    // - **480**: every 8 hours.
-    // 
-    // - **720**: every 12 hours.
+    // - **-1**: high-frequency backup is disabled
+    // - **15**: every 15 minutes
+    // - **30**: every 30 minutes
+    // - **60**: every 1 hour
+    // - **120**: every 2 hours
+    // - **180**: every 3 hours
+    // - **240**: every 4 hours
+    // - **360**: every 6 hours
+    // - **480**: every 8 hours
+    // - **720**: every 12 hours
     shared_ptr<int32_t> backupInterval_ {};
     // The backup retention period in days.
     shared_ptr<string> backupRetentionPeriod_ {};
-    // The backup retention policy.
+    // The backup data retention policy. Valid values:
     // 
-    // 1. 0: All backup sets of the instance are immediately deleted when the instance is released
+    // - 0: All backup sets of the instance are immediately deleted when the instance is released.
+    // - 1: An automatic backup is created when the instance is released, and the backup set is retained for long-term retention (LTR).
+    // - 2: An automatic backup is created when the instance is released, and all backup sets of the cluster are retained for long-term retention (LTR).
     // 
-    // 2. 1: The instance is automatically backed up when it is released, and the backup set is retained for a long time
-    // 
-    // 3. 2: The instance is automatically backed up when it is released, and all backup sets of the cluster are retained for a long time
-    // 
-    // For more information, see [Long-term backup retention](https://help.aliyun.com/document_detail/2779111.html)
+    // For more information, see [Long-term retention backup](https://help.aliyun.com/document_detail/2779111.html).
     shared_ptr<int32_t> backupRetentionPolicyOnClusterDeletion_ {};
-    // The geo-redundancy backup retention time.
+    // The days of the week when geo-redundancy backups are performed. Valid values:
     // 
-    // 1. Monday: Monday.
+    // - Monday: Monday
+    // - Tuesday: Tuesday
+    // - Wednesday: Wednesday
+    // - Thursday: Thursday
+    // - Friday: Friday
+    // - Saturday: Saturday
+    // - Sunday: Sunday
     // 
-    // 2. Tuesday: Tuesday.
-    // 
-    // 3. Wednesday: Wednesday.
-    // 
-    // 4. Thursday: Thursday.
-    // 
-    // 5. Friday: Friday.
-    // 
-    // 6. Saturday: Saturday.
-    // 
-    // 7. Sunday: Sunday.
-    // 
-    // > Required for geo-redundancy backup
+    // > Required for geo-redundancy backups.
     shared_ptr<string> crossBackupPeriod_ {};
-    // The geo-redundancy log backup retention type.
+    // The retention type for cross-region log backups. Valid values:
     // 
-    // - delay: retained for a period of time
-    // 
+    // - delay: retained for a specified period
     // - never: never expires
     shared_ptr<string> crossLogRetentionType_ {};
-    // The geo-redundancy log backup retention period.
+    // The retention period for cross-region log backups.
     shared_ptr<int32_t> crossLogRetentionValue_ {};
-    // The geo-redundancy backup retention type.
+    // The retention type for geo-redundancy backups. Valid values:
     // 
-    // - delay: retained for a period of time
+    // - delay: retained for a specified period
     // 
     // - never: never expires
     shared_ptr<string> crossRetentionType_ {};
-    // The geo-redundancy backup retention period.
+    // The retention period for geo-redundancy backups.
     shared_ptr<int32_t> crossRetentionValue_ {};
-    // The region where the geo-redundancy backup is located.
+    // The region where geo-redundancy backups are stored.
     shared_ptr<string> destRegion_ {};
-    // Indicates whether log backup is enabled. Valid values:
-    // 
-    // - **0**: disabled (default).
-    // 
-    // - **1**: enabled.
+    // Specifies whether to enable log backup. Valid values:
+    // - **0**: disabled (default)
+    // - **1**: enabled
     shared_ptr<int32_t> enableBackupLog_ {};
-    // Indicates whether cross-region log backup is enabled.
+    // Specifies whether cross-region log backup is enabled.
     // 
-    // > Required for geo-redundancy backup
-    // >
-    // > - 1: enabled (must be 1 for sharded cluster instances)
-    // >
-    // > - 0: disabled (must be 0 for replica set instances)
+    // > Required for geo-redundancy backups.
+    // > - 1: enabled (must be set to 1 for sharded cluster instances)
+    // > - 0: disabled (must be set to 0 for replica set instances)
     shared_ptr<int32_t> enableCrossLogBackup_ {};
-    // The high-frequency backup retention period in days.
+    // The retention period for high-frequency backups, in days.
     shared_ptr<string> highFrequencyBackupRetention_ {};
-    // The log backup retention period in days. Valid values: 7 to 730.
+    // The retention period for log backups, in days. Valid values: 7 to 730.
     shared_ptr<int32_t> logBackupRetentionPeriod_ {};
     // The backup cycle. Valid values:
-    // 
-    // - **Monday**: Monday.
-    // 
-    // - **Tuesday**: Tuesday.
-    // 
-    // - **Wednesday**: Wednesday.
-    // 
-    // - **Thursday**: Thursday.
-    // 
-    // - **Friday**: Friday.
-    // 
-    // - **Saturday**: Saturday.
-    // 
-    // - **Sunday**: Sunday.
+    // - **Monday**: Monday
+    // - **Tuesday**: Tuesday
+    // - **Wednesday**: Wednesday
+    // - **Thursday**: Thursday
+    // - **Friday**: Friday
+    // - **Saturday**: Saturday
+    // - **Sunday**: Sunday
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The backup time in the format of *HH:mm*Z-*HH:mm*Z (UTC time).
+    // The backup time. The format is <i>HH:mm</i>Z-<i>HH:mm</i>Z (UTC time).
     shared_ptr<string> preferredBackupTime_ {};
-    // The next regular backup time in the format of *yyyy-mm-dd*t*hh:mm*z (UTC time).
+    // The time of the next regular backup. The format is <i>yyyy-mm-dd</i>t<i>hh:mm</i>z (UTC time).
     shared_ptr<string> preferredNextBackupTime_ {};
-    // Indicates whether sparse backup within an hour is enabled.
+    // Specifies whether to enable sparse backup within an hour. Valid values:
     // 
-    // - true: When the backup frequency is at the minute level, all snapshots within 1 hour from the current time are retained. For snapshots that are more than 1 hour but within 24 hours from the current time, only the first snapshot after each hour is retained.
+    // - true: When the backup frequency is set to minutes, all snapshots taken within 1 hour from the current time are retained. For snapshots taken more than 1 hour but within 24 hours from the current time, only the first snapshot after the hour is retained.
     // 
-    // - false: Sparse backup within an hour is disabled: all snapshots within the high-frequency backup retention period are retained.
+    // - false: Sparse backup within an hour is disabled. All snapshots within the high-frequency backup retention period are retained.
     shared_ptr<bool> preserveOneEachHour_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The snapshot backup type. Valid values:
     // 
-    // - **Flash**: second-level backup.
-    // 
-    // - **Standard**: regular backup (default).
+    // - **Flash**: backup within seconds
+    // - **Standard**: standard backup (default)
     shared_ptr<string> snapshotBackupType_ {};
-    // The region where the source instance is located.
+    // The region where the source instance is deployed.
     shared_ptr<string> srcRegion_ {};
   };
 

@@ -186,53 +186,43 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the O&M task was created. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> createdTime_ {};
-      // The database type of the instance.
+      // The database type.
       shared_ptr<string> dbType_ {};
-      // The deadline before which the time to preform the task can be modified. The time in UTC is displayed in the yyyy-MM-ddTHH:mm:ssZ format.
+      // The latest time within the adjustable range for the execution time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> deadline_ {};
       // The task ID.
       shared_ptr<int32_t> id_ {};
       // The instance ID.
       shared_ptr<string> insName_ {};
-      // The time when the task was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the O&M task was modified. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> modifiedTime_ {};
-      // The required preparation period between the task start time and the switchover time. The time is displayed in the HH:mm:ss format.
+      // The preparation time required between the start time and the switchover time of the O&M task. The format is HH:mm:ss.
       shared_ptr<string> prepareInterval_ {};
-      // The region of the instance.
+      // The region ID.
       shared_ptr<string> region_ {};
-      // The result information.
+      // The execution result information.
       shared_ptr<string> resultInfo_ {};
-      // The time when the task was preformed. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // The execution time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> startTime_ {};
-      // The state of the task. Valid values:
-      // 
-      // - 2: The task is waiting for users to specify a switchover time.
-      // 
-      // - 3: The task is waiting to be performed.
-      // 
-      // - 4: The task is being performed. If the task is in this state, the ModifyActiveOperationTask operation cannot be called to modify the scheduled switchover time.
-      // 
-      // - 5: The task is performed.
-      // 
-      // - 6: The task fails.
-      // 
-      // - 7: The task is canceled.
+      // The task status. Valid values:
+      // - 2: Waiting for the user to specify a time.
+      // - 3: Waiting to be processed.
+      // - 4: Processing. After the task enters this state, the scheduled switchover time cannot be modified.
+      // - 5: Succeeded.
+      // - 6: Failed.
+      // - 7: Canceled.
       shared_ptr<int32_t> status_ {};
-      // The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // The switchover time of the O&M task. The format is `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
       shared_ptr<string> switchTime_ {};
       // The task parameters.
       shared_ptr<string> taskParams_ {};
-      // The type of the task. Valid values:
+      // The task type. Valid values:
       // 
-      // - rds_apsaradb_ha: master-replica switchover
-      // 
-      // - rds_apsaradb_transfer: instance migration
-      // 
-      // - rds_apsaradb_upgrade: minor version update
-      // 
-      // - all: all types
+      // - rds_apsaradb_ha: primary/secondary node switch.
+      // - rds_apsaradb_transfer: instance migration.
+      // - rds_apsaradb_upgrade: minor version update.
       shared_ptr<string> taskType_ {};
     };
 
@@ -278,13 +268,13 @@ namespace Models
   protected:
     // The list of tasks.
     shared_ptr<vector<DescribeActiveOperationTaskResponseBody::Items>> items_ {};
-    // The page number of the returned page.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries returned per page. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

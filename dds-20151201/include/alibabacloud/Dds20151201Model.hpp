@@ -80,6 +80,12 @@
 #include <alibabacloud/models/DescribeActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeActiveOperationTasksResponse.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupPolicyRequest.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupPolicyResponseBody.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupPolicyResponse.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupStatusRequest.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribeAdvancedBackupStatusResponse.hpp>
 #include <alibabacloud/models/DescribeAuditLogFilterRequest.hpp>
 #include <alibabacloud/models/DescribeAuditLogFilterResponseBody.hpp>
 #include <alibabacloud/models/DescribeAuditLogFilterResponse.hpp>
@@ -266,6 +272,13 @@
 #include <alibabacloud/models/ModifyActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/ModifyActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/ModifyActiveOperationTasksResponse.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupPolicyRequest.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupPolicyShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupPolicyResponseBody.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupPolicyResponse.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupStatusRequest.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyAdvancedBackupStatusResponse.hpp>
 #include <alibabacloud/models/ModifyAuditLogFilterRequest.hpp>
 #include <alibabacloud/models/ModifyAuditLogFilterResponseBody.hpp>
 #include <alibabacloud/models/ModifyAuditLogFilterResponse.hpp>

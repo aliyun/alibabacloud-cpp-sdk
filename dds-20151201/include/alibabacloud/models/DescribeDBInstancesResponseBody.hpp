@@ -712,11 +712,11 @@ namespace Models
     shared_ptr<DescribeDBInstancesResponseBody::DBInstances> DBInstances_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of instances returned.
+    // The number of instances in the query result.
     shared_ptr<int32_t> totalCount_ {};
   };
 

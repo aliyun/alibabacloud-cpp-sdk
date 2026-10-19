@@ -107,10 +107,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The instance type.
-    // 
+    // The instance type. Valid values:
     // - replicate: replica set instance
-    // 
     // - sharding: sharded cluster instance
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
@@ -118,7 +116,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The region where the instance is located.
+    // The region where the instance is deployed.
     shared_ptr<string> srcRegion_ {};
   };
 

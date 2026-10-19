@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the added mongos or shard node.
+    // The ID of the added Mongos or shard node.
     shared_ptr<string> nodeId_ {};
     // The ID of the order.
     shared_ptr<string> orderId_ {};

@@ -140,47 +140,47 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment. Valid values:
+    // Specifies whether automatic payment is enabled for the order. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: enables automatic payment for the order.
+    // - **false**: requires manual payment for the order.
     // 
     // > Default value: **true**.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. Valid values:
+    // Specifies whether to enable auto-renewal upon expiration. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: enables auto-renewal.
+    // - **false**: disables auto-renewal.
     // 
     // > Default value: **false**.
     shared_ptr<string> autoRenew_ {};
-    // The business information. This is an additional parameter.
+    // The additional parameter for business information.
     shared_ptr<string> businessInfo_ {};
     // The billing method of the instance. Valid values:
-    // 
-    // - **PrePaid:** subscription.
-    // 
-    // - **PostPaid:** pay-as-you-go.
+    // - **PrePaid**: subscription.
+    // - **PostPaid**: pay-as-you-go.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+    // Specifies whether to use a coupon. Valid values:
+    // - **default** or **null** (default): uses a coupon.
+    // - **youhuiquan_promotion_option_id_for_blank**: does not use a coupon.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9**\\*\\*\\*\\*, **12**, **24**, and **36**.
+    // The subscription duration. Valid values:
+    // 
+    // - If PricingCycle is set to Month: **1** to **9**.
+    // 
+    // - If PricingCycle is set to Year: **1**, **2**, **3**, and **5**.
     shared_ptr<int64_t> period_ {};
     // The unit of the subscription duration. Valid values:
-    // 
-    // - **Month**: month.
-    // 
-    // - **Year**: year.
+    // - **Month**: months.
+    // - **Year**: years.
     // 
     // Default value: Month.
     shared_ptr<string> pricingCycle_ {};

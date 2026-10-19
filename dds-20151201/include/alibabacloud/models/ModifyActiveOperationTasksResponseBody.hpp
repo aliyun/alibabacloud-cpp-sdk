@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the O\\&M tasks. Multiple task IDs are separated by commas (,).
+    // The IDs of the O&M tasks. Separate multiple IDs with commas (,).
     shared_ptr<string> ids_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

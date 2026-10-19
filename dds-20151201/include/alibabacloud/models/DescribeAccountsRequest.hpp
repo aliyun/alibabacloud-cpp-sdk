@@ -14,7 +14,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAccountsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(CharacterType, characterType_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(DBName, DBName_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -22,7 +24,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeAccountsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(CharacterType, characterType_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(DBName, DBName_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->DBInstanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->characterType_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -48,11 +53,25 @@ namespace Models
     inline DescribeAccountsRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
 
 
+    // characterType Field Functions 
+    bool hasCharacterType() const { return this->characterType_ != nullptr;};
+    void deleteCharacterType() { this->characterType_ = nullptr;};
+    inline string getCharacterType() const { DARABONBA_PTR_GET_DEFAULT(characterType_, "") };
+    inline DescribeAccountsRequest& setCharacterType(string characterType) { DARABONBA_PTR_SET_VALUE(characterType_, characterType) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline DescribeAccountsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // DBName Field Functions 
+    bool hasDBName() const { return this->DBName_ != nullptr;};
+    void deleteDBName() { this->DBName_ = nullptr;};
+    inline string getDBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
+    inline DescribeAccountsRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
 
 
     // ownerAccount Field Functions 
@@ -84,12 +103,16 @@ namespace Models
 
 
   protected:
-    // The name of the account. Set the value to **root**.
+    // The account name.
     shared_ptr<string> accountName_ {};
+    // The account type.
+    shared_ptr<string> characterType_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The database to which the account belongs.
+    shared_ptr<string> DBName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

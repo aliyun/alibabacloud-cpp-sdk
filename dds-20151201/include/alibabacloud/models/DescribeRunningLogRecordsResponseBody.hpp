@@ -182,7 +182,7 @@ namespace Models
 
 
   protected:
-    // The database engine.
+    // The engine type of the current database.
     shared_ptr<string> engine_ {};
     shared_ptr<DescribeRunningLogRecordsResponseBody::Items> items_ {};
     // The page number.

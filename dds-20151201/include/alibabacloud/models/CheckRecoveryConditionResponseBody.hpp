@@ -57,12 +57,11 @@ namespace Models
 
 
   protected:
-    // The instance ID
+    // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // Indicates whether the data of the instance can be restored. Valid values:
-    // 
-    // *   **true**: The data of the instance can be restored.
-    // *   **false**: The data of the instance cannot be restored.
+    // Indicates whether the restoration conditions are met. Valid values:
+    // - **true**: The conditions are met.
+    // - **false**: The conditions are not met.
     shared_ptr<bool> isValid_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

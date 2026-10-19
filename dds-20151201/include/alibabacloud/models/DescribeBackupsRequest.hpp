@@ -167,40 +167,37 @@ namespace Models
 
 
   protected:
-    // The backup ID.
+    // The instance ID.
     // 
-    // If you specify the ID of a sharded cluster instance for the **DBInstanceId** parameter, the number of backup IDs must be the same as the number of shard nodes. Separate the backup IDs with commas (,).
+    // If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the number of instance IDs is the same as the number of shard nodes. Separate multiple instance IDs with commas (,).
     shared_ptr<string> backupId_ {};
-    // The backup job ID.
+    // The backup task ID.
     shared_ptr<string> backupJobId_ {};
-    // The ID of the instance.
-    // 
-    // > If the instance is a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // The instance ID.
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The region where the backup resides.
     // 
-    // > This parameter is required for geo-redundancy.
+    // 
+    // > This parameter is required for geo-redundancy backups.
     shared_ptr<string> destRegion_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-    // 
-    // > This parameter is invalid if you specify the BackupId parameter.
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+    // > This parameter is invalid if BackupId is specified.
     shared_ptr<string> endTime_ {};
-    // The ID of the shard node in the sharded cluster instance.
+    // Instance ID of the shard node in the sharded cluster instance.
     // 
-    // > This parameter is required if you specify the ID of a sharded cluster instance for the **DBInstanceId** parameter.
+    // > This parameter is required if you set the **DBInstanceId** parameter to instance ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than 0 and not greater than the maximum value of the integer data type. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // - **30** (Default)
-    // 
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
@@ -209,13 +206,14 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The region where the instance resides.
     // 
+    // > 
     // > - This parameter is required to restore a deleted instance.
-    // >
-    // > - This parameter is required for geo-redundancy.
+    // > - This parameter is required for geo-redundancy backups.
     shared_ptr<string> srcRegion_ {};
-    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in Coordinated Universal Time (UTC).
+    // The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     // 
-    // > This parameter is invalid if you specify the BackupId parameter.
+    // 
+    // > This parameter is invalid if BackupId is specified.
     shared_ptr<string> startTime_ {};
   };
 

@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The name of the IP address whitelist template. The name must meet the following requirements:
     // 
-    // - It must consist of lowercase letters, digits, and underscores (_).
+    // - It can contain only lowercase letters, digits, and underscores (_).
     // 
     // - It must start with a letter and end with a letter or a digit.
     // 
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> globalSecurityGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query the latest list of regions.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

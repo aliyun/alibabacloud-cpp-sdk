@@ -13,7 +13,9 @@ namespace Models
   class ModifySecurityIpsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifySecurityIpsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ModifyMode, modifyMode_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -24,7 +26,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIps, securityIps_);
     };
     friend void from_json(const Darabonba::Json& j, ModifySecurityIpsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ModifyMode, modifyMode_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -45,14 +49,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->modifyMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->securityIpGroupAttribute_ == nullptr && this->securityIpGroupName_ == nullptr && this->securityIps_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->DBInstanceId_ == nullptr && this->dryRun_ == nullptr && this->modifyMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityIpGroupAttribute_ == nullptr && this->securityIpGroupName_ == nullptr && this->securityIps_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifySecurityIpsRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline ModifySecurityIpsRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifySecurityIpsRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // modifyMode Field Functions 
@@ -112,17 +130,22 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. Example: qwertyui1234567
+    shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The method that is used to modify the IP address whitelist. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
+    // true: performs a dry run without calling the operation. The system checks the request parameters, request format, service limits, and available resources. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+    // false (default): sends the request. If the check succeeds, the operation is performed.
+    shared_ptr<bool> dryRun_ {};
+    // The modification method. Valid values:
+    // - **Cover**: Overwrites the original whitelist.
+    // - **Append**: Appends to the whitelist. An error is returned if duplicate IP addresses exist.
+    // - **Extend**: Appends to the whitelist. Duplicate IP addresses are merged.
+    // - **Delete**: Deletes the whitelist.
     // 
-    // - **Cover**: overwrites the original IP address whitelist.
-    // 
-    // - **Append**: appends data to the IP address whitelist.
-    // 
-    // - **Delete**: deletes the IP address whitelist.
     // 
     // Default value: **Cover**.
     shared_ptr<string> modifyMode_ {};
@@ -130,17 +153,15 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The attribute of the IP address whitelist. It can contain a maximum of 120 characters in length and can contain uppercase letters, lowercase letters, and digits.
+    // The attribute of the whitelist group. The value can contain uppercase letters, lowercase letters, and digits. The maximum length is 120 characters.
     // 
-    // This parameter is empty by default.
+    // Default value: empty string.
     shared_ptr<string> securityIpGroupAttribute_ {};
-    // The name of the IP address whitelist that you want to modify. Default value: **default**.
+    // The name of the IP whitelist group to modify. Default value: **default**.
     shared_ptr<string> securityIpGroupName_ {};
-    // The IP addresses in the IP address whitelist. Separate multiple IP addresses with commas (,). You can add a maximum of 1,000 different IP addresses to the IP address whitelist. The entries in the IP address whitelist must be in one of the following formats:
-    // 
-    // - IP addresses, such as 127.0.0.1.
-    // 
-    // - CIDR blocks, such as 127.0.0.1/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
+    // The list of IP addresses in the IP whitelist group. Separate multiple IP addresses with commas (,). IP addresses cannot be duplicated. A maximum of 1000 IP addresses are supported. The following two formats are supported:
+    // - IP address format, such as 127.0.0.1.
+    // - CIDR format, such as 127.0.0.1/24 (Classless Inter-Domain Routing, where 24 indicates the length of the prefix in the address. The value ranges from 1 to 32).
     // 
     // This parameter is required.
     shared_ptr<string> securityIps_ {};

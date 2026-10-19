@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance
+    // The instance ID.
     // 
     // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the mongos, shard, or Configserver node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the ID of the mongos, shard, or Configserver node.
+    // Instance ID of the Mongos, shard, or ConfigServer node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query instance ID of the Mongos, shard, or ConfigServer node.
     // 
-    // > This parameter is required only when you specify the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+    // > This parameter is required if **DBInstanceId** is set to instance ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

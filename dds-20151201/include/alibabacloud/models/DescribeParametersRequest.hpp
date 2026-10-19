@@ -103,25 +103,23 @@ namespace Models
 
 
   protected:
-    // The role of the instance. Valid values:
+    // The role type of the instance. Valid values:
     // 
-    // - db: a shard node.
-    // 
-    // - cs: a Configserver node.
-    // 
-    // - mongos: a mongos node.
+    // - db: shard role
+    // - cs: config server role
+    // - mongos: mongos role
     shared_ptr<string> characterType_ {};
     // The instance ID.
     // 
-    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > If you specify the ID of a sharded cluster instance for this parameter, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The parameter that is available in the future.
+    // The extended parameter.
     shared_ptr<string> extraParam_ {};
-    // The ID of the mongos or shard node in the specified sharded cluster instance.
+    // Instance ID of the mongos or shard node in the sharded cluster instance.
     // 
-    // > This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+    // > This parameter is available only when the **DBInstanceId** parameter is set to instance ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

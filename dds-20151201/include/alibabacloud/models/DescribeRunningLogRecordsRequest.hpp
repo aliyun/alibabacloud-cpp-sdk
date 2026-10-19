@@ -187,54 +187,50 @@ namespace Models
 
   protected:
     // The instance ID.
-    // 
-    // > If this parameter is set to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
-    // 
-    // > The end time can be up to 24 hours later than the start time. Otherwise, the call fails.
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+    // > The end time must be within 24 hours from the start time. Otherwise, the call fails.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The logical operator for the keyword-based query. Default value: `and`.
+    // The logical operator for keyword-based search.
+    // Default value: and.
     shared_ptr<string> logicalOperator_ {};
-    // The ID of a mongos node or shard node in a sharded cluster instance.
+    // Instance ID of the mongos or shard node in the sharded cluster instance.
     // 
-    // > This parameter is available only when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
+    // > This parameter is available only if you set the **DBInstanceId** parameter to instance ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
-    // The sort order of the running logs to return. Valid values:
-    // 
-    // - asc: ascending order
-    // 
-    // - desc: descending order
+    // The order in which the returned running logs are sorted by time. Valid values:
+    // - asc: ascending order.
+    // - desc: descending order.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30** to **100**.
+    // The number of entries per page. Valid values: **30** to **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keywords for the query. You can specify up to 10 keywords. Separate multiple keywords with spaces.
+    // The keywords for the query. Separate multiple keywords with spaces. You can specify up to 10 keywords.
     shared_ptr<string> queryKeywords_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The role ID of the node. You can call the [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) operation to query the role ID.
+    // The role ID of the node. You can call [DescribeReplicaSetRole](https://help.aliyun.com/document_detail/62134.html) to query the role ID.
     shared_ptr<string> roleId_ {};
-    // The role of the node. Valid values:
+    // The role of the node in the instance. Valid values:
+    // - **primary**: primary node.
+    // - **secondary**: secondary node.
+    // - **search**: search node.
     // 
-    // - **primary**: The primary node.
-    // 
-    // - **secondary**: A secondary node.
-    // 
-    // > If the **NodeId** parameter is set to the ID of a mongos node, the **RoleType** parameter can only be set to **primary**.
+    // > If you set the **NodeId** parameter to the ID of a mongos node, the value of **RoleType** can only be **primary**.
     shared_ptr<string> roleType_ {};
-    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time is in UTC.
+    // The beginning of the time range to query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

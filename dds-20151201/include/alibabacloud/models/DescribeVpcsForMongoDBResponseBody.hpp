@@ -172,19 +172,18 @@ namespace Models
       protected:
         // The CIDR block of the vSwitch.
         shared_ptr<string> cidrBlock_ {};
-        // This parameter is deprecated. No value is returned.
+        // **[Deprecated]** This parameter is deprecated and no value is returned.
         shared_ptr<string> gmtCreate_ {};
-        // This parameter is deprecated. No value is returned.
+        // **[Deprecated]** This parameter is deprecated and no value is returned.
         shared_ptr<string> gmtModified_ {};
         // Indicates whether the vSwitch is the default vSwitch. Valid values:
         // 
         // - **true**: The vSwitch is the default vSwitch.
-        // 
         // - **false**: The vSwitch is not the default vSwitch.
         shared_ptr<bool> isDefault_ {};
-        // The zone to which the vSwitch belongs.
+        // The active zone to which the vSwitch belongs.
         shared_ptr<string> izNo_ {};
-        // The status of the vSwitch. A value of **Available** indicates that the vSwitch is active.
+        // The status of the vSwitch. **Available** indicates that the vSwitch is active.
         shared_ptr<string> status_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
@@ -275,25 +274,25 @@ namespace Models
 
 
     protected:
-      // This parameter is deprecated. No value is returned.
+      // **[Deprecated]** This parameter is deprecated and no value is returned.
       shared_ptr<string> aliUid_ {};
-      // This parameter is deprecated. No value is returned.
+      // **[Deprecated]** This parameter is deprecated and no value is returned.
       shared_ptr<string> bid_ {};
       // The CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
-      // This parameter is deprecated. No value is returned.
+      // **[Deprecated]** This parameter is deprecated and no value is returned.
       shared_ptr<string> gmtCreate_ {};
-      // This parameter is deprecated. No value is returned.
+      // **[Deprecated]** This parameter is deprecated and no value is returned.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether the VPC is the default one. Valid values:
+      // Indicates whether the VPC is the default VPC. Valid values:
       // 
-      // - **true**: The VPC is the default one.
+      // - **true**: Yes.
       // 
-      // - **false**: The VPC is not the default one.
+      // - **false**: No.
       shared_ptr<bool> isDefault_ {};
       // The region ID.
       shared_ptr<string> regionNo_ {};
-      // The status of the VPC. A value of **Available** indicates that the VPC is active.
+      // The status of the VPC. **Available** indicates that the VPC is available.
       shared_ptr<string> status_ {};
       // The list of vSwitches.
       shared_ptr<vector<Vpcs::VSwitchs>> vSwitchs_ {};
@@ -345,7 +344,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

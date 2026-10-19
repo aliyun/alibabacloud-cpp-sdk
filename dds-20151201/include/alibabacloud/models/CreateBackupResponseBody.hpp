@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The backup ID.
+    // The ID of the backup.
     // 
-    // > This parameter is deprecated. To obtain the backup ID, call the [DescribeBackups](https://help.aliyun.com/document_detail/468441.html) operation.
+    // > **[Deprecated]** This parameter will be deprecated soon. To obtain the backup ID, call the [DescribeBackups](https://help.aliyun.com/document_detail/468441.html) operation.
     shared_ptr<string> backupId_ {};
-    // The backup job ID.
+    // The ID of the backup job.
     shared_ptr<string> backupJobId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

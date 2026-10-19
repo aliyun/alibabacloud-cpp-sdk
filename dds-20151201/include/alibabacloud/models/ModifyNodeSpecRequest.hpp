@@ -13,6 +13,7 @@ namespace Models
   class ModifyNodeSpecRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNodeSpecRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlignPrimaryZone, alignPrimaryZone_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetZoneId, targetZoneId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNodeSpecRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlignPrimaryZone, alignPrimaryZone_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -69,11 +71,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->DBInstanceId_ == nullptr && this->effectiveTime_ == nullptr
-        && this->fromApp_ == nullptr && this->nodeClass_ == nullptr && this->nodeId_ == nullptr && this->nodeStorage_ == nullptr && this->orderType_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->readonlyReplicas_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->switchTime_ == nullptr && this->targetHiddenZoneId_ == nullptr && this->targetSecondaryZoneId_ == nullptr && this->targetVswitchId_ == nullptr && this->targetZoneId_ == nullptr; };
+    virtual bool empty() const override { return this->alignPrimaryZone_ == nullptr
+        && this->autoPay_ == nullptr && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->effectiveTime_ == nullptr && this->fromApp_ == nullptr && this->nodeClass_ == nullptr && this->nodeId_ == nullptr && this->nodeStorage_ == nullptr
+        && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->readonlyReplicas_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->switchTime_ == nullptr && this->targetHiddenZoneId_ == nullptr && this->targetSecondaryZoneId_ == nullptr && this->targetVswitchId_ == nullptr
+        && this->targetZoneId_ == nullptr; };
+    // alignPrimaryZone Field Functions 
+    bool hasAlignPrimaryZone() const { return this->alignPrimaryZone_ != nullptr;};
+    void deleteAlignPrimaryZone() { this->alignPrimaryZone_ = nullptr;};
+    inline bool getAlignPrimaryZone() const { DARABONBA_PTR_GET_DEFAULT(alignPrimaryZone_, false) };
+    inline ModifyNodeSpecRequest& setAlignPrimaryZone(bool alignPrimaryZone) { DARABONBA_PTR_SET_VALUE(alignPrimaryZone_, alignPrimaryZone) };
+
+
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -222,57 +232,48 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically align the primary node to the primary zone after operations such as specification changes for multi-zone instances. If you choose not to align the node, one primary/secondary switchover (transient disconnection) is avoided. Default value: true.
+    shared_ptr<bool> alignPrimaryZone_ {};
     // Specifies whether to enable automatic payment. Valid values:
-    // 
-    // - **true** (default): Enables automatic payment. Make sure that your account has a sufficient balance.
-    // 
-    // - **false**: Disables automatic payment. You must manually pay for the order.
+    // - **true** (default): Automatic payment is enabled. Make sure that your account has sufficient balance.
+    // - **false**: Manual payment is enabled.
     shared_ptr<bool> autoPay_ {};
-    // The business information. This is an additional parameter.
+    // The additional parameter that contains business information.
     shared_ptr<string> businessInfo_ {};
-    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests and contains a maximum of 64 ASCII characters. The value cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to use a coupon. Valid values:
-    // 
-    // - **default** or **null** (default): A coupon is used.
-    // 
-    // - **youhuiquan_promotion_option_id_for_blank**: A coupon is not used.
+    // - **default** or **null** (default): Use a coupon.
+    // - **youhuiquan_promotion_option_id_for_blank**: Do not use a coupon.
     shared_ptr<string> couponNo_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The effective time of the configuration change. Valid values:
-    // 
-    // - **Immediately** (default): The change takes effect immediately.
-    // 
-    // - **MaintainTime**: The change takes effect during the O\\&M window of the instance.
+    // The effective period of the configuration change. Valid values: 
+    // - **Immediately** (default): The configuration change takes effect immediately.
+    // - **MaintainTime**: The configuration change takes effect within the maintenance window of the instance.
     shared_ptr<string> effectiveTime_ {};
     // The source of the request. Valid values:
-    // 
-    // - **OpenApi**: The request is from OpenAPI.
-    // 
-    // - **mongo_buy**: The request is from the console.
+    // - **OpenApi**: The request is sent from OpenAPI.
+    // - **mongo_buy**: The request is sent from the console.
     shared_ptr<string> fromApp_ {};
-    // The instance type of the shard or Mongos node. For more information, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+    // The specifications of the shard or mongos node. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/57141.html).
     shared_ptr<string> nodeClass_ {};
-    // The ID of the shard or Mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the node ID.
+    // The ID of the shard or mongos node in the sharded cluster instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the node ID.
     // 
-    // > If you set this parameter to the ID of a shard node, you must also specify the **NodeStorage** parameter.
+    // > If the value is a shard node ID, you must also specify the **NodeStorage** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> nodeId_ {};
-    // The storage space of the shard node. The step size is 10. Unit: GB.
+    // The storage space of the shard node. The step size is 10 GB.
     // 
-    // - SSD local disk: **10** to **2000**.
-    // 
-    // - ESSD PL1 disk: **20** to **16000**.
+    // - For local SSDs, valid values: **10** to **2000**.
+    // - For PL1 ESSDs, valid values: **20** to **16000**.
     shared_ptr<int32_t> nodeStorage_ {};
     // The order type. Valid values:
-    // 
-    // - **UPGRADE**: upgrades the instance configuration.
-    // 
-    // - **DOWNGRADE**: downgrades the instance configuration.
+    // - **UPGRADE**: Upgrade.
+    // - **DOWNGRADE**: Downgrade.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -282,33 +283,20 @@ namespace Models
     shared_ptr<int32_t> readonlyReplicas_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The time when the configuration change takes effect. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // > This parameter is deprecated. Use the EffectiveTime parameter instead.
+    // The time when the configuration change is executed. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+    // > **[Deprecated]** This parameter is deprecated. Use the EffectiveTime parameter instead.
     shared_ptr<string> switchTime_ {};
-    // The hidden zone to which you want to migrate the instance.
-    // 
-    // >Notice: 
-    // 
-    // This parameter is applicable only to instances that use disks.
+    // The destination hidden zone for zone migration.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
     shared_ptr<string> targetHiddenZoneId_ {};
-    // The secondary zone to which you want to migrate the instance.
-    // 
-    // >Notice: 
-    // 
-    // This parameter is applicable only to instances that use disks.
+    // The destination secondary zone for zone migration.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
     shared_ptr<string> targetSecondaryZoneId_ {};
-    // The ID of the vSwitch in the destination zone.
-    // 
-    // >Notice: 
-    // 
-    // This parameter is applicable only to instances that use disks.
+    // The ID of the destination vSwitch for zone migration.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
     shared_ptr<string> targetVswitchId_ {};
-    // The primary zone to which you want to migrate the instance.
-    // 
-    // >Notice: 
-    // 
-    // This parameter is applicable only to instances that use disks.
+    // The destination primary zone for zone migration.
+    // >Notice: This parameter is supported only for cloud disk instances.</notice>
     shared_ptr<string> targetZoneId_ {};
   };
 

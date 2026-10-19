@@ -1824,11 +1824,11 @@ namespace Models
 
 
         protected:
-          // The promotion ID.
+          // The activity ID.
           shared_ptr<int64_t> activityId_ {};
-          // The promotion name.
+          // The activity name.
           shared_ptr<string> activityName_ {};
-          // The price after the discount.
+          // The price after discount.
           shared_ptr<double> finalFee_ {};
           // The total discount amount.
           shared_ptr<double> finalPromFee_ {};
@@ -1915,25 +1915,25 @@ namespace Models
 
 
       protected:
-        // The price reduction percentage.
+        // The price reduction ratio.
         shared_ptr<double> cheapRate_ {};
-        // The total price after the price reduction.
+        // The total price on the official website after the price reduction.
         shared_ptr<double> cheapStandAmount_ {};
-        // The contract promotion.
+        // The contract discount.
         shared_ptr<DepreciateInfo::ContractActivity> contractActivity_ {};
-        // The price difference discount. This is displayed in the total price of the order.
+        // The price difference discount (displayed in the total order price).
         shared_ptr<double> differential_ {};
         // The name of the price difference discount.
         shared_ptr<string> differentialName_ {};
-        // Indicates whether a contract promotion is matched.
+        // Indicates whether a contract discount is applied.
         shared_ptr<bool> isContractActivity_ {};
-        // Indicates whether to show the price reduction.
+        // Indicates whether the price reduction margin is displayed.
         shared_ptr<string> isShow_ {};
         // The list price.
         shared_ptr<double> listPrice_ {};
-        // The monthly price.
+        // The equivalent monthly price.
         shared_ptr<double> monthPrice_ {};
-        // The original total price.
+        // The original total price on the official website.
         shared_ptr<double> originalStandAmount_ {};
       };
 
@@ -2263,18 +2263,18 @@ namespace Models
     protected:
       // The order code.
       shared_ptr<string> code_ {};
-      // Indicates whether a contract promotion is matched.
+      // Indicates whether a contract discount is applied.
       shared_ptr<bool> contractActivity_ {};
       shared_ptr<Order::Coupons> coupons_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // Information about the price reduction.
+      // The price reduction information.
       shared_ptr<Order::DepreciateInfo> depreciateInfo_ {};
       // The discount amount of the order.
       shared_ptr<string> discountAmount_ {};
-      // Indicates whether a contract promotion is matched.
+      // Indicates whether a contract discount is applied.
       shared_ptr<bool> isContractActivity_ {};
-      // The order information.
+      // The order message.
       shared_ptr<string> message_ {};
       // The list of promotion information.
       shared_ptr<string> optionalPromotions_ {};
@@ -2283,13 +2283,13 @@ namespace Models
       // The matched promotions.
       shared_ptr<string> promDetailList_ {};
       shared_ptr<Order::RuleIds> ruleIds_ {};
-      // Indicates whether to show the discount information.
+      // Indicates whether the discount information is displayed.
       shared_ptr<bool> showDiscountInfo_ {};
-      // The discount price.
+      // The discounted price.
       shared_ptr<double> standDiscountPrice_ {};
-      // The discount price.
+      // The standard discounted price.
       shared_ptr<double> standPrice_ {};
-      // The aggregate price of the order.
+      // The aggregated price of the order.
       shared_ptr<double> totalCostAmount_ {};
       // The actual transaction price of the order.
       shared_ptr<string> tradeAmount_ {};
@@ -2346,11 +2346,10 @@ namespace Models
 
 
   protected:
-    // The list of order information.
+    // The order information list.
     shared_ptr<DescribePriceResponseBody::Order> order_ {};
     // The order parameters.
-    // 
-    // > This parameter is returned only when **OrderParamOut** is set to **true**.
+    // >This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
     shared_ptr<string> orderParams_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

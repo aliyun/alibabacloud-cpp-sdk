@@ -112,23 +112,18 @@ namespace Models
 
 
   protected:
-    // The username of the account.
+    // The username.
     // 
-    // >
-    // 
-    // - The username must be 4 to 16 characters in length and can contain lowercase letters, digits, and underscores (_). The username must start with a lowercase letter.
-    // 
-    // - You must configure the account and password only when you apply for the endpoint of a shard or Configserver node for the first time. The account and password are required for all shard and Configserver nodes.
-    // 
-    // - The permissions of this account are fixed to read-only.
+    // > - The username must start with a lowercase letter and be 4 to 16 characters in length. It can contain lowercase letters, digits, and underscores (_).
+    // > - You need to set the username and password only when you apply for an endpoint for a shard or Configserver node for the first time. All shard and Configserver nodes use the username and password set during the first application.
+    // > - The account has fixed read-only permissions.
     shared_ptr<string> accountName_ {};
-    // The password for the account.
+    // The password.
     // 
-    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! # $ % ^ & * ( ) _ + - =`
-    // 
+    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `!#$%^&*()_+-=`.
     // - The password must be 8 to 32 characters in length.
     shared_ptr<string> accountPassword_ {};
-    // The ID of the sharded cluster instance.
+    // The instance ID of the sharded cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -142,7 +137,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the zone to which the instance belongs.
+    // The zone ID of the instance.
     // 
     // > You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the zone ID of the instance.
     shared_ptr<string> zoneId_ {};

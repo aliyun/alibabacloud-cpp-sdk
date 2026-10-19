@@ -167,49 +167,43 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
-    // 
-    // > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+    // The instance ID.
+    // > If you specify a sharded cluster instance ID for this parameter, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. The end time must be later than the start time and within 24 hours from the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The end time of the query. The end time must be later than the start time, and the interval between the end time and the start time cannot exceed one day. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The logical relationship between multiple keywords. Valid values:
-    // 
-    // - **or**
-    // 
-    // - **and** (default value)
+    // The logical operator for keyword search. Default value: and.
     shared_ptr<string> logicalOperator_ {};
-    // The ID of the mongos node or shard node whose error logs you want to query in the instance. If the instance is a sharded cluster instance, you must specify this parameter.
+    // The ID of a mongos node or shard node in the sharded cluster instance.
     // 
-    // > This parameter is valid only when **DBInstanceId** is set to the ID of a sharded cluster instance.
+    // > This parameter is available only when the **DBInstanceId** parameter is set to a sharded cluster instance ID.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30** to **100**.
+    // The number of entries per page. Valid values: **30** to **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keywords used for query. You can enter up to 10 keywords at a time. If you enter multiple keywords, separate the keywords with spaces.
+    // The keywords to search for. Separate multiple keywords with spaces. You can specify a maximum of 10 keywords.
     shared_ptr<string> queryKeywords_ {};
-    // The ID of the resource group. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The resource group ID. For more information about resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The role of the node whose error logs you want to query in the instance. Valid values:
+    // The role of the node in the instance. Valid values:
+    // - **primary**: primary node.
+    // - **secondary**: secondary node.
+    // - **search**: search node.
     // 
-    // - **primary**
-    // 
-    // - **secondary**
-    // 
-    // > If you set the **NodeId** parameter to the ID of a mongos node, the RoleType parameter must be set to **primary**.
+    // > If the **NodeId** parameter is set to a mongos node ID, this parameter can only be set to **primary**.
     shared_ptr<string> roleType_ {};
-    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

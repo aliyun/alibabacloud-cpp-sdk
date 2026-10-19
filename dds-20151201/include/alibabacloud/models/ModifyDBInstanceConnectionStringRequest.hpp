@@ -140,38 +140,35 @@ namespace Models
 
 
   protected:
-    // The current connection address—the address to modify.
+    // The current endpoint, which is the endpoint to be modified.
     shared_ptr<string> currentConnectionString_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // > If you specify the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<bool> forceModifySuffix_ {};
+    // The network type of the connection string when only the port number is modified.
     shared_ptr<string> networkType_ {};
-    // The new connection address. It must meet these requirements:
+    // The new endpoint. The endpoint must meet the following requirements:
+    // - It must start with a lowercase letter.
+    // - It must end with a lowercase letter or a digit.
+    // - It can contain only lowercase letters, digits, and hyphens (-).
+    // - It must be 8 to 63 characters in length.
     // 
-    // - Start with a lowercase letter.
-    // 
-    // - End with a lowercase letter or digit.
-    // 
-    // - Contain only lowercase letters, digits, and hyphens (-).
-    // 
-    // - Be 8 to 63 characters long.
-    // 
-    // > Specify only the prefix of the connection address. You cannot change any part beyond the prefix.
+    // > Specify only the prefix of the endpoint. The remaining part cannot be modified.
     shared_ptr<string> newConnectionString_ {};
-    // The new port number. Valid values are from 1000 to 65535.
-    // 
-    // > This parameter is valid only when **DBInstanceId** specifies the ID of a cloud disk instance.
+    // The new port. Valid values: 1000 to 65535.
+    // > This parameter is active only when the **DBInstanceId** parameter is set to a cloud disk instance ID.
     shared_ptr<int32_t> newPort_ {};
-    // The ID of a Mongos node in a sharded cluster instance. You can specify only one Mongos node ID per call.
+    // Instance ID of the Mongos node in the sharded cluster instance. You can specify only one Mongos node ID in each call.
     // 
-    // > This parameter is valid only when **DBInstanceId** specifies the ID of a sharded cluster instance.
+    // > This parameter is valid only when the **DBInstanceId** parameter is set to instance ID of a sharded cluster instance.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Specifies whether to modify only port numbers. If you modify only port numbers, batch modification is supported.
     shared_ptr<bool> portModifyOnly_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

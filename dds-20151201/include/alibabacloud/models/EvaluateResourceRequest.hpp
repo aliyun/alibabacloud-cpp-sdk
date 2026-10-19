@@ -160,9 +160,9 @@ namespace Models
   protected:
     // The instance type.
     // 
-    // > This parameter is required when you evaluate resources for a replica set instance. For details about instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
+    // > This parameter is required when you evaluate resources for a replica set instance. For more information about instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
     shared_ptr<string> DBInstanceClass_ {};
-    // The instance ID. This parameter is required when you evaluate resources for an instance upgrade or downgrade.
+    // The instance ID. This parameter is required when you evaluate resources for changing instance specifications.
     shared_ptr<string> DBInstanceId_ {};
     // The database engine. Set the value to **MongoDB**.
     shared_ptr<string> engine_ {};
@@ -174,29 +174,28 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The number of read-only nodes in the instance. Valid values: **1** to **5**.
     // 
-    // > This parameter is not required for standalone instances<props="china"> and Serverless instances.
+    // > This parameter is not required for standalone instances<ph props ="china"> or serverless instances</ph>.
     shared_ptr<string> readonlyReplicas_ {};
-    // The ID of the region. For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/61933.html).
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The number of nodes in the instance.
     // 
-    // - Set the value to **1** for a standalone instance.
+    // - For a standalone instance, set the value to **1**.
     // 
-    // - Set the value to **2** for an instance that uses shared storage.
+    // - For an instance with shared storage, set the value to **2**.
     // 
     // - For a replica set instance, valid values are **3**, **5**, and **7**.
     // 
     // <props="china">
-    // 
-    // > This parameter is not required for Serverless instances.
+    // > This parameter is not required for serverless instances.
     shared_ptr<string> replicationFactor_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The shard information of the sharded cluster. This parameter is required when you evaluate resources for a sharded cluster instance.
+    // The shard information of the sharded cluster instance. This parameter is required when you evaluate resources for a sharded cluster instance.
     // 
-    // To evaluate resources for a new sharded cluster instance, specify the instance type for each shard in a JSON string. Example:
+    // When you evaluate resources for a new sharded cluster instance, you must specify the specifications of each shard in a JSON-formatted character string. Example:
     // 
     // ```
     // {
@@ -208,38 +207,30 @@ namespace Models
     //          [{"Storage":50,"DBInstanceClass":"dds.shard.standard"},{"Storage":50,"DBInstanceClass":"dds.shard.standard"},   {"Storage":50,"DBInstanceClass":"dds.shard.standard"}]
     //  }
     // ```
+    // The parameter descriptions in the example are as follows:
     // 
-    // The parameters in the example are described as follows:
+    //  - ConfigSvrs: the Configserver nodes.
+    //  - Mongos: the mongos nodes.
+    //  - Shards: the shard nodes.
+    //  - Storage: the storage capacity of the target shard.
+    //  - DBInstanceClass: the instance type of the target shard. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
     // 
-    // - ConfigSvrs: The ConfigServer nodes.
-    // 
-    // - Mongos: The Mongos nodes.
-    // 
-    // - Shards: The shard nodes.
-    // 
-    // - Storage: The storage space of the target shard.
-    // 
-    // - DBInstanceClass: The instance type of the target shard. For details about instance types, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
-    // 
-    // To evaluate resources for upgrading or downgrading a sharded cluster instance, specify only the node information in a JSON string. Example:
+    // When you evaluate resources for upgrading or downgrading a sharded cluster instance, you only need to specify the node information in a JSON-formatted character string. Example:
     // 
     // ```
     // {
     //      "NodeId": "d-bp147c4d9ca7****", "NodeClass": "dds.shard.standard"
     // } 
     // ```
+    // The parameter descriptions in the example are as follows:
     // 
-    // The parameters in the example are described as follows:
-    // 
-    // - NodeId: The ID of the target node.
-    // 
-    // - NodeClass: The instance type of the target node. For details about instance types, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+    // - NodeId: the ID of the target node.
+    // - NodeClass: the instance type of the target node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
     shared_ptr<string> shardsInfo_ {};
-    // The storage space of the replica set. Unit: GB.
-    // 
-    // > This parameter is required if the instance uses cloud disks.
+    // The storage capacity of the replica set instance. Unit: GB.
+    // > This parameter is required when the instance uses cloud disks.
     shared_ptr<string> storage_ {};
-    // The ID of the zone. For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/61933.html).
+    // The zone ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query available zones.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

@@ -114,9 +114,9 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be an integer greater than 0. The default value is **1**.
+    // The page number. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The value must be an integer greater than 0. The default value is **50**.
+    // The number of entries per page. Valid values: an integer greater than 0 and up to the maximum value of the Integer data type. Default value: **50**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
