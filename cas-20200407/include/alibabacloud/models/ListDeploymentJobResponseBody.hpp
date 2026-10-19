@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(CertDomain, certDomain_);
         DARABONBA_PTR_TO_JSON(CertType, certType_);
+        DARABONBA_ANY_TO_JSON(Certificates, certificates_);
         DARABONBA_PTR_TO_JSON(Del, del_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -61,6 +62,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(CertDomain, certDomain_);
         DARABONBA_PTR_FROM_JSON(CertType, certType_);
+        DARABONBA_ANY_FROM_JSON(Certificates, certificates_);
         DARABONBA_PTR_FROM_JSON(Del, del_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -88,9 +90,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->certDomain_ == nullptr
-        && this->certType_ == nullptr && this->del_ == nullptr && this->endTime_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->instanceId_ == nullptr && this->jobType_ == nullptr && this->name_ == nullptr && this->productName_ == nullptr
-        && this->rollback_ == nullptr && this->scheduleTime_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr; };
+        && this->certType_ == nullptr && this->certificates_ == nullptr && this->del_ == nullptr && this->endTime_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr && this->jobType_ == nullptr && this->name_ == nullptr
+        && this->productName_ == nullptr && this->rollback_ == nullptr && this->scheduleTime_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->userId_ == nullptr; };
       // certDomain Field Functions 
       bool hasCertDomain() const { return this->certDomain_ != nullptr;};
       void deleteCertDomain() { this->certDomain_ = nullptr;};
@@ -103,6 +106,15 @@ namespace Models
       void deleteCertType() { this->certType_ = nullptr;};
       inline string getCertType() const { DARABONBA_PTR_GET_DEFAULT(certType_, "") };
       inline Data& setCertType(string certType) { DARABONBA_PTR_SET_VALUE(certType_, certType) };
+
+
+      // certificates Field Functions 
+      bool hasCertificates() const { return this->certificates_ != nullptr;};
+      void deleteCertificates() { this->certificates_ = nullptr;};
+      inline       const Darabonba::Json & getCertificates() const { DARABONBA_GET(certificates_) };
+      Darabonba::Json & getCertificates() { DARABONBA_GET(certificates_) };
+      inline Data& setCertificates(const Darabonba::Json & certificates) { DARABONBA_SET_VALUE(certificates_, certificates) };
+      inline Data& setCertificates(Darabonba::Json && certificates) { DARABONBA_SET_RVALUE(certificates_, certificates) };
 
 
       // del Field Functions 
@@ -206,53 +218,50 @@ namespace Models
     protected:
       // The domain names included in the certificate of the deployment task.
       shared_ptr<string> certDomain_ {};
-      // The certificate type. Valid values:
-      // 
+      // The certificate type.
       // - **upload**: uploaded certificate
       // - **buy**: purchased certificate
       // - **free**: personal test certificate (supported only on the China site)
       shared_ptr<string> certType_ {};
-      // The deletion flag. This parameter has no practical significance. Valid values:
-      // 
-      // - **0**: not deleted.
-      // - **1**: deleted.
+      // The list of SSL certificates.
+      Darabonba::Json certificates_ {};
+      // The deletion flag. This field has no practical meaning.
+      // - **0**: not deleted
+      // - **1**: deleted
       shared_ptr<int32_t> del_ {};
-      // The end time of the deployment task execution, in UNIX timestamp format (seconds).
+      // The end time of the deployment task execution. The value is a UNIX timestamp in seconds.
       shared_ptr<string> endTime_ {};
-      // The time when the deployment task was created, in UNIX timestamp format (seconds).
+      // The creation time of the deployment task. The value is a UNIX timestamp in seconds.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the deployment task was last modified, in UNIX timestamp format (seconds).
+      // The last modification time of the deployment task. The value is a UNIX timestamp in seconds.
       shared_ptr<string> gmtModified_ {};
-      // The deployment task ID. You can use this ID to query the deployment task details and status.
+      // The deployment task ID. You can use this ID to query the details and status of the deployment task.
       shared_ptr<int64_t> id_ {};
       // The instance ID of the deployment task.
       shared_ptr<string> instanceId_ {};
-      // The task type. Valid values:
-      // 
-      // - **cloud**: multi-cloud deployment task.
-      // - **user**: cloud service deployment task (excluding ECS instances).
+      // The task type.
+      // - **cloud**: multi-cloud deployment task
+      // - **user**: cloud service deployment task (excluding ECS instances)
       shared_ptr<string> jobType_ {};
       // The name of the deployment task.
       shared_ptr<string> name_ {};
       // The cloud services included in the deployment task resources.
       shared_ptr<string> productName_ {};
-      // Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned. Valid values:
-      // 
-      // - **0**: does not contain a rollback worker.
-      // - **1**: contains a rollback worker.
+      // Indicates whether the task contains a rollback worker. For example, if a cloud service in the task has been rolled back, the value **1** is returned.
+      // - **0**: The task does not contain a rollback worker.
+      // - **1**: The task contains a rollback worker.
       shared_ptr<int32_t> rollback_ {};
-      // The scheduled time of the task, in UNIX timestamp format (seconds).
+      // The scheduling time of the task. The value is a UNIX timestamp in seconds.
       shared_ptr<string> scheduleTime_ {};
-      // The start time of the deployment task execution, in UNIX timestamp format (seconds).
+      // The start time of the deployment task execution. The value is a UNIX timestamp in seconds.
       shared_ptr<string> startTime_ {};
-      // The deployment task status. Valid values:
-      // 
-      // - **pending**: pending execution.
-      // - **editing**: being edited.
-      // - **scheduling**: being scheduled.
-      // - **processing**: being deployed.
-      // - **error**: deployment failed.
-      // - **success**: deployment succeeded.
+      // The deployment task status.
+      // - **pending**: pending
+      // - **editing**: editing
+      // - **scheduling**: scheduling
+      // - **processing**: deploying
+      // - **error**: deployment failed
+      // - **success**: deployment successful
       shared_ptr<string> status_ {};
       // The user account ID (UID).
       shared_ptr<int64_t> userId_ {};
@@ -300,13 +309,13 @@ namespace Models
   protected:
     // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The data returned by the API.
+    // The data returned in the response.
     shared_ptr<vector<ListDeploymentJobResponseBody::Data>> data_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+    // The request ID. This ID is generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
-    // The number of deployment tasks per page. Default value: **50**.
+    // The number of deployment tasks returned on each page. Default value: **50**.
     shared_ptr<int32_t> showSize_ {};
-    // The total number of deployment tasks returned.
+    // The total number of deployment tasks queried.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -86,13 +86,13 @@ namespace Models
   protected:
     // The message notification quota.
     shared_ptr<string> noticeCountDetail_ {};
-    // The details of certificate brand products.
+    // The product details of certificate brands.
     shared_ptr<string> productCountList_ {};
-    // The acceleration gateway forwarding quota.
+    // The forwarding quota of the acceleration gateway.
     shared_ptr<string> proxyCountDetail_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of domain names bound to certificates.
+    // The total number of domain names bound to the certificates.
     shared_ptr<string> totalCountDetail_ {};
     // The usage of the hosting quota.
     shared_ptr<string> trusteeCountDetail_ {};
