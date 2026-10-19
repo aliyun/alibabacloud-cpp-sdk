@@ -104,14 +104,15 @@ namespace Models
 
   protected:
     // The engine type. Valid values:
-    // - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
-    // - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
-    // - **tair_pdb**: Tair (Enhanced Edition) cloud disk type (ESSD/SSD).
+    // - **redis**: open-source Redis or Tair (Memory-optimized).
+    // - **tair_pena**: Tair (Persistent Memory-optimized).
+    // - **tair_pdb**: Tair (Disk-optimized, ESSD/SSD).
     shared_ptr<string> dbType_ {};
+    // The compatible engine version.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

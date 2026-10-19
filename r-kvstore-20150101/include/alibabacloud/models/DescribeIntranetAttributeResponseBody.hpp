@@ -103,38 +103,29 @@ namespace Models
 
 
   protected:
-    // Indicates whether auto-renewal is enabled for the bandwidth package. Valid values:
+    // Indicates whether auto-renewal is enabled for the purchased bandwidth. Valid values:
+    // * **true**: Enabled.
+    // * **false**: Disabled.
     // 
-    // - **true**: Auto-renewal is enabled.
-    // 
-    // - **false**: Auto-renewal is disabled.
-    // 
-    // > This parameter is not returned if no additional bandwidth is purchased.
+    // > This parameter is not returned if no bandwidth has been purchased.
     shared_ptr<bool> autoRenewal_ {};
-    // The expiration time of the bandwidth package. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
-    // 
-    // > This parameter is not returned if no additional bandwidth is purchased.
+    // The expiration time of the purchased bandwidth, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
+    // > This parameter is not returned if no additional bandwidth has been purchased for the instance.
     shared_ptr<string> bandwidthExpireTime_ {};
-    // The billing method of the bandwidth package. Valid values:
-    // 
+    // The billing method of the bandwidth plan. Valid values:
     // - **0**: pay-as-you-go.
-    // 
     // - **1**: subscription.
     shared_ptr<string> bandwidthPrePaid_ {};
-    // The expiration time of the temporary bandwidth. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
-    // 
-    // > This parameter returns **0** if the instance has no temporary bandwidth or if the temporary bandwidth has expired.
+    // The expiration time of the temporary bandwidth, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format.
+    // > If no temporary bandwidth adjustment has been performed on the instance or the temporary bandwidth has expired, this parameter returns **0**.
     shared_ptr<string> expireTime_ {};
-    // Indicates whether the instance has an unexpired bandwidth package. Valid values:
-    // 
-    // - **true**: An unexpired bandwidth package exists.
-    // 
-    // - **false**: No unexpired bandwidth package exists.
-    // 
-    // > This parameter is not returned if no additional bandwidth is purchased.
+    // Indicates whether the instance has an unexpired bandwidth plan. Valid values:
+    // * **true**: An unexpired bandwidth plan exists.
+    // * **false**: No unexpired bandwidth plan exists.
+    // > This parameter is not returned if no additional bandwidth has been purchased for the instance.
     shared_ptr<bool> hasPrePaidBandWidthOrderRunning_ {};
     shared_ptr<int32_t> intranetBandWidthBurst_ {};
-    // The total intranet bandwidth across all shards in the instance, in MB/s.
+    // The current internal network bandwidth of the instance. This parameter indicates the total bandwidth of all shards in the instance. Unit: MB/s.
     shared_ptr<int32_t> intranetBandwidth_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

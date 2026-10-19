@@ -149,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The backup set ID.
+    // The cluster backup set ID.
     shared_ptr<string> clusterBackupId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+    // The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
@@ -159,42 +159,24 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to show backup set information for shards in the instance.
-    // 
-    // *   **true**: does not show backup set information for shards in the instance.
-    // *   **false** (default): shows backup set information for shards in the instance.
-    // 
-    // Valid values:
-    // 
-    // *   True
-    // *   False
+    // Specifies whether to display the details of the backup sets for cluster nodes. Valid values:
+    // * **false** (default): displays the backup set information of cluster nodes.
+    // * **true**: does not display the backup set information of cluster nodes.
     shared_ptr<string> noShardBackup_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // Valid values:
-    // 
-    // *   30
-    // *   50
-    // *   100
-    // *   200
-    // *   300
-    // *   5
-    // *   10
-    // *   15
-    // *   20
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

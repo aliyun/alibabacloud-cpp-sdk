@@ -121,32 +121,26 @@ namespace Models
 
 
   protected:
-    // The days of the cycle.
-    // 
-    // - If `CycleType` is `Month`, specify the days of the month (1 to 28). Separate multiple days with a comma (,).
-    // 
-    // - If `CycleType` is `Week`, specify the days of the week (1 to 7). Separate multiple days with a comma (,).
+    // The cycle time.
+    // - If CycleType is set to Month, the value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,). If the configuration does not take effect, the value is 0.
+    // - If CycleType is set to Week, the value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,). If the configuration does not take effect, the value is 0.
     shared_ptr<string> cycleTime_ {};
-    // The cycle type of the maintenance window. Valid values:
-    // 
-    // - `Month`
-    // 
-    // - `Week`
+    // The cycle type. Valid values:
+    // - Month: Monthly.
+    // - Week: Weekly.
     shared_ptr<string> cycleType_ {};
-    // The end time of the maintenance window, specified in *HH:mm:ss*Z format (UTC time).
+    // The end time of the O&M time window. The time is in the HH:mm:ssZ format (UTC time).
     shared_ptr<string> maintainEndTime_ {};
-    // The start time of the maintenance window, specified in *HH:mm:ss*Z format (UTC time).
+    // The start time of the O&M time window. The time is in the <i>HH:mm:ss</i>Z format (UTC time).
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether the configuration is enabled. Valid values:
-    // 
-    // - 1: enabled
-    // 
-    // - 2: disabled
+    // Specifies whether the configuration takes effect. Valid values:
+    // - 1: Effective.
+    // - 2: Ineffective.
     shared_ptr<int32_t> status_ {};
   };
 

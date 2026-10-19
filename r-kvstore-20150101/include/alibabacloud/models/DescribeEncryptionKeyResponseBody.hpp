@@ -130,34 +130,31 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account that is used to create the custom key.
+    // The Alibaba Cloud account ID of the key creator.
     shared_ptr<string> creator_ {};
-    // The time when the custom key is expected to be deleted. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-    // 
-    // > If the return value is an empty string, the custom key cannot be automatically deleted.
+    // The estimated time when the key is to be deleted. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // > If this parameter is empty, the key will not be automatically deleted.
     shared_ptr<string> deleteDate_ {};
-    // The description of the custom key. By default, an empty string is returned.
+    // The description of the key. By default, this parameter is empty.
     shared_ptr<string> description_ {};
-    // The ID of the custom key.
+    // The key ID of the instance.
     shared_ptr<string> encryptionKey_ {};
-    // The state of the custom key. Valid values:
-    // 
-    // *   **Enabled**: The custom key is available.
-    // *   **Disabled**: The custom key is unavailable.
+    // The status of the key. Valid values:
+    // * **Enabled**: The key is available.
+    // * **Disabled**: The key is unavailable.
     shared_ptr<string> encryptionKeyStatus_ {};
     // The encryption algorithm.
     shared_ptr<string> encryptionName_ {};
-    // The purpose of the custom key. A value of `ENCRYPT/DECRYPT` indicates encryption and decryption.
+    // The purpose of the key. The return value `ENCRYPT/DECRYPT` indicates that the key is used for encryption and decryption.
     shared_ptr<string> keyUsage_ {};
-    // The time when the custom key expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-    // 
-    // > If the return value is an empty string, the custom key does not expire.
+    // The expiration time of the key. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+    // > If this parameter is empty, the key does not expire.
     shared_ptr<string> materialExpireTime_ {};
-    // The source of the custom key. A value of **Aliyun_KMS** indicates [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) of Alibaba Cloud.
+    // The source of the key material. The return value is **Aliyun_KMS**, which indicates Alibaba Cloud [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html).
     shared_ptr<string> origin_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role to which you want to grant permissions.
+    // The global resource descriptor ARN (Alibaba Cloud Resource Name) of the role to be granted authorization.
     shared_ptr<string> roleArn_ {};
   };
 

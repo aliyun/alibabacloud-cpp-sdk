@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -103,12 +103,11 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether to disable password-free access. Valid values:
+    // The authentication mode in a VPC. Valid values:
+    // * **Open**: Uses password authentication.
+    // * **Close**: Disables password authentication and enables password-free access.
     // 
-    // *   **Open**: disables password-free access.
-    // *   **Close**: enables password-free access.
-    // 
-    // >  Default value: **Open**.
+    // > Default value: **Open**.
     // 
     // This parameter is required.
     shared_ptr<string> vpcAuthMode_ {};

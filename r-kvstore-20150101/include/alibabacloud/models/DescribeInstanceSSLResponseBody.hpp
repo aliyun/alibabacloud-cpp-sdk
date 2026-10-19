@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The common name of the CA certificate. The default value is the internal endpoint of the instance.
+    // The common name of the CA certificate. The default value is the internal network endpoint of the instance.
     shared_ptr<string> certCommonName_ {};
     // The download URL of the CA certificate.
     shared_ptr<string> certDownloadURL_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The status of the TLS (SSL) encryption feature. Valid values:
-    // 
-    // *   **Enable**: SSL encryption is enabled.
-    // *   **Disable**: SSL encryption is disabled.
+    // * **Enable**: Enabled.
+    // * **Disable**: Disabled.
     shared_ptr<string> SSLEnabled_ {};
-    // The time when the CA certificate expires.
+    // The expiration time of the CA certificate.
+    // 
+    // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
     shared_ptr<string> SSLExpiredTime_ {};
   };
 

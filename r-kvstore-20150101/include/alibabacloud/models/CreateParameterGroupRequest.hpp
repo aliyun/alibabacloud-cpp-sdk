@@ -140,44 +140,43 @@ namespace Models
 
 
   protected:
-    // The service category. Valid values:
+    // The product category. Valid values:
     // 
-    // *   **standard**: Community Edition
-    // *   **enterprise**: Enhanced Edition (Tair)
+    // * **standard**: Redis Community Edition.
+    // * **enterprise**: Tair (Enterprise Edition).
     // 
     // This parameter is required.
     shared_ptr<string> category_ {};
     // The engine type. Valid values:
     // 
-    // *   **redis**: ApsaraDB for Redis Community Edition instance or Tair DRAM-based instance
-    // *   **tair_pena**: Tair persistent memory-optimized instance
-    // *   **tair_pdb**: Tair ESSD/SSD-based instance
+    // * **redis**: Redis Community Edition or Tair memory-optimized.
+    // * **tair_pena**: Tair persistent memory-optimized.
+    // * **tair_pdb**: Tair disk-optimized (ESSD/SSD).
     // 
     // This parameter is required.
     shared_ptr<string> engineType_ {};
-    // The compatible engine version. Valid values:
+    // The compatible version. Valid values:
     // 
-    // *   For ApsaraDB for Redis Community Edition instances, set the parameter to **5.0**, **6.0**, or **7.0**.
-    // *   For Tair DRAM-based instances that are compatible with Redis 5.0, 6.0, or 7.0, set the parameter to **5.0**, **6.0**, or **7.0**.
-    // *   For Tair persistent memory-optimized instances that are compatible with Redis 6.0, set the parameter to **1.0**.
-    // *   For Tair ESSD-based instances that are compatible with Redis 6.0, set the parameter to **1.0**. For Tair SSD-based instances that are compatible with Redis 6.0, set the parameter to **2.0**.
+    // * Redis Community Edition supports **5.0**, **6.0**, and **7.0**.
+    // * Tair memory-optimized is compatible with Redis 5.0, 6.0, and 7.0 protocols. Set this parameter to **5.0**, **6.0**, or **7.0**.
+    // * Tair persistent memory-optimized is compatible with the Redis 6.0 protocol. Set this parameter to **1.0**.
+    // * Tair disk-optimized (ESSD/SSD) is compatible with the Redis 6.0 protocol. To create a parameter template for the ESSD type, set this parameter to **1.0**. To create a parameter template for the SSD type, set this parameter to **2.0**.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The description of the parameter template. The description must be 0 to 200 characters in length.
+    // The description of the parameter template. The description can be 0 to 200 characters in length.
     shared_ptr<string> parameterGroupDesc_ {};
-    // The new name of the parameter template. The name must meet the following requirements:
+    // The name of the parameter template. The name must meet the following requirements:
     // 
-    // *   The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
-    // *   The name can be 8 to 64 characters in length.
+    // - The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
+    // - The name must be 8 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupName_ {};
-    // A JSON-formatted object that specifies the parameter-value pairs. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. The specified value overwrites the original content.
-    // 
-    // >  The parameters that can be added for different editions are displayed in the console.
+    // A JSON string that consists of parameters and their values, in the following format: {"Parameter 1":"Value of Parameter 1","Parameter 2":"Value of Parameter 2"...}.
+    // > The parameters that can be added vary by version. Refer to the console for details.
     // 
     // This parameter is required.
     shared_ptr<string> parameters_ {};

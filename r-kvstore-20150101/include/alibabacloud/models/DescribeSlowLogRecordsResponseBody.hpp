@@ -261,22 +261,24 @@ namespace Models
 
 
   protected:
-    // The database engine that the instance runs.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeSlowLogRecordsResponseBody::Items> items_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of log entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The maximum number of log entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The start time of the query.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
     shared_ptr<string> startTime_ {};
-    // The total number of returned log entries.
+    // The total number of log entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

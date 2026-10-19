@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the order. On the Orders page in the Billing Management console, you can obtain the details of the order based on the order ID.
+    // The order ID. You can use this order ID to obtain the detailed information about the order in the Orders section of the User Center.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> tagKey_ {};
       // The tag values.
       shared_ptr<vector<string>> tagValues_ {};
@@ -106,13 +106,12 @@ namespace Models
 
 
   protected:
-    // The pagination token to use in the next request to get the next page. If this field is empty, there are no more results.
-    // 
-    // > If not all results are returned in one query, this parameter is returned. You can pass in the returned value of this parameter for the next query.
+    // The token used to start the next query.
+    // > This parameter is returned if a single query does not return all results. You can pass the value of this parameter in a subsequent query to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the tags.
+    // The tag information.
     shared_ptr<vector<DescribeTagsResponseBody::Tags>> tags_ {};
   };
 

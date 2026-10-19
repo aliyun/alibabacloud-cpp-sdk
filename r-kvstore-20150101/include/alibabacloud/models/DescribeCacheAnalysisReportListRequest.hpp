@@ -121,25 +121,24 @@ namespace Models
 
 
   protected:
-    // The time range to query. Default value: 7. Unit: days.
+    // The number of days within which analysis results are queried. By default, analysis results of the last 7 days are queried.
     // 
-    // > If daily automatic analysis has not started and manual analysis is not performed, no records are returned.
+    // > If the automatic analysis for the current day has not started when you query and no manual analysis task has been initiated, no records exist for the current day.
     shared_ptr<int32_t> days_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the child node in the cluster instance.
+    // The child node ID of a cluster instance.
     // 
-    // >  If you do not specify this parameter, the analysis results of all child nodes in the instance are returned.
+    // > If you do not specify this parameter, the analysis results of all child nodes are returned.
     shared_ptr<string> nodeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number to return.
     shared_ptr<int32_t> pageNumbers_ {};
     // The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
-    // 
-    // > The default value is **30**.
+    // > Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -259,7 +259,7 @@ namespace Models
       // The architecture type. Valid values:
       // * **cluster**: Cluster Edition.
       // * **standard**: Standard Edition.
-      // * **rwsplit**: read/write splitting edition.
+      // * **rwsplit**: read/write splitting Edition.
       shared_ptr<string> architectureType_ {};
       // The storage capacity of the instance. Unit: MB.
       shared_ptr<int64_t> capacity_ {};
@@ -311,7 +311,7 @@ namespace Models
       // * **VPC**: virtual private cloud (VPC).
       shared_ptr<string> networkType_ {};
       shared_ptr<string> nodeType_ {};
-      // The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (internal endpoint) to connect to the instance.
+      // The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (the internal endpoint) to connect to the instance.
       // > - This parameter is not returned if the network type of the instance is classic network.
       // > - This parameter is not returned for cloud-native instances.
       shared_ptr<string> privateIp_ {};
@@ -356,7 +356,7 @@ namespace Models
 
 
   protected:
-    // The list of instances.
+    // The array of instances.
     shared_ptr<vector<DescribeInstancesOverviewResponseBody::Instances>> instances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

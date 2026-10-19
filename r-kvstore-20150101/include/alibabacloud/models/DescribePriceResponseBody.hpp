@@ -1535,15 +1535,15 @@ namespace Models
 
 
         protected:
-          // The activity ID.
+          // The promotion ID.
           shared_ptr<int64_t> activityId_ {};
-          // The activity name.
+          // The promotion name.
           shared_ptr<string> activityName_ {};
-          // The preferential price.
+          // The price after the discount.
           shared_ptr<double> finalFee_ {};
           // The total discount amount.
           shared_ptr<double> finalPromFee_ {};
-          // The promotion code.
+          // The discount ID.
           shared_ptr<string> optionCode_ {};
           shared_ptr<ContractActivity::OptionIds> optionIds_ {};
           // The original price.
@@ -1626,25 +1626,25 @@ namespace Models
 
 
       protected:
-        // The price reduction rate.
+        // The price reduction ratio.
         shared_ptr<int64_t> cheapRate_ {};
-        // The new total price displayed on the official website.
+        // The total price on the official website after the price reduction.
         shared_ptr<int64_t> cheapStandAmount_ {};
-        // The activity information.
+        // The promotion information.
         shared_ptr<DepreciateInfo::ContractActivity> contractActivity_ {};
-        // The promotional offer (displayed in the total order amount).
+        // The price difference discount, displayed in the order total.
         shared_ptr<int64_t> differential_ {};
-        // The name of the promotional offer.
+        // The name of the price difference discount.
         shared_ptr<string> differentialName_ {};
-        // Indicates whether eligibility for the contracted discount is met.
+        // Indicates whether a contract-based discount is applied.
         shared_ptr<bool> isContractActivity_ {};
-        // Indicates whether the price reduction rate is displayed.
+        // Indicates whether the price reduction is displayed.
         shared_ptr<bool> isShow_ {};
         // The list price.
         shared_ptr<int64_t> listPrice_ {};
-        // The monthly price.
+        // The equivalent monthly price.
         shared_ptr<int64_t> monthPrice_ {};
-        // The original total price displayed on the official website.
+        // The original total price on the official website.
         shared_ptr<int64_t> originalStandAmount_ {};
       };
 
@@ -1855,28 +1855,28 @@ namespace Models
       // The order code.
       shared_ptr<string> code_ {};
       shared_ptr<Order::Coupons> coupons_ {};
-      // The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+      // The currency. The value is CNY (Chinese Yuan) for the China site and USD (US Dollar) for the international site.
       shared_ptr<string> currency_ {};
-      // The activity information.
+      // The promotion information.
       shared_ptr<Order::DepreciateInfo> depreciateInfo_ {};
       // The discount amount of the order.
       shared_ptr<string> discountAmount_ {};
-      // The service fees of the order.
+      // The service fee.
       shared_ptr<string> handlingFeeAmount_ {};
-      // Indicates whether eligibility for the contracted discount is met.
+      // Indicates whether a contract-based discount is applied.
       shared_ptr<bool> isContractActivity_ {};
-      // The information about the order.
+      // The order information.
       shared_ptr<string> message_ {};
       // The original price of the order.
       shared_ptr<string> originalAmount_ {};
       shared_ptr<Order::RuleIds> ruleIds_ {};
-      // Indicates whether the discount information is displayed.
+      // Indicates whether discount information is displayed.
       shared_ptr<bool> showDiscountInfo_ {};
-      // The discount.
+      // The discount price.
       shared_ptr<int64_t> standDiscountPrice_ {};
       // The discounted price.
       shared_ptr<int64_t> standPrice_ {};
-      // The transaction price of the order.
+      // The actual transaction price of the order.
       shared_ptr<string> tradeAmount_ {};
     };
 
@@ -1924,9 +1924,9 @@ namespace Models
 
 
   protected:
-    // The information about the order.
+    // The order information.
     shared_ptr<DescribePriceResponseBody::Order> order_ {};
-    // The parameters of the order. When OrderParamOut is set to `true`, this parameter is returned.
+    // The order parameters. This parameter is returned when OrderParamOut is set to `true`.
     shared_ptr<string> orderParams_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

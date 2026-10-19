@@ -187,55 +187,49 @@ namespace Models
 
   protected:
     // The shard type of the cluster instance. Valid values:
+    // * **proxy**: proxy node
+    // * **db**: data node
+    // * **cs**: config server node
     // 
-    // *   **proxy**: proxy node
-    // *   **db**: data node
-    // *   **cs**: config server node
-    // 
-    // >  If you set this parameter, you must also set the **NodeId** parameter.
+    // > If you specify this parameter, you must also specify the **NodeId** parameter.
     shared_ptr<string> characterType_ {};
     // The name of the database.
     shared_ptr<string> DBName_ {};
-    // The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The end time of the query. The end time must be later than the start time, and the time span between the start time and end time cannot exceed one day. We recommend that you set the time span to one hour. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the node in the instance. You can set this parameter to query the operational logs of a specified node.
+    // The ID of the node in the instance. Specify this parameter to query the running logs of a specific node.
     // 
-    // > 
-    // 
-    // *   This parameter is available only for read/write splitting and cluster instances.
-    // 
-    // *   If you set this parameter, you must also set the **CharacterType** parameter.
+    // > * This parameter is available only when the instance uses the read/write splitting or cluster architecture.
+    // > * If you specify this parameter, you must also specify the **CharacterType** parameter.
     shared_ptr<string> nodeId_ {};
-    // The method that is used to sort the returned log entries. Valid values:
-    // 
-    // *   **asc**: ascending order
-    // *   **desc**: descending order
+    // The sort order of the query results. Valid values:
+    // * **asc**: ascending order
+    // * **desc**: descending order
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+    // The maximum number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The keyword that is used to query operational logs.
+    // The keyword used to query the running logs.
     shared_ptr<string> queryKeyword_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The role of the data shard. Default value: master. Valid values:
-    // 
-    // *   **master**: master node
-    // *   **slave**: replica node
+    // The role type of the data shard. Valid values:
+    // * **master** (default): primary node
+    // * **slave**: secondary node
     shared_ptr<string> roleType_ {};
     shared_ptr<string> securityToken_ {};
-    // The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time of the query. You can view the running logs generated within the last 72 hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

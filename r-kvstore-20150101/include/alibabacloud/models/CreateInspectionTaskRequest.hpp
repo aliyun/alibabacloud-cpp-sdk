@@ -84,14 +84,32 @@ namespace Models
 
 
   protected:
+    // The end time of the inspection time range.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
     shared_ptr<string> endTime_ {};
+    // The specified inspection items. Valid values:
+    // - RESOURCE_USAGE
+    // - BIGKEY
+    // - HOTKEY
+    // - PERFORMANCE_METRICS
+    // - SLOWLOG
+    // 
     // This parameter is required.
     shared_ptr<string> inspectionItems_ {};
+    // The ID of the assistant instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of associated instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};
+    // The language of the report.
     shared_ptr<string> reportLanguage_ {};
+    // The start time of the inspection time range.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
     shared_ptr<string> startTime_ {};
   };
 

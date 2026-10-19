@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The instance ID. Only cloud-native instances are supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

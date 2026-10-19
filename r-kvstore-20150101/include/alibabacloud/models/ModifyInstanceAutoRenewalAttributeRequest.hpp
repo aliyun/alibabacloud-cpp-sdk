@@ -113,25 +113,22 @@ namespace Models
 
   protected:
     // Specifies whether to enable auto-renewal. Valid values:
+    // * **true**: Enabled.
+    // * **false**: Disabled.
     // 
-    // *   **true**
-    // *   **false**
-    // 
-    // >  The default value is **false**.
+    // > Default value: **false**.
     shared_ptr<string> autoRenew_ {};
-    // The ID of the instance. Separate multiple instance IDs with commas (,).
-    // 
+    // The instance ID. Separate multiple instance IDs with commas (,).
     // > You can specify up to 30 instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The auto-renewal period. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the instance is automatically renewed based on the number of months specified by this parameter.
-    // 
-    // > This parameter is available and required only if the **AutoRenew** parameter is set to **true**.
+    // The auto-renewal cycle. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the system automatically renews the instance for the specified duration.
+    // > This parameter is available and required only when **AutoRenew** is set to **true**.
     shared_ptr<string> duration_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The service. Set the value to kvstore.
+    // The product. Set the value to kvstore.
     shared_ptr<string> product_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

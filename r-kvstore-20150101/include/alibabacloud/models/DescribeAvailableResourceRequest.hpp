@@ -176,63 +176,55 @@ namespace Models
 
 
   protected:
-    // The display language of the response. Valid values:
-    // 
-    // *   **zh-CN**: Chinese. This is the default value.
-    // *   **en-US**: English.
+    // The language of the response. Valid values:
+    // * **zh-CN**: Chinese. This is the default value.
+    // * **en-US**: English.
     shared_ptr<string> acceptLanguage_ {};
-    // The database engine of the instance. Valid values:
-    // 
-    // *   **Redis**
-    // *   **Memcache**
+    // The engine type. Valid values:
+    // * **Redis**: Redis engine
+    // * **Memcache**: Memcache engine
     shared_ptr<string> engine_ {};
     // The billing method. Valid values:
-    // 
-    // *   **PrePaid** (default): subscription
-    // *   **PostPaid**: pay-as-you-go
+    // * **PrePaid** (default): subscription
+    // * **PostPaid**: pay-as-you-go
     shared_ptr<string> instanceChargeType_ {};
-    // The ID of the instance.
-    // 
-    // > This parameter is available and required only if the **OrderType** parameter is set to **UPGRADE** or **DOWNGRADE**.
+    // The instance ID.
+    // > This parameter is available and required only when **OrderType** is set to **UPGRADE** or **DOWNGRADE**.
     shared_ptr<string> instanceId_ {};
-    // The edition of the instance. Valid values:
-    // 
-    // *   **professional**: Standard Edition. This edition supports the standalone, master-replica, read /write splitting, and cluster architectures and provides high scalability.
+    // The product series. Valid values:
+    // - **professional**: Professional Edition. This edition supports the standalone, primary/secondary, read/write splitting, and cluster architectures, and provides high scalability.
+    //  <props="china">
+    // -  **economical**: Economical Edition. This edition supports only the primary/secondary architecture and is cost-effective. For more information, see [YiTian RDS instances](https://help.aliyun.com/document_detail/2489678.html).
     shared_ptr<string> instanceScene_ {};
-    // The ID of the data node for which you want to query available resources that can be created. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to query the ID of the data node. Remove the number sign (`#`) and the content that follows the number sign. For example, retain only r-bp10noxlhcoim2\\*\\*\\*\\*-db-0.
-    // 
-    // > Before you specify this parameter, you must set the **InstanceId** parameter to the ID of an instance that uses the cluster or read/write splitting architecture.
+    // The data node ID. You can call the [DescribeLogicInstanceTopology](https://help.aliyun.com/document_detail/473786.html) operation to obtain the data node ID. For the obtained data node ID, you must remove the number sign (`#`) and the content that follows it. For example, retain only r-bp10noxlhcoim2****-db-0.
+    // > Before you specify this parameter, you must also specify the **InstanceId** parameter, and the instance must use the cluster or read/write splitting architecture.
     shared_ptr<string> nodeId_ {};
     // The order type. Valid values:
-    // 
-    // *   **BUY** (default): orders that are used to create instances
-    // *   **UPGRADE**: orders that are used to upgrade instances
-    // *   **DOWNGRADE**: orders that are used to downgrade instances
+    // * **BUY** (default): new purchase
+    // * **UPGRADE**: upgrade instance type
+    // * **DOWNGRADE**: downgrade instance type
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The instance type. Default value: Local. Valid values:
-    // 
-    // *   **Local**: classic Redis Open-Source Edition instance or classic DRAM-based instance
-    // *   **Tair_rdb**: cloud-native DRAM-based instance
-    // *   **Tair_scm**: persistent memory-optimized instance
-    // *   **Tair_essd**: ESSD/SSD-based instance
-    // *   **OnECS**: cloud-native Redis Open-Source Edition instance
-    // 
-    // >  The default value of this parameter is Local. To query disk resources, you must specify the instance type that provides the required disk resources.
+    // The product type. Valid values:
+    // - **Local** (default): Redis Community Edition instance (classic architecture) or memory-optimized instance (classic architecture).
+    // - **Tair_rdb**: memory-optimized instance (cloud-native architecture).
+    // - **Tair_scm**: persistent memory-optimized instance.
+    // - **Tair_essd**: disk-optimized instance.
+    // - **OnECS**: Redis Community Edition instance (cloud-native architecture).
+    // > The default value is Local. If you want to query cloud disk resources, you must specify the product type that corresponds to the required cloud disk resources.
     shared_ptr<string> productType_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the IDs of resource groups.
-    // 
-    // >  You can also query the IDs of resource groups in the Resource Management console. For more information, see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The resource group ID. You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the resource group ID.
+    // > You can also obtain the resource group ID in the console. For related operations, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the most recent zone list.
+    // The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

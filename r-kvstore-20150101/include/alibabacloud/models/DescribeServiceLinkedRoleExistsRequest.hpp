@@ -94,13 +94,12 @@ namespace Models
 
 
   protected:
-    // The database engine of the instance. Only Redis is supported.
+    // The database type. You can only set this parameter to "Redis" or leave it empty.
     shared_ptr<string> engine_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance resides.
-    // 
-    // > This parameter does not affect the query results. You can specify any region ID.
+    // The region ID of the instance.
+    // > This parameter does not affect the query result. You can specify any region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

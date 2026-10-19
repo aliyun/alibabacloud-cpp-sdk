@@ -243,83 +243,74 @@ namespace Models
   protected:
     // The extended information such as the promotional event ID and business information.
     shared_ptr<string> businessInfo_ {};
-    // The storage capacity of the instance. Unit: MB. This parameter is used only to query Redis Open-Source Edition instances that are deployed in classic mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
-    // 
-    // >  If you specify the **InstanceClass** parameter, you do not need to specify the Capacity parameter.
+    // The storage capacity used to specify the instance type, in MB. This parameter is used only to query Redis Community Edition instances in classic deployment mode. We recommend that you use the **InstanceClass** parameter to specify an exact instance type.
+    // > After you specify the **InstanceClass** parameter, you do not need to specify this parameter.
     shared_ptr<int64_t> capacity_ {};
     // The billing method. Valid values:
-    // 
-    // *   **PostPaid** (default): pay-as-you-go
-    // *   **PrePaid**: subscription
+    // * **PostPaid** (default): pay-as-you-go.
+    // * **PrePaid**: subscription.
     shared_ptr<string> chargeType_ {};
-    // The coupon code. Default value: youhuiquan_promotion_option_id_for_blank. This value indicates that no coupon code is available.
+    // The coupon code. Default value: youhuiquan_promotion_option_id_for_blank, which indicates that no coupon code is used.
     shared_ptr<string> couponNo_ {};
-    // The engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+    // <props="china">Database engine version of the Redis instance. Valid values: **2.8**, **4.0**, **5.0**, and **6.0**.
+    // 
+    // <props="intl">Database engine version of the Redis instance. Valid values: **2.8**, **4.0**, and **5.0**.
+    // 
+    // <props="partner">Database engine version of the Redis instance. Valid values: **2.8**, **4.0**, and **5.0**.
     shared_ptr<string> engineVersion_ {};
-    // Specifies whether to forcefully change the configurations of the instance. Valid values:
-    // 
-    // *   **false**: forcefully changes the configurations.
-    // *   **true** (default): does not forcefully change the configurations.
+    // Specifies whether to forcibly change the configuration. Valid values:
+    // * **false**: yes.
+    // * **true** (default): no.
     shared_ptr<bool> forceUpgrade_ {};
-    // The instance type.**** **To view the instance type, perform the following steps:**
+    // The instance type specified by using the **InstanceClass** code. To find the **InstanceClass** code:
+    // 1. In the [instance type navigation](https://help.aliyun.com/document_detail/26350.html), select the desired instance type and click the value in the **Architecture** column to open the specification document.
+    // 2. In the instance type table of the specification document, find the desired instance type and locate the code in the **InstanceClass** column.
     // 
-    // 1.  In the [Instance specifications](https://help.aliyun.com/document_detail/26350.html) topic, click the link in the **References for instance specifications** column corresponding to the instance type that you want to view.
-    // 2.  In the instance type table of the specification documentation, find the instance type in the **InstanceClass** column.
-    // 
-    // >  If you want to query new instances, in addition to key parameters, you must also specify at least the following parameters:
-    // 
-    // *   To query a classic instance, specify this parameter.
-    // 
-    // *   To query a cloud-native standard instance, specify this parameter.
-    // 
-    // *   To query a cloud-native cluster instance, specify this parameter and the **ShardCount** parameter.
-    // 
-    // *   To query a cloud-native read/write splitting instance, specify this parameter and the **Instances** parameter.
-    // 
-    // *   To query multiple instances of different specifications or to query a Tair ESSD-based instance that has a custom storage type and storage capacity, specify the Instances parameter. In this case, you do not need to specify the InstanceClass parameter.
+    // > The following example describes the parameters required for querying the price of a new instance. In addition to other key parameters, specify at least the following parameters:
+    // > * Classic Edition instance: specify this parameter.
+    // > * Cloud-native Edition standard architecture instance: specify this parameter.
+    // > * Cloud-native Edition cluster architecture instance: specify this parameter and the **ShardCount** parameter.
+    // > * Cloud-native Edition read/write splitting architecture instance: specify this parameter and the **Instances** parameter.
+    // > * Multiple instances of different types, or Tair ESSD-based instances (custom storage type and storage capacity): specify the Instances parameter (this parameter is not required).
     shared_ptr<string> instanceClass_ {};
     // The instance ID.
-    // 
-    // >  This parameter is required when the **OrderType** parameter is set to **UPGRADE** or **RENEW**.
+    // > This parameter is required when **OrderType** is set to **UPGRADE** or **RENEW**.
     shared_ptr<string> instanceId_ {};
-    // If you want to query cloud-native read/write splitting instances, Tair ESSD-based instances, or instances of different specifications, you must specify this parameter as a JSON string. For more information, see the **Additional description of the Instances parameter** section.
+    // If you want to query the price of cloud-native read/write splitting architecture instances, Tair ESSD-based instances, or multiple instances of different types, specify this parameter. The value is a JSON-formatted string. For more information, see **Additional description of the Instances parameter** below.
     shared_ptr<string> instances_ {};
     // The node type. Valid values:
-    // 
-    // *   **STAND_ALONE**: standalone
-    // *   **MASTER_SLAVE** (default): high availability (master-replica)
+    // - **STAND_ALONE**: standalone (single replica).
+    // - **MASTER_SLAVE** (default): high availability (dual replicas).
     shared_ptr<string> nodeType_ {};
-    // Specifies whether to return parameters related to the order. Valid values:
-    // 
-    // *   **false** (default)
-    // *   **true**
+    // Specifies whether to return order parameters. Valid values:
+    // * **false** (default): does not return order parameters.
+    // * **true**: returns order parameters.
     shared_ptr<string> orderParamOut_ {};
     // The order type. Valid values:
-    // 
-    // *   **BUY**: specifies the orders that are used to purchase instances.
-    // *   **UPGRADE**: specifies the orders that are used to change the configurations of instances.
-    // *   **RENEW**: specifies the orders that are used to renew instances.
-    // *   **CONVERT**: specifies the orders that are used to change the billing methods of instances.
+    // * **BUY**: new purchase.
+    // * **UPGRADE**: configuration change.
+    // * **RENEW**: renewal.
+    // * **CONVERT**: billing method conversion.
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration. Unit: month. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**.
+    // The subscription duration, in months. Valid values: **1** to **9**, **12**, **24**, and **36**.
     shared_ptr<int64_t> period_ {};
-    // The number of instances that you want to purchase. Valid values: **1** to **30**. Default value: **1**.
+    // The number of instances to purchase. Valid values: **1** to **30**. Default value: **1**.
     shared_ptr<int64_t> quantity_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the secondary zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) API to query it.
-    // > The values passed for this parameter and the ZoneId parameter must be different.
+    // The secondary zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
+    // > The value of this parameter must be different from the value of the ZoneId parameter.
     shared_ptr<string> secondaryZoneId_ {};
     shared_ptr<string> securityToken_ {};
-    // The number of data shards in the cloud-native cluster instance.
+    // The number of data shard nodes in a cloud-native cluster instance.
     shared_ptr<int32_t> shardCount_ {};
-    // The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/473764.html) operation to query the zone ID.
+    // The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
     shared_ptr<string> zoneId_ {};
   };
 

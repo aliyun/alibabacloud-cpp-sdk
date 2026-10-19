@@ -61,14 +61,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The duration for which the fault lasts. Unit: minutes.
-    // 
+    // The duration of the simulated failure. Unit: minutes.
     // Valid values:
-    // 
-    // *   5
-    // *   10
+    // - 5
+    // - 10
+    // - 30
     shared_ptr<string> siteFaultTime_ {};
-    // The ID of the destination zone.
+    // The target zone ID.
     shared_ptr<string> targetZoneId_ {};
   };
 

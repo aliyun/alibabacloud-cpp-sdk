@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the service-linked role is created for Tair (Redis OSS-compatible) in the current account. Valid values:
+    // Indicates whether the service-linked role has been authorized for the current account. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Authorized.
+    // 
+    // - **false**: Not authorized.
     shared_ptr<bool> existsServiceLinkedRole_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

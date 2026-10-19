@@ -121,31 +121,29 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return the historical tasks. Default value: 0. Valid values:
-    // 
-    // *   **0**: returns the current task.
-    // *   **1**: returns the historical tasks.
+    // Specifies whether to return historical tasks. Valid values:
+    // * **0** (default): Returns current tasks.
+    // * **1**: Returns historical tasks.
     shared_ptr<int32_t> isHistory_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+    // The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Specify a value greater than **10**. Default value: **30**.
+    // The maximum number of entries per page. The value must be greater than **10**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the O&M task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
-    // 
-    // > A value of **all** indicates all region IDs.
+    // The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
+    // > Set this parameter to **all** to specify all region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The type of the O\\&M task. Valid values:
+    // The task type. Valid values:
     // 
-    // *   **rds_apsaradb_ha**: master-replica switchover
-    // *   **rds_apsaradb_transfer**: instance migration
-    // *   **rds_apsaradb_upgrade**: minor version update
+    // - **rds_apsaradb_ha**: node failover.
+    // - **rds_apsaradb_transfer**: instance migration.
+    // - **rds_apsaradb_upgrade**: minor engine version update.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

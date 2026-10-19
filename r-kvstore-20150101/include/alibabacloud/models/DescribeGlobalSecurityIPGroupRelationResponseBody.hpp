@@ -90,9 +90,8 @@ namespace Models
 
 
     protected:
-      // The IP address in the IP whitelist template.
-      // 
-      // >  Multiple IP addresses are separated by commas (,).
+      // The IP addresses in the whitelist template.
+      // > Separate multiple IP addresses with commas (,).
       shared_ptr<string> GIpList_ {};
       // The name of the IP whitelist template.
       shared_ptr<string> globalIgName_ {};
@@ -130,7 +129,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The information about the associated global IP whitelist template.
+    // The information about the associated global IP whitelist templates.
     shared_ptr<vector<DescribeGlobalSecurityIPGroupRelationResponseBody::GlobalSecurityIPGroupRel>> globalSecurityIPGroupRel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

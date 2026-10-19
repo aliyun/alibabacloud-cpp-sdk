@@ -112,17 +112,16 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The parameter template ID.
-    // 
-    // > You can view the list of parameter templates in the target region, including the parameter template ID, through the DescribeParameterGroups interface.
+    // > You can call the DescribeParameterGroups operation to query the list of parameter templates in the target region, including parameter template IDs.
     shared_ptr<string> parameterGroupId_ {};
-    // The information about parameters.
+    // The parameter information.
     shared_ptr<string> parameters_ {};
     // The region ID.
     // 

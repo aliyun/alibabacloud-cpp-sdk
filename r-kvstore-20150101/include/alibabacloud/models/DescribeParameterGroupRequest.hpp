@@ -96,11 +96,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the parameter template.
+    // The parameter template ID.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
-    // The ID of the region.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

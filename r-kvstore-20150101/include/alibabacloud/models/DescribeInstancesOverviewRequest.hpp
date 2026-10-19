@@ -235,7 +235,7 @@ namespace Models
     // The architecture type. Valid values:
     // * **cluster**: Cluster Edition.
     // * **standard**: Standard Edition.
-    // * **rwsplit**: read/write splitting edition.
+    // * **rwsplit**: read/write splitting Edition.
     shared_ptr<string> architectureType_ {};
     // The billing method. Valid values:
     // * **PrePaid**: subscription.
@@ -286,7 +286,7 @@ namespace Models
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
-    // > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations: see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -103,28 +103,27 @@ namespace Models
 
 
   protected:
-    // The JSON-formatted parameters related to the action. Set this parameter to `{"recoverMode": "xxx", "recoverTime": "xxx"}` if the **TaskAction** parameter is set to **modifySwitchTime**.
+    // The parameters related to the action, in JSON format.
+    // If **TaskAction** is set to **modifySwitchTime**, the ActionParams value is `{"recoverMode": "xxx", "recoverTime": "xxx"}`.
+    // * **recoverMode** specifies the task recovery mode. Valid values:
+    //   * **imePoint**: Execute at a specified point in time.
+    //   * **immediate**: Execute immediately.
+    //   * **maintainTime**: Execute during the O&M window.
     // 
-    // *   **recoverMode**: specifies the restoration mode for the task. Valid values:
-    // 
-    //     *   **timePoint**: performs the task at the specified point in time.
-    //     *   **immediate**: performs the task immediately.
-    //     *   **maintainTime**: performs the task within the maintenance window.
-    // 
-    // *   **recoverTime**: specifies the point in time for restoration. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter is required if the **recoverMode** parameter is set to **timePoint**.
+    // * **recoverTime** specifies the point in time, in UTC+0, in the yyyy-MM-ddTHH:mm:ssZ format. This parameter is required when **recoverMode** is set to **timePoint**.
     shared_ptr<string> actionParams_ {};
-    // The ID of the region where the instance is deployed.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The name of the current step.
+    // The name of the current execution step. You can call [DescribeHistoryTasks](https://help.aliyun.com/document_detail/2400077.html) to query the current execution step of a specified node ID. A common value is **do_pause**, which indicates waiting for the preset time to execute.
     shared_ptr<string> stepName_ {};
-    // The action name. Set the value to **modifySwitchTime**. The value specifies that you want to change the switching time or restoration time.
+    // The operation name. Currently, the valid value is **modifySwitchTime**, which indicates modifying the switchover time or recovery time.
     shared_ptr<string> taskAction_ {};
-    // The task ID. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs.
+    // The node ID. To specify multiple IDs, separate them with commas (,). You can specify up to 30 IDs.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

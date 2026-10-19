@@ -241,91 +241,89 @@ namespace Models
 
 
     protected:
-      // A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
+      // The allowed operation information. When used, the operation Action is matched based on currentStepName and status in this information. If no Action is matched, the task does not support operations in its current state. Example:
       // 
-      //     {"steps": [
-      //         {
-      //           "step_name": "exec_task", // The name of the step, which matches CurrentStepName.
-      //           "action_info": {    // The actions supported for this step.
-      //             "Waiting": [      // The status, which matches Status.
-      //               "modifySwitchTime" // The action. Multiple actions are supported.
-      //             ]
-      //           }
-      //         },
-      //         {
-      //           "step_name": "init_task", // The name of the step.
-      //           "action_info": {    // The actions supported for this step.
-      //             "Running": [      // The status.
-      //               "cancel",       // The action.
-      //               "pause"
-      //             ]
-      //           }
-      //         }
-      //       ]
+      // ```
+      // {"steps": [
+      //     {
+      //       "step_name": "exec_task", // Step name, matched with currentStepName
+      //       "action_info": {    // Operations supported by the step
+      //         "Waiting": [      // Status, matched with status
+      //           "modifySwitchTime" // Operation Action, may have multiple values, indicating multiple supported operations
+      //         ]
+      //       }
+      //     },
+      //     {
+      //       "step_name": "init_task", // Step name
+      //       "action_info": {    // Operations supported by the step
+      //         "Running": [      // Status
+      //           "cancel",       // Operation
+      //           "pause"
+      //         ]
+      //       }
       //     }
+      //   ]
+      // }
+      // ```
       // 
-      // The system may support the following actions:
-      // 
-      // *   **retry**
-      // *   **cancel**
-      // *   **modifySwitchTime**: changes the switching or restoration time.
+      // Operations that the system may support: 
+      // * **retry**: Retry.
+      // * **cancel**: Cancel.
+      // * **modifySwitchTime**: Modify the switchover time or recovery time.
       shared_ptr<string> actionInfo_ {};
-      // The ID of the user who made the request. If CallerSource is set to User, CallerUid indicates the unique ID (UID) of the user.
+      // The request user ID. When callerSource is User, this value represents the user UID.
       shared_ptr<string> callerSource_ {};
-      // The request source. Valid values:
-      // 
-      // *   **System**
-      // *   **User**
+      // The request source. Valid values: 
+      // * **System**: Automatically initiated by the system.
+      // * **User**: Initiated by a user.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step. If this parameter is left empty, the task is not started.
+      // The name of the current step being executed. An empty value indicates that the task has not started.
       shared_ptr<string> currentStepName_ {};
-      // The database type. The return value is redis.
+      // The database type. The value is fixed as redis.
       shared_ptr<string> dbType_ {};
-      // The end time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The end time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The instance type. The return value is Instance.
+      // The instance type. The value is fixed as Instance.
       shared_ptr<string> instanceType_ {};
-      // The product. The return value is kvstore.
+      // The product. The value is fixed as kvstore.
       shared_ptr<string> product_ {};
-      // The task progress. Valid values: 0 to 100.
+      // The current progress. Valid values: 0 to 100.
       shared_ptr<float> progress_ {};
       // The reason why the current task was initiated.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The estimated amount of time remaining to complete the task. Unit: seconds. A value of 0 indicates that the task is completed.
+      // The estimated remaining execution time. Unit: seconds. A value of 0 indicates that the execution is complete.
       shared_ptr<int32_t> remainTime_ {};
-      // The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The start time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> startTime_ {};
-      // The task status.
-      // 
-      // *   **Scheduled**
-      // *   **Running**
-      // *   **Succeed**
-      // *   **Failed**
-      // *   **Cancelling**
-      // *   **Canceled**
-      // *   **Waiting**
+      // The task status. Valid values:
+      // - **Scheduled**: Waiting for execution.
+      // - **Running**: Running.
+      // - **Succeed**: Succeeded.
+      // - **Failed**: Failed.
+      // - **Cancelling**: Being stopped.
+      // - **Canceled**: Stopped.
+      // - **Waiting**: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
-      // The task details. The details vary based on the task type.
+      // The task details. Different task types correspond to different outputs.
       shared_ptr<string> taskDetail_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The task type.
-      // 
-      // *   **ModifyInsSpec**
-      // *   **DeleteInsNode**
-      // *   **AddInsNode**
-      // *   **HaSwitch**
-      // *   **RestartIns**
-      // *   **CreateIns**
-      // *   **ModifyInsConfig**
+      // The task type. Valid values:
+      // - **ModifyInsSpec**: Specification change or migration.
+      // - **DeleteInsNode**: Shard deletion.
+      // - **AddInsNode**: Shard addition.
+      // - **HaSwitch**: Primary/secondary switchover.
+      // - **RestartIns**: Instance restart.
+      // - **CreateIns**: Instance creation.
+      // - **ModifyInsConfig**: Configuration change.
       shared_ptr<string> taskType_ {};
-      // The ID of the user to which the resources belong.
+      // The user ID of the resource owner.
       shared_ptr<string> uid_ {};
     };
 
@@ -369,15 +367,15 @@ namespace Models
 
 
   protected:
-    // The queried task objects.
+    // The list of task objects.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of tasks that meet these constraints without taking pagination into account.
+    // The total number of tasks that meet the query conditions, regardless of pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The name of the parameter.
+        // The parameter name.
         shared_ptr<string> paramName_ {};
-        // The value of the parameter.
+        // The parameter value.
         shared_ptr<string> paramValue_ {};
       };
 
@@ -180,24 +180,20 @@ namespace Models
 
 
     protected:
-      // The service category. Valid values:
+      // The product category. Valid values:
       // 
-      // *   **0**: Redis Open-Source Edition
-      // *   **1**: Tair (Enterprise Edition)
+      // - **0**: Redis Community Edition.
+      // - **1**: Tair (Enterprise Edition).
       shared_ptr<int64_t> category_ {};
       // The time when the parameter template was created.
       shared_ptr<string> created_ {};
-      // The engine type. Valid values:
-      // 
-      // * *redis*: Redis or Tair DRAM-based instance
-      // * *tair_pena*: Tair persistent memory-optimized instance
-      // * *tair_pdb*: Tair ESSD-based instance
+      // The engine of the parameter template.
       shared_ptr<string> engine_ {};
-      // The compatible engine version.
+      // The engine-compatible version.
       shared_ptr<string> engineVersion_ {};
       // The time when the parameter template was last modified.
       shared_ptr<string> modified_ {};
-      // The parameter template ID, which is globally unique.
+      // The globally unique ID of the parameter template.
       shared_ptr<string> paramGroupId_ {};
       // The parameter details of the parameter template.
       shared_ptr<vector<ParameterGroup::ParamGroupsDetails>> paramGroupsDetails_ {};
@@ -226,7 +222,7 @@ namespace Models
 
 
   protected:
-    // The information about the parameter template.
+    // The parameter template object.
     shared_ptr<DescribeParameterGroupResponseBody::ParameterGroup> parameterGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

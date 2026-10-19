@@ -179,16 +179,40 @@ namespace Models
 
 
       protected:
+        // The time when the task was created.
+        // 
+        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> createTime_ {};
+        // The end time of the task.
+        // 
+        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> endTime_ {};
+        // The completion time of the task.
+        // 
+        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> finishTime_ {};
+        // The specified inspection items. The following inspection items are supported:
+        // - RESOURCE_USAGE
+        // - BIGKEY
+        // - HOTKEY
+        // - PERFORMANCE_METRICS
+        // - SLOWLOG
         shared_ptr<string> inspectionItems_ {};
+        // The list of associated instance IDs.
         shared_ptr<string> instanceIds_ {};
+        // The language of the report.
         shared_ptr<string> reportLanguage_ {};
+        // The ID of the scheduled task.
         shared_ptr<string> scheduleId_ {};
+        // The source of the task.
         shared_ptr<string> source_ {};
+        // The start time of the task.
+        // 
+        // The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
         shared_ptr<string> startTime_ {};
+        // The status of the task.
         shared_ptr<string> status_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -225,9 +249,13 @@ namespace Models
 
 
     protected:
+      // The list of tasks.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The page number.
       shared_ptr<int64_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -257,8 +285,11 @@ namespace Models
 
 
   protected:
+    // The task data.
     shared_ptr<DescribeInspectionTasksResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -103,7 +103,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The IP address of the client.
+    // The source IP address of the user.
     // 
     // This parameter is required.
     shared_ptr<string> srcIp_ {};

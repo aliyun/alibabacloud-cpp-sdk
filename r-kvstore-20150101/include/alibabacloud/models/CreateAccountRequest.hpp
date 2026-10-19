@@ -150,18 +150,18 @@ namespace Models
 
   protected:
     // The description of the account.
-    // * Must start with a Chinese character or an English letter. Cannot start with `http://` or `https://`.
-    // * Can contain Chinese characters, English letters, digits, underscores (_), and hyphens (-). 
-    // * Must be 2 to 256 characters in length.
+    // * The description must start with a Chinese character or an English letter. It cannot start with `http: //` or `https: //`.
+    // * The description can contain Chinese characters, English letters, digits, underscores (_), and hyphens (-). 
+    // * The description must be 2 to 256 characters in length.
     shared_ptr<string> accountDescription_ {};
     // The account name. The name must meet the following requirements:
-    // * Starts with a lowercase letter and contains only lowercase letters, digits, or underscores (_).
-    // * Contains up to 100 characters.
-    // * Cannot be a <props="china">[Redis reserved account name](https://www.alibabacloud.com/help/en/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3)<props="intl">[Redis reserved account name](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3).
+    // * The name starts with a lowercase letter and can contain lowercase letters, digits, or underscores (_).
+    // * The name is up to 100 characters in length.
+    // * The name cannot be a <props="china">[reserved word for Redis account names](https://www.alibabacloud.com/help/en/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3)<props="intl">[reserved word for Redis account names](https://www.alibabacloud.com/help/zh/redis/user-guide/create-and-manage-database-accounts#section-u3q-817-om3).
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The password of the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. The following special characters are supported: `!@#$%^&*()_+-=`.
+    // The password of the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Allowed special characters include `!@#$%^&*()_+-=`.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
@@ -178,6 +178,7 @@ namespace Models
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The account parameters to modify in JSON format. The new values overwrite the original values.
+    // >Notice: This parameter is supported only for Tair Serverless KV instances.
     shared_ptr<string> parameters_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

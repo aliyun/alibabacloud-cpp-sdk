@@ -253,19 +253,23 @@ namespace Models
 
   protected:
     // The end time of the query.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
     shared_ptr<string> endTime_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
     shared_ptr<DescribeAuditRecordsResponseBody::Items> items_ {};
-    // The page number of the returned page.
+    // The page number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The start time of the query.
+    // 
+    // The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
     shared_ptr<string> startTime_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

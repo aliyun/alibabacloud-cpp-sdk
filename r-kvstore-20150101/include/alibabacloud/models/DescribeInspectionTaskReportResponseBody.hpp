@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The number of high-risk items.
         shared_ptr<int64_t> error_ {};
+        // The number of failed items.
         shared_ptr<int64_t> failed_ {};
+        // The number of normal items.
         shared_ptr<int64_t> normal_ {};
+        // The number of warning items.
         shared_ptr<int64_t> warning_ {};
       };
 
@@ -174,11 +178,17 @@ namespace Models
 
 
     protected:
+      // The list of associated instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
+      // The Markdown text of the report details.
       shared_ptr<string> markdownText_ {};
+      // The report language.
       shared_ptr<string> reportLanguage_ {};
+      // The task status.
       shared_ptr<string> status_ {};
+      // The summary.
       shared_ptr<Data::Summary> summary_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -208,8 +218,11 @@ namespace Models
 
 
   protected:
+    // The task report.
     shared_ptr<DescribeInspectionTaskReportResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

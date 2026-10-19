@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The parameter template ID, which is globally unique.
+    // The parameter template ID.
     shared_ptr<string> paramGroupId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

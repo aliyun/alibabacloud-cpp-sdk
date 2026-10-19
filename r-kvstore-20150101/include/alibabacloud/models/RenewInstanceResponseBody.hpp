@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The end time of the order.
+    // The end time of the order. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
     shared_ptr<string> endTime_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

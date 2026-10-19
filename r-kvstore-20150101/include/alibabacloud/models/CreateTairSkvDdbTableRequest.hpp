@@ -169,7 +169,7 @@ namespace Models
   protected:
     // The cluster backup set ID. Some new cluster architectures support this parameter. You can call [DescribeClusterBackupList](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeclusterbackuplist-redis) to obtain the ID.
     shared_ptr<string> backupId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and cannot exceed 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The instance type. Set the value to tair_skv_ddb_table.
     // 
@@ -187,7 +187,7 @@ namespace Models
     // The table schema configuration in JSON format.
     shared_ptr<string> schema_ {};
     shared_ptr<string> securityToken_ {};
-    // To create an instance from a backup set of an existing instance, specify the source instance ID in this parameter.
+    // To create an instance from a backup set of an existing instance, specify the ID of the source instance in this parameter.
     // 
     // > This parameter must be used together with BackupId.
     shared_ptr<string> srcDBInstanceId_ {};

@@ -233,9 +233,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCacheAnalysisReportListResponseBody::DailyTasks> dailyTasks_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

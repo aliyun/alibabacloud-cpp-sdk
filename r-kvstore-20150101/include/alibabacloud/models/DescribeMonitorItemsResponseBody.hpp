@@ -127,7 +127,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMonitorItemsResponseBody::MonitorItems> monitorItems_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -339,96 +339,93 @@ namespace Models
 
 
       protected:
-        // The cloud service type of the application group. Valid values:
-        // 
-        // *   **web**: web application.
-        // *   **native**: local application.
+        // The type of the cloud service for the application group. Valid values:
+        // - **web**: Web applications.
+        // - **native**: Native applications.
         shared_ptr<string> cmsProduct_ {};
-        // The database type.
+        // The type of the database.
         shared_ptr<string> dbType_ {};
         // The pagination parameter.
         shared_ptr<string> detailImpact_ {};
         // The details of the instance operation.
         shared_ptr<string> detailReason_ {};
-        // The time when the alert was closed.
-        shared_ptr<string> endTime_ {};
-        // The system event category. Valid values:
+        // The end time of the alert.
         // 
-        // *   **Exception**: abnormal events
-        // *   **Optimize**: optimization events.
-        // *   **Notification**: notification events.
-        // *   **Maintenance**: scheduled maintenance events.
+        // Specify the time in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
+        shared_ptr<string> endTime_ {};
+        // The category of the system event. Valid values:
+        // - **Exception**: Exception events.
+        // - **Optimize**: Optimization events.
+        // - **Notification**: Notification events.
+        // - **Maintenance**: Scheduled O&M events.
         shared_ptr<string> eventCategory_ {};
-        // The event code.
+        // The code of the event.
         shared_ptr<string> eventCode_ {};
-        // The event details.
+        // The details of the event.
         shared_ptr<string> eventDetail_ {};
         // The ID of the event.
         shared_ptr<string> eventId_ {};
-        // The event impact.
+        // The impact overview of the event.
         shared_ptr<string> eventImpact_ {};
-        // The level of the event. Valid values:
-        // 
-        // *   **INFO**
-        // *   **WARN**
-        // *   **CRITICAL**
+        // The event level. Valid values:
+        // - **INFO**: Information.
+        // - **WARN**: Warning.
+        // - **CRITICAL**: Critical.
         shared_ptr<string> eventLevel_ {};
-        // The event source.
+        // The source of the event operation.
         shared_ptr<string> eventReason_ {};
         // The status of the event. Valid values:
-        // 
-        // *   **Inquiring**
-        // *   **Scheduled**
-        // *   **Running**
-        // *   **Succeed**
-        // *   **Failed**
-        // *   **Canceled**
+        // - **Inquiring**: Inquiring.
+        // - **Scheduled**: Scheduled.
+        // - **Running**: Running.
+        // - **Succeed**: Succeeded.
+        // - **Failed**: Failed.
+        // - **Canceled**: Canceled.
         shared_ptr<string> eventStatus_ {};
-        // The type of the system event. Valid values:
-        // 
-        // *   **SystemMaintenance.Reboot**: The instance was restarted due to system maintenance.
-        // *   **SystemMaintenance.Redeploy**: The instance was redeployed due to system maintenance.
-        // *   **SystemFailure.Reboot**: The instance was restarted due to system failures.
-        // *   **SystemFailure.Redeploy**: The instance was redeployed due to system failures.
-        // *   **SystemFailure.Delete**: The instance was released due to an instance creation failure.
-        // *   **InstanceFailure.Reboot**: The instance was restarted due to an instance error.
-        // *   **InstanceExpiration.Stop**: The subscription instance was stopped due to expiration.
-        // *   **InstanceExpiration.Delete**: The subscription instance was released due to expiration.
-        // *   **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
-        // *   **AccountUnbalanced.Delete**: The pay-as-you-go instance was released due to an overdue payment.
+        // The system event type. Valid values: 
+        // - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
+        // - **SystemMaintenance.Redeploy**: Redeployment of the instance due to system maintenance.
+        // - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
+        // - **SystemFailure.Redeploy**: Redeployment of the instance due to a system fault.
+        // - **SystemFailure.Delete**: The instance is released due to a failed creation.
+        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
+        // - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
+        // - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
+        // - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
+        // - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
         shared_ptr<string> eventType_ {};
-        // The time when the event was created.
+        // The creation time of the event.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the event was updated.
+        // The update time of the event.
         shared_ptr<string> gmtModified_ {};
-        // The status of the event. Valid values:
+        // The handling status.
         shared_ptr<string> handleStatus_ {};
         // Indicates whether the event has a lifecycle.
         shared_ptr<int32_t> hasLifeCycle_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
+        // The name of the instance.
         shared_ptr<string> instanceName_ {};
         // Indicates whether the event is closed. Valid values:
-        // 
-        // *   **0**: closed.
-        // *   **1**: not closed.
+        // - **0**: Closed.
+        // - **1**: Open.
         shared_ptr<int32_t> isClosed_ {};
         // The name of the product.
         shared_ptr<string> product_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource type of the instance. Valid values:
-        // 
-        // *   **Instance**: instance resources.
-        // *   **Host**: host resources.
-        // *   **User**: user resources.
+        // The type of the resource. Valid values:
+        // - **Instance**: Instance resources.
+        // - **Host**: Host resources.
+        // - **User**: User resources.
         shared_ptr<string> resourceType_ {};
         // The type of the source data.
         shared_ptr<string> sourceType_ {};
-        // The start time of the event.
+        // The start time.
+        // 
+        // Specify the time in the YYYY-MM-DDTHH:mmZ format. The time must be in UTC.
         shared_ptr<string> startTime_ {};
-        // The ID of the user to which the resources belong.
+        // The ID of the user to which the resource belongs.
         shared_ptr<string> uid_ {};
       };
 
@@ -494,21 +491,21 @@ namespace Models
 
 
     protected:
-      // The data returned.
+      // The data overview.
       shared_ptr<Items::Data> data_ {};
       // The ID of the task.
       shared_ptr<string> id_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
       // The source of the event.
       shared_ptr<string> source_ {};
-      // The database engine version.
+      // The database version.
       shared_ptr<string> specversion_ {};
       // The name of the pending event.
       shared_ptr<string> subject_ {};
-      // The amount of time that has elapsed from the start time of the query. Unit: seconds.
+      // The running duration of the query task. Unit: seconds.
       shared_ptr<string> time_ {};
-      // The type of the event.
+      // The event type.
       shared_ptr<string> type_ {};
     };
 
@@ -552,15 +549,15 @@ namespace Models
 
 
   protected:
-    // A list of events.
+    // The list of events.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of returned events.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

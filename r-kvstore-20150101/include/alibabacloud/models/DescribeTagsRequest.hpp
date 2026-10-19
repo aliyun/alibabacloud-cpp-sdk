@@ -94,9 +94,8 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // > This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+    // The token used to start the next query to return more results.
+    // > You do not need to provide this parameter for the first query. If a single query does not return all results, you can pass the **NextToken** value returned in the previous response to continue the query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -106,7 +105,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type. Valid values: **INSTANCE** or **instance**.
+    // The resource type. Valid values: **INSTANCE** and **instance**.
     shared_ptr<string> resourceType_ {};
   };
 

@@ -112,18 +112,18 @@ namespace Models
 
 
   protected:
-    // The ID of the distributed instance.
+    // The distributed instance ID.
     shared_ptr<string> globalInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+    // The page number. Set the value to a number that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries to return each page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the child instance that is attached to the distributed instance.
+    // The child instance ID.
     shared_ptr<string> subInstanceId_ {};
   };
 

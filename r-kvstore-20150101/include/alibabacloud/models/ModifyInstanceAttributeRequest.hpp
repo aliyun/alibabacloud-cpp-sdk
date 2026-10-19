@@ -112,22 +112,20 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The new name of the instance. The name must be 2 to 80 characters in length. The name must start with a letter and cannot contain spaces and the following special characters: `@ / : = " < > { [ ] }`
+    // The new instance name. The name must be 2 to 80 characters in length and must start with an uppercase letter, a lowercase letter, or a Chinese character. The name cannot contain spaces or the following special characters: `@/:="<>{[]}`
     shared_ptr<string> instanceName_ {};
-    // [Specifies whether to enable release protection for the instance.](https://help.aliyun.com/document_detail/165005.html) Valid values:
+    // The [release protection status](https://help.aliyun.com/document_detail/165005.html) of the instance. Valid values:
+    // * **true**: Enabled.
+    // * **false**: Disabled.
     // 
-    // *   **true**: enables release protection.
-    // *   **false**: disables release protection.
-    // 
-    // >  This parameter is available only for pay-as-you-go instances.
+    // > This parameter is supported only for pay-as-you-go instances.
     shared_ptr<bool> instanceReleaseProtection_ {};
-    // The new password for the default account. The default account is named after the instance ID. Example: r-bp10noxlhcoim2\\*\\*\\*\\*.
-    // 
-    // > The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // The new password of the default account. The default account is named after the instance ID (for example, r-bp10noxlhcoim2****).
+    // > The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (`!@#$%^&*()_+-=`).
     shared_ptr<string> newPassword_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

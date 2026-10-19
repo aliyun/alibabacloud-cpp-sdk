@@ -317,67 +317,66 @@ namespace Models
 
 
     protected:
-      // Indicates whether the event can be canceled. The value 1 indicates that the event can be canceled. The value 0 indicates that the event cannot be canceled.
+      // Indicates whether the event can be canceled. A value of 1 indicates that the event can be canceled. A value of 0 indicates that the event cannot be canceled.
       shared_ptr<string> allowCancel_ {};
-      // Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
+      // Indicates whether the event time can be modified. A value of 1 indicates that the time can be modified. A value of 0 indicates that the time cannot be modified.
       shared_ptr<string> allowChange_ {};
-      // The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
+      // The event level code. S1 indicates system O&M. S0 indicates risk recovery.
       shared_ptr<string> changeLevel_ {};
-      // The level of the task in English.
+      // The event level in English.
       shared_ptr<string> changeLevelEn_ {};
-      // The level of the task in Chinese.
+      // The event level in Chinese.
       shared_ptr<string> changeLevelZh_ {};
-      // The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
       // The current zone.
       shared_ptr<string> currentAVZ_ {};
-      // The database type of the instance. The return value is **Redis**.
+      // The database type. Return value: **redis**.
       shared_ptr<string> dbType_ {};
-      // The version of the database engine.
+      // The Milvus version number of the kernel.
       shared_ptr<string> dbVersion_ {};
-      // The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+      // The latest deadline by which the task execution time can be adjusted, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> deadline_ {};
-      // The ID of the O\\&M event.
+      // The O&M event ID.
       shared_ptr<int32_t> id_ {};
-      // The impact of the task.
+      // The event impact.
       shared_ptr<string> impact_ {};
-      // The impact of the task in English.
+      // The event impact in English.
       shared_ptr<string> impactEn_ {};
-      // The impact of the task in Chinese.
+      // The event impact in Chinese.
       shared_ptr<string> impactZh_ {};
-      // The alias and description of the instance.
+      // The instance alias or description.
       shared_ptr<string> insComment_ {};
       // The instance ID.
       shared_ptr<string> insName_ {};
-      // The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The modification time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
-      // The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+      // The preparation time required between the start time and the switchover time. Format: HH:mm:ss.
       shared_ptr<string> prepareInterval_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> region_ {};
-      // The information about the execution result.
+      // The execution result information.
       shared_ptr<string> resultInfo_ {};
-      // The time when the event is executed in the backend. The time must be in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+      // The time when the backend starts executing the event, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> startTime_ {};
-      // The status of the O\\&M event. Valid values:
-      // 
-      // *   **3**: filters pending events.
-      // *   **4**: filters in-progress events.
-      // *   **5**: filters successful events.
-      // *   **6**: filters failed events.
-      // *   **7**: filters canceled events.
+      // The status of the O&M event. Valid values:
+      // - **3**: pending.
+      // - **4**: being processed.
+      // - **5**: ended successfully.
+      // - **6**: ended with failure.
+      // - **7**: canceled.
       shared_ptr<int32_t> status_ {};
       // The list of sub-events.
       shared_ptr<vector<string>> subInsNames_ {};
-      // The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the backend initiates the switchover operation, in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> switchTime_ {};
-      // The O\\&M event parameters.
+      // The O&M event parameters.
       shared_ptr<string> taskParams_ {};
-      // The type of the O\\&M event.
+      // The type of the O&M event.
       shared_ptr<string> taskType_ {};
-      // The cause of the O\\&M event.
+      // The reason for the O&M event in English.
       shared_ptr<string> taskTypeEn_ {};
-      // The reason for the task in Chinese.
+      // The task reason in Chinese.
       shared_ptr<string> taskTypeZh_ {};
     };
 
@@ -421,15 +420,15 @@ namespace Models
 
 
   protected:
-    // The list of O\\&M events.
+    // The list of O&M events.
     shared_ptr<vector<DescribeActiveOperationTasksResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Default 25.
+    // The number of entries per page. Default value: 25.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of O\\&M events returned.
+    // The total number of O&M event records returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

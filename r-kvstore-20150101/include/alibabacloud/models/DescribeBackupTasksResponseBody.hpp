@@ -131,32 +131,29 @@ namespace Models
     protected:
       // The ID of the backup task.
       shared_ptr<int64_t> backupJobID_ {};
-      // The state of the backup task. Valid values:
-      // 
-      // *   **NoStart**: The backup task is not started.
-      // *   **Preparing**: The backup task is being prepared.
-      // *   **Waiting**: The backup task is pending.
-      // *   **Uploading**: The system is uploading the backup file.
-      // *   **Checking**: The system is checking the uploaded backup file.
-      // *   **Finished**: The backup task is completed.
+      // The status of the backup task. Valid values:
+      // * **NoStart**: not started
+      // * **Preparing**: preparing
+      // * **Waiting**: waiting
+      // * **Uploading**: uploading
+      // * **Checking**: checking
+      // * **Finished**: completed
       shared_ptr<string> backupProgressStatus_ {};
       // The backup mode. Valid values:
-      // 
-      // *   **Automated**: automatic backup
-      // *   **Manual**: manual backup
+      // * **Automated**: automatic backup.
+      // * **Manual**: manual backup.
       shared_ptr<string> jobMode_ {};
       // The ID of the data node.
       shared_ptr<string> nodeId_ {};
-      // The progress of the backup task in percentage.
+      // The progress percentage of the backup task. This parameter is not recommended. Refer to the **Progress** parameter.
       shared_ptr<string> process_ {};
-      // The backup progress.
+      // The progress percentage of the backup. Valid values: 0 to 100.
       shared_ptr<string> progress_ {};
-      // The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start time of the backup task. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
       // The type of the backup task. Valid values:
-      // 
-      // *   **TempBackupTask**: The backup task was manually performed.
-      // *   **NormalBackupTask**: The backup task was automatically performed.
+      // * **TempBackupTask**: temporary backup task, which indicates a manual backup.
+      // * **NormalBackupTask**: normal backup task, which indicates an automatic backup.
       shared_ptr<string> taskAction_ {};
     };
 
@@ -244,19 +241,19 @@ namespace Models
 
 
     protected:
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authAction_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> noPermissionType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> policyType_ {};
     };
 
@@ -295,13 +292,13 @@ namespace Models
 
 
   protected:
-    // The following parameters are no longer used. Ignore the parameters.
+    // **[Deprecated]** This group of parameters is deprecated. Ignore these parameters.
     shared_ptr<DescribeBackupTasksResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
     // The details of the backup tasks.
     shared_ptr<vector<DescribeBackupTasksResponseBody::BackupJobs>> backupJobs_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

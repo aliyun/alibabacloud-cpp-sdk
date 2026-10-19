@@ -84,8 +84,12 @@ namespace Models
 
 
   protected:
+    // The number of LBs to add.
+    // 
     // This parameter is required.
     shared_ptr<string> addCount_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};

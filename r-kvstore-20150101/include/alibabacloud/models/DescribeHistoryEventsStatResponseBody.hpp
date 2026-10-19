@@ -70,14 +70,13 @@ namespace Models
 
 
     protected:
-      // The system event category. Valid values:
-      // 
-      // *   **Exception**: abnormal events
-      // *   **Optimize**: optimization events.
-      // *   **Notification**: notification events.
-      // *   **Maintenance**: scheduled maintenance events.
+      // The system event categorization. Valid values:
+      // - **Exception**: Exception event.
+      // - **Optimize**: Optimization events.
+      // - **Notification**: Notification event.
+      // - **Maintenance**: Scheduled maintenance event.
       shared_ptr<string> eventCategory_ {};
-      // The total number of returned events.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -100,7 +99,7 @@ namespace Models
 
 
   protected:
-    // The queried events.
+    // The event list.
     shared_ptr<vector<DescribeHistoryEventsStatResponseBody::Items>> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

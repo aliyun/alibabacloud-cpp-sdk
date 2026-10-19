@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<string> pageNum_ {};
+    // The number of entries per page. Default value: 20.
     shared_ptr<string> pageSize_ {};
     shared_ptr<string> securityToken_ {};
+    // The task type.
+    // - 1: manual task
+    // - 2: scheduled task
     shared_ptr<string> type_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+    // The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -103,9 +103,8 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The total expected bandwidth of the instance.
-    // 
-    // > If the instance is a cluster instance, the TargetIntranetBandwidth must be divisible by the number of shards in the instance. This operation is not supported for read/write splitting instances.
+    // The total target bandwidth value of the instance.
+    // >Notice:  If the instance is a Cluster Edition instance, the total target bandwidth value must be evenly divisible by the number of shards. This operation is not supported for new-architecture read/write splitting instances.
     // 
     // This parameter is required.
     shared_ptr<string> targetIntranetBandwidth_ {};

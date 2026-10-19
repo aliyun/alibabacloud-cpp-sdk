@@ -66,10 +66,18 @@ namespace Models
 
 
   protected:
+    // The account name.
+    // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The account parameters to modify, in JSON format. The modified values overwrite the original values. For example, if you want to modify only the access-db-id parameter to 1, pass in {"access-db-id":"1"}.
+    // Only two parameters are supported: access-db-id (accessible DB ID) and cu-limit (CU Limit).
+    // >Notice: Currently, only Tair Serverless KV instances are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> parameters_ {};
     shared_ptr<string> securityToken_ {};

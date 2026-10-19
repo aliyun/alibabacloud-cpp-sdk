@@ -99,21 +99,20 @@ namespace Models
 
 
   protected:
-    // Details of the large keys.
+    // The list of big keys.
     shared_ptr<vector<Darabonba::Json>> bigKeys_ {};
-    // Details of the hotkeys.
-    // 
-    // > This parameter is not returned because Tair (Redis OSS-compatible) does not support hotkey analytics.
+    // The list of hot keys.
+    // > Hot key analysis is not supported. No value is returned.
     shared_ptr<vector<Darabonba::Json>> hotKeys_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries returned across all pages.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

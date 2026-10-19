@@ -165,10 +165,10 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<ModifyInstanceNetExpireTimeResponseBody::NetInfoItems> netInfoItems_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

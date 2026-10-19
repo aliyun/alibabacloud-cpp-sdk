@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the timed scheduling.
     shared_ptr<string> scheduleId_ {};
     shared_ptr<string> securityToken_ {};
   };

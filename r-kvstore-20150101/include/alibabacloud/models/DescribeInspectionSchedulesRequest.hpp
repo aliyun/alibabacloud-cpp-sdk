@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether the scheduled task is enabled.
     shared_ptr<int64_t> enabled_ {};
+    // The instance ID of the assistant.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The ID of the timed scheduling.
     shared_ptr<string> scheduleId_ {};
     shared_ptr<string> securityToken_ {};
   };

@@ -196,28 +196,26 @@ namespace Models
 
 
       protected:
-        // The ID of the host in the dedicated cluster.
+        // The host ID in the dedicated cluster.
         shared_ptr<string> dedicatedHostName_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
         // The node ID.
         shared_ptr<int32_t> nodeId_ {};
         // The IP address of the node.
         shared_ptr<string> nodeIp_ {};
         // The node type. Valid values:
-        // 
-        // *   **db**: data node.
-        // *   **proxy**: proxy node.
-        // *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+        // * **db**: Data node.
+        // * **proxy**: Proxy node.
+        // * **normal**: Regular node. This value is returned for instances that use the standard architecture.
         shared_ptr<string> nodeType_ {};
-        // The port number that is used to connect to the node.
+        // The port of the node.
         shared_ptr<int32_t> port_ {};
-        // The role of the node. Valid values:
-        // 
-        // *   **master**: master node
-        // *   **slave**: replica node
+        // The node role. Valid values:
+        // * **master**: Primary node.
+        // * **slave**: Secondary node.
         shared_ptr<string> role_ {};
-        // The zone ID of the node.
+        // The zone to which the node belongs.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -398,74 +396,67 @@ namespace Models
 
 
     protected:
-      // The default bandwidth of the instance. Unit: Mbit/s.
+      // The default bandwidth of the instance. Unit: MB/s.
       shared_ptr<int64_t> bandWidth_ {};
-      // The architecture of the instance. Valid values:
-      // 
-      // *   **logic**: cluster
-      // *   **normal**: standard
+      // The architecture type. Valid values:
+      // * **logic**: Cluster architecture.
+      // * **normal**: Standard architecture.
       shared_ptr<string> characterType_ {};
-      // The ID of the dedicated cluster to which the instance belongs.
+      // The dedicated cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the dedicated cluster to which the instance belongs.
+      // The dedicated cluster name.
       shared_ptr<string> clusterName_ {};
-      // The private endpoint of the instance.
+      // The direct connection endpoint.
       shared_ptr<string> connectionDomain_ {};
-      // The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the instance was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The current bandwidth of the instance, which is the sum of the default bandwidth and any extra bandwidth that is purchased. Unit: Mbit/s.
+      // The current bandwidth of the instance. Unit: MB/s. The value is the sum of the default bandwidth and the increased bandwidth.
       shared_ptr<int64_t> currentBandWidth_ {};
-      // An internal parameter used for the maintenance and management of instances.
+      // An internal parameter used for instance maintenance.
       shared_ptr<string> customId_ {};
-      // The database engine. The return value is **redis**.
+      // The database engine. The value is fixed as **redis**.
       shared_ptr<string> engine_ {};
-      // The database engine version of the instance. The return value is **5.0**.
+      // The database engine version. The value is fixed as **5.0**.
       shared_ptr<string> engineVersion_ {};
       // The instance type.
       shared_ptr<string> instanceClass_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance name.
       shared_ptr<string> instanceName_ {};
-      // Details about the nodes.
+      // The list of node information.
       shared_ptr<vector<Instances::InstanceNodeList>> instanceNodeList_ {};
-      // The state of the instance. Valid values:
-      // 
-      // *   **Normal**: The instance is normal.
-      // *   **Creating**: The instance is being created.
-      // *   **Changing**: The configurations of the instance are being changed.
-      // *   **Inactive**: The instance is disabled.
-      // *   **Flushing**: The instance is being released.
-      // *   **Released**: The instance is released.
-      // *   **Transforming**: The billing method of the instance is being changed.
-      // *   **Unavailable**: The instance is unavailable.
-      // *   **Error**: The instance failed to be created.
-      // *   **Migrating**: The instance is being migrated.
-      // *   **BackupRecovering**: The instance is being restored from a backup.
-      // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-      // *   **NetworkModifying**: The network type of the instance is being changed.
-      // *   **SSLModifying**: The SSL configurations of the instance are being changed.
-      // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+      // The instance status. Valid values:
+      // * **Normal**: Normal.
+      // * **Creating**: Creating.
+      // * **Changing**: Changing.
+      // * **Inactive**: Disabled.
+      // * **Flushing**: Purge in progress.
+      // * **Released**: Released.
+      // * **Transforming**: Transforming.
+      // * **Unavailable**: Unavailable.
+      // * **Error**: Creation failed.
+      // * **Migrating**: Migrating.
+      // * **BackupRecovering**: Restoring from backup.
+      // * **MinorVersionUpgrading**: Minor version upgrade in progress.
+      // * **NetworkModifying**: Changing the network.
+      // * **SSLModifying**: Changing SSL configurations.
+      // * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
       shared_ptr<string> instanceStatus_ {};
-      // The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+      // The end time of the maintenance window. The time is in the <i>HH:mm</i>Z format. The time is displayed in UTC.
       shared_ptr<string> maintainEndTime_ {};
-      // The start time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
+      // The start time of the maintenance window. The time is in the <i>HH:mm</i>Z format. The time is displayed in UTC.
       shared_ptr<string> maintainStartTime_ {};
       // The number of proxy nodes.
-      // 
-      // > 
-      // 
-      // *   If the return value is **0**, the proxy mode is disabled for the instance. If the return value is an integer greater than **0**, such as **1**, the proxy mode is enabled for the instance.
-      // 
-      // *   This parameter is returned only when the instance is a [cluster](https://help.aliyun.com/document_detail/52228.html) instance.
+      // > * A value of **0** indicates that the proxy mode is disabled for the instance. A value greater than **0** (such as **1**) indicates that the proxy mode is enabled for the instance.
+      // > * This parameter is returned only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
       shared_ptr<int32_t> proxyCount_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The number of shards.
-      // 
-      // >  This parameter is returned only when the instance is a [cluster](https://help.aliyun.com/document_detail/52228.html) instance.
+      // The number of data shards.
+      // > This parameter is returned only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
       shared_ptr<int32_t> shardCount_ {};
-      // The storage type of the instance. The return value is LOCAL_SSD, which indicates [enhanced SSDs (ESSDs)](https://help.aliyun.com/document_detail/122389.html).
+      // The storage type. The value is fixed as LOCAL_SSD ([ESSD cloud disk (standard SSD)](https://help.aliyun.com/document_detail/122389.html)).
       shared_ptr<string> storageType_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
@@ -515,15 +506,15 @@ namespace Models
 
 
   protected:
-    // Details about the instances.
+    // The list of instance information.
     shared_ptr<vector<DescribeDedicatedClusterInstanceListResponseBody::Instances>> instances_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

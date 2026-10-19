@@ -121,18 +121,18 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment. Default value: true. Valid values:
+    // Specifies whether to enable automatic payment. Valid values:
     // 
-    // *   **true**: enables automatic payment.
-    // *   **false**: disables automatic payment. If automatic payment is disabled, you must perform the following steps to complete the payment in the Tair (Redis OSS-compatible) console: In the top navigation bar, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+    // * **true**: Automatic payment is enabled. This is the default value.
+    // * **false**: Automatic payment is disabled. You must manually pay for the order. On the top menu bar of the console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, choose **Order Management** > **My Orders**. Find the order and complete the payment.
     shared_ptr<bool> autoPay_ {};
-    // The ID of the coupon.
+    // The coupon code.
     shared_ptr<string> couponNo_ {};
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+    // The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The validity period of the bandwidth that you purchase. Unit: days. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
+    // The purchase duration. Unit: days. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
     // 
     // This parameter is required.
     shared_ptr<string> orderTimeLength_ {};
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+    // The request source. This parameter is used only for internal maintenance and does not need to be specified.
     shared_ptr<string> sourceBiz_ {};
   };
 

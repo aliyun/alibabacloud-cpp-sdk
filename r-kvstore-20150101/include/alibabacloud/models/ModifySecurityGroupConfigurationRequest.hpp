@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -102,7 +102,8 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group that you want to manage. You can specify up to 10 security groups. Separate multiple security group IDs with commas (,).
+    // The IDs of the security groups that you want to set. You can specify up to 10 security group IDs, separated by commas (,).
+    // > This operation overwrites the existing settings. For valid values, query the basic information about the security groups that you created by calling [DescribeSecurityGroups](https://next.api.aliyun.com/api/Ecs/2014-05-26/DescribeSecurityGroups).
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

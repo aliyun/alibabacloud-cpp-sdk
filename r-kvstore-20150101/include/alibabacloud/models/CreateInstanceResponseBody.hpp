@@ -240,19 +240,19 @@ namespace Models
     // * **PrePaid**: subscription.
     // * **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The detailed configuration of the instance.
+    // The detailed configurations of the instance.
     shared_ptr<string> config_ {};
-    // The internal network endpoint of the Redis instance.
+    // The internal network connection endpoint of the ApsaraDB for Redis instance.
     shared_ptr<string> connectionDomain_ {};
     // The maximum number of connections supported by the instance.
     shared_ptr<int64_t> connections_ {};
-    // The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+    // The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The instance ID, which is globally unique.
+    // The globally unique instance ID.
     shared_ptr<string> instanceId_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The current status of the instance. The return value is fixed as Creating.
+    // The current status of the instance. The return value is fixed to Creating.
     shared_ptr<string> instanceStatus_ {};
     // The network type. Valid values:
     // * **CLASSIC**: classic network.
@@ -260,29 +260,29 @@ namespace Models
     shared_ptr<string> networkType_ {};
     // The node type. Valid values:
     // * **STAND_ALONE**: single replica.
-    // * **MASTER_SLAVE**: dual-replica.
+    // * **MASTER_SLAVE**: two replicas.
     shared_ptr<string> nodeType_ {};
-    // The order ID.
+    // The ID of the order.
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};
-    // The Redis service port.
+    // The service port of ApsaraDB for Redis.
     shared_ptr<int32_t> port_ {};
     // The internal IP address of the instance.
     shared_ptr<string> privateIpAddr_ {};
-    // The queries per second (QPS). This value is the theoretical maximum for the current instance type.
+    // The queries per second (QPS). This is the theoretical value for the current instance type.
     shared_ptr<int64_t> QPS_ {};
-    // The region ID of the instance.
+    // The region where the instance resides.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The account used to connect to the Redis instance. By default, an account named after the instance ID is included.
+    // The username used to connect to ApsaraDB for Redis. By default, an account named after the instance ID is included.
     shared_ptr<string> userName_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the instance.
+    // The ID of the zone to which the instance belongs.
     shared_ptr<string> zoneId_ {};
   };
 

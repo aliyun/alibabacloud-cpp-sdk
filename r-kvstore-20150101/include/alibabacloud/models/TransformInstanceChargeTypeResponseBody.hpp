@@ -58,12 +58,13 @@ namespace Models
 
   protected:
     // The expiration time of the instance.
+    // > This parameter is returned only when the billing method of the instance is changed from pay-as-you-go to subscription.
     // 
-    // > This parameter is returned only when you change the billing method of an instance from pay-as-you-go to subscription.
+    // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
     shared_ptr<string> endTime_ {};
-    // The order ID.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

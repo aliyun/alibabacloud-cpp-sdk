@@ -94,29 +94,22 @@ namespace Models
 
 
   protected:
-    // The resource category. Set the value to instance.
+    // The resource type. Set the value to `instance`.
     shared_ptr<string> category_ {};
-    // *   Specify: This mode allows you to specify a database node to use.
-    // *   Random: In this mode, a random database node is selected when no database node is specified.
+    // - **Specify**: Specifies the data nodes.
+    // - **Random**: The system randomly simulates a failure for one-fourth of the data nodes (rounded up to the nearest integer, with a minimum of 1). This parameter takes effect only when no data nodes are specified.
     shared_ptr<string> DBFaultMode_ {};
-    // The IDs of the database nodes.
+    // The specified data nodes.
     shared_ptr<string> DBNodes_ {};
-    // *   **Hard**: stimulates a hardware failure that cannot be recovered. In this case, a high-availability switchover is triggered.
-    // *   **Soft** (default): stimulates a hardware failure that can be recovered. In this case, the system first attempts to recover the faulty node. If the attempt fails, a high-availability switchover is triggered.
-    // 
-    // Valid values:
-    // 
-    // *   Safe
-    // *   UnSafe
-    // *   Hard
-    // *   Soft
+    // - **Hard**: Simulates an unrecoverable hardware failure. A switchover (HA) is directly triggered.
+    // - **Soft** (default): Simulates a recoverable hardware failure. The system preferentially attempts to recover the failed node. If the recovery fails, a switchover (HA) is triggered.
     shared_ptr<string> failMode_ {};
     // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
     shared_ptr<string> instanceId_ {};
-    // *   Specify: This mode allows you to specify a proxy node to use.
-    // *   Random: In this mode, a random proxy node is selected when no proxy node is specified.
+    // - **Specify**: Specifies the proxy nodes.
+    // - **Random**: The system randomly simulates a failure for one-fourth of the proxy nodes (rounded up to the nearest integer, with a minimum of 1). This parameter takes effect only when no proxy nodes are specified.
     shared_ptr<string> proxyFaultMode_ {};
-    // The IDs of the proxy nodes.
+    // The specified proxy nodes.
     shared_ptr<string> proxyInstanceIds_ {};
   };
 

@@ -152,13 +152,29 @@ namespace Models
 
 
       protected:
+        // The creation time of the task.
+        // 
+        // The value is a UNIX timestamp in milliseconds.
         shared_ptr<string> createTime_ {};
+        // The end time of the task.
+        // 
+        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> endTime_ {};
+        // The completion time of the task.
+        // 
+        // The time is displayed in the ISO 8601 format with an explicit time zone offset.
         shared_ptr<string> finishTime_ {};
+        // The summary of risk levels in the inspection results.
         shared_ptr<string> levelSummary_ {};
+        // The language of the report.
         shared_ptr<string> reportLanguage_ {};
+        // The start time of the task.
+        // 
+        // The time is displayed in the YYYY-MM-DDTHH:mmZ format in UTC.
         shared_ptr<string> startTime_ {};
+        // The status of the inspection task.
         shared_ptr<string> status_ {};
+        // The task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -195,9 +211,13 @@ namespace Models
 
 
     protected:
+      // The task items.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The returned page number.
       shared_ptr<int64_t> pageNum_ {};
+      // The page size. Default value: 25.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -227,8 +247,13 @@ namespace Models
 
 
   protected:
+    // The task data.
     shared_ptr<DescribeInspectionScheduleReportsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -121,16 +121,32 @@ namespace Models
 
 
   protected:
+    // The cron expression.
     shared_ptr<string> cronExpression_ {};
+    // Specifies whether to start the scheduled task. Default value: true.
     shared_ptr<int64_t> enabled_ {};
+    // The specified inspection items. The following inspection items are supported:
+    // - RESOURCE_USAGE
+    // - BIGKEY
+    // - HOTKEY
+    // - PERFORMANCE_METRICS
+    // - SLOWLOG
     shared_ptr<string> inspectionItems_ {};
+    // 1h
     shared_ptr<string> inspectionWindow_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of associated instance IDs.
     shared_ptr<string> instanceIds_ {};
+    // The report language.
     shared_ptr<string> reportLanguage_ {};
+    // The ID of the timed scheduling.
     shared_ptr<string> scheduleId_ {};
+    // The name of the timed scheduling.
     shared_ptr<string> scheduleName_ {};
+    // The time zone.
     shared_ptr<string> timezone_ {};
   };
 

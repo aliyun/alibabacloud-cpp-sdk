@@ -116,7 +116,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the IP whitelist template.
+    // The IP whitelist template ID.
+    // > To dissociate a template, delete the corresponding IP whitelist template ID. This parameter overwrites the original value. To dissociate all templates, pass in an empty string.
     // 
     // This parameter is required.
     shared_ptr<string> globalSecurityGroupId_ {};
@@ -126,7 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

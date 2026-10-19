@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The service category.
+      // The product category.
       shared_ptr<string> category_ {};
       // The engine type.
       shared_ptr<string> dbType_ {};
-      // The engine version.
+      // The compatible engine version.
       shared_ptr<string> dbVersion_ {};
-      // The name of the parameter.
+      // The configurable parameter.
       shared_ptr<string> paramName_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The parameters.
+    // The list of parameters.
     shared_ptr<vector<DescribeParameterGroupSupportParamResponseBody::ResourceList>> resourceList_ {};
   };
 

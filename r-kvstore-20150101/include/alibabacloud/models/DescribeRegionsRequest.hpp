@@ -84,12 +84,11 @@ namespace Models
 
 
   protected:
-    // The display language of the **LocalName** parameter value. Valid values:
+    // The language of the value returned for the **LocalName** parameter. Valid values:
+    // * **zh-CN**: Chinese.
+    // * **en-US**: English.
     // 
-    // *   **zh-CN**: Chinese
-    // *   **en-US**: English
-    // 
-    // > The default value is **zh-CN**.
+    // > Default value: **zh-CN**.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

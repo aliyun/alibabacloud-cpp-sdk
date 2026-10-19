@@ -56,12 +56,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Table& obj) { 
           DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
           DARABONBA_PTR_TO_JSON(Connections, connections_);
+          DARABONBA_PTR_TO_JSON(GlobalSecondaryIndexList, globalSecondaryIndexList_);
           DARABONBA_PTR_TO_JSON(TableId, tableId_);
           DARABONBA_PTR_TO_JSON(TableName, tableName_);
         };
         friend void from_json(const Darabonba::Json& j, Table& obj) { 
           DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
           DARABONBA_PTR_FROM_JSON(Connections, connections_);
+          DARABONBA_PTR_FROM_JSON(GlobalSecondaryIndexList, globalSecondaryIndexList_);
           DARABONBA_PTR_FROM_JSON(TableId, tableId_);
           DARABONBA_PTR_FROM_JSON(TableName, tableName_);
         };
@@ -76,8 +78,83 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class GlobalSecondaryIndexList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const GlobalSecondaryIndexList& obj) { 
+            DARABONBA_PTR_TO_JSON(GlobalSecondaryIndex, globalSecondaryIndex_);
+          };
+          friend void from_json(const Darabonba::Json& j, GlobalSecondaryIndexList& obj) { 
+            DARABONBA_PTR_FROM_JSON(GlobalSecondaryIndex, globalSecondaryIndex_);
+          };
+          GlobalSecondaryIndexList() = default ;
+          GlobalSecondaryIndexList(const GlobalSecondaryIndexList &) = default ;
+          GlobalSecondaryIndexList(GlobalSecondaryIndexList &&) = default ;
+          GlobalSecondaryIndexList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~GlobalSecondaryIndexList() = default ;
+          GlobalSecondaryIndexList& operator=(const GlobalSecondaryIndexList &) = default ;
+          GlobalSecondaryIndexList& operator=(GlobalSecondaryIndexList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class GlobalSecondaryIndex : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const GlobalSecondaryIndex& obj) { 
+              DARABONBA_PTR_TO_JSON(GsiId, gsiId_);
+              DARABONBA_PTR_TO_JSON(IndexName, indexName_);
+            };
+            friend void from_json(const Darabonba::Json& j, GlobalSecondaryIndex& obj) { 
+              DARABONBA_PTR_FROM_JSON(GsiId, gsiId_);
+              DARABONBA_PTR_FROM_JSON(IndexName, indexName_);
+            };
+            GlobalSecondaryIndex() = default ;
+            GlobalSecondaryIndex(const GlobalSecondaryIndex &) = default ;
+            GlobalSecondaryIndex(GlobalSecondaryIndex &&) = default ;
+            GlobalSecondaryIndex(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~GlobalSecondaryIndex() = default ;
+            GlobalSecondaryIndex& operator=(const GlobalSecondaryIndex &) = default ;
+            GlobalSecondaryIndex& operator=(GlobalSecondaryIndex &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->gsiId_ == nullptr
+        && this->indexName_ == nullptr; };
+            // gsiId Field Functions 
+            bool hasGsiId() const { return this->gsiId_ != nullptr;};
+            void deleteGsiId() { this->gsiId_ = nullptr;};
+            inline string getGsiId() const { DARABONBA_PTR_GET_DEFAULT(gsiId_, "") };
+            inline GlobalSecondaryIndex& setGsiId(string gsiId) { DARABONBA_PTR_SET_VALUE(gsiId_, gsiId) };
+
+
+            // indexName Field Functions 
+            bool hasIndexName() const { return this->indexName_ != nullptr;};
+            void deleteIndexName() { this->indexName_ = nullptr;};
+            inline string getIndexName() const { DARABONBA_PTR_GET_DEFAULT(indexName_, "") };
+            inline GlobalSecondaryIndex& setIndexName(string indexName) { DARABONBA_PTR_SET_VALUE(indexName_, indexName) };
+
+
+          protected:
+            shared_ptr<string> gsiId_ {};
+            shared_ptr<string> indexName_ {};
+          };
+
+          virtual bool empty() const override { return this->globalSecondaryIndex_ == nullptr; };
+          // globalSecondaryIndex Field Functions 
+          bool hasGlobalSecondaryIndex() const { return this->globalSecondaryIndex_ != nullptr;};
+          void deleteGlobalSecondaryIndex() { this->globalSecondaryIndex_ = nullptr;};
+          inline const vector<GlobalSecondaryIndexList::GlobalSecondaryIndex> & getGlobalSecondaryIndex() const { DARABONBA_PTR_GET_CONST(globalSecondaryIndex_, vector<GlobalSecondaryIndexList::GlobalSecondaryIndex>) };
+          inline vector<GlobalSecondaryIndexList::GlobalSecondaryIndex> getGlobalSecondaryIndex() { DARABONBA_PTR_GET(globalSecondaryIndex_, vector<GlobalSecondaryIndexList::GlobalSecondaryIndex>) };
+          inline GlobalSecondaryIndexList& setGlobalSecondaryIndex(const vector<GlobalSecondaryIndexList::GlobalSecondaryIndex> & globalSecondaryIndex) { DARABONBA_PTR_SET_VALUE(globalSecondaryIndex_, globalSecondaryIndex) };
+          inline GlobalSecondaryIndexList& setGlobalSecondaryIndex(vector<GlobalSecondaryIndexList::GlobalSecondaryIndex> && globalSecondaryIndex) { DARABONBA_PTR_SET_RVALUE(globalSecondaryIndex_, globalSecondaryIndex) };
+
+
+        protected:
+          shared_ptr<vector<GlobalSecondaryIndexList::GlobalSecondaryIndex>> globalSecondaryIndex_ {};
+        };
+
         virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && this->connections_ == nullptr && this->tableId_ == nullptr && this->tableName_ == nullptr; };
+        && this->connections_ == nullptr && this->globalSecondaryIndexList_ == nullptr && this->tableId_ == nullptr && this->tableName_ == nullptr; };
         // bandwidth Field Functions 
         bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
         void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -90,6 +167,15 @@ namespace Models
         void deleteConnections() { this->connections_ = nullptr;};
         inline int64_t getConnections() const { DARABONBA_PTR_GET_DEFAULT(connections_, 0L) };
         inline Table& setConnections(int64_t connections) { DARABONBA_PTR_SET_VALUE(connections_, connections) };
+
+
+        // globalSecondaryIndexList Field Functions 
+        bool hasGlobalSecondaryIndexList() const { return this->globalSecondaryIndexList_ != nullptr;};
+        void deleteGlobalSecondaryIndexList() { this->globalSecondaryIndexList_ = nullptr;};
+        inline const Table::GlobalSecondaryIndexList & getGlobalSecondaryIndexList() const { DARABONBA_PTR_GET_CONST(globalSecondaryIndexList_, Table::GlobalSecondaryIndexList) };
+        inline Table::GlobalSecondaryIndexList getGlobalSecondaryIndexList() { DARABONBA_PTR_GET(globalSecondaryIndexList_, Table::GlobalSecondaryIndexList) };
+        inline Table& setGlobalSecondaryIndexList(const Table::GlobalSecondaryIndexList & globalSecondaryIndexList) { DARABONBA_PTR_SET_VALUE(globalSecondaryIndexList_, globalSecondaryIndexList) };
+        inline Table& setGlobalSecondaryIndexList(Table::GlobalSecondaryIndexList && globalSecondaryIndexList) { DARABONBA_PTR_SET_RVALUE(globalSecondaryIndexList_, globalSecondaryIndexList) };
 
 
         // tableId Field Functions 
@@ -109,6 +195,7 @@ namespace Models
       protected:
         shared_ptr<int64_t> bandwidth_ {};
         shared_ptr<int64_t> connections_ {};
+        shared_ptr<Table::GlobalSecondaryIndexList> globalSecondaryIndexList_ {};
         shared_ptr<string> tableId_ {};
         shared_ptr<string> tableName_ {};
       };

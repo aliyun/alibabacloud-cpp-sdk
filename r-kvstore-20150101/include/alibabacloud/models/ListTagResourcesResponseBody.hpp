@@ -155,9 +155,9 @@ namespace Models
 
 
   protected:
-    // The token required to obtain more results. If a query does not return all results, in the next query, you can provide the token returned by the previous query to obtain more results.
+    // The token used to start the next query. If a query does not return all results, you can pass the token returned from the previous query in subsequent queries to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

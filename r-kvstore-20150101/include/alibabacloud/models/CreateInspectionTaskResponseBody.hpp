@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // The task status.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -101,8 +103,13 @@ namespace Models
 
 
   protected:
+    // The task data.
     shared_ptr<CreateInspectionTaskResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

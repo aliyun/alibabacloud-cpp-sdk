@@ -118,14 +118,15 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of the proxy nodes that you want to restart or rebuild. Separate multiple IDs with commas (,).
+    // The IDs of the proxy nodes to operate. Separate multiple IDs with commas.
     shared_ptr<string> proxyList_ {};
-    // The IDs of the hosts on which the proxy nodes are deployed. Separate multiple IDs with commas (,).
+    // The IDs of the hosts on which the proxy nodes to operate reside. Separate multiple IDs with commas.
     shared_ptr<string> proxyNodeList_ {};
-    // The type of operation that you want to perform. Valid values:
+    // The operation type. Valid values:
     // 
-    // *   **reboot**: restarts the proxy node.
-    // *   **rebuild**: rebuilds the proxy node.
+    // - **reboot**: Restarts the proxy node in place.
+    // 
+    // - **rebuild**: Rebuilds the proxy node.
     shared_ptr<string> rebootMode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

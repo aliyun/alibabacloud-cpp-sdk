@@ -66,17 +66,15 @@ namespace Models
 
 
   protected:
-    // The error code for connection diagnosis. Valid values:
-    // 
-    // *   **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
-    // *   **CONNECTION_ABNORMAL**: The connection to the instance is normal.
+    // The connectivity diagnostics error code. Valid values:
+    // * **SRC_IP_NOT_IN_USER_WHITELIST**: The source IP address is not added to the whitelist.
+    // * **CONNECTION_ABNORMAL**: The connection is normal.
     shared_ptr<string> connCheckErrorCode_ {};
-    // The error message for connection diagnosis.
+    // The connectivity diagnostics error message.
     shared_ptr<string> connCheckErrorMessage_ {};
-    // The connection check result. Valid values:
-    // 
-    // *   **Success**
-    // *   **Failed**
+    // The connectivity diagnostics result. Valid values:
+    // * **Success**
+    // * **Failed**
     shared_ptr<string> connCheckResult_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

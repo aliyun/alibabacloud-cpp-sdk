@@ -126,21 +126,21 @@ namespace Models
 
     protected:
       // The product category. Valid values:
-      // - **0**: Redis Community Edition
-      // - **1**: Tair (Enhanced Edition)
+      // - **0**: open-source Redis.
+      // - **1**: Tair (Enterprise Edition).
       shared_ptr<int64_t> category_ {};
-      // The creation time of the parameter template.
+      // The time when the parameter template was created.
       shared_ptr<string> created_ {};
       // The engine type. Valid values:
-      // - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
-      // - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
-      // - **tair_pdb**: Tair (Enhanced Edition) cloud disk type.
+      // - **redis**: open-source Redis or Tair (Memory-optimized).
+      // - **tair_pena**: Tair (Persistent Memory-optimized).
+      // - **tair_pdb**: Tair (Disk-optimized).
       shared_ptr<string> engine_ {};
-      // The engine-compatible version.
+      // The compatible engine version.
       shared_ptr<string> engineVersion_ {};
-      // The most recent modification time of the parameter template.
+      // The time when the parameter template was last modified.
       shared_ptr<string> modified_ {};
-      // The parameter template ID.
+      // The ID of the parameter template.
       shared_ptr<string> paramGroupId_ {};
       // The description of the parameter template.
       shared_ptr<string> parameterGroupDesc_ {};
@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The list of parameter templates.
+    // The parameter templates.
     shared_ptr<vector<DescribeParameterGroupsResponseBody::ParameterGroups>> parameterGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

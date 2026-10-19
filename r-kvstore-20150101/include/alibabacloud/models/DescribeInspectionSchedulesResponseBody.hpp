@@ -198,18 +198,39 @@ namespace Models
 
 
       protected:
+        // The time when the scheduled task configuration was created.
+        // 
+        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> createTime_ {};
+        // The cron expression.
         shared_ptr<string> cronExpression_ {};
+        // Indicates whether the task is enabled.
         shared_ptr<int64_t> enabled_ {};
+        // The inspection items.
+        // > 
+        // > - Supported inspection items include RESOURCE_USAGE, BIGKEY, HOTKEY, PERFORMANCE_METRICS, and SLOWLOG.
         shared_ptr<string> inspectionItems_ {};
+        // The time window.
         shared_ptr<string> inspectionWindow_ {};
+        // The list of associated instance IDs.
         shared_ptr<string> instanceIds_ {};
+        // The next time the task is scheduled to run.
+        // 
+        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> nextFireTime_ {};
+        // The notification configuration.
         shared_ptr<string> notifyConfig_ {};
+        // The language of the report.
         shared_ptr<string> reportLanguage_ {};
+        // The ID of the timed scheduling.
         shared_ptr<string> scheduleId_ {};
+        // The name of the timed scheduling.
         shared_ptr<string> scheduleName_ {};
+        // The time zone.
         shared_ptr<string> timezone_ {};
+        // The update time.
+        // 
+        // The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -246,9 +267,13 @@ namespace Models
 
 
     protected:
+      // The array of scheduled task configurations.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -278,8 +303,11 @@ namespace Models
 
 
   protected:
+    // The data.
     shared_ptr<DescribeInspectionSchedulesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

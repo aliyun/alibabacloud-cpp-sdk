@@ -193,14 +193,14 @@ namespace Models
 
 
   protected:
-    // The database type. The return value is fixed as **Redis**.
+    // The database engine. The value is always **Redis**.
     shared_ptr<string> engine_ {};
-    // The major version of the instance.
+    // The major engine version of the instance.
     shared_ptr<string> engineVersion_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};
     shared_ptr<DescribeParameterTemplatesResponseBody::Parameters> parameters_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

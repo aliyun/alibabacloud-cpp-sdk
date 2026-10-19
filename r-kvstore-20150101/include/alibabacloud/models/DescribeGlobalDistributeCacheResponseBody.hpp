@@ -126,37 +126,36 @@ namespace Models
 
 
       protected:
-        // The ID of the distributed instance.
+        // The distributed instance ID.
         shared_ptr<string> globalInstanceId_ {};
-        // The instance type of the child instance. For more information, see the following topics:
-        // 
-        // *   [Standard DRAM-based instances](https://help.aliyun.com/document_detail/145228.html)
-        // *   [Cluster DRAM-based instances](https://help.aliyun.com/document_detail/150458.html)
-        // *   [Read/write splitting DRAM-based instances](https://help.aliyun.com/document_detail/150459.html)
+        // The instance type of the child instance. For more information, see:
+        // * [Memory-optimized Standard Edition instance types](https://help.aliyun.com/document_detail/145228.html).
+        // * [Memory-optimized Cluster Edition instance types](https://help.aliyun.com/document_detail/150458.html).
+        // * [Memory-optimized read/write splitting instance types](https://help.aliyun.com/document_detail/150459.html).
         shared_ptr<string> instanceClass_ {};
-        // The ID of the child instance.
+        // The child instance ID.
         shared_ptr<string> instanceID_ {};
-        // The state of the child instance. Valid values:
+        // The instance status of the child instance. Valid values:
         // 
-        // *   **Normal**: The instance is normal.
-        // *   **Creating**: The instance is being created.
-        // *   **Changing**: The configurations of the instance are being changed.
-        // *   **Inactive**: The instance is disabled.
-        // *   **Flushing**: The instance is being released.
-        // *   **Released**: The instance is released.
-        // *   **Transforming**: The billing method of the instance is changing.
-        // *   **Unavailable**: The instance is suspended.
-        // *   **Error**: The instance failed to be created.
-        // *   **Migrating**: The instance is being migrated.
-        // *   **BackupRecovering**: The instance is being restored from a backup.
-        // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-        // *   **NetworkModifying**: The network type of the instance is being changed.
-        // *   **SSLModifying**: The SSL certificate of the instance is being changed.
-        // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains available during the upgrade.
+        // * **Normal**: Normal.
+        // * **Creating**: Being created.
+        // * **Changing**: Being modified.
+        // * **Inactive**: Disabled.
+        // * **Flushing**: Being purged.
+        // * **Released**: Released.
+        // * **Transforming**: Being transformed.
+        // * **Unavailable**: Service stopped.
+        // * **Error**: Failed to create.
+        // * **Migrating**: Being migrated.
+        // * **BackupRecovering**: Being restored from a backup.
+        // * **MinorVersionUpgrading**: Minor version being upgraded.
+        // * **NetworkModifying**: Network being modified.
+        // * **SSLModifying**: SSL being modified.
+        // * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance can be accessed normally.
         // 
-        // >  For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+        // > For more information about instance status and details, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
         shared_ptr<string> instanceStatus_ {};
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
       };
 
@@ -186,15 +185,14 @@ namespace Models
 
 
     protected:
-      // The ID of the distributed instance.
+      // The distributed instance ID.
       shared_ptr<string> globalInstanceId_ {};
-      // The state of the distributed instance. Valid values:
-      // 
-      // *   **Normal**: The instance is normal.
-      // *   **Changing**: The configurations of the instance are being changed.
-      // *   **Creating**: The instance is being created.
+      // The instance status of the distributed instance. Valid values:
+      // * **Normal**: Running.
+      // * **Changing**: Being modified.
+      // * **Creating**: Being created.
       shared_ptr<string> status_ {};
-      // Details of the child instances.
+      // The details of the child instances.
       shared_ptr<vector<GlobalDistributeCaches::SubInstances>> subInstances_ {};
     };
 
@@ -238,15 +236,15 @@ namespace Models
 
 
   protected:
-    // Details of the distributed instance.
+    // The details of the distributed instance.
     shared_ptr<vector<DescribeGlobalDistributeCacheResponseBody::GlobalDistributeCaches>> globalDistributeCaches_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries that can be displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

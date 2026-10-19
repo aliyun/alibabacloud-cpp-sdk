@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // Indicates whether the audit log feature is enabled. Valid values:
+    // Indicates whether audit logging is enabled. Valid values:
+    // * **true**: Enabled.
+    // * **false**: Disabled.
     // 
-    // *   **true**: enabled
-    // *   **false**: disabled
-    // 
-    // > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable the audit log feature for a Tair (Redis OSS-compatible) instance.
+    // > You can call the [ModifyAuditLogConfig](https://help.aliyun.com/document_detail/473829.html) operation to enable or disable audit logging for the instance.
     shared_ptr<string> dbAudit_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The retention period of audit logs. Unit: days.
     shared_ptr<string> retention_ {};

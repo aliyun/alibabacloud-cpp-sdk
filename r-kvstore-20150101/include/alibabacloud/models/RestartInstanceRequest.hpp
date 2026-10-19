@@ -103,12 +103,11 @@ namespace Models
 
 
   protected:
-    // The time when you want to restart the instance. Default value: Immediately. Valid values:
-    // 
-    // *   **Immediately**: immediately restarts the instance.
-    // *   **MaintainTime**: restarts the instance during the maintenance window.
+    // The time when the instance is restarted. Valid values:
+    // * **Immediately**: The instance is restarted immediately. This is the default value.
+    // * **MaintainTime**: The instance is restarted during the maintenance window.
     shared_ptr<string> effectiveTime_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -117,12 +116,11 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether to update to the latest minor version when the instance is restarted. Valid values:
+    // Specifies whether to upgrade the minor version to the latest version when the instance is restarted. Valid values:
+    // * **true**: Upgrades the minor version.
+    // * **false**: Does not upgrade the minor version.
     // 
-    // *   **true**: updates the minor version.
-    // *   **false**: does not update the minor version.
-    // 
-    // > The default value is **true**.
+    // > Default value: **true**.
     shared_ptr<bool> upgradeMinorVersion_ {};
   };
 

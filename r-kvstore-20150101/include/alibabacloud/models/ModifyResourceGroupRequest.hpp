@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the generated token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -115,10 +115,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which you want to move the instance.
+    // The ID of the destination resource group.
     // 
-    // > *   You can query resource group IDs by using the Tair (Redis OSS-compatible) console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-    // > *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the resource group of the instance.
+    // > * You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain a list of resource group IDs. Related operations: see [View basic information about a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // > * Before you modify the resource group to which an instance belongs, you can invoke the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to query the current resource group of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

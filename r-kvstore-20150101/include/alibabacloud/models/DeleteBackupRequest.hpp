@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The backup file ID of the instance. You can invoke [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) to query it.
+    // The ID of the backup file for the instance. You can call [DescribeBackups](https://help.aliyun.com/document_detail/473823.html) to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> backupId_ {};
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of instance.
+    // The ID of the instance. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The ID of the inspection instance.
     shared_ptr<string> inspectionInsId_ {};
+    // The assistant instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> securityToken_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

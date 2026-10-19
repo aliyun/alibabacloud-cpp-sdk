@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The IDs of O\\&M events that you want to cancel at a time. Separate multiple IDs with commas (,).
+    // The IDs of the O&M events to cancel in batches. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> ids_ {};

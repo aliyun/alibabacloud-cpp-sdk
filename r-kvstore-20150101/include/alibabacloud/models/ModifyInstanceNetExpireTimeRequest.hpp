@@ -103,15 +103,15 @@ namespace Models
 
 
   protected:
-    // The extension period to retain the classic network endpoint of the instance. Unit: days. Valid values: **14**, **30**, **60**, and **120**.
+    // The extended retention period of the classic network endpoint. Valid values: **14**, **30**, **60**, and **120**. Unit: days.
     // 
     // This parameter is required.
     shared_ptr<int32_t> classicExpiredDays_ {};
-    // The endpoint of the classic network.
+    // The classic network endpoint of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

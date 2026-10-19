@@ -220,12 +220,12 @@ namespace Models
     // The number of days for which backup data is retained.
     shared_ptr<string> backupRetentionPeriod_ {};
     // Indicates whether the backup service is enabled for the instance. Valid values:
-    // * **1**: enabled.
-    // * **0**: disabled.
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     shared_ptr<string> dbsInstance_ {};
     // Indicates whether incremental backup is enabled. Valid values:
-    // * **1**: enabled.
-    // * **0**: disabled.
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     shared_ptr<int32_t> enableBackupLog_ {};
     // The backup cycle. Valid values:
     // * **Monday**

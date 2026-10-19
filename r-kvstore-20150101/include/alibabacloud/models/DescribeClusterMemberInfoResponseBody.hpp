@@ -189,44 +189,42 @@ namespace Models
 
 
     protected:
-      // The maximum bandwidth of the node. Unit: MB/s.
-      // 
-      // > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+      // The bandwidth of the node. Unit: MB/s.
+      // > This parameter is returned only when the **Service** parameter is set to **redis**, which indicates that the node is a data node.
       shared_ptr<int64_t> bandWidth_ {};
-      // The retention period of binlogs.
+      // The number of days for which binary logs are retained.
       shared_ptr<int32_t> binlogRetentionDays_ {};
-      // The type of workload. The return value is **ALIYUN**.
+      // The business type. The value is fixed as **ALIYUN**.
       shared_ptr<string> bizType_ {};
-      // The maximum memory capacity per data node. Unit: MB.
-      // 
-      // > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+      // The maximum memory capacity of a single data node. Unit: MB.
+      // > This parameter is returned only when the **Service** parameter is set to **redis**, which indicates that the node is a data node.
       shared_ptr<int64_t> capacity_ {};
-      // The specifications of the data node. For more information, see [Community Edition instances that use cloud disks](https://help.aliyun.com/document_detail/164477.html).
+      // The specifications of the data node. For more information, see [Cloud-native instance specifications](https://help.aliyun.com/document_detail/164477.html).
       shared_ptr<string> classCode_ {};
-      // The maximum number of connections supported by the data node.
+      // The maximum number of connections for the data node.
       shared_ptr<int64_t> connections_ {};
-      // The current bandwidth of the data node, which is the sum of the default bandwidth and any extra bandwidth that is purchased. Unit: Mbit/s.
-      shared_ptr<int64_t> currentBandWidth_ {};
-      // The storage capacity of the [enhanced SSD (ESSD)](https://help.aliyun.com/document_detail/122389.html) that is used by the data node. Unit: MB.
+      // The current bandwidth of the node. Unit: MB/s. The value is the sum of the default bandwidth and the increased bandwidth of the node.
       // 
-      // > The ESSD is used only to store system operating data, such as Persistent Memory (PMEM). It is not used as a medium to write and read data.
+      // <props="china">This parameter is returned only when the instance is created in a dedicated cluster.
+      shared_ptr<int64_t> currentBandWidth_ {};
+      // The storage space of the [ESSD cloud disk](https://help.aliyun.com/document_detail/122389.html) for the data node. Unit: MB.
+      // > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data access.
       shared_ptr<int32_t> diskSizeMB_ {};
-      // The ID of the replica set in the node.
+      // The replica set ID of the node.
       shared_ptr<int64_t> id_ {};
-      // The name of the data node.
+      // The name of the node.
       shared_ptr<string> name_ {};
-      // The number of replica nodes.
+      // The number of child nodes.
       shared_ptr<int32_t> replicaSize_ {};
       // The name of the resource group to which the node belongs.
       shared_ptr<string> resourceGroupName_ {};
       // The node type. Valid values:
-      // 
-      // *   **redis**: data node
-      // *   **redis_cs**: config server
+      // * **redis**: data node.
+      // * **redis_cs**: configuration server node.
       shared_ptr<string> service_ {};
       // The major version of the node.
       shared_ptr<string> serviceVersion_ {};
-      // The ID of the user.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -249,9 +247,9 @@ namespace Models
 
 
   protected:
-    // Details about data nodes in the cluster instance.
+    // The list of data node information for the cluster instance.
     shared_ptr<vector<DescribeClusterMemberInfoResponseBody::ClusterChildren>> clusterChildren_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

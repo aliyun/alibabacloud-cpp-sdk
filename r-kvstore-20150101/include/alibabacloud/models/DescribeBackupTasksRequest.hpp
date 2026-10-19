@@ -104,19 +104,16 @@ namespace Models
 
   protected:
     // The ID of the backup task.
-    // 
-    // >  If you call the [CreateBackup](https://help.aliyun.com/document_detail/473819.html) operation to perform a manual backup task, you can set this parameter to the returned backup ID to query the backup progress of the task.
+    // > If you called the [CreateBackup](https://help.aliyun.com/document_detail/473819.html) operation to perform a manual backup, you can pass the returned backup ID to query the backup progress.
     shared_ptr<string> backupJobId_ {};
-    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance IDs.
+    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The backup mode. Valid values:
-    // 
-    // *   **Automated**: automatic backup. You can call the [DescribeBackupPolicy](https://help.aliyun.com/document_detail/473822.html) operation to query the automatic backup policy.
-    // *   **Manual**: manual backup.
-    // 
-    // >  By default, the information about backup tasks in both modes is returned.
+    // * **Automated**: automated backup. You can call the [DescribeBackupPolicy](https://help.aliyun.com/document_detail/473822.html) operation to query the automatic backup policy.
+    // * **Manual**: manual backup.
+    // > By default, task information for all backup modes is returned.
     shared_ptr<string> jobMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

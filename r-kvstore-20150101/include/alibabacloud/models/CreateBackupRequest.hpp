@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The expiration period of this manual backup, in days. Valid values range from 7 to 730. If you specify -1, the backup data will not expire during the instance lifetime. If you do not specify a value (default), the expiration period follows the current automatic backup policy.
+    // The retention period of this manual backup. Valid values: 7 to 730. Unit: days. If you set this parameter to -1, the manual backup does not expire within the instance lifetime. If you do not specify this parameter, the retention period is the same as that of the current automatic backup policy.
     shared_ptr<int64_t> backupRetentionPeriod_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

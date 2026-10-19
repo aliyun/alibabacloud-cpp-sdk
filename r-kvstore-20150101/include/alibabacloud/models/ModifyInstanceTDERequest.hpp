@@ -121,19 +121,15 @@ namespace Models
 
 
   protected:
-    // The ID of the custom key. You can call the [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/473860.html) operation to query the key ID.
+    // The ID of the custom key. You can call [DescribeEncryptionKeyList](https://help.aliyun.com/document_detail/473860.html) to query the key ID.
     // 
-    // > 
-    // 
-    // *   If you do not specify this parameter, [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html) automatically generates a key.
-    // 
-    // *   To create a custom key, you can call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of the KMS API.
+    // > * If you do not specify this parameter, [Key Management Service](https://help.aliyun.com/document_detail/28935.html) automatically generates a key.
+    // > * To create a custom key, call the [CreateKey](https://help.aliyun.com/document_detail/28947.html) operation of Key Management Service.
     shared_ptr<string> encryptionKey_ {};
     // The encryption algorithm. Default value: AES-CTR-256.
-    // 
-    // > This parameter is available only if the **TDEStatus** parameter is set to **Enabled**.
+    // > This parameter is available only when **TDEStatus** is set to **Enabled**.
     shared_ptr<string> encryptionName_ {};
-    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the ID of the instance.
+    // The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -141,18 +137,14 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that you want to attach to your Tair (Redis OSS-compatible) instance. The ARN must be in the format of `acs:ram::$accountID:role/$roleName`. After the role is attached, your Tair (Redis OSS-compatible) instance can use KMS.
+    // The global resource descriptor Alibaba Cloud Resource Name (ARN) of the role to be authorized. After the authorization is complete, the related Key Management Service can be used. Format: `acs:ram::$accountID:role/$roleName`.
     // 
-    // > 
-    // 
-    // *   `$accountID`: the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud console, move the pointer over your profile picture in the upper-right corner of the page, and then click **Security Settings**.
-    // 
-    // *   `$roleName`: the name of the RAM role. Replace $roleName with **AliyunRdsInstanceEncryptionDefaultRole**.
+    // > * `$accountID`: the Alibaba Cloud account ID. Log on to the Alibaba Cloud Management Console, move the mouse over the profile picture in the upper-right corner, and then click **Security Settings** to view the account ID.
+    // > * `$roleName`: the RAM role name. Set this value to **AliyunRdsInstanceEncryptionDefaultRole**.
     shared_ptr<string> roleArn_ {};
     shared_ptr<string> securityToken_ {};
-    // Specifies whether to enable TDE. Set the value to **Enabled**.
-    // 
-    // > TDE cannot be disabled after it is enabled. Before you enable it, evaluate whether this feature affects your business. For more information, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
+    // Enables the transparent data encryption feature. Set the value to **Enabled**.
+    // > The TDE feature cannot be disabled after it is enabled. Before enabling TDE, evaluate whether it affects your business. For more information, see [Enable transparent data encryption TDE](https://help.aliyun.com/document_detail/265913.html).
     // 
     // This parameter is required.
     shared_ptr<string> TDEStatus_ {};

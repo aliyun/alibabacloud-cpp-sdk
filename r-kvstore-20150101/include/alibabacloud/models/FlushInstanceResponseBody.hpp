@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The operation that you want to perform. Set the value to **FlushInstance**.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

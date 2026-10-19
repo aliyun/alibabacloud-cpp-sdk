@@ -131,30 +131,29 @@ namespace Models
 
   protected:
     // The architecture of the instance. For more information, see [Architecture overview](https://help.aliyun.com/document_detail/86132.html). Valid values:
+    // * **logic**: cluster or read/write splitting architecture
+    // * **normal**: standard architecture (primary/secondary)
     // 
-    // * **logic**: cluster or read/write splitting architecture.
-    // * **normal**: standard architecture (primary/secondary).
-    // 
-    // <props="china">If **EngineVersion** is set to **6.0**, this parameter does not support the value **logic**.
+    // <props="china">When **EngineVersion** is set to **6.0**, this parameter does not support the **logic** value.
     // 
     // This parameter is required.
     shared_ptr<string> characterType_ {};
-    // The database type. Set the value to **Redis**.
+    // The database engine. Set the value to **Redis**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
-    // The major version of the instance. Valid values: **4.0**, **5.0**, **6.0**, and **7.0**.
+    // The major engine version of the instance. Valid values: **4.0**, **5.0**, **6.0**, and **7.0**.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
+    // The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter category.
+    // Specifies whether to query the account parameter template. Set the value to **account**.
     shared_ptr<string> parameterCategory_ {};
-    // The resource group ID. You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the resource group ID.
-    // > You can also obtain the resource group ID in the console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The ID of the resource group. You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the ID of the resource group.
+    // > You can also obtain the resource group ID in the console. For related operations, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

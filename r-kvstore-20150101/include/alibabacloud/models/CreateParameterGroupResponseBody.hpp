@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The parameter template ID.
     shared_ptr<string> paramGroupId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

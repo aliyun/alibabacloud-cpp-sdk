@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The collection frequency of the monitoring data. Unit: second.
+    // The collection granularity of monitoring data, in seconds.
     shared_ptr<string> interval_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

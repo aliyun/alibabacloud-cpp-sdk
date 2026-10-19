@@ -231,11 +231,10 @@ namespace Models
 
       protected:
         shared_ptr<VersionRelease::ReleaseInfo> releaseInfo_ {};
-        // The version update level, which indicates how strongly the update is recommended. Valid values:
-        // 
-        // *   0: regular
-        // *   1: recommended
-        // *   2: critical
+        // The importance level of the version upgrade (recommended upgrade level). Valid values:
+        // * 0: Normal.
+        // * 1: Important.
+        // * 2: Critical.
         shared_ptr<string> versionChangesLevel_ {};
       };
 
@@ -265,15 +264,14 @@ namespace Models
 
 
     protected:
-      // The version update level. Valid values:
-      // 
-      // *   **0**: regular
-      // *   **1**: recommended
-      // *   **2**: critical
+      // The importance level of the version change. Valid values:
+      // * **0**: Normal.
+      // * **1**: Important.
+      // * **2**: Critical.
       shared_ptr<string> level_ {};
       // The version number.
       shared_ptr<string> minorVersion_ {};
-      // The version update path from the current minor version to the latest minor version of the instance, which is consistent with the version documentation. For more detailed information, you can directly refer to the release notes.
+      // The version evolution path from the current minor version of the instance to the latest minor version. This is consistent with the version documentation. You can refer to the version release notes for more detailed information.
       shared_ptr<ProxyLatestMinorVersion::VersionRelease> versionRelease_ {};
     };
 
@@ -446,11 +444,10 @@ namespace Models
 
       protected:
         shared_ptr<VersionRelease::ReleaseInfo> releaseInfo_ {};
-        // The version update level, which indicates how strongly the update is recommended. Valid values:
-        // 
-        // *   0: regular
-        // *   1: recommended
-        // *   2: critical
+        // The importance level of the version upgrade (recommended upgrade level). Valid values:
+        // * 0: Normal.
+        // * 1: Important.
+        // * 2: Critical.
         shared_ptr<string> versionChangesLevel_ {};
       };
 
@@ -480,15 +477,14 @@ namespace Models
 
 
     protected:
-      // The version update level. Valid values:
-      // 
-      // *   **0**: regular
-      // *   **1**: recommended
-      // *   **2**: critical
+      // The importance level of the version change. Valid values:
+      // * **0**: Normal.
+      // * **1**: Important.
+      // * **2**: Critical.
       shared_ptr<string> level_ {};
       // The version number.
       shared_ptr<string> minorVersion_ {};
-      // The version update path from the current minor version to the latest minor version of the instance, which is consistent with the version documentation. For more detailed information, you can directly refer to the release notes.
+      // The version evolution path from the current minor version of the instance to the latest minor version. This is consistent with the version documentation. You can refer to the version release notes for more detailed information.
       shared_ptr<DBLatestMinorVersion::VersionRelease> versionRelease_ {};
     };
 
@@ -621,68 +617,61 @@ namespace Models
 
 
   protected:
-    // The latest minor version to which the instance can be updated.
+    // The information about the latest minor version to which the instance can be upgraded.
     shared_ptr<DescribeEngineVersionResponseBody::DBLatestMinorVersion> DBLatestMinorVersion_ {};
-    // The release notes for the minor version of the instance, including the release date, minor version number, release type such as new feature, and description.
+    // The update notes for the minor version of the instance, including the release time, minor version number, type (such as new feature), and detailed description.
     shared_ptr<string> DBVersionRelease_ {};
-    // Indicates whether the instance major version can be upgraded. Valid values:
+    // Indicates whether the major version of the instance can be upgraded. Valid values:
+    // * **true**: The major version can be upgraded.
+    // * **false**: The major version cannot be upgraded, usually because it is already the latest version.
     // 
-    // *   **true**: The major version can be upgraded.
-    // *   **false**: The major version is the latest version and cannot be upgraded.
-    // 
-    // >  To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/473776.html) operation.
+    // > To upgrade the major version, call the [ModifyInstanceMajorVersion](https://help.aliyun.com/document_detail/473776.html) operation.
     shared_ptr<bool> enableUpgradeMajorVersion_ {};
-    // Indicates whether the instance minor version can be updated. Valid values:
+    // Indicates whether the minor version of the instance can be upgraded. Valid values:
     // 
-    // *   **true**: The minor version can be updated.
-    // *   **false**: The minor version is the latest version and cannot be updated.
+    // * **true**: The minor version can be upgraded.
+    // * **false**: The minor version is already the latest and cannot be upgraded. 
     // 
-    // >  To update the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/473777.html) operation.
+    // > To upgrade the minor version, call the [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/473777.html) operation.
     shared_ptr<bool> enableUpgradeMinorVersion_ {};
-    // The database engine. Valid values: **redis** and **memcache**.
+    // The database engine type. Valid values: **redis** and **memcache**.
     shared_ptr<string> engine_ {};
-    // Indicates whether automatic minor version update is enabled. Valid values:
+    // Indicates whether automatic minor version upgrade is enabled. Valid values:
     // 
-    // *   **0**: Automatic minor version update is disabled.
-    // *   **1**: Automatic minor version update is enabled.
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<string> isAutoUpgradeOpen_ {};
-    // Indicates whether the instance uses the latest minor version. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the minor version of the instance is the latest. Valid values:
+    // * **true**: Yes.
+    // * **false**: No.
     shared_ptr<bool> isLatestVersion_ {};
-    // Indicates whether Transport Layer Security (TLS) is enabled. Valid values:
-    // 
-    // *   **1**: TLS is enabled.
-    // *   **0**: TLS is disabled.
+    // Indicates whether the new TLS version is supported. Valid values:
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     shared_ptr<string> isNewSSLMode_ {};
-    // Indicates whether the NGLB mode is enabled. Valid values:
-    // 
-    // *   **0**: The NGLB mode is disabled.
-    // *   **1**: The NGLB mode is enabled.
+    // Indicates whether NGLB mode is enabled. Valid values:
+    // * **0**: Disabled.
+    // * **1**: Enabled.
     shared_ptr<string> isOpenNGLB_ {};
-    // Indicates whether the instance runs a Redis version.
+    // Indicates whether the instance is a Redis-compatible version.
     shared_ptr<string> isRedisCompatibleVersion_ {};
     // Indicates whether SSL is enabled. Valid values:
-    // 
-    // *   **1**: SSL is enabled.
-    // *   **0**: TLS is disabled.
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     shared_ptr<string> isSSLEnable_ {};
     // The major version of the instance.
     shared_ptr<string> majorVersion_ {};
     // The current minor version of the instance.
     shared_ptr<string> minorVersion_ {};
-    // The latest minor version to which the proxy node can be updated.
+    // The information about the latest minor version to which the proxy node can be upgraded.
     shared_ptr<DescribeEngineVersionResponseBody::ProxyLatestMinorVersion> proxyLatestMinorVersion_ {};
     // The current minor version of the proxy node.
-    // 
-    // >  This parameter is returned only for cluster and read/write splitting instances.
+    // > This parameter is returned only for instances of the cluster or read/write splitting architecture.
     shared_ptr<string> proxyMinorVersion_ {};
-    // The release notes for the minor version of proxy nodes. The release notes include the release date, minor version number, release type such as new feature, and description.
-    // 
-    // >  This parameter is returned only for cluster and read/write splitting instances.
+    // The update notes for the minor version of the proxy node, including the release time, minor version number, type (such as new feature), and detailed description.
+    // > This parameter is returned only for instances of the cluster or read/write splitting architecture.
     shared_ptr<string> proxyVersionRelease_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

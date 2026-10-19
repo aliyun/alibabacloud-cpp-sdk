@@ -154,7 +154,7 @@ namespace Models
 
 
         protected:
-          // The engine version.
+          // The database engine version.
           shared_ptr<string> custinsDbVersion_ {};
         };
 
@@ -258,37 +258,34 @@ namespace Models
       protected:
         // The public download URL of the backup file.
         shared_ptr<string> backupDownloadURL_ {};
-        // The end time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The end time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and displayed in UTC.
         shared_ptr<string> backupEndTime_ {};
         // The ID of the backup file.
         shared_ptr<string> backupId_ {};
         // The internal download URL of the backup file.
-        // 
-        // >  You can use this URL to download the backup file from an Elastic Compute Service (ECS) instance that is connected to the Tair (Redis OSS-compatible) instance. The ECS instance must reside in the same virtual private cloud (VPC) as the Tair (Redis OSS-compatible) instance.
+        // > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must reside in the same VPC.
         shared_ptr<string> backupIntranetDownloadURL_ {};
-        // The name of the backup.
+        // The backup name.
         shared_ptr<string> backupName_ {};
         // The size of the backup file. Unit: bytes.
         shared_ptr<string> backupSize_ {};
-        // The start time of the backup. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The start time of the backup. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format and displayed in UTC.
         shared_ptr<string> backupStartTime_ {};
-        // The status of the backup. Valid values:
-        // 
-        // *   **OK**
-        // *   **ERROR**
+        // The backup status. Valid values:
+        // * **OK**: The backup is successful.
+        // * **ERROR**: The backup failed.
         shared_ptr<string> backupStatus_ {};
-        // The database engine. The return value is **redis**.
+        // The database engine type. The value is fixed as **redis**.
         shared_ptr<string> engine_ {};
         // The additional information.
         shared_ptr<Backups::ExtraInfo> extraInfo_ {};
-        // The instance name.
+        // The name of the instance.
         shared_ptr<string> instanceName_ {};
         // Indicates whether the backup set is available. Valid values:
-        // 
-        // *   **0**: unavailable
-        // *   **1**: available
+        // * **0**: unavailable.
+        // * **1**: available.
         shared_ptr<string> isAvail_ {};
-        // This parameter does not take effect. Ignore this parameter.
+        // This parameter is not in effect. Ignore this parameter.
         shared_ptr<string> recoverConfigMode_ {};
       };
 
@@ -375,31 +372,30 @@ namespace Models
 
 
     protected:
-      // The backup sets of all shards in the instance.
+      // The collection of backup sets for all child nodes under a single cluster backup set.
       shared_ptr<vector<ClusterBackups::Backups>> backups_ {};
-      // The end time of the backup.
+      // The end time of the cluster backup. The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
       shared_ptr<string> clusterBackupEndTime_ {};
-      // The ID of the backup set.
+      // The cluster backup set ID.
       shared_ptr<string> clusterBackupId_ {};
-      // The backup mode.
+      // The cluster backup mode.
       shared_ptr<string> clusterBackupMode_ {};
-      // The size of the backup set.
+      // The size of the cluster backup set.
       shared_ptr<string> clusterBackupSize_ {};
-      // The start time of the backup.
+      // The start time of the cluster backup. The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
       shared_ptr<string> clusterBackupStartTime_ {};
-      // The status of the backup set.
-      // 
-      // *   OK
-      // *   RUNNING
-      // *   Failed
+      // The status of the cluster backup set. Valid values:
+      // - OK: The backup is successful.
+      // - RUNNING: The backup is in progress.
+      // - Other values: The backup failed.
       shared_ptr<string> clusterBackupStatus_ {};
-      // The time-to-live (TTL) of the backup set, in the format yyyy-MM-ddTHH:mmZ (UTC time).
+      // The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and displayed in UTC.
       shared_ptr<string> expectExpireTime_ {};
-      // Indicates whether the backup set is valid. A value of 0 indicates that shard-level backups failed or have not been completed.
+      // Indicates whether the cluster backup set is valid. The value is 0 if the backup sets of child nodes are incomplete or failed.
       shared_ptr<int32_t> isAvail_ {};
-      // The backup progress. The system displays only the progress of running backup tasks.
+      // The backup progress. This parameter is returned only for backups that are in progress.
       shared_ptr<string> progress_ {};
-      // The memory size of a single shard during a full backup. Unit: MB.
+      // The memory size of a single DB node when the full backup is created. Unit: MB.
       shared_ptr<int32_t> shardClassMemory_ {};
     };
 
@@ -465,23 +461,22 @@ namespace Models
 
 
   protected:
-    // The backup sets of the instance. A backup contains the backup sets of all shards in the instance.
+    // The list of cluster backup sets. A cluster backup set contains the backup sets of all nodes in the cluster.
     shared_ptr<vector<DescribeClusterBackupListResponseBody::ClusterBackups>> clusterBackups_ {};
-    // This parameter does not take effect. Ignore this parameter.
+    // <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on backup commercialization. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
+    // <props="intl">This parameter is not in effect. Ignore this parameter.
     shared_ptr<int64_t> freeSize_ {};
-    // The size of the full backup file of the instance. Unit: bytes. Full backups originate from scheduled backups, manual backups, and backups generated during cache analysis.
-    // 
-    // >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid full backups of the instance.
+    // The size of full backup files for the current instance. Unit: bytes. Full backups are generated from daily scheduled backups, manual backups, and backups generated during cache analysis.
+    // > This value is independent of the number and size of backup sets returned in the current request. It represents the total size of all valid full backups for the instance.
     shared_ptr<int64_t> fullStorageSize_ {};
-    // The size of the log backup file of the instance. Unit: bytes. This parameter is valid only when flashback is enabled.
-    // 
-    // >  The value of this parameter is independent of the number and size of returned backup sets. Instead, it represents the size of all valid log backups of the instance.
+    // The size of the instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
+    // > This value is independent of the number and size of backup sets in the current response. It represents the total size of all valid instance log backups for the current instance.
     shared_ptr<int64_t> logStorageSize_ {};
-    // The maximum number of entries returned.
+    // The maximum number of records returned by the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // The page number.
+    // The page number, which is the same as the request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries returned per page.
+    // The maximum number of records per page, which is the same as the request parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
