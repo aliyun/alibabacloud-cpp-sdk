@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token returned in the previous response.
+    // The token used to retrieve additional results. You do not need to provide this parameter for the first request. Obtain the token for subsequent requests from the response of the previous request.
     shared_ptr<string> nextToken_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The keyword for fuzzy match by business workspace name.
+    // Filters workspaces by name using a fuzzy keyword match.
     shared_ptr<string> workspaceName_ {};
   };
 

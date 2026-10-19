@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The API key ID for exact match.
+    // The API Key ID for exact match.
     shared_ptr<int64_t> apiKeyId_ {};
     // The keyword for fuzzy match by description.
     shared_ptr<string> description_ {};
@@ -108,7 +108,7 @@ namespace Models
     // 
     // - ASC
     shared_ptr<string> order_ {};
-    // The field by which to sort results. Valid values:
+    // The field by which to sort the results. Valid values:
     // 
     // - apiKeyId (default)
     // 

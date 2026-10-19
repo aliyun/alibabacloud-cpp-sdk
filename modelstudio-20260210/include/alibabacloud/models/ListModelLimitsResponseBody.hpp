@@ -52,12 +52,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(modelLimit, modelLimit_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
         DARABONBA_PTR_TO_JSON(workspaceLimit, workspaceLimit_);
       };
       friend void from_json(const Darabonba::Json& j, Limits& obj) { 
         DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(modelLimit, modelLimit_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
         DARABONBA_PTR_FROM_JSON(workspaceLimit, workspaceLimit_);
       };
       Limits() = default ;
@@ -155,19 +157,19 @@ namespace Models
 
 
       protected:
-        // The maximum concurrency.
+        // The maximum number of concurrent requests.
         shared_ptr<int64_t> asyncUserConcurrencyLimit_ {};
-        // The queue size.
+        // The number of queued requests.
         shared_ptr<int64_t> asyncUserQueueLimit_ {};
         // The request throttling value.
         shared_ptr<int64_t> requestLimit_ {};
-        // The time period for request throttling, in seconds.
+        // The time period for request throttling. Unit: seconds.
         shared_ptr<int32_t> requestLimitPeriod_ {};
         // The usage throttling value.
         shared_ptr<int64_t> usageLimit_ {};
         // The usage throttling unit.
         shared_ptr<string> usageLimitField_ {};
-        // The time period for usage throttling, in seconds.
+        // The time period for usage throttling. Unit: seconds.
         shared_ptr<int32_t> usageLimitPeriod_ {};
       };
 
@@ -255,24 +257,24 @@ namespace Models
 
 
       protected:
-        // The maximum concurrency.
+        // The maximum number of concurrent requests.
         shared_ptr<int64_t> asyncUserConcurrencyLimit_ {};
-        // The queue size.
+        // The number of queued requests.
         shared_ptr<int64_t> asyncUserQueueLimit_ {};
         // The request throttling value.
         shared_ptr<int64_t> requestLimit_ {};
-        // The time period for request throttling, in seconds.
+        // The time period for request throttling. Unit: seconds.
         shared_ptr<int32_t> requestLimitPeriod_ {};
         // The usage throttling value.
         shared_ptr<int64_t> usageLimit_ {};
         // The usage throttling unit.
         shared_ptr<string> usageLimitField_ {};
-        // The time period for usage throttling, in seconds.
+        // The time period for usage throttling. Unit: seconds.
         shared_ptr<int32_t> usageLimitPeriod_ {};
       };
 
       virtual bool empty() const override { return this->model_ == nullptr
-        && this->modelLimit_ == nullptr && this->name_ == nullptr && this->workspaceLimit_ == nullptr; };
+        && this->modelLimit_ == nullptr && this->name_ == nullptr && this->workspaceId_ == nullptr && this->workspaceLimit_ == nullptr; };
       // model Field Functions 
       bool hasModel() const { return this->model_ != nullptr;};
       void deleteModel() { this->model_ = nullptr;};
@@ -296,6 +298,13 @@ namespace Models
       inline Limits& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // workspaceId Field Functions 
+      bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+      void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+      inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+      inline Limits& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
       // workspaceLimit Field Functions 
       bool hasWorkspaceLimit() const { return this->workspaceLimit_ != nullptr;};
       void deleteWorkspaceLimit() { this->workspaceLimit_ = nullptr;};
@@ -308,11 +317,13 @@ namespace Models
     protected:
       // The model.
       shared_ptr<string> model_ {};
-      // The model throttling configuration for the current user account.
+      // The model throttling for the current user account.
       shared_ptr<Limits::ModelLimit> modelLimit_ {};
       // The model name.
       shared_ptr<string> name_ {};
-      // The custom model throttling configuration for the current workspace.
+      // The workspace ID.
+      shared_ptr<string> workspaceId_ {};
+      // The custom model throttling for the current workspace.
       shared_ptr<Limits::WorkspaceLimit> workspaceLimit_ {};
     };
 
@@ -393,13 +404,13 @@ namespace Models
     shared_ptr<int64_t> httpStatusCode_ {};
     // The model throttling information.
     shared_ptr<vector<ListModelLimitsResponseBody::Limits>> limits_ {};
-    // The maximum number of records returned in a single request.
+    // The maximum number of records to return in a single call.
     shared_ptr<int64_t> maxResults_ {};
     // The token for the next request.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful.
+    // Indicates whether the API call succeeded.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

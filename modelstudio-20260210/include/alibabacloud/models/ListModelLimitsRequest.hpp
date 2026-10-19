@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return. Valid values: 0 to 200.
+    // The maximum number of results. Valid values: 0 to 200.
     shared_ptr<int64_t> maxResults_ {};
-    // The model for exact match.
+    // The single model for exact match.
     shared_ptr<string> model_ {};
     // The model name for fuzzy match.
     shared_ptr<string> name_ {};
-    // The pagination token.
+    // The page token.
     shared_ptr<string> nextToken_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

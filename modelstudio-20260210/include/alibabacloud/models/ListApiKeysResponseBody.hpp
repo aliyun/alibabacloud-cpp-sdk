@@ -146,7 +146,7 @@ namespace Models
         protected:
           // The list of accessible models.
           shared_ptr<vector<string>> accessibleModels_ {};
-          // Indicates whether access to all models with inference permissions in the workspace is allowed.
+          // Indicates whether all models with inference permissions granted in the workspace are accessible.
           shared_ptr<bool> allowAllModels_ {};
         };
 
@@ -182,7 +182,7 @@ namespace Models
         shared_ptr<vector<string>> accessIps_ {};
         // The model access scope.
         shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
-        // All: all permissions. Custom: custom permissions.
+        // All: full permissions. Custom: custom permissions.
         shared_ptr<string> type_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
     protected:
       // API Key ID。
       shared_ptr<int64_t> apiKeyId_ {};
-      // The value of the API key.
+      // The value of the API Key.
       shared_ptr<string> apiKeyValue_ {};
       // The permission settings.
       shared_ptr<ApiKeys::Auth> auth_ {};
@@ -265,7 +265,7 @@ namespace Models
       shared_ptr<string> createdBy_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // Indicates whether the API key is disabled. Valid values:
+      // Indicates whether the API Key is disabled.
       // 
       // - **0**: Active.
       // - **1**: Disabled.
@@ -274,6 +274,7 @@ namespace Models
       shared_ptr<int64_t> gmtCreate_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -346,7 +347,7 @@ namespace Models
 
 
   protected:
-    // The list of API keys.
+    // The list of API Keys.
     shared_ptr<vector<ListApiKeysResponseBody::ApiKeys>> apiKeys_ {};
     // The response status code.
     shared_ptr<string> code_ {};
@@ -360,7 +361,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful. Valid values:
+    // Indicates whether the API call was successful.
     // 
     // - true: Successful.
     // - false: Failed.

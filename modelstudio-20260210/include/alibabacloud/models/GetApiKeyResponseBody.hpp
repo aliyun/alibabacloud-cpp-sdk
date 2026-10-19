@@ -140,7 +140,7 @@ namespace Models
         protected:
           // The list of accessible models.
           shared_ptr<vector<string>> accessibleModels_ {};
-          // Indicates whether all models with granted inference permissions in the workspace can be accessed. Valid values:
+          // Indicates whether all models with inference permissions granted in the specified workspace are accessible. Valid values:
           // 
           // - true
           // - false
@@ -177,9 +177,12 @@ namespace Models
       protected:
         // The IP access whitelist.
         shared_ptr<vector<string>> accessIps_ {};
-        // The model access scope.
+        // The model access scope. If configured, only the selected models can be called.
         shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
-        // All: all permissions. Custom: custom permissions.
+        // The permission type. Valid values:
+        // 
+        // - All: all permissions.
+        // - Custom: custom permissions.
         shared_ptr<string> type_ {};
       };
 
@@ -267,10 +270,11 @@ namespace Models
       // - **0**: Active.
       // - **1**: Disabled.
       shared_ptr<int32_t> disabled_ {};
-      // The time when the API key was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -331,9 +335,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Indicates whether the request was successful. Valid values:
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -96,9 +96,9 @@ namespace Models
 
       protected:
         // The list of accessible models.
-        // >Notice: The content takes effect only when allowAllModels is set to false.
+        // >Notice: The specified content takes effect only when allowAllModels is set to false.
         shared_ptr<vector<string>> accessibleModels_ {};
-        // Specifies whether to allow access to all models with granted inference permissions in the workspace. Valid values:
+        // Specifies whether all models with inference permissions in the workspace are accessible. Valid values:
         // 
         // - true
         // - false
@@ -140,9 +140,9 @@ namespace Models
       shared_ptr<vector<string>> accessIps_ {};
       // The model access scope.
       shared_ptr<Auth::ModelAccessScope> modelAccessScope_ {};
-      // Valid values:
+      // The permission type. Valid values:
       // 
-      // - All: all permissions.
+      // - All: full permissions.
       // - Custom: custom permissions.
       shared_ptr<string> type_ {};
     };
@@ -166,9 +166,9 @@ namespace Models
 
 
   protected:
-    // The API key permission settings.
+    // The API Key permission settings.
     // 
-    // > Do not fill in this section or fill it in completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
+    // > Do not specify this parameter or specify it completely for each UpdateApiKey operation. Otherwise, the configuration may not match your expectations.
     shared_ptr<UpdateApiKeyRequest::Auth> auth_ {};
     // The description.
     shared_ptr<string> description_ {};

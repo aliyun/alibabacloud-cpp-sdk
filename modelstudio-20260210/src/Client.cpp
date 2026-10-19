@@ -365,7 +365,7 @@ CreateTokenPlanKeyResponse Client::createTokenPlanKey(const CreateTokenPlanKeyRe
 }
 
 /**
- * @summary Creates a business workspace.
+ * @summary Creates a workspace.
  *
  * @param request CreateWorkspaceRequest
  * @param headers map
@@ -402,7 +402,7 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 }
 
 /**
- * @summary Creates a business workspace.
+ * @summary Creates a workspace.
  *
  * @param request CreateWorkspaceRequest
  * @return CreateWorkspaceResponse
@@ -1104,7 +1104,7 @@ GetTokenPlanOrgInviteConfigResponse Client::getTokenPlanOrgInviteConfig(const Ge
 }
 
 /**
- * @summary Retrieves a list of API key information for authentication credentials.
+ * @summary Retrieves a list of API Key authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -1161,7 +1161,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary Retrieves a list of API key information for authentication credentials.
+ * @summary Retrieves a list of API Key authentication credentials.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -1173,7 +1173,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary Queries model throttling configurations for a workspace.
+ * @summary Queries model throttling for a workspace.
  *
  * @param request ListModelLimitsRequest
  * @param headers map
@@ -1222,7 +1222,7 @@ ListModelLimitsResponse Client::listModelLimitsWithOptions(const ListModelLimits
 }
 
 /**
- * @summary Queries model throttling configurations for a workspace.
+ * @summary Queries model throttling for a workspace.
  *
  * @param request ListModelLimitsRequest
  * @return ListModelLimitsResponse
@@ -1520,7 +1520,7 @@ ListSubscriptionSharedPackagesResponse Client::listSubscriptionSharedPackages(co
 }
 
 /**
- * @summary Retrieves the list of business workspaces.
+ * @summary Retrieves the list of workspaces.
  *
  * @param request ListWorkspacesRequest
  * @param headers map
@@ -1565,7 +1565,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Retrieves the list of business workspaces.
+ * @summary Retrieves the list of workspaces.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -1806,7 +1806,7 @@ SetTokenPlanOrgInviteConfigResponse Client::setTokenPlanOrgInviteConfig(const Se
 }
 
 /**
- * @summary Edits the information of an authentication credential API key.
+ * @summary Edits the information of an API Key authentication credential.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -1845,7 +1845,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, con
 }
 
 /**
- * @summary Edits the information of an authentication credential API key.
+ * @summary Edits the information of an API Key authentication credential.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse

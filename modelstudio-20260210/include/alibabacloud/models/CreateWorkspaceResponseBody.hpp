@@ -121,9 +121,9 @@ namespace Models
       shared_ptr<string> region_ {};
       // The service deployment scope. For more information, see [documentation](https://www.alibabacloud.com/help/zh/model-studio/regions/).
       shared_ptr<string> serviceSite_ {};
-      // The business workspace ID.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The name of the business workspace.
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -183,10 +183,10 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The business workspace information.
+    // The workspace information.
     shared_ptr<CreateWorkspaceResponseBody::Workspace> workspace_ {};
   };
 

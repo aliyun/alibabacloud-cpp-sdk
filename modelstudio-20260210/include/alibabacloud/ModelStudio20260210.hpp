@@ -143,7 +143,7 @@ namespace ModelStudio20260210
       Models::CreateTokenPlanKeyResponse createTokenPlanKey(const Models::CreateTokenPlanKeyRequest &request);
 
       /**
-       * @summary Creates a business workspace.
+       * @summary Creates a workspace.
        *
        * @param request CreateWorkspaceRequest
        * @param headers map
@@ -153,7 +153,7 @@ namespace ModelStudio20260210
       Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a business workspace.
+       * @summary Creates a workspace.
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -445,7 +445,7 @@ namespace ModelStudio20260210
       Models::GetTokenPlanOrgInviteConfigResponse getTokenPlanOrgInviteConfig(const Models::GetTokenPlanOrgInviteConfigRequest &request);
 
       /**
-       * @summary Retrieves a list of API key information for authentication credentials.
+       * @summary Retrieves a list of API Key authentication credentials.
        *
        * @param request ListApiKeysRequest
        * @param headers map
@@ -455,7 +455,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of API key information for authentication credentials.
+       * @summary Retrieves a list of API Key authentication credentials.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -463,7 +463,7 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary Queries model throttling configurations for a workspace.
+       * @summary Queries model throttling for a workspace.
        *
        * @param request ListModelLimitsRequest
        * @param headers map
@@ -473,7 +473,7 @@ namespace ModelStudio20260210
       Models::ListModelLimitsResponse listModelLimitsWithOptions(const Models::ListModelLimitsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries model throttling configurations for a workspace.
+       * @summary Queries model throttling for a workspace.
        *
        * @param request ListModelLimitsRequest
        * @return ListModelLimitsResponse
@@ -569,7 +569,7 @@ namespace ModelStudio20260210
       Models::ListSubscriptionSharedPackagesResponse listSubscriptionSharedPackages(const Models::ListSubscriptionSharedPackagesRequest &request);
 
       /**
-       * @summary Retrieves the list of business workspaces.
+       * @summary Retrieves the list of workspaces.
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -579,7 +579,7 @@ namespace ModelStudio20260210
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of business workspaces.
+       * @summary Retrieves the list of workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -685,7 +685,7 @@ namespace ModelStudio20260210
       Models::SetTokenPlanOrgInviteConfigResponse setTokenPlanOrgInviteConfig(const Models::SetTokenPlanOrgInviteConfigRequest &request);
 
       /**
-       * @summary Edits the information of an authentication credential API key.
+       * @summary Edits the information of an API Key authentication credential.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -695,7 +695,7 @@ namespace ModelStudio20260210
       Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyId, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edits the information of an authentication credential API key.
+       * @summary Edits the information of an API Key authentication credential.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse

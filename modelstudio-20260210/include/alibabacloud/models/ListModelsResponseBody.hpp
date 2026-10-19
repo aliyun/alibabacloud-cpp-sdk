@@ -110,11 +110,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(price, price_);
             DARABONBA_PTR_TO_JSON(priceName, priceName_);
             DARABONBA_PTR_TO_JSON(priceUnit, priceUnit_);
+            DARABONBA_PTR_TO_JSON(timeBand, timeBand_);
           };
           friend void from_json(const Darabonba::Json& j, PricesItem& obj) { 
             DARABONBA_PTR_FROM_JSON(price, price_);
             DARABONBA_PTR_FROM_JSON(priceName, priceName_);
             DARABONBA_PTR_FROM_JSON(priceUnit, priceUnit_);
+            DARABONBA_PTR_FROM_JSON(timeBand, timeBand_);
           };
           PricesItem() = default ;
           PricesItem(const PricesItem &) = default ;
@@ -128,7 +130,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->price_ == nullptr
-        && this->priceName_ == nullptr && this->priceUnit_ == nullptr; };
+        && this->priceName_ == nullptr && this->priceUnit_ == nullptr && this->timeBand_ == nullptr; };
           // price Field Functions 
           bool hasPrice() const { return this->price_ != nullptr;};
           void deletePrice() { this->price_ = nullptr;};
@@ -150,10 +152,18 @@ namespace Models
           inline PricesItem& setPriceUnit(string priceUnit) { DARABONBA_PTR_SET_VALUE(priceUnit_, priceUnit) };
 
 
+          // timeBand Field Functions 
+          bool hasTimeBand() const { return this->timeBand_ != nullptr;};
+          void deleteTimeBand() { this->timeBand_ = nullptr;};
+          inline string getTimeBand() const { DARABONBA_PTR_GET_DEFAULT(timeBand_, "") };
+          inline PricesItem& setTimeBand(string timeBand) { DARABONBA_PTR_SET_VALUE(timeBand_, timeBand) };
+
+
         protected:
           shared_ptr<string> price_ {};
           shared_ptr<string> priceName_ {};
           shared_ptr<string> priceUnit_ {};
+          shared_ptr<string> timeBand_ {};
         };
 
         virtual bool empty() const override { return this->prices_ == nullptr
