@@ -64,6 +64,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ShardIndex, shardIndex_);
         DARABONBA_PTR_TO_JSON(SimilarityScore, similarityScore_);
         DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
+        DARABONBA_PTR_TO_JSON(SourceUri, sourceUri_);
       };
       friend void from_json(const Darabonba::Json& j, Sources& obj) { 
         DARABONBA_ANY_FROM_JSON(ChunkMetadata, chunkMetadata_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ShardIndex, shardIndex_);
         DARABONBA_PTR_FROM_JSON(SimilarityScore, similarityScore_);
         DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
+        DARABONBA_PTR_FROM_JSON(SourceUri, sourceUri_);
       };
       Sources() = default ;
       Sources(const Sources &) = default ;
@@ -168,7 +170,8 @@ namespace Models
 
       virtual bool empty() const override { return this->chunkMetadata_ == nullptr
         && this->fileId_ == nullptr && this->fileName_ == nullptr && this->imageResources_ == nullptr && this->knowledgeBaseId_ == nullptr && this->metadata_ == nullptr
-        && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr && this->sourceId_ == nullptr; };
+        && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr && this->sourceId_ == nullptr
+        && this->sourceUri_ == nullptr; };
       // chunkMetadata Field Functions 
       bool hasChunkMetadata() const { return this->chunkMetadata_ != nullptr;};
       void deleteChunkMetadata() { this->chunkMetadata_ = nullptr;};
@@ -254,6 +257,13 @@ namespace Models
       inline Sources& setSourceId(int32_t sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
 
 
+      // sourceUri Field Functions 
+      bool hasSourceUri() const { return this->sourceUri_ != nullptr;};
+      void deleteSourceUri() { this->sourceUri_ = nullptr;};
+      inline string getSourceUri() const { DARABONBA_PTR_GET_DEFAULT(sourceUri_, "") };
+      inline Sources& setSourceUri(string sourceUri) { DARABONBA_PTR_SET_VALUE(sourceUri_, sourceUri) };
+
+
     protected:
       // The shard metadata.
       Darabonba::Json chunkMetadata_ {};
@@ -277,6 +287,8 @@ namespace Models
       shared_ptr<double> similarityScore_ {};
       // The source ID.
       shared_ptr<int32_t> sourceId_ {};
+      // The URI of the original document.
+      shared_ptr<string> sourceUri_ {};
     };
 
     virtual bool empty() const override { return this->agentId_ == nullptr

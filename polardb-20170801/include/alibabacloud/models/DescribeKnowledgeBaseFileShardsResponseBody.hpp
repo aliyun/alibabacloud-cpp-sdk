@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_TO_JSON(ShardContent, shardContent_);
         DARABONBA_PTR_TO_JSON(ShardIndex, shardIndex_);
+        DARABONBA_PTR_TO_JSON(SourceUri, sourceUri_);
       };
       friend void from_json(const Darabonba::Json& j, Shards& obj) { 
         DARABONBA_PTR_FROM_JSON(Captions, captions_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_FROM_JSON(ShardContent, shardContent_);
         DARABONBA_PTR_FROM_JSON(ShardIndex, shardIndex_);
+        DARABONBA_PTR_FROM_JSON(SourceUri, sourceUri_);
       };
       Shards() = default ;
       Shards(const Shards &) = default ;
@@ -150,7 +152,7 @@ namespace Models
 
       virtual bool empty() const override { return this->captions_ == nullptr
         && this->docItems_ == nullptr && this->headings_ == nullptr && this->imageResources_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr
-        && this->shardIndex_ == nullptr; };
+        && this->shardIndex_ == nullptr && this->sourceUri_ == nullptr; };
       // captions Field Functions 
       bool hasCaptions() const { return this->captions_ != nullptr;};
       void deleteCaptions() { this->captions_ = nullptr;};
@@ -210,6 +212,13 @@ namespace Models
       inline Shards& setShardIndex(int32_t shardIndex) { DARABONBA_PTR_SET_VALUE(shardIndex_, shardIndex) };
 
 
+      // sourceUri Field Functions 
+      bool hasSourceUri() const { return this->sourceUri_ != nullptr;};
+      void deleteSourceUri() { this->sourceUri_ = nullptr;};
+      inline string getSourceUri() const { DARABONBA_PTR_GET_DEFAULT(sourceUri_, "") };
+      inline Shards& setSourceUri(string sourceUri) { DARABONBA_PTR_SET_VALUE(sourceUri_, sourceUri) };
+
+
     protected:
       // The list of figure or table captions associated with the shard.
       shared_ptr<vector<string>> captions_ {};
@@ -225,6 +234,8 @@ namespace Models
       shared_ptr<string> shardContent_ {};
       // The index of the shard.
       shared_ptr<int32_t> shardIndex_ {};
+      // The URI of the source document.
+      shared_ptr<string> sourceUri_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr

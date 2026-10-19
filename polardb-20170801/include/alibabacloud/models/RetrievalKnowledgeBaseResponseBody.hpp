@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ShardContent, shardContent_);
         DARABONBA_PTR_TO_JSON(ShardIndex, shardIndex_);
         DARABONBA_PTR_TO_JSON(SimilarityScore, similarityScore_);
+        DARABONBA_PTR_TO_JSON(SourceUri, sourceUri_);
       };
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
         DARABONBA_PTR_FROM_JSON(Captions, captions_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ShardContent, shardContent_);
         DARABONBA_PTR_FROM_JSON(ShardIndex, shardIndex_);
         DARABONBA_PTR_FROM_JSON(SimilarityScore, similarityScore_);
+        DARABONBA_PTR_FROM_JSON(SourceUri, sourceUri_);
       };
       Results() = default ;
       Results(const Results &) = default ;
@@ -154,7 +156,8 @@ namespace Models
 
       virtual bool empty() const override { return this->captions_ == nullptr
         && this->docItems_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->headings_ == nullptr && this->imageResources_ == nullptr
-        && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr; };
+        && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr
+        && this->sourceUri_ == nullptr; };
       // captions Field Functions 
       bool hasCaptions() const { return this->captions_ != nullptr;};
       void deleteCaptions() { this->captions_ = nullptr;};
@@ -242,6 +245,13 @@ namespace Models
       inline Results& setSimilarityScore(double similarityScore) { DARABONBA_PTR_SET_VALUE(similarityScore_, similarityScore) };
 
 
+      // sourceUri Field Functions 
+      bool hasSourceUri() const { return this->sourceUri_ != nullptr;};
+      void deleteSourceUri() { this->sourceUri_ = nullptr;};
+      inline string getSourceUri() const { DARABONBA_PTR_GET_DEFAULT(sourceUri_, "") };
+      inline Results& setSourceUri(string sourceUri) { DARABONBA_PTR_SET_VALUE(sourceUri_, sourceUri) };
+
+
     protected:
       // The list of captions for figures or tables associated with the chunk.
       shared_ptr<vector<string>> captions_ {};
@@ -265,6 +275,8 @@ namespace Models
       shared_ptr<int32_t> shardIndex_ {};
       // The similarity score.
       shared_ptr<double> similarityScore_ {};
+      // The URI of the source document.
+      shared_ptr<string> sourceUri_ {};
     };
 
     virtual bool empty() const override { return this->queryText_ == nullptr
