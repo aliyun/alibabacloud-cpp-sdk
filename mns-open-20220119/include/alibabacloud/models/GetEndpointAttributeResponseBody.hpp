@@ -108,13 +108,13 @@ namespace Models
 
 
       protected:
-        // The access control list (ACL) policy. Valid value:
+        // The ACL policy. Valid values:
         // 
-        // - **allow**: The endpoint allows access from the specified CIDR block. This is the only supported value.
+        // - **allow**: The endpoint allows access from the corresponding CIDR block. Currently, only allow is supported.
         shared_ptr<string> aclStrategy_ {};
         // The CIDR block.
         shared_ptr<string> cidr_ {};
-        // The time when the CIDR block was created.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
       };
 
@@ -198,9 +198,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the response.
+    // The response status.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

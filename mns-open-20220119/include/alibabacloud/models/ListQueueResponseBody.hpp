@@ -164,9 +164,9 @@ namespace Models
 
 
         protected:
-          // The key of the tag.
+          // The tag key.
           shared_ptr<string> tagKey_ {};
-          // The value of the tag.
+          // The tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -217,11 +217,11 @@ namespace Models
 
 
         protected:
-          // The target queue for dead-letter message delivery.
+          // The destination queue for dead-letter message delivery.
           shared_ptr<string> deadLetterTargetQueue_ {};
           // Indicates whether dead-letter message delivery is enabled.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of times a message can be delivered.
+          // The maximum number of delivery attempts for a message.
           shared_ptr<string> maxReceiveCount_ {};
         };
 
@@ -375,40 +375,37 @@ namespace Models
 
 
       protected:
-        // The approximate total number of messages in the Active state in this queue.
-        // 
-        // This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
+        // The approximate total number of messages in the Active state in the queue. This parameter is deprecated and will default to 0 in the future. Use CloudMonitor API operations to obtain this metric.
         shared_ptr<int64_t> activeMessages_ {};
-        // The time when the queue was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The time when the queue was created. The value is a UNIX timestamp in seconds in UTC.
         shared_ptr<int64_t> createTime_ {};
-        // The approximate total number of messages in the Delayed state in this queue.
-        // 
-        // This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
+        // The approximate total number of messages in the Delayed state in the queue. This parameter is deprecated and will default to 0 in the future. Use CloudMonitor API operations to obtain this metric.
         shared_ptr<int64_t> delayMessages_ {};
-        // The delay period after which all messages sent to this queue become consumable. Unit: seconds.
+        // The delay time for all messages sent to the queue. Messages sent to the queue can be consumed only after the delay time specified by this parameter elapses. Unit: seconds.
         shared_ptr<int64_t> delaySeconds_ {};
         // The dead-letter queue policy.
         shared_ptr<PageData::DlqPolicy> dlqPolicy_ {};
+        // Indicates whether server-side encryption is enabled. Valid values: true or false.
         shared_ptr<bool> enableSSE_ {};
+        // Indicates whether server-side encryption is enabled.
         shared_ptr<bool> encryptionEnabled_ {};
-        // The approximate total number of messages in the Inactive state in this queue.
-        // 
-        // This field will default to 0 in the future and is not recommended. Use CloudMonitor API to retrieve this metric instead.
+        // The approximate total number of messages in the Inactive state in the queue. This parameter is deprecated and will default to 0 in the future. Use CloudMonitor API operations to obtain this metric.
         shared_ptr<int64_t> inactiveMessages_ {};
+        // The KMS key ID.
         shared_ptr<string> kmsKeyId_ {};
-        // The most recent time when the queue attributes were modified. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The time when the queue attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
         shared_ptr<int64_t> lastModifyTime_ {};
-        // Indicates whether the log management feature is enabled.
+        // Indicates whether the log management feature is enabled. Valid values:
         // 
-        // - True: Enabled.
+        // - True: enabled
         // 
-        // - False: Disabled.
+        // - False: disabled
         shared_ptr<bool> loggingEnabled_ {};
-        // The maximum size of a message body that can be sent to this queue. Unit: bytes.
+        // The maximum size of the message body sent to the queue. Unit: bytes.
         shared_ptr<int64_t> maximumMessageSize_ {};
-        // The maximum period for which a message can be retained in this queue. After the specified period elapses since a message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
+        // The maximum retention period of messages in the queue. Messages are deleted after the specified retention period elapses, regardless of whether they have been consumed. Unit: seconds.
         shared_ptr<int64_t> messageRetentionPeriod_ {};
-        // The maximum wait time for a ReceiveMessage request when the queue is empty. Unit: seconds.
+        // The maximum waiting time for a ReceiveMessage request when the queue is empty. Unit: seconds.
         shared_ptr<int64_t> pollingWaitSeconds_ {};
         // The name of the queue.
         shared_ptr<string> queueName_ {};
@@ -416,15 +413,13 @@ namespace Models
         //    * normal: standard queue
         //    * fifo: FIFO queue
         shared_ptr<string> queueType_ {};
+        // The server-side encryption algorithm. Currently, only AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
         shared_ptr<string> sseAlgorithm_ {};
+        // The server-side encryption method. Valid values: SMQ or KMS.
         shared_ptr<string> sseType_ {};
         // The list of resource tags.
         shared_ptr<vector<PageData::Tags>> tags_ {};
-        // The duration for which a message stays in the Inactive state after it is consumed from the queue.
-        // 
-        // Valid values: 1 to 43200. Unit: seconds.
-        // 
-        // Default value: 30.
+        // The duration during which a message remains in the Inactive state after it is consumed from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
         shared_ptr<int64_t> visibilityTimeout_ {};
       };
 
@@ -479,7 +474,7 @@ namespace Models
       shared_ptr<vector<Data::PageData>> pageData_ {};
       // The page number of the returned results.
       shared_ptr<int64_t> pageNum_ {};
-      // The maximum number of entries returned per page.
+      // The number of entries returned on each page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of pages.
       shared_ptr<int64_t> pages_ {};
@@ -544,9 +539,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status of the response.
+    // The response status.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

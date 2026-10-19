@@ -277,26 +277,29 @@ namespace Models
 
 
       protected:
-        // The time when the subscription was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The time when the topic was created. The value is a UTC UNIX timestamp in seconds.
         shared_ptr<int64_t> createTime_ {};
+        // Specifies whether server-side encryption is enabled. Valid values: true and false.
         shared_ptr<bool> enableSSE_ {};
+        // Indicates whether server-side encryption is enabled.
         shared_ptr<bool> encryptionEnabled_ {};
+        // The KMS key ID.
         shared_ptr<string> kmsKeyId_ {};
-        // The time when the subscription attributes were last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+        // The time when the topic attributes were last modified. The value is a UTC UNIX timestamp in seconds.
         shared_ptr<int64_t> lastModifyTime_ {};
-        // Indicates whether the Log Management feature is enabled. Valid values:
-        // 
-        // - True: Enabled.
-        // 
-        // - False: Disabled.
+        // Indicates whether the log management feature is enabled. Valid values:
+        // - True: enabled
+        // - False: disabled
         shared_ptr<bool> loggingEnabled_ {};
-        // The maximum length of the message body sent to the topic. Unit: bytes.
+        // The maximum length of the message body that can be sent to the topic. Unit: bytes.
         shared_ptr<int64_t> maxMessageSize_ {};
         // The number of messages in the topic.
         shared_ptr<int64_t> messageCount_ {};
-        // The maximum duration for which a message is retained in the topic. After the time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it has been successfully pushed to the user. Unit: seconds.
+        // The maximum retention period of messages in the topic. After the specified period elapses from the time a message is sent to the topic, the message is deleted regardless of whether it is successfully pushed to users. Unit: seconds.
         shared_ptr<int64_t> messageRetentionPeriod_ {};
+        // The server-side encryption algorithm. Currently, AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
         shared_ptr<string> sseAlgorithm_ {};
+        // The server-side encryption method. Valid values: SMQ and KMS.
         shared_ptr<string> sseType_ {};
         // The list of resource tags.
         shared_ptr<vector<PageData::Tags>> tags_ {};
@@ -349,7 +352,7 @@ namespace Models
       shared_ptr<vector<Data::PageData>> pageData_ {};
       // The page number of the returned results.
       shared_ptr<int64_t> pageNum_ {};
-      // The number of results returned per page.
+      // The number of entries returned on each page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int64_t> total_ {};
@@ -412,7 +415,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status of the response.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -252,36 +252,41 @@ namespace Models
 
 
     protected:
-      // The time when the topic was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the topic was created. The value is a UNIX timestamp in seconds in UTC.
       shared_ptr<int64_t> createTime_ {};
+      // Indicates whether storage encryption is enabled. Valid values: true and false.
       shared_ptr<bool> enableSSE_ {};
+      // Indicates whether storage encryption is enabled.
       shared_ptr<bool> encryptionEnabled_ {};
+      // The KMS key ID.
       shared_ptr<string> kmsKeyId_ {};
-      // The most recent time when the topic attributes were modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the topic attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
       shared_ptr<int64_t> lastModifyTime_ {};
-      // Indicates whether the Log Management feature is enabled. Valid values:
-      // 
+      // Indicates whether the log management feature is enabled. Valid values:
       // - True: Enabled.
-      // 
       // - False: Disabled.
       shared_ptr<bool> loggingEnabled_ {};
-      // The maximum length of the message body sent to the topic. Unit: bytes.
+      // The maximum size of a message body sent to the topic. Unit: bytes.
       shared_ptr<int64_t> maxMessageSize_ {};
       // The number of messages in the topic.
       shared_ptr<int64_t> messageCount_ {};
-      // The maximum duration for which a message is retained in the topic. After the period of time specified by this parameter elapses since the message is sent to the topic, the message is deleted regardless of whether it is successfully pushed to the user. Unit: seconds.
+      // The maximum retention period of a message in the topic. After the specified period elapses from the time the message is sent to the topic, the message is deleted regardless of whether it was successfully pushed to users. Unit: seconds.
       shared_ptr<int64_t> messageRetentionPeriod_ {};
+      // The storage encryption algorithm. Currently, only AES-256-GCM is supported. If this parameter is not specified, the default algorithm is used.
       shared_ptr<string> sseAlgorithm_ {};
+      // The storage encryption type. Valid values: SMQ and KMS.
       shared_ptr<string> sseType_ {};
       // The list of resource tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The internal access URL of the topic.
       shared_ptr<string> topicInnerUrl_ {};
       // The name of the topic.
       shared_ptr<string> topicName_ {};
-      // The type of the topic. Valid values:
-      //    * normal: normal topic
-      //    * fifo: FIFO topic
+      // The topic type. Valid values:
+      // - normal: Normal topic.
+      // - fifo: FIFO topic.
       shared_ptr<string> topicType_ {};
+      // The public network access URL of the topic.
       shared_ptr<string> topicUrl_ {};
     };
 
@@ -338,9 +343,9 @@ namespace Models
     shared_ptr<GetTopicAttributesResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The response status.
+    // The status of the response.
     shared_ptr<string> status_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

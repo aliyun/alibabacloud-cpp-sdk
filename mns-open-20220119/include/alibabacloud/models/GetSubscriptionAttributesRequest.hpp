@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
-    // The name of the topic to which the subscription belongs.
+    // The name of the subscribed topic.
     // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};

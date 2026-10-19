@@ -55,7 +55,7 @@ namespace MnsOpen20220119
       Models::CreateEventRuleResponse createEventRule(const Models::CreateEventRuleRequest &request);
 
       /**
-       * @summary Creates a queue.
+       * @summary Calls the CreateQueue operation to create a queue.
        *
        * @param tmpReq CreateQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace MnsOpen20220119
       Models::CreateQueueResponse createQueueWithOptions(const Models::CreateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a queue.
+       * @summary Calls the CreateQueue operation to create a queue.
        *
        * @param request CreateQueueRequest
        * @return CreateQueueResponse
@@ -174,7 +174,24 @@ namespace MnsOpen20220119
       Models::EnableEndpointResponse enableEndpoint(const Models::EnableEndpointRequest &request);
 
       /**
-       * @summary Queries the attributes of an endpoint.
+       * @summary Retrieves the log configuration of a user.
+       *
+       * @param request GetAccountAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAccountAttributesResponse
+       */
+      Models::GetAccountAttributesResponse getAccountAttributesWithOptions(const Models::GetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the log configuration of a user.
+       *
+       * @param request GetAccountAttributesRequest
+       * @return GetAccountAttributesResponse
+       */
+      Models::GetAccountAttributesResponse getAccountAttributes(const Models::GetAccountAttributesRequest &request);
+
+      /**
+       * @summary Retrieves the attributes of an endpoint.
        *
        * @param request GetEndpointAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +200,7 @@ namespace MnsOpen20220119
       Models::GetEndpointAttributeResponse getEndpointAttributeWithOptions(const Models::GetEndpointAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attributes of an endpoint.
+       * @summary Retrieves the attributes of an endpoint.
        *
        * @param request GetEndpointAttributeRequest
        * @return GetEndpointAttributeResponse
@@ -208,22 +225,22 @@ namespace MnsOpen20220119
       Models::GetEventRuleResponse getEventRule(const Models::GetEventRuleRequest &request);
 
       /**
-       * @summary Retrieves the attributes of a created queue.
+       * @summary Retrieves the attributes of a specified queue.
        *
        * @description >Warning: 
-       * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+       * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
        *     - ActiveMessages
        *     - InactiveMessages
        *     - DelayMessages 
        *   </p>
-       *   <p>Use the following alternatives to obtain replacement solutions:</p>
+       *   <p>Use the following methods to obtain alternatives:</p>
        *   <ul>
-       *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
-       *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+       *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+       *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
        *       <ul>
-       *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
-       *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
-       *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+       *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+       *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+       *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
        *       </ul>
        *     </li>
        *   </ul>
@@ -236,22 +253,22 @@ namespace MnsOpen20220119
       Models::GetQueueAttributesResponse getQueueAttributesWithOptions(const Models::GetQueueAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the attributes of a created queue.
+       * @summary Retrieves the attributes of a specified queue.
        *
        * @description >Warning: 
-       * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+       * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
        *     - ActiveMessages
        *     - InactiveMessages
        *     - DelayMessages 
        *   </p>
-       *   <p>Use the following alternatives to obtain replacement solutions:</p>
+       *   <p>Use the following methods to obtain alternatives:</p>
        *   <ul>
-       *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
-       *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+       *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+       *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
        *       <ul>
-       *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
-       *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
-       *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+       *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+       *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+       *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
        *       </ul>
        *     </li>
        *   </ul>
@@ -263,7 +280,7 @@ namespace MnsOpen20220119
       Models::GetQueueAttributesResponse getQueueAttributes(const Models::GetQueueAttributesRequest &request);
 
       /**
-       * @summary Retrieves the properties of a subscription.
+       * @summary Retrieves the attributes of a subscription.
        *
        * @param request GetSubscriptionAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +289,7 @@ namespace MnsOpen20220119
       Models::GetSubscriptionAttributesResponse getSubscriptionAttributesWithOptions(const Models::GetSubscriptionAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the properties of a subscription.
+       * @summary Retrieves the attributes of a subscription.
        *
        * @param request GetSubscriptionAttributesRequest
        * @return GetSubscriptionAttributesResponse
@@ -280,7 +297,7 @@ namespace MnsOpen20220119
       Models::GetSubscriptionAttributesResponse getSubscriptionAttributes(const Models::GetSubscriptionAttributesRequest &request);
 
       /**
-       * @summary Queries the attributes of a topic.
+       * @summary Retrieves the attributes of a topic.
        *
        * @param request GetTopicAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -289,7 +306,7 @@ namespace MnsOpen20220119
       Models::GetTopicAttributesResponse getTopicAttributesWithOptions(const Models::GetTopicAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the attributes of a topic.
+       * @summary Retrieves the attributes of a topic.
        *
        * @param request GetTopicAttributesRequest
        * @return GetTopicAttributesResponse
@@ -348,7 +365,7 @@ namespace MnsOpen20220119
       Models::ListSubscriptionByTopicResponse listSubscriptionByTopic(const Models::ListSubscriptionByTopicRequest &request);
 
       /**
-       * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
+       * @summary Queries the topics under an Alibaba Cloud account. The query results can be paginated.
        *
        * @param request ListTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +374,7 @@ namespace MnsOpen20220119
       Models::ListTopicResponse listTopicWithOptions(const Models::ListTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
+       * @summary Queries the topics under an Alibaba Cloud account. The query results can be paginated.
        *
        * @param request ListTopicRequest
        * @return ListTopicResponse
@@ -382,7 +399,24 @@ namespace MnsOpen20220119
       Models::RevokeEndpointAclResponse revokeEndpointAcl(const Models::RevokeEndpointAclRequest &request);
 
       /**
-       * @summary Calls the SetQueueAttributes operation to modify queue attributes.
+       * @summary Sets the user log configuration.
+       *
+       * @param request SetAccountAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAccountAttributesResponse
+       */
+      Models::SetAccountAttributesResponse setAccountAttributesWithOptions(const Models::SetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the user log configuration.
+       *
+       * @param request SetAccountAttributesRequest
+       * @return SetAccountAttributesResponse
+       */
+      Models::SetAccountAttributesResponse setAccountAttributes(const Models::SetAccountAttributesRequest &request);
+
+      /**
+       * @summary Modifies the attributes of a queue by calling the SetQueueAttributes operation.
        *
        * @param tmpReq SetQueueAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +425,7 @@ namespace MnsOpen20220119
       Models::SetQueueAttributesResponse setQueueAttributesWithOptions(const Models::SetQueueAttributesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the SetQueueAttributes operation to modify queue attributes.
+       * @summary Modifies the attributes of a queue by calling the SetQueueAttributes operation.
        *
        * @param request SetQueueAttributesRequest
        * @return SetQueueAttributesResponse

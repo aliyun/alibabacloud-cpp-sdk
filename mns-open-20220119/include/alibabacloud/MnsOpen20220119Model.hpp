@@ -33,6 +33,9 @@
 #include <alibabacloud/models/EnableEndpointRequest.hpp>
 #include <alibabacloud/models/EnableEndpointResponseBody.hpp>
 #include <alibabacloud/models/EnableEndpointResponse.hpp>
+#include <alibabacloud/models/GetAccountAttributesRequest.hpp>
+#include <alibabacloud/models/GetAccountAttributesResponseBody.hpp>
+#include <alibabacloud/models/GetAccountAttributesResponse.hpp>
 #include <alibabacloud/models/GetEndpointAttributeRequest.hpp>
 #include <alibabacloud/models/GetEndpointAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetEndpointAttributeResponse.hpp>
@@ -65,6 +68,9 @@
 #include <alibabacloud/models/RevokeEndpointAclShrinkRequest.hpp>
 #include <alibabacloud/models/RevokeEndpointAclResponseBody.hpp>
 #include <alibabacloud/models/RevokeEndpointAclResponse.hpp>
+#include <alibabacloud/models/SetAccountAttributesRequest.hpp>
+#include <alibabacloud/models/SetAccountAttributesResponseBody.hpp>
+#include <alibabacloud/models/SetAccountAttributesResponse.hpp>
 #include <alibabacloud/models/SetQueueAttributesRequest.hpp>
 #include <alibabacloud/models/SetQueueAttributesShrinkRequest.hpp>
 #include <alibabacloud/models/SetQueueAttributesResponseBody.hpp>

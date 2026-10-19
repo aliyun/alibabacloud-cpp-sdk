@@ -116,7 +116,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether throttling is enabled. Valid values: true or false.
         shared_ptr<bool> enabled_ {};
+        // The maximum number of messages received per second.
         shared_ptr<int32_t> maxReceivesPerSecond_ {};
       };
 
@@ -158,7 +160,7 @@ namespace Models
 
 
       protected:
-        // The target queue to which dead-letter messages are delivered.
+        // The destination queue for dead-letter message delivery.
         shared_ptr<string> deadLetterTargetQueue_ {};
         // Indicates whether dead-letter message delivery is enabled.
         shared_ptr<bool> enabled_ {};
@@ -249,18 +251,17 @@ namespace Models
 
 
     protected:
-      // The time when the subscription was created. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
+      // The time when the subscription was created. The value is a UNIX timestamp in seconds in UTC.
       shared_ptr<int64_t> createTime_ {};
       // The dead-letter queue policy.
       shared_ptr<Data::DlqPolicy> dlqPolicy_ {};
-      // The endpoint of the subscription.
+      // The endpoint address of the subscription.
       shared_ptr<string> endpoint_ {};
-      // The tag used for message filtering. Only messages that have a matching tag are pushed.
+      // The tag used for message filtering in the subscription. Only messages with matching tags are pushed.
       shared_ptr<string> filterTag_ {};
-      // The time when the subscription properties were last modified. The value is a UNIX timestamp that represents the number of seconds that have elapsed since 00:00:00 on January 1, 1970.
+      // The time when the subscription attributes were last modified. The value is a UNIX timestamp in seconds in UTC.
       shared_ptr<int64_t> lastModifyTime_ {};
-      // The format of the message content that is pushed to an endpoint.
-      // Valid values:
+      // The format of the message content pushed to the endpoint. Valid values:
       // 
       // - XML
       // 
@@ -268,7 +269,7 @@ namespace Models
       // 
       // - SIMPLIFIED
       shared_ptr<string> notifyContentFormat_ {};
-      // The retry policy that is used when a message fails to be pushed to an endpoint. Valid values:
+      // The retry strategy used when an error occurs while pushing messages to the endpoint. Valid values:
       // 
       // - BACKOFF_RETRY: backoff retry.
       // 
@@ -276,10 +277,11 @@ namespace Models
       shared_ptr<string> notifyStrategy_ {};
       // The name of the subscription.
       shared_ptr<string> subscriptionName_ {};
+      // The throttling policy.
       shared_ptr<Data::TenantRateLimitPolicy> tenantRateLimitPolicy_ {};
-      // The name of the topic to which the subscription belongs.
+      // The name of the subscribed topic.
       shared_ptr<string> topicName_ {};
-      // The AccountId of the owner of the topic to which the subscription belongs.
+      // The account ID of the owner of the subscribed topic.
       shared_ptr<string> topicOwner_ {};
     };
 
@@ -340,7 +342,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status of the response.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

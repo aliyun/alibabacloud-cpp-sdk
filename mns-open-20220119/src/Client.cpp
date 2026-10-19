@@ -18,37 +18,6 @@ namespace MnsOpen20220119
 
 AlibabaCloud::MnsOpen20220119::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "mns-open.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "mns-open.us-east-1.aliyuncs.com"},
-    {"me-east-1" , "mns-open.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "mns-open.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "mns-open.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "mns-open.eu-central-1.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "mns-open.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "mns-open.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "mns-open.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "mns-open.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "mns-open.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "mns-open.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "mns-open.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "mns-open.cn-qingdao.aliyuncs.com"},
-    {"cn-huhehaote" , "mns-open.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "mns-open.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan-acdr-1" , "mns-open.cn-heyuan-acdr-1.aliyuncs.com"},
-    {"cn-heyuan" , "mns-open.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "mns-open.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "mns-open.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "mns-open.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "mns-open.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "mns-open.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-7" , "mns-open.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-5" , "mns-open.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "mns-open.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "mns-open.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "mns-open.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "mns-open.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("mns-open", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -211,7 +180,7 @@ CreateEventRuleResponse Client::createEventRule(const CreateEventRuleRequest &re
 }
 
 /**
- * @summary Creates a queue.
+ * @summary Calls the CreateQueue operation to create a queue.
  *
  * @param tmpReq CreateQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -308,7 +277,7 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &tmp
 }
 
 /**
- * @summary Creates a queue.
+ * @summary Calls the CreateQueue operation to create a queue.
  *
  * @param request CreateQueueRequest
  * @return CreateQueueResponse
@@ -609,7 +578,42 @@ EnableEndpointResponse Client::enableEndpoint(const EnableEndpointRequest &reque
 }
 
 /**
- * @summary Queries the attributes of an endpoint.
+ * @summary Retrieves the log configuration of a user.
+ *
+ * @param request GetAccountAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAccountAttributesResponse
+ */
+GetAccountAttributesResponse Client::getAccountAttributesWithOptions(const GetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetAccountAttributes"},
+    {"version" , "2022-01-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAccountAttributesResponse>();
+}
+
+/**
+ * @summary Retrieves the log configuration of a user.
+ *
+ * @param request GetAccountAttributesRequest
+ * @return GetAccountAttributesResponse
+ */
+GetAccountAttributesResponse Client::getAccountAttributes(const GetAccountAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAccountAttributesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the attributes of an endpoint.
  *
  * @param request GetEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -640,7 +644,7 @@ GetEndpointAttributeResponse Client::getEndpointAttributeWithOptions(const GetEn
 }
 
 /**
- * @summary Queries the attributes of an endpoint.
+ * @summary Retrieves the attributes of an endpoint.
  *
  * @param request GetEndpointAttributeRequest
  * @return GetEndpointAttributeResponse
@@ -697,22 +701,22 @@ GetEventRuleResponse Client::getEventRule(const GetEventRuleRequest &request) {
 }
 
 /**
- * @summary Retrieves the attributes of a created queue.
+ * @summary Retrieves the attributes of a specified queue.
  *
  * @description >Warning: 
- * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+ * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
  *     - ActiveMessages
  *     - InactiveMessages
  *     - DelayMessages 
  *   </p>
- *   <p>Use the following alternatives to obtain replacement solutions:</p>
+ *   <p>Use the following methods to obtain alternatives:</p>
  *   <ul>
- *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
- *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+ *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+ *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
  *       <ul>
- *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
- *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
- *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+ *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+ *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+ *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
  *       </ul>
  *     </li>
  *   </ul>
@@ -751,22 +755,22 @@ GetQueueAttributesResponse Client::getQueueAttributesWithOptions(const GetQueueA
 }
 
 /**
- * @summary Retrieves the attributes of a created queue.
+ * @summary Retrieves the attributes of a specified queue.
  *
  * @description >Warning: 
- * <p>For optimization of service performance, Simple Message Queue (formerly MNS) will offline the return values of the following fields (the default value will be 0):
+ * <p>To optimize service performance, Simple Message Queue will soon deprecate the return values of the following fields, which will default to 0:
  *     - ActiveMessages
  *     - InactiveMessages
  *     - DelayMessages 
  *   </p>
- *   <p>Use the following alternatives to obtain replacement solutions:</p>
+ *   <p>Use the following methods to obtain alternatives:</p>
  *   <ul>
- *     <li>Use the CloudMonitor OpenAPI to retrieve queue monitoring metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=ap-southeast-1&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a></li>
- *     <li> <a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor monitoring metrics documentation</a>. The mapping between deprecated fields and monitoring metrics:
+ *     <li>Use the CloudMonitor OpenAPI to retrieve queue metrics. For more information, see <a href="https://api.aliyun.com/api/Cms/2019-01-01/DescribeMetricLast?RegionId=cn-hangzhou&params={%22Namespace%22:%22acs_smq%22,%22MetricName%22:%22NumberOfMessagesVisible%22}&tab=DEBUG">CloudMonitor OpenAPI documentation</a>.</li>
+ *     <li><a href="https://cloudmonitornext.console.aliyun.com/metric-meta/acs_smq/smq/all?spm=5176.2020520111.0.0.5d0c66102s05T4">CloudMonitor metrics documentation</a>. The mapping of deprecated fields to alternative metrics is as follows:
  *       <ul>
- *         <li>ActiveMessages → monitoring metric NumberOfMessagesVisible</li>
- *         <li>InactiveMessages → monitoring metric NumberOfMessagesInvisible</li>
- *         <li>DelayMessages → monitoring metric NumberOfMessagesDelayed</li>
+ *         <li>ActiveMessages → CloudMonitor metric NumberOfMessagesVisible</li>
+ *         <li>InactiveMessages → CloudMonitor metric NumberOfMessagesInvisible</li>
+ *         <li>DelayMessages → CloudMonitor metric NumberOfMessagesDelayed</li>
  *       </ul>
  *     </li>
  *   </ul>
@@ -781,7 +785,7 @@ GetQueueAttributesResponse Client::getQueueAttributes(const GetQueueAttributesRe
 }
 
 /**
- * @summary Retrieves the properties of a subscription.
+ * @summary Retrieves the attributes of a subscription.
  *
  * @param request GetSubscriptionAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -816,7 +820,7 @@ GetSubscriptionAttributesResponse Client::getSubscriptionAttributesWithOptions(c
 }
 
 /**
- * @summary Retrieves the properties of a subscription.
+ * @summary Retrieves the attributes of a subscription.
  *
  * @param request GetSubscriptionAttributesRequest
  * @return GetSubscriptionAttributesResponse
@@ -827,7 +831,7 @@ GetSubscriptionAttributesResponse Client::getSubscriptionAttributes(const GetSub
 }
 
 /**
- * @summary Queries the attributes of a topic.
+ * @summary Retrieves the attributes of a topic.
  *
  * @param request GetTopicAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -862,7 +866,7 @@ GetTopicAttributesResponse Client::getTopicAttributesWithOptions(const GetTopicA
 }
 
 /**
- * @summary Queries the attributes of a topic.
+ * @summary Retrieves the attributes of a topic.
  *
  * @param request GetTopicAttributesRequest
  * @return GetTopicAttributesResponse
@@ -1073,7 +1077,7 @@ ListSubscriptionByTopicResponse Client::listSubscriptionByTopic(const ListSubscr
 }
 
 /**
- * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
+ * @summary Queries the topics under an Alibaba Cloud account. The query results can be paginated.
  *
  * @param request ListTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1120,7 +1124,7 @@ ListTopicResponse Client::listTopicWithOptions(const ListTopicRequest &request, 
 }
 
 /**
- * @summary Queries the list of topics under an Alibaba Cloud account with paginated results.
+ * @summary Queries the topics under an Alibaba Cloud account. The query results can be paginated.
  *
  * @param request ListTopicRequest
  * @return ListTopicResponse
@@ -1187,7 +1191,65 @@ RevokeEndpointAclResponse Client::revokeEndpointAcl(const RevokeEndpointAclReque
 }
 
 /**
- * @summary Calls the SetQueueAttributes operation to modify queue attributes.
+ * @summary Sets the user log configuration.
+ *
+ * @param request SetAccountAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAccountAttributesResponse
+ */
+SetAccountAttributesResponse Client::setAccountAttributesWithOptions(const SetAccountAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasLogEnabled()) {
+    query["LogEnabled"] = request.getLogEnabled();
+  }
+
+  if (!!request.hasLogStoreName()) {
+    query["LogStoreName"] = request.getLogStoreName();
+  }
+
+  if (!!request.hasMessageTraceEnabled()) {
+    query["MessageTraceEnabled"] = request.getMessageTraceEnabled();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAccountAttributes"},
+    {"version" , "2022-01-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAccountAttributesResponse>();
+}
+
+/**
+ * @summary Sets the user log configuration.
+ *
+ * @param request SetAccountAttributesRequest
+ * @return SetAccountAttributesResponse
+ */
+SetAccountAttributesResponse Client::setAccountAttributes(const SetAccountAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAccountAttributesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the attributes of a queue by calling the SetQueueAttributes operation.
  *
  * @param tmpReq SetQueueAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1276,7 +1338,7 @@ SetQueueAttributesResponse Client::setQueueAttributesWithOptions(const SetQueueA
 }
 
 /**
- * @summary Calls the SetQueueAttributes operation to modify queue attributes.
+ * @summary Modifies the attributes of a queue by calling the SetQueueAttributes operation.
  *
  * @param request SetQueueAttributesRequest
  * @return SetQueueAttributesResponse

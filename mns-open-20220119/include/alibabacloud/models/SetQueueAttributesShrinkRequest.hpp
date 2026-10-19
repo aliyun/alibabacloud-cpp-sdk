@@ -149,40 +149,31 @@ namespace Models
 
 
   protected:
-    // The delay time for all messages sent to this queue. Messages sent to the queue can be consumed only after the delay time specified by this parameter has elapsed.
-    // 
+    // The delay time for all messages sent to the queue. Messages sent to the queue become consumable only after the delay time specified by this parameter elapses.
     // Valid values: 0 to 604800. Unit: seconds.
-    // 
     // Default value: 0.
     shared_ptr<int64_t> delaySeconds_ {};
     // The dead-letter queue policy.
     shared_ptr<string> dlqPolicyShrink_ {};
-    // Specifies whether to enable the log management feature. Valid values:
+    // Specifies whether to enable the Log Management feature. Valid values:
     // 
     // - true: Enabled.
     // 
     // - false: Disabled.
-    // 
     // Default value: false.
     shared_ptr<bool> enableLogging_ {};
     shared_ptr<bool> enableSSE_ {};
     shared_ptr<string> kmsKeyId_ {};
-    // The maximum length of the message body sent to this queue.
-    // 
+    // The maximum length of the message body sent to the queue.
     // Valid values: 1024 to 65536. Unit: bytes.
-    // 
     // Default value: 65536.
     shared_ptr<int64_t> maximumMessageSize_ {};
-    // The maximum duration for which a message is retained in this queue. After the time specified by this parameter has elapsed since the message was sent to the queue, the message is deleted regardless of whether it has been consumed.
-    // 
+    // The maximum lifetime of a message in the queue. After the time specified by this parameter elapses since the message is sent to the queue, the message is deleted regardless of whether it has been consumed.
     // Valid values: 60 to 604800. Unit: seconds.
-    // 
     // Default value: 345600.
     shared_ptr<int64_t> messageRetentionPeriod_ {};
-    // The maximum wait time for a ReceiveMessage request on this queue when no messages are available in the queue.
-    // 
+    // The maximum wait time for a ReceiveMessage request on the queue when no messages are available in the queue.
     // Valid values: 0 to 30. Unit: seconds.
-    // 
     // Default value: 0.
     shared_ptr<int64_t> pollingWaitSeconds_ {};
     // The name of the queue.
@@ -193,9 +184,7 @@ namespace Models
     shared_ptr<string> sseType_ {};
     shared_ptr<string> tenantRateLimitPolicyShrink_ {};
     // The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
-    // 
     // Valid values: 1 to 43200. Unit: seconds.
-    // 
     // Default value: 30.
     shared_ptr<int64_t> visibilityTimeout_ {};
   };

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether to match.
+    // Indicates whether the rule is matched.
     shared_ptr<bool> matchState_ {};
-    // The full name to match.
+    // The full name matching rule.
     shared_ptr<string> name_ {};
-    // The prefix to match.
+    // The prefix matching rule.
     shared_ptr<string> prefix_ {};
-    // The suffix to match.
+    // The suffix matching rule.
     shared_ptr<string> suffix_ {};
   };
 

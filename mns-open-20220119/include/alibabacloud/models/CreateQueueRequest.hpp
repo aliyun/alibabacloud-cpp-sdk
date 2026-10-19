@@ -96,7 +96,7 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable rate limiting. Valid values:
+      // Specifies whether to enable throttling. Valid values:
       // 
       // - true
       // - false
@@ -196,7 +196,7 @@ namespace Models
 
 
     protected:
-      // The target queue for dead-letter message delivery.
+      // The target queue to which dead-letter messages are delivered.
       shared_ptr<string> deadLetterTargetQueue_ {};
       // Specifies whether to enable dead-letter message delivery.
       shared_ptr<bool> enabled_ {};
@@ -320,15 +320,13 @@ namespace Models
 
 
   protected:
-    // The delay period for all messages sent to the queue. A message sent to the queue can be consumed only after the delay period specified by this parameter elapses. Unit: seconds.
-    // 
-    // Valid values: 0 to 604800.
-    // 
+    // The delay period for all messages sent to the queue. A message sent to the queue can be consumed only after the delay period specified by this parameter elapses.
+    // Valid values: 0 to 604800. Unit: seconds.
     // Default value: 0.
     shared_ptr<int64_t> delaySeconds_ {};
     // The dead-letter policy.
     shared_ptr<CreateQueueRequest::DlqPolicy> dlqPolicy_ {};
-    // Specifies whether to enable the log management feature. Valid values:
+    // Specifies whether to enable the Log Management feature. Valid values:
     // 
     // - true: Enabled.
     // 
@@ -338,22 +336,16 @@ namespace Models
     shared_ptr<bool> enableLogging_ {};
     shared_ptr<bool> enableSSE_ {};
     shared_ptr<string> kmsKeyId_ {};
-    // The maximum size of a message body that can be sent to the queue. Unit: bytes.
-    // 
-    // Valid values: 1024 to 65536.
-    // 
+    // The maximum size of a message body that can be sent to the queue.
+    // Valid values: 1024 to 65536. Unit: bytes.
     // Default value: 65536.
     shared_ptr<int64_t> maximumMessageSize_ {};
-    // The maximum duration for which a message is retained in the queue. After the specified duration elapses from the time the message is sent to the queue, the message is deleted regardless of whether it has been consumed. Unit: seconds.
-    // 
-    // Valid values: 60 to 604800.
-    // 
+    // The maximum duration for which a message is retained in the queue. After the specified duration elapses since a message is sent to the queue, the message is deleted regardless of whether it has been consumed.
+    // Valid values: 60 to 604800. Unit: seconds.
     // Default value: 345600.
     shared_ptr<int64_t> messageRetentionPeriod_ {};
-    // The maximum wait time for a ReceiveMessage request when the queue is empty. Unit: seconds.
-    // 
-    // Valid values: 0 to 30.
-    // 
+    // The maximum duration for which a ReceiveMessage request waits when the queue has no messages.
+    // Valid values: 0 to 30. Unit: seconds.
     // Default value: 0.
     shared_ptr<int64_t> pollingWaitSeconds_ {};
     // The name of the queue.
@@ -368,12 +360,10 @@ namespace Models
     shared_ptr<string> sseType_ {};
     // The list of resource tags.
     shared_ptr<vector<CreateQueueRequest::Tag>> tag_ {};
-    // The rate limiting policy.
+    // The throttling policy.
     shared_ptr<CreateQueueRequest::TenantRateLimitPolicy> tenantRateLimitPolicy_ {};
-    // The duration for which a consumed message stays in the Inactive state after it is changed from the Active state. Unit: seconds.
-    // 
-    // Valid values: 1 to 43200.
-    // 
+    // The duration for which a message stays in the Inactive state after it is consumed from the queue and changes from the Active state to the Inactive state.
+    // Valid values: 1 to 43200. Unit: seconds.
     // Default value: 30.
     shared_ptr<int64_t> visibilityTimeout_ {};
   };
