@@ -177,9 +177,9 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 }
 
 /**
- * @summary Creates an AnalyticDB multimodal knowledge base.
+ * @summary Creates an AnalyticDB for MySQL multimodal knowledge base.
  *
- * @description Creates an AnalyticDB multimodal knowledge base.
+ * @description Creates an AnalyticDB for MySQL multimodal knowledge base.
  *
  * @param request CreateMultiModelKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -198,6 +198,10 @@ CreateMultiModelKnowledgeBaseResponse Client::createMultiModelKnowledgeBaseWithO
 
   if (!!request.hasDbClusterAcu()) {
     query["DbClusterAcu"] = request.getDbClusterAcu();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasLakeStorageBucketName()) {
@@ -246,9 +250,9 @@ CreateMultiModelKnowledgeBaseResponse Client::createMultiModelKnowledgeBaseWithO
 }
 
 /**
- * @summary Creates an AnalyticDB multimodal knowledge base.
+ * @summary Creates an AnalyticDB for MySQL multimodal knowledge base.
  *
- * @description Creates an AnalyticDB multimodal knowledge base.
+ * @description Creates an AnalyticDB for MySQL multimodal knowledge base.
  *
  * @param request CreateMultiModelKnowledgeBaseRequest
  * @return CreateMultiModelKnowledgeBaseResponse
@@ -413,9 +417,9 @@ DeleteMultiModalKnowledgeBaseResponse Client::deleteMultiModalKnowledgeBase(cons
 }
 
 /**
- * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
  *
- * @description Queries multi-turn conversations for instance kernel diagnostics.
+ * @description Retrieves multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -476,9 +480,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
  *
- * @description Queries multi-turn conversations for instance kernel diagnostics.
+ * @description Retrieves multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -525,9 +529,9 @@ DescribeChatMessageResponse Client::describeChatMessageWithOptions(const Describ
 }
 
 /**
- * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
  *
- * @description Queries multi-turn conversations for instance kernel diagnostics.
+ * @description Retrieves multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @return DescribeChatMessageResponse
@@ -670,7 +674,7 @@ DescribeEmbodiedAIPlatformsResponse Client::describeEmbodiedAIPlatforms(const De
 }
 
 /**
- * @summary Queries the resource usage information of an embodied intelligence platform.
+ * @summary Queries the resource usage information of the Embodied platform.
  *
  * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +721,7 @@ GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformReso
 }
 
 /**
- * @summary Queries the resource usage information of an embodied intelligence platform.
+ * @summary Queries the resource usage information of the Embodied platform.
  *
  * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
  * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -838,7 +842,7 @@ ModifyAgentPlatformResponse Client::modifyAgentPlatform(const ModifyAgentPlatfor
 }
 
 /**
- * @summary Modifies the specifications of an embodied intelligence platform.
+ * @summary Modifies the specifications of the embodied AI platform.
  *
  * @param tmpReq ModifyEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -903,7 +907,7 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(con
 }
 
 /**
- * @summary Modifies the specifications of an embodied intelligence platform.
+ * @summary Modifies the specifications of the embodied AI platform.
  *
  * @param request ModifyEmbodiedAIPlatformRequest
  * @return ModifyEmbodiedAIPlatformResponse

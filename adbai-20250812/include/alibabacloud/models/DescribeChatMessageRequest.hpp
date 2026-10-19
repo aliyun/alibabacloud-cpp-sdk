@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The question statement submitted by the user.
+    // The question asked by the user.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

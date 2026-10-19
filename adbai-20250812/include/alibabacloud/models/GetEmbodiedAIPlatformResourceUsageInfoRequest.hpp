@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The instance cluster ID.
+    // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+    // The end time of the time range to query network resource usage. Format: yyyy-MM-ddTHH:mmZ.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
-    // The name of the embodied intelligence platform.
+    // The name of the Embodied platform.
     shared_ptr<string> platformName_ {};
     // The region ID of the instance.
     // 
@@ -91,7 +91,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The start of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+    // The start time of the time range to query network resource usage. Format: yyyy-MM-ddTHH:mmZ.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};

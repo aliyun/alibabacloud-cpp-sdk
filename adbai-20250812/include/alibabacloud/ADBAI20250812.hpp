@@ -59,9 +59,9 @@ namespace ADBAI20250812
       Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatform(const Models::CreateEmbodiedAIPlatformRequest &request);
 
       /**
-       * @summary Creates an AnalyticDB multimodal knowledge base.
+       * @summary Creates an AnalyticDB for MySQL multimodal knowledge base.
        *
-       * @description Creates an AnalyticDB multimodal knowledge base.
+       * @description Creates an AnalyticDB for MySQL multimodal knowledge base.
        *
        * @param request CreateMultiModelKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -70,9 +70,9 @@ namespace ADBAI20250812
       Models::CreateMultiModelKnowledgeBaseResponse createMultiModelKnowledgeBaseWithOptions(const Models::CreateMultiModelKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AnalyticDB multimodal knowledge base.
+       * @summary Creates an AnalyticDB for MySQL multimodal knowledge base.
        *
-       * @description Creates an AnalyticDB multimodal knowledge base.
+       * @description Creates an AnalyticDB for MySQL multimodal knowledge base.
        *
        * @param request CreateMultiModelKnowledgeBaseRequest
        * @return CreateMultiModelKnowledgeBaseResponse
@@ -135,9 +135,9 @@ namespace ADBAI20250812
       Models::DeleteMultiModalKnowledgeBaseResponse deleteMultiModalKnowledgeBase(const Models::DeleteMultiModalKnowledgeBaseRequest &request);
 
       /**
-       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
        *
-       * @description Queries multi-turn conversations for instance kernel diagnostics.
+       * @description Retrieves multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -146,9 +146,9 @@ namespace ADBAI20250812
       FutureGenerator<Models::DescribeChatMessageResponse> describeChatMessageWithSSE(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
        *
-       * @description Queries multi-turn conversations for instance kernel diagnostics.
+       * @description Retrieves multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -157,9 +157,9 @@ namespace ADBAI20250812
       Models::DescribeChatMessageResponse describeChatMessageWithOptions(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       * @summary Retrieves multi-turn conversations for instance kernel diagnostics.
        *
-       * @description Queries multi-turn conversations for instance kernel diagnostics.
+       * @description Retrieves multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @return DescribeChatMessageResponse
@@ -205,7 +205,7 @@ namespace ADBAI20250812
       Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatforms(const Models::DescribeEmbodiedAIPlatformsRequest &request);
 
       /**
-       * @summary Queries the resource usage information of an embodied intelligence platform.
+       * @summary Queries the resource usage information of the Embodied platform.
        *
        * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -214,7 +214,7 @@ namespace ADBAI20250812
       Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfoWithOptions(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the resource usage information of an embodied intelligence platform.
+       * @summary Queries the resource usage information of the Embodied platform.
        *
        * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
        * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -256,7 +256,7 @@ namespace ADBAI20250812
       Models::ModifyAgentPlatformResponse modifyAgentPlatform(const Models::ModifyAgentPlatformRequest &request);
 
       /**
-       * @summary Modifies the specifications of an embodied intelligence platform.
+       * @summary Modifies the specifications of the embodied AI platform.
        *
        * @param tmpReq ModifyEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -265,7 +265,7 @@ namespace ADBAI20250812
       Models::ModifyEmbodiedAIPlatformResponse modifyEmbodiedAIPlatformWithOptions(const Models::ModifyEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the specifications of an embodied intelligence platform.
+       * @summary Modifies the specifications of the embodied AI platform.
        *
        * @param request ModifyEmbodiedAIPlatformRequest
        * @return ModifyEmbodiedAIPlatformResponse

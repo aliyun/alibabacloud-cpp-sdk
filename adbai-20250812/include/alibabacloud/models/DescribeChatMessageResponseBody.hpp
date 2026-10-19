@@ -124,13 +124,13 @@ namespace Models
 
 
     protected:
-      // The parameters of the data API operation that is called.
+      // The parameters of the invoked data API.
       shared_ptr<string> arguments_ {};
-      // The ID of the data API operation that is called.
+      // The ID of the invoked data API.
       shared_ptr<string> callId_ {};
-      // The name of the data API operation that is called.
+      // The name of the invoked data API.
       shared_ptr<string> name_ {};
-      // The output of the data API operation that is called.
+      // The output of the invoked data API.
       shared_ptr<string> output_ {};
     };
 
@@ -218,11 +218,11 @@ namespace Models
 
 
       protected:
-        // The ID of the data API operation that is called.
+        // The ID of the invoked data API.
         shared_ptr<string> callId_ {};
-        // The name of the data API operation that is called.
+        // The name of the invoked data API.
         shared_ptr<string> name_ {};
-        // The output of the data API operation that is called.
+        // The output of the invoked data API.
         shared_ptr<string> output_ {};
       };
 
@@ -480,7 +480,7 @@ namespace Models
     shared_ptr<string> completedAt_ {};
     // The task content.
     shared_ptr<vector<DescribeChatMessageResponseBody::Content>> content_ {};
-    // The creation time.
+    // The creation time, in ISO 8601 format and UTC.
     shared_ptr<string> createdAt_ {};
     // The result set.
     shared_ptr<DescribeChatMessageResponseBody::Data> data_ {};

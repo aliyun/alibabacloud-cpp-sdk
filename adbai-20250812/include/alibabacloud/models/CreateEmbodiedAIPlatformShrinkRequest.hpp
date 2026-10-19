@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ontology count.
+    // The device count.
     shared_ptr<int32_t> deviceCount_ {};
     // The name of the embodied intelligence multimodal data platform.
     // > The name can contain lowercase letters, digits, and underscores. It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
@@ -115,7 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The webserver specification of the platform.
+    // The Webserver specification of the platform.
     shared_ptr<string> webserverSpecName_ {};
   };
 

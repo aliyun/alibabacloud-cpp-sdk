@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AdbInstanceName, adbInstanceName_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DbClusterAcu, dbClusterAcu_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(LakeStorageBucketName, lakeStorageBucketName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceAcuMax, resourceAcuMax_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AdbInstanceName, adbInstanceName_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DbClusterAcu, dbClusterAcu_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(LakeStorageBucketName, lakeStorageBucketName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceAcuMax, resourceAcuMax_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adbInstanceName_ == nullptr
-        && this->DBClusterId_ == nullptr && this->dbClusterAcu_ == nullptr && this->lakeStorageBucketName_ == nullptr && this->regionId_ == nullptr && this->resourceAcuMax_ == nullptr
-        && this->resourceAcuMin_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->dbClusterAcu_ == nullptr && this->description_ == nullptr && this->lakeStorageBucketName_ == nullptr && this->regionId_ == nullptr
+        && this->resourceAcuMax_ == nullptr && this->resourceAcuMin_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // adbInstanceName Field Functions 
     bool hasAdbInstanceName() const { return this->adbInstanceName_ != nullptr;};
     void deleteAdbInstanceName() { this->adbInstanceName_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteDbClusterAcu() { this->dbClusterAcu_ = nullptr;};
     inline int32_t getDbClusterAcu() const { DARABONBA_PTR_GET_DEFAULT(dbClusterAcu_, 0) };
     inline CreateMultiModelKnowledgeBaseRequest& setDbClusterAcu(int32_t dbClusterAcu) { DARABONBA_PTR_SET_VALUE(dbClusterAcu_, dbClusterAcu) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateMultiModelKnowledgeBaseRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // lakeStorageBucketName Field Functions 
@@ -121,19 +130,29 @@ namespace Models
 
 
   protected:
+    // **[Deprecated]**
     shared_ptr<string> adbInstanceName_ {};
-    // The instance cluster ID.
+    // The ID of the cluster.
     shared_ptr<string> DBClusterId_ {};
+    // The number of ACUs for the AnalyticDB for MySQL instance resources.
     shared_ptr<int32_t> dbClusterAcu_ {};
+    // The description of the multimodal knowledge base instance.
+    shared_ptr<string> description_ {};
+    // **[Deprecated]**
     shared_ptr<string> lakeStorageBucketName_ {};
     // The region ID.
     // 
     // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
     shared_ptr<string> regionId_ {};
+    // The maximum number of ACUs for the multimodal knowledge base resources.
     shared_ptr<int32_t> resourceAcuMax_ {};
+    // The minimum number of ACUs for the multimodal knowledge base resources.
     shared_ptr<int32_t> resourceAcuMin_ {};
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
+    // The ID of the zone to which the instance belongs.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -133,11 +133,11 @@ namespace Models
 
 
         protected:
-          // The instance ID of the image repository.
+          // The image repository instance ID.
           shared_ptr<string> instanceId_ {};
-          // The list of namespaces.
+          // The namespace list.
           shared_ptr<vector<string>> namespaces_ {};
-          // The address of the image repository instance.
+          // The image repository instance address.
           shared_ptr<string> registry_ {};
         };
 
@@ -241,7 +241,7 @@ namespace Models
     protected:
       // The number of CPU ACUs to purchase.
       shared_ptr<int64_t> cpuAcu_ {};
-      // The list of GPU model specifications to purchase.
+      // The list of GPU model types to purchase.
       shared_ptr<vector<RayTrainConfig::GpuSpecs>> gpuSpecs_ {};
       // The development machine configuration.
       shared_ptr<RayTrainConfig::TerminalConfig> terminalConfig_ {};
@@ -356,7 +356,7 @@ namespace Models
       protected:
         // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
-        // The name of the worker group.
+        // The worker group name.
         shared_ptr<string> groupName_ {};
         // The maximum number of workers.
         shared_ptr<int32_t> maxWorkerQuantity_ {};
@@ -364,9 +364,9 @@ namespace Models
         shared_ptr<int32_t> minWorkerQuantity_ {};
         // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
-        // The node specifications of the worker node.
+        // The worker node specifications.
         shared_ptr<string> workerSpecName_ {};
-        // The resource type of the worker node.
+        // The worker node resource type.
         shared_ptr<string> workerSpecType_ {};
       };
 
@@ -402,7 +402,7 @@ namespace Models
       // 
       // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
-      // The node specifications of the head node.
+      // The head node specifications.
       shared_ptr<string> headSpec_ {};
       // The list of Ray worker group configurations.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
@@ -469,7 +469,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ontology count.
+    // The device count.
     shared_ptr<int32_t> deviceCount_ {};
     // The name of the embodied intelligence multimodal data platform.
     // > The name can contain lowercase letters, digits, and underscores. It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
@@ -486,7 +486,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The webserver specification of the platform.
+    // The Webserver specification of the platform.
     shared_ptr<string> webserverSpecName_ {};
   };
 

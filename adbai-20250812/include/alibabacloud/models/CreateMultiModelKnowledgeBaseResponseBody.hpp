@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The ID of the created AnalyticDB for MySQL cluster.
     shared_ptr<string> dbClusterId_ {};
+    // The name of the created multimodal knowledge engine service.
     shared_ptr<string> mmkbName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

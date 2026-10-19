@@ -133,8 +133,11 @@ namespace Models
 
 
         protected:
+          // The instance ID of the image repository.
           shared_ptr<string> instanceId_ {};
+          // The list of namespaces.
           shared_ptr<vector<string>> namespaces_ {};
+          // The address of the image repository instance.
           shared_ptr<string> registry_ {};
         };
 
@@ -149,6 +152,7 @@ namespace Models
 
 
       protected:
+        // The configuration of the image repository.
         shared_ptr<TerminalConfig::AcrConfig> acrConfig_ {};
       };
 
@@ -199,8 +203,11 @@ namespace Models
 
 
       protected:
+        // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
+        // The number of GPUs.
         shared_ptr<int64_t> count_ {};
+        // The GPU model.
         shared_ptr<string> specName_ {};
       };
 
@@ -232,8 +239,11 @@ namespace Models
 
 
     protected:
+      // The number of CPU ACUs.
       shared_ptr<int64_t> cpuAcu_ {};
+      // The list of GPU types to purchase.
       shared_ptr<vector<RayTrainConfig::GpuSpecs>> gpuSpecs_ {};
+      // The configuration of the development machine.
       shared_ptr<RayTrainConfig::TerminalConfig> terminalConfig_ {};
     };
 
@@ -352,7 +362,7 @@ namespace Models
         shared_ptr<int32_t> maxWorkerQuantity_ {};
         // The minimum number of workers.
         shared_ptr<int32_t> minWorkerQuantity_ {};
-        // The disk size of the worker node.
+        // The disk capacity of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
         // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
@@ -388,13 +398,13 @@ namespace Models
     protected:
       // The type of the Ray cluster. Valid values:
       // 
-      // - BASIC: basic type, which does not support high availability.
+      // - BASIC: basic type, non-high-availability.
       // 
       // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
       // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
-      // The configuration information of Ray worker groups.
+      // The configuration of the Ray worker groups.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -455,18 +465,20 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The total number of devices.
     shared_ptr<string> deviceCount_ {};
-    // The name of the embodied intelligence multimodal data platform.
-    // > The name can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+    // The name of the embodied AI multimodal data platform.
+    // > The name must be 1 to 16 characters in length and can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit.
     // 
     // This parameter is required.
     shared_ptr<string> platformName_ {};
-    // The Ray specification information of the platform.
+    // The Ray specifications of the platform.
     shared_ptr<ModifyEmbodiedAIPlatformRequest::RayConfig> rayConfig_ {};
+    // The configuration of development and training resources.
     shared_ptr<ModifyEmbodiedAIPlatformRequest::RayTrainConfig> rayTrainConfig_ {};
     // The region ID.
     // 

@@ -91,7 +91,7 @@ namespace Models
 
 
       protected:
-        // The OSS standard storage usage. Unit: bytes.
+        // The OSS standard storage usage, in bytes.
         shared_ptr<int64_t> standardStorageSize_ {};
       };
 
@@ -123,7 +123,7 @@ namespace Models
 
 
       protected:
-        // The NAS standard storage usage. Unit: bytes.
+        // The NAS standard storage usage, in bytes.
         shared_ptr<int64_t> meteredSize_ {};
       };
 
@@ -192,9 +192,9 @@ namespace Models
 
 
     protected:
-      // The upstream bandwidth traffic over the public network. Unit: bytes.
+      // The inbound Internet traffic, in bytes.
       shared_ptr<int64_t> totalBytesIn_ {};
-      // The downstream bandwidth traffic over the public network. Unit: bytes.
+      // The outbound Internet traffic, in bytes.
       shared_ptr<int64_t> totalBytesOut_ {};
     };
 
@@ -249,7 +249,7 @@ namespace Models
       shared_ptr<int32_t> allocatedUnit_ {};
       // The GPU model.
       shared_ptr<string> gpuModel_ {};
-      // The number of GPUs of this model currently in use.
+      // The current number of GPUs in use for this model.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -309,9 +309,13 @@ namespace Models
 
 
     protected:
+      // The number of ACUs for the EAP web server.
       shared_ptr<double> eapWebserverACUCount_ {};
+      // The number of ACUs for the Ray head node.
       shared_ptr<double> rayHeadACUCount_ {};
+      // The number of ACUs for the Ray worker node.
       shared_ptr<double> rayWorkerACUCount_ {};
+      // The total number of ACUs.
       shared_ptr<double> totalACUCount_ {};
     };
 
@@ -376,12 +380,13 @@ namespace Models
 
 
   protected:
+    // The number of ACUs for each component of the Embodied platform.
     shared_ptr<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails> acuDetails_ {};
-    // The GPU usage details.
+    // The GPU usage.
     shared_ptr<vector<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::GpuDetails>> gpuDetails_ {};
-    // The maximum number of embodiments that can be registered.
+    // The maximum number of registered devices.
     shared_ptr<int64_t> maxRegisteredDevices_ {};
-    // The number of registered embodiments.
+    // The number of registered devices.
     shared_ptr<int64_t> registeredDeviceCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
