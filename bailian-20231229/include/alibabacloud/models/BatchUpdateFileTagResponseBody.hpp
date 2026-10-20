@@ -115,17 +115,15 @@ namespace Models
 
 
       protected:
-        // The error code. This parameter is returned only if Success is false.
+        // The error code. This parameter is returned only when Success is false.
         shared_ptr<string> errorCode_ {};
-        // The error message. This parameter is returned only if Success is false.
+        // The error message. This parameter is returned only when Success is false.
         shared_ptr<string> errorMessage_ {};
         // The file ID.
         shared_ptr<string> fileId_ {};
-        // Indicates whether the tags for the specific file were updated. Valid values:
-        // 
-        // - true: The tags were updated successfully.
-        // 
-        // - false: The tag update failed.
+        // Indicates whether the call was successful. Valid values:
+        // - true: Successful.
+        // - false: Failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -140,7 +138,7 @@ namespace Models
 
 
     protected:
-      // A list of the tag update results.
+      // The list of tag update results.
       shared_ptr<vector<Data::UpdateFileTagResultList>> updateFileTagResultList_ {};
     };
 
@@ -191,21 +189,19 @@ namespace Models
 
 
   protected:
-    // The response code. A value of Success indicates that the call was successful.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The data returned by the operation.
+    // The business data returned by the operation.
     shared_ptr<BatchUpdateFileTagResponseBody::Data> data_ {};
-    // The response message.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The status code returned for the request.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was accepted. Check `UpdateFileTagResultList` for the status of each file. Valid values:
-    // 
-    // - true: The request was accepted.
-    // 
-    // - false: The request failed, for example, due to an invalid parameter.
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

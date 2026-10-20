@@ -120,7 +120,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<DeleteCategoryResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

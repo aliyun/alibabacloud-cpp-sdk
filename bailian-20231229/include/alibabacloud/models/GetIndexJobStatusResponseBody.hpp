@@ -137,22 +137,23 @@ namespace Models
 
 
       protected:
-        // The error status code.
+        // The error code.
         shared_ptr<string> code_ {};
         // The file ID.
         shared_ptr<string> docId_ {};
         // The file name.
         shared_ptr<string> docName_ {};
+        // The time when the file was last modified. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
         // The error message.
         shared_ptr<string> message_ {};
         // The file import status. Valid values:
-        // - INSERT_ERROR: Failed to import into the index.
-        // - RUNNING: Index building in progress.
-        // - DELETED: Deleted.
-        // - FINISH: Index building succeeded.
-        // - PARSE_FAILED: Parsing failed.
-        // - DOC_PARSING: Parsing in progress.
+        // - INSERT_ERROR: The index import failed.
+        // - RUNNING: The index is being built.
+        // - DELETED: The file is deleted.
+        // - FINISH: The index is built successfully.
+        // - PARSE_FAILED: The parsing failed.
+        // - DOC_PARSING: The file is being parsed.
         shared_ptr<string> status_ {};
       };
 
@@ -182,15 +183,15 @@ namespace Models
 
 
     protected:
-      // The list of files imported in this job.
+      // The list of files imported in this task.
       shared_ptr<vector<Data::Documents>> documents_ {};
-      // The job ID.
+      // The job task ID.
       shared_ptr<string> jobId_ {};
-      // The current status of the knowledge base job. Valid values:
-      // - COMPLETED: Execution succeeded.
-      // - FAILED: Execution failed.
-      // - RUNNING: Execution in progress.
-      // - PENDING: Waiting for execution.
+      // The current status of the knowledge base job task. Valid values:
+      // - COMPLETED: The task is executed successfully.
+      // - FAILED: The task failed to be executed.
+      // - RUNNING: The task is being executed.
+      // - PENDING: The task is pending execution.
       shared_ptr<string> status_ {};
     };
 
@@ -241,9 +242,9 @@ namespace Models
 
 
   protected:
-    // The error status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<GetIndexJobStatusResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -251,9 +252,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the operation was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

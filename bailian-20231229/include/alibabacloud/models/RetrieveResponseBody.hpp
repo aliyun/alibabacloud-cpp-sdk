@@ -110,27 +110,26 @@ namespace Models
       protected:
         // <props="china">
         // 
-        // A map of metadata for the text chunk.
+        // The metadata map of the text chunk.
         // 
-        // > For document search knowledge bases, the `file_path` field in the metadata map is not applicable and should not be used in your application code.
+        // > The file_path field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
         // 
-        // > When you retrieve data from a document search knowledge base, if a text chunk contains an image, its URL is returned in the `image_url` field of the metadata map. This URL expires.
+        // > When you retrieve a document search knowledge base, if a chunk contains an image, the image is returned in the image_url field of the metadata map, along with an expiration time.
         // 
-        // > When you retrieve data from an audio/video search knowledge base, if a text chunk contains audio, its URL is returned in the `audio_url` field of the metadata map. This URL expires.
+        // > When you retrieve an audio and video search knowledge base, if a chunk contains audio, the audio is returned in the audio_url field of the metadata map, along with an expiration time.
         // 
-        // > When you retrieve data from an audio/video search knowledge base, if a text chunk contains video, its URL is returned in the `video_url` field of the metadata map. This URL expires.
-        // 
+        // > When you retrieve an audio and video search knowledge base, if a chunk contains a video, the video is returned in the video_url field of the metadata map, along with an expiration time.
         // 
         // 
         // <props="intl">
         // 
-        // A map of metadata for the text chunk.
+        // The metadata map of the text chunk.
         // 
-        // > For document search knowledge bases, the `file_path` field in the metadata map is not applicable and should not be used in your application code.
+        // > The file_path field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
         // 
-        // > When you retrieve data from a document search knowledge base, if a text chunk contains an image, its URL is returned in the `image_url` field of the metadata map. This URL expires.
+        // > When you retrieve a document search knowledge base, if a chunk contains an image, the image is returned in the image_url field of the metadata map, along with an expiration time.
         Darabonba::Json metadata_ {};
-        // The similarity score of the text chunk, ranging from 0 to 1.
+        // The similarity score of the text chunk. Valid values: 0 to 1.
         shared_ptr<double> score_ {};
         // The content of the text chunk.
         shared_ptr<string> text_ {};
@@ -147,7 +146,7 @@ namespace Models
 
 
     protected:
-      // An array of retrieved text chunks.
+      // The list of matched text chunks.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -200,19 +199,17 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The business data returned by the API.
+    // The business data field returned by the operation.
     shared_ptr<RetrieveResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code of the response.
+    // The status code returned.
     shared_ptr<string> status_ {};
-    // Indicates whether the API call was successful. Valid values:
-    // 
-    // - true: The call succeeded.
-    // 
-    // - false: The call failed.
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

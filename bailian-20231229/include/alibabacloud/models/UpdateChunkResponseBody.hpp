@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The error status code.
     shared_ptr<string> code_ {};
-    // The business data returned upon a successful request.
+    // The business data returned when the request succeeds.
     shared_ptr<bool> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: Succeeded.
+    // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};
   };

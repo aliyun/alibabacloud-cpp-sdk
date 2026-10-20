@@ -72,11 +72,11 @@ namespace Models
 
 
     protected:
-      // The file ID. To get this ID, go to the <props="china">[application data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[application data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page and click the ID icon next to the file name.
+      // The file ID in the data center. On the <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page, click the ID icon next to the file name to obtain the ID.
       // 
       // This parameter is required.
       shared_ptr<string> fileId_ {};
-      // - A list of up to 100 tags to associate with the file. The total length of all tags cannot exceed 700 characters.
+      // - The list of tags associated with the file. You can specify up to 100 tags. The total character length of all tags cannot exceed 700.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> tags_ {};
@@ -101,11 +101,11 @@ namespace Models
 
 
   protected:
-    // A list of files to update.
+    // The list of documents to update.
     // 
     // This parameter is required.
     shared_ptr<vector<BatchUpdateFileTagRequest::FileInfos>> fileInfos_ {};
-    // The update mode. Valid values are APPEND and OVERWRITE.
+    // The update mode. Valid values: APPEND (append) and OVERWRITE (overwrite).
     shared_ptr<string> updateMode_ {};
   };
 

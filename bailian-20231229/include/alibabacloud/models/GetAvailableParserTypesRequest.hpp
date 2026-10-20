@@ -38,7 +38,22 @@ namespace Models
 
 
   protected:
-    // The file type. Valid values: pdf, docx, and doc.
+    // The file type (extension) for which to retrieve supported parsers. Valid values: 
+    // - doc
+    // - docx
+    // - ppt
+    // - pptx
+    // - xls
+    // - xlsx
+    // - md
+    // - txt
+    // - pdf
+    // - png
+    // - jpg
+    // - jpeg
+    // - bmp
+    // - gif
+    // - html
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};

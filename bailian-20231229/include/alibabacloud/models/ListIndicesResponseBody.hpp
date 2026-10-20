@@ -77,6 +77,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(OverlapSize, overlapSize_);
+          DARABONBA_PTR_TO_JSON(PipelineCommercialCu, pipelineCommercialCu_);
+          DARABONBA_PTR_TO_JSON(PipelineCommercialType, pipelineCommercialType_);
+          DARABONBA_PTR_TO_JSON(PipelineStorageUsage, pipelineStorageUsage_);
           DARABONBA_PTR_TO_JSON(RerankMinScore, rerankMinScore_);
           DARABONBA_PTR_TO_JSON(RerankModelName, rerankModelName_);
           DARABONBA_PTR_TO_JSON(Separator, separator_);
@@ -97,6 +100,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(OverlapSize, overlapSize_);
+          DARABONBA_PTR_FROM_JSON(PipelineCommercialCu, pipelineCommercialCu_);
+          DARABONBA_PTR_FROM_JSON(PipelineCommercialType, pipelineCommercialType_);
+          DARABONBA_PTR_FROM_JSON(PipelineStorageUsage, pipelineStorageUsage_);
           DARABONBA_PTR_FROM_JSON(RerankMinScore, rerankMinScore_);
           DARABONBA_PTR_FROM_JSON(RerankModelName, rerankModelName_);
           DARABONBA_PTR_FROM_JSON(Separator, separator_);
@@ -174,17 +180,21 @@ namespace Models
 
 
         protected:
+          // Specifies whether this field participates in model responses. A value of **true** indicates that the retrieval results of this column are used as input for the large language model to generate answers.
           shared_ptr<bool> isRecall_ {};
+          // Specifies whether this field participates in knowledge base retrieval. A value of **true** indicates that the knowledge base can search within the data of this column.
           shared_ptr<bool> isSearch_ {};
+          // The name of the index field.
           shared_ptr<string> name_ {};
+          // The type of the index field.
           shared_ptr<string> type_ {};
         };
 
         virtual bool empty() const override { return this->chunkSize_ == nullptr
         && this->confgModel_ == nullptr && this->description_ == nullptr && this->documentIds_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr
-        && this->id_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr
-        && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr && this->sourceType_ == nullptr
-        && this->structureType_ == nullptr && this->structuredIndexConfig_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->pipelineCommercialCu_ == nullptr && this->pipelineCommercialType_ == nullptr
+        && this->pipelineStorageUsage_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr
+        && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr && this->sourceType_ == nullptr && this->structureType_ == nullptr && this->structuredIndexConfig_ == nullptr; };
         // chunkSize Field Functions 
         bool hasChunkSize() const { return this->chunkSize_ != nullptr;};
         void deleteChunkSize() { this->chunkSize_ = nullptr;};
@@ -248,6 +258,27 @@ namespace Models
         void deleteOverlapSize() { this->overlapSize_ = nullptr;};
         inline int32_t getOverlapSize() const { DARABONBA_PTR_GET_DEFAULT(overlapSize_, 0) };
         inline Indices& setOverlapSize(int32_t overlapSize) { DARABONBA_PTR_SET_VALUE(overlapSize_, overlapSize) };
+
+
+        // pipelineCommercialCu Field Functions 
+        bool hasPipelineCommercialCu() const { return this->pipelineCommercialCu_ != nullptr;};
+        void deletePipelineCommercialCu() { this->pipelineCommercialCu_ = nullptr;};
+        inline int32_t getPipelineCommercialCu() const { DARABONBA_PTR_GET_DEFAULT(pipelineCommercialCu_, 0) };
+        inline Indices& setPipelineCommercialCu(int32_t pipelineCommercialCu) { DARABONBA_PTR_SET_VALUE(pipelineCommercialCu_, pipelineCommercialCu) };
+
+
+        // pipelineCommercialType Field Functions 
+        bool hasPipelineCommercialType() const { return this->pipelineCommercialType_ != nullptr;};
+        void deletePipelineCommercialType() { this->pipelineCommercialType_ = nullptr;};
+        inline string getPipelineCommercialType() const { DARABONBA_PTR_GET_DEFAULT(pipelineCommercialType_, "") };
+        inline Indices& setPipelineCommercialType(string pipelineCommercialType) { DARABONBA_PTR_SET_VALUE(pipelineCommercialType_, pipelineCommercialType) };
+
+
+        // pipelineStorageUsage Field Functions 
+        bool hasPipelineStorageUsage() const { return this->pipelineStorageUsage_ != nullptr;};
+        void deletePipelineStorageUsage() { this->pipelineStorageUsage_ = nullptr;};
+        inline double getPipelineStorageUsage() const { DARABONBA_PTR_GET_DEFAULT(pipelineStorageUsage_, 0.0) };
+        inline Indices& setPipelineStorageUsage(double pipelineStorageUsage) { DARABONBA_PTR_SET_VALUE(pipelineStorageUsage_, pipelineStorageUsage) };
 
 
         // rerankMinScore Field Functions 
@@ -316,17 +347,17 @@ namespace Models
 
 
       protected:
-        // The estimated chunk size. Valid values: 1 to 2048.
+        // The estimated chunk size. Valid value range: [1-2048].
         shared_ptr<int32_t> chunkSize_ {};
         // The configuration mode used by this knowledge base. Valid values:
         // - recommend: recommended configuration.
         // - user-defined: custom configuration.
         shared_ptr<string> confgModel_ {};
-        // The knowledge base description.
+        // The description of the knowledge base.
         shared_ptr<string> description_ {};
         // The list of file IDs.
         shared_ptr<vector<string>> documentIds_ {};
-        // The embedding model name. Valid values:
+        // The name of the embedding model. Valid values:
         // 
         // <props="china">
         // 
@@ -346,13 +377,19 @@ namespace Models
         shared_ptr<bool> enableRewrite_ {};
         // The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
         shared_ptr<string> id_ {};
-        // The knowledge base name.
+        // The name of the knowledge base.
         shared_ptr<string> name_ {};
-        // The chunk overlap size. Valid values: 0 to 1024.
+        // The chunk overlap size. Valid value range: [0-1024].
         shared_ptr<int32_t> overlapSize_ {};
-        // The similarity threshold. Valid values: 0.01 to 1.00.
+        // The compute unit (CU) specification of the commercial knowledge base. This parameter is valid only for Enterprise Edition.
+        shared_ptr<int32_t> pipelineCommercialCu_ {};
+        // The commercial knowledge base edition.
+        shared_ptr<string> pipelineCommercialType_ {};
+        // The storage usage of the knowledge base. Unit: GB.
+        shared_ptr<double> pipelineStorageUsage_ {};
+        // The similarity threshold. Valid value range: [0.01-1.00].
         shared_ptr<string> rerankMinScore_ {};
-        // The rerank model name. Valid values:
+        // The name of the rerank model. Valid values:
         // 
         // <props="china">
         // 
@@ -401,10 +438,11 @@ namespace Models
         // For data query/image Q&A knowledge bases, valid values:
         // - DATA_CENTER_STRUCTURED_TABLE: data table type.
         shared_ptr<string> sourceType_ {};
-        // The knowledge base type. Valid values:
+        // The type of the knowledge base. Valid values:
         // 
         // - UNSTRUCTURED: document search.
         shared_ptr<string> structureType_ {};
+        // The index configuration for data query or image Q&A knowledge bases.
         shared_ptr<vector<Indices::StructuredIndexConfig>> structuredIndexConfig_ {};
       };
 
@@ -443,9 +481,9 @@ namespace Models
     protected:
       // The list of knowledge bases.
       shared_ptr<vector<Data::Indices>> indices_ {};
-      // The specified page number.
+      // The page number returned.
       shared_ptr<int32_t> pageNumber_ {};
-      // The specified number of entries per page.
+      // The number of entries per page returned.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -508,7 +546,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the operation was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};

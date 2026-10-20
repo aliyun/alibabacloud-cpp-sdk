@@ -103,34 +103,34 @@ namespace Models
 
 
   protected:
-    // The number of most similar text segments to retrieve using vector search. A vector is generated for the input text, and the K most similar text segments are retrieved from the knowledge base. The value of K must be in the range of 0 to 100.
-    // The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` cannot exceed 200.
+    // The top K value for AISearch. The system generates a vector for the input text and retrieves the K text chunks with the most similar vector representations from the knowledge base. Valid values: 0 to 100.
+    // The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` must be less than or equal to 200.
     // 
     // Default value: 100.
     shared_ptr<int32_t> denseSimilarityTopK_ {};
-    // The description of the knowledge base.
+    // The knowledge base description.
     shared_ptr<string> description_ {};
     // The knowledge base ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The name of the knowledge base.
+    // The knowledge base name.
     shared_ptr<string> name_ {};
-    // The number of Retrieval Compute Units (RCUs) for the Ultimate Edition knowledge base. This parameter is required only when PipelineCommercialType is set to enterprise.
+    // The number of RCUs for an Ultimate Edition knowledge base. This parameter is required only when pipelineCommercialType is set to enterprise.
     // 
-    // The value must be in the range of 1 to 200.
+    // Valid values: 1 to 200.
     shared_ptr<int32_t> pipelineCommercialCu_ {};
-    // The edition of the knowledge base. Valid values:
+    // The specification type of the knowledge base. Valid values:
     // 
-    // - standard: Standard Edition
+    // - standard: Standard Edition.
     // 
-    // - enterprise: Ultimate Edition
+    // - enterprise: Ultimate Edition.
     shared_ptr<string> pipelineCommercialType_ {};
-    // The minimum score for sorting. The value must be between 0 and 1.
+    // The minimum reranking score. Valid values: 0 to 1.
     shared_ptr<string> rerankMinScore_ {};
-    // The number of text segments to retrieve using an exact keyword match. This helps filter out irrelevant text segments and provides more accurate results.
-    // The value must be in the range of 0 to 100.
-    // The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` cannot exceed 200.
+    // The top K value for keyword retrieval. The system retrieves text chunks in the knowledge base that are an exact match for the keywords of the input text. This helps filter out irrelevant text chunks and provides more accurate results.
+    // Valid values: 0 to 100.
+    // The sum of `DenseSimilarityTopK` and `SparseSimilarityTopK` must be less than or equal to 200.
     // 
     // Default value: 100.
     shared_ptr<int32_t> sparseSimilarityTopK_ {};

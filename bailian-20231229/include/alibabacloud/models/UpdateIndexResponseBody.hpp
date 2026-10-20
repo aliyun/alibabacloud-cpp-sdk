@@ -120,19 +120,19 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The data field returned by the operation.
     shared_ptr<UpdateIndexResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code returned by the API.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // true: The request was successful.
+    // true: The call was successful.
     // 
-    // false: The request failed.
+    // false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

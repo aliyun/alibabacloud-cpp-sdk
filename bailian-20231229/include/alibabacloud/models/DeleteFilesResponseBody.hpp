@@ -101,9 +101,9 @@ namespace Models
         shared_ptr<string> fileId_ {};
         // The file deletion status. Valid values:
         // 
-        // - DELETED: The file is deleted.
-        // - FAILED: The file fails to be deleted.
-        // - NOT_FOUND: The file is not found.
+        // - DELETED: The file was deleted.
+        // - FAILED: The file failed to be deleted.
+        // - NOT_FOUND: The file was not found.
         shared_ptr<string> status_ {};
       };
 
@@ -177,11 +177,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The status code returned by the API.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the API call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

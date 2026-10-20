@@ -74,11 +74,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> connectorType_ {};
-    // The description for the connector.
+    // The description of the connector.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The parameters for the file connector.
+    // The configuration parameters for the file connector.
     shared_ptr<string> fileConnectorConfigShrink_ {};
   };
 

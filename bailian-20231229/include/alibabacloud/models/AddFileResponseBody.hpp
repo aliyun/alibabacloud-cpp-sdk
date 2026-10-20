@@ -79,7 +79,7 @@ namespace Models
     protected:
       // The file ID. Keep this value safe because it is used in all subsequent API operations related to this file.
       shared_ptr<string> fileId_ {};
-      // The parser type used to parse the file. Valid values:
+      // The parser type used to parse this file. Valid values:
       // - DASHSCOPE_DOCMIND: Alibaba Cloud intelligent document parsing.
       shared_ptr<string> parser_ {};
     };
@@ -131,9 +131,9 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<AddFileResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -141,9 +141,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: The call was successful.
-    // - false: The call failed.
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

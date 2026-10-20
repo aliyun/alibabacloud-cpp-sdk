@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(FileType, fileType_);
+        DARABONBA_PTR_TO_JSON(OriginFileDownloadUrl, originFileDownloadUrl_);
         DARABONBA_PTR_TO_JSON(ParseErrorMessage, parseErrorMessage_);
         DARABONBA_PTR_TO_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_TO_JSON(Parser, parser_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(FileType, fileType_);
+        DARABONBA_PTR_FROM_JSON(OriginFileDownloadUrl, originFileDownloadUrl_);
         DARABONBA_PTR_FROM_JSON(ParseErrorMessage, parseErrorMessage_);
         DARABONBA_PTR_FROM_JSON(ParseResultDownloadUrl, parseResultDownloadUrl_);
         DARABONBA_PTR_FROM_JSON(Parser, parser_);
@@ -80,8 +82,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->parseErrorMessage_ == nullptr
-        && this->parseResultDownloadUrl_ == nullptr && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->createTime_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->fileType_ == nullptr && this->originFileDownloadUrl_ == nullptr
+        && this->parseErrorMessage_ == nullptr && this->parseResultDownloadUrl_ == nullptr && this->parser_ == nullptr && this->sizeInBytes_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr; };
       // categoryId Field Functions 
       bool hasCategoryId() const { return this->categoryId_ != nullptr;};
       void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -115,6 +118,13 @@ namespace Models
       void deleteFileType() { this->fileType_ = nullptr;};
       inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
       inline Data& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
+
+
+      // originFileDownloadUrl Field Functions 
+      bool hasOriginFileDownloadUrl() const { return this->originFileDownloadUrl_ != nullptr;};
+      void deleteOriginFileDownloadUrl() { this->originFileDownloadUrl_ = nullptr;};
+      inline string getOriginFileDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(originFileDownloadUrl_, "") };
+      inline Data& setOriginFileDownloadUrl(string originFileDownloadUrl) { DARABONBA_PTR_SET_VALUE(originFileDownloadUrl_, originFileDownloadUrl) };
 
 
       // parseErrorMessage Field Functions 
@@ -166,59 +176,61 @@ namespace Models
       shared_ptr<string> categoryId_ {};
       // The timestamp when the file was added to Model Studio. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
       shared_ptr<string> createTime_ {};
-      // The file ID.
+      // The ID of the file.
       shared_ptr<string> fileId_ {};
-      // The file name.
+      // The name of the file.
       shared_ptr<string> fileName_ {};
-      // The file type (extension). Possible values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
+      // The file type, which is the file extension. Valid values: pdf, docx, doc, txt, md, pptx, ppt, xlsx, xls, html, png, jpg, jpeg, bmp, and gif.
       shared_ptr<string> fileType_ {};
-      // The reason for the parsing failure.
+      // The download URL of the source file.
+      shared_ptr<string> originFileDownloadUrl_ {};
+      // The cause of the parsing failure.
       shared_ptr<string> parseErrorMessage_ {};
+      // The download URL of the file parsing result.
       shared_ptr<string> parseResultDownloadUrl_ {};
-      // The parser type used to parse the file. Possible values:
+      // The type of the parser used to parse the file. Valid values:
       // - DASHSCOPE_DOCMIND: the default document parser.
       shared_ptr<string> parser_ {};
-      // The file size, in bytes.
+      // The size of the file, in bytes.
       shared_ptr<int64_t> sizeInBytes_ {};
       // <props="china">
       // 
-      // For files used in document-based knowledge bases (type: UNSTRUCTURED), possible values:
+      // The status of a file used for a document knowledge base (type: UNSTRUCTURED). Valid values:
       // 
       // 
       // 
       // <props="intl">
       // 
-      // For files used in unstructured knowledge bases (type: UNSTRUCTURED), possible values:
+      // The status of a file used for an unstructured knowledge base (type: UNSTRUCTURED). Valid values:
       // 
       // 
       // 
       // 
-      // - INIT: Pending parsing.
-      // - IN_PARSE_QUEUE: Queued for parsing.
-      // - PARSING: Being parsed.
-      // - PARSE_SUCCESS: Parsing completed.
-      // <note>The document can be imported into a knowledge base only after the status changes to PARSE_SUCCESS.</note>
-      // - PARSE_FAILED: Parsing failed.
+      // - INIT: to be parsed.
+      // - IN_PARSE_QUEUE: queuing for parsing.
+      // - PARSING: parsing.
+      // - PARSE_SUCCESS: parsed.
+      // <note>You can import a document into a knowledge base only after its status changes to PARSE_SUCCESS.</note>
+      // - PARSE_FAILED: parsing failed.
       // 
       // <props="china">
-      // For files used in agent application [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) (type: SESSION_FILE), possible values:
+      // The status of a file used for [session interaction](https://www.alibabacloud.com/help/en/model-studio/user-guide/file-interaction) in an agent application (type: SESSION_FILE). Valid values:
       // 
-      // - INIT: Pending parsing.
-      // - IN_PARSE_QUEUE: Queued for parsing.
-      // - PARSING: Being parsed.
-      // - PARSE_SUCCESS: Parsing completed.
-      // - PARSE_FAILED: Parsing failed.
-      // - SAFE_CHECKING: Safety check in progress.
-      // - SAFE_CHECK_FAILED: Safety check failed.
-      // - INDEX_BUILDING: Index being built.
-      // - INDEX_BUILD_SUCCESS: Index built.
-      // - INDEX_BUILDING_FAILED: Index building failed.
-      // - INDEX_DELETED: File index deleted.
-      // - FILE_IS_READY: File is ready.
-      // <note>Q&A is available only after the status changes to FILE_IS_READY.</note>
-      // - FILE_EXPIRED: File expired.
-      // <note>The file is valid only for the current user session. After the user closes the session, the file expires (maximum validity period: 7 days). Long-term retention is not supported.</note>
-      // .
+      // - INIT: to be parsed.
+      // - IN_PARSE_QUEUE: queuing for parsing.
+      // - PARSING: parsing.
+      // - PARSE_SUCCESS: parsed.
+      // - PARSE_FAILED: parsing failed.
+      // - SAFE_CHECKING: undergoing security check.
+      // - SAFE_CHECK_FAILED: security check failed.
+      // - INDEX_BUILDING: building index.
+      // - INDEX_BUILD_SUCCESS: index built.
+      // - INDEX_BUILDING_FAILED: index building failed.
+      // - INDEX_DELETED: file index deleted.
+      // - FILE_IS_READY: file ready.
+      // <note>You can perform Q&A only after the status changes to FILE_IS_READY.</note>
+      // - FILE_EXPIRED: file expired.
+      // <note>The file is valid only for the current session of the user. After the user closes the session, the file expires. The maximum validity period is 7 days. Long-term storage is not supported.</note>
       shared_ptr<string> status_ {};
       // The list of tags associated with the file. A file can be associated with multiple tags.
       shared_ptr<vector<string>> tags_ {};
@@ -271,19 +283,19 @@ namespace Models
 
 
   protected:
-    // The error status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field.
     shared_ptr<DescribeFileResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The status code returned by the operation.
+    // The status code returned.
     shared_ptr<string> status_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // Indicates whether the operation was successful. Valid values:
+    // - true: The operation was successful.
+    // - false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

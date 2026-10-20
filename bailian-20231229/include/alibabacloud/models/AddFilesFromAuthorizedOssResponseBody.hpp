@@ -115,18 +115,18 @@ namespace Models
 
 
       protected:
-        // The file ID. Keep this value safe because it is required for all subsequent API operations related to this file.
+        // The file ID. Keep this value secure because it is used for all subsequent API operations related to this file.
         shared_ptr<string> fileId_ {};
-        // The error message returned when the file import fails.
+        // The error message returned when the file fails to be imported.
         shared_ptr<string> msg_ {};
         // The key of the imported file in the OSS bucket.
         shared_ptr<string> ossKey_ {};
         // The file import status. Valid values:
         // 
-        // - SUCCESS: The import to application data is complete.
-        // - FAILED: The import to application data failed.
+        // - SUCCESS: The application data is imported.
+        // - FAILED: The application data fails to be imported.
         // 
-        // > Only files with a SUCCESS status can be used to create or update a knowledge base.
+        // > Only files whose status is SUCCESS can be used to create or update knowledge bases.
         // >
         shared_ptr<string> status_ {};
       };
@@ -195,7 +195,7 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<AddFilesFromAuthorizedOssResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
@@ -203,9 +203,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
+    // Indicates whether the operation is successful. Valid values:
+    // - true: The operation is successful.
+    // - false: The operation fails.
     shared_ptr<string> success_ {};
   };
 

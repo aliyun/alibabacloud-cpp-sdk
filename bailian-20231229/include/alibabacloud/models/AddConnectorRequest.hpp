@@ -82,11 +82,13 @@ namespace Models
 
 
     protected:
-      // The name of the bucket.
+      // The name of the storage bucket.
       shared_ptr<string> bucketName_ {};
-      // The region of the bucket.
+      // The region of the storage bucket.
       shared_ptr<string> regionId_ {};
-      // The file storage location. Valid values:<br>`OSS_CUSTOM`: Use your own Object Storage Service (OSS) bucket.<br>`OSS_PLATFORM`: Use the platform-provided OSS bucket.<br><br>
+      // The file storage location. Valid values:
+      // - OSS_CUSTOM: Use your own OSS storage. 
+      // - OSS_PLATFORM: Use platform OSS storage.
       shared_ptr<string> storageType_ {};
     };
 
@@ -131,11 +133,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> connectorType_ {};
-    // The description for the connector.
+    // The description of the connector.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The parameters for the file connector.
+    // The configuration parameters for the file connector.
     shared_ptr<AddConnectorRequest::FileConnectorConfig> fileConnectorConfig_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The list of IDs of the files to be deleted. A maximum of 20 files can be deleted in a single request.
+    // The list of file IDs to delete. A maximum of 20 files can be deleted at a time.
     // 
     // This parameter is required.
     shared_ptr<string> fileIdsShrink_ {};

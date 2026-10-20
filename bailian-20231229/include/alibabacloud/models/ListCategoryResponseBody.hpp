@@ -136,19 +136,16 @@ namespace Models
         shared_ptr<string> categoryId_ {};
         // The category name.
         shared_ptr<string> categoryName_ {};
-        // The category type. The only valid value is:
-        // 
-        // - `UNSTRUCTURED`: A standard category.
+        // The category type. Valid values:
+        // - UNSTRUCTURED: category.
         shared_ptr<string> categoryType_ {};
-        // Indicates whether the category is the default. Valid values:
+        // Indicates whether the category is a default category. Valid values:
+        // - true: Yes.
+        // - false: No.
         // 
-        // - `true`: The category is the default.
-        // 
-        // - `false`: The category is not the default.
-        // 
-        // You cannot delete the default category.
+        // Default categories cannot be deleted.
         shared_ptr<bool> isDefault_ {};
-        // The parent category ID.
+        // The category ID of the parent category.
         shared_ptr<string> parentCategoryId_ {};
       };
 
@@ -192,19 +189,18 @@ namespace Models
 
 
     protected:
-      // The list of categories.
+      // The category list.
       shared_ptr<vector<Data::CategoryList>> categoryList_ {};
-      // Indicates whether more results are available for retrieval. Valid values:
+      // Indicates whether a next page of category data that matches the query conditions exists. Valid values:
       // 
-      // - `true`: More results are available.
-      // 
-      // - `false`: This is the last page of results.
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> hasNext_ {};
-      // The maximum number of results to return per page.
+      // The number of categories per page in a paged query.
       shared_ptr<int32_t> maxResults_ {};
-      // The token used to retrieve the next page of results. This parameter is omitted when no more results are available.
+      // The pagination token returned in this call.
       shared_ptr<string> nextToken_ {};
-      // The total number of matching categories.
+      // The total number of categories in the returned results.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -255,21 +251,19 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The business data field of the operation.
     shared_ptr<ListCategoryResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code for the request.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request succeeded. Valid values:
-    // 
-    // - `true`: The request succeeded.
-    // 
-    // - `false`: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the configuration was changed. Valid values:
+      // Indicates whether the configuration was changed.
       // - true: The configuration was updated.
       // - false: The configuration was not changed. The modification failed.
       shared_ptr<bool> changeResult_ {};
@@ -120,7 +120,7 @@ namespace Models
 
 
   protected:
-    // The error status code.
+    // The error code.
     shared_ptr<string> code_ {};
     // The business data returned when the request is successful.
     shared_ptr<ChangeParseSettingResponseBody::Data> data_ {};

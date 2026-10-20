@@ -102,11 +102,10 @@ namespace Models
         // The display name of the parsing method.
         shared_ptr<string> displayName_ {};
         // The parser code. Valid values:
-        // 
-        // *   DOCMIND (Intelligent parsing)
-        // *   DOCMIND_DIGITAL (Digital parsing)
-        // *   DOCMIND_LLM_VERSION (LLM parsing)
-        // *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
+        // - DOCMIND: Intelligent Document Parsing.
+        // - DOCMIND_DIGITAL: Electronic Document Parsing.
+        // - DOCMIND_LLM_VERSION: LLM-based Document Parsing.
+        // - DASH_QWEN_VL_PARSER: Qwen-VL Parsing.
         shared_ptr<string> parser_ {};
       };
 
@@ -129,9 +128,9 @@ namespace Models
 
 
     protected:
-      // The file type, which is the same as the FileType in the input parameter.
+      // The file type, which is the same as the FileType input parameter.
       shared_ptr<string> fileType_ {};
-      // The list of supported parsers
+      // The list of parsers supported for the specified file type.
       shared_ptr<vector<Data::ParserList>> parserList_ {};
     };
 
@@ -184,18 +183,17 @@ namespace Models
   protected:
     // The error code returned.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The business data returned upon a successful request.
     shared_ptr<GetAvailableParserTypesResponseBody::Data> data_ {};
-    // The error message that is returned if the request failed.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

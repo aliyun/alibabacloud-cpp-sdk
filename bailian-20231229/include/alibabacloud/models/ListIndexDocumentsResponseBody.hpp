@@ -171,7 +171,7 @@ namespace Models
       protected:
         // The error status code for file import.
         shared_ptr<string> code_ {};
-        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, and EXCEL.
+        // The file format type. Valid values: pdf, docx, doc, txt, md, pptx, ppt, png, jpg, jpeg, bmp, gif, EXCEL.
         shared_ptr<string> documentType_ {};
         // The time when the file was imported to the knowledge base, in UNIX timestamp format.
         shared_ptr<int64_t> gmtModified_ {};
@@ -309,7 +309,7 @@ namespace Models
   protected:
     // The error status code.
     shared_ptr<string> code_ {};
-    // The data field returned by the operation.
+    // The business data field of the operation.
     shared_ptr<ListIndexDocumentsResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};

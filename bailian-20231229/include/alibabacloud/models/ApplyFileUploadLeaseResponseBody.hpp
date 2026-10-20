@@ -111,17 +111,17 @@ namespace Models
 
 
       protected:
-        // Key-value pairs that need to be included in the header. Both keys and values are strings.
+        // The key-value pairs to include in the request header. Both keys and values are strings.
         // 
-        // > The returned Content-Type may be empty. You can upload the file with the empty value.
+        // > The returned Content-Type may be empty. Use the empty value as-is when uploading.
         Darabonba::Json headers_ {};
         // The HTTP method. Valid values:
         // - PUT
         // - POST
         shared_ptr<string> method_ {};
-        // The upload URL of the file.
+        // The upload URL for the file.
         // 
-        // > This URL is a pre-signed URL. FormData upload is not supported. You must upload the file in binary mode.
+        // > This URL is a pre-signed URL. It does not support FormData uploads. Use binary upload instead.
         shared_ptr<string> url_ {};
       };
 
@@ -151,11 +151,11 @@ namespace Models
 
 
     protected:
-      // The unique ID of the lease. You need to use this parameter when you call the **AddFile** API.
+      // The unique ID of the lease. This parameter is required when calling the **AddFile** operation.
       shared_ptr<string> fileUploadLeaseId_ {};
       // The HTTP request parameters for uploading the file.
       shared_ptr<Data::Param> param_ {};
-      // The upload method of the file. Valid values:
+      // The upload method for the file. Valid values:
       // - OSS.PreSignedURL
       // - HTTP
       shared_ptr<string> type_ {};
@@ -208,20 +208,20 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The business data field of the operation.
     shared_ptr<ApplyFileUploadLeaseResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status code returned.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the API call is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true: The call is successful.
-    // - false: The call failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,33 +84,34 @@ namespace Models
 
 
   protected:
-    // Filters the results to include only the category with this exact name. If this parameter is omitted, no filtering is applied.
+    // Performs an exact match or filter on the category list returned by the operation based on the category name. Default value: empty, which means category name filtering is not enabled.
     shared_ptr<string> categoryName_ {};
-    // The type of category to query. Valid value:
-    // 
-    // - `UNSTRUCTURED`: A category for unstructured data.
+    // The type of category to query. Valid values:
+    // - UNSTRUCTURED: category.
     // 
     // <props="china">
     // 
-    // > This API does not support querying structured data tables.
-    // 
+    // > Querying tables (data tables) by using API operations is not supported.
+    // >
     // 
     // 
     // <props="intl">
     // 
-    // > This API does not support querying structured data tables.
+    // > Querying structured data tables by using API operations is not supported.
+    // >
     // 
     // This parameter is required.
     shared_ptr<string> categoryType_ {};
-    // The ID of the connector.
+    // The connector ID.
     shared_ptr<string> connectorId_ {};
-    // The maximum number of categories to return per page. The valid range is 1 to 200.
+    // The number of categories per page in a paged query. Maximum value: 200. Valid values: 1 to 200.
     // 
-    // Default value: 20. If this parameter is not specified or is set to a value less than 1, the default value is used. If a value greater than 200 is specified, the maximum value of 200 is used.
+    // Default value:
+    // If the value is not set or is less than 1, the default value is 20. If the value is greater than 200, the default value is 200.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. To retrieve the next page of results, pass the `NextToken` value from the previous response.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the parent category.
+    // The ID of the parent category for the categories to query.
     shared_ptr<string> parentCategoryId_ {};
   };
 

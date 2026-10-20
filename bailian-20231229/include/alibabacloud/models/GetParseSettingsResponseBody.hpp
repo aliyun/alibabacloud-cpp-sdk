@@ -105,7 +105,7 @@ namespace Models
       protected:
         // The model name.
         shared_ptr<string> modelName_ {};
-        // The prompt used for parsing.
+        // The prompt used when calling Qwen VL parsing.
         shared_ptr<string> modelPrompt_ {};
       };
 
@@ -142,16 +142,15 @@ namespace Models
 
 
     protected:
-      // The file type. Valid values are: pdf, docx, doc, etc. All supported file types in the category are listed here.
+      // The file type, specified as a file extension. Valid values include pdf, docx, and doc. All file types supported in the current category are listed.
       shared_ptr<string> fileType_ {};
-      // The parser used for files of the current type. Valid values:
-      // 
-      // *   DOCMIND (Intelligent parsing)
-      // *   DOCMIND_DIGITAL (Digital parsing)
-      // *   DOCMIND_LLM_VERSION (LLM parsing)
-      // *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
+      // The parser used to parse files of the current type under this category. Valid values:
+      // - DOCMIND: Intelligent Document Parsing.
+      // - DOCMIND_DIGITAL: Electronic Document Parsing.
+      // - DOCMIND_LLM_VERSION: LLM-based Document Parsing.
+      // - DASH_QWEN_VL_PARSER: Qwen VL Parsing.
       shared_ptr<string> parser_ {};
-      // The parser configuration. Currently, this is available only for Qwen VL parsing.
+      // The parser configuration. This parameter is returned only when the type is set to Qwen VL parsing.
       shared_ptr<Data::ParserConfig> parserConfig_ {};
       // The display name of the parsing method.
       shared_ptr<string> parserDisplayName_ {};
@@ -204,20 +203,19 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The returned data fields.
+    // The business data returned when the request is successful.
     shared_ptr<vector<GetParseSettingsResponseBody::Data>> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The HTTP status code returned.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 
