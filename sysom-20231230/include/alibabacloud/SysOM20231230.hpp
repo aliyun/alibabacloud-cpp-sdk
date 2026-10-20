@@ -585,6 +585,28 @@ namespace SysOM20231230
       Models::GetCopilotHistoryResponse getCopilotHistory(const Models::GetCopilotHistoryRequest &request);
 
       /**
+       * @summary Queries the hotfixes and compatible packages for a CVE.
+       *
+       * @description Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+       *
+       * @param request GetCveHotfixRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCveHotfixResponse
+       */
+      Models::GetCveHotfixResponse getCveHotfixWithOptions(const Models::GetCveHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the hotfixes and compatible packages for a CVE.
+       *
+       * @description Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+       *
+       * @param request GetCveHotfixRequest
+       * @return GetCveHotfixResponse
+       */
+      Models::GetCveHotfixResponse getCveHotfix(const Models::GetCveHotfixRequest &request);
+
+      /**
        * @summary Retrieves diagnostic results.
        *
        * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
@@ -1321,7 +1343,7 @@ namespace SysOM20231230
       Models::ListAlertStrategiesResponse listAlertStrategies(const Models::ListAlertStrategiesRequest &request);
 
       /**
-       * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
+       * @summary Queries a list of managed and unmanaged instances along with their details.
        *
        * @param request ListAllInstancesRequest
        * @param headers map
@@ -1331,7 +1353,7 @@ namespace SysOM20231230
       Models::ListAllInstancesResponse listAllInstancesWithOptions(const Models::ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
+       * @summary Queries a list of managed and unmanaged instances along with their details.
        *
        * @param request ListAllInstancesRequest
        * @return ListAllInstancesResponse

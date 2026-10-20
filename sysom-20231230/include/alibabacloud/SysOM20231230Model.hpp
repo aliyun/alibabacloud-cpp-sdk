@@ -83,6 +83,9 @@
 #include <alibabacloud/models/GetCopilotHistoryRequest.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponseBody.hpp>
 #include <alibabacloud/models/GetCopilotHistoryResponse.hpp>
+#include <alibabacloud/models/GetCveHotfixRequest.hpp>
+#include <alibabacloud/models/GetCveHotfixResponseBody.hpp>
+#include <alibabacloud/models/GetCveHotfixResponse.hpp>
 #include <alibabacloud/models/GetDiagnosisResultRequest.hpp>
 #include <alibabacloud/models/GetDiagnosisResultResponseBody.hpp>
 #include <alibabacloud/models/GetDiagnosisResultResponse.hpp>

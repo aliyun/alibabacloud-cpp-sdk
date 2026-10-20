@@ -1604,6 +1604,59 @@ GetCopilotHistoryResponse Client::getCopilotHistory(const GetCopilotHistoryReque
 }
 
 /**
+ * @summary Queries the hotfixes and compatible packages for a CVE.
+ *
+ * @description Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+ *
+ * @param request GetCveHotfixRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCveHotfixResponse
+ */
+GetCveHotfixResponse Client::getCveHotfixWithOptions(const GetCveHotfixRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCveIds()) {
+    body["cveIds"] = request.getCveIds();
+  }
+
+  if (!!request.hasKernelVersions()) {
+    body["kernelVersions"] = request.getKernelVersions();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetCveHotfix"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/hotfixManager/hotfixes/cve")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCveHotfixResponse>();
+}
+
+/**
+ * @summary Queries the hotfixes and compatible packages for a CVE.
+ *
+ * @description Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+ *
+ * @param request GetCveHotfixRequest
+ * @return GetCveHotfixResponse
+ */
+GetCveHotfixResponse Client::getCveHotfix(const GetCveHotfixRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCveHotfixWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves diagnostic results.
  *
  * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
@@ -3767,7 +3820,7 @@ ListAlertStrategiesResponse Client::listAlertStrategies(const ListAlertStrategie
 }
 
 /**
- * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
+ * @summary Queries a list of managed and unmanaged instances along with their details.
  *
  * @param request ListAllInstancesRequest
  * @param headers map
@@ -3832,7 +3885,7 @@ ListAllInstancesResponse Client::listAllInstancesWithOptions(const ListAllInstan
 }
 
 /**
- * @summary Retrieves a list of managed and unmanaged instances along with their instance information.
+ * @summary Queries a list of managed and unmanaged instances along with their details.
  *
  * @param request ListAllInstancesRequest
  * @return ListAllInstancesResponse

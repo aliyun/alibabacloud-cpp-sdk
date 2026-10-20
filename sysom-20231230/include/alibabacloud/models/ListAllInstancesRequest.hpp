@@ -114,18 +114,18 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<string> current_ {};
-    // The list of filter conditions.
+    // The list of filters.
     shared_ptr<string> filters_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
     // The management type.
     shared_ptr<string> managedType_ {};
-    // The maximum number of entries to return in a single request.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token.
-    // > If this parameter is not empty, more data is available.
+    // The pagination cursor.
+    // > If this parameter is not empty, it indicates that more data is available.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page. Default value: 10.
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<string> pageSize_ {};
     // The plugin ID.
     shared_ptr<string> pluginId_ {};
