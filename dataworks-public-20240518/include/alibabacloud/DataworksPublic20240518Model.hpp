@@ -93,6 +93,10 @@
 #include <alibabacloud/models/CreateBusinessRequest.hpp>
 #include <alibabacloud/models/CreateBusinessResponseBody.hpp>
 #include <alibabacloud/models/CreateBusinessResponse.hpp>
+#include <alibabacloud/models/CreateCalendarRequest.hpp>
+#include <alibabacloud/models/CreateCalendarShrinkRequest.hpp>
+#include <alibabacloud/models/CreateCalendarResponseBody.hpp>
+#include <alibabacloud/models/CreateCalendarResponse.hpp>
 #include <alibabacloud/models/CreateComponentRequest.hpp>
 #include <alibabacloud/models/CreateComponentResponseBody.hpp>
 #include <alibabacloud/models/CreateComponentResponse.hpp>
@@ -280,6 +284,9 @@
 #include <alibabacloud/models/DeleteBusinessRequest.hpp>
 #include <alibabacloud/models/DeleteBusinessResponseBody.hpp>
 #include <alibabacloud/models/DeleteBusinessResponse.hpp>
+#include <alibabacloud/models/DeleteCalendarRequest.hpp>
+#include <alibabacloud/models/DeleteCalendarResponseBody.hpp>
+#include <alibabacloud/models/DeleteCalendarResponse.hpp>
 #include <alibabacloud/models/DeleteCertificateRequest.hpp>
 #include <alibabacloud/models/DeleteCertificateResponseBody.hpp>
 #include <alibabacloud/models/DeleteCertificateResponse.hpp>
@@ -477,6 +484,9 @@
 #include <alibabacloud/models/GetBusinessRequest.hpp>
 #include <alibabacloud/models/GetBusinessResponseBody.hpp>
 #include <alibabacloud/models/GetBusinessResponse.hpp>
+#include <alibabacloud/models/GetCalendarRequest.hpp>
+#include <alibabacloud/models/GetCalendarResponseBody.hpp>
+#include <alibabacloud/models/GetCalendarResponse.hpp>
 #include <alibabacloud/models/GetCatalogRequest.hpp>
 #include <alibabacloud/models/GetCatalogResponseBody.hpp>
 #include <alibabacloud/models/GetCatalogResponse.hpp>
@@ -717,6 +727,12 @@
 #include <alibabacloud/models/ListBusinessRequest.hpp>
 #include <alibabacloud/models/ListBusinessResponseBody.hpp>
 #include <alibabacloud/models/ListBusinessResponse.hpp>
+#include <alibabacloud/models/ListCalendarVersionsRequest.hpp>
+#include <alibabacloud/models/ListCalendarVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListCalendarVersionsResponse.hpp>
+#include <alibabacloud/models/ListCalendarsRequest.hpp>
+#include <alibabacloud/models/ListCalendarsResponseBody.hpp>
+#include <alibabacloud/models/ListCalendarsResponse.hpp>
 #include <alibabacloud/models/ListCatalogsRequest.hpp>
 #include <alibabacloud/models/ListCatalogsShrinkRequest.hpp>
 #include <alibabacloud/models/ListCatalogsResponseBody.hpp>
@@ -1170,6 +1186,10 @@
 #include <alibabacloud/models/UpdateBusinessRequest.hpp>
 #include <alibabacloud/models/UpdateBusinessResponseBody.hpp>
 #include <alibabacloud/models/UpdateBusinessResponse.hpp>
+#include <alibabacloud/models/UpdateCalendarRequest.hpp>
+#include <alibabacloud/models/UpdateCalendarShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateCalendarResponseBody.hpp>
+#include <alibabacloud/models/UpdateCalendarResponse.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataRequest.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateColumnBusinessMetadataResponseBody.hpp>

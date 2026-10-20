@@ -131,8 +131,11 @@ namespace Models
 
 
         protected:
+          // The ID of the DataWorks module.
           shared_ptr<int64_t> moduleId_ {};
+          // The name of the DataWorks module.
           shared_ptr<string> moduleName_ {};
+          // The type of the permission.
           shared_ptr<string> permissionType_ {};
         };
 
@@ -176,16 +179,17 @@ namespace Models
 
 
       protected:
-        // The role code of the workspace.
+        // The code of the workspace role.
         shared_ptr<string> code_ {};
+        // The list of DataWorks product module permissions granted to the role.
         shared_ptr<vector<ProjectRoles::ModulePermissions>> modulePermissions_ {};
-        // The role name of the workspace.
+        // The name of the workspace role.
         shared_ptr<string> name_ {};
         // The ID of the DataWorks workspace.
         // 
-        // Note: For system default workspace roles, ProjectId returns a fixed value of -1.
+        // Note: For default system workspace roles, the value of ProjectId is fixed to -1.
         shared_ptr<int64_t> projectId_ {};
-        // The role type of the workspace.
+        // The type of the workspace role.
         shared_ptr<string> type_ {};
       };
 
@@ -222,13 +226,13 @@ namespace Models
 
 
     protected:
-      // The requested page number. Used for pagination.
+      // The page number of the requested data.
       shared_ptr<string> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<string> pageSize_ {};
       // The list of workspace roles.
       shared_ptr<vector<PagingInfo::ProjectRoles>> projectRoles_ {};
-      // The total number of entries that meet the filter conditions.
+      // The total number of entries that meet the specified conditions.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -253,7 +257,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListProjectRolesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. Used to locate logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

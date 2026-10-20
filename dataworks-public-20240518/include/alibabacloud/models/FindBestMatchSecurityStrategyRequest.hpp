@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Control module, used to match the security policy type.
+    // The control module used to match the security policy type.
     shared_ptr<string> controlModule_ {};
-    // Control sub-module, used to match the security policy type.
+    // The control submodule used to match the security policy type.
     shared_ptr<string> controlSubModule_ {};
-    // **Workspace ID**, used to precisely match workspace-level policies.
+    // The **workspace ID** used for exact match of the workspace-level policy.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

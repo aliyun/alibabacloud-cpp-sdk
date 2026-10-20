@@ -479,6 +479,27 @@ namespace DataworksPublic20240518
       Models::CreateBusinessResponse createBusiness(const Models::CreateBusinessRequest &request);
 
       /**
+       * @summary Creates a scheduling calendar.
+       *
+       * @description You must purchase DataWorks Enterprise Edition to use this feature.
+       *
+       * @param tmpReq CreateCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCalendarResponse
+       */
+      Models::CreateCalendarResponse createCalendarWithOptions(const Models::CreateCalendarRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a scheduling calendar.
+       *
+       * @description You must purchase DataWorks Enterprise Edition to use this feature.
+       *
+       * @param request CreateCalendarRequest
+       * @return CreateCalendarResponse
+       */
+      Models::CreateCalendarResponse createCalendar(const Models::CreateCalendarRequest &request);
+
+      /**
        * @summary Creates a component.
        *
        * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
@@ -1544,9 +1565,9 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowDefinitionResponse createWorkflowDefinition(const Models::CreateWorkflowDefinitionRequest &request);
 
       /**
-       * @summary Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+       * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description DataWorks Basic Edition or later is required.
+       * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
        *
        * @param tmpReq CreateWorkflowInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1555,9 +1576,9 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowInstancesResponse createWorkflowInstancesWithOptions(const Models::CreateWorkflowInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+       * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description DataWorks Basic Edition or later is required.
+       * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
        *
        * @param request CreateWorkflowInstancesRequest
        * @return CreateWorkflowInstancesResponse
@@ -1620,6 +1641,29 @@ namespace DataworksPublic20240518
        * @return DeleteBusinessResponse
        */
       Models::DeleteBusinessResponse deleteBusiness(const Models::DeleteBusinessRequest &request);
+
+      /**
+       * @summary Deletes a scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+       *
+       * @param request DeleteCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCalendarResponse
+       */
+      Models::DeleteCalendarResponse deleteCalendarWithOptions(const Models::DeleteCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+       *
+       * @param request DeleteCalendarRequest
+       * @return DeleteCalendarResponse
+       */
+      Models::DeleteCalendarResponse deleteCalendar(const Models::DeleteCalendarRequest &request);
 
       /**
        * @summary Deletes a certificate file.
@@ -2900,10 +2944,10 @@ namespace DataworksPublic20240518
       Models::ExecuteAdhocWorkflowInstanceResponse executeAdhocWorkflowInstance(const Models::ExecuteAdhocWorkflowInstanceRequest &request);
 
       /**
-       * @summary Find the security policy that best matches the given conditions.
+       * @summary Queries the best-matching security policy based on specified conditions.
        *
-       * @description ## Request Description
-       * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+       * @description ## Operation description
+       * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
        *
        * @param request FindBestMatchSecurityStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2912,10 +2956,10 @@ namespace DataworksPublic20240518
       Models::FindBestMatchSecurityStrategyResponse findBestMatchSecurityStrategyWithOptions(const Models::FindBestMatchSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Find the security policy that best matches the given conditions.
+       * @summary Queries the best-matching security policy based on specified conditions.
        *
-       * @description ## Request Description
-       * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+       * @description ## Operation description
+       * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
        *
        * @param request FindBestMatchSecurityStrategyRequest
        * @return FindBestMatchSecurityStrategyResponse
@@ -3072,6 +3116,27 @@ namespace DataworksPublic20240518
        * @return GetBusinessResponse
        */
       Models::GetBusinessResponse getBusiness(const Models::GetBusinessRequest &request);
+
+      /**
+       * @summary Retrieves the current configuration of a specified scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required to use this API.
+       *
+       * @param request GetCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCalendarResponse
+       */
+      Models::GetCalendarResponse getCalendarWithOptions(const Models::GetCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the current configuration of a specified scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required to use this API.
+       *
+       * @param request GetCalendarRequest
+       * @return GetCalendarResponse
+       */
+      Models::GetCalendarResponse getCalendar(const Models::GetCalendarRequest &request);
 
       /**
        * @summary Retrieves the details of a specified data catalog in DataWorks Data Map. Currently, DLF and StarRocks catalog types are supported.
@@ -4255,13 +4320,13 @@ namespace DataworksPublic20240518
       Models::GetSchemaResponse getSchema(const Models::GetSchemaRequest &request);
 
       /**
-       * @summary Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+       * @summary Retrieves the details of a security policy based on the provided security policy ID.
        *
-       * @description ## Request
-       * - This API retrieves the complete configuration information for a security policy by its ID.
-       * - The API returns an error message if the provided `Id` is invalid or does not exist.
-       * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-       * - Note: Some fields in a system default policy cannot be modified or deleted.
+       * @description ## Request description
+       * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+       * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+       * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+       * - Note: Some fields of system default policies may be protected from modification or deletion.
        *
        * @param request GetSecurityStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4270,13 +4335,13 @@ namespace DataworksPublic20240518
       Models::GetSecurityStrategyResponse getSecurityStrategyWithOptions(const Models::GetSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+       * @summary Retrieves the details of a security policy based on the provided security policy ID.
        *
-       * @description ## Request
-       * - This API retrieves the complete configuration information for a security policy by its ID.
-       * - The API returns an error message if the provided `Id` is invalid or does not exist.
-       * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-       * - Note: Some fields in a system default policy cannot be modified or deleted.
+       * @description ## Request description
+       * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+       * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+       * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+       * - Note: Some fields of system default policies may be protected from modification or deletion.
        *
        * @param request GetSecurityStrategyRequest
        * @return GetSecurityStrategyResponse
@@ -4804,6 +4869,48 @@ namespace DataworksPublic20240518
        * @return ListBusinessResponse
        */
       Models::ListBusinessResponse listBusiness(const Models::ListBusinessRequest &request);
+
+      /**
+       * @summary Queries the versions of a specified scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       *
+       * @param request ListCalendarVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCalendarVersionsResponse
+       */
+      Models::ListCalendarVersionsResponse listCalendarVersionsWithOptions(const Models::ListCalendarVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the versions of a specified scheduling calendar.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       *
+       * @param request ListCalendarVersionsRequest
+       * @return ListCalendarVersionsResponse
+       */
+      Models::ListCalendarVersionsResponse listCalendarVersions(const Models::ListCalendarVersionsRequest &request);
+
+      /**
+       * @summary Queries a list of scheduling calendars.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       *
+       * @param request ListCalendarsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCalendarsResponse
+       */
+      Models::ListCalendarsResponse listCalendarsWithOptions(const Models::ListCalendarsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of scheduling calendars.
+       *
+       * @description DataWorks Enterprise Edition is required.
+       *
+       * @param request ListCalendarsRequest
+       * @return ListCalendarsResponse
+       */
+      Models::ListCalendarsResponse listCalendars(const Models::ListCalendarsRequest &request);
 
       /**
        * @summary Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
@@ -6305,9 +6412,9 @@ namespace DataworksPublic20240518
       Models::ListProjectMembersResponse listProjectMembers(const Models::ListProjectMembersRequest &request);
 
       /**
-       * @summary Queries the details of workspace roles with pagination.
+       * @summary Queries the details of workspace roles by paging.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param tmpReq ListProjectRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6316,9 +6423,9 @@ namespace DataworksPublic20240518
       Models::ListProjectRolesResponse listProjectRolesWithOptions(const Models::ListProjectRolesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of workspace roles with pagination.
+       * @summary Queries the details of workspace roles by paging.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * @description You must purchase DataWorks Basic Edition or later to use this operation.
        *
        * @param request ListProjectRolesRequest
        * @return ListProjectRolesResponse
@@ -6479,13 +6586,13 @@ namespace DataworksPublic20240518
       Models::ListSchemasResponse listSchemas(const Models::ListSchemasRequest &request);
 
       /**
-       * @summary Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+       * @summary Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
        *
-       * @description ## Request
-       * - This API retrieves a paginated list of configured security policies.
-       * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-       * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-       * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+       * @description ## Request description
+       * - This operation retrieves the configured security policies in the system in pages.
+       * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+       * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+       * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
        *
        * @param request ListSecurityStrategiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6494,13 +6601,13 @@ namespace DataworksPublic20240518
       Models::ListSecurityStrategiesResponse listSecurityStrategiesWithOptions(const Models::ListSecurityStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+       * @summary Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
        *
-       * @description ## Request
-       * - This API retrieves a paginated list of configured security policies.
-       * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-       * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-       * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+       * @description ## Request description
+       * - This operation retrieves the configured security policies in the system in pages.
+       * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+       * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+       * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
        *
        * @param request ListSecurityStrategiesRequest
        * @return ListSecurityStrategiesResponse
@@ -6689,9 +6796,9 @@ namespace DataworksPublic20240518
       Models::ListSnapshotsResponse listSnapshots(const Models::ListSnapshotsRequest &request);
 
       /**
-       * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+       * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
        *
        * @param tmpReq ListTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6700,9 +6807,9 @@ namespace DataworksPublic20240518
       Models::ListTablesResponse listTablesWithOptions(const Models::ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+       * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse
@@ -7887,6 +7994,29 @@ namespace DataworksPublic20240518
        * @return UpdateBusinessResponse
        */
       Models::UpdateBusinessResponse updateBusiness(const Models::UpdateBusinessRequest &request);
+
+      /**
+       * @summary Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+       *
+       * @description You must purchase DataWorks Enterprise Edition to use this feature.
+       * The calendar name cannot be modified. Unsubmitted dates are not retained.
+       *
+       * @param tmpReq UpdateCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCalendarResponse
+       */
+      Models::UpdateCalendarResponse updateCalendarWithOptions(const Models::UpdateCalendarRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+       *
+       * @description You must purchase DataWorks Enterprise Edition to use this feature.
+       * The calendar name cannot be modified. Unsubmitted dates are not retained.
+       *
+       * @param request UpdateCalendarRequest
+       * @return UpdateCalendarResponse
+       */
+      Models::UpdateCalendarResponse updateCalendar(const Models::UpdateCalendarRequest &request);
 
       /**
        * @summary Updates the business metadata for a column in a data map. This operation can only update the business description and custom attributes.

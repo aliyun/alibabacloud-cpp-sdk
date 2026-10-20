@@ -1291,6 +1291,106 @@ CreateBusinessResponse Client::createBusiness(const CreateBusinessRequest &reque
 }
 
 /**
+ * @summary Creates a scheduling calendar.
+ *
+ * @description You must purchase DataWorks Enterprise Edition to use this feature.
+ *
+ * @param tmpReq CreateCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCalendarResponse
+ */
+CreateCalendarResponse Client::createCalendarWithOptions(const CreateCalendarRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCalendarShrinkRequest request = CreateCalendarShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProjectIds()) {
+    request.setProjectIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProjectIds(), "ProjectIds", "json"));
+  }
+
+  if (!!tmpReq.hasSchedulePolicy()) {
+    request.setSchedulePolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSchedulePolicy(), "SchedulePolicy", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAllProjects()) {
+    body["AllProjects"] = request.getAllProjects();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasExpirationReminder()) {
+    body["ExpirationReminder"] = request.getExpirationReminder();
+  }
+
+  if (!!request.hasFallbackPolicy()) {
+    body["FallbackPolicy"] = request.getFallbackPolicy();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOverduePolicy()) {
+    body["OverduePolicy"] = request.getOverduePolicy();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasProjectIdsShrink()) {
+    body["ProjectIds"] = request.getProjectIdsShrink();
+  }
+
+  if (!!request.hasSchedulePolicyShrink()) {
+    body["SchedulePolicy"] = request.getSchedulePolicyShrink();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCalendar"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCalendarResponse>();
+}
+
+/**
+ * @summary Creates a scheduling calendar.
+ *
+ * @description You must purchase DataWorks Enterprise Edition to use this feature.
+ *
+ * @param request CreateCalendarRequest
+ * @return CreateCalendarResponse
+ */
+CreateCalendarResponse Client::createCalendar(const CreateCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCalendarWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a component.
  *
  * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
@@ -5129,9 +5229,9 @@ CreateWorkflowDefinitionResponse Client::createWorkflowDefinition(const CreateWo
 }
 
 /**
- * @summary Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+ * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
  *
- * @description DataWorks Basic Edition or later is required.
+ * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
  *
  * @param tmpReq CreateWorkflowInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5224,9 +5324,9 @@ CreateWorkflowInstancesResponse Client::createWorkflowInstancesWithOptions(const
 }
 
 /**
- * @summary Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+ * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
  *
- * @description DataWorks Basic Edition or later is required.
+ * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
  *
  * @param request CreateWorkflowInstancesRequest
  * @return CreateWorkflowInstancesResponse
@@ -5374,6 +5474,54 @@ DeleteBusinessResponse Client::deleteBusinessWithOptions(const DeleteBusinessReq
 DeleteBusinessResponse Client::deleteBusiness(const DeleteBusinessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBusinessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+ *
+ * @param request DeleteCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCalendarResponse
+ */
+DeleteCalendarResponse Client::deleteCalendarWithOptions(const DeleteCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCalendar"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCalendarResponse>();
+}
+
+/**
+ * @summary Deletes a scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+ *
+ * @param request DeleteCalendarRequest
+ * @return DeleteCalendarResponse
+ */
+DeleteCalendarResponse Client::deleteCalendar(const DeleteCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCalendarWithOptions(request, runtime);
 }
 
 /**
@@ -8245,10 +8393,10 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstance(const 
 }
 
 /**
- * @summary Find the security policy that best matches the given conditions.
+ * @summary Queries the best-matching security policy based on specified conditions.
  *
- * @description ## Request Description
- * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+ * @description ## Operation description
+ * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
  *
  * @param request FindBestMatchSecurityStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8287,10 +8435,10 @@ FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategyWithO
 }
 
 /**
- * @summary Find the security policy that best matches the given conditions.
+ * @summary Queries the best-matching security policy based on specified conditions.
  *
- * @description ## Request Description
- * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+ * @description ## Operation description
+ * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
  *
  * @param request FindBestMatchSecurityStrategyRequest
  * @return FindBestMatchSecurityStrategyResponse
@@ -8656,6 +8804,52 @@ GetBusinessResponse Client::getBusinessWithOptions(const GetBusinessRequest &req
 GetBusinessResponse Client::getBusiness(const GetBusinessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getBusinessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the current configuration of a specified scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required to use this API.
+ *
+ * @param request GetCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCalendarResponse
+ */
+GetCalendarResponse Client::getCalendarWithOptions(const GetCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCalendar"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCalendarResponse>();
+}
+
+/**
+ * @summary Retrieves the current configuration of a specified scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required to use this API.
+ *
+ * @param request GetCalendarRequest
+ * @return GetCalendarResponse
+ */
+GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCalendarWithOptions(request, runtime);
 }
 
 /**
@@ -11192,13 +11386,13 @@ GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+ * @summary Retrieves the details of a security policy based on the provided security policy ID.
  *
- * @description ## Request
- * - This API retrieves the complete configuration information for a security policy by its ID.
- * - The API returns an error message if the provided `Id` is invalid or does not exist.
- * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
- * - Note: Some fields in a system default policy cannot be modified or deleted.
+ * @description ## Request description
+ * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+ * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+ * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+ * - Note: Some fields of system default policies may be protected from modification or deletion.
  *
  * @param request GetSecurityStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11229,13 +11423,13 @@ GetSecurityStrategyResponse Client::getSecurityStrategyWithOptions(const GetSecu
 }
 
 /**
- * @summary Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+ * @summary Retrieves the details of a security policy based on the provided security policy ID.
  *
- * @description ## Request
- * - This API retrieves the complete configuration information for a security policy by its ID.
- * - The API returns an error message if the provided `Id` is invalid or does not exist.
- * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
- * - Note: Some fields in a system default policy cannot be modified or deleted.
+ * @description ## Request description
+ * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+ * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+ * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+ * - Note: Some fields of system default policies may be protected from modification or deletion.
  *
  * @param request GetSecurityStrategyRequest
  * @return GetSecurityStrategyResponse
@@ -12513,6 +12707,126 @@ ListBusinessResponse Client::listBusinessWithOptions(const ListBusinessRequest &
 ListBusinessResponse Client::listBusiness(const ListBusinessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBusinessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the versions of a specified scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ *
+ * @param request ListCalendarVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCalendarVersionsResponse
+ */
+ListCalendarVersionsResponse Client::listCalendarVersionsWithOptions(const ListCalendarVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCalendarVersions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCalendarVersionsResponse>();
+}
+
+/**
+ * @summary Queries the versions of a specified scheduling calendar.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ *
+ * @param request ListCalendarVersionsRequest
+ * @return ListCalendarVersionsResponse
+ */
+ListCalendarVersionsResponse Client::listCalendarVersions(const ListCalendarVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCalendarVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of scheduling calendars.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ *
+ * @param request ListCalendarsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCalendarsResponse
+ */
+ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCalendars"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCalendarsResponse>();
+}
+
+/**
+ * @summary Queries a list of scheduling calendars.
+ *
+ * @description DataWorks Enterprise Edition is required.
+ *
+ * @param request ListCalendarsRequest
+ * @return ListCalendarsResponse
+ */
+ListCalendarsResponse Client::listCalendars(const ListCalendarsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCalendarsWithOptions(request, runtime);
 }
 
 /**
@@ -16570,9 +16884,9 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 }
 
 /**
- * @summary Queries the details of workspace roles with pagination.
+ * @summary Queries the details of workspace roles by paging.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param tmpReq ListProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16633,9 +16947,9 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
 }
 
 /**
- * @summary Queries the details of workspace roles with pagination.
+ * @summary Queries the details of workspace roles by paging.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * @description You must purchase DataWorks Basic Edition or later to use this operation.
  *
  * @param request ListProjectRolesRequest
  * @return ListProjectRolesResponse
@@ -17052,13 +17366,13 @@ ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
 }
 
 /**
- * @summary Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+ * @summary Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
  *
- * @description ## Request
- * - This API retrieves a paginated list of configured security policies.
- * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
- * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
- * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+ * @description ## Request description
+ * - This operation retrieves the configured security policies in the system in pages.
+ * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+ * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+ * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
  *
  * @param request ListSecurityStrategiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17101,13 +17415,13 @@ ListSecurityStrategiesResponse Client::listSecurityStrategiesWithOptions(const L
 }
 
 /**
- * @summary Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+ * @summary Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
  *
- * @description ## Request
- * - This API retrieves a paginated list of configured security policies.
- * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
- * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
- * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+ * @description ## Request description
+ * - This operation retrieves the configured security policies in the system in pages.
+ * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+ * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+ * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
  *
  * @param request ListSecurityStrategiesRequest
  * @return ListSecurityStrategiesResponse
@@ -17586,9 +17900,9 @@ ListSnapshotsResponse Client::listSnapshots(const ListSnapshotsRequest &request)
 }
 
 /**
- * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+ * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17621,9 +17935,9 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+ * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -20890,6 +21204,108 @@ UpdateBusinessResponse Client::updateBusinessWithOptions(const UpdateBusinessReq
 UpdateBusinessResponse Client::updateBusiness(const UpdateBusinessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateBusinessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+ *
+ * @description You must purchase DataWorks Enterprise Edition to use this feature.
+ * The calendar name cannot be modified. Unsubmitted dates are not retained.
+ *
+ * @param tmpReq UpdateCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCalendarResponse
+ */
+UpdateCalendarResponse Client::updateCalendarWithOptions(const UpdateCalendarRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateCalendarShrinkRequest request = UpdateCalendarShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProjectIds()) {
+    request.setProjectIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProjectIds(), "ProjectIds", "json"));
+  }
+
+  if (!!tmpReq.hasSchedulePolicy()) {
+    request.setSchedulePolicyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSchedulePolicy(), "SchedulePolicy", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAllProjects()) {
+    body["AllProjects"] = request.getAllProjects();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasExpirationReminder()) {
+    body["ExpirationReminder"] = request.getExpirationReminder();
+  }
+
+  if (!!request.hasFallbackPolicy()) {
+    body["FallbackPolicy"] = request.getFallbackPolicy();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasOverduePolicy()) {
+    body["OverduePolicy"] = request.getOverduePolicy();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasProjectIdsShrink()) {
+    body["ProjectIds"] = request.getProjectIdsShrink();
+  }
+
+  if (!!request.hasSchedulePolicyShrink()) {
+    body["SchedulePolicy"] = request.getSchedulePolicyShrink();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateCalendar"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCalendarResponse>();
+}
+
+/**
+ * @summary Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+ *
+ * @description You must purchase DataWorks Enterprise Edition to use this feature.
+ * The calendar name cannot be modified. Unsubmitted dates are not retained.
+ *
+ * @param request UpdateCalendarRequest
+ * @return UpdateCalendarResponse
+ */
+UpdateCalendarResponse Client::updateCalendar(const UpdateCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCalendarWithOptions(request, runtime);
 }
 
 /**

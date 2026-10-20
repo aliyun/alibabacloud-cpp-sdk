@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEWORKFLOWINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -159,11 +160,11 @@ namespace Models
 
 
       protected:
-        // The end business date. Format: `yyyy-mm-dd`.
+        // The end business date. Format: yyyy-mm-dd.
         // 
         // This parameter is required.
         shared_ptr<string> endBizDate_ {};
-        // The start business date. Format: `yyyy-mm-dd`.
+        // The start business date. Format: yyyy-mm-dd.
         // 
         // This parameter is required.
         shared_ptr<string> startBizDate_ {};
@@ -199,13 +200,13 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<vector<Periods::BizDates>> bizDates_ {};
-      // The end time of the period. Format: `hh:mm:ss` in 24-hour format. Default value: 23:59:59.
+      // The end time of the period. Specify the time in the hh:mm:ss format based on the 24-hour clock. Default value: 23:59:59.
       // 
-      // If you specify this field, you must also specify the StartTime field.
+      // If you specify this field, you must also specify StartTime.
       shared_ptr<string> endTime_ {};
-      // The start time of the period. Format: `hh:mm:ss` in 24-hour format. Default value: 00:00:00.
+      // The start time of the period. Specify the time in the hh:mm:ss format based on the 24-hour clock. Default value: 00:00:00.
       // 
-      // If you specify this field, you must also specify the EndTime field.
+      // If you specify this field, you must also specify EndTime.
       shared_ptr<string> startTime_ {};
     };
 
@@ -214,6 +215,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const DefaultRunProperties& obj) { 
         DARABONBA_PTR_TO_JSON(Alert, alert_);
         DARABONBA_PTR_TO_JSON(Analysis, analysis_);
+        DARABONBA_PTR_TO_JSON(DataSourceNameMappings, dataSourceNameMappings_);
         DARABONBA_PTR_TO_JSON(ExcludeProjectIds, excludeProjectIds_);
         DARABONBA_PTR_TO_JSON(ExcludeTaskIds, excludeTaskIds_);
         DARABONBA_PTR_TO_JSON(IncludeProjectIds, includeProjectIds_);
@@ -230,6 +232,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, DefaultRunProperties& obj) { 
         DARABONBA_PTR_FROM_JSON(Alert, alert_);
         DARABONBA_PTR_FROM_JSON(Analysis, analysis_);
+        DARABONBA_PTR_FROM_JSON(DataSourceNameMappings, dataSourceNameMappings_);
         DARABONBA_PTR_FROM_JSON(ExcludeProjectIds, excludeProjectIds_);
         DARABONBA_PTR_FROM_JSON(ExcludeTaskIds, excludeTaskIds_);
         DARABONBA_PTR_FROM_JSON(IncludeProjectIds, includeProjectIds_);
@@ -310,15 +313,15 @@ namespace Models
 
 
       protected:
-        // The end time of the run. Format: `hh:mm:ss` in 24-hour format. This field is required if you configure a run policy.
+        // The end time of the run. Specify the time in the hh:mm:ss format based on the 24-hour clock. This field is required if you configure a run policy.
         shared_ptr<string> endTime_ {};
-        // Specifies whether the run can be started immediately if the scheduled run time is in the future. Default value: false.
+        // Specifies whether the run can be started immediately if the run time is in the future. Default value: false.
         shared_ptr<bool> immediately_ {};
-        // The start time of the run. Format: `hh:mm:ss` in 24-hour format. This field is required if you configure a run policy.
+        // The start time of the run. Specify the time in the hh:mm:ss format based on the 24-hour clock. This field is required if you configure a run policy.
         shared_ptr<string> startTime_ {};
         // The period type. This field is required if you configure a run policy. Valid values:
-        // - Daily: every day.
-        // - Weekend: weekends only.
+        // - Daily: every day
+        // - Weekend: weekends only
         shared_ptr<string> type_ {};
       };
 
@@ -405,21 +408,21 @@ namespace Models
 
       protected:
         // The notification method. Valid values:
-        // - Sms: text message only.
-        // - Mail: email only.
-        // - SmsMail: text message and email.
+        // - Sms: text message only
+        // - Mail: email only
+        // - SmsMail: text message and email
         shared_ptr<string> noticeType_ {};
         // The alert policy. Valid values:
-        // - Success: alerts on success.
-        // - Failure: alerts on failure.
-        // - SuccessFailure: alerts on both success and failure.
+        // - Success: alerts on success
+        // - Failure: alerts on failure
+        // - SuccessFailure: alerts on both success and failure
         shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->alert_ == nullptr
-        && this->analysis_ == nullptr && this->excludeProjectIds_ == nullptr && this->excludeTaskIds_ == nullptr && this->includeProjectIds_ == nullptr && this->includeTaskIds_ == nullptr
-        && this->mode_ == nullptr && this->order_ == nullptr && this->parallelism_ == nullptr && this->priority_ == nullptr && this->priorityWeightStrategy_ == nullptr
-        && this->rootTaskIds_ == nullptr && this->runPolicy_ == nullptr && this->runtimeResource_ == nullptr; };
+        && this->analysis_ == nullptr && this->dataSourceNameMappings_ == nullptr && this->excludeProjectIds_ == nullptr && this->excludeTaskIds_ == nullptr && this->includeProjectIds_ == nullptr
+        && this->includeTaskIds_ == nullptr && this->mode_ == nullptr && this->order_ == nullptr && this->parallelism_ == nullptr && this->priority_ == nullptr
+        && this->priorityWeightStrategy_ == nullptr && this->rootTaskIds_ == nullptr && this->runPolicy_ == nullptr && this->runtimeResource_ == nullptr; };
       // alert Field Functions 
       bool hasAlert() const { return this->alert_ != nullptr;};
       void deleteAlert() { this->alert_ = nullptr;};
@@ -436,6 +439,15 @@ namespace Models
       inline DefaultRunProperties::Analysis getAnalysis() { DARABONBA_PTR_GET(analysis_, DefaultRunProperties::Analysis) };
       inline DefaultRunProperties& setAnalysis(const DefaultRunProperties::Analysis & analysis) { DARABONBA_PTR_SET_VALUE(analysis_, analysis) };
       inline DefaultRunProperties& setAnalysis(DefaultRunProperties::Analysis && analysis) { DARABONBA_PTR_SET_RVALUE(analysis_, analysis) };
+
+
+      // dataSourceNameMappings Field Functions 
+      bool hasDataSourceNameMappings() const { return this->dataSourceNameMappings_ != nullptr;};
+      void deleteDataSourceNameMappings() { this->dataSourceNameMappings_ = nullptr;};
+      inline const map<string, string> & getDataSourceNameMappings() const { DARABONBA_PTR_GET_CONST(dataSourceNameMappings_, map<string, string>) };
+      inline map<string, string> getDataSourceNameMappings() { DARABONBA_PTR_GET(dataSourceNameMappings_, map<string, string>) };
+      inline DefaultRunProperties& setDataSourceNameMappings(const map<string, string> & dataSourceNameMappings) { DARABONBA_PTR_SET_VALUE(dataSourceNameMappings_, dataSourceNameMappings) };
+      inline DefaultRunProperties& setDataSourceNameMappings(map<string, string> && dataSourceNameMappings) { DARABONBA_PTR_SET_RVALUE(dataSourceNameMappings_, dataSourceNameMappings) };
 
 
       // excludeProjectIds Field Functions 
@@ -539,41 +551,44 @@ namespace Models
       shared_ptr<DefaultRunProperties::Alert> alert_ {};
       // The analysis configurations. This parameter is required when Type is set to SupplementData.
       shared_ptr<DefaultRunProperties::Analysis> analysis_ {};
-      // The list of project IDs not to be run.
+      // The data source name mappings for data backfill runs. The key of the map is DataSource.Name in the node definition, and the value is DataSource.Name used during data backfill runs. This parameter takes effect only when Type is set to SupplementData. If this parameter is not configured, an empty map is passed, or the key is not matched, the node continues to use the original data source. Currently, only EMR Spark SQL, EMR Shell, and EMR Spark nodes are supported.
+      shared_ptr<map<string, string>> dataSourceNameMappings_ {};
+      // The list of project IDs to exclude from the run.
       shared_ptr<vector<int64_t>> excludeProjectIds_ {};
-      // The list of task IDs not to be run.
+      // The list of node IDs to exclude from the run.
       shared_ptr<vector<int64_t>> excludeTaskIds_ {};
-      // The list of project IDs to be run.
+      // The list of project IDs to include in the run.
       shared_ptr<vector<int64_t>> includeProjectIds_ {};
-      // The list of task IDs to be run.
+      // The list of node IDs to include in the run.
       shared_ptr<vector<int64_t>> includeTaskIds_ {};
       // The data backfill mode. Default value: ManualSelection. This parameter is required when Type is set to SupplementData. Valid values:
-      // - General: general mode. You can specify only one ID in RootTaskIds. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the tasks in RootTaskIds are included by default.
-      // - ManualSelection: manual selection mode. You can specify multiple IDs in RootTaskIds. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the tasks in RootTaskIds are included by default.
-      // - Chain: chain mode. RootTaskIds must be left empty. You must specify two IDs in IncludeTaskIds, which are the start and end tasks.
-      // - AllDownstream: all downstream mode. You can specify only one ID in RootTaskIds.
+      // - General: general mode. You can specify only one value for RootTaskIds. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the value of RootTaskIds is included by default.
+      // - ManualSelection: manual selection mode. You can specify multiple values for RootTaskIds. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the values of RootTaskIds are included by default.
+      // - Chain: chain mode. RootTaskIds must be left empty. You must specify two IDs for IncludeTaskIds, which are the start and end nodes.
+      // - AllDownstream: all downstream mode. You can specify only one value for RootTaskIds.
       shared_ptr<string> mode_ {};
       // The run order. Default value: Asc. Valid values:
-      // - Asc: ascending order by business date.
-      // - Desc: descending order by business date.
+      // - Asc: ascending order by business date
+      // - Desc: descending order by business date
       shared_ptr<string> order_ {};
-      // The number of parallel tasks. A value from 2 to 10 indicates the parallelism. A value of 1 indicates serial execution. This parameter is required when Type is set to SupplementData.
+      // The number of parallel nodes. A value of 2 to 10 indicates the parallelism, and a value of 1 indicates serial execution. This parameter is required when Type is set to SupplementData.
       shared_ptr<int32_t> parallelism_ {};
-      // The run priority. Valid values: 1 to 11. A larger value indicates a higher priority. These parameter settings are supported only for manual workflows and trigger-based workflows.
+      // The run priority. Valid values: 1 to 11. A larger value indicates a higher priority. These parameter settings are supported only for manually triggered workflows and event-triggered workflows.
       shared_ptr<int32_t> priority_ {};
-      // The priority weight policy. These parameter settings are supported only for manual workflows and trigger-based workflows. Valid values:
+      // The priority weight policy. These parameter settings are supported only for manually triggered workflows and event-triggered workflows. Valid values:
       // - Disable: disabled. This is the default value.
-      // - Upstream: calculates the sum of the weights of the upstream nodes of the current node. A deeper hierarchy indicates a higher weight.
+      // - Upstream: calculates the sum of weights of upstream nodes for the current node. A deeper hierarchy indicates a higher weight.
       shared_ptr<string> priorityWeightStrategy_ {};
-      // The list of root task IDs.
+      // The list of root node IDs.
+      // 
       // - When Type is set to SupplementData, RootTaskIds is required except when Mode is set to Chain.
-      // - When Type is set to ManualWorkflow, RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manual workflow is used.
-      // - When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to be run.
-      // - When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to be run.
+      // - When Type is set to ManualWorkflow, RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manually triggered workflow is used.
+      // - When Type is set to Manual, RootTaskIds is required and specifies the list of manually triggered nodes to be run.
+      // - When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test nodes to be run.
       shared_ptr<vector<int64_t>> rootTaskIds_ {};
-      // The run policy. If this field is left empty, the task configuration is used.
+      // The run policy. If this field is left empty, the node configuration is used.
       shared_ptr<DefaultRunProperties::RunPolicy> runPolicy_ {};
-      // The identifier of the custom scheduling resource group. If this field is left empty, the task configuration is used.
+      // The identifier of the custom scheduling resource group. If this field is left empty, the node configuration is used.
       shared_ptr<string> runtimeResource_ {};
     };
 
@@ -679,15 +694,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to run the instance immediately after it is created. Default value: true.
+    // Specifies whether to run the workflow instance immediately after it is created. Default value: true.
     shared_ptr<bool> autoStartEnabled_ {};
     // The reason for creation.
     shared_ptr<string> comment_ {};
     // The runtime configurations.
     shared_ptr<CreateWorkflowInstancesRequest::DefaultRunProperties> defaultRunProperties_ {};
     // The project environment. Valid values:
-    // - Prod: production.
-    // - Dev: development.
+    // - Prod: production
+    // - Dev: development
     shared_ptr<string> envType_ {};
     // The name.
     // 
@@ -699,28 +714,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The tag creation policy.
-    // - Append: Append mode. Inherits existing tags from the manual business process and appends new tags.
-    // - Overwrite: Overwrite mode. Does not inherit existing tags from the manual business process and directly creates tags.
+    // The tag creation policy. Valid values:
+    // - Append: Append mode. Inherits existing tags from the manual workflow and appends new tags.
+    // - Overwrite: Overwrite mode. Does not inherit existing tags from the manual workflow and directly creates tags.
     shared_ptr<string> tagCreationPolicy_ {};
     // The list of task tags.
     shared_ptr<vector<CreateWorkflowInstancesRequest::Tags>> tags_ {};
-    // The task parameters. You can use this parameter to set parameters for specific tasks. The value is in JSON format. The key is the task ID. For the format of the value, refer to the task script parameters (Task.Script.Parameter in the response of the GetTask operation).
+    // The node parameters, which are used to set parameters for specific nodes. The value is in JSON format. The key is the node ID, and the value format refers to the node script parameters (Task.Script.Parameter in the response of the GetTask operation).
     shared_ptr<string> taskParameters_ {};
     // The type of the workflow instance. Valid values:
-    // - SupplementData: data backfill. The methods for specifying RootTaskIds and IncludeTaskIds vary based on the data backfill pattern. For more information, see the parameter description of DefaultRunProperties.Mode.
-    // - ManualWorkflow: manual workflow. You must set WorkflowId to the ID of the manual workflow. RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manual workflow is used.
-    // - Manual: manual task. You only need to specify RootTaskIds, which is the list of manual tasks to be run.
-    // - SmokeTest: smoke test. You only need to specify RootTaskIds, which is the list of test tasks to be run.
-    // - TriggerWorkflow: trigger-based workflow. You must set WorkflowId to the ID of the trigger-based workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow is run.
+    // - SupplementData: data backfill. The methods for specifying RootTaskIds and IncludeTaskIds vary based on the data backfill mode. For more information, see the parameter description of DefaultRunProperties.Mode.
+    // - ManualWorkflow: manually triggered workflow. You must set WorkflowId to the ID of the manually triggered workflow. RootTaskIds is optional. If you do not specify RootTaskIds, the default root node list of the manually triggered workflow is used.
+    // - Manual: manually triggered node. You only need to specify RootTaskIds, which is the list of manually triggered nodes to be run.
+    // - SmokeTest: smoke test. You only need to specify RootTaskIds, which is the list of test nodes to be run.
+    // - TriggerWorkflow: event-triggered workflow. You must set WorkflowId to the ID of the event-triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow is run.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The ID of the workflow to which the task belongs. The WorkflowId of a periodic task is always 1.
+    // The ID of the workflow to which the node belongs. The WorkflowId of a periodic node is always 1.
     // 
     // This parameter is required.
     shared_ptr<int64_t> workflowId_ {};
-    // The workflow parameters. This parameter takes effect only when a specific workflow is specified (WorkflowId != 1). For a periodic workflow or a trigger-based workflow, the format is key=value, and the priority is lower than that of task parameters. For a manual workflow, the format is JSON, and the priority is higher than that of task parameters.
+    // The workflow parameters. This parameter takes effect only when a specific workflow is specified (WorkflowId != 1). For a periodic workflow or an event-triggered workflow, the format is key=value, and the priority is lower than that of node parameters. For a manually triggered workflow, the format is JSON, and the priority is higher than that of node parameters.
     shared_ptr<string> workflowParameters_ {};
   };
 

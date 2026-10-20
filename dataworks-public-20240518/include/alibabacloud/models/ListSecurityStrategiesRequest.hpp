@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> controlModule_ {};
     // **The control submodule.**
     shared_ptr<string> controlSubModule_ {};
-    // The page number. Starts from 1. Default: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

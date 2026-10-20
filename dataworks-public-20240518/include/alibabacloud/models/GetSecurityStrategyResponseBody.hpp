@@ -282,31 +282,31 @@ namespace Models
         protected:
           // The default value for Basic Edition.
           Darabonba::Json basicEditionDefaultValue_ {};
-          // The valid value range for Basic Edition, specified as an array `[min, max]`.
+          // The valid value interval [min, max] for Basic Edition.
           shared_ptr<vector<int32_t>> basicEditionIntervalValue_ {};
-          // The identifier for the controller. For valid values, see the documentation for the relevant schema.
+          // **The control item identifier.** For valid values, see the control item list for each schema.
           shared_ptr<string> controller_ {};
-          // The value type of the controller. Valid values are `Boolean`, `Integer`, `Long`, and `String`.
+          // **The value type** (Boolean/Integer/Long/String).
           shared_ptr<string> controllerValueType_ {};
-          // The display name.
+          // **The display name.**
           shared_ptr<string> displayName_ {};
-          // The display name in English.
+          // **The English display name.**
           shared_ptr<string> displayNameEn_ {};
-          // Whether the controller is enabled.
+          // **Specifies whether the control item is enabled.**
           shared_ptr<bool> enable_ {};
           // The default value for Enterprise Edition.
           Darabonba::Json enterpriseEditionDefaultValue_ {};
-          // The valid value range for Enterprise Edition, specified as an array `[min, max]`.
+          // The valid value interval [min, max] for Enterprise Edition.
           shared_ptr<vector<int32_t>> enterpriseEditionIntervalValue_ {};
           // The default value for Professional Edition.
           Darabonba::Json professionalEditionDefaultValue_ {};
-          // The valid value range for Professional Edition, specified as an array `[min, max]`.
+          // The valid value interval [min, max] for Professional Edition.
           shared_ptr<vector<int32_t>> professionalEditionIntervalValue_ {};
           // The default value for Standard Edition.
           Darabonba::Json standardEditionDefaultValue_ {};
-          // The valid value range for Standard Edition, specified as an array `[min, max]`.
+          // The valid value interval [min, max] for Standard Edition.
           shared_ptr<vector<int32_t>> standardEditionIntervalValue_ {};
-          // The value configured by the user. The data type of this value is specified by the `ControllerValueType` parameter.
+          // **The user-configured value.** The type depends on ControllerValueType.
           Darabonba::Json userConfigValue_ {};
         };
 
@@ -379,25 +379,25 @@ namespace Models
 
 
       protected:
-        // The scope where the policy is effective. Valid values:
+        // The effective scope.
         shared_ptr<string> controlDwScope_ {};
-        // The control module. This value corresponds to `controlModule` in the associated `SecurityStrategySchema`.
+        // The control module. The SecurityStrategySchema.controlModule associated with the current policy.
         shared_ptr<string> controlModule_ {};
-        // The control submodule. This value corresponds to `controlSubModule` in the associated `SecurityStrategySchema`.
+        // The control sub-module. The SecurityStrategySchema.controlSubModule associated with the current policy.
         shared_ptr<string> controlSubModule_ {};
-        // A list of controllers.
+        // The list of control items.
         // 
-        // **Note:** The available controllers depend on the selected schema. See the documentation for your schema for a list of valid controllers.
+        // Note: Valid control items depend on the selected schema. Refer to the controller definition and the control item list for each schema.
         shared_ptr<vector<Content::Controllers>> controllers_ {};
-        // The `displayName` field from the associated `SecurityStrategySchema`.
+        // The SecurityStrategySchema.displayName associated with the current policy.
         shared_ptr<string> displayName_ {};
-        // The `displayNameEn` field from the associated `SecurityStrategySchema`.
+        // The SecurityStrategySchema.displayNameEn associated with the current policy.
         shared_ptr<string> displayNameEn_ {};
-        // The `name` field from the associated `SecurityStrategySchema`.
+        // The SecurityStrategySchema.name associated with the current policy.
         shared_ptr<string> name_ {};
         // The display name of the system policy.
         shared_ptr<string> systemPolicyDisplayName_ {};
-        // The name of the system policy. If specified, a default policy is automatically created.
+        // The system policy name. If this parameter is not empty, the system performs automatic creation of a default policy.
         shared_ptr<string> systemPolicyName_ {};
       };
 
@@ -515,33 +515,33 @@ namespace Models
 
 
     protected:
-      // The content of the security policy. Its structure is defined by the `SecurityStrategySchema`.
+      // The policy content. The content is constrained by SecurityStrategySchema.
       shared_ptr<SecurityStrategy::Content> content_ {};
-      // The scope where the policy is effective. Valid values: `Workspace` or `Tenant`.
+      // The control scope (Workspace/Tenant).
       shared_ptr<string> controlDwScope_ {};
       // The control module.
       shared_ptr<string> controlModule_ {};
-      // The control submodule.
+      // The control sub-module.
       shared_ptr<string> controlSubModule_ {};
-      // The time when the security policy was created.
+      // The creation time. The format is YYYY-MM-DDTHH:mm:ss. The time zone is not specified in the current document.
       shared_ptr<string> createTime_ {};
-      // The ID of the creator.
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
       // The policy description.
       shared_ptr<string> description_ {};
-      // Whether the security policy is enabled.
+      // Specifies whether the policy is enabled.
       shared_ptr<bool> enabled_ {};
-      // The policy ID.
+      // **The policy ID.**
       shared_ptr<int64_t> id_ {};
-      // The policy name.
+      // **The policy name.**
       shared_ptr<string> name_ {};
-      // The source ID of the default system policy.
+      // The source ID of the system default policy.
       shared_ptr<int64_t> originPolicyId_ {};
-      // The name of the schema template.
+      // The schema template name.
       shared_ptr<string> schemaName_ {};
-      // The time when the security policy was last updated.
+      // The update time. The format is YYYY-MM-DDTHH:mm:ss. The time zone is not specified in the current document.
       shared_ptr<string> updateTime_ {};
-      // The ID of the last updater.
+      // The user ID of the last updater.
       shared_ptr<string> updater_ {};
       // The list of associated workspace IDs.
       shared_ptr<vector<int64_t>> workspaces_ {};
@@ -566,7 +566,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // **The API request ID.**
     shared_ptr<string> requestId_ {};
     // The security policy.
     shared_ptr<GetSecurityStrategyResponseBody::SecurityStrategy> securityStrategy_ {};
