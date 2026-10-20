@@ -141,6 +141,9 @@
 #include <alibabacloud/models/GetTemplateRequest.hpp>
 #include <alibabacloud/models/GetTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetTemplateResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceResponse.hpp>
 #include <alibabacloud/models/GrantRoleToUsersRequest.hpp>
 #include <alibabacloud/models/GrantRoleToUsersResponseBody.hpp>
 #include <alibabacloud/models/GrantRoleToUsersResponse.hpp>

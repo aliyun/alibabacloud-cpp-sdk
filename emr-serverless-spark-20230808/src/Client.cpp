@@ -2364,6 +2364,51 @@ GetTemplateResponse Client::getTemplate(const string &workspaceBizId, const GetT
 }
 
 /**
+ * @summary Retrieves the details of a workspace.
+ *
+ * @param request GetWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceId, const GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspace"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a workspace.
+ *
+ * @param request GetWorkspaceRequest
+ * @return GetWorkspaceResponse
+ */
+GetWorkspaceResponse Client::getWorkspace(const string &workspaceId, const GetWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Assigns a specified role to users.
  *
  * @param request GrantRoleToUsersRequest

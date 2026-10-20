@@ -751,6 +751,24 @@ namespace EmrServerlessSpark20230808
       Models::GetTemplateResponse getTemplate(const string &workspaceBizId, const Models::GetTemplateRequest &request);
 
       /**
+       * @summary Retrieves the details of a workspace.
+       *
+       * @param request GetWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a workspace.
+       *
+       * @param request GetWorkspaceRequest
+       * @return GetWorkspaceResponse
+       */
+      Models::GetWorkspaceResponse getWorkspace(const string &workspaceId, const Models::GetWorkspaceRequest &request);
+
+      /**
        * @summary Assigns a specified role to users.
        *
        * @param request GrantRoleToUsersRequest

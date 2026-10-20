@@ -276,27 +276,16 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // The environment variables for Ray.
       shared_ptr<string> env_ {};
-      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The worker group name.
       shared_ptr<string> groupName_ {};
-      // The maximum number of worker nodes after auto scaling is enabled.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
-      // The minimum number of worker nodes after auto scaling is enabled.
       shared_ptr<int32_t> minReplica_ {};
-      // The queue name.
       shared_ptr<string> queueName_ {};
-      // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
-      // The database engine version of the Ray DPI engine.
       shared_ptr<string> rayVersion_ {};
-      // The number of worker nodes.
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -411,25 +400,15 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // Specifies whether to enable auto scaling for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
-      // The environment variables for Ray nodes.
       shared_ptr<string> env_ {};
-      // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout period for worker nodes after auto scaling is enabled, in seconds.
       shared_ptr<int64_t> idleTimeoutSeconds_ {};
-      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
-      // The queue name.
       shared_ptr<string> queueName_ {};
-      // The Ray startup parameters.
       shared_ptr<string> rayStartParams_ {};
-      // The database engine version of the Ray DPI engine.
       shared_ptr<string> rayVersion_ {};
-      // The number of head nodes.
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -526,21 +505,13 @@ namespace Models
 
 
     protected:
-      // access id
       shared_ptr<string> accessId_ {};
-      // The access URL.
       shared_ptr<string> accessUrl_ {};
-      // The expiration time.
       shared_ptr<int64_t> expire_ {};
-      // The domain name.
       shared_ptr<string> host_ {};
-      // The path.
       shared_ptr<string> path_ {};
-      // policy
       shared_ptr<string> policy_ {};
-      // security token
       shared_ptr<string> securityToken_ {};
-      // The signature.
       shared_ptr<string> signature_ {};
     };
 
@@ -1024,75 +995,41 @@ namespace Models
 
 
   protected:
-    // The --archives parameter.
     shared_ptr<vector<string>> archives_ {};
-    // The temporary URL for accessing the resource file.
     shared_ptr<string> artifactUrl_ {};
-    // The business ID.
-    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The category business ID.
     shared_ptr<string> categoryBizId_ {};
-    // The Spark job content.
     shared_ptr<string> content_ {};
-    // The creator UID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // The direct upload information for OSS.
     shared_ptr<Task::Credential> credential_ {};
-    // The default catalog ID.
     shared_ptr<string> defaultCatalogId_ {};
-    // The default database.
     shared_ptr<string> defaultDatabase_ {};
-    // The ID of the default task queue.
     shared_ptr<string> defaultResourceQueueId_ {};
-    // The default SQL session ID.
     shared_ptr<string> defaultSqlComputeId_ {};
-    // The deployment ID of the streaming task.
     shared_ptr<string> deploymentId_ {};
-    // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The IDs of additional Spark resources.
     shared_ptr<vector<string>> extraArtifactIds_ {};
-    // The custom Spark submit parameters.
     shared_ptr<string> extraSparkSubmitParams_ {};
-    // The --files parameter.
     shared_ptr<vector<string>> files_ {};
-    // The Fusion status.
     shared_ptr<bool> fusion_ {};
-    // The creation time.
-    // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // The last modified time.
-    // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
-    // The change status after the last commit.
     shared_ptr<bool> hasChanged_ {};
-    // The commit status.
-    // 
     // This parameter is required.
     shared_ptr<bool> hasCommited_ {};
-    // The streaming task status.
     shared_ptr<bool> isStreaming_ {};
-    // The --jars parameter.
     shared_ptr<vector<string>> jars_ {};
     shared_ptr<string> kernelId_ {};
-    // The ID of the resource queue for the last run.
     shared_ptr<string> lastRunResourceQueueId_ {};
-    // The UID of the last updater.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
-    // The task name.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<map<string, string>> params_ {};
-    // The PyFiles for PySpark dependencies.
     shared_ptr<vector<string>> pyFiles_ {};
     shared_ptr<int64_t> rayActiveDeadlineSeconds_ {};
     shared_ptr<int32_t> rayBackoffLimit_ {};
@@ -1102,7 +1039,6 @@ namespace Models
     shared_ptr<string> rayEntrypointNumGpus_ {};
     shared_ptr<string> rayEntrypointResources_ {};
     shared_ptr<string> rayExtraParam_ {};
-    // The Ray cluster head node parameters.
     shared_ptr<Task::RayHeadSpec> rayHeadSpec_ {};
     shared_ptr<string> rayMetadataJson_ {};
     shared_ptr<string> rayNetworkServiceName_ {};
@@ -1110,56 +1046,31 @@ namespace Models
     shared_ptr<bool> rayShutdownAfterJobFinishes_ {};
     shared_ptr<string> raySubmissionMode_ {};
     shared_ptr<int64_t> rayTtlSecondsAfterFinished_ {};
-    // The database engine version of the Ray DPI engine.
     shared_ptr<string> rayVersion_ {};
     shared_ptr<vector<string>> rayVolumeIds_ {};
-    // The list of worker node parameters for the Ray cluster. A maximum of 50 groups are supported.
     shared_ptr<vector<Task::RayWorkerSpec>> rayWorkerSpec_ {};
     shared_ptr<string> rayWorkingDir_ {};
-    // The interactive job session ID.
     shared_ptr<string> sessionClusterId_ {};
-    // The Spark parameters.
     shared_ptr<string> sparkArgs_ {};
-    // The Spark configuration list.
     shared_ptr<vector<SparkConf>> sparkConf_ {};
-    // The number of Spark driver cores.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> sparkDriverCores_ {};
-    // The Spark driver memory.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
-    // The Spark entry point.
     shared_ptr<string> sparkEntrypoint_ {};
-    // The number of Spark executor cores.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> sparkExecutorCores_ {};
-    // The Spark executor memory.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> sparkExecutorMemory_ {};
-    // The Spark log level.
-    // 
     // This parameter is required.
     shared_ptr<string> sparkLogLevel_ {};
-    // The Spark log path.
-    // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
-    // The Spark submit statement.
     shared_ptr<string> sparkSubmitClause_ {};
-    // The Spark version.
-    // 
     // This parameter is required.
     shared_ptr<string> sparkVersion_ {};
-    // The task tags.
     shared_ptr<map<string, string>> tags_ {};
-    // The task timeout.
     shared_ptr<int32_t> timeout_ {};
-    // The task type.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };
