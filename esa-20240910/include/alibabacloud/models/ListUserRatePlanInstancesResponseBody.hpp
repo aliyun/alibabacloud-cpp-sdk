@@ -164,16 +164,16 @@ namespace Models
 
 
       protected:
-        // The site ID.
+        // The ID of the site.
         shared_ptr<int64_t> siteId_ {};
-        // The site name.
+        // The name of the site.
         shared_ptr<string> siteName_ {};
-        // The site status. Valid values:
+        // The status of the site. Valid values:
         // 
         // - **pending**: The site is pending configuration.
         // - **active**: The site is activated.
         // - **offline**: The site is offline.
-        // - **moved**: The site has been superseded.
+        // - **moved**: The site is replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -402,84 +402,84 @@ namespace Models
       // - **PREPAY**: Subscription.
       // - **POSTPAY**: Pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // If empty, the plan does not include a bot protection instance. If a value is returned, the plan includes a bot protection instance. Valid values:
+      // If this parameter is empty, no bot protection instance is purchased for the plan. If a value is returned, a bot protection instance is purchased for the plan. Valid values:
       // 
       // - enterprise_bot: Web edition.
       // 
       // - enterprise_bot_with_app: App edition.
       shared_ptr<string> botInstanceLevel_ {};
-      // The prepaid bot protection requests included in the plan (in units of 10,000).
+      // The prepaid number of bot requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> botRequest_ {};
-      // The acceleration coverage areas for sites that can be bound to this plan instance. Multiple values are separated by commas (,). Valid values:
+      // The acceleration regions where the site can be bound. Multiple regions are separated by commas (,). Valid values:
       // 
-      // - **domestic**: China or the Chinese mainland.
-      // - **overseas**: Global (excluding China or the Chinese mainland).
-      // - **global**: Global (including China or the Chinese mainland).
+      // - **domestic**: Chinese mainland.
+      // - **overseas**: Global (excluding the Chinese mainland).
+      // - **global**: Global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The purchase time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
       shared_ptr<string> createTime_ {};
-      // The prepaid China network acceleration traffic (GB) included in the plan.
+      // The prepaid China network acceleration traffic in the plan. Unit: GB.
       shared_ptr<string> crossborderTraffic_ {};
-      // The Anti-DDoS instance specification for the Chinese mainland included in the plan.
+      // The specifications of the Anti-DDoS instance in the plan for the Chinese mainland.
       shared_ptr<string> ddosBurstableDomesticProtection_ {};
-      // The Anti-DDoS instance specification outside the Chinese mainland included in the plan.
+      // The specifications of the Anti-DDoS instance in the plan for regions outside the Chinese mainland.
       shared_ptr<string> ddosBurstableOverseasProtection_ {};
-      // If empty, the plan does not include an Anti-DDoS instance. If a value is returned, the plan includes an Anti-DDoS instance. The value is `esa_ddos_instance`.
+      // If this parameter is empty, no Anti-DDoS instance is purchased for the plan. If a value is returned, an Anti-DDoS instance is purchased for the plan, and the value is `esa_ddos_instance`.
       shared_ptr<string> ddosInstanceLevel_ {};
       // The subscription duration of the plan instance. Unit: months.
       shared_ptr<int32_t> duration_ {};
-      // The prepaid Edge Routine (ER) requests included in the plan (in units of 10,000).
+      // The prepaid number of Edge Routine (ER) requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> edgeRoutineRquest_ {};
-      // The prepaid WAF requests included in the plan (in units of 10,000).
+      // The prepaid number of Web Application Firewall (WAF) requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> edgeWafRequest_ {};
-      // The expiration time of the plan instance. The time is in ISO 8601 format and displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The expiration time of the plan instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
       shared_ptr<string> expireTime_ {};
-      // The plan instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The prepaid Layer 4 proxy traffic (GB) included in the plan - Chinese mainland.
+      // The prepaid Layer 4 proxy traffic in the plan for the Chinese mainland. Unit: GB.
       shared_ptr<string> layer4Traffic_ {};
-      // The prepaid Layer 4 proxy traffic (GB) included in the plan - outside the Chinese mainland.
+      // The prepaid Layer 4 proxy traffic in the plan for regions outside the Chinese mainland. Unit: GB.
       shared_ptr<string> layer4TrafficIntl_ {};
       shared_ptr<string> ownerId_ {};
-      // The plan name associated with the plan instance.
+      // The name of the plan corresponding to the plan instance.
       shared_ptr<string> planName_ {};
-      // The prepaid Layer 7 acceleration traffic (GB) included in the plan.
+      // The prepaid Layer 7 acceleration traffic in the plan. Unit: GB.
       shared_ptr<string> planTraffic_ {};
-      // The plan type associated with the plan instance. Valid values:
-      // - **normal**: Fixed edition plan.
-      // - **enterprise**: Enterprise edition plan.
+      // The type of the plan corresponding to the plan instance. Valid values:
+      // - **normal**: Fixed plan.
+      // - **enterprise**: Enterprise plan.
       shared_ptr<string> planType_ {};
       // The auto-renewal cycle. Unit: months.
       shared_ptr<int64_t> renewalDuration_ {};
       // The auto-renewal status. Valid values:
       // 
       // - nomal: Normal.
-      // - auto_renewal: Auto-renewal enabled.
-      // - not_renewal: Auto-renewal disabled.
+      // - auto_renewal: Auto-renewal.
+      // - not_renewal: Non-renewal.
       shared_ptr<string> renewalStatus_ {};
       shared_ptr<int64_t> resourceOwner_ {};
       shared_ptr<string> shareType_ {};
-      // The site quota for the plan instance.
+      // The quota for the number of sites under the plan instance.
       shared_ptr<string> siteQuota_ {};
       // The list of sites bound to the current plan instance.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
-      // The prepaid smart routing requests included in the plan (in units of 10,000).
+      // The prepaid number of smart routing requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> smartRoutingRequest_ {};
-      // The prepaid HTTP requests included in the plan (in units of 10,000).
+      // The prepaid number of HTTP requests in the plan. Unit: 10,000 requests.
       shared_ptr<string> staticRequest_ {};
       // The instance status. Valid values:
-      // - **online**: Normal service status.
-      // - **offline**: Expired but not overdue, in an inactive state.
-      // - **disable**: Released.
+      // - **online**: The instance is in normal service status.
+      // - **offline**: The instance has expired but is not overdue, and is in an inactive state.
+      // - **disable**: The instance is released.
       shared_ptr<string> status_ {};
-      // The plan subscription type. Valid values:
+      // The subscription type of the plan. Valid values:
       // 
-      // - Free Edition (Chinese mainland): entranceplan
-      // - Free Edition (International): entranceplan_intl
-      // - Basic Edition: basicplan
-      // - Standard Edition: standardplan
-      // - Premium Edition: advancedplan
-      // - Enterprise Edition: enterpriseplan
+      // - entranceplan: Free Edition (Chinese mainland).
+      // - entranceplan_intl: Free Edition (International).
+      // - basicplan: Basic Edition.
+      // - standardplan: Standard Edition.
+      // - advancedplan: Advanced Edition.
+      // - enterpriseplan: Enterprise Edition.
       shared_ptr<string> subscribeType_ {};
     };
 
@@ -530,9 +530,9 @@ namespace Models
 
 
   protected:
-    // The plan instances that match the specified conditions under the user.
+    // The plan instances that meet the query conditions under the user.
     shared_ptr<vector<ListUserRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
-    // The current page number, same as the PageNumber request parameter.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

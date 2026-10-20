@@ -124,7 +124,7 @@ namespace Models
 
 
     protected:
-      // The purchase time of the instance. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time of the instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The specifications of the DDoS instance in the Chinese mainland.
       shared_ptr<string> DDoSBurstableDomesticProtection_ {};
@@ -132,15 +132,15 @@ namespace Models
       shared_ptr<string> DDoSBurstableOverseasProtection_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The scheduled release time. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+      // The scheduled release time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> reserveReleaseTime_ {};
-      // The ID of the associated site plan instance.
+      // The ID of the associated website plan instance.
       shared_ptr<string> siteInstanceId_ {};
       // The instance status. Valid values:
-      // - **online**: The instance is running normally.
-      // - **offline**: The instance has expired but is not overdue, and is unavailable.
-      // - **disable**: The instance has been released.
-      // - **overdue**: The instance is suspended due to overdue payment.
+      // - **online**: the instance is in normal service status.
+      // - **offline**: the instance has expired but is not overdue, and is in an unavailable state.
+      // - **disable**: the instance is released.
+      // - **overdue**: the instance is stopped due to an overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

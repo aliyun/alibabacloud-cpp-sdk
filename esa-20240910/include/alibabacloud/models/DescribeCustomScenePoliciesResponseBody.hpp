@@ -135,37 +135,32 @@ namespace Models
 
 
     protected:
-      // The end time of the policy.
+      // The end time of the policy validity period.
       // 
-      // The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> endTime_ {};
-      // The name of the custom scene policy.
+      // The name of the scenario-specific policy.
       shared_ptr<string> name_ {};
-      // A list of associated site IDs.
+      // The list of associated site IDs.
       // 
-      // > This field is deprecated. We recommend that you use the `SiteIds` field instead.
+      // > **[Deprecated]** Read the SiteIds field instead.
       shared_ptr<vector<string>> objects_ {};
       // The policy ID.
       shared_ptr<int64_t> policyId_ {};
-      // A comma-separated list of site IDs associated with the policy.
+      // The associated site IDs. Multiple site IDs are separated by commas (,).
       shared_ptr<string> siteIds_ {};
-      // The start time of the policy.
+      // The start time of the policy validity period.
       // 
-      // The time is in UTC and follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+      // The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> startTime_ {};
       // The effective status of the policy. Valid values:
-      // 
-      // - **disabled**: The policy is disabled.
-      // 
-      // - **pending**: The policy is waiting to take effect.
-      // 
-      // - **running**: The policy is in effect.
-      // 
-      // - **expired**: The policy has expired.
+      // - **Disabled**: Disabled.
+      // - **Pending**: Pending.
+      // - **Running**: Running.
+      // - **Expired**: Expired.
       shared_ptr<string> status_ {};
-      // The template name. Valid value:
-      // 
-      // - **promotion**: A major event.
+      // The template name. Valid values:
+      // - **promotion**: Important Activity.
       shared_ptr<string> template_ {};
     };
 
@@ -216,17 +211,17 @@ namespace Models
 
 
   protected:
-    // The configurations of custom scene policies.
+    // The list of configurations for scenario-specific policies.
     shared_ptr<vector<DescribeCustomScenePoliciesResponseBody::DataModule>> dataModule_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The maximum number of policies that you can create.
+    // The configuration quota.
     shared_ptr<int32_t> quota_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

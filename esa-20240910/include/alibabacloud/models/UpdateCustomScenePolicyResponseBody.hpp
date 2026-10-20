@@ -108,27 +108,26 @@ namespace Models
   protected:
     // The end time of the policy.
     // 
-    // The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> name_ {};
-    // A list of associated site IDs.
+    // The list of associated website IDs.
     // 
-    // > This parameter is deprecated. We recommend that you use the `SiteIds` parameter instead.
+    // > **[Deprecated]** We recommend that you read the value of SiteIds instead.
     shared_ptr<vector<string>> objects_ {};
     // The ID of the policy.
     shared_ptr<int64_t> policyId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The associated site IDs. Multiple IDs are separated by a comma (,).
+    // The IDs of the websites to associate. Separate multiple IDs with commas (,).
     shared_ptr<string> siteIds_ {};
     // The start time of the policy.
     // 
-    // The time is in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The name of the template. Valid value:
-    // 
-    // - **promotion**: major promotion
+    // The name of the template. Valid values:
+    // - **promotion**: Important Activity.
     shared_ptr<string> template_ {};
   };
 

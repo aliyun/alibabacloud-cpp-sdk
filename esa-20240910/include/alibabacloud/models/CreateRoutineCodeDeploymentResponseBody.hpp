@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The code version number.
       shared_ptr<string> codeVersion_ {};
-      // The canary release percentage for the code version.
+      // The traffic percentage for the canary release of the code version.
       shared_ptr<int64_t> percentage_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // The list of percentage-based canary release code version configurations.
+    // The list of code version configurations for the percentage-based canary release.
     shared_ptr<vector<CreateRoutineCodeDeploymentResponseBody::CodeVersions>> codeVersions_ {};
-    // The deployment record ID.
+    // The ID of the deployment record.
     shared_ptr<string> deploymentId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The canary release strategy. Fixed value: percentage.
+    // The canary release strategy. The value is fixed as `percentage`.
     shared_ptr<string> strategy_ {};
   };
 

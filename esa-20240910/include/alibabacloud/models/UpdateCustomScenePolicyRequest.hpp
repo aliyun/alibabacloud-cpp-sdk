@@ -96,33 +96,32 @@ namespace Models
   protected:
     // The end time of the policy.
     // 
-    // The time must be in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The name of the policy.
+    // The policy name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The site IDs to associate with the policy. Use a comma (,) to separate multiple IDs.
+    // The IDs of the websites to associate. Separate multiple IDs with commas (,).
     // 
-    // > This parameter is deprecated. We recommend using the `SiteIds` parameter instead. If the `SiteIds` parameter is specified, the `Objects` parameter is ignored. You must specify a value for either the `Objects` or `SiteIds` parameter.
+    // > **[Deprecated]** We recommend that you use the SiteIds parameter instead. If the SiteIds parameter is specified, the API operation uses the value of SiteIds and ignores the value of Objects. To avoid ambiguity in update operations, you must specify at least one of the SiteIds and Objects parameters.
     shared_ptr<string> objects_ {};
-    // To obtain the policy ID, call the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+    // The ID of the policy. You can call the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};
-    // The site IDs to associate with the policy. Use a comma (,) to separate multiple IDs.
+    // The IDs of the websites to associate. Separate multiple IDs with commas (,).
     shared_ptr<string> siteIds_ {};
     // The start time of the policy.
     // 
-    // The time must be in UTC and in the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The name of the template. Valid value:
-    // 
-    // - **promotion**: major promotion
+    // The name of the template. Valid values:
+    // - **promotion**: Important Activity.
     // 
     // This parameter is required.
     shared_ptr<string> template_ {};

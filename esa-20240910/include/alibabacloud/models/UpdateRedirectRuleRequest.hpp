@@ -121,39 +121,38 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can call the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) operation to obtain the configuration ID.
+    // The configuration ID. You can call the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) operation to query the configuration ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Specifies whether to preserve the query string. Valid values:
+    // Specifies whether to retain the query string. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> reserveQueryString_ {};
-    // The rule content. A conditional expression is used to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // The content of the rule, which uses a conditional expression to match user requests. You do not need to specify this parameter when you add a global configuration. This parameter applies to the following scenarios:
     // - Match all incoming requests: Set the value to true.
-    // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+    // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+    // Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
     // - on: Enabled.
     // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. This parameter is not required when you add a global configuration.
+    // The name of the rule. You do not need to specify this parameter when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The execution order of the rule. A smaller value indicates a higher priority.
+    // The execution sequence of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The HTTP status code used when the node responds to the client with the redirect address. Valid values:
-    // 
+    // The HTTP status code used by the node to respond to the client with the redirect address. Valid values:
     // - 301
     // - 302
     // - 303
     // - 307
     // - 308
     shared_ptr<string> statusCode_ {};
-    // The target URL after the redirect.
+    // The destination URL after the redirect.
     shared_ptr<string> targetUrl_ {};
     // The redirect type. Valid values:
     // 

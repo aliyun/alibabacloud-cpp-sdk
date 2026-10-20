@@ -165,7 +165,7 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The last modification time.
+      // The last update time.
       shared_ptr<string> gmtModified_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
@@ -177,13 +177,13 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The task description.
       shared_ptr<map<string, string>> taskDescription_ {};
-      // The custom identifier that is set to associate with this task.
+      // The custom identifier set to associate with the task.
       shared_ptr<string> taskKey_ {};
       // The current status of the task. Valid values:
       // 
-      // - in_progress: in progress.
-      // - success: completed.
-      // - fail: failed.
+      // - in_progress: The task is in progress.
+      // - success: The task is completed.
+      // - fail: The task failed.
       shared_ptr<string> taskStatus_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
@@ -238,7 +238,7 @@ namespace Models
 
 
   protected:
-    // The task list.
+    // The list of tasks.
     shared_ptr<vector<ListAsyncTasksResponseBody::AsyncTasks>> asyncTasks_ {};
     // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};

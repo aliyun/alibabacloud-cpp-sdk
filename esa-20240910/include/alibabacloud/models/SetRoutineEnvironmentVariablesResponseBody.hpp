@@ -53,7 +53,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The list of environment variable keys that were set successfully.
+    // The list of keys for the successfully set environment variables.
     shared_ptr<vector<string>> setKeys_ {};
   };
 

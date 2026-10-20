@@ -169,9 +169,9 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID.
     shared_ptr<string> aliUid_ {};
-    // The time when the task was created, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+    // The time when the task was created, in ISO 8601 format, such as 2024-01-01T00:00:00+Z.
     shared_ptr<string> createdAt_ {};
-    // The list of domain names to prefetch.
+    // The list of prefetched domain names.
     shared_ptr<string> domains_ {};
     // The error message.
     shared_ptr<string> errorInfo_ {};
@@ -181,9 +181,7 @@ namespace Models
     shared_ptr<string> fileId_ {};
     // The task ID.
     shared_ptr<string> id_ {};
-    // The URL insertion method. Valid values:
-    // - oss: URLs are imported in batches from an OSS file.
-    // - testBox: URLs are entered one by one in a text box.
+    // The URL insertion method.
     shared_ptr<string> insertWay_ {};
     // The task name.
     shared_ptr<string> name_ {};
@@ -191,12 +189,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The number of URLs that have been submitted to the system for prefetching.
+    // The number of URLs submitted to the system for prefetch tasks.
     shared_ptr<int32_t> taskSubmitted_ {};
-    // The task type (refresh or prefetch). Valid values:
-    // - path: directory refresh.
-    // - refresh: URL refresh.
-    // - preload: URL prefetch.
+    // The task type (refresh or prefetch).
     shared_ptr<string> taskType_ {};
     // The total number of URLs.
     shared_ptr<int32_t> urlCount_ {};

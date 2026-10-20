@@ -1,0 +1,294 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATESLIDERCAPTCHAPAGEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATESLIDERCAPTCHAPAGEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class CreateSliderCaptchaPageRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateSliderCaptchaPageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Configs, configs_);
+      DARABONBA_PTR_TO_JSON(CustomContent, customContent_);
+      DARABONBA_PTR_TO_JSON(ForceLanguage, forceLanguage_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SiteIds, siteIds_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateSliderCaptchaPageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Configs, configs_);
+      DARABONBA_PTR_FROM_JSON(CustomContent, customContent_);
+      DARABONBA_PTR_FROM_JSON(ForceLanguage, forceLanguage_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SiteIds, siteIds_);
+    };
+    CreateSliderCaptchaPageRequest() = default ;
+    CreateSliderCaptchaPageRequest(const CreateSliderCaptchaPageRequest &) = default ;
+    CreateSliderCaptchaPageRequest(CreateSliderCaptchaPageRequest &&) = default ;
+    CreateSliderCaptchaPageRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateSliderCaptchaPageRequest() = default ;
+    CreateSliderCaptchaPageRequest& operator=(const CreateSliderCaptchaPageRequest &) = default ;
+    CreateSliderCaptchaPageRequest& operator=(CreateSliderCaptchaPageRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Configs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Configs& obj) { 
+        DARABONBA_PTR_TO_JSON(En, en_);
+        DARABONBA_PTR_TO_JSON(Zh, zh_);
+      };
+      friend void from_json(const Darabonba::Json& j, Configs& obj) { 
+        DARABONBA_PTR_FROM_JSON(En, en_);
+        DARABONBA_PTR_FROM_JSON(Zh, zh_);
+      };
+      Configs() = default ;
+      Configs(const Configs &) = default ;
+      Configs(Configs &&) = default ;
+      Configs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Configs() = default ;
+      Configs& operator=(const Configs &) = default ;
+      Configs& operator=(Configs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Zh : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Zh& obj) { 
+          DARABONBA_PTR_TO_JSON(ShowFooter, showFooter_);
+          DARABONBA_PTR_TO_JSON(ShowRequestId, showRequestId_);
+          DARABONBA_PTR_TO_JSON(SliderColor, sliderColor_);
+          DARABONBA_PTR_TO_JSON(Title, title_);
+        };
+        friend void from_json(const Darabonba::Json& j, Zh& obj) { 
+          DARABONBA_PTR_FROM_JSON(ShowFooter, showFooter_);
+          DARABONBA_PTR_FROM_JSON(ShowRequestId, showRequestId_);
+          DARABONBA_PTR_FROM_JSON(SliderColor, sliderColor_);
+          DARABONBA_PTR_FROM_JSON(Title, title_);
+        };
+        Zh() = default ;
+        Zh(const Zh &) = default ;
+        Zh(Zh &&) = default ;
+        Zh(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Zh() = default ;
+        Zh& operator=(const Zh &) = default ;
+        Zh& operator=(Zh &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->showFooter_ == nullptr
+        && this->showRequestId_ == nullptr && this->sliderColor_ == nullptr && this->title_ == nullptr; };
+        // showFooter Field Functions 
+        bool hasShowFooter() const { return this->showFooter_ != nullptr;};
+        void deleteShowFooter() { this->showFooter_ = nullptr;};
+        inline bool getShowFooter() const { DARABONBA_PTR_GET_DEFAULT(showFooter_, false) };
+        inline Zh& setShowFooter(bool showFooter) { DARABONBA_PTR_SET_VALUE(showFooter_, showFooter) };
+
+
+        // showRequestId Field Functions 
+        bool hasShowRequestId() const { return this->showRequestId_ != nullptr;};
+        void deleteShowRequestId() { this->showRequestId_ = nullptr;};
+        inline bool getShowRequestId() const { DARABONBA_PTR_GET_DEFAULT(showRequestId_, false) };
+        inline Zh& setShowRequestId(bool showRequestId) { DARABONBA_PTR_SET_VALUE(showRequestId_, showRequestId) };
+
+
+        // sliderColor Field Functions 
+        bool hasSliderColor() const { return this->sliderColor_ != nullptr;};
+        void deleteSliderColor() { this->sliderColor_ = nullptr;};
+        inline string getSliderColor() const { DARABONBA_PTR_GET_DEFAULT(sliderColor_, "") };
+        inline Zh& setSliderColor(string sliderColor) { DARABONBA_PTR_SET_VALUE(sliderColor_, sliderColor) };
+
+
+        // title Field Functions 
+        bool hasTitle() const { return this->title_ != nullptr;};
+        void deleteTitle() { this->title_ = nullptr;};
+        inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+        inline Zh& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+      protected:
+        // Specifies whether to show the footer.
+        // 
+        // This parameter is required.
+        shared_ptr<bool> showFooter_ {};
+        // Specifies whether to show the request ID.
+        // 
+        // This parameter is required.
+        shared_ptr<bool> showRequestId_ {};
+        // The color of the slider.
+        // 
+        // This parameter is required.
+        shared_ptr<string> sliderColor_ {};
+        // The title.
+        // 
+        // This parameter is required.
+        shared_ptr<string> title_ {};
+      };
+
+      class En : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const En& obj) { 
+          DARABONBA_PTR_TO_JSON(ShowFooter, showFooter_);
+          DARABONBA_PTR_TO_JSON(ShowRequestId, showRequestId_);
+          DARABONBA_PTR_TO_JSON(SliderColor, sliderColor_);
+          DARABONBA_PTR_TO_JSON(Title, title_);
+        };
+        friend void from_json(const Darabonba::Json& j, En& obj) { 
+          DARABONBA_PTR_FROM_JSON(ShowFooter, showFooter_);
+          DARABONBA_PTR_FROM_JSON(ShowRequestId, showRequestId_);
+          DARABONBA_PTR_FROM_JSON(SliderColor, sliderColor_);
+          DARABONBA_PTR_FROM_JSON(Title, title_);
+        };
+        En() = default ;
+        En(const En &) = default ;
+        En(En &&) = default ;
+        En(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~En() = default ;
+        En& operator=(const En &) = default ;
+        En& operator=(En &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->showFooter_ == nullptr
+        && this->showRequestId_ == nullptr && this->sliderColor_ == nullptr && this->title_ == nullptr; };
+        // showFooter Field Functions 
+        bool hasShowFooter() const { return this->showFooter_ != nullptr;};
+        void deleteShowFooter() { this->showFooter_ = nullptr;};
+        inline bool getShowFooter() const { DARABONBA_PTR_GET_DEFAULT(showFooter_, false) };
+        inline En& setShowFooter(bool showFooter) { DARABONBA_PTR_SET_VALUE(showFooter_, showFooter) };
+
+
+        // showRequestId Field Functions 
+        bool hasShowRequestId() const { return this->showRequestId_ != nullptr;};
+        void deleteShowRequestId() { this->showRequestId_ = nullptr;};
+        inline bool getShowRequestId() const { DARABONBA_PTR_GET_DEFAULT(showRequestId_, false) };
+        inline En& setShowRequestId(bool showRequestId) { DARABONBA_PTR_SET_VALUE(showRequestId_, showRequestId) };
+
+
+        // sliderColor Field Functions 
+        bool hasSliderColor() const { return this->sliderColor_ != nullptr;};
+        void deleteSliderColor() { this->sliderColor_ = nullptr;};
+        inline string getSliderColor() const { DARABONBA_PTR_GET_DEFAULT(sliderColor_, "") };
+        inline En& setSliderColor(string sliderColor) { DARABONBA_PTR_SET_VALUE(sliderColor_, sliderColor) };
+
+
+        // title Field Functions 
+        bool hasTitle() const { return this->title_ != nullptr;};
+        void deleteTitle() { this->title_ = nullptr;};
+        inline string getTitle() const { DARABONBA_PTR_GET_DEFAULT(title_, "") };
+        inline En& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
+
+
+      protected:
+        // Specifies whether to show the footer.
+        // 
+        // This parameter is required.
+        shared_ptr<bool> showFooter_ {};
+        // Specifies whether to show the request ID.
+        shared_ptr<bool> showRequestId_ {};
+        // The color of the slider.
+        // 
+        // This parameter is required.
+        shared_ptr<string> sliderColor_ {};
+        // The title.
+        // 
+        // This parameter is required.
+        shared_ptr<string> title_ {};
+      };
+
+      virtual bool empty() const override { return this->en_ == nullptr
+        && this->zh_ == nullptr; };
+      // en Field Functions 
+      bool hasEn() const { return this->en_ != nullptr;};
+      void deleteEn() { this->en_ = nullptr;};
+      inline const Configs::En & getEn() const { DARABONBA_PTR_GET_CONST(en_, Configs::En) };
+      inline Configs::En getEn() { DARABONBA_PTR_GET(en_, Configs::En) };
+      inline Configs& setEn(const Configs::En & en) { DARABONBA_PTR_SET_VALUE(en_, en) };
+      inline Configs& setEn(Configs::En && en) { DARABONBA_PTR_SET_RVALUE(en_, en) };
+
+
+      // zh Field Functions 
+      bool hasZh() const { return this->zh_ != nullptr;};
+      void deleteZh() { this->zh_ = nullptr;};
+      inline const Configs::Zh & getZh() const { DARABONBA_PTR_GET_CONST(zh_, Configs::Zh) };
+      inline Configs::Zh getZh() { DARABONBA_PTR_GET(zh_, Configs::Zh) };
+      inline Configs& setZh(const Configs::Zh & zh) { DARABONBA_PTR_SET_VALUE(zh_, zh) };
+      inline Configs& setZh(Configs::Zh && zh) { DARABONBA_PTR_SET_RVALUE(zh_, zh) };
+
+
+    protected:
+      // The predefined English style.
+      shared_ptr<Configs::En> en_ {};
+      // The predefined Chinese style.
+      shared_ptr<Configs::Zh> zh_ {};
+    };
+
+    virtual bool empty() const override { return this->configs_ == nullptr
+        && this->customContent_ == nullptr && this->forceLanguage_ == nullptr && this->name_ == nullptr && this->siteIds_ == nullptr; };
+    // configs Field Functions 
+    bool hasConfigs() const { return this->configs_ != nullptr;};
+    void deleteConfigs() { this->configs_ = nullptr;};
+    inline const CreateSliderCaptchaPageRequest::Configs & getConfigs() const { DARABONBA_PTR_GET_CONST(configs_, CreateSliderCaptchaPageRequest::Configs) };
+    inline CreateSliderCaptchaPageRequest::Configs getConfigs() { DARABONBA_PTR_GET(configs_, CreateSliderCaptchaPageRequest::Configs) };
+    inline CreateSliderCaptchaPageRequest& setConfigs(const CreateSliderCaptchaPageRequest::Configs & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
+    inline CreateSliderCaptchaPageRequest& setConfigs(CreateSliderCaptchaPageRequest::Configs && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
+
+
+    // customContent Field Functions 
+    bool hasCustomContent() const { return this->customContent_ != nullptr;};
+    void deleteCustomContent() { this->customContent_ = nullptr;};
+    inline string getCustomContent() const { DARABONBA_PTR_GET_DEFAULT(customContent_, "") };
+    inline CreateSliderCaptchaPageRequest& setCustomContent(string customContent) { DARABONBA_PTR_SET_VALUE(customContent_, customContent) };
+
+
+    // forceLanguage Field Functions 
+    bool hasForceLanguage() const { return this->forceLanguage_ != nullptr;};
+    void deleteForceLanguage() { this->forceLanguage_ = nullptr;};
+    inline string getForceLanguage() const { DARABONBA_PTR_GET_DEFAULT(forceLanguage_, "") };
+    inline CreateSliderCaptchaPageRequest& setForceLanguage(string forceLanguage) { DARABONBA_PTR_SET_VALUE(forceLanguage_, forceLanguage) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline CreateSliderCaptchaPageRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // siteIds Field Functions 
+    bool hasSiteIds() const { return this->siteIds_ != nullptr;};
+    void deleteSiteIds() { this->siteIds_ = nullptr;};
+    inline const vector<int64_t> & getSiteIds() const { DARABONBA_PTR_GET_CONST(siteIds_, vector<int64_t>) };
+    inline vector<int64_t> getSiteIds() { DARABONBA_PTR_GET(siteIds_, vector<int64_t>) };
+    inline CreateSliderCaptchaPageRequest& setSiteIds(const vector<int64_t> & siteIds) { DARABONBA_PTR_SET_VALUE(siteIds_, siteIds) };
+    inline CreateSliderCaptchaPageRequest& setSiteIds(vector<int64_t> && siteIds) { DARABONBA_PTR_SET_RVALUE(siteIds_, siteIds) };
+
+
+  protected:
+    // The predefined configurations for the custom slider page.
+    shared_ptr<CreateSliderCaptchaPageRequest::Configs> configs_ {};
+    // The custom slider configurations. The value is a JSON string.
+    shared_ptr<string> customContent_ {};
+    // The forced language.
+    shared_ptr<string> forceLanguage_ {};
+    // The name of the custom slider page.
+    // 
+    // This parameter is required.
+    shared_ptr<string> name_ {};
+    // The list of bound site IDs.
+    shared_ptr<vector<int64_t>> siteIds_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

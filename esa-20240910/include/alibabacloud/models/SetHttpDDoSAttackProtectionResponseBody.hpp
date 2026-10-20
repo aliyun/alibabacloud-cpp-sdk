@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The level of HTTP DDoS attack protection.
+    // The mode of the HTTP DDoS Attack prevention mitigation policies.
     shared_ptr<string> globalMode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
+    // The site ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

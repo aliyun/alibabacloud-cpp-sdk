@@ -48,14 +48,14 @@ namespace Models
 
 
   protected:
-    // The feature switch. Valid values:
+    // Specifies whether to enable the feature. Valid values:
     // 
-    // - on: enabled.
-    // - off: disabled.
+    // - on: Enabled.
+    // - off: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

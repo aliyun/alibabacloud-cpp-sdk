@@ -57,27 +57,21 @@ namespace Models
 
 
   protected:
-    // The mode for the intelligent HTTP DDoS protection feature. Valid values:
-    // 
-    // - **observe**: The system generates warnings for attack traffic but does not block it.
-    // 
-    // - **defense**: The system blocks detected attack traffic.
+    // The HTTP DDoS depth learning and defense pattern. Valid values:
+    // - **observe**: Monitor.
+    // - **defense**: Block.
     // 
     // This parameter is required.
     shared_ptr<string> aiMode_ {};
-    // The sensitivity level for the intelligent HTTP DDoS protection feature. Valid values:
-    // 
-    // - **level0**: very loose
-    // 
-    // - **level30**: loose
-    // 
-    // - **level60**: normal
-    // 
-    // - **level90**: strict
+    // The HTTP DDoS deep learning and protection level. Valid values:
+    // - **level0**: Very loose.
+    // - **level30**: Loose.
+    // - **level60**: Normal.
+    // - **level90**: Strict.
     // 
     // This parameter is required.
     shared_ptr<string> aiTemplate_ {};
-    // The ID of the site. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

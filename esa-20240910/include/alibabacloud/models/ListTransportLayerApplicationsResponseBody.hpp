@@ -125,7 +125,7 @@ namespace Models
         // 
         // - healthy: Healthy.
         // - unhealthy: Unhealthy.
-        // - unknown: IP address is being prepared.
+        // - unknown: The IP address is being prepared.
         shared_ptr<string> status_ {};
       };
 
@@ -222,39 +222,39 @@ namespace Models
 
 
       protected:
-        // The client IP pass-through protocol. Supported values:
-        // - **off**: Disabled.
-        // - **PPv1**: PROXY Protocol v1, which supports client IP pass-through for TCP protocol.
-        // - **PPv2**: PROXY Protocol v2, which supports client IP pass-through for TCP and UDP protocols.
-        // - **SPP**: Simple Proxy Protocol, which supports client IP pass-through for UDP protocol.
+        // The protocol used to pass through the client IP address. Valid values:
+        // - **off**: Does not pass through the client IP address.
+        // - **PPv1**: PROXY protocol version 1, which supports passing through the client IP address over TCP.
+        // - **PPv2**: PROXY protocol version 2, which supports passing through the client IP address over TCP and UDP.
+        // - **SPP**: Simple Proxy Protocol, which supports passing through the client IP address over UDP.
         shared_ptr<string> clientIPPassThroughMode_ {};
-        // The comment for the rule.
+        // The description of the rule.
         shared_ptr<string> comment_ {};
-        // The edge port. Supported formats:
+        // The edge port. Valid values:
         // 
         // - A single port, such as 80.
         // - A port range, such as 81-85, which represents ports 81, 82, 83, 84, and 85.
-        // - A combination of ports and port ranges separated by commas, such as 80,81-85,90, which represents ports 80, 81, 82, 83, 84, 85, and 90.
+        // - A combination of ports and port ranges, separated by commas, such as 80,81-85,90, which represents ports 80, 81, 82, 83, 84, 85, and 90.
         shared_ptr<string> edgePort_ {};
         // The protocol of the forwarding rule. Valid values:
         // 
-        // - TCP: TCP protocol.
-        // - UDP: UDP protocol.
+        // - TCP: TCP
+        // - UDP: UDP
         shared_ptr<string> protocol_ {};
-        // The Layer 4 acceleration rule ID.
+        // The ID of the Layer 4 acceleration rule.
         shared_ptr<int64_t> ruleId_ {};
-        // The specific value of the origin, which must match the origin type.
+        // The specific value of the origin server, which must match the origin server type.
         shared_ptr<string> source_ {};
-        // The origin port. Supported formats:
+        // The origin server port. Valid values:
         // 
-        // - A single port. When the origin port is a single port, any valid combination of edge ports is supported.
-        // - A port range. The origin port can be set to a port range only when the edge port is a port range, and the range size must be the same as that of the edge port. For example, if the edge port is 90-93, the origin port cannot be set to 81-85, because the origin port range size is 5 while the edge port range size is 3, which are inconsistent.
+        // - A single port. If the origin server port is a single port, any valid combination of edge ports is supported.
+        // - A port range. The origin server port can be set to a port range only when the edge port is a port range, and the range size must be the same as that of the edge port. For example, if the edge port is 90-93, you cannot set the origin server port to 81-85 because the origin server port range includes 5 ports and the edge port range includes 4 ports, which do not match.
         shared_ptr<string> sourcePort_ {};
-        // The origin type. Supported values:
+        // The origin server type. Valid values:
         // - **ip**: IP address.
-        // - **domain**: Domain name.
-        // - **OP**: Origin pool.
-        // - **LB**: Load balancer.
+        // - **domain**: domain name.
+        // - **OP**: origin IPAM pool.
+        // - **LB**: load balancing.
         shared_ptr<string> sourceType_ {};
       };
 
@@ -358,26 +358,26 @@ namespace Models
 
 
     protected:
-      // The Layer 4 application ID.
+      // The ID of the Layer 4 application.
       shared_ptr<int64_t> applicationId_ {};
-      // The CNAME domain name corresponding to the Layer 4 acceleration application. This field is non-empty only when the site is connected via the CNAME method.
+      // The CNAME domain name corresponding to the Layer 4 acceleration application. This field is not empty only when the site is onboarded by using a CNAME record.
       shared_ptr<string> cname_ {};
-      // Indicates whether mainland China network access optimization is enabled. Disabled by default. Valid values:
+      // Specifies whether to enable network access optimization for the Chinese mainland. Default value: off. Valid values:
       // 
       // - on: Enabled.
       // - off: Disabled.
       shared_ptr<string> crossBorderOptimization_ {};
-      // The IP access rule switch. When enabled, the IP access rules in WAF take effect for the Layer 4 application.
+      // Specifies whether to enable the IP access rule. After this feature is enabled, the IP access rules in WAF take effect for the Layer 4 application. Valid values:
       // 
       // - on: Enabled.
       // - off: Disabled.
       shared_ptr<string> ipAccessRule_ {};
-      // The IPv6 switch. Valid values:
+      // Specifies whether to enable IPv6. Valid values:
       // 
       // - on: Enabled.
       // - off: Disabled.
       shared_ptr<string> ipv6_ {};
-      // Indicates whether keep-alive protection is enabled. Disabled by default. Valid values:
+      // Specifies whether to enable connection keep-alive protection. Default value: off. Valid values:
       // 
       // - on: Enabled.
       // - off: Disabled.
@@ -386,22 +386,22 @@ namespace Models
       shared_ptr<string> recordName_ {};
       // The list of forwarding rules.
       shared_ptr<vector<Applications::Rules>> rules_ {};
-      // The number of forwarding rules contained in the Layer 4 acceleration application.
+      // The number of forwarding rules included in the Layer 4 acceleration application.
       shared_ptr<int32_t> rulesCount_ {};
       // The site ID.
       shared_ptr<int64_t> siteId_ {};
-      // Indicates whether static IP is enabled. Disabled by default. Valid values:
+      // Specifies whether to enable the static IP address feature. Default value: off. Valid values:
       // 
       // - on: Enabled.
       // - off: Disabled.
       shared_ptr<string> staticIp_ {};
-      // The list of static IPv4 addresses assigned to this Layer 4 application after the static IP feature is enabled.
+      // The list of static IPv4 addresses assigned to the Layer 4 application after the static IP address feature is enabled.
       // 
       // This parameter is required.
       shared_ptr<vector<Applications::StaticIpV4List>> staticIpV4List_ {};
-      // The status of the Layer 4 application.
+      // The status of the Layer 4 application. Valid values:
       // 
-      // - **deploying**: Deploying. Modification and deletion are not allowed in this state.
+      // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
       // - **active**: Active.
       shared_ptr<string> status_ {};
     };
@@ -448,7 +448,7 @@ namespace Models
   protected:
     // The list of Layer 4 applications.
     shared_ptr<vector<ListTransportLayerApplicationsResponseBody::Applications>> applications_ {};
-    // The current page number, same as the PageNumber request parameter.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

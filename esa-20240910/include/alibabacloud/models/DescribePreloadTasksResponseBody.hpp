@@ -114,20 +114,20 @@ namespace Models
     protected:
       // The prefetch object.
       shared_ptr<string> content_ {};
-      // The creation time.
+      // The creation time in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The error description returned when the prefetch fails. Valid values:
+      // The error description returned when a prefetch task fails. Valid values:
       // 
       // - **Internal Error**: An internal error occurred.
       // - **Origin Timeout**: The origin server response timed out.
-      // - **Origin Return StatusCode 5XX**: The origin server returned a 5xx error code.
+      // - **Origin Return StatusCode 5XX**: The origin server returned a 5xx status code.
       shared_ptr<string> description_ {};
-      // The task completion progress percentage.
+      // The task completion progress in percentage.
       shared_ptr<string> process_ {};
       // The task status. Valid values:
-      // - **Complete**: Complete.
-      // - **Refreshing**: Prefetching.
-      // - **Failed**: Prefetch failed.
+      // - **Complete**: Completed.
+      // - **Refreshing**: Refreshing.
+      // - **Failed**: Failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -175,7 +175,7 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

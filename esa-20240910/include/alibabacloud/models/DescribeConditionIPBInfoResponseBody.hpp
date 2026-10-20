@@ -60,7 +60,7 @@ namespace Models
 
 
     protected:
-      // The returned data details, including the name of the country, ISP, or region and the corresponding identifier code.
+      // The returned data details, including the name of the country, ISP, or region, and its corresponding identifier.
       shared_ptr<string> value_ {};
     };
 

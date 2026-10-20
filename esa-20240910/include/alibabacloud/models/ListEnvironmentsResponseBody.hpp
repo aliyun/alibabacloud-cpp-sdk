@@ -134,11 +134,11 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the environment was created. The time follows the ISO 8601 standard and is in UTC. Example: 2024-08-15T08:15:30Z.
       shared_ptr<string> createTime_ {};
-      // The environment name.
+      // The name of the environment.
       shared_ptr<string> environmentName_ {};
-      // Indicates whether this is the default environment.
+      // Indicates whether the environment is the default environment.
       shared_ptr<bool> isDefault_ {};
       // The previous version number.
       shared_ptr<int32_t> preSiteVersion_ {};
@@ -148,9 +148,9 @@ namespace Models
       shared_ptr<bool> readOnly_ {};
       // The environment rule.
       shared_ptr<string> rule_ {};
-      // The site version number.
+      // The version number of the site.
       shared_ptr<int32_t> siteVersion_ {};
-      // The update time.
+      // The time when the environment was updated. The time follows the ISO 8601 standard and is in UTC. Example: 2023-09-15T08:16:04Z.
       shared_ptr<string> updateTime_ {};
     };
 

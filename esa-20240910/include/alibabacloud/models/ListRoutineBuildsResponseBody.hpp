@@ -283,7 +283,7 @@ namespace Models
 
 
     protected:
-      // The static assets directory.
+      // The directory of static resources.
       shared_ptr<string> assetsDirectory_ {};
       // The branch used for the build.
       shared_ptr<string> branch_ {};
@@ -293,53 +293,53 @@ namespace Models
       shared_ptr<string> commitId_ {};
       // The commit message.
       shared_ptr<string> commitMessage_ {};
-      // The creation time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+      // The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The environment variables.
       shared_ptr<map<string, string>> environmentVariables_ {};
-      // The Git account ID.
+      // The ID of the Git account.
       shared_ptr<int64_t> gitAccountId_ {};
-      // The Git account name.
+      // The name of the Git account.
       shared_ptr<string> gitAccountName_ {};
-      // The install command.
+      // The installation command.
       shared_ptr<string> installCommand_ {};
-      // Indicates whether the repository is private. Valid values:
+      // Specifies whether the repository is private. Valid values:
       // 
-      // - true: The repository is private.
-      // - false: The repository is not private.
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> isPrivate_ {};
-      // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
+      // The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
       shared_ptr<string> nodeVersion_ {};
-      // The Yunxiao pipeline ID.
+      // The ID of the Yunxiao pipeline.
       shared_ptr<int64_t> pipelineId_ {};
-      // The Yunxiao build task ID.
+      // The ID of the Yunxiao build task.
       shared_ptr<int64_t> pipelineRunId_ {};
-      // The production branch name.
+      // The name of the production branch.
       shared_ptr<string> productionBranch_ {};
-      // The repository name.
+      // The name of the repository.
       shared_ptr<string> repository_ {};
       // The root directory.
       shared_ptr<string> rootDirectory_ {};
-      // The ER build task ID.
+      // The ID of the ER build task.
       shared_ptr<int64_t> routineBuildId_ {};
-      // The ER entry file path.
+      // The path to the ER entry file.
       shared_ptr<string> routineEntry_ {};
-      // The ER name.
+      // The name of the ER.
       shared_ptr<string> routineName_ {};
       // The status of the build task. Valid values:
       // 
-      // - int: initialization
-      // - pending: preparing
-      // - building: building
-      // - succeed: build succeeded
-      // - failed: build failed
-      // - canceled: canceled
+      // - int: Initialized.
+      // - pending: Preparing.
+      // - building: Building.
+      // - succeed: Succeeded.
+      // - failed: Failed.
+      // - canceled: Canceled.
       shared_ptr<string> status_ {};
-      // The template name.
+      // The name of the template.
       shared_ptr<string> templateName_ {};
-      // The modification time, in the ISO 8601 format in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+      // The update time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
-      // The user ID.
+      // The ID of the user.
       shared_ptr<int64_t> userId_ {};
     };
 

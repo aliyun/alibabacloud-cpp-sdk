@@ -191,17 +191,17 @@ namespace Models
       shared_ptr<string> contentType_ {};
       // The description of the custom response page.
       shared_ptr<string> description_ {};
-      // The ID of the custom response page. You can obtain the ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+      // The ID of the custom response page. You can obtain it by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
       shared_ptr<int64_t> id_ {};
       // The type of the custom response page.
       shared_ptr<string> kind_ {};
-      // The content moderation result.
+      // The content security moderation result.
       shared_ptr<Pages::Moderation> moderation_ {};
       // The name of the custom response page.
       shared_ptr<string> name_ {};
       // The last modification time of the custom response page.
       // 
-      // Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+      // Format: RFC 3339/ISO 8601, UTC standard time zone (ending with Z).
       // 
       // Example: 2026-06-10T14:23:45Z
       shared_ptr<string> updateTime_ {};
@@ -256,13 +256,13 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The array of custom response pages. Each object in the array contains the details of a page.
+    // The array of custom response pages. Each object in the array contains the specific information of a page.
     shared_ptr<vector<ListPagesResponseBody::Pages>> pages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of custom response pages after filtering.
+    // The total number of custom response pages after filtering.
     shared_ptr<int32_t> totalCount_ {};
     // The number of custom response pages created by the user.
     shared_ptr<int64_t> usage_ {};

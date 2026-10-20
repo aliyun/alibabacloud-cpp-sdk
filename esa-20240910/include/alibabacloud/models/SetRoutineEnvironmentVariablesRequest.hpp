@@ -61,17 +61,17 @@ namespace Models
 
 
   protected:
-    // The environment name. Valid values:
-    // - `staging`: staging environment.
-    // - `production`: production environment.
+    // The name of the environment. Valid values:
+    // - `staging`: staging environment
+    // - `production`: production environment
     // 
     // This parameter is required.
     shared_ptr<string> env_ {};
-    // The dictionary of environment variables. The key is the environment variable name, and the value is the environment variable value.
+    // The environment variable dictionary. The key is the environment variable name, and the value is the environment variable value.
     // 
     // This parameter is required.
     shared_ptr<map<string, EnvironmentVariablesValue>> environmentVariables_ {};
-    // The function name.
+    // The name of the function.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

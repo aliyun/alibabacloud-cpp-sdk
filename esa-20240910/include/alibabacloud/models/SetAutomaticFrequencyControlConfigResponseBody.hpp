@@ -66,29 +66,23 @@ namespace Models
 
 
   protected:
-    // The action taken on requests that trigger the control. Valid values:
-    // 
-    // - **observe**: Requests are monitored.
-    // 
-    // - **deny**: Requests are blocked.
-    // 
-    // - **js**: JS challenges are issued.
+    // The action to perform. Valid values:
+    // - **observe**: Monitor.
+    // - **deny**: Block.
+    // - **js**: JavaScript Challenge.
     shared_ptr<string> actionType_ {};
-    // Indicates whether automatic frequency control is enabled. Valid values:
+    // Specifies whether to enable the feature. Valid values:
     // 
-    // - **on**: Enabled.
+    //  - **on**: Enabled.
     // 
-    // - **off**: Disabled.
+    //  - **off**: Disabled.
     shared_ptr<string> enable_ {};
     // The protection level. Valid values:
-    // 
-    // - **loose**: Loose protection.
-    // 
-    // - **normal**: Normal protection.
-    // 
-    // - **strict**: Strict protection.
+    // - **loose**: Loose.
+    // - **normal**: Medium.
+    // - **strict**: Strict.
     shared_ptr<string> level_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

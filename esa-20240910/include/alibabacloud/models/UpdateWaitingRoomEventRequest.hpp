@@ -213,32 +213,36 @@ namespace Models
 
 
   protected:
-    // The custom waiting room page content. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
+    // The custom content of the waiting room page. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
     shared_ptr<string> customPageHtml_ {};
     // The description of the waiting room.
     shared_ptr<string> description_ {};
     // Specifies whether to disable session renewal. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: yes.
+    // 
+    // - **off**: no.
     shared_ptr<string> disableSessionRenewalEnable_ {};
     // The enabling status. Valid values:
     // 
-    //  - **on**: Enables the waiting room event.
+    // - **on**: enables the waiting room event.
     // 
-    //  - **off**: Disables the waiting room event.
+    // - **off**: disables the waiting room event.
     shared_ptr<string> enable_ {};
     // The timestamp of the event end time.
     shared_ptr<string> endTime_ {};
-    // Specifies whether to enable JSON response. Valid values:
+    // Specifies whether to enable JSON responses. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: yes.
+    // 
+    // - **off**: no.
     shared_ptr<string> jsonResponseEnable_ {};
     // The default language setting. Valid values:
     // 
-    //  - **enus**: English.
+    // - **enus**: English.
+    // 
     // - **zhcn**: Simplified Chinese.
+    // 
     // - **zhhk**: Traditional Chinese.
     shared_ptr<string> language_ {};
     // The name of the waiting room event.
@@ -247,32 +251,39 @@ namespace Models
     shared_ptr<string> newUsersPerMinute_ {};
     // Specifies whether to enable pre-queuing. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: yes.
+    // 
+    // - **off**: no.
     shared_ptr<string> preQueueEnable_ {};
     // The timestamp of the pre-queuing start time.
     shared_ptr<string> preQueueStartTime_ {};
     // The queuing method. Valid values:
     // 
     // - **random**: random.
-    // - **fifo**: first-in-first-out.
+    // 
+    // - **fifo**: first in, first out (FIFO).
+    // 
     // - **passthrough**: passthrough.
+    // 
     // - **reject-all**: reject all.
     shared_ptr<string> queuingMethod_ {};
     // The waiting room status code. Valid values:
     // 
     // - **200**
+    // 
     // - **202**
+    // 
     // - **429**
     shared_ptr<string> queuingStatusCode_ {};
     // Specifies whether to enable random pre-queuing. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: yes.
+    // 
+    // - **off**: no.
     shared_ptr<string> randomPreQueueEnable_ {};
-    // The user session duration, in minutes.
+    // The duration of a user session, in minutes.
     shared_ptr<string> sessionDuration_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
@@ -280,14 +291,15 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The total number of active users.
     shared_ptr<string> totalActiveUsers_ {};
-    // The waiting room event ID, which can be obtained by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
+    // The ID of the waiting room event. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> waitingRoomEventId_ {};
     // The type of the waiting room. Valid values:
     // 
-    // - **default**: default type.
-    // - **custom**: custom type.
+    // - **default**: the default type.
+    // 
+    // - **custom**: the custom type.
     shared_ptr<string> waitingRoomType_ {};
   };
 

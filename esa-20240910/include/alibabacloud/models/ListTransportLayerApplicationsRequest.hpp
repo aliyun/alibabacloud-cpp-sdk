@@ -75,20 +75,20 @@ namespace Models
 
 
   protected:
-    // The query type for the host record of Layer 4 applications. The following four types are supported, and the default is exact match.
+    // The query type for the host record of the Layer 4 application. Default value: exact. Valid values:
     // 
-    // - fuzzy: Fuzzy match.
-    // - exact: Exact match.
-    // - prefix: Prefix match.
-    // - suffix: Suffix match.
+    // - fuzzy: fuzzy match
+    // - exact: exact match
+    // - prefix: prefix match
+    // - suffix: suffix match
     shared_ptr<string> matchType_ {};
-    // The page number for paginated queries. The value must be greater than or equal to 1.
+    // The page number Settings for paging in a paged query. Valid values: integers greater than or equal to 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paginated queries. Valid values: 1-500.
+    // The number of entries per page for paging in a paged query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
     // The host record of the Layer 4 application.
     shared_ptr<string> recordName_ {};
-    // Site ID. You can obtain it by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

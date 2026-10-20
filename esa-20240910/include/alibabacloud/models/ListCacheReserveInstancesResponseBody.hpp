@@ -133,27 +133,27 @@ namespace Models
 
 
     protected:
-      // The capacity of the cache reserve instance. Unit: GB.
+      // The cache reservation capacity. Unit: GB.
       shared_ptr<int64_t> cacheReserveCapacity_ {};
-      // The region where the cache reserve instance is deployed.
+      // The region where the cache reservation is used.
       shared_ptr<string> cacheReserveRegion_ {};
-      // The billing type. Valid values:
-      // - PREPAY: subscription.
-      // - POSTPAY: pay-as-you-go.
+      // The billing method. Valid values:
+      // - PREPAY: Prepaid.
+      // - POSTPAY: Pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The creation time of the instance.
+      // The creation time of the instance. The time is in UTC and formatted in accordance with the ISO 8601 standard, for example, 2024-04-12T05:41:51Z.
       shared_ptr<string> createTime_ {};
       // The subscription duration of the instance. Unit: months.
       shared_ptr<int32_t> duration_ {};
-      // The time when the instance expires.
+      // The time when the instance expires. The time is in UTC and formatted in accordance with the ISO 8601 standard, for example, 2024-10-05T16:00:00Z.
       shared_ptr<string> expireTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
-      // - **online**: The instance is running normally.
-      // - **offline**: The instance has expired but has not exceeded the retention period and is unavailable.
-      // - **disable**: The instance has been released.
-      // - **overdue**: The instance is stopped due to an overdue payment.
+      // - **online**: Normal service status.
+      // - **offline**: Expired but not overdue, and in an inactive state.
+      // - **disable**: Released.
+      // - **overdue**: Stopped due to an overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -204,11 +204,11 @@ namespace Models
 
 
   protected:
-    // The list of cache reserve instances.
+    // The list of cache reservation instances.
     shared_ptr<vector<ListCacheReserveInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **500**. Valid values: **1** to **500**.
+    // The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

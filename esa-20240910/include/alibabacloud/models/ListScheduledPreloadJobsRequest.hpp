@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query based on task creation time. The value is a millisecond-level timestamp.
+    // The end time of the time range to query task creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The page number to return.
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The start of the time range to query based on task creation time. The value is a millisecond-level timestamp.
+    // The start time of the time range to query task creation time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

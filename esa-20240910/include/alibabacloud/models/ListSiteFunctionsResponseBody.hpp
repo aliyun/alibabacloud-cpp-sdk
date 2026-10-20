@@ -235,25 +235,31 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The custom FLV end parameter.
+        // The custom end parameter for FLV seeking.
         shared_ptr<string> flvSeekEnd_ {};
-        // The custom FLV start parameter.
+        // The custom start parameter for FLV seeking.
         shared_ptr<string> flvSeekStart_ {};
-        // The FLV seeking mode. Valid values:
+        // The FLV video seeking mode. Valid values:
+        // - by_byte: Seeks by byte.
+        // - by_time: Seeks by time.
         shared_ptr<string> flvVideoSeekMode_ {};
-        // The custom MP4 end parameter.
+        // The custom end parameter for MP4 seeking.
         shared_ptr<string> mp4SeekEnd_ {};
-        // The custom MP4 start parameter.
+        // The custom start parameter for MP4 seeking.
         shared_ptr<string> mp4SeekStart_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // Specifies whether to enable the audio seeking feature. Valid values:
+        // Specifies whether to enable the video seeking feature. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> videoSeekEnable_ {};
       };
 
@@ -305,10 +311,14 @@ namespace Models
 
       protected:
         // The tiered cache architecture mode. Valid values:
+        // - edge: Edge cache layer.
+        // - edge_smart: Edge cache layer and smart cache layer.
+        // - edge_regional: Edge cache layer and regional cache layer.
+        // - edge_regional_smart: Edge cache layer, regional cache layer, and smart cache layer.
         shared_ptr<string> cacheArchitectureMode_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -361,11 +371,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to temporarily pause the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to the client. Valid values:
-        // - true: Site acceleration is paused.
-        // - false: Site acceleration is active.
+        // Specifies whether the proxy acceleration feature for the entire site is temporarily paused. When this feature is enabled, all DNS records directly return record values to clients. Valid values:
+        // - true: The site acceleration is paused.
+        // - false: The site acceleration is running normally.
         shared_ptr<string> paused_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -418,9 +428,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The feature switch. Valid values:
+        // Specifies whether to enable the feature. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -473,9 +485,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The feature switch. Disabled by default. Valid values:
+        // Specifies whether to enable the feature. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -586,18 +600,22 @@ namespace Models
         // The query string after rewriting.
         shared_ptr<string> queryString_ {};
         // The query string rewrite type. Valid values:
+        // - static: Static mode.
         shared_ptr<string> rewriteQueryStringType_ {};
-        // The path rewrite type. Valid values:
+        // The URI rewrite type. Valid values:
+        // - static: Static mode.
         shared_ptr<string> rewriteUriType_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // The target URI after rewriting.
+        // The destination URI after rewriting.
         shared_ptr<string> uri_ {};
       };
 
@@ -705,26 +723,31 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to reserve the query string. Valid values:
+        // Specifies whether to retain the query string. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> reserveQueryString_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // The HTTP status code used when the node responds to the client with a redirect address. Valid values:
+        // The HTTP status code used by the node when responding to the client with the redirect URL. Valid values:
         // - 301
         // - 302
         // - 303
         // - 307
         // - 308
         shared_ptr<string> statusCode_ {};
-        // The target URL after redirection.
+        // The target URL for the redirect.
         shared_ptr<string> targetUrl_ {};
         // The redirect type. Valid values:
+        // - static: Static mode.
         shared_ptr<string> type_ {};
       };
 
@@ -896,38 +919,51 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The rewritten DNS resolution record for back-to-origin requests.
+        // The DNS record rewritten for the back-to-origin request.
         shared_ptr<string> dnsRecord_ {};
-        // The HOST header carried in the back-to-origin request.
+        // The Host header carried in the back-to-origin request.
         shared_ptr<string> originHost_ {};
-        // The origin server port used when fetching content over HTTP.
+        // The origin server port accessed when using the HTTP protocol for back-to-origin requests.
         shared_ptr<string> originHttpPort_ {};
-        // The origin server port used when fetching content over HTTPS.
+        // The origin server port accessed when using the HTTPS protocol for back-to-origin requests.
         shared_ptr<string> originHttpsPort_ {};
         // Specifies whether to enable mTLS for back-to-origin requests. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> originMtls_ {};
         // The origin read timeout, in seconds.
         shared_ptr<string> originReadTimeout_ {};
         // The protocol used for back-to-origin requests. Valid values:
+        // - http: Uses the HTTP protocol.
+        // - https: Uses the HTTPS protocol.
+        // - follow: Follows the client protocol.
         shared_ptr<string> originScheme_ {};
         // The SNI carried in the back-to-origin request.
         shared_ptr<string> originSni_ {};
         // Specifies whether to enable origin server certificate verification. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> originVerify_ {};
-        // Uses range-based origin fetch to download files. Valid values:
-        // - on: enabled.
-        // - off: disabled.
-        // - force: forced.
+        // Specifies whether to use range chunking to download files from the origin server. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
+        // - force: Forced.
         shared_ptr<string> range_ {};
-        // The range chunk size. Valid values:
+        // The size of the range chunk. Valid values:
+        // - 512KB
+        // - 1MB
+        // - 2MB
+        // - 4MB
         shared_ptr<string> rangeChunkSize_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1044,23 +1080,33 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
+        // Specifies whether to enable gRPC. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> grpc_ {};
-        // Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
+        // Specifies whether to enable HTTP/2 back-to-origin routing. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> http2Origin_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
-        // The rule switch. Valid values:
+        // Specifies whether to enable the rule. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // Specifies whether to enable the smart routing service. This feature is disabled by default. Valid values:
+        // Specifies whether to enable the smart routing service. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> smartRouting_ {};
-        // The maximum upload file size. Unit: MB. Valid values: 100 to 500.
+        // The maximum size of an uploaded file. Unit: MB. Valid values: 100 to 500.
         shared_ptr<string> uploadMaxFilesize_ {};
-        // Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
+        // Specifies whether to enable WebSocket. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> websocket_ {};
       };
 
@@ -1138,11 +1184,17 @@ namespace Models
 
 
       protected:
+        // The configuration ID.
         shared_ptr<int64_t> configId_ {};
+        // Specifies whether to enable the feature. Valid values: on (enabled) and off (disabled).
         shared_ptr<string> enable_ {};
+        // The content of the rule, which uses a conditional expression to match requests.
         shared_ptr<string> rule_ {};
+        // Specifies whether to enable the rule. Valid values: on (enabled) and off (disabled).
         shared_ptr<string> ruleEnable_ {};
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
+        // The execution sequence of the rule. A smaller value indicates a higher priority.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1202,15 +1254,17 @@ namespace Models
 
 
       protected:
-        // Specifies whether to add visitor geolocation headers. Valid values:
+        // Specifies whether to add the visitor geolocation header. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> addClientGeolocationHeaders_ {};
-        // Adds the "ali-real-client-ip" header that contains the originating IP address of the client. Valid values:
-        // - on: enabled.
-        // - off: disabled.
+        // Specifies whether to add the "ali-real-client-ip" header that contains the real client IP address. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> addRealClientIpHeader_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1263,9 +1317,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable IPv6. Enabled by default. Valid values:
+        // Specifies whether IPv6 is enabled. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1362,21 +1418,25 @@ namespace Models
 
 
       protected:
-        // The adaptive AVIF setting.
+        // The adaptive AVIF configuration.
         shared_ptr<string> autoAvif_ {};
-        // The adaptive WebP setting.
+        // The adaptive WebP configuration.
         shared_ptr<string> autoWebp_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable image transformation. This feature is disabled by default. Valid values:
+        // Specifies whether to enable image transformation. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1537,38 +1597,58 @@ namespace Models
 
 
       protected:
-        // The custom cipher suite. Specifies the specific encryption algorithms selected when CiphersuiteGroup is set to custom.
+        // The custom cipher suite. This parameter specifies the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
         shared_ptr<string> ciphersuite_ {};
-        // The cipher suite group. By default, all cipher suites are enabled. Valid values:
-        // - all: all cipher suites.
-        // - strict: strong cipher suites.
-        // - custom: custom cipher suites.
+        // The cipher suite group. Default value: all. Valid values:
+        // - all: All cipher suites.
+        // - strict: Strict cipher suites.
+        // - custom: Custom cipher suites.
         shared_ptr<string> ciphersuiteGroup_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable HTTP/2. Enabled by default. Valid values:
+        // Specifies whether to enable HTTP/2. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> http2_ {};
-        // Specifies whether to enable HTTP/3. Enabled by default. Valid values:
+        // Specifies whether to enable HTTP/3. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> http3_ {};
-        // Specifies whether to enable HTTPS. Enabled by default. Valid values:
+        // Specifies whether to enable HTTPS. Default value: on. Valid values:
+        // 
+        // - on: Enabled.
+        // 
+        // - off: Disabled.
         shared_ptr<string> https_ {};
-        // Specifies whether to enable OCSP stapling. Disabled by default. Valid values:
+        // Specifies whether to enable OCSP stapling. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ocspStapling_ {};
         // The matching rule content.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // Specifies whether to enable TLS 1.0. Disabled by default. Valid values:
+        // Specifies whether to enable TLS 1.0. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> tls10_ {};
-        // Specifies whether to enable TLS 1.1. Enabled by default. Valid values:
+        // Specifies whether to enable TLS 1.1. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> tls11_ {};
-        // Specifies whether to enable TLS 1.2. Enabled by default. Valid values:
+        // Specifies whether to enable TLS 1.2. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> tls12_ {};
-        // Specifies whether to enable TLS 1.3. Enabled by default. Valid values:
+        // Specifies whether to enable TLS 1.3. Default value: on. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> tls13_ {};
       };
 
@@ -1729,35 +1809,63 @@ namespace Models
 
 
       protected:
-        // The Alt-Svc feature switch. Disabled by default. Valid values:
+        // Specifies whether to enable the Alt-Svc feature. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> altSvc_ {};
-        // Specifies whether the Alt-Svc header includes the clear parameter. Disabled by default. Valid values:
+        // Specifies whether the Alt-Svc header includes the clear parameter. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> altSvcClear_ {};
-        // The Alt-Svc validity period, in seconds. Default value: 86400.
+        // The validity period of Alt-Svc, in seconds. Default value: 86400.
         shared_ptr<string> altSvcMa_ {};
-        // Specifies whether the Alt-Svc header includes the persist parameter. Disabled by default. Valid values:
+        // Specifies whether the Alt-Svc header includes the persist parameter. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> altSvcPersist_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable HSTS. Disabled by default. Valid values:
+        // Specifies whether to enable HSTS. Default value: off. Valid values:
+        // 
+        // - on: Enabled.
+        // 
+        // - off: Disabled.
         shared_ptr<string> hsts_ {};
-        // Specifies whether to include subdomains in HSTS. Disabled by default. Valid values:
+        // Specifies whether to include subdomains in HSTS. Default value: off. Valid values:
+        // 
+        // - on: Enabled.
+        // 
+        // - off: Disabled.
         shared_ptr<string> hstsIncludeSubdomains_ {};
-        // The HSTS expiration time, in seconds.
+        // The expiration time of HSTS, in seconds.
         shared_ptr<string> hstsMaxAge_ {};
-        // Specifies whether to enable HSTS preload. Disabled by default. Valid values:
+        // Specifies whether to enable HSTS preload. Default value: off. Valid values:
+        // 
+        // - on: Enabled.
+        // 
+        // - off: Disabled.
         shared_ptr<string> hstsPreload_ {};
-        // Specifies whether to enable forced HTTPS. Disabled by default. Valid values:
+        // Specifies whether to force HTTPS. Default value: off. Valid values:
+        // 
+        // - on: Enabled.
+        // 
+        // - off: Disabled.
         shared_ptr<string> httpsForce_ {};
-        // The HTTP status code for forced HTTPS redirect. Valid values:
+        // The HTTP status code for forced HTTPS redirection. Valid values:
+        // - 301
+        // - 302
+        // - 307
+        // - 308
         shared_ptr<string> httpsForceCode_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
-        // The rule switch. Valid values:
+        // Specifies whether to enable the rule. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1837,11 +1945,14 @@ namespace Models
 
 
         protected:
-          // The response header name.
+          // The name of the response header.
           shared_ptr<string> name_ {};
           // The operation type. Valid values:
+          // - add: Add.
+          // - del: Delete.
+          // - modify: Modify.
           shared_ptr<string> operation_ {};
-          // The response header value.
+          // The value of the response header.
           shared_ptr<string> value_ {};
         };
 
@@ -1894,15 +2005,17 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The response header modifications. Supports add, delete, and modify operations.
+        // The HTTP response header modifications. You can add, delete, or modify response headers.
         shared_ptr<vector<HttpResponseHeaderModificationRules::ResponseHeaderModification>> responseHeaderModification_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -1982,11 +2095,14 @@ namespace Models
 
 
         protected:
-          // The request header name.
+          // The name of the request header.
           shared_ptr<string> name_ {};
           // The operation type. Valid values:
+          // - add: Add.
+          // - del: Delete.
+          // - modify: Modify.
           shared_ptr<string> operation_ {};
-          // The request header value.
+          // The value of the request header.
           shared_ptr<string> value_ {};
         };
 
@@ -2039,15 +2155,17 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The request header modifications. Supports add, delete, and modify operations.
+        // The HTTP request header modifications. You can add, delete, or modify request headers.
         shared_ptr<vector<HttpRequestHeaderModificationRules::RequestHeaderModification>> requestHeaderModification_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2127,11 +2245,14 @@ namespace Models
 
 
         protected:
-          // The response header name.
+          // The name of the response header.
           shared_ptr<string> name_ {};
           // The operation type. Valid values:
+          // - add: Add.
+          // - del: Delete.
+          // - modify: Modify.
           shared_ptr<string> operation_ {};
-          // The response header value.
+          // The value of the response header.
           shared_ptr<string> value_ {};
         };
 
@@ -2184,15 +2305,17 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The response header modifications. Supports add, delete, and modify operations.
+        // The HTTP response header modifications. You can add, delete, or modify response headers.
         shared_ptr<vector<HttpIncomingResponseHeaderModificationRules::ResponseHeaderModification>> responseHeaderModification_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2272,11 +2395,14 @@ namespace Models
 
 
         protected:
-          // The request header name.
+          // The name of the request header.
           shared_ptr<string> name_ {};
           // The operation type. Valid values:
+          // - add: Add.
+          // - del: Delete.
+          // - modify: Modify.
           shared_ptr<string> operation_ {};
-          // The request header value.
+          // The value of the request header.
           shared_ptr<string> value_ {};
         };
 
@@ -2329,15 +2455,17 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The request header modifications. Supports add, delete, and modify operations.
+        // The HTTP request header modifications. You can add, delete, or modify request headers.
         shared_ptr<vector<HttpIncomingRequestHeaderModificationRules::RequestHeaderModification>> requestHeaderModification_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2408,9 +2536,20 @@ namespace Models
 
 
         protected:
-          // The response status code used by the node when returning the redirect address to the client. Valid values:
+          // The HTTP status code used by the edge node to respond to the client with a redirect address. Valid values:
+          // - 400
+          // - 403
+          // - 404
+          // - 405
+          // - 414
+          // - 416
+          // - 500
+          // - 501
+          // - 502
+          // - 503
+          // - 504
           shared_ptr<string> statusCode_ {};
-          // The target URL to which the request is redirected.
+          // The destination URL after the redirect.
           shared_ptr<string> targetURL_ {};
         };
 
@@ -2463,17 +2602,19 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The error code redirect configuration.
+        // The error code redirect configurations.
         shared_ptr<vector<ErrorPagesRedirects::ErrorPagesRedirect>> errorPagesRedirect_ {};
-        // The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when you add a global configuration. Two scenarios are supported:
+        // The content of the rule, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
         // - Match all incoming requests: Set the value to true.
-        // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+        // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
         shared_ptr<string> rule_ {};
-        // Specifies whether to enable the rule. You do not need to set this parameter when adding a global configuration. Valid values:
+        // Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name. You do not need to set this parameter when adding a global configuration.
+        // The name of the rule. This parameter is not required when you add a global configuration.
         shared_ptr<string> ruleName_ {};
-        // The execution priority of the rule. A smaller value indicates a higher priority.
+        // The execution sequence of the rule. A smaller value indicates a higher priority.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2526,9 +2667,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The feature switch. Disabled by default. Valid values:
+        // Specifies whether to enable the feature. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2622,15 +2765,17 @@ namespace Models
         shared_ptr<string> pageId_ {};
         // The response code.
         shared_ptr<string> returnCode_ {};
-        // The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when you add a global configuration. Two scenarios are supported:
+        // The content of the rule, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
         // - Match all incoming requests: Set the value to true.
-        // - Match specified requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+        // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
         shared_ptr<string> rule_ {};
-        // Specifies whether to enable the rule. You do not need to set this parameter when adding a global configuration. Valid values:
+        // Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name. You do not need to set this parameter when adding a global configuration.
+        // The name of the rule. This parameter is not required when you add a global configuration.
         shared_ptr<string> ruleName_ {};
-        // The execution priority of the rule. A smaller value indicates a higher priority.
+        // The execution sequence of the rule. A smaller value indicates a higher priority.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2683,9 +2828,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable Chinese mainland network access optimization. Disabled by default. Valid values:
+        // Specifies whether to enable network access optimization for the Chinese mainland. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2782,21 +2929,29 @@ namespace Models
 
 
       protected:
-        // The Brotli compression setting. Valid values:
+        // Specifies whether to enable Brotli compression. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> brotli_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The Gzip compression setting. Valid values:
+        // Specifies whether to enable Gzip compression. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> gzip_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // The Zstd compression setting. Valid values:
+        // Specifies whether to enable Zstd compression. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> zstd_ {};
       };
 
@@ -2849,11 +3004,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The flattening mode. Valid values:
-        // - flatten_all: flattens all records.
-        // - flatten_at_root: flattens only the root domain. The root domain is flattened by default.
+        // The flattening mode. Default value: flatten_at_root. Valid values:
+        // - flatten_all: Flatten all.
+        // - flatten_at_root: Flatten only the root domain.
         shared_ptr<string> flattenMode_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
       };
 
@@ -2913,11 +3068,13 @@ namespace Models
 
 
       protected:
-        // Specifies whether to ignore case. Valid values:
+        // Specifies whether to ignore case sensitivity. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> caseInsensitive_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
         // The custom CacheTag name.
         shared_ptr<string> tagName_ {};
@@ -3200,69 +3357,90 @@ namespace Models
 
 
       protected:
-        // The ports on which caching is enabled. Valid values: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, and 2096.
+        // The additional ports on which caching is enabled. Valid values: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, and 2096.
         shared_ptr<string> additionalCacheablePorts_ {};
         // The browser cache mode. Valid values:
+        // - no_cache: No caching.
+        // - follow_origin: Follow the origin server cache policy.
+        // - override_origin: Override the origin server cache policy.
         shared_ptr<string> browserCacheMode_ {};
         // The browser cache expiration time, in seconds.
         shared_ptr<string> browserCacheTtl_ {};
-        // The bypass cache mode. Valid values:
-        // - cache_all: all requests are cached.
-        // - bypass_all: all requests bypass the cache.
+        // Specifies the bypass cache mode. Valid values:
+        // - cache_all: All requests are cached.
+        // - bypass_all: All requests bypass the cache.
         shared_ptr<string> bypassCache_ {};
-        // Specifies whether cache deception armor is enabled. This feature protects against web cache deception attacks by caching only content that passes validation. Valid values:
+        // Specifies whether to enable cache deception armor. This feature defends against web cache deception attacks by caching only verified content. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> cacheDeceptionArmor_ {};
-        // The cache reserve eligibility. Controls whether user requests bypass cache reserve nodes during back-to-origin. Valid values:
-        // - bypass_cache_reserve: requests bypass cache reserve.
-        // - eligible_for_cache_reserve: eligible for cache reserve.
+        // The cache reserve eligibility. This parameter controls whether user requests bypass the cache reserve node when being routed to the origin server. Valid values:
+        // - bypass_cache_reserve: Requests bypass cache reserve.
+        // - eligible_for_cache_reserve: Requests are eligible for cache reserve.
         shared_ptr<string> cacheReserveEligibility_ {};
-        // The cookie names to check for presence when generating cache keys. If a cookie exists, its name (case-insensitive) is added to the cache key. Multiple cookie names are separated by spaces.
+        // The cookies to check for presence when generating a cache key. If a cookie exists, its name is added to the cache key. Cookie names are case-insensitive. You can specify multiple cookie names separated by spaces.
         shared_ptr<string> checkPresenceCookie_ {};
-        // The header names to check for presence when generating cache keys. If a header exists, its name (case-insensitive) is added to the cache key. Multiple header names are separated by spaces.
+        // The headers to check for presence when generating a cache key. If a header exists, its name is added to the cache key. Header names are case-insensitive. You can specify multiple header names separated by spaces.
         shared_ptr<string> checkPresenceHeader_ {};
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // The edge cache mode. Valid values:
-        // - follow_origin: follows the origin cache policy if one exists. Otherwise, uses the default cache policy.
-        // - no_cache: does not cache.
-        // - override_origin: overrides the origin cache policy.
-        // - follow_origin_bypass: follows the origin cache policy if one exists. Otherwise, does not cache.
+        // The edge node cache mode. Valid values:
+        // - follow_origin: Follow the origin server cache policy if it exists. Otherwise, use the default cache policy.
+        // - no_cache: No caching.
+        // - override_origin: Override the origin server cache policy.
+        // - follow_origin_bypass: Follow the origin server cache policy if it exists. Otherwise, do not cache.
         shared_ptr<string> edgeCacheMode_ {};
         // The edge node cache expiration time, in seconds.
         shared_ptr<string> edgeCacheTtl_ {};
         // The status code cache expiration time, in seconds.
         shared_ptr<string> edgeStatusCodeCacheTtl_ {};
-        // The specified cookie names and their values to include when generating cache keys. Multiple values are separated by spaces.
+        // The cookies and their values to be included when generating a cache key. You can specify multiple values separated by spaces.
         shared_ptr<string> includeCookie_ {};
-        // The specified header names and their values to include when generating cache keys. Multiple values are separated by spaces.
+        // The headers and their values to be included when generating a cache key. You can specify multiple values separated by spaces.
         shared_ptr<string> includeHeader_ {};
         // The cache key processing mode.
         shared_ptr<string> postBodyCacheKey_ {};
-        // The body size limit, in KB. Supports body sizes from 1 to 8 KB. If the value is empty, the default value of 8 KB takes effect.
+        // The request body size limit, in KB. The value must be a number. Supported body sizes range from 1 KB to 8 KB. If this parameter is left empty, the default value of 8 KB is used.
         shared_ptr<string> postBodySizeLimit_ {};
-        // Specifies whether POST caching is enabled.
+        // Specifies whether the POST cache feature is enabled.
         shared_ptr<string> postCache_ {};
-        // The query strings to retain or remove. Multiple values are separated by spaces.
+        // The query strings to be retained or excluded. You can specify multiple values separated by spaces.
         shared_ptr<string> queryString_ {};
-        // The processing mode for query strings when generating cache keys. Valid values:
+        // The query string processing mode when generating a cache key. Valid values:
+        // - ignore_all: Ignore all query strings.
+        // - exclude_query_string: Exclude specified query strings.
+        // - reserve_all: Reserve all query strings. This is the default value.
+        // - include_query_string: Include specified query strings.
         shared_ptr<string> queryStringMode_ {};
-        // The rule content.
+        // The content of the rule.
         shared_ptr<string> rule_ {};
         // Specifies whether the rule is enabled. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> ruleEnable_ {};
-        // The rule name.
+        // The name of the rule.
         shared_ptr<string> ruleName_ {};
-        // The execution order of the rule.
+        // The execution sequence of the rule.
         shared_ptr<string> sequence_ {};
-        // Specifies whether to serve stale cache. When enabled, edge nodes can respond to user requests with cached expired content when the origin server is unavailable. Valid values:
+        // Specifies whether to serve stale content. When enabled, edge nodes can respond to user requests with stale cached files if the origin server is unavailable. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> serveStale_ {};
         // Specifies whether to sort query strings for caching. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> sortQueryStringForCache_ {};
-        // Specifies whether to include the type of the client when generating cache keys. Valid values:
+        // Specifies whether to include the type of the client when generating a cache key. Valid values:
+        // - on: Enabled.
+        // - off: shutdown.
         shared_ptr<string> userDeviceType_ {};
-        // Specifies whether to include the client geographic location when generating cache keys. Valid values:
+        // Specifies whether to include the client geographic location when generating a cache key. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> userGeo_ {};
-        // Specifies whether to include the client language type when generating cache keys. Valid values:
+        // Specifies whether to include the client language type when generating a cache key. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> userLanguage_ {};
       };
 
@@ -3315,9 +3493,11 @@ namespace Models
       protected:
         // The configuration ID.
         shared_ptr<int64_t> configId_ {};
-        // Specifies whether to enable cache reserve. This feature is disabled by default. Valid values:
+        // Specifies whether to enable cache reserve. Default value: off. Valid values:
+        // - on: Enabled.
+        // - off: Disabled.
         shared_ptr<string> enable_ {};
-        // The cache reserve instance ID.
+        // The instance ID of the cache reserve.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -3585,13 +3765,13 @@ namespace Models
       shared_ptr<vector<Configs::CacheReserve>> cacheReserve_ {};
       // The cache rules.
       shared_ptr<vector<Configs::CacheRules>> cacheRules_ {};
-      // The cache tag configuration. When using the purge-by-cache-tag feature, specifies the CacheTag name carried in the origin server response.
+      // The cache tags. When you use the cache tag-based refresh feature, this parameter specifies the name of the CacheTag carried in the origin server response.
       shared_ptr<vector<Configs::CacheTags>> cacheTags_ {};
-      // The CNAME flattening configuration.
+      // The CNAME flattening feature.
       shared_ptr<vector<Configs::CnameFlattening>> cnameFlattening_ {};
       // The compression rules.
       shared_ptr<vector<Configs::CompressionRules>> compressionRules_ {};
-      // The Chinese mainland network optimization configuration.
+      // The network optimization configuration for the Chinese mainland.
       shared_ptr<vector<Configs::CrossBorderOptimization>> crossBorderOptimization_ {};
       // The custom response code configurations.
       shared_ptr<vector<Configs::CustomResponseCode>> customResponseCode_ {};
@@ -3599,17 +3779,17 @@ namespace Models
       shared_ptr<vector<Configs::DevelopmentMode>> developmentMode_ {};
       // The error code redirect rules.
       shared_ptr<vector<Configs::ErrorPagesRedirects>> errorPagesRedirects_ {};
-      // The inbound request header modification rules.
+      // The HTTP incoming request header modification rules.
       shared_ptr<vector<Configs::HttpIncomingRequestHeaderModificationRules>> httpIncomingRequestHeaderModificationRules_ {};
       // The rules for modifying inbound response headers.
       shared_ptr<vector<Configs::HttpIncomingResponseHeaderModificationRules>> httpIncomingResponseHeaderModificationRules_ {};
-      // The request header modification rules.
+      // The HTTP request header modification rules.
       shared_ptr<vector<Configs::HttpRequestHeaderModificationRules>> httpRequestHeaderModificationRules_ {};
-      // The response header modification rules.
+      // The HTTP response header modification rules.
       shared_ptr<vector<Configs::HttpResponseHeaderModificationRules>> httpResponseHeaderModificationRules_ {};
       // The HTTPS application configuration.
       shared_ptr<vector<Configs::HttpsApplicationConfiguration>> httpsApplicationConfiguration_ {};
-      // The HTTPS basic configuration.
+      // The basic HTTPS configuration.
       shared_ptr<vector<Configs::HttpsBasicConfiguration>> httpsBasicConfiguration_ {};
       // The image transformation configuration.
       shared_ptr<vector<Configs::ImageTransform>> imageTransform_ {};
@@ -3617,6 +3797,7 @@ namespace Models
       shared_ptr<vector<Configs::Ipv6>> ipv6_ {};
       // The managed transforms.
       shared_ptr<vector<Configs::ManagedTransforms>> managedTransforms_ {};
+      // The list of Markdown for Agent feature configurations.
       shared_ptr<vector<Configs::MarkdownForAgent>> markdownForAgent_ {};
       // The network optimization configuration.
       shared_ptr<vector<Configs::NetworkOptimization>> networkOptimization_ {};
@@ -3626,11 +3807,11 @@ namespace Models
       shared_ptr<vector<Configs::RedirectRules>> redirectRules_ {};
       // The URL rewrite rules.
       shared_ptr<vector<Configs::RewriteUrlRules>> rewriteUrlRules_ {};
-      // The search engine crawler bypass configuration.
+      // The search engine (index and DPI engine) crawler bypass configuration.
       shared_ptr<vector<Configs::SeoBypass>> seoBypass_ {};
-      // Site name exclusive. When enabled, other accounts cannot create sites or subsites with the same name as the current site.
+      // The site name exclusivity configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
       shared_ptr<vector<Configs::SiteNameExclusive>> siteNameExclusive_ {};
-      // Site acceleration pause. Temporarily pauses the proxy acceleration feature for the entire site. When enabled, all DNS records directly return record values to the client.
+      // The site pause configuration. It temporarily pauses the proxy acceleration feature for the entire site. After this feature is enabled, all DNS records directly return record values to clients.
       shared_ptr<vector<Configs::SitePause>> sitePause_ {};
       // The tiered cache configuration.
       shared_ptr<vector<Configs::TieredCache>> tieredCache_ {};
@@ -3685,11 +3866,11 @@ namespace Models
 
 
   protected:
-    // The response body configurations.
+    // The configurations in the response body.
     shared_ptr<ListSiteFunctionsResponseBody::Configs> configs_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

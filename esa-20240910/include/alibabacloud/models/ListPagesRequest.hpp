@@ -71,11 +71,11 @@ namespace Models
 
 
     protected:
-      // The Content-Type field in the HTTP header. Example values:
+      // Specifies the Content-Type field in the HTTP header, such as:
       // * text/html
       // * application/json
       shared_ptr<string> contentType_ {};
-      // The fuzzy match string for the name or description of a custom page.
+      // Performs a fuzzy match on the name or description of the custom page.
       shared_ptr<string> nameDescriptionLike_ {};
     };
 
@@ -107,9 +107,9 @@ namespace Models
   protected:
     // The page number. Valid values: **1 to 100000**. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20.
+    // The page size. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameters passed in JSON format, which contain various filter conditions.
+    // The query parameters passed in JSON format, which include various filter conditions.
     shared_ptr<ListPagesRequest::QueryArgs> queryArgs_ {};
   };
 

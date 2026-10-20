@@ -127,27 +127,27 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The time follows the ISO 8601 standard and includes a time zone offset. Example: 2024-06-15T17:41:27+08:00.
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The environment list of the site version. The version may have no environment or one or more environments configured, such as the default environment or environment 2.
+      // The list of environments for the site version. No environment is configured, or one or more environments are configured, such as the default environment and Environment 2.
       shared_ptr<vector<string>> environmentNameList_ {};
       // The parent version of the site version.
       shared_ptr<int32_t> parentSiteVersion_ {};
-      // Indicates whether the version is read-only. Default value: false.
+      // Specifies whether the version is read-only. Default value: false.
       shared_ptr<bool> readOnly_ {};
       // The site version.
       shared_ptr<int32_t> siteVersion_ {};
       // The status. Valid values:
       // 
-      // - **online**: active.
+      // - **online**: Available.
       // 
-      // - **configuring**: being configured.
+      // - **configuring**: Configuring.
       // 
-      // - **configure_faild**: configuration failed.
+      // - **configure_faild**: Configuration failed.
       shared_ptr<string> status_ {};
-      // The update time.
+      // The update time. The time follows the ISO 8601 standard and includes a time zone offset. Example: 2024-06-15T17:41:27+08:00.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -172,7 +172,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The version list of the site.
+    // The list of versions for the site.
     shared_ptr<vector<ListVersionsResponseBody::SiteVersionList>> siteVersionList_ {};
   };
 

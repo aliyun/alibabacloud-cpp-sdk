@@ -168,13 +168,13 @@ namespace Models
 
 
       protected:
-        // DCV ID。
+        // The DCV ID.
         shared_ptr<string> id_ {};
         // The DCV name. For the DNS type, this is the TXT record name. For the HTTP type, this is the URL.
         shared_ptr<string> key_ {};
         // The validation status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: DNS, HTTP.
+        // The DCV type. Valid values: DNS and HTTP.
         shared_ptr<string> type_ {};
         // The DCV content.
         shared_ptr<string> value_ {};
@@ -351,9 +351,9 @@ namespace Models
       shared_ptr<string> casId_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+      // The creation time. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
-      // The Domain Control Validation (DCV) information.
+      // The domain control validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
       // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
@@ -363,19 +363,19 @@ namespace Models
       shared_ptr<string> issuer_ {};
       // The common name of the certificate issuer.
       shared_ptr<string> issuerCN_ {};
-      // The Keyless server ID. This parameter is valid only when Type is set to keyless.
+      // The Keyless server ID. This parameter is valid only when the Type parameter is set to keyless.
       shared_ptr<string> keyServerId_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+      // The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+      // The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
       // The public key algorithm of the certificate.
       shared_ptr<string> pubAlg_ {};
       // The region information.
       shared_ptr<string> region_ {};
-      // The Subject Alternative Name (SAN) of the certificate.
+      // The subject alternative name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
       // The certificate serial number.
       shared_ptr<string> serialNumber_ {};
@@ -385,18 +385,18 @@ namespace Models
       // - OK: Normal.
       // - Expired: The certificate has expired.
       // - Expiring: The certificate is about to expire (within 30 days).
-      // - Issued: Free certificate - Issued.
-      // - Applying: Free certificate - Applying.
-      // - ApplyFailed: Free certificate - Application failed.
-      // - Canceled: Free certificate - Canceled.
+      // - Issued: The free certificate is issued.
+      // - Applying: The free certificate is being applied for.
+      // - ApplyFailed: The application for the free certificate failed.
+      // - Canceled: The free certificate is canceled.
       shared_ptr<string> status_ {};
       // The certificate type. Valid values:
-      // - cas: Alibaba Cloud SSL certificate.
+      // - cas: SSL Certificates Service certificate.
       // - upload: Custom uploaded certificate.
       // - free: Free certificate.
       // - keyless: Keyless certificate.
       shared_ptr<string> type_ {};
-      // The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+      // The update time. The time is in the YYYY-MM-DD HH:MM:SS format and in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -455,9 +455,9 @@ namespace Models
 
 
   protected:
-    // The page number of the data to return.
+    // The page number of the returned data.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -467,7 +467,7 @@ namespace Models
     shared_ptr<int64_t> siteId_ {};
     // The site name.
     shared_ptr<string> siteName_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -49,12 +49,12 @@ namespace Models
 
   protected:
     // The flattening mode. Valid values:
-    // - flatten_all: flattens all records.
-    // - flatten_at_root: flattens only the root domain. This is the default value.
+    // - flatten_all: Flattens all records.
+    // - flatten_at_root: Flattens only the root domain. This is the default value.
     // 
     // This parameter is required.
     shared_ptr<string> flattenMode_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

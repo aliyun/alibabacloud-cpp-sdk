@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The certificate domain name.
+      // The domain name of the certificate.
       shared_ptr<string> domain_ {};
       // The certificate ID.
       shared_ptr<string> id_ {};
@@ -126,11 +126,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of free certificate application details.
+    // The list of details for the free certificate applications.
     shared_ptr<vector<ApplyCertificateResponseBody::Result>> result_ {};
     // The site name.
     shared_ptr<string> siteName_ {};
-    // The number of certificates applied for, which is the same as the number of input domain names.
+    // The number of certificates applied for, which is the same as the number of specified domain names.
     shared_ptr<int64_t> totalCount_ {};
   };
 

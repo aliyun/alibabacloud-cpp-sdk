@@ -49,15 +49,15 @@ namespace Models
 
   protected:
     // The target acceleration region. Valid values:
-    // - **domestic**: the Chinese mainland only.
+    // - **domestic**: the Chinese mainland.
     // - **global**: global.
     // - **overseas**: global (excluding the Chinese mainland).
     // 
-    // <props="china">If the value is domestic or global, the site corresponding to SiteId must have a valid Chinese Internet Content Provider (ICP) filing.
+    // <props="china">If you set this parameter to domestic or global, the site specified by SiteId must have an ICP filing.
     // 
     // This parameter is required.
     shared_ptr<string> coverage_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

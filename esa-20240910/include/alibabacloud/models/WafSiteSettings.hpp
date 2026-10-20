@@ -82,6 +82,7 @@ namespace Models
 
 
     protected:
+      // The security level rule ID.
       shared_ptr<int64_t> id_ {};
       // The security level value.
       shared_ptr<string> value_ {};
@@ -134,21 +135,17 @@ namespace Models
 
 
     protected:
-      // The action to take when the request body size exceeds `SizeLimit`.
-      // 
-      // Common values (the complete enumeration is subject to the server-side configuration):
-      // - `allow`: Allow directly without performing deep packet inspection on the excess portion.
-      // 
-      // > The complete enum is subject to the WAF server-side configuration.
+      // The action to take when the request body size exceeds the SizeLimit.
+      // Common valid values (the complete enumeration is subject to the server configuration):
+      // - allow: Allows the request directly without performing deep packet inspection on the exceeded part.
+      // > The complete enumeration is subject to the WAF server configuration.
       shared_ptr<string> action_ {};
-      // The request body inspection rule ID (unique identifier of the built-in rule). When request body inspection is enabled, the server uses this ID to associate the matching logic of the built-in inspection rule. The ID value is subject to the WAF built-in rule list.
+      // The ID of the request body inspection rule, which is the unique identifier of the built-in rule. When request body inspection is enabled, the server uses this ID to associate the matching logic of the built-in inspection rule. The valid values of the ID are subject to the WAF built-in rule list.
       shared_ptr<int64_t> id_ {};
-      // The maximum size of the request body to inspect, in bytes.
-      // 
-      // - When the request body is less than or equal to this value, the entire content is subject to WAF matching.
-      // - When the request body exceeds this value, the action specified in the `Action` field is taken (for example, inspect only the first N bytes, reject, or allow directly).
-      // 
-      // > The specific value range and default value are subject to the WAF server-side configuration.
+      // The maximum size of the request body to be inspected, in bytes.
+      // - If the request body is less than or equal to this value, the complete content is used for WAF matching.
+      // - If the request body exceeds this value, the action specified by the Action field is performed, such as inspecting only the first N bytes, blocking, or allowing.
+      // > The specific valid values and default value are subject to the WAF server configuration.
       shared_ptr<string> sizeLimit_ {};
     };
 
@@ -180,7 +177,7 @@ namespace Models
 
 
     protected:
-      // The status switch for disabling the security module.
+      // The enable status for disabling the security module.
       shared_ptr<string> status_ {};
     };
 
@@ -373,7 +370,7 @@ namespace Models
 
 
       protected:
-        // The switch.
+        // The enable status.
         shared_ptr<bool> enable_ {};
       };
 
@@ -405,7 +402,7 @@ namespace Models
 
 
       protected:
-        // The switch.
+        // The enable status.
         shared_ptr<bool> enable_ {};
       };
 
@@ -560,11 +557,11 @@ namespace Models
 
 
     protected:
-      // The action of the bandwidth abuse protection rule.
+      // The action performed by the bandwidth abuse protection rule.
       shared_ptr<string> action_ {};
       // The ID of the bandwidth abuse protection rule.
       shared_ptr<int64_t> id_ {};
-      // The switch status of the bandwidth abuse protection rule.
+      // The enable status of the bandwidth abuse protection rule.
       shared_ptr<string> status_ {};
     };
 
@@ -596,7 +593,7 @@ namespace Models
 
 
     protected:
-      // The switch.
+      // The enable status.
       shared_ptr<bool> enable_ {};
     };
 
@@ -628,7 +625,7 @@ namespace Models
 
 
     protected:
-      // The switch.
+      // The enable status.
       shared_ptr<bool> enable_ {};
     };
 
@@ -708,9 +705,9 @@ namespace Models
 
 
   protected:
-    // The bot protection headers.
+    // The configuration for adding bot protection headers.
     shared_ptr<WafSiteSettings::AddBotProtectionHeaders> addBotProtectionHeaders_ {};
-    // The security headers.
+    // The configuration for adding security headers.
     shared_ptr<WafSiteSettings::AddSecurityHeaders> addSecurityHeaders_ {};
     // The bandwidth abuse protection.
     shared_ptr<WafSiteSettings::BandwidthAbuseProtection> bandwidthAbuseProtection_ {};
@@ -718,14 +715,12 @@ namespace Models
     shared_ptr<WafSiteSettings::BotManagement> botManagement_ {};
     // The client IP identification.
     shared_ptr<WafSiteSettings::ClientIpIdentifier> clientIpIdentifier_ {};
-    // The disable security module configuration.
+    // The configuration for disabling the security module.
     shared_ptr<WafSiteSettings::DisableSecurityModule> disableSecurityModule_ {};
-    // The request body inspection configuration. Controls the deep packet inspection behavior of WAF for HTTP request bodies. After this feature is enabled, content-based matching rules such as SQL injection and XSS detection take effect on request bodies.
-    // 
-    // This configuration can contain the following fields:
-    // - `Id`: The unique identifier of the built-in inspection rule.
-    // - `SizeLimit`: The maximum size of the request body to inspect.
-    // - `Action`: The action to take when the request body exceeds the size limit.
+    // The request body inspection configuration. This configuration controls the deep packet inspection behavior of WAF for HTTP request bodies. For example, matching based on request body content, such as SQL injection and XSS, takes effect only after this feature is enabled. This configuration can include the following fields:
+    // - Id: The unique identifier of the built-in inspection rule.
+    // - SizeLimit: The maximum size of the request body to be inspected.
+    // - Action: The action to take when the size limit is exceeded.
     shared_ptr<WafSiteSettings::RequestBodyInspection> requestBodyInspection_ {};
     // The security level.
     shared_ptr<WafSiteSettings::SecurityLevel> securityLevel_ {};

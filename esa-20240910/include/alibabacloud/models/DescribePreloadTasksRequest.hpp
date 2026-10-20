@@ -94,24 +94,25 @@ namespace Models
 
 
   protected:
-    // The query content. Exact match is used.
+    // The query content for exact matching.
     shared_ptr<string> content_ {};
-    // The end time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The page number. Valid values: **1** to **100000**. Default value: **1**.
+    // The page number. Valid values: **1** to **100000**.
+    // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
+    // The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: any integer from **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
-    // The start time. The date is in ISO 8601 format and uses UTC+0 time in the yyyy-MM-ddTHH:mm:ssZ format.
+    // The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
     // The task execution status. Valid values:
     // 
-    // - **Complte**: Complete.
-    // - **Refreshing**: Prefetching.
-    // - **Failed**: Prefetch failed.
+    // - **Complte**: Completed.
+    // - **Refreshing**: Refreshing.
+    // - **Failed**: Failed.
     shared_ptr<string> status_ {};
   };
 

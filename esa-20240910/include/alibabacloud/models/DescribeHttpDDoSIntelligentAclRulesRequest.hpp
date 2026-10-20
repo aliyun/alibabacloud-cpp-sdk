@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The rule type.
     shared_ptr<string> ruleType_ {};
-    // The site ID. To obtain the site ID, call the [ListSites](~~ListSites~~) operation.
+    // The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

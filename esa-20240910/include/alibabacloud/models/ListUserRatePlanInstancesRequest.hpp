@@ -149,52 +149,52 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter plan instances that have remaining site quota. Valid values:
+    // Specifies whether to filter plan instances that have remaining site quotas. Valid values:
     // 
-    // - **true**: Filters plan instances that have remaining site quota.
+    // - **true**: Filters plan instances that have remaining site quotas.
     // - **false**: Queries all plan instances under the user.
     shared_ptr<string> checkRemainingSiteQuota_ {};
-    // The plan instance ID. You can obtain this value by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // Instance ID of the plan instance. You can obtain instance ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> isShared_ {};
-    // The page number settings for paging. Default value: **1**. Valid values: **1 to 100000**.
+    // The page number Settings for a paging query. Default value: **1**. Valid values: **1** to **100000**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Valid values: 1 to 500.
+    // The number of entries per page for a paging query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The plan name (English).
+    // The name of the plan in English.
     shared_ptr<string> planNameEn_ {};
-    // The plan type. Valid values:
+    // The type of the plan. Valid values:
     // 
-    // - normal: fixed edition plan
-    // - enterprise: enterprise edition plan
+    // - normal: Fixed plan.
+    // - enterprise: Enterprise plan.
     shared_ptr<string> planType_ {};
-    // Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
+    // Queries plan instances whose remaining validity period is less than or equal to the specified number of days. The value must be a positive integer. Unit: days.
     shared_ptr<int32_t> remainingExpireDays_ {};
     shared_ptr<int64_t> resourceOwner_ {};
-    // The sort field. By default, results are sorted by purchase time. Valid values:
+    // The field by which to sort the results. By default, the results are sorted by creation time. Valid values:
     // 
-    // - **CreateTime**: Purchase time.
-    // - **ExpireTime**: Expiration time.
+    // - **CreateTime**: Sorts by creation time.
+    // - **ExpireTime**: Sorts by expiration time.
     shared_ptr<string> sortBy_ {};
-    // The sort order. Default value: desc. Valid values:
+    // The sort order. By default, the results are sorted in descending order. Valid values:
     // 
     // - **asc**: Ascending order.
     // - **desc**: Descending order.
     shared_ptr<string> sortOrder_ {};
     // The instance status. Valid values:
-    // - **online**: Normal service status.
-    // - **offline**: Expired but not overdue, in an inactive state.
-    // - **disable**: Released.
-    // - **overdue**: Overdue payment.
+    // - **online**: The instance is in normal service status.
+    // - **offline**: The instance has expired but is not overdue, and is in an inactive state.
+    // - **disable**: The instance is released.
+    // - **overdue**: The instance has an overdue payment.
     shared_ptr<string> status_ {};
-    // The plan subscription type. Valid values:
+    // The subscription type of the plan. Valid values:
     // 
-    // - Free Edition (Chinese mainland): entranceplan
-    // - Free Edition (International): entranceplan_intl
-    // - Basic Edition: basicplan
-    // - Standard Edition: standardplan
-    // - Premium Edition: advancedplan
-    // - Enterprise Edition: enterpriseplan
+    // - entranceplan: Free Edition (Chinese mainland)
+    // - entranceplan_intl: Free Edition (International)
+    // - basicplan: Basic Edition
+    // - standardplan: Standard Edition
+    // - advancedplan: Advanced Edition
+    // - enterpriseplan: Enterprise Edition
     shared_ptr<string> subscribeType_ {};
   };
 

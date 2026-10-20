@@ -86,14 +86,15 @@ namespace Models
   protected:
     // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The page number of the data to return.
+    // The page number of the returned data.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The certificate type.
     shared_ptr<string> type_ {};
     // Specifies whether to return only valid certificates.
     shared_ptr<bool> validOnly_ {};

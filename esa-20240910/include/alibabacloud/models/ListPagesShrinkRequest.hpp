@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The page number. Valid values: **1 to 100000**. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20.
+    // The page size. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The query parameters passed in JSON format, which contain various filter conditions.
+    // The query parameters passed in JSON format, which include various filter conditions.
     shared_ptr<string> queryArgsShrink_ {};
   };
 

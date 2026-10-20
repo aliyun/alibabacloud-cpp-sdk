@@ -84,30 +84,30 @@ namespace Models
 
 
   protected:
-    // The page number for a paged query. The value must be greater than or equal to 1.
+    // The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of entries per page for a paged query. Valid values: 1 to 500.
+    // The number of entries per page for paging in a paged query. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The ER name.
+    // The name of the Edge Routine (ER).
     shared_ptr<string> routineName_ {};
-    // The field used for sorting. By default, results are sorted by purchase time. Valid values:
+    // The field used for sorting. By default, tasks are sorted by creation time. Valid values:
     // 
-    // - CreateTime: purchase time.
-    // - ExpireTime: expiration time.
+    // - CreateTime: Creation time.
+    // - ExpireTime: Expiration time.
     shared_ptr<string> sortBy_ {};
     // The sort order. Default value: desc. Valid values:
     // 
-    // - asc: ascending order.
-    // - desc: descending order.
+    // - asc: Ascending order.
+    // - desc: Descending order.
     shared_ptr<string> sortOrder_ {};
     // The status of the build task. Valid values:
     // 
-    // - int: initialization
-    // - pending: preparing
-    // - building: building
-    // - succeed: build succeeded
-    // - failed: build failed
-    // - canceled: canceled
+    // - int: Initialized.
+    // - pending: Preparing.
+    // - building: Building.
+    // - succeed: Succeeded.
+    // - failed: Failed.
+    // - canceled: Canceled.
     shared_ptr<string> status_ {};
   };
 

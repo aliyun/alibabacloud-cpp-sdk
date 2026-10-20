@@ -141,7 +141,7 @@ namespace Models
         // - pending: The site is pending configuration.
         // - active: The site is activated.
         // - offline: The site is offline.
-        // - moved: The site has been superseded.
+        // - moved: The site has been replaced.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -250,33 +250,33 @@ namespace Models
 
 
     protected:
-      // The billing method. Valid values:
-      // - dps_month95: Monthly 95th Percentile.
+      // The Billable methods. Valid values:
+      // - dps_month95: monthly 95th percentile billing.
       shared_ptr<string> billingMethod_ {};
       // The billing mode. Valid values:
       // 
-      //  * POSTPAY: Pay-as-you-go.
+      //  * POSTPAY: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
-      // The acceleration regions to which the instance can bindable sites. Multiple values are separated by commas (,). Valid values:
+      // The acceleration regions for sites that can be bound to the instance. Multiple values are separated by commas (,). Valid values:
       // 
-      // - domestic: The Chinese mainland.
-      // - overseas: Global (excluding the Chinese mainland).
-      // - global: Global (including the Chinese mainland).
+      // - domestic: the Chinese mainland.
+      // - overseas: global (excluding the Chinese mainland).
+      // - global: global (including the Chinese mainland).
       shared_ptr<string> coverages_ {};
-      // The time when the instance was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the instance was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The scheduled specification change time. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The scheduled time for upgrade or downgrade. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> expectedUpdateTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> ownerId_ {};
       // The English name of the plan.
       shared_ptr<string> planName_ {};
-      // The Chinese name of the plan.
+      // The plan name in Chinese.
       shared_ptr<string> planNameCn_ {};
-      // The plan type of the instance. Valid values:
-      // - normal: Fixed edition plan.
-      // - enterprise: Enterprise edition plan.
+      // The plan type corresponding to the plan instance. Valid values:
+      // - normal: fixed plan.
+      // - enterprise: enterprise plan.
       shared_ptr<string> planType_ {};
       shared_ptr<string> shareType_ {};
       // The site quota.

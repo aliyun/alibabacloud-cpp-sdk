@@ -98,23 +98,23 @@ namespace Models
 
 
     protected:
-      // The response header name.
+      // The name of the response header.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
       // The operation type. Valid values:
       // 
-      // - add: adds a response header.
-      // - del: deletes a response header.
-      // - modify: modifies a response header.
+      // - add: Add.
+      // - del: Delete.
+      // - modify: Modify.
       // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
       // The value type. Valid values:
-      // - static: static pattern.
-      // - dynamic: dynamic schema.
+      // - static: Static pattern.
+      // - dynamic: Dynamic pattern.
       shared_ptr<string> type_ {};
-      // The response header value.
+      // The value of the response header.
       shared_ptr<string> value_ {};
     };
 
@@ -173,27 +173,27 @@ namespace Models
 
 
   protected:
-    // The response header modifications. Three operation types are supported: add, delete, and modify.
+    // The response header modifications. Add, delete, and modify operations are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateHttpResponseHeaderModificationRuleRequest::ResponseHeaderModification>> responseHeaderModification_ {};
-    // The rule content, which uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+    // The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
     // - Match all incoming requests: Set the value to true.
-    // - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+    // - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
     shared_ptr<string> rule_ {};
-    // The rule switch. This parameter is not required when you add a global configuration. Valid values:
-    // - on: enabled.
-    // - off: disabled.
+    // Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
     // The rule name. This parameter is not required when you add a global configuration.
     shared_ptr<string> ruleName_ {};
-    // The rule execution order. A smaller value indicates a higher priority.
+    // The execution sequence of the rule. A smaller value indicates a higher priority.
     shared_ptr<int32_t> sequence_ {};
     // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+    // The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The method for uploading prefetch files. Text box and OSS upload methods are supported.
+    // The upload method for the prefetch file. Text box and OSS uploads are supported.
     // 
     // This parameter is required.
     shared_ptr<string> insertWay_ {};
@@ -83,14 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The OSS file address for the scheduled prefetch. Enter the address of the OSS file.
-    // Note: The OSS file contains the URLs that you want to prefetch.
+    // The OSS file for the scheduled prefetch task. Enter the URL of the OSS file. Note: The OSS file must contain the URLs that you want to prefetch.
     shared_ptr<string> ossUrl_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The list of URLs to prefetch. This parameter is used when you upload prefetch files through the text box method.
+    // The list of URLs to be prefetched. This parameter is used when you upload the prefetch file by using a text box.
     shared_ptr<string> urlList_ {};
   };
 

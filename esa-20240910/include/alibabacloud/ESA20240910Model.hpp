@@ -227,6 +227,10 @@
 #include <alibabacloud/models/CreateSiteDeliveryTaskShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSiteDeliveryTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateSiteDeliveryTaskResponse.hpp>
+#include <alibabacloud/models/CreateSliderCaptchaPageRequest.hpp>
+#include <alibabacloud/models/CreateSliderCaptchaPageShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSliderCaptchaPageResponseBody.hpp>
+#include <alibabacloud/models/CreateSliderCaptchaPageResponse.hpp>
 #include <alibabacloud/models/CreateSlrRoleForRealtimeLogResponseBody.hpp>
 #include <alibabacloud/models/CreateSlrRoleForRealtimeLogResponse.hpp>
 #include <alibabacloud/models/CreateTransportLayerApplicationRequest.hpp>
@@ -409,6 +413,9 @@
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateRequest.hpp>
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/DeleteSiteOriginClientCertificateResponse.hpp>
+#include <alibabacloud/models/DeleteSliderCaptchaPageRequest.hpp>
+#include <alibabacloud/models/DeleteSliderCaptchaPageResponseBody.hpp>
+#include <alibabacloud/models/DeleteSliderCaptchaPageResponse.hpp>
 #include <alibabacloud/models/DeleteTransportLayerApplicationRequest.hpp>
 #include <alibabacloud/models/DeleteTransportLayerApplicationResponseBody.hpp>
 #include <alibabacloud/models/DeleteTransportLayerApplicationResponse.hpp>
@@ -832,6 +839,9 @@
 #include <alibabacloud/models/GetSiteWafSettingsRequest.hpp>
 #include <alibabacloud/models/GetSiteWafSettingsResponseBody.hpp>
 #include <alibabacloud/models/GetSiteWafSettingsResponse.hpp>
+#include <alibabacloud/models/GetSliderCaptchaPageRequest.hpp>
+#include <alibabacloud/models/GetSliderCaptchaPageResponseBody.hpp>
+#include <alibabacloud/models/GetSliderCaptchaPageResponse.hpp>
 #include <alibabacloud/models/GetTieredCacheRequest.hpp>
 #include <alibabacloud/models/GetTieredCacheResponseBody.hpp>
 #include <alibabacloud/models/GetTieredCacheResponse.hpp>
@@ -1075,6 +1085,10 @@
 #include <alibabacloud/models/ListSitesShrinkRequest.hpp>
 #include <alibabacloud/models/ListSitesResponseBody.hpp>
 #include <alibabacloud/models/ListSitesResponse.hpp>
+#include <alibabacloud/models/ListSliderCaptchaPagesRequest.hpp>
+#include <alibabacloud/models/ListSliderCaptchaPagesShrinkRequest.hpp>
+#include <alibabacloud/models/ListSliderCaptchaPagesResponseBody.hpp>
+#include <alibabacloud/models/ListSliderCaptchaPagesResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -1450,6 +1464,10 @@
 #include <alibabacloud/models/UpdateSiteVanityNSRequest.hpp>
 #include <alibabacloud/models/UpdateSiteVanityNSResponseBody.hpp>
 #include <alibabacloud/models/UpdateSiteVanityNSResponse.hpp>
+#include <alibabacloud/models/UpdateSliderCaptchaPageRequest.hpp>
+#include <alibabacloud/models/UpdateSliderCaptchaPageShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateSliderCaptchaPageResponseBody.hpp>
+#include <alibabacloud/models/UpdateSliderCaptchaPageResponse.hpp>
 #include <alibabacloud/models/UpdateTieredCacheRequest.hpp>
 #include <alibabacloud/models/UpdateTieredCacheResponseBody.hpp>
 #include <alibabacloud/models/UpdateTieredCacheResponse.hpp>
