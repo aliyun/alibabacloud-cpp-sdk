@@ -103,29 +103,42 @@ namespace Models
 
 
   protected:
-    // The unique ID of the AccessKey pair.
+    // The unique ID of the AK.
     shared_ptr<string> authIds_ {};
-    // The page number. Default value: 1.
+    // The page number of the current page during paging. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language of the request and response. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries to return on each page during paging. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The status of the AccessKey pair. Valid values:
+    // The status of the AK. Valid values:
     // 
-    // *   **0**: enabled
-    // *   **1**: disabled
+    // - **0**: Enabled.
+    // - **1**: Disabled.
     shared_ptr<int32_t> status_ {};
-    // The username of the sub-account of the cloud service provider to which the AccessKey pair belongs.
+    // The username of the sub-account of the cloud service provider to which the AK belongs.
     shared_ptr<string> subAccountName_ {};
-    // Cloud asset vendor. Values:
-    //  - **Tencent**: Tencent Cloud 
-    // - **AWS**: Amazon Web Services
+    // The cloud service provider. Valid values:
+    // - **Tencent**: Tencent Cloud.
+    // - **HUAWEICLOUD**: Huawei Cloud.
+    // - **Azure**: Azure.
+    // - **AWS**: AWS.
+    // - **VOLCENGINE**: Volcengine.
+    // - **google**: Google Cloud.
+    // - **CHAITIN**: Chaitin Tech.
+    // - **FORTINET**: Fortinet.
+    // - **THREATBOOK**: ThreatBook.
+    // - **KingsoftCloud**: Kingsoft Cloud.
+    // - **UCloud**: UCloud.
+    // - **BaiduCloud**: Baidu AI Cloud.
+    // - **WIZ**: Wiz.
+    // - **OracleCloud**: Oracle Cloud.
+    // - **StateCloud**: CTYun.
     shared_ptr<string> vendor_ {};
-    // The name of the AccessKey pair.
+    // The name of the AK account.
     shared_ptr<string> vendorAuthAlias_ {};
   };
 

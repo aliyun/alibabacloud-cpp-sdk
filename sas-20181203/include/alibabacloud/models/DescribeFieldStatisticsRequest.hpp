@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The type of asset to query. If you do not specify an asset type, the statistics information of all asset types is queried. Valid values:
+    // The type of asset to query. If you do not specify an asset type, the statistics information of all types of assets is queried. Valid values:
     // 
     // - **ecs**: server
-    // - **cloud_product**: cloud product.
+    // - **cloud_product**: cloud service
     shared_ptr<string> machineTypes_ {};
     // The ID of the region where the server resides.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud account of the member accounts in the resource directory.
-    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the main account of the member accounts in the resource folder.
+    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the value of this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

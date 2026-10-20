@@ -440,7 +440,7 @@ AddClientUserDefineRuleResponse Client::addClientUserDefineRule(const AddClientU
 }
 
 /**
- * @summary Adds multi-cloud asset configuration information.
+ * @summary Creates multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -519,7 +519,7 @@ AddCloudVendorAccountAKResponse Client::addCloudVendorAccountAKWithOptions(const
 }
 
 /**
- * @summary Adds multi-cloud asset configuration information.
+ * @summary Creates multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @return AddCloudVendorAccountAKResponse
@@ -12022,7 +12022,7 @@ DescribeCloudProductFieldStatisticsResponse Client::describeCloudProductFieldSta
 }
 
 /**
- * @summary Queries the multi-cloud assets added to Security Center.
+ * @summary Queries the list of multi-cloud asset configurations.
  *
  * @param request DescribeCloudVendorAccountAKListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12081,7 +12081,7 @@ DescribeCloudVendorAccountAKListResponse Client::describeCloudVendorAccountAKLis
 }
 
 /**
- * @summary Queries the multi-cloud assets added to Security Center.
+ * @summary Queries the list of multi-cloud asset configurations.
  *
  * @param request DescribeCloudVendorAccountAKListRequest
  * @return DescribeCloudVendorAccountAKListResponse
@@ -15226,7 +15226,7 @@ DescribeExposedStatisticsDetailResponse Client::describeExposedStatisticsDetail(
 }
 
 /**
- * @summary Queries the statistics information of servers in your assets.
+ * @summary Queries the statistics information of servers in assets.
  *
  * @param request DescribeFieldStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15265,7 +15265,7 @@ DescribeFieldStatisticsResponse Client::describeFieldStatisticsWithOptions(const
 }
 
 /**
- * @summary Queries the statistics information of servers in your assets.
+ * @summary Queries the statistics information of servers in assets.
  *
  * @param request DescribeFieldStatisticsRequest
  * @return DescribeFieldStatisticsResponse
@@ -15864,7 +15864,7 @@ DescribeGroupedVulResponse Client::describeGroupedVul(const DescribeGroupedVulRe
 }
 
 /**
- * @summary Queries information about a baseline risk export, such as the file name and download link.
+ * @summary Queries the file name, download URL, and other information about a baseline export.
  *
  * @param request DescribeHcExportInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15895,7 +15895,7 @@ DescribeHcExportInfoResponse Client::describeHcExportInfoWithOptions(const Descr
 }
 
 /**
- * @summary Queries information about a baseline risk export, such as the file name and download link.
+ * @summary Queries the file name, download URL, and other information about a baseline export.
  *
  * @param request DescribeHcExportInfoRequest
  * @return DescribeHcExportInfoResponse
@@ -17462,7 +17462,7 @@ DescribeImageListByBuildRiskResponse Client::describeImageListByBuildRisk(const 
 }
 
 /**
- * @summary Queries information about images affected by sensitive files.
+ * @summary Queries the information about images affected by sensitive files.
  *
  * @param tmpReq DescribeImageListBySensitiveFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17539,7 +17539,7 @@ DescribeImageListBySensitiveFileResponse Client::describeImageListBySensitiveFil
 }
 
 /**
- * @summary Queries information about images affected by sensitive files.
+ * @summary Queries the information about images affected by sensitive files.
  *
  * @param request DescribeImageListBySensitiveFileRequest
  * @return DescribeImageListBySensitiveFileResponse
@@ -17972,7 +17972,7 @@ DescribeImageSecurityScanCountResponse Client::describeImageSecurityScanCount(co
 }
 
 /**
- * @summary Queries the sensitive files of an image.
+ * @summary Queries sensitive files in an image.
  *
  * @param tmpReq DescribeImageSensitiveFileByKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18029,7 +18029,7 @@ DescribeImageSensitiveFileByKeyResponse Client::describeImageSensitiveFileByKeyW
 }
 
 /**
- * @summary Queries the sensitive files of an image.
+ * @summary Queries sensitive files in an image.
  *
  * @param request DescribeImageSensitiveFileByKeyRequest
  * @return DescribeImageSensitiveFileByKeyResponse
@@ -23544,7 +23544,7 @@ DescribeSyncAssetTaskListResponse Client::describeSyncAssetTaskList(const Descri
 }
 
 /**
- * @summary Queries the details of IDC scan tasks for asset synchronization.
+ * @summary Queries the details of an IDC scan task for an asset synchronization task.
  *
  * @param request DescribeSyncAssetTaskLogDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23595,7 +23595,7 @@ DescribeSyncAssetTaskLogDetailResponse Client::describeSyncAssetTaskLogDetailWit
 }
 
 /**
- * @summary Queries the details of IDC scan tasks for asset synchronization.
+ * @summary Queries the details of an IDC scan task for an asset synchronization task.
  *
  * @param request DescribeSyncAssetTaskLogDetailRequest
  * @return DescribeSyncAssetTaskLogDetailResponse
@@ -30042,7 +30042,7 @@ GetConsoleFuncGrayStatusResponse Client::getConsoleFuncGrayStatus(const GetConso
 }
 
 /**
- * @summary Retrieves the details of a non-image process defense rule.
+ * @summary Retrieves the details of a non-image program defense rule.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30077,7 +30077,7 @@ GetContainerDefenseRuleDetailResponse Client::getContainerDefenseRuleDetailWithO
 }
 
 /**
- * @summary Retrieves the details of a non-image process defense rule.
+ * @summary Retrieves the details of a non-image program defense rule.
  *
  * @param request GetContainerDefenseRuleDetailRequest
  * @return GetContainerDefenseRuleDetailResponse
@@ -32279,7 +32279,7 @@ GetOpaPluginStatusResponse Client::getOpaPluginStatus(const GetOpaPluginStatusRe
 }
 
 /**
- * @summary Retrieves the details of the rule that is used to block at-risk images.
+ * @summary Queries the details of a risky image blocking policy.
  *
  * @param request GetOpaStrategyDetailNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32310,7 +32310,7 @@ GetOpaStrategyDetailNewResponse Client::getOpaStrategyDetailNewWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of the rule that is used to block at-risk images.
+ * @summary Queries the details of a risky image blocking policy.
  *
  * @param request GetOpaStrategyDetailNewRequest
  * @return GetOpaStrategyDetailNewResponse
@@ -32665,7 +32665,7 @@ GetSasContainerWebDefenseRuleResponse Client::getSasContainerWebDefenseRule(cons
 }
 
 /**
- * @summary Retrieves the application list for container file defense configurations.
+ * @summary Retrieves the list of applications for container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32696,7 +32696,7 @@ GetSasContainerWebDefenseRuleApplicationResponse Client::getSasContainerWebDefen
 }
 
 /**
- * @summary Retrieves the application list for container file defense configurations.
+ * @summary Retrieves the list of applications for container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @return GetSasContainerWebDefenseRuleApplicationResponse
@@ -39125,9 +39125,9 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 }
 
 /**
- * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
+ * @summary Queries the list of multi-account authorization assignments under multi-account authorization management.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+ * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39162,9 +39162,9 @@ ListMultiUserInstancesResponse Client::listMultiUserInstancesWithOptions(const L
 }
 
 /**
- * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
+ * @summary Queries the list of multi-account authorization assignments under multi-account authorization management.
  *
- * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+ * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @return ListMultiUserInstancesResponse
@@ -40783,7 +40783,7 @@ ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachine(co
 }
 
 /**
- * @summary Queries the process list of intelligent behavior analytics.
+ * @summary Queries the process list for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40858,7 +40858,7 @@ ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcessWit
 }
 
 /**
- * @summary Queries the process list of intelligent behavior analytics.
+ * @summary Queries the process list for intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectProcessRequest
  * @return ListUnknownThreatDetectProcessResponse
@@ -40969,7 +40969,7 @@ ListUserVpcResponse Client::listUserVpc(const ListUserVpcRequest &request) {
 }
 
 /**
- * @summary Queries the list of Serverless instance UUIDs by application ID.
+ * @summary Queries the UUIDs of Serverless instances by application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41020,7 +41020,7 @@ ListUuidsByAppIdResponse Client::listUuidsByAppIdWithOptions(const ListUuidsByAp
 }
 
 /**
- * @summary Queries the list of Serverless instance UUIDs by application ID.
+ * @summary Queries the UUIDs of Serverless instances by application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @return ListUuidsByAppIdResponse
@@ -42401,7 +42401,7 @@ ModifyClientUserDefineRuleResponse Client::modifyClientUserDefineRule(const Modi
 }
 
 /**
- * @summary Modifies the authorization and authentication configuration of multi-cloud assets.
+ * @summary Modifies the authorization and authentication configuration information of multi-cloud assets.
  *
  * @param request ModifyCloudVendorAccountAKRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -42480,7 +42480,7 @@ ModifyCloudVendorAccountAKResponse Client::modifyCloudVendorAccountAKWithOptions
 }
 
 /**
- * @summary Modifies the authorization and authentication configuration of multi-cloud assets.
+ * @summary Modifies the authorization and authentication configuration information of multi-cloud assets.
  *
  * @param request ModifyCloudVendorAccountAKRequest
  * @return ModifyCloudVendorAccountAKResponse

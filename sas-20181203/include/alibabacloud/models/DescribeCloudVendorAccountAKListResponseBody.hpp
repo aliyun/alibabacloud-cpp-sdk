@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The number of entries returned on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number.
+      // The page number of the current page during paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per page.
+      // The maximum number of entries returned per page during paging.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -236,38 +236,35 @@ namespace Models
 
 
       protected:
-        // The error message of the module.
+        // The exception message of the module.
         shared_ptr<string> message_ {};
         // The code of the module. Valid values:
-        // 
-        // *   **HOST**: host
-        // *   **CSPM**: configuration assessment
-        // *   **SIEM**: CloudSiem
-        // *   **TRIAL**: log audit
+        // - **HOST**: Host.
+        // - **CSPM**: Cloud product configuration check.
+        // - **SIEM**: Cloud SIEM.
+        // - **TRIAL**: Log audit.
         shared_ptr<string> module_ {};
-        // The cloud asset that is associated with the module.
+        // The description of the cloud assets associated with the module.
         shared_ptr<string> moduleAssetType_ {};
         // The display name of the module.
         shared_ptr<string> moduleDisp_ {};
-        // The service status of the module. Valid values:
-        // 
-        // *   **0**: being used
-        // *   **1**: exception occurred
-        // *   **2**: being validated
-        // *   **3**: validation timed out
+        // The status of the module. Valid values:
+        // - **0**: In use.
+        // - **1**: Abnormal.
+        // - **2**: Validating.
+        // - **3**: Validation timed out.
         shared_ptr<int32_t> moduleServiceStatus_ {};
-        // The permission description of the module.
+        // The description of the permissions associated with the module.
         shared_ptr<string> moduleStatement_ {};
-        // The error message of the log audit service.
+        // The error message for log audit access.
         shared_ptr<string> trailMessage_ {};
-        // The status of the log audit service. Valid values:
-        // 
-        // *   **init**: being initialized
-        // *   **verify**: being validated
-        // *   **enable**: enabled
-        // *   **disable**: disabled
-        // *   **error**: exception occurred
-        // *   **timeout**: validation timed out
+        // The accessed state of log audit. Valid values:
+        // - **init**: Initialization.
+        // - **verify**: Authenticate.
+        // - **enable**: Enabled.
+        // - **disable**: Disabled.
+        // - **error**: Error.
+        // - **timeout**: Timed out.
         shared_ptr<string> trailStatus_ {};
       };
 
@@ -369,47 +366,60 @@ namespace Models
 
 
     protected:
-      // The type of the account to which the AccessKey pair belongs. Valid values:
+      // The type of the AK. Valid values:
       // 
-      // *   **primary**: a primary account
-      // *   **sub**: a sub-account
+      // - **primary**: Primary account.
+      // - **sub**: Sub-account.
       shared_ptr<string> akType_ {};
-      // The unique ID of the AccessKey pair.
+      // The unique ID of the AK.
       shared_ptr<int64_t> authId_ {};
-      // The modules that are associated with the AccessKey pair.
+      // The list of modules associated with the AK.
       shared_ptr<vector<CloudVendorAccountAKs::AuthModules>> authModules_ {};
-      // The Account ID.
+      // The account ID.
+      // 
+      // > The account ID of the connected cloud service provider.
       shared_ptr<string> ctdrCloudUserId_ {};
-      // The extended information of the module.
+      // The extended information.
+      // 
+      // > Used to record the extended information of different vendors.
+      // > Google Cloud is connected through a service account. ExtendInfo stores the service key file in JSON format, excluding the private_key_id and zprivate_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain. When the vendor is **OracleCloud**, this parameter contains the following keys: **fingerprint**, which indicates the fingerprint; **tenancy**, which indicates the tenant; and **domain**, which indicates the region to which the connected account belongs.
       shared_ptr<string> extendInfo_ {};
-      // The error message of the AccessKey pair.
+      // The exception message of the AK.
       shared_ptr<string> message_ {};
-      // The AccessKey ID.
+      // The ID of the AK parameter.
       shared_ptr<string> secretId_ {};
-      // The service status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: being used
-      // *   **1**: exception occurred
-      // *   **2**: being validated
-      // *   **3**: validation timed out
+      // The usage status of the AK. Valid values:
+      // - **0**: In use.
+      // - **1**: Abnormal.
+      // - **2**: Validating.
+      // - **3**: Validation timed out.
       shared_ptr<int32_t> serviceStatus_ {};
-      // The status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: enabled
-      // *   **1**: disabled
+      // The status of the AK. Valid values:
+      // - **0**: Enabled.
+      // - **1**: Disabled.
       shared_ptr<int32_t> status_ {};
       // The cloud service provider. Valid values:
-      // 
-      // *   **Tencent**: Tencent Cloud
-      // *   **HUAWEICLOUD**: Huawei Cloud
-      // *   **Azure**: Microsoft Azure
-      // *   **AWS**: Amazon Web Services (AWS)
+      // - **Tencent**: Tencent Cloud.
+      // - **HUAWEICLOUD**: Huawei Cloud.
+      // - **Azure**: Azure.
+      // - **AWS**: AWS.
+      // - **VOLCENGINE**: Volcengine.
+      // - **google**: Google Cloud.
+      // - **CHAITIN**: Chaitin Tech.
+      // - **FORTINET**: Fortinet.
+      // - **THREATBOOK**: ThreatBook.
+      // - **KingsoftCloud**: Kingsoft Cloud.
+      // - **UCloud**: UCloud.
+      // - **BaiduCloud**: Baidu AI Cloud.
+      // - **WIZ**: Wiz.
+      // - **OracleCloud**: Oracle Cloud.
+      // - **StateCloud**: CTYun.
       shared_ptr<string> vendor_ {};
-      // The name of the AccessKey pair.
+      // The name of the AK account.
       shared_ptr<string> vendorAuthAlias_ {};
-      // Account ID of the multi-cloud instance.
+      // The account ID of the multi-cloud instance.
       shared_ptr<string> vendorUid_ {};
-      // Account name of the multi-cloud instance.
+      // The account name of the multi-cloud instance.
       shared_ptr<string> vendorUserName_ {};
     };
 
@@ -441,11 +451,11 @@ namespace Models
 
 
   protected:
-    // The information about the AccessKey pairs.
+    // The list of AK information.
     shared_ptr<vector<DescribeCloudVendorAccountAKListResponseBody::CloudVendorAccountAKs>> cloudVendorAccountAKs_ {};
     // The pagination information.
     shared_ptr<DescribeCloudVendorAccountAKListResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The unique identifier generated by Alibaba Cloud for the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The SAE application ID.
+    // The ID of the SAE application.
     shared_ptr<string> appId_ {};
     // The region ID.
     shared_ptr<string> appRegionId_ {};
-    // The page number of the current page in a paged query. Paging starts from page 1.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page in a paged query. Paging is performed based on this value.
+    // The number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The UID of the resource directory.
     shared_ptr<int64_t> resourceDirectoryUid_ {};

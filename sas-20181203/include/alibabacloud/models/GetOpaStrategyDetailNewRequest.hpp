@@ -38,9 +38,8 @@ namespace Models
 
 
   protected:
-    // The rule ID.
-    // 
-    // > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to query the rule ID.
+    // The policy ID.
+    // > You can call the [ListOpaClusterStrategyNew](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
     shared_ptr<int64_t> strategyId_ {};
   };
 

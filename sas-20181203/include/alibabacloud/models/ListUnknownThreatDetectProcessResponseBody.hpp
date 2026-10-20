@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries on the current page.
+      // The number of entries returned on the current page.
       shared_ptr<string> count_ {};
-      // The page number of the current page in a paged query. This is used for paging.
+      // The page number of the current page returned during paging for a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page in a paged query. This is used for paging.
+      // The maximum number of entries returned on each page during paging for a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -175,9 +175,9 @@ namespace Models
 
 
       protected:
-        // The English label of the process.
+        // The English tag of the process.
         shared_ptr<string> tagEn_ {};
-        // The Chinese label of the process.
+        // The Chinese tag of the process.
         shared_ptr<string> tagZh_ {};
       };
 
@@ -259,13 +259,15 @@ namespace Models
     protected:
       // The analysis result. Valid values:
       // 
-      // - **black**: Malicious process.
-      // - **white**: Normal process.
-      // - **abnormal**: Abnormal process.
+      // - **black**: malicious process
+      // - **white**: normal process
+      // - **abnormal**: abnormal process
       shared_ptr<string> analyzeResult_ {};
+      // The English description of the process behavior.
       shared_ptr<string> explanationEn_ {};
+      // The Chinese description of the process behavior.
       shared_ptr<string> explanationZh_ {};
-      // The timestamp when the process was first detected.
+      // The timestamp of the first occurrence.
       shared_ptr<int64_t> firstTime_ {};
       // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
@@ -273,11 +275,11 @@ namespace Models
       shared_ptr<string> processId_ {};
       // The process path.
       shared_ptr<string> processPath_ {};
-      // The remarks.
+      // The remark.
       shared_ptr<string> remark_ {};
       // The SHA-256 hash of the file.
       shared_ptr<string> sha256_ {};
-      // The process labels.
+      // The process tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
     };
 

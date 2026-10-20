@@ -145,15 +145,15 @@ namespace Models
     // - **black**: abnormal process
     // - **white**: normal process
     shared_ptr<string> analyzeResult_ {};
-    // The page number of the current page when using paged query. This is used for paging.
+    // The page number of the current page returned during paging for a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range during which the process was first detected. The value is a timestamp in milliseconds.
+    // The end time of the time range during which the process was first detected. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> firstTimeEnd_ {};
-    // The start of the time range during which the process was first detected. The value is a timestamp in milliseconds.
+    // The start time of the time range during which the process was first detected. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> firstTimeStart_ {};
     // The MD5 hash of the file.
     shared_ptr<string> md5_ {};
-    // The maximum number of entries per page when using paged query. This is used for paging.
+    // The maximum number of entries to return on each page during paging for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The file path.
     shared_ptr<string> path_ {};
@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<string> remark_ {};
     // The SHA-256 hash of the file.
     shared_ptr<string> sha256_ {};
-    // The label.
+    // The tag.
     shared_ptr<string> tag_ {};
     // The UUID of the server to query.
     shared_ptr<string> uuid_ {};

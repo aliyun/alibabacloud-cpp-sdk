@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of web tamper-proofing authorizations.
+        // The allocated web tamper-proofing authorization quota.
         shared_ptr<int64_t> count_ {};
-        // The used number of web tamper-proofing authorizations.
+        // The used web tamper-proofing authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -205,11 +205,11 @@ namespace Models
 
 
         protected:
-          // The assigned number of purchased authorized servers.
+          // The allocated purchased instance quota.
           shared_ptr<int64_t> assigned_ {};
-          // The allocated number of authorized servers.
+          // The allocated authorized instance quota.
           shared_ptr<int64_t> count_ {};
-          // The used number of authorized servers.
+          // The used authorized instance quota.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -260,11 +260,11 @@ namespace Models
 
 
         protected:
-          // The assigned number of authorized cores.
+          // The assigned authorized core quota.
           shared_ptr<int64_t> assigned_ {};
-          // The allocated number of authorized cores.
+          // The allocated authorized core quota.
           shared_ptr<int64_t> count_ {};
-          // The used number of authorized cores.
+          // The used authorized core quota.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -304,12 +304,22 @@ namespace Models
 
       protected:
         // The authorization type consumed during binding. Valid values:
+        // - **ASSET**: Consumes the authorized instance quota.
+        // - **CORE**: Consumes the authorized core quota.
+        // - **ASSET_AND_CORE**: Consumes both the authorized instance quota and the authorized core quota.
         shared_ptr<string> authBindType_ {};
-        // The authorization quota usage for cores of the member account.
+        // The usage of the core authorization quota for the member accounts.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
-        // The authorization quota usage for servers of the member account.
+        // The usage of the authorization quota for the member accounts.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // The Security Center edition of the member account. Valid values:
+        // The Security Center edition of the member accounts. Valid values:  
+        // - **1**: Free Edition. 
+        // - **3**: Enterprise Edition.
+        // - **5**: Premium Edition.
+        // - **6**: Anti-virus Edition.    
+        // - **7**: Ultimate Edition.   
+        // - **8**: Multi-edition.   
+        // - **10**: Value-added services only.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -351,9 +361,9 @@ namespace Models
 
 
       protected:
-        // The allocated threat detection and response log ingestion traffic. Unit: GB/day.
+        // The allocated log ingestion traffic for CTDR. Unit: GB/day.
         shared_ptr<int64_t> count_ {};
-        // The used threat detection and response log ingestion traffic. Unit: GB/day.
+        // The used log ingestion traffic for CTDR. Unit: GB/day.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -483,9 +493,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of malicious file detection SDK authorizations.
+        // The allocated malicious file detection SDK authorization quota.
         shared_ptr<int64_t> count_ {};
-        // The used number of malicious file detection SDK authorizations.
+        // The used malicious file detection SDK authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -527,9 +537,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of application protection quotas. Unit: quotas/month.
+        // The allocated application protection quota. Unit: quotas per month.
         shared_ptr<int64_t> count_ {};
-        // The used number of application protection quotas. Unit: quotas/month.
+        // The used application protection quota. Unit: quotas per month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -571,9 +581,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of image scan authorizations.
+        // The allocated image scan authorization quota.
         shared_ptr<int64_t> count_ {};
-        // The used number of image scan authorizations.
+        // The used image scan authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -615,9 +625,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of cloud honeypot authorizations.
+        // The allocated honeypot authorization quota.
         shared_ptr<int64_t> count_ {};
-        // The used number of cloud honeypot authorizations.
+        // The used honeypot authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -659,7 +669,9 @@ namespace Models
 
 
       protected:
+        // The authorized number of instances for cloud platform configuration checks.
         shared_ptr<int64_t> count_ {};
+        // The used number of authorized instances for cloud platform configuration checks.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -701,9 +713,9 @@ namespace Models
 
 
       protected:
-        // The allocated number of cloud platform configuration check scans. Unit: scans/month.
+        // The allocated cloud platform configuration check scan quota. Unit: scans per month.
         shared_ptr<int64_t> count_ {};
-        // The used number of cloud platform configuration check scans. Unit: scans/month.
+        // The used cloud platform configuration check scan quota. Unit: scans per month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -907,40 +919,54 @@ namespace Models
 
 
     protected:
-      // The UID of the member account.
+      // The UID of the member accounts.
       shared_ptr<int64_t> aliUid_ {};
-      // The anti-ransomware capacity usage of the member account.
+      // The usage of the anti-ransomware capacity for the member accounts.
       shared_ptr<SaleInstanceList::AntiRansomwareCapacity> antiRansomwareCapacity_ {};
-      // The cloud platform configuration check scan usage of the member account.
+      // The usage of the cloud platform configuration check scan quota for the member accounts.
       shared_ptr<SaleInstanceList::CspmCapacity> cspmCapacity_ {};
+      // The authorized instance capacity for cloud platform configuration checks.
       shared_ptr<SaleInstanceList::CspmInstanceCapacity> cspmInstanceCapacity_ {};
-      // The cloud honeypot authorization usage of the member account.
+      // The usage of the honeypot authorization quota for the member accounts.
       shared_ptr<SaleInstanceList::HoneypotCapacity> honeypotCapacity_ {};
-      // The image scan authorization usage of the member account.
+      // The usage of the image scan authorization quota for the member accounts.
       shared_ptr<SaleInstanceList::ImageScanCapacity> imageScanCapacity_ {};
-      // The Security Center instance ID purchased by the member account.
+      // The Security Center instance ID purchased by the member accounts.
       shared_ptr<string> instanceId_ {};
-      // The instance purchase type. Valid values:
+      // The purchase type of the instance. Valid values:
+      // - **0**: Self-purchased.
+      // - **1**: Allocated.
       shared_ptr<int32_t> instancePurchaseType_ {};
-      // The application protection usage of the member account.
+      // The usage of the application protection quota for the member accounts.
       shared_ptr<SaleInstanceList::RaspCapacity> raspCapacity_ {};
-      // The malicious file detection SDK authorization usage of the member account.
+      // The usage of the malicious file detection SDK authorization quota for the member accounts.
       shared_ptr<SaleInstanceList::SdkCapacity> sdkCapacity_ {};
-      // The log storage capacity usage of the member account.
+      // The usage of the log storage capacity for the member accounts.
       shared_ptr<SaleInstanceList::SlsCapacity> slsCapacity_ {};
-      // The instance status of the member account. Valid values:
+      // The instance status of the member accounts. Valid values:
+      // - **1**: Valid.
+      // - **2**: Invalid.
       shared_ptr<int32_t> status_ {};
-      // The threat analysis capacity usage of the member account.
+      // The usage of the threat analysis capacity for the member accounts.
       shared_ptr<SaleInstanceList::ThreatAnalysisCapacity> threatAnalysisCapacity_ {};
-      // The threat detection and response log ingestion traffic usage of the member account.
+      // The usage of the log ingestion traffic for Cloud Threat Detection and Response (CTDR) for the member accounts.
       shared_ptr<SaleInstanceList::ThreatAnalysisFlow> threatAnalysisFlow_ {};
       // The user type. Valid values:
+      // - **1**: Administrator.
+      // - **2**: Regular user.
       shared_ptr<int32_t> userType_ {};
-      // The Security Center edition of the member account. Valid values:
+      // The Security Center edition of the member accounts. Valid values:  
+      // - **1**: Free Edition. 
+      // - **3**: Enterprise Edition.
+      // - **5**: Premium Edition.
+      // - **6**: Anti-virus Edition.    
+      // - **7**: Ultimate Edition.   
+      // - **8**: Multi-edition.   
+      // - **10**: Value-added services only.
       shared_ptr<int32_t> version_ {};
-      // The authorization usage statistics of the member account.
+      // The statistics information of authorization usage for the member accounts.
       shared_ptr<vector<SaleInstanceList::VersionSummary>> versionSummary_ {};
-      // The web tamper-proofing authorization usage of the member account.
+      // The usage of the web tamper-proofing authorization quota for the member accounts.
       shared_ptr<SaleInstanceList::WebLockCapacity> webLockCapacity_ {};
     };
 
@@ -1009,13 +1035,13 @@ namespace Models
 
 
     protected:
-      // The current page number in paging query.
+      // The current page number in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries per batch in a batched query.
+      // The number of entries returned per batch.
       shared_ptr<int32_t> maxResults_ {};
-      // The NextToken value returned when the NextToken-based pagination method is used.
+      // The NextToken value returned when the NextToken pagination method is used.
       shared_ptr<string> nextToken_ {};
-      // The maximum number of entries per page in paging query.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -1121,11 +1147,11 @@ namespace Models
 
 
       protected:
-        // The assigned tamper-proofing quota.
+        // The number of assigned web tamper-proofing authorizations.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased tamper-proofing quota.
+        // The number of purchased web tamper-proofing authorizations.
         shared_ptr<int64_t> count_ {};
-        // The used tamper-proofing quota.
+        // The number of used web tamper-proofing authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1201,11 +1227,11 @@ namespace Models
 
 
         protected:
-          // The assigned number of purchased authorized servers.
+          // The allocated purchased instance quota.
           shared_ptr<int64_t> assigned_ {};
-          // The purchased authorized server quota.
+          // The number of purchased instance authorizations.
           shared_ptr<int64_t> count_ {};
-          // The used authorized server quota.
+          // The number of used instance authorizations.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -1256,11 +1282,11 @@ namespace Models
 
 
         protected:
-          // The assigned number of authorized cores.
+          // The assigned authorized core quota.
           shared_ptr<int64_t> assigned_ {};
-          // The purchased authorized core quota.
+          // The number of purchased core authorizations.
           shared_ptr<int64_t> count_ {};
-          // The used number of authorized cores.
+          // The used authorized core quota.
           shared_ptr<int64_t> used_ {};
         };
 
@@ -1300,12 +1326,22 @@ namespace Models
 
       protected:
         // The authorization type consumed during binding. Valid values:
+        // - ASSET: Consumes instance authorizations.
+        // - CORE: Consumes core authorizations.
+        // - ASSET_AND_CORE: Consumes both instance and core authorizations.
         shared_ptr<string> authBindType_ {};
-        // The usage and allocation of authorized core quotas for the administrator account.
+        // The usage and allocation of core authorizations for the administrator account.
         shared_ptr<VersionSummary::CoreCount> coreCount_ {};
-        // The usage and allocation of authorized server quotas for the administrator account.
+        // The usage and allocation of instance authorizations for the administrator account.
         shared_ptr<VersionSummary::EcsCount> ecsCount_ {};
-        // The purchased Security Center edition. Valid values:
+        // The purchased Security Center edition. Valid values:  
+        // - **1**: Free Edition. 
+        // - **3**: Enterprise Edition.
+        // - **5**: Advanced Edition.
+        // - **6**: Anti-virus Edition.    
+        // - **7**: Ultimate Edition.   
+        // - **8**: Multi-edition.   
+        // - **10**: Value-added services only.
         shared_ptr<int32_t> version_ {};
       };
 
@@ -1356,11 +1392,11 @@ namespace Models
 
 
       protected:
-        // The assigned threat detection and response log ingestion traffic. Unit: GB/day.
+        // The assigned Cloud Threat Detection and Response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased threat detection and response log ingestion traffic. Unit: GB/day.
+        // The purchased Cloud Threat Detection and Response log ingestion traffic. Unit: GB/day.
         shared_ptr<int64_t> count_ {};
-        // The used threat detection and response log ingestion traffic. Unit: GB/day.
+        // The used log ingestion traffic for CTDR. Unit: GB/day.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1466,9 +1502,9 @@ namespace Models
 
 
       protected:
-        // The assigned log storage capacity. Unit: GB.
+        // The allocated log storage capacity. Unit: GB.
         shared_ptr<int64_t> assigned_ {};
-        // The log storage capacity of the administrator account. Unit: GB.
+        // The total log storage capacity of the administrator account. Unit: GB.
         shared_ptr<int64_t> count_ {};
         // The used log storage capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
@@ -1521,11 +1557,11 @@ namespace Models
 
 
       protected:
-        // The assigned malicious file detection SDK quota.
+        // The number of assigned malicious file detection SDK authorizations.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased malicious file detection SDK quota.
+        // The number of purchased malicious file detection SDK authorizations.
         shared_ptr<int64_t> count_ {};
-        // The used number of malicious file detection SDK authorizations.
+        // The used malicious file detection SDK authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1576,11 +1612,11 @@ namespace Models
 
 
       protected:
-        // The assigned number of application protection quotas. Unit: quotas/month.
+        // The allocated application protection quota. Unit: quotas per month.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased number of application protection quotas. Unit: quotas/month.
+        // The purchased application protection quota. Unit: quotas per month.
         shared_ptr<int64_t> count_ {};
-        // The used number of application protection quotas. Unit: quotas/month.
+        // The used application protection quota. Unit: quotas per month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1631,11 +1667,11 @@ namespace Models
 
 
       protected:
-        // The assigned image scan quota.
+        // The number of assigned image scan authorizations.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased image scan quota.
+        // The number of purchased image scan authorizations.
         shared_ptr<int64_t> count_ {};
-        // The used image scan quota.
+        // The number of used image scan authorizations.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1686,11 +1722,11 @@ namespace Models
 
 
       protected:
-        // The assigned honeypot quota.
+        // The number of assigned cloud honeypot authorizations.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased honeypot quota.
+        // The number of purchased cloud honeypot authorizations.
         shared_ptr<int64_t> count_ {};
-        // The used number of cloud honeypot authorizations.
+        // The used honeypot authorization quota.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1741,8 +1777,11 @@ namespace Models
 
 
       protected:
+        // The number of assigned cloud platform configuration check instance authorizations.
         shared_ptr<int64_t> assigned_ {};
+        // The number of purchased cloud platform configuration check instance authorizations.
         shared_ptr<int64_t> count_ {};
+        // The used number of authorized instances for cloud platform configuration checks.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1793,11 +1832,11 @@ namespace Models
 
 
       protected:
-        // The assigned number of cloud platform configuration check scans. Unit: scans/month.
+        // The number of assigned cloud platform configuration check scans. Unit: scans/month.
         shared_ptr<int64_t> assigned_ {};
-        // The purchased number of cloud platform configuration check scans. Unit: scans/month.
+        // The purchased cloud platform configuration check scan quota. Unit: scans per month.
         shared_ptr<int64_t> count_ {};
-        // The used number of cloud platform configuration check scans. Unit: scans/month.
+        // The used cloud platform configuration check scan quota. Unit: scans per month.
         shared_ptr<int64_t> used_ {};
       };
 
@@ -1848,9 +1887,9 @@ namespace Models
 
 
       protected:
-        // The assigned anti-ransomware capacity. Unit: GB.
+        // The allocated anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> assigned_ {};
-        // The anti-ransomware capacity of the administrator account. Unit: GB.
+        // The total anti-ransomware capacity of the administrator account. Unit: GB.
         shared_ptr<int64_t> count_ {};
         // The used anti-ransomware capacity. Unit: GB.
         shared_ptr<int64_t> used_ {};
@@ -2012,40 +2051,54 @@ namespace Models
 
 
     protected:
-      // The aliuid of the administrator account.
+      // The UID of the administrator account.
       shared_ptr<int64_t> aliUid_ {};
-      // The anti-ransomware capacity usage and allocation of the administrator account.
+      // The usage and allocation of the anti-ransomware capacity for the administrator account.
       shared_ptr<DaInstance::AntiRansomwareCapacity> antiRansomwareCapacity_ {};
-      // The cloud platform configuration check scan usage and allocation of the administrator account.
+      // The usage and allocation of the cloud platform configuration check scan quota for the administrator account.
       shared_ptr<DaInstance::CspmCapacity> cspmCapacity_ {};
+      // The authorized instance capacity for cloud platform configuration checks.
       shared_ptr<DaInstance::CspmInstanceCapacity> cspmInstanceCapacity_ {};
-      // The usage and allocation of honeypot quotas for the administrator account.
+      // The usage and allocation of cloud honeypot authorizations for the administrator account.
       shared_ptr<DaInstance::HoneypotCapacity> honeypotCapacity_ {};
-      // The usage and allocation of image scan quotas for the administrator account.
+      // The usage and allocation of image scan authorizations for the administrator account.
       shared_ptr<DaInstance::ImageScanCapacity> imageScanCapacity_ {};
       // The Security Center instance ID purchased by the administrator account.
       shared_ptr<string> instanceId_ {};
-      // The instance purchase type. Valid values:
+      // The purchase type of the instance. Valid values:
+      // - **0**: Self-purchased.
+      // - **1**: Allocated.
       shared_ptr<int32_t> instancePurchaseType_ {};
-      // The application protection usage and allocation of the administrator account.
+      // The usage and allocation of the application protection quota for the administrator account.
       shared_ptr<DaInstance::RaspCapacity> raspCapacity_ {};
-      // The usage and allocation of malicious file detection SDK quotas for the administrator account.
+      // The usage and allocation of malicious file detection SDK authorizations for the administrator account.
       shared_ptr<DaInstance::SdkCapacity> sdkCapacity_ {};
-      // The log storage capacity usage and allocation of the administrator account.
+      // The usage and allocation of the log storage capacity for the administrator account.
       shared_ptr<DaInstance::SlsCapacity> slsCapacity_ {};
       // The instance status of the administrator account. Valid values:
+      // - **1**: Valid.
+      // - **2**: Invalid.
       shared_ptr<int32_t> status_ {};
-      // The threat analysis capacity usage and allocation of the administrator account.
+      // The usage and allocation of the threat analysis capacity for the administrator account.
       shared_ptr<DaInstance::ThreatAnalysisCapacity> threatAnalysisCapacity_ {};
-      // The usage and allocation of threat detection and response log ingestion traffic for the administrator account.
+      // The usage and allocation of Cloud Threat Detection and Response log ingestion traffic for the administrator account.
       shared_ptr<DaInstance::ThreatAnalysisFlow> threatAnalysisFlow_ {};
       // The user type. Valid values:
+      // - **1**: Administrator.
+      // - **2**: Regular user.
       shared_ptr<int32_t> userType_ {};
-      // The purchased Security Center edition. Valid values:
+      // The purchased Security Center edition. Valid values:  
+      // - **1**: Free Edition. 
+      // - **3**: Enterprise Edition.
+      // - **5**: Advanced Edition.
+      // - **6**: Anti-virus Edition.    
+      // - **7**: Ultimate Edition.   
+      // - **8**: Multi-edition.   
+      // - **10**: Value-added services only.
       shared_ptr<int32_t> version_ {};
       // The authorization usage statistics information for the administrator account.
       shared_ptr<vector<DaInstance::VersionSummary>> versionSummary_ {};
-      // The usage and allocation of tamper-proofing quotas for the administrator account.
+      // The usage and allocation of web tamper-proofing authorizations for the administrator account.
       shared_ptr<DaInstance::WebLockCapacity> webLockCapacity_ {};
     };
 
@@ -2090,9 +2143,9 @@ namespace Models
     shared_ptr<ListMultiUserInstancesResponseBody::DaInstance> daInstance_ {};
     // The pagination information.
     shared_ptr<ListMultiUserInstancesResponseBody::PageInfo> pageInfo_ {};
-    // The ID of this request, which is a unique identifier generated by Alibaba Cloud for this request. It can be used to troubleshoot and locate issues.
+    // The ID of the request. This unique identifier is generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The details of member accounts.
+    // The details of the member accounts.
     shared_ptr<vector<ListMultiUserInstancesResponseBody::SaleInstanceList>> saleInstanceList_ {};
   };
 

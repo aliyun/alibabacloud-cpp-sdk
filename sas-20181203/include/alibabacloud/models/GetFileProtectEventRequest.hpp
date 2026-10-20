@@ -40,7 +40,7 @@ namespace Models
   protected:
     // The event ID.
     // 
-    // This parameter is required. If this parameter is not specified, the API returns HTTP 400 with error code -101. You can call ListFileProtectEvent to obtain valid event IDs.
+    // This parameter is required. If it is not provided, the API returns HTTP 400 with the error code -101. You can call the ListFileProtectEvent operation to obtain a valid event ID.
     shared_ptr<int64_t> id_ {};
   };
 

@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NotRunningStatusCoreCount, notRunningStatusCoreCount_);
         DARABONBA_PTR_TO_JSON(NotRunningStatusCount, notRunningStatusCount_);
         DARABONBA_PTR_TO_JSON(OfflineInstanceCount, offlineInstanceCount_);
+        DARABONBA_PTR_TO_JSON(OracleInstanceCount, oracleInstanceCount_);
         DARABONBA_PTR_TO_JSON(OutMachineInstanceCount, outMachineInstanceCount_);
         DARABONBA_PTR_TO_JSON(PauseInstanceCount, pauseInstanceCount_);
         DARABONBA_PTR_TO_JSON(RegionCount, regionCount_);
@@ -97,6 +98,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NotRunningStatusCoreCount, notRunningStatusCoreCount_);
         DARABONBA_PTR_FROM_JSON(NotRunningStatusCount, notRunningStatusCount_);
         DARABONBA_PTR_FROM_JSON(OfflineInstanceCount, offlineInstanceCount_);
+        DARABONBA_PTR_FROM_JSON(OracleInstanceCount, oracleInstanceCount_);
         DARABONBA_PTR_FROM_JSON(OutMachineInstanceCount, outMachineInstanceCount_);
         DARABONBA_PTR_FROM_JSON(PauseInstanceCount, pauseInstanceCount_);
         DARABONBA_PTR_FROM_JSON(RegionCount, regionCount_);
@@ -129,10 +131,10 @@ namespace Models
         && this->generalAssetCount_ == nullptr && this->googleInstanceCount_ == nullptr && this->groupCount_ == nullptr && this->huaweiInstanceCount_ == nullptr && this->idcInstanceCount_ == nullptr
         && this->importantAssetCount_ == nullptr && this->instanceCoreCount_ == nullptr && this->instanceCount_ == nullptr && this->instanceSyncTaskCount_ == nullptr && this->kingsoftInstanceCount_ == nullptr
         && this->newInstanceCoreCount_ == nullptr && this->newInstanceCount_ == nullptr && this->noRiskInstanceCount_ == nullptr && this->notBindMachineInstanceCount_ == nullptr && this->notRunningStatusCoreCount_ == nullptr
-        && this->notRunningStatusCount_ == nullptr && this->offlineInstanceCount_ == nullptr && this->outMachineInstanceCount_ == nullptr && this->pauseInstanceCount_ == nullptr && this->regionCount_ == nullptr
-        && this->riskInstanceCoreCount_ == nullptr && this->riskInstanceCount_ == nullptr && this->stateCloudInstanceCount_ == nullptr && this->tencentInstanceCount_ == nullptr && this->testAssetCount_ == nullptr
-        && this->tripartiteInstanceCount_ == nullptr && this->ucloudInstanceCount_ == nullptr && this->unKnowStatusInstanceCount_ == nullptr && this->unprotectedInstanceCoreCount_ == nullptr && this->unprotectedInstanceCount_ == nullptr
-        && this->volcengineInstanceCount_ == nullptr && this->vpcCount_ == nullptr; };
+        && this->notRunningStatusCount_ == nullptr && this->offlineInstanceCount_ == nullptr && this->oracleInstanceCount_ == nullptr && this->outMachineInstanceCount_ == nullptr && this->pauseInstanceCount_ == nullptr
+        && this->regionCount_ == nullptr && this->riskInstanceCoreCount_ == nullptr && this->riskInstanceCount_ == nullptr && this->stateCloudInstanceCount_ == nullptr && this->tencentInstanceCount_ == nullptr
+        && this->testAssetCount_ == nullptr && this->tripartiteInstanceCount_ == nullptr && this->ucloudInstanceCount_ == nullptr && this->unKnowStatusInstanceCount_ == nullptr && this->unprotectedInstanceCoreCount_ == nullptr
+        && this->unprotectedInstanceCount_ == nullptr && this->volcengineInstanceCount_ == nullptr && this->vpcCount_ == nullptr; };
       // aliYunInstanceCount Field Functions 
       bool hasAliYunInstanceCount() const { return this->aliYunInstanceCount_ != nullptr;};
       void deleteAliYunInstanceCount() { this->aliYunInstanceCount_ = nullptr;};
@@ -294,6 +296,13 @@ namespace Models
       inline GroupedFields& setOfflineInstanceCount(int32_t offlineInstanceCount) { DARABONBA_PTR_SET_VALUE(offlineInstanceCount_, offlineInstanceCount) };
 
 
+      // oracleInstanceCount Field Functions 
+      bool hasOracleInstanceCount() const { return this->oracleInstanceCount_ != nullptr;};
+      void deleteOracleInstanceCount() { this->oracleInstanceCount_ = nullptr;};
+      inline int32_t getOracleInstanceCount() const { DARABONBA_PTR_GET_DEFAULT(oracleInstanceCount_, 0) };
+      inline GroupedFields& setOracleInstanceCount(int32_t oracleInstanceCount) { DARABONBA_PTR_SET_VALUE(oracleInstanceCount_, oracleInstanceCount) };
+
+
       // outMachineInstanceCount Field Functions 
       bool hasOutMachineInstanceCount() const { return this->outMachineInstanceCount_ != nullptr;};
       void deleteOutMachineInstanceCount() { this->outMachineInstanceCount_ = nullptr;};
@@ -408,7 +417,7 @@ namespace Models
       shared_ptr<int32_t> azureInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> baiduInstanceCount_ {};
-      // The number of compute cores of exposed assets.
+      // The number of CPU cores of exposed assets.
       shared_ptr<int64_t> exposedInstanceCoreCount_ {};
       // The number of exposed assets.
       shared_ptr<int32_t> exposedInstanceCount_ {};
@@ -420,41 +429,43 @@ namespace Models
       shared_ptr<int32_t> groupCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> huaweiInstanceCount_ {};
-      // The number of assets that Security Center can detect.
+      // The number of assets that can be detected by Security Center.
       shared_ptr<int32_t> idcInstanceCount_ {};
       // The number of important assets.
       shared_ptr<int32_t> importantAssetCount_ {};
-      // The total number of compute cores of all assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of compute cores of all servers and cloud products in your assets.
+      // The total number of CPU cores of all assets of the specified type. If no asset type is specified, this value is the sum of the CPU cores of all servers and cloud services in your assets.
       shared_ptr<int64_t> instanceCoreCount_ {};
-      // The total number of assets under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
+      // The total number of assets of the specified type. If no asset type is specified, this value is the sum of all servers and cloud services in your assets.
       shared_ptr<int32_t> instanceCount_ {};
-      // The number of tasks under the asset type that you specified in the query. If you did not specify an asset type, this value is the total number of all servers and cloud products in your assets.
+      // The number of tasks for the specified asset type. If no asset type is specified, this value is the sum of tasks for all servers and cloud services in your assets.
       shared_ptr<int32_t> instanceSyncTaskCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> kingsoftInstanceCount_ {};
-      // The number of compute cores of newly added servers.
+      // The number of CPU cores of newly added servers.
       shared_ptr<int64_t> newInstanceCoreCount_ {};
       // The number of newly added servers.
       shared_ptr<int32_t> newInstanceCount_ {};
-      // The number of assets without risky asset issues.
+      // The number of assets that are not a risky asset.
       shared_ptr<int32_t> noRiskInstanceCount_ {};
-      // The number of asset types without bound authorization under the asset type that you specified in the query.
+      // The number of Asset Types that do not attach or have no authorization under the specified asset type.
       shared_ptr<int32_t> notBindMachineInstanceCount_ {};
-      // The number of compute cores of servers that are not started (powered off).
+      // The number of CPU cores of stopped servers.
       shared_ptr<int64_t> notRunningStatusCoreCount_ {};
-      // The number of servers that are not started (powered off).
+      // The number of stopped servers.
       shared_ptr<int32_t> notRunningStatusCount_ {};
       // The number of offline servers.
       shared_ptr<int32_t> offlineInstanceCount_ {};
-      // The number of instances outside the cloud.
+      // The number of third-party cloud servers.
+      shared_ptr<int32_t> oracleInstanceCount_ {};
+      // The number of instances outside Alibaba Cloud.
       shared_ptr<int32_t> outMachineInstanceCount_ {};
       // The number of paused servers.
       shared_ptr<int32_t> pauseInstanceCount_ {};
       // The number of regions to which the servers belong.
       shared_ptr<int32_t> regionCount_ {};
-      // The number of compute cores of assets at risk.
+      // The number of CPU cores of assets with risks.
       shared_ptr<int64_t> riskInstanceCoreCount_ {};
-      // The number of assets at risk.
+      // The number of assets with risks.
       shared_ptr<int32_t> riskInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> stateCloudInstanceCount_ {};
@@ -462,13 +473,13 @@ namespace Models
       shared_ptr<int32_t> tencentInstanceCount_ {};
       // The number of test assets.
       shared_ptr<int32_t> testAssetCount_ {};
-      // The number of simple application servers.
+      // The number of Simple Application Server instances.
       shared_ptr<int32_t> tripartiteInstanceCount_ {};
       // The number of third-party cloud servers.
       shared_ptr<int32_t> ucloudInstanceCount_ {};
       // The number of assets with an unknown enabling status.
       shared_ptr<int32_t> unKnowStatusInstanceCount_ {};
-      // The number of compute cores of unprotected assets.
+      // The number of CPU cores of unprotected assets.
       shared_ptr<int64_t> unprotectedInstanceCoreCount_ {};
       // The number of unprotected assets.
       shared_ptr<int32_t> unprotectedInstanceCount_ {};
@@ -497,9 +508,9 @@ namespace Models
 
 
   protected:
-    // The statistics of server assets.
+    // The information about the queried server assets.
     shared_ptr<DescribeFieldStatisticsResponseBody::GroupedFields> groupedFields_ {};
-    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+    // The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -106,7 +106,7 @@ namespace Sas20181203
       Models::AddClientUserDefineRuleResponse addClientUserDefineRule(const Models::AddClientUserDefineRuleRequest &request);
 
       /**
-       * @summary Adds multi-cloud asset configuration information.
+       * @summary Creates multi-cloud asset configuration information.
        *
        * @param request AddCloudVendorAccountAKRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace Sas20181203
       Models::AddCloudVendorAccountAKResponse addCloudVendorAccountAKWithOptions(const Models::AddCloudVendorAccountAKRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds multi-cloud asset configuration information.
+       * @summary Creates multi-cloud asset configuration information.
        *
        * @param request AddCloudVendorAccountAKRequest
        * @return AddCloudVendorAccountAKResponse
@@ -3823,7 +3823,7 @@ namespace Sas20181203
       Models::DescribeCloudProductFieldStatisticsResponse describeCloudProductFieldStatistics();
 
       /**
-       * @summary Queries the multi-cloud assets added to Security Center.
+       * @summary Queries the list of multi-cloud asset configurations.
        *
        * @param request DescribeCloudVendorAccountAKListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3832,7 +3832,7 @@ namespace Sas20181203
       Models::DescribeCloudVendorAccountAKListResponse describeCloudVendorAccountAKListWithOptions(const Models::DescribeCloudVendorAccountAKListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the multi-cloud assets added to Security Center.
+       * @summary Queries the list of multi-cloud asset configurations.
        *
        * @param request DescribeCloudVendorAccountAKListRequest
        * @return DescribeCloudVendorAccountAKListResponse
@@ -4915,7 +4915,7 @@ namespace Sas20181203
       Models::DescribeExposedStatisticsDetailResponse describeExposedStatisticsDetail(const Models::DescribeExposedStatisticsDetailRequest &request);
 
       /**
-       * @summary Queries the statistics information of servers in your assets.
+       * @summary Queries the statistics information of servers in assets.
        *
        * @param request DescribeFieldStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4924,7 +4924,7 @@ namespace Sas20181203
       Models::DescribeFieldStatisticsResponse describeFieldStatisticsWithOptions(const Models::DescribeFieldStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the statistics information of servers in your assets.
+       * @summary Queries the statistics information of servers in assets.
        *
        * @param request DescribeFieldStatisticsRequest
        * @return DescribeFieldStatisticsResponse
@@ -5083,7 +5083,7 @@ namespace Sas20181203
       Models::DescribeGroupedVulResponse describeGroupedVul(const Models::DescribeGroupedVulRequest &request);
 
       /**
-       * @summary Queries information about a baseline risk export, such as the file name and download link.
+       * @summary Queries the file name, download URL, and other information about a baseline export.
        *
        * @param request DescribeHcExportInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5092,7 +5092,7 @@ namespace Sas20181203
       Models::DescribeHcExportInfoResponse describeHcExportInfoWithOptions(const Models::DescribeHcExportInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about a baseline risk export, such as the file name and download link.
+       * @summary Queries the file name, download URL, and other information about a baseline export.
        *
        * @param request DescribeHcExportInfoRequest
        * @return DescribeHcExportInfoResponse
@@ -5557,7 +5557,7 @@ namespace Sas20181203
       Models::DescribeImageListByBuildRiskResponse describeImageListByBuildRisk(const Models::DescribeImageListByBuildRiskRequest &request);
 
       /**
-       * @summary Queries information about images affected by sensitive files.
+       * @summary Queries the information about images affected by sensitive files.
        *
        * @param tmpReq DescribeImageListBySensitiveFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5566,7 +5566,7 @@ namespace Sas20181203
       Models::DescribeImageListBySensitiveFileResponse describeImageListBySensitiveFileWithOptions(const Models::DescribeImageListBySensitiveFileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about images affected by sensitive files.
+       * @summary Queries the information about images affected by sensitive files.
        *
        * @param request DescribeImageListBySensitiveFileRequest
        * @return DescribeImageListBySensitiveFileResponse
@@ -5689,7 +5689,7 @@ namespace Sas20181203
       Models::DescribeImageSecurityScanCountResponse describeImageSecurityScanCount(const Models::DescribeImageSecurityScanCountRequest &request);
 
       /**
-       * @summary Queries the sensitive files of an image.
+       * @summary Queries sensitive files in an image.
        *
        * @param tmpReq DescribeImageSensitiveFileByKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5698,7 +5698,7 @@ namespace Sas20181203
       Models::DescribeImageSensitiveFileByKeyResponse describeImageSensitiveFileByKeyWithOptions(const Models::DescribeImageSensitiveFileByKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the sensitive files of an image.
+       * @summary Queries sensitive files in an image.
        *
        * @param request DescribeImageSensitiveFileByKeyRequest
        * @return DescribeImageSensitiveFileByKeyResponse
@@ -7447,7 +7447,7 @@ namespace Sas20181203
       Models::DescribeSyncAssetTaskListResponse describeSyncAssetTaskList(const Models::DescribeSyncAssetTaskListRequest &request);
 
       /**
-       * @summary Queries the details of IDC scan tasks for asset synchronization.
+       * @summary Queries the details of an IDC scan task for an asset synchronization task.
        *
        * @param request DescribeSyncAssetTaskLogDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7456,7 +7456,7 @@ namespace Sas20181203
       Models::DescribeSyncAssetTaskLogDetailResponse describeSyncAssetTaskLogDetailWithOptions(const Models::DescribeSyncAssetTaskLogDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of IDC scan tasks for asset synchronization.
+       * @summary Queries the details of an IDC scan task for an asset synchronization task.
        *
        * @param request DescribeSyncAssetTaskLogDetailRequest
        * @return DescribeSyncAssetTaskLogDetailResponse
@@ -9616,7 +9616,7 @@ namespace Sas20181203
       Models::GetConsoleFuncGrayStatusResponse getConsoleFuncGrayStatus(const Models::GetConsoleFuncGrayStatusRequest &request);
 
       /**
-       * @summary Retrieves the details of a non-image process defense rule.
+       * @summary Retrieves the details of a non-image program defense rule.
        *
        * @param request GetContainerDefenseRuleDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9625,7 +9625,7 @@ namespace Sas20181203
       Models::GetContainerDefenseRuleDetailResponse getContainerDefenseRuleDetailWithOptions(const Models::GetContainerDefenseRuleDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a non-image process defense rule.
+       * @summary Retrieves the details of a non-image program defense rule.
        *
        * @param request GetContainerDefenseRuleDetailRequest
        * @return GetContainerDefenseRuleDetailResponse
@@ -10461,7 +10461,7 @@ namespace Sas20181203
       Models::GetOpaPluginStatusResponse getOpaPluginStatus(const Models::GetOpaPluginStatusRequest &request);
 
       /**
-       * @summary Retrieves the details of the rule that is used to block at-risk images.
+       * @summary Queries the details of a risky image blocking policy.
        *
        * @param request GetOpaStrategyDetailNewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10470,7 +10470,7 @@ namespace Sas20181203
       Models::GetOpaStrategyDetailNewResponse getOpaStrategyDetailNewWithOptions(const Models::GetOpaStrategyDetailNewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of the rule that is used to block at-risk images.
+       * @summary Queries the details of a risky image blocking policy.
        *
        * @param request GetOpaStrategyDetailNewRequest
        * @return GetOpaStrategyDetailNewResponse
@@ -10625,7 +10625,7 @@ namespace Sas20181203
       Models::GetSasContainerWebDefenseRuleResponse getSasContainerWebDefenseRule(const Models::GetSasContainerWebDefenseRuleRequest &request);
 
       /**
-       * @summary Retrieves the application list for container file defense configurations.
+       * @summary Retrieves the list of applications for container file defense configurations.
        *
        * @param request GetSasContainerWebDefenseRuleApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10634,7 +10634,7 @@ namespace Sas20181203
       Models::GetSasContainerWebDefenseRuleApplicationResponse getSasContainerWebDefenseRuleApplicationWithOptions(const Models::GetSasContainerWebDefenseRuleApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the application list for container file defense configurations.
+       * @summary Retrieves the list of applications for container file defense configurations.
        *
        * @param request GetSasContainerWebDefenseRuleApplicationRequest
        * @return GetSasContainerWebDefenseRuleApplicationResponse
@@ -12669,9 +12669,9 @@ namespace Sas20181203
       Models::ListMaliciousFileWhitelistConfigsResponse listMaliciousFileWhitelistConfigs(const Models::ListMaliciousFileWhitelistConfigsRequest &request);
 
       /**
-       * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
+       * @summary Queries the list of multi-account authorization assignments under multi-account authorization management.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12680,9 +12680,9 @@ namespace Sas20181203
       Models::ListMultiUserInstancesResponse listMultiUserInstancesWithOptions(const Models::ListMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the multi-account authorization assignment list under multi-account authorization management.
+       * @summary Queries the list of multi-account authorization assignments under multi-account authorization management.
        *
-       * @description You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @return ListMultiUserInstancesResponse
@@ -13210,7 +13210,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectMachineResponse listUnknownThreatDetectMachine(const Models::ListUnknownThreatDetectMachineRequest &request);
 
       /**
-       * @summary Queries the process list of intelligent behavior analytics.
+       * @summary Queries the process list for intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13219,7 +13219,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcessWithOptions(const Models::ListUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the process list of intelligent behavior analytics.
+       * @summary Queries the process list for intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectProcessRequest
        * @return ListUnknownThreatDetectProcessResponse
@@ -13261,7 +13261,7 @@ namespace Sas20181203
       Models::ListUserVpcResponse listUserVpc(const Models::ListUserVpcRequest &request);
 
       /**
-       * @summary Queries the list of Serverless instance UUIDs by application ID.
+       * @summary Queries the UUIDs of Serverless instances by application ID.
        *
        * @param request ListUuidsByAppIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13270,7 +13270,7 @@ namespace Sas20181203
       Models::ListUuidsByAppIdResponse listUuidsByAppIdWithOptions(const Models::ListUuidsByAppIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of Serverless instance UUIDs by application ID.
+       * @summary Queries the UUIDs of Serverless instances by application ID.
        *
        * @param request ListUuidsByAppIdRequest
        * @return ListUuidsByAppIdResponse
@@ -13685,7 +13685,7 @@ namespace Sas20181203
       Models::ModifyClientUserDefineRuleResponse modifyClientUserDefineRule(const Models::ModifyClientUserDefineRuleRequest &request);
 
       /**
-       * @summary Modifies the authorization and authentication configuration of multi-cloud assets.
+       * @summary Modifies the authorization and authentication configuration information of multi-cloud assets.
        *
        * @param request ModifyCloudVendorAccountAKRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13694,7 +13694,7 @@ namespace Sas20181203
       Models::ModifyCloudVendorAccountAKResponse modifyCloudVendorAccountAKWithOptions(const Models::ModifyCloudVendorAccountAKRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the authorization and authentication configuration of multi-cloud assets.
+       * @summary Modifies the authorization and authentication configuration information of multi-cloud assets.
        *
        * @param request ModifyCloudVendorAccountAKRequest
        * @return ModifyCloudVendorAccountAKResponse
