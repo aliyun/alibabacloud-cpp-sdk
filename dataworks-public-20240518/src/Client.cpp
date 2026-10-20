@@ -1394,6 +1394,7 @@ CreateCalendarResponse Client::createCalendar(const CreateCalendarRequest &reque
  * @summary Creates a component.
  *
  * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+ * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
  *
  * @param request CreateComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1435,6 +1436,7 @@ CreateComponentResponse Client::createComponentWithOptions(const CreateComponent
  * @summary Creates a component.
  *
  * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+ * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
  *
  * @param request CreateComponentRequest
  * @return CreateComponentResponse
@@ -5179,9 +5181,10 @@ CreateUdfFileResponse Client::createUdfFile(const CreateUdfFileRequest &request)
 }
 
 /**
- * @summary Creates a workflow in a specified folder in Data Studio.
+ * @summary Creates a workflow in a specified directory in DataStudio.
  *
- * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
+ * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
+ * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
  *
  * @param request CreateWorkflowDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5216,9 +5219,10 @@ CreateWorkflowDefinitionResponse Client::createWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Creates a workflow in a specified folder in Data Studio.
+ * @summary Creates a workflow in a specified directory in DataStudio.
  *
- * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
+ * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
+ * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
  *
  * @param request CreateWorkflowDefinitionRequest
  * @return CreateWorkflowDefinitionResponse
@@ -5579,7 +5583,8 @@ DeleteCertificateResponse Client::deleteCertificate(const DeleteCertificateReque
 /**
  * @summary Deletes a component.
  *
- * @description > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
+ * @description <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
+ * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
  *
  * @param request DeleteComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5616,7 +5621,8 @@ DeleteComponentResponse Client::deleteComponentWithOptions(const DeleteComponent
 /**
  * @summary Deletes a component.
  *
- * @description > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
+ * @description <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
+ * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
  *
  * @param request DeleteComponentRequest
  * @return DeleteComponentResponse
@@ -18834,7 +18840,9 @@ MoveNodeResponse Client::moveNode(const MoveNodeRequest &request) {
 }
 
 /**
- * @summary Moves a file resource to a path in Data Studio.
+ * @summary Moves a specified data development file resource to a specified data development folder.
+ *
+ * @description This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
  *
  * @param request MoveResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18873,7 +18881,9 @@ MoveResourceResponse Client::moveResourceWithOptions(const MoveResourceRequest &
 }
 
 /**
- * @summary Moves a file resource to a path in Data Studio.
+ * @summary Moves a specified data development file resource to a specified data development folder.
+ *
+ * @description This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
  *
  * @param request MoveResourceRequest
  * @return MoveResourceResponse
