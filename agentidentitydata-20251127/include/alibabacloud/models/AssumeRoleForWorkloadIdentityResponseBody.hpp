@@ -82,11 +82,13 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const JwtClaims& obj) { 
             DARABONBA_PTR_TO_JSON(Audiences, audiences_);
             DARABONBA_PTR_TO_JSON(Issuer, issuer_);
+            DARABONBA_PTR_TO_JSON(JTI, JTI_);
             DARABONBA_PTR_TO_JSON(Subject, subject_);
           };
           friend void from_json(const Darabonba::Json& j, JwtClaims& obj) { 
             DARABONBA_PTR_FROM_JSON(Audiences, audiences_);
             DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
+            DARABONBA_PTR_FROM_JSON(JTI, JTI_);
             DARABONBA_PTR_FROM_JSON(Subject, subject_);
           };
           JwtClaims() = default ;
@@ -101,7 +103,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->audiences_ == nullptr
-        && this->issuer_ == nullptr && this->subject_ == nullptr; };
+        && this->issuer_ == nullptr && this->JTI_ == nullptr && this->subject_ == nullptr; };
           // audiences Field Functions 
           bool hasAudiences() const { return this->audiences_ != nullptr;};
           void deleteAudiences() { this->audiences_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
           inline JwtClaims& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
 
 
+          // JTI Field Functions 
+          bool hasJTI() const { return this->JTI_ != nullptr;};
+          void deleteJTI() { this->JTI_ = nullptr;};
+          inline string getJTI() const { DARABONBA_PTR_GET_DEFAULT(JTI_, "") };
+          inline JwtClaims& setJTI(string JTI) { DARABONBA_PTR_SET_VALUE(JTI_, JTI) };
+
+
           // subject Field Functions 
           bool hasSubject() const { return this->subject_ != nullptr;};
           void deleteSubject() { this->subject_ = nullptr;};
@@ -126,6 +135,7 @@ namespace Models
         protected:
           shared_ptr<string> audiences_ {};
           shared_ptr<string> issuer_ {};
+          shared_ptr<string> JTI_ {};
           shared_ptr<string> subject_ {};
         };
 

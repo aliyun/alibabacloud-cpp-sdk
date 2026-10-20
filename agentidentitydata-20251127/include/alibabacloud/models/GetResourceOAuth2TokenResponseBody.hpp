@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetResourceOAuth2TokenResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessToken, accessToken_);
       DARABONBA_PTR_TO_JSON(AuthorizationURL, authorizationURL_);
+      DARABONBA_PTR_TO_JSON(ExpiresIn, expiresIn_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_TO_JSON(SessionURI, sessionURI_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetResourceOAuth2TokenResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessToken, accessToken_);
       DARABONBA_PTR_FROM_JSON(AuthorizationURL, authorizationURL_);
+      DARABONBA_PTR_FROM_JSON(ExpiresIn, expiresIn_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
       DARABONBA_PTR_FROM_JSON(SessionURI, sessionURI_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessToken_ == nullptr
-        && this->authorizationURL_ == nullptr && this->requestId_ == nullptr && this->sessionStatus_ == nullptr && this->sessionURI_ == nullptr; };
+        && this->authorizationURL_ == nullptr && this->expiresIn_ == nullptr && this->requestId_ == nullptr && this->sessionStatus_ == nullptr && this->sessionURI_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteAuthorizationURL() { this->authorizationURL_ = nullptr;};
     inline string getAuthorizationURL() const { DARABONBA_PTR_GET_DEFAULT(authorizationURL_, "") };
     inline GetResourceOAuth2TokenResponseBody& setAuthorizationURL(string authorizationURL) { DARABONBA_PTR_SET_VALUE(authorizationURL_, authorizationURL) };
+
+
+    // expiresIn Field Functions 
+    bool hasExpiresIn() const { return this->expiresIn_ != nullptr;};
+    void deleteExpiresIn() { this->expiresIn_ = nullptr;};
+    inline int64_t getExpiresIn() const { DARABONBA_PTR_GET_DEFAULT(expiresIn_, 0L) };
+    inline GetResourceOAuth2TokenResponseBody& setExpiresIn(int64_t expiresIn) { DARABONBA_PTR_SET_VALUE(expiresIn_, expiresIn) };
 
 
     // requestId Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     shared_ptr<string> accessToken_ {};
     shared_ptr<string> authorizationURL_ {};
+    shared_ptr<int64_t> expiresIn_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> sessionStatus_ {};
     shared_ptr<string> sessionURI_ {};

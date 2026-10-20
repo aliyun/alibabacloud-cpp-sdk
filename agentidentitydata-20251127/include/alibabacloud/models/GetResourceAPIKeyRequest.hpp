@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetResourceAPIKeyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ResourceCredentialProviderName, resourceCredentialProviderName_);
+      DARABONBA_PTR_TO_JSON(TokenVaultName, tokenVaultName_);
       DARABONBA_PTR_TO_JSON(WorkloadAccessToken, workloadAccessToken_);
     };
     friend void from_json(const Darabonba::Json& j, GetResourceAPIKeyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ResourceCredentialProviderName, resourceCredentialProviderName_);
+      DARABONBA_PTR_FROM_JSON(TokenVaultName, tokenVaultName_);
       DARABONBA_PTR_FROM_JSON(WorkloadAccessToken, workloadAccessToken_);
     };
     GetResourceAPIKeyRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceCredentialProviderName_ == nullptr
-        && this->workloadAccessToken_ == nullptr; };
+        && this->tokenVaultName_ == nullptr && this->workloadAccessToken_ == nullptr; };
     // resourceCredentialProviderName Field Functions 
     bool hasResourceCredentialProviderName() const { return this->resourceCredentialProviderName_ != nullptr;};
     void deleteResourceCredentialProviderName() { this->resourceCredentialProviderName_ = nullptr;};
     inline string getResourceCredentialProviderName() const { DARABONBA_PTR_GET_DEFAULT(resourceCredentialProviderName_, "") };
     inline GetResourceAPIKeyRequest& setResourceCredentialProviderName(string resourceCredentialProviderName) { DARABONBA_PTR_SET_VALUE(resourceCredentialProviderName_, resourceCredentialProviderName) };
+
+
+    // tokenVaultName Field Functions 
+    bool hasTokenVaultName() const { return this->tokenVaultName_ != nullptr;};
+    void deleteTokenVaultName() { this->tokenVaultName_ = nullptr;};
+    inline string getTokenVaultName() const { DARABONBA_PTR_GET_DEFAULT(tokenVaultName_, "") };
+    inline GetResourceAPIKeyRequest& setTokenVaultName(string tokenVaultName) { DARABONBA_PTR_SET_VALUE(tokenVaultName_, tokenVaultName) };
 
 
     // workloadAccessToken Field Functions 
@@ -49,6 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> resourceCredentialProviderName_ {};
+    shared_ptr<string> tokenVaultName_ {};
     shared_ptr<string> workloadAccessToken_ {};
   };
 

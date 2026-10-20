@@ -13,6 +13,7 @@ namespace Models
   class GetResourceOAuth2TokenShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetResourceOAuth2TokenShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Audience, audience_);
       DARABONBA_PTR_TO_JSON(CustomParameters, customParametersShrink_);
       DARABONBA_PTR_TO_JSON(CustomState, customState_);
       DARABONBA_PTR_TO_JSON(ForceAuthentication, forceAuthentication_);
@@ -21,9 +22,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOAuth2ReturnURL, resourceOAuth2ReturnURL_);
       DARABONBA_PTR_TO_JSON(Scopes, scopesShrink_);
       DARABONBA_PTR_TO_JSON(SessionURI, sessionURI_);
+      DARABONBA_PTR_TO_JSON(TokenVaultName, tokenVaultName_);
       DARABONBA_PTR_TO_JSON(WorkloadAccessToken, workloadAccessToken_);
     };
     friend void from_json(const Darabonba::Json& j, GetResourceOAuth2TokenShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Audience, audience_);
       DARABONBA_PTR_FROM_JSON(CustomParameters, customParametersShrink_);
       DARABONBA_PTR_FROM_JSON(CustomState, customState_);
       DARABONBA_PTR_FROM_JSON(ForceAuthentication, forceAuthentication_);
@@ -32,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOAuth2ReturnURL, resourceOAuth2ReturnURL_);
       DARABONBA_PTR_FROM_JSON(Scopes, scopesShrink_);
       DARABONBA_PTR_FROM_JSON(SessionURI, sessionURI_);
+      DARABONBA_PTR_FROM_JSON(TokenVaultName, tokenVaultName_);
       DARABONBA_PTR_FROM_JSON(WorkloadAccessToken, workloadAccessToken_);
     };
     GetResourceOAuth2TokenShrinkRequest() = default ;
@@ -45,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->customParametersShrink_ == nullptr
-        && this->customState_ == nullptr && this->forceAuthentication_ == nullptr && this->OAuth2Flow_ == nullptr && this->resourceCredentialProviderName_ == nullptr && this->resourceOAuth2ReturnURL_ == nullptr
-        && this->scopesShrink_ == nullptr && this->sessionURI_ == nullptr && this->workloadAccessToken_ == nullptr; };
+    virtual bool empty() const override { return this->audience_ == nullptr
+        && this->customParametersShrink_ == nullptr && this->customState_ == nullptr && this->forceAuthentication_ == nullptr && this->OAuth2Flow_ == nullptr && this->resourceCredentialProviderName_ == nullptr
+        && this->resourceOAuth2ReturnURL_ == nullptr && this->scopesShrink_ == nullptr && this->sessionURI_ == nullptr && this->tokenVaultName_ == nullptr && this->workloadAccessToken_ == nullptr; };
+    // audience Field Functions 
+    bool hasAudience() const { return this->audience_ != nullptr;};
+    void deleteAudience() { this->audience_ = nullptr;};
+    inline string getAudience() const { DARABONBA_PTR_GET_DEFAULT(audience_, "") };
+    inline GetResourceOAuth2TokenShrinkRequest& setAudience(string audience) { DARABONBA_PTR_SET_VALUE(audience_, audience) };
+
+
     // customParametersShrink Field Functions 
     bool hasCustomParametersShrink() const { return this->customParametersShrink_ != nullptr;};
     void deleteCustomParametersShrink() { this->customParametersShrink_ = nullptr;};
@@ -104,6 +115,13 @@ namespace Models
     inline GetResourceOAuth2TokenShrinkRequest& setSessionURI(string sessionURI) { DARABONBA_PTR_SET_VALUE(sessionURI_, sessionURI) };
 
 
+    // tokenVaultName Field Functions 
+    bool hasTokenVaultName() const { return this->tokenVaultName_ != nullptr;};
+    void deleteTokenVaultName() { this->tokenVaultName_ = nullptr;};
+    inline string getTokenVaultName() const { DARABONBA_PTR_GET_DEFAULT(tokenVaultName_, "") };
+    inline GetResourceOAuth2TokenShrinkRequest& setTokenVaultName(string tokenVaultName) { DARABONBA_PTR_SET_VALUE(tokenVaultName_, tokenVaultName) };
+
+
     // workloadAccessToken Field Functions 
     bool hasWorkloadAccessToken() const { return this->workloadAccessToken_ != nullptr;};
     void deleteWorkloadAccessToken() { this->workloadAccessToken_ = nullptr;};
@@ -112,6 +130,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> audience_ {};
     shared_ptr<string> customParametersShrink_ {};
     shared_ptr<string> customState_ {};
     shared_ptr<bool> forceAuthentication_ {};
@@ -120,6 +139,7 @@ namespace Models
     shared_ptr<string> resourceOAuth2ReturnURL_ {};
     shared_ptr<string> scopesShrink_ {};
     shared_ptr<string> sessionURI_ {};
+    shared_ptr<string> tokenVaultName_ {};
     shared_ptr<string> workloadAccessToken_ {};
   };
 

@@ -155,6 +155,10 @@ GetResourceAPIKeyResponse Client::getResourceAPIKeyWithOptions(const GetResource
     body["ResourceCredentialProviderName"] = request.getResourceCredentialProviderName();
   }
 
+  if (!!request.hasTokenVaultName()) {
+    body["TokenVaultName"] = request.getTokenVaultName();
+  }
+
   if (!!request.hasWorkloadAccessToken()) {
     body["WorkloadAccessToken"] = request.getWorkloadAccessToken();
   }
@@ -207,6 +211,10 @@ GetResourceOAuth2TokenResponse Client::getResourceOAuth2TokenWithOptions(const G
   }
 
   json body = {};
+  if (!!request.hasAudience()) {
+    body["Audience"] = request.getAudience();
+  }
+
   if (!!request.hasCustomParametersShrink()) {
     body["CustomParameters"] = request.getCustomParametersShrink();
   }
@@ -237,6 +245,10 @@ GetResourceOAuth2TokenResponse Client::getResourceOAuth2TokenWithOptions(const G
 
   if (!!request.hasSessionURI()) {
     body["SessionURI"] = request.getSessionURI();
+  }
+
+  if (!!request.hasTokenVaultName()) {
+    body["TokenVaultName"] = request.getTokenVaultName();
   }
 
   if (!!request.hasWorkloadAccessToken()) {

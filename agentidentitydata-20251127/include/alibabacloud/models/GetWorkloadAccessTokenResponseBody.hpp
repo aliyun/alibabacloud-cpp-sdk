@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetWorkloadAccessTokenResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(WorkloadAccessToken, workloadAccessToken_);
+      DARABONBA_PTR_TO_JSON(WorkloadIdentityArn, workloadIdentityArn_);
     };
     friend void from_json(const Darabonba::Json& j, GetWorkloadAccessTokenResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(WorkloadAccessToken, workloadAccessToken_);
+      DARABONBA_PTR_FROM_JSON(WorkloadIdentityArn, workloadIdentityArn_);
     };
     GetWorkloadAccessTokenResponseBody() = default ;
     GetWorkloadAccessTokenResponseBody(const GetWorkloadAccessTokenResponseBody &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->workloadAccessToken_ == nullptr; };
+        && this->workloadAccessToken_ == nullptr && this->workloadIdentityArn_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -47,9 +49,17 @@ namespace Models
     inline GetWorkloadAccessTokenResponseBody& setWorkloadAccessToken(string workloadAccessToken) { DARABONBA_PTR_SET_VALUE(workloadAccessToken_, workloadAccessToken) };
 
 
+    // workloadIdentityArn Field Functions 
+    bool hasWorkloadIdentityArn() const { return this->workloadIdentityArn_ != nullptr;};
+    void deleteWorkloadIdentityArn() { this->workloadIdentityArn_ = nullptr;};
+    inline string getWorkloadIdentityArn() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityArn_, "") };
+    inline GetWorkloadAccessTokenResponseBody& setWorkloadIdentityArn(string workloadIdentityArn) { DARABONBA_PTR_SET_VALUE(workloadIdentityArn_, workloadIdentityArn) };
+
+
   protected:
     shared_ptr<string> requestId_ {};
     shared_ptr<string> workloadAccessToken_ {};
+    shared_ptr<string> workloadIdentityArn_ {};
   };
 
   } // namespace Models
