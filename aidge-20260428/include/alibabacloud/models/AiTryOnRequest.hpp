@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The URL of the clothing image. Only one image is supported. The URL must be a publicly accessible `http`/`https` address. The image must be in JPG, JPEG, PNG, BMP, or WEBP format, with a resolution between 256 × 256 and 2049 × 2049 pixels, and a file size of no more than 10 MB.<br>
+    // The URL of the garment image. Only one image is supported. The URL must be a publicly accessible `http` or `https` address. The image must be in JPG, JPEG, PNG, BMP, or WEBP format, with a resolution between 256×256 and 2049×2049 pixels, and a file size not exceeding 10 MB.<br>
     // 
     // This parameter is required.
     shared_ptr<string> clothImageUrl_ {};
-    // The clothing type. If specified, the value must be one of the following: tops/bottoms/dresses/tops_and_bottoms/shoes/hats. If not specified, the system automatically identifies the type.
+    // The type of the garment. Valid values: tops, bottoms, dresses, tops_and_bottoms, shoes, and hats. If this parameter is not specified, the system automatically recognizes the garment type.
     shared_ptr<string> clothType_ {};
-    // The URL of the model image. Only one image is supported. The URL must be a publicly accessible `http`/`https` address. The image must be in JPG, JPEG, PNG, BMP, or WEBP format, with a resolution between 256 × 256 and 2049 × 2049 pixels, and a file size of no more than 10 MB.<br>
+    // The URL of the model image. Only one image is supported. The URL must be a publicly accessible `http` or `https` address. The image must be in JPG, JPEG, PNG, BMP, or WEBP format, with a resolution between 256×256 and 2049×2049 pixels, and a file size not exceeding 10 MB.<br>
     // 
     // This parameter is required.
     shared_ptr<string> modelImageUrl_ {};
-    // The output image resolution. The synchronous API supports only 1K.
+    // The resolution of the output image. Synchronous API operations only support 1K resolution.
     // 
     // This parameter is required.
     shared_ptr<string> resolution_ {};

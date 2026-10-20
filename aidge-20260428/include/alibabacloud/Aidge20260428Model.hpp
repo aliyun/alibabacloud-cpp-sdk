@@ -2,6 +2,10 @@
 #ifndef ALIBABACLOUD_AIDGE20260428MODEL_HPP_
 #define ALIBABACLOUD_AIDGE20260428MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddDisplayKnowledgeRequest.hpp>
+#include <alibabacloud/models/AddDisplayKnowledgeShrinkRequest.hpp>
+#include <alibabacloud/models/AddDisplayKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/AddDisplayKnowledgeResponse.hpp>
 #include <alibabacloud/models/AiTryOnRequest.hpp>
 #include <alibabacloud/models/AiTryOnResponseBody.hpp>
 #include <alibabacloud/models/AiTryOnResponse.hpp>
@@ -19,6 +23,10 @@
 #include <alibabacloud/models/CategoryMatchRequest.hpp>
 #include <alibabacloud/models/CategoryMatchResponseBody.hpp>
 #include <alibabacloud/models/CategoryMatchResponse.hpp>
+#include <alibabacloud/models/DeleteDisplayKnowledgeRequest.hpp>
+#include <alibabacloud/models/DeleteDisplayKnowledgeShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteDisplayKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/DeleteDisplayKnowledgeResponse.hpp>
 #include <alibabacloud/models/DiduiAreaDeductionRequest.hpp>
 #include <alibabacloud/models/DiduiAreaDeductionShrinkRequest.hpp>
 #include <alibabacloud/models/DiduiAreaDeductionResponseBody.hpp>
@@ -130,6 +138,10 @@
 #include <alibabacloud/models/QueryAsyncTaskResultRequest.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponseBody.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponse.hpp>
+#include <alibabacloud/models/QueryDisplayKnowledgeRequest.hpp>
+#include <alibabacloud/models/QueryDisplayKnowledgeShrinkRequest.hpp>
+#include <alibabacloud/models/QueryDisplayKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/QueryDisplayKnowledgeResponse.hpp>
 #include <alibabacloud/models/SizeChartDetectRequest.hpp>
 #include <alibabacloud/models/SizeChartDetectResponseBody.hpp>
 #include <alibabacloud/models/SizeChartDetectResponse.hpp>
@@ -158,6 +170,10 @@
 #include <alibabacloud/models/TextTranslateAsyncShrinkRequest.hpp>
 #include <alibabacloud/models/TextTranslateAsyncResponseBody.hpp>
 #include <alibabacloud/models/TextTranslateAsyncResponse.hpp>
+#include <alibabacloud/models/UpdateDisplayKnowledgeRequest.hpp>
+#include <alibabacloud/models/UpdateDisplayKnowledgeShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateDisplayKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/UpdateDisplayKnowledgeResponse.hpp>
 #include <alibabacloud/models/VideoGenerationRequest.hpp>
 #include <alibabacloud/models/VideoGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/VideoGenerationResponseBody.hpp>
