@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The input content.
     Darabonba::Json input_ {};
+    // The input type.
     shared_ptr<string> type_ {};
   };
 

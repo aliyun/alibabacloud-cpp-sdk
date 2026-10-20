@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_DLFNEXT20250310MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CacheCluster.hpp>
+#include <alibabacloud/models/CacheLoadTaskInfo.hpp>
 #include <alibabacloud/models/Catalog.hpp>
 #include <alibabacloud/models/MoMValues.hpp>
 #include <alibabacloud/models/CatalogSummary.hpp>
@@ -53,6 +54,7 @@
 #include <alibabacloud/models/Table.hpp>
 #include <alibabacloud/models/TableCompaction.hpp>
 #include <alibabacloud/models/TableCompactionHistory.hpp>
+#include <alibabacloud/models/TableConsumer.hpp>
 #include <alibabacloud/models/TableSnapshot.hpp>
 #include <alibabacloud/models/TableSummary.hpp>
 #include <alibabacloud/models/TagResource.hpp>

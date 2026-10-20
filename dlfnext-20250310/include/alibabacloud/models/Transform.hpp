@@ -76,9 +76,13 @@ namespace Models
 
 
   protected:
+    // The target data type.
     shared_ptr<FullDataType> castType_ {};
+    // The field reference object.
     shared_ptr<FieldRef> fieldRef_ {};
+    // The input parameters.
     shared_ptr<vector<TransformInput>> inputs_ {};
+    // The name of the transformation function.
     shared_ptr<string> name_ {};
   };
 

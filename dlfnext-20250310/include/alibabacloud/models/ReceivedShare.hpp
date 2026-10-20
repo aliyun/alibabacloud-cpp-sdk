@@ -132,16 +132,17 @@ namespace Models
   protected:
     // The catalog name.
     shared_ptr<string> catalogName_ {};
-    // The comment of the share.
+    // The comment on the share.
     shared_ptr<string> comment_ {};
     // The creation time.
     shared_ptr<int64_t> createdAt_ {};
-    // The creator of the share.
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // Specifies whether write operations are allowed on the shared resources.
     shared_ptr<bool> enableWrite_ {};
     // The share owner.
     shared_ptr<string> owner_ {};
-    // The provider\\"s account ID.
+    // The account ID of the provider.
     shared_ptr<int64_t> providerTenantId_ {};
     // The share ID.
     shared_ptr<string> shareId_ {};
@@ -149,7 +150,7 @@ namespace Models
     shared_ptr<string> shareName_ {};
     // The update time.
     shared_ptr<int64_t> updatedAt_ {};
-    // The user who last updated the share.
+    // The updater.
     shared_ptr<string> updatedBy_ {};
   };
 

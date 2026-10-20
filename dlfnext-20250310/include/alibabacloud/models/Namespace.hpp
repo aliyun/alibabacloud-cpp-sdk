@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The creation time, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
+    // The user who created the namespace.
     shared_ptr<string> createdBy_ {};
+    // The namespace ID.
     shared_ptr<string> id_ {};
+    // The storage path of the namespace.
     shared_ptr<string> location_ {};
+    // The name of the namespace.
     shared_ptr<string> name_ {};
+    // The extension options for the namespace.
     shared_ptr<map<string, string>> options_ {};
+    // The namespace owner.
     shared_ptr<string> owner_ {};
+    // The update time, represented as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who updated the namespace.
     shared_ptr<string> updatedBy_ {};
   };
 

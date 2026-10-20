@@ -95,7 +95,9 @@ namespace Models
 
 
     protected:
+      // The list of included column names.
       shared_ptr<vector<string>> columnNames_ {};
+      // The list of excluded column names.
       shared_ptr<vector<string>> excludedColumnNames_ {};
     };
 
@@ -188,19 +190,25 @@ namespace Models
   protected:
     // The access type.
     shared_ptr<string> access_ {};
+    // The column masking transformation rules mapped by column name. The key is the column name, and the value is the corresponding masking transformation configuration.
     shared_ptr<map<string, ColumnMask>> columnMasking_ {};
+    // The custom columns.
     shared_ptr<Permission::Columns> columns_ {};
     // The database name.
     shared_ptr<string> database_ {};
+    // The expiration time.
     shared_ptr<string> expireTime_ {};
+    // The function name.
     shared_ptr<string> function_ {};
     // The user resource descriptor.
     shared_ptr<string> principal_ {};
     // The permission resource type.
     shared_ptr<string> resourceType_ {};
+    // The row filter.
     shared_ptr<RowFilter> rowFilter_ {};
     // The table name.
     shared_ptr<string> table_ {};
+    // The view name.
     shared_ptr<string> view_ {};
   };
 

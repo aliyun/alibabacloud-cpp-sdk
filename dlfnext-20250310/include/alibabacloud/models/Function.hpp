@@ -161,18 +161,31 @@ namespace Models
 
 
   protected:
+    // The comment information.
     shared_ptr<string> comment_ {};
+    // The creation time.
     shared_ptr<int64_t> createdAt_ {};
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // The function metadata definitions.
     shared_ptr<map<string, FunctionDefinition>> definitions_ {};
+    // Specifies whether the same input always returns the same output.
     shared_ptr<bool> deterministic_ {};
+    // ID
     shared_ptr<string> id_ {};
+    // The field input parameters.
     shared_ptr<vector<DataField>> inputParams_ {};
+    // The function name.
     shared_ptr<string> name_ {};
+    // The extension options.
     shared_ptr<map<string, string>> options_ {};
+    // The owner.
     shared_ptr<string> owner_ {};
+    // The return fields of the function.
     shared_ptr<vector<DataField>> returnParams_ {};
+    // The update time.
     shared_ptr<int64_t> updatedAt_ {};
+    // The updater.
     shared_ptr<string> updatedBy_ {};
   };
 

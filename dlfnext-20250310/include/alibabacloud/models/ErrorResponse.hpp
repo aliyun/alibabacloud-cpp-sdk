@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<int32_t> code_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The name of the resource involved in the error.
     shared_ptr<string> resourceName_ {};
+    // The type of the resource involved in the error.
     shared_ptr<string> resourceType_ {};
   };
 

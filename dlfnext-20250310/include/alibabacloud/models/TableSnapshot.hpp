@@ -97,19 +97,19 @@ namespace Models
 
 
   protected:
-    // The total number of files in the snapshot.
+    // The number of files.
     shared_ptr<int64_t> fileCount_ {};
-    // The total size of all files in the snapshot, in bytes.
+    // The file size.
     shared_ptr<int64_t> fileSizeInBytes_ {};
-    // The creation time of the most recent file in the snapshot, as a Unix timestamp in milliseconds.
+    // The creation time of the latest file.
     shared_ptr<int64_t> lastFileCreationTime_ {};
-    // The total number of partitions in the table.
+    // The number of partitions.
     shared_ptr<int64_t> partitionCount_ {};
-    // The total number of records in the snapshot.
+    // The number of records.
     shared_ptr<int64_t> recordCount_ {};
-    // Contains detailed information about the snapshot.
+    // The name of the snapshot.
     shared_ptr<Snapshot> snapshot_ {};
-    // The total number of buckets in the table.
+    // The total number of buckets.
     shared_ptr<int32_t> totalBuckets_ {};
   };
 

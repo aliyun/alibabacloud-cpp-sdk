@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The snapshot ID.
     shared_ptr<int64_t> snapshotId_ {};
+    // The tag name.
     shared_ptr<string> tagName_ {};
+    // The location method type.
     shared_ptr<string> type_ {};
   };
 

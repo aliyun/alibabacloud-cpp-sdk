@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Resource type
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Resource path
+    // The resource path.
     shared_ptr<string> uri_ {};
   };
 

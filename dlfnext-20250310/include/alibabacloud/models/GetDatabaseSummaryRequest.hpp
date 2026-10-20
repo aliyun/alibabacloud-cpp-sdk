@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The date of the storage overview.
+    // The date of the storage overview, in the YYYY-MM-DD format.
     shared_ptr<string> date_ {};
   };
 

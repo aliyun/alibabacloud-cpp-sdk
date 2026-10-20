@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The resource ID, which is the data catalog ID.
+    // The resource ID, which is the catalog ID.
     shared_ptr<string> resourceId_ {};
     // The resource type, which is fixed to CATALOGRESOURCE.
     shared_ptr<string> resourceType_ {};

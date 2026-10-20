@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(generatedDate, generatedDate_);
       DARABONBA_PTR_TO_JSON(lastAccessTime, lastAccessTime_);
       DARABONBA_PTR_TO_JSON(lastRequester, lastRequester_);
+      DARABONBA_PTR_TO_JSON(latestSnapshotDataSizeInBytes, latestSnapshotDataSizeInBytes_);
       DARABONBA_PTR_TO_JSON(objTypeArchiveSize, objTypeArchiveSize_);
       DARABONBA_PTR_TO_JSON(objTypeColdArchiveSize, objTypeColdArchiveSize_);
       DARABONBA_PTR_TO_JSON(objTypeIaSize, objTypeIaSize_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(generatedDate, generatedDate_);
       DARABONBA_PTR_FROM_JSON(lastAccessTime, lastAccessTime_);
       DARABONBA_PTR_FROM_JSON(lastRequester, lastRequester_);
+      DARABONBA_PTR_FROM_JSON(latestSnapshotDataSizeInBytes, latestSnapshotDataSizeInBytes_);
       DARABONBA_PTR_FROM_JSON(objTypeArchiveSize, objTypeArchiveSize_);
       DARABONBA_PTR_FROM_JSON(objTypeColdArchiveSize, objTypeColdArchiveSize_);
       DARABONBA_PTR_FROM_JSON(objTypeIaSize, objTypeIaSize_);
@@ -81,11 +83,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->databaseName_ == nullptr && this->generatedDate_ == nullptr && this->lastAccessTime_ == nullptr && this->lastRequester_ == nullptr && this->objTypeArchiveSize_ == nullptr
-        && this->objTypeColdArchiveSize_ == nullptr && this->objTypeIaSize_ == nullptr && this->objTypeStandardSize_ == nullptr && this->partitionCount_ == nullptr && this->path_ == nullptr
-        && this->storageActionParams_ == nullptr && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr && this->tableName_ == nullptr && this->topRequester_ == nullptr
-        && this->totalFileAccessNum_ == nullptr && this->totalFileAccessNum30d_ == nullptr && this->totalFileAccessNum7d_ == nullptr && this->totalFileCount_ == nullptr && this->totalFileSizeInBytes_ == nullptr
-        && this->totalMetaFileCount_ == nullptr && this->totalMetaSizeInBytes_ == nullptr && this->unaccessedStdIaPartitionCount180d_ == nullptr && this->unaccessedStdPartitionCount30d_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->databaseName_ == nullptr && this->generatedDate_ == nullptr && this->lastAccessTime_ == nullptr && this->lastRequester_ == nullptr && this->latestSnapshotDataSizeInBytes_ == nullptr
+        && this->objTypeArchiveSize_ == nullptr && this->objTypeColdArchiveSize_ == nullptr && this->objTypeIaSize_ == nullptr && this->objTypeStandardSize_ == nullptr && this->partitionCount_ == nullptr
+        && this->path_ == nullptr && this->storageActionParams_ == nullptr && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr && this->tableName_ == nullptr
+        && this->topRequester_ == nullptr && this->totalFileAccessNum_ == nullptr && this->totalFileAccessNum30d_ == nullptr && this->totalFileAccessNum7d_ == nullptr && this->totalFileCount_ == nullptr
+        && this->totalFileSizeInBytes_ == nullptr && this->totalMetaFileCount_ == nullptr && this->totalMetaSizeInBytes_ == nullptr && this->unaccessedStdIaPartitionCount180d_ == nullptr && this->unaccessedStdPartitionCount30d_ == nullptr
+        && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -119,6 +122,13 @@ namespace Models
     void deleteLastRequester() { this->lastRequester_ = nullptr;};
     inline string getLastRequester() const { DARABONBA_PTR_GET_DEFAULT(lastRequester_, "") };
     inline TableSummary& setLastRequester(string lastRequester) { DARABONBA_PTR_SET_VALUE(lastRequester_, lastRequester) };
+
+
+    // latestSnapshotDataSizeInBytes Field Functions 
+    bool hasLatestSnapshotDataSizeInBytes() const { return this->latestSnapshotDataSizeInBytes_ != nullptr;};
+    void deleteLatestSnapshotDataSizeInBytes() { this->latestSnapshotDataSizeInBytes_ = nullptr;};
+    inline int64_t getLatestSnapshotDataSizeInBytes() const { DARABONBA_PTR_GET_DEFAULT(latestSnapshotDataSizeInBytes_, 0L) };
+    inline TableSummary& setLatestSnapshotDataSizeInBytes(int64_t latestSnapshotDataSizeInBytes) { DARABONBA_PTR_SET_VALUE(latestSnapshotDataSizeInBytes_, latestSnapshotDataSizeInBytes) };
 
 
     // objTypeArchiveSize Field Functions 
@@ -271,52 +281,57 @@ namespace Models
 
 
   protected:
-    // The timestamp, in milliseconds, indicating when the table was created.
+    // The table creation time.
     shared_ptr<int64_t> createdAt_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> databaseName_ {};
-    // The generation date of the storage summary.
+    // The update date of the storage overview data.
     shared_ptr<string> generatedDate_ {};
-    // The timestamp, in milliseconds, indicating when the table data was last accessed.
+    // The last data access time of the table.
     shared_ptr<int64_t> lastAccessTime_ {};
+    // The last requester.
     shared_ptr<string> lastRequester_ {};
-    // The total size of data files in the Archive storage class, in bytes.
+    // The storage size of the latest snapshot, in bytes.
+    shared_ptr<int64_t> latestSnapshotDataSizeInBytes_ {};
+    // The storage size of archive data files.
     shared_ptr<int64_t> objTypeArchiveSize_ {};
-    // The total size of data files in the Cold Archive storage class, in bytes.
+    // The storage size of cold archive data files.
     shared_ptr<int64_t> objTypeColdArchiveSize_ {};
-    // The total size of data files in the Infrequent Access storage class, in bytes.
+    // The storage size of infrequent access data files.
     shared_ptr<int64_t> objTypeIaSize_ {};
-    // The total size of data files in the Standard storage class, in bytes.
+    // The storage size of standard data files.
     shared_ptr<int64_t> objTypeStandardSize_ {};
-    // The total number of partitions in the table.
+    // The total number of partitions.
     shared_ptr<int64_t> partitionCount_ {};
-    // The storage location of the table.
+    // The storage location.
     shared_ptr<string> path_ {};
     // The storage action parameters.
     shared_ptr<map<string, string>> storageActionParams_ {};
+    // The storage class transition time.
     shared_ptr<int64_t> storageActionTimestamp_ {};
     // The storage class.
     shared_ptr<string> storageClass_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
+    // The top requester of the day.
     shared_ptr<string> topRequester_ {};
-    // Total file access count.
+    // The total number of file accesses.
     shared_ptr<int64_t> totalFileAccessNum_ {};
-    // Total file access count over the last 30 days.
+    // The total number of file accesses in the last 7 days.
     shared_ptr<int64_t> totalFileAccessNum30d_ {};
-    // Total file access count over the last 7 days.
+    // The total number of file accesses in the last 30 days.
     shared_ptr<int64_t> totalFileAccessNum7d_ {};
-    // The total number of files in the table.
+    // The total number of table files.
     shared_ptr<int64_t> totalFileCount_ {};
-    // The total storage capacity of the table, in bytes.
+    // The table storage capacity, in bytes.
     shared_ptr<int64_t> totalFileSizeInBytes_ {};
-    // The total number of metadata files.
+    // The number of metadata files.
     shared_ptr<int64_t> totalMetaFileCount_ {};
-    // The total size of metadata files, in bytes.
+    // The storage size of metadata files.
     shared_ptr<int64_t> totalMetaSizeInBytes_ {};
-    // The number of Standard or Infrequent Access partitions unaccessed in the last 180 days.
+    // The number of standard or infrequent access partitions that have not been accessed in the last 180 days.
     shared_ptr<int64_t> unaccessedStdIaPartitionCount180d_ {};
-    // The number of Standard partitions unaccessed in the last 30 days.
+    // The number of standard storage partitions that have not been accessed in the last 30 days.
     shared_ptr<int64_t> unaccessedStdPartitionCount30d_ {};
     // The update time.
     shared_ptr<int64_t> updatedAt_ {};

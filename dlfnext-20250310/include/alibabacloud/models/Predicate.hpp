@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The list of child nodes.
     shared_ptr<vector<Predicate>> children_ {};
+    // The assertion function.
     shared_ptr<string> function_ {};
+    // The assertion type.
     shared_ptr<string> kind_ {};
+    // The list of literal values.
     shared_ptr<vector<Darabonba::Json>> literals_ {};
+    // The transform rule.
     shared_ptr<Transform> transform_ {};
   };
 

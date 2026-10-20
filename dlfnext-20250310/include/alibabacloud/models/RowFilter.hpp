@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The expression.
     shared_ptr<string> expression_ {};
+    // The predicate.
     shared_ptr<string> predicate_ {};
   };
 

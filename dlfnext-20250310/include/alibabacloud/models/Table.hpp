@@ -192,33 +192,39 @@ namespace Models
 
 
   protected:
-    // The time when the table was created.
+    // The creation time.
     shared_ptr<int64_t> createdAt_ {};
-    // The creator of the table.
+    // The creator.
     shared_ptr<string> createdBy_ {};
+    // The Iceberg table metadata.
     shared_ptr<IcebergTableMetadata> icebergTableMetadata_ {};
-    // The UUID of the table.
+    // The table UUID.
     shared_ptr<string> id_ {};
-    // Indicates whether the table is an external table.
+    // Specifies whether the table is an external table.
     shared_ptr<bool> isExternal_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> name_ {};
-    // The owner of the table.
+    // The table owner.
     shared_ptr<string> owner_ {};
-    // The path of the table.
+    // The table path.
     shared_ptr<string> path_ {};
     // The table schema information.
     shared_ptr<Schema> schema_ {};
-    // The ID of the table schema.
+    // The table schema ID.
     shared_ptr<int64_t> schemaId_ {};
+    // The table status. A value of active indicates that the table is normal. A value of retained indicates that the table is soft-deleted but still retained in the recycle bin. A value of releasing indicates that the table is about to be permanently purged.
     shared_ptr<string> status_ {};
+    // The storage class transition status.
     shared_ptr<string> storageAction_ {};
+    // The storage class transition time.
     shared_ptr<int64_t> storageActionTimestamp_ {};
+    // The storage class.
     shared_ptr<string> storageClass_ {};
+    // The type.
     shared_ptr<string> type_ {};
-    // The time when the table was last updated.
+    // The update time.
     shared_ptr<int64_t> updatedAt_ {};
-    // The user who last updated the table.
+    // The updater.
     shared_ptr<string> updatedBy_ {};
   };
 

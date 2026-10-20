@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the resources. This parameter and TagKey are mutually exclusive.
+    // Specifies whether to delete all tags from the resources. This parameter and the TagKey parameter are mutually exclusive.
     shared_ptr<bool> all_ {};
-    // The list of data catalog IDs from which to remove tags. The value is a JSON array. Maximum: 50.
+    // The list of resource IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<string> resourceIdShrink_ {};
-    // The resource type. Valid value: CATALOGRESOURCE.
+    // The resource type. Valid value: catalog.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The list of tag keys to remove. The value is a JSON array. This parameter and All are mutually exclusive.
+    // The list of tag keys. This parameter and the All parameter are mutually exclusive.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The end date, in yyyy-MM-dd format.
+    // The end date in the yyyy-MM-dd format. The result includes the end date.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // The start date, in yyyy-MM-dd format.
+    // The start date in the yyyy-MM-dd format. The result includes the start date.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};

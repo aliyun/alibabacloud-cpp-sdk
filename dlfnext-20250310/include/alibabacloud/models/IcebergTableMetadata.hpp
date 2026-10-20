@@ -90,12 +90,13 @@ namespace Models
 
 
   protected:
-    // The latest snapshot of the Iceberg table.
+    // The latest Iceberg snapshot.
     shared_ptr<IcebergSnapshot> currentSnapshot_ {};
-    // The fields.
+    // The column fields.
     shared_ptr<vector<IcebergNestedField>> fields_ {};
+    // The list of field IDs for the Iceberg identifier fields. The array elements are the integer IDs of the identifier fields in the Iceberg schema.
     shared_ptr<vector<int32_t>> identifierFieldIds_ {};
-    // The partition fields.
+    // The list of partition fields.
     shared_ptr<vector<IcebergPartitionField>> partitionFields_ {};
     // The properties.
     shared_ptr<map<string, string>> properties_ {};

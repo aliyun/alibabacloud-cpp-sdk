@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The column masking expression.
     shared_ptr<string> expression_ {};
+    // The column masking transform method.
     shared_ptr<string> transform_ {};
   };
 

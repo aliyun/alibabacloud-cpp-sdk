@@ -87,6 +87,7 @@ namespace Models
 
 
   protected:
+    // The change type.
     shared_ptr<string> action_ {};
     // required in UpdateFunctionComment
     shared_ptr<string> comment_ {};

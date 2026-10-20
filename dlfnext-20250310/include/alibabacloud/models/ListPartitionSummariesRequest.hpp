@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. If the response does not include this token, pass an empty string ("").
+    // The pagination token used to retrieve the next page of data. If it is not provided in the response, pass an empty string ("") or an empty character (\\"\\").
     shared_ptr<string> pageToken_ {};
     // The partition name pattern.
     shared_ptr<string> partitionNamePattern_ {};

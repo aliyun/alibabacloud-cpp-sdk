@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of catalogs.
     shared_ptr<int32_t> catalogSizeLimit_ {};
+    // The maximum number of recipients.
     shared_ptr<int32_t> receiverSizeLimit_ {};
+    // The maximum shared resource count.
     shared_ptr<int32_t> shareResourceSizeLimit_ {};
+    // The maximum number of shares.
     shared_ptr<int32_t> shareSizeLimit_ {};
   };
 

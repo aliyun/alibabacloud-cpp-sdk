@@ -147,7 +147,9 @@ namespace Models
     shared_ptr<map<string, string>> options_ {};
     // The owner of the database.
     shared_ptr<string> owner_ {};
+    // The status of the database.
     shared_ptr<string> status_ {};
+    // The number of tables in the database.
     shared_ptr<int64_t> tableCount_ {};
     // The update time.
     shared_ptr<int64_t> updatedAt_ {};

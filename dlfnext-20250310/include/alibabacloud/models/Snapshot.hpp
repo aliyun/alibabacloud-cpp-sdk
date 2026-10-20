@@ -227,26 +227,47 @@ namespace Models
 
 
   protected:
+    // The file name of the base manifest list.
     shared_ptr<string> baseManifestList_ {};
+    // The file name of the manifest list that records all changelogs generated for the snapshot.
     shared_ptr<string> changelogManifestList_ {};
+    // The number of changelog records generated for the snapshot.
     shared_ptr<int64_t> changelogRecordCount_ {};
+    // The transaction ID of the streaming write.
     shared_ptr<int64_t> commitIdentifier_ {};
+    // The streaming write type. Valid values: APPEND, COMPACT, OVERWRITE, and ANALYZE.
     shared_ptr<string> commitKind_ {};
+    // The commit user, which is typically a UUID used to resume streaming writes.
     shared_ptr<string> commitUser_ {};
+    // The file name of the manifest list that records all new changes in the snapshot.
     shared_ptr<string> deltaManifestList_ {};
+    // The number of new change records in the snapshot.
     shared_ptr<int64_t> deltaRecordCount_ {};
+    // The snapshot ID.
     shared_ptr<int64_t> id_ {};
+    // The string representation of the snapshot ID.
     shared_ptr<string> idString_ {};
+    // The file name of the manifest that records all index files of the table.
     shared_ptr<string> indexManifest_ {};
+    // The log offsets at the time of the commit.
     shared_ptr<map<string, int64_t>> logOffsets_ {};
+    // The string representation of the parent snapshot ID.
     shared_ptr<string> parentIdString_ {};
+    // The schema ID of the table when the snapshot was generated.
     shared_ptr<int64_t> schemaId_ {};
+    // The snapshot sequence number.
     shared_ptr<int64_t> sequenceNumber_ {};
+    // The file name of the table statistics information.
     shared_ptr<string> statistics_ {};
+    // The summary.
     shared_ptr<map<string, string>> summary_ {};
+    // The commit time, which is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> timeMillis_ {};
+    // The total number of records for all changes in the snapshot.
     shared_ptr<int64_t> totalRecordCount_ {};
+    // The file format version of the snapshot. The current version is 3.
     shared_ptr<int32_t> version_ {};
+    // The watermark value.
     shared_ptr<int64_t> watermark_ {};
   };
 

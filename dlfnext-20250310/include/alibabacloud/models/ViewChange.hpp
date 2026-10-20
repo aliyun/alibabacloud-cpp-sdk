@@ -84,16 +84,17 @@ namespace Models
 
 
   protected:
+    // The type of the view change operation.
     shared_ptr<string> action_ {};
-    // required in UpdateComment
+    // The view comment. Required when you perform the updateComment operation.
     shared_ptr<string> comment_ {};
-    // required in AddDialect/UpdateDialect/DropDialect
+    // The dialect used in the view query statement. Required when you perform the addDialect, updateDialect, or dropDialect operation.
     shared_ptr<string> dialect_ {};
-    // required in SetOption/RemoveOption
+    // The key of the view property. Required when you perform the setOption or removeOption operation.
     shared_ptr<string> key_ {};
-    // required in AddDialect/UpdateDialect
+    // The view query statement. Required when you perform the addDialect or updateDialect operation.
     shared_ptr<string> query_ {};
-    // required in SetOption
+    // The value of the view property. Required when you perform the setOption operation.
     shared_ptr<string> value_ {};
   };
 

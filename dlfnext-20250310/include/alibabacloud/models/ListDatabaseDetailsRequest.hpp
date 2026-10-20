@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The SQL-style right fuzzy match pattern for database names. The percent sign (%) wildcard is supported.
+    // The SQL-style right fuzzy match pattern for database names. The percent sign (%) is supported.
     shared_ptr<string> databaseNamePattern_ {};
     // The page size.
-    // 
-    // Default value: 1000.
-    // 
-    // Maximum value: 1000.
+    // Default value:
+    // 	1000
+    // Maximum value:
+    // 	1000
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token used to retrieve the next page of results. If the response does not include this token, pass an empty string ("") or an empty character (\\"\\").
+    // The pagination token used to retrieve the next page of results. If no token is provided in the response, pass an empty string ("") or an empty character (\\"\\").
     shared_ptr<string> pageToken_ {};
+    // The filter for the database deletion status. active indicates a normal database, and retained indicates a soft-deleted database that is still retained in the recycle bin.
     shared_ptr<string> status_ {};
   };
 

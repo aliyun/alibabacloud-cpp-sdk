@@ -914,7 +914,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+ * @summary Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,7 +939,7 @@ DropCatalogResponse Client::dropCatalogWithOptions(const string &catalog, const 
 }
 
 /**
- * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+ * @summary Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
  *
  * @return DropCatalogResponse
  */
@@ -1094,7 +1094,7 @@ DropTableResponse Client::dropTable(const string &catalogId, const string &datab
 }
 
 /**
- * @summary Retrieves the details of a data catalog.
+ * @summary Retrieves the details of a catalog.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1119,7 +1119,7 @@ GetCatalogResponse Client::getCatalogWithOptions(const string &catalog, const ma
 }
 
 /**
- * @summary Retrieves the details of a data catalog.
+ * @summary Retrieves the details of a catalog.
  *
  * @return GetCatalogResponse
  */
@@ -1130,7 +1130,7 @@ GetCatalogResponse Client::getCatalog(const string &catalog) {
 }
 
 /**
- * @summary Retrieves the details of a data catalog.
+ * @summary Retrieves the details of a catalog.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1155,7 @@ GetCatalogByIdResponse Client::getCatalogByIdWithOptions(const string &id, const
 }
 
 /**
- * @summary Retrieves the details of a data catalog.
+ * @summary Retrieves the details of a catalog.
  *
  * @return GetCatalogByIdResponse
  */
@@ -1254,7 +1254,7 @@ GetCatalogSummaryResponse Client::getCatalogSummary(const string &catalogId, con
 }
 
 /**
- * @summary Retrieves the storage overview trend for a catalog.
+ * @summary Retrieves the storage overview trends of the data catalog.
  *
  * @param request GetCatalogSummaryTrendRequest
  * @param headers map
@@ -1291,7 +1291,7 @@ GetCatalogSummaryTrendResponse Client::getCatalogSummaryTrendWithOptions(const s
 }
 
 /**
- * @summary Retrieves the storage overview trend for a catalog.
+ * @summary Retrieves the storage overview trends of the data catalog.
  *
  * @param request GetCatalogSummaryTrendRequest
  * @return GetCatalogSummaryTrendResponse
@@ -1375,7 +1375,7 @@ GetDatabaseResponse Client::getDatabase(const string &catalogId, const string &d
 }
 
 /**
- * @summary You can view an inventory overview.
+ * @summary Retrieves the database storage overview.
  *
  * @param request GetDatabaseSummaryRequest
  * @param headers map
@@ -1408,7 +1408,7 @@ GetDatabaseSummaryResponse Client::getDatabaseSummaryWithOptions(const string &c
 }
 
 /**
- * @summary You can view an inventory overview.
+ * @summary Retrieves the database storage overview.
  *
  * @param request GetDatabaseSummaryRequest
  * @return GetDatabaseSummaryResponse
@@ -1792,7 +1792,7 @@ GetTableSnapshotResponse Client::getTableSnapshot(const string &catalogId, const
 }
 
 /**
- * @summary Retrieves the storage summary for a table.
+ * @summary Retrieves the table storage overview.
  *
  * @param request GetTableSummaryRequest
  * @param headers map
@@ -1825,7 +1825,7 @@ GetTableSummaryResponse Client::getTableSummaryWithOptions(const string &catalog
 }
 
 /**
- * @summary Retrieves the storage summary for a table.
+ * @summary Retrieves the table storage overview.
  *
  * @param request GetTableSummaryRequest
  * @return GetTableSummaryResponse
@@ -2012,7 +2012,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsers(const GrantRoleToUsersRequest 
 }
 
 /**
- * @summary Queries the list of data catalogs.
+ * @summary Queries the list of catalogs.
  *
  * @param request ListCatalogsRequest
  * @param headers map
@@ -2053,7 +2053,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const ListCatalogsRequest &
 }
 
 /**
- * @summary Queries the list of data catalogs.
+ * @summary Queries the list of catalogs.
  *
  * @param request ListCatalogsRequest
  * @return ListCatalogsResponse
@@ -2065,7 +2065,9 @@ ListCatalogsResponse Client::listCatalogs(const ListCatalogsRequest &request) {
 }
 
 /**
- * @summary Lists databases in a data lake with paged query support.
+ * @summary Queries the list of databases in the data lake by using a paged query with paging.
+ *
+ * @description This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
  *
  * @param request ListDatabaseDetailsRequest
  * @param headers map
@@ -2110,7 +2112,9 @@ ListDatabaseDetailsResponse Client::listDatabaseDetailsWithOptions(const string 
 }
 
 /**
- * @summary Lists databases in a data lake with paged query support.
+ * @summary Queries the list of databases in the data lake by using a paged query with paging.
+ *
+ * @description This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
  *
  * @param request ListDatabaseDetailsRequest
  * @return ListDatabaseDetailsResponse
@@ -2383,7 +2387,7 @@ ListIcebergTableDetailsResponse Client::listIcebergTableDetails(const string &ca
 }
 
 /**
- * @summary Retrieves storage overview for partitions.
+ * @summary Retrieves the partition storage overview list.
  *
  * @param request ListPartitionSummariesRequest
  * @param headers map
@@ -2424,7 +2428,7 @@ ListPartitionSummariesResponse Client::listPartitionSummariesWithOptions(const s
 }
 
 /**
- * @summary Retrieves storage overview for partitions.
+ * @summary Retrieves the partition storage overview list.
  *
  * @param request ListPartitionSummariesRequest
  * @return ListPartitionSummariesResponse

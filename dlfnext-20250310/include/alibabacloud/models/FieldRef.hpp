@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // Text sequence
+    // The data sequence of the field.
     shared_ptr<int32_t> index_ {};
-    // Table name
+    // The field name.
     shared_ptr<string> name_ {};
-    // File type
+    // The data type of the field.
     shared_ptr<FullDataType> type_ {};
   };
 

@@ -343,7 +343,7 @@ namespace DlfNext20250310
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+       * @summary Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,7 +352,7 @@ namespace DlfNext20250310
       Models::DropCatalogResponse dropCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a data lake data catalog. The deletion fails unless the following conditions are met: all tables and self-managed databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
+       * @summary Deletes a DLF catalog. The deletion fails unless the following conditions are met: all tables and databases under the catalog have been deleted, and the databases and tables have been deleted for at least 24 hours.
        *
        * @return DropCatalogResponse
        */
@@ -423,7 +423,7 @@ namespace DlfNext20250310
       Models::DropTableResponse dropTable(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary Retrieves the details of a data catalog.
+       * @summary Retrieves the details of a catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -432,14 +432,14 @@ namespace DlfNext20250310
       Models::GetCatalogResponse getCatalogWithOptions(const string &catalog, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data catalog.
+       * @summary Retrieves the details of a catalog.
        *
        * @return GetCatalogResponse
        */
       Models::GetCatalogResponse getCatalog(const string &catalog);
 
       /**
-       * @summary Retrieves the details of a data catalog.
+       * @summary Retrieves the details of a catalog.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +448,7 @@ namespace DlfNext20250310
       Models::GetCatalogByIdResponse getCatalogByIdWithOptions(const string &id, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a data catalog.
+       * @summary Retrieves the details of a catalog.
        *
        * @return GetCatalogByIdResponse
        */
@@ -495,7 +495,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryResponse getCatalogSummary(const string &catalogId, const Models::GetCatalogSummaryRequest &request);
 
       /**
-       * @summary Retrieves the storage overview trend for a catalog.
+       * @summary Retrieves the storage overview trends of the data catalog.
        *
        * @param request GetCatalogSummaryTrendRequest
        * @param headers map
@@ -505,7 +505,7 @@ namespace DlfNext20250310
       Models::GetCatalogSummaryTrendResponse getCatalogSummaryTrendWithOptions(const string &catalogId, const Models::GetCatalogSummaryTrendRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage overview trend for a catalog.
+       * @summary Retrieves the storage overview trends of the data catalog.
        *
        * @param request GetCatalogSummaryTrendRequest
        * @return GetCatalogSummaryTrendResponse
@@ -545,7 +545,7 @@ namespace DlfNext20250310
       Models::GetDatabaseResponse getDatabase(const string &catalogId, const string &database);
 
       /**
-       * @summary You can view an inventory overview.
+       * @summary Retrieves the database storage overview.
        *
        * @param request GetDatabaseSummaryRequest
        * @param headers map
@@ -555,7 +555,7 @@ namespace DlfNext20250310
       Models::GetDatabaseSummaryResponse getDatabaseSummaryWithOptions(const string &catalogId, const string &database, const Models::GetDatabaseSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can view an inventory overview.
+       * @summary Retrieves the database storage overview.
        *
        * @param request GetDatabaseSummaryRequest
        * @return GetDatabaseSummaryResponse
@@ -727,7 +727,7 @@ namespace DlfNext20250310
       Models::GetTableSnapshotResponse getTableSnapshot(const string &catalogId, const string &database, const string &table);
 
       /**
-       * @summary Retrieves the storage summary for a table.
+       * @summary Retrieves the table storage overview.
        *
        * @param request GetTableSummaryRequest
        * @param headers map
@@ -737,7 +737,7 @@ namespace DlfNext20250310
       Models::GetTableSummaryResponse getTableSummaryWithOptions(const string &catalogId, const string &database, const string &table, const Models::GetTableSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the storage summary for a table.
+       * @summary Retrieves the table storage overview.
        *
        * @param request GetTableSummaryRequest
        * @return GetTableSummaryResponse
@@ -815,7 +815,7 @@ namespace DlfNext20250310
       Models::GrantRoleToUsersResponse grantRoleToUsers(const Models::GrantRoleToUsersRequest &request);
 
       /**
-       * @summary Queries the list of data catalogs.
+       * @summary Queries the list of catalogs.
        *
        * @param request ListCatalogsRequest
        * @param headers map
@@ -825,7 +825,7 @@ namespace DlfNext20250310
       Models::ListCatalogsResponse listCatalogsWithOptions(const Models::ListCatalogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of data catalogs.
+       * @summary Queries the list of catalogs.
        *
        * @param request ListCatalogsRequest
        * @return ListCatalogsResponse
@@ -833,7 +833,9 @@ namespace DlfNext20250310
       Models::ListCatalogsResponse listCatalogs(const Models::ListCatalogsRequest &request);
 
       /**
-       * @summary Lists databases in a data lake with paged query support.
+       * @summary Queries the list of databases in the data lake by using a paged query with paging.
+       *
+       * @description This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
        *
        * @param request ListDatabaseDetailsRequest
        * @param headers map
@@ -843,7 +845,9 @@ namespace DlfNext20250310
       Models::ListDatabaseDetailsResponse listDatabaseDetailsWithOptions(const string &catalogId, const Models::ListDatabaseDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists databases in a data lake with paged query support.
+       * @summary Queries the list of databases in the data lake by using a paged query with paging.
+       *
+       * @description This operation returns the DLF data access role and KMS key policy authorization statements required to configure BYOK SSE KMS. The customer master key is configured at the catalog level by using oss.sse.kms.key-id. When you create a table, you can enable SSE KMS for the table by setting the table property oss.sse.kms.enabled to true. Tables with KMS encryption enabled and tables without encryption can coexist in the same catalog.
        *
        * @param request ListDatabaseDetailsRequest
        * @return ListDatabaseDetailsResponse
@@ -941,7 +945,7 @@ namespace DlfNext20250310
       Models::ListIcebergTableDetailsResponse listIcebergTableDetails(const string &catalogId, const string &_namespace, const Models::ListIcebergTableDetailsRequest &request);
 
       /**
-       * @summary Retrieves storage overview for partitions.
+       * @summary Retrieves the partition storage overview list.
        *
        * @param request ListPartitionSummariesRequest
        * @param headers map
@@ -951,7 +955,7 @@ namespace DlfNext20250310
       Models::ListPartitionSummariesResponse listPartitionSummariesWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionSummariesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves storage overview for partitions.
+       * @summary Retrieves the partition storage overview list.
        *
        * @param request ListPartitionSummariesRequest
        * @return ListPartitionSummariesResponse
