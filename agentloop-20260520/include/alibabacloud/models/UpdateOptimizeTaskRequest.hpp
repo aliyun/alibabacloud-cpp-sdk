@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The type-related configurations. Optional prompts for ExperienceMining or SkillOptimize support only inline Markdown, and the body is saved to inputs.prompt.content (non-empty UTF-8, up to 16 KiB).
     Darabonba::Json config_ {};
+    // The status of the task. Valid values: Enabled and Disabled.
     shared_ptr<string> status_ {};
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
   };
 

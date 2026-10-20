@@ -134,17 +134,19 @@ namespace Models
 
 
     protected:
-      // The agent space name.
+      // The name of the agent workspace.
       shared_ptr<string> agentSpace_ {};
       // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      // The dataset name.
+      // The name of the dataset.
       shared_ptr<string> datasetName_ {};
-      // The dataset description.
+      // The description of the dataset.
       shared_ptr<string> description_ {};
+      // Indicates whether the dataset is added to favorites.
       shared_ptr<bool> isFavorite_ {};
+      // The labels of the dataset.
       shared_ptr<map<string, vector<string>>> labels_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -196,11 +198,11 @@ namespace Models
   protected:
     // The result set.
     shared_ptr<vector<ListDatasetsResponseBody::Datasets>> datasets_ {};
-    // The maximum number of results specified in this request.
+    // The maximum number of entries returned for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token for the next page of query results.
     // 
-    // If the total number of results exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+    // If the total number of returned results exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

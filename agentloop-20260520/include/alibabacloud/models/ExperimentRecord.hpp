@@ -245,7 +245,7 @@ namespace Models
 
 
   protected:
-    // The completion time in milliseconds.
+    // The completion timestamp in milliseconds.
     shared_ptr<int64_t> completedAt_ {};
     // The number of completed tasks.
     shared_ptr<int32_t> completedTasks_ {};
@@ -253,7 +253,7 @@ namespace Models
     shared_ptr<string> dataSourceType_ {};
     // The dataset ID.
     shared_ptr<string> datasetId_ {};
-    // The SLS project where the dataset is located.
+    // The Simple Log Service (SLS) project where the dataset is located.
     shared_ptr<string> datasetProject_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
@@ -261,7 +261,7 @@ namespace Models
     shared_ptr<string> evaluationTaskId_ {};
     // The list of evaluators.
     shared_ptr<vector<Evaluator>> evaluators_ {};
-    // The execution time in milliseconds.
+    // The execution timestamp in milliseconds.
     shared_ptr<int64_t> executedAt_ {};
     // The list of experiment configurations.
     shared_ptr<vector<ExperimentConfig>> experimentConfig_ {};

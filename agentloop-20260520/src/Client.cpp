@@ -2043,7 +2043,7 @@ GetExperimentRunResponse Client::getExperimentRun(const string &agentSpace, cons
 }
 
 /**
- * @summary 查询优化任务执行详情
+ * @summary Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
  *
  * @param request GetOptimizeRunRequest
  * @param headers map
@@ -2070,7 +2070,7 @@ GetOptimizeRunResponse Client::getOptimizeRunWithOptions(const string &agentSpac
 }
 
 /**
- * @summary 查询优化任务执行详情
+ * @summary Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
  *
  * @param request GetOptimizeRunRequest
  * @return GetOptimizeRunResponse
@@ -2082,7 +2082,7 @@ GetOptimizeRunResponse Client::getOptimizeRun(const string &agentSpace, const st
 }
 
 /**
- * @summary 查询优化任务
+ * @summary Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
  *
  * @param request GetOptimizeTaskRequest
  * @param headers map
@@ -2109,7 +2109,7 @@ GetOptimizeTaskResponse Client::getOptimizeTaskWithOptions(const string &agentSp
 }
 
 /**
- * @summary 查询优化任务
+ * @summary Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
  *
  * @param request GetOptimizeTaskRequest
  * @return GetOptimizeTaskResponse
@@ -2199,7 +2199,7 @@ GetPipelineRunResponse Client::getPipelineRun(const string &agentSpace, const st
 }
 
 /**
- * @summary Queries pipeline run statistics.
+ * @summary Queries the pipeline run statistics.
  *
  * @param request GetPipelineStatsRequest
  * @param headers map
@@ -2240,7 +2240,7 @@ GetPipelineStatsResponse Client::getPipelineStatsWithOptions(const string &agent
 }
 
 /**
- * @summary Queries pipeline run statistics.
+ * @summary Queries the pipeline run statistics.
  *
  * @param request GetPipelineStatsRequest
  * @return GetPipelineStatsResponse
@@ -3409,7 +3409,7 @@ SearchContextResponse Client::searchContext(const string &agentSpace, const stri
 }
 
 /**
- * @summary Stops a pipeline.
+ * @summary Terminates a pipeline.
  *
  * @param request TerminatePipelineRequest
  * @param headers map
@@ -3442,7 +3442,7 @@ TerminatePipelineResponse Client::terminatePipelineWithOptions(const string &age
 }
 
 /**
- * @summary Stops a pipeline.
+ * @summary Terminates a pipeline.
  *
  * @param request TerminatePipelineRequest
  * @return TerminatePipelineResponse
@@ -4120,7 +4120,7 @@ UpdateOptimizeRunResponse Client::updateOptimizeRun(const string &agentSpace, co
 }
 
 /**
- * @summary 更新优化任务
+ * @summary Updates the status and type-related configurations of a specified optimization task.
  *
  * @param request UpdateOptimizeTaskRequest
  * @param headers map
@@ -4163,7 +4163,7 @@ UpdateOptimizeTaskResponse Client::updateOptimizeTaskWithOptions(const string &a
 }
 
 /**
- * @summary 更新优化任务
+ * @summary Updates the status and type-related configurations of a specified optimization task.
  *
  * @param request UpdateOptimizeTaskRequest
  * @return UpdateOptimizeTaskResponse

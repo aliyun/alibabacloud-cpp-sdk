@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The creation time in milliseconds.
+    // The creation time, in milliseconds.
     shared_ptr<int64_t> createdAt_ {};
     // The ID of the associated dataset.
     shared_ptr<string> datasetId_ {};
@@ -138,9 +138,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The number of experiment executions under this plan.
     shared_ptr<int32_t> experimentCount_ {};
-    // The experiment type. Valid values: offline (offline experiment) and online (online experiment).
+    // The experiment type: offline (offline experiment) or online (online experiment).
     shared_ptr<string> experimentType_ {};
-    // The name of the associated data processing pipeline. This field is empty if no pipeline is associated. After association, when an experiment under this plan completes and writes results to a Logstore, the system filters by the trace ID of the experiment trace and calls PreviewPipeline to write the pipeline-processed results.
+    // The name of the associated data processing pipeline. This field is empty if no pipeline is associated. After a pipeline is associated, when an experiment under this plan completes and writes experiment results to the Logstore, the system filters by the traceId of the current experiment trace and calls PreviewPipeline to write the results processed by the pipeline.
     shared_ptr<string> pipelineName_ {};
     // The experiment plan ID.
     shared_ptr<string> planId_ {};
@@ -148,9 +148,9 @@ namespace Models
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in dataset-partial mode.
     shared_ptr<string> querySql_ {};
-    // The status. Valid values: pending, running, and stopped.
+    // The status: pending, running, or stopped.
     shared_ptr<string> status_ {};
-    // The update time in milliseconds.
+    // The update time, in milliseconds.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

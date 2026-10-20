@@ -70,12 +70,13 @@ namespace Models
 
 
   protected:
-    // The dataset name.
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // Filters datasets by labels.
     shared_ptr<map<string, vector<string>>> labels_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to set this parameter for the first request. For subsequent requests, set this parameter to the nextToken value returned in the previous response.
+    // The next token. You do not need to set this parameter for the first request. For subsequent requests, pass the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

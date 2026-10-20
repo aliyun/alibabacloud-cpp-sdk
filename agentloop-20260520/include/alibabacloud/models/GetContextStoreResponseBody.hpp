@@ -57,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(innerSource, innerSource_);
         DARABONBA_PTR_TO_JSON(metadataField, metadataField_);
         DARABONBA_PTR_TO_JSON(miningInterval, miningInterval_);
+        DARABONBA_PTR_TO_JSON(miningTaskName, miningTaskName_);
         DARABONBA_PTR_TO_JSON(observability, observability_);
         DARABONBA_PTR_TO_JSON(outputDataset, outputDataset_);
         DARABONBA_PTR_TO_JSON(scopePolicy, scopePolicy_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(innerSource, innerSource_);
         DARABONBA_PTR_FROM_JSON(metadataField, metadataField_);
         DARABONBA_PTR_FROM_JSON(miningInterval, miningInterval_);
+        DARABONBA_PTR_FROM_JSON(miningTaskName, miningTaskName_);
         DARABONBA_PTR_FROM_JSON(observability, observability_);
         DARABONBA_PTR_FROM_JSON(outputDataset, outputDataset_);
         DARABONBA_PTR_FROM_JSON(scopePolicy, scopePolicy_);
@@ -178,19 +180,19 @@ namespace Models
 
 
       protected:
-        // The allowed storage actions. By default, all actions are allowed. Valid values: ADD, UPDATE, MERGE, and DELETE.
+        // The allowed storage actions. The default is all: ADD, UPDATE, MERGE, and DELETE.
         shared_ptr<vector<string>> allowedActions_ {};
-        // Indicates whether deduplication is enabled in event mode. Default value: true.
+        // Specifies whether to deduplicate in event mode. The default is true.
         shared_ptr<bool> dedupe_ {};
-        // Indicates whether human edit protection is enabled. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+        // The human edit protection. The default is true. When enabled, automatic extraction does not overwrite manually modified memories.
         shared_ptr<bool> humanEditProtection_ {};
-        // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+        // The upsert merge key. Valid values: factKey, semantic, and both. The default is semantic.
         shared_ptr<string> mergeKey_ {};
-        // The storage mode. Valid values: event (append events) and upsert (merge updates). Default value: upsert.
+        // The storage mode. Valid values: event for event appending, and upsert for merge updating. The default is upsert.
         shared_ptr<string> mode_ {};
-        // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
+        // The semantic merge similarity threshold. Valid values: 0 to 1. The default is 0.4.
         shared_ptr<double> similarityThreshold_ {};
-        // The number of days after which memories expire. A value of 0 indicates that memories do not expire.
+        // The memory expiration days. A value of 0 indicates no expiration.
         shared_ptr<int32_t> ttlDays_ {};
       };
 
@@ -198,14 +200,18 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const SourceStatus& obj) { 
           DARABONBA_ANY_TO_JSON(checkpoint, checkpoint_);
+          DARABONBA_PTR_TO_JSON(currentWindow, currentWindow_);
           DARABONBA_PTR_TO_JSON(lastError, lastError_);
+          DARABONBA_PTR_TO_JSON(lastRunId, lastRunId_);
           DARABONBA_PTR_TO_JSON(lastWindowAt, lastWindowAt_);
           DARABONBA_PTR_TO_JSON(retryCount, retryCount_);
           DARABONBA_PTR_TO_JSON(state, state_);
         };
         friend void from_json(const Darabonba::Json& j, SourceStatus& obj) { 
           DARABONBA_ANY_FROM_JSON(checkpoint, checkpoint_);
+          DARABONBA_PTR_FROM_JSON(currentWindow, currentWindow_);
           DARABONBA_PTR_FROM_JSON(lastError, lastError_);
+          DARABONBA_PTR_FROM_JSON(lastRunId, lastRunId_);
           DARABONBA_PTR_FROM_JSON(lastWindowAt, lastWindowAt_);
           DARABONBA_PTR_FROM_JSON(retryCount, retryCount_);
           DARABONBA_PTR_FROM_JSON(state, state_);
@@ -222,7 +228,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->checkpoint_ == nullptr
-        && this->lastError_ == nullptr && this->lastWindowAt_ == nullptr && this->retryCount_ == nullptr && this->state_ == nullptr; };
+        && this->currentWindow_ == nullptr && this->lastError_ == nullptr && this->lastRunId_ == nullptr && this->lastWindowAt_ == nullptr && this->retryCount_ == nullptr
+        && this->state_ == nullptr; };
         // checkpoint Field Functions 
         bool hasCheckpoint() const { return this->checkpoint_ != nullptr;};
         void deleteCheckpoint() { this->checkpoint_ = nullptr;};
@@ -232,11 +239,27 @@ namespace Models
         inline SourceStatus& setCheckpoint(Darabonba::Json && checkpoint) { DARABONBA_SET_RVALUE(checkpoint_, checkpoint) };
 
 
+        // currentWindow Field Functions 
+        bool hasCurrentWindow() const { return this->currentWindow_ != nullptr;};
+        void deleteCurrentWindow() { this->currentWindow_ = nullptr;};
+        inline const map<string, string> & getCurrentWindow() const { DARABONBA_PTR_GET_CONST(currentWindow_, map<string, string>) };
+        inline map<string, string> getCurrentWindow() { DARABONBA_PTR_GET(currentWindow_, map<string, string>) };
+        inline SourceStatus& setCurrentWindow(const map<string, string> & currentWindow) { DARABONBA_PTR_SET_VALUE(currentWindow_, currentWindow) };
+        inline SourceStatus& setCurrentWindow(map<string, string> && currentWindow) { DARABONBA_PTR_SET_RVALUE(currentWindow_, currentWindow) };
+
+
         // lastError Field Functions 
         bool hasLastError() const { return this->lastError_ != nullptr;};
         void deleteLastError() { this->lastError_ = nullptr;};
         inline string getLastError() const { DARABONBA_PTR_GET_DEFAULT(lastError_, "") };
         inline SourceStatus& setLastError(string lastError) { DARABONBA_PTR_SET_VALUE(lastError_, lastError) };
+
+
+        // lastRunId Field Functions 
+        bool hasLastRunId() const { return this->lastRunId_ != nullptr;};
+        void deleteLastRunId() { this->lastRunId_ = nullptr;};
+        inline string getLastRunId() const { DARABONBA_PTR_GET_DEFAULT(lastRunId_, "") };
+        inline SourceStatus& setLastRunId(string lastRunId) { DARABONBA_PTR_SET_VALUE(lastRunId_, lastRunId) };
 
 
         // lastWindowAt Field Functions 
@@ -261,15 +284,19 @@ namespace Models
 
 
       protected:
-        // The consumption progress. The format varies by type: trajectory uses {processTimeNs, watermarkMs}, dataset uses {seq}, and manual uses {}.
+        // The processing progress. For memory trajectory, it includes processTimeNs and watermarkMs. For dataset, it includes seq. For manual, it is empty. For experience Dataset follow mode, seq uses an exact int64 decimal string.
         Darabonba::Json checkpoint_ {};
-        // The most recent error message. This field is empty when the status is normal.
+        // The current scheduled sequence window for experience Dataset follow mode, including after, until, and runId. All sequences are decimal strings. Failures do not advance the submitted checkpoint.
+        shared_ptr<map<string, string>> currentWindow_ {};
+        // The desensitized latest error message. It is empty when the status is normal.
         shared_ptr<string> lastError_ {};
-        // The time of the most recent window processing, in ISO 8601 UTC format.
+        // The run ID of the last successful automatic application to the native experience store. This is for audit purposes only.
+        shared_ptr<string> lastRunId_ {};
+        // The last window processing time in ISO 8601 UTC format.
         shared_ptr<string> lastWindowAt_ {};
-        // The number of consecutive retries.
+        // The consecutive retry count.
         shared_ptr<int32_t> retryCount_ {};
-        // The status of the data source. Valid values: Validating, Ready, Running, Retrying, Paused, SourceSchemaChanged, and Failed.
+        // The data source status. Valid values: Validating, Ready, Running, Retrying, Paused, SourceSchemaChanged, and Failed.
         shared_ptr<string> state_ {};
       };
 
@@ -277,17 +304,27 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Source& obj) { 
           DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
+          DARABONBA_ANY_TO_JSON(binding, binding_);
           DARABONBA_PTR_TO_JSON(dataset, dataset_);
+          DARABONBA_PTR_TO_JSON(datasetName, datasetName_);
+          DARABONBA_PTR_TO_JSON(format, format_);
+          DARABONBA_PTR_TO_JSON(maxRecords, maxRecords_);
           DARABONBA_PTR_TO_JSON(startTime, startTime_);
           DARABONBA_PTR_TO_JSON(trajectory, trajectory_);
           DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(versionPolicy, versionPolicy_);
         };
         friend void from_json(const Darabonba::Json& j, Source& obj) { 
           DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
+          DARABONBA_ANY_FROM_JSON(binding, binding_);
           DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+          DARABONBA_PTR_FROM_JSON(datasetName, datasetName_);
+          DARABONBA_PTR_FROM_JSON(format, format_);
+          DARABONBA_PTR_FROM_JSON(maxRecords, maxRecords_);
           DARABONBA_PTR_FROM_JSON(startTime, startTime_);
           DARABONBA_PTR_FROM_JSON(trajectory, trajectory_);
           DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(versionPolicy, versionPolicy_);
         };
         Source() = default ;
         Source(const Source &) = default ;
@@ -300,6 +337,50 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VersionPolicy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionPolicy& obj) { 
+            DARABONBA_PTR_TO_JSON(mode, mode_);
+            DARABONBA_PTR_TO_JSON(startSeq, startSeq_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionPolicy& obj) { 
+            DARABONBA_PTR_FROM_JSON(mode, mode_);
+            DARABONBA_PTR_FROM_JSON(startSeq, startSeq_);
+          };
+          VersionPolicy() = default ;
+          VersionPolicy(const VersionPolicy &) = default ;
+          VersionPolicy(VersionPolicy &&) = default ;
+          VersionPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionPolicy() = default ;
+          VersionPolicy& operator=(const VersionPolicy &) = default ;
+          VersionPolicy& operator=(VersionPolicy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->mode_ == nullptr
+        && this->startSeq_ == nullptr; };
+          // mode Field Functions 
+          bool hasMode() const { return this->mode_ != nullptr;};
+          void deleteMode() { this->mode_ = nullptr;};
+          inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+          inline VersionPolicy& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+          // startSeq Field Functions 
+          bool hasStartSeq() const { return this->startSeq_ != nullptr;};
+          void deleteStartSeq() { this->startSeq_ = nullptr;};
+          inline string getStartSeq() const { DARABONBA_PTR_GET_DEFAULT(startSeq_, "") };
+          inline VersionPolicy& setStartSeq(string startSeq) { DARABONBA_PTR_SET_VALUE(startSeq_, startSeq) };
+
+
+        protected:
+          // The continuous consumption mode, which is fixed to follow.
+          shared_ptr<string> mode_ {};
+          // The initial consumed append sequence, which is a decimal string of a non-negative int64. The default is 0. It uses __dataset_seq. Business timestamps are not used as consumption checkpoints.
+          shared_ptr<string> startSeq_ {};
+        };
+
         class Trajectory : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Trajectory& obj) { 
@@ -383,13 +464,13 @@ namespace Models
 
 
           protected:
-            // The JSONPath for agentId. Default value: $.agent_name.
+            // The JSONPath expression for agentId. Default value: $.agent_name.
             shared_ptr<string> agentId_ {};
-            // The JSONPath for appId. Default value: $.service_names[0].
+            // The JSONPath expression for appId. Default value: $.service_names[0].
             shared_ptr<string> appId_ {};
-            // The JSONPath for runId. Default value: $.trajectory_id.
+            // The JSONPath expression for runId. Default value: $.trajectory_id.
             shared_ptr<string> runId_ {};
-            // The JSONPath for userId. By default, this field is not mapped.
+            // The JSONPath expression for userId. By default, this field is not mapped.
             shared_ptr<string> userId_ {};
           };
 
@@ -466,7 +547,7 @@ namespace Models
             shared_ptr<vector<string>> agentNames_ {};
             // Specifies whether to exclude degraded trajectories. Default value: false (includes degraded trajectories).
             shared_ptr<bool> excludeDegraded_ {};
-            // The minimum number of steps, which must be greater than or equal to 0.
+            // The minimum number of steps. The value must be greater than or equal to 0.
             shared_ptr<int32_t> minStepCount_ {};
             // The native Simple Log Service (SLS) query statement, which is combined with the preceding conditions using AND.
             shared_ptr<string> query_ {};
@@ -516,13 +597,13 @@ namespace Models
 
 
         protected:
-          // The trajectory filter conditions. Conditions are combined with AND, and items within a list are combined with OR.
+          // The trajectory filter conditions. Conditions are combined with AND, while items within a list are combined with OR.
           shared_ptr<Trajectory::Filter> filter_ {};
           // The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be modified after creation.
           shared_ptr<string> logstore_ {};
           // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
-          // The scope field mapping. The value is a JSONPath expression, and only the $.a.b and $.a[0] formats are supported.
+          // The scope field mapping. The value is a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
           shared_ptr<Trajectory::ScopeMapping> scopeMapping_ {};
           // The start time for trajectory consumption in ISO 8601 UTC format. If not specified, the default value is the creation time.
           // 
@@ -606,11 +687,13 @@ namespace Models
 
 
           protected:
-            // The consumption mode. Valid values: follow (incremental consumption based on __dataset_seq) and fixed (full consumption of the specified ACTIVE version once).
+            // The consumption mode. Valid values:
+            // - follow: Consumes data incrementally based on __dataset_seq.
+            // - fixed: Consumes the specified ACTIVE version in full at once.
             shared_ptr<string> mode_ {};
-            // The starting __dataset_seq in follow mode.
+            // The starting __dataset_seq for the follow mode.
             shared_ptr<int64_t> startSeq_ {};
-            // The dataset version specified in fixed mode.
+            // The Dataset version specified for the fixed mode.
             shared_ptr<string> version_ {};
           };
 
@@ -642,7 +725,7 @@ namespace Models
 
 
           protected:
-            // The subset of the pipeline where clause, which is pushed down to SQL.
+            // The subset of the Pipeline where clause, which is pushed down to SQL.
             shared_ptr<string> where_ {};
           };
 
@@ -711,15 +794,17 @@ namespace Models
 
 
           protected:
-            // The description of the field. This parameter is required when usage is set to extraction-input and is appended to the extraction prompt.
+            // The description of the field. This parameter is required when usage is extraction-input and is appended to the extraction prompt.
             shared_ptr<string> description_ {};
             // Specifies whether the field is sensitive.
             shared_ptr<bool> sensitive_ {};
             // The name of the source field.
             shared_ptr<string> sourceField_ {};
-            // The target write path, such as metadata.customerTier.
+            // The target path for writing data, such as metadata.customerTier.
             shared_ptr<string> target_ {};
-            // The usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
+            // The usage of the field. Valid values:
+            // - extraction-input: Participates in extraction.
+            // - ignore: Ignored.
             shared_ptr<string> usage_ {};
           };
 
@@ -776,25 +861,35 @@ namespace Models
         protected:
           // The list of custom field declarations.
           shared_ptr<vector<Dataset::CustomFields>> customFields_ {};
-          // The name of the dataset in the same AgentSpace. This parameter cannot be modified after creation.
+          // The name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
           shared_ptr<string> datasetName_ {};
-          // The row filter condition.
+          // The row filter conditions.
           shared_ptr<Dataset::Filter> filter_ {};
           // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
-          // The row schema contract of the dataset. The value is fixed to MemorySourceV1 in the current phase.
+          // The row schema contract of the Dataset. The value is fixed to MemorySourceV1 in the current phase.
           shared_ptr<string> schemaContract_ {};
-          // The version consumption policy of the dataset.
+          // The version consumption policy of the Dataset.
           shared_ptr<Dataset::VersionPolicy> versionPolicy_ {};
         };
 
         virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->dataset_ == nullptr && this->startTime_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr; };
+        && this->binding_ == nullptr && this->dataset_ == nullptr && this->datasetName_ == nullptr && this->format_ == nullptr && this->maxRecords_ == nullptr
+        && this->startTime_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr && this->versionPolicy_ == nullptr; };
         // agentSpace Field Functions 
         bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
         void deleteAgentSpace() { this->agentSpace_ = nullptr;};
         inline string getAgentSpace() const { DARABONBA_PTR_GET_DEFAULT(agentSpace_, "") };
         inline Source& setAgentSpace(string agentSpace) { DARABONBA_PTR_SET_VALUE(agentSpace_, agentSpace) };
+
+
+        // binding Field Functions 
+        bool hasBinding() const { return this->binding_ != nullptr;};
+        void deleteBinding() { this->binding_ = nullptr;};
+        inline         const Darabonba::Json & getBinding() const { DARABONBA_GET(binding_) };
+        Darabonba::Json & getBinding() { DARABONBA_GET(binding_) };
+        inline Source& setBinding(const Darabonba::Json & binding) { DARABONBA_SET_VALUE(binding_, binding) };
+        inline Source& setBinding(Darabonba::Json && binding) { DARABONBA_SET_RVALUE(binding_, binding) };
 
 
         // dataset Field Functions 
@@ -804,6 +899,27 @@ namespace Models
         inline Source::Dataset getDataset() { DARABONBA_PTR_GET(dataset_, Source::Dataset) };
         inline Source& setDataset(const Source::Dataset & dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
         inline Source& setDataset(Source::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
+
+
+        // datasetName Field Functions 
+        bool hasDatasetName() const { return this->datasetName_ != nullptr;};
+        void deleteDatasetName() { this->datasetName_ = nullptr;};
+        inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+        inline Source& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
+
+
+        // format Field Functions 
+        bool hasFormat() const { return this->format_ != nullptr;};
+        void deleteFormat() { this->format_ = nullptr;};
+        inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+        inline Source& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
+
+
+        // maxRecords Field Functions 
+        bool hasMaxRecords() const { return this->maxRecords_ != nullptr;};
+        void deleteMaxRecords() { this->maxRecords_ = nullptr;};
+        inline int32_t getMaxRecords() const { DARABONBA_PTR_GET_DEFAULT(maxRecords_, 0) };
+        inline Source& setMaxRecords(int32_t maxRecords) { DARABONBA_PTR_SET_VALUE(maxRecords_, maxRecords) };
 
 
         // startTime Field Functions 
@@ -829,19 +945,38 @@ namespace Models
         inline Source& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // versionPolicy Field Functions 
+        bool hasVersionPolicy() const { return this->versionPolicy_ != nullptr;};
+        void deleteVersionPolicy() { this->versionPolicy_ = nullptr;};
+        inline const Source::VersionPolicy & getVersionPolicy() const { DARABONBA_PTR_GET_CONST(versionPolicy_, Source::VersionPolicy) };
+        inline Source::VersionPolicy getVersionPolicy() { DARABONBA_PTR_GET(versionPolicy_, Source::VersionPolicy) };
+        inline Source& setVersionPolicy(const Source::VersionPolicy & versionPolicy) { DARABONBA_PTR_SET_VALUE(versionPolicy_, versionPolicy) };
+        inline Source& setVersionPolicy(Source::VersionPolicy && versionPolicy) { DARABONBA_PTR_SET_RVALUE(versionPolicy_, versionPolicy) };
+
+
       protected:
-        // The AgentSpace where the trace data source is located. This must be consistent with the associated AgentSpace at the time of creation.
+        // The AgentSpace where the trace data source resides. It must be the same as the AgentSpace specified during creation.
         shared_ptr<string> agentSpace_ {};
-        // The dataset datasource config. This parameter is required when source.type is set to dataset.
+        // The DatasetBinding v1 shared with optimization tasks, which retains fixed column validation, supplementary column usage, and all/window selection.
+        Darabonba::Json binding_ {};
+        // The Dataset datasource config for the memory type. This parameter is required when the type is memory and source.type is dataset.
         shared_ptr<Source::Dataset> dataset_ {};
+        // The name of the source Dataset for the experience type in the current AgentSpace.
+        shared_ptr<string> datasetName_ {};
+        // The input format of the Dataset. For Datasets from the experience library, the value is atif.
+        shared_ptr<string> format_ {};
+        // The maximum number of records to read from the Dataset at a time. Valid values: 1 to 1000.
+        shared_ptr<int32_t> maxRecords_ {};
         // The start time for data backfill in ISO 8601 UTC format.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
-        // The trajectory datasource config. This parameter is required when source.type is set to trajectory.
+        // The trajectory datasource config for the memory type. This parameter is required when the type is memory and source.type is trajectory.
         shared_ptr<Source::Trajectory> trajectory_ {};
-        // The type of the memory data source. Valid values: trajectory and dataset. If not specified, the value defaults to manual (written only by AddContexts). This parameter cannot be modified after creation.
+        // The source type, which can be trajectory or dataset. For experience, if not specified, it inherits the trajectory configuration. For Dataset, it uses the datasetName, format, and binding at this level. The default is manual. If versionPolicy.mode is follow, it continuously processes and automatically applies changes to this experience store. For memory, if not specified, it indicates manual, meaning only AddContexts writes data. Otherwise, it uses the sub-configuration of the trajectory or dataset with the same name. This property cannot be modified after creation.
         shared_ptr<string> type_ {};
+        // The continuous consumption configuration for the native experience store Dataset. The default is manual. The follow mode only allows binding.selection.mode=all and consumes by append sequence. This cannot be changed after creation.
+        shared_ptr<Source::VersionPolicy> versionPolicy_ {};
       };
 
       class ScopePolicy : public Darabonba::Model {
@@ -874,7 +1009,7 @@ namespace Models
 
 
       protected:
-        // At least one of the specified scope fields must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
+        // At least one of the specified scope fields must be non-empty. Valid element values: userId, agentId, appId, and runId.
         shared_ptr<vector<string>> requiredAnyOf_ {};
       };
 
@@ -1148,7 +1283,7 @@ namespace Models
       protected:
         // The list of memory categories.
         shared_ptr<vector<string>> categories_ {};
-        // The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
+        // The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8,000 characters.
         shared_ptr<string> customInstructions_ {};
         // The list of exclusion rules. Content that matches these rules is not extracted.
         shared_ptr<vector<string>> excludeRules_ {};
@@ -1205,18 +1340,18 @@ namespace Models
 
 
       protected:
-        // Specifies whether to write item events for dropped candidates during recall. Default value: false.
+        // Specifies whether to write item events for candidates dropped during retrieval. Default value: false.
         shared_ptr<bool> droppedCandidates_ {};
-        // The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+        // The recording mode for retrieval queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
         shared_ptr<string> queryMode_ {};
         // The number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
         shared_ptr<int32_t> retentionDays_ {};
       };
 
       virtual bool empty() const override { return this->audit_ == nullptr
-        && this->extractionPolicy_ == nullptr && this->innerSource_ == nullptr && this->metadataField_ == nullptr && this->miningInterval_ == nullptr && this->observability_ == nullptr
-        && this->outputDataset_ == nullptr && this->scopePolicy_ == nullptr && this->serviceNames_ == nullptr && this->source_ == nullptr && this->sourceStatus_ == nullptr
-        && this->storagePolicy_ == nullptr && this->strategyVersion_ == nullptr; };
+        && this->extractionPolicy_ == nullptr && this->innerSource_ == nullptr && this->metadataField_ == nullptr && this->miningInterval_ == nullptr && this->miningTaskName_ == nullptr
+        && this->observability_ == nullptr && this->outputDataset_ == nullptr && this->scopePolicy_ == nullptr && this->serviceNames_ == nullptr && this->source_ == nullptr
+        && this->sourceStatus_ == nullptr && this->storagePolicy_ == nullptr && this->strategyVersion_ == nullptr; };
       // audit Field Functions 
       bool hasAudit() const { return this->audit_ != nullptr;};
       void deleteAudit() { this->audit_ = nullptr;};
@@ -1258,6 +1393,13 @@ namespace Models
       void deleteMiningInterval() { this->miningInterval_ = nullptr;};
       inline string getMiningInterval() const { DARABONBA_PTR_GET_DEFAULT(miningInterval_, "") };
       inline Config& setMiningInterval(string miningInterval) { DARABONBA_PTR_SET_VALUE(miningInterval_, miningInterval) };
+
+
+      // miningTaskName Field Functions 
+      bool hasMiningTaskName() const { return this->miningTaskName_ != nullptr;};
+      void deleteMiningTaskName() { this->miningTaskName_ = nullptr;};
+      inline string getMiningTaskName() const { DARABONBA_PTR_GET_DEFAULT(miningTaskName_, "") };
+      inline Config& setMiningTaskName(string miningTaskName) { DARABONBA_PTR_SET_VALUE(miningTaskName_, miningTaskName) };
 
 
       // observability Field Functions 
@@ -1337,25 +1479,27 @@ namespace Models
       shared_ptr<Config::ExtractionPolicy> extractionPolicy_ {};
       // The system-assigned coordinates of the event Logstore for the memory type, located in the Simple Log Service (SLS) project bound to the AgentSpace.
       shared_ptr<Config::InnerSource> innerSource_ {};
-      // The metadata field mapping. The key is the business field and the value is the storage field.
+      // The metadata field mapping, where the key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
       // The interval for experience mining. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d.
       shared_ptr<string> miningInterval_ {};
+      // The name of the internal running task associated with the server. Continuous libraries use this for read-only viewing of consumption records, while manual libraries can run limited mining. This is not inferred by the client and cannot replace the ingestion and retrieval criteria of the native experience library.
+      shared_ptr<string> miningTaskName_ {};
       // The coordinates of observability resources for the memory type.
       shared_ptr<Config::Observability> observability_ {};
       // The location of the memory output dataset for the memory type.
       shared_ptr<Config::OutputDataset> outputDataset_ {};
       // The scope constraint policy.
       shared_ptr<Config::ScopePolicy> scopePolicy_ {};
-      // The list of service names, used in conjunction with source.agentSpace to locate the trace data source. This parameter cannot be modified in the current phase.
+      // The list of service names, which are used together with source.agentSpace to locate the trace data source. This parameter cannot be modified in the current phase.
       shared_ptr<vector<string>> serviceNames_ {};
       // The datasource config provided by the user, which serves only as the root identity for the data source.
       shared_ptr<Config::Source> source_ {};
-      // The running status of the data source for the memory type.
+      // The data source running status for memory type and experience Dataset follow mode. The experience store submits a checkpoint only after successful publishing and automatic application. Pausing and restarting retain the checkpoint.
       shared_ptr<Config::SourceStatus> sourceStatus_ {};
       // The storage policy for the memory type.
       shared_ptr<Config::StoragePolicy> storagePolicy_ {};
-      // The version number of the currently effective strategy for the memory type.
+      // The current effective strategy version number for the memory type.
       shared_ptr<int32_t> strategyVersion_ {};
     };
 
@@ -1439,23 +1583,23 @@ namespace Models
     shared_ptr<string> agentSpace_ {};
     // The context library configuration.
     shared_ptr<GetContextStoreResponseBody::Config> config_ {};
-    // The name of the context store.
+    // The context store name.
     shared_ptr<string> contextStoreName_ {};
-    // The type of the context store, such as experience (experience store) or memory (memory store).
+    // The context store type, such as experience for experience store and memory for memory store.
     shared_ptr<string> contextType_ {};
-    // The time when the context store was created, in ISO 8601 UTC format.
+    // The context store creation time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // The description of the context store.
+    // The context store description.
     shared_ptr<string> description_ {};
     // The region ID of the context store.
     shared_ptr<string> regionId_ {};
-    // The request ID, which is used to locate the request when troubleshooting.
+    // The request ID used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The status of the context store. Valid values: ACTIVE, INITIALIZING, and FAILED.
+    // The context store status. Valid values: ACTIVE, INITIALIZING, and FAILED.
     shared_ptr<string> status_ {};
-    // The time when the context store was last updated, in ISO 8601 UTC format.
+    // The last update time of the context store in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};

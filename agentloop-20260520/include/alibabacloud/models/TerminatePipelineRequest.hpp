@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The reason for termination.
     shared_ptr<string> reason_ {};
   };
 

@@ -105,11 +105,11 @@ namespace Models
     protected:
       // The name of the AgentSpace to which the API key belongs.
       shared_ptr<string> agentSpace_ {};
-      // The full value of the API key. The plaintext value is returned only when the API key is created. In list scenarios, the value is masked based on business rules.
+      // The full value of the API key. The plaintext value is returned only when the API key is created. In list scenarios, the value is masked based on business conventions.
       shared_ptr<string> apiKey_ {};
       // The name of the context store to which the API key belongs.
       shared_ptr<string> contextStoreName_ {};
-      // The time when the API key was created, in ISO 8601 UTC format.
+      // The time when the API key was created. The time is in the ISO 8601 standard in the UTC format.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
@@ -157,15 +157,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page that was specified in the request. This value is echoed back.
+    // The maximum number of results per page specified in the request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page. An empty string indicates that the current page is the last page.
     shared_ptr<string> nextToken_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID, which is used to locate the request for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The list of API keys.
     shared_ptr<vector<ListContextStoreAPIKeysResponseBody::Results>> results_ {};
-    // The total number of API keys that match the query conditions.
+    // The total number of API keys that meet the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

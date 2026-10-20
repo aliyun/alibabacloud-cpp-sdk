@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The name of the AgentSpace where the pipeline is located.
     shared_ptr<string> agentSpaceName_ {};
-    // The time when the pipeline was paused, in ISO 8601 UTC format.
+    // The pause time in ISO 8601 UTC format.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> pauseTime_ {};
@@ -94,9 +94,9 @@ namespace Models
     shared_ptr<string> pausedReason_ {};
     // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The scheduling status. The value is fixed as Paused.
+    // The scheduling status, which is fixed to Paused.
     shared_ptr<string> scheduleStatus_ {};
   };
 

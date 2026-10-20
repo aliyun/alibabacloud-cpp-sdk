@@ -128,17 +128,19 @@ namespace Models
 
 
   protected:
-    // The agent space name.
+    // The name of the agent space.
     shared_ptr<string> agentSpace_ {};
     // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
-    // The dataset name.
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
-    // The dataset description.
+    // The description of the dataset.
     shared_ptr<string> description_ {};
+    // Indicates whether the dataset is added to favorites.
     shared_ptr<bool> isFavorite_ {};
+    // The labels of the dataset.
     shared_ptr<map<string, vector<string>>> labels_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

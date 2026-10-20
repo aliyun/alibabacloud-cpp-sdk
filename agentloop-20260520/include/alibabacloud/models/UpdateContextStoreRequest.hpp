@@ -156,19 +156,19 @@ namespace Models
 
 
       protected:
-        // The allowed storage actions. By default, all actions are allowed: ADD, UPDATE, MERGE, and DELETE.
+        // The allowed storage actions. Default value: all actions, including ADD, UPDATE, MERGE, and DELETE.
         shared_ptr<vector<string>> allowedActions_ {};
-        // Specifies whether to deduplicate events in event mode. Default value: true.
+        // Specifies whether to enable deduplication in event mode. Default value: true.
         shared_ptr<bool> dedupe_ {};
-        // Specifies whether to enable human edit protection. Default value: true. When this feature is enabled, automatic extraction does not overwrite manually modified memories.
+        // Specifies whether to enable manual edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
         shared_ptr<bool> humanEditProtection_ {};
         // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
         shared_ptr<string> mergeKey_ {};
-        // The storage mode. Valid values: event (append events) and upsert (merge and update). Default value: upsert.
+        // The storage mode. Valid values: event (event append) and upsert (merge update). Default value: upsert.
         shared_ptr<string> mode_ {};
         // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
         shared_ptr<double> similarityThreshold_ {};
-        // The number of days before the memory expires. A value of 0 indicates that the memory never expires.
+        // The number of days before a memory expires. A value of 0 indicates that the memory never expires.
         shared_ptr<int32_t> ttlDays_ {};
       };
 
@@ -278,13 +278,13 @@ namespace Models
 
 
           protected:
-            // The JSONPath expression for the agentId field. Default value: $.agent_name.
+            // The JSONPath expression for agentId. Default value: $.agent_name.
             shared_ptr<string> agentId_ {};
-            // The JSONPath expression for the appId field. Default value: $.service_names[0].
+            // The JSONPath expression for appId. Default value: $.service_names[0].
             shared_ptr<string> appId_ {};
-            // The JSONPath expression for the runId field. Default value: $.trajectory_id.
+            // The JSONPath expression for runId. Default value: $.trajectory_id.
             shared_ptr<string> runId_ {};
-            // The JSONPath expression for the userId field. By default, this field is not mapped.
+            // The JSONPath expression for userId. By default, this field is not mapped.
             shared_ptr<string> userId_ {};
           };
 
@@ -361,11 +361,11 @@ namespace Models
             shared_ptr<vector<string>> agentNames_ {};
             // Specifies whether to exclude degraded trajectories. Default value: false (degraded trajectories are included).
             shared_ptr<bool> excludeDegraded_ {};
-            // The minimum number of steps, which must be greater than or equal to 0.
+            // The minimum number of steps. The value must be greater than or equal to 0.
             shared_ptr<int32_t> minStepCount_ {};
-            // The native SLS query statement. This statement is combined with the preceding conditions by using the AND operator.
+            // The native Simple Log Service (SLS) query statement, which is ANDed with the preceding conditions.
             shared_ptr<string> query_ {};
-            // The list of service names. A single trailing asterisk (*) is supported. Specifying an explicitly empty list returns a 400 error.
+            // The list of service names. A single trailing asterisk (*) is supported. An explicitly empty list returns a 400 error.
             shared_ptr<vector<string>> serviceNames_ {};
           };
 
@@ -404,13 +404,13 @@ namespace Models
 
 
         protected:
-          // The trajectory filter conditions. Conditions are combined with AND, while items within a list are combined with OR.
+          // The trajectory filter conditions. Conditions are combined with AND, and elements within a list are combined with OR.
           shared_ptr<Trajectory::Filter> filter_ {};
           // The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be modified after creation.
           shared_ptr<string> logstore_ {};
           // The polling interval in seconds. Valid values: 60 to 3600.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
-          // The scope field mapping. The value must be a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
+          // The scope field mapping. The value is a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
           shared_ptr<Trajectory::ScopeMapping> scopeMapping_ {};
         };
 
@@ -536,11 +536,11 @@ namespace Models
           protected:
             // The description of the field. This parameter is required when usage is set to extraction-input.
             shared_ptr<string> description_ {};
-            // Specifies whether the field is a sensitive field.
+            // Specifies whether the field is sensitive.
             shared_ptr<bool> sensitive_ {};
             // The name of the source field.
             shared_ptr<string> sourceField_ {};
-            // The target write path, such as metadata.customerTier.
+            // The target path for writing, such as metadata.customerTier.
             shared_ptr<string> target_ {};
             // The usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
             shared_ptr<string> usage_ {};
@@ -574,7 +574,7 @@ namespace Models
 
 
         protected:
-          // The list of custom field declarations. If provided, it fully overwrites the existing declarations.
+          // The list of custom field declarations. If specified, the entire list is overwritten.
           shared_ptr<vector<Dataset::CustomFields>> customFields_ {};
           // The row filter conditions.
           shared_ptr<Dataset::Filter> filter_ {};
@@ -617,11 +617,11 @@ namespace Models
 
 
       protected:
-        // The AgentSpace where the trace data source is located. Cross-AgentSpace is not supported in the current phase. If provided, it must be equal to the path AgentSpace. Otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
+        // The AgentSpace where the trace data source is located. Cross-AgentSpace is not supported in the current phase. If specified, it must be equal to the path AgentSpace; otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
         shared_ptr<string> agentSpace_ {};
         // The updatable items for the Dataset data source. The datasetName cannot be changed after creation.
         shared_ptr<Source::Dataset> dataset_ {};
-        // The start time for data backfill, in ISO 8601 UTC format.
+        // The start time for data backfill in ISO 8601 UTC format.
         shared_ptr<string> startTime_ {};
         // The updatable items for the trajectory data source. The source.type cannot be changed after creation.
         shared_ptr<Source::Trajectory> trajectory_ {};
@@ -657,7 +657,7 @@ namespace Models
 
 
       protected:
-        // The list of scope fields where at least one must be non-empty. Valid element values: userId, agentId, appId, and runId.
+        // The list of scope fields where at least one must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
         shared_ptr<vector<string>> requiredAnyOf_ {};
       };
 
@@ -823,9 +823,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether to write item events for dropped recall candidates. Default value: false.
+        // Specifies whether to write item events for dropped candidates during retrieval. Default value: false.
         shared_ptr<bool> droppedCandidates_ {};
-        // The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+        // The recording mode for retrieval queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
         shared_ptr<string> queryMode_ {};
         // The number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
         shared_ptr<int32_t> retentionDays_ {};
@@ -892,7 +892,7 @@ namespace Models
       shared_ptr<Config::Audit> audit_ {};
       // The extraction policy for the memory type.
       shared_ptr<Config::ExtractionPolicy> extractionPolicy_ {};
-      // The metadata field mapping. The key is the business field, and the value is the storage field.
+      // The metadata field mapping. The key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
       // The scope constraint policy.
       shared_ptr<Config::ScopePolicy> scopePolicy_ {};
@@ -949,15 +949,15 @@ namespace Models
 
 
   protected:
-    // The description of the policy change. A new policy version is created when policy fields in the configuration are modified.
+    // The description of the policy change. A new policy version is written when policy fields in the configuration change.
     shared_ptr<string> changeNote_ {};
-    // The context library configuration. If provided, it fully overwrites the existing configuration. If omitted, the original configuration is retained.
+    // The context library configuration. If specified, the entire configuration is overwritten. If not specified, the original configuration is retained.
     shared_ptr<UpdateContextStoreRequest::Config> config_ {};
     // The context library type. This field is typically immutable after creation and is provided only for exception correction.
     shared_ptr<string> contextType_ {};
     // The description of the context library, which helps business users understand its purpose.
     shared_ptr<string> description_ {};
-    // The running status. For the memory type, valid values are Active (running) and Paused (data source consumption and extraction paused). For the experience type, it indicates the mining status of the experience library. The specific valid values and combination constraints are defined by the server.
+    // The running status. Valid values: Active and Paused. For the memory type, pausing stops data source reading and extraction. For the experience Dataset follow type, pausing retains submitted and in-flight checkpoints, and resuming continues processing new records without skipping history from the current time. If you update only the status, you do not need to pass back the source.
     shared_ptr<string> status_ {};
     // The idempotency token. It is a unique string generated by the client to ensure the idempotence of the update operation.
     shared_ptr<string> clientToken_ {};

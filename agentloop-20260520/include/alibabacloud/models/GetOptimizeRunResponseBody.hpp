@@ -208,24 +208,43 @@ namespace Models
 
 
   protected:
+    // The number of executed attempts.
     shared_ptr<int32_t> attemptCount_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The current execution stage.
     shared_ptr<string> currentStage_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The type-related information and immutable result references. For efficiency analysis, frozen outputBindings and tokenPublication release receipts are returned.
     Darabonba::Json extra_ {};
+    // The completion time.
     shared_ptr<string> finishTime_ {};
+    // The maximum number of attempts.
     shared_ptr<int32_t> maxAttempts_ {};
+    // The ID of the execution instance.
     shared_ptr<string> optimizeRunId_ {};
+    // The name of the optimization task.
     shared_ptr<string> optimizeTaskName_ {};
+    // The current execution progress. The fields are defined by the task type.
     Darabonba::Json progress_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The initial start time.
     shared_ptr<string> startTime_ {};
+    // The execution status.
     shared_ptr<string> status_ {};
+    // The number of analysis trajectories.
     shared_ptr<int64_t> trajectoryCount_ {};
+    // The trigger type.
     shared_ptr<string> triggerType_ {};
+    // The task type snapshot.
     shared_ptr<string> type_ {};
+    // The end time of the analysis window, in UNIX seconds.
     shared_ptr<int64_t> windowEndTime_ {};
+    // The start time of the analysis window, in UNIX seconds.
     shared_ptr<int64_t> windowStartTime_ {};
   };
 

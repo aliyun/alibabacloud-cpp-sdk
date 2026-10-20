@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time of the statistical window in UNIX seconds. Default value: now.
     shared_ptr<int64_t> endTime_ {};
+    // The statistical granularity. Valid values: Hour, Day, Week, and Month. Default value: automatically inferred.
     shared_ptr<string> granularity_ {};
+    // The start time of the statistical window in UNIX seconds. Default value: now - 86400.
     shared_ptr<int64_t> startTime_ {};
   };
 

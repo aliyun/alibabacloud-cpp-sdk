@@ -741,7 +741,7 @@ namespace AgentLoop20260520
       Models::GetExperimentRunResponse getExperimentRun(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request);
 
       /**
-       * @summary 查询优化任务执行详情
+       * @summary Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
        *
        * @param request GetOptimizeRunRequest
        * @param headers map
@@ -751,7 +751,7 @@ namespace AgentLoop20260520
       Models::GetOptimizeRunResponse getOptimizeRunWithOptions(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::GetOptimizeRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询优化任务执行详情
+       * @summary Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
        *
        * @param request GetOptimizeRunRequest
        * @return GetOptimizeRunResponse
@@ -759,7 +759,7 @@ namespace AgentLoop20260520
       Models::GetOptimizeRunResponse getOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::GetOptimizeRunRequest &request);
 
       /**
-       * @summary 查询优化任务
+       * @summary Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
        *
        * @param request GetOptimizeTaskRequest
        * @param headers map
@@ -769,7 +769,7 @@ namespace AgentLoop20260520
       Models::GetOptimizeTaskResponse getOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::GetOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询优化任务
+       * @summary Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
        *
        * @param request GetOptimizeTaskRequest
        * @return GetOptimizeTaskResponse
@@ -813,7 +813,7 @@ namespace AgentLoop20260520
       Models::GetPipelineRunResponse getPipelineRun(const string &agentSpace, const string &pipelineName, const string &runId, const Models::GetPipelineRunRequest &request);
 
       /**
-       * @summary Queries pipeline run statistics.
+       * @summary Queries the pipeline run statistics.
        *
        * @param request GetPipelineStatsRequest
        * @param headers map
@@ -823,7 +823,7 @@ namespace AgentLoop20260520
       Models::GetPipelineStatsResponse getPipelineStatsWithOptions(const string &agentSpace, const string &pipelineName, const Models::GetPipelineStatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries pipeline run statistics.
+       * @summary Queries the pipeline run statistics.
        *
        * @param request GetPipelineStatsRequest
        * @return GetPipelineStatsResponse
@@ -1199,7 +1199,7 @@ namespace AgentLoop20260520
       Models::SearchContextResponse searchContext(const string &agentSpace, const string &contextStoreName, const Models::SearchContextRequest &request);
 
       /**
-       * @summary Stops a pipeline.
+       * @summary Terminates a pipeline.
        *
        * @param request TerminatePipelineRequest
        * @param headers map
@@ -1209,7 +1209,7 @@ namespace AgentLoop20260520
       Models::TerminatePipelineResponse terminatePipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::TerminatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a pipeline.
+       * @summary Terminates a pipeline.
        *
        * @param request TerminatePipelineRequest
        * @return TerminatePipelineResponse
@@ -1405,7 +1405,7 @@ namespace AgentLoop20260520
       Models::UpdateOptimizeRunResponse updateOptimizeRun(const string &agentSpace, const string &optimizeTaskName, const string &optimizeRunId, const Models::UpdateOptimizeRunRequest &request);
 
       /**
-       * @summary 更新优化任务
+       * @summary Updates the status and type-related configurations of a specified optimization task.
        *
        * @param request UpdateOptimizeTaskRequest
        * @param headers map
@@ -1415,7 +1415,7 @@ namespace AgentLoop20260520
       Models::UpdateOptimizeTaskResponse updateOptimizeTaskWithOptions(const string &agentSpace, const string &optimizeTaskName, const Models::UpdateOptimizeTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新优化任务
+       * @summary Updates the status and type-related configurations of a specified optimization task.
        *
        * @param request UpdateOptimizeTaskRequest
        * @return UpdateOptimizeTaskResponse

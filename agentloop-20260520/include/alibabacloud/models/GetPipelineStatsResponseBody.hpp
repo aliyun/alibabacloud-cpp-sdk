@@ -135,13 +135,21 @@ namespace Models
 
 
     protected:
+      // The average execution duration in milliseconds.
       shared_ptr<int64_t> avgElapsedMs_ {};
+      // The number of output bytes.
       shared_ptr<int64_t> outputBytes_ {};
+      // The number of output rows.
       shared_ptr<int64_t> outputRows_ {};
+      // The number of processed bytes.
       shared_ptr<int64_t> processedBytes_ {};
+      // The number of processed rows.
       shared_ptr<int64_t> processedRows_ {};
+      // The number of runs.
       shared_ptr<int64_t> runs_ {};
+      // The number of succeeded runs.
       shared_ptr<int64_t> succeededRuns_ {};
+      // The start timestamp of the time bucket in UNIX seconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -275,17 +283,29 @@ namespace Models
 
 
     protected:
+      // The average execution duration in milliseconds.
       shared_ptr<int64_t> avgElapsedMs_ {};
+      // The number of cancelled runs.
       shared_ptr<int64_t> cancelledRuns_ {};
+      // The committed watermark in UNIX seconds.
       shared_ptr<int64_t> committedWatermark_ {};
+      // The number of failed runs.
       shared_ptr<int64_t> failedRuns_ {};
+      // The schedule lag in seconds, calculated as the current time minus the watermark.
       shared_ptr<int64_t> scheduleLagSeconds_ {};
+      // The number of succeeded runs.
       shared_ptr<int64_t> succeededRuns_ {};
+      // The success rate, ranging from 0 to 1.
       shared_ptr<double> successRate_ {};
+      // The total number of output bytes.
       shared_ptr<int64_t> totalOutputBytes_ {};
+      // The total number of output rows.
       shared_ptr<int64_t> totalOutputRows_ {};
+      // The total number of processed bytes.
       shared_ptr<int64_t> totalProcessedBytes_ {};
+      // The total number of processed rows.
       shared_ptr<int64_t> totalProcessedRows_ {};
+      // The total number of runs in the window.
       shared_ptr<int64_t> totalRuns_ {};
     };
 
@@ -346,14 +366,19 @@ namespace Models
 
 
   protected:
+    // The end time of the statistical window in UNIX seconds.
     shared_ptr<int64_t> endTime_ {};
+    // The statistical granularity.
     shared_ptr<string> granularity_ {};
     // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The request ID, which is used to locate the request during troubleshooting.
+    // The request ID used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The start time of the statistical window in UNIX seconds.
     shared_ptr<int64_t> startTime_ {};
+    // The aggregation summary.
     shared_ptr<GetPipelineStatsResponseBody::Summary> summary_ {};
+    // The time series data.
     shared_ptr<vector<GetPipelineStatsResponseBody::TimeSeries>> timeSeries_ {};
   };
 

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The complete API key value.
+    // The full value of the API key.
     shared_ptr<string> apiKey_ {};
     // The name of the API key.
     shared_ptr<string> name_ {};

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The name of the AgentSpace where the pipeline is located.
+    // The name of the AgentSpace.
     shared_ptr<string> agentSpaceName_ {};
     // The committed watermark, in UNIX seconds.
     shared_ptr<int64_t> committedWatermark_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<int64_t> nextTriggerTime_ {};
     // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The scheduling status. The value is fixed to Active.
+    // The scheduling status, which is fixed to Active.
     shared_ptr<string> scheduleStatus_ {};
   };
 

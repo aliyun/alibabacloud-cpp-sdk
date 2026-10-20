@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_AGENTLOOP20260520MODEL_HPP_
 #define ALIBABACLOUD_AGENTLOOP20260520MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AnalysisTask.hpp>
 #include <alibabacloud/models/AuditTaskState.hpp>
 #include <alibabacloud/models/BackfillStrategy.hpp>
 #include <alibabacloud/models/EvaluatorVariableExtractorMappingValue.hpp>

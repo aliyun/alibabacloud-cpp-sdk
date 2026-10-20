@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The name of the AgentSpace.
     shared_ptr<string> agentSpaceName_ {};
-    // The pipeline name.
+    // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
-    // The request ID, which is used to locate and troubleshoot issues.
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The run ID created by this trigger.
+    // The ID of the run created by this trigger.
     shared_ptr<string> runId_ {};
-    // The current status of the run. The status is typically Pending after the run is queued.
+    // The current status of the run. The status is typically Pending after the run is enqueued.
     shared_ptr<string> status_ {};
   };
 

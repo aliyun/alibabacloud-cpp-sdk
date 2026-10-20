@@ -158,7 +158,7 @@ namespace Models
 
 
       protected:
-        // The allowed storage actions. Default value: all actions (ADD, UPDATE, MERGE, and DELETE).
+        // The allowed storage actions. Default value: all actions, including ADD, UPDATE, MERGE, and DELETE.
         shared_ptr<vector<string>> allowedActions_ {};
         // Specifies whether to enable deduplication in event mode. Default value: true.
         shared_ptr<bool> dedupe_ {};
@@ -166,7 +166,7 @@ namespace Models
         shared_ptr<bool> humanEditProtection_ {};
         // The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
         shared_ptr<string> mergeKey_ {};
-        // The storage mode. Valid values: event (event append) and upsert (merge update). Default value: upsert.
+        // The storage mode. Valid values: event for event appending, and upsert for merged updates. Default value: upsert.
         shared_ptr<string> mode_ {};
         // The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
         shared_ptr<double> similarityThreshold_ {};
@@ -178,17 +178,27 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Source& obj) { 
           DARABONBA_PTR_TO_JSON(agentSpace, agentSpace_);
+          DARABONBA_ANY_TO_JSON(binding, binding_);
           DARABONBA_PTR_TO_JSON(dataset, dataset_);
+          DARABONBA_PTR_TO_JSON(datasetName, datasetName_);
+          DARABONBA_PTR_TO_JSON(format, format_);
+          DARABONBA_PTR_TO_JSON(maxRecords, maxRecords_);
           DARABONBA_PTR_TO_JSON(startTime, startTime_);
           DARABONBA_PTR_TO_JSON(trajectory, trajectory_);
           DARABONBA_PTR_TO_JSON(type, type_);
+          DARABONBA_PTR_TO_JSON(versionPolicy, versionPolicy_);
         };
         friend void from_json(const Darabonba::Json& j, Source& obj) { 
           DARABONBA_PTR_FROM_JSON(agentSpace, agentSpace_);
+          DARABONBA_ANY_FROM_JSON(binding, binding_);
           DARABONBA_PTR_FROM_JSON(dataset, dataset_);
+          DARABONBA_PTR_FROM_JSON(datasetName, datasetName_);
+          DARABONBA_PTR_FROM_JSON(format, format_);
+          DARABONBA_PTR_FROM_JSON(maxRecords, maxRecords_);
           DARABONBA_PTR_FROM_JSON(startTime, startTime_);
           DARABONBA_PTR_FROM_JSON(trajectory, trajectory_);
           DARABONBA_PTR_FROM_JSON(type, type_);
+          DARABONBA_PTR_FROM_JSON(versionPolicy, versionPolicy_);
         };
         Source() = default ;
         Source(const Source &) = default ;
@@ -201,6 +211,50 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VersionPolicy : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionPolicy& obj) { 
+            DARABONBA_PTR_TO_JSON(mode, mode_);
+            DARABONBA_PTR_TO_JSON(startSeq, startSeq_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionPolicy& obj) { 
+            DARABONBA_PTR_FROM_JSON(mode, mode_);
+            DARABONBA_PTR_FROM_JSON(startSeq, startSeq_);
+          };
+          VersionPolicy() = default ;
+          VersionPolicy(const VersionPolicy &) = default ;
+          VersionPolicy(VersionPolicy &&) = default ;
+          VersionPolicy(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionPolicy() = default ;
+          VersionPolicy& operator=(const VersionPolicy &) = default ;
+          VersionPolicy& operator=(VersionPolicy &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->mode_ == nullptr
+        && this->startSeq_ == nullptr; };
+          // mode Field Functions 
+          bool hasMode() const { return this->mode_ != nullptr;};
+          void deleteMode() { this->mode_ = nullptr;};
+          inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+          inline VersionPolicy& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+          // startSeq Field Functions 
+          bool hasStartSeq() const { return this->startSeq_ != nullptr;};
+          void deleteStartSeq() { this->startSeq_ = nullptr;};
+          inline string getStartSeq() const { DARABONBA_PTR_GET_DEFAULT(startSeq_, "") };
+          inline VersionPolicy& setStartSeq(string startSeq) { DARABONBA_PTR_SET_VALUE(startSeq_, startSeq) };
+
+
+        protected:
+          // The continuous consumption mode. The value is fixed to follow.
+          shared_ptr<string> mode_ {};
+          // The initial consumed append sequence. The value is a decimal string of a non-negative int64 integer. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
+          shared_ptr<string> startSeq_ {};
+        };
+
         class Trajectory : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Trajectory& obj) { 
@@ -365,9 +419,9 @@ namespace Models
           protected:
             // The list of agent names. An explicitly empty list returns a 400 error.
             shared_ptr<vector<string>> agentNames_ {};
-            // Specifies whether to exclude degraded trajectories. Default value: false (includes degraded trajectories).
+            // Specifies whether to exclude degraded trajectories. Default value: false, which includes degraded trajectories.
             shared_ptr<bool> excludeDegraded_ {};
-            // The minimum step count, which must be greater than or equal to 0.
+            // The minimum number of steps. The value must be greater than or equal to 0.
             shared_ptr<int32_t> minStepCount_ {};
             // The native Simple Log Service (SLS) query statement. This statement is combined with the preceding conditions using AND.
             shared_ptr<string> query_ {};
@@ -421,7 +475,7 @@ namespace Models
           shared_ptr<Trajectory::Filter> filter_ {};
           // The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be modified after creation.
           shared_ptr<string> logstore_ {};
-          // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
+          // Specifies the polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
           // The scope field mapping. The value is a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
           shared_ptr<Trajectory::ScopeMapping> scopeMapping_ {};
@@ -507,9 +561,11 @@ namespace Models
 
 
           protected:
-            // The version consumption mode. Valid values: follow (incremental consumption based on __dataset_seq) and fixed (full consumption of the specified ACTIVE version once).
+            // The consumption mode. Valid values:
+            // - follow: Consumes data incrementally based on __dataset_seq.
+            // - fixed: Consumes the specified ACTIVE version in full at once.
             shared_ptr<string> mode_ {};
-            // The start sequence for the follow mode.
+            // The starting __dataset_seq for the follow mode.
             shared_ptr<int64_t> startSeq_ {};
             // The dataset version specified for the fixed mode.
             shared_ptr<string> version_ {};
@@ -612,15 +668,15 @@ namespace Models
 
 
           protected:
-            // The description of the field. This parameter is required when usage is set to extraction-input, and is appended to the extraction prompt.
+            // Specifies the field description. This parameter is required when usage is set to extraction-input. It is appended to the extraction prompt.
             shared_ptr<string> description_ {};
             // Specifies whether the field is a sensitive field.
             shared_ptr<bool> sensitive_ {};
             // The name of the source field.
             shared_ptr<string> sourceField_ {};
-            // The target write path, such as metadata.customerTier.
+            // The target path for writing, such as metadata.customerTier.
             shared_ptr<string> target_ {};
-            // The usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
+            // Specifies the usage of the field. Valid values: extraction-input (participates in extraction) and ignore (ignored).
             shared_ptr<string> usage_ {};
           };
 
@@ -677,25 +733,35 @@ namespace Models
         protected:
           // The list of custom field declarations.
           shared_ptr<vector<Dataset::CustomFields>> customFields_ {};
-          // The name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
+          // Specifies the name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
           shared_ptr<string> datasetName_ {};
           // The row filter conditions.
           shared_ptr<Dataset::Filter> filter_ {};
-          // The polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
+          // Specifies the polling interval in seconds. Valid values: 60 to 3600. Default value: 300.
           shared_ptr<int32_t> pollIntervalSeconds_ {};
-          // The row schema contract for the Dataset. In the current phase, this is fixed to MemorySourceV1.
+          // The Dataset row schema contract. In the current phase, this is fixed to MemorySourceV1.
           shared_ptr<string> schemaContract_ {};
-          // The version consumption policy for the Dataset.
+          // The dataset version consumption policy.
           shared_ptr<Dataset::VersionPolicy> versionPolicy_ {};
         };
 
         virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->dataset_ == nullptr && this->startTime_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr; };
+        && this->binding_ == nullptr && this->dataset_ == nullptr && this->datasetName_ == nullptr && this->format_ == nullptr && this->maxRecords_ == nullptr
+        && this->startTime_ == nullptr && this->trajectory_ == nullptr && this->type_ == nullptr && this->versionPolicy_ == nullptr; };
         // agentSpace Field Functions 
         bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
         void deleteAgentSpace() { this->agentSpace_ = nullptr;};
         inline string getAgentSpace() const { DARABONBA_PTR_GET_DEFAULT(agentSpace_, "") };
         inline Source& setAgentSpace(string agentSpace) { DARABONBA_PTR_SET_VALUE(agentSpace_, agentSpace) };
+
+
+        // binding Field Functions 
+        bool hasBinding() const { return this->binding_ != nullptr;};
+        void deleteBinding() { this->binding_ = nullptr;};
+        inline         const Darabonba::Json & getBinding() const { DARABONBA_GET(binding_) };
+        Darabonba::Json & getBinding() { DARABONBA_GET(binding_) };
+        inline Source& setBinding(const Darabonba::Json & binding) { DARABONBA_SET_VALUE(binding_, binding) };
+        inline Source& setBinding(Darabonba::Json && binding) { DARABONBA_SET_RVALUE(binding_, binding) };
 
 
         // dataset Field Functions 
@@ -705,6 +771,27 @@ namespace Models
         inline Source::Dataset getDataset() { DARABONBA_PTR_GET(dataset_, Source::Dataset) };
         inline Source& setDataset(const Source::Dataset & dataset) { DARABONBA_PTR_SET_VALUE(dataset_, dataset) };
         inline Source& setDataset(Source::Dataset && dataset) { DARABONBA_PTR_SET_RVALUE(dataset_, dataset) };
+
+
+        // datasetName Field Functions 
+        bool hasDatasetName() const { return this->datasetName_ != nullptr;};
+        void deleteDatasetName() { this->datasetName_ = nullptr;};
+        inline string getDatasetName() const { DARABONBA_PTR_GET_DEFAULT(datasetName_, "") };
+        inline Source& setDatasetName(string datasetName) { DARABONBA_PTR_SET_VALUE(datasetName_, datasetName) };
+
+
+        // format Field Functions 
+        bool hasFormat() const { return this->format_ != nullptr;};
+        void deleteFormat() { this->format_ = nullptr;};
+        inline string getFormat() const { DARABONBA_PTR_GET_DEFAULT(format_, "") };
+        inline Source& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
+
+
+        // maxRecords Field Functions 
+        bool hasMaxRecords() const { return this->maxRecords_ != nullptr;};
+        void deleteMaxRecords() { this->maxRecords_ = nullptr;};
+        inline int32_t getMaxRecords() const { DARABONBA_PTR_GET_DEFAULT(maxRecords_, 0) };
+        inline Source& setMaxRecords(int32_t maxRecords) { DARABONBA_PTR_SET_VALUE(maxRecords_, maxRecords) };
 
 
         // startTime Field Functions 
@@ -730,19 +817,38 @@ namespace Models
         inline Source& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // versionPolicy Field Functions 
+        bool hasVersionPolicy() const { return this->versionPolicy_ != nullptr;};
+        void deleteVersionPolicy() { this->versionPolicy_ = nullptr;};
+        inline const Source::VersionPolicy & getVersionPolicy() const { DARABONBA_PTR_GET_CONST(versionPolicy_, Source::VersionPolicy) };
+        inline Source::VersionPolicy getVersionPolicy() { DARABONBA_PTR_GET(versionPolicy_, Source::VersionPolicy) };
+        inline Source& setVersionPolicy(const Source::VersionPolicy & versionPolicy) { DARABONBA_PTR_SET_VALUE(versionPolicy_, versionPolicy) };
+        inline Source& setVersionPolicy(Source::VersionPolicy && versionPolicy) { DARABONBA_PTR_SET_RVALUE(versionPolicy_, versionPolicy) };
+
+
       protected:
-        // The AgentSpace where the trace data source is located. If not specified, the default value is the AgentSpace in the current path. Cross-AgentSpace is not supported in the current phase. If specified, it must be equal to the path AgentSpace; otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
+        // Specifies the AgentSpace where the trace data source is located. If not specified, the default is the AgentSpace in the current path. Cross-AgentSpace is not supported in the current phase. If specified, it must be equal to the path AgentSpace; otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
         shared_ptr<string> agentSpace_ {};
+        // The DatasetBinding v1 shared with optimization tasks. It includes version, selection (all/window and structured filters), and customFields. It is validated by the server and does not accept SQL or column mappings.
+        Darabonba::Json binding_ {};
         // The Dataset datasource config. This parameter is required when source.type is set to dataset.
         shared_ptr<Source::Dataset> dataset_ {};
+        // The name of the experience dataset source. The dataset must reside in the current AgentSpace. This parameter is provided only when the source type is experience and source.type is dataset.
+        shared_ptr<string> datasetName_ {};
+        // The input format of the dataset. For experience dataset sources, only atif is supported, and the fixed columns must be consistent with the optimization task.
+        shared_ptr<string> format_ {};
+        // The maximum number of records to read per batch. Valid values: 1 to 1000. Default value: 1000. In manual mode, exceeding the limit causes a failure. In follow mode, bounded pagination is used to continue consumption.
+        shared_ptr<int32_t> maxRecords_ {};
         // The start time for data backfill in ISO 8601 UTC format. If not specified, the current time is used.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
-        // The trajectory datasource config. This parameter is required when source.type is set to trajectory.
+        // The trajectory datasource config. This parameter is required when source.type is trajectory.
         shared_ptr<Source::Trajectory> trajectory_ {};
-        // The data source type for the memory type. Valid values: trajectory and dataset. If not specified, the value is manual, which means data is written only through AddContexts. This parameter cannot be modified after creation.
+        // The data source type for the memory type. Valid values: trajectory and dataset. If not specified, the value defaults to manual, which means data is written only through AddContexts. This parameter cannot be modified after creation.
         shared_ptr<string> type_ {};
+        // The continuous consumption configuration for the native experience dataset. The default mode is manual. The follow mode only allows binding.selection.mode=all and consumes data based on the append sequence. This parameter cannot be modified after creation.
+        shared_ptr<Source::VersionPolicy> versionPolicy_ {};
       };
 
       class ScopePolicy : public Darabonba::Model {
@@ -775,7 +881,7 @@ namespace Models
 
 
       protected:
-        // At least one of the specified scope fields must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
+        // Specifies that at least one of the specified scope fields must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
         shared_ptr<vector<string>> requiredAnyOf_ {};
       };
 
@@ -834,7 +940,7 @@ namespace Models
 
 
         protected:
-          // The name of the extraction model. Currently, only qwen3.8-flash is supported, and internal platform credentials are used.
+          // Specifies the name of the extraction model. Currently, only qwen3.8-flash is supported. Platform internal credentials are used.
           shared_ptr<string> name_ {};
         };
 
@@ -884,13 +990,13 @@ namespace Models
       protected:
         // The list of memory categories.
         shared_ptr<vector<string>> categories_ {};
-        // The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
+        // Specifies the custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
         shared_ptr<string> customInstructions_ {};
         // The list of exclusion rules. Content that matches these rules is not extracted.
         shared_ptr<vector<string>> excludeRules_ {};
-        // The configuration of the extraction model.
+        // The extraction model configuration.
         shared_ptr<ExtractionPolicy::Model> model_ {};
-        // The preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
+        // Specifies the preset policy. Valid values: fact, toc-profile, tob-digital-twin, and custom. Default value: fact.
         shared_ptr<string> preset_ {};
       };
 
@@ -941,11 +1047,11 @@ namespace Models
 
 
       protected:
-        // Specifies whether to write item events for dropped recall candidates. Default value: false.
+        // Specifies whether to write item events for candidates dropped during recall. Default value: false.
         shared_ptr<bool> droppedCandidates_ {};
-        // The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+        // Specifies the logging mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
         shared_ptr<string> queryMode_ {};
-        // The number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
+        // Specifies the number of days to retain audit logs. Valid values: 1 to 180. Default value: 30.
         shared_ptr<int32_t> retentionDays_ {};
       };
 
@@ -1027,15 +1133,15 @@ namespace Models
       shared_ptr<Config::Audit> audit_ {};
       // The extraction policy for the memory type.
       shared_ptr<Config::ExtractionPolicy> extractionPolicy_ {};
-      // The metadata field mapping. The key is the business field, and the value is the storage field.
+      // The metadata field mapping. The key is the business field and the value is the storage field.
       shared_ptr<map<string, string>> metadataField_ {};
-      // The interval for experience mining, which controls how often experience mining is executed. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d. This parameter cannot be modified after creation.
+      // Specifies the experience mining interval, which controls how often experience mining is executed. Valid values: 1h, 6h, 12h, and 1d. Default value: 1d. This parameter cannot be modified after creation.
       shared_ptr<string> miningInterval_ {};
       // The scope constraint policy.
       shared_ptr<Config::ScopePolicy> scopePolicy_ {};
-      // The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses the agentSpace to query the bound CMS workspace and project/Logstore, and then filters the results by serviceName. You cannot modify this parameter after creation because no modification entry is available in the current release.
+      // The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses agentSpace to find the bound CMS workspace and project or logstore, and then filters by serviceName. This parameter cannot be modified after creation.
       shared_ptr<vector<string>> serviceNames_ {};
-      // The datasource config, which serves only as the root identity for the data source. This block is optional.
+      // The datasource config, which serves only as the root identity for the data source. This is an optional block.
       shared_ptr<Config::Source> source_ {};
       // The storage policy for the memory type.
       shared_ptr<Config::StoragePolicy> storagePolicy_ {};
@@ -1083,17 +1189,17 @@ namespace Models
   protected:
     // The context library configuration, including data sources and metadata field mappings.
     shared_ptr<CreateContextStoreRequest::Config> config_ {};
-    // The name of the context store. It must be globally unique within AgentSpace and 2 to 64 characters in length.
+    // The name of the context store. The name must be globally unique within AgentSpace and 2 to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> contextStoreName_ {};
-    // The type of the context store. Valid values include experience (experience store) and memory (memory store).
+    // The type of the context store. Valid values include experience and memory.
     // 
     // This parameter is required.
     shared_ptr<string> contextType_ {};
     // The description of the context store, which helps business users understand its purpose.
     shared_ptr<string> description_ {};
-    // The idempotency token, which is a unique string generated by the client to ensure the idempotency of the create operation.
+    // The idempotency token, which is a unique string generated by the client to ensure the idempotency of the creation operation.
     shared_ptr<string> clientToken_ {};
   };
 

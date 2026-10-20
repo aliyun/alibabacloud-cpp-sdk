@@ -84,12 +84,19 @@ namespace Models
 
 
   protected:
+    // The name of the AgentSpace where the pipeline is located.
     shared_ptr<string> agentSpaceName_ {};
+    // The name of the pipeline.
     shared_ptr<string> pipelineName_ {};
+    // The request ID, which is used to locate the request during troubleshooting.
     shared_ptr<string> requestId_ {};
+    // The scheduling status. The value is fixed to Terminated, which is an irreversible desired state.
     shared_ptr<string> scheduleStatus_ {};
+    // The termination time in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     shared_ptr<string> terminateTime_ {};
+    // The reason for termination.
     shared_ptr<string> terminatedReason_ {};
   };
 
