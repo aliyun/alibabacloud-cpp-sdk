@@ -115,23 +115,22 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the IdP.
+      // The ARN of the identity provider.
       shared_ptr<string> arn_ {};
-      // The supported signature algorithm. Valid values:
+      // The signature algorithm supported by the Alibaba Cloud service provider (SP). Valid values:
       // 
       // - rsa-sha256
-      // 
       // - rsa-sha1
       shared_ptr<string> authnSignAlgo_ {};
-      // The time when the information was created. It is displayed in UTC.
+      // The creation time. Format: RFC 3339 (UTC). Example: 2020-10-22T02:37:05Z.
       shared_ptr<string> createDate_ {};
-      // The IdP description.
+      // The description.
       shared_ptr<string> description_ {};
-      // The metadata file, which is Base64-encoded.
+      // The metadata document. The document is Base64-encoded.
       shared_ptr<string> encodedSAMLMetadataDocument_ {};
-      // The IdP name.
+      // The name of the identity provider.
       shared_ptr<string> SAMLProviderName_ {};
-      // The time when the information was last updated. It is displayed in UTC.
+      // The update time. Format: RFC 3339 (UTC). Example: 2020-10-22T02:51:20Z.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -156,7 +155,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the IdP.
+    // The identity provider information.
     shared_ptr<GetSAMLProviderResponseBody::SAMLProvider> SAMLProvider_ {};
   };
 

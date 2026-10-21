@@ -1176,7 +1176,7 @@ DeleteOIDCProviderResponse Client::deleteOIDCProvider(const DeleteOIDCProviderRe
 }
 
 /**
- * @summary Deletes a passkey of a RAM user.
+ * @summary Deletes the passkey of a user.
  *
  * @param request DeletePasskeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1211,7 @@ DeletePasskeyResponse Client::deletePasskeyWithOptions(const DeletePasskeyReques
 }
 
 /**
- * @summary Deletes a passkey of a RAM user.
+ * @summary Deletes the passkey of a user.
  *
  * @param request DeletePasskeyRequest
  * @return DeletePasskeyResponse
@@ -1776,6 +1776,41 @@ GetAccessKeyPolicyResponse Client::getAccessKeyPolicy(const GetAccessKeyPolicyRe
 }
 
 /**
+ * @summary Queries the account-level AccessKey network access control policy.
+ *
+ * @param request GetAccessKeyPolicyForAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAccessKeyPolicyForAccountResponse
+ */
+GetAccessKeyPolicyForAccountResponse Client::getAccessKeyPolicyForAccountWithOptions(const GetAccessKeyPolicyForAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetAccessKeyPolicyForAccount"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAccessKeyPolicyForAccountResponse>();
+}
+
+/**
+ * @summary Queries the account-level AccessKey network access control policy.
+ *
+ * @param request GetAccessKeyPolicyForAccountRequest
+ * @return GetAccessKeyPolicyForAccountResponse
+ */
+GetAccessKeyPolicyForAccountResponse Client::getAccessKeyPolicyForAccount(const GetAccessKeyPolicyForAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAccessKeyPolicyForAccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -1964,9 +1999,9 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary Queries installation information about a specified installed application.
+ * @summary Queries the installation information of a specified installed application.
  *
- * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+ * @description Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
  *
  * @param request GetApplicationProvisionInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1997,9 +2032,9 @@ GetApplicationProvisionInfoResponse Client::getApplicationProvisionInfoWithOptio
 }
 
 /**
- * @summary Queries installation information about a specified installed application.
+ * @summary Queries the installation information of a specified installed application.
  *
- * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+ * @description Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
  *
  * @param request GetApplicationProvisionInfoRequest
  * @return GetApplicationProvisionInfoResponse
@@ -2384,7 +2419,7 @@ GetPasswordPolicyResponse Client::getPasswordPolicy() {
 }
 
 /**
- * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Queries the details of a specified role-based SSO identity provider.
  *
  * @param request GetSAMLProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2415,7 +2450,7 @@ GetSAMLProviderResponse Client::getSAMLProviderWithOptions(const GetSAMLProvider
 }
 
 /**
- * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+ * @summary Queries the details of a specified role-based SSO identity provider.
  *
  * @param request GetSAMLProviderRequest
  * @return GetSAMLProviderResponse
@@ -2674,7 +2709,7 @@ GetUserSsoSettingsResponse Client::getUserSsoSettings() {
 }
 
 /**
- * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+ * @summary Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
  *
  * @param request GetVerificationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2705,7 +2740,7 @@ GetVerificationInfoResponse Client::getVerificationInfoWithOptions(const GetVeri
 }
 
 /**
- * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+ * @summary Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
  *
  * @param request GetVerificationInfoRequest
  * @return GetVerificationInfoResponse
@@ -3753,7 +3788,7 @@ ProvisionExternalApplicationResponse Client::provisionExternalApplication(const 
  * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
  *
  * @description ### Usage notes
- * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+ * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3791,7 +3826,7 @@ RemoveClientIdFromOIDCProviderResponse Client::removeClientIdFromOIDCProviderWit
  * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
  *
  * @description ### Usage notes
- * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+ * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
  * @return RemoveClientIdFromOIDCProviderResponse
@@ -4035,6 +4070,48 @@ SetAccessKeyPolicyResponse Client::setAccessKeyPolicyWithOptions(const SetAccess
 SetAccessKeyPolicyResponse Client::setAccessKeyPolicy(const SetAccessKeyPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setAccessKeyPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Sets the account-level AccessKey network access control policy.
+ *
+ * @param request SetAccessKeyPolicyForAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAccessKeyPolicyForAccountResponse
+ */
+SetAccessKeyPolicyForAccountResponse Client::setAccessKeyPolicyForAccountWithOptions(const SetAccessKeyPolicyForAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessKeyPolicy()) {
+    query["AccessKeyPolicy"] = request.getAccessKeyPolicy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAccessKeyPolicyForAccount"},
+    {"version" , "2019-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAccessKeyPolicyForAccountResponse>();
+}
+
+/**
+ * @summary Sets the account-level AccessKey network access control policy.
+ *
+ * @param request SetAccessKeyPolicyForAccountRequest
+ * @return SetAccessKeyPolicyForAccountResponse
+ */
+SetAccessKeyPolicyForAccountResponse Client::setAccessKeyPolicyForAccount(const SetAccessKeyPolicyForAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAccessKeyPolicyForAccountWithOptions(request, runtime);
 }
 
 /**

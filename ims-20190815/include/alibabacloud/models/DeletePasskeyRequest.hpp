@@ -49,6 +49,8 @@ namespace Models
 
   protected:
     // The ID of the passkey.
+    // 
+    // This parameter is actually required. If you do not specify this parameter, the call fails and the error code `MissingPasskeyId` is returned.
     shared_ptr<string> passkeyId_ {};
     // The logon name of the Resource Access Management (RAM) user.
     shared_ptr<string> userPrincipalName_ {};

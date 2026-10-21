@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The ID of the application. You can call ListApplicationProvisionInfos to obtain the AppId of an installed application.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};

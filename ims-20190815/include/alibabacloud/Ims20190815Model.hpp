@@ -108,6 +108,9 @@
 #include <alibabacloud/models/GetAccessKeyPolicyRequest.hpp>
 #include <alibabacloud/models/GetAccessKeyPolicyResponseBody.hpp>
 #include <alibabacloud/models/GetAccessKeyPolicyResponse.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyForAccountRequest.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyForAccountResponseBody.hpp>
+#include <alibabacloud/models/GetAccessKeyPolicyForAccountResponse.hpp>
 #include <alibabacloud/models/GetAccountMFAInfoResponseBody.hpp>
 #include <alibabacloud/models/GetAccountMFAInfoResponse.hpp>
 #include <alibabacloud/models/GetAccountSecurityPracticeReportResponseBody.hpp>
@@ -250,6 +253,9 @@
 #include <alibabacloud/models/SetAccessKeyPolicyRequest.hpp>
 #include <alibabacloud/models/SetAccessKeyPolicyResponseBody.hpp>
 #include <alibabacloud/models/SetAccessKeyPolicyResponse.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyForAccountRequest.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyForAccountResponseBody.hpp>
+#include <alibabacloud/models/SetAccessKeyPolicyForAccountResponse.hpp>
 #include <alibabacloud/models/SetDefaultDomainRequest.hpp>
 #include <alibabacloud/models/SetDefaultDomainResponseBody.hpp>
 #include <alibabacloud/models/SetDefaultDomainResponse.hpp>

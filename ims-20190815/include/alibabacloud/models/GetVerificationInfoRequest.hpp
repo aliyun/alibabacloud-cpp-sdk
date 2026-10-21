@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The logon name of the RAM user.
+    // The logon name of the Resource Access Management (RAM) user.
     shared_ptr<string> userPrincipalName_ {};
   };
 

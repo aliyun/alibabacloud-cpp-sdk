@@ -253,22 +253,29 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> accountId_ {};
+      // The application category. Valid values:
+      // - Official: official applications
+      // - ThirdParty: regular third-party applications
       shared_ptr<string> appCategory_ {};
       // The ID of the application.
       shared_ptr<string> appId_ {};
       // The name of the application.
       shared_ptr<string> appName_ {};
+      // The application assignment type. Valid values:
+      // - AllowAll: No assignment is required. All RAM users and roles can access the application.
+      // - OnDemand: Assignment is required on demand. RAM users and roles can access the application only after it is assigned to them.
       shared_ptr<string> assignmentType_ {};
-      // The time when the application was installed. The value is a timestamp.
+      // The installation timestamp.
       shared_ptr<string> createDate_ {};
-      // The information about the scopes of permissions that are granted to the application.
+      // The application permission scope information.
       shared_ptr<ApplicationProvisionInfo::DelegatedScope> delegatedScope_ {};
       // The display name of the application.
       shared_ptr<string> displayName_ {};
+      // Indicates whether user authorization is required.
       shared_ptr<bool> needPrincipalConsent_ {};
-      // The update time. The value is a timestamp.
+      // The update timestamp.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -291,7 +298,7 @@ namespace Models
 
 
   protected:
-    // The installation information about the application.
+    // The application installation information.
     shared_ptr<GetApplicationProvisionInfoResponseBody::ApplicationProvisionInfo> applicationProvisionInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

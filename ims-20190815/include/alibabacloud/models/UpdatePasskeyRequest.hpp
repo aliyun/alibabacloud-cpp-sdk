@@ -58,8 +58,6 @@ namespace Models
 
   protected:
     // The ID of the passkey.
-    // 
-    // This parameter is required. If this parameter is not specified, the `MissingPasskeyId` error is returned.
     shared_ptr<string> passkeyId_ {};
     // The name of the passkey.
     shared_ptr<string> passkeyName_ {};

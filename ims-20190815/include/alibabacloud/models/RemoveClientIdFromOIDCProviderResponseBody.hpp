@@ -151,28 +151,28 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
+      // The ARN of the OIDC IdP.
       shared_ptr<string> arn_ {};
       // The client IDs. Multiple client IDs are separated by commas (,).
       shared_ptr<string> clientIds_ {};
-      // The time when the OIDC IdP was created. The time is displayed in UTC.
+      // The creation time in UTC.
       shared_ptr<string> createDate_ {};
       // The description of the OIDC IdP.
       shared_ptr<string> description_ {};
-      // The fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
+      // The verification fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
       shared_ptr<string> fingerprints_ {};
-      // The time when the OIDC IdP was created. The value is a UNIX timestamp.
+      // The creation time as a UNIX timestamp.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the OIDC IdP was last modified. The value is a UNIX timestamp.
+      // The update time as a UNIX timestamp.
       shared_ptr<string> gmtModified_ {};
-      // The earliest time when an external IdP is allowed to issue an ID token. If the iat field in the ID token indicates a time earlier than the current time by more than this value, the request is rejected.
+      // The earliest issuance time allowed for the external IdP to issue an ID token. If the time difference between the `iat` field in the ID token and the current time is greater than this value, the request is rejected.
       // Unit: hours. Valid values: 1 to 168.
       shared_ptr<int64_t> issuanceLimitTime_ {};
       // The issuer URL.
       shared_ptr<string> issuerUrl_ {};
       // The name of the OIDC IdP.
       shared_ptr<string> OIDCProviderName_ {};
-      // The time when the OIDC IdP was last modified. The time is displayed in UTC.
+      // The update time in UTC.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -195,7 +195,7 @@ namespace Models
 
 
   protected:
-    // The information about the OIDC IdP.
+    // The OIDC IdP information.
     shared_ptr<RemoveClientIdFromOIDCProviderResponseBody::OIDCProvider> OIDCProvider_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

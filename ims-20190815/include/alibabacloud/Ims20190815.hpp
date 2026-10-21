@@ -443,7 +443,7 @@ namespace Ims20190815
       Models::DeleteOIDCProviderResponse deleteOIDCProvider(const Models::DeleteOIDCProviderRequest &request);
 
       /**
-       * @summary Deletes a passkey of a RAM user.
+       * @summary Deletes the passkey of a user.
        *
        * @param request DeletePasskeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -452,7 +452,7 @@ namespace Ims20190815
       Models::DeletePasskeyResponse deletePasskeyWithOptions(const Models::DeletePasskeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a passkey of a RAM user.
+       * @summary Deletes the passkey of a user.
        *
        * @param request DeletePasskeyRequest
        * @return DeletePasskeyResponse
@@ -689,6 +689,23 @@ namespace Ims20190815
       Models::GetAccessKeyPolicyResponse getAccessKeyPolicy(const Models::GetAccessKeyPolicyRequest &request);
 
       /**
+       * @summary Queries the account-level AccessKey network access control policy.
+       *
+       * @param request GetAccessKeyPolicyForAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAccessKeyPolicyForAccountResponse
+       */
+      Models::GetAccessKeyPolicyForAccountResponse getAccessKeyPolicyForAccountWithOptions(const Models::GetAccessKeyPolicyForAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the account-level AccessKey network access control policy.
+       *
+       * @param request GetAccessKeyPolicyForAccountRequest
+       * @return GetAccessKeyPolicyForAccountResponse
+       */
+      Models::GetAccessKeyPolicyForAccountResponse getAccessKeyPolicyForAccount(const Models::GetAccessKeyPolicyForAccountRequest &request);
+
+      /**
        * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -772,9 +789,9 @@ namespace Ims20190815
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary Queries installation information about a specified installed application.
+       * @summary Queries the installation information of a specified installed application.
        *
-       * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+       * @description Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
        *
        * @param request GetApplicationProvisionInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,9 +800,9 @@ namespace Ims20190815
       Models::GetApplicationProvisionInfoResponse getApplicationProvisionInfoWithOptions(const Models::GetApplicationProvisionInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries installation information about a specified installed application.
+       * @summary Queries the installation information of a specified installed application.
        *
-       * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+       * @description Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
        *
        * @param request GetApplicationProvisionInfoRequest
        * @return GetApplicationProvisionInfoResponse
@@ -954,7 +971,7 @@ namespace Ims20190815
       Models::GetPasswordPolicyResponse getPasswordPolicy();
 
       /**
-       * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Queries the details of a specified role-based SSO identity provider.
        *
        * @param request GetSAMLProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -963,7 +980,7 @@ namespace Ims20190815
       Models::GetSAMLProviderResponse getSAMLProviderWithOptions(const Models::GetSAMLProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+       * @summary Queries the details of a specified role-based SSO identity provider.
        *
        * @param request GetSAMLProviderRequest
        * @return GetSAMLProviderResponse
@@ -1069,7 +1086,7 @@ namespace Ims20190815
       Models::GetUserSsoSettingsResponse getUserSsoSettings();
 
       /**
-       * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+       * @summary Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
        *
        * @param request GetVerificationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1078,7 +1095,7 @@ namespace Ims20190815
       Models::GetVerificationInfoResponse getVerificationInfoWithOptions(const Models::GetVerificationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+       * @summary Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
        *
        * @param request GetVerificationInfoRequest
        * @return GetVerificationInfoResponse
@@ -1497,7 +1514,7 @@ namespace Ims20190815
        * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
        *
        * @description ### Usage notes
-       * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+       * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
        *
        * @param request RemoveClientIdFromOIDCProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1526,7 @@ namespace Ims20190815
        * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
        *
        * @description ### Usage notes
-       * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+       * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
        *
        * @param request RemoveClientIdFromOIDCProviderRequest
        * @return RemoveClientIdFromOIDCProviderResponse
@@ -1606,6 +1623,23 @@ namespace Ims20190815
        * @return SetAccessKeyPolicyResponse
        */
       Models::SetAccessKeyPolicyResponse setAccessKeyPolicy(const Models::SetAccessKeyPolicyRequest &request);
+
+      /**
+       * @summary Sets the account-level AccessKey network access control policy.
+       *
+       * @param request SetAccessKeyPolicyForAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAccessKeyPolicyForAccountResponse
+       */
+      Models::SetAccessKeyPolicyForAccountResponse setAccessKeyPolicyForAccountWithOptions(const Models::SetAccessKeyPolicyForAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the account-level AccessKey network access control policy.
+       *
+       * @param request SetAccessKeyPolicyForAccountRequest
+       * @return SetAccessKeyPolicyForAccountResponse
+       */
+      Models::SetAccessKeyPolicyForAccountResponse setAccessKeyPolicyForAccount(const Models::SetAccessKeyPolicyForAccountRequest &request);
 
       /**
        * @summary Configures the default domain name for an Alibaba Cloud account.

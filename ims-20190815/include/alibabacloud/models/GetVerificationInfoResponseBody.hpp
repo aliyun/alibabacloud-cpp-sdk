@@ -80,15 +80,13 @@ namespace Models
 
 
     protected:
-      // The international dialing code.
+      // The area code.
       shared_ptr<string> areaCode_ {};
-      // The mobile phone number.
+      // The phone number.
       shared_ptr<string> phoneNumber_ {};
-      // The status of the mobile phone. Valid values:
-      // 
-      // - active: The mobile phone is activated.
-      // 
-      // - pending: The mobile phone is pending for activation.
+      // The status of the secure phone. Valid values:
+      // - active: Activated.
+      // - pending: Pending activation.
       shared_ptr<string> status_ {};
     };
 
@@ -130,13 +128,11 @@ namespace Models
 
 
     protected:
-      // The email address.
+      // The security email address.
       shared_ptr<string> email_ {};
-      // The status of the email. Valid values:
-      // 
-      // - active: The email is activated.
-      // 
-      // - pending: The email is pending for activation.
+      // The status of the security email address. Valid values:
+      // - active: Activated.
+      // - pending: Pending activation.
       shared_ptr<string> status_ {};
     };
 
@@ -170,9 +166,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the email.
+    // The security email address information.
     shared_ptr<GetVerificationInfoResponseBody::SecurityEmailDevice> securityEmailDevice_ {};
-    // The information about the mobile phone.
+    // The secure phone information.
     shared_ptr<GetVerificationInfoResponseBody::SecurityPhoneDevice> securityPhoneDevice_ {};
   };
 
