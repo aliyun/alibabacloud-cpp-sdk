@@ -138,7 +138,7 @@ namespace Models
       // - monitor: logging and monitoring component.
       // - application: application component.
       // 
-      // An empty value indicates that the component belongs to another category.
+      // An empty value indicates that the component belongs to another categorization.
       shared_ptr<string> category_ {};
       // The schema of custom parameters for the component.
       shared_ptr<string> configSchema_ {};
@@ -173,7 +173,7 @@ namespace Models
 
 
   protected:
-    // The list of available components.
+    // The list of available add-on components.
     shared_ptr<vector<ListAddonsResponseBody::Addons>> addons_ {};
   };
 

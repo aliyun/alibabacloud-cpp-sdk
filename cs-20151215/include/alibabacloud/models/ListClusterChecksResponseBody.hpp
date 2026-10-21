@@ -106,7 +106,7 @@ namespace Models
     protected:
       // The check ID.
       shared_ptr<string> checkId_ {};
-      // The creation time.
+      // The creation time in ISO 8601 format, including time zone information.
       shared_ptr<string> createdAt_ {};
       // The completion time.
       shared_ptr<string> finishedAt_ {};

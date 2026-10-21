@@ -143,19 +143,19 @@ namespace Models
 
 
     protected:
-      // The access permissions for the deployment template. Valid values:
+      // The access permissions of the deployment template. Valid values:
       // 
-      // - `private`: private.
-      // - `public`: public.
-      // - `shared`: shared.
+      // - `private`: Private.
+      // - `public`: Public.
+      // - `shared`: Shared.
       shared_ptr<string> acl_ {};
       // The time when the orchestration template was created.
       shared_ptr<string> created_ {};
       // The description of the orchestration template.
       shared_ptr<string> description_ {};
-      // The ID of the orchestration template.
+      // The orchestration template ID.
       shared_ptr<string> id_ {};
-      // The name of the orchestration template.
+      // The orchestration template name.
       shared_ptr<string> name_ {};
       // The tag of the orchestration template. If not explicitly specified, the tag defaults to the template name.
       shared_ptr<string> tags_ {};
@@ -163,11 +163,11 @@ namespace Models
       shared_ptr<string> template_ {};
       // The templatetype.
       // 
-      // - If the value is set to kubernetes, the template is displayed on the Orchestration Templates page in the console.
+      // - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
       // 
       // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
       shared_ptr<string> templateType_ {};
-      // The ID of the parent template associated with the template. This parameter is used to implement template versioning. Different versions of the same template share the same `template_with_hist_id` value.
+      // The ID of the parent template associated with the template. This parameter is used to implement the multi-version feature for templates. Different versions of the same template share the same `template_with_hist_id` value.
       shared_ptr<string> templateWithHistId_ {};
       // The time when the orchestration template was last updated.
       shared_ptr<string> updated_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<int64_t> pageNumber_ {};
       // The maximum number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
     };
 

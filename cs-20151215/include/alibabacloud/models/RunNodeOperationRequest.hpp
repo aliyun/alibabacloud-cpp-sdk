@@ -51,8 +51,11 @@ namespace Models
 
 
   protected:
+    // The name of the O&M action to execute.
+    // 
     // This parameter is required.
     shared_ptr<string> operationAction_ {};
+    // The list of parameters accepted by the O&M action.
     shared_ptr<vector<string>> operationArgs_ {};
   };
 

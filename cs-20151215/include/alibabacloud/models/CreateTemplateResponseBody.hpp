@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the orchestration template.
+    // The orchestration template ID.
     shared_ptr<string> templateId_ {};
   };
 

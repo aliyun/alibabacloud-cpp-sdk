@@ -89,11 +89,11 @@ namespace Models
     shared_ptr<bool> drainNode_ {};
     // The list of instances to remove.
     shared_ptr<string> instanceIdsShrink_ {};
-    // [This parameter is deprecated]
+    // **[Deprecated]**
     // 
     // The list of nodes to remove.
     // 
-    // >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>.
+    // >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>
     shared_ptr<string> nodesShrink_ {};
     // Specifies whether to release the nodes. Valid values:
     // - true: Release the nodes.

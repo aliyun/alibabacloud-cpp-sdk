@@ -113,8 +113,8 @@ namespace Models
 
   protected:
     // The diagnosis result code. Valid values:
-    // - 0: diagnosis completed.
-    // - 1: diagnosis failed.
+    // - 0: Diagnosis completed.
+    // - 1: Diagnosis failed.
     shared_ptr<int64_t> code_ {};
     // The time when the diagnosis was initiated.
     shared_ptr<string> created_ {};
@@ -122,14 +122,14 @@ namespace Models
     shared_ptr<string> diagnosisId_ {};
     // The time when the diagnosis was completed.
     shared_ptr<string> finished_ {};
-    // The diagnosis status message.
+    // The diagnosis status information.
     shared_ptr<string> message_ {};
     // The diagnosis result.
     shared_ptr<string> result_ {};
     // The diagnosis status. Valid values:
-    // - 0: diagnosis created.
-    // - 1: diagnosis running.
-    // - 2: diagnosis completed.
+    // - 0: Diagnosis created.
+    // - 1: Diagnosis running.
+    // - 2: Diagnosis completed.
     shared_ptr<int64_t> status_ {};
     // The diagnosis target.
     shared_ptr<string> target_ {};

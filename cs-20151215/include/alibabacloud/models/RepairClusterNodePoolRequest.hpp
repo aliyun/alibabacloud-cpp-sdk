@@ -78,14 +78,14 @@ namespace Models
       shared_ptr<vector<string>> args_ {};
       // The repair operation ID. Valid values:
       // 
-      // - restart.kubelet: restart kubelet.
-      // - restart.docker: restart Docker.
-      // - restart.containerd: restart Containerd.
-      // - restart.ntp: restart ntpd or chronyd.
-      // - remove.containerdContainerInSandbox: delete a specified sandbox container under Containerd.
-      // - remove.dockerContainerInSandbox: delete a specified sandbox container under Docker.
-      // - remove.containerdContainer: delete a specified container under Containerd.
-      // - remove.dockerContainer: delete a specified container under Docker.
+      // - restart.kubelet: Restarts kubelet.
+      // - restart.docker: Restarts Docker.
+      // - restart.containerd: Restarts Containerd.
+      // - restart.ntp: Restarts ntpd or chronyd.
+      // - remove.containerdContainerInSandbox: Removes a specified sandbox container under Containerd.
+      // - remove.dockerContainerInSandbox: Removes a specified sandbox container under Docker.
+      // - remove.containerdContainer: Removes a specified container under Containerd.
+      // - remove.dockerContainer: Removes a specified container under Docker.
       shared_ptr<string> operationId_ {};
     };
 
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // [This field is deprecated] Specifies whether to allow instance restart.
+    // **[Deprecated]** Specifies whether to allow instance restart.
     shared_ptr<bool> autoRestart_ {};
     // The list of nodes.
     shared_ptr<vector<string>> nodes_ {};

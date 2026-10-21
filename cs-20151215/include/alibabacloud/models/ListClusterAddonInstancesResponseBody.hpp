@@ -81,9 +81,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The component status. Valid values:
       // - active: installed
-      // - updating: being modified
+      // - updating: being updated
       // - upgrading: being upgraded
-      // - deleting: being uninstalled.
+      // - deleting: being uninstalled
       shared_ptr<string> state_ {};
       // The component version.
       shared_ptr<string> version_ {};

@@ -51,7 +51,8 @@ namespace Models
     // The message returned when the execution fails.
     shared_ptr<string> msg_ {};
     // The execution result status. Valid values:
-    // - True: The execution is successful.
+    // 
+    // - True: The execution succeeded.
     // - False: The execution failed.
     shared_ptr<bool> status_ {};
   };

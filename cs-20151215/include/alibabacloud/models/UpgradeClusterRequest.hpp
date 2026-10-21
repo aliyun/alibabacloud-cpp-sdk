@@ -111,17 +111,18 @@ namespace Models
 
 
   protected:
-    // [This parameter is deprecated] No value is required.
+    // **[Deprecated]** You do not need to specify this parameter.
     shared_ptr<string> componentName_ {};
-    // Specifies whether to upgrade only the control plane. Valid values:
-    // - true: upgrades only the control plane.
-    // - false: upgrades both the control plane and worker nodes.
+    // Specifies whether to upgrade only the control plane.
+    // 
+    // - true: Upgrades only the control plane.
+    // - false: Upgrades both the control plane and worker nodes.
     shared_ptr<bool> masterOnly_ {};
-    // The target version to which the cluster is upgraded.
+    // The target version for the cluster upgrade.
     shared_ptr<string> nextVersion_ {};
     // The rolling upgrade configuration.
     shared_ptr<UpgradeClusterRequest::RollingPolicy> rollingPolicy_ {};
-    // [This parameter is deprecated] Use the `next_version` parameter instead.
+    // **[Deprecated]** Use the `next_version` parameter instead.
     shared_ptr<string> version_ {};
   };
 

@@ -99,15 +99,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> componentName_ {};
-      // The custom parameters of the component, encoded as a JSON string.
+      // The custom component parameters, encoded as a JSON string.
       shared_ptr<string> config_ {};
-      // The target version to which you want to upgrade. You can call the `DescribeAddon` operation to query the versions to which the component can be upgraded.
+      // The target version to upgrade to. You can call the `DescribeAddon` operation to query the upgradable versions of a component.
       // 
       // This parameter is required.
       shared_ptr<string> nextVersion_ {};
       // The component upgrade policy. Valid values:
-      // - overwrite: overwrites the existing version.
-      // - canary: performs a canary upgrade.
+      // - overwrite: overwrite upgrade.
+      // - canary: canary upgrade.
       shared_ptr<string> policy_ {};
       // The current component version.
       shared_ptr<string> version_ {};

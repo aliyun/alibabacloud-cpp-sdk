@@ -75,7 +75,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> components_ {};
-    // The name of the Simple Log Service (SLS) project that stores the control plane component logs.
+    // The name of the SLS project that stores the control plane component logs.
     // 
     // Default value: k8s-log-$Cluster ID.
     shared_ptr<string> logProject_ {};

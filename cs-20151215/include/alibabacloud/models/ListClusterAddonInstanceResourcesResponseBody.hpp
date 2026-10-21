@@ -165,9 +165,9 @@ namespace Models
 
 
     protected:
-      // The Helm chart name of the component.
+      // The name of the Helm chart corresponding to the component.
       shared_ptr<string> chartName_ {};
-      // The Helm chart version of the component.
+      // The version of the Helm chart corresponding to the component.
       shared_ptr<string> chartVersion_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
@@ -196,7 +196,7 @@ namespace Models
 
 
   protected:
-    // The Helm release instance information of the component.
+    // The Helm release instance information corresponding to the component.
     shared_ptr<ListClusterAddonInstanceResourcesResponseBody::HelmRelease> helmRelease_ {};
     // The list of Kubernetes objects contained in the component.
     shared_ptr<vector<ListClusterAddonInstanceResourcesResponseBody::KubernetesObjects>> kubernetesObjects_ {};

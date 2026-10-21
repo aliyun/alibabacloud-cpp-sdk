@@ -54,7 +54,7 @@ namespace Models
     // 
     // - Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results returned per page.
+    // The number of results per page.
     // 
     // - Valid values: 1 to 100.
     // 

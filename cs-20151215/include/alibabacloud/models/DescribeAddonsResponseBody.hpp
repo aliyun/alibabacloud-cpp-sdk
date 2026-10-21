@@ -83,7 +83,7 @@ namespace Models
 
 
       protected:
-        // The component name.
+        // The name of the component.
         shared_ptr<string> name_ {};
       };
 
@@ -108,7 +108,7 @@ namespace Models
     protected:
       // The name of the component group.
       shared_ptr<string> groupName_ {};
-      // The component names included in this group.
+      // The names of the components in the group.
       shared_ptr<vector<ComponentGroups::Items>> items_ {};
     };
 

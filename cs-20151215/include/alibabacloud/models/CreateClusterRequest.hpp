@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(auto_renew_period, autoRenewPeriod_);
       DARABONBA_PTR_TO_JSON(charge_type, chargeType_);
       DARABONBA_PTR_TO_JSON(cis_enabled, cisEnabled_);
+      DARABONBA_PTR_TO_JSON(client_token, clientToken_);
       DARABONBA_PTR_TO_JSON(cloud_monitor_flags, cloudMonitorFlags_);
       DARABONBA_PTR_TO_JSON(cluster_domain, clusterDomain_);
       DARABONBA_PTR_TO_JSON(cluster_spec, clusterSpec_);
@@ -135,6 +136,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(auto_renew_period, autoRenewPeriod_);
       DARABONBA_PTR_FROM_JSON(charge_type, chargeType_);
       DARABONBA_PTR_FROM_JSON(cis_enabled, cisEnabled_);
+      DARABONBA_PTR_FROM_JSON(client_token, clientToken_);
       DARABONBA_PTR_FROM_JSON(cloud_monitor_flags, cloudMonitorFlags_);
       DARABONBA_PTR_FROM_JSON(cluster_domain, clusterDomain_);
       DARABONBA_PTR_FROM_JSON(cluster_spec, clusterSpec_);
@@ -297,20 +299,20 @@ namespace Models
 
 
     protected:
-      // Data disk type.
+      // The data cloud disk type.
       // 
       // This parameter is required.
       shared_ptr<string> category_ {};
-      // Whether to encrypt the data disk. Valid values:
+      // Specifies whether to encrypt data cloud disks. Valid values:
       // 
-      // - `true`: Encrypt the data disk.
-      // - `false`: Do not encrypt the data disk.
+      // - `true`: Encrypts data cloud disks.
+      // - `false`: Does not encrypt data cloud disks.
       // 
       // Default value: `false`.
       shared_ptr<string> encrypted_ {};
-      // Node data disk performance level. Only takes effect for [ESSD disks](https://help.aliyun.com/document_detail/122389.html).
+      // The performance level (PL) of node data cloud disks. This parameter takes effect only for [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // Data disk size. Valid values: 40 to 32767. Unit: GiB.
+      // The data cloud disk size. Valid values: 40 to 32767. Unit: GiB.
       // 
       // This parameter is required.
       shared_ptr<string> size_ {};
@@ -344,11 +346,11 @@ namespace Models
 
 
     protected:
-      // Whether to enable the RRSA feature.
+      // Specifies whether to enable the RRSA feature.
       // 
-      // - true: Enable.
+      // - true: Enabled.
       // 
-      // - false: Disable.
+      // - false: Not enabled.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -409,16 +411,16 @@ namespace Models
 
 
       protected:
-        // Cluster automatic upgrade frequency. Valid values:
-        // - patch: Automatically upgrade to an available patch version of the current minor version. The new Kubernetes version will not contain breaking changes.
-        // - stable: Automatically upgrade to the latest patch version of the second-newest minor version. The new Kubernetes version may involve API and feature changes, but its stability has been widely verified.
-        // - rapid: Automatically upgrade to the latest patch version of the latest minor version to get new features from the Kubernetes community faster.
+        // The cluster auto upgrade frequency. Valid values:
+        // - patch: Automatically upgrades to the latest available patch version within the current minor version. The new Kubernetes version does not contain breaking changes.
+        // - stable: Automatically upgrades to the latest patch version of the second-latest minor version. The new Kubernetes version may involve API and feature changes, but its stability has been extensively validated.
+        // - rapid: Automatically upgrades to the latest patch version of the latest minor version, allowing faster access to new features from the Kubernetes community.
         shared_ptr<string> channel_ {};
-        // Whether to enable cluster automatic upgrade.
+        // Specifies whether to enable cluster auto upgrade.
         // 
-        // - true: Enable.
+        // - true: Enabled.
         // 
-        // - false: Disable.
+        // - false: Not enabled.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -433,7 +435,7 @@ namespace Models
 
 
     protected:
-      // Cluster automatic upgrade.
+      // The cluster auto upgrade configuration.
       shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
     };
 
@@ -441,9 +443,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ControlPlaneEndpointsConfig& obj) { 
         DARABONBA_PTR_TO_JSON(internal_dns_config, internalDnsConfig_);
+        DARABONBA_PTR_TO_JSON(load_balancers_config, loadBalancersConfig_);
       };
       friend void from_json(const Darabonba::Json& j, ControlPlaneEndpointsConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(internal_dns_config, internalDnsConfig_);
+        DARABONBA_PTR_FROM_JSON(load_balancers_config, loadBalancersConfig_);
       };
       ControlPlaneEndpointsConfig() = default ;
       ControlPlaneEndpointsConfig(const ControlPlaneEndpointsConfig &) = default ;
@@ -456,6 +460,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class LoadBalancersConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LoadBalancersConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(endpoint_type, endpointType_);
+          DARABONBA_PTR_TO_JSON(load_balancer_id, loadBalancerId_);
+        };
+        friend void from_json(const Darabonba::Json& j, LoadBalancersConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(endpoint_type, endpointType_);
+          DARABONBA_PTR_FROM_JSON(load_balancer_id, loadBalancerId_);
+        };
+        LoadBalancersConfig() = default ;
+        LoadBalancersConfig(const LoadBalancersConfig &) = default ;
+        LoadBalancersConfig(LoadBalancersConfig &&) = default ;
+        LoadBalancersConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LoadBalancersConfig() = default ;
+        LoadBalancersConfig& operator=(const LoadBalancersConfig &) = default ;
+        LoadBalancersConfig& operator=(LoadBalancersConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->endpointType_ == nullptr
+        && this->loadBalancerId_ == nullptr; };
+        // endpointType Field Functions 
+        bool hasEndpointType() const { return this->endpointType_ != nullptr;};
+        void deleteEndpointType() { this->endpointType_ = nullptr;};
+        inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+        inline LoadBalancersConfig& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
+
+
+        // loadBalancerId Field Functions 
+        bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
+        void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
+        inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+        inline LoadBalancersConfig& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+      protected:
+        // The endpoint type.
+        shared_ptr<string> endpointType_ {};
+        // The NLB instance ID.
+        shared_ptr<string> loadBalancerId_ {};
+      };
+
       class InternalDnsConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const InternalDnsConfig& obj) { 
@@ -486,11 +534,12 @@ namespace Models
 
 
       protected:
-        // VPCs where the internal DNS record resolution takes effect.
+        // The VPCs where the internal DNS records of the cluster take effect.
         shared_ptr<vector<string>> bindVpcs_ {};
       };
 
-      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr; };
+      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr
+        && this->loadBalancersConfig_ == nullptr; };
       // internalDnsConfig Field Functions 
       bool hasInternalDnsConfig() const { return this->internalDnsConfig_ != nullptr;};
       void deleteInternalDnsConfig() { this->internalDnsConfig_ = nullptr;};
@@ -500,9 +549,20 @@ namespace Models
       inline ControlPlaneEndpointsConfig& setInternalDnsConfig(ControlPlaneEndpointsConfig::InternalDnsConfig && internalDnsConfig) { DARABONBA_PTR_SET_RVALUE(internalDnsConfig_, internalDnsConfig) };
 
 
+      // loadBalancersConfig Field Functions 
+      bool hasLoadBalancersConfig() const { return this->loadBalancersConfig_ != nullptr;};
+      void deleteLoadBalancersConfig() { this->loadBalancersConfig_ = nullptr;};
+      inline const vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> & getLoadBalancersConfig() const { DARABONBA_PTR_GET_CONST(loadBalancersConfig_, vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>) };
+      inline vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> getLoadBalancersConfig() { DARABONBA_PTR_GET(loadBalancersConfig_, vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>) };
+      inline ControlPlaneEndpointsConfig& setLoadBalancersConfig(const vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> & loadBalancersConfig) { DARABONBA_PTR_SET_VALUE(loadBalancersConfig_, loadBalancersConfig) };
+      inline ControlPlaneEndpointsConfig& setLoadBalancersConfig(vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> && loadBalancersConfig) { DARABONBA_PTR_SET_RVALUE(loadBalancersConfig_, loadBalancersConfig) };
+
+
     protected:
-      // Internal DNS configuration for the cluster, applicable to ACK managed clusters. The internal DNS is used by node-side system components such as kubelet and kube-proxy to access the API Server. When internal DNS access is not enabled, node-side system components will access via CLB IP.
+      // The internal DNS configuration for the cluster. This parameter applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. If the internal domain name access is not enabled, node-side system components access the API Server through the CLB IP address.
       shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
+      // The cluster endpoint configuration. When this parameter is specified, the endpoint_public_access and load_balancer_id parameters do not take effect. ACK supports only automatic creation of NLB instances. To specify a CLB or NLB instance, use load_balancers_config to specify the corresponding instance ID.
+      shared_ptr<vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>> loadBalancersConfig_ {};
     };
 
     class ControlPlaneConfig : public Darabonba::Model {
@@ -758,126 +818,126 @@ namespace Models
 
 
     protected:
-      // Whether to enable auto-renewal for control plane nodes. Valid when the billing type is `PrePaid`.
-      // - true: Enable auto-renewal.
-      // - false: Disable auto-renewal.
+      // Specifies whether to enable auto-renewal for control plane nodes. This parameter takes effect only when the billing method is set to `PrePaid`. Valid values:
+      // - true: Enables auto-renewal.
+      // - false: Disables auto-renewal.
       // 
       // Default value: true.
       shared_ptr<bool> autoRenew_ {};
-      // Auto-renewal duration for control plane nodes.
+      // The auto-renewal period for control plane nodes.
       // 
       // Valid values: {1, 2, 3, 6, 12}. Unit: months.
       // 
       // Default value: 1.
       shared_ptr<int64_t> autoRenewPeriod_ {};
-      // Control plane node billing type.
+      // The billing method for control plane nodes.
       // 
-      // - `PrePaid`: Subscription.
-      // - `PostPaid`: Pay-as-you-go.
+      // - `PrePaid`: subscription.
+      // - `PostPaid`: pay-as-you-go.
       // 
       // Default value: `PostPaid`.
       shared_ptr<string> chargeType_ {};
-      // Whether to install CloudMonitor on nodes.
+      // Specifies whether to install CloudMonitor on nodes.
       // 
-      // - true: Install the CloudMonitor agent.
+      // - true: Installs the CloudMonitor agent.
       // 
-      // - false: Do not install the CloudMonitor agent.
+      // - false: Does not install the CloudMonitor agent.
       // 
       // Default value: false.
       shared_ptr<bool> cloudMonitorFlags_ {};
-      // Node CPU management policy.
+      // The CPU management policy for nodes.
       // 
-      // - static: Allows enhancing CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
+      // - static: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
       // 
-      // - none: Enables the existing default CPU affinity scheme.
+      // - none: Uses the existing default CPU affinity scheme.
       // 
       // Default value: none.
       shared_ptr<string> cpuPolicy_ {};
-      // Deployment set ID.
+      // The deployment set ID.
       shared_ptr<string> deploymentsetId_ {};
-      // Image ID.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // OS image type.
+      // The operating system image type.
       shared_ptr<string> imageType_ {};
-      // ECS instance metadata access configuration.
+      // The instance metadata access configuration for ECS instances.
       shared_ptr<InstanceMetadataOptions> instanceMetadataOptions_ {};
-      // Node instance types.
+      // The instance types for nodes.
       shared_ptr<vector<string>> instanceTypes_ {};
-      // Key pair name. Mutually exclusive with login_password.
+      // The name of the key pair. You must set this parameter or login_password.
       shared_ptr<string> keyPair_ {};
-      // SSH login password. The password must be 8 to 30 characters in length and contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters. Mutually exclusive with key_pair.
+      // The SSH logon password. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. You must set this parameter or key_pair.
       shared_ptr<string> loginPassword_ {};
-      // [**This field is deprecated**] Node service port range.
+      // **[Deprecated]** The node service port range.
       shared_ptr<string> nodePortRange_ {};
-      // Subscription duration for control plane nodes. Valid and required when the billing type is `PrePaid`.
+      // The subscription duration for control plane nodes. This parameter is required and takes effect only when the billing method is set to `PrePaid`.
       // 
       // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}. Unit: months.
       // 
       // Default value: 1.
       shared_ptr<int64_t> period_ {};
-      // Subscription period unit for control plane nodes. Valid and required when the billing type is `PrePaid`.
+      // The unit of the subscription duration for control plane nodes. This parameter is required and takes effect only when the billing method is set to `PrePaid`.
       // 
-      // Valid value: `Month`. Currently, only month-based periods are supported.
+      // Valid value: `Month`. Currently, only month-based billing cycles are supported.
       shared_ptr<string> periodUnit_ {};
-      // [**This field is deprecated**] Control plane node runtime name. Valid value:
+      // **[Deprecated]** The runtime name for control plane nodes. Valid values:
       // 
-      // containerd: Containerd runtime, supported by all cluster versions.
+      // containerd: The Containerd runtime, which is supported by all cluster versions.
       shared_ptr<string> runtime_ {};
-      // Whether to enable Alibaba Cloud OS security hardening.
+      // Specifies whether to enable Alibaba Cloud OS security hardening.
       // 
-      // - true: Enable Alibaba Cloud OS security hardening.
+      // - true: Enables Alibaba Cloud OS security hardening.
       // 
-      // - false: Disable Alibaba Cloud OS security hardening.
+      // - false: Disables Alibaba Cloud OS security hardening.
       // 
       // Default value: false.
       shared_ptr<bool> securityHardeningOs_ {};
-      // Number of control plane nodes.
+      // The number of control plane nodes.
       // 
       // Valid values: `3` or `5`.
       shared_ptr<int64_t> size_ {};
-      // Whether to enable classified protection security hardening.
+      // Specifies whether to enable MLPS security hardening.
       // 
-      // - true: Enable classified protection hardening.
+      // - true: Enables MLPS 2.0 security hardening.
       // 
-      // - false: Disable classified protection hardening.
+      // - false: Disables MLPS 2.0 security hardening.
       // 
       // Default value: false.
       shared_ptr<bool> socEnabled_ {};
-      // Whether to enable burst (performance burst) for the node system disk.
+      // Specifies whether to enable burst performance for node system cloud disks.
       // 
-      // - true: Enable.
+      // - true: Enabled.
       // 
-      // - false: Disable.
+      // - false: Disabled.
       // 
-      // This parameter is only supported when `system_disk_category` is set to `cloud_auto`.
+      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`.
       shared_ptr<bool> systemDiskBurstingEnabled_ {};
-      // Node system disk type.
+      // The type of the node system cloud disk.
       // 
-      // - `cloud_efficiency`: Ultra disk.
-      // - `cloud_ssd`: SSD disk.
-      // - `cloud_essd`: ESSD disk.
-      // - `cloud_auto`: ESSD AutoPL disk.
-      // - `cloud_essd_entry`: ESSD Entry disk.
+      // - `cloud_efficiency`: ultra cloud disk.
+      // - `cloud_ssd`: standard SSD.
+      // - `cloud_essd`: ESSD.
+      // - `cloud_auto`: ESSD AutoPL cloud disk.
+      // - `cloud_essd_entry`: ESSD Entry cloud disk.
       // 
-      // Default value: `cloud_ssd`. The default value may vary across availability zones.
+      // Default value: `cloud_ssd`. The default value may vary by zone.
       shared_ptr<string> systemDiskCategory_ {};
-      // Node system disk performance level. Only takes effect for ESSD disks.
+      // The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks.
       // 
-      // The performance level is related to the disk size. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
+      // The performance level varies based on the cloud disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // Pre-provisioned read/write IOPS for the node system disk.
+      // The provisioned read/write IOPS for node system cloud disks.
       // 
-      // Valid values: 0 to min{50,000, 1000*capacity - baseline performance}. Baseline performance = min{1,800 + 50*capacity, 50000}.
+      // Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50000}.
       // 
-      // This parameter is only supported when `system_disk_category` is set to `cloud_auto`.
+      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`.
       shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-      // Node system disk size.
+      // The size of the node system cloud disk.
       // 
-      // Valid values: [40, 500\\]. Unit: GiB.
+      // Valid values: [40, 500]. Unit: GiB.
       // 
       // Default value: `120`.
       shared_ptr<int64_t> systemDiskSize_ {};
-      // Node automatic snapshot backup policy.
+      // The automatic snapshot policy for node system cloud disks.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
     };
 
@@ -909,7 +969,7 @@ namespace Models
 
 
     protected:
-      // Whether to enable intelligent managed mode.
+      // Specifies whether to enable intelligent managed mode. Valid values:
       // 
       // - true: Enable.
       // 
@@ -955,42 +1015,42 @@ namespace Models
 
 
     protected:
-      // Whether to enable the cluster audit log feature.
+      // Specifies whether to enable the cluster audit log feature. Valid values:
       // 
       // - true: Enable.
       // 
       // - false: Disable.
       shared_ptr<bool> enabled_ {};
-      // The [SLS Project](https://help.aliyun.com/document_detail/48873.html) where the cluster audit log [Logstore](https://help.aliyun.com/document_detail/48873.html) is located.
+      // The [SLS Project](https://help.aliyun.com/document_detail/48873.html) that contains the [Logstore](https://help.aliyun.com/document_detail/48873.html) for cluster audit logs.
       // 
       // - Default value: `k8s-log-{clusterid}`.
       // 
-      // - After enabling the cluster audit log feature, a corresponding Logstore will be created under the specified SLS Project.
+      // - After the cluster audit log feature is enabled, a Logstore for cluster audit logs is created in the specified SLS Project.
       shared_ptr<string> slsProjectName_ {};
     };
 
     virtual bool empty() const override { return this->accessControlList_ == nullptr
         && this->addons_ == nullptr && this->apiAudiences_ == nullptr && this->auditLogConfig_ == nullptr && this->autoMode_ == nullptr && this->autoRenew_ == nullptr
-        && this->autoRenewPeriod_ == nullptr && this->chargeType_ == nullptr && this->cisEnabled_ == nullptr && this->cloudMonitorFlags_ == nullptr && this->clusterDomain_ == nullptr
-        && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr
-        && this->controlplaneLogComponents_ == nullptr && this->controlplaneLogProject_ == nullptr && this->controlplaneLogTtl_ == nullptr && this->cpuPolicy_ == nullptr && this->customSan_ == nullptr
-        && this->deletionProtection_ == nullptr && this->disableRollback_ == nullptr && this->enableRrsa_ == nullptr && this->encryptionProviderKey_ == nullptr && this->endpointPublicAccess_ == nullptr
-        && this->extraSans_ == nullptr && this->formatDisk_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instances_ == nullptr
-        && this->ipStack_ == nullptr && this->isEnterpriseSecurityGroup_ == nullptr && this->keepInstanceName_ == nullptr && this->keyPair_ == nullptr && this->kubernetesVersion_ == nullptr
-        && this->loadBalancerId_ == nullptr && this->loadBalancerSpec_ == nullptr && this->loggingType_ == nullptr && this->loginPassword_ == nullptr && this->maintenanceWindow_ == nullptr
-        && this->masterAutoRenew_ == nullptr && this->masterAutoRenewPeriod_ == nullptr && this->masterCount_ == nullptr && this->masterInstanceChargeType_ == nullptr && this->masterInstanceTypes_ == nullptr
-        && this->masterPeriod_ == nullptr && this->masterPeriodUnit_ == nullptr && this->masterSystemDiskCategory_ == nullptr && this->masterSystemDiskPerformanceLevel_ == nullptr && this->masterSystemDiskSize_ == nullptr
-        && this->masterSystemDiskSnapshotPolicyId_ == nullptr && this->masterVswitchIds_ == nullptr && this->name_ == nullptr && this->natGateway_ == nullptr && this->nodeCidrMask_ == nullptr
-        && this->nodeNameMode_ == nullptr && this->nodePortRange_ == nullptr && this->nodepools_ == nullptr && this->numOfNodes_ == nullptr && this->operationPolicy_ == nullptr
-        && this->osType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->podVswitchIds_ == nullptr
-        && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->rdsInstances_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->rrsaConfig_ == nullptr && this->runtime_ == nullptr && this->securityGroupId_ == nullptr && this->securityHardeningOs_ == nullptr && this->serviceAccountIssuer_ == nullptr
-        && this->serviceCidr_ == nullptr && this->serviceDiscoveryTypes_ == nullptr && this->snatEntry_ == nullptr && this->socEnabled_ == nullptr && this->sshFlags_ == nullptr
-        && this->tags_ == nullptr && this->taints_ == nullptr && this->timeoutMins_ == nullptr && this->timezone_ == nullptr && this->userCa_ == nullptr
-        && this->userData_ == nullptr && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr && this->workerAutoRenew_ == nullptr && this->workerAutoRenewPeriod_ == nullptr
-        && this->workerDataDisks_ == nullptr && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr && this->workerPeriod_ == nullptr && this->workerPeriodUnit_ == nullptr
-        && this->workerSystemDiskCategory_ == nullptr && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr && this->workerSystemDiskSnapshotPolicyId_ == nullptr && this->workerVswitchIds_ == nullptr
-        && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->autoRenewPeriod_ == nullptr && this->chargeType_ == nullptr && this->cisEnabled_ == nullptr && this->clientToken_ == nullptr && this->cloudMonitorFlags_ == nullptr
+        && this->clusterDomain_ == nullptr && this->clusterSpec_ == nullptr && this->clusterType_ == nullptr && this->containerCidr_ == nullptr && this->controlPlaneConfig_ == nullptr
+        && this->controlPlaneEndpointsConfig_ == nullptr && this->controlplaneLogComponents_ == nullptr && this->controlplaneLogProject_ == nullptr && this->controlplaneLogTtl_ == nullptr && this->cpuPolicy_ == nullptr
+        && this->customSan_ == nullptr && this->deletionProtection_ == nullptr && this->disableRollback_ == nullptr && this->enableRrsa_ == nullptr && this->encryptionProviderKey_ == nullptr
+        && this->endpointPublicAccess_ == nullptr && this->extraSans_ == nullptr && this->formatDisk_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr
+        && this->instances_ == nullptr && this->ipStack_ == nullptr && this->isEnterpriseSecurityGroup_ == nullptr && this->keepInstanceName_ == nullptr && this->keyPair_ == nullptr
+        && this->kubernetesVersion_ == nullptr && this->loadBalancerId_ == nullptr && this->loadBalancerSpec_ == nullptr && this->loggingType_ == nullptr && this->loginPassword_ == nullptr
+        && this->maintenanceWindow_ == nullptr && this->masterAutoRenew_ == nullptr && this->masterAutoRenewPeriod_ == nullptr && this->masterCount_ == nullptr && this->masterInstanceChargeType_ == nullptr
+        && this->masterInstanceTypes_ == nullptr && this->masterPeriod_ == nullptr && this->masterPeriodUnit_ == nullptr && this->masterSystemDiskCategory_ == nullptr && this->masterSystemDiskPerformanceLevel_ == nullptr
+        && this->masterSystemDiskSize_ == nullptr && this->masterSystemDiskSnapshotPolicyId_ == nullptr && this->masterVswitchIds_ == nullptr && this->name_ == nullptr && this->natGateway_ == nullptr
+        && this->nodeCidrMask_ == nullptr && this->nodeNameMode_ == nullptr && this->nodePortRange_ == nullptr && this->nodepools_ == nullptr && this->numOfNodes_ == nullptr
+        && this->operationPolicy_ == nullptr && this->osType_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr
+        && this->podVswitchIds_ == nullptr && this->profile_ == nullptr && this->proxyMode_ == nullptr && this->rdsInstances_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->rrsaConfig_ == nullptr && this->runtime_ == nullptr && this->securityGroupId_ == nullptr && this->securityHardeningOs_ == nullptr
+        && this->serviceAccountIssuer_ == nullptr && this->serviceCidr_ == nullptr && this->serviceDiscoveryTypes_ == nullptr && this->snatEntry_ == nullptr && this->socEnabled_ == nullptr
+        && this->sshFlags_ == nullptr && this->tags_ == nullptr && this->taints_ == nullptr && this->timeoutMins_ == nullptr && this->timezone_ == nullptr
+        && this->userCa_ == nullptr && this->userData_ == nullptr && this->vpcid_ == nullptr && this->vswitchIds_ == nullptr && this->workerAutoRenew_ == nullptr
+        && this->workerAutoRenewPeriod_ == nullptr && this->workerDataDisks_ == nullptr && this->workerInstanceChargeType_ == nullptr && this->workerInstanceTypes_ == nullptr && this->workerPeriod_ == nullptr
+        && this->workerPeriodUnit_ == nullptr && this->workerSystemDiskCategory_ == nullptr && this->workerSystemDiskPerformanceLevel_ == nullptr && this->workerSystemDiskSize_ == nullptr && this->workerSystemDiskSnapshotPolicyId_ == nullptr
+        && this->workerVswitchIds_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -1060,6 +1120,13 @@ namespace Models
     void deleteCisEnabled() { this->cisEnabled_ = nullptr;};
     inline bool getCisEnabled() const { DARABONBA_PTR_GET_DEFAULT(cisEnabled_, false) };
     inline CreateClusterRequest& setCisEnabled(bool cisEnabled) { DARABONBA_PTR_SET_VALUE(cisEnabled_, cisEnabled) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // cloudMonitorFlags Field Functions 
@@ -1765,198 +1832,200 @@ namespace Models
 
 
   protected:
-    // [**This field is deprecated**] Registered cluster API Server SLB access control list.
+    // **[Deprecated]** The access control list (ACL) of the SLB instance for the API server of a registered cluster.
     shared_ptr<vector<string>> accessControlList_ {};
-    // List of cluster components. Specify the components to install when creating a cluster through `addons`.
+    // The list of cluster components. When you create a cluster, use `addons` to specify the components that you want to install.
     // 
-    // **Network component**: Required. Choose between Flannel and Terway network types when creating a cluster:
+    // **Network component**: Required. Two network types are available: Flannel and Terway. Select one when you create a cluster:
     // 
-    // - Flannel network: [{"name":"flannel","config":""}].
-    // - Terway network: [{"name": "terway-eniip","config": ""}] .
+    // - Flannel: [{"name":"flannel","config":""}\\].
+    // - Terway: [{"name": "terway-eniip","config": ""}\\].
     // 
     // **Storage component**: Optional. Only the `csi` type is supported:
     // 
-    // `csi`: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
+    // `csi`: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}\\].
     // 
-    // **Log component**: Optional. Recommended to enable. If Log Service is not enabled, the cluster audit feature will be unavailable.
+    // **Log component**: Optional. We recommend that you enable this component. If you do not enable the log service, you cannot use the cluster auditing feature.
     // 
-    // - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}] .
-    // - Create a new `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\"}"}] .
+    // - Use an existing `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
+    // - Create a new `SLS Project`: [{"name": "loongcollector","config": "{\\"IngressDashboardEnabled\\":\\"true\\"}"}\\].
     // 
-    // **Ingress component**: Optional. ACK dedicated clusters install the Ingress component `nginx-ingress-controller` by default.
+    // **Ingress component**: Optional. By default, the Ingress component `nginx-ingress-controller` is installed for ACK dedicated clusters.
     // 
-    // - Install Ingress with public network access: [{"name":"nginx-ingress-controller","config":"{\\"IngressSlbNetworkType\\":\\"internet\\"}"}] .
-    // - Disable default Ingress installation: [{"name": "nginx-ingress-controller","config": "","disabled": true}] .
+    // - Install Ingress and enable Internet access: [{"name":"nginx-ingress-controller","config":"{\\"IngressSlbNetworkType\\":\\"internet\\"}"}\\].
+    // - Disable default Ingress installation: [{"name": "nginx-ingress-controller","config": "","disabled": true}\\].
     // 
-    // **Event center**: Optional. Enabled by default.
+    // **Event Center**: Optional. Enabled by default.
     // 
-    // The event center provides capabilities for storing, querying, and alerting on Kubernetes events. The Logstore associated with the Kubernetes event center is free for 90 days. For more information about the free policy, see [Create and use the Kubernetes event center](https://help.aliyun.com/document_detail/150476.html).
+    // Event Center provides the capabilities to store, query, and alert on Kubernetes events. The Logstore associated with Kubernetes Event Center is free of charge for 90 days. For more information about the free policy, see [Create and use Kubernetes Event Center](https://help.aliyun.com/document_detail/150476.html).
     // 
-    // Example of enabling the event center: [{"name":"ack-node-problem-detector","config":"{\\"sls_project_name\\":\\"your_sls_project_name\\"}"}].
+    // Example of enabling Event Center: [{"name":"ack-node-problem-detector","config":"{\\"sls_project_name\\":\\"your_sls_project_name\\"}"}\\].
     shared_ptr<vector<Addon>> addons_ {};
-    // ServiceAccount is the access credential for communication between Pods and the cluster API Server. `api-audiences` defines the valid request `token` identities used by the `apiserver` to verify whether the request `token` is legitimate. Multiple `audience` values can be configured, separated by commas (,).
+    // A ServiceAccount is the access credential used by a pod to communicate with the cluster API server. The `api-audiences` parameter specifies the valid request `token` identities used by the `apiserver` to authenticate whether request `tokens` are legitimate. You can configure multiple `audiences` separated by commas (,).
     // 
-    // For more details about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+    // For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
     shared_ptr<string> apiAudiences_ {};
-    // Cluster audit log configuration.
+    // The cluster audit log configuration.
     shared_ptr<CreateClusterRequest::AuditLogConfig> auditLogConfig_ {};
-    // [Intelligent managed mode](https://help.aliyun.com/document_detail/2938898.html) configuration.
+    // The [intelligent managed mode](https://help.aliyun.com/document_detail/2938898.html) configuration.
     shared_ptr<CreateClusterRequest::AutoMode> autoMode_ {};
-    // [**This field is deprecated**]
+    // **[Deprecated]**
     // 
-    // Whether to enable auto-renewal. Only takes effect when `charge_type` is set to `PrePaid`. Valid values:
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
     // 
     // - `true`: Enable auto-renewal.
     // - `false`: Disable auto-renewal.
     // 
     // Default value: `false`.
     // 
-    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
+    // This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<bool> autoRenew_ {};
-    // [**This field is deprecated**]
+    // **[Deprecated]**
     // 
-    // Auto-renewal period. Only takes effect when subscription and auto-renewal are selected. When `PeriodUnit=Month`, valid values: {1, 2, 3, 6, 12}.
+    // The auto-renewal epoch. This parameter takes effect only when the billing method is subscription and auto-renewal is enabled. When `PeriodUnit=Month`, valid values: {1, 2, 3, 6, 12}.
     // 
     // Default value: 1.
     // 
-    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
+    // This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<int64_t> autoRenewPeriod_ {};
-    // [**This field is deprecated**]
+    // **[Deprecated]**
     // 
-    // Billing type of the CLB instance used by the API Server. Default value: PostPaid. Valid values:
-    // - PostPaid: Pay-as-you-go.
-    // - PrePaid: Subscription. This billing type is no longer supported for newly created CLB instances. Existing instances are not affected.
+    // The billing method of the CLB instance used by the API server. Default value: PostPaid. Valid values:
+    // - PostPaid: pay-as-you-go.
+    // - PrePaid: subscription. The subscription billing method is no longer supported for newly created CLB instances. Existing instances are not affected.
     // 
     // >Notice: 
     // 
-    // - This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
-    // - Starting from December 1, 2024, newly created CLB instances no longer support the subscription billing type, and instance fees will be charged.
+    // - This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster parameter](https://help.aliyun.com/document_detail/2849194.html).
+    // - Starting from December 01, 2024, newly created CLB instances no longer support the subscription billing method, and an instance fee will be charged.
     // </notice>
-    // <props="china">For details, see [Product announcement on canceling subscription billing for cluster API Server CLB](https://help.aliyun.com/document_detail/2851191.html) and [CLB billing adjustment announcement](https://help.aliyun.com/document_detail/2839797.html).
-    // <props="intl">For details, see [CLB billing adjustment announcement](https://help.aliyun.com/document_detail/2839797.html).
+    // <props="china">For more information, see [Service notices: Notice on canceling subscription billing for CLB load balancing instances of cluster API servers](https://help.aliyun.com/document_detail/2851191.html) and [Notice on billing item changes for Classic Load Balancer (CLB)](https://help.aliyun.com/document_detail/2839797.html).
+    // <props="intl">For more information, see [Notice on billing item changes for Classic Load Balancer (CLB)](https://help.aliyun.com/document_detail/2839797.html).
     shared_ptr<string> chargeType_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
     shared_ptr<bool> cisEnabled_ {};
-    // [**This field is deprecated**] For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in `nodepool` instead.
+    // The client token.
+    shared_ptr<string> clientToken_ {};
+    // **[Deprecated]** For cluster control plane node configuration, use the `cloud_monitor_flags` parameter under `control_plane_config` instead. For node pool configuration, use the `cms_enabled` parameter under `kubernetes_config` in nodepool instead.
     // 
-    // Whether to install the CloudMonitor agent in the cluster. Valid values:
+    // Specifies whether to install the CloudMonitor agent on the cluster. Valid values:
     // 
     // - `true`: Install the CloudMonitor agent.
     // - `false`: Do not install the CloudMonitor agent.
     // 
     // Default value: `false`.
     shared_ptr<bool> cloudMonitorFlags_ {};
-    // Cluster local domain name.
+    // The cluster local domain name.
     // 
-    // Naming rules: The domain name consists of one or more parts separated by periods (.). Each part can be up to 63 characters long and can contain lowercase letters, digits, and hyphens (-). Each part must start and end with a lowercase letter or digit.
+    // Naming rules: A domain name consists of one or more parts separated by periods (.). Each part can be up to 63 characters long and can contain lowercase letters, digits, and hyphens (-). Each part must start and end with a lowercase letter or digit.
     shared_ptr<string> clusterDomain_ {};
-    // After selecting `cluster_type` as `ManagedKubernetes` and configuring `profile`, you can further specify the cluster specification. Valid values:
+    // After you set `cluster_type` to `ManagedKubernetes` and configure `profile`, you can further specify the cluster specification. Valid values:
     // 
-    // - `ack.standard`: Basic edition (selected by default when the value is empty)
-    // - `ack.pro.small`: Pro edition
+    // - `ack.standard`: Basic Edition (selected by default if the value is empty)
+    // - `ack.pro.small`: Pro Edition
     // - `ack.pro.xlarge`: Pro XL
     // - `ack.pro.2xlarge`: Pro 2XL
-    // - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to enable allowlisting)
+    // - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to enable the whitelist)
     // 
-    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). They pre-allocate and fix control plane resources to ensure that API concurrency and Pod scheduling capabilities always remain at a determined high level, suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities remain at a deterministic high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
     // 
-    // For the cluster management fees of Pro edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+    // For information about the cluster management fees for Pro Edition and Provisioned Control Plane editions, see <props="china">[Cluster management fee](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fee](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
     shared_ptr<string> clusterSpec_ {};
     // - `Kubernetes`: ACK dedicated cluster.
-    // - `ManagedKubernetes`: ACK managed cluster types, including ACK managed cluster (Pro and Basic editions), ACK Serverless cluster (Pro and Basic editions), ACK Edge cluster (Pro and Basic editions), and ACK Lingjun cluster (Pro edition).
-    // - `ExternalKubernetes`: Registered cluster.
+    // - `ManagedKubernetes`: ACK managed cluster types, including ACK managed clusters (Pro and Basic editions), ACK Serverless clusters (Pro and Basic editions), ACK Edge clusters (Pro and Basic editions), and ACK Lingjun clusters (Pro Edition).
+    // - `ExternalKubernetes`: registered cluster.
     shared_ptr<string> clusterType_ {};
-    // Pod network CIDR block. Must be a valid private CIDR block, specifically the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, 192.168.0.0/16. Cannot overlap with the VPC or CIDR blocks used by existing Kubernetes clusters in the VPC. Cannot be modified after creation.
+    // The pod network CIDR block. It must be a valid private CIDR block, specifically the following CIDR blocks and their subnets: 10.0.0.0/8, 172.16-31.0.0/12-16, and 192.168.0.0/16. It cannot overlap with the CIDR blocks used by the VPC or existing Kubernetes clusters in the VPC. This value cannot be modified after the cluster is created.
     // 
-    // For cluster network planning, see [ACK managed cluster network planning](https://help.aliyun.com/document_detail/86500.html).
+    // For more information about cluster network planning, see [ACK managed cluster network planning](https://help.aliyun.com/document_detail/86500.html).
     // 
-    // > This field is required for Flannel clusters.
+    // > This parameter is required for Flannel clusters.
     shared_ptr<string> containerCidr_ {};
-    // ACK dedicated cluster control plane configuration.
+    // The control plane configuration for ACK dedicated clusters.
     shared_ptr<CreateClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
-    // Cluster connection configuration.
+    // The cluster endpoint configuration.
     shared_ptr<CreateClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
-    // List of component names, specifying which control plane components\\" logs to collect.
+    // The list of component names that specifies which control plane components to collect logs from.
     // 
     // By default, logs are collected from kube-apiserver, kube-controller-manager, kube-scheduler, and cloud-controller-manager.
     shared_ptr<vector<string>> controlplaneLogComponents_ {};
-    // Log Service project for control plane component logs. You can use an existing project for log storage or let the system automatically create a project. If you choose to auto-create a Log Service project, a project named `k8s-log-{ClusterID}` will be automatically created.
+    // The Simple Log Service project for control plane component logs. You can use an existing project for log storage or allow the system to automatically create a project. If you choose automatic creation, a Simple Log Service project named `k8s-log-{ClusterID}` is created.
     shared_ptr<string> controlplaneLogProject_ {};
-    // Number of days to retain control plane component logs.
+    // The log retention period for control plane component logs, in days.
     shared_ptr<string> controlplaneLogTtl_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `cpu_policy` parameter under `control_plane_config` instead. For node pool configuration, use the `cpu_policy` parameter under `kubernetes_config` in `nodepool` instead.
+    // **[Deprecated]** Use the `cpu_policy` parameter under `control_plane_config` for cluster control plane configuration, or use the `cpu_policy` parameter under `kubernetes_config` in `nodepool` for node pool configuration.
     // 
-    // Node CPU management policy. The following two policies are supported when the cluster version is 1.12.6 or later:
+    // The CPU management policy for nodes. The following policies are supported for clusters of version 1.12.6 or later:
     // 
-    // - `static`: Allows enhancing CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
-    // - `none`: Enables the existing default CPU affinity scheme.
+    // - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+    // - `none`: Uses the existing default CPU affinity scheme.
     // 
     // Default value: `none`.
     shared_ptr<string> cpuPolicy_ {};
-    // [**This field is deprecated**] Use the `extra_sans` parameter instead.
+    // **[Deprecated]** Use the `extra_sans` parameter instead.
     // 
-    // Custom certificate SAN. Multiple IPs or domain names are separated by commas (,).
+    // The custom certificate Subject Alternative Name (SAN). Separate multiple IP addresses or domain names with commas (,).
     shared_ptr<string> customSan_ {};
-    // Cluster deletion protection, which prevents accidental cluster deletion through the console or API. Valid values:
+    // Specifies whether to enable cluster deletion protection, which prevents the cluster from being accidentally deleted in the console or by calling API operations. Valid values:
     // 
-    // - `true`: Enable cluster deletion protection. The cluster cannot be deleted through the console or API.
-    // - `false`: Disable cluster deletion protection. The cluster can be deleted through the console or API.
+    // - `true`: Enables cluster deletion protection. The cluster cannot be deleted in the console or by calling API operations.
+    // - `false`: Disables cluster deletion protection. The cluster can be deleted in the console or by calling API operations.
     // 
     // Default value: `false`.
     shared_ptr<bool> deletionProtection_ {};
-    // [**This field is deprecated**] By default, no rollback is performed when cluster creation fails. You need to clean up the failed cluster yourself.
+    // **[Deprecated]** When cluster creation fails, no rollback is performed by default. You must manually clean up the failed cluster.
     // 
-    // Whether to roll back when cluster creation fails. Valid values:
+    // Specifies whether to roll back the cluster if creation fails. Valid values:
     // 
-    // - `true`: Roll back when cluster creation fails.
-    // - `false`: Do not roll back when cluster creation fails.
+    // - `true`: Rolls back the cluster when creation fails.
+    // - `false`: Does not roll back the cluster when creation fails.
     // 
     // 
     // Default value: `true`.
     shared_ptr<bool> disableRollback_ {};
-    // [**This field is deprecated**] Use the `rrsa_config` parameter instead.
+    // **[Deprecated]** Use the `rrsa_config` parameter instead.
     // 
-    // Whether to enable the RRSA feature.
+    // Specifies whether to enable the RRSA feature.
     // 
-    // - true: Enable.
+    // - true: Enables the feature.
     // 
-    // - false: Disable.
+    // - false: Does not enable the feature.
     shared_ptr<bool> enableRrsa_ {};
-    // KMS key ID. This key is used to encrypt data disks. For more details, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
+    // The ID of the Key Management Service (KMS) key used to encrypt cloud disks. For more information, see [Key Management Service](https://help.aliyun.com/document_detail/28935.html).
     // 
-    // > This feature only takes effect in professional managed clusters (ACK Pro clusters).
+    // > This feature takes effect only in ACK Pro clusters.
     shared_ptr<string> encryptionProviderKey_ {};
-    // Whether to enable public access. Expose the API Server through an EIP to enable public access to the cluster.
+    // Specifies whether to enable public network access. An Elastic IP Address (EIP) is used to expose the API Server for public network access to the cluster.
     // 
-    // - `true`: Enable public access.
-    // - `false`: Disable public access. When disabled, the cluster API Server cannot be accessed from the Internet.
+    // - `true`: Enables public network access.
+    // - `false`: Disables public network access. If you select this option, the cluster API Server cannot be accessed over the Internet.
     // 
     // Default value: `false`.
     shared_ptr<bool> endpointPublicAccess_ {};
-    // Custom API Server certificate SAN (Subject Alternative Name).
+    // The custom Subject Alternative Name (SAN) for the API Server certificate.
     shared_ptr<vector<string>> extraSans_ {};
-    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
     // 
-    // Whether to mount data disks on instances when creating a cluster with existing instances. Valid values:
+    // Specifies whether to mount data disks to existing instances when creating a cluster with existing instances. Valid values:
     // 
-    // - `true`: Store containers and images on the data disk. Existing data on the data disk will be lost. Please back up your data.
+    // - `true`: Stores containers and images on data disks. Existing data on the data disks will be lost. Back up your data in advance.
     // 
-    // - `false`: Do not store containers and images on the data disk.
+    // - `false`: Does not store containers and images on data disks.
     // 
     // Default value: `false`.
     // 
     // Data disk mounting rules:
     // 
-    // - If the ECS instance already has data disks mounted and the file system of the last data disk is not initialized, the system will automatically format the data disk as ext4 to store /var/lib/docker and /var/lib/kubelet.
-    // - If the ECS instance has no data disks mounted, no new data disk will be mounted.
+    // - If the ECS instance has data disks attached and the file system of the last data disk is not initialized, the system automatically formats the data disk as ext4 to store /var/lib/docker and /var/lib/kubelet.
+    // - If the ECS instance has no data disks attached, no new data disks are mounted.
     shared_ptr<bool> formatDisk_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `image_id` parameter under `control_plane_config` instead. For node pool configuration, use the `image_id` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `image_id` parameter under `control_plane_config` instead. For node pool configuration, use the `image_id` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Custom node image. The system image is used by default. When a custom image is selected, it replaces the default system image. See [Custom images](https://help.aliyun.com/document_detail/146647.html).
+    // The custom image for nodes. The system image is used by default. When a custom image is selected, it replaces the default system image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
     shared_ptr<string> imageId_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // OS distribution type. It is recommended to use this field to specify the node OS. Valid values:
+    // The operating system distribution type. We recommend that you use this field to specify the node operating system. Valid values:
     // 
     // - CentOS
     // - AliyunLinux
@@ -1970,49 +2039,49 @@ namespace Models
     // 
     // Default value: `CentOS`.
     shared_ptr<string> imageType_ {};
-    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
     // 
     // 
-    // When creating a cluster with existing nodes, you need to specify a list of ECS instances. These instances will join the cluster as Worker nodes.
+    // The list of ECS instances to use when creating a cluster with existing nodes. These instances are added to the cluster as worker nodes.
     // 
-    // > This field is required when creating a cluster with existing instances.
+    // > This field is required when you create a cluster with existing instances.
     shared_ptr<vector<string>> instances_ {};
-    // Cluster IP stack.
+    // The IP protocol stack of the cluster.
     shared_ptr<string> ipStack_ {};
-    // Automatically create an enterprise security group. Takes effect when `security_group_id` is empty.
+    // Specifies whether to enable automatic creation of an advanced security group. This parameter takes effect when `security_group_id` is empty.
     // 
-    // > When using a basic security group, the total number of nodes and Terway Pods in the cluster cannot exceed 2000. Therefore, when creating a Terway network type cluster, it is recommended to use an enterprise security group.
+    // > When a basic security group is used, the total number of nodes and Terway pods in the cluster cannot exceed 2,000. Therefore, when creating a Terway network type cluster, use an advanced security group.
     // 
-    // - `true`: Create and use an enterprise security group.
-    // - `false`: Use a basic security group.
+    // - `true`: Creates and uses an advanced security group.
+    // - `false`: Uses a basic security group.
     // 
     // Default value: `true`.
     shared_ptr<bool> isEnterpriseSecurityGroup_ {};
-    // [**This field is deprecated**] Selecting existing nodes when creating a cluster is no longer supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) API.
+    // **[Deprecated]** Selecting existing nodes during cluster creation is not supported. To add existing nodes to a cluster, create a node pool first and call the [AttachInstancesToNodePool](https://help.aliyun.com/document_detail/2667920.html) operation.
     // 
-    // Whether to retain instance names when creating a cluster with existing instances.
+    // Specifies whether to retain instance names when creating a cluster with existing instances.
     // 
-    // - `true`: Retain.
-    // - `false`: Do not retain. Names will be replaced using system rules.
+    // - `true`: Retains the instance names.
+    // - `false`: Does not retain the instance names. The names are replaced based on system rules.
     // 
     // Default value: `true`.
     shared_ptr<bool> keepInstanceName_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `key_pair` parameter under `control_plane_config` instead. For node pool configuration, use the `key_pair` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `key_pair` parameter under `control_plane_config` instead. For node pool configuration, use the `key_pair` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Key pair name. Mutually exclusive with `login_password`.
+    // The name of the key pair. Mutually exclusive with `login_password`.
     shared_ptr<string> keyPair_ {};
-    // Cluster version, consistent with the Kubernetes community baseline version. We recommend selecting the latest version. If not specified, the latest version is used by default.
+    // The cluster version, which is consistent with the Kubernetes community baseline version. Use the latest version. If you do not specify this parameter, the latest version is used by default.
     // 
-    // You can create clusters of the three most recent versions. You can query supported cluster versions through the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) API.
+    // You can create clusters of the three most recent versions. Call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation to query supported cluster versions.
     // 
-    // For Kubernetes versions supported by ACK, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
+    // For more information about Kubernetes versions supported by ACK, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
     shared_ptr<string> kubernetesVersion_ {};
-    // Specify the CLB instance ID for API Server access. When this parameter is specified, an API Server CLB will not be automatically created.
-    // > Ensure that the CLB instance has no other dependencies (such as listeners or backend servers). Shared and public-network CLB instances are not supported.
+    // The Classic Load Balancer (CLB) instance ID used for API Server access. If this parameter is specified, automatic creation of an API Server CLB instance is skipped.
+    // > Ensure that the CLB instance has no other dependencies such as listeners or backend servers. Shared and Internet-facing CLB instances are not supported.
     shared_ptr<string> loadBalancerId_ {};
-    // [**This parameter is deprecated**] CLB is billed by usage. This parameter does not take effect.
+    // **[Deprecated]** CLB uses pay-by-usage billing. This parameter does not take effect.
     // 
-    // Load balancer specification. Valid values:
+    // The load balancing specification. Valid values:
     // - slb.s1.small
     // - slb.s2.small
     // - slb.s2.medium
@@ -2022,147 +2091,147 @@ namespace Models
     // 
     // Default value: `slb.s2.small`.
     shared_ptr<string> loadBalancerSpec_ {};
-    // [**This field is deprecated**] Enable Log Service for the cluster. Only takes effect for ACK Serverless clusters, and the value must be `SLS`.
+    // **[Deprecated]** Enables the log service for the cluster. This parameter takes effect only for ACK Serverless clusters, and the value must be `SLS`.
     shared_ptr<string> loggingType_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `login_password` parameter under `control_plane_config` instead. For node pool configuration, use the `login_password` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `login_password` parameter under `control_plane_config` instead. For node pool configuration, use the `login_password` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // SSH login password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following: uppercase letters, lowercase letters, digits, and special characters.
+    // The SSH logon password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
     shared_ptr<string> loginPassword_ {};
-    // Cluster maintenance window.
+    // The cluster O&M window.
     shared_ptr<MaintenanceWindow> maintenanceWindow_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `auto_renew` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `auto_renew` parameter under `control_plane_config` instead.
     // 
-    // Whether to enable auto-renewal for Master nodes. Only takes effect when `master_instance_charge_type` is set to `PrePaid`. Valid values:
+    // Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
     // 
-    // - `true`: Enable auto-renewal.
-    // - `false`: Disable auto-renewal.
+    // - `true`: Enables auto-renewal.
+    // - `false`: Disables auto-renewal.
     // 
     // Default value: `true`.
     shared_ptr<bool> masterAutoRenew_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `auto_renew_period` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `auto_renew_period` parameter under `control_plane_config` instead.
     // 
-    // Master node auto-renewal period. Only takes effect when subscription billing type is selected, and is a required value.
+    // The auto-renewal epoch for master nodes. This parameter takes effect and is required only when the subscription billing method is selected.
     // 
     // Valid values: {1, 2, 3, 6, 12}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> masterAutoRenewPeriod_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `size` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `size` parameter under `control_plane_config` instead.
     // 
-    // Number of Master nodes. Valid values: `3` or `5`.
+    // The number of master nodes. Valid values: `3` or `5`.
     // 
     // Default value: `3`.
     shared_ptr<int64_t> masterCount_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `instance_charge_type` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `instance_charge_type` parameter under `control_plane_config` instead.
     // 
-    // Master node billing type. Valid values:
+    // The billing method for master nodes. Valid values:
     // 
     // - `PrePaid`: Subscription.
     // - `PostPaid`: Pay-as-you-go.
     // 
     // Default value: `PostPaid`.
     shared_ptr<string> masterInstanceChargeType_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `instance_types` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `instance_types` parameter under `control_plane_config` instead.
     // 
-    // Master node instance types. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
+    // The instance types for master nodes. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
     shared_ptr<vector<string>> masterInstanceTypes_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `unit` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `unit` parameter under `control_plane_config` instead.
     // 
-    // Master node subscription duration. Valid and required when `master_instance_charge_type` is set to `PrePaid`.
+    // The subscription duration for master nodes. This parameter takes effect and is required only when `master_instance_charge_type` is set to `PrePaid`.
     // 
     // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> masterPeriod_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `period_unit` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `period_unit` parameter under `control_plane_config` instead.
     // 
-    // Master node billing period. Must be specified when the billing type is `PrePaid`.
+    // The subscription period unit for master nodes. This parameter is required when the billing method is `PrePaid`.
     // 
-    // Valid value: `Month`. Currently, only month-based periods are supported.
+    // Valid values: `Month`. Currently, only monthly billing is supported.
     shared_ptr<string> masterPeriodUnit_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_category` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `system_disk_category` parameter under `control_plane_config` instead.
     // 
-    // Master node system disk type. Valid values:
+    // The system cloud disk type for master nodes. Valid values:
     // 
-    // - `cloud_efficiency`: Ultra disk.
-    // - `cloud_ssd`: SSD disk.
-    // - `cloud_essd`: ESSD disk.
+    // - `cloud_efficiency`: Ultra cloud disk.
+    // - `cloud_ssd`: Standard SSD.
+    // - `cloud_essd`: Enterprise SSD (ESSD).
     // 
-    // Default value: `cloud_ssd`. The default value may vary across availability zones.
+    // Default value: `cloud_ssd`. The default value may vary by zone.
     shared_ptr<string> masterSystemDiskCategory_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_performance_level` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `system_disk_performance_level` parameter under `control_plane_config` instead.
     // 
-    // Cluster Master node system disk performance level. Only takes effect for ESSD disks. The performance level is related to the disk size. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
+    // The performance level of the system cloud disk for master nodes. This parameter takes effect only for ESSD cloud disks. The performance level is related to the disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
     shared_ptr<string> masterSystemDiskPerformanceLevel_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_size` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `system_disk_size` parameter under `control_plane_config` instead.
     // 
-    // Master node system disk size. Valid values: [40, 500\\]. Unit: GiB.
+    // The system cloud disk size for master nodes. Valid values: [40,500\\]. Unit: GiB.
     // 
     // Default value: `120`.
     shared_ptr<int64_t> masterSystemDiskSize_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `system_disk_snapshot_policy_id` parameter under `control_plane_config` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the `system_disk_snapshot_policy_id` parameter under `control_plane_config` instead.
     // 
-    // Automatic snapshot policy ID for the Master node system disk.
+    // The ID of the automatic snapshot policy for master node system cloud disks.
     shared_ptr<string> masterSystemDiskSnapshotPolicyId_ {};
-    // [**This field is deprecated**] Use the `vswitch_ids` parameter instead.
+    // **[Deprecated]** Use the `vswitch_ids` parameter instead.
     // 
-    // List of Master node vSwitch IDs. The number of vSwitches ranges from [1, 3\\]. To ensure high availability of the cluster, it is recommended to select 3 vSwitches distributed in different availability zones.
+    // The list of vSwitch IDs for master nodes. The number of vSwitches must be in the range of [1,3\\]. To ensure high availability, select three vSwitches distributed across different zones.
     // 
-    // The number of specified instance types must be consistent with `master_count` and correspond one-to-one with the elements in `master_vswitch_ids`.
+    // The number of specified instance types must match the value of `master_count` and correspond one-to-one with the elements in `master_vswitch_ids`.
     shared_ptr<vector<string>> masterVswitchIds_ {};
-    // Custom cluster name. Consists of digits, Chinese characters, English characters, or hyphens (-), with a length of 1 to 63 characters, and cannot start with a hyphen (-).
+    // The custom cluster name. The name can contain digits, Chinese characters, letters, and hyphens (-). The name must be 1 to 63 characters in length and cannot start with a hyphen (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // [**This field is deprecated**] Use the `snat_entry` parameter instead.
+    // **[Deprecated]** Use the `snat_entry` parameter instead.
     shared_ptr<bool> natGateway_ {};
-    // Number of node IPs, determined by specifying the network CIDR. Only takes effect for Flannel network type clusters.
+    // The number of IP addresses per node, determined by specifying the network CIDR block. This parameter takes effect only for Flannel network type clusters.
     // 
     // Default value: `26`.
     shared_ptr<string> nodeCidrMask_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the `node_name_mode` parameter under `kubernetes_config` in `nodepool` instead.
     shared_ptr<string> nodeNameMode_ {};
-    // Node service ports. Valid port range: [30000, 65535\\].
+    // The node service port range. Valid port range: [30000,65535\\].
     // 
     // Default value: `30000-32767`.
     shared_ptr<string> nodePortRange_ {};
-    // Node pool list.
+    // The list of node pools.
     shared_ptr<vector<Nodepool>> nodepools_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `desired_size` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the desired_size parameter under scaling_group in nodepool instead.
     // 
-    // Number of Worker nodes. Range: [0, 100\\].
+    // The number of worker nodes. Valid values: 0 to 100.
     shared_ptr<int64_t> numOfNodes_ {};
-    // Cluster automatic O&M policy.
+    // The cluster automatic O&M policy.
     shared_ptr<CreateClusterRequest::OperationPolicy> operationPolicy_ {};
-    // [**This field is deprecated**] For cluster control plane node configuration, use the `image_type` parameter under `control_plane_config` instead. For node pool configuration, use the `image_type` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane node configuration, use the image_type parameter under control_plane_config instead. For node pool configuration, use the image_type parameter under scaling_group in nodepool instead.
     // 
-    // OS platform type. Valid values:
+    // The operating system platform type. Valid values:
     // - Windows
     // - Linux
     // 
     // Default value: `Linux`.
     shared_ptr<string> osType_ {};
-    // [**This field is deprecated**]
+    // **[Deprecated]**
     // 
-    // Purchase duration. Subscription duration. Valid and required when charge_type is set to PrePaid.
+    // The subscription duration. This parameter takes effect and is required only when charge_type is set to PrePaid.
     // 
-    // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
+    // Valid values: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
     // 
     // Default value: 1.
     // 
-    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
+    // This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster API parameters](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<int64_t> period_ {};
-    // [**This field is deprecated**]
+    // **[Deprecated]**
     // 
-    // Billing period. Must be specified when the billing type is PrePaid.
+    // The billing cycle. This parameter is required when the billing method is set to PrePaid.
     // 
-    // Valid value: Month. Currently, only month-based periods are supported.
+    // Valid values: Month. Currently, only monthly billing cycles are supported.
     // 
-    // This field was changed on October 15, 2024. For more information, see [Announcement on CreateCluster API parameter behavior changes](https://help.aliyun.com/document_detail/2849194.html).
+    // This parameter was changed on October 15, 2024. For more information, see [Notice on behavior changes of the CreateCluster API parameters](https://help.aliyun.com/document_detail/2849194.html).
     shared_ptr<string> periodUnit_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `platform` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the platform parameter under scaling_group in nodepool instead.
     // 
-    // OS distribution. Valid values:
+    // The operating system distribution. Valid values:
     // 
     // - CentOS
     // - AliyunLinux
@@ -2173,179 +2242,172 @@ namespace Models
     // 
     // Default value: `CentOS`.
     shared_ptr<string> platform_ {};
-    // [**This field is deprecated**] When using the Terway network plugin, you need to specify vSwitches for Pod IP allocation. Each Pod vSwitch corresponds to a Worker node vSwitch, and the availability zones of Pod vSwitches and Worker node vSwitches must be consistent.
-    // > The CIDR mask of Pod vSwitches should not exceed 19 and must not exceed 25; otherwise, the available Pod IP addresses in the cluster network will be very limited, affecting normal cluster usage.
+    // **[Deprecated]** When the Terway network plugin is selected, specify vSwitches for Pod IP address allocation. Each Pod vSwitch corresponds to a worker node vSwitch, and the zones of the Pod vSwitch and the worker node vSwitch must be the same.
+    // > The CIDR block mask of the Pod vSwitch should not exceed 19 and must not exceed 25. Otherwise, the number of Pod IP addresses available in the cluster network is very limited, which affects normal cluster usage.
     shared_ptr<vector<string>> podVswitchIds_ {};
-    // When `cluster_type` is set to `ManagedKubernetes`, you can further specify the cluster subtype.
-    // - `Default`: ACK managed cluster, including ACK cluster (Pro and Basic editions).
-    // - `Edge`: ACK Edge cluster, including ACK Edge cluster (Pro and Basic editions).
-    // - `Serverless`: ACK Serverless cluster, including ACK Serverless cluster (Pro and Basic editions).
+    // When `cluster_type` is set to `ManagedKubernetes` (ACK managed clusters), you can further specify the cluster subtype.
+    // - `Default`: ACK managed cluster, including ACK clusters (Pro and Basic editions).
+    // - `Edge`: ACK Edge cluster, including ACK Edge clusters (Pro and Basic editions).
+    // - `Serverless`: ACK Serverless cluster, including ACK Serverless clusters (Pro and Basic editions).
     // - `Lingjun`: ACK Lingjun cluster, available in Pro edition.
     shared_ptr<string> profile_ {};
-    // kube-proxy mode
+    // The kube-proxy mode.
     // 
-    // - `iptables`: A mature and stable kube-proxy mode. Kubernetes Service discovery and load balancing are configured using iptables rules. Performance is average and significantly affected by scale, suitable for clusters with a small number of Services.
-    // - `ipvs`: A high-performance kube-proxy mode. Kubernetes Service discovery and load balancing are configured using the Linux IPVS module, suitable for clusters with a large number of Services that require high-performance load balancing.
-    // - `nftables`: Next-generation kube-proxy mode based on Linux nftables for Service discovery and load balancing. It is a modern replacement for iptables. Compared to iptables, nftables performs better in network performance, rule update efficiency, and large-scale Service scenarios.  
-    // Only supported for clusters of version 1.35 and above. The Kubernetes community deprecated IPVS starting from version 1.35. It is recommended to use nftables for new clusters for longer-term community support.
+    // - `iptables`: A mature and stable kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using iptables rules. Performance is moderate and affected by cluster scale. This mode is suitable for clusters with a small number of Services.
+    // - `ipvs`: A high-performance kube-proxy mode. Service discovery and load balancing for Kubernetes Services are configured by using the Linux IPVS module. This mode is suitable for clusters with a large number of Services that require high load balancing performance.
+    // - `nftables`: A next-generation kube-proxy mode that implements Service discovery and load balancing based on Linux nftables. It is a modern replacement for iptables. Compared with iptables, nftables delivers better network performance, more efficient rule updates, and improved performance in large-scale Service scenarios.  
+    // Only supported for clusters running version 1.35 or later. The Kubernetes community deprecated IPVS starting from version 1.35. For new clusters, use nftables for longer-term community support.
     // 
     // Default value: `ipvs`.
     shared_ptr<string> proxyMode_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `rds_instances` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the rds_instances parameter under scaling_group in nodepool instead.
     // 
-    // List of RDS instances. Select the RDS instances you want to add to the whitelist. It is recommended to add the container Pod CIDR block and Node CIDR block in RDS. Setting RDS instances may fail to pop up due to non-running instance status.
+    // The list of ApsaraDB RDS instances to which you want to add the cluster nodes to the whitelist. Add the container Pod CIDR block and node CIDR block to the RDS whitelist directly. Setting RDS instances may fail if the instances are not in a running state.
     shared_ptr<vector<string>> rdsInstances_ {};
-    // The region ID where the cluster is located. For details, see [Regions supported by Container Service](https://help.aliyun.com/document_detail/216938.html).
+    // The ID of the region where the cluster is deployed. For details, see [Regions supported by container service](https://help.aliyun.com/document_detail/216938.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID to which the cluster belongs, used for isolating different resources.
+    // The ID of the resource group to which the cluster belongs. Use this parameter to isolate different resources.
     shared_ptr<string> resourceGroupId_ {};
-    // RRSA feature configuration.
+    // The RRSA feature configuration.
     shared_ptr<CreateClusterRequest::RrsaConfig> rrsaConfig_ {};
-    // Container runtime in the cluster. Supports containerd, sandboxed containers, and Docker.
+    // The container runtime used by the cluster. Supported runtimes include containerd, sandboxed containers, and Docker.
     // > Kubernetes 1.24 no longer supports Docker as a built-in container runtime.
     // 
     // For more information, see [Comparison of Docker, containerd, and sandboxed container runtimes](https://help.aliyun.com/document_detail/160313.html).
     shared_ptr<Runtime> runtime_ {};
-    // Specify the security group ID when creating a cluster with an existing security group. Mutually exclusive with `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
+    // The ID of an existing security group. This parameter is mutually exclusive with `is_enterprise_security_group`. Cluster nodes are automatically added to this security group.
     shared_ptr<string> securityGroupId_ {};
-    // [**This field is deprecated**] For cluster control plane configuration, use the `security_hardening_os` parameter under `control_plane_config` instead. For node pool configuration, use the `security_hardening_os` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane configuration, use the security_hardening_os parameter under control_plane_config instead. For node pool configuration, use the security_hardening_os parameter under scaling_group in nodepool instead.
     // 
     // Alibaba Cloud OS security hardening. Valid values:
     // 
-    // - `true`: Enable Alibaba Cloud OS security hardening.
-    // - `false`: Disable Alibaba Cloud OS security hardening.
+    // - `true`: Enables Alibaba Cloud OS security hardening.
+    // - `false`: Does not enable Alibaba Cloud OS security hardening.
     // 
     // Default value: `false`.
     shared_ptr<bool> securityHardeningOs_ {};
-    // ServiceAccount is the access credential for communication between Pods and the cluster API Server. `service-account-issuer` is the issuer identity in the `serviceaccount token`, i.e., the `iss` field in the `token payload`.
+    // A ServiceAccount is the access credential used for communication between a Pod and the cluster API Server. The `service-account-issuer` is the issuer identity in the `serviceaccount token`, which is the `iss` field in the `token payload`.
     // 
-    // For more details about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
+    // For more information about `ServiceAccount`, see [Deploy service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
     shared_ptr<string> serviceAccountIssuer_ {};
-    // Service network CIDR block. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, 192.168.0.0/16-24. Cannot overlap with VPC CIDR block 10.1.0.0/21 or CIDR blocks used by existing Kubernetes clusters in the VPC. Cannot be modified after creation.
+    // The CIDR block for the Service network. Valid ranges: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The CIDR block cannot overlap with the VPC CIDR block 10.1.0.0/21 or CIDR blocks used by existing Kubernetes clusters in the VPC. This value cannot be modified after the cluster is created.
     // 
     // Default value: 172.19.0.0/20.
     shared_ptr<string> serviceCidr_ {};
-    // [**This field is deprecated**] Service discovery type within the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
+    // **[Deprecated]** The service discovery type within the cluster, used to specify the service discovery method in `ACK Serverless` clusters.
     // 
-    // - `CoreDNS`: Uses the Kubernetes native standard service discovery component CoreDNS. A set of containers needs to be deployed in the cluster for DNS resolution. By default, two ECI instances with 0.25 Core 512 MiB specifications are used.
-    // - `PrivateZone`: Uses the Alibaba Cloud PrivateZone product for service discovery capabilities. The PrivateZone service needs to be enabled.
+    // - `CoreDNS`: Uses the Kubernetes-native standard service discovery component CoreDNS. A set of containers must be deployed in the cluster for DNS resolution. By default, two ECI instances with 0.25 Core and 512 MiB specifications are used.
+    // - `PrivateZone`: Uses Alibaba Cloud PrivateZone to provide service discovery capabilities. The PrivateZone service must be activated.
     // 
-    // Default value: Not enabled.
+    // Default value: not enabled.
     shared_ptr<vector<string>> serviceDiscoveryTypes_ {};
-    // Configure SNAT for the VPC. Valid values:
+    // Specifies whether to configure SNAT for the VPC. Valid values:
     // 
-    // - `true`: Automatically create a NAT gateway and configure SNAT rules. Set to `true` if nodes and applications in the cluster need to access the Internet.
-    // - `false`: Do not create a NAT gateway or SNAT rules. Nodes and applications in the cluster will not be able to access the Internet.
+    // - `true`: Automatic creation of a NAT gateway and automatic configuration of SNAT rules. Settings this to `true` if nodes and applications in the cluster need to access the Internet.
+    // - `false`: Does not create a NAT gateway or SNAT rules. Nodes and applications in the cluster cannot access the Internet.
     // 
-    // > If not enabled during cluster creation and the business later requires Internet access, you can [manually enable it](https://help.aliyun.com/document_detail/178480.html).
+    // > If this is not enabled during cluster creation and Internet access is required later, you can [manually enable it](https://help.aliyun.com/document_detail/178480.html).
     // 
     // Default value: `false`.
     shared_ptr<bool> snatEntry_ {};
-    // [**This field is deprecated**] For cluster control plane node configuration, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configuration, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For cluster control plane node configurations, use the `soc_enabled` parameter under `control_plane_config` instead. For node pool configurations, use the `soc_enabled` parameter under `scaling_group` in `nodepool` instead.
     // 
-    // Classified protection hardening. For more information, see [ACK classified protection hardening user guide](https://help.aliyun.com/document_detail/196148.html).
-    // 
-    // Valid values:
-    // - `true`: Enable classified protection hardening.
-    // - `false`: Disable classified protection hardening.
-    // 
-    // Default value: `false`.
+    // MLPS 2.0 security hardening. For more information, see [China Chinese China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China China
     shared_ptr<bool> socEnabled_ {};
-    // Whether to enable public SSH login. Used for logging in to Master nodes of ACK dedicated clusters. This parameter does not take effect in managed clusters.
-    // - `true`: Enable.
-    // - `false`: Disable.
+    // Specifies whether to enable public network SSH logon. This parameter is used to log on to the master nodes of ACK dedicated clusters. This parameter does not take effect for managed clusters.
+    // - `true`: Enabled.
+    // - `false`: Not enabled.
     // 
     // Default value: `false`.
     shared_ptr<bool> sshFlags_ {};
-    // Node tags. Tag definition rules:
+    // The node tags. Tag definition rules:
     // 
-    // - Tags consist of case-sensitive key-value pairs. You can set up to 20 tags.
-    // - Tag keys cannot be duplicated, with a maximum length of 64 characters; tag values can be empty, with a maximum length of 128 characters. Neither tag keys nor tag values can start with “aliyun”, “acs:”, “https://”, or “http://”. For details, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+    // - Tags are case-sensitive key-value pairs. You can settings up to 20 tags.
+    // - Tag keys cannot be duplicated and can be up to 64 characters in length. Tag values can be empty and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun", "acs:", "https://", or "http://". For details, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
     shared_ptr<vector<Tag>> tags_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `taints` parameter under `kubernetes_config` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the taints parameter under kubernetes_config in nodepool instead.
     // 
-    // Node taint information. Taints and tolerations work together to prevent Pods from being scheduled on inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+    // The node taint information. Taints and tolerations work together to prevent Pods from being allocated to inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
     shared_ptr<vector<Taint>> taints_ {};
-    // [**This field is deprecated**] By default, no rollback is performed when cluster creation fails. You need to clean up the failed cluster yourself.
+    // **[Deprecated]** When cluster creation fails, the system does not perform a rollback by default. You must manually clean up the failed cluster.
     // 
-    // Cluster creation timeout. Unit: minutes.
+    // The cluster creation timeout period, in minutes.
     // 
     // Default value: `60`.
     shared_ptr<int64_t> timeoutMins_ {};
-    // The timezone used by the cluster. See [Supported timezones](https://help.aliyun.com/document_detail/354879.html).
+    // The time zone used by the cluster. For more information, see [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
     shared_ptr<string> timezone_ {};
-    // Custom cluster CA.
+    // The custom cluster CA.
     shared_ptr<string> userCa_ {};
-    // [**This field is deprecated**] Custom node data.
+    // **[Deprecated]** The custom node data.
     shared_ptr<string> userData_ {};
-    // The VPC used by the cluster. Must be provided when creating a cluster.
+    // The VPC used by the cluster. You must provide a VPC when creating a cluster.
     shared_ptr<string> vpcid_ {};
-    // vSwitches for cluster nodes. This field is required when creating a zero-node managed cluster.
+    // The vSwitches where the cluster nodes reside. This parameter is required when creating a zero-node managed cluster.
     shared_ptr<vector<string>> vswitchIds_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `auto_renew` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the auto_renew parameter under scaling_group in nodepool instead.
     // 
-    // Whether to enable auto-renewal for Worker nodes. Only takes effect when `worker_instance_charge_type` is set to `PrePaid`. Valid values:
+    // Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect only when `worker_instance_charge_type` is set to `PrePaid`. Valid values:
     // 
-    // - `true`: Enable auto-renewal.
-    // - `false`: Disable auto-renewal.
+    // - `true`: Enables auto-renewal.
+    // - `false`: Does not enable auto-renewal.
     // 
     // Default value: `true`.
     shared_ptr<bool> workerAutoRenew_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `auto_renew_period` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** For node pool configuration, use the auto_renew_period parameter under scaling_group in nodepool instead.
     // 
+    // The Unified Auto Renewal Cycle for worker nodes. This parameter takes effect and is required only when the subscription billing method is selected.
     // 
-    // Worker node auto-renewal period. Only takes effect when subscription billing type is selected, and is a required value.
-    // 
-    // Valid values: {1, 2, 3, 6, 12}.
+    // Valid values: 1, 2, 3, 6, and 12.
     shared_ptr<int64_t> workerAutoRenewPeriod_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `data_disks` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the data_disks parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Combination of Worker node data disk type, size, and other configurations.
+    // The combination of data cloud disk type, size, and other configurations for worker nodes.
     shared_ptr<vector<CreateClusterRequest::WorkerDataDisks>> workerDataDisks_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `instance_charge_type` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the instance_charge_type parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node billing type. Valid values:
+    // The billing method for worker nodes. Valid values:
     // 
-    // - `PrePaid`: Subscription.
-    // - `PostPaid`: Pay-as-you-go.
+    // - `PrePaid`: subscription.
+    // - `PostPaid`: pay-as-you-go.
     // 
-    // Default value: Pay-as-you-go.
+    // Default value: pay-as-you-go.
     shared_ptr<string> workerInstanceChargeType_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `instance_types` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the instance_types parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node instance configuration.
+    // The instance configurations for worker nodes.
     shared_ptr<vector<string>> workerInstanceTypes_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `period` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the period parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node subscription duration. Valid and required when `worker_instance_charge_type` is set to `PrePaid`.
+    // The subscription duration for worker nodes. This parameter takes effect and is required only when `worker_instance_charge_type` is set to `PrePaid`.
     // 
     // Valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
     // 
     // Default value: 1.
     shared_ptr<int64_t> workerPeriod_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `period_unit` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the period_unit parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node billing period. Must be specified when the billing type is `PrePaid`.
+    // The billing period unit for worker nodes. This parameter is required when the billing method is `PrePaid`.
     // 
-    // Valid value: `Month`. Currently, only month-based periods are supported.
+    // Valid values: `Month`. Currently, only monthly billing is supported.
     shared_ptr<string> workerPeriodUnit_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `system_disk_category` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the system_disk_category parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node system disk type. For more information, see [Block storage overview](https://help.aliyun.com/document_detail/63136.html).
+    // The system cloud disk type for worker nodes. For more information, see [Block storage overview](https://help.aliyun.com/document_detail/63136.html).
     // 
     // Valid values:
     // 
-    // - `cloud_efficiency`: Ultra disk.
-    // - `cloud_ssd`: SSD disk.
+    // - `cloud_efficiency`: ultra cloud disk.
+    // - `cloud_ssd`: standard SSD.
     // 
     // 
     // Default value: `cloud_ssd`.
     shared_ptr<string> workerSystemDiskCategory_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `system_disk_performance_level` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the system_disk_performance_level parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // When the system disk is an ESSD disk, you can set the Performance Level (PL) of the ESSD disk. For more information, see [ESSD disk](https://help.aliyun.com/document_detail/122389.html).
+    // The performance level (PL) of the system cloud disk when the system cloud disk is an ESSD. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
     // 
     // Valid values:
     // 
@@ -2354,33 +2416,33 @@ namespace Models
     // - PL2
     // - PL3
     shared_ptr<string> workerSystemDiskPerformanceLevel_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `system_disk_size` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the system_disk_size parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Worker node system disk size. Unit: GiB.
+    // The system cloud disk size for worker nodes. Unit: GiB.
     // 
-    // Valid values: [40, 500\\].
+    // Valid values: [40,500\\].
     // 
-    // The value must be greater than or equal to max{40, ImageSize}.
+    // The value of this parameter must be greater than or equal to max{40, ImageSize}.
     // 
     // Default value: `120`.
     shared_ptr<int64_t> workerSystemDiskSize_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `system_disk_snapshot_policy_id` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the system_disk_snapshot_policy_id parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // Automatic snapshot policy ID for the Worker node system disk.
+    // The ID of the automatic snapshot policy used by the system cloud disks of worker nodes.
     shared_ptr<string> workerSystemDiskSnapshotPolicyId_ {};
-    // [**This field is deprecated**] For node pool configuration, use the `vswitch_ids` parameter under `scaling_group` in `nodepool` instead.
+    // **[Deprecated]** Use the vswitch_ids parameter under scaling_group in nodepool instead for node pool configurations.
     // 
-    // List of vSwitches used by cluster nodes. One node corresponds to one value.
+    // The list of vSwitches used by cluster nodes. Each node corresponds to one value.
     // 
-    // When creating a zero-node managed cluster, the `worker_vswitch_ids` field is not required, but `vswitch_ids` must be provided.
+    // When you create a managed cluster with zero nodes, the `worker_vswitch_ids` field is not required, but you must provide `vswitch_ids`.
     shared_ptr<vector<string>> workerVswitchIds_ {};
-    // [**This field is deprecated**] Use the `zone_ids` parameter instead.
+    // **[Deprecated]** Use the `zone_ids` parameter instead.
     // 
-    // Availability zone ID of the region where the cluster is located. This parameter is specific to ACK managed cluster types.
+    // The active zone ID of the region to which the cluster belongs. This parameter is specific to ACK managed clusters.
     // 
-    // When creating an ACK managed cluster, if `vpc_id` and `vswitch_ids` are not specified, `zone_id` must be specified for the cluster to automatically create VPC network resources in this availability zone. This parameter is ignored when `vpc_id` and `vswitch_ids` are specified.
+    // When you create an ACK managed cluster without specifying `vpc_id` and `vswitch_ids`, you must specify `zone_id` for the cluster to automatically create a VPC and related network resources in the specified zone. This parameter is ignored when `vpc_id` and `vswitch_ids` are specified.
     shared_ptr<string> zoneId_ {};
-    // Multiple availability zone IDs of the region where the cluster is located. This parameter is specific to ACK managed cluster types.
+    // The IDs of multiple zones in the region to which the cluster belongs. This parameter is specific to ACK managed clusters.
     shared_ptr<vector<string>> zoneIds_ {};
   };
 

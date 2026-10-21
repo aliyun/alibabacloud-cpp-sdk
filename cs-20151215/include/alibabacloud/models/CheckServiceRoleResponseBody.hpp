@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the service role has been granted.
+      // Indicates whether the role has been authorized.
       shared_ptr<bool> granted_ {};
-      // The prompt message returned when the service role is not granted.
+      // The message returned when the role is not authorized.
       shared_ptr<string> message_ {};
       // The service role name.
       shared_ptr<string> name_ {};

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Node pool ID.
+    // The node pool ID.
     shared_ptr<string> nodepoolId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Task ID.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

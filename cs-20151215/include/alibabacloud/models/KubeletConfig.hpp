@@ -132,7 +132,7 @@ namespace Models
     protected:
       // The endpoint of the collector.
       shared_ptr<string> endpoint_ {};
-      // The number of samples to be collected per million spans.
+      // The number of samples to collect per million spans.
       shared_ptr<int32_t> samplingRatePerMillion_ {};
     };
 
@@ -176,9 +176,9 @@ namespace Models
 
 
     protected:
-      // The memory limit.
+      // The memory resources limit.
       Darabonba::Json limits_ {};
-      // The NUMA node identifier.
+      // The NUMA node.
       shared_ptr<int32_t> numaNode_ {};
     };
 
@@ -435,72 +435,72 @@ namespace Models
 
 
   protected:
-    // The whitelisted unsafe sysctls.
+    // The whitelist of allowed unsafe sysctl patterns.
     shared_ptr<vector<string>> allowedUnsafeSysctls_ {};
-    // The list of IP addresses of the DNS servers.
+    // The list of IP addresses for the cluster DNS servers.
     shared_ptr<vector<string>> clusterDNS_ {};
-    // The maximum number of log files that can be stored in each container.
+    // The maximum number of log files that can exist per container.
     shared_ptr<int64_t> containerLogMaxFiles_ {};
-    // The maximum size that a log file can reach before it is rotated.
+    // The maximum size a log file can reach before log rotation is performed.
     shared_ptr<string> containerLogMaxSize_ {};
-    // The maximum number of concurrent programs that rotate logs
+    // The maximum number of concurrent workers for log rotation operations.
     shared_ptr<int32_t> containerLogMaxWorkers_ {};
-    // The duration at which the container logs are monitored for rotating logs.
+    // The interval for monitoring container logs to perform log rotation.
     shared_ptr<string> containerLogMonitorInterval_ {};
-    // Specifies whether to use Completely Fair Scheduler (CFS) quota to enforce pod CPU limits.
+    // Specifies whether to enable CPU CFS quota enforcement.
     shared_ptr<bool> cpuCFSQuota_ {};
-    // The duration for the CPU CFS quota.
+    // The CPU CFS quota period value.
     shared_ptr<string> cpuCFSQuotaPeriod_ {};
-    // The CPU management policy used by kubelet.
+    // The CPU manager policy.
     shared_ptr<string> cpuManagerPolicy_ {};
-    // The maximum number of burst peaks for the event records.
+    // The maximum burst size for event records.
     shared_ptr<int64_t> eventBurst_ {};
-    // Specifies the maximum number of events that can be generated per second.
+    // The maximum number of events that can be generated per second.
     shared_ptr<int64_t> eventRecordQPS_ {};
-    // A set of eviction thresholds that will trigger a pod eviction if met.
+    // The set of hard eviction thresholds that trigger pod eviction.
     Darabonba::Json evictionHard_ {};
-    // A set of eviction thresholds that will trigger a pod eviction if met over a corresponding grace period.
+    // The set of soft eviction thresholds.
     Darabonba::Json evictionSoft_ {};
-    // A set of grace periods for eviction thresholds.
+    // The set of eviction grace periods.
     Darabonba::Json evictionSoftGracePeriod_ {};
-    // A feature gate that is used to enable an experimental feature.
+    // The feature gates configuration used to enable experimental features.
     Darabonba::Json featureGates_ {};
-    // The percentage of disk usage after which image garbage collection always runs.
+    // The threshold above which image garbage collection runs continuously.
     shared_ptr<int32_t> imageGCHighThresholdPercent_ {};
-    // The percentage of disk usage before which image garbage collection never runs.
+    // The threshold below which image garbage collection is not performed.
     shared_ptr<int32_t> imageGCLowThresholdPercent_ {};
     // The maximum number of burst requests sent to the API server per second.
     shared_ptr<int64_t> kubeAPIBurst_ {};
-    // The QPS when kubelet communicates with the Kubernetes API server.
+    // The number of queries per second when communicating with the API server.
     shared_ptr<int64_t> kubeAPIQPS_ {};
-    // A set of configurations that specify resources reserved for the Kubernetes system.
+    // The resource configuration reserved for Kubernetes system components.
     Darabonba::Json kubeReserved_ {};
-    // The maximum number of running pods.
+    // The maximum number of pods that can run on the node.
     shared_ptr<int64_t> maxPods_ {};
-    // The name of the policy to be used by the memory manager.
+    // The policy used by the memory management manager.
     shared_ptr<string> memoryManagerPolicy_ {};
-    // The maximum number of processes per pod.
+    // The maximum number of PIDs that can be used in a pod.
     shared_ptr<int64_t> podPidsLimit_ {};
-    // The read-only port.
+    // The read-only port number.
     shared_ptr<int64_t> readOnlyPort_ {};
-    // The maximum number of images that can be pulled from bursty image pulls.
+    // The maximum number of burst image pulls.
     shared_ptr<int64_t> registryBurst_ {};
-    // The maximum queries per second (QPS) of the image repository.
+    // The QPS limit for the image registry.
     shared_ptr<int64_t> registryPullQPS_ {};
-    // A list of configurations that specify memory reservations for non-uniform memory access (NUMA) nodes.
+    // The memory reserved for NUMA nodes.
     shared_ptr<vector<KubeletConfig::ReservedMemory>> reservedMemory_ {};
-    // Specifies whether to pull one image at a time.
+    // Specifies whether to pull images one at a time.
     shared_ptr<bool> serializeImagePulls_ {};
-    // 启用 kubelet 服务端证书的自动签发与轮换功能。启用时，需同时在 kubelet 的 featureGates 中配置 "RotateKubeletServerCertificate": true
+    // Enables automatic issuance and rotation of kubelet server certificates. When enabled, you must also set "RotateKubeletServerCertificate": true in the kubelet featureGates configuration.
     // 
-    // > - 仅 1.30 及以上版本的集群可用。
-    // > - 1.30 至 v1.33 版本的集群需提交工单申请。
+    // > - Available only for clusters running version 1.30 or later.
+    // > - For clusters running version 1.30 to v1.33, submit a ticket to apply for this feature.
     shared_ptr<bool> serverTLSBootstrap_ {};
-    // A set of configurations that specify reserved resources for the system.
+    // The resource configuration reserved for the system.
     Darabonba::Json systemReserved_ {};
-    // The name of the Topology Manager policy that you want to use.
+    // The Policy Name of the topology management manager to use.
     shared_ptr<string> topologyManagerPolicy_ {};
-    // The versioned configuration information for the Managed Service for OpenTelemetry client.
+    // The versioned configuration for the OpenTelemetry tracing client.
     shared_ptr<KubeletConfig::Tracing> tracing_ {};
   };
 

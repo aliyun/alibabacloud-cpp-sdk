@@ -105,9 +105,9 @@ namespace Models
       // 
       // - false: Not enabled.
       shared_ptr<bool> enabled_ {};
-      // The Log Service project used by the logging feature of the component.
+      // The log project used by the logging feature of the component.
       shared_ptr<string> logProject_ {};
-      // The Log Service Logstore used by the logging feature of the component.
+      // The Logstore used by the logging feature of the component.
       shared_ptr<string> logstore_ {};
     };
 
@@ -153,15 +153,15 @@ namespace Models
   protected:
     // The custom parameter settings of the component.
     shared_ptr<string> config_ {};
-    // The logging feature status of the component.
+    // The logging status of the component.
     shared_ptr<GetClusterAddonInstanceResponseBody::Logging> logging_ {};
     // The component instance name.
     shared_ptr<string> name_ {};
     // The component status. Valid values:
-    // - active: installed.
-    // - updating: being modified.
-    // - upgrading: being upgraded.
-    // - deleting: being uninstalled.
+    // - active: The component is installed.
+    // - updating: The component is being modified.
+    // - upgrading: The component is being upgraded.
+    // - deleting: The component is being uninstalled.
     shared_ptr<string> state_ {};
     // The component instance version.
     shared_ptr<string> version_ {};

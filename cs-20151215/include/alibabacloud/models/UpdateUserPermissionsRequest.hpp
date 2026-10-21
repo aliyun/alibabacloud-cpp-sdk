@@ -116,13 +116,13 @@ namespace Models
       // 
       // - false: The authorized role is a cluster preset role.
       shared_ptr<bool> isCustom_ {};
-      // Specifies whether the authorization is for a RAM role.
+      // Indicates whether the authorization is for a RAM role.
       // 
       // - true: The authorization is for a RAM role.
       // 
       // - false: The authorization is for a Resource Access Management (RAM) user.
       shared_ptr<bool> isRamRole_ {};
-      // The namespace name. This parameter is empty by default for cluster-level authorization.
+      // The namespace name. This parameter is empty by default for cluster-scoped authorization.
       shared_ptr<string> namespace_ {};
       // The name of the preset role. Valid values:
       // 
@@ -131,17 +131,17 @@ namespace Models
       // - `ops`: O&M engineer.
       // - `dev`: developer.
       // - `restricted`: restricted user.
-      // - A custom ClusterRole name.
+      // - Custom ClusterRole name.
       // 
       // 
-      // > - `admin`, `admin-view`, `ops`: These roles cannot be granted at the **namespace** level.
-      // > - `admin-view`: This role cannot be granted at the **all-clusters** level.
+      // > - `admin`, `admin-view`, `ops`: These roles do not support authorization at the **namespace** scope.
+      // > - `admin-view`: This role does not support authorization at the **all-clusters** scope.
       shared_ptr<string> roleName_ {};
       // The authorization type. Valid values:
       // 
-      // - `cluster`: cluster level.
-      // - `namespace`: namespace level.
-      // - `all-clusters`: all-clusters level.
+      // - `cluster`: cluster scope.
+      // - `namespace`: namespace scope.
+      // - `all-clusters`: all-clusters scope.
       shared_ptr<string> roleType_ {};
     };
 

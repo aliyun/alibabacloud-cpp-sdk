@@ -100,15 +100,15 @@ namespace Models
 
 
     protected:
-      // 日志ID。
+      // The log ID.
       shared_ptr<int64_t> ID_ {};
-      // 集群ID。
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // 日志内容。
+      // The log content.
       shared_ptr<string> clusterLog_ {};
-      // 日志产生时间。
+      // The time when the log was created.
       shared_ptr<string> created_ {};
-      // 日志更新时间。
+      // The time when the log was updated.
       shared_ptr<string> updated_ {};
     };
 

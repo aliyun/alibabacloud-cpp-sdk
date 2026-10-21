@@ -103,10 +103,13 @@ namespace Models
 
 
   protected:
-    // The instance IDs of nodes. Separate multiple IDs with commas (,).
+    // The list of node instance IDs. Separate multiple values with commas (,).
     shared_ptr<string> instanceIds_ {};
+    // The list of node IP addresses used for filtering. Separate multiple values with commas (,).
     shared_ptr<string> nodeIps_ {};
+    // The node labels used for filtering. Specify the labels as key=value pairs separated by commas (,). Multiple labels are evaluated with the AND operator. Only nodes that match all specified labels are returned.
     shared_ptr<string> nodeLabels_ {};
+    // The list of node names used for filtering. Separate multiple values with commas (,).
     shared_ptr<string> nodeNames_ {};
     // The node pool ID.
     shared_ptr<string> nodepoolId_ {};
@@ -114,17 +117,17 @@ namespace Models
     // 
     // Default value: 1.
     shared_ptr<string> pageNumber_ {};
-    // The maximum number of records that can be displayed on each page. Valid values: [1, 100].
+    // The maximum number of records to return per page. Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The status of cluster nodes. Used to filter by node running status. Valid values:
+    // The running states of the cluster nodes used for filtering. Valid values:
     // 
-    // - `all`: does not filter by running status. All nodes are returned.
-    // - `running`: running nodes.
-    // - `removing`: nodes that are being removed.
-    // - `initial`: nodes that are being initialized.
-    // - `failed`: nodes that failed to be created.
+    // - `all`: does not filter nodes by running state and queries nodes in all states.
+    // - `running`: the cluster nodes that are running.
+    // - `removing`: the cluster nodes that are being removed.
+    // - `initial`: the cluster nodes that are being initialized.
+    // - `failed`: the cluster nodes that failed to be created.
     // 
     // Default value: `all`.
     shared_ptr<string> state_ {};

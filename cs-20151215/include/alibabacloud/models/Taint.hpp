@@ -59,15 +59,17 @@ namespace Models
   protected:
     // The scheduling policy. Valid values:
     // 
-    // *   `NoSchedule`: This taint is not tolerated. However, pods that are already scheduled to the node are not affected.
-    // *   `NoExecute`: Pods that do not tolerate this taint are evicted after this taint is added to the node.
-    // *   `PreferNoSchedule`: This value specifies a soft limit on pods. Existing pods on the node are not affected. The scheduler attempts to avoid scheduling pods that cannot tolerate the taint to the node.
+    // - `NoSchedule`: Not tolerated. This affects only the scheduling process. Already scheduled pods are not affected. This applies only to newly added pods.
+    // 
+    // - `NoExecute`: Not tolerated. When the taint changes, the pod is evicted.
+    // 
+    // - `PreferNoSchedule`: Soft constraint. Existing pods on the node are not affected. The scheduler tries to avoid scheduling pods that do not tolerate the taint to the node.
     // 
     // Default value: `NoSchedule`.
     shared_ptr<string> effect_ {};
-    // The `key` of the taint.
+    // The key of the taint.
     shared_ptr<string> key_ {};
-    // The `value` of the taint.
+    // The value of the taint.
     shared_ptr<string> value_ {};
   };
 

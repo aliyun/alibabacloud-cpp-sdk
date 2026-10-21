@@ -9,7 +9,6 @@
 #include <alibabacloud/models/Tag.hpp>
 #include <alibabacloud/models/Hugepage.hpp>
 #include <alibabacloud/models/KubeletConfig.hpp>
-#include <map>
 #include <alibabacloud/models/Taint.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -111,10 +110,10 @@ namespace Models
 
 
       protected:
-        // Whether to enable the TEE cluster. Valid values:
+        // Specifies whether to enable confidential computing for the cluster. Valid values:
         // 
-        // - `true`: enabled.
-        // - `false`: disabled.
+        // - `true`: Enabled.
+        // - `false`: Not enabled.
         shared_ptr<bool> teeEnable_ {};
       };
 
@@ -221,12 +220,12 @@ namespace Models
         shared_ptr<int64_t> offlineNodes_ {};
         // The number of nodes that are being removed.
         shared_ptr<int64_t> removingNodes_ {};
-        // The number of nodes that are in the serving state.
+        // The number of nodes in the serving state.
         shared_ptr<int64_t> servingNodes_ {};
-        // The node pool state. Valid values:
+        // The node pool status. Valid values:
         // 
         // - `active`: The node pool is active.
-        // - `scaling`: The node pool is being scaled.
+        // - `scaling`: The node pool is scaling.
         // - `removing`: Nodes are being removed.
         // - `deleting`: The node pool is being deleted.
         // - `updating`: The node pool is being updated.
@@ -242,10 +241,12 @@ namespace Models
           DARABONBA_PTR_TO_JSON(auto_renew_period, autoRenewPeriod_);
           DARABONBA_PTR_TO_JSON(cis_enabled, cisEnabled_);
           DARABONBA_PTR_TO_JSON(compensate_with_on_demand, compensateWithOnDemand_);
+          DARABONBA_PTR_TO_JSON(cpu_options, cpuOptions_);
           DARABONBA_PTR_TO_JSON(data_disks, dataDisks_);
           DARABONBA_PTR_TO_JSON(deploymentset_id, deploymentsetId_);
           DARABONBA_PTR_TO_JSON(desired_size, desiredSize_);
           DARABONBA_PTR_TO_JSON(disk_init, diskInit_);
+          DARABONBA_PTR_TO_JSON(enable_high_density_mode, enableHighDensityMode_);
           DARABONBA_PTR_TO_JSON(image_id, imageId_);
           DARABONBA_PTR_TO_JSON(image_type, imageType_);
           DARABONBA_PTR_TO_JSON(instance_charge_type, instanceChargeType_);
@@ -295,10 +296,12 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(auto_renew_period, autoRenewPeriod_);
           DARABONBA_PTR_FROM_JSON(cis_enabled, cisEnabled_);
           DARABONBA_PTR_FROM_JSON(compensate_with_on_demand, compensateWithOnDemand_);
+          DARABONBA_PTR_FROM_JSON(cpu_options, cpuOptions_);
           DARABONBA_PTR_FROM_JSON(data_disks, dataDisks_);
           DARABONBA_PTR_FROM_JSON(deploymentset_id, deploymentsetId_);
           DARABONBA_PTR_FROM_JSON(desired_size, desiredSize_);
           DARABONBA_PTR_FROM_JSON(disk_init, diskInit_);
+          DARABONBA_PTR_FROM_JSON(enable_high_density_mode, enableHighDensityMode_);
           DARABONBA_PTR_FROM_JSON(image_id, imageId_);
           DARABONBA_PTR_FROM_JSON(image_type, imageType_);
           DARABONBA_PTR_FROM_JSON(instance_charge_type, instanceChargeType_);
@@ -398,7 +401,7 @@ namespace Models
           // 
           // <props="china">Unit: CNY/hour.
           // 
-          // <props="intl">Unit: USD/hour..
+          // <props="intl">Unit: USD/hour.
           shared_ptr<string> priceLimit_ {};
         };
 
@@ -447,7 +450,7 @@ namespace Models
           // The resource pool policy used for instance creation. Valid values:
           // PrivatePoolFirst: private pool first.
           // PrivatePoolOnly: private pool only.
-          // None: no resource pool policy.
+          // None: no resource pool policy is used.
           shared_ptr<string> strategy_ {};
         };
 
@@ -491,27 +494,63 @@ namespace Models
         protected:
           // The private pool ID, which is the elasticity assurance ID or capacity reservation ID.
           shared_ptr<string> id_ {};
-          // The type of the private node pool, which specifies the private pool capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instance launch. Valid values:
+          // The private pool capacity option for instance launch. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instance launch. Valid values:
           // 
-          // - `Open`: open mode. Automatically matches open-type private pool capacity. If no matching private pool capacity is available, public pool resources are used for instance launch.
+          // - `Open`: Open mode. Automatically matches open-type private pool capacity. If no matching private pool capacity is available, public pool resources are used for instance launch.
           // 
-          // - `Target`: targeted mode. Uses the specified private pool capacity for instance launch. If the specified private pool capacity is unavailable, the instance fails to launch.
+          // - `Target`: Targeted mode. Uses the specified private pool capacity for instance launch. If the specified private pool capacity is unavailable, the instance fails to launch.
           // 
-          // - `None`: none mode. The instance does not use private pool capacity for launch.
+          // - `None`: None mode. Private pool capacity is not used for instance launch.
           shared_ptr<string> matchCriteria_ {};
         };
 
+        class CpuOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CpuOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(nested_virtualization, nestedVirtualization_);
+          };
+          friend void from_json(const Darabonba::Json& j, CpuOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(nested_virtualization, nestedVirtualization_);
+          };
+          CpuOptions() = default ;
+          CpuOptions(const CpuOptions &) = default ;
+          CpuOptions(CpuOptions &&) = default ;
+          CpuOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CpuOptions() = default ;
+          CpuOptions& operator=(const CpuOptions &) = default ;
+          CpuOptions& operator=(CpuOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->nestedVirtualization_ == nullptr; };
+          // nestedVirtualization Field Functions 
+          bool hasNestedVirtualization() const { return this->nestedVirtualization_ != nullptr;};
+          void deleteNestedVirtualization() { this->nestedVirtualization_ = nullptr;};
+          inline string getNestedVirtualization() const { DARABONBA_PTR_GET_DEFAULT(nestedVirtualization_, "") };
+          inline CpuOptions& setNestedVirtualization(string nestedVirtualization) { DARABONBA_PTR_SET_VALUE(nestedVirtualization_, nestedVirtualization) };
+
+
+        protected:
+          // Specifies whether nested virtualization is enabled. Valid values:
+          // 
+          // - disabled: Nested virtualization is disabled.
+          // - enabled: Nested virtualization is enabled.
+          shared_ptr<string> nestedVirtualization_ {};
+        };
+
         virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && this->autoRenewPeriod_ == nullptr && this->cisEnabled_ == nullptr && this->compensateWithOnDemand_ == nullptr && this->dataDisks_ == nullptr && this->deploymentsetId_ == nullptr
-        && this->desiredSize_ == nullptr && this->diskInit_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instanceChargeType_ == nullptr
-        && this->instancePatterns_ == nullptr && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->keyPair_ == nullptr
-        && this->loginAsNonRoot_ == nullptr && this->loginPassword_ == nullptr && this->multiAzPolicy_ == nullptr && this->onDemandBaseCapacity_ == nullptr && this->onDemandPercentageAboveBaseCapacity_ == nullptr
-        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr && this->privatePoolOptions_ == nullptr && this->ramPolicy_ == nullptr
-        && this->ramRoleName_ == nullptr && this->rdsInstances_ == nullptr && this->resourcePoolOptions_ == nullptr && this->scalingGroupId_ == nullptr && this->scalingPolicy_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityHardeningOs_ == nullptr && this->socEnabled_ == nullptr && this->spotInstancePools_ == nullptr
-        && this->spotInstanceRemedy_ == nullptr && this->spotPriceLimit_ == nullptr && this->spotStrategy_ == nullptr && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr
-        && this->systemDiskCategory_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr && this->systemDiskKmsKeyId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->systemDiskSnapshotPolicyId_ == nullptr && this->tags_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->autoRenewPeriod_ == nullptr && this->cisEnabled_ == nullptr && this->compensateWithOnDemand_ == nullptr && this->cpuOptions_ == nullptr && this->dataDisks_ == nullptr
+        && this->deploymentsetId_ == nullptr && this->desiredSize_ == nullptr && this->diskInit_ == nullptr && this->enableHighDensityMode_ == nullptr && this->imageId_ == nullptr
+        && this->imageType_ == nullptr && this->instanceChargeType_ == nullptr && this->instancePatterns_ == nullptr && this->instanceTypes_ == nullptr && this->internetChargeType_ == nullptr
+        && this->internetMaxBandwidthOut_ == nullptr && this->keyPair_ == nullptr && this->loginAsNonRoot_ == nullptr && this->loginPassword_ == nullptr && this->multiAzPolicy_ == nullptr
+        && this->onDemandBaseCapacity_ == nullptr && this->onDemandPercentageAboveBaseCapacity_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->platform_ == nullptr
+        && this->privatePoolOptions_ == nullptr && this->ramPolicy_ == nullptr && this->ramRoleName_ == nullptr && this->rdsInstances_ == nullptr && this->resourcePoolOptions_ == nullptr
+        && this->scalingGroupId_ == nullptr && this->scalingPolicy_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityHardeningOs_ == nullptr
+        && this->socEnabled_ == nullptr && this->spotInstancePools_ == nullptr && this->spotInstanceRemedy_ == nullptr && this->spotPriceLimit_ == nullptr && this->spotStrategy_ == nullptr
+        && this->systemDiskBurstingEnabled_ == nullptr && this->systemDiskCategories_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskEncryptAlgorithm_ == nullptr && this->systemDiskEncrypted_ == nullptr
+        && this->systemDiskKmsKeyId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskProvisionedIops_ == nullptr && this->systemDiskSize_ == nullptr && this->systemDiskSnapshotPolicyId_ == nullptr
+        && this->tags_ == nullptr && this->vswitchIds_ == nullptr; };
         // autoRenew Field Functions 
         bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
         void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -538,6 +577,15 @@ namespace Models
         void deleteCompensateWithOnDemand() { this->compensateWithOnDemand_ = nullptr;};
         inline bool getCompensateWithOnDemand() const { DARABONBA_PTR_GET_DEFAULT(compensateWithOnDemand_, false) };
         inline ScalingGroup& setCompensateWithOnDemand(bool compensateWithOnDemand) { DARABONBA_PTR_SET_VALUE(compensateWithOnDemand_, compensateWithOnDemand) };
+
+
+        // cpuOptions Field Functions 
+        bool hasCpuOptions() const { return this->cpuOptions_ != nullptr;};
+        void deleteCpuOptions() { this->cpuOptions_ = nullptr;};
+        inline const ScalingGroup::CpuOptions & getCpuOptions() const { DARABONBA_PTR_GET_CONST(cpuOptions_, ScalingGroup::CpuOptions) };
+        inline ScalingGroup::CpuOptions getCpuOptions() { DARABONBA_PTR_GET(cpuOptions_, ScalingGroup::CpuOptions) };
+        inline ScalingGroup& setCpuOptions(const ScalingGroup::CpuOptions & cpuOptions) { DARABONBA_PTR_SET_VALUE(cpuOptions_, cpuOptions) };
+        inline ScalingGroup& setCpuOptions(ScalingGroup::CpuOptions && cpuOptions) { DARABONBA_PTR_SET_RVALUE(cpuOptions_, cpuOptions) };
 
 
         // dataDisks Field Functions 
@@ -570,6 +618,13 @@ namespace Models
         inline vector<DiskInit> getDiskInit() { DARABONBA_PTR_GET(diskInit_, vector<DiskInit>) };
         inline ScalingGroup& setDiskInit(const vector<DiskInit> & diskInit) { DARABONBA_PTR_SET_VALUE(diskInit_, diskInit) };
         inline ScalingGroup& setDiskInit(vector<DiskInit> && diskInit) { DARABONBA_PTR_SET_RVALUE(diskInit_, diskInit) };
+
+
+        // enableHighDensityMode Field Functions 
+        bool hasEnableHighDensityMode() const { return this->enableHighDensityMode_ != nullptr;};
+        void deleteEnableHighDensityMode() { this->enableHighDensityMode_ = nullptr;};
+        inline bool getEnableHighDensityMode() const { DARABONBA_PTR_GET_DEFAULT(enableHighDensityMode_, false) };
+        inline ScalingGroup& setEnableHighDensityMode(bool enableHighDensityMode) { DARABONBA_PTR_SET_VALUE(enableHighDensityMode_, enableHighDensityMode) };
 
 
         // imageId Field Functions 
@@ -894,25 +949,27 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable auto-renewal for nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`. Valid values:
+        // Indicates whether auto-renewal is enabled for nodes. This parameter takes effect only when `instance_charge_type` is set to `PrePaid`. Valid values:
         // 
-        // - `true`: Enable auto-renewal.
-        // - `false`: Disable auto-renewal.
+        // - `true`: Auto-renewal is enabled.
+        // - `false`: Auto-renewal is not enabled.
         shared_ptr<bool> autoRenew_ {};
         // The duration of each auto-renewal cycle. Valid values:
-        // - When PeriodUnit=Week: 1, 2, 3.
-        // - When PeriodUnit=Month: 1, 2, 3, 6, 12, 24, 36, 48, 60.
+        // - PeriodUnit=Week: 1, 2, 3.
+        // - PeriodUnit=Month: 1, 2, 3, 6, 12, 24, 36, 48, 60.
         shared_ptr<int64_t> autoRenewPeriod_ {};
-        // [This field is deprecated]
+        // **[Deprecated]**
         // 
         // Use the security_hardening_os parameter instead.
         shared_ptr<bool> cisEnabled_ {};
-        // Specifies whether to allow the system to automatically create pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to cost or inventory reasons. This parameter takes effect only when `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
+        // When `multi_az_policy` is set to `COST_OPTIMIZED`, specifies whether to allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to price, inventory, or other reasons. Valid values:
         // 
-        // - `true`: Allow the system to automatically create pay-as-you-go instances.
-        // - `false`: Do not allow the system to automatically create pay-as-you-go instances.
+        // - `true`: Allows automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
+        // - `false`: Does not allow automatic creation of pay-as-you-go instances to meet the required number of ECS instances.
         shared_ptr<bool> compensateWithOnDemand_ {};
-        // The configurations for data cloud disk type, size, and other settings.
+        // The CPU configuration options.
+        shared_ptr<ScalingGroup::CpuOptions> cpuOptions_ {};
+        // The configurations of node data cloud disks, including the type and size.
         shared_ptr<vector<DataDisk>> dataDisks_ {};
         // The deployment set ID.
         shared_ptr<string> deploymentsetId_ {};
@@ -920,9 +977,11 @@ namespace Models
         shared_ptr<int64_t> desiredSize_ {};
         // The block device initialization configuration.
         shared_ptr<vector<DiskInit>> diskInit_ {};
+        // Specifies whether to enable high-density cloud disk mode. This is supported only when the node pool uses specific instance types. When enabled, the total number of system cloud disks and data cloud disks does not exceed the high-density cloud disk limit supported by the instance type.
+        shared_ptr<bool> enableHighDensityMode_ {};
         // The custom image ID. You can call `DescribeKubernetesVersionMetadata` to query the images supported by the system.
         shared_ptr<string> imageId_ {};
-        // The operating system image type. Valid values:
+        // The operating system image type.
         // - `AliyunLinux`: Alinux2 image.
         // - `AliyunLinuxSecurity`: Alinux2 UEFI image.
         // - `AliyunLinux3`: Alinux3 image.
@@ -934,7 +993,7 @@ namespace Models
         // - `ContainerOS`: container-optimized image.
         // - `AliyunLinux3ContainerOptimized`: Alinux3 container-optimized image.
         shared_ptr<string> imageType_ {};
-        // The billing method for nodes in the node pool. Valid values:
+        // The billing method of nodes in the node pool. Valid values:
         // 
         // - `PrePaid`: subscription.
         // - `PostPaid`: pay-as-you-go.
@@ -943,16 +1002,16 @@ namespace Models
         shared_ptr<vector<InstancePatterns>> instancePatterns_ {};
         // The list of node instance types. You can select multiple instance types as alternatives. When each node is created, the system attempts to purchase instances starting from the first instance type until the creation succeeds. The actual instance type purchased may vary depending on inventory availability.
         shared_ptr<vector<string>> instanceTypes_ {};
-        // The billing method for the public IP address of nodes.
+        // The network billing method for node public IP addresses.
         // 
-        // - PayByBandwidth: pay-by-bandwidth.
-        // - PayByTraffic: pay-by-traffic.
+        // - PayByBandwidth: billed by fixed bandwidth.
+        // - PayByTraffic: billed by traffic usage.
         shared_ptr<string> internetChargeType_ {};
-        // The maximum outbound bandwidth for the public IP address of nodes. Unit: Mbit/s. Valid values: 1 to 100.
+        // The maximum outbound bandwidth for node public IP addresses. Unit: Mbps (Mega bit per second). Valid values: 1 to 100.
         shared_ptr<int64_t> internetMaxBandwidthOut_ {};
-        // The key pair name. You can set this parameter or `login_password`.
+        // The name of the key pair. This parameter is mutually exclusive with `login_password`.
         // 
-        // For managed node pools, only `key_pair` is supported.
+        // When the node pool is a managed node pool, only `key_pair` is supported.
         shared_ptr<string> keyPair_ {};
         // Specifies whether the scaled-out ECS instances use a non-root user for logon.
         // 
@@ -960,50 +1019,50 @@ namespace Models
         // 
         // - false: Log on as the root user.
         shared_ptr<bool> loginAsNonRoot_ {};
-        // The SSH logon password. You can set this parameter or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+        // The SSH logon password. This parameter is mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
         // 
-        // For security purposes, the password is encrypted in query results.
+        // For security purposes, the password is encrypted in the query result.
         shared_ptr<string> loginPassword_ {};
         // The multi-zone scaling policy for ECS instances in the scaling group. Valid values:
         // 
-        // - `PRIORITY`: Scales based on the vSwitches (VSwitchIds.N) that you define. When ECS instances cannot be created in the zone of a higher-priority vSwitch, the system automatically uses the next-priority vSwitch to create ECS instances.
+        // - `PRIORITY`: Scales based on the vSwitches (VSwitchIds.N) you define. When ECS instances cannot be created in the zone of the vSwitch with the highest priority, the system automatically uses the next-priority vSwitch to create ECS instances.
         // 
-        // - `COST_OPTIMIZED`: Attempts to create instances in ascending order of vCPU unit price. When the scaling configuration sets the spot billing method for multiple instance types, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory.
+        // - `COST_OPTIMIZED`: Attempts to create instances in order of ascending vCPU unit price. When the scaling configuration sets the spot billing method for multiple instance types, spot instances are created first. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically attempt to create pay-as-you-go instances when spot instances cannot be created due to insufficient inventory or other reasons.
         // 
-        //   >`COST_OPTIMIZED` takes effect only when multiple instance types are configured in the scaling configuration or spot instances are selected.
+        //   >`COST_OPTIMIZED` takes effect only when the scaling configuration sets multiple instance types or uses spot instances.
         // 
-        // - `BALANCE`: Evenly allocates ECS instances across the multiple zones specified in the scaling group. If zones become unbalanced due to insufficient inventory, you can call the `RebalanceInstances` API operation to rebalance resources. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
+        // - `BALANCE`: Distributes ECS instances evenly across the multiple zones specified in the scaling group. If the zones become unbalanced due to insufficient inventory or other reasons, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) API operation to rebalance resources.
         shared_ptr<string> multiAzPolicy_ {};
         // The minimum number of pay-as-you-go instances required in the scaling group. Valid values: [0,1000\\]. When the number of pay-as-you-go instances is less than this value, pay-as-you-go instances are created first.
         shared_ptr<int64_t> onDemandBaseCapacity_ {};
-        // The percentage of pay-as-you-go instances among the instances that exceed the minimum pay-as-you-go instance count (`on_demand_base_capacity`). Valid values: [0,100\\].
+        // The percentage of pay-as-you-go instances among the excess instances after the minimum number of pay-as-you-go instances (`on_demand_base_capacity`) is met. Valid values: [0,100\\].
         shared_ptr<int64_t> onDemandPercentageAboveBaseCapacity_ {};
         // The subscription duration of nodes. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`.
         // 
         // - When `period_unit=Week`, valid values of `period`: {1, 2, 3, 4}.
         // - When `period_unit=Month`, valid values of `period`: {1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, 60}.
         shared_ptr<int64_t> period_ {};
-        // The billing cycle unit for nodes. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
+        // The billing epoch of nodes. This parameter must be specified when `instance_charge_type` is set to `PrePaid`.
         // 
-        // - `Month`: billed on a monthly basis.
-        // - `Week`: billed on a weekly basis.
+        // - `Month`: measured in months as the compute unit (CU).
+        // - `Week`: measured in weeks as the compute unit (CU).
         shared_ptr<string> periodUnit_ {};
-        // [This field is deprecated]
+        // **[Deprecated]**
         // 
         // The operating system distribution. Valid values:
         // 
         // - `CentOS`
         // - `AliyunLinux`
         // - `Windows`
-        // - `WindowsCore`.
+        // - `WindowsCore`
         shared_ptr<string> platform_ {};
         // The private pool options.
         shared_ptr<ScalingGroup::PrivatePoolOptions> privatePoolOptions_ {};
-        // This field is deprecated. Use ram_role_name instead.
+        // **[Deprecated]** Use ram_role_name instead.
         shared_ptr<string> ramPolicy_ {};
         // The worker RAM role name.
         shared_ptr<string> ramRoleName_ {};
-        // The list of RDS instances. If specified, the ECS instances in the cluster are automatically added to the RDS whitelist.
+        // If RDS instances are specified, the ECS instances in the cluster are automatically added to the RDS whitelist.
         shared_ptr<vector<string>> rdsInstances_ {};
         // The resource pool and resource pool policy used for instance creation.
         shared_ptr<ScalingGroup::ResourcePoolOptions> resourcePoolOptions_ {};
@@ -1011,10 +1070,10 @@ namespace Models
         shared_ptr<string> scalingGroupId_ {};
         // The scaling group mode. Valid values:
         // 
-        // - `release`: standard mode. Scales by creating and releasing ECS instances based on resource usage.
-        // - `recycle`: swift mode. Scales by creating, stopping, and starting instances to improve subsequent scaling speed. Compute resources are not charged during the stopped state. Only storage fees are charged, except for instances with local disks.
+        // - `release`: Standard mode. Scales by creating and releasing ECS instances based on resource usage.
+        // - `recycle`: Swift mode. Scales by creating, stopping, and starting ECS instances, which improves the speed of subsequent scaling operations. Compute resources are not charged during the stopped state. Only storage fees are charged, except for instances with local disks.
         shared_ptr<string> scalingPolicy_ {};
-        // [This field is deprecated]
+        // **[Deprecated]**
         // 
         // The security group ID of the node pool. When the node pool is associated with multiple security groups, this is the first value in `security_group_ids`.
         shared_ptr<string> securityGroupId_ {};
@@ -1022,41 +1081,41 @@ namespace Models
         shared_ptr<vector<string>> securityGroupIds_ {};
         // Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
         // 
-        // - `true`: Enable Alibaba Cloud OS security hardening.
-        // - `false`: Disable Alibaba Cloud OS security hardening.
+        // - `true`: Enabled.
+        // - `false`: Disabled.
         // 
         // Default value: `false`.
         shared_ptr<bool> securityHardeningOs_ {};
-        // Specifies whether to enable MLPS 2.0 security hardening. This option is available only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
+        // Specifies whether to enable MLPS 2.0 security hardening. This feature is available only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
         shared_ptr<bool> socEnabled_ {};
         // The number of available instance types. The scaling group creates spot instances across the lowest-cost instance types in a balanced manner. Valid values: [1,10\\].
         shared_ptr<int64_t> spotInstancePools_ {};
-        // Specifies whether to enable supplemental spot instances. When enabled, the scaling group attempts to create new instances to replace spot instances that are about to be reclaimed. Valid values:
+        // Specifies whether to enable supplementing spot instances. When enabled, the scaling group attempts to create new instances to replace spot instances that are about to be reclaimed. Valid values:
         // 
-        // - `true`: Enable supplemental spot instances.
-        // - `false`: Disable supplemental spot instances.
+        // - `true`: Enabled.
+        // - `false`: Disabled.
         shared_ptr<bool> spotInstanceRemedy_ {};
-        // The price range configurations for spot instances.
+        // The price limit configuration for spot instances.
         shared_ptr<vector<ScalingGroup::SpotPriceLimit>> spotPriceLimit_ {};
-        // The spot instance type. Valid values:
+        // The type of spot instance. Valid values:
         // - NoSpot: non-spot instance.
         // - SpotWithPriceLimit: spot instance with a price limit.
         // - SpotAsPriceGo: system automatically bids at the current market price.
         // 
         // For more information, see [Spot instances](https://help.aliyun.com/document_detail/157759.html).
         shared_ptr<string> spotStrategy_ {};
-        // Specifies whether to enable burst (performance bursting) for the system cloud disk. Valid values:
-        // - true: Enabled. When bursty workloads encounter sudden data read/write pressure, the cloud disk temporarily boosts performance based on actual business conditions until the workload stabilizes.
-        // - false: Disabled.
+        // Specifies whether to enable burst (performance burst) for the node system cloud disk. Valid values:
+        // - true: Enable. When enabled, the cloud disk temporarily boosts performance to handle sudden data read/write pressure from fluctuating workloads until the workload stabilizes.
+        // - false: Disable.
         // 
         // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
         shared_ptr<bool> systemDiskBurstingEnabled_ {};
-        // The multi-disk types for the system cloud disk. When a higher-priority disk type is unavailable, the system automatically attempts the next-priority disk type to create the system cloud disk.
+        // The multiple cloud disk types for the system cloud disk. If the highest-priority cloud disk type is unavailable, the system automatically attempts the next-priority cloud disk type to create the system cloud disk.
         shared_ptr<vector<string>> systemDiskCategories_ {};
-        // The system cloud disk type for nodes. Valid values:
+        // The type of the node system cloud disk. Valid values:
         // - `cloud_efficiency`: ultra cloud disk.
         // - `cloud_ssd`: standard SSD.
-        // - `cloud_essd`: Enterprise SSD (ESSD).
+        // - `cloud_essd`: ESSD.
         // - `cloud_auto`: ESSD AutoPL cloud disk.
         // - `cloud_essd_entry`: ESSD Entry cloud disk.
         shared_ptr<string> systemDiskCategory_ {};
@@ -1064,20 +1123,20 @@ namespace Models
         shared_ptr<string> systemDiskEncryptAlgorithm_ {};
         // Specifies whether to encrypt the system cloud disk. Valid values:
         // 
-        // - true: Encrypted.
-        // - false: Not encrypted.
+        // - true: Encrypt.
+        // - false: Do not encrypt.
         shared_ptr<bool> systemDiskEncrypted_ {};
         // The KMS key ID used for the system cloud disk.
         shared_ptr<string> systemDiskKmsKeyId_ {};
-        // The performance level of the system cloud disk. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the disk size. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html). The standard SSD does not support performance levels.
+        // The performance level of the node system cloud disk. This parameter applies only to ESSD cloud disks. The performance level varies based on the cloud disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html).
         // - PL0: moderate maximum concurrent I/O performance with relatively stable read/write latency.
         // - PL1: moderate maximum concurrent I/O performance with relatively stable read/write latency.
         // - PL2: high maximum concurrent I/O performance with stable read/write latency.
         // - PL3: ultra-high maximum concurrent I/O performance with extremely stable read/write latency.
         shared_ptr<string> systemDiskPerformanceLevel_ {};
-        // The provisioned read/write IOPS for the system cloud disk. This parameter is applicable when the disk type is cloud_auto.
+        // The provisioned read/write IOPS for the node system cloud disk. This parameter is configured when the cloud disk type is cloud_auto.
         shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-        // The size of the system cloud disk for nodes. Unit: GiB.
+        // The size of the node system cloud disk, in GiB.
         // 
         // Valid values: [20,2048\\].
         shared_ptr<int64_t> systemDiskSize_ {};
@@ -1199,7 +1258,7 @@ namespace Models
         shared_ptr<string> resourceGroupId_ {};
         // The node pool type. Valid values:
         // 
-        // - `ess`: standard node pool (includes managed and elastic scaling features).
+        // - `ess`: standard node pool (includes managed features and elastic scaling).
         // - `edge`: edge node pool.
         // - `lingjun`: Lingjun node pool.
         shared_ptr<string> type_ {};
@@ -1258,7 +1317,7 @@ namespace Models
 
 
         protected:
-          // The hugepage configuration.
+          // The Hugepage configuration.
           shared_ptr<Hugepage> hugepage_ {};
         };
 
@@ -1293,11 +1352,13 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const NodeComponents& obj) { 
           DARABONBA_PTR_TO_JSON(config, config_);
+          DARABONBA_PTR_TO_JSON(config_revision, configRevision_);
           DARABONBA_PTR_TO_JSON(name, name_);
           DARABONBA_PTR_TO_JSON(version, version_);
         };
         friend void from_json(const Darabonba::Json& j, NodeComponents& obj) { 
           DARABONBA_PTR_FROM_JSON(config, config_);
+          DARABONBA_PTR_FROM_JSON(config_revision, configRevision_);
           DARABONBA_PTR_FROM_JSON(name, name_);
           DARABONBA_PTR_FROM_JSON(version, version_);
         };
@@ -1315,10 +1376,12 @@ namespace Models
         class Config : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Config& obj) { 
-            DARABONBA_PTR_TO_JSON(custom_config, customConfig_);
+            DARABONBA_ANY_TO_JSON(custom_config, customConfig_);
+            DARABONBA_PTR_TO_JSON(envs, envs_);
           };
           friend void from_json(const Darabonba::Json& j, Config& obj) { 
-            DARABONBA_PTR_FROM_JSON(custom_config, customConfig_);
+            DARABONBA_ANY_FROM_JSON(custom_config, customConfig_);
+            DARABONBA_PTR_FROM_JSON(envs, envs_);
           };
           Config() = default ;
           Config(const Config &) = default ;
@@ -1331,23 +1394,79 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->customConfig_ == nullptr; };
+          class Envs : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Envs& obj) { 
+              DARABONBA_PTR_TO_JSON(name, name_);
+              DARABONBA_PTR_TO_JSON(value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, Envs& obj) { 
+              DARABONBA_PTR_FROM_JSON(name, name_);
+              DARABONBA_PTR_FROM_JSON(value, value_);
+            };
+            Envs() = default ;
+            Envs(const Envs &) = default ;
+            Envs(Envs &&) = default ;
+            Envs(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Envs() = default ;
+            Envs& operator=(const Envs &) = default ;
+            Envs& operator=(Envs &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline Envs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+            inline Envs& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+          protected:
+            // The environment variable name.
+            shared_ptr<string> name_ {};
+            // The environment variable value.
+            shared_ptr<string> value_ {};
+          };
+
+          virtual bool empty() const override { return this->customConfig_ == nullptr
+        && this->envs_ == nullptr; };
           // customConfig Field Functions 
           bool hasCustomConfig() const { return this->customConfig_ != nullptr;};
           void deleteCustomConfig() { this->customConfig_ = nullptr;};
-          inline const map<string, string> & getCustomConfig() const { DARABONBA_PTR_GET_CONST(customConfig_, map<string, string>) };
-          inline map<string, string> getCustomConfig() { DARABONBA_PTR_GET(customConfig_, map<string, string>) };
-          inline Config& setCustomConfig(const map<string, string> & customConfig) { DARABONBA_PTR_SET_VALUE(customConfig_, customConfig) };
-          inline Config& setCustomConfig(map<string, string> && customConfig) { DARABONBA_PTR_SET_RVALUE(customConfig_, customConfig) };
+          inline           const Darabonba::Json & getCustomConfig() const { DARABONBA_GET(customConfig_) };
+          Darabonba::Json & getCustomConfig() { DARABONBA_GET(customConfig_) };
+          inline Config& setCustomConfig(const Darabonba::Json & customConfig) { DARABONBA_SET_VALUE(customConfig_, customConfig) };
+          inline Config& setCustomConfig(Darabonba::Json && customConfig) { DARABONBA_SET_RVALUE(customConfig_, customConfig) };
+
+
+          // envs Field Functions 
+          bool hasEnvs() const { return this->envs_ != nullptr;};
+          void deleteEnvs() { this->envs_ = nullptr;};
+          inline const vector<Config::Envs> & getEnvs() const { DARABONBA_PTR_GET_CONST(envs_, vector<Config::Envs>) };
+          inline vector<Config::Envs> getEnvs() { DARABONBA_PTR_GET(envs_, vector<Config::Envs>) };
+          inline Config& setEnvs(const vector<Config::Envs> & envs) { DARABONBA_PTR_SET_VALUE(envs_, envs) };
+          inline Config& setEnvs(vector<Config::Envs> && envs) { DARABONBA_PTR_SET_RVALUE(envs_, envs) };
 
 
         protected:
-          // The custom configuration of the node component.
-          shared_ptr<map<string, string>> customConfig_ {};
+          // The node component custom configuration.
+          Darabonba::Json customConfig_ {};
+          // The node component environment variables.
+          shared_ptr<vector<Config::Envs>> envs_ {};
         };
 
         virtual bool empty() const override { return this->config_ == nullptr
-        && this->name_ == nullptr && this->version_ == nullptr; };
+        && this->configRevision_ == nullptr && this->name_ == nullptr && this->version_ == nullptr; };
         // config Field Functions 
         bool hasConfig() const { return this->config_ != nullptr;};
         void deleteConfig() { this->config_ = nullptr;};
@@ -1355,6 +1474,13 @@ namespace Models
         inline NodeComponents::Config getConfig() { DARABONBA_PTR_GET(config_, NodeComponents::Config) };
         inline NodeComponents& setConfig(const NodeComponents::Config & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
         inline NodeComponents& setConfig(NodeComponents::Config && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
+
+
+        // configRevision Field Functions 
+        bool hasConfigRevision() const { return this->configRevision_ != nullptr;};
+        void deleteConfigRevision() { this->configRevision_ = nullptr;};
+        inline string getConfigRevision() const { DARABONBA_PTR_GET_DEFAULT(configRevision_, "") };
+        inline NodeComponents& setConfigRevision(string configRevision) { DARABONBA_PTR_SET_VALUE(configRevision_, configRevision) };
 
 
         // name Field Functions 
@@ -1372,11 +1498,13 @@ namespace Models
 
 
       protected:
-        // The configuration of the node component.
+        // The node component configuration.
         shared_ptr<NodeComponents::Config> config_ {};
-        // The name of the node component.
+        // The node component custom configuration version number.
+        shared_ptr<string> configRevision_ {};
+        // The node component name.
         shared_ptr<string> name_ {};
-        // The version of the node component.
+        // The node component version.
         shared_ptr<string> version_ {};
       };
 
@@ -1390,6 +1518,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(auto_upgrade_policy, autoUpgradePolicy_);
           DARABONBA_PTR_TO_JSON(auto_vul_fix, autoVulFix_);
           DARABONBA_PTR_TO_JSON(auto_vul_fix_policy, autoVulFixPolicy_);
+          DARABONBA_PTR_TO_JSON(drift_enabled, driftEnabled_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
           DARABONBA_PTR_TO_JSON(upgrade_config, upgradeConfig_);
         };
@@ -1401,6 +1530,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(auto_upgrade_policy, autoUpgradePolicy_);
           DARABONBA_PTR_FROM_JSON(auto_vul_fix, autoVulFix_);
           DARABONBA_PTR_FROM_JSON(auto_vul_fix_policy, autoVulFixPolicy_);
+          DARABONBA_PTR_FROM_JSON(drift_enabled, driftEnabled_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
           DARABONBA_PTR_FROM_JSON(upgrade_config, upgradeConfig_);
         };
@@ -1471,20 +1601,20 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable automatic upgrades. Valid values:
+          // Indicates whether auto upgrade is enabled. Valid values:
           // 
-          // - `true`: Enable automatic upgrades.
-          // - `false`: Disable automatic upgrades.
+          // - `true`: Auto upgrade is enabled.
+          // - `false`: Auto upgrade is not enabled.
           shared_ptr<bool> autoUpgrade_ {};
           // The maximum number of unavailable nodes. Valid values: [1,1000\\].
           // 
           // Default value: 1.
           shared_ptr<int64_t> maxUnavailable_ {};
-          // The number of extra nodes. You can set this parameter or `surge_percentage`.
+          // The number of extra nodes. You must set this parameter or `surge_percentage`.
           shared_ptr<int64_t> surge_ {};
-          // The percentage of extra nodes. You can set this parameter or `surge`.
+          // The percentage of extra nodes. You must set this parameter or `surge`.
           // 
-          // Number of extra nodes = Extra node percentage × Number of nodes. For example, if the extra node percentage is set to 50% and there are 6 existing nodes, the number of extra nodes = 50% × 6 = 3.
+          // Number of extra nodes = Percentage of extra nodes × Number of nodes. For example, if the percentage of extra nodes is set to 50% and there are 6 existing nodes, the number of extra nodes = 50% × 6, which means 3 extra nodes are created.
           shared_ptr<int64_t> surgePercentage_ {};
         };
 
@@ -1535,17 +1665,17 @@ namespace Models
 
 
         protected:
-          // The packages that are excluded during vulnerability fixing.
+          // The packages to exclude during vulnerability fix.
           shared_ptr<string> excludePackages_ {};
           // Specifies whether to allow node restarts. This parameter takes effect only when `auto_vul_fix=true`. Valid values:
-          // - `true`: Allow node restarts.
-          // - `false`: Do not allow node restarts.
+          // - `true`: Node restarts are allowed.
+          // - `false`: Node restarts are not allowed.
           shared_ptr<bool> restartNode_ {};
-          // The vulnerability levels that are allowed for automatic fixing, separated by commas.
+          // The vulnerability levels allowed for automatic fix, separated by commas.
           // 
-          // - `asap`: high
-          // - `later`: medium
-          // - `nntf`: low.
+          // - `asap`: High
+          // - `later`: Medium
+          // - `nntf`: Low
           shared_ptr<string> vulLevel_ {};
         };
 
@@ -1577,9 +1707,9 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow automatic kubelet upgrades. This parameter takes effect only when `auto_upgrade=true`. Valid values:
-          // - `true`: Allow automatic kubelet upgrades.
-          // - `false`: Do not allow automatic kubelet upgrades.
+          // Indicates whether auto upgrade of kubelet is allowed. This parameter takes effect only when `auto_upgrade=true`. Valid values:
+          // - `true`: Auto upgrade of kubelet is allowed.
+          // - `false`: Auto upgrade of kubelet is not allowed.
           shared_ptr<bool> autoUpgradeKubelet_ {};
         };
 
@@ -1588,11 +1718,15 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const AutoRepairPolicy& obj) { 
             DARABONBA_PTR_TO_JSON(approval_required, approvalRequired_);
             DARABONBA_PTR_TO_JSON(auto_repair_policy_id, autoRepairPolicyId_);
+            DARABONBA_PTR_TO_JSON(max_parallel_repairing_nodes, maxParallelRepairingNodes_);
+            DARABONBA_PTR_TO_JSON(max_unhealthy_nodes_threshold, maxUnhealthyNodesThreshold_);
             DARABONBA_PTR_TO_JSON(restart_node, restartNode_);
           };
           friend void from_json(const Darabonba::Json& j, AutoRepairPolicy& obj) { 
             DARABONBA_PTR_FROM_JSON(approval_required, approvalRequired_);
             DARABONBA_PTR_FROM_JSON(auto_repair_policy_id, autoRepairPolicyId_);
+            DARABONBA_PTR_FROM_JSON(max_parallel_repairing_nodes, maxParallelRepairingNodes_);
+            DARABONBA_PTR_FROM_JSON(max_unhealthy_nodes_threshold, maxUnhealthyNodesThreshold_);
             DARABONBA_PTR_FROM_JSON(restart_node, restartNode_);
           };
           AutoRepairPolicy() = default ;
@@ -1607,7 +1741,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->approvalRequired_ == nullptr
-        && this->autoRepairPolicyId_ == nullptr && this->restartNode_ == nullptr; };
+        && this->autoRepairPolicyId_ == nullptr && this->maxParallelRepairingNodes_ == nullptr && this->maxUnhealthyNodesThreshold_ == nullptr && this->restartNode_ == nullptr; };
           // approvalRequired Field Functions 
           bool hasApprovalRequired() const { return this->approvalRequired_ != nullptr;};
           void deleteApprovalRequired() { this->approvalRequired_ = nullptr;};
@@ -1622,6 +1756,20 @@ namespace Models
           inline AutoRepairPolicy& setAutoRepairPolicyId(string autoRepairPolicyId) { DARABONBA_PTR_SET_VALUE(autoRepairPolicyId_, autoRepairPolicyId) };
 
 
+          // maxParallelRepairingNodes Field Functions 
+          bool hasMaxParallelRepairingNodes() const { return this->maxParallelRepairingNodes_ != nullptr;};
+          void deleteMaxParallelRepairingNodes() { this->maxParallelRepairingNodes_ = nullptr;};
+          inline string getMaxParallelRepairingNodes() const { DARABONBA_PTR_GET_DEFAULT(maxParallelRepairingNodes_, "") };
+          inline AutoRepairPolicy& setMaxParallelRepairingNodes(string maxParallelRepairingNodes) { DARABONBA_PTR_SET_VALUE(maxParallelRepairingNodes_, maxParallelRepairingNodes) };
+
+
+          // maxUnhealthyNodesThreshold Field Functions 
+          bool hasMaxUnhealthyNodesThreshold() const { return this->maxUnhealthyNodesThreshold_ != nullptr;};
+          void deleteMaxUnhealthyNodesThreshold() { this->maxUnhealthyNodesThreshold_ = nullptr;};
+          inline string getMaxUnhealthyNodesThreshold() const { DARABONBA_PTR_GET_DEFAULT(maxUnhealthyNodesThreshold_, "") };
+          inline AutoRepairPolicy& setMaxUnhealthyNodesThreshold(string maxUnhealthyNodesThreshold) { DARABONBA_PTR_SET_VALUE(maxUnhealthyNodesThreshold_, maxUnhealthyNodesThreshold) };
+
+
           // restartNode Field Functions 
           bool hasRestartNode() const { return this->restartNode_ != nullptr;};
           void deleteRestartNode() { this->restartNode_ = nullptr;};
@@ -1630,20 +1778,24 @@ namespace Models
 
 
         protected:
-          // Specifies whether manual approval is required for node repair.
+          // Indicates whether manual approval is required for node repair.
           shared_ptr<bool> approvalRequired_ {};
           // The ID of the auto repair policy.
           shared_ptr<string> autoRepairPolicyId_ {};
+          // The maximum number or percentage of nodes that can be repaired in parallel when a large number of unhealthy nodes exist in the node pool.
+          shared_ptr<string> maxParallelRepairingNodes_ {};
+          // The self-healing circuit breaker threshold. When the number or percentage of faulty nodes exceeds this threshold, self-healing enters a circuit breaker state and stops initiating new repair actions.
+          shared_ptr<string> maxUnhealthyNodesThreshold_ {};
           // Specifies whether to allow node restarts. This parameter takes effect only when `auto_repair=true`.
           // 
-          // - `true`: Allow node restarts.
-          // - `false`: Do not allow node restarts.
+          // - `true`: Allows node restarts.
+          // - `false`: Does not allow node restarts.
           shared_ptr<bool> restartNode_ {};
         };
 
         virtual bool empty() const override { return this->autoFaultDiagnosis_ == nullptr
         && this->autoRepair_ == nullptr && this->autoRepairPolicy_ == nullptr && this->autoUpgrade_ == nullptr && this->autoUpgradePolicy_ == nullptr && this->autoVulFix_ == nullptr
-        && this->autoVulFixPolicy_ == nullptr && this->enable_ == nullptr && this->upgradeConfig_ == nullptr; };
+        && this->autoVulFixPolicy_ == nullptr && this->driftEnabled_ == nullptr && this->enable_ == nullptr && this->upgradeConfig_ == nullptr; };
         // autoFaultDiagnosis Field Functions 
         bool hasAutoFaultDiagnosis() const { return this->autoFaultDiagnosis_ != nullptr;};
         void deleteAutoFaultDiagnosis() { this->autoFaultDiagnosis_ = nullptr;};
@@ -1699,6 +1851,13 @@ namespace Models
         inline Management& setAutoVulFixPolicy(Management::AutoVulFixPolicy && autoVulFixPolicy) { DARABONBA_PTR_SET_RVALUE(autoVulFixPolicy_, autoVulFixPolicy) };
 
 
+        // driftEnabled Field Functions 
+        bool hasDriftEnabled() const { return this->driftEnabled_ != nullptr;};
+        void deleteDriftEnabled() { this->driftEnabled_ = nullptr;};
+        inline bool getDriftEnabled() const { DARABONBA_PTR_GET_DEFAULT(driftEnabled_, false) };
+        inline Management& setDriftEnabled(bool driftEnabled) { DARABONBA_PTR_SET_VALUE(driftEnabled_, driftEnabled) };
+
+
         // enable Field Functions 
         bool hasEnable() const { return this->enable_ != nullptr;};
         void deleteEnable() { this->enable_ = nullptr;};
@@ -1716,33 +1875,36 @@ namespace Models
 
 
       protected:
+        // Indicates whether ECS fault detection for node self-healing is enabled.
         shared_ptr<bool> autoFaultDiagnosis_ {};
         // Specifies whether to enable auto repair. This parameter takes effect only when `enable=true`.
         // 
-        // - `true`: Enable auto repair.
-        // - `false`: Disable auto repair.
+        // - `true`: Enables auto repair.
+        // - `false`: Disables auto repair.
         shared_ptr<bool> autoRepair_ {};
         // The auto repair policy for nodes.
         shared_ptr<Management::AutoRepairPolicy> autoRepairPolicy_ {};
-        // Specifies whether to enable automatic node upgrades. This parameter takes effect only when `enable=true`.
-        // - `true`: Enable automatic upgrades.
-        // - `false`: Disable automatic upgrades.
+        // Indicates whether auto upgrade is enabled for nodes. This parameter takes effect only when `enable=true`.
+        // - `true`: Auto upgrade is enabled.
+        // - `false`: Auto upgrade is not enabled.
         shared_ptr<bool> autoUpgrade_ {};
-        // The automatic upgrade policy.
+        // The auto upgrade policy.
         shared_ptr<Management::AutoUpgradePolicy> autoUpgradePolicy_ {};
-        // Specifies whether to enable automatic CVE fixing. This parameter takes effect only when `enable=true`.
+        // Specifies whether to enable automatic CVE fix. This parameter takes effect only when `enable=true`.
         // 
-        // - `true`: Enable automatic CVE fixing.
-        // - `false`: Disable automatic CVE fixing.
+        // - `true`: Enables automatic CVE fix.
+        // - `false`: Disables automatic CVE fix.
         shared_ptr<bool> autoVulFix_ {};
-        // The automatic CVE fixing policy.
+        // The automatic CVE fix policy.
         shared_ptr<Management::AutoVulFixPolicy> autoVulFixPolicy_ {};
+        // Indicates whether node rotation is enabled. Only intelligent managed node pools support this feature, and it is enabled by default. Regular node pools do not support this feature.
+        shared_ptr<bool> driftEnabled_ {};
         // Specifies whether to enable the managed node pool. Valid values:
         // 
-        // - `true`: Enable the managed node pool.
-        // - `false`: Disable the managed node pool. Other related configurations take effect only when `enable=true`.
+        // - `true`: Enables the managed node pool.
+        // - `false`: Disables the managed node pool. Other related configurations take effect only when `enable=true`.
         shared_ptr<bool> enable_ {};
-        // The automatic upgrade configuration. This parameter takes effect only when `enable=true`.
+        // The auto upgrade configuration. This parameter takes effect only when `enable=true`.
         shared_ptr<Management::UpgradeConfig> upgradeConfig_ {};
       };
 
@@ -1861,45 +2023,46 @@ namespace Models
 
 
       protected:
-        // Specifies whether to install the CloudMonitor agent on ECS nodes. After installation, you can view monitoring information for the created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
+        // Specifies whether to install the CloudMonitor agent on ECS nodes. After installation, you can view monitoring information about the created ECS instances in the CloudMonitor console. We recommend that you enable this feature. Valid values:
         // 
-        // - `true`: Install the.
+        // - `true`: Installs the CloudMonitor agent on ECS nodes.
+        // - `false`: Does not install the CloudMonitor agent on ECS nodes.
         shared_ptr<bool> cmsEnabled_ {};
-        // The CPU management policy for nodes. The following two policies are supported for clusters of version 1.12.6 and later:
+        // The node CPU management policy. The following two policies are supported for clusters of version 1.12.6 and later:
         // 
         // - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-        // - `none`: Uses the existing default CPU affinity scheme.
+        // - `none`: Enables the existing default CPU affinity scheme.
         shared_ptr<string> cpuPolicy_ {};
         // The node tag.
         shared_ptr<vector<Tag>> labels_ {};
         // The custom node name.
         // 
-        // The node name consists of three parts: prefix \\+ node IP address substring \\+ suffix:
+        // A node name consists of three parts: prefix \\+ node IP address substring \\+ suffix:
         //  
-        // - The prefix and suffix can each consist of one or more parts separated by ".". Each part can contain lowercase letters, digits, and hyphens (-). The node name must start and end with a lowercase letter or digit.
-        // - The IP address segment length specifies the number of digits to truncate from the end of the node IP address. Valid values: 5 to 12.
+        // - Both the prefix and suffix can consist of one or more parts separated by ".". Each part can contain lowercase letters, digits, and hyphens (-). The node name must start and end with a lowercase letter or digit.
+        // - The IP address segment length specifies the number of digits to extract from the end of the node IP address. Valid values: 5 to 12.
         //  
         // For example, if the node IP address is 192.168.0.55, the prefix is aliyun.com, the IP address segment length is 5, and the suffix is test, the node name is aliyun.com00055test.
         shared_ptr<string> nodeNameMode_ {};
-        // The pre-custom data for the node pool, which is a script that runs before node initialization. For more information, see [Generate instance custom data](https://help.aliyun.com/document_detail/49121.html).
+        // The node pool pre-custom data, which is a script that runs before node initialization. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
         shared_ptr<string> preUserData_ {};
         // The container runtime name. ACK supports the following three container runtimes:
         // 
-        // - containerd: recommended. Supported by all cluster versions.
-        // - Sandboxed-Container.runv: sandboxed container that provides higher isolation. Supported by clusters of version 1.31 and earlier.
-        // - docker: no longer maintained. Supported by clusters of version 1.22 and earlier.
+        // - containerd: Recommended. Supported by all cluster versions.
+        // - Sandboxed-Container.runv: Sandboxed container that provides higher isolation. Supported by clusters of version 1.31 and earlier.
+        // - docker: No longer maintained. Supported by clusters of version 1.22 and earlier.
         shared_ptr<string> runtime_ {};
         // The container runtime version.
         shared_ptr<string> runtimeVersion_ {};
         // The node taint information. Taints and tolerations work together to prevent pods from being scheduled to inappropriate nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
         shared_ptr<vector<Taint>> taints_ {};
-        // Specifies whether the scaled-out nodes are unschedulable.
+        // Specifies whether scaled-out nodes are unschedulable.
         // 
         // - true: Unschedulable.
         // 
         // - false: Schedulable.
         shared_ptr<bool> unschedulable_ {};
-        // The custom data for the node pool, which is a script that runs after node initialization. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
+        // The node pool custom data, which is a script that runs after node initialization. For more information, see [Generate instance user data](https://help.aliyun.com/document_detail/49121.html).
         shared_ptr<string> userData_ {};
       };
 
@@ -1968,37 +2131,41 @@ namespace Models
 
 
       protected:
-        // [Deprecated]
+        // **[Deprecated]**
         // 
-        // The network bandwidth of the enhanced edge node pool. Unit: Mbit/s.
+        // The network bandwidth of the enhanced edge node pool. Unit: Mbps.
         shared_ptr<int64_t> bandwidth_ {};
-        // [Deprecated]
+        // **[Deprecated]**
         // 
         // The Cloud Connect Network (CCN) instance ID bound to the enhanced edge node pool.
         shared_ptr<string> ccnId_ {};
-        // [Deprecated]
+        // **[Deprecated]**
         // 
-        // The region of the Cloud Connect Network (CCN) instance bound to the enhanced edge node pool.
+        // The region of the Cloud Connect Network instance bound to the enhanced edge node pool.
         shared_ptr<string> ccnRegionId_ {};
-        // [Deprecated]
+        // **[Deprecated]**
         // 
         // The Cloud Enterprise Network (CEN) instance ID bound to the enhanced edge node pool.
         shared_ptr<string> cenId_ {};
-        // [Deprecated]
+        // **[Deprecated]**
         // 
-        // The subscription duration of the enhanced edge node pool. Unit: months.
+        // The purchase duration of the enhanced edge node pool. Unit: months.
         shared_ptr<string> improvedPeriod_ {};
       };
 
       class EfloNodeGroup : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const EfloNodeGroup& obj) { 
+          DARABONBA_PTR_TO_JSON(auto_attach_enabled, autoAttachEnabled_);
           DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
           DARABONBA_PTR_TO_JSON(group_id, groupId_);
+          DARABONBA_PTR_TO_JSON(worker_ram_role_name, workerRamRoleName_);
         };
         friend void from_json(const Darabonba::Json& j, EfloNodeGroup& obj) { 
+          DARABONBA_PTR_FROM_JSON(auto_attach_enabled, autoAttachEnabled_);
           DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
           DARABONBA_PTR_FROM_JSON(group_id, groupId_);
+          DARABONBA_PTR_FROM_JSON(worker_ram_role_name, workerRamRoleName_);
         };
         EfloNodeGroup() = default ;
         EfloNodeGroup(const EfloNodeGroup &) = default ;
@@ -2011,8 +2178,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->groupId_ == nullptr; };
+        virtual bool empty() const override { return this->autoAttachEnabled_ == nullptr
+        && this->clusterId_ == nullptr && this->groupId_ == nullptr && this->workerRamRoleName_ == nullptr; };
+        // autoAttachEnabled Field Functions 
+        bool hasAutoAttachEnabled() const { return this->autoAttachEnabled_ != nullptr;};
+        void deleteAutoAttachEnabled() { this->autoAttachEnabled_ = nullptr;};
+        inline bool getAutoAttachEnabled() const { DARABONBA_PTR_GET_DEFAULT(autoAttachEnabled_, false) };
+        inline EfloNodeGroup& setAutoAttachEnabled(bool autoAttachEnabled) { DARABONBA_PTR_SET_VALUE(autoAttachEnabled_, autoAttachEnabled) };
+
+
         // clusterId Field Functions 
         bool hasClusterId() const { return this->clusterId_ != nullptr;};
         void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -2027,11 +2201,22 @@ namespace Models
         inline EfloNodeGroup& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
+        // workerRamRoleName Field Functions 
+        bool hasWorkerRamRoleName() const { return this->workerRamRoleName_ != nullptr;};
+        void deleteWorkerRamRoleName() { this->workerRamRoleName_ = nullptr;};
+        inline string getWorkerRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(workerRamRoleName_, "") };
+        inline EfloNodeGroup& setWorkerRamRoleName(string workerRamRoleName) { DARABONBA_PTR_SET_VALUE(workerRamRoleName_, workerRamRoleName) };
+
+
       protected:
+        // Indicates whether automatic addition for the Lingjun node pool is enabled (not effective).
+        shared_ptr<bool> autoAttachEnabled_ {};
         // The Lingjun cluster ID.
         shared_ptr<string> clusterId_ {};
         // The Lingjun group ID.
         shared_ptr<string> groupId_ {};
+        // The worker RAM role used by the Lingjun node pool.
+        shared_ptr<string> workerRamRoleName_ {};
       };
 
       class AutoScaling : public Darabonba::Model {
@@ -2124,31 +2309,31 @@ namespace Models
         shared_ptr<int64_t> eipBandwidth_ {};
         // The billing method for the EIP. Valid values:
         // 
-        // - `PayByBandwidth`: pay-by-bandwidth.
-        // - `PayByTraffic`: pay-by-traffic.
+        // - `PayByBandwidth`: pay-by-fixed-bandwidth.
+        // - `PayByTraffic`: pay-by-data-transfer.
         shared_ptr<string> eipInternetChargeType_ {};
-        // Specifies whether automatic scaling is enabled. Valid values:
+        // Specifies whether to enable auto scaling. Valid values:
         // 
-        // - `true`: Enables the automatic scaling feature for the node pool. When the cluster capacity planning cannot meet the scheduling requirements of application pods, ACK automatically scales nodes based on the configured minimum and maximum instance counts. For clusters of version 1.24 or later, instant node elasticity is enabled by default. For clusters of versions earlier than 1.24, node auto scaling is enabled by default. For more information, see [Node scaling](https://help.aliyun.com/document_detail/2746785.html).
+        // - `true`: Enables the elastic scaling feature for the node pool. When the cluster capacity planning cannot meet application pod scheduling requirements, ACK automatically scales node resources based on the configured minimum and maximum instance counts. Clusters of version 1.24 or later use instant node scaling by default. Clusters of versions earlier than 1.24 use node auto scaling by default. For more information, see [Node scaling](https://help.aliyun.com/document_detail/2746785.html).
         // 
-        // - `false`: Disables automatic scaling. ACK adjusts the number of nodes in the node pool based on the configured desired node count and maintains the node count at the desired value.
+        // - `false`: Disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured desired node count and maintains the node count at the desired value.
         // 
         // When this parameter is set to false, other configuration parameters in `auto_scaling` do not take effect.
         shared_ptr<bool> enable_ {};
         // Specifies whether to associate an EIP. Valid values:
         // 
-        // - `true`: Associate an EIP.
-        // - `false`: Do not associate an EIP.
+        // - `true`: Associates an EIP.
+        // - `false`: Does not associate an EIP.
         shared_ptr<bool> isBondEip_ {};
-        // The maximum number of instances that can be scaled in the node pool, excluding existing instances.
+        // The maximum number of scalable instances in the node pool, excluding your existing instances.
         shared_ptr<int64_t> maxInstances_ {};
-        // The minimum number of instances that can be scaled in the node pool, excluding existing instances.
+        // The minimum number of scalable instances in the node pool, excluding your existing instances.
         shared_ptr<int64_t> minInstances_ {};
-        // The automatic scaling type, categorized by instance type. Valid values:
+        // The auto scaling type, categorized by instance type. Valid values:
         // 
-        // - `cpu`: standard instance type.
+        // - `cpu`: regular instance type.
         // - `gpu`: GPU instance type.
-        // - `gpushare`: GPU-shared type.
+        // - `gpushare`: GPU sharing type.
         // - `spot`: spot instance type.
         shared_ptr<string> type_ {};
       };
@@ -2181,7 +2366,7 @@ namespace Models
 
 
       protected:
-        // Whether intelligent hosting is enabled.
+        // Indicates whether intelligent managed mode is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -2312,26 +2497,26 @@ namespace Models
 
 
     protected:
-      // The intelligent hosting configuration.
+      // The intelligent managed configuration.
       shared_ptr<Nodepools::AutoMode> autoMode_ {};
-      // The automatic scaling configuration.
+      // The auto scaling configuration.
       shared_ptr<Nodepools::AutoScaling> autoScaling_ {};
       // The Lingjun node group information.
       shared_ptr<Nodepools::EfloNodeGroup> efloNodeGroup_ {};
-      // [Deprecated]
+      // **[Deprecated]**
       // 
-      // The network configuration of the edge node pool. This value is only meaningful for edge-type node pools.
+      // The network-related configuration for edge node pools. This value is meaningful only for edge-type node pools.
       shared_ptr<Nodepools::InterconnectConfig> interconnectConfig_ {};
-      // The network type of the edge node pool. This parameter takes effect only for edge-type node pools (`type` is `edge`). Valid values:
+      // The network type of the edge node pool. This parameter takes effect only for node pools whose `type` is `edge`. Valid values:
       // 
-      // - `basic`: public network. Nodes in the node pool interact with cloud nodes over the Internet. Applications in the node pool cannot directly access the VPC internal network.
-      // - `private`: private network. Nodes in the node pool connect to the cloud through Express Connect, VPN Gateway, or CEN, providing higher cloud-edge communication quality and better security.
+      // - `basic`: Public network. Nodes in cloud node pool interact with cloud nodes over the Internet. Applications in cloud node pool cannot directly access the cloud VPC internal network.
+      // - `private`: Private network. Nodes in cloud node pool connect to the cloud through Express Connect circuits, VPN, or CEN, providing higher cloud-edge communication quality and more effective security.
       shared_ptr<string> interconnectMode_ {};
       // The cluster-related configuration.
       shared_ptr<Nodepools::KubernetesConfig> kubernetesConfig_ {};
       // The managed node pool configuration. This configuration takes effect only in professional managed clusters.
       shared_ptr<Nodepools::Management> management_ {};
-      // The maximum number of nodes that the edge node pool can contain. The value must be greater than or equal to 0. A value of 0 indicates no additional limit (only limited by the maximum number of nodes the cluster can accommodate). Edge node pools typically have a value greater than 0, while ess-type and default edge-type node pools have a value of 0.
+      // The maximum number of nodes allowed in the edge node pool. This parameter specifies the maximum number of nodes that the node pool can contain and must be greater than or equal to 0. A value of 0 indicates no additional limit (limited only by the total number of nodes the cluster can contain, with no additional limit on the node pool itself). This parameter is typically greater than 0 for edge node pools. For ess-type node pools and default edge-type node pools, this parameter is 0.
       shared_ptr<int64_t> maxNodes_ {};
       // The list of node components.
       shared_ptr<vector<Nodepools::NodeComponents>> nodeComponents_ {};
@@ -2343,7 +2528,7 @@ namespace Models
       shared_ptr<Nodepools::ScalingGroup> scalingGroup_ {};
       // The node pool status.
       shared_ptr<Nodepools::Status> status_ {};
-      // The TEE configuration.
+      // The confidential computing configuration.
       shared_ptr<Nodepools::TeeConfig> teeConfig_ {};
     };
 

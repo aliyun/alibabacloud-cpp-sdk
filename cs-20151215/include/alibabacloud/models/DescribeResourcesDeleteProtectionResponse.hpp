@@ -99,9 +99,9 @@ namespace Models
       shared_ptr<string> namespace_ {};
       // The type of the queried resource.
       shared_ptr<string> resource_ {};
-      // Indicates whether deletion protection is enabled.
-      // - true: enabled.
-      // - false: disabled.
+      // Indicates whether deletion protection is enabled. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> protection_ {};
     };
 

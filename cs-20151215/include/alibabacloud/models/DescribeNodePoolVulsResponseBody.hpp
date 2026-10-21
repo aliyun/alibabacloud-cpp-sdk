@@ -234,7 +234,7 @@ namespace Models
   protected:
     // The list of node pool vulnerabilities.
     shared_ptr<vector<DescribeNodePoolVulsResponseBody::VulRecords>> vulRecords_ {};
-    // Indicates whether the Security Center CVE fix service has been purchased.
+    // Indicates whether the China Cloud Security CVE fix service has been purchased.
     // 
     // - true: Purchased.
     // 

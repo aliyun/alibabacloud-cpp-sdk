@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The asynchronous task ID.
+    // The ID of the asynchronous task.
     shared_ptr<string> taskId_ {};
   };
 

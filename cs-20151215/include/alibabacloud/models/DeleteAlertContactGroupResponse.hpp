@@ -82,14 +82,14 @@ namespace Models
 
 
     protected:
-      // Deletion status.
+      // The deletion status. Valid values:
       // 
-      // * true: Deletion successful.
-      // * false: Deletion failed.
+      // * true: Deleted.
+      // * false: Failed to delete.
       shared_ptr<bool> status_ {};
-      // The message returned when execution fails.
+      // The message returned when the operation fails.
       shared_ptr<string> msg_ {};
-      // Alert contact group ID.
+      // The alert contact group ID.
       shared_ptr<string> contactGroupId_ {};
     };
 

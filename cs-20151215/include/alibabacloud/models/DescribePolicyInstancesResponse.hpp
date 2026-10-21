@@ -192,43 +192,43 @@ namespace Models
 
 
     protected:
-      // 策略实例实施者UID。
+      // The UID of the policy instance implementer.
       shared_ptr<string> aliUid_ {};
-      // 目标集群ID。
+      // The ID of the target cluster.
       shared_ptr<string> clusterId_ {};
-      // 规则实例名称。
+      // The name of the rule instance.
       shared_ptr<string> instanceName_ {};
-      // 策略治理规则名称。
+      // The name of the policy governance rule.
       shared_ptr<string> policyName_ {};
-      // 策略类型名称。
+      // The name of the policy type.
       shared_ptr<string> policyCategory_ {};
-      // 规则模板描述。
+      // The description of the rule template.
       shared_ptr<string> policyDescription_ {};
-      // 当前规则实例的配置参数。
+      // The configuration parameters of the current rule instance.
       shared_ptr<string> policyParameters_ {};
-      // 规则实例治理等级。
+      // The governance level of the rule instance.
       shared_ptr<string> policySeverity_ {};
-      // 策略实例实施范围：
+      // The scope of the policy instance.
       // 
-      // 默认"*"代表集群所有命名空间。
+      // By default, an asterisk (*) indicates all namespaces in the cluster.
       // 
-      // 否则返回作用Namespaces名称，多个Namespaces以逗号（,）分隔。
+      // Otherwise, the names of the namespaces to which the policy applies are returned. Multiple namespaces are separated by commas (,).
       shared_ptr<string> policyScope_ {};
-      // 规则治理动作，取值：
+      // The governance action of the rule. Valid values:
       // 
-      // - `deny`：拦截违规部署。
+      // - `deny`: Blocks non-compliant deployments.
       // 
-      // - `warn`：告警。
+      // - `warn`: Generates an alert.
       shared_ptr<string> policyAction_ {};
-      // 创建时间（已废弃，请勿使用）。
+      // The creation time. This parameter is deprecated. Do not use it.
       shared_ptr<string> created_ {};
-      // 更新时间（已废弃，请勿使用）。
+      // The update time. This parameter is deprecated. Do not use it.
       shared_ptr<string> updated_ {};
-      // 资源ID（已废弃，请勿使用）。
+      // The resource ID. This parameter is deprecated. Do not use it.
       shared_ptr<string> resourceId_ {};
-      // 集群中处理违规计数（已废弃，请勿使用）。
+      // The number of violations processed in the cluster. This parameter is deprecated. Do not use it.
       shared_ptr<int64_t> totalViolations_ {};
-      // 删除状态（已废弃，请勿使用）。
+      // The deletion status. This parameter is deprecated. Do not use it.
       shared_ptr<int64_t> isDeleted_ {};
     };
 

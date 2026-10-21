@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // List of alert contact group IDs.
+    // The list of alert contact group IDs.
     // 
     // This parameter is required.
     shared_ptr<string> contactGroupIdsShrink_ {};

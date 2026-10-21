@@ -125,16 +125,17 @@ namespace Models
 
 
       protected:
-        // Indicates whether the content matches the default cluster role template. Valid values:
+        // Specifies whether the content is consistent with the default cluster role template.
         // 
-        // - true: The content matches the default template.
-        // - false: The content does not match the default template.
+        // Valid values:
+        // - true: The content is consistent with the default cluster role template.
+        // - false: The content is inconsistent with the default cluster role template.
         shared_ptr<bool> isDefaultTemplate_ {};
-        // The name of the cluster role associated with the cloud service role.
+        // The name of the cluster role associated with the cloud service role in the cluster.
         shared_ptr<string> roleName_ {};
-        // The namespace of the cluster role associated with the cloud service role.
+        // The namespace of the cluster role associated with the cloud service role in the cluster.
         shared_ptr<string> roleNamespace_ {};
-        // The type of the cluster role associated with the cloud service role.
+        // The type of the cluster role associated with the cloud service role in the cluster.
         shared_ptr<string> type_ {};
       };
 
@@ -214,41 +215,40 @@ namespace Models
 
 
     protected:
-      // The display name of the Resource Access Management (RAM) user or the role name.
+      // The display name of the Resource Access Management (RAM) user or the name of the RAM role.
       shared_ptr<string> accountDisplayName_ {};
-      // The Alibaba Cloud account, Resource Access Management (RAM) user, or role ID.
+      // The ID of the Alibaba Cloud account, Resource Access Management (RAM) user, or RAM role.
       shared_ptr<string> accountId_ {};
-      // The logon name of the Resource Access Management (RAM) user or the role name.
+      // The logon name of the Resource Access Management (RAM) user or the name of the RAM role.
       shared_ptr<string> accountName_ {};
-      // The account status. Valid values:
+      // The account state.
       // 
+      // Valid values:
       // - Active: The account is active.
-      // 
       // - InActive: The account is frozen.
-      // 
       // - Deleted: The account is deleted.
       shared_ptr<string> accountState_ {};
-      // The account type. Valid values:
+      // The account type.
       // 
+      // Valid values:
       // - RootAccount: Alibaba Cloud account.
       // - RamUser: Resource Access Management (RAM) user.
       // - RamRole: RAM role.
       shared_ptr<string> accountType_ {};
-      // The expiration time of the KubeConfig client certificate.
+      // The expiration time of the KubeConfig client certificate. The time is displayed in ISO 8601 format and includes time zone information.
       shared_ptr<string> certExpireTime_ {};
-      // The status of the KubeConfig client certificate. Valid values:
+      // The state of the KubeConfig client certificate.
       // 
-      // - Unexpired: The certificate has not expired.
-      // 
-      // - Expired: The certificate has expired.
-      // 
-      // - Unknown: The certificate status is unknown (abnormal state).
+      // Valid values:
+      // - Unexpired: The certificate is not expired.
+      // - Expired: The certificate is expired.
+      // - Unknown: The certificate state is unknown (abnormal state).
       shared_ptr<string> certState_ {};
       // The name of the cloud service.
       shared_ptr<string> cloudServiceName_ {};
-      // The list of cluster roles associated with the cloud service role.
+      // The list of cluster roles associated with the cloud service role in the cluster.
       shared_ptr<vector<States::CloudServiceRoles>> cloudServiceRoles_ {};
-      // Indicates whether the KubeConfig client certificate can be revoked.
+      // Specifies whether the KubeConfig client certificate can be revoked.
       shared_ptr<bool> revokable_ {};
     };
 
@@ -301,9 +301,9 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The maximum number of records per page.
+      // The maximum number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of results.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 

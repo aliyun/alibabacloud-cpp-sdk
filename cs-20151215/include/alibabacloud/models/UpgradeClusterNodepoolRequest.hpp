@@ -14,6 +14,7 @@ namespace Models
   class UpgradeClusterNodepoolRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpgradeClusterNodepoolRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ignore_warning_check, ignoreWarningCheck_);
       DARABONBA_PTR_TO_JSON(image_id, imageId_);
       DARABONBA_PTR_TO_JSON(kubernetes_version, kubernetesVersion_);
       DARABONBA_PTR_TO_JSON(node_names, nodeNames_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(use_replace, useReplace_);
     };
     friend void from_json(const Darabonba::Json& j, UpgradeClusterNodepoolRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ignore_warning_check, ignoreWarningCheck_);
       DARABONBA_PTR_FROM_JSON(image_id, imageId_);
       DARABONBA_PTR_FROM_JSON(kubernetes_version, kubernetesVersion_);
       DARABONBA_PTR_FROM_JSON(node_names, nodeNames_);
@@ -46,11 +48,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RollingPolicy& obj) { 
         DARABONBA_PTR_TO_JSON(batch_interval, batchInterval_);
+        DARABONBA_PTR_TO_JSON(max_failed_nodes, maxFailedNodes_);
         DARABONBA_PTR_TO_JSON(max_parallelism, maxParallelism_);
         DARABONBA_PTR_TO_JSON(pause_policy, pausePolicy_);
       };
       friend void from_json(const Darabonba::Json& j, RollingPolicy& obj) { 
         DARABONBA_PTR_FROM_JSON(batch_interval, batchInterval_);
+        DARABONBA_PTR_FROM_JSON(max_failed_nodes, maxFailedNodes_);
         DARABONBA_PTR_FROM_JSON(max_parallelism, maxParallelism_);
         DARABONBA_PTR_FROM_JSON(pause_policy, pausePolicy_);
       };
@@ -66,12 +70,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->batchInterval_ == nullptr
-        && this->maxParallelism_ == nullptr && this->pausePolicy_ == nullptr; };
+        && this->maxFailedNodes_ == nullptr && this->maxParallelism_ == nullptr && this->pausePolicy_ == nullptr; };
       // batchInterval Field Functions 
       bool hasBatchInterval() const { return this->batchInterval_ != nullptr;};
       void deleteBatchInterval() { this->batchInterval_ = nullptr;};
       inline int32_t getBatchInterval() const { DARABONBA_PTR_GET_DEFAULT(batchInterval_, 0) };
       inline RollingPolicy& setBatchInterval(int32_t batchInterval) { DARABONBA_PTR_SET_VALUE(batchInterval_, batchInterval) };
+
+
+      // maxFailedNodes Field Functions 
+      bool hasMaxFailedNodes() const { return this->maxFailedNodes_ != nullptr;};
+      void deleteMaxFailedNodes() { this->maxFailedNodes_ = nullptr;};
+      inline int32_t getMaxFailedNodes() const { DARABONBA_PTR_GET_DEFAULT(maxFailedNodes_, 0) };
+      inline RollingPolicy& setMaxFailedNodes(int32_t maxFailedNodes) { DARABONBA_PTR_SET_VALUE(maxFailedNodes_, maxFailedNodes) };
 
 
       // maxParallelism Field Functions 
@@ -89,28 +100,37 @@ namespace Models
 
 
     protected:
-      // The interval between batches during the upgrade. This parameter takes effect only when the pause policy is set to `NotPause`.
+      // The upgrade interval between batches. This parameter takes effect only when the pause policy is set to `NotPause`.
       // 
       // Valid values: [5,120]. Unit: minutes.
       // 
-      // You can set this parameter to 0 to specify no interval between batches.
+      // This parameter can be set to 0, which indicates no interval between batches.
       shared_ptr<int32_t> batchInterval_ {};
-      // The maximum number of nodes that can be upgraded in parallel per batch. Nodes in the node pool are upgraded in batches.
+      // The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+      shared_ptr<int32_t> maxFailedNodes_ {};
+      // Nodes in the node pool are updated in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
       // 
       // Valid values: [1,10].
       // 
       // Default value: 10.
       shared_ptr<int32_t> maxParallelism_ {};
-      // The automatic pause policy during node upgrades. Valid values:
-      // - FirstBatch: pauses after the first batch is completed.
-      // - EveryBatch: pauses after each batch is completed.
-      // - NotPause: does not pause.
+      // The automatic pause policy during the node upgrade. Valid values:
+      // - FirstBatch: Pauses after the first batch is complete.
+      // - EveryBatch: Pauses after each batch is complete.
+      // - NotPause: Does not pause.
       shared_ptr<string> pausePolicy_ {};
     };
 
-    virtual bool empty() const override { return this->imageId_ == nullptr
-        && this->kubernetesVersion_ == nullptr && this->nodeNames_ == nullptr && this->rollingPolicy_ == nullptr && this->runtimeType_ == nullptr && this->runtimeVersion_ == nullptr
-        && this->useReplace_ == nullptr; };
+    virtual bool empty() const override { return this->ignoreWarningCheck_ == nullptr
+        && this->imageId_ == nullptr && this->kubernetesVersion_ == nullptr && this->nodeNames_ == nullptr && this->rollingPolicy_ == nullptr && this->runtimeType_ == nullptr
+        && this->runtimeVersion_ == nullptr && this->useReplace_ == nullptr; };
+    // ignoreWarningCheck Field Functions 
+    bool hasIgnoreWarningCheck() const { return this->ignoreWarningCheck_ != nullptr;};
+    void deleteIgnoreWarningCheck() { this->ignoreWarningCheck_ = nullptr;};
+    inline bool getIgnoreWarningCheck() const { DARABONBA_PTR_GET_DEFAULT(ignoreWarningCheck_, false) };
+    inline UpgradeClusterNodepoolRequest& setIgnoreWarningCheck(bool ignoreWarningCheck) { DARABONBA_PTR_SET_VALUE(ignoreWarningCheck_, ignoreWarningCheck) };
+
+
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -165,11 +185,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to ignore warning-level pre-checks.
+    shared_ptr<bool> ignoreWarningCheck_ {};
     // The system image ID of the node.
     shared_ptr<string> imageId_ {};
-    // The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from the `KubernetesVersion` field.
+    // The Kubernetes version of the node. You can call [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) to obtain the current cluster version information from `KubernetesVersion`.
     shared_ptr<string> kubernetesVersion_ {};
-    // The list of nodes to upgrade. If this parameter is not specified, all nodes in the node pool are upgraded.
+    // The list of nodes to upgrade. If not specified, all nodes in the node pool are upgraded by default.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<UpgradeClusterNodepoolRequest::RollingPolicy> rollingPolicy_ {};

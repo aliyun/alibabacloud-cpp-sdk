@@ -109,15 +109,15 @@ namespace Models
 
 
     protected:
-      // The number of check items with a result of advice.
+      // The number of check items whose result is advice.
       shared_ptr<int32_t> adviceCount_ {};
       // The status code of the check task result.
       shared_ptr<string> code_ {};
-      // The number of check items with a result of error.
+      // The number of check items whose result is error.
       shared_ptr<int32_t> errorCount_ {};
-      // The number of check items with a result of normal.
+      // The number of check items whose result is normal.
       shared_ptr<int32_t> normalCount_ {};
-      // The number of check items with a result of warning.
+      // The number of check items whose result is warning.
       shared_ptr<int32_t> warnCount_ {};
     };
 
@@ -230,26 +230,26 @@ namespace Models
       // - performance: performance and efficiency 
       // - stability: business stability
       // - limitation: service limits 
-      // - cost: cost optimization.
+      // - cost: cost optimization
       shared_ptr<string> category_ {};
       // The unique identifier of the inspection item.
       shared_ptr<string> checkItemUid_ {};
       // The description of the check item.
       shared_ptr<string> description_ {};
-      // The fix suggestion.
+      // The remediation suggestion.
       shared_ptr<string> fix_ {};
       // The level of the inspection item. Valid values:
-      // - advice: suggestion
-      // - warning: low-risk
-      // - error: medium-risk
-      // - critical: high-risk.
+      // - advice: advice
+      // - warning: low risk
+      // - error: medium risk
+      // - critical: high risk
       shared_ptr<string> level_ {};
       // The name of the check item.
       shared_ptr<string> name_ {};
       // The check result. Valid values:
       // - true: The check item is abnormal.
       // - false: The check item is normal.
-      // - disable: The check item is not enabled.
+      // - disable: The check item is disabled.
       shared_ptr<string> result_ {};
       // The resource type of the check target.
       shared_ptr<string> targetType_ {};
@@ -323,7 +323,7 @@ namespace Models
   protected:
     // The list of results.
     shared_ptr<vector<GetClusterInspectReportDetailResponseBody::CheckItemResults>> checkItemResults_ {};
-    // The completion time of the inspection report.
+    // The completion time of the inspection report in ISO 8601 format with time zone information.
     shared_ptr<string> endTime_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
@@ -331,13 +331,13 @@ namespace Models
     shared_ptr<string> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the inspection report.
+    // The start time of the inspection report in ISO 8601 format with time zone information.
     shared_ptr<string> startTime_ {};
     // The generation status of the inspection report. Valid values:
-    // - completed: Completed.
-    // - running: In progress.
+    // - completed: The generation is completed.
+    // - running: The generation is in progress.
     shared_ptr<string> status_ {};
-    // The inspection report summary.
+    // The summary of the inspection report.
     shared_ptr<GetClusterInspectReportDetailResponseBody::Summary> summary_ {};
   };
 

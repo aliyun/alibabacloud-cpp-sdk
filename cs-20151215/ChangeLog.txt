@@ -1,3 +1,60 @@
+2026-10-21 Version: 7.0.0
+- Support API CreateNodePoolComponentInstances.
+- Support API DeleteNodePoolComponentInstance.
+- Support API ListNodePoolComponentInstanceNodes.
+- Support API ListNodePoolComponentInstances.
+- Support API ListNodePoolComponents.
+- Support API UpdateNodePoolComponentInstance.
+- Update API CreateCluster: add request parameters body.client_token.
+- Update API CreateCluster: add request parameters body.control_plane_endpoints_config.load_balancers_config.
+- Update API CreateClusterNodePool: add request parameters body.eflo_node_group.auto_attach_enabled.
+- Update API CreateClusterNodePool: add request parameters body.eflo_node_group.worker_ram_role_name.
+- Update API CreateClusterNodePool: add request parameters body.management.drift_enabled.
+- Update API CreateClusterNodePool: add request parameters body.management.auto_repair_policy.max_parallel_repairing_nodes.
+- Update API CreateClusterNodePool: add request parameters body.management.auto_repair_policy.max_unhealthy_nodes_threshold.
+- Update API CreateClusterNodePool: add request parameters body.node_components.$.config.envs.
+- Update API CreateClusterNodePool: add request parameters body.scaling_group.cpu_options.
+- Update API CreateClusterNodePool: add request parameters body.scaling_group.enable_high_density_mode.
+- Update API CreateClusterNodePool: update request parameters body.node_components.$.config.custom_config' type has changed.
+- Update API DescribeClusterDetail: add response parameters Body.control_plane_endpoints_config.load_balancers_config.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.eflo_node_group.auto_attach_enabled.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.eflo_node_group.worker_ram_role_name.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.management.drift_enabled.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.management.auto_repair_policy.max_parallel_repairing_nodes.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.management.auto_repair_policy.max_unhealthy_nodes_threshold.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.node_components.$.config_revision.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.node_components.$.config.envs.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.scaling_group.cpu_options.
+- Update API DescribeClusterNodePoolDetail: add response parameters Body.scaling_group.enable_high_density_mode.
+- Update API DescribeClusterNodePoolDetail: update response parameters Body.node_components.$.config.custom_config' type has changed.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.eflo_node_group.auto_attach_enabled.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.eflo_node_group.worker_ram_role_name.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.management.drift_enabled.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.management.auto_repair_policy.max_parallel_repairing_nodes.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.management.auto_repair_policy.max_unhealthy_nodes_threshold.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.node_components.$.config_revision.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.node_components.$.config.envs.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.scaling_group.cpu_options.
+- Update API DescribeClusterNodePools: add response parameters Body.nodepools.$.scaling_group.enable_high_density_mode.
+- Update API DescribeClusterNodePools: update response parameters Body.nodepools.$.node_components.$.config.custom_config' type has changed.
+- Update API InstallNodePoolComponents: add request parameters body.components.$.config.envs.
+- Update API InstallNodePoolComponents: add request parameters body.rollingPolicy.maxFailedNodes.
+- Update API InstallNodePoolComponents: update request parameters body.components.$.config.customConfig' type has changed.
+- Update API ModifyCluster: add request parameters body.client_token.
+- Update API ModifyCluster: add request parameters body.control_plane_endpoints_config.load_balancers_config.
+- Update API ModifyClusterNodePool: add request parameters body.eflo_node_group.
+- Update API ModifyClusterNodePool: add request parameters body.management.drift_enabled.
+- Update API ModifyClusterNodePool: add request parameters body.management.auto_repair_policy.max_parallel_repairing_nodes.
+- Update API ModifyClusterNodePool: add request parameters body.management.auto_repair_policy.max_unhealthy_nodes_threshold.
+- Update API ModifyClusterNodePool: add request parameters body.scaling_group.enable_high_density_mode.
+- Update API ModifyNodePoolNodeConfig: add request parameters body.rolling_policy.max_failed_nodes.
+- Update API UpdateNodePoolComponent: add request parameters body.config.envs.
+- Update API UpdateNodePoolComponent: add request parameters body.rollingPolicy.maxFailedNodes.
+- Update API UpdateNodePoolComponent: update request parameters body.config.customConfig' type has changed.
+- Update API UpgradeClusterNodepool: add request parameters body.ignore_warning_check.
+- Update API UpgradeClusterNodepool: add request parameters body.rolling_policy.max_failed_nodes.
+
+
 2026-06-23 Version: 6.7.1
 - Update API DescribeClusterNodes: add request parameters nodeIps.
 - Update API DescribeClusterNodes: add request parameters nodeLabels.

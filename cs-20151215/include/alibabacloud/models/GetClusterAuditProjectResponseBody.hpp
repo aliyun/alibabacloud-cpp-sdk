@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the API server audit feature is enabled for the cluster. Valid values:
+    // Indicates whether the API server audit feature is enabled for the cluster.
     // 
     // - `true`: Enabled.
     // 

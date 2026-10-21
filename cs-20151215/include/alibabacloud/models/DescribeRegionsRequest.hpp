@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Filters the results by language (Chinese or English).
+    // Filters the returned results by language (Chinese or English).
     shared_ptr<string> acceptLanguage_ {};
     // The cluster type.
     shared_ptr<string> clusterType_ {};

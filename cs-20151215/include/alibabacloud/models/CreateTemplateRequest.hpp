@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The description of the orchestration template.
+    // The orchestration template description.
     shared_ptr<string> description_ {};
-    // The name of the template.
+    // The template name.
     // 
-    // Naming rules: The name must be 1 to 63 characters in length and can contain digits, Chinese characters, letters, and hyphens (-). It cannot start with a hyphen (-).
+    // Naming rules: The name can contain digits, Chinese characters, letters, and hyphens (-). The name must be 1 to 63 characters in length and cannot start with a hyphen (-).
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The tags of the orchestration template.
+    // The orchestration template tags.
     shared_ptr<string> tags_ {};
     // The template content in YAML format.
     // 
@@ -91,9 +91,9 @@ namespace Models
     shared_ptr<string> template_ {};
     // The templatetype.
     // 
-    // - If you set this parameter to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
+    // - If the value is set to `kubernetes`, the template is displayed on the Orchestration Templates page in the console.
     // 
-    // - If you leave this parameter empty or set it to other values, the template is not displayed on the Orchestration Templates page in the console.
+    // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
     // 
     // Settings this parameter to `kubernetes` is recommended.
     shared_ptr<string> templateType_ {};

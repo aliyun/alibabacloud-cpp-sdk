@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The self-healing rule ID.
+    // The ID of the self-healing rule.
     shared_ptr<string> policyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

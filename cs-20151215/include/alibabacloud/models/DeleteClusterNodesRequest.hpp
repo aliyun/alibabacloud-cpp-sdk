@@ -60,24 +60,24 @@ namespace Models
 
 
   protected:
-    // Whether to automatically drain Pods on the node. Valid values:
-    // - `true`: Automatically drain Pods on the node.
-    // - `false`: Do not automatically drain Pods on the node.
+    // Specifies whether to automatically drain Pods on the nodes. Valid values:
+    // - `true`: Automatically drains Pods on the nodes.
+    // - `false`: Does not automatically drain Pods on the nodes.
     // 
     // Default value: `false`.
     shared_ptr<bool> drainNode_ {};
-    // List of nodes to remove. The node names must be the names of the nodes in the cluster, for example: `cn-hangzhou.192.168.xx.xx`.
+    // The list of nodes to remove. The node name must be the name of the node in the cluster, such as `cn-hangzhou.192.168.xx.xx`.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> nodes_ {};
-    // Whether to simultaneously remove ECS instances. Valid values:
+    // Specifies whether to release the ECS instances at the same time. Valid values:
     // 
-    // - `true`: Simultaneously remove ECS instances.
-    // - `false`: Retain ECS instances.
+    // - `true`: Releases the ECS instances at the same time.
+    // - `false`: Retains the ECS instances.
     // 
     // Default value: `false`.
     // 
-    // > Simultaneous removal of ECS instances is not supported when the nodes are subscription instances.
+    // > Releasing ECS instances at the same time is not supported when the nodes are subscription instances.
     shared_ptr<bool> releaseNode_ {};
   };
 

@@ -75,11 +75,23 @@ namespace Models
 
 
   protected:
+    // The unique identifier for a disk in the node pool.
+    // - When local_disk is set to false, the value must match one of the disk_name values in scaling_group.data_disks.
+    // - When local_disk is set to true, the value must be different from all disk_name values in scaling_group.data_disks.
+    // 
     // This parameter is required.
     shared_ptr<string> diskName_ {};
+    // Specifies whether this configuration applies to a local disk. When this parameter is set to true:
+    // - If the disk cannot be matched by using the ECS DiskName and symbolic links, the local disk can be matched.
+    // - If the disk is detected as uninitialized during boot, it is reinitialized.
+    // - Both mount_target and mkfs_type must be set or left empty at the same time.
+    // - When used in combination with mount_for_runtime, if the local disk is reinitialized, the node must be removed from and then re-added to the node pool.
     shared_ptr<bool> localDisk_ {};
+    // The type of the file system for automatic formatting. An empty value indicates that the disk is not formatted.
     shared_ptr<string> mkfsType_ {};
+    // Specifies whether container runtime data is stored on the disk.
     shared_ptr<bool> mountForRuntime_ {};
+    // The mount directory. An empty value indicates that the disk is not mounted.
     shared_ptr<string> mountTarget_ {};
   };
 

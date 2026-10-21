@@ -99,25 +99,25 @@ namespace Models
     // - performance: performance and efficiency 
     // - stability: business stability
     // - limitation: service limits 
-    // - cost: cost optimization.
+    // - cost: cost optimization
     shared_ptr<string> category_ {};
-    // Specifies whether to filter check items. If set to true, only abnormal check items with result=true are returned.
+    // Specifies whether to filter inspection items. If set to true, only abnormal inspection items with a result of true are returned.
     shared_ptr<bool> enableFilter_ {};
     // The query language. Valid values:
     // - zh_CN
-    // - en_US.
+    // - en_US
     shared_ptr<string> language_ {};
     // The level of the inspection item. Valid values:
-    // - advice: suggestion
-    // - warning: low-risk
-    // - error: medium-risk
-    // - critical: high-risk.
+    // - advice: advice
+    // - warning: low risk
+    // - error: medium risk
+    // - critical: high risk
     shared_ptr<string> level_ {};
     // The maximum number of entries per page. Maximum value: 50.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The object type of the inspection target. Only check items that match the specified targetType are returned.
+    // The object type. Only check items that match the object type are returned.
     shared_ptr<string> targetType_ {};
   };
 

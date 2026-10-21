@@ -50,7 +50,7 @@ namespace Models
 
 
   protected:
-    // The parameters that specify the diagnosis target. The following examples show the parameters for different diagnosis types:
+    // The parameters used to specify the diagnosis target. The following examples show the parameters for different diagnosis types:
     // 
     // node:
     // ```
@@ -74,13 +74,13 @@ namespace Models
     // 
     // memory
     // ```
-    // {"node":"ap-southeast-1.172.16.9.240"}
+    // {"node":"cn-hangzhou.172.16.9.240"}
     // ```
     // 
     // service
     // ```
     // {"namespace": "kube-system", "name": "nginx-ingress-lb"}
-    // ```.
+    // ```
     Darabonba::Json target_ {};
     // The diagnosis type.
     shared_ptr<string> type_ {};

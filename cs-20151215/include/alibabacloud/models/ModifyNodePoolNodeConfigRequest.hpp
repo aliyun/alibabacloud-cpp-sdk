@@ -44,9 +44,11 @@ namespace Models
     class RollingPolicy : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RollingPolicy& obj) { 
+        DARABONBA_PTR_TO_JSON(max_failed_nodes, maxFailedNodes_);
         DARABONBA_PTR_TO_JSON(max_parallelism, maxParallelism_);
       };
       friend void from_json(const Darabonba::Json& j, RollingPolicy& obj) { 
+        DARABONBA_PTR_FROM_JSON(max_failed_nodes, maxFailedNodes_);
         DARABONBA_PTR_FROM_JSON(max_parallelism, maxParallelism_);
       };
       RollingPolicy() = default ;
@@ -60,7 +62,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->maxParallelism_ == nullptr; };
+      virtual bool empty() const override { return this->maxFailedNodes_ == nullptr
+        && this->maxParallelism_ == nullptr; };
+      // maxFailedNodes Field Functions 
+      bool hasMaxFailedNodes() const { return this->maxFailedNodes_ != nullptr;};
+      void deleteMaxFailedNodes() { this->maxFailedNodes_ = nullptr;};
+      inline int64_t getMaxFailedNodes() const { DARABONBA_PTR_GET_DEFAULT(maxFailedNodes_, 0L) };
+      inline RollingPolicy& setMaxFailedNodes(int64_t maxFailedNodes) { DARABONBA_PTR_SET_VALUE(maxFailedNodes_, maxFailedNodes) };
+
+
       // maxParallelism Field Functions 
       bool hasMaxParallelism() const { return this->maxParallelism_ != nullptr;};
       void deleteMaxParallelism() { this->maxParallelism_ = nullptr;};
@@ -69,6 +79,8 @@ namespace Models
 
 
     protected:
+      // The maximum number of nodes that are allowed to fail during the rolling update. Default value: 0, which indicates that the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+      shared_ptr<int64_t> maxFailedNodes_ {};
       // Node updates in the node pool are performed in batches. This parameter specifies the maximum number of nodes that can be updated in parallel per batch.
       // 
       // Valid values: [1,10].
@@ -119,9 +131,9 @@ namespace Models
 
 
     protected:
-      // The Hugepage configuration.
+      // The hugepage configuration.
       shared_ptr<Hugepage> hugepage_ {};
-      // The custom sysctl parameter configuration.
+      // The custom sysctl parameter settings.
       Darabonba::Json sysctl_ {};
     };
 
@@ -175,11 +187,11 @@ namespace Models
   protected:
     // The containerd runtime configuration.
     shared_ptr<ContainerdConfig> containerdConfig_ {};
-    // The kubelet parameter configuration.
+    // The kubelet parameter settings.
     shared_ptr<KubeletConfig> kubeletConfig_ {};
-    // The list of specified nodes to upgrade.
+    // The list of nodes to upgrade.
     shared_ptr<vector<string>> nodeNames_ {};
-    // The operating system parameter configuration.
+    // The operating system parameter settings.
     shared_ptr<ModifyNodePoolNodeConfigRequest::OsConfig> osConfig_ {};
     // The rolling update configuration.
     shared_ptr<ModifyNodePoolNodeConfigRequest::RollingPolicy> rollingPolicy_ {};

@@ -127,28 +127,19 @@ namespace Models
     protected:
       // The list of CVEs.
       shared_ptr<vector<string>> cveList_ {};
-      // The severity level of the vulnerability. Valid values:
-      // - nntf: low
-      // - later: medium
-      // - asap: high.
+      // The vulnerability severity level.
       shared_ptr<string> necessity_ {};
       // The number of nodes that have this vulnerability.
       shared_ptr<int32_t> nodeCount_ {};
       // The node pool ID.
       shared_ptr<string> nodepoolId_ {};
-      // The name of the node pool.
+      // The node pool name.
       shared_ptr<string> nodepoolName_ {};
-      // The alias of the vulnerability.
+      // The vulnerability alias.
       shared_ptr<string> vulAliasName_ {};
-      // The name of the vulnerability.
+      // The vulnerability name.
       shared_ptr<string> vulName_ {};
-      // The type of the vulnerability. Valid values:
-      // - app: application vulnerability
-      // - sca: application vulnerability (Software Composition Analysis)
-      // - cve: Linux vulnerability
-      // - cms: WebCMS vulnerability
-      // - sys: Windows vulnerability
-      // - emg: emergency vulnerability.
+      // The vulnerability type.
       shared_ptr<string> vulType_ {};
     };
 

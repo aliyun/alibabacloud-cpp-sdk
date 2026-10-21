@@ -146,33 +146,33 @@ namespace Models
 
 
     protected:
-      // 编排模板ID，每次变更都会有一个模板ID。
+      // The orchestration template ID. A new ID is generated each time the template is modified.
       shared_ptr<string> id_ {};
-      // 编排模板的访问权限，取值：
+      // The access permissions of the orchestration template. Valid values:
       // 
-      // - `private`：私有。
-      // - `public`：公共。
-      // - `shared`：可共享。
+      // - `private`: private.
+      // - `public`: public.
+      // - `shared`: shared.
       shared_ptr<string> acl_ {};
-      // 编排模板名称。
+      // The name of the orchestration template.
       shared_ptr<string> name_ {};
-      // 编排模板YAML内容。
+      // The YAML content of the orchestration template.
       shared_ptr<string> template_ {};
-      // 模板类型。
+      // The templatetype.
       // 
-      // - 当取值为kubernetes时将在控制台的编排模板页面展示该模板。
+      // - If the value is kubernetes, the template is displayed on the Orchestration Templates page in the console.
       // 
-      // - 该参数不填写或者取值为其他值时，控制台的编排模板页面将不会展示该模板。
+      // - If this parameter is not set or is set to other values, the template is not displayed on the Orchestration Templates page in the console.
       shared_ptr<string> templateType_ {};
-      // 编排模板描述信息。
+      // The description of the orchestration template.
       shared_ptr<string> description_ {};
-      // 部署模板的标签。
+      // The tags of the deployment template.
       shared_ptr<string> tags_ {};
-      // 编排模板唯一ID，不随模板更新而改变。
+      // The unique ID of the orchestration template. This ID does not change when the template is updated.
       shared_ptr<string> templateWithHistId_ {};
-      // 编排模板创建时间。
+      // The time when the orchestration template was created.
       shared_ptr<string> created_ {};
-      // 编排模板更新时间。
+      // The time when the orchestration template was last updated.
       shared_ptr<string> updated_ {};
     };
 

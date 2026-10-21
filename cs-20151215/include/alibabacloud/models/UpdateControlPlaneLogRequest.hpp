@@ -77,7 +77,7 @@ namespace Models
     // 
     // Default value: k8s-log-$Cluster ID.
     shared_ptr<string> logProject_ {};
-    // The retention period of logs in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
+    // The log retention period in the SLS Logstore. Valid values: 1 to 3000. Unit: days.
     // 
     // Default value: 30 days.
     shared_ptr<string> logTtl_ {};

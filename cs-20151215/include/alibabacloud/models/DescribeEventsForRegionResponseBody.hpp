@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The maximum number of results displayed on each page.
+      // The maximum number of results to return per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
@@ -240,7 +240,7 @@ namespace Models
       shared_ptr<string> source_ {};
       // The object associated with the event.
       shared_ptr<string> subject_ {};
-      // The time when the event occurred.
+      // The time when the event was generated. The time follows the ISO 8601 standard and includes time zone information.
       shared_ptr<string> time_ {};
       // The event type.
       shared_ptr<string> type_ {};
@@ -276,6 +276,7 @@ namespace Models
   protected:
     // The list of events.
     shared_ptr<vector<DescribeEventsForRegionResponseBody::Events>> events_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeEventsForRegionResponseBody::PageInfo> pageInfo_ {};

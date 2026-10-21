@@ -191,7 +191,7 @@ namespace Models
 
 
           protected:
-            // The key of the label.
+            // The `key` of the label.
             shared_ptr<string> key_ {};
             // The value of the label.
             shared_ptr<string> value_ {};
@@ -232,11 +232,11 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization approval. When you add the following label to the node, you authorize ACK to perform the action of this stage. After completing the action, ACK automatically removes the authorization inquiry and approval labels for this stage. If you do not add the following label for authorization in a timely manner, ACK will not perform the action of this stage or subsequent actions, and the node may remain in a damaged state.
+          // The label configuration for authorization confirmation. Adding the following labels to the node indicates that you authorize ACK to execute the operations in this stage. After completing the operations in this stage, ACK automatically removes the authorization inquiry and confirmation labels for this stage. If you do not add the following labels promptly, ACK will not execute the actions in this stage and subsequent stages, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
-          // Specifies whether to enable manual approval.
+          // Indicates whether manual approval is enabled.
           shared_ptr<bool> enable_ {};
-          // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following label to your node and waits for your authorization to perform the action of this stage.
+          // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following labels to your node and waits for your authorization to execute the actions in this stage.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
           // The type of manual approval.
           shared_ptr<string> type_ {};
@@ -272,7 +272,7 @@ namespace Models
       protected:
         // The configuration parameters of the procedure.
         Darabonba::Json config_ {};
-        // The configuration for manual intervention in the procedure.
+        // The configuration of the manual intervention procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
         // The name of the procedure.
         shared_ptr<string> name_ {};
@@ -316,9 +316,9 @@ namespace Models
 
 
       protected:
-        // The fault name.
+        // The name of the incident.
         shared_ptr<string> name_ {};
-        // The fault type.
+        // The type of the incident.
         shared_ptr<string> type_ {};
       };
 
@@ -343,7 +343,7 @@ namespace Models
 
 
     protected:
-      // The list of identified faults.
+      // The list of identified incidents.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
       // The repair procedure.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
@@ -398,17 +398,17 @@ namespace Models
 
 
   protected:
-    // The auto-repair rule ID.
+    // The self-healing rule ID.
     shared_ptr<string> id_ {};
-    // The name of the auto-repair rule.
+    // The name of the self-healing rule.
     shared_ptr<string> name_ {};
-    // The list of resources associated with the auto-repair rule.
+    // The list of resources bound to the self-healing rule.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The sub-type of resource associated with the auto-repair rule.
+    // The subtype of the resource bound to the self-healing rule.
     shared_ptr<string> resourceSubType_ {};
-    // The type of resource associated with the auto-repair rule.
+    // The type of resource bound to the self-healing rule.
     shared_ptr<string> resourceType_ {};
-    // The list of auto-repair sub-rules.
+    // The list of self-healing sub-rules.
     shared_ptr<vector<DescribeAutoRepairPolicyResponseBody::Rules>> rules_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The maximum number of results returned per page.
+      // The maximum number of results to return per page.
       shared_ptr<int64_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
@@ -169,9 +169,9 @@ namespace Models
       protected:
         // The event level.
         shared_ptr<string> level_ {};
-        // The event details.
+        // The details of the event.
         shared_ptr<string> message_ {};
-        // The event status.
+        // The status of the event.
         shared_ptr<string> reason_ {};
       };
 
@@ -230,36 +230,36 @@ namespace Models
 
 
     protected:
-      // The cluster ID.
+      // The ID of the cluster.
       shared_ptr<string> clusterId_ {};
-      // The event description.
+      // The description of the event.
       shared_ptr<Events::Data> data_ {};
-      // The event ID.
+      // The ID of the event.
       shared_ptr<string> eventId_ {};
-      // The event source.
+      // The source of the event.
       shared_ptr<string> source_ {};
-      // The object associated with the event.
+      // The operation object associated with the event.
       shared_ptr<string> subject_ {};
-      // The time when the event started.
+      // The start time of the event. The time is in ISO 8601 format and includes time zone information.
       shared_ptr<string> time_ {};
       // The event type. Valid values:
       // 
-      // - cluster_create: creates a cluster.
-      // - cluster_scaleout: scales out a cluster.
-      // - cluster_attach: adds existing nodes.
-      // - cluster_delete: deletes a cluster.
-      // - cluster_upgrade: upgrades a cluster.
-      // - cluster_migrate: migrates a cluster.
-      // - cluster_node_delete: removes nodes.
-      // - cluster_node_drain: drains nodes.
-      // - cluster_modify: modifies a cluster.
-      // - cluster_configuration_modify: modifies cluster management configurations.
-      // - cluster_addon_install: installs a component.
-      // - cluster_addon_upgrade: upgrades a component.
-      // - cluster_addon_uninstall: uninstalls a component.
-      // - runtime_upgrade: upgrades the runtime.
-      // - nodepool_upgrade: upgrades a node pool.
-      // - nodepool_update: updates a node pool.
+      // - cluster_create: Creates a cluster.
+      // - cluster_scaleout: Scales out a cluster.
+      // - cluster_attach: Adds existing nodes.
+      // - cluster_delete: Deletes a cluster.
+      // - cluster_upgrade: Upgrades a cluster.
+      // - cluster_migrate: Migrates a cluster.
+      // - cluster_node_delete: Removes a node.
+      // - cluster_node_drain: Drains a node.
+      // - cluster_modify: Modifies a cluster.
+      // - cluster_configuration_modify: Modifies the control configurations of a cluster.
+      // - cluster_addon_install: Installs a component.
+      // - cluster_addon_upgrade: Upgrades a component.
+      // - cluster_addon_uninstall: Uninstalls a component.
+      // - runtime_upgrade: Upgrades the runtime.
+      // - nodepool_upgrade: Upgrades a node pool.
+      // - nodepool_update: Updates a node pool.
       shared_ptr<string> type_ {};
     };
 
@@ -293,6 +293,7 @@ namespace Models
   protected:
     // The list of events.
     shared_ptr<vector<DescribeClusterEventsResponseBody::Events>> events_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeClusterEventsResponseBody::PageInfo> pageInfo_ {};

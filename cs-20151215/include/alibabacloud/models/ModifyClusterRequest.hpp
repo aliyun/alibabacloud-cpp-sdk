@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(api_server_custom_cert_sans, apiServerCustomCertSans_);
       DARABONBA_PTR_TO_JSON(api_server_eip, apiServerEip_);
       DARABONBA_PTR_TO_JSON(api_server_eip_id, apiServerEipId_);
+      DARABONBA_PTR_TO_JSON(client_token, clientToken_);
       DARABONBA_PTR_TO_JSON(cluster_name, clusterName_);
       DARABONBA_PTR_TO_JSON(cluster_spec, clusterSpec_);
       DARABONBA_PTR_TO_JSON(control_plane_config, controlPlaneConfig_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(api_server_custom_cert_sans, apiServerCustomCertSans_);
       DARABONBA_PTR_FROM_JSON(api_server_eip, apiServerEip_);
       DARABONBA_PTR_FROM_JSON(api_server_eip_id, apiServerEipId_);
+      DARABONBA_PTR_FROM_JSON(client_token, clientToken_);
       DARABONBA_PTR_FROM_JSON(cluster_name, clusterName_);
       DARABONBA_PTR_FROM_JSON(cluster_spec, clusterSpec_);
       DARABONBA_PTR_FROM_JSON(control_plane_config, controlPlaneConfig_);
@@ -107,14 +109,14 @@ namespace Models
 
 
     protected:
-      // Whether to enable system event storage.
+      // Specifies whether to enable system event storage.
       // 
       // 
-      // - true: Enable system event storage.
+      // - true: Enables system event storage.
       // 
-      // - false: Disable system event storage.
+      // - false: Disables system event storage.
       shared_ptr<bool> enabled_ {};
-      // LogProject name for system event storage.
+      // The name of the LogProject for system event storage.
       shared_ptr<string> loggingProject_ {};
     };
 
@@ -175,18 +177,18 @@ namespace Models
 
 
       protected:
-        // Cluster automatic upgrade frequency. For more information, see [Upgrade Frequency](https://help.aliyun.com/document_detail/2712866.html).
+        // The automatic cluster upgrade frequency. For more information, see [Upgrade frequency](https://help.aliyun.com/document_detail/2712866.html).
         // 
         // Valid values:
-        // - patch: Latest patch version.
-        // - stable: Second latest minor version.
-        // - rapid: Latest minor version.
+        // - patch: The latest patch version.
+        // - stable: The second latest minor version.
+        // - rapid: The latest minor version.
         shared_ptr<string> channel_ {};
-        // Whether to enable cluster automatic upgrade.
+        // Specifies whether to enable automatic cluster upgrade.
         // 
-        // - true: Enable automatic upgrade.
+        // - true: Enables automatic upgrade.
         // 
-        // - false: Disable automatic upgrade.
+        // - false: Disables automatic upgrade.
         shared_ptr<bool> enabled_ {};
       };
 
@@ -201,7 +203,7 @@ namespace Models
 
 
     protected:
-      // Cluster automatic upgrade.
+      // The automatic cluster upgrade configuration.
       shared_ptr<OperationPolicy::ClusterAutoUpgrade> clusterAutoUpgrade_ {};
     };
 
@@ -209,9 +211,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const ControlPlaneEndpointsConfig& obj) { 
         DARABONBA_PTR_TO_JSON(internal_dns_config, internalDnsConfig_);
+        DARABONBA_PTR_TO_JSON(load_balancers_config, loadBalancersConfig_);
       };
       friend void from_json(const Darabonba::Json& j, ControlPlaneEndpointsConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(internal_dns_config, internalDnsConfig_);
+        DARABONBA_PTR_FROM_JSON(load_balancers_config, loadBalancersConfig_);
       };
       ControlPlaneEndpointsConfig() = default ;
       ControlPlaneEndpointsConfig(const ControlPlaneEndpointsConfig &) = default ;
@@ -224,6 +228,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class LoadBalancersConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const LoadBalancersConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(endpoint_type, endpointType_);
+          DARABONBA_PTR_TO_JSON(load_balancer_id, loadBalancerId_);
+        };
+        friend void from_json(const Darabonba::Json& j, LoadBalancersConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(endpoint_type, endpointType_);
+          DARABONBA_PTR_FROM_JSON(load_balancer_id, loadBalancerId_);
+        };
+        LoadBalancersConfig() = default ;
+        LoadBalancersConfig(const LoadBalancersConfig &) = default ;
+        LoadBalancersConfig(LoadBalancersConfig &&) = default ;
+        LoadBalancersConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LoadBalancersConfig() = default ;
+        LoadBalancersConfig& operator=(const LoadBalancersConfig &) = default ;
+        LoadBalancersConfig& operator=(LoadBalancersConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->endpointType_ == nullptr
+        && this->loadBalancerId_ == nullptr; };
+        // endpointType Field Functions 
+        bool hasEndpointType() const { return this->endpointType_ != nullptr;};
+        void deleteEndpointType() { this->endpointType_ = nullptr;};
+        inline string getEndpointType() const { DARABONBA_PTR_GET_DEFAULT(endpointType_, "") };
+        inline LoadBalancersConfig& setEndpointType(string endpointType) { DARABONBA_PTR_SET_VALUE(endpointType_, endpointType) };
+
+
+        // loadBalancerId Field Functions 
+        bool hasLoadBalancerId() const { return this->loadBalancerId_ != nullptr;};
+        void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
+        inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
+        inline LoadBalancersConfig& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+      protected:
+        // The endpoint type.
+        shared_ptr<string> endpointType_ {};
+        // The SLB instance associated with the endpoint.
+        shared_ptr<string> loadBalancerId_ {};
+      };
+
       class InternalDnsConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const InternalDnsConfig& obj) { 
@@ -264,14 +312,15 @@ namespace Models
 
 
       protected:
-        // VPCs where the cluster internal domain name record resolution takes effect.
+        // The VPCs in which the internal domain name DNS records take effect.
         shared_ptr<vector<string>> bindVpcs_ {};
-        // Whether to enable cluster internal domain name access. Valid values:
-        // - true: Enable cluster internal domain name access. Node-side components (kubelet, kube-proxy) will access the API Server through the cluster internal domain name.
+        // Specifies whether to enable internal domain name access for the cluster. Valid values:
+        // - true: Enables internal domain name access. Node-side components (kubelet, kube-proxy) access the API server through the internal domain name.
         shared_ptr<bool> enabled_ {};
       };
 
-      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr; };
+      virtual bool empty() const override { return this->internalDnsConfig_ == nullptr
+        && this->loadBalancersConfig_ == nullptr; };
       // internalDnsConfig Field Functions 
       bool hasInternalDnsConfig() const { return this->internalDnsConfig_ != nullptr;};
       void deleteInternalDnsConfig() { this->internalDnsConfig_ = nullptr;};
@@ -281,9 +330,20 @@ namespace Models
       inline ControlPlaneEndpointsConfig& setInternalDnsConfig(ControlPlaneEndpointsConfig::InternalDnsConfig && internalDnsConfig) { DARABONBA_PTR_SET_RVALUE(internalDnsConfig_, internalDnsConfig) };
 
 
+      // loadBalancersConfig Field Functions 
+      bool hasLoadBalancersConfig() const { return this->loadBalancersConfig_ != nullptr;};
+      void deleteLoadBalancersConfig() { this->loadBalancersConfig_ = nullptr;};
+      inline const vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> & getLoadBalancersConfig() const { DARABONBA_PTR_GET_CONST(loadBalancersConfig_, vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>) };
+      inline vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> getLoadBalancersConfig() { DARABONBA_PTR_GET(loadBalancersConfig_, vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>) };
+      inline ControlPlaneEndpointsConfig& setLoadBalancersConfig(const vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> & loadBalancersConfig) { DARABONBA_PTR_SET_VALUE(loadBalancersConfig_, loadBalancersConfig) };
+      inline ControlPlaneEndpointsConfig& setLoadBalancersConfig(vector<ControlPlaneEndpointsConfig::LoadBalancersConfig> && loadBalancersConfig) { DARABONBA_PTR_SET_RVALUE(loadBalancersConfig_, loadBalancersConfig) };
+
+
     protected:
-      // Cluster internal domain name configuration. Applicable to ACK managed clusters. The cluster internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API Server. When the cluster internal domain name access is not enabled, node-side system components access via the CLB IP.
+      // The internal domain name configuration for the cluster. This applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API server. If the internal domain name access is not enabled, node-side system components access the API server through the CLB IP address.
       shared_ptr<ControlPlaneEndpointsConfig::InternalDnsConfig> internalDnsConfig_ {};
+      // The load balancing configuration for cluster access.
+      shared_ptr<vector<ControlPlaneEndpointsConfig::LoadBalancersConfig>> loadBalancersConfig_ {};
     };
 
     class ControlPlaneConfig : public Darabonba::Model {
@@ -528,111 +588,110 @@ namespace Models
 
 
     protected:
-      // Whether to enable automatic renewal for control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
+      // Specifies whether to enable auto-renewal for control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
       // 
-      // - `true`: Enable automatic renewal.
-      // - `false`: Disable automatic renewal.
+      // - `true`: Enables auto-renewal.
+      // - `false`: Disables auto-renewal.
       // 
       // Default value: `false`.
       shared_ptr<bool> autoRenew_ {};
-      // Duration for each automatic renewal of control plane node instances.
+      // The auto-renewal period for each renewal of control plane node instances.
       // 
       // Valid values: {1, 2, 3, 6, 12}. Unit: months.
       // 
       // Default value: 1.
       shared_ptr<int64_t> autoRenewPeriod_ {};
-      // Control plane node instance billing method. Valid values:
+      // The billing method for control plane node instances. Valid values:
       // 
-      // - `PrePaid`: Subscription.
-      // - `PostPaid`: Pay-as-you-go.
+      // - `PrePaid`: subscription.
+      // - `PostPaid`: pay-as-you-go.
       // 
       // Default value: `PostPaid`.
       shared_ptr<string> chargeType_ {};
-      // Whether to install the Cloud Monitor agent on control plane nodes. Valid values:
+      // Specifies whether to install the CloudMonitor agent on control plane nodes. Valid values:
       // 
-      // - `true`: Install the Cloud Monitor agent.
-      // - `false`: Do not install the Cloud Monitor agent.
+      // - `true`: Installs the CloudMonitor agent.
+      // - `false`: Does not install the CloudMonitor agent.
       shared_ptr<bool> cloudMonitorFlags_ {};
-      // Node CPU management policy. When the cluster version is 1.12.6 or later, the following two policies are supported:
+      // The CPU management policy for nodes. The following policies are supported for clusters running version 1.12.6 or later:
       // 
-      // - `static`: Allows enhanced CPU affinity and exclusivity for Pods with certain resource characteristics on the node.
+      // - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
       // - `none`: Uses the existing default CPU affinity scheme.
       // 
       // Default value: `none`.
       shared_ptr<string> cpuPolicy_ {};
-      // Deployment set ID.
+      // The deployment set ID.
       shared_ptr<string> deploymentsetId_ {};
-      // Custom image ID. Specified when using a custom image.
+      // The custom image ID. Specify this parameter when using a custom image.
       shared_ptr<string> imageId_ {};
-      // Operating system image type. Valid values:
+      // The operating system image type. Valid values:
       // 
       // - `AliyunLinux3`: Alinux3 image.
-      // - `Custom`: Custom image.
+      // - `Custom`: custom image.
       shared_ptr<string> imageType_ {};
-      // Instance types. For more information, see [Instance Family](https://help.aliyun.com/document_detail/25378.html).
+      // The instance types. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
       shared_ptr<vector<string>> instanceTypes_ {};
-      // Key pair name. Mutually exclusive with `login_password`.
+      // The key pair name. Specify either this parameter or `login_password`.
       shared_ptr<string> keyPair_ {};
-      // SSH login password. Mutually exclusive with `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. If you want to use password login, specify this parameter during scale-out.
+      // The SSH logon password. Specify either this parameter or `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. To use password-based logon, specify this parameter during scale-out.
       shared_ptr<string> loginPassword_ {};
-      // Node service port range.
-      // Available port range: [30000, 65535].
+      // The node service port range. Valid port range: [30000, 65535].
       // 
       // Default value: 30000-32767.
       shared_ptr<string> nodePortRange_ {};
-      // Control plane node instance subscription duration. This parameter takes effect and is required only when `charge_type` is set to `PrePaid`.
+      // The subscription duration for control plane node instances. This parameter takes effect and is required only when `charge_type` is set to `PrePaid`.
       // 
       // When `period_unit=Month`, valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
       shared_ptr<int64_t> period_ {};
-      // Control plane node instance billing period. This parameter takes effect only when `charge_type` is set to `PrePaid`.
+      // The billing period unit for control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`.
       // 
-      // `Month`: Billed on a monthly basis. Currently, only monthly billing is supported.
+      // `Month`: The billing period is measured in months. Currently, only months are supported.
       shared_ptr<string> periodUnit_ {};
-      // Container runtime name. Valid values:
+      // The container runtime name. Valid values:
       // 
       // - `containerd`: Recommended. Supported by all cluster versions.
       // 
       // Default value: containerd.
       shared_ptr<string> runtime_ {};
-      // Alibaba Cloud OS security hardening. Valid values:
+      // Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
       // 
-      // - `true`: Enable Alibaba Cloud OS security hardening.
-      // - `false`: Disable Alibaba Cloud OS security hardening.
+      // - `true`: Enables Alibaba Cloud OS security hardening.
+      // - `false`: Disables Alibaba Cloud OS security hardening.
       // 
       // Default value: `false`.
       shared_ptr<bool> securityHardeningOs_ {};
-      // Number of control plane nodes. To scale out the dedicated cluster control plane, this parameter specifies the target number of control plane nodes and must be greater than the current number of control plane nodes.
+      // The number of control plane nodes. To scale out the control plane of a dedicated cluster, set this parameter to the target number of control plane nodes, which must be greater than the current number.
       shared_ptr<int64_t> size_ {};
-      // Security hardening for compliance. For more information, see [ACK Security Hardening for Compliance](https://help.aliyun.com/document_detail/196148.html).
+      // Specifies whether to enable MLPS 2.0 security hardening. For more information, see [China Chinese ACK MLPS 2.0 security hardening](https://help.aliyun.com/document_detail/196148.html).
       // 
       // Valid values:
-      // - `true`: Enable security hardening for compliance.
-      // - `false`: Disable security hardening for compliance.
+      // - `true`: Enables MLPS 2.0 security hardening.
+      // - `false`: Disables MLPS 2.0 security hardening.
       // 
       // Default value: `false`.
       shared_ptr<bool> socEnabled_ {};
-      // Whether to enable burst (performance bursting) for the node system disk. Valid values:
-      // - `true`: Enable.
-      // - `false`: Disable.
+      // Specifies whether to enable burst mode for the node system cloud disk. Valid values:
+      // - `true`: Enabled.
+      // - `false`: Disabled.
       // 
-      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
+      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
       shared_ptr<bool> systemDiskBurstingEnabled_ {};
-      // Node system disk type. Valid values:
-      // - `cloud_efficiency`: Ultra disk.
-      // - `cloud_ssd`: SSD disk.
-      // - `cloud_essd`: ESSD disk.
-      // - `cloud_auto`: ESSD AutoPL disk.
-      // - `cloud_essd_entry`: ESSD Entry disk.
+      // The type of the node system cloud disk. Valid values:
+      // - `cloud_efficiency`: ultra cloud disk.
+      // - `cloud_ssd`: standard SSD.
+      // - `cloud_essd`: ESSD.
+      // - `cloud_auto`: ESSD AutoPL cloud disk.
+      // - `cloud_essd_entry`: ESSD Entry cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // Node system disk performance level. Only applicable to ESSD disks. The performance level is related to the disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
+      // The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the cloud disk size. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // Provisioned read/write IOPS for the node system disk. Valid values: 0 to min{50,000, 1000*capacity - baseline performance}. Baseline performance = min{1,800 + 50*capacity, 50,000}.
+      // The provisioned read/write IOPS for the node system cloud disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50,000}.
       // 
-      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL](https://help.aliyun.com/document_detail/368372.html).
+      // This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
       shared_ptr<int64_t> systemDiskProvisionedIops_ {};
-      // Node system disk size. Valid values: [40, 500]. Unit: GiB.
+      // The size of the node system cloud disk. Valid values: 40 to 500. Unit: GiB.
       shared_ptr<int64_t> systemDiskSize_ {};
-      // Automatic snapshot policy ID for the node system disk.
+      // The ID of the automatic snapshot policy used by the node system cloud disk.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
     };
 
@@ -676,19 +735,19 @@ namespace Models
 
 
     protected:
-      // Overwrite or append SAN configuration. Valid values:
-      // - overwrite: Overwrite.
-      // - append: Append.
+      // Specifies whether to overwrite or append the SAN configuration. Valid values:
+      // - overwrite: overwrites the existing SAN configuration.
+      // - append: appends to the existing SAN configuration.
       shared_ptr<string> action_ {};
-      // SAN list.
+      // The SAN list.
       shared_ptr<vector<string>> subjectAlternativeNames_ {};
     };
 
     virtual bool empty() const override { return this->accessControlList_ == nullptr
-        && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr
-        && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr && this->ingressDomainRebinding_ == nullptr
-        && this->ingressLoadbalancerId_ == nullptr && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clientToken_ == nullptr && this->clusterName_ == nullptr
+        && this->clusterSpec_ == nullptr && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr
+        && this->ingressDomainRebinding_ == nullptr && this->ingressLoadbalancerId_ == nullptr && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -719,6 +778,13 @@ namespace Models
     void deleteApiServerEipId() { this->apiServerEipId_ = nullptr;};
     inline string getApiServerEipId() const { DARABONBA_PTR_GET_DEFAULT(apiServerEipId_, "") };
     inline ModifyClusterRequest& setApiServerEipId(string apiServerEipId) { DARABONBA_PTR_SET_VALUE(apiServerEipId_, apiServerEipId) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // clusterName Field Functions 
@@ -846,91 +912,92 @@ namespace Models
 
 
   protected:
-    // Access control list for the registered cluster API Server SLB.
+    // The access control list (ACL) for the API server SLB of a registered cluster.
     shared_ptr<vector<string>> accessControlList_ {};
-    // Custom API Server certificate SAN (Subject Alternative Name).
-    // Used to add custom IPs or domain names to the SAN field of the cluster API Server server certificate for client access control.
+    // The custom API server certificate Subject Alternative Names (SANs). This parameter adds custom IP addresses or domain names to the SAN field of the cluster API server certificate for client access control.
     // 
     // Only managed clusters support this parameter.
     shared_ptr<ModifyClusterRequest::ApiServerCustomCertSans> apiServerCustomCertSans_ {};
-    // Whether to associate an EIP with the cluster for public access to API Server. Valid values:
+    // Specifies whether the cluster is attached with an EIP for public network access to the API server. Valid values:
     // 
-    // - `true`: Associate an EIP with the cluster.
-    // - `false`: Do not associate an EIP with the cluster.
+    // - `true`: The cluster is attached with an EIP.
+    // - `false`: The cluster is not attached with an EIP.
     shared_ptr<bool> apiServerEip_ {};
-    // The ID of the EIP instance associated with the cluster API Server. This parameter takes effect only when `api_server_eip` is set to `true`.
+    // The instance ID of the EIP attached to the cluster API server. This parameter takes effect only when `api_server_eip` is set to `true`.
     shared_ptr<string> apiServerEipId_ {};
-    // Custom cluster name. The name can contain digits, Chinese characters, English characters, or hyphens (-), must be 1 to 63 characters in length, and cannot start with a hyphen (-).
+    // The client token.
+    shared_ptr<string> clientToken_ {};
+    // The custom cluster name. The name must be 1 to 63 characters in length and can contain digits, Chinese characters, letters, and hyphens (-). It cannot start with a hyphen (-).
     shared_ptr<string> clusterName_ {};
-    // When `cluster_type` is set to `ManagedKubernetes` and `profile` is configured, specifies the cluster specification. Valid values:
+    // The cluster specification when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
     // 
-    // - `ack.pro.small`: Pro Edition
+    // - `ack.pro.small`: Pro
     // - `ack.pro.xlarge`: Pro XL
     // - `ack.pro.2xlarge`: Pro 2XL
-    // - `ack.pro.4xlarge`: Pro 4XL (requires contacting customer service to enable allowlisting)
+    // - `ack.pro.4xlarge`: Pro 4XL (contact customer service to be added to the whitelist)
     // 
-    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and fixing control plane resources, it ensures that API concurrency and Pod scheduling capabilities are always at a determined high level, suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
     // 
-    // For cluster management fees for Pro Edition and Provisioned Control Plane editions, see <props="china">[Cluster Management Fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster Management Fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+    // For information about the cluster management fees for Pro and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
     shared_ptr<string> clusterSpec_ {};
-    // Dedicated cluster control plane configuration.
+    // The control plane configuration for dedicated clusters.
     shared_ptr<ModifyClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
-    // Cluster connection configuration.
+    // The cluster connection configuration.
     shared_ptr<ModifyClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};
-    // Cluster deletion protection, which prevents accidental deletion of the cluster through the console or API. Valid values:
+    // Specifies whether to enable deletion protection for the cluster. This prevents accidental deletion of the cluster through the console or API. Valid values:
     // 
-    // - `true`: Enable cluster deletion protection. The cluster cannot be deleted through the console or API.
-    // - `false`: Disable cluster deletion protection. The cluster can be deleted through the console or API.
+    // - `true`: Enables cluster deletion protection. The cluster cannot be deleted through the console or API.
+    // - `false`: Disables cluster deletion protection. The cluster can be deleted through the console or API.
     // 
     // Default value: `false`.
     shared_ptr<bool> deletionProtection_ {};
-    // Enable or disable the RRSA feature (only managed clusters support this parameter). Valid values:
+    // Specifies whether to enable or disable the RRSA feature. Only managed clusters support this parameter. Valid values:
     // 
     // - `true`: Enable.
     // - `false`: Disable.
     shared_ptr<bool> enableRrsa_ {};
-    // Rebind the cluster test domain. Valid values:
+    // Specifies whether to rebind the test domain name of the cluster. Valid values:
     // 
-    // - `true`: Rebind the cluster test domain.
-    // - `false`: Do not rebind the cluster test domain.
+    // - `true`: Rebinds the test domain name of the cluster.
+    // - `false`: Does not rebind the test domain name of the cluster.
     // 
     // Default value: `false`.
     shared_ptr<bool> ingressDomainRebinding_ {};
-    // SLB instance ID of the cluster to be modified.
+    // The instance ID of the SLB for the cluster to be modified.
     shared_ptr<string> ingressLoadbalancerId_ {};
-    // Instance deletion protection to prevent accidental deletion and release of nodes through the console or API. Valid values:
+    // Specifies whether to enable instance deletion protection. This prevents accidental deletion of nodes through the console or API. Valid values:
     // 
     // - `true`: Nodes cannot be accidentally deleted through the console or API.
     // - `false`: Nodes can be deleted through the console or API.
     // 
     // Default value: `false`.
     shared_ptr<bool> instanceDeletionProtection_ {};
-    // Cluster maintenance window. This feature only takes effect for ACK Pro managed clusters.
+    // The O&M window configuration for the cluster. This feature takes effect only in ACK Pro managed clusters.
     shared_ptr<MaintenanceWindow> maintenanceWindow_ {};
-    // Cluster automatic O&M policy.
+    // The automatic O&M policy for the cluster.
     shared_ptr<ModifyClusterRequest::OperationPolicy> operationPolicy_ {};
-    // Cluster resource group ID.
+    // The resource group ID of the cluster.
     shared_ptr<string> resourceGroupId_ {};
-    // Control plane security group ID.
+    // The control plane security group ID.
     // 
-    // - If you have configured blocking rules in the security group, ensure that the security group rules allow the protocols and ports required by the cluster. For recommended security group rules, see [Configure and Manage Cluster Security Groups](https://help.aliyun.com/document_detail/353191.html).
-    // - For non-ACK dedicated clusters, during the change process, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart. We recommend performing this operation during off-peak hours. After the control plane security group is changed, the ENIs used by the cluster control plane and installed managed components will be automatically added to the new security group.
-    // - For ACK dedicated clusters, after the control plane security group is changed, newly scaled-out Master nodes will automatically use the new control plane security group. Existing control plane nodes are not affected.
+    // - If you have configured blocking rules in the security group, make sure the security group rules allow the protocols and ports that the cluster depends on. For the recommended security group rule scope, see [Configure and manage cluster security groups](https://help.aliyun.com/document_detail/353191.html).
+    // - For non-ACK dedicated clusters, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart during the cluster management procedure. Perform this operation during off-peak hours. After the control plane security group is changed, the elastic network interfaces (ENIs) used by the cluster control plane and installed managed components are automatically added to the new security group.
+    // - For ACK dedicated clusters, after the control plane security group is changed, newly scaled-out master nodes automatically apply the new control plane security group. Existing control plane nodes are not affected.
     shared_ptr<string> securityGroupId_ {};
-    // System event storage configuration.
+    // The system event storage configuration.
     shared_ptr<ModifyClusterRequest::SystemEventsLogging> systemEventsLogging_ {};
-    // Cluster timezone. See [Supported Timezones](https://help.aliyun.com/document_detail/354879.html).
-    // - After changing the timezone, cluster inspection configurations will use the new timezone settings.
+    // The cluster time zone. See [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
+    // - After the time zone is changed, the cluster inspection configuration uses the new time zone settings.
     // 
-    // - For managed clusters, during the change process, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart. We recommend performing this operation during off-peak hours. After changing the timezone, newly scaled-out nodes will automatically use the new timezone settings. Existing nodes are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes.
+    // - For managed clusters, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart during the change. Perform this operation during off-peak hours. After the time zone is changed, newly scaled-out nodes automatically apply the new time zone settings. Existing nodes are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes.
     // 
-    // - For dedicated clusters, after changing the timezone, newly scaled-out nodes (including control plane nodes) will automatically use the new timezone settings. Existing nodes (including control plane nodes) are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes. For control plane nodes, you need to scale out first and then scale in to apply the settings to all control plane nodes.
+    // - For dedicated clusters, after the time zone is changed, newly scaled-out nodes (including control plane nodes) automatically apply the new time zone settings. Existing nodes (including control plane nodes) are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes. For control plane nodes, you need to scale out and then scale in to apply the settings to all control plane nodes.
     shared_ptr<string> timezone_ {};
-    // Cluster control plane vSwitches. For dedicated clusters, this takes effect on newly scaled-out control plane nodes. When modifying control plane vSwitches for managed clusters, note the following:
-    // - This parameter performs a full overwrite update. You must specify the complete list of target vSwitches.
-    // - During the change, control plane components will briefly restart. Proceed with caution.
-    // - Ensure that all security groups of the cluster (including the control plane security group, all node pool security groups, and container network security groups) allow inbound and outbound traffic for the IP ranges of the new vSwitches to prevent nodes and containers from being unable to connect to the API Server.
-    // - If the new control plane vSwitches have ACL rules configured, ensure that the ACL rules allow communication with the cluster nodes, container network, and other IP ranges.
+    // The control plane vSwitches of the cluster. For dedicated clusters, the change applies to newly scaled-out control plane nodes. For managed clusters, note the following when changing control plane vSwitches:
+    // - This parameter performs an overwrite update. You must specify the complete target vSwitch list.
+    // - Control plane components will briefly restart during the change. Proceed with caution.
+    // - Make sure all security groups of the cluster (including the control plane security group, security groups of all node pools, and security groups used by the container network) allow inbound and outbound traffic for the IP CIDR blocks of the new vSwitches. This prevents nodes and containers from being unable to connect to the API server.
+    // - If the new control plane vSwitches have ACL rules configured, make sure the ACL rules allow communication with the IP CIDR blocks of cluster nodes and the container network.
     shared_ptr<vector<string>> vswitchIds_ {};
   };
 

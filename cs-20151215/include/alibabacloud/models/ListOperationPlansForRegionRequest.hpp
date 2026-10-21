@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Filters results by cluster ID.
+    // Filters the results by cluster ID.
     shared_ptr<string> clusterId_ {};
-    // Filters results by execution plan state.
+    // Filters the results by execution plan state.
     shared_ptr<string> state_ {};
-    // Filters results by execution plan type.
+    // Filters the results by execution plan type.
     shared_ptr<string> type_ {};
   };
 

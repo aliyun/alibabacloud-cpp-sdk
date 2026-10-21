@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATENODEPOOLCOMPONENTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATENODEPOOLCOMPONENTREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -45,11 +44,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RollingPolicy& obj) { 
         DARABONBA_PTR_TO_JSON(batchInterval, batchInterval_);
+        DARABONBA_PTR_TO_JSON(maxFailedNodes, maxFailedNodes_);
         DARABONBA_PTR_TO_JSON(maxParallelism, maxParallelism_);
         DARABONBA_PTR_TO_JSON(pausePolicy, pausePolicy_);
       };
       friend void from_json(const Darabonba::Json& j, RollingPolicy& obj) { 
         DARABONBA_PTR_FROM_JSON(batchInterval, batchInterval_);
+        DARABONBA_PTR_FROM_JSON(maxFailedNodes, maxFailedNodes_);
         DARABONBA_PTR_FROM_JSON(maxParallelism, maxParallelism_);
         DARABONBA_PTR_FROM_JSON(pausePolicy, pausePolicy_);
       };
@@ -65,12 +66,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->batchInterval_ == nullptr
-        && this->maxParallelism_ == nullptr && this->pausePolicy_ == nullptr; };
+        && this->maxFailedNodes_ == nullptr && this->maxParallelism_ == nullptr && this->pausePolicy_ == nullptr; };
       // batchInterval Field Functions 
       bool hasBatchInterval() const { return this->batchInterval_ != nullptr;};
       void deleteBatchInterval() { this->batchInterval_ = nullptr;};
       inline int64_t getBatchInterval() const { DARABONBA_PTR_GET_DEFAULT(batchInterval_, 0L) };
       inline RollingPolicy& setBatchInterval(int64_t batchInterval) { DARABONBA_PTR_SET_VALUE(batchInterval_, batchInterval) };
+
+
+      // maxFailedNodes Field Functions 
+      bool hasMaxFailedNodes() const { return this->maxFailedNodes_ != nullptr;};
+      void deleteMaxFailedNodes() { this->maxFailedNodes_ = nullptr;};
+      inline int64_t getMaxFailedNodes() const { DARABONBA_PTR_GET_DEFAULT(maxFailedNodes_, 0L) };
+      inline RollingPolicy& setMaxFailedNodes(int64_t maxFailedNodes) { DARABONBA_PTR_SET_VALUE(maxFailedNodes_, maxFailedNodes) };
 
 
       // maxParallelism Field Functions 
@@ -88,8 +96,10 @@ namespace Models
 
 
     protected:
-      // The interval between batches during the upgrade. Unit: seconds.
+      // The interval between batches during the upgrade, in seconds.
       shared_ptr<int64_t> batchInterval_ {};
+      // The maximum number of nodes that can fail during the rolling update. Default value: 0, which means the task fails if any node fails. If the value is greater than 0, the task fails and stops when the cumulative number of failed nodes exceeds this value.
+      shared_ptr<int64_t> maxFailedNodes_ {};
       // The maximum number of nodes that can be updated in parallel per batch. Default value: 1.
       shared_ptr<int64_t> maxParallelism_ {};
       // The automatic pause policy during node upgrades.
@@ -99,10 +109,12 @@ namespace Models
     class Config : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Config& obj) { 
-        DARABONBA_PTR_TO_JSON(customConfig, customConfig_);
+        DARABONBA_ANY_TO_JSON(customConfig, customConfig_);
+        DARABONBA_PTR_TO_JSON(envs, envs_);
       };
       friend void from_json(const Darabonba::Json& j, Config& obj) { 
-        DARABONBA_PTR_FROM_JSON(customConfig, customConfig_);
+        DARABONBA_ANY_FROM_JSON(customConfig, customConfig_);
+        DARABONBA_PTR_FROM_JSON(envs, envs_);
       };
       Config() = default ;
       Config(const Config &) = default ;
@@ -115,19 +127,75 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->customConfig_ == nullptr; };
+      class Envs : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Envs& obj) { 
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Envs& obj) { 
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        Envs() = default ;
+        Envs(const Envs &) = default ;
+        Envs(Envs &&) = default ;
+        Envs(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Envs() = default ;
+        Envs& operator=(const Envs &) = default ;
+        Envs& operator=(Envs &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Envs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Envs& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The name of the environment variable.
+        shared_ptr<string> name_ {};
+        // The value of the environment variable.
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->customConfig_ == nullptr
+        && this->envs_ == nullptr; };
       // customConfig Field Functions 
       bool hasCustomConfig() const { return this->customConfig_ != nullptr;};
       void deleteCustomConfig() { this->customConfig_ = nullptr;};
-      inline const map<string, string> & getCustomConfig() const { DARABONBA_PTR_GET_CONST(customConfig_, map<string, string>) };
-      inline map<string, string> getCustomConfig() { DARABONBA_PTR_GET(customConfig_, map<string, string>) };
-      inline Config& setCustomConfig(const map<string, string> & customConfig) { DARABONBA_PTR_SET_VALUE(customConfig_, customConfig) };
-      inline Config& setCustomConfig(map<string, string> && customConfig) { DARABONBA_PTR_SET_RVALUE(customConfig_, customConfig) };
+      inline       const Darabonba::Json & getCustomConfig() const { DARABONBA_GET(customConfig_) };
+      Darabonba::Json & getCustomConfig() { DARABONBA_GET(customConfig_) };
+      inline Config& setCustomConfig(const Darabonba::Json & customConfig) { DARABONBA_SET_VALUE(customConfig_, customConfig) };
+      inline Config& setCustomConfig(Darabonba::Json && customConfig) { DARABONBA_SET_RVALUE(customConfig_, customConfig) };
+
+
+      // envs Field Functions 
+      bool hasEnvs() const { return this->envs_ != nullptr;};
+      void deleteEnvs() { this->envs_ = nullptr;};
+      inline const vector<Config::Envs> & getEnvs() const { DARABONBA_PTR_GET_CONST(envs_, vector<Config::Envs>) };
+      inline vector<Config::Envs> getEnvs() { DARABONBA_PTR_GET(envs_, vector<Config::Envs>) };
+      inline Config& setEnvs(const vector<Config::Envs> & envs) { DARABONBA_PTR_SET_VALUE(envs_, envs) };
+      inline Config& setEnvs(vector<Config::Envs> && envs) { DARABONBA_PTR_SET_RVALUE(envs_, envs) };
 
 
     protected:
       // The custom configuration of the component.
-      shared_ptr<map<string, string>> customConfig_ {};
+      Darabonba::Json customConfig_ {};
+      // The environment variables of the node component.
+      shared_ptr<vector<Config::Envs>> envs_ {};
     };
 
     virtual bool empty() const override { return this->config_ == nullptr
@@ -181,13 +249,13 @@ namespace Models
 
 
   protected:
-    // The node component configuration.
+    // The configuration of the node component.
     shared_ptr<UpdateNodePoolComponentRequest::Config> config_ {};
     // Specifies whether to disable rolling updates. Default value: false. When set to false, updating the baseline configuration triggers a rolling update of nodes.
     shared_ptr<bool> disableRolling_ {};
     // The name of the node component.
     shared_ptr<string> name_ {};
-    // The list of nodes to be included in the rolling update. By default, all nodes are included.
+    // The list of nodes to include in the rolling update. By default, all nodes are included.
     shared_ptr<vector<string>> nodeNames_ {};
     // The rolling update configuration.
     shared_ptr<UpdateNodePoolComponentRequest::RollingPolicy> rollingPolicy_ {};

@@ -126,15 +126,15 @@ namespace Models
 
 
       protected:
-        // The number of check items with a result of advice.
+        // The number of check items whose result is advice.
         shared_ptr<int32_t> adviceCount_ {};
         // The status code of the check task result.
         shared_ptr<string> code_ {};
-        // The number of check items with a result of error.
+        // The number of check items whose result is error.
         shared_ptr<int32_t> errorCount_ {};
-        // The number of check items with a result of normal.
+        // The number of check items whose result is normal.
         shared_ptr<int32_t> normalCount_ {};
-        // The number of check items with a result of warning.
+        // The number of check items whose result is warning.
         shared_ptr<int32_t> warnCount_ {};
       };
 
@@ -178,11 +178,11 @@ namespace Models
 
 
     protected:
-      // The completion time of the inspection report.
+      // The completion time of the inspection report, in ISO 8601 format with time zone information.
       shared_ptr<string> endTime_ {};
       // The inspection report ID.
       shared_ptr<string> reportId_ {};
-      // The start time of the inspection report.
+      // The start time of the inspection report, in ISO 8601 format with time zone information.
       shared_ptr<string> startTime_ {};
       // The generation status of the inspection report.
       shared_ptr<string> status_ {};

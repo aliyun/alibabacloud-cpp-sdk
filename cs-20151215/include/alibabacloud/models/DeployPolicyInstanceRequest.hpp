@@ -64,12 +64,12 @@ namespace Models
   protected:
     // The governance action of the rule. Valid values:
     // 
-    // - `deny`: blocks non-compliant deployments.
+    // - `deny`: blocks deployments that violate the policy.
     // - `warn`: generates alerts.
     shared_ptr<string> action_ {};
-    // The namespaces to which the policy is restricted. An empty value indicates all namespaces.
+    // The namespaces to which the policy applies. An empty value indicates all namespaces.
     shared_ptr<vector<string>> namespaces_ {};
-    // The parameter settings of the current rule instance. For the parameters supported by each policy governance rule and the corresponding metric description, see [Security policy rule library](https://www.alibabacloud.com/help/doc-detail/359819.html).
+    // The parameter settings of the current rule instance. For the parameters supported by each policy governance rule and the corresponding metric description, see [Container security policy rules](https://www.alibabacloud.com/help/doc-detail/359819.html).
     Darabonba::Json parameters_ {};
   };
 

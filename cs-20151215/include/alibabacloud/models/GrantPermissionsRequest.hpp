@@ -104,19 +104,19 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster to be authorized.
+      // The ID of the target cluster for authorization.
       // 
-      // - If the value of the `role_type` parameter is `all-clusters`, set this parameter to an empty string.
+      // - If the `role_type` parameter is set to `all-clusters`, set this parameter to an empty string.
       // 
       // This parameter is required.
       shared_ptr<string> cluster_ {};
-      // Specifies whether the authorization is a custom authorization, which means `role_name` uses a custom ClusterRole name.
+      // Specifies whether the authorization is a custom authorization (the `role_name` parameter uses a custom ClusterRole name).
       shared_ptr<bool> isCustom_ {};
       // Specifies whether the authorization is for a RAM role.
       shared_ptr<bool> isRamRole_ {};
       // The namespace name. This parameter is empty by default for cluster-level authorization.
       shared_ptr<string> namespace_ {};
-      // The name of the preset role. Valid values:
+      // The preset role name. Valid values:
       // 
       // - `admin`: administrator.
       // - `admin-view`: read-only administrator.
@@ -129,7 +129,6 @@ namespace Models
       // 
       // - `admin`, `admin-view`, `ops`: cannot be granted at the namespace level.
       // - `admin-view`: cannot be granted at the all-clusters level.
-      // .
       // 
       // This parameter is required.
       shared_ptr<string> roleName_ {};

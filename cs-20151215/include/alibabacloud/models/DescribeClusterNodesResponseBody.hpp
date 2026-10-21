@@ -81,7 +81,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The maximum number of records that can be displayed on each page.
+      // The maximum number of records to return per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of results.
       shared_ptr<int32_t> totalCount_ {};
@@ -292,11 +292,11 @@ namespace Models
 
 
     protected:
-      // The time when the node was created.
+      // The time when the node was created. The time follows the ISO 8601 standard and includes the time zone.
       shared_ptr<string> creationTime_ {};
-      // The error message generated when the node was created.
+      // The error message returned when the node was created.
       shared_ptr<string> errorMessage_ {};
-      // The time when the node expires.
+      // The time when the node expires. The time follows the ISO 8601 standard and includes the time zone.
       shared_ptr<string> expiredTime_ {};
       // The hostname of the node.
       shared_ptr<string> hostName_ {};
@@ -311,18 +311,18 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The name of the node in the cluster.
       shared_ptr<string> instanceName_ {};
-      // The role type of the node. Valid values:
+      // The role of the node. Valid values:
       // 
-      // - Master: a master node of the cluster.
-      // - Worker: a worker node of the cluster.
+      // - Master: the master node of the cluster.
+      // - Worker: the worker node of the cluster.
       shared_ptr<string> instanceRole_ {};
-      // The ECS status of the node. Valid values:
+      // The ECS instance status of the node. Valid values:
       // 
-      // - `Pending`: being created.
-      // - `Running`: running.
-      // - `Starting`: being started.
-      // - `Stopping`: being stopped.
-      // - `Stopped`: stopped.
+      // - `Pending`: the instance is being created.
+      // - `Running`: the instance is running.
+      // - `Starting`: the instance is starting.
+      // - `Stopping`: the instance is stopping.
+      // - `Stopped`: the instance is stopped.
       shared_ptr<string> instanceStatus_ {};
       // The node specifications.
       shared_ptr<string> instanceType_ {};
@@ -330,44 +330,37 @@ namespace Models
       shared_ptr<string> instanceTypeFamily_ {};
       // The IP addresses of the node.
       shared_ptr<vector<string>> ipAddress_ {};
-      // Indicates whether the node is an Alibaba Cloud instance. Valid values:
+      // Specifies whether the node is an Alibaba Cloud instance. Valid values:
       // 
-      // - `true`: The node is an Alibaba Cloud instance.
-      // 
-      // - `false`: The node is not an Alibaba Cloud instance.
+      // - `true`: the node is an Alibaba Cloud instance.
+      // - `false`: the node is not an Alibaba Cloud instance.
       shared_ptr<bool> isAliyunNode_ {};
-      // The node name, which is the identifier of the node in the cluster.
+      // The name of the node, which is the node identifier in the cluster.
       shared_ptr<string> nodeName_ {};
-      // Indicates whether the node is ready. Valid values:
+      // Specifies whether the node is ready. Valid values:
       // 
-      // - `Ready`: The node is ready.
-      // 
-      // - `NotReady`: The node is not ready.
-      // 
-      // - `Unknown`: The node status is unknown.
-      // 
-      // - `Offline`: The node is offline.
+      // - `Ready`: the node is ready.
+      // - `NotReady`: the node is not ready.
+      // - `Unknown`: the status is unknown.
+      // - `Offline`: the node is offline.
       shared_ptr<string> nodeStatus_ {};
       // The node pool ID.
       shared_ptr<string> nodepoolId_ {};
-      // The method used to initialize the node, such as manual creation or Resource Orchestration Service (ROS) creation.
+      // The method used to initialize the node, such as manual creation or creation by Resource Orchestration Service (ROS).
       shared_ptr<string> source_ {};
-      // The spot instance type. Valid values:
-      // - NoSpot: a non-spot instance.
-      // - SpotWithPriceLimit: a spot instance with a price limit.
-      // - SpotAsPriceGo: a spot instance priced at the market price at the time of purchase.
+      // The type of the spot instance. Valid values:
+      // 
+      // - NoSpot: the instance is not a spot instance.
+      // - SpotWithPriceLimit: the instance is a spot instance with a maximum price limit.
+      // - SpotAsPriceGo: the instance is a spot instance whose price is automatically set based on the current market price.
       shared_ptr<string> spotStrategy_ {};
-      // The running status of the node. Valid values:
+      // The running state of the node. Valid values:
       // 
-      // - `pending`: being created.
-      // 
-      // - `running`: running.
-      // 
-      // - `starting`: being started.
-      // 
-      // - `stopping`: being stopped.
-      // 
-      // - `stopped`: stopped.
+      // - `pending`: the node is being created.
+      // - `running`: the node is running.
+      // - `starting`: the node is starting.
+      // - `stopping`: the node is stopping.
+      // - `stopped`: the node is stopped.
       shared_ptr<string> state_ {};
     };
 

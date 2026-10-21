@@ -71,7 +71,7 @@ namespace Models
     // 
     // - If this parameter is left empty or set to other values, the template is not displayed on the Orchestration Templates page in the console.
     // 
-    // Set this parameter to `kubernetes`.
+    // Set this parameter to `kubernetes` in Settings.
     shared_ptr<string> templateType_ {};
   };
 

@@ -139,9 +139,9 @@ namespace Models
 
 
           protected:
-            // The label key value.
+            // The key value of the label.
             shared_ptr<string> key_ {};
-            // The label value.
+            // The value of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
           protected:
-            // The label key value.
+            // The key value of the label.
             shared_ptr<string> key_ {};
-            // The label value.
+            // The value of the label.
             shared_ptr<string> value_ {};
           };
 
@@ -224,11 +224,11 @@ namespace Models
 
 
         protected:
-          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to perform the operations in this phase. After completing the phase operations, ACK automatically removes the authorization inquiry and authorization confirmation labels for this phase. If you do not promptly add the following labels for authorization, ACK does not perform the actions in this phase or subsequent phases, and the node may remain in a damaged state.
+          // The label configuration for authorization confirmation. When you add the following labels to the node, you authorize ACK to execute the operation for this stage. After completing the operation for this stage, ACK automatically removes the authorization inquiry and authorization confirmation labels corresponding to this stage. If you do not promptly add the following labels to grant authorization, ACK will not execute the action for this stage and subsequent actions, and the node may remain in a damaged state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
           // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
-          // The label configuration for authorization inquiry. When this phase is reached, ACK adds the following labels to your node and waits for you to authorize the execution of the phase action.
+          // The label configuration for authorization inquiry. When this stage is reached, ACK adds the following labels to your node and waits for your authorization to execute the action for this stage.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
           // The type of approval.
           shared_ptr<string> type_ {};
@@ -264,7 +264,7 @@ namespace Models
       protected:
         // The parameter settings of the flow.
         Darabonba::Json config_ {};
-        // The configuration for manual intervention in the procedure.
+        // The configuration for the manual intervention procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
         // The name of the procedure.
         shared_ptr<string> name_ {};
@@ -308,7 +308,7 @@ namespace Models
 
 
       protected:
-        // The fault name.
+        // The name of the fault.
         shared_ptr<string> name_ {};
         // The type of manual approval.
         shared_ptr<string> type_ {};

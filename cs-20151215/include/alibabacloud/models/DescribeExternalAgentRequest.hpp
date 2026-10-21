@@ -48,16 +48,17 @@ namespace Models
 
 
   protected:
-    // The permission mode of the agent. Valid values:
+    // The agent permission mode. Valid values:
     // 
-    // admin: administrator mode with full permissions.
-    // restricted: restricted mode with limited permissions.
+    // - admin: Administrator mode. Grants all permissions.
+    // - restricted: Restricted mode. Grants only partial permissions.
+    // 
     // Default value: admin.
     shared_ptr<string> agentMode_ {};
-    // Specifies whether to obtain internal network access credentials.
+    // Specifies whether to obtain internal network access credentials. Valid values:
     // 
-    // - `true`: obtains only internal network connection credentials.
-    // - `false`: obtains only public network connection credentials.
+    // - `true`: Obtains only internal network connection credentials.
+    // - `false`: Obtains only public network connection credentials.
     // 
     // Default value: `false`.
     shared_ptr<string> privateIpAddress_ {};
