@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The UID of the Alibaba Cloud account on whose behalf the service assumes the role.
+      // The UID of the Alibaba Cloud account. This parameter specifies the Alibaba Cloud account for which the service assumes the role.
       shared_ptr<string> assumeRoleFor_ {};
       // The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
-      // The role type. Valid values: service and user.
+      // The type of the role. Valid values: service and user.
       shared_ptr<string> roleType_ {};
     };
 
@@ -127,9 +127,9 @@ namespace Models
 
 
     protected:
-      // The file system ID.
+      // The ID of the file system.
       shared_ptr<string> fileSystemId_ {};
-      // The Virtual Storage Channel (VSC) ID. You can call the ListVscs operation of Lingjun eflo-controller/2022-12-15 to query VSC IDs. If no VSC has been created, call the CreateVsc operation to create one.
+      // The ID of the VSC. You can call the ListVscs operation of the Lingjun AI Computing Service eflo-controller/2022-12-15 API to query the ID. If no VSC is created, you can call the CreateVsc operation to create one.
       shared_ptr<string> vscId_ {};
     };
 
@@ -161,18 +161,18 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+    // The client token that is used to ensure the idempotence of the request. You can generate the value from your client and ensure that the value is unique across different requests.
     // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID information of file systems and Virtual Storage Channels (VSCs). A maximum of 10 entries can be specified per batch.
+    // The IDs of the file systems and virtual storage channels (VSCs). You can specify up to 10 IDs per batch. This parameter must be passed in a flattened format, such as ResourceIds.1.FileSystemId=bmcpfs-xxx&ResourceIds.1.VscId=vsc-xxx. JSON arrays are not supported.
     // 
     // This parameter is required.
     shared_ptr<vector<AttachVscToFilesystemsRequest::ResourceIds>> resourceIds_ {};
     // The role chain.
-    // >This parameter is required only for cross-account scenarios.
+    // > Required only for cross-account scenarios.
     shared_ptr<vector<AttachVscToFilesystemsRequest::RoleChain>> roleChain_ {};
   };
 

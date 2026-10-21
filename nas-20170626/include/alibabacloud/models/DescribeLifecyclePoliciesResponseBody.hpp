@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // The attribute of the transit rule.
+        // The attribute of the transition rule.
         shared_ptr<string> attribute_ {};
-        // The threshold of the transit rule.
+        // The threshold of the transition rule.
         shared_ptr<string> threshold_ {};
       };
 
@@ -207,15 +207,11 @@ namespace Models
 
 
       protected:
-        // The attribute of the rule.
-        // 
-        // Valid values:
+        // The attribute of the rule. Valid values:
         // - Atime: The access time of the file.
         shared_ptr<string> attribute_ {};
-        // The threshold of the rule.
-        // 
-        // Valid values:
-        // - If Attribute is set to Atime, this value indicates the number of days since the file was last accessed. Valid values: 1 to 365.
+        // The threshold of the rule. Valid values:
+        // - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -323,15 +319,13 @@ namespace Models
 
 
     protected:
-      // The time when the lifecycle management policy was created.
-      // 
-      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time when the lifecycle management policy was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
-      // The file data expiration and deletion rules. A maximum of one rule can be configured.
+      // The expiration and deletion rules for file data. You can configure up to one rule.
       shared_ptr<vector<LifecyclePolicies::DeleteRules>> deleteRules_ {};
-      // The description of the policy.
+      // The description.
       shared_ptr<string> description_ {};
-      // The file system ID.
+      // The ID of the file system.
       shared_ptr<string> fileSystemId_ {};
       // The ID of the lifecycle policy.
       shared_ptr<string> lifecyclePolicyId_ {};
@@ -339,25 +333,23 @@ namespace Models
       shared_ptr<string> lifecyclePolicyName_ {};
       // The policy type.
       shared_ptr<string> lifecyclePolicyType_ {};
-      // The management rule associated with the lifecycle management policy.
-      // 
-      // Valid values:
-      // - DEFAULT_ATIME_14: Files not accessed in the last 14 days.
-      // - DEFAULT_ATIME_30: Files not accessed in the last 30 days.
-      // - DEFAULT_ATIME_60: Files not accessed in the last 60 days.
-      // - DEFAULT_ATIME_90: Files not accessed in the last 90 days.
+      // The management rule associated with the lifecycle management policy. Valid values:
+      // - DEFAULT_ATIME_14: Files that have not been accessed for 14 days.
+      // - DEFAULT_ATIME_30: Files that have not been accessed for 30 days.
+      // - DEFAULT_ATIME_60: Files that have not been accessed for 60 days.
+      // - DEFAULT_ATIME_90: Files that have not been accessed for 90 days.
       shared_ptr<string> lifecycleRuleName_ {};
-      // The absolute path of the single directory configured in the lifecycle management policy.
+      // The absolute path of the single directory configured for the lifecycle management policy.
       shared_ptr<string> path_ {};
-      // The list of absolute paths of multiple directories configured in the lifecycle management policy.
+      // The list of absolute paths of the multiple directories configured for the lifecycle management policy.
       shared_ptr<vector<string>> paths_ {};
       // The file data retrieval rules.
       shared_ptr<vector<LifecyclePolicies::RetrieveRules>> retrieveRules_ {};
-      // The storage tiering type. Valid values:
+      // The tiered storage type. Valid values:
       // - InfrequentAccess: IA storage class.
       // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
-      // The file data transit rules.
+      // The file data transition rules.
       shared_ptr<vector<LifecyclePolicies::TransitRules>> transitRules_ {};
     };
 
@@ -401,13 +393,13 @@ namespace Models
 
 
   protected:
-    // The collection of lifecycle management policy information.
+    // The lifecycle management policies.
     shared_ptr<vector<DescribeLifecyclePoliciesResponseBody::LifecyclePolicies>> lifecyclePolicies_ {};
     // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of lifecycle management policies on each page.
+    // The number of lifecycle management policies returned on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of lifecycle management policies.
     shared_ptr<int32_t> totalCount_ {};

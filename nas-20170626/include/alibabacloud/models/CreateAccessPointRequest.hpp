@@ -225,67 +225,67 @@ namespace Models
 
 
   protected:
-    // The permission group name.
+    // The name of the permission group.
     // 
-    // This parameter is required if the file system is a General-purpose NAS file system.
+    // This parameter is required when the target file system is a General-purpose NAS file system.
     // 
     // Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
-    // >Not supported for Agentic file systems.
+    // >Not supported by Agentic file systems.
     shared_ptr<string> accessGroup_ {};
-    // The access point name.
+    // The name of the access point.
     shared_ptr<string> accessPointName_ {};
-    // The AgenticSpace ID.
-    // >This parameter is required for Agentic file systems.
+    // The ID of the Agentic space.
+    // >Required for Agentic file systems.
     shared_ptr<string> agenticSpaceId_ {};
     // Specifies whether to enable the RAM policy.
     // Valid values:
     // 
     // - true: Enabled.
-    // - false (default): Not enabled.
+    // - false: Disabled. This is the default value.
     // 
-    // > After you enable the RAM policy for the access point, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must grant authorization for the corresponding access permissions to the accounts and mount the file system through the access point. After you disable the RAM policy, the access point allows anonymous mounting. For more information about how to configure access point permissions, see [Configure an access point policy](https://help.aliyun.com/document_detail/2545998.html).
+    // > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied by default from using the access point to mount and access data. You must grant authorization to the accounts to enable the corresponding access permissions, and mount the file system through the access point. If this feature is disabled, the access point allows anonymous mounting. For more information about how to configure access point permissions, see [Configure access point policy](https://help.aliyun.com/document_detail/2545998.html).
     // 
     // >For Agentic file systems, this parameter must be set to true.
     shared_ptr<bool> enabledRam_ {};
-    // The file system ID.
+    // The ID of the file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The owner group ID.
+    // The ID of the owner user group.
     // 
-    // This parameter is required if the RootDirectory directory does not exist.
-    // >Not supported for Agentic file systems.
+    // This parameter is required when the RootDirectory directory does not exist.
+    // >Not supported by Agentic file systems.
     shared_ptr<int32_t> ownerGroupId_ {};
-    // The owner user ID.
+    // The ID of the owner user.
     // 
-    // This parameter is required if the RootDirectory directory does not exist.
-    // >Not supported for Agentic file systems.
+    // This parameter is required when the RootDirectory directory does not exist.
+    // >Not supported by Agentic file systems.
     shared_ptr<int32_t> ownerUserId_ {};
-    // The POSIX permission. Default value: "0755". The value must be a four-digit octal number that starts with 0.
+    // The POSIX permissions. Default value: 0755. The value must be a four-digit octal number starting with 0.
     // 
-    // This parameter takes effect after you specify the OwnerUserId and OwnerGroupId parameters.
-    // >Not supported for Agentic file systems.
+    // This parameter takes effect only after you specify the OwnerUserId and OwnerGroupId parameters.
+    // >Not supported by Agentic file systems.
     shared_ptr<string> permission_ {};
-    // The POSIX group ID.
-    // >Not supported for Agentic file systems.
+    // The POSIX user group ID.
+    // >Not supported by Agentic file systems.
     shared_ptr<int32_t> posixGroupId_ {};
-    // The secondary group IDs. Separate multiple group IDs with commas (,).
-    // >Not supported for Agentic file systems.
+    // The secondary user groups. Separate multiple user group IDs with commas (,).
+    // >Not supported by Agentic file systems.
     shared_ptr<string> posixSecondaryGroupIds_ {};
     // The POSIX user ID.
-    // >Not supported for Agentic file systems.
+    // >Not supported by Agentic file systems.
     shared_ptr<int32_t> posixUserId_ {};
     // The root directory of the access point.
-    // Default value: "/". If the access point directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
-    // >Not supported for Agentic file systems.
+    // Default value: /. If the access point directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
+    // >Not supported by Agentic file systems.
     shared_ptr<string> rootDirectory_ {};
-    // The access point tags.
+    // The list of tags for the access point.
     shared_ptr<vector<CreateAccessPointRequest::Tag>> tag_ {};
-    // The virtual private cloud (VPC) ID.
+    // The ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The vSwitch ID.
+    // The ID of the vSwitch.
     // 
     // This parameter is required.
     shared_ptr<string> vswId_ {};

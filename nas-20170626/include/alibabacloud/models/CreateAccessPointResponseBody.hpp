@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The access point domain name.
+      // The domain name of the access point.
       shared_ptr<string> accessPointDomain_ {};
-      // The access point ID.
+      // The ID of the access point.
       shared_ptr<string> accessPointId_ {};
     };
 

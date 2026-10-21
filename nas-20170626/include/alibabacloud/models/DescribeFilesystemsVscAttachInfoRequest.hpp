@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The UID of the Alibaba Cloud account (primary account), which specifies the account on whose behalf the service assumes the role.
+      // The UID of the Alibaba Cloud account (the primary account UID). This parameter specifies the Alibaba Cloud account for which the service assumes the role.
       shared_ptr<string> assumeRoleFor_ {};
       // The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
     protected:
-      // The file system ID.
+      // The ID of the file system. This parameter is required in each ResourceIds entry and must be provided together with VscId.
       shared_ptr<string> fileSystemId_ {};
-      // The virtual storage channel ID.
+      // The ID of the virtual storage channel. This parameter is required in each ResourceIds entry and must be provided together with FileSystemId. The ID starts with vsc-. You can call the ListVscs operation of Lingjun AI Computing Service eflo-controller/2022-12-15 to query the ID. If the virtual storage channel is not created, call CreateVsc to create one.
       shared_ptr<string> vscId_ {};
     };
 
@@ -170,14 +170,14 @@ namespace Models
 
 
   protected:
-    // The number of results returned per query.
+    // The number of entries to return per query.
     // 
     // Valid values: 10 to 100.
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. The value is the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
+    // The ID information of the file systems and virtual storage channels. A maximum of 10 items are supported per batch.
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeFilesystemsVscAttachInfoRequest::ResourceIds>> resourceIds_ {};

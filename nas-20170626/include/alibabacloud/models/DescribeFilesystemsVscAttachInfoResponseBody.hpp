@@ -169,11 +169,11 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set this parameter to the NextToken value returned in the previous API call.
+    // The query token. The value is the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of association entries.
+    // The total number of association records.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeFilesystemsVscAttachInfoResponseBody::VscAttachInfo> vscAttachInfo_ {};
   };

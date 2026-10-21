@@ -85,12 +85,12 @@ namespace Models
       // The attribute of the rule.
       // 
       // Valid values:
-      // - Atime: the access time of the file.
+      // - Atime: the last access time of the file.
       shared_ptr<string> attribute_ {};
       // The threshold of the rule.
       // 
       // Valid values:
-      // - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+      // - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -135,10 +135,9 @@ namespace Models
       // The attribute of the rule. Valid values:
       // - RetrieveType: the retrieval method.
       shared_ptr<string> attribute_ {};
-      // The threshold of the rule. Valid values:
-      // - RetrieveType
-      //     - AfterVisit: supported when LifecyclePolicyType is set to Auto. Indicates best-effort recall on visit.
-      //     - All: supported when LifecyclePolicyType is set to OnDemand. Indicates retrieval of all data.
+      // The threshold of the rule. Valid values for RetrieveType:
+      // - AfterVisit: supported when LifecyclePolicyType is set to Auto. This value indicates best-effort recall on visit.
+      // - All: supported when LifecyclePolicyType is set to OnDemand. This value indicates that all data is retrieved.
       shared_ptr<string> threshold_ {};
     };
 
@@ -183,12 +182,12 @@ namespace Models
       // The attribute of the rule.
       // 
       // Valid values:
-      // - Atime: the access time of the file.
+      // - Atime: the last access time of the file.
       shared_ptr<string> attribute_ {};
       // The threshold of the rule.
       // 
       // Valid values:
-      // - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+      // - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -265,31 +264,31 @@ namespace Models
     // The description of the lifecycle policy.
     // 
     // Format:
-    // The description must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
-    // > Only CPFS for Lingjun is supported.
+    // The description must be 3 to 64 characters in length. It must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
+    // > Supported only for CPFS for Lingjun.
     shared_ptr<string> description_ {};
-    // The file system ID. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****.
-    // > This parameter is supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
+    // The ID of the file system. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****. To use CPFS for Lingjun, you must first submit a ticket to apply for the service whitelist and then create the file system in the NAS console.
+    // > Supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The ID of the lifecycle policy.
-    // > This parameter is required for CPFS for Lingjun file systems.
+    // > Required for CPFS for Lingjun file systems.
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The absolute paths of the directories associated with the lifecycle management policy.
+    // The absolute path of the directory associated with the lifecycle management policy. This parameter is required when FileSystemId starts with bmcpfs-.
     shared_ptr<vector<string>> paths_ {};
-    // The data retrieval rules. A maximum of one rule can be configured.
-    // > Only CPFS for Lingjun file systems are supported.
+    // The data retrieval rules for files. You can configure up to one rule.
+    // > Supported only for CPFS for Lingjun file systems.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::RetrieveRules>> retrieveRules_ {};
-    // The tiered storage type.
-    // - InfrequentAccess: IA storage class (default).
+    // The tiered storage type. Valid values:
+    // - InfrequentAccess: IA storage class. This is the default value.
     // - Archive: Archive storage class.
     shared_ptr<string> storageType_ {};
-    // The data transit rules. A maximum of one rule can be configured.
+    // The data transition rules for files. You can configure up to one rule.
     // 
-    // > This parameter is supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
+    // > Supported only when LifecyclePolicyType is set to Auto for a CPFS for Lingjun file system.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::TransitRules>> transitRules_ {};
   };
 

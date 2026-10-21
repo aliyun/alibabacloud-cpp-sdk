@@ -48,17 +48,12 @@ namespace Models
 
 
   protected:
-    // The file system type.
-    // 
-    // Valid values:
-    // 
-    // - standard (default): General-purpose NAS.
-    // - extreme: Extreme NAS file system.
+    // The file system type. Valid values:
+    // - standard: General-purpose NAS. This is the default value.
+    // - extreme: Extreme NAS.
     // - cpfs: Cloud Parallel File Storage.
     shared_ptr<string> fileSystemType_ {};
-    // The ID of the region where the zones reside.
-    // 
-    // You can call DescribeRegions to query the latest region list.
+    // The ID of the region to which the zone belongs. You can call the DescribeRegions operation to query the latest region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

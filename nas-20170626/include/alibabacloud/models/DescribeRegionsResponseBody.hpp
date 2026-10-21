@@ -165,12 +165,12 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of regions on each page.
+    // The number of regions returned per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<DescribeRegionsResponseBody::Regions> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of regions returned.
+    // The total number of regions returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 
