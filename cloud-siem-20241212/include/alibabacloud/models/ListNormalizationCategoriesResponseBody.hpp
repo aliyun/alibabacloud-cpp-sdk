@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // The ID of the normalization category.
+      // The ID of the standardized category.
       shared_ptr<string> normalizationCategoryId_ {};
-      // The name of the normalization category.
+      // The name of the standardized category.
       shared_ptr<string> normalizationCategoryName_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned on the current page.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If the response does not contain this parameter, no more results are available.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // A list of normalization categories.
+    // The list of standardized categories.
     shared_ptr<vector<ListNormalizationCategoriesResponseBody::NormalizationCategories>> normalizationCategories_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

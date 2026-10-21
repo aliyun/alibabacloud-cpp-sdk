@@ -232,25 +232,20 @@ namespace Models
 
 
   protected:
-    // The ATT\\&CK technique of the alert.
+    // The alert ATT&CK technique.
     shared_ptr<string> alertAttCk_ {};
     // The threat level of the alert. Valid values:
-    // 
-    // - 5: critical.
-    // 
-    // - 4: important.
-    // 
-    // - 3: medium.
-    // 
-    // - 2: low.
-    // 
-    // - 1: informational.
+    // - 5: Critical.
+    // - 4: High.
+    // - 3: Medium.
+    // - 2: Low.
+    // - 1: Informational.
     shared_ptr<string> alertLevel_ {};
     // The alert tactic phase.
     shared_ptr<string> alertTacticId_ {};
-    // The alert type.
+    // The Alarm Metric of the alerting rule.
     shared_ptr<string> alertType_ {};
-    // The type of the detection rule expression.
+    // The expression content of the detection rule.
     shared_ptr<string> detectionExpressionType_ {};
     // The ID of the detection rule.
     shared_ptr<string> detectionRuleId_ {};
@@ -262,61 +257,49 @@ namespace Models
     shared_ptr<string> detectionRuleStatus_ {};
     // The type of the detection rule. Valid values:
     // 
-    // - preset: a built-in detection rule.
-    // 
-    // - custom: a custom detection rule.
-    // 
-    // - custom_template: a rule template.
+    // - preset: preset detection rule.
+    // - custom: custom detection rule.
+    // - custom_template: rule template.
     shared_ptr<string> detectionRuleType_ {};
-    // The event aggregation type. Valid values:
-    // 
-    // - none: No events are generated.
-    // 
-    // - graph_compute: graph computing (supported by predefined rules).
-    // 
-    // - expert: expert rule.
-    // 
-    // - passthrough: alert passthrough (one-to-one).
-    // 
-    // - window: aggregation of similar alerts (by window).
+    // The event summaries type. Valid values:
+    // - none: No event is generated.
+    // - graph_compute: Graph computing (supported by predefined rules).
+    // - expert: Expert rule.
+    // - passthrough: Alerting pass-through (one-to-one).
+    // - window: Same-type aggregation (window).
     shared_ptr<string> incidentAggregationType_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // 
+    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
     shared_ptr<string> lang_ {};
     // The ID of the log normalization category.
     shared_ptr<string> logCategoryId_ {};
     // The ID of the log normalization schema.
     shared_ptr<string> logSchemaId_ {};
-    // The maximum number of data entries to read.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The sort order. Valid values:
     // 
-    // - **asc**: ascending order. This is the default value.
-    // 
-    // - **desc**: descending order.
+    // - **asc**: Ascending order. This is the default value.
+    // - **desc**: Descending order.
     shared_ptr<string> orderDirection_ {};
-    // The field to sort by. Valid values:
-    // 
-    // - GmtCreate: the creation time.
-    // 
-    // - GmtModified: the update time.
+    // The field used for sorting. Valid values:
+    // - GmtCreate: creation time.
+    // - GmtModified: update time.
     shared_ptr<string> orderFieldName_ {};
-    // The pagination parameter. This specifies the current page number.
+    // The page number of the current page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The pagination parameter. This specifies the number of entries per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the Data Management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your assets are outside China.
+    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator uses to switch to the perspective of another member.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

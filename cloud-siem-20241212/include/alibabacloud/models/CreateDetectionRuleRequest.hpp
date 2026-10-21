@@ -379,41 +379,44 @@ namespace Models
 
 
   protected:
-    // The alert ATT&CK technique.
+    // The ATT&CK information of the alert.
     shared_ptr<string> alertAttCk_ {};
+    // The MITRE ATT&CK technique mapping.
     shared_ptr<string> alertAttCkMapping_ {};
-    // The alert description. You can use $$ to reference query output fields.
+    // The alert description. Supports referencing query output fields using $$.
     shared_ptr<string> alertDescription_ {};
     // The threat level of the alert. Valid values:
-    // - 5: Critical.
-    // - 4: High.
-    // - 3: Medium.
-    // - 2: Low.
-    // - 1: Informational.
+    // - 5: critical.
+    // - 4: high.
+    // - 3: medium.
+    // - 2: low.
+    // - 1: informational.
     shared_ptr<string> alertLevel_ {};
+    // The alert level mapping.
     shared_ptr<string> alertLevelMapping_ {};
-    // The alert name. You can use $$ to reference query output fields.
+    // The alert name. Supports referencing query output fields using $$.
     shared_ptr<string> alertName_ {};
-    // The ID of the detection rule alert template. Valid values:
+    // The ID of the alert template for the detection rule. Valid values:
     // - ALERT_ACTIVITY: other alerts.
     // - EDR_ALERT_ACTIVITY: endpoint detection and response alerts.
     // - FIREWALL_ALERT_ACTIVITY: firewall alerts.
-    // - WAF_ALERT_ACTIVITY: web application firewall alerts.
+    // - WAF_ALERT_ACTIVITY: Web Application Firewall alerts.
     shared_ptr<string> alertSchemaId_ {};
-    // The alert tactic stage.
+    // The tactic phase of the alert.
     shared_ptr<string> alertTacticId_ {};
     // The alert threshold count.
     shared_ptr<int32_t> alertThresholdCount_ {};
-    // The list of alert threshold fields, separated by commas (,).
+    // The list of alert threshold fields, separated by commas.
     shared_ptr<string> alertThresholdGroup_ {};
     // The length of the alert threshold period.
     shared_ptr<string> alertThresholdPeriod_ {};
-    // The Alarm Metric of the alerting rule.
+    // The alert type.
     shared_ptr<string> alertType_ {};
+    // The alert type mapping.
     shared_ptr<string> alertTypeMapping_ {};
-    // The content of the detection rule expression.
+    // The expression content of the detection rule.
     shared_ptr<string> detectionExpressionContent_ {};
-    // The type of the detection rule expression. Valid values:
+    // The expression type of the detection rule. Valid values:
     // - sql: SQL.
     // - playbook: playbook.
     shared_ptr<string> detectionExpressionType_ {};
@@ -432,43 +435,46 @@ namespace Models
     // - custom: custom detection rule.
     // - custom_template: rule template.
     shared_ptr<string> detectionRuleType_ {};
+    // The list of detection rule conditions.
     shared_ptr<string> detectionRules_ {};
     // The entity mapping configuration.
     shared_ptr<string> entityMappings_ {};
     // The event aggregation period configuration.
     shared_ptr<string> incidentAggregationExpression_ {};
     // The event aggregation type. Valid values:
-    // - none: No event is generated.
-    // - graph_compute: Graph computing. This value is supported by predefined rules.
-    // - expert: Expert rule.
-    // - passthrough: Alerting pass-through (one-to-one).
-    // - window: Same-type aggregation (window).
+    // - none: no event is generated.
+    // - graph_compute: graph computing (supported by predefined rules).
+    // - expert: expert rule.
+    // - passthrough: alert passthrough (one-to-one).
+    // - window: same-type aggregation (window).
     shared_ptr<string> incidentAggregationType_ {};
-    // The language of the response. Valid values:
+    // The language of the response messages. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
     shared_ptr<string> lang_ {};
     // The ID of the log normalization category.
     shared_ptr<string> logCategoryId_ {};
     // The ID of the log normalization schema.
     shared_ptr<string> logSchemaId_ {};
-    // The custom parameters of the playbook.
+    // The user-defined parameters of the playbook.
     shared_ptr<string> playbookParameters_ {};
     // The UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
-    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside the Chinese mainland.
+    // The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The ID of the member to which the administrator switches the view.
+    // The user ID that the administrator switches to in order to view another member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
-    // The scheduling start time. The value is a 13-digit UNIX timestamp.
+    // The scheduling start time, expressed as a 13-digit timestamp.
     shared_ptr<int64_t> scheduleBeginTime_ {};
-    // The scheduling cron expression. This parameter is required when ScheduleType is set to cron.
+    // The scheduling cron expression. Required when ScheduleType is set to cron.
     shared_ptr<string> scheduleExpression_ {};
-    // The maximum number of retries upon timeout. Valid values: 1 to 100.
+    // The maximum number of retries on timeout. Valid values: 1 to 100.
     shared_ptr<int32_t> scheduleMaxRetries_ {};
-    // The maximum timeout period, in seconds. Valid values: 60 to 1800.
+    // The maximum timeout duration, in seconds. Valid values: 60 to 1800.
     shared_ptr<int32_t> scheduleMaxTimeout_ {};
     // The scheduling type. Valid values:
     // - fixed_rate: fixed interval.

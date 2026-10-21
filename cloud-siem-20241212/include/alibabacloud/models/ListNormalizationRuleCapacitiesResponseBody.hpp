@@ -96,16 +96,12 @@ namespace Models
       // The list of security capabilities.
       shared_ptr<vector<string>> capacities_ {};
       // The type of the security capability. Valid values:
-      // 
       // - detection_preset_rule: predefined analysis rule.
-      // 
       // - detection_custom_rule: custom analysis rule.
-      // 
-      // - incident_investigation: security event handling.
-      // 
+      // - incident_investigation: security incident handling.
       // - soar_playbooks: predefined playbook.
       shared_ptr<string> capacityType_ {};
-      // The ID of the normalization rule.
+      // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
     };
 
@@ -171,19 +167,19 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. If the response is truncated, use this token in your next request to retrieve the next page of results. If this parameter is empty, all results have been returned.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The list of security capabilities that are associated with the normalization rules.
+    // The list of security capabilities associated with normalization rules.
     shared_ptr<vector<ListNormalizationRuleCapacitiesResponseBody::NormalizationRuleCapacities>> normalizationRuleCapacities_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

@@ -91,9 +91,9 @@ namespace Models
 
 
       protected:
-        // The statistic time.
+        // The statistical time. The value is a date number in the YYYYMMDD format. For example, 20250815 indicates August 15, 2025.
         shared_ptr<int64_t> trafficStatisticTime_ {};
-        // The statistic value.
+        // The statistical value.
         shared_ptr<double> trafficStatisticValue_ {};
       };
 
@@ -118,7 +118,7 @@ namespace Models
     protected:
       // The statistics information.
       shared_ptr<vector<TrafficStatistics::TrafficStatisticData>> trafficStatisticData_ {};
-      // The statistic target.
+      // The statistical target.
       shared_ptr<string> trafficStatisticTarget_ {};
     };
 

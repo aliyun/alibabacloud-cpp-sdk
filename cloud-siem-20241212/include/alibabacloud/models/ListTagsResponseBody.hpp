@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // The number of quick queries returned on the current page.
+      // The number of custom queries returned on the current page.
       shared_ptr<int64_t> count_ {};
       // The key of the tag to query. You can specify multiple keys. N is a positive integer.
       shared_ptr<string> tag_ {};
@@ -113,9 +113,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return when using NextToken-based pagination. Valid values: 1 to 100. Default value: 50.
+    // The maximum number of entries to return when you use NextToken for pagination. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next query is available, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for NextToken. In the next query, set NextToken to this value.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -281,37 +281,41 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // Specifies whether non-standard fields are packed into the extend_content field. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> extendContentPacked_ {};
-      // The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
+      // The extended field storage mode. Valid values:
+      // - flat: ingested as-is.
+      // - reject: not ingested.
+      // - pack: packed into the extend_content field.
       shared_ptr<string> extendFieldStoreMode_ {};
-      // The category ID of the normalization rule.
+      // The normalization rule category ID.
       shared_ptr<string> normalizationCategoryId_ {};
+      // The field source.
       shared_ptr<string> normalizationFieldSource_ {};
-      // The description of the normalization rule.
+      // The normalization rule description.
       shared_ptr<string> normalizationRuleDescription_ {};
-      // The expression of the normalization rule.
+      // The normalization rule expression.
       shared_ptr<string> normalizationRuleExpression_ {};
-      // The format of the normalization rule.
+      // The normalization rule format.
       shared_ptr<string> normalizationRuleFormat_ {};
       // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
-      // The mode of the normalization rule. Valid values:
+      // The normalization rule mode. Valid values:
       // - both
       // - scan
-      // - realtime.
+      // - realtime
       shared_ptr<string> normalizationRuleMode_ {};
-      // The name of the normalization rule.
+      // The normalization rule name.
       shared_ptr<string> normalizationRuleName_ {};
-      // The list of associated ingestion policies.
+      // The list of associated collection policies.
       shared_ptr<vector<NormalizationRules::NormalizationRuleReferences>> normalizationRuleReferences_ {};
-      // The status of the normalization rule.
+      // The normalization rule status.
       shared_ptr<string> normalizationRuleStatus_ {};
-      // The type of the normalization rule. Valid values:
+      // The normalization rule type. Valid values:
       // - predefined: predefined normalization rule.
       // - custom: custom normalization rule.
       shared_ptr<string> normalizationRuleType_ {};
@@ -319,10 +323,11 @@ namespace Models
       shared_ptr<string> normalizationRuleVersion_ {};
       // The normalization schema ID.
       shared_ptr<string> normalizationSchemaId_ {};
+      // The security domain ID.
       shared_ptr<string> normalizationSecurityDomainId_ {};
       // The product ID.
       shared_ptr<string> productId_ {};
-      // The update time.
+      // The update time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The vendor ID associated with the normalization rule.
       shared_ptr<string> vendorId_ {};
@@ -392,7 +397,7 @@ namespace Models
   protected:
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query is required, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of normalization rules.
     shared_ptr<vector<ListNormalizationRulesResponseBody::NormalizationRules>> normalizationRules_ {};

@@ -219,12 +219,15 @@ namespace Models
 
 
   protected:
+    // The Simple Log Service project name.
     shared_ptr<string> logProjectName_ {};
+    // The log storage region ID.
     shared_ptr<string> logRegionId_ {};
+    // The Simple Log Service Logstore name.
     shared_ptr<string> logStoreName_ {};
     // The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of query views.
     shared_ptr<vector<ListQueryViewsResponseBody::QueryViews>> queryViews_ {};

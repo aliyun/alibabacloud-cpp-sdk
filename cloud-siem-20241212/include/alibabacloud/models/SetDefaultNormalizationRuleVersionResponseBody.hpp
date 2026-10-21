@@ -188,7 +188,7 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the normalization rule version was created. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The normalization rule category ID.
       shared_ptr<string> normalizationCategoryId_ {};
@@ -212,10 +212,11 @@ namespace Models
       shared_ptr<int32_t> normalizationRuleVersion_ {};
       // The normalization schema ID.
       shared_ptr<string> normalizationSchemaId_ {};
+      // The normalization security domain ID.
       shared_ptr<string> normalizationSecurityDomainId_ {};
       // The product ID.
       shared_ptr<string> productId_ {};
-      // The update time.
+      // The time when the normalization rule version was last updated. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The vendor ID associated with the normalization rule.
       shared_ptr<string> vendorId_ {};

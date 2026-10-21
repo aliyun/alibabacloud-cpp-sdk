@@ -112,16 +112,18 @@ namespace Models
 
 
   protected:
-    // The language of the request and response. Valid values:
+    // The language type for the request and response messages. Valid values:
     // 
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // Note: This parameter is required in actual calls. If this parameter is not specified, the service returns a 400 error "The specified Lang can not be empty." Explicitly pass in the language code.
     shared_ptr<string> lang_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the normalization rule category.
+    // The normalization rule category ID.
     shared_ptr<string> normalizationCategoryId_ {};
     // The field source filter. Valid values: normalized / native.
     shared_ptr<string> normalizationFieldSource_ {};
@@ -132,10 +134,10 @@ namespace Models
     // The security domain ID.
     shared_ptr<string> normalizationSecurityDomainId_ {};
     // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: the asset is in the Chinese mainland.
-    // - ap-southeast-1: the asset is outside the Chinese mainland.
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator switches to when viewing as another member.
+    // The user ID used when an administrator switches to the perspective of another member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

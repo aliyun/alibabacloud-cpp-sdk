@@ -192,29 +192,31 @@ namespace Models
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.).
     shared_ptr<string> lang_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query is required, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The category ID of the normalization rule.
+    // The normalization rule category ID.
     shared_ptr<string> normalizationCategoryId_ {};
     // The list of normalization rule IDs.
     shared_ptr<vector<string>> normalizationRuleIds_ {};
-    // The name of the normalization rule.
+    // The normalization rule name.
     shared_ptr<string> normalizationRuleName_ {};
-    // The type of the normalization rule. Valid values:
+    // The normalization rule type. Valid values:
     // - predefined: predefined normalization rule.
     // - custom: custom normalization rule.
     shared_ptr<string> normalizationRuleType_ {};
     // The normalization schema ID.
     shared_ptr<string> normalizationSchemaId_ {};
+    // The security domain ID.
     shared_ptr<string> normalizationSecurityDomainId_ {};
     // The field used for sorting.
     shared_ptr<string> orderField_ {};
     // The sort order. Valid values:
     // - desc
-    // - asc.
+    // - asc
     shared_ptr<string> orderType_ {};
     // The page number of the current page.
     shared_ptr<int32_t> pageNumber_ {};
@@ -222,11 +224,11 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region where the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: the Chinese mainland.
-    // - ap-southeast-1: outside China.
+    // The data management center of threat analysis. Specify the management center based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches the view.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The vendor ID associated with the normalization rule.
     shared_ptr<string> vendorId_ {};

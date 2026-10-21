@@ -208,19 +208,21 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the normalization rule category.
+      // The normalization rule category ID.
       shared_ptr<string> normalizationCategoryId_ {};
       // The field source. Valid values:
-      // normalized: normalized field.
-      // native: native field.
+      // - normalized: normalized field.
+      // - native: native field.
       shared_ptr<string> normalizationFieldSource_ {};
-      // The description of the normalization schema.
+      // The normalization schema description.
       shared_ptr<string> normalizationSchemaDescription_ {};
-      // The source of the normalization schema. Valid values: preset (predefined) and custom (user-defined).
+      // The normalization schema source. Valid values:
+      // - preset: predefined.
+      // - custom: custom.
       shared_ptr<string> normalizationSchemaFrom_ {};
-      // The ID of the normalization schema.
+      // The normalization schema ID.
       shared_ptr<string> normalizationSchemaId_ {};
-      // The name of the normalization schema.
+      // The normalization schema name.
       shared_ptr<string> normalizationSchemaName_ {};
       // The LogStore to which the normalization output is written.
       shared_ptr<string> normalizationSchemaTargetLogStore_ {};
@@ -283,7 +285,7 @@ namespace Models
   protected:
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of normalization schemas.
     shared_ptr<vector<ListNormalizationSchemasResponseBody::NormalizationSchemas>> normalizationSchemas_ {};

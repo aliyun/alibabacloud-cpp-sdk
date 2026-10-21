@@ -115,24 +115,25 @@ namespace Models
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // > This parameter is required. If you do not specify this parameter, the service returns a 400 error.
     shared_ptr<string> lang_ {};
-    // The maximum number of results to return when using NextToken-based pagination. Valid values: 1 to 100. Default value: 50.
+    // The maximum number of entries to return when you use NextToken for pagination. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next query is available, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for NextToken. In the next query, set NextToken to this value.
     shared_ptr<string> nextToken_ {};
-    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: the asset is in the Chinese mainland.
-    // - ap-southeast-1: the asset is outside China.
+    // The region where the data management center of threat detection and response is located. Specify the management center region based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator switches to when viewing as another member.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
-    // - 0: the view of the current Alibaba Cloud account.
-    // - 1: the view of all accounts in the enterprise.
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
     // The target relationship.
     shared_ptr<string> targetRelation_ {};
-    // The scan object type. Valid values:
+    // The object type of the scan target. Valid values:
     // 
     // - **1**: snapshot 
     // - **2**: image

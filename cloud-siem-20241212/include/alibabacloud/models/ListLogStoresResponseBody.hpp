@@ -80,9 +80,9 @@ namespace Models
   protected:
     // The list of Simple Log Service Logstores.
     shared_ptr<vector<string>> logStores_ {};
-    // The maximum number of entries returned on this call.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. If this parameter is empty, no subsequent query is required.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

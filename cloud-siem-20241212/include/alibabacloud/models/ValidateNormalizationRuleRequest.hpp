@@ -140,37 +140,35 @@ namespace Models
 
 
   protected:
-    // The rule ID.
+    // The ID of the rule.
     shared_ptr<string> data_ {};
-    // The storage mode for extended fields. Valid values: \\`flat\\`, \\`pack\\`, and \\`reject\\`.
+    // The storage mode of extended fields. Valid values: flat, pack, and reject.
     shared_ptr<string> extendFieldStoreMode_ {};
-    // The language of the response messages. Valid values:
-    // 
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // 
+    // Note: This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error with the message \\"The specified Lang can not be empty.\\" Explicitly specify the language code.
     shared_ptr<string> lang_ {};
-    // The sample log. The value must be in the JSON format.
+    // The log sample in JSON format.
     shared_ptr<string> logSample_ {};
-    // The normalization category of the rule.
+    // The normalization category to which the rule belongs.
     shared_ptr<string> normalizationCategoryId_ {};
-    // The expression for the normalization rule.
+    // The expression of the normalization rule.
     shared_ptr<string> normalizationRuleExpression_ {};
-    // The mode of the normalization rule. Valid values: \\`both\\` and \\`realtime\\`.
+    // The mode of the normalization rule. Valid values: both and realtime.
     shared_ptr<string> normalizationRuleMode_ {};
-    // The ID of the normalization pattern for the rule.
+    // The ID of the normalization schema to which the rule belongs. This parameter is required in actual API calls. If this parameter is not provided, the service returns a 400 error.
     shared_ptr<string> normalizationSchemaId_ {};
-    // The product ID.
+    // The ID of the product.
     shared_ptr<string> productId_ {};
-    // The region where the Data Management center for threat analysis is deployed. Select the region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. An administrator uses this parameter to switch to the perspective of the member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The vendor ID.
+    // The ID of the vendor.
     shared_ptr<string> vendorId_ {};
   };
 

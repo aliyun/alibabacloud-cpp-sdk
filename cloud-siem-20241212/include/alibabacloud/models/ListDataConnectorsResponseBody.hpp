@@ -220,9 +220,9 @@ namespace Models
     protected:
       // The configuration item ID of the collector access object in the multi-cloud configuration.
       shared_ptr<string> authConfigId_ {};
-      // The cloud product of the authentication configuration.
+      // The cloud product to which the authentication configuration belongs.
       shared_ptr<string> authConfigProduct_ {};
-      // The cloud vendor of the authentication configuration.
+      // The cloud vendor to which the authentication configuration belongs.
       shared_ptr<string> authConfigVendor_ {};
       // The creation time.
       shared_ptr<int64_t> creationTime_ {};
@@ -244,9 +244,9 @@ namespace Models
       shared_ptr<string> logRegionId_ {};
       // The Simple Log Service Logstore name.
       shared_ptr<string> logStoreName_ {};
-      // The name of the SLS data import job associated with the collector.
+      // The name of the SLS data import job for the collector.
       shared_ptr<string> slsIngestionJobName_ {};
-      // The status of the SLS data import job associated with the collector.
+      // The status of the SLS data import job for the collector.
       shared_ptr<string> slsIngestionJobState_ {};
       // The source data type.
       shared_ptr<string> srcDataType_ {};
@@ -311,7 +311,7 @@ namespace Models
   protected:
     // The list of collectors.
     shared_ptr<vector<ListDataConnectorsResponseBody::DataConnector>> dataConnector_ {};
-    // The maximum number of records returned in this request.
+    // The maximum number of records returned in this query.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

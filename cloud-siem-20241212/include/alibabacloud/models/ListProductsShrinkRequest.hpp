@@ -113,32 +113,28 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // 
+    // Note: This parameter is required in actual calls. If this parameter is not specified, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query. You do not need to specify this parameter for the first query. For subsequent queries, set this parameter to the \\`NextToken\\` value that is returned from the previous API call.
+    // The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of product IDs.
     shared_ptr<string> productIdsShrink_ {};
     // The product name.
     shared_ptr<string> productName_ {};
     // The product type. Valid values:
-    // 
     // - preset
-    // 
     // - custom
     shared_ptr<string> productType_ {};
-    // The region of the Data Management center for threat analysis. Select the region for the Management Hub based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - ap-southeast-1: Your assets are in regions outside China.
+    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. An administrator can specify this parameter to switch to the perspective of this member.
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The vendor ID.
     shared_ptr<string> vendorId_ {};

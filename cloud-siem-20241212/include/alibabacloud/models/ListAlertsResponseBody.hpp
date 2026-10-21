@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The alert details.
+      // The detailed content of the alert.
       shared_ptr<string> alertRecord_ {};
-      // The alert UUID.
+      // The UUID of the alert.
       shared_ptr<string> alertUuid_ {};
     };
 
@@ -143,7 +143,7 @@ namespace Models
   protected:
     // The alert details.
     shared_ptr<vector<ListAlertsResponseBody::Alerts>> alerts_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query.
     shared_ptr<string> nextToken_ {};

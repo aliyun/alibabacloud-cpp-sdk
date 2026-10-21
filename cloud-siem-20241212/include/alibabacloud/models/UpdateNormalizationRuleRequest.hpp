@@ -207,68 +207,56 @@ namespace Models
 
 
   protected:
-    // Specifies whether to package non-standard fields into the extend_content extension field. Valid values:
-    // 
-    // - enabled: The feature is enabled.
-    // 
-    // - disabled: The feature is disabled.
+    // Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> extendContentPacked_ {};
-    // The storage mode for extension fields. Valid values: flat, pack, and reject.
+    // The extended field storage mode. Valid values: flat, pack, reject.
     shared_ptr<string> extendFieldStoreMode_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
+    // The language of the response messages. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The normalization category.
+    // The normalization category to which the rule belongs.
     shared_ptr<string> normalizationCategoryId_ {};
-    // The description of the normalization rule.
+    // The normalization rule description.
     shared_ptr<string> normalizationRuleDescription_ {};
-    // The expression for the normalization rule.
+    // The normalization rule expression.
     shared_ptr<string> normalizationRuleExpression_ {};
-    // The format of the normalization rule.
+    // The normalization rule format.
     shared_ptr<string> normalizationRuleFormat_ {};
-    // The ID of the normalization rule.
+    // The normalization rule ID.
     shared_ptr<string> normalizationRuleId_ {};
     // The list of normalization rule IDs.
     shared_ptr<vector<string>> normalizationRuleIds_ {};
-    // The mode of the normalization rule. Valid values:
-    // 
+    // The normalization rule mode. Valid values:
     // - both
-    // 
     // - scan
-    // 
     // - realtime
     shared_ptr<string> normalizationRuleMode_ {};
-    // The name of the normalization rule.
+    // The normalization rule name.
     shared_ptr<string> normalizationRuleName_ {};
-    // The type of the normalization rule. Valid values:
-    // 
+    // The normalization rule type. Valid values:
     // - predefined: predefined normalization rule.
-    // 
     // - custom: custom normalization rule.
     shared_ptr<string> normalizationRuleType_ {};
-    // The ID of the normalization structure.
+    // The normalization schema ID.
     shared_ptr<string> normalizationSchemaId_ {};
+    // The normalization security domain ID.
     shared_ptr<string> normalizationSecurityDomainId_ {};
-    // The field to use for sorting the rule list. Valid values:
-    // 
-    // - GmtModified: Sorts by modification time.
-    // 
-    // - Id: Sorts by rule ID (default).
+    // The field used to sort the rule list. Valid values:
+    // - GmtModified: Sort by modification time.
+    // - Id: Sort by rule ID (default).
     shared_ptr<string> orderField_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region where the Data Management center of threat analysis is located. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: an asset in the Chinese mainland.
-    // 
-    // - ap-southeast-1: an asset outside the Chinese mainland.
+    // The region where the data management center of the threat detection service is located. Select the management center region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets are located in the Chinese mainland.
+    // - ap-southeast-1: Your assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. This parameter is used when an administrator switches to the perspective of the member.
+    // The user ID of the member account that the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The vendor ID that corresponds to the normalization rule.
+    // The vendor ID associated with the normalization rule.
     shared_ptr<string> vendorId_ {};
   };
 

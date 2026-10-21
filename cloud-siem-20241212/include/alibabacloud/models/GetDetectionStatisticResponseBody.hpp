@@ -115,6 +115,7 @@ namespace Models
 
 
     protected:
+      // The number of AI-powered aggregation rules.
       shared_ptr<int32_t> aiPoweredAggregationRuleCount_ {};
       // The number of online rules.
       shared_ptr<int32_t> detectionRuleOnlineCount_ {};
@@ -126,7 +127,7 @@ namespace Models
       shared_ptr<int32_t> graphComputeRuleCount_ {};
       // The number of alert pass-through rules.
       shared_ptr<int32_t> passthroughRuleCount_ {};
-      // The number of similar aggregation rules.
+      // The number of same-type aggregation rules.
       shared_ptr<int32_t> windowRuleCount_ {};
     };
 
@@ -149,9 +150,9 @@ namespace Models
 
 
   protected:
-    // The detection rule count result.
+    // The count results of detection rules.
     shared_ptr<GetDetectionStatisticResponseBody::DetectionStatistic> detectionStatistic_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

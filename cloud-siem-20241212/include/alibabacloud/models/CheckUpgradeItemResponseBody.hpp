@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The name of the module.
+      // The check result of the check item. Example values: OK and FAIL.
       shared_ptr<string> checkResult_ {};
-      // The check status.
+      // The checkpoint status.
       shared_ptr<string> checkStatus_ {};
-      // The ID of the upgrade item.
+      // The upgrade item ID.
       shared_ptr<string> upgradeItemId_ {};
     };
 

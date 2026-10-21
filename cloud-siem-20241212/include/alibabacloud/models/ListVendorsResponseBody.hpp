@@ -103,18 +103,16 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
       // The vendor ID.
       shared_ptr<string> vendorId_ {};
       // The vendor name.
       shared_ptr<string> vendorName_ {};
       // The vendor type. Valid values:
-      // 
       // - preset
-      // 
       // - custom
       shared_ptr<string> vendorType_ {};
     };
@@ -159,11 +157,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned for this request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If this is your first query or if no next page exists, you do not need to specify this parameter. If a next page exists, set the value to the NextToken value that is returned in the last response.
+    // The pagination token for the next query. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

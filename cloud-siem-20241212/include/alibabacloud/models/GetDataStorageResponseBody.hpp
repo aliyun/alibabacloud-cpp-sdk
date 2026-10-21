@@ -41,6 +41,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataStorageTotalCapacity, dataStorageTotalCapacity_);
         DARABONBA_PTR_TO_JSON(DataStorageUsedCapacity, dataStorageUsedCapacity_);
         DARABONBA_PTR_TO_JSON(DataStorageUsedCapacityDetail, dataStorageUsedCapacityDetail_);
+        DARABONBA_PTR_TO_JSON(DeliverySettings, deliverySettings_);
+        DARABONBA_PTR_TO_JSON(DeliverySettingsError, deliverySettingsError_);
         DARABONBA_PTR_TO_JSON(LogProject, logProject_);
         DARABONBA_PTR_TO_JSON(LogProjectState, logProjectState_);
         DARABONBA_PTR_TO_JSON(LogProjectStateChangeAllowed, logProjectStateChangeAllowed_);
@@ -58,6 +60,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataStorageTotalCapacity, dataStorageTotalCapacity_);
         DARABONBA_PTR_FROM_JSON(DataStorageUsedCapacity, dataStorageUsedCapacity_);
         DARABONBA_PTR_FROM_JSON(DataStorageUsedCapacityDetail, dataStorageUsedCapacityDetail_);
+        DARABONBA_PTR_FROM_JSON(DeliverySettings, deliverySettings_);
+        DARABONBA_PTR_FROM_JSON(DeliverySettingsError, deliverySettingsError_);
         DARABONBA_PTR_FROM_JSON(LogProject, logProject_);
         DARABONBA_PTR_FROM_JSON(LogProjectState, logProjectState_);
         DARABONBA_PTR_FROM_JSON(LogProjectStateChangeAllowed, logProjectStateChangeAllowed_);
@@ -126,17 +130,18 @@ namespace Models
 
 
       protected:
-        // The Logstore name.
+        // The name of the Logstore.
         shared_ptr<string> logStoreName_ {};
-        // The data storage duration.
+        // The data retention period.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage used capacity.
+        // The amount of hot storage used.
         shared_ptr<double> usedCapacity_ {};
       };
 
       class SasLogStores : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const SasLogStores& obj) { 
+          DARABONBA_PTR_TO_JSON(AccountDeliveries, accountDeliveries_);
           DARABONBA_PTR_TO_JSON(LogCode, logCode_);
           DARABONBA_PTR_TO_JSON(LogDeliveryGroup, logDeliveryGroup_);
           DARABONBA_PTR_TO_JSON(LogDeliveryPermission, logDeliveryPermission_);
@@ -150,6 +155,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(UsedCapacity, usedCapacity_);
         };
         friend void from_json(const Darabonba::Json& j, SasLogStores& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccountDeliveries, accountDeliveries_);
           DARABONBA_PTR_FROM_JSON(LogCode, logCode_);
           DARABONBA_PTR_FROM_JSON(LogDeliveryGroup, logDeliveryGroup_);
           DARABONBA_PTR_FROM_JSON(LogDeliveryPermission, logDeliveryPermission_);
@@ -173,9 +179,100 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->logCode_ == nullptr
-        && this->logDeliveryGroup_ == nullptr && this->logDeliveryPermission_ == nullptr && this->logDeliveryStatus_ == nullptr && this->logDeliveryUpdateTime_ == nullptr && this->logName_ == nullptr
-        && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr && this->usedCapacity_ == nullptr; };
+        class AccountDeliveries : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AccountDeliveries& obj) { 
+            DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+            DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+            DARABONBA_PTR_TO_JSON(IsDaAccount, isDaAccount_);
+            DARABONBA_PTR_TO_JSON(LogDeliveryStatus, logDeliveryStatus_);
+            DARABONBA_PTR_TO_JSON(LogDeliveryUpdateTime, logDeliveryUpdateTime_);
+          };
+          friend void from_json(const Darabonba::Json& j, AccountDeliveries& obj) { 
+            DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+            DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+            DARABONBA_PTR_FROM_JSON(IsDaAccount, isDaAccount_);
+            DARABONBA_PTR_FROM_JSON(LogDeliveryStatus, logDeliveryStatus_);
+            DARABONBA_PTR_FROM_JSON(LogDeliveryUpdateTime, logDeliveryUpdateTime_);
+          };
+          AccountDeliveries() = default ;
+          AccountDeliveries(const AccountDeliveries &) = default ;
+          AccountDeliveries(AccountDeliveries &&) = default ;
+          AccountDeliveries(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AccountDeliveries() = default ;
+          AccountDeliveries& operator=(const AccountDeliveries &) = default ;
+          AccountDeliveries& operator=(AccountDeliveries &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->accountName_ == nullptr && this->isDaAccount_ == nullptr && this->logDeliveryStatus_ == nullptr && this->logDeliveryUpdateTime_ == nullptr; };
+          // accountId Field Functions 
+          bool hasAccountId() const { return this->accountId_ != nullptr;};
+          void deleteAccountId() { this->accountId_ = nullptr;};
+          inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
+          inline AccountDeliveries& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+          // accountName Field Functions 
+          bool hasAccountName() const { return this->accountName_ != nullptr;};
+          void deleteAccountName() { this->accountName_ = nullptr;};
+          inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+          inline AccountDeliveries& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+          // isDaAccount Field Functions 
+          bool hasIsDaAccount() const { return this->isDaAccount_ != nullptr;};
+          void deleteIsDaAccount() { this->isDaAccount_ = nullptr;};
+          inline bool getIsDaAccount() const { DARABONBA_PTR_GET_DEFAULT(isDaAccount_, false) };
+          inline AccountDeliveries& setIsDaAccount(bool isDaAccount) { DARABONBA_PTR_SET_VALUE(isDaAccount_, isDaAccount) };
+
+
+          // logDeliveryStatus Field Functions 
+          bool hasLogDeliveryStatus() const { return this->logDeliveryStatus_ != nullptr;};
+          void deleteLogDeliveryStatus() { this->logDeliveryStatus_ = nullptr;};
+          inline string getLogDeliveryStatus() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryStatus_, "") };
+          inline AccountDeliveries& setLogDeliveryStatus(string logDeliveryStatus) { DARABONBA_PTR_SET_VALUE(logDeliveryStatus_, logDeliveryStatus) };
+
+
+          // logDeliveryUpdateTime Field Functions 
+          bool hasLogDeliveryUpdateTime() const { return this->logDeliveryUpdateTime_ != nullptr;};
+          void deleteLogDeliveryUpdateTime() { this->logDeliveryUpdateTime_ = nullptr;};
+          inline string getLogDeliveryUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(logDeliveryUpdateTime_, "") };
+          inline AccountDeliveries& setLogDeliveryUpdateTime(string logDeliveryUpdateTime) { DARABONBA_PTR_SET_VALUE(logDeliveryUpdateTime_, logDeliveryUpdateTime) };
+
+
+        protected:
+          // The UID of the source cloud account. This field is an int64 number.
+          shared_ptr<int64_t> accountId_ {};
+          // The display name of the source account. If the name is not obtained, the account UID string is used.
+          shared_ptr<string> accountName_ {};
+          // Indicates whether the account is the current management or target account (the current account). A value of true indicates the current account. A value of false indicates a member source account.
+          shared_ptr<bool> isDaAccount_ {};
+          // The recorded delivery status of the source account. Valid values:
+          // - enable: Enabled.
+          // - disable: Disabled.
+          shared_ptr<string> logDeliveryStatus_ {};
+          // The last update time of the delivery status for the source account. If no record is generated, this field is empty or not returned.
+          // 
+          // Use the UTC time format: yyyy-MM-ddTHH:mmZ
+          shared_ptr<string> logDeliveryUpdateTime_ {};
+        };
+
+        virtual bool empty() const override { return this->accountDeliveries_ == nullptr
+        && this->logCode_ == nullptr && this->logDeliveryGroup_ == nullptr && this->logDeliveryPermission_ == nullptr && this->logDeliveryStatus_ == nullptr && this->logDeliveryUpdateTime_ == nullptr
+        && this->logName_ == nullptr && this->logSearchConditions_ == nullptr && this->logStoreExisted_ == nullptr && this->logStoreName_ == nullptr && this->logStoreTtl_ == nullptr
+        && this->usedCapacity_ == nullptr; };
+        // accountDeliveries Field Functions 
+        bool hasAccountDeliveries() const { return this->accountDeliveries_ != nullptr;};
+        void deleteAccountDeliveries() { this->accountDeliveries_ = nullptr;};
+        inline const vector<SasLogStores::AccountDeliveries> & getAccountDeliveries() const { DARABONBA_PTR_GET_CONST(accountDeliveries_, vector<SasLogStores::AccountDeliveries>) };
+        inline vector<SasLogStores::AccountDeliveries> getAccountDeliveries() { DARABONBA_PTR_GET(accountDeliveries_, vector<SasLogStores::AccountDeliveries>) };
+        inline SasLogStores& setAccountDeliveries(const vector<SasLogStores::AccountDeliveries> & accountDeliveries) { DARABONBA_PTR_SET_VALUE(accountDeliveries_, accountDeliveries) };
+        inline SasLogStores& setAccountDeliveries(vector<SasLogStores::AccountDeliveries> && accountDeliveries) { DARABONBA_PTR_SET_RVALUE(accountDeliveries_, accountDeliveries) };
+
+
         // logCode Field Functions 
         bool hasLogCode() const { return this->logCode_ != nullptr;};
         void deleteLogCode() { this->logCode_ = nullptr;};
@@ -254,13 +351,15 @@ namespace Models
 
 
       protected:
+        // The delivery records of this log type expanded by source account, including the current account and member accounts with existing records.
+        shared_ptr<vector<SasLogStores::AccountDeliveries>> accountDeliveries_ {};
         // The log code.
         shared_ptr<string> logCode_ {};
         // The group to which the log belongs. Valid values:
         // - host: Host logs.
         // - security: Security logs.
         shared_ptr<string> logDeliveryGroup_ {};
-        // Indicates whether you are allowed to toggle the log delivery switch. Log delivery cannot be performed if the service is not purchased. Valid values:
+        // Specifies whether the log delivery switch can be operated. Log delivery is unavailable if the service is not purchased. Valid values:
         // - allow: Allowed.
         // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
@@ -268,21 +367,21 @@ namespace Models
         // - enable: Log delivery is enabled.
         // - disable: Log delivery is disabled.
         shared_ptr<string> logDeliveryStatus_ {};
-        // The time when the log delivery was last modified.
+        // The time of the last log delivery operation. The format is YYYY-MM-DDTHH:mm:ss.
         shared_ptr<string> logDeliveryUpdateTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
-        // The default log query conditions for the log. When multiple logs are stored in the same Logstore, query conditions are required to perform a log query for a specific log.
+        // The default query conditions for the log. When multiple logs are stored in a single Logstore, you must use query conditions to perform a log query for a specific log.
         shared_ptr<string> logSearchConditions_ {};
         // Indicates whether the Logstore where the log is stored exists. Valid values:
-        // - true: The Logstore exists.
-        // - false: The Logstore does not exist.
+        // - true: Exists.
+        // - false: Does not exist.
         shared_ptr<bool> logStoreExisted_ {};
         // The name of the Logstore where the log is stored.
         shared_ptr<string> logStoreName_ {};
-        // The storage duration of the Logstore where the log is stored. Logs are stored for at least 30 days.
+        // The storage duration of the Logstore where the log is stored. The minimum storage duration is 30 days.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage used capacity.
+        // The amount of hot storage used.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -333,11 +432,11 @@ namespace Models
 
 
       protected:
-        // The Logstore name.
+        // The name of the Logstore.
         shared_ptr<string> logStoreName_ {};
-        // The Logstore TTL.
+        // The TTL of the Logstore.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The Logstore used capacity.
+        // The used capacity of the Logstore.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -436,21 +535,21 @@ namespace Models
 
 
       protected:
-        // The log type of the normalized log.
+        // The log type of the normalized logs.
         shared_ptr<string> activityName_ {};
-        // The category of the normalized log.
+        // The category of the normalized logs.
         shared_ptr<string> categoryName_ {};
-        // The number of times the normalized dataset is referenced in the threat analysis access center.
+        // The number of times this normalized dataset is referenced in Threat Analysis and Response.
         shared_ptr<int32_t> detectionRuleReferenceCount_ {};
-        // The list of products that reference the normalized dataset in the threat analysis access center.
+        // The list of products that reference this normalized dataset in Threat Analysis and Response.
         shared_ptr<vector<string>> detectionRuleReferenceProductIds_ {};
-        // The query statement used to query the log type in the normalized dataset.
+        // The query statement used to query log types in the normalized dataset.
         shared_ptr<string> logSearchConditions_ {};
-        // The Logstore where threat analysis stores normalized logs.
+        // The Logstore where Threat Analysis and Response stores normalized logs.
         shared_ptr<string> logStoreName_ {};
-        // Indicates whether the normalized dataset exists. Valid values:
-        // - true: The normalized dataset exists.
-        // - false: The normalized dataset does not exist.
+        // Specifies whether the normalized dataset exists. Valid values:
+        // - true: The dataset exists.
+        // - false: The dataset does not exist.
         shared_ptr<bool> logViewExisted_ {};
         // The name of the normalized dataset.
         shared_ptr<string> logViewName_ {};
@@ -505,16 +604,367 @@ namespace Models
       protected:
         // The name of the Logstore that stores normalized data.
         shared_ptr<string> logStoreName_ {};
-        // The storage duration of normalized data.
+        // The storage duration of the normalized data.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage used capacity.
+        // The amount of hot storage used.
         shared_ptr<double> usedCapacity_ {};
+      };
+
+      class DeliverySettings : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DeliverySettings& obj) { 
+          DARABONBA_PTR_TO_JSON(Accounts, accounts_);
+          DARABONBA_PTR_TO_JSON(CanConfigure, canConfigure_);
+          DARABONBA_PTR_TO_JSON(ConfigurationVersion, configurationVersion_);
+          DARABONBA_PTR_TO_JSON(DaAccountId, daAccountId_);
+          DARABONBA_PTR_TO_JSON(Enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(Initialized, initialized_);
+          DARABONBA_PTR_TO_JSON(PrerequisiteEnabled, prerequisiteEnabled_);
+          DARABONBA_PTR_TO_JSON(TargetProject, targetProject_);
+          DARABONBA_PTR_TO_JSON(TargetRegion, targetRegion_);
+          DARABONBA_PTR_TO_JSON(Types, types_);
+          DARABONBA_PTR_TO_JSON(UnavailableReason, unavailableReason_);
+        };
+        friend void from_json(const Darabonba::Json& j, DeliverySettings& obj) { 
+          DARABONBA_PTR_FROM_JSON(Accounts, accounts_);
+          DARABONBA_PTR_FROM_JSON(CanConfigure, canConfigure_);
+          DARABONBA_PTR_FROM_JSON(ConfigurationVersion, configurationVersion_);
+          DARABONBA_PTR_FROM_JSON(DaAccountId, daAccountId_);
+          DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(Initialized, initialized_);
+          DARABONBA_PTR_FROM_JSON(PrerequisiteEnabled, prerequisiteEnabled_);
+          DARABONBA_PTR_FROM_JSON(TargetProject, targetProject_);
+          DARABONBA_PTR_FROM_JSON(TargetRegion, targetRegion_);
+          DARABONBA_PTR_FROM_JSON(Types, types_);
+          DARABONBA_PTR_FROM_JSON(UnavailableReason, unavailableReason_);
+        };
+        DeliverySettings() = default ;
+        DeliverySettings(const DeliverySettings &) = default ;
+        DeliverySettings(DeliverySettings &&) = default ;
+        DeliverySettings(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DeliverySettings() = default ;
+        DeliverySettings& operator=(const DeliverySettings &) = default ;
+        DeliverySettings& operator=(DeliverySettings &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Types : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Types& obj) { 
+            DARABONBA_PTR_TO_JSON(AutoIncludeNewAccounts, autoIncludeNewAccounts_);
+            DARABONBA_PTR_TO_JSON(Executions, executions_);
+            DARABONBA_PTR_TO_JSON(LogCode, logCode_);
+            DARABONBA_PTR_TO_JSON(SelectedAccountIds, selectedAccountIds_);
+          };
+          friend void from_json(const Darabonba::Json& j, Types& obj) { 
+            DARABONBA_PTR_FROM_JSON(AutoIncludeNewAccounts, autoIncludeNewAccounts_);
+            DARABONBA_PTR_FROM_JSON(Executions, executions_);
+            DARABONBA_PTR_FROM_JSON(LogCode, logCode_);
+            DARABONBA_PTR_FROM_JSON(SelectedAccountIds, selectedAccountIds_);
+          };
+          Types() = default ;
+          Types(const Types &) = default ;
+          Types(Types &&) = default ;
+          Types(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Types() = default ;
+          Types& operator=(const Types &) = default ;
+          Types& operator=(Types &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Executions : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Executions& obj) { 
+              DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+              DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+              DARABONBA_PTR_TO_JSON(Status, status_);
+              DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+            };
+            friend void from_json(const Darabonba::Json& j, Executions& obj) { 
+              DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+              DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+              DARABONBA_PTR_FROM_JSON(Status, status_);
+              DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+            };
+            Executions() = default ;
+            Executions(const Executions &) = default ;
+            Executions(Executions &&) = default ;
+            Executions(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Executions() = default ;
+            Executions& operator=(const Executions &) = default ;
+            Executions& operator=(Executions &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->errorCode_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+            // accountId Field Functions 
+            bool hasAccountId() const { return this->accountId_ != nullptr;};
+            void deleteAccountId() { this->accountId_ = nullptr;};
+            inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+            inline Executions& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+            // errorCode Field Functions 
+            bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+            void deleteErrorCode() { this->errorCode_ = nullptr;};
+            inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+            inline Executions& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+            // status Field Functions 
+            bool hasStatus() const { return this->status_ != nullptr;};
+            void deleteStatus() { this->status_ = nullptr;};
+            inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+            inline Executions& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+            // updateTime Field Functions 
+            bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+            void deleteUpdateTime() { this->updateTime_ = nullptr;};
+            inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+            inline Executions& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
+          protected:
+            // The UID of the source account for this delivery record, which is a decimal string.
+            shared_ptr<string> accountId_ {};
+            // A reserved compatibility field. The current implementation does not populate historical execution error codes, so this field is usually empty or not returned. If execution fails, read the error code returned by the corresponding write operation.
+            shared_ptr<string> errorCode_ {};
+            // The recorded delivery status. RUNNING indicates that the status is recorded as enabled after the last successful operation. STOPPED indicates that the status is recorded as disabled. This field does not indicate real-time log arrival.
+            shared_ptr<string> status_ {};
+            // The last update time of the delivery status, which is a UNIX timestamp in milliseconds. This field is empty or not returned if the record has no update time.
+            shared_ptr<int64_t> updateTime_ {};
+          };
+
+          virtual bool empty() const override { return this->autoIncludeNewAccounts_ == nullptr
+        && this->executions_ == nullptr && this->logCode_ == nullptr && this->selectedAccountIds_ == nullptr; };
+          // autoIncludeNewAccounts Field Functions 
+          bool hasAutoIncludeNewAccounts() const { return this->autoIncludeNewAccounts_ != nullptr;};
+          void deleteAutoIncludeNewAccounts() { this->autoIncludeNewAccounts_ = nullptr;};
+          inline bool getAutoIncludeNewAccounts() const { DARABONBA_PTR_GET_DEFAULT(autoIncludeNewAccounts_, false) };
+          inline Types& setAutoIncludeNewAccounts(bool autoIncludeNewAccounts) { DARABONBA_PTR_SET_VALUE(autoIncludeNewAccounts_, autoIncludeNewAccounts) };
+
+
+          // executions Field Functions 
+          bool hasExecutions() const { return this->executions_ != nullptr;};
+          void deleteExecutions() { this->executions_ = nullptr;};
+          inline const vector<Types::Executions> & getExecutions() const { DARABONBA_PTR_GET_CONST(executions_, vector<Types::Executions>) };
+          inline vector<Types::Executions> getExecutions() { DARABONBA_PTR_GET(executions_, vector<Types::Executions>) };
+          inline Types& setExecutions(const vector<Types::Executions> & executions) { DARABONBA_PTR_SET_VALUE(executions_, executions) };
+          inline Types& setExecutions(vector<Types::Executions> && executions) { DARABONBA_PTR_SET_RVALUE(executions_, executions) };
+
+
+          // logCode Field Functions 
+          bool hasLogCode() const { return this->logCode_ != nullptr;};
+          void deleteLogCode() { this->logCode_ = nullptr;};
+          inline string getLogCode() const { DARABONBA_PTR_GET_DEFAULT(logCode_, "") };
+          inline Types& setLogCode(string logCode) { DARABONBA_PTR_SET_VALUE(logCode_, logCode) };
+
+
+          // selectedAccountIds Field Functions 
+          bool hasSelectedAccountIds() const { return this->selectedAccountIds_ != nullptr;};
+          void deleteSelectedAccountIds() { this->selectedAccountIds_ = nullptr;};
+          inline const vector<string> & getSelectedAccountIds() const { DARABONBA_PTR_GET_CONST(selectedAccountIds_, vector<string>) };
+          inline vector<string> getSelectedAccountIds() { DARABONBA_PTR_GET(selectedAccountIds_, vector<string>) };
+          inline Types& setSelectedAccountIds(const vector<string> & selectedAccountIds) { DARABONBA_PTR_SET_VALUE(selectedAccountIds_, selectedAccountIds) };
+          inline Types& setSelectedAccountIds(vector<string> && selectedAccountIds) { DARABONBA_PTR_SET_RVALUE(selectedAccountIds_, selectedAccountIds) };
+
+
+        protected:
+          // Specifies whether to automatically add subsequent new and available managed members to the selection scope of this log type.
+          shared_ptr<bool> autoIncludeNewAccounts_ {};
+          // The status list of existing source delivery records for this log type.
+          shared_ptr<vector<Types::Executions>> executions_ {};
+          // The unique identifier of the log type, which corresponds to UpdateDataStorageDelivery.LogCode.
+          shared_ptr<string> logCode_ {};
+          // The array of UIDs of the selected source accounts for this log type, including the current account. The response is a JSON string array. When you write an array(simple) request, you must serialize it into comma-separated values.
+          shared_ptr<vector<string>> selectedAccountIds_ {};
+        };
+
+        class Accounts : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Accounts& obj) { 
+            DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+            DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+            DARABONBA_PTR_TO_JSON(Authorized, authorized_);
+            DARABONBA_PTR_TO_JSON(DaAccount, daAccount_);
+          };
+          friend void from_json(const Darabonba::Json& j, Accounts& obj) { 
+            DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+            DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+            DARABONBA_PTR_FROM_JSON(Authorized, authorized_);
+            DARABONBA_PTR_FROM_JSON(DaAccount, daAccount_);
+          };
+          Accounts() = default ;
+          Accounts(const Accounts &) = default ;
+          Accounts(Accounts &&) = default ;
+          Accounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Accounts() = default ;
+          Accounts& operator=(const Accounts &) = default ;
+          Accounts& operator=(Accounts &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->accountName_ == nullptr && this->authorized_ == nullptr && this->daAccount_ == nullptr; };
+          // accountId Field Functions 
+          bool hasAccountId() const { return this->accountId_ != nullptr;};
+          void deleteAccountId() { this->accountId_ = nullptr;};
+          inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+          inline Accounts& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+          // accountName Field Functions 
+          bool hasAccountName() const { return this->accountName_ != nullptr;};
+          void deleteAccountName() { this->accountName_ = nullptr;};
+          inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+          inline Accounts& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+          // authorized Field Functions 
+          bool hasAuthorized() const { return this->authorized_ != nullptr;};
+          void deleteAuthorized() { this->authorized_ = nullptr;};
+          inline bool getAuthorized() const { DARABONBA_PTR_GET_DEFAULT(authorized_, false) };
+          inline Accounts& setAuthorized(bool authorized) { DARABONBA_PTR_SET_VALUE(authorized_, authorized) };
+
+
+          // daAccount Field Functions 
+          bool hasDaAccount() const { return this->daAccount_ != nullptr;};
+          void deleteDaAccount() { this->daAccount_ = nullptr;};
+          inline bool getDaAccount() const { DARABONBA_PTR_GET_DEFAULT(daAccount_, false) };
+          inline Accounts& setDaAccount(bool daAccount) { DARABONBA_PTR_SET_VALUE(daAccount_, daAccount) };
+
+
+        protected:
+          // The UID of the source Alibaba Cloud account, which is a decimal string.
+          shared_ptr<string> accountId_ {};
+          // The display name of the account. If the name is missing, the UID string is returned.
+          shared_ptr<string> accountName_ {};
+          // Specifies whether the account has the authorization required for log delivery. This parameter must be set to true when you add a selected member.
+          shared_ptr<bool> authorized_ {};
+          // Specifies whether the account is the current management and delivery target account, which is the current account.
+          shared_ptr<bool> daAccount_ {};
+        };
+
+        virtual bool empty() const override { return this->accounts_ == nullptr
+        && this->canConfigure_ == nullptr && this->configurationVersion_ == nullptr && this->daAccountId_ == nullptr && this->enabled_ == nullptr && this->initialized_ == nullptr
+        && this->prerequisiteEnabled_ == nullptr && this->targetProject_ == nullptr && this->targetRegion_ == nullptr && this->types_ == nullptr && this->unavailableReason_ == nullptr; };
+        // accounts Field Functions 
+        bool hasAccounts() const { return this->accounts_ != nullptr;};
+        void deleteAccounts() { this->accounts_ = nullptr;};
+        inline const vector<DeliverySettings::Accounts> & getAccounts() const { DARABONBA_PTR_GET_CONST(accounts_, vector<DeliverySettings::Accounts>) };
+        inline vector<DeliverySettings::Accounts> getAccounts() { DARABONBA_PTR_GET(accounts_, vector<DeliverySettings::Accounts>) };
+        inline DeliverySettings& setAccounts(const vector<DeliverySettings::Accounts> & accounts) { DARABONBA_PTR_SET_VALUE(accounts_, accounts) };
+        inline DeliverySettings& setAccounts(vector<DeliverySettings::Accounts> && accounts) { DARABONBA_PTR_SET_RVALUE(accounts_, accounts) };
+
+
+        // canConfigure Field Functions 
+        bool hasCanConfigure() const { return this->canConfigure_ != nullptr;};
+        void deleteCanConfigure() { this->canConfigure_ = nullptr;};
+        inline bool getCanConfigure() const { DARABONBA_PTR_GET_DEFAULT(canConfigure_, false) };
+        inline DeliverySettings& setCanConfigure(bool canConfigure) { DARABONBA_PTR_SET_VALUE(canConfigure_, canConfigure) };
+
+
+        // configurationVersion Field Functions 
+        bool hasConfigurationVersion() const { return this->configurationVersion_ != nullptr;};
+        void deleteConfigurationVersion() { this->configurationVersion_ = nullptr;};
+        inline int64_t getConfigurationVersion() const { DARABONBA_PTR_GET_DEFAULT(configurationVersion_, 0L) };
+        inline DeliverySettings& setConfigurationVersion(int64_t configurationVersion) { DARABONBA_PTR_SET_VALUE(configurationVersion_, configurationVersion) };
+
+
+        // daAccountId Field Functions 
+        bool hasDaAccountId() const { return this->daAccountId_ != nullptr;};
+        void deleteDaAccountId() { this->daAccountId_ = nullptr;};
+        inline string getDaAccountId() const { DARABONBA_PTR_GET_DEFAULT(daAccountId_, "") };
+        inline DeliverySettings& setDaAccountId(string daAccountId) { DARABONBA_PTR_SET_VALUE(daAccountId_, daAccountId) };
+
+
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline DeliverySettings& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // initialized Field Functions 
+        bool hasInitialized() const { return this->initialized_ != nullptr;};
+        void deleteInitialized() { this->initialized_ = nullptr;};
+        inline bool getInitialized() const { DARABONBA_PTR_GET_DEFAULT(initialized_, false) };
+        inline DeliverySettings& setInitialized(bool initialized) { DARABONBA_PTR_SET_VALUE(initialized_, initialized) };
+
+
+        // prerequisiteEnabled Field Functions 
+        bool hasPrerequisiteEnabled() const { return this->prerequisiteEnabled_ != nullptr;};
+        void deletePrerequisiteEnabled() { this->prerequisiteEnabled_ = nullptr;};
+        inline bool getPrerequisiteEnabled() const { DARABONBA_PTR_GET_DEFAULT(prerequisiteEnabled_, false) };
+        inline DeliverySettings& setPrerequisiteEnabled(bool prerequisiteEnabled) { DARABONBA_PTR_SET_VALUE(prerequisiteEnabled_, prerequisiteEnabled) };
+
+
+        // targetProject Field Functions 
+        bool hasTargetProject() const { return this->targetProject_ != nullptr;};
+        void deleteTargetProject() { this->targetProject_ = nullptr;};
+        inline string getTargetProject() const { DARABONBA_PTR_GET_DEFAULT(targetProject_, "") };
+        inline DeliverySettings& setTargetProject(string targetProject) { DARABONBA_PTR_SET_VALUE(targetProject_, targetProject) };
+
+
+        // targetRegion Field Functions 
+        bool hasTargetRegion() const { return this->targetRegion_ != nullptr;};
+        void deleteTargetRegion() { this->targetRegion_ = nullptr;};
+        inline string getTargetRegion() const { DARABONBA_PTR_GET_DEFAULT(targetRegion_, "") };
+        inline DeliverySettings& setTargetRegion(string targetRegion) { DARABONBA_PTR_SET_VALUE(targetRegion_, targetRegion) };
+
+
+        // types Field Functions 
+        bool hasTypes() const { return this->types_ != nullptr;};
+        void deleteTypes() { this->types_ = nullptr;};
+        inline const vector<DeliverySettings::Types> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<DeliverySettings::Types>) };
+        inline vector<DeliverySettings::Types> getTypes() { DARABONBA_PTR_GET(types_, vector<DeliverySettings::Types>) };
+        inline DeliverySettings& setTypes(const vector<DeliverySettings::Types> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
+        inline DeliverySettings& setTypes(vector<DeliverySettings::Types> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
+
+
+        // unavailableReason Field Functions 
+        bool hasUnavailableReason() const { return this->unavailableReason_ != nullptr;};
+        void deleteUnavailableReason() { this->unavailableReason_ = nullptr;};
+        inline string getUnavailableReason() const { DARABONBA_PTR_GET_DEFAULT(unavailableReason_, "") };
+        inline DeliverySettings& setUnavailableReason(string unavailableReason) { DARABONBA_PTR_SET_VALUE(unavailableReason_, unavailableReason) };
+
+
+      protected:
+        // The account directory of the current account and managed member accounts.
+        shared_ptr<vector<DeliverySettings::Accounts>> accounts_ {};
+        // Specifies whether the current account meets the conditions for delivery setting operations. This is determined based on authorization, target project availability, capacity orders, and the current account identity. The PrerequisiteEnabled parameter must also be met.
+        shared_ptr<bool> canConfigure_ {};
+        // The current version of the delivery settings. When you modify multi-account configurations or specify member delivery, pass this value back as ConfigurationVersion. You must query this value again after each modification and cannot use a fixed example value.
+        shared_ptr<int64_t> configurationVersion_ {};
+        // The UID of the current management and delivery target account, which is a decimal string. This is also the current account that is permanently retained in the account selection list.
+        shared_ptr<string> daAccountId_ {};
+        // The master switch for the saved multi-account centralized delivery. A value of true indicates that the switch is turned on. A value of false indicates that the switch is turned off.
+        shared_ptr<bool> enabled_ {};
+        // Specifies whether the initialization of the account scope and automatic inclusion settings is completed when the feature is enabled for the first time.
+        shared_ptr<bool> initialized_ {};
+        // Specifies whether the prerequisite of enabling multi-account security management in Security Center is met.
+        shared_ptr<bool> prerequisiteEnabled_ {};
+        // The name of the current Simple Log Service project for centralized delivery. When you modify multi-account settings or specify member delivery, pass this value back as the TargetProject request parameter.
+        shared_ptr<string> targetProject_ {};
+        // The region ID of the current Simple Log Service project for centralized delivery.
+        shared_ptr<string> targetRegion_ {};
+        // The account selection, automatic inclusion settings, and existing delivery status categorized by log type.
+        shared_ptr<vector<DeliverySettings::Types>> types_ {};
+        // The reason code for being unconfigurable. Valid values: DA_UNAUTHORIZED (the management account is not authorized), TARGET_PROJECT_UNAVAILABLE (the target project is unavailable), LOG_CAPACITY_UNAVAILABLE (no valid capacity order exists), and NOT_CURRENT_ACCOUNT (the operation is not performed by the current account). This field is empty or not returned if the conditions are met.
+        shared_ptr<string> unavailableReason_ {};
       };
 
       virtual bool empty() const override { return this->coldStorageUsedCapacity_ == nullptr
         && this->dataStorageRegionId_ == nullptr && this->dataStorageRegionPermission_ == nullptr && this->dataStorageTotalCapacity_ == nullptr && this->dataStorageUsedCapacity_ == nullptr && this->dataStorageUsedCapacityDetail_ == nullptr
-        && this->logProject_ == nullptr && this->logProjectState_ == nullptr && this->logProjectStateChangeAllowed_ == nullptr && this->logServiceDisabled_ == nullptr && this->normalizationLogStores_ == nullptr
-        && this->normalizationLogViews_ == nullptr && this->recordLogStores_ == nullptr && this->sasLogStores_ == nullptr && this->unusedLogStores_ == nullptr; };
+        && this->deliverySettings_ == nullptr && this->deliverySettingsError_ == nullptr && this->logProject_ == nullptr && this->logProjectState_ == nullptr && this->logProjectStateChangeAllowed_ == nullptr
+        && this->logServiceDisabled_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->recordLogStores_ == nullptr && this->sasLogStores_ == nullptr
+        && this->unusedLogStores_ == nullptr; };
       // coldStorageUsedCapacity Field Functions 
       bool hasColdStorageUsedCapacity() const { return this->coldStorageUsedCapacity_ != nullptr;};
       void deleteColdStorageUsedCapacity() { this->coldStorageUsedCapacity_ = nullptr;};
@@ -555,6 +1005,22 @@ namespace Models
       void deleteDataStorageUsedCapacityDetail() { this->dataStorageUsedCapacityDetail_ = nullptr;};
       inline string getDataStorageUsedCapacityDetail() const { DARABONBA_PTR_GET_DEFAULT(dataStorageUsedCapacityDetail_, "") };
       inline Data& setDataStorageUsedCapacityDetail(string dataStorageUsedCapacityDetail) { DARABONBA_PTR_SET_VALUE(dataStorageUsedCapacityDetail_, dataStorageUsedCapacityDetail) };
+
+
+      // deliverySettings Field Functions 
+      bool hasDeliverySettings() const { return this->deliverySettings_ != nullptr;};
+      void deleteDeliverySettings() { this->deliverySettings_ = nullptr;};
+      inline const Data::DeliverySettings & getDeliverySettings() const { DARABONBA_PTR_GET_CONST(deliverySettings_, Data::DeliverySettings) };
+      inline Data::DeliverySettings getDeliverySettings() { DARABONBA_PTR_GET(deliverySettings_, Data::DeliverySettings) };
+      inline Data& setDeliverySettings(const Data::DeliverySettings & deliverySettings) { DARABONBA_PTR_SET_VALUE(deliverySettings_, deliverySettings) };
+      inline Data& setDeliverySettings(Data::DeliverySettings && deliverySettings) { DARABONBA_PTR_SET_RVALUE(deliverySettings_, deliverySettings) };
+
+
+      // deliverySettingsError Field Functions 
+      bool hasDeliverySettingsError() const { return this->deliverySettingsError_ != nullptr;};
+      void deleteDeliverySettingsError() { this->deliverySettingsError_ = nullptr;};
+      inline string getDeliverySettingsError() const { DARABONBA_PTR_GET_DEFAULT(deliverySettingsError_, "") };
+      inline Data& setDeliverySettingsError(string deliverySettingsError) { DARABONBA_PTR_SET_VALUE(deliverySettingsError_, deliverySettingsError) };
 
 
       // logProject Field Functions 
@@ -631,34 +1097,41 @@ namespace Models
 
 
     protected:
-      // The cold storage capacity used by user logs.
+      // The amount of cold storage used for user logs.
       shared_ptr<double> coldStorageUsedCapacity_ {};
-      // The storage region of user-side logs.
+      // The storage region of user logs.
       shared_ptr<string> dataStorageRegionId_ {};
-      // Indicates whether the storage region can be modified. By default, modification is not allowed. Contact the product manager to reset the region. The region can be reset only once. Valid values:
-      // - allow: Modification is allowed.
-      // - deny: Modification is not allowed.
+      // Specifies whether the storage region can be modified. By default, the region cannot be modified. You can contact the product manager to reset the region, and the region can be reset only once. Valid values:
+      // - allow: The region can be modified.
+      // - deny: The region cannot be modified.
       shared_ptr<string> dataStorageRegionPermission_ {};
-      // The storage capacity purchased in the prepaid scenario.
+      // The storage capacity purchased for subscription.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
-      // The storage capacity used in user log management.
+      // The amount of storage used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};
-      // The storage usage details in log management.
+      // The storage usage details of the log management user.
       shared_ptr<string> dataStorageUsedCapacityDetail_ {};
-      // The name of the Simple Log Service (SLS) project that stores user logs.
+      // The multi-account delivery settings for the current storage resources. Returned when the query is successful. If the read operation fails, see DeliverySettingsError.
+      shared_ptr<Data::DeliverySettings> deliverySettings_ {};
+      // The read error code for the optional multi-account delivery settings. If the read operation fails, DELIVERY_SETTINGS_UNAVAILABLE is returned. If the read operation is successful, this field is empty or not returned, and does not affect other storage fields.
+      shared_ptr<string> deliverySettingsError_ {};
+      // The name of the Simple Log Service project where user logs are stored.
       shared_ptr<string> logProject_ {};
+      // The status of the log project.
       shared_ptr<string> logProjectState_ {};
+      // Specifies whether the status of the log project can be changed.
       shared_ptr<bool> logProjectStateChangeAllowed_ {};
+      // Specifies whether Simple Log Service is disabled.
       shared_ptr<bool> logServiceDisabled_ {};
-      // The details of Logstores for normalized data.
+      // The details of the Logstores for normalized data.
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
-      // The details of normalized datasets.
+      // The details of the normalized datasets.
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
-      // The list of record Logstores.
+      // The list of Record Logstores.
       shared_ptr<vector<Data::RecordLogStores>> recordLogStores_ {};
-      // The details of raw log storage in Security Center.
+      // The storage details of raw logs in Security Center.
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
-      // The list of SIEM V1 legacy Logstores.
+      // The list of legacy Logstores in SIEM V1.
       shared_ptr<vector<Data::UnusedLogStores>> unusedLogStores_ {};
     };
 
@@ -681,7 +1154,7 @@ namespace Models
 
 
   protected:
-    // The returned details.
+    // The detailed information returned.
     shared_ptr<GetDataStorageResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -186,37 +186,33 @@ namespace Models
 
 
     protected:
-      // The number of abnormal data ingestion configurations.
+      // The number of abnormal data ingestion entries.
       shared_ptr<int32_t> abnormalDataIngestionCount_ {};
       // The activation time.
       shared_ptr<int64_t> activeTime_ {};
-      // Indicates whether data collection configurations can be added.
+      // Indicates whether data collection can be added.
       shared_ptr<bool> allowAddDataIngestion_ {};
-      // The time when the product was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The data ingestion status. Valid values:
-      // 
-      // - true: enabled.
-      // 
-      // - false: disabled.
+      // The accessed state of data ingestion. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<bool> dataIngestionStatus_ {};
-      // The number of enabled data ingestion configurations.
+      // The number of enabled data ingestion entries.
       shared_ptr<int32_t> enabledDataIngestionCount_ {};
       // The product alias.
       shared_ptr<string> productAlias_ {};
       // The product ID.
       shared_ptr<string> productId_ {};
-      // This parameter is deprecated.
+      // **[Deprecated]** This parameter is deprecated and does not need to be specified.
       shared_ptr<string> productName_ {};
       // The product type. Valid values:
-      // 
       // - preset
-      // 
       // - custom
       shared_ptr<string> productType_ {};
-      // The total number of data ingestion configurations.
+      // The total number of data ingestion entries.
       shared_ptr<int32_t> totalDataIngestionCount_ {};
-      // The time when the product was updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
       // The vendor ID.
       shared_ptr<string> vendorId_ {};
@@ -264,15 +260,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If the value of this parameter is not empty, more results are available. You can use this token in the next request to retrieve the next page of results.
+    // The pagination token. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of products.
     shared_ptr<vector<ListProductsResponseBody::Products>> products_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

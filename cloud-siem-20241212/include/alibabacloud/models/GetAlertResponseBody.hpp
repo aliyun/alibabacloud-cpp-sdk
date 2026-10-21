@@ -96,7 +96,7 @@ namespace Models
   protected:
     // If this value is true, the minor engine version is not the latest version.
     // 
-    // > If the minor engine version of your server is not the latest version, the sampling logs may be inaccurate, which causes inaccurate IP statistics. We recommend that you upgrade the minor engine version at your earliest convenience.
+    // > If the minor engine version of your server is not the latest version, the sampling logs may be inaccurate, which causes imprecise IP statistics. We recommend that you upgrade the minor engine version at your earliest convenience.
     shared_ptr<GetAlertResponseBody::Alert> alert_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

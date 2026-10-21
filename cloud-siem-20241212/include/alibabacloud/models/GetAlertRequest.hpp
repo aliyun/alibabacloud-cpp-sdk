@@ -75,19 +75,23 @@ namespace Models
 
 
   protected:
-    // The ID of the alert that is associated with the incident.
+    // The ID of the alert associated with the event.
+    // 
+    // > This parameter is required. If this parameter is not specified, the service returns a 400 error.
     shared_ptr<string> alertUuid_ {};
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // > This parameter is required. If this parameter is not specified, the service returns a 400 error.
     shared_ptr<string> lang_ {};
-    // The region in which the threat detection and response data management center resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Your assets reside in the Chinese mainland.
-    // - ap-southeast-1: Your assets reside outside China.
+    // The region where the data management center of threat detection and response is located. Specify the management center region based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets belong to the Chinese mainland.
+    // - ap-southeast-1: Your assets belong to regions outside China.
     shared_ptr<string> regionId_ {};
     // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
-    // The view type.
+    // The view type. Valid values:
     // 
     // - 0: the view of the current Alibaba Cloud account.
     // - 1: the view of all accounts in the enterprise.

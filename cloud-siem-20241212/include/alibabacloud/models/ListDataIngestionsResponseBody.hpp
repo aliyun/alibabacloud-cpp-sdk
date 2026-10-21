@@ -226,61 +226,52 @@ namespace Models
 
 
     protected:
-      // The time when the data ingestion was enabled.
+      // The activation time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> activeTime_ {};
       // The number of associated security capabilities.
       shared_ptr<int32_t> capacityCount_ {};
-      // The time when the data ingestion was created.
+      // The creation time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the data ingestion.
+      // The data ingestion ID.
       shared_ptr<string> dataIngestionId_ {};
-      // The mode of the data ingestion. Valid values:
-      // 
+      // The data ingestion mode. Valid values:
       // - realtime
-      // 
       // - scan
       shared_ptr<string> dataIngestionMode_ {};
       // Indicates whether the data ingestion mode is editable.
       shared_ptr<bool> dataIngestionModeEditable_ {};
-      // The state of the data ingestion. Valid values:
-      // 
+      // The data ingestion state. Valid values:
       // - ingested
-      // 
       // - uningested
-      // 
       // - abnormal
       shared_ptr<string> dataIngestionState_ {};
-      // The error code for the data ingestion anomaly.
+      // The error code for the data ingestion exception state.
       shared_ptr<string> dataIngestionStateCode_ {};
-      // The status of the data ingestion. Valid values:
-      // 
-      // - enabled: The data ingestion is enabled.
-      // 
-      // - disabled: The data ingestion is disabled.
+      // The accessed state of data ingestion. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> dataIngestionStatus_ {};
-      // The ID of the data ingestion template.
+      // The data ingestion template ID.
       shared_ptr<string> dataIngestionTemplateId_ {};
-      // The type of the data ingestion. Valid values:
-      // 
+      // The data ingestion type. Valid values:
       // - preset
-      // 
       // - custom
       shared_ptr<string> dataIngestionType_ {};
       // Indicates whether the data source is editable.
       shared_ptr<bool> dataSourceEditable_ {};
-      // The ID of the data source.
+      // The data source ID.
       shared_ptr<string> dataSourceId_ {};
       // Indicates whether the normalization rule is editable.
       shared_ptr<bool> normalizationRuleEditable_ {};
-      // The ID of the normalization rule.
+      // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
-      // The ID of the data source for real-time ingestion.
+      // The data source ID in real-time mode.
       shared_ptr<string> realtimeDataSourceId_ {};
-      // The ID of the data source for scan-based ingestion.
+      // The data source ID in scan mode.
       shared_ptr<string> scanDataSourceId_ {};
-      // The job ID of the stream processing task.
+      // The stream job ID.
       shared_ptr<string> streamJobId_ {};
-      // The time when the data ingestion was last updated.
+      // The update time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

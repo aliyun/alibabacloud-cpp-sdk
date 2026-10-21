@@ -46,6 +46,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Incidents& obj) { 
         DARABONBA_PTR_TO_JSON(AlertInfos, alertInfos_);
+        DARABONBA_PTR_TO_JSON(AlertSources, alertSources_);
         DARABONBA_PTR_TO_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DetectionRuleId, detectionRuleId_);
@@ -58,14 +59,17 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IncidentTags, incidentTags_);
         DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
         DARABONBA_PTR_TO_JSON(Owner, owner_);
+        DARABONBA_PTR_TO_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_TO_JSON(RelateAlertCount, relateAlertCount_);
         DARABONBA_PTR_TO_JSON(RelateAssetCount, relateAssetCount_);
         DARABONBA_PTR_TO_JSON(ResponseTime, responseTime_);
+        DARABONBA_PTR_TO_JSON(ResponseTypes, responseTypes_);
         DARABONBA_PTR_TO_JSON(ThreatLevel, threatLevel_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, Incidents& obj) { 
         DARABONBA_PTR_FROM_JSON(AlertInfos, alertInfos_);
+        DARABONBA_PTR_FROM_JSON(AlertSources, alertSources_);
         DARABONBA_PTR_FROM_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleId, detectionRuleId_);
@@ -78,9 +82,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IncidentTags, incidentTags_);
         DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
         DARABONBA_PTR_FROM_JSON(Owner, owner_);
+        DARABONBA_PTR_FROM_JSON(OwnerName, ownerName_);
         DARABONBA_PTR_FROM_JSON(RelateAlertCount, relateAlertCount_);
         DARABONBA_PTR_FROM_JSON(RelateAssetCount, relateAssetCount_);
         DARABONBA_PTR_FROM_JSON(ResponseTime, responseTime_);
+        DARABONBA_PTR_FROM_JSON(ResponseTypes, responseTypes_);
         DARABONBA_PTR_FROM_JSON(ThreatLevel, threatLevel_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
@@ -96,15 +102,24 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->alertInfos_ == nullptr
-        && this->attckTactics_ == nullptr && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->detectionRuleName_ == nullptr && this->entityInfos_ == nullptr
-        && this->incidentDescription_ == nullptr && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr
-        && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr
-        && this->threatLevel_ == nullptr && this->updateTime_ == nullptr; };
+        && this->alertSources_ == nullptr && this->attckTactics_ == nullptr && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->detectionRuleName_ == nullptr
+        && this->entityInfos_ == nullptr && this->incidentDescription_ == nullptr && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr
+        && this->incidentTags_ == nullptr && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->ownerName_ == nullptr && this->relateAlertCount_ == nullptr
+        && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr && this->responseTypes_ == nullptr && this->threatLevel_ == nullptr && this->updateTime_ == nullptr; };
       // alertInfos Field Functions 
       bool hasAlertInfos() const { return this->alertInfos_ != nullptr;};
       void deleteAlertInfos() { this->alertInfos_ = nullptr;};
       inline string getAlertInfos() const { DARABONBA_PTR_GET_DEFAULT(alertInfos_, "") };
       inline Incidents& setAlertInfos(string alertInfos) { DARABONBA_PTR_SET_VALUE(alertInfos_, alertInfos) };
+
+
+      // alertSources Field Functions 
+      bool hasAlertSources() const { return this->alertSources_ != nullptr;};
+      void deleteAlertSources() { this->alertSources_ = nullptr;};
+      inline const vector<string> & getAlertSources() const { DARABONBA_PTR_GET_CONST(alertSources_, vector<string>) };
+      inline vector<string> getAlertSources() { DARABONBA_PTR_GET(alertSources_, vector<string>) };
+      inline Incidents& setAlertSources(const vector<string> & alertSources) { DARABONBA_PTR_SET_VALUE(alertSources_, alertSources) };
+      inline Incidents& setAlertSources(vector<string> && alertSources) { DARABONBA_PTR_SET_RVALUE(alertSources_, alertSources) };
 
 
       // attckTactics Field Functions 
@@ -191,6 +206,13 @@ namespace Models
       inline Incidents& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
+      // ownerName Field Functions 
+      bool hasOwnerName() const { return this->ownerName_ != nullptr;};
+      void deleteOwnerName() { this->ownerName_ = nullptr;};
+      inline string getOwnerName() const { DARABONBA_PTR_GET_DEFAULT(ownerName_, "") };
+      inline Incidents& setOwnerName(string ownerName) { DARABONBA_PTR_SET_VALUE(ownerName_, ownerName) };
+
+
       // relateAlertCount Field Functions 
       bool hasRelateAlertCount() const { return this->relateAlertCount_ != nullptr;};
       void deleteRelateAlertCount() { this->relateAlertCount_ = nullptr;};
@@ -212,6 +234,15 @@ namespace Models
       inline Incidents& setResponseTime(int64_t responseTime) { DARABONBA_PTR_SET_VALUE(responseTime_, responseTime) };
 
 
+      // responseTypes Field Functions 
+      bool hasResponseTypes() const { return this->responseTypes_ != nullptr;};
+      void deleteResponseTypes() { this->responseTypes_ = nullptr;};
+      inline const vector<string> & getResponseTypes() const { DARABONBA_PTR_GET_CONST(responseTypes_, vector<string>) };
+      inline vector<string> getResponseTypes() { DARABONBA_PTR_GET(responseTypes_, vector<string>) };
+      inline Incidents& setResponseTypes(const vector<string> & responseTypes) { DARABONBA_PTR_SET_VALUE(responseTypes_, responseTypes) };
+      inline Incidents& setResponseTypes(vector<string> && responseTypes) { DARABONBA_PTR_SET_RVALUE(responseTypes_, responseTypes) };
+
+
       // threatLevel Field Functions 
       bool hasThreatLevel() const { return this->threatLevel_ != nullptr;};
       void deleteThreatLevel() { this->threatLevel_ = nullptr;};
@@ -227,20 +258,31 @@ namespace Models
 
 
     protected:
+      // The list of associated alert information.
       shared_ptr<string> alertInfos_ {};
+      // The list of alert source codes or modules.
+      shared_ptr<vector<string>> alertSources_ {};
+      // The list of MITRE ATT&CK tactics.
       shared_ptr<string> attckTactics_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the detection rule.
       shared_ptr<string> detectionRuleId_ {};
+      // The name of the detection rule.
       shared_ptr<string> detectionRuleName_ {};
+      // The list of associated entity information.
       shared_ptr<string> entityInfos_ {};
+      // The description of the incident.
       shared_ptr<string> incidentDescription_ {};
       // The event name.
       shared_ptr<string> incidentName_ {};
-      // The remark of the incident.
+      // The remark for the incident.
       shared_ptr<string> incidentRemark_ {};
       // The event status. Valid values:
+      // - 0: Unhandled.
+      // - 1: Handling.
+      // - 5: Handling failed.
+      // - 10: Handled.
       shared_ptr<int32_t> incidentStatus_ {};
       // The event tags.
       shared_ptr<string> incidentTags_ {};
@@ -248,15 +290,24 @@ namespace Models
       shared_ptr<string> incidentUuid_ {};
       // The UID of the account responsible for the event.
       shared_ptr<string> owner_ {};
+      // The display name of the incident owner.
+      shared_ptr<string> ownerName_ {};
       // The number of alerts associated with the incident.
       shared_ptr<int32_t> relateAlertCount_ {};
       // The number of assets associated with the incident.
       shared_ptr<int32_t> relateAssetCount_ {};
       // The response time, in milliseconds (ms).
       shared_ptr<int64_t> responseTime_ {};
+      // The list of response types. Valid values: auto, manual, ai.
+      shared_ptr<vector<string>> responseTypes_ {};
       // The threat level. Valid values:
+      // - 5: Critical.
+      // - 4: High.
+      // - 3: Medium.
+      // - 2: Low.
+      // - 1: Informational.
       shared_ptr<string> threatLevel_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -317,13 +368,13 @@ namespace Models
   protected:
     // The list of incidents.
     shared_ptr<vector<ListIncidentsResponseBody::Incidents>> incidents_ {};
-    // The maximum number of entries to return in this request.
+    // The maximum number of entries to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to display per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

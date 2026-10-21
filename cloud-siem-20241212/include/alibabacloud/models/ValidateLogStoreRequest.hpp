@@ -94,27 +94,24 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
-    // 
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // This parameter is actually required. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." This parameter is actually required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> lang_ {};
-    // The name of the Simple Log Service project.
+    // The name of the Simple Log Service project. You can call GetDataStorage to obtain a valid project name.
     shared_ptr<string> logProjectName_ {};
     // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
-    // The name of the Simple Log Service Logstore.
+    // The name of the Simple Log Service Logstore. This parameter is actually required. You can call GetDataStorage to obtain a valid Logstore name.
     shared_ptr<string> logStoreName_ {};
-    // The user ID for data access.
+    // The ID of the data ingestion user.
     shared_ptr<int64_t> logUserId_ {};
-    // The region of the Data Management Center for threat analysis. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: The Chinese mainland.
-    // 
-    // - ap-southeast-1: Regions outside China.
+    // The region where the data management center for threat analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. This lets an administrator switch to the member\\"s perspective.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

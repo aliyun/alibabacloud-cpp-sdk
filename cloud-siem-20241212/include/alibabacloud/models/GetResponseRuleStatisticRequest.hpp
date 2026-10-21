@@ -69,16 +69,20 @@ namespace Models
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // Note: This parameter is required. If this parameter is not specified, the API returns a 400 error.
     shared_ptr<string> lang_ {};
     // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: the Chinese mainland and Hong Kong (China)
-    // - ap-southeast-1: regions outside China
+    // - cn-hangzhou: the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: regions outside China.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud account ID of the member to which the administrator switches the view.
+    // The Alibaba Cloud account ID that the administrator switches to for viewing as another member.
+    // 
+    // Note: This parameter requires administrator permissions or multi-account settings. If you do not have sufficient permissions, the API returns a Forbidden.NoPermission error.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
     // 
-    // - 0: the current Alibaba Cloud account view.
+    // - 0: the view of the current Alibaba Cloud account.
     // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };

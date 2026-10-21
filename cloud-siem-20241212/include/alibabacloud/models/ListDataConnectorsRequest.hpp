@@ -184,8 +184,8 @@ namespace Models
     // The collector name.
     shared_ptr<string> dataConnectorName_ {};
     // The collector status. Valid values:
-    // - "enabled": enabled.
-    // - "disabled" (default): disabled.
+    // - enabled: Enabled.
+    // - disabled (default): Disabled.
     shared_ptr<string> dataConnectorStatus_ {};
     // The collector type. Valid values:
     // - oss
@@ -197,16 +197,18 @@ namespace Models
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // 
+    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
     shared_ptr<string> lang_ {};
     // The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. You do not need to set this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The sort field. Currently, only sorting by updateTime is supported. If OrderField is left empty, the default order returned by the database is used.
+    // The sort field. Currently, only sorting by updateTime is supported. If OrderField is empty, the default order returned by the database is used.
     shared_ptr<string> orderField_ {};
     // The sort order. Valid values:
-    // - "asc": ascending order.
-    // - "desc" (default): descending order.
+    // - asc: ascending order.
+    // - desc (default): descending order.
     shared_ptr<string> orderType_ {};
     // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -216,7 +218,7 @@ namespace Models
     // - cn-hangzhou: The assets reside in the Chinese mainland.
     // - ap-southeast-1: The assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator switches to when viewing as another member.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The name of the Simple Log Service (SLS) data import job for the collector.
     shared_ptr<string> slsIngestionJobName_ {};

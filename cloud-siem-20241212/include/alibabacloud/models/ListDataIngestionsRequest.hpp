@@ -110,33 +110,27 @@ namespace Models
 
 
   protected:
-    // An array of data ingestion policy IDs.
+    // The list of data ingestion policy IDs.
     shared_ptr<vector<string>> dataIngestionIds_ {};
-    // The data ingestion status. Valid values:
-    // 
-    // - `enabled`: Enabled.
-    // 
-    // - `disabled`: Disabled.
+    // The accessed state of data ingestion. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> dataIngestionStatus_ {};
-    // An array of data ingestion template IDs.
+    // The list of data ingestion template IDs.
     shared_ptr<vector<string>> dataIngestionTemplateIds_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // An array of normalization schema IDs.
+    // The list of normalization schema IDs.
     shared_ptr<vector<string>> normalizationSchemaIds_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region where the threat analysis feature is deployed. Select the region that corresponds to the location of your asset. Valid values:
-    // 
-    // - `cn-hangzhou`: Your asset is in the Chinese mainland.
-    // 
-    // - `ap-southeast-1`: Your asset is in a region outside the Chinese mainland.
+    // The data management center of the threat analysis feature. Specify this parameter based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. An administrator can use this parameter to query data as the specified member.
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

@@ -122,9 +122,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned in this query.
+    // The maximum number of entries returned for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of security domains.
     shared_ptr<vector<ListNormalizationSecurityDomainsResponseBody::NormalizationSecurityDomains>> normalizationSecurityDomains_ {};

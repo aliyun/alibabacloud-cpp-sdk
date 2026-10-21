@@ -138,12 +138,12 @@ namespace Models
         shared_ptr<int32_t> index_ {};
         // The aggregation method for the dispatch rule condition. Valid values:
         // 
-        // - `=`: equal to
-        // - `<>`: not equal to
-        // - `in`: contains
-        // - `not in`: does not contain
-        // - `REGEXP`: matches the regular expression
-        // - `NOT REGEXP`: does not match the regular expression
+        // - `=`: Equal to.
+        // - `<>`: Not equal to.
+        // - `in`: Contains.
+        // - `not in`: Does not contain.
+        // - `REGEXP`: Matches the regular expression.
+        // - `NOT REGEXP`: Does not match the regular expression.
         shared_ptr<string> operator_ {};
         // The display name of the operator.
         shared_ptr<string> operatorName_ {};
@@ -250,9 +250,9 @@ namespace Models
       shared_ptr<string> field_ {};
       // The name of the rule field.
       shared_ptr<string> fieldName_ {};
-      // The normalization object type to which the field belongs.
+      // The normalized object type to which the field belongs.
       shared_ptr<string> fieldNormalization_ {};
-      // The list of optional enumeration values for the field. This parameter is not returned if no enumeration values are available.
+      // The list of optional enumeration values for the field. This parameter is not returned if no enumeration values exist.
       shared_ptr<vector<ListResponseRuleFields::RightValue>> rightValue_ {};
       // The English descriptions of the operators.
       shared_ptr<vector<ListResponseRuleFields::SupportOperators>> supportOperators_ {};
@@ -295,7 +295,7 @@ namespace Models
     shared_ptr<vector<ListResponseRuleFieldsResponseBody::ListResponseRuleFields>> listResponseRuleFields_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Valid values: leave this parameter empty for the first query or if no more results exist. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If a next query exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

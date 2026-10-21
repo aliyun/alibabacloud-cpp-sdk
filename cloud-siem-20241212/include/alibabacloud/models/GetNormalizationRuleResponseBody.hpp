@@ -246,19 +246,19 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Specifies whether to pack non-standard fields into the extend_content field. Valid values:
+      // Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> extendContentPacked_ {};
-      // The storage mode for extended fields. Valid values:
-      // - flat: ingested as-is.
-      // - reject: not ingested.
-      // - pack: packed into the extend_content field.
+      // The storage mode for extended fields. Valid values: flat (ingest as-is), reject (do not ingest), and pack (pack into the extend_content field).
       shared_ptr<string> extendFieldStoreMode_ {};
       // The category ID of the normalization rule.
       shared_ptr<string> normalizationCategoryId_ {};
+      // The field source:
+      // - "native": raw logs
+      // - "normalized": normalized logs
       shared_ptr<string> normalizationFieldSource_ {};
       // The description of the normalization rule.
       shared_ptr<string> normalizationRuleDescription_ {};
@@ -266,37 +266,38 @@ namespace Models
       shared_ptr<string> normalizationRuleExpression_ {};
       // The format of the normalization rule.
       shared_ptr<string> normalizationRuleFormat_ {};
-      // The normalization rule ID.
+      // The ID of the normalization rule.
       shared_ptr<string> normalizationRuleId_ {};
-      // The list of normalization rule IDs.
+      // The IDs of the normalization rules.
       shared_ptr<vector<string>> normalizationRuleIds_ {};
       // The mode of the normalization rule. Valid values:
       // - both
       // - scan
-      // - realtime.
+      // - realtime
       shared_ptr<string> normalizationRuleMode_ {};
       // The name of the normalization rule.
       shared_ptr<string> normalizationRuleName_ {};
       // The status of the normalization rule.
       shared_ptr<string> normalizationRuleStatus_ {};
       // The type of the normalization rule. Valid values:
-      // - predefined: predefined normalization rule.
-      // - custom: custom normalization rule.
+      // - predefined: predefined normalization rule
+      // - custom: custom normalization rule
       shared_ptr<string> normalizationRuleType_ {};
       // The version of the normalization rule.
       shared_ptr<int32_t> normalizationRuleVersion_ {};
-      // The normalization schema ID.
+      // The ID of the normalization schema.
       shared_ptr<string> normalizationSchemaId_ {};
+      // The ID of the normalization security domain.
       shared_ptr<string> normalizationSecurityDomainId_ {};
       // The field used to sort the rule list. Valid values:
-      // - GmtModified: sorted by modification time.
-      // - Id: sorted by rule ID (default).
+      // - GmtModified: sort by modification time
+      // - Id: sort by rule ID (default)
       shared_ptr<string> orderField_ {};
       // The product ID.
       shared_ptr<string> productId_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The vendor ID associated with the normalization rule.
+      // The ID of the vendor corresponding to the normalization rule.
       shared_ptr<string> vendorId_ {};
     };
 
@@ -321,7 +322,7 @@ namespace Models
   protected:
     // The normalization rule.
     shared_ptr<GetNormalizationRuleResponseBody::NormalizationRule> normalizationRule_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

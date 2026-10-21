@@ -231,31 +231,30 @@ namespace Models
 
 
     protected:
-      // The count of attack stages associated with the event alerts.
+      // The number of attack phases in the alerts associated with the event.
       Darabonba::Json attckTactics_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the detection rule.
       shared_ptr<string> detectionRuleId_ {};
-      // The event summaries type. Valid values:
-      // 
-      // - none: no event is generated.
-      // - graph_compute: graph computing (supported by predefined rules).
-      // - expert: expert rule.
-      // - passthrough: alerting pass-through (one-to-one).
-      // - window: same-type aggregation (window).
+      // The event aggregation type. Valid values:
+      // - none: No event is generated.
+      // - graph_compute: Graph computing (supported by predefined rules).
+      // - expert: Expert rules.
+      // - passthrough: Alert pass-through (one-to-one).
+      // - window: Similar event aggregation (window).
       shared_ptr<string> incidentAggregationType_ {};
       // The description of the event.
       shared_ptr<string> incidentDescription_ {};
       // The name of the event.
       shared_ptr<string> incidentName_ {};
-      // The remarks of the event.
+      // The remarks on the event.
       shared_ptr<string> incidentRemark_ {};
       // The status of the event. Valid values:
-      // - 0: unhandled.
-      // - 1: handling.
-      // - 5: handling failed.
-      // - 10: handled.
+      // - 0: Unhandled.
+      // - 1: Processing.
+      // - 5: Processing failed.
+      // - 10: Handled.
       shared_ptr<int32_t> incidentStatus_ {};
       // The tags of the event.
       shared_ptr<string> incidentTags_ {};
@@ -271,18 +270,18 @@ namespace Models
       Darabonba::Json relateDataSourceIds_ {};
       // The list of user IDs associated with the event.
       Darabonba::Json relateUserIds_ {};
-      // The response time. Unit: milliseconds (ms).
+      // The response time in milliseconds.
       shared_ptr<int64_t> responseTime_ {};
       // The threat level. Valid values:
-      // - 5: critical.
-      // - 4: high.
-      // - 3: medium.
-      // - 2: low.
-      // - 1: informational.
+      // - 5: Critical.
+      // - 4: High.
+      // - 3: Medium.
+      // - 2: Low.
+      // - 1: Informational.
       shared_ptr<string> threatLevel_ {};
       // The threat score of the event. Valid values: 0 to 100. A higher score indicates a higher risk level.
       shared_ptr<string> threatScore_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -307,7 +306,7 @@ namespace Models
   protected:
     // The event information.
     shared_ptr<GetIncidentResponseBody::Incident> incident_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -87,21 +87,17 @@ namespace Models
 
 
     protected:
-      // The current CTDR version.
+      // The current Cloud Threat Detection and Response (CTDR) version.
       shared_ptr<string> ctdrVersion_ {};
       // The upgrade status. Valid values:
-      // 
-      // - pending: The upgrade is pending.
-      // 
-      // - upgrading: The upgrade is in progress.
-      // 
-      // - success: The upgrade is successful.
-      // 
-      // - failed: The upgrade failed.
+      // - pending: Pending upgrade.
+      // - upgrading: Upgrading.
+      // - success: Upgrade succeeded.
+      // - failed: Upgrade failed.
       shared_ptr<string> dataStorageVersion_ {};
-      // The version of Log Management.
+      // The log management version.
       shared_ptr<string> upgradeCtdrVersion_ {};
-      // The target CTDR version for the upgrade.
+      // The CTDR version to upgrade to.
       shared_ptr<string> upgradeStatus_ {};
     };
 

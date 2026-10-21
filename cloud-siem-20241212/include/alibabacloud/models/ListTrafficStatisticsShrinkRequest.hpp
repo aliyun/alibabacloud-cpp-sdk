@@ -121,45 +121,36 @@ namespace Models
 
 
   protected:
-    // The language of the response messages. Valid values:
-    // 
+    // The language of the response. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // Note: This parameter is required in practice. If this parameter is not specified, the API returns a 400 error: "The specified Lang can not be empty."
     shared_ptr<string> lang_ {};
-    // A list of user IDs for batch data ingestion.
+    // The list of user IDs for batch data ingestion.
     shared_ptr<string> logUserIdsShrink_ {};
     // The product ID.
     shared_ptr<string> productId_ {};
-    // The region of the Data Management center for threat analysis. Select a region based on the location of your asset. Valid values:
-    // 
-    // - cn-hangzhou: Your asset is in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your asset is outside China.
+    // The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets reside in the Chinese mainland.
+    // - ap-southeast-1: The assets reside outside China.
     shared_ptr<string> regionId_ {};
     // The region.
     shared_ptr<int32_t> regionTag_ {};
-    // The user ID of a member. This parameter is used by an administrator to switch to the perspective of the member.
+    // The user ID that the administrator switches to when viewing from another member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
     // The statistical period.
     shared_ptr<string> trafficStatisticPeriod_ {};
-    // The statistic granularity. Valid values:
-    // 
+    // The statistical granularity. Valid values:
     // - day: day. This is the default value.
-    // 
     // - hour: hour.
     shared_ptr<string> trafficStatisticPeriodType_ {};
-    // The statistic dimension. Valid values:
-    // 
+    // The statistical dimension. Valid values:
     // - Region
-    // 
     // - Product
-    // 
     // - DataIngetion
-    // 
     // - logUserId
     shared_ptr<string> trafficStatisticType_ {};
-    // The type of the log traffic.
+    // The log traffic type.
     shared_ptr<string> trafficType_ {};
   };
 

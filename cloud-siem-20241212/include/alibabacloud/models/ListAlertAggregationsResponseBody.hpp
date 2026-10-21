@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The display name of the entity attribute field that can be added to the whitelist.
         shared_ptr<string> name_ {};
+        // The right-hand value.
         shared_ptr<int64_t> value_ {};
       };
 
@@ -167,7 +169,9 @@ namespace Models
 
 
       protected:
+        // The display name of the entity attribute field that can be added to the whitelist.
         shared_ptr<string> name_ {};
+        // The default right-hand value displayed for the whitelist rule.
         shared_ptr<int64_t> value_ {};
       };
 
@@ -286,19 +290,35 @@ namespace Models
 
 
     protected:
+      // The list of account display values associated with the aggregation group, in one-to-one correspondence with AccountIds. When the username is valid and differs from the account ID, the format is "username/account ID". Otherwise, only the account ID is returned.
       shared_ptr<vector<string>> accountDisplayValues_ {};
+      // The list of member accounts IDs for which the report is generated. You need to specify this parameter only when you generate a multi-account report and want to limit the report to specific member accounts.
       shared_ptr<vector<string>> accountIds_ {};
+      // The unique identifier of the aggregation group, which is a concatenation of AggregationType, PrimaryValue, and SecondaryValue joined by colons (:). The last segment is empty if no secondary aggregation value exists.
       shared_ptr<string> aggregationKey_ {};
+      // The aggregation method.
       shared_ptr<string> aggregationType_ {};
+      // The number of consecutive failures. This parameter is optional.
       shared_ptr<int64_t> alertCount_ {};
+      // The collection of MITRE ATT&CK attack techniques associated with alerts in the aggregation group. Each element is a JSON array string.
       shared_ptr<vector<string>> attackStages_ {};
+      // The quantity distribution by defense action within the aggregation group. Name is the action field value, and Value is the corresponding alert count.
       shared_ptr<vector<AlertAggregations::DefenseActionCounts>> defenseActionCounts_ {};
+      // The time of the first access, represented as a UNIX timestamp in seconds.
       shared_ptr<int64_t> firstTime_ {};
+      // The most recent time when the attack event occurred.
       shared_ptr<int64_t> latestTime_ {};
+      // The display text of the primary aggregation value. For account aggregation, the format is "username/account ID". If no valid username exists, only the account ID is returned. For event summaries, the event name is returned based on the Lang parameter. If the name is missing, the event UUID is returned.
       shared_ptr<string> primaryDisplayValue_ {};
+      // The value corresponding to the primary query condition.
       shared_ptr<string> primaryValue_ {};
+      // The value corresponding to the secondary query condition.
       shared_ptr<string> secondaryValue_ {};
+      // The collection of event source codes.
+      // 
+      // > Example: [\\\\\\"MRM\\\\\\"]
       shared_ptr<vector<string>> sourceCodes_ {};
+      // The quantity distribution by alert status within the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
       shared_ptr<vector<AlertAggregations::StatusCounts>> statusCounts_ {};
     };
 
@@ -357,12 +377,19 @@ namespace Models
 
 
   protected:
+    // The list of alert groups returned based on the specified aggregation method, sorted by alert count in descending order.
     shared_ptr<vector<ListAlertAggregationsResponseBody::AlertAggregations>> alertAggregations_ {};
+    // The maximum number of entries returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

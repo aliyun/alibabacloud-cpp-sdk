@@ -158,41 +158,33 @@ namespace Models
     protected:
       // The number of associated security capabilities.
       shared_ptr<string> capacityCount_ {};
-      // The time when the template was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
       // The data ingestion mode. Valid values:
-      // 
       // - realtime
-      // 
       // - scan
       shared_ptr<string> dataIngestionMode_ {};
-      // The data ingestion status. Valid values:
-      // 
-      // - enabled: enabled.
-      // 
-      // - disabled: disabled.
+      // The accessed state of data ingestion. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> dataIngestionStatus_ {};
-      // The ID of the data ingestion template.
+      // The data ingestion template ID.
       shared_ptr<string> dataIngestionTemplateId_ {};
-      // The name of the data ingestion template.
+      // The data source template name.
       shared_ptr<string> dataIngestionTemplateName_ {};
       // The status of the data ingestion template. Valid values:
-      // 
       // - pending
-      // 
       // - running
-      // 
       // - success
-      // 
       // - failed
       shared_ptr<string> dataIngestionTemplateStatus_ {};
-      // The ID of the data source template.
+      // The data source template ID.
       shared_ptr<string> dataSourceTemplateId_ {};
-      // The ID of the normalization rule.
+      // The normalization rule ID.
       shared_ptr<string> normalizationRuleId_ {};
-      // The name of the normalization rule.
+      // The normalization rule name.
       shared_ptr<string> normalizationRuleName_ {};
-      // The time when the template was last updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 

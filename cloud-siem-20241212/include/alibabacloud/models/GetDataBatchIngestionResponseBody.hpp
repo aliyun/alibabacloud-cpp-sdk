@@ -134,19 +134,17 @@ namespace Models
 
 
       protected:
-        // The ID of the data ingestion task.
+        // The data ingestion ID.
         shared_ptr<string> dataIngestionId_ {};
-        // The status of the data ingestion task. Valid values:
-        // 
-        // - enabled: enabled
-        // 
-        // - disabled: disabled
+        // The accessed state of the data ingestion. Valid values:
+        // - enabled: Enabled.
+        // - disabled: Disabled.
         shared_ptr<string> dataIngestionStatus_ {};
-        // The ID of the data source.
+        // The data source ID.
         shared_ptr<string> dataSourceId_ {};
-        // The ID of the product.
+        // The product ID.
         shared_ptr<string> productId_ {};
-        // The ID of the vendor.
+        // The vendor ID.
         shared_ptr<string> vendorId_ {};
       };
 
@@ -232,37 +230,31 @@ namespace Models
 
 
     protected:
-      // The list of data ingestion IDs for Alibaba Cloud services.
+      // The list of cloud native mode ingestion IDs.
       shared_ptr<vector<string>> apsaraDataIngestionIds_ {};
-      // Specifies whether to automatically discover new users. Valid values:
-      // 
-      // - enabled: New users are automatically discovered.
-      // 
-      // - disabled: New users are not automatically discovered.
+      // Indicates whether new users are automatically discovered. Valid values:
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> autoScanNew_ {};
-      // The time when the configuration of the batch data ingestion task took effect.
+      // The effective period of the data batch ingestion. This value is a UNIX timestamp in milliseconds.
       shared_ptr<string> dataBatchIngestionEffectTime_ {};
-      // The mode of the batch data ingestion task.
+      // The batch data ingestion mode.
       shared_ptr<string> dataBatchIngestionMode_ {};
-      // The time when the batch data ingestion task was configured.
+      // The time when the data batch ingestion was configured. This value is a UNIX timestamp in milliseconds.
       shared_ptr<string> dataBatchIngestionSetTime_ {};
-      // The status of the batch data ingestion task. Valid values:
-      // 
-      // - pending: The configuration is pending to take effect.
-      // 
-      // - running: The configuration is taking effect.
-      // 
-      // - success: The configuration has taken effect.
-      // 
-      // - failed: The configuration failed to take effect.
+      // The accessed state of the data batch ingestion. Valid values:
+      // - pending: Pending.
+      // - running: In effect.
+      // - success: Succeeded.
+      // - failed: Failed.
       shared_ptr<string> dataBatchIngestionStatus_ {};
-      // The list of data ingestion tasks.
+      // The list of data ingestions.
       shared_ptr<vector<DataBatchIngestion::DataIngestions>> dataIngestions_ {};
-      // Specifies whether to automatically discover new Logstores.
+      // Indicates whether automatic discovery of new Logstores is enabled.
       shared_ptr<bool> dataSourceRecognizeEnabled_ {};
-      // The list of user IDs for batch data ingestion.
+      // The list of user IDs for data batch ingestion.
       shared_ptr<vector<string>> logUserIds_ {};
-      // The list of recommended data ingestion IDs.
+      // The list of recommended ingestion IDs.
       shared_ptr<vector<string>> recommendDataIngestionIds_ {};
     };
 
@@ -285,9 +277,9 @@ namespace Models
 
 
   protected:
-    // The details of the batch data ingestion task.
+    // The data batch ingestion configuration.
     shared_ptr<GetDataBatchIngestionResponseBody::DataBatchIngestion> dataBatchIngestion_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

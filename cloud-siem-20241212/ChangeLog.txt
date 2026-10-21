@@ -1,3 +1,29 @@
+2026-10-21 Version: 2.6.0
+- Support API CancelCopilotTurn.
+- Support API CreateCopilotChat.
+- Support API CreateCopilotConversation.
+- Support API GetCopilotConversation.
+- Support API GetCopilotTurn.
+- Support API GetCopilotTurnByClientMessageId.
+- Support API GetIncidentInvestigation.
+- Support API ListCopilotMessages.
+- Support API ResumeCopilotTurnStream.
+- Update API GetDataStorage: add response parameters Body.Data.DeliverySettings.
+- Update API GetDataStorage: add response parameters Body.Data.DeliverySettingsError.
+- Update API GetDataStorage: add response parameters Body.Data.SasLogStores.$.AccountDeliveries.
+- Update API ListIncidents: add response parameters Body.Incidents.$.AlertSources.
+- Update API ListIncidents: add response parameters Body.Incidents.$.OwnerName.
+- Update API ListIncidents: add response parameters Body.Incidents.$.ResponseTypes.
+- Update API UpdateDataStorage: add request parameters ConfigurationVersion.
+- Update API UpdateDataStorage: add request parameters MultiAccountDeliveryEnabled.
+- Update API UpdateDataStorage: add request parameters TargetProject.
+- Update API UpdateDataStorageDelivery: add request parameters AutoIncludeNewAccounts.
+- Update API UpdateDataStorageDelivery: add request parameters ConfigurationVersion.
+- Update API UpdateDataStorageDelivery: add request parameters SelectedAccountIds.
+- Update API UpdateDataStorageDelivery: add request parameters SubUserId.
+- Update API UpdateDataStorageDelivery: add request parameters TargetProject.
+
+
 2026-08-12 Version: 2.5.2
 - Generated cpp 2024-12-12 for cloud-siem.
 

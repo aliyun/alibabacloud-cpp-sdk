@@ -111,7 +111,7 @@ namespace Models
 
 
       protected:
-        // The normalization rule ID.
+        // The ID of the normalization rule.
         shared_ptr<string> normalizationRuleId_ {};
       };
 
@@ -269,25 +269,25 @@ namespace Models
 
 
         protected:
-          // The creation time.
+          // The creation time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> createTime_ {};
-          // The key description of the JSON-type standard field.
+          // The description of the key for a JSON normalization field.
           shared_ptr<string> normalizationFieldDescription_ {};
-          // The key example of the JSON-type standard field.
+          // The example of the key for a JSON normalization field.
           shared_ptr<string> normalizationFieldExample_ {};
-          // The key source of the JSON-type standard field.
+          // The source of the key for a JSON normalization field.
           shared_ptr<string> normalizationFieldFrom_ {};
-          // The key name of the JSON-type standard field.
+          // The name of the key for a JSON normalization field.
           shared_ptr<string> normalizationFieldName_ {};
-          // Indicates whether the key of the JSON-type standard field is required.
+          // Specifies whether the key of a JSON normalization field is required.
           shared_ptr<bool> normalizationFieldRequired_ {};
-          // Indicates whether the field is a system built-in standard field name.
+          // Specifies whether the normalization field name is a system built-in name.
           shared_ptr<bool> normalizationFieldReserved_ {};
-          // Indicates whether the key of the JSON-type standard field is tokenized.
+          // Specifies whether the key of a JSON normalization field is tokenized.
           shared_ptr<bool> normalizationFieldTokenize_ {};
-          // The key type of the JSON-type standard field.
+          // The type of the key for a JSON normalization field.
           shared_ptr<string> normalizationFieldType_ {};
-          // The update time.
+          // The update time. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> updateTime_ {};
         };
 
@@ -389,36 +389,36 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The normalization field description.
+        // The description of the normalization field.
         shared_ptr<string> normalizationFieldDescription_ {};
-        // The normalization field example.
+        // The example of the normalization field.
         shared_ptr<string> normalizationFieldExample_ {};
-        // The source of the standard field. Valid values:
+        // The source of the normalization field. Valid values:
         // - preset: built-in.
         // - custom: custom.
         shared_ptr<string> normalizationFieldFrom_ {};
-        // Indicates whether indexes are created for all keys of the JSON-type standard field.
+        // Specifies whether indexes are created for all keys of a JSON normalization field.
         shared_ptr<bool> normalizationFieldJsonIndexAll_ {};
-        // The key list of the JSON-type standard field.
+        // The list of keys for a JSON normalization field.
         shared_ptr<vector<NormalizationFields::NormalizationFieldJsonKeys>> normalizationFieldJsonKeys_ {};
-        // The normalization field name.
+        // The name of the normalization field.
         shared_ptr<string> normalizationFieldName_ {};
-        // Indicates whether the field is required.
+        // Specifies whether the field is required.
         shared_ptr<bool> normalizationFieldRequired_ {};
-        // Indicates whether the normalization field is required.
+        // Specifies whether the normalization field is required.
         shared_ptr<bool> normalizationFieldRequirement_ {};
-        // Indicates whether the normalization field is reserved.
+        // Specifies whether the normalization field is reserved.
         shared_ptr<bool> normalizationFieldReserved_ {};
-        // Indicates whether the standard field is tokenized.
+        // Specifies whether the normalization field is tokenized.
         shared_ptr<bool> normalizationFieldTokenize_ {};
-        // The normalization field type. Valid values:
+        // The type of the normalization field. Valid values:
         // - varchar
         // - bigint
         // - double
         shared_ptr<string> normalizationFieldType_ {};
-        // The update time.
+        // The update time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -553,39 +553,44 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the normalization rule category.
+      // The ID of the normalized rule category.
       shared_ptr<string> normalizationCategoryId_ {};
+      // The source of the field. Valid values: normalized: normalized field, native: native field.
       shared_ptr<string> normalizationFieldSource_ {};
       // The list of normalization fields.
       shared_ptr<vector<NormalizationSchema::NormalizationFields>> normalizationFields_ {};
-      // The normalization schema description.
+      // The description of the normalization schema.
       shared_ptr<string> normalizationSchemaDescription_ {};
       // The source of the normalization schema. Valid values:
       // - preset: predefined.
       // - custom: custom.
       shared_ptr<string> normalizationSchemaFrom_ {};
-      // The normalization schema ID.
+      // The ID of the normalization schema.
       shared_ptr<string> normalizationSchemaId_ {};
-      // The normalization schema name.
+      // The name of the normalization schema.
       shared_ptr<string> normalizationSchemaName_ {};
       // The list of normalization schema references.
       shared_ptr<vector<NormalizationSchema::NormalizationSchemaReferences>> normalizationSchemaReferences_ {};
-      // The normalization schema type. Valid values:
+      // The type of the normalization schema. Valid values:
       // - log
       // - entity
       // - incident
       shared_ptr<string> normalizationSchemaType_ {};
+      // The security domain ID.
       shared_ptr<string> normalizationSecurityDomainId_ {};
+      // The product ID.
       shared_ptr<string> productId_ {};
+      // The list of recommended entities.
       shared_ptr<vector<string>> recommendEntities_ {};
-      // The Simple Log Service LogStore.
+      // The Simple Log Service Logstore.
       shared_ptr<string> targetLogStore_ {};
       // The Simple Log Service StoreView.
       shared_ptr<string> targetStoreView_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
+      // The vendor ID.
       shared_ptr<string> vendorId_ {};
     };
 

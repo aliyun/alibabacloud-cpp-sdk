@@ -66,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The ID of the data source.
+    // The data source ID. This parameter is required in actual API calls. If it is not provided, the service returns a 400 error.
     shared_ptr<string> dataSourceId_ {};
-    // The language of the messages. Valid values:
+    // The language of the received messages. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
+    // 
+    // Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error: "The specified Lang can not be empty." Pass the language code explicitly.
     shared_ptr<string> lang_ {};
-    // The region where the Data Management Center for threat analysis is located. Select the region of the Data Management Center based on the region of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region where the data management center for threat analysis is located. Select the management center region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: assets in the Chinese mainland and Hong Kong (China)
+    // - ap-southeast-1: assets in regions outside China
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. An administrator can use this parameter to switch to the perspective of the specified member.
+    // The user ID that the administrator uses to switch to the view of another member.
     shared_ptr<int64_t> roleFor_ {};
   };
 

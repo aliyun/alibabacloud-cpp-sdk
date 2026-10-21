@@ -87,21 +87,22 @@ namespace Models
     // The language of the response. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
+    // > This parameter is required. If you do not specify this parameter, the API returns a 400 error.
     shared_ptr<string> lang_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
+    // The pagination token that marks the current position for reading. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
     // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
-    // - cn-hangzhou: Chinese mainland.
-    // - ap-southeast-1: outside the Chinese mainland.
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside China.
     shared_ptr<string> regionId_ {};
     // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
     // 
-    // - 0: the view of the current Alibaba Cloud account.
-    // - 1: the view of all accounts in the enterprise.
+    // - 0: The view of the current Alibaba Cloud account.
+    // - 1: The view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

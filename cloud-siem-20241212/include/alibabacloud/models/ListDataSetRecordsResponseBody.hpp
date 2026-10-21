@@ -116,17 +116,17 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The dataset ID.
+      // The ID of the dataset.
       shared_ptr<string> dataSetId_ {};
-      // The dataset name.
+      // The name of the dataset.
       shared_ptr<string> dataSetName_ {};
-      // The dataset record ID.
+      // The ID of the dataset record.
       shared_ptr<string> dataSetRecordId_ {};
-      // The dataset record value.
+      // The values of the dataset record.
       shared_ptr<string> dataSetRecordValues_ {};
-      // The update time.
+      // The update time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -185,19 +185,19 @@ namespace Models
 
 
   protected:
-    // A list of dataset records.
+    // The list of dataset records.
     shared_ptr<vector<ListDataSetRecordsResponseBody::DataSetRecords>> dataSetRecords_ {};
-    // The maximum number of results to return per page for token-based pagination. Valid values: 1 to 100. Default: 50.
+    // The maximum number of results to return per query when you use the NextToken parameter. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the query.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -106,32 +106,27 @@ namespace Models
 
 
   protected:
-    // The language of the response message. Valid values:
-    // 
+    // The language of the response. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // Note: Although the schema marks this parameter as optional, it is required when you call this operation. If you do not specify this parameter, the API returns a 400 error.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return for this request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If this is your first query or if no next page exists, you do not need to specify this parameter. If a next page exists, set the value to the NextToken value that is returned in the last response.
+    // The pagination token for the next query. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region where the Data Management center for threat analysis is located. Select a region for the Management Hub based on the region where your asset resides. Valid values:
-    // 
-    // - cn-hangzhou: Your asset is in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your asset is outside China.
+    // The region where the threat analysis data management center resides. Specify the management center region based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets reside in the Chinese mainland.
+    // - ap-southeast-1: The assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of a member. An administrator can use this ID to switch to the member\\"s perspective.
+    // The user ID that the administrator uses to switch to the perspective of another member.
     shared_ptr<int64_t> roleFor_ {};
-    // A list of vendors.
+    // The list of vendors.
     shared_ptr<vector<string>> vendorIds_ {};
     // The vendor name.
     shared_ptr<string> vendorName_ {};
     // The vendor type. Valid values:
-    // 
     // - preset
-    // 
     // - custom
     shared_ptr<string> vendorType_ {};
   };

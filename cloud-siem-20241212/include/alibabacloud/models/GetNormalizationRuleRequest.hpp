@@ -75,18 +75,19 @@ namespace Models
 
 
   protected:
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The normalization rule ID.
+    // The ID of the normalization rule.
     shared_ptr<string> normalizationRuleId_ {};
+    // The ID of the normalization security domain.
     shared_ptr<string> normalizationSecurityDomainId_ {};
-    // The region where the data management center of threat analysis is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: the asset is in the Chinese mainland.
-    // - ap-southeast-1: the asset is outside the Chinese mainland.
+    // The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID that the administrator uses to switch to the view of another member.
+    // The ID of the user whose perspective the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

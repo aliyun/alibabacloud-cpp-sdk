@@ -171,51 +171,43 @@ namespace Models
 
 
     protected:
-      // The field name.
+      // The name of the field.
       shared_ptr<string> fieldName_ {};
-      // The field value.
+      // The field information.
       shared_ptr<string> fieldValue_ {};
       // The name of the log field.
       shared_ptr<string> logFieldName_ {};
       // The value of the log field.
       shared_ptr<string> logFieldValue_ {};
       // The reason for the validation result. Valid values:
-      // 
       // - OperationDenied.TheValueIsRequired: A required parameter is empty.
-      // 
-      // - OperationDenied.TheValueIsNull: The parameter value is empty.
-      // 
-      // - OperationDenied.TheEnumValueNotSupport: The field value is not within the valid enumeration.
-      // 
-      // - OperationDenied.TheValueLessThanMin: The field value is less than the minimum value.
-      // 
-      // - OperationDenied.TheValueMoreThanMax: The field value is greater than the maximum value.
-      // 
-      // - OperationDenied.TheValueNotMatchRegularExpression: The field value does not match the regular expression.
-      // 
-      // - success: The validation passed.
+      // - OperationDenied.TheValueIsNull: The parameter value is null.
+      // - OperationDenied.TheEnumValueNotSupport: The field value is not within the valid enum values.
+      // - OperationDenied.TheValueLessThanMin: The field value is less than the specified minimum value.
+      // - OperationDenied.TheValueMoreThanMax: The field value is greater than the specified maximum value.
+      // - OperationDenied.TheValueNotMatchRegularExpression: The field value fails the regular expression match.
+      // - success: The validation is passed.
       shared_ptr<string> message_ {};
-      // The source of the normalized field. Valid values: \\`preset\\` (built-in) and \\`custom\\`.
+      // The source of the normalized field. Valid values:
+      // - preset: Built-in.
+      // - custom: Custom.
       shared_ptr<string> normalizationFieldFrom_ {};
       // The name of the normalized field.
       shared_ptr<string> normalizationFieldName_ {};
-      // Indicates whether the normalized field is required.
+      // Specifies whether the normalized field is required.
       shared_ptr<bool> normalizationFieldRequired_ {};
-      // Indicates whether the name of the normalized field is a built-in field name.
+      // Specifies whether the normalized field name is built into the system.
       shared_ptr<bool> normalizationFieldReserved_ {};
-      // The type of the normalized field. Supported types: \\`text\\`, \\`long\\`, \\`double\\`, and \\`json\\`.
+      // The type of the normalized field. Valid values: text, long, double, and json.
       shared_ptr<string> normalizationFieldType_ {};
-      // The reason why the validation of the normalized field failed.
+      // The reason why the normalized field fails the validation.
       shared_ptr<string> normalizationFieldValidationReason_ {};
-      // The validation status of the normalized field. Valid values: \\`pass\\` and \\`fail\\`.
+      // The validation status of the normalized field. Valid values: pass and fail.
       shared_ptr<string> normalizationFieldValidationStatus_ {};
-      // The result of the validation. Valid values:
-      // 
-      // - 1: The validation passed.
-      // 
+      // The validation result. Valid values:
+      // - 1: The validation is passed.
       // - 0: A warning is returned.
-      // 
-      // - -1: The validation failed.
+      // - 1: The validation fails.
       shared_ptr<int32_t> result_ {};
     };
 
@@ -238,7 +230,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of validation results.
     shared_ptr<vector<ValidateNormalizationRuleResponseBody::ValidateResult>> validateResult_ {};

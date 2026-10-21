@@ -220,75 +220,62 @@ namespace Models
 
 
   protected:
-    // The source of the data. Valid values:
-    // 
+    // The data source origin. Valid values:
     // - center
-    // 
     // - custom
     shared_ptr<string> dataSourceFrom_ {};
-    // The IDs of the data sources.
+    // The list of data source IDs.
     shared_ptr<vector<string>> dataSourceIds_ {};
-    // The name of the data source.
+    // The data source name.
     shared_ptr<string> dataSourceName_ {};
-    // The status of the data source. Valid values:
-    // 
+    // The data source status. Valid values:
     // - unconfigured
-    // 
     // - normal
-    // 
     // - abnormal
     shared_ptr<string> dataSourceStatus_ {};
-    // The status of the Logstore. Valid values:
-    // 
+    // The Logstore status. Valid values:
     // - normal
-    // 
     // - abnormal
     shared_ptr<string> dataSourceStoreStatus_ {};
-    // The IDs of the data source templates.
+    // The list of data source template IDs.
     shared_ptr<vector<string>> dataSourceTemplateIds_ {};
-    // The type of the data source. Valid values:
-    // 
-    // - preset
-    // 
-    // - custom
+    // The data source type. Valid values:
+    //  - preset
+    //  - custom
     shared_ptr<string> dataSourceType_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // 
+    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
     shared_ptr<string> lang_ {};
-    // The name of the Simple Log Service project.
+    // The Simple Log Service project name.
     shared_ptr<string> logProjectName_ {};
-    // The ID of the log storage region.
+    // The log storage region ID.
     shared_ptr<string> logRegionId_ {};
-    // The name of the Simple Log Service Logstore.
+    // The Simple Log Service Logstore name.
     shared_ptr<string> logStoreName_ {};
-    // The IDs of the users who can access the data.
+    // The list of data ingestion user IDs.
     shared_ptr<vector<int64_t>> logUserIds_ {};
-    // The maximum number of entries to return for a single request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the response to the previous query. Leave this parameter empty for the first query.
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The sorting order. Valid values:
-    // 
+    // The sort order. Valid values:
     // - desc
-    // 
     // - asc
     shared_ptr<string> order_ {};
-    // The sorting field.
+    // The field used for sorting.
     shared_ptr<string> orderField_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The region where the Data Management Center of your threat analysis feature is located. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets are located in the Chinese mainland.
+    // - ap-southeast-1: The assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member. You can use this parameter to switch the perspective to a member.
+    // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

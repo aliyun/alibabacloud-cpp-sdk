@@ -103,31 +103,31 @@ namespace Models
 
 
   protected:
-    // The IDs of automated disposal records.
+    // The list of decision-making disposal IDs.
     shared_ptr<string> autoDisposeRecordIdsShrink_ {};
-    // The page number. The value must be 1 or greater.
+    // The current page number. The value must be greater than or equal to 1.
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
-    // The type of the data source.
+    // The data source type.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // 
+    // Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. You can obtain this token from the response to a previous call.
+    // The pagination token that indicates the position from which the current call starts reading. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The unique identifier of the playbook.
+    // The UUID of the playbook. This is the unique identifier of the playbook.
     shared_ptr<string> uuid_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The ID of the upgrade item.
+      // The upgrade item ID.
       shared_ptr<string> upgradeItemId_ {};
     };
 
@@ -110,13 +110,13 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned on the current page.
+    // The maximum number of entries to return in a single call.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If the value is not empty, more results are available.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if there are no more results to return. If a next page exists, set this parameter to the value of NextToken returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The list of upgrade items.
     shared_ptr<vector<ListUpgradeItemsResponseBody::UpgradeItems>> upgradeItems_ {};

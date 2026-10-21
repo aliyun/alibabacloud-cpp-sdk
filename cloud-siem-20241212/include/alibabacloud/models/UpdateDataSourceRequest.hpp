@@ -119,19 +119,17 @@ namespace Models
 
 
     protected:
-      // The source of the data. Valid values:
-      // 
+      // The data source. Valid values:
       // - center
-      // 
       // - custom
       shared_ptr<string> dataSourceStoreFrom_ {};
-      // The ID of the log storage.
+      // The log storage ID.
       shared_ptr<string> dataSourceStoreId_ {};
-      // The name of the Simple Log Service project.
+      // The Simple Log Service project name.
       shared_ptr<string> logProjectName_ {};
       // The ID of the log storage region.
       shared_ptr<string> logRegionId_ {};
-      // The name of the Simple Log Service Logstore.
+      // The Simple Log Service Logstore name.
       shared_ptr<string> logStoreName_ {};
     };
 
@@ -233,47 +231,39 @@ namespace Models
 
 
   protected:
-    // The source of the data. Valid values:
-    // 
+    // The data source. Valid values:
     // - center
-    // 
     // - custom
     shared_ptr<string> dataSourceFrom_ {};
-    // The ID of the data source.
+    // The data source ID. This parameter is required and specifies the ID of the data source to update. If it is not provided, the API returns a 400 error.
     shared_ptr<string> dataSourceId_ {};
-    // The name of the data source.
+    // The data source name.
     shared_ptr<string> dataSourceName_ {};
     // Specifies whether to automatically discover new Logstores.
     shared_ptr<bool> dataSourceRecognizeEnabled_ {};
     // The list of Simple Log Service Logstores.
     shared_ptr<vector<UpdateDataSourceRequest::DataSourceStores>> dataSourceStores_ {};
     // The language of the response messages. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
-    // - **en**: English.
+    // - **en**: English. This parameter is required. If it is not provided, the service returns a 400 error.
     shared_ptr<string> lang_ {};
-    // The name of the Simple Log Service project.
+    // The Simple Log Service project name.
     shared_ptr<string> logProjectName_ {};
     // The ID of the log storage region.
     shared_ptr<string> logRegionId_ {};
-    // The name of the Simple Log Service Logstore.
+    // The Simple Log Service Logstore name.
     shared_ptr<string> logStoreName_ {};
-    // The user ID for data access.
+    // The user ID for data ingestion.
     shared_ptr<int64_t> logUserId_ {};
-    // The field to use for sorting the rule list. Valid values:
-    // 
-    // - GmtModified: Sorts the list by modification time.
-    // 
-    // - Id: Sorts the list by rule ID. This is the default value.
+    // The field used to sort the rule list. Valid values:
+    // - GmtModified: Sort by modification time.
+    // - Id: Sort by rule ID (default).
     shared_ptr<string> orderField_ {};
-    // The region of the Data Management center for threat analysis. Select a region based on the location of the assets. Valid values:
-    // 
-    // - cn-hangzhou: Assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Assets are outside China.
+    // The region where the data management center of the threat analysis service is located. Select the management center region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member whose perspective the administrator switches to.
+    // The user ID of the member account that the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
   };
 

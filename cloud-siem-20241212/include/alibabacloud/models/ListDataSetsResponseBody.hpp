@@ -139,39 +139,26 @@ namespace Models
 
 
       protected:
-        // The status of automatic detection. Valid values:
-        // 
+        // The automatic recognition status. Valid values:
         // - enabled: enabled.
-        // 
         // - disabled: disabled.
         shared_ptr<string> autoRecognizeStatus_ {};
-        // The type of IP address that the recognizer detects. Valid values:
-        // 
-        // - sas_vulnerability_scanner_ip: Security Center web vulnerability scanner IP address.
-        // 
-        // - waf_back_source_ip: Web Application Firewall back-to-origin IP address.
-        // 
-        // - ddos_back_source_ip: Anti-DDoS back-to-origin IP address.
-        // 
-        // - esa_back_source_ip: Edge Security Acceleration (ESA) back-to-origin node IP address.
-        // 
-        // - ecs_public_ip: Elastic Compute Service (ECS) public IP address.
-        // 
-        // - slb_public_ip: Server Load Balancer (SLB) public IP address.
-        // 
-        // - vpc_eip: Elastic IP Address (EIP).
-        // 
-        // - cdn_back_source_ip: Alibaba Cloud CDN back-to-origin IP address.
-        // 
-        // - ga_back_source_ip: Global Accelerator (GA) back-to-origin IP address.
+        // The IP type identified by the recognizer. Valid values:
+        // - sas_vulnerability_scanner_ip: IP addresses of the Security Center vulnerability web scanner.
+        // - waf_back_source_ip: back-to-origin IP addresses of Web Application Firewall (WAF).
+        // - ddos_back_source_ip: back-to-origin IP addresses of Anti-DDoS.
+        // - esa_back_source_ip: back-to-origin node IP addresses of Edge Security Acceleration (ESA).
+        // - ecs_public_ip: public IP addresses of Elastic Compute Service (ECS) instances.
+        // - slb_public_ip: public IP addresses of Server Load Balancer (SLB) instances.
+        // - vpc_eip: elastic IP addresses (EIPs).
+        // - cdn_back_source_ip: back-to-origin IP addresses of Content Delivery Network (CDN).
+        // - ga_back_source_ip: back-to-origin IP addresses of Global Accelerator (GA).
         shared_ptr<string> ipWhitelistRecognizerType_ {};
-        // The detection scope. Valid values:
-        // 
+        // The recognition scope. Valid values:
         // - current_account: current account only.
-        // 
-        // - rd_accounts: multiple accounts.
+        // - rd_accounts: multi-account enabled.
         shared_ptr<string> recognizeScope_ {};
-        // The time when the dataset was updated.
+        // The update time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -231,16 +218,14 @@ namespace Models
 
 
       protected:
-        // The ID of the dataset.
+        // The dataset ID.
         shared_ptr<string> dataSetId_ {};
-        // The ID of the rule or playbook that is associated with the dataset.
+        // The ID of the rule or playbook associated with the dataset.
         shared_ptr<string> dataSetReferenceId_ {};
-        // The name of the rule or playbook that is associated with the dataset.
+        // The name of the rule or playbook associated with the dataset.
         shared_ptr<string> dataSetReferenceName_ {};
-        // The type of the service that is associated with the dataset. Valid values:
-        // 
+        // The type of service associated with the dataset. Valid values:
         // - custom_rule: custom rule.
-        // 
         // - playbook: playbook.
         shared_ptr<string> dataSetReferenceType_ {};
       };
@@ -338,37 +323,33 @@ namespace Models
 
 
     protected:
-      // The time when the dataset was created.
+      // The creation time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // The description of the dataset.
+      // The dataset description.
       shared_ptr<string> dataSetDescription_ {};
-      // The name of the unique key for the dataset.
+      // The unique key name of the dataset.
       shared_ptr<string> dataSetFieldKeyName_ {};
-      // The names of the fields in the dataset.
+      // The field names of the dataset.
       shared_ptr<string> dataSetFieldNames_ {};
       // The name of the uploaded dataset file.
       shared_ptr<string> dataSetFileName_ {};
-      // The ID of the dataset.
+      // The dataset ID.
       shared_ptr<string> dataSetId_ {};
-      // The name of the dataset.
+      // The dataset name.
       shared_ptr<string> dataSetName_ {};
-      // The dataset references.
+      // The dataset reference data.
       shared_ptr<vector<DataSets::DataSetReferences>> dataSetReferences_ {};
-      // The status of the dataset. Valid values:
-      // 
+      // The dataset status. Valid values:
       // - 0: deleted.
-      // 
       // - 1: enabled.
       shared_ptr<int32_t> dataSetStatus_ {};
-      // The type of the dataset. Valid values:
-      // 
-      // - custom: custom.
-      // 
-      // - preset: predefined.
+      // The dataset type. Valid values:
+      // - custom: custom dataset.
+      // - preset: predefined dataset.
       shared_ptr<string> dataSetType_ {};
       // The list of recognizers.
       shared_ptr<vector<DataSets::IpWhitelistRecognizers>> ipWhitelistRecognizers_ {};
-      // The time when the dataset was updated.
+      // The update time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -429,9 +410,9 @@ namespace Models
   protected:
     // The list of datasets.
     shared_ptr<vector<ListDataSetsResponseBody::DataSets>> dataSets_ {};
-    // The maximum number of results to return for the request. This parameter is used for queries that use NextToken. Valid values: 1 to 100. Default value: 50.
+    // The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -439,7 +420,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

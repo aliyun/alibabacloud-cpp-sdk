@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::CloudSiem20241212::Models;
@@ -18,10 +19,6 @@ namespace CloudSiem20241212
 
 AlibabaCloud::CloudSiem20241212::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "cloud-siem.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "cloud-siem.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloud-siem", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -40,9 +37,71 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Checks for available version upgrades.
+ * @summary Requests cancellation of a specified security operations Agent conversation turn and returns the turn status after the cancellation request is processed.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class that includes configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Cancels a specified security operations Agent conversation turn. Before calling this operation, use CreateCopilotConversation to create a session and obtain the ConversationId, then use CreateCopilotChat to initiate a streaming conversation and obtain the TurnId from the response.
+ *
+ * @param request CancelCopilotTurnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelCopilotTurnResponse
+ */
+CancelCopilotTurnResponse Client::cancelCopilotTurnWithOptions(const CancelCopilotTurnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  if (!!request.hasTurnId()) {
+    body["TurnId"] = request.getTurnId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelCopilotTurn"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelCopilotTurnResponse>();
+}
+
+/**
+ * @summary Requests cancellation of a specified security operations Agent conversation turn and returns the turn status after the cancellation request is processed.
+ *
+ * @description Cancels a specified security operations Agent conversation turn. Before calling this operation, use CreateCopilotConversation to create a session and obtain the ConversationId, then use CreateCopilotChat to initiate a streaming conversation and obtain the TurnId from the response.
+ *
+ * @param request CancelCopilotTurnRequest
+ * @return CancelCopilotTurnResponse
+ */
+CancelCopilotTurnResponse Client::cancelCopilotTurn(const CancelCopilotTurnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelCopilotTurnWithOptions(request, runtime);
+}
+
+/**
+ * @summary Checks the status of a version upgrade item.
+ *
+ * @description Checks the execution status of a specified upgrade item. You must specify the upgrade item ID (UpgradeItemId) when calling this operation. The response includes the checkpoint status (CheckStatus) and check result (CheckResult) of the upgrade item.
  *
  * @param request CheckUpgradeItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -85,9 +144,9 @@ CheckUpgradeItemResponse Client::checkUpgradeItemWithOptions(const CheckUpgradeI
 }
 
 /**
- * @summary Checks for available version upgrades.
+ * @summary Checks the status of a version upgrade item.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class that includes configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Checks the execution status of a specified upgrade item. You must specify the upgrade item ID (UpgradeItemId) when calling this operation. The response includes the checkpoint status (CheckStatus) and check result (CheckResult) of the upgrade item.
  *
  * @param request CheckUpgradeItemRequest
  * @return CheckUpgradeItemResponse
@@ -152,9 +211,319 @@ CreateAutoDisposeConfigResponse Client::createAutoDisposeConfig(const CreateAuto
 }
 
 /**
- * @summary Creates a data ingestion policy.
+ * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
  *
- * @description The frequency and timing of notifications are limited. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+ *
+ * @param tmpReq CreateCopilotChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCopilotChatResponse
+ */
+FutureGenerator<CreateCopilotChatResponse> Client::createCopilotChatWithSSE(const CreateCopilotChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCopilotChatShrinkRequest request = CreateCopilotChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateConversation()) {
+    request.setCreateConversationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateConversation(), "CreateConversation", "json"));
+  }
+
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "Messages", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasClientConversationId()) {
+    body["ClientConversationId"] = request.getClientConversationId();
+  }
+
+  if (!!request.hasClientMessageId()) {
+    body["ClientMessageId"] = request.getClientMessageId();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasCreateConversationShrink()) {
+    body["CreateConversation"] = request.getCreateConversationShrink();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.getMessagesShrink();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasPlanMode()) {
+    body["PlanMode"] = request.getPlanMode();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReplaceTurnId()) {
+    body["ReplaceTurnId"] = request.getReplaceTurnId();
+  }
+
+  if (!!request.hasRouteTarget()) {
+    body["RouteTarget"] = request.getRouteTarget();
+  }
+
+  if (!!request.hasSource()) {
+    body["Source"] = request.getSource();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  if (!!request.hasThinkingMode()) {
+    body["ThinkingMode"] = request.getThinkingMode();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCopilotChat"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      string data = resp.getEvent().getData();
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CreateCopilotChatResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+ *
+ * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+ *
+ * @param tmpReq CreateCopilotChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCopilotChatResponse
+ */
+CreateCopilotChatResponse Client::createCopilotChatWithOptions(const CreateCopilotChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCopilotChatShrinkRequest request = CreateCopilotChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateConversation()) {
+    request.setCreateConversationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateConversation(), "CreateConversation", "json"));
+  }
+
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "Messages", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasClientConversationId()) {
+    body["ClientConversationId"] = request.getClientConversationId();
+  }
+
+  if (!!request.hasClientMessageId()) {
+    body["ClientMessageId"] = request.getClientMessageId();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasCreateConversationShrink()) {
+    body["CreateConversation"] = request.getCreateConversationShrink();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.getMessagesShrink();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasPlanMode()) {
+    body["PlanMode"] = request.getPlanMode();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReplaceTurnId()) {
+    body["ReplaceTurnId"] = request.getReplaceTurnId();
+  }
+
+  if (!!request.hasRouteTarget()) {
+    body["RouteTarget"] = request.getRouteTarget();
+  }
+
+  if (!!request.hasSource()) {
+    body["Source"] = request.getSource();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  if (!!request.hasThinkingMode()) {
+    body["ThinkingMode"] = request.getThinkingMode();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCopilotChat"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCopilotChatResponse>();
+}
+
+/**
+ * @summary Sends a message to the security operations Agent and returns an event stream through SSE. The first request can implicitly create a conversation.
+ *
+ * @description Sends a message to a security operations Agent conversation and returns results as an SSE event stream.
+ *
+ * @param request CreateCopilotChatRequest
+ * @return CreateCopilotChatResponse
+ */
+CreateCopilotChatResponse Client::createCopilotChat(const CreateCopilotChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCopilotChatWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a security operations Agent session that belongs to the current tenant and owner, and returns the session ID, status, and session configuration.
+ *
+ * @description Creates a security operations Agent session.
+ *
+ * @param request CreateCopilotConversationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCopilotConversationResponse
+ */
+CreateCopilotConversationResponse Client::createCopilotConversationWithOptions(const CreateCopilotConversationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasPlanMode()) {
+    body["PlanMode"] = request.getPlanMode();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasThinkingMode()) {
+    body["ThinkingMode"] = request.getThinkingMode();
+  }
+
+  if (!!request.hasTitle()) {
+    body["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCopilotConversation"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCopilotConversationResponse>();
+}
+
+/**
+ * @summary Creates a security operations Agent session that belongs to the current tenant and owner, and returns the session ID, status, and session configuration.
+ *
+ * @description Creates a security operations Agent session.
+ *
+ * @param request CreateCopilotConversationRequest
+ * @return CreateCopilotConversationResponse
+ */
+CreateCopilotConversationResponse Client::createCopilotConversation(const CreateCopilotConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCopilotConversationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an access policy.
+ *
+ * @description Creates an access policy to ingest log data from a data source into threat analysis.
+ * Before you begin:
+ * 1. Call the CreateDataSource operation to create a data source and obtain the data source ID (DataSourceId).
+ * 2. Call the CreateNormalizationRule operation to create a normalization rule and obtain the normalization rule ID (NormalizationRuleId).
  *
  * @param request CreateDataIngestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -241,9 +610,12 @@ CreateDataIngestionResponse Client::createDataIngestionWithOptions(const CreateD
 }
 
 /**
- * @summary Creates a data ingestion policy.
+ * @summary Creates an access policy.
  *
- * @description The frequency and timing of notifications are limited. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Creates an access policy to ingest log data from a data source into threat analysis.
+ * Before you begin:
+ * 1. Call the CreateDataSource operation to create a data source and obtain the data source ID (DataSourceId).
+ * 2. Call the CreateNormalizationRule operation to create a normalization rule and obtain the normalization rule ID (NormalizationRuleId).
  *
  * @param request CreateDataIngestionRequest
  * @return CreateDataIngestionResponse
@@ -708,9 +1080,9 @@ CreateExportTaskResponse Client::createExportTask(const CreateExportTaskRequest 
 }
 
 /**
- * @summary Configure client-side storage restrictions.
+ * @summary Creates a restrictive user-side storage.
  *
- * @description The JsonConfig input parameter uses a complex JSON structure. A supporting tool class is provided to simplify this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations string. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateLogStoreRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -765,9 +1137,9 @@ CreateLogStoreResponse Client::createLogStoreWithOptions(const CreateLogStoreReq
 }
 
 /**
- * @summary Configure client-side storage restrictions.
+ * @summary Creates a restrictive user-side storage.
  *
- * @description The JsonConfig input parameter uses a complex JSON structure. A supporting tool class is provided to simplify this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations string. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateLogStoreRequest
  * @return CreateLogStoreResponse
@@ -780,7 +1152,7 @@ CreateLogStoreResponse Client::createLogStore(const CreateLogStoreRequest &reque
 /**
  * @summary Creates a normalization rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param tmpReq CreateNormalizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -891,7 +1263,7 @@ CreateNormalizationRuleResponse Client::createNormalizationRuleWithOptions(const
 /**
  * @summary Creates a normalization rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateNormalizationRuleRequest
  * @return CreateNormalizationRuleResponse
@@ -904,7 +1276,7 @@ CreateNormalizationRuleResponse Client::createNormalizationRule(const CreateNorm
 /**
  * @summary Creates a data source.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, we provide a supporting utility class. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateNormalizationSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +1361,7 @@ CreateNormalizationSchemaResponse Client::createNormalizationSchemaWithOptions(c
 /**
  * @summary Creates a data source.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, we provide a supporting utility class. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateNormalizationSchemaRequest
  * @return CreateNormalizationSchemaResponse
@@ -1002,7 +1374,7 @@ CreateNormalizationSchemaResponse Client::createNormalizationSchema(const Create
 /**
  * @summary Creates a product.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is available and provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex set of JSON Configurations. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateProductRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1423,7 @@ CreateProductResponse Client::createProductWithOptions(const CreateProductReques
 /**
  * @summary Creates a product.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is available and provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex set of JSON Configurations. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateProductRequest
  * @return CreateProductResponse
@@ -1064,7 +1436,7 @@ CreateProductResponse Client::createProduct(const CreateProductRequest &request)
 /**
  * @summary Creates an automatic response rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a supporting tool with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateResponseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1145,7 +1517,7 @@ CreateResponseRuleResponse Client::createResponseRuleWithOptions(const CreateRes
 /**
  * @summary Creates an automatic response rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a supporting tool with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request CreateResponseRuleRequest
  * @return CreateResponseRuleResponse
@@ -1158,7 +1530,8 @@ CreateResponseRuleResponse Client::createResponseRule(const CreateResponseRuleRe
 /**
  * @summary Creates a vendor.
  *
- * @description Notifications are limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
+ * @description Creates a vendor.
+ * Before you begin: You must have purchased the cloud-siem service and have a valid order before calling this operation. If you have not purchased the service or your order has expired, the API returns "The order doesn\\"t exist or is expired." Purchase or renew the service before calling this operation.
  *
  * @param request CreateVendorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1576,8 @@ CreateVendorResponse Client::createVendorWithOptions(const CreateVendorRequest &
 /**
  * @summary Creates a vendor.
  *
- * @description Notifications are limited by frequency and time. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
+ * @description Creates a vendor.
+ * Before you begin: You must have purchased the cloud-siem service and have a valid order before calling this operation. If you have not purchased the service or your order has expired, the API returns "The order doesn\\"t exist or is expired." Purchase or renew the service before calling this operation.
  *
  * @param request CreateVendorRequest
  * @return CreateVendorResponse
@@ -1386,7 +1760,8 @@ DeleteDataSetRecordResponse Client::deleteDataSetRecord(const DeleteDataSetRecor
 /**
  * @summary Deletes a data source.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Deletes a specified data source.
+ * Before you begin: The calling account must have a valid SIEM data source management value-added feature subscription.
  *
  * @param request DeleteDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1806,8 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 /**
  * @summary Deletes a data source.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Deletes a specified data source.
+ * Before you begin: The calling account must have a valid SIEM data source management value-added feature subscription.
  *
  * @param request DeleteDataSourceRequest
  * @return DeleteDataSourceResponse
@@ -1496,9 +1872,9 @@ DeleteDetectionRuleResponse Client::deleteDetectionRule(const DeleteDetectionRul
 }
 
 /**
- * @summary Deletes a Logstore.
+ * @summary Deletes a LogStore.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class with configuration examples is available. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request DeleteLogStoreRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1553,9 +1929,9 @@ DeleteLogStoreResponse Client::deleteLogStoreWithOptions(const DeleteLogStoreReq
 }
 
 /**
- * @summary Deletes a Logstore.
+ * @summary Deletes a LogStore.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class with configuration examples is available. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request DeleteLogStoreRequest
  * @return DeleteLogStoreResponse
@@ -1930,9 +2306,10 @@ DeleteVendorResponse Client::deleteVendor(const DeleteVendorRequest &request) {
 }
 
 /**
- * @summary Disables a data ingestion policy.
+ * @summary Stops a collection policy.
  *
- * @description The frequency and time of notifications are limited. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request DisableDataIngestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1975,9 +2352,10 @@ DisableDataIngestionResponse Client::disableDataIngestionWithOptions(const Disab
 }
 
 /**
- * @summary Disables a data ingestion policy.
+ * @summary Stops a collection policy.
  *
- * @description The frequency and time of notifications are limited. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request DisableDataIngestionRequest
  * @return DisableDataIngestionResponse
@@ -2110,7 +2488,7 @@ ExecuteAutoDisposeRecordsResponse Client::executeAutoDisposeRecords(const Execut
 /**
  * @summary Executes a data query.
  *
- * @description The input parameter JsonConfig is a complex JSON Configurations. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, a utility class is provided. For specific configuration examples, refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ExecuteLogQueryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2191,7 +2569,7 @@ ExecuteLogQueryResponse Client::executeLogQueryWithOptions(const ExecuteLogQuery
 /**
  * @summary Executes a data query.
  *
- * @description The input parameter JsonConfig is a complex JSON Configurations. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, a utility class is provided. For specific configuration examples, refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ExecuteLogQueryRequest
  * @return ExecuteLogQueryResponse
@@ -2204,7 +2582,11 @@ ExecuteLogQueryResponse Client::executeLogQuery(const ExecuteLogQueryRequest &re
 /**
  * @summary Performs a version upgrade.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is provided to assist with this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration string. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * ### Before you begin
+ * 1. Before calling this operation, ensure that a pending upgrade order exists (created through the Alibaba Cloud Management Console or a business flow).
+ * 2. Call ListUpgradeItems to view the items that can be upgraded, and call CheckUpgradeItem to perform a dry run.
+ * 3. If no items can be upgraded, the API returns an error.
  *
  * @param request ExecuteUpgradeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2245,7 +2627,11 @@ ExecuteUpgradeResponse Client::executeUpgradeWithOptions(const ExecuteUpgradeReq
 /**
  * @summary Performs a version upgrade.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is provided to assist with this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration string. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * ### Before you begin
+ * 1. Before calling this operation, ensure that a pending upgrade order exists (created through the Alibaba Cloud Management Console or a business flow).
+ * 2. Call ListUpgradeItems to view the items that can be upgraded, and call CheckUpgradeItem to perform a dry run.
+ * 3. If no items can be upgraded, the API returns an error.
  *
  * @param request ExecuteUpgradeRequest
  * @return ExecuteUpgradeResponse
@@ -2256,7 +2642,7 @@ ExecuteUpgradeResponse Client::executeUpgrade(const ExecuteUpgradeRequest &reque
 }
 
 /**
- * @summary Retrieves the details of an alert.
+ * @summary Retrieves alert details.
  *
  * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
@@ -2305,7 +2691,7 @@ GetAlertResponse Client::getAlertWithOptions(const GetAlertRequest &request, con
 }
 
 /**
- * @summary Retrieves the details of an alert.
+ * @summary Retrieves alert details.
  *
  * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
@@ -2368,9 +2754,191 @@ GetAutoDisposeConfigResponse Client::getAutoDisposeConfig(const GetAutoDisposeCo
 }
 
 /**
- * @summary Retrieves the details of a batch data ingestion task.
+ * @summary Queries the metadata, status, configuration, and historical summary of a specified security operations agent session.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Queries a specified security operations agent session.
+ *
+ * @param request GetCopilotConversationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCopilotConversationResponse
+ */
+GetCopilotConversationResponse Client::getCopilotConversationWithOptions(const GetCopilotConversationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCopilotConversation"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCopilotConversationResponse>();
+}
+
+/**
+ * @summary Queries the metadata, status, configuration, and historical summary of a specified security operations agent session.
+ *
+ * @description Queries a specified security operations agent session.
+ *
+ * @param request GetCopilotConversationRequest
+ * @return GetCopilotConversationResponse
+ */
+GetCopilotConversationResponse Client::getCopilotConversation(const GetCopilotConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCopilotConversationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the conversation turn status of the Security Operations agent.
+ *
+ * @description Queries a specified Security Operations agent conversation turn. Before calling this operation, call CreateCopilotConversation to create a session and obtain the ConversationId, and then call CreateCopilotChat to initiate a conversation and obtain the TurnId.
+ *
+ * @param request GetCopilotTurnRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCopilotTurnResponse
+ */
+GetCopilotTurnResponse Client::getCopilotTurnWithOptions(const GetCopilotTurnRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  if (!!request.hasTurnId()) {
+    body["TurnId"] = request.getTurnId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCopilotTurn"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCopilotTurnResponse>();
+}
+
+/**
+ * @summary Retrieves the conversation turn status of the Security Operations agent.
+ *
+ * @description Queries a specified Security Operations agent conversation turn. Before calling this operation, call CreateCopilotConversation to create a session and obtain the ConversationId, and then call CreateCopilotChat to initiate a conversation and obtain the TurnId.
+ *
+ * @param request GetCopilotTurnRequest
+ * @return GetCopilotTurnResponse
+ */
+GetCopilotTurnResponse Client::getCopilotTurn(const GetCopilotTurnRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCopilotTurnWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of the security operations agent conversation turn based on the conversation ID and client message ID.
+ *
+ * @description Queries the security operations agent conversation turn based on the client message ID. Before calling this operation, call CreateCopilotConversation to create a conversation and then call CreateCopilotChat to initiate a conversation. The ClientMessageId is specified by the client when initiating the conversation.
+ *
+ * @param request GetCopilotTurnByClientMessageIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCopilotTurnByClientMessageIdResponse
+ */
+GetCopilotTurnByClientMessageIdResponse Client::getCopilotTurnByClientMessageIdWithOptions(const GetCopilotTurnByClientMessageIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientMessageId()) {
+    body["ClientMessageId"] = request.getClientMessageId();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCopilotTurnByClientMessageId"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCopilotTurnByClientMessageIdResponse>();
+}
+
+/**
+ * @summary Queries the details of the security operations agent conversation turn based on the conversation ID and client message ID.
+ *
+ * @description Queries the security operations agent conversation turn based on the client message ID. Before calling this operation, call CreateCopilotConversation to create a conversation and then call CreateCopilotChat to initiate a conversation. The ClientMessageId is specified by the client when initiating the conversation.
+ *
+ * @param request GetCopilotTurnByClientMessageIdRequest
+ * @return GetCopilotTurnByClientMessageIdResponse
+ */
+GetCopilotTurnByClientMessageIdResponse Client::getCopilotTurnByClientMessageId(const GetCopilotTurnByClientMessageIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCopilotTurnByClientMessageIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the data batch ingestion configuration.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration string. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataBatchIngestionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2409,9 +2977,9 @@ GetDataBatchIngestionResponse Client::getDataBatchIngestionWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the details of a batch data ingestion task.
+ * @summary Retrieves the data batch ingestion configuration.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataBatchIngestionRequest
  * @return GetDataBatchIngestionResponse
@@ -2423,6 +2991,8 @@ GetDataBatchIngestionResponse Client::getDataBatchIngestion(const GetDataBatchIn
 
 /**
  * @summary Retrieves the details of user logs in log management.
+ *
+ * @description Queries the log storage region, project, capacity, Logstore, and multi-account delivery settings of the current account. Before you update the multi-account configuration, read Data.DeliverySettings.ConfigurationVersion and TargetProject, and pass them to the write operation as is. The capacity is measured in GB, and the TTL is measured in days. The account UID in DeliverySettings is a string. If the system fails to read the optional delivery settings, the cause is returned in DeliverySettingsError, and other storage information is still returned.
  *
  * @param request GetDataStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2462,6 +3032,8 @@ GetDataStorageResponse Client::getDataStorageWithOptions(const GetDataStorageReq
 
 /**
  * @summary Retrieves the details of user logs in log management.
+ *
+ * @description Queries the log storage region, project, capacity, Logstore, and multi-account delivery settings of the current account. Before you update the multi-account configuration, read Data.DeliverySettings.ConfigurationVersion and TargetProject, and pass them to the write operation as is. The capacity is measured in GB, and the TTL is measured in days. The account UID in DeliverySettings is a string. If the system fails to read the optional delivery settings, the cause is returned in DeliverySettingsError, and other storage information is still returned.
  *
  * @param request GetDataStorageRequest
  * @return GetDataStorageResponse
@@ -2578,7 +3150,7 @@ GetExportTaskResponse Client::getExportTask(const GetExportTaskRequest &request)
 /**
  * @summary Retrieves the details of an event.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. We provide a supporting utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetIncidentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2623,7 +3195,7 @@ GetIncidentResponse Client::getIncidentWithOptions(const GetIncidentRequest &req
 /**
  * @summary Retrieves the details of an event.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. We provide a supporting utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetIncidentRequest
  * @return GetIncidentResponse
@@ -2634,9 +3206,87 @@ GetIncidentResponse Client::getIncident(const GetIncidentRequest &request) {
 }
 
 /**
- * @summary Retrieves a log ticket.
+ * @summary Queries the AI investigation details of a specified incident, including the report ID, investigation time, judgment category, summary, conclusion, and report content.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is provided to assist with the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Queries the AI investigation results that have been generated for a specified incident. You can call ListIncidentInvestigations to obtain the report ID or display ID first, and then call this operation to query the details.
+ * The query priority is as follows:
+ * 1. If IncidentInvestigationId is specified, the query is performed by report ID.
+ * 2. If the report ID is not specified but IncidentInvestigationDisplayId is specified, the query is performed by display ID.
+ * 3. If neither identifier is specified, the most recent successfully completed investigation result for the incident corresponding to IncidentUuid is returned, selected in descending order of investigation end time.
+ * If no matching investigation record is found, IncidentInvestigation is empty.
+ * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings that must be parsed before their fields can be used. Internal fields may change across report versions, and callers should handle missing fields gracefully. The examples show only partial report content.
+ *
+ * @param request GetIncidentInvestigationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIncidentInvestigationResponse
+ */
+GetIncidentInvestigationResponse Client::getIncidentInvestigationWithOptions(const GetIncidentInvestigationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasIncidentInvestigationDisplayId()) {
+    body["IncidentInvestigationDisplayId"] = request.getIncidentInvestigationDisplayId();
+  }
+
+  if (!!request.hasIncidentInvestigationId()) {
+    body["IncidentInvestigationId"] = request.getIncidentInvestigationId();
+  }
+
+  if (!!request.hasIncidentUuid()) {
+    body["IncidentUuid"] = request.getIncidentUuid();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetIncidentInvestigation"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIncidentInvestigationResponse>();
+}
+
+/**
+ * @summary Queries the AI investigation details of a specified incident, including the report ID, investigation time, judgment category, summary, conclusion, and report content.
+ *
+ * @description Queries the AI investigation results that have been generated for a specified incident. You can call ListIncidentInvestigations to obtain the report ID or display ID first, and then call this operation to query the details.
+ * The query priority is as follows:
+ * 1. If IncidentInvestigationId is specified, the query is performed by report ID.
+ * 2. If the report ID is not specified but IncidentInvestigationDisplayId is specified, the query is performed by display ID.
+ * 3. If neither identifier is specified, the most recent successfully completed investigation result for the incident corresponding to IncidentUuid is returned, selected in descending order of investigation end time.
+ * If no matching investigation record is found, IncidentInvestigation is empty.
+ * IncidentInvestigationStatus indicates the judgment category in the report. Both IncidentInvestigationReport and IncidentInvestigationOutput are JSON-formatted strings that must be parsed before their fields can be used. Internal fields may change across report versions, and callers should handle missing fields gracefully. The examples show only partial report content.
+ *
+ * @param request GetIncidentInvestigationRequest
+ * @return GetIncidentInvestigationResponse
+ */
+GetIncidentInvestigationResponse Client::getIncidentInvestigation(const GetIncidentInvestigationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getIncidentInvestigationWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves log credentials.
+ *
+ * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetLogTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2679,9 +3329,9 @@ GetLogTicketResponse Client::getLogTicketWithOptions(const GetLogTicketRequest &
 }
 
 /**
- * @summary Retrieves a log ticket.
+ * @summary Retrieves log credentials.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is provided to assist with the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetLogTicketRequest
  * @return GetLogTicketResponse
@@ -2694,7 +3344,7 @@ GetLogTicketResponse Client::getLogTicket(const GetLogTicketRequest &request) {
 /**
  * @summary Retrieves normalization rule information.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The request parameter JsonConfig contains highly complex JSON configurations. To help you configure it, we provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2743,7 +3393,7 @@ GetNormalizationRuleResponse Client::getNormalizationRuleWithOptions(const GetNo
 /**
  * @summary Retrieves normalization rule information.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The request parameter JsonConfig contains highly complex JSON configurations. To help you configure it, we provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationRuleRequest
  * @return GetNormalizationRuleResponse
@@ -2754,9 +3404,9 @@ GetNormalizationRuleResponse Client::getNormalizationRule(const GetNormalization
 }
 
 /**
- * @summary Retrieves information about a normalization rule version.
+ * @summary Retrieves normalization rule version information.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a supporting utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationRuleVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2803,9 +3453,9 @@ GetNormalizationRuleVersionResponse Client::getNormalizationRuleVersionWithOptio
 }
 
 /**
- * @summary Retrieves information about a normalization rule version.
+ * @summary Retrieves normalization rule version information.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a supporting utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationRuleVersionRequest
  * @return GetNormalizationRuleVersionResponse
@@ -2816,9 +3466,9 @@ GetNormalizationRuleVersionResponse Client::getNormalizationRuleVersion(const Ge
 }
 
 /**
- * @summary Retrieves a normalization schema.
+ * @summary Retrieves the normalized schema.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration string. A supporting tool class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. We provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2865,9 +3515,9 @@ GetNormalizationSchemaResponse Client::getNormalizationSchemaWithOptions(const G
 }
 
 /**
- * @summary Retrieves a normalization schema.
+ * @summary Retrieves the normalized schema.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration string. A supporting tool class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. We provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetNormalizationSchemaRequest
  * @return GetNormalizationSchemaResponse
@@ -2881,7 +3531,7 @@ GetNormalizationSchemaResponse Client::getNormalizationSchema(const GetNormaliza
  * @summary Retrieves the count of automated response rules.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request GetResponseRuleStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2927,7 +3577,7 @@ GetResponseRuleStatisticResponse Client::getResponseRuleStatisticWithOptions(con
  * @summary Retrieves the count of automated response rules.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request GetResponseRuleStatisticRequest
  * @return GetResponseRuleStatisticResponse
@@ -2940,7 +3590,7 @@ GetResponseRuleStatisticResponse Client::getResponseRuleStatistic(const GetRespo
 /**
  * @summary Retrieves user information.
  *
- * @description The JsonConfig request parameter is a complex JSON object. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetUserConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2981,7 +3631,7 @@ GetUserConfigResponse Client::getUserConfigWithOptions(const GetUserConfigReques
 /**
  * @summary Retrieves user information.
  *
- * @description The JsonConfig request parameter is a complex JSON object. A supporting tool class is provided to help you create the configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetUserConfigRequest
  * @return GetUserConfigResponse
@@ -2992,9 +3642,9 @@ GetUserConfigResponse Client::getUserConfig(const GetUserConfigRequest &request)
 }
 
 /**
- * @summary 获取告警分组列表
+ * @summary Retrieves the list of alert groups.
  *
- * @description 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListAlertAggregationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3073,9 +3723,9 @@ ListAlertAggregationsResponse Client::listAlertAggregationsWithOptions(const Lis
 }
 
 /**
- * @summary 获取告警分组列表
+ * @summary Retrieves the list of alert groups.
  *
- * @description 入参JsonConfig是一个非常复杂的JSON配置，为此我们提供了辅助工具类帮助具体配置示例，请参考[Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java)。
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListAlertAggregationsRequest
  * @return ListAlertAggregationsResponse
@@ -3088,7 +3738,9 @@ ListAlertAggregationsResponse Client::listAlertAggregations(const ListAlertAggre
 /**
  * @summary Retrieves a list of alerts.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class with configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations. We provide a utility class with configuration examples to help you get started. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * ### Before you begin
+ * Before invoking this operation, ensure that Cloud SIEM storage resources (the alert-record Logstore in the Simple Log Service project) are activated. Invoke GetDataStorage to check the storage status. If storage is not activated, purchase SIEM storage first. Otherwise, the invocation will fail.
  *
  * @param request ListAlertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3181,7 +3833,9 @@ ListAlertsResponse Client::listAlertsWithOptions(const ListAlertsRequest &reques
 /**
  * @summary Retrieves a list of alerts.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class with configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations. We provide a utility class with configuration examples to help you get started. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * ### Before you begin
+ * Before invoking this operation, ensure that Cloud SIEM storage resources (the alert-record Logstore in the Simple Log Service project) are activated. Invoke GetDataStorage to check the storage status. If storage is not activated, purchase SIEM storage first. Otherwise, the invocation will fail.
  *
  * @param request ListAlertsRequest
  * @return ListAlertsResponse
@@ -3192,9 +3846,9 @@ ListAlertsResponse Client::listAlerts(const ListAlertsRequest &request) {
 }
 
 /**
- * @summary Get AI-analyzed entity list
+ * @summary Retrieves the list of AI decision-making entities.
  *
- * @description Each user can receive up to two notifications daily, but only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param tmpReq ListAutoDisposeEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3259,9 +3913,9 @@ ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntitiesWithOptions(const
 }
 
 /**
- * @summary Get AI-analyzed entity list
+ * @summary Retrieves the list of AI decision-making entities.
  *
- * @description Each user can receive up to two notifications daily, but only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListAutoDisposeEntitiesRequest
  * @return ListAutoDisposeEntitiesResponse
@@ -3269,6 +3923,76 @@ ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntitiesWithOptions(const
 ListAutoDisposeEntitiesResponse Client::listAutoDisposeEntities(const ListAutoDisposeEntitiesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAutoDisposeEntitiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+ *
+ * @description Queries the message list of a specified security operations Agent conversation.
+ *
+ * @param request ListCopilotMessagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCopilotMessagesResponse
+ */
+ListCopilotMessagesResponse Client::listCopilotMessagesWithOptions(const ListCopilotMessagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAscending()) {
+    body["Ascending"] = request.getAscending();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCopilotMessages"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCopilotMessagesResponse>();
+}
+
+/**
+ * @summary Queries visible persisted messages in a specified security operations Agent session by paging, with configurable sorting direction.
+ *
+ * @description Queries the message list of a specified security operations Agent conversation.
+ *
+ * @param request ListCopilotMessagesRequest
+ * @return ListCopilotMessagesResponse
+ */
+ListCopilotMessagesResponse Client::listCopilotMessages(const ListCopilotMessagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCopilotMessagesWithOptions(request, runtime);
 }
 
 /**
@@ -3382,7 +4106,8 @@ ListDataConnectorsResponse Client::listDataConnectors(const ListDataConnectorsRe
 /**
  * @summary Queries data ingestion templates.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListDataIngestionTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3443,7 +4168,8 @@ ListDataIngestionTemplatesResponse Client::listDataIngestionTemplatesWithOptions
 /**
  * @summary Queries data ingestion templates.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListDataIngestionTemplatesRequest
  * @return ListDataIngestionTemplatesResponse
@@ -3454,9 +4180,10 @@ ListDataIngestionTemplatesResponse Client::listDataIngestionTemplates(const List
 }
 
 /**
- * @summary Retrieves a list of data access policies.
+ * @summary Retrieves a list of data ingestion policies.
  *
- * @description Each user receives up to two notifications per day, sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param tmpReq ListDataIngestionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3529,9 +4256,10 @@ ListDataIngestionsResponse Client::listDataIngestionsWithOptions(const ListDataI
 }
 
 /**
- * @summary Retrieves a list of data access policies.
+ * @summary Retrieves a list of data ingestion policies.
  *
- * @description Each user receives up to two notifications per day, sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListDataIngestionsRequest
  * @return ListDataIngestionsResponse
@@ -3726,7 +4454,8 @@ ListDataSetsResponse Client::listDataSets(const ListDataSetsRequest &request) {
 /**
  * @summary Queries data source templates.
  *
- * @description Notifications are limited by frequency and time. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
  *
  * @param tmpReq ListDataSourceTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3785,7 +4514,8 @@ ListDataSourceTemplatesResponse Client::listDataSourceTemplatesWithOptions(const
 /**
  * @summary Queries data source templates.
  *
- * @description Notifications are limited by frequency and time. Each user receives a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent at other times.
  *
  * @param request ListDataSourceTemplatesRequest
  * @return ListDataSourceTemplatesResponse
@@ -3796,9 +4526,10 @@ ListDataSourceTemplatesResponse Client::listDataSourceTemplates(const ListDataSo
 }
 
 /**
- * @summary Lists data sources.
+ * @summary Retrieves a list of data sources.
  *
- * @description Notifications are subject to frequency and time limits. A maximum of two notifications are sent to each user per day, and only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param tmpReq ListDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3919,9 +4650,10 @@ ListDataSourcesResponse Client::listDataSourcesWithOptions(const ListDataSources
 }
 
 /**
- * @summary Lists data sources.
+ * @summary Retrieves a list of data sources.
  *
- * @description Notifications are subject to frequency and time limits. A maximum of two notifications are sent to each user per day, and only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListDataSourcesRequest
  * @return ListDataSourcesResponse
@@ -3934,7 +4666,8 @@ ListDataSourcesResponse Client::listDataSources(const ListDataSourcesRequest &re
 /**
  * @summary Retrieves a list of detection rules.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day. These notifications are sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param tmpReq ListDetectionRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4057,7 +4790,8 @@ ListDetectionRulesResponse Client::listDetectionRulesWithOptions(const ListDetec
 /**
  * @summary Retrieves a list of detection rules.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day. These notifications are sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListDetectionRulesRequest
  * @return ListDetectionRulesResponse
@@ -4071,7 +4805,7 @@ ListDetectionRulesResponse Client::listDetectionRules(const ListDetectionRulesRe
  * @summary Retrieves a list of events.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param tmpReq ListIncidentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4201,7 +4935,7 @@ ListIncidentsResponse Client::listIncidentsWithOptions(const ListIncidentsReques
  * @summary Retrieves a list of events.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListIncidentsRequest
  * @return ListIncidentsResponse
@@ -4212,9 +4946,9 @@ ListIncidentsResponse Client::listIncidents(const ListIncidentsRequest &request)
 }
 
 /**
- * @summary Lists log projects.
+ * @summary Retrieves a list of log projects.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is available to simplify this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Retrieves a list of log projects associated with threat detection and response.
  *
  * @param request ListLogProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4269,9 +5003,9 @@ ListLogProjectsResponse Client::listLogProjectsWithOptions(const ListLogProjects
 }
 
 /**
- * @summary Lists log projects.
+ * @summary Retrieves a list of log projects.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is available to simplify this configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description Retrieves a list of log projects associated with threat detection and response.
  *
  * @param request ListLogProjectsRequest
  * @return ListLogProjectsResponse
@@ -4332,9 +5066,10 @@ ListLogRegionsResponse Client::listLogRegions(const ListLogRegionsRequest &reque
 }
 
 /**
- * @summary Retrieves a list of Logstores.
+ * @summary Retrieves the list of log stores.
  *
- * @description The notification frequency is limited. Each user can receive up to two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListLogStoresRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4393,9 +5128,10 @@ ListLogStoresResponse Client::listLogStoresWithOptions(const ListLogStoresReques
 }
 
 /**
- * @summary Retrieves a list of Logstores.
+ * @summary Retrieves the list of log stores.
  *
- * @description The notification frequency is limited. Each user can receive up to two notifications per day between 08:00 and 20:00. No notifications are sent outside this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListLogStoresRequest
  * @return ListLogStoresResponse
@@ -4406,9 +5142,10 @@ ListLogStoresResponse Client::listLogStores(const ListLogStoresRequest &request)
 }
 
 /**
- * @summary Lists normalization categories.
+ * @summary Retrieves the list of standardized categories.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListNormalizationCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4459,9 +5196,10 @@ ListNormalizationCategoriesResponse Client::listNormalizationCategoriesWithOptio
 }
 
 /**
- * @summary Lists normalization categories.
+ * @summary Retrieves the list of standardized categories.
  *
- * @description Notifications are subject to frequency and time limits. Each user can receive a maximum of two notifications per day between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request ListNormalizationCategoriesRequest
  * @return ListNormalizationCategoriesResponse
@@ -4472,9 +5210,9 @@ ListNormalizationCategoriesResponse Client::listNormalizationCategories(const Li
 }
 
 /**
- * @summary Retrieves a list of normalization fields.
+ * @summary Retrieves the list of normalization fields.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided for configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4533,9 +5271,9 @@ ListNormalizationFieldsResponse Client::listNormalizationFieldsWithOptions(const
 }
 
 /**
- * @summary Retrieves a list of normalization fields.
+ * @summary Retrieves the list of normalization fields.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided for configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationFieldsRequest
  * @return ListNormalizationFieldsResponse
@@ -4546,9 +5284,9 @@ ListNormalizationFieldsResponse Client::listNormalizationFields(const ListNormal
 }
 
 /**
- * @summary Lists the security capabilities of normalization rules.
+ * @summary Retrieves the list of security capabilities associated with normalization rules.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A helper tool class is provided with configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param tmpReq ListNormalizationRuleCapacitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4609,9 +5347,9 @@ ListNormalizationRuleCapacitiesResponse Client::listNormalizationRuleCapacitiesW
 }
 
 /**
- * @summary Lists the security capabilities of normalization rules.
+ * @summary Retrieves the list of security capabilities associated with normalization rules.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A helper tool class is provided with configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationRuleCapacitiesRequest
  * @return ListNormalizationRuleCapacitiesResponse
@@ -4622,9 +5360,9 @@ ListNormalizationRuleCapacitiesResponse Client::listNormalizationRuleCapacities(
 }
 
 /**
- * @summary Queries a list of normalization rule versions.
+ * @summary Retrieves a list of normalization rule versions.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is available and provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationRuleVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4675,9 +5413,9 @@ ListNormalizationRuleVersionsResponse Client::listNormalizationRuleVersionsWithO
 }
 
 /**
- * @summary Queries a list of normalization rule versions.
+ * @summary Retrieves a list of normalization rule versions.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class is available and provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationRuleVersionsRequest
  * @return ListNormalizationRuleVersionsResponse
@@ -4808,7 +5546,7 @@ ListNormalizationRulesResponse Client::listNormalizationRules(const ListNormaliz
 /**
  * @summary Retrieves a list of normalization schemas.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4873,7 +5611,7 @@ ListNormalizationSchemasResponse Client::listNormalizationSchemasWithOptions(con
 /**
  * @summary Retrieves a list of normalization schemas.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration string. A utility class is provided with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationSchemasRequest
  * @return ListNormalizationSchemasResponse
@@ -4884,9 +5622,9 @@ ListNormalizationSchemasResponse Client::listNormalizationSchemas(const ListNorm
 }
 
 /**
- * @summary Retrieves a list of security domains.
+ * @summary Retrieves the list of security domains.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationSecurityDomainsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4933,9 +5671,9 @@ ListNormalizationSecurityDomainsResponse Client::listNormalizationSecurityDomain
 }
 
 /**
- * @summary Retrieves a list of security domains.
+ * @summary Retrieves the list of security domains.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class and configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListNormalizationSecurityDomainsRequest
  * @return ListNormalizationSecurityDomainsResponse
@@ -4948,7 +5686,7 @@ ListNormalizationSecurityDomainsResponse Client::listNormalizationSecurityDomain
 /**
  * @summary Retrieves a list of products.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class is provided that contains configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a highly complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param tmpReq ListProductsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5019,7 +5757,7 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 /**
  * @summary Retrieves a list of products.
  *
- * @description The \\`JsonConfig\\` request parameter is a complex JSON configuration. A supporting tool class is provided that contains configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a highly complex JSON configuration. A utility class with specific configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListProductsRequest
  * @return ListProductsResponse
@@ -5032,7 +5770,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 /**
  * @summary Retrieves a list of query views.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListQueryViewsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5095,7 +5833,7 @@ ListQueryViewsResponse Client::listQueryViewsWithOptions(const ListQueryViewsReq
 /**
  * @summary Retrieves a list of query views.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListQueryViewsRequest
  * @return ListQueryViewsResponse
@@ -5109,7 +5847,7 @@ ListQueryViewsResponse Client::listQueryViews(const ListQueryViewsRequest &reque
  * @summary Retrieves the field list of automated response rules.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListResponseRuleFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5163,7 +5901,7 @@ ListResponseRuleFieldsResponse Client::listResponseRuleFieldsWithOptions(const L
  * @summary Retrieves the field list of automated response rules.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListResponseRuleFieldsRequest
  * @return ListResponseRuleFieldsResponse
@@ -5272,7 +6010,7 @@ ListResponseRulesResponse Client::listResponseRules(const ListResponseRulesReque
 /**
  * @summary Queries a list of tags.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations string. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5337,7 +6075,7 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
 /**
  * @summary Queries a list of tags.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON Configurations string. We provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListTagsRequest
  * @return ListTagsResponse
@@ -5348,9 +6086,9 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of traffic statistics.
+ * @summary Retrieves the list of traffic statistics.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param tmpReq ListTrafficStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5423,9 +6161,9 @@ ListTrafficStatisticsResponse Client::listTrafficStatisticsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a list of traffic statistics.
+ * @summary Retrieves the list of traffic statistics.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class with configuration examples is provided. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListTrafficStatisticsRequest
  * @return ListTrafficStatisticsResponse
@@ -5438,7 +6176,7 @@ ListTrafficStatisticsResponse Client::listTrafficStatistics(const ListTrafficSta
 /**
  * @summary Retrieves a list of upgrade items.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides examples for this configuration. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListUpgradeItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5487,7 +6225,7 @@ ListUpgradeItemsResponse Client::listUpgradeItemsWithOptions(const ListUpgradeIt
 /**
  * @summary Retrieves a list of upgrade items.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class provides examples for this configuration. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListUpgradeItemsRequest
  * @return ListUpgradeItemsResponse
@@ -5498,9 +6236,10 @@ ListUpgradeItemsResponse Client::listUpgradeItems(const ListUpgradeItemsRequest 
 }
 
 /**
- * @summary Retrieves a list of vendors.
+ * @summary Retrieves the list of vendors.
  *
- * @description The frequency and time of notifications are limited. Each user can receive a maximum of two notifications per day, which are sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param tmpReq ListVendorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5565,9 +6304,10 @@ ListVendorsResponse Client::listVendorsWithOptions(const ListVendorsRequest &tmp
 }
 
 /**
- * @summary Retrieves a list of vendors.
+ * @summary Retrieves the list of vendors.
  *
- * @description The frequency and time of notifications are limited. Each user can receive a maximum of two notifications per day, which are sent only between 08:00 and 20:00.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request ListVendorsRequest
  * @return ListVendorsResponse
@@ -5580,7 +6320,8 @@ ListVendorsResponse Client::listVendors(const ListVendorsRequest &request) {
 /**
  * @summary Refreshes a data source.
  *
- * @description There are limits on the frequency and time of notifications. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside of this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request RefreshDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5625,7 +6366,8 @@ RefreshDataSourceResponse Client::refreshDataSourceWithOptions(const RefreshData
 /**
  * @summary Refreshes a data source.
  *
- * @description There are limits on the frequency and time of notifications. Each user can receive a maximum of two notifications per day between 08:00 and 20:00. Notifications are not sent outside of this time frame.
+ * @description Notifications are subject to frequency and time restrictions.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
  *
  * @param request RefreshDataSourceRequest
  * @return RefreshDataSourceResponse
@@ -5686,10 +6428,155 @@ ResetDataStorageResponse Client::resetDataStorage(const ResetDataStorageRequest 
 }
 
 /**
+ * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+ *
+ * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+ *
+ * @param tmpReq ResumeCopilotTurnStreamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeCopilotTurnStreamResponse
+ */
+FutureGenerator<ResumeCopilotTurnStreamResponse> Client::resumeCopilotTurnStreamWithSSE(const ResumeCopilotTurnStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ResumeCopilotTurnStreamShrinkRequest request = ResumeCopilotTurnStreamShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCursorByRun()) {
+    request.setCursorByRunShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCursorByRun(), "CursorByRun", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasCursorByRunShrink()) {
+    body["CursorByRun"] = request.getCursorByRunShrink();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  if (!!request.hasTurnId()) {
+    body["TurnId"] = request.getTurnId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ResumeCopilotTurnStream"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      string data = resp.getEvent().getData();
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ResumeCopilotTurnStreamResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+ *
+ * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+ *
+ * @param tmpReq ResumeCopilotTurnStreamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeCopilotTurnStreamResponse
+ */
+ResumeCopilotTurnStreamResponse Client::resumeCopilotTurnStreamWithOptions(const ResumeCopilotTurnStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ResumeCopilotTurnStreamShrinkRequest request = ResumeCopilotTurnStreamShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCursorByRun()) {
+    request.setCursorByRunShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCursorByRun(), "CursorByRun", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasCursorByRunShrink()) {
+    body["CursorByRun"] = request.getCursorByRunShrink();
+  }
+
+  if (!!request.hasLang()) {
+    body["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTraceId()) {
+    body["TraceId"] = request.getTraceId();
+  }
+
+  if (!!request.hasTurnId()) {
+    body["TurnId"] = request.getTurnId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ResumeCopilotTurnStream"},
+    {"version" , "2024-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeCopilotTurnStreamResponse>();
+}
+
+/**
+ * @summary Incrementally resumes the SSE event stream for a specified security operations Agent turn based on the run cursor.
+ *
+ * @description Resumes the SSE event stream for a security operations Agent conversation turn from a specified cursor.
+ *
+ * @param request ResumeCopilotTurnStreamRequest
+ * @return ResumeCopilotTurnStreamResponse
+ */
+ResumeCopilotTurnStreamResponse Client::resumeCopilotTurnStream(const ResumeCopilotTurnStreamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeCopilotTurnStreamWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets the default version of a normalization rule.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request SetDefaultNormalizationRuleVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5739,7 +6626,7 @@ SetDefaultNormalizationRuleVersionResponse Client::setDefaultNormalizationRuleVe
  * @summary Sets the default version of a normalization rule.
  *
  * @description Notifications are subject to frequency and time restrictions.
- * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+ * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
  *
  * @param request SetDefaultNormalizationRuleVersionRequest
  * @return SetDefaultNormalizationRuleVersionResponse
@@ -6388,7 +7275,7 @@ UpdateDataSetRecordResponse Client::updateDataSetRecord(const UpdateDataSetRecor
 /**
  * @summary Updates a data source.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6473,7 +7360,7 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 /**
  * @summary Updates a data source.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse
@@ -6578,7 +7465,9 @@ UpdateDataSourceTemplateResponse Client::updateDataSourceTemplate(const UpdateDa
 }
 
 /**
- * @summary Changes the log storage region for Log Management.
+ * @summary Modifies the log storage region in log management.
+ *
+ * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two types of operations separately. Before modifying the global switch, query GetDataStorage first and use the returned ConfigurationVersion and TargetProject. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After writing, re-query GetDataStorage to obtain the latest configuration.
  *
  * @param request UpdateDataStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6587,6 +7476,10 @@ UpdateDataSourceTemplateResponse Client::updateDataSourceTemplate(const UpdateDa
 UpdateDataStorageResponse Client::updateDataStorageWithOptions(const UpdateDataStorageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasConfigurationVersion()) {
+    body["ConfigurationVersion"] = request.getConfigurationVersion();
+  }
+
   if (!!request.hasDataStorageRegionId()) {
     body["DataStorageRegionId"] = request.getDataStorageRegionId();
   }
@@ -6599,12 +7492,20 @@ UpdateDataStorageResponse Client::updateDataStorageWithOptions(const UpdateDataS
     body["Lang"] = request.getLang();
   }
 
+  if (!!request.hasMultiAccountDeliveryEnabled()) {
+    body["MultiAccountDeliveryEnabled"] = request.getMultiAccountDeliveryEnabled();
+  }
+
   if (!!request.hasRegionId()) {
     body["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasRoleFor()) {
     body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasTargetProject()) {
+    body["TargetProject"] = request.getTargetProject();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6625,7 +7526,9 @@ UpdateDataStorageResponse Client::updateDataStorageWithOptions(const UpdateDataS
 }
 
 /**
- * @summary Changes the log storage region for Log Management.
+ * @summary Modifies the log storage region in log management.
+ *
+ * @description Updates the log storage region or the global switch for multi-account centralized delivery. Submit these two types of operations separately. Before modifying the global switch, query GetDataStorage first and use the returned ConfigurationVersion and TargetProject. Do not copy the fixed version and account from the examples. The current V2 version does not support the legacy DeliveryStatus global switch. After writing, re-query GetDataStorage to obtain the latest configuration.
  *
  * @param request UpdateDataStorageRequest
  * @return UpdateDataStorageResponse
@@ -6636,15 +7539,31 @@ UpdateDataStorageResponse Client::updateDataStorage(const UpdateDataStorageReque
 }
 
 /**
- * @summary Updates the status of log delivery.
+ * @summary Modifies the log delivery status.
  *
- * @param request UpdateDataStorageDeliveryRequest
+ * @description Before calling this operation, make sure that the Cloud Threat Detection and Response (CTDR) data storage service is activated for your account and that the data storage order has not expired. Call the GetDataStorage operation to check the data storage order status.
+ *
+ * @param tmpReq UpdateDataStorageDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateDataStorageDeliveryResponse
  */
-UpdateDataStorageDeliveryResponse Client::updateDataStorageDeliveryWithOptions(const UpdateDataStorageDeliveryRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateDataStorageDeliveryResponse Client::updateDataStorageDeliveryWithOptions(const UpdateDataStorageDeliveryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDataStorageDeliveryShrinkRequest request = UpdateDataStorageDeliveryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSelectedAccountIds()) {
+    request.setSelectedAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSelectedAccountIds(), "SelectedAccountIds", "simple"));
+  }
+
   json body = {};
+  if (!!request.hasAutoIncludeNewAccounts()) {
+    body["AutoIncludeNewAccounts"] = request.getAutoIncludeNewAccounts();
+  }
+
+  if (!!request.hasConfigurationVersion()) {
+    body["ConfigurationVersion"] = request.getConfigurationVersion();
+  }
+
   if (!!request.hasLang()) {
     body["Lang"] = request.getLang();
   }
@@ -6665,6 +7584,18 @@ UpdateDataStorageDeliveryResponse Client::updateDataStorageDeliveryWithOptions(c
     body["RoleFor"] = request.getRoleFor();
   }
 
+  if (!!request.hasSelectedAccountIdsShrink()) {
+    body["SelectedAccountIds"] = request.getSelectedAccountIdsShrink();
+  }
+
+  if (!!request.hasSubUserId()) {
+    body["SubUserId"] = request.getSubUserId();
+  }
+
+  if (!!request.hasTargetProject()) {
+    body["TargetProject"] = request.getTargetProject();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -6683,7 +7614,9 @@ UpdateDataStorageDeliveryResponse Client::updateDataStorageDeliveryWithOptions(c
 }
 
 /**
- * @summary Updates the status of log delivery.
+ * @summary Modifies the log delivery status.
+ *
+ * @description Before calling this operation, make sure that the Cloud Threat Detection and Response (CTDR) data storage service is activated for your account and that the data storage order has not expired. Call the GetDataStorage operation to check the data storage order status.
  *
  * @param request UpdateDataStorageDeliveryRequest
  * @return UpdateDataStorageDeliveryResponse
@@ -6762,7 +7695,7 @@ UpdateDataStorageTtlResponse Client::updateDataStorageTtl(const UpdateDataStorag
 /**
  * @summary Updates a detection rule.
  *
- * @description Because this operation uses complex request parameters, a supporting tool class is provided to assist with the JSON configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, a utility class is provided with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateDetectionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6931,7 +7864,7 @@ UpdateDetectionRuleResponse Client::updateDetectionRuleWithOptions(const UpdateD
 /**
  * @summary Updates a detection rule.
  *
- * @description Because this operation uses complex request parameters, a supporting tool class is provided to assist with the JSON configuration. For an example, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, a utility class is provided with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateDetectionRuleRequest
  * @return UpdateDetectionRuleResponse
@@ -6944,7 +7877,7 @@ UpdateDetectionRuleResponse Client::updateDetectionRule(const UpdateDetectionRul
 /**
  * @summary Updates a normalization rule.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. For configuration examples, see the supporting tool class in the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param tmpReq UpdateNormalizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7055,7 +7988,7 @@ UpdateNormalizationRuleResponse Client::updateNormalizationRuleWithOptions(const
 /**
  * @summary Updates a normalization rule.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. For configuration examples, see the supporting tool class in the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateNormalizationRuleRequest
  * @return UpdateNormalizationRuleResponse
@@ -7142,7 +8075,7 @@ UpdateNormalizationSchemaResponse Client::updateNormalizationSchema(const Update
 /**
  * @summary Updates a product.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. For an example of a supporting tool class with configuration examples, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, a utility class is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateProductRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7195,7 +8128,7 @@ UpdateProductResponse Client::updateProductWithOptions(const UpdateProductReques
 /**
  * @summary Updates a product.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. For an example of a supporting tool class with configuration examples, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. To help with specific configuration examples, a utility class is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateProductRequest
  * @return UpdateProductResponse
@@ -7208,7 +8141,7 @@ UpdateProductResponse Client::updateProduct(const UpdateProductRequest &request)
 /**
  * @summary Updates an automated response rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, a supporting utility class with examples is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateResponseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7289,7 +8222,7 @@ UpdateResponseRuleResponse Client::updateResponseRuleWithOptions(const UpdateRes
 /**
  * @summary Updates an automated response rule.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig input parameter is a complex JSON configuration. To help you configure it, a supporting utility class with examples is provided. Refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request UpdateResponseRuleRequest
  * @return UpdateResponseRuleResponse
@@ -7362,9 +8295,9 @@ UpdateVendorResponse Client::updateVendor(const UpdateVendorRequest &request) {
 }
 
 /**
- * @summary Verify log storage.
+ * @summary Validates the log storage.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For a code sample, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. To simplify this, we provide a utility class to assist with specific configuration examples. For more information, refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ValidateLogStoreRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7419,9 +8352,9 @@ ValidateLogStoreResponse Client::validateLogStoreWithOptions(const ValidateLogSt
 }
 
 /**
- * @summary Verify log storage.
+ * @summary Validates the log storage.
  *
- * @description The JsonConfig request parameter is a complex JSON configuration. A supporting tool class is provided to help you create the configuration. For a code sample, see the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a complex JSON configuration. To simplify this, we provide a utility class to assist with specific configuration examples. For more information, refer to the [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ValidateLogStoreRequest
  * @return ValidateLogStoreResponse
@@ -7432,9 +8365,9 @@ ValidateLogStoreResponse Client::validateLogStore(const ValidateLogStoreRequest 
 }
 
 /**
- * @summary Validates a normalization rule.
+ * @summary Validates normalization rules.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ValidateNormalizationRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7509,9 +8442,9 @@ ValidateNormalizationRuleResponse Client::validateNormalizationRuleWithOptions(c
 }
 
 /**
- * @summary Validates a normalization rule.
+ * @summary Validates normalization rules.
  *
- * @description The JsonConfig input parameter is a complex JSON configuration. A supporting tool class provides configuration examples. For more information, see the [demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The JsonConfig request parameter is a highly complex JSON configuration. To help you configure it, we provide a utility class with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ValidateNormalizationRuleRequest
  * @return ValidateNormalizationRuleResponse

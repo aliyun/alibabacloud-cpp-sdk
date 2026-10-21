@@ -149,36 +149,37 @@ namespace Models
 
 
   protected:
-    // The end time.
+    // The end time. The value is a UNIX timestamp in milliseconds (ms).
     shared_ptr<string> endTime_ {};
-    // Specifies whether to pack non-standard fields into the extension field extend_content. Valid values:
+    // Specifies whether to pack non-standard fields into the extended field extend_content. Valid values:
     // - enabled: Enabled.
     // - disabled: Disabled.
     shared_ptr<string> extendContentPacked_ {};
-    // The language of the response. Valid values:
+    // The language of the response messages. Valid values:
     // - **zh** (default): Chinese.
-    // - **en**: English.
+    // - **en**: English. This parameter is required. If not specified, the service returns a 400 error. Explicitly set this parameter to zh or en.
     shared_ptr<string> lang_ {};
+    // The log query condition.
     shared_ptr<string> logCondition_ {};
-    // The Simple Log Service project name.
+    // The name of the Simple Log Service project. This parameter is required when executing a log query.
     shared_ptr<string> logProjectName_ {};
     // The Simple Log Service query statement.
     shared_ptr<string> logQuery_ {};
-    // The log storage region ID.
+    // The ID of the log storage region. This parameter is required when executing a log query.
     shared_ptr<string> logRegionId_ {};
-    // The Simple Log Service project name.
+    // The name of the Simple Log Service project. This parameter is required when executing a log query.
     shared_ptr<string> logStoreName_ {};
     // The user ID for data access.
     shared_ptr<int64_t> logUserId_ {};
-    // If packing is enabled, you must specify NormalizationSchemaId.
+    // The NormalizationSchemaId to specify if packing is enabled.
     shared_ptr<string> normalizationSchemaId_ {};
-    // The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-    // - cn-hangzhou: the asset is in the Chinese mainland.
-    // - ap-southeast-1: the asset is outside the Chinese mainland.
+    // The region where the data management center of the threat analysis feature is located. Select the management center region based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Assets are located in the Chinese mainland.
+    // - ap-southeast-1: Assets are located outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID of the member to which the administrator switches the view.
+    // The user ID of the member account that the administrator switches to.
     shared_ptr<int64_t> roleFor_ {};
-    // The start time.
+    // The start time. The value is a UNIX timestamp in milliseconds (ms).
     shared_ptr<string> startTime_ {};
   };
 

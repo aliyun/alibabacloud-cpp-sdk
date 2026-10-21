@@ -204,33 +204,29 @@ namespace Models
 
 
       protected:
-        // The time when the check was performed.
+        // The check time.
         shared_ptr<int64_t> checkTime_ {};
-        // The time when the log storage was created.
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
-        // The source of the data. Valid values:
-        // 
+        // The data source origin. Valid values:
         // - center
-        // 
         // - custom
         shared_ptr<string> dataSourceStoreFrom_ {};
-        // The ID of the log storage.
+        // The log store ID.
         shared_ptr<string> dataSourceStoreId_ {};
-        // The status of the log storage. Valid values:
-        // 
+        // The log store status. Valid values:
         // - normal
-        // 
         // - abnormal
         shared_ptr<string> dataSourceStoreStatus_ {};
-        // The status code of the log storage.
+        // The log store status code.
         shared_ptr<string> dataSourceStoreStatusCode_ {};
-        // The name of the Simple Log Service project.
+        // The Simple Log Service project name.
         shared_ptr<string> logProjectName_ {};
-        // The ID of the log storage region.
+        // The log storage region ID.
         shared_ptr<string> logRegionId_ {};
-        // The name of the Simple Log Service Logstore.
+        // The Simple Log Service Logstore name.
         shared_ptr<string> logStoreName_ {};
-        // The time when the log storage was last updated.
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -387,51 +383,44 @@ namespace Models
 
 
     protected:
-      // The time when the data source was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The source of the data. Valid values:
-      // 
+      // The data source origin. Valid values:
       // - center
-      // 
       // - custom
       shared_ptr<string> dataSourceFrom_ {};
-      // The ID of the data source.
+      // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The name of the data source.
+      // The data source name.
       shared_ptr<string> dataSourceName_ {};
-      // Indicates whether new Logstores are automatically discovered.
+      // Indicates whether automatic discovery of new Logstores is enabled.
       shared_ptr<bool> dataSourceRecognizeEnabled_ {};
       // The data source recognizer.
       shared_ptr<string> dataSourceRecognizer_ {};
-      // The list of data ingestion IDs that are associated with the data source.
+      // The list of data ingestion IDs associated with the data source.
       shared_ptr<vector<DataSources::DataSourceReferences>> dataSourceReferences_ {};
-      // The status of the data source. Valid values:
-      // 
+      // The data source status. Valid values:
       // - unconfigured
-      // 
       // - normal
-      // 
       // - abnormal
       shared_ptr<string> dataSourceStatus_ {};
-      // The list of Logstores.
+      // The list of log services.
       shared_ptr<vector<DataSources::DataSourceStores>> dataSourceStores_ {};
-      // The ID of the data source template.
+      // The data source template ID.
       shared_ptr<string> dataSourceTemplateId_ {};
-      // The type of the data source. Valid values:
-      // 
-      // - preset
-      // 
-      // - custom
+      // The data source type. Valid values:
+      //  - preset
+      //  - custom
       shared_ptr<string> dataSourceType_ {};
-      // The name of the Simple Log Service project.
+      // The Simple Log Service project name.
       shared_ptr<string> logProjectName_ {};
-      // The ID of the log storage region.
+      // The log storage region ID.
       shared_ptr<string> logRegionId_ {};
-      // The name of the Simple Log Service Logstore.
+      // The Simple Log Service Logstore name.
       shared_ptr<string> logStoreName_ {};
-      // The ID of the user who can access the data.
+      // The data ingestion user ID.
       shared_ptr<int64_t> logUserId_ {};
-      // The time when the data source was last updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -497,11 +486,11 @@ namespace Models
 
 
   protected:
-    // The data sources.
+    // The alert source products associated with events.
     shared_ptr<vector<ListDataSourcesResponseBody::DataSources>> dataSources_ {};
-    // The maximum number of entries returned on each page.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If a value is returned, it indicates that not all results have been returned. You can use this token in the next query to continue retrieving results.
+    // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -509,7 +498,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

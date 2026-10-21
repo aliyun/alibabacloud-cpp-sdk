@@ -161,57 +161,46 @@ namespace Models
 
 
   protected:
-    // The ID of the dataset.
+    // The dataset ID.
     shared_ptr<string> dataSetId_ {};
     // The list of dataset IDs.
     shared_ptr<vector<string>> dataSetIds_ {};
-    // The name of the dataset.
+    // The dataset name.
     shared_ptr<string> dataSetName_ {};
-    // The status of the dataset. Valid values:
-    // 
+    // The dataset status. Valid values:
     // - 0: deleted.
-    // 
     // - 1: enabled.
     shared_ptr<int32_t> dataSetStatus_ {};
-    // The type of the dataset. Valid values:
-    // 
-    // - custom: custom.
-    // 
-    // - preset: predefined.
+    // The dataset type. Valid values:
+    // - custom: custom dataset.
+    // - preset: predefined dataset.
     shared_ptr<string> dataSetType_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
+    // This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error (The specified Lang can not be empty.). Valid values: zh and en.
     shared_ptr<string> lang_ {};
-    // The maximum number of results to return for the request. This parameter is used for queries that use NextToken. Valid values: 1 to 100. Default value: 50.
+    // The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to start the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
     // The sort order. Valid values:
-    // 
-    // - **asc** (default): ascending.
-    // 
-    // - **desc**: descending.
+    // - **asc** (default): ascending order.
+    // - **desc**: descending order.
     shared_ptr<string> orderDirection_ {};
-    // The field to use for sorting. Valid values:
-    // 
+    // The field used for sorting. Valid values:
     // - GmtCreate: creation time.
-    // 
     // - GmtModified: update time.
     shared_ptr<string> orderFieldName_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the Data Management Center for threat analysis is deployed. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: The assets reside in the Chinese mainland.
+    // - ap-southeast-1: The assets reside outside China.
     shared_ptr<string> regionId_ {};
-    // The user ID that an administrator uses to switch to the perspective of a member.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
   };
 

@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The dataset ID.
       shared_ptr<string> dataSetId_ {};
-      // The number of new records in the dataset.
+      // The number of new dataset records.
       shared_ptr<int32_t> newDataSetRecordCount_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The result returned after the dataset is created.
+    // The result of the dataset creation.
     shared_ptr<CreateDataSetResponseBody::DataSetRecordStatistic> dataSetRecordStatistic_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
