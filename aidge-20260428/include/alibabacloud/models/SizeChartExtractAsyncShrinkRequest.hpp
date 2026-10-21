@@ -13,11 +13,13 @@ namespace Models
   class SizeChartExtractAsyncShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SizeChartExtractAsyncShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(ColumnNameList, columnNameListShrink_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(LanguageModel, languageModel_);
     };
     friend void from_json(const Darabonba::Json& j, SizeChartExtractAsyncShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(ColumnNameList, columnNameListShrink_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(LanguageModel, languageModel_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->columnNameListShrink_ == nullptr
-        && this->imageUrl_ == nullptr && this->languageModel_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->columnNameListShrink_ == nullptr && this->imageUrl_ == nullptr && this->languageModel_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline SizeChartExtractAsyncShrinkRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // columnNameListShrink Field Functions 
     bool hasColumnNameListShrink() const { return this->columnNameListShrink_ != nullptr;};
     void deleteColumnNameListShrink() { this->columnNameListShrink_ = nullptr;};
@@ -57,9 +66,11 @@ namespace Models
 
 
   protected:
+    // The business order number of the caller. It is recorded when the request is accepted and returned as is when you query the asynchronous task result.
+    shared_ptr<string> bizId_ {};
     // The list of column names to extract, such as Size, Bust, and Length.
     shared_ptr<string> columnNameListShrink_ {};
-    // The image URL. The image must be in the JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 pixels and 3000 × 3000 pixels. The file size cannot exceed 10 MB.
+    // The image URL. The image must be in the JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 pixels and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

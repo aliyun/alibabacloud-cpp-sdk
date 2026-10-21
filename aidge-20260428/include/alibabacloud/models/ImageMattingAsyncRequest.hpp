@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ImageMattingAsyncRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BackGroundType, backGroundType_);
       DARABONBA_PTR_TO_JSON(BgColor, bgColor_);
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(TargetHeight, targetHeight_);
       DARABONBA_PTR_TO_JSON(TargetWidth, targetWidth_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ImageMattingAsyncRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BackGroundType, backGroundType_);
       DARABONBA_PTR_FROM_JSON(BgColor, bgColor_);
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(TargetHeight, targetHeight_);
       DARABONBA_PTR_FROM_JSON(TargetWidth, targetWidth_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backGroundType_ == nullptr
-        && this->bgColor_ == nullptr && this->imageUrl_ == nullptr && this->targetHeight_ == nullptr && this->targetWidth_ == nullptr; };
+        && this->bgColor_ == nullptr && this->bizId_ == nullptr && this->imageUrl_ == nullptr && this->targetHeight_ == nullptr && this->targetWidth_ == nullptr; };
     // backGroundType Field Functions 
     bool hasBackGroundType() const { return this->backGroundType_ != nullptr;};
     void deleteBackGroundType() { this->backGroundType_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteBgColor() { this->bgColor_ = nullptr;};
     inline string getBgColor() const { DARABONBA_PTR_GET_DEFAULT(bgColor_, "") };
     inline ImageMattingAsyncRequest& setBgColor(string bgColor) { DARABONBA_PTR_SET_VALUE(bgColor_, bgColor) };
+
+
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline ImageMattingAsyncRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
 
 
     // imageUrl Field Functions 
@@ -83,7 +92,9 @@ namespace Models
     shared_ptr<string> backGroundType_ {};
     // The BGR color value of the background. Default value: white.
     shared_ptr<string> bgColor_ {};
-    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
+    // The business order ID of the caller. It is recorded upon acceptance and returned as is when you query the result of the asynchronous task.
+    shared_ptr<string> bizId_ {};
+    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 100 × 100 and 3000 × 3000 pixels, and the file size must not exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};

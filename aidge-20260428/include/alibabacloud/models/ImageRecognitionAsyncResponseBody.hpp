@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task used to query the asynchronous task result.
+      // The task ID used to query the result of the asynchronous task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,17 +109,17 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned when the call is successful.
+    // The error code. This parameter is not returned for normal calls.
     shared_ptr<string> code_ {};
-    // The returned recognition result struct.
+    // The struct information of the returned recognition result.
     shared_ptr<ImageRecognitionAsyncResponseBody::Data> data_ {};
     // The error message, such as "The parameter contains sensitive information. Try another input."
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to identify a unique request.
+    // The request ID, which is used to identify a unique request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call fails.
+    // - true: successful
+    // - false: failed
     shared_ptr<bool> success_ {};
   };
 

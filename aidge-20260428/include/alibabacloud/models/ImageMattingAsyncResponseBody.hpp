@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task that is used to query the asynchronous task result.
+      // The task ID used to query the result of the asynchronous task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,13 +109,13 @@ namespace Models
 
 
   protected:
-    // The status code, such as success.
+    // The status code, such as "success". This parameter is not returned for normal calls.
     shared_ptr<string> code_ {};
-    // The commit result of the intelligent image matting asynchronous task node.
+    // The submission result of the asynchronous task for intelligent image matting.
     shared_ptr<ImageMattingAsyncResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned when the call is successful.
+    // The error message. This parameter is not returned for normal calls.
     shared_ptr<string> message_ {};
-    // The ID of the request, which is used to identify a unique request.
+    // The ID of the request. It is used to identify a unique request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
     // - true: The call is successful.

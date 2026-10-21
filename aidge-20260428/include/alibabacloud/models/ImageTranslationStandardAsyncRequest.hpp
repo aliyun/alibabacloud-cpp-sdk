@@ -13,6 +13,7 @@ namespace Models
   class ImageTranslationStandardAsyncRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageTranslationStandardAsyncRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(Glossary, glossary_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(IncludingProductArea, includingProductArea_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UseImageEditor, useImageEditor_);
     };
     friend void from_json(const Darabonba::Json& j, ImageTranslationStandardAsyncRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(Glossary, glossary_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(IncludingProductArea, includingProductArea_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->glossary_ == nullptr
-        && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->translatingBrandInTheProduct_ == nullptr
-        && this->useImageEditor_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->glossary_ == nullptr && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr
+        && this->translatingBrandInTheProduct_ == nullptr && this->useImageEditor_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline ImageTranslationStandardAsyncRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // glossary Field Functions 
     bool hasGlossary() const { return this->glossary_ != nullptr;};
     void deleteGlossary() { this->glossary_ = nullptr;};
@@ -94,13 +103,15 @@ namespace Models
 
 
   protected:
+    // The business order ID of the caller. It is recorded upon acceptance and returned as-is when querying the asynchronous task result.
+    shared_ptr<string> bizId_ {};
     // The intervention glossary.
     shared_ptr<string> glossary_ {};
     // The URL of the image to be translated.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to include the product area in the translation.
+    // Specifies whether to include the translation of the product area.
     shared_ptr<bool> includingProductArea_ {};
     // The source language.
     // 
@@ -110,7 +121,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand text in the product area.
+    // Specifies whether to translate the brand text in the product area.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
     // Specifies whether to use the image editor protocol.
     shared_ptr<bool> useImageEditor_ {};

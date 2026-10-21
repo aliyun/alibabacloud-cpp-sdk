@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The ID of the task used to query the asynchronous task result.
+      // The task ID used to query the asynchronous task result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,11 +109,11 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned for successful calls.
+    // The error code. This parameter is not returned for normal calls.
     shared_ptr<string> code_ {};
-    // The submission result of the asynchronous task for Image Translation Standard Edition.
+    // The asynchronous task submission result of Image Translation Standard Edition.
     shared_ptr<ImageTranslationStandardAsyncResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for successful calls.
+    // The error message. This parameter is not returned for normal calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

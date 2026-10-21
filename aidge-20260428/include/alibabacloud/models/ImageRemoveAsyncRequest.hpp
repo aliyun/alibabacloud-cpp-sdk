@@ -14,6 +14,7 @@ namespace Models
   class ImageRemoveAsyncRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageRemoveAsyncRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(Mask, mask_);
       DARABONBA_PTR_TO_JSON(NonObjectRemoveElements, nonObjectRemoveElements_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserText, userText_);
     };
     friend void from_json(const Darabonba::Json& j, ImageRemoveAsyncRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Mask, mask_);
       DARABONBA_PTR_FROM_JSON(NonObjectRemoveElements, nonObjectRemoveElements_);
@@ -42,9 +44,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageUrl_ == nullptr
-        && this->mask_ == nullptr && this->nonObjectRemoveElements_ == nullptr && this->objectRemoveElements_ == nullptr && this->position_ == nullptr && this->userImage_ == nullptr
-        && this->userText_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->imageUrl_ == nullptr && this->mask_ == nullptr && this->nonObjectRemoveElements_ == nullptr && this->objectRemoveElements_ == nullptr && this->position_ == nullptr
+        && this->userImage_ == nullptr && this->userText_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline ImageRemoveAsyncRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
@@ -103,21 +112,34 @@ namespace Models
 
 
   protected:
-    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 and 3000 × 3000 pixels, and the file size must not exceed 10 MB.
+    // The business order ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the result of the asynchronous task.
+    shared_ptr<string> bizId_ {};
+    // The URL of the original image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The specific area to erase. This parameter must be used in conjunction with the editor, and the input format is RLE. If this parameter is specified, it takes precedence and the remove_non_product_area_elements and remove_product_area_elements parameters are ignored. This parameter is not required, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage. If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements.
+    // The specific area to erase. This parameter must be used in conjunction with the editor. The input format is Run-Length Encoding (RLE).
+    // If this parameter is specified, it takes precedence and the remove_non_product_area_elements and remove_product_area_elements parameters are ignored. This parameter is optional, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage.
+    // If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements.
     shared_ptr<string> mask_ {};
-    // The list of element types to remove from the non-subject area of the image.
+    // The list of element types to remove from the image background.
     shared_ptr<vector<int32_t>> nonObjectRemoveElements_ {};
-    // The types of elements to remove from the image subject. Valid values: 1 (transparent text blocks), 2 (specific names), 3 (text), and 4 (watermarks). You can select multiple element types. This parameter is not required, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage. If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements. For more information about each type, see the product documentation. Image subject: the core product area in the image.
+    // The types of elements to remove from the image subject. Valid values:
+    // - 1: Transparent text blocks.
+    // - 2: Specific names.
+    // - 3: Text.
+    // - 4: Promotional stickers.
+    // You can select multiple element types. This parameter is optional, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage.
+    // If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements.
+    // For more information about each type, see the product documentation.
+    // Image subject: the core product area in the image.
     shared_ptr<vector<int32_t>> objectRemoveElements_ {};
-    // The specific area to erase. This parameter must be used in conjunction with the editor, and the input format is four-point coordinates [xx,yy,zz,dd]. This parameter is not required, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage. If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements.
+    // The specific area to erase. This parameter must be used in conjunction with the editor. The input format is a four-point coordinate array, such as [xx,yy,zz,dd]. This parameter is optional, but you must specify at least one of the following parameters: ObjectRemoveElements, NonObjectRemoveElements, Mask, Position, UserText, and UserImage.
+    // If multiple parameters are specified, the priority is as follows: UserImage > UserText > Position > Mask > ObjectRemoveElements = NonObjectRemoveElements.
     shared_ptr<string> position_ {};
     // The list of URLs for user-specified image elements to erase.
     shared_ptr<vector<string>> userImage_ {};
-    // The list of user-specified texts to erase.
+    // The list of user-specified text strings to erase.
     shared_ptr<vector<string>> userText_ {};
   };
 

@@ -13,6 +13,7 @@ namespace Models
   class ImageTranslationProAsyncRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageTranslationProAsyncRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(Glossary, glossary_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(IncludingProductArea, includingProductArea_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UseImageEditor, useImageEditor_);
     };
     friend void from_json(const Darabonba::Json& j, ImageTranslationProAsyncRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(Glossary, glossary_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(IncludingProductArea, includingProductArea_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->glossary_ == nullptr
-        && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr && this->translatingBrandInTheProduct_ == nullptr
-        && this->useImageEditor_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->glossary_ == nullptr && this->imageUrl_ == nullptr && this->includingProductArea_ == nullptr && this->sourceLanguage_ == nullptr && this->targetLanguage_ == nullptr
+        && this->translatingBrandInTheProduct_ == nullptr && this->useImageEditor_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline ImageTranslationProAsyncRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // glossary Field Functions 
     bool hasGlossary() const { return this->glossary_ != nullptr;};
     void deleteGlossary() { this->glossary_ = nullptr;};
@@ -94,16 +103,18 @@ namespace Models
 
 
   protected:
+    // The business ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
+    shared_ptr<string> bizId_ {};
     // The ID of the intervention glossary. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
-    // • Image URL: Must be accessible over the Internet.   
-    // • Format: PNG, JPEG, JPG, BMP, or WEBP.   
-    // • Pixels: Both the width and height must not exceed 4,000.  
-    // • File size: The original file size must be less than or equal to 10 MB.
+    // • Image URL: The URL must be publicly accessible over the Internet.   
+    // • Formats: PNG, JPEG, JPG, BMP, and WEBP.   
+    // • Pixels: The width and height cannot exceed 4,000 pixels.  
+    // • File size: The original file size cannot exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate the text on the product subject in the image. Set this parameter to false to protect the subject information, such as the product name, from being translated. Default value: false.
+    // Specifies whether to translate the text on the image subject. Set this parameter to false to protect the subject information, such as the product name, from being translated. Default value: false.
     shared_ptr<bool> includingProductArea_ {};
     // The source language code. The value auto is supported for automatic detection.
     // 
@@ -113,9 +124,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate the brand names in the image. Default value: false, which indicates that brand names are not translated.
+    // Specifies whether to translate brand names in the image. Default value: false, which indicates that brand names are not translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing in an image editor. Default value: false.
+    // Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing when you integrate an image editor. Default value: false.
     shared_ptr<bool> useImageEditor_ {};
   };
 

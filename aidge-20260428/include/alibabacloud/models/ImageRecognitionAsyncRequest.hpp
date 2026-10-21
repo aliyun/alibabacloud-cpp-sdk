@@ -14,6 +14,7 @@ namespace Models
   class ImageRecognitionAsyncRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageRecognitionAsyncRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(NonObjectDetectElements, nonObjectDetectElements_);
       DARABONBA_PTR_TO_JSON(ObjectDetectElements, objectDetectElements_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReturnProductProp, returnProductProp_);
     };
     friend void from_json(const Darabonba::Json& j, ImageRecognitionAsyncRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(NonObjectDetectElements, nonObjectDetectElements_);
       DARABONBA_PTR_FROM_JSON(ObjectDetectElements, objectDetectElements_);
@@ -44,9 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageUrl_ == nullptr
-        && this->nonObjectDetectElements_ == nullptr && this->objectDetectElements_ == nullptr && this->returnBorderPixel_ == nullptr && this->returnCharacter_ == nullptr && this->returnCharacterProp_ == nullptr
-        && this->returnProductNum_ == nullptr && this->returnProductProp_ == nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->imageUrl_ == nullptr && this->nonObjectDetectElements_ == nullptr && this->objectDetectElements_ == nullptr && this->returnBorderPixel_ == nullptr && this->returnCharacter_ == nullptr
+        && this->returnCharacterProp_ == nullptr && this->returnProductNum_ == nullptr && this->returnProductProp_ == nullptr; };
+    // bizId Field Functions 
+    bool hasBizId() const { return this->bizId_ != nullptr;};
+    void deleteBizId() { this->bizId_ = nullptr;};
+    inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+    inline ImageRecognitionAsyncRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
@@ -108,50 +117,52 @@ namespace Models
 
 
   protected:
-    // The URL of the image. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
+    // The business ID of the caller. It is recorded upon acceptance and returned as is when you query the result of the asynchronous task.
+    shared_ptr<string> bizId_ {};
+    // The image URL. The image must be in JPG, JPEG, PNG, BMP, or WEBP format. The resolution must be between 256 × 256 and 3000 × 3000 pixels, and the file size cannot exceed 10 MB.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies the types of elements to be detected outside the image subject. Valid values:
-    // - 1: Watermark.
-    // - 2: Logo.
-    // - 3: Text.
-    // - 4: Text-containing color block.
-    // You can specify multiple element types. This parameter and ObjectDetectElements cannot be empty at the same time.
+    // The types of elements to detect outside the image subject. Valid values:
+    // - 1: watermark
+    // - 2: logo
+    // - 3: text
+    // - 4: text-containing color block
+    // You can specify multiple values. This parameter and ObjectDetectElements cannot be empty at the same time.
     shared_ptr<vector<int32_t>> nonObjectDetectElements_ {};
-    // Specifies the types of elements to be detected on the image subject. Valid values:
-    // - 1: Watermark.
-    // - 2: Logo.
-    // - 3: Text.
-    // - 4: Text-containing color block.
-    // You can specify multiple element types.
+    // The types of elements to detect on the image subject. Valid values:
+    // - 1: watermark
+    // - 2: logo
+    // - 3: text
+    // - 4: text-containing color block
+    // You can specify multiple values.
     shared_ptr<vector<int32_t>> objectDetectElements_ {};
     // Specifies whether to return the marginalization distance of the subject. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // - 1: yes
+    // - 0: no
     // Default value: 0.
     shared_ptr<int32_t> returnBorderPixel_ {};
-    // Specifies whether to return the OCR results of the text in the recognized area. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // Specifies whether to return the OCR result of the text in the recognized area. Valid values:
+    // - 1: yes
+    // - 0: no
     // Default value: 0.
     shared_ptr<int32_t> returnCharacter_ {};
     // Specifies whether to return the text proportion. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // - 1: yes
+    // - 0: no
     // Default value: 0.
     // This parameter takes effect only when the following two conditions are met:
     // 1. ReturnCharacter is set to 1.
-    // 2. ObjectDetectElements or NonObjectDetectElements is set to 3, which means text recognition is required.
+    // 2. ObjectDetectElements or NonObjectDetectElements is set to 3, which means text needs to be recognized.
     shared_ptr<int32_t> returnCharacterProp_ {};
     // Specifies whether to return the number of subjects. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // - 1: yes
+    // - 0: no
     // Default value: 0.
     shared_ptr<int32_t> returnProductNum_ {};
     // Specifies whether to return the area proportion of the subject. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // - 1: yes
+    // - 0: no
     // Default value: 0.
     shared_ptr<int32_t> returnProductProp_ {};
   };

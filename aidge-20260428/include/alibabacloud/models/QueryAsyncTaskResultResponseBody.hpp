@@ -40,12 +40,14 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(BizId, bizId_);
         DARABONBA_PTR_TO_JSON(Result, result_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
         DARABONBA_ANY_TO_JSON(UsageMap, usageMap_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(BizId, bizId_);
         DARABONBA_PTR_FROM_JSON(Result, result_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -62,8 +64,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->result_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->usageMap_ == nullptr; };
+      virtual bool empty() const override { return this->bizId_ == nullptr
+        && this->result_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->usageMap_ == nullptr; };
+      // bizId Field Functions 
+      bool hasBizId() const { return this->bizId_ != nullptr;};
+      void deleteBizId() { this->bizId_ = nullptr;};
+      inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
+      inline Data& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
       // result Field Functions 
       bool hasResult() const { return this->result_ != nullptr;};
       void deleteResult() { this->result_ = nullptr;};
@@ -95,11 +104,13 @@ namespace Models
 
 
     protected:
+      // The business ID.
+      shared_ptr<string> bizId_ {};
       // The task result.
       shared_ptr<string> result_ {};
       // The task status.
       shared_ptr<string> status_ {};
-      // The downstream task ID.
+      // The ID of the downstream task.
       shared_ptr<string> taskId_ {};
       // The usage information.
       Darabonba::Json usageMap_ {};
@@ -145,17 +156,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned when the call is successful.
     shared_ptr<string> code_ {};
-    // The asynchronous task result.
+    // The result of the asynchronous task.
     shared_ptr<QueryAsyncTaskResultResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned when the call is successful.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
   };
 
