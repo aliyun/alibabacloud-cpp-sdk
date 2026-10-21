@@ -115,23 +115,23 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request is a dry-run request.
+    // Indicates whether the request is a dry run.
     shared_ptr<bool> dryRun_ {};
     // The model type of the instance.
     shared_ptr<string> modelType_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The resolved target model name.
+    // The parsed target model name.
     shared_ptr<string> targetModelName_ {};
-    // The resolved target OSS path.
+    // The parsed target OSS path.
     shared_ptr<string> targetOssPath_ {};
     // The ID of the asynchronous task. This parameter is empty when DryRun is set to true.
     shared_ptr<int32_t> taskId_ {};
-    // The number of change batches.
+    // The total number of modification batches.
     shared_ptr<int64_t> totalBatches_ {};
-    // The number of affected model serving instances.
+    // The number of affected model service instances.
     shared_ptr<int64_t> totalMsds_ {};
-    // The change warnings returned by the upstream. The caller must display these warnings.
+    // The modification warnings returned by the upstream service. The caller must display these warnings.
     shared_ptr<vector<string>> warnings_ {};
   };
 

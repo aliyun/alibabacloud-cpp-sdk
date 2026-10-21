@@ -6443,7 +6443,7 @@ namespace Polardb20170801
       Models::ModifyAIDBClusterDescriptionResponse modifyAIDBClusterDescription(const Models::ModifyAIDBClusterDescriptionRequest &request);
 
       /**
-       * @summary Changes the model or the client-facing invocation name of an AI cluster.
+       * @summary Modifies the AI cluster model or the customer-facing invocation name.
        *
        * @param request ModifyAIDBClusterModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6452,7 +6452,7 @@ namespace Polardb20170801
       Models::ModifyAIDBClusterModelResponse modifyAIDBClusterModelWithOptions(const Models::ModifyAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the model or the client-facing invocation name of an AI cluster.
+       * @summary Modifies the AI cluster model or the customer-facing invocation name.
        *
        * @param request ModifyAIDBClusterModelRequest
        * @return ModifyAIDBClusterModelResponse

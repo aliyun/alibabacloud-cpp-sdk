@@ -23751,7 +23751,7 @@ ModifyAIDBClusterDescriptionResponse Client::modifyAIDBClusterDescription(const 
 }
 
 /**
- * @summary Changes the model or the client-facing invocation name of an AI cluster.
+ * @summary Modifies the AI cluster model or the customer-facing invocation name.
  *
  * @param request ModifyAIDBClusterModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23806,7 +23806,7 @@ ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModelWithOptions(const M
 }
 
 /**
- * @summary Changes the model or the client-facing invocation name of an AI cluster.
+ * @summary Modifies the AI cluster model or the customer-facing invocation name.
  *
  * @param request ModifyAIDBClusterModelRequest
  * @return ModifyAIDBClusterModelResponse

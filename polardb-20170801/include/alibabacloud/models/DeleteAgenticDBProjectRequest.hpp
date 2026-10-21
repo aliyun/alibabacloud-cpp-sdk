@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The target project ID.
+    // The ID of the target project.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

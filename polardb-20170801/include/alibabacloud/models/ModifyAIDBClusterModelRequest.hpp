@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The new client-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
+    // The new customer-facing invocation name. If you do not specify this parameter, the existing invocation name is retained.
     shared_ptr<string> displayModelName_ {};
-    // Specifies whether to only preview the change without actually performing it.
+    // Specifies whether to only preview the modification.
     shared_ptr<bool> dryRun_ {};
-    // The name of the target model. Select a value from the ModelName values returned by the DescribeAvailableModels operation.
+    // The target model name. Select a value from the ModelName values returned by DescribeAvailableModels.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
@@ -110,9 +110,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The restart mode for workers. Valid values:
-    // - inPlace
-    // - recreate
+    // The worker restart mode. Valid values: inPlace and recreate.
     shared_ptr<string> restartMode_ {};
     // The maximum number of workers to restart per batch within a single MSD. Valid values: 1 to 30. This parameter takes effect only when RestartMode is set to inPlace.
     shared_ptr<int64_t> workerBatchSize_ {};

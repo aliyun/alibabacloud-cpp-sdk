@@ -263,9 +263,9 @@ namespace Models
       shared_ptr<string> mountPath_ {};
       // The storage capacity.
       shared_ptr<string> storageCapacity_ {};
-      // The access endpoint of the storage.
+      // The access address of the storage.
       shared_ptr<string> storageEndpoint_ {};
-      // The ID of the storage instance.
+      // The storage instance ID.
       shared_ptr<string> storageInstanceId_ {};
       // The storage performance level.
       shared_ptr<string> storagePerformanceLevel_ {};
@@ -328,6 +328,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GraphLlmModel, graphLlmModel_);
         DARABONBA_PTR_TO_JSON(LlmModel, llmModel_);
         DARABONBA_PTR_TO_JSON(MemoryType, memoryType_);
+        DARABONBA_PTR_TO_JSON(PolarAIEmbedderInstanceId, polarAIEmbedderInstanceId_);
+        DARABONBA_PTR_TO_JSON(PolarAIGraphLlmInstanceId, polarAIGraphLlmInstanceId_);
+        DARABONBA_PTR_TO_JSON(PolarAILlmInstanceId, polarAILlmInstanceId_);
+        DARABONBA_PTR_TO_JSON(PolarAIRerankerInstanceId, polarAIRerankerInstanceId_);
         DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
         DARABONBA_PTR_TO_JSON(RerankerModel, rerankerModel_);
         DARABONBA_PTR_TO_JSON(Shard, shard_);
@@ -345,6 +349,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GraphLlmModel, graphLlmModel_);
         DARABONBA_PTR_FROM_JSON(LlmModel, llmModel_);
         DARABONBA_PTR_FROM_JSON(MemoryType, memoryType_);
+        DARABONBA_PTR_FROM_JSON(PolarAIEmbedderInstanceId, polarAIEmbedderInstanceId_);
+        DARABONBA_PTR_FROM_JSON(PolarAIGraphLlmInstanceId, polarAIGraphLlmInstanceId_);
+        DARABONBA_PTR_FROM_JSON(PolarAILlmInstanceId, polarAILlmInstanceId_);
+        DARABONBA_PTR_FROM_JSON(PolarAIRerankerInstanceId, polarAIRerankerInstanceId_);
         DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
         DARABONBA_PTR_FROM_JSON(RerankerModel, rerankerModel_);
         DARABONBA_PTR_FROM_JSON(Shard, shard_);
@@ -366,8 +374,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->dbName_ == nullptr
         && this->dbPassword_ == nullptr && this->dbUser_ == nullptr && this->embedderModel_ == nullptr && this->embedderModelDimension_ == nullptr && this->graphLlmModel_ == nullptr
-        && this->llmModel_ == nullptr && this->memoryType_ == nullptr && this->projectName_ == nullptr && this->rerankerModel_ == nullptr && this->shard_ == nullptr
-        && this->visualEmbedderModel_ == nullptr && this->visualEmbedderModelDimension_ == nullptr && this->visualLlmModalities_ == nullptr && this->visualLlmModel_ == nullptr; };
+        && this->llmModel_ == nullptr && this->memoryType_ == nullptr && this->polarAIEmbedderInstanceId_ == nullptr && this->polarAIGraphLlmInstanceId_ == nullptr && this->polarAILlmInstanceId_ == nullptr
+        && this->polarAIRerankerInstanceId_ == nullptr && this->projectName_ == nullptr && this->rerankerModel_ == nullptr && this->shard_ == nullptr && this->visualEmbedderModel_ == nullptr
+        && this->visualEmbedderModelDimension_ == nullptr && this->visualLlmModalities_ == nullptr && this->visualLlmModel_ == nullptr; };
       // dbName Field Functions 
       bool hasDbName() const { return this->dbName_ != nullptr;};
       void deleteDbName() { this->dbName_ = nullptr;};
@@ -422,6 +431,34 @@ namespace Models
       void deleteMemoryType() { this->memoryType_ = nullptr;};
       inline string getMemoryType() const { DARABONBA_PTR_GET_DEFAULT(memoryType_, "") };
       inline MemApplicationSpec& setMemoryType(string memoryType) { DARABONBA_PTR_SET_VALUE(memoryType_, memoryType) };
+
+
+      // polarAIEmbedderInstanceId Field Functions 
+      bool hasPolarAIEmbedderInstanceId() const { return this->polarAIEmbedderInstanceId_ != nullptr;};
+      void deletePolarAIEmbedderInstanceId() { this->polarAIEmbedderInstanceId_ = nullptr;};
+      inline string getPolarAIEmbedderInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarAIEmbedderInstanceId_, "") };
+      inline MemApplicationSpec& setPolarAIEmbedderInstanceId(string polarAIEmbedderInstanceId) { DARABONBA_PTR_SET_VALUE(polarAIEmbedderInstanceId_, polarAIEmbedderInstanceId) };
+
+
+      // polarAIGraphLlmInstanceId Field Functions 
+      bool hasPolarAIGraphLlmInstanceId() const { return this->polarAIGraphLlmInstanceId_ != nullptr;};
+      void deletePolarAIGraphLlmInstanceId() { this->polarAIGraphLlmInstanceId_ = nullptr;};
+      inline string getPolarAIGraphLlmInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarAIGraphLlmInstanceId_, "") };
+      inline MemApplicationSpec& setPolarAIGraphLlmInstanceId(string polarAIGraphLlmInstanceId) { DARABONBA_PTR_SET_VALUE(polarAIGraphLlmInstanceId_, polarAIGraphLlmInstanceId) };
+
+
+      // polarAILlmInstanceId Field Functions 
+      bool hasPolarAILlmInstanceId() const { return this->polarAILlmInstanceId_ != nullptr;};
+      void deletePolarAILlmInstanceId() { this->polarAILlmInstanceId_ = nullptr;};
+      inline string getPolarAILlmInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarAILlmInstanceId_, "") };
+      inline MemApplicationSpec& setPolarAILlmInstanceId(string polarAILlmInstanceId) { DARABONBA_PTR_SET_VALUE(polarAILlmInstanceId_, polarAILlmInstanceId) };
+
+
+      // polarAIRerankerInstanceId Field Functions 
+      bool hasPolarAIRerankerInstanceId() const { return this->polarAIRerankerInstanceId_ != nullptr;};
+      void deletePolarAIRerankerInstanceId() { this->polarAIRerankerInstanceId_ = nullptr;};
+      inline string getPolarAIRerankerInstanceId() const { DARABONBA_PTR_GET_DEFAULT(polarAIRerankerInstanceId_, "") };
+      inline MemApplicationSpec& setPolarAIRerankerInstanceId(string polarAIRerankerInstanceId) { DARABONBA_PTR_SET_VALUE(polarAIRerankerInstanceId_, polarAIRerankerInstanceId) };
 
 
       // projectName Field Functions 
@@ -484,7 +521,7 @@ namespace Models
       shared_ptr<string> dbUser_ {};
       // Required for mem0 applications. The name of the embedder model, such as text-embedding-v4.
       shared_ptr<string> embedderModel_ {};
-      // The vector dimensions.
+      // The vector dimension.
       shared_ptr<int32_t> embedderModelDimension_ {};
       // The graph LLM model.
       shared_ptr<string> graphLlmModel_ {};
@@ -492,6 +529,14 @@ namespace Models
       shared_ptr<string> llmModel_ {};
       // The memory type, such as multimodal.
       shared_ptr<string> memoryType_ {};
+      // The instance ID of the PolarAI embedding model.
+      shared_ptr<string> polarAIEmbedderInstanceId_ {};
+      // The instance ID of the PolarAI graph LLM model.
+      shared_ptr<string> polarAIGraphLlmInstanceId_ {};
+      // The instance ID of the PolarAI LLM model.
+      shared_ptr<string> polarAILlmInstanceId_ {};
+      // The instance ID of the PolarAI reranker model.
+      shared_ptr<string> polarAIRerankerInstanceId_ {};
       // The project name, which corresponds to the schema in the database where project data is stored.
       shared_ptr<string> projectName_ {};
       // Required for mem0 applications. The name of the reranker model, such as qwen3-rerank.
@@ -500,7 +545,7 @@ namespace Models
       shared_ptr<int32_t> shard_ {};
       // The name of the visual embedder model.
       shared_ptr<string> visualEmbedderModel_ {};
-      // The vector dimensions of the visual embedder.
+      // The vector dimension of the visual embedder.
       shared_ptr<int32_t> visualEmbedderModelDimension_ {};
       // The list of modalities for the visual LLM, such as image.
       shared_ptr<vector<string>> visualLlmModalities_ {};
@@ -645,7 +690,7 @@ namespace Models
 
 
     protected:
-      // The frontend port. This parameter is optional. By default, the system automatically assigns a port that is not occupied by the gateway. You can call the DescribeApplicationAttribute operation to query the assigned port.
+      // The frontend port. This parameter is optional. By default, the system automatically assigns a port, avoiding ports already occupied by the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
       shared_ptr<int32_t> frontPort_ {};
       // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
       shared_ptr<string> portName_ {};
@@ -765,7 +810,7 @@ namespace Models
       // The specifications of the application subcomponent.
       shared_ptr<string> componentClass_ {};
       // The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica.
-      // - This parameter is supported only for raycluster.
+      // - This parameter is supported only by raycluster.
       shared_ptr<int64_t> componentMaxReplica_ {};
       // The number of replicas for the application subcomponent. Default value: 1.
       shared_ptr<int64_t> componentReplica_ {};
@@ -1224,16 +1269,16 @@ namespace Models
 
 
   protected:
-    // The ID of the existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The ID of the associated existing model operator instance. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
     // The AgenticDB branch specifications.
     shared_ptr<CreateApplicationRequest::AgenticDBBranchSpec> agenticDBBranchSpec_ {};
     // The ID of the AgenticDB cluster.
     shared_ptr<string> agenticDBClusterId_ {};
     // The application type. Valid values:
-    // - supabase: Specify this value to create a managed Supabase application.
-    // - raycluster: Specify this value to create a managed Ray Cluster application.
-    // - polarclaw: Specify this value to create a managed PolarClaw application.
+    // - supabase: Pass this value to create a managed Supabase application.
+    // - raycluster: Pass this value to create a managed Ray Cluster application.
+    // - polarclaw: Pass this value to create a managed PolarClaw application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
@@ -1242,13 +1287,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> architecture_ {};
-    // The authentication service provider.
+    // The authentication provider.
     shared_ptr<string> authProvider_ {};
-    // The authentication provider configuration.
+    // The configuration of the authentication provider.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether automatic creation is enabled and the instance will attach and associate with an EIP.
+    // Specifies whether to automatically create and attach an EIP.
     shared_ptr<bool> autoAllocatePublicEip_ {};
-    // Specifies whether to automatically create a Polarlakebase cold storage edition instance. Valid values:
+    // Specifies whether the automatic creation of a Polarlakebase cold storage instance is enabled. Valid values:
     // * false (default): Do not automatically create the instance.
     // * true: Automatically create the instance.
     shared_ptr<bool> autoCreatePolarFs_ {};
@@ -1260,15 +1305,15 @@ namespace Models
     shared_ptr<bool> autoUseCoupon_ {};
     // The list of custom application subcomponents.
     shared_ptr<vector<CreateApplicationRequest::Components>> components_ {};
-    // The ID of the PolarDB instance on which the application depends.
+    // The PolarDB instance ID that the application depends on.
     shared_ptr<string> DBClusterId_ {};
     // The description or remark of the application.
     shared_ptr<string> description_ {};
-    // The expected list of DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. Leave this parameter empty if you do not want to create DNAT entries.
+    // The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
     shared_ptr<vector<CreateApplicationRequest::DnatEntries>> dnatEntries_ {};
-    // The dedicated NAT IP address allocated for DNAT mapping, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
+    // The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the NAT gateway, be in the available state, and the vSwitch where the gateway resides must belong to a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
-    // Specifies whether to perform a dry run. Default value: false. If you set this parameter to true, only parameter and resource validations are performed, and no resources are actually created.
+    // Specifies whether to perform a dry run. Default value: `false`. If you set this parameter to `true`, only parameter and resource validations are performed, and no resources are actually created.
     shared_ptr<bool> dryRun_ {};
     // The list of custom service endpoints. By default, a VPC endpoint is created.
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
@@ -1282,10 +1327,10 @@ namespace Models
     shared_ptr<string> modelApiKey_ {};
     // The endpoint of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
-    // The model source. Valid values:
-    // * bailian: Model Studio models.
-    // * custom: Custom models.
-    // * maas: PolarDB model operators.
+    // The source of the model. Valid values:
+    // * bailian: Model Studio model.
+    // * custom: Custom model.
+    // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
     // The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
@@ -1295,8 +1340,7 @@ namespace Models
     shared_ptr<string> payType_ {};
     // The subscription period unit.
     shared_ptr<string> period_ {};
-    // The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
-    // 
+    // The Polarlakebase cold storage or high-performance instance ID. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
     // Currently, only the following applications are supported:
     // - supabase
     // - raycluster
@@ -1309,9 +1353,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
-    // The name of the IP address whitelist group. Default value: default.
+    // The name of the IP address whitelist group. Default value: `default`.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP address whitelist. If you do not specify this parameter, the default value 127.0.0.1 is used.
+    // The IP address whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
@@ -1329,7 +1373,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
-    // The NAT gateway ID of the self-managed VPC NAT gateway for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, use the private network (intranet) type, and be active.
+    // The VPC NAT gateway ID for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, be of the private network type, and be in the active state.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone ID. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};

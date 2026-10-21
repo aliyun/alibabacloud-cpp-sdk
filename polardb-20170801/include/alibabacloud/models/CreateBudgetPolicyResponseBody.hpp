@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The budget policy ID.
+    // The ID of the budget policy.
     shared_ptr<string> budgetPolicyId_ {};
-    // The gateway cluster ID.
+    // The gateway instance ID.
     shared_ptr<string> gwClusterId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

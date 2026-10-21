@@ -133,13 +133,13 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The list of subcomponents.
     shared_ptr<vector<CreateApplicationResponseBody::Components>> components_ {};
-    // The application remarks.
+    // The application description.
     shared_ptr<string> description_ {};
-    // The ID of the generated order.
+    // The generated order ID.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the required resources are available. This parameter is returned only when DryRun is set to true.
+    // Indicates whether the resources are sufficient. This parameter is returned only when DryRun is set to true.
     shared_ptr<bool> resourceAvailable_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};

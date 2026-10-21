@@ -490,16 +490,16 @@ namespace Models
 
 
   protected:
-    // The ID of the existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The ID of the associated existing model operator instance. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
     // The AgenticDB branch specifications.
     shared_ptr<string> agenticDBBranchSpecShrink_ {};
     // The ID of the AgenticDB cluster.
     shared_ptr<string> agenticDBClusterId_ {};
     // The application type. Valid values:
-    // - supabase: Specify this value to create a managed Supabase application.
-    // - raycluster: Specify this value to create a managed Ray Cluster application.
-    // - polarclaw: Specify this value to create a managed PolarClaw application.
+    // - supabase: Pass this value to create a managed Supabase application.
+    // - raycluster: Pass this value to create a managed Ray Cluster application.
+    // - polarclaw: Pass this value to create a managed PolarClaw application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationType_ {};
@@ -508,13 +508,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> architecture_ {};
-    // The authentication service provider.
+    // The authentication provider.
     shared_ptr<string> authProvider_ {};
-    // The authentication provider configuration.
+    // The configuration of the authentication provider.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether automatic creation is enabled and the instance will attach and associate with an EIP.
+    // Specifies whether to automatically create and attach an EIP.
     shared_ptr<bool> autoAllocatePublicEip_ {};
-    // Specifies whether to automatically create a Polarlakebase cold storage edition instance. Valid values:
+    // Specifies whether the automatic creation of a Polarlakebase cold storage instance is enabled. Valid values:
     // * false (default): Do not automatically create the instance.
     // * true: Automatically create the instance.
     shared_ptr<bool> autoCreatePolarFs_ {};
@@ -526,15 +526,15 @@ namespace Models
     shared_ptr<bool> autoUseCoupon_ {};
     // The list of custom application subcomponents.
     shared_ptr<string> componentsShrink_ {};
-    // The ID of the PolarDB instance on which the application depends.
+    // The PolarDB instance ID that the application depends on.
     shared_ptr<string> DBClusterId_ {};
     // The description or remark of the application.
     shared_ptr<string> description_ {};
-    // The expected list of DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. Leave this parameter empty if you do not want to create DNAT entries.
+    // The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
     shared_ptr<string> dnatEntriesShrink_ {};
-    // The dedicated NAT IP address allocated for DNAT mapping, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
+    // The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the NAT gateway, be in the available state, and the vSwitch where the gateway resides must belong to a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
-    // Specifies whether to perform a dry run. Default value: false. If you set this parameter to true, only parameter and resource validations are performed, and no resources are actually created.
+    // Specifies whether to perform a dry run. Default value: `false`. If you set this parameter to `true`, only parameter and resource validations are performed, and no resources are actually created.
     shared_ptr<bool> dryRun_ {};
     // The list of custom service endpoints. By default, a VPC endpoint is created.
     shared_ptr<string> endpointsShrink_ {};
@@ -548,10 +548,10 @@ namespace Models
     shared_ptr<string> modelApiKey_ {};
     // The endpoint of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
-    // The model source. Valid values:
-    // * bailian: Model Studio models.
-    // * custom: Custom models.
-    // * maas: PolarDB model operators.
+    // The source of the model. Valid values:
+    // * bailian: Model Studio model.
+    // * custom: Custom model.
+    // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
     // The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
@@ -561,8 +561,7 @@ namespace Models
     shared_ptr<string> payType_ {};
     // The subscription period unit.
     shared_ptr<string> period_ {};
-    // The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
-    // 
+    // The Polarlakebase cold storage or high-performance instance ID. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
     // Currently, only the following applications are supported:
     // - supabase
     // - raycluster
@@ -575,9 +574,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
-    // The name of the IP address whitelist group. Default value: default.
+    // The name of the IP address whitelist group. Default value: `default`.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP address whitelist. If you do not specify this parameter, the default value 127.0.0.1 is used.
+    // The IP address whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
@@ -595,7 +594,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
-    // The NAT gateway ID of the self-managed VPC NAT gateway for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, use the private network (intranet) type, and be active.
+    // The VPC NAT gateway ID for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, be of the private network type, and be in the active state.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone ID. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};
