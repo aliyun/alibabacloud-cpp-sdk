@@ -91,7 +91,7 @@ namespace Cloudcontrol20220830
       Models::DeleteResourceResponse deleteResource(const string &requestPath, const Models::DeleteResourceRequest &request);
 
       /**
-       * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+       * @summary Queries pricing based on the OpenAPI triplet and request parameters.
        *
        * @param request GetApiPriceRequest
        * @param headers map
@@ -101,7 +101,7 @@ namespace Cloudcontrol20220830
       Models::GetApiPriceResponse getApiPriceWithOptions(const Models::GetApiPriceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+       * @summary Queries pricing based on the OpenAPI triplet and request parameters.
        *
        * @param request GetApiPriceRequest
        * @return GetApiPriceResponse

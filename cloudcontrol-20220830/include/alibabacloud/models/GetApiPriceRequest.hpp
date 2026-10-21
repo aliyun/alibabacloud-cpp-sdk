@@ -40,6 +40,7 @@ namespace Models
 
 
   protected:
+    // The pricing request body, including popCode, popVersion, apiName, and parameters. All calls return a unified pricing envelope. The language parameter specifies the server-side message language, such as en or zh. Target resource operations are not executed for cost-irrelevant or unsupported pricing queries.
     Darabonba::Json body_ {};
   };
 

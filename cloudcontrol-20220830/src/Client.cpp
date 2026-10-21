@@ -231,7 +231,7 @@ DeleteResourceResponse Client::deleteResource(const string &requestPath, const D
 }
 
 /**
- * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+ * @summary Queries pricing based on the OpenAPI triplet and request parameters.
  *
  * @param request GetApiPriceRequest
  * @param headers map
@@ -259,7 +259,7 @@ GetApiPriceResponse Client::getApiPriceWithOptions(const GetApiPriceRequest &req
 }
 
 /**
- * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+ * @summary Queries pricing based on the OpenAPI triplet and request parameters.
  *
  * @param request GetApiPriceRequest
  * @return GetApiPriceResponse

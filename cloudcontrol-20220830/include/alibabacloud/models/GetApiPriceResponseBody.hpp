@@ -16,12 +16,18 @@ namespace Models
   class GetApiPriceResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetApiPriceResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(price, price_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(success, success_);
     };
     friend void from_json(const Darabonba::Json& j, GetApiPriceResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(price, price_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(success, success_);
     };
     GetApiPriceResponseBody() = default ;
     GetApiPriceResponseBody(const GetApiPriceResponseBody &) = default ;
@@ -155,11 +161,17 @@ namespace Models
 
 
       protected:
+        // The estimated usage passed by the caller through PricingContext. This field has a value only when it is greater than 1. In this case, this entry also provides the assumedQuantityCost calculated based on this assumed usage.
         shared_ptr<float> assumedQuantity_ {};
+        // The module cost calculated based on assumedQuantity, which equals pricePerUnit × assumedQuantity. This cost is not included in totalAmount because it is based on the assumed usage reported by the caller and is not a cost necessarily incurred by this call.
         shared_ptr<float> assumedQuantityCost_ {};
+        // The billing module code, such as TrafficOut or NatCu. This corresponds to the moduleCode in modules.
         shared_ptr<string> moduleCode_ {};
+        // The original unit price before discounts, in CNY/unit, which is also normalized. This field is empty when not provided by the upstream. The difference between this value and pricePerUnit is the unit price discount for this module.
         shared_ptr<float> originalPricePerUnit_ {};
+        // The discounted unit price, in CNY/unit. The actual cost equals pricePerUnit × actual usage. Because the usage is unknown during pricing, it is not included in totalAmount. If the caller passed an estimated usage, the total returned by the upstream is normalized back to the unit price based on that usage.
         shared_ptr<float> pricePerUnit_ {};
+        // The usage unit, such as GB, CU, or 10,000 requests. This comes from the module-level billing.unit annotation in the mapping. The dimension of pricePerUnit is CNY/unit.
         shared_ptr<string> unit_ {};
       };
 
@@ -274,11 +286,17 @@ namespace Models
 
 
         protected:
+          // The estimated usage passed by the caller through PricingContext. This field has a value only when it is greater than 1. In this case, this entry also provides the assumedQuantityCost calculated based on this assumed usage.
           shared_ptr<float> assumedQuantity_ {};
+          // The module cost calculated based on assumedQuantity, which equals pricePerUnit × assumedQuantity. This cost is not included in totalAmount because it is based on the assumed usage reported by the caller and is not a cost necessarily incurred by this call.
           shared_ptr<float> assumedQuantityCost_ {};
+          // The billing module code, such as TrafficOut or NatCu. This corresponds to the moduleCode in modules.
           shared_ptr<string> moduleCode_ {};
+          // The original unit price before discounts, in CNY/unit, which is also normalized. This field is empty when not provided by the upstream. The difference between this value and pricePerUnit is the unit price discount for this module.
           shared_ptr<float> originalPricePerUnit_ {};
+          // The discounted unit price, in CNY/unit. The actual cost equals pricePerUnit × actual usage. Because the usage is unknown during pricing, it is not included in totalAmount. If the caller passed an estimated usage, the total returned by the upstream is normalized back to the unit price based on that usage.
           shared_ptr<float> pricePerUnit_ {};
+          // The usage unit, such as GB, CU, or 10,000 requests. This comes from the module-level billing.unit annotation in the mapping. The dimension of pricePerUnit is CNY/unit.
           shared_ptr<string> unit_ {};
         };
 
@@ -375,13 +393,18 @@ namespace Models
 
 
         protected:
+          // The billing dimension of this module, which is always explicitly output. Valid values: \\"recurring\\" for time-based fees, which are included in moduleSum and totalAmount; \\"usage\\" for usage-based fees, where costAfterDiscount is the usage unit price (CNY/usageUnit) and is not included in moduleSum, and the unit price is also provided in usageCharges.
           shared_ptr<string> billingMode_ {};
           shared_ptr<float> costAfterDiscount_ {};
+          // The discount amount for this module. The value is calculated as invoiceDiscount = originalCost - costAfterDiscount and is precisely provided by the upstream BSS. Manual subtraction in tax-inclusive scenarios may cause precision loss.
           shared_ptr<float> invoiceDiscount_ {};
           shared_ptr<string> moduleCode_ {};
           shared_ptr<float> originalCost_ {};
+          // The estimated usage used for pricing this module. This field has a value only when the caller passes a usage greater than 1 through PricingContext. In this case, costAfterDiscount is the total cost for this usage rather than the unit price. Refer to usageCharges[].pricePerUnit for the normalized unit price. This field is empty when no estimated usage is passed.
           shared_ptr<float> quantityUsedForQuote_ {};
+          // The unit price of this module per billing unit, such as CNY/hour, CNY/month, or CNY/unit. This is used to explain the composition of costAfterDiscount in multi-quantity or multi-period scenarios.
           shared_ptr<float> unitPrice_ {};
+          // The usage unit, such as GB or CU. This field has a value when billingMode is \\"usage\\" and indicates the dimension of costAfterDiscount.
           shared_ptr<string> usageUnit_ {};
         };
 
@@ -463,15 +486,20 @@ namespace Models
 
 
       protected:
+        // The billing composition. Valid values: recurring_only (all time-based fees), usage_only (all usage-based fees, where a totalAmount of 0 indicates no fixed fees rather than free of charge, and actual costs depend on the unit price and actual usage in usageCharges), or mixed (both, which should be displayed separately). This allows the caller to choose the display text without iterating through modules to determine the composition.
         shared_ptr<string> chargeComposition_ {};
         shared_ptr<string> currency_ {};
         shared_ptr<float> effectiveModuleSum_ {};
         shared_ptr<float> moduleSum_ {};
         shared_ptr<vector<PriceSummary::Modules>> modules_ {};
+        // The total original price before discounts for this pricing inquiry. When originalPrice differs from tradePrice or moduleSum, it indicates that a discount was applied, such as a first-purchase discount or a promotional campaign.
         shared_ptr<float> originalPrice_ {};
+        // The billing cycle unit, such as \\"Hour\\", \\"1 Month\\", \\"12 Month\\", or \\"GB·Month\\", which indicates the time dimension of moduleSum. This field is not returned in the BSS response and must be explicitly declared by the mapping maintainer in pricingTarget.pricingUnit. It is optional for subscription scenarios because the CLI infers it from Period and PeriodUnit. However, it is required for pay-as-you-go scenarios in the mapping; otherwise, the amount has no dimension.
         shared_ptr<string> pricingUnit_ {};
+        // The pricing quantity from OpenAPI input parameters, such as Amount in ECS RunInstances. The moduleSum is the unit price per instance, and effectiveModuleSum = moduleSum × quantity is the total price. The caller should present the actual total price for N instances to the user based on this value to avoid mistaking the unit price for the total price.
         shared_ptr<float> quantity_ {};
         shared_ptr<float> tradePrice_ {};
+        // The list of unit prices for pay-as-you-go, usage-based modules, such as CNY/GB or CNY/CU. The amounts for these modules are not included in moduleSum or effectiveModuleSum. This field is empty when there are no usage-based modules.
         shared_ptr<vector<PriceSummary::UsageCharges>> usageCharges_ {};
       };
 
@@ -591,25 +619,49 @@ namespace Models
 
 
     protected:
+      // The common billing dimension for fixed fees, including totalAmount, originalAmount, and discountAmount. This is a canonical field, such as \\"Hour\\" or \\"1 Month\\", derived from the pricingUnit declared in the mapping. It is empty if not declared. This field describes only the dimension for fixed fees. The pay-as-you-go billing method components each have their own unit (see usageCharges[].unit).
       shared_ptr<string> billingUnit_ {};
       shared_ptr<float> calculatedAmount_ {};
+      // The billing composition. This is a canonical field. Valid values: recurring_only (all time-based fees), usage_only (all usage-based fees, where a totalAmount of 0 indicates no fixed fees rather than free of charge, and actual costs depend on the unit price and actual usage in usageCharges), or mixed (both, which should be displayed separately as \\"X CNY/hour + Y CNY/GB\\"). This allows the caller to choose the display text without iterating through modules to determine the composition.
       shared_ptr<string> chargeComposition_ {};
+      // The details of each pricing call in composite or delta mode. The key is the priceCall ID, such as prepaid, postpaid, or a custom ID. This field is empty in single mode. The calculatedAmount is the aggregated result of each component based on the priceCalculation expression. The components field exposes the line items so that the caller can view the composition, such as instance fees versus storage fees.
       shared_ptr<map<string, PriceComponentsValue>> components_ {};
       shared_ptr<string> currency_ {};
+      // The total discount amount for fixed fees. This is a canonical field calculated as originalAmount - totalAmount. It includes only discounts for fixed fees and excludes the pay-as-you-go billing method. The value is 0 when there is no discount and empty when the original price is missing.
       shared_ptr<float> discountAmount_ {};
+      // The error code when upstream pricing fails, such as InvalidParameter or COMMODITY.INVALID_COMPONENT. This field is empty when success is true.
       shared_ptr<string> errorCode_ {};
+      // The error description when upstream pricing fails. This facilitates self-troubleshooting of specific parameter issues by the caller. This field is empty when success is true.
       shared_ptr<string> errorMessage_ {};
+      // The total original price before discounts for fixed fees. This is a canonical field with the same scope as totalAmount. It includes only fixed fees and excludes the pay-as-you-go billing method. Refer to usageCharges[].originalPricePerUnit for the pre-discount unit price of the pay-as-you-go billing method. The difference between this value and totalAmount is the total discount for this inquiry. This field is empty when the upstream does not provide original price information.
       shared_ptr<float> originalAmount_ {};
       shared_ptr<Price::PriceSummary> priceSummary_ {};
       shared_ptr<string> pricingMode_ {};
       shared_ptr<bool> success_ {};
+      // The periodic payable amount for fixed fees in this pricing inquiry (canonical field). For the unit of measurement, see billingUnit. **This field includes only fixed fees**. Usage-based charges (such as traffic in CNY/GB or CUs in CNY/CU) have different units of measurement and cannot be added to this field. For the unit prices of usage-based charges, see usageCharges. To check whether both types of charges exist, see chargeComposition. In single mode, this value is derived from priceSummary.effectiveModuleSum (falling back to tradePrice if missing). In composite or delta mode, this value is derived from calculatedAmount. This field always has a value when success is true.
       shared_ptr<float> totalAmount_ {};
+      // The request ID of the upstream pricing API (such as the RequestId of BSS GetSubscriptionPrice). This field is populated regardless of whether the request succeeds or fails, and is used for audit reconciliation and upstream log tracing.
       shared_ptr<string> upstreamRequestId_ {};
+      // The list of unit prices for usage-based billing modules (canonical field). Modules billed by actual usage, such as traffic and NAT CUs, have different units of measurement (such as CNY/GB or CNY/CU) from billingUnit and are not included in totalAmount. This field provides the unit price for each item. In single mode, the values are derived from priceSummary. In composite or delta mode, the values are concatenated from each component in the order of priceCall. This field is empty when the mapping contains no usage-based modules.
       shared_ptr<vector<Price::UsageCharges>> usageCharges_ {};
     };
 
-    virtual bool empty() const override { return this->price_ == nullptr
-        && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->price_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline GetApiPriceResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline GetApiPriceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
     // price Field Functions 
     bool hasPrice() const { return this->price_ != nullptr;};
     void deletePrice() { this->price_ = nullptr;};
@@ -626,10 +678,24 @@ namespace Models
     inline GetApiPriceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline GetApiPriceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
   protected:
+    // The pricing result code. Valid values: Success, PricingNotRequired, PricingNotSupported, or an upstream pricing failure code.
+    shared_ptr<string> code_ {};
+    // The server-side pricing result description. The language is specified by the language parameter in the request body and defaults to Chinese.
+    shared_ptr<string> message_ {};
+    // The pricing data. This field is omitted for PricingNotRequired and PricingNotSupported results that do not include pricing.
     shared_ptr<GetApiPriceResponseBody::Price> price_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether a valid pricing result is obtained. The value is true for normal pricing and when no pricing inquiry is required, and false when pricing is not supported or the pricing inquiry fails.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models
