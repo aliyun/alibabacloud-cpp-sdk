@@ -142,14 +142,23 @@ namespace Models
 
 
     protected:
+      // The prefix list of visible access tokens that are neither revoked nor expired under the agent. This parameter is empty if no access tokens are returned or no access tokens meet the conditional criteria. The prefix is used only to identify the credential and does not contain the complete secret.
       shared_ptr<vector<string>> activeApiKeyPrefixes_ {};
+      // The unique identifier of the agent.
       shared_ptr<string> agentId_ {};
+      // The name of the agent.
       shared_ptr<string> agentName_ {};
+      // The permission type of the agent. Valid values: HUMAN_BOUND (inherits user permissions), PERMISSION_NARROW (narrowed down from user permissions), and STANDALONE (independent permissions). The agent generated through the install token redemption process is of the HUMAN_BOUND type.
       shared_ptr<string> agentType_ {};
+      // The creation time of the agent, in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> createdAt_ {};
+      // The creation method of the agent. A value of auto indicates automatic creation by the system, and a value of manual indicates manual creation by a user. The agent generated through the install token redemption process is auto.
       shared_ptr<string> creationType_ {};
+      // The description of the agent. This parameter is empty if it is not set.
       shared_ptr<string> description_ {};
+      // The ID of the user to whom the agent belongs.
       shared_ptr<string> ownerId_ {};
+      // The status of the agent. A value of active indicates that the agent is enabled, and a value of disabled indicates that the agent is disabled.
       shared_ptr<string> status_ {};
     };
 
@@ -193,10 +202,15 @@ namespace Models
 
 
   protected:
+    // The agent information associated with the install token after redemption. This parameter is empty if the token has not been redeemed, or if the associated credential or agent does not exist.
     shared_ptr<GetAgenticAgentByInstallTokenResponseBody::Data> data_ {};
+    // The error code returned when the request fails. Programs use this code to determine the failure type. This parameter is empty when the request succeeds.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the request fails. This message helps with manual troubleshooting. This parameter is empty when the request succeeds.
     shared_ptr<string> errorMessage_ {};
+    // The unique identifier of the request, used for troubleshooting and log correlation.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. A value of true indicates that the query succeeded. A value of false indicates that the query failed. In this case, you can use ErrorCode and ErrorMessage to identify the cause.
     shared_ptr<bool> success_ {};
   };
 

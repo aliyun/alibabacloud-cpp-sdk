@@ -130,11 +130,15 @@ namespace Models
 
 
     protected:
+      // The acceleration ratio, which indicates the speed improvement brought by subtask parallelism.
       shared_ptr<double> accelerationRatio_ {};
+      // The number of throttled sessions.
       shared_ptr<int64_t> rateLimitedSessionCount_ {};
+      // The total throttling duration of all sessions.
       shared_ptr<double> totalLlmWaitDuration_ {};
+      // The total number of sessions.
       shared_ptr<int64_t> totalSessionCount_ {};
-      // The peak TPM (tokens per minute) within the query time range, which is the maximum number of tokens consumed per minute.
+      // The peak TPM within the query time range, which is the maximum number of tokens consumed per minute.
       shared_ptr<int64_t> peakTpm_ {};
       // The total number of model calls within the query time range.
       shared_ptr<int64_t> totalCallCount_ {};
@@ -186,16 +190,16 @@ namespace Models
   protected:
     // The summary data of model usage for DataAgent analysis tasks.
     shared_ptr<GetDataAgentTaskModelUsageResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

@@ -170,7 +170,7 @@ namespace Models
 
 
       protected:
-        // The cron expression for scheduled execution.
+        // The cron expression for time-based scheduling.
         shared_ptr<string> cronExpression_ {};
         // The query for the scheduled task.
         shared_ptr<string> query_ {};
@@ -234,9 +234,15 @@ namespace Models
 
 
       protected:
+        // The DMS database ID.
         shared_ptr<string> dbId_ {};
+        // The DMS instance ID.
         shared_ptr<string> instanceId_ {};
+        // The knowledge UUID.
         shared_ptr<string> knowledgeUuid_ {};
+        // The knowledge semantic type. Valid values:
+        // - sql_template: SQL template.
+        // - ossie_model: Ossie semantic view.
         shared_ptr<string> type_ {};
       };
 
@@ -288,12 +294,12 @@ namespace Models
 
       protected:
         // The access type. Valid values:
-        // - mcp: Accessed through MCP.
-        // - dms_kb: Accessed through the DMS knowledge base.
+        // - mcp: Access through MCP.
+        // - dms_kb: Access through the DMS knowledge base.
         shared_ptr<string> accessType_ {};
         // The knowledge base ID.
         shared_ptr<string> kbUuid_ {};
-        // The MCP server ID.
+        // The ID of the MCP server.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -364,7 +370,7 @@ namespace Models
       protected:
         // Specifies whether to prohibit appending data sources in a session.
         shared_ptr<bool> forbiddenAppendDataSource_ {};
-        // Specifies whether to disable user prompts during the process.
+        // Specifies whether to disable user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
         // Specifies whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
@@ -439,10 +445,15 @@ namespace Models
 
 
       protected:
+        // The parameters to invoke callback tool calling.
         shared_ptr<string> callbackArgs_ {};
+        // The prompt for generating parameters to invoke callback tool calling.
         shared_ptr<string> callbackPrompt_ {};
+        // The timing to invoke callback tool calling.
         shared_ptr<int32_t> callbackTime_ {};
+        // The callback tool identifier.
         shared_ptr<string> toolId_ {};
+        // The callback tool type.
         shared_ptr<string> type_ {};
       };
 
@@ -709,12 +720,13 @@ namespace Models
     protected:
       // The custom agent type. Valid values:
       // - Default: The system-built-in custom agent. Each workspace can have at most one Default type, and it cannot be deleted.
-      // - Common: The common custom agent.
+      // - Common: A common custom agent.
       shared_ptr<string> agentType_ {};
       // The ID of the Alibaba Cloud main account.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
+      // The callback feature configuration.
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
       // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
@@ -742,6 +754,7 @@ namespace Models
       shared_ptr<string> knowledge_ {};
       // The external knowledge bases.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
+      // The knowledge semantic configuration list.
       shared_ptr<vector<Data::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
@@ -749,7 +762,8 @@ namespace Models
       shared_ptr<string> modifierUserName_ {};
       // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The next execution time of the scheduled task in timestamp format.
+      // The next run time of the scheduled task.
+      // - Timestamp format.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
       shared_ptr<string> offlineTime_ {};
@@ -775,8 +789,8 @@ namespace Models
       // The web report theme. Valid values:
       // - default: Default.
       // - journal: Journal.
-      // - legacy: Classic.
-      // - neobrutalism: Stylized.
+      // - legacy: Legacy.
+      // - neobrutalism: Neobrutalism.
       // - infographic: Infographic.
       shared_ptr<string> webReportTheme_ {};
       // The workspace ID.
@@ -823,7 +837,7 @@ namespace Models
 
 
   protected:
-    // The response struct.
+    // The returned struct.
     shared_ptr<ModifyCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -832,6 +846,7 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
+    // 
     // - **true**: The request is successful.
     // - **false**: The request fails.
     shared_ptr<bool> success_ {};

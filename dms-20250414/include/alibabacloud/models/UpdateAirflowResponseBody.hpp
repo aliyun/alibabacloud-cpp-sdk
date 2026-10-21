@@ -317,43 +317,43 @@ namespace Models
     protected:
       // The name of the Airflow instance.
       shared_ptr<string> airflowName_ {};
-      // The version of Airflow.
+      // The Airflow version.
       shared_ptr<string> airflowVersion_ {};
-      // The instance specification.
+      // SMALL.
       shared_ptr<string> appSpec_ {};
       // The instance type.
       shared_ptr<string> appType_ {};
-      // A list of custom configuration items.
+      // The list of custom configuration items.
       shared_ptr<vector<string>> customAirflowCfg_ {};
-      // The directory where DAGs are scanned.
+      // The directory scanned for DAGs.
       shared_ptr<string> dagsDir_ {};
-      // A data mount item.
+      // The list of data mount information.
       shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
-      // The error message returned upon deployment failure.
+      // The deployment error message.
       shared_ptr<string> deployErrorMsg_ {};
       // The description of the Airflow instance.
       shared_ptr<string> description_ {};
-      // Indicates whether serverless mode is enabled.
+      // Specifies whether to enable serverless workers.
       shared_ptr<bool> enableServerless_ {};
-      // The environment variables.
+      // The environment configurations.
       shared_ptr<string> environments_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The graceful shutdown timeout, in seconds.
+      // The timeout period for a worker to exit.
       shared_ptr<int32_t> gracefulShutdownTimeout_ {};
       // The name of the Object Storage Service (OSS) bucket.
       shared_ptr<string> ossBucketName_ {};
-      // The path in OSS where logs are stored.
+      // The OSS path for storing logs.
       shared_ptr<string> ossPath_ {};
-      // The directory where Airflow plugins are scanned.
+      // The directory scanned for Airflow plugins.
       shared_ptr<string> pluginsDir_ {};
-      // The path to the Python requirements file.
+      // The path of the installation package.
       shared_ptr<string> requirementFile_ {};
-      // The Python package requirements.
+      // The configurations of the installation package.
       shared_ptr<string> requirements_ {};
       // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The startup script for the Airflow container.
+      // The startup script of the Airflow container.
       shared_ptr<string> startupFile_ {};
       // The instance status.
       shared_ptr<string> status_ {};
@@ -363,7 +363,7 @@ namespace Models
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The number of worker node replicas.
+      // The number of scaled worker nodes.
       shared_ptr<int32_t> workerServerlessReplicas_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -426,7 +426,7 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -436,13 +436,12 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of the updated Airflow instance.
+    // The updated details.
     shared_ptr<UpdateAirflowResponseBody::Root> root_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

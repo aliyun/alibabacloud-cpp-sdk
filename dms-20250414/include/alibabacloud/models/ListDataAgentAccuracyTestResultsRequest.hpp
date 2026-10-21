@@ -121,15 +121,15 @@ namespace Models
 
 
   protected:
-    // The instance ID of the accuracy test.
+    // The instance ID of the accuracy test to which the task belongs.
     shared_ptr<string> accuracyTestInsId_ {};
-    // The result ID used to retrieve a single record.
+    // The ID of the result used to exactly match a single record.
     shared_ptr<string> accuracyTestResultId_ {};
-    // The subtask ID used to filter results.
+    // The ID of the subtask used to filter results.
     shared_ptr<string> accuracyTestSubtaskId_ {};
     // The ID of the accuracy test task.
     shared_ptr<string> accuracyTestTaskId_ {};
-    // The maximum number of entries per page.
+    // The maximum number of results per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<string> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

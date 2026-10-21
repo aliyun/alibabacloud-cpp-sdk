@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<bool> queryAllReleased_ {};
     // The search keyword. Supports fuzzy search for custom agent names and descriptions.
     shared_ptr<string> searchKey_ {};
-    // The status of the custom agent.
+    // The custom agent status.
     shared_ptr<string> status_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

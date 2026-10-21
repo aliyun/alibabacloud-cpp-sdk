@@ -171,18 +171,23 @@ namespace Models
       shared_ptr<string> accuracyTest_ {};
       // Agent Id
       shared_ptr<string> agentId_ {};
-      // The data source. We recommend that you configure this parameter in a custom agent.
+      // The evaluation dataset.
       shared_ptr<string> dataset_ {};
+      // The data source information.
       shared_ptr<string> datasource_ {};
+      // The description of the evaluation item.
       shared_ptr<string> desc_ {};
       // The accuracy evaluation criteria. An empty value indicates the default criteria.
       shared_ptr<string> evaluationPrompt_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
+      // The maximum concurrency limit for the evaluation task.
       shared_ptr<int32_t> maxConcurrent_ {};
       // The analysis mode.
       shared_ptr<int32_t> mode_ {};
+      // The name of the evaluation item.
       shared_ptr<string> name_ {};
+      // Reserved.
       shared_ptr<bool> needDelete_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -230,16 +235,16 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<UpdateDataAgentAccuracyTestResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code returned when an exception occurs.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.                                 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

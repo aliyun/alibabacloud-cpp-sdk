@@ -96,21 +96,24 @@ namespace Models
   protected:
     // Used only by the frontend.
     shared_ptr<string> callFrom_ {};
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
-    // The file size, in bytes.
+    // The size of the file, in bytes.
     shared_ptr<int64_t> fileSize_ {};
-    // The file name.
+    // The name of the file.
     // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
+    // The name of the user\\"s OSS bucket.
+    // - Specify this parameter to use a file in the user\\"s OSS bucket and register the file as a data center file through the callback.
     shared_ptr<string> ossBucket_ {};
     // The full path of the uploaded file.
-    // - Format: The UploadDir field returned by the DescribeFileUploadSignature operation concatenated with the file name.
+    // - Format: Concatenate the UploadDir field returned by the DescribeFileUploadSignature operation with the file name.
     // - Example: ${UploadDir}/${Filename}
     // 
     // This parameter is required.
     shared_ptr<string> uploadLocation_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

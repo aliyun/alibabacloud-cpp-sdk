@@ -727,7 +727,7 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginToken(const CreateAirf
 }
 
 /**
- * @summary Creates a custom agent in a personal or shared workspace.
+ * @summary Creates a custom agent in a personal space or workspace.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -860,7 +860,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary Creates a custom agent in a personal or shared workspace.
+ * @summary Creates a custom agent in a personal space or workspace.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -2177,7 +2177,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2212,7 +2212,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -2653,7 +2653,7 @@ DescribeSkillFileUploadSignatureResponse Client::describeSkillFileUploadSignatur
 }
 
 /**
- * @summary Calls back after a file is uploaded.
+ * @summary Processes the file upload callback.
  *
  * @param request FileUploadCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2708,7 +2708,7 @@ FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploa
 }
 
 /**
- * @summary Calls back after a file is uploaded.
+ * @summary Processes the file upload callback.
  *
  * @param request FileUploadCallbackRequest
  * @return FileUploadCallbackResponse
@@ -2719,7 +2719,9 @@ FileUploadCallbackResponse Client::fileUploadCallback(const FileUploadCallbackRe
 }
 
 /**
- * @summary Queries agent information by install token.
+ * @summary Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+ *
+ * @description Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
  *
  * @param request GetAgenticAgentByInstallTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2750,7 +2752,9 @@ GetAgenticAgentByInstallTokenResponse Client::getAgenticAgentByInstallTokenWithO
 }
 
 /**
- * @summary Queries agent information by install token.
+ * @summary Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+ *
+ * @description Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
  *
  * @param request GetAgenticAgentByInstallTokenRequest
  * @return GetAgenticAgentByInstallTokenResponse
@@ -3244,9 +3248,9 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetD
 }
 
 /**
- * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+ * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
  * @param tmpReq GetDataAgentTaskModelUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3303,9 +3307,9 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 }
 
 /**
- * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+ * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
  *
  * @param request GetDataAgentTaskModelUsageRequest
  * @return GetDataAgentTaskModelUsageResponse
@@ -3316,9 +3320,9 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsage(const GetD
 }
 
 /**
- * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+ * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
  *
- * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+ * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
  *
  * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3375,9 +3379,9 @@ GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetr
 }
 
 /**
- * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+ * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
  *
- * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+ * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
  *
  * @param request GetDataAgentTaskModelUsageMetricsRequest
  * @return GetDataAgentTaskModelUsageMetricsResponse
@@ -3432,7 +3436,7 @@ GetDataAgentThemeUploadSignatureResponse Client::getDataAgentThemeUploadSignatur
 }
 
 /**
- * @summary Retrieves the details of a collaborative workspace.
+ * @summary Queries the details of a workspace.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3467,7 +3471,7 @@ GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfoWithOptions(c
 }
 
 /**
- * @summary Retrieves the details of a collaborative workspace.
+ * @summary Queries the details of a workspace.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @return GetDataAgentWorkspaceInfoResponse
@@ -4296,6 +4300,178 @@ ListAgenticDatabaseResponse Client::listAgenticDatabase(const ListAgenticDatabas
 }
 
 /**
+ * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ *
+ * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+ */
+ListAgenticGlobalSqlExecutionHistoriesResponse Client::listAgenticGlobalSqlExecutionHistoriesWithOptions(const ListAgenticGlobalSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActorId()) {
+    query["ActorId"] = request.getActorId();
+  }
+
+  if (!!request.hasActorName()) {
+    query["ActorName"] = request.getActorName();
+  }
+
+  if (!!request.hasActorType()) {
+    query["ActorType"] = request.getActorType();
+  }
+
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasScenario()) {
+    query["Scenario"] = request.getScenario();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSqlKeyword()) {
+    query["SqlKeyword"] = request.getSqlKeyword();
+  }
+
+  if (!!request.hasSqlType()) {
+    query["SqlType"] = request.getSqlType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticGlobalSqlExecutionHistories"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticGlobalSqlExecutionHistoriesResponse>();
+}
+
+/**
+ * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ *
+ * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
+ * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+ */
+ListAgenticGlobalSqlExecutionHistoriesResponse Client::listAgenticGlobalSqlExecutionHistories(const ListAgenticGlobalSqlExecutionHistoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticGlobalSqlExecutionHistoriesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ *
+ * @param request ListAgenticSqlExecutionHistoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAgenticSqlExecutionHistoriesResponse
+ */
+ListAgenticSqlExecutionHistoriesResponse Client::listAgenticSqlExecutionHistoriesWithOptions(const ListAgenticSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActorId()) {
+    query["ActorId"] = request.getActorId();
+  }
+
+  if (!!request.hasActorName()) {
+    query["ActorName"] = request.getActorName();
+  }
+
+  if (!!request.hasActorType()) {
+    query["ActorType"] = request.getActorType();
+  }
+
+  if (!!request.hasCatalogUuid()) {
+    query["CatalogUuid"] = request.getCatalogUuid();
+  }
+
+  if (!!request.hasDatabaseUuid()) {
+    query["DatabaseUuid"] = request.getDatabaseUuid();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasScenario()) {
+    query["Scenario"] = request.getScenario();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSqlKeyword()) {
+    query["SqlKeyword"] = request.getSqlKeyword();
+  }
+
+  if (!!request.hasSqlType()) {
+    query["SqlType"] = request.getSqlType();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAgenticSqlExecutionHistories"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAgenticSqlExecutionHistoriesResponse>();
+}
+
+/**
+ * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+ *
+ * @param request ListAgenticSqlExecutionHistoriesRequest
+ * @return ListAgenticSqlExecutionHistoriesResponse
+ */
+ListAgenticSqlExecutionHistoriesResponse Client::listAgenticSqlExecutionHistories(const ListAgenticSqlExecutionHistoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAgenticSqlExecutionHistoriesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
  *
  * @param request ListAgenticTableBaseInfoRequest
@@ -4466,7 +4642,7 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 }
 
 /**
- * @summary Lists all custom agents in personal and shared workspaces.
+ * @summary Lists all custom agents in personal and team workspaces.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4521,7 +4697,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary Lists all custom agents in personal and shared workspaces.
+ * @summary Lists all custom agents in personal and team workspaces.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -7346,7 +7522,9 @@ UpdateAgenticDataSourceResponse Client::updateAgenticDataSource(const UpdateAgen
 }
 
 /**
- * @summary Updates the properties of an Airflow instance.
+ * @summary Updates the information of an Airflow instance.
+ *
+ * @description Creates an Airflow instance in a workspace.
  *
  * @param tmpReq UpdateAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7435,7 +7613,9 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
 }
 
 /**
- * @summary Updates the properties of an Airflow instance.
+ * @summary Updates the information of an Airflow instance.
+ *
+ * @description Creates an Airflow instance in a workspace.
  *
  * @param request UpdateAirflowRequest
  * @return UpdateAirflowResponse
@@ -7448,7 +7628,7 @@ UpdateAirflowResponse Client::updateAirflow(const UpdateAirflowRequest &request)
 /**
  * @summary Updates the content of an accuracy test item.
  *
- * @description Updates the content of an accuracy test item.
+ * @description Updates the accuracy test item.
  *
  * @param request UpdateDataAgentAccuracyTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7533,7 +7713,7 @@ UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTestWithOptio
 /**
  * @summary Updates the content of an accuracy test item.
  *
- * @description Updates the content of an accuracy test item.
+ * @description Updates the accuracy test item.
  *
  * @param request UpdateDataAgentAccuracyTestRequest
  * @return UpdateDataAgentAccuracyTestResponse

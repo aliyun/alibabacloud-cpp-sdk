@@ -172,11 +172,11 @@ namespace Models
 
 
       protected:
-        // The cron expression for time-based scheduling.
+        // The cron expression for time-based periodic scheduling.
         shared_ptr<string> cronExpression_ {};
-        // The question for the scheduled task.
+        // The question for the periodic task.
         shared_ptr<string> query_ {};
-        // The ID of the referenced historical session.
+        // The referenced historical session ID.
         shared_ptr<string> relatedSessionId_ {};
       };
 
@@ -236,9 +236,15 @@ namespace Models
 
 
       protected:
+        // The DMS database ID.
         shared_ptr<string> dbId_ {};
+        // The DMS instance ID.
         shared_ptr<string> instanceId_ {};
+        // The knowledge UUID.
         shared_ptr<string> knowledgeUuid_ {};
+        // The knowledge semantic type. Valid values:
+        // - sql_template: SQL template
+        // - ossie_model: Ossie semantic view
         shared_ptr<string> type_ {};
       };
 
@@ -290,8 +296,8 @@ namespace Models
 
       protected:
         // The access type. Valid values:
-        // - mcp: MCP access.
-        // - dms_kb: DMS knowledge base access.
+        // - mcp: MCP access
+        // - dms_kb: DMS knowledge base access
         shared_ptr<string> accessType_ {};
         // The knowledge base ID.
         shared_ptr<string> kbUuid_ {};
@@ -364,15 +370,15 @@ namespace Models
 
 
       protected:
-        // Specifies whether to prohibit appending data sources during a session.
+        // Specifies whether to prohibit appending data sources in a session.
         shared_ptr<bool> forbiddenAppendDataSource_ {};
-        // Specifies whether to disable user prompts during the process.
+        // Specifies whether to disable user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
         // Specifies whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip the confirmation for generating a web report.
+        // Specifies whether to skip the confirmation for drawing a web report.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -441,10 +447,15 @@ namespace Models
 
 
       protected:
+        // The parameters to invoke callback tool calling.
         shared_ptr<string> callbackArgs_ {};
+        // The prompt for generating parameters to invoke callback tool calling.
         shared_ptr<string> callbackPrompt_ {};
+        // The timing to invoke callback tool calling.
         shared_ptr<int32_t> callbackTime_ {};
+        // The callback tool identifier.
         shared_ptr<string> toolId_ {};
+        // The callback tool type.
         shared_ptr<string> type_ {};
       };
 
@@ -717,13 +728,14 @@ namespace Models
 
     protected:
       // The custom agent type. Valid values:
-      // - Default: built-in custom agent.
-      // - Common: common custom agent.
+      // - Default: system-built-in custom agent
+      // - Common: common custom agent
       shared_ptr<string> agentType_ {};
-      // The ID of the parent Alibaba Cloud account.
+      // The ID of the Alibaba Cloud main account.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
+      // The callback feature configuration.
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
       // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
@@ -733,9 +745,9 @@ namespace Models
       shared_ptr<string> DMSUnit_ {};
       // The specified data scope in JSON string format.
       shared_ptr<string> dataJson_ {};
-      // Indicates whether the agent is displayed by default.
+      // Specifies whether the agent is displayed by default.
       shared_ptr<int32_t> defaultAgent_ {};
-      // The description of the custom agent.
+      // The custom agent description.
       shared_ptr<string> description_ {};
       // The current DMS unit.
       shared_ptr<string> dmsUnit_ {};
@@ -743,37 +755,37 @@ namespace Models
       shared_ptr<Data::ExecutionConfig> executionConfig_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The update time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
       // The instructions.
       shared_ptr<string> instruction_ {};
-      // Indicates whether a scheduled task is configured.
+      // Specifies whether a periodic task is configured.
       shared_ptr<bool> isScheduleTask_ {};
       // The knowledge.
       shared_ptr<string> knowledge_ {};
       // The external knowledge bases.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
+      // The knowledge semantic configuration list.
       shared_ptr<vector<Data::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
       // The name of the modifier.
       shared_ptr<string> modifierUserName_ {};
-      // The name of the custom agent.
+      // The custom agent name.
       shared_ptr<string> name_ {};
-      // The next run time of the scheduled task.
+      // The next run time of the periodic task.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
       shared_ptr<string> offlineTime_ {};
-      // The list of recommended questions.
-      // - A maximum of 10 recommended questions can be configured.
+      // The list of recommended questions. You can configure up to 10 recommended questions.
       shared_ptr<vector<string>> recommendQuestionList_ {};
       // The region.
       shared_ptr<string> region_ {};
-      // The ID of the referenced historical session.
+      // The referenced historical session ID.
       shared_ptr<string> relatedSessionId_ {};
       // The release time.
       shared_ptr<string> releaseTime_ {};
-      // The scheduled task configuration.
+      // The periodic task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       // The custom agent status.
       shared_ptr<string> status_ {};
@@ -784,11 +796,11 @@ namespace Models
       // The web report format.
       shared_ptr<string> webReportConfig_ {};
       // The web report theme. Valid values:
-      // - default: The default theme.
-      // - journal: The journal theme.
-      // - legacy: The legacy theme.
-      // - neobrutalism: The neobrutalism theme.
-      // - infographic: The infographic theme.
+      // - default: default
+      // - journal: journal
+      // - legacy: classic
+      // - neobrutalism: stylized
+      // - infographic: infographic
       shared_ptr<string> webReportTheme_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

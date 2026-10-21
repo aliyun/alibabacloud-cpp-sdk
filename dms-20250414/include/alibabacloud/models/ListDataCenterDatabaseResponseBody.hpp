@@ -207,25 +207,27 @@ namespace Models
       // The database description.
       shared_ptr<string> databaseDesc_ {};
       // The database name.
-      // - When ImportType is FILE, this parameter indicates the file name.
+      //   - When ImportType is FILE, this parameter indicates the file name.
       shared_ptr<string> databaseName_ {};
       // The database ID.
       shared_ptr<string> dbId_ {};
       // - When ImportType is FILE:
       //   - File type: dbType indicates the file format, such as csv, xlsx, or xls.
       shared_ptr<string> dbType_ {};
-      // The time when the database description was last updated.
+      // The update time of the database description.
       shared_ptr<string> descUpdateTime_ {};
-      // The ID of the Data Management database that hosts the instance.
+      // The ID of the DMS database where the instance is hosted.
       //   - This parameter is not returned when ImportType is FILE.
       shared_ptr<int64_t> dmsDbId_ {};
-      // The ID of the Data Management instance that hosts the instance.
+      // The ID of the DMS instance where the instance is hosted.
       //   - This parameter is not returned when ImportType is FILE.
       shared_ptr<int64_t> dmsInstanceId_ {};
+      // The public network download link.
+      //   - **[Deprecated]**
       shared_ptr<string> downloadLink_ {};
-      // The time when the file was created.
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The import type.
+      // The import type. Valid values:
       //   - FILE
       //   - RDS
       //   - ADB
@@ -234,16 +236,20 @@ namespace Models
       //   - DMS
       shared_ptr<string> importType_ {};
       // The instance name.
-      // - When ImportType is FILE, this parameter indicates the file ID in the data center.
+      //   - When ImportType is FILE, this parameter indicates the file ID in the data center.
       shared_ptr<string> instanceName_ {};
+      // The internal network download link.
+      //   - **[Deprecated]**
       shared_ptr<string> intranetDownloadLink_ {};
       // Indicates whether the dataset is built-in. Valid values:
-      // - Y: The dataset is built-in.
-      // - N: The dataset is not built-in.
+      //   - Y: The dataset is built-in.
+      //   - N: The dataset is not built-in.
       shared_ptr<string> isInternal_ {};
+      // The name of the user\\"s OSS bucket.
       shared_ptr<string> ossBucket_ {};
       // The file size, in bytes.
       shared_ptr<int64_t> size_ {};
+      // Indicates whether the user\\"s OSS bucket is used.
       shared_ptr<bool> useUserOssBucket_ {};
     };
 
@@ -289,16 +295,15 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<vector<ListDataCenterDatabaseResponseBody::Data>> data_ {};
-    // The error code returned if the request failed.
+    // The error code returned when an exception occurs in the request.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.                                 
-    // - **false**: The request failed.
+    // Indicates whether the request is successful. Valid values:
+    //   - **true**: The request is successful.
+    //   - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

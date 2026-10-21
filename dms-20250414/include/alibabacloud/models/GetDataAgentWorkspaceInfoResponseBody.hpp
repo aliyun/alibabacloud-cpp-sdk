@@ -157,21 +157,23 @@ namespace Models
 
 
     protected:
-      // The creation time of the session. Unit: seconds. The value is a UNIX timestamp.
+      // The creation time of the workspace. The value is a UNIX timestamp in seconds.
       shared_ptr<string> createTime_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
+      // Indicates whether sessions are shared within the workspace.
       shared_ptr<bool> isSessionShareEnabled_ {};
-      // The most recent modification time of the workspace. Unit: seconds. The value is a UNIX timestamp.
+      // The last modification time of the workspace. The value is a UNIX timestamp in seconds.
       shared_ptr<string> modifyTime_ {};
       // The role name of the user in the workspace.
       shared_ptr<string> roleName_ {};
       // The number of members in the workspace.
       shared_ptr<string> totalMember_ {};
+      // The type of the workspace.
       shared_ptr<string> type_ {};
-      // The description of the collaborative workspace.
+      // The description of the workspace.
       shared_ptr<string> workspaceDesc_ {};
-      // The ID of the collaborative workspace.
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
       // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
@@ -225,7 +227,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};

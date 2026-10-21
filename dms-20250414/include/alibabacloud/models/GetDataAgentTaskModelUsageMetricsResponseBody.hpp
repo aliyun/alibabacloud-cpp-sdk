@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The start time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
+      // The start time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> beginTime_ {};
-      // The end time of the statistical interval for this time series data point. The value is a UNIX timestamp in seconds.
+      // The end time of the statistical interval for the time-series point. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The TPM for this time series data point, which is the number of tokens consumed within the statistical interval.
+      // The TPM at the time-series point, which represents the number of tokens consumed in the statistical interval.
       shared_ptr<int64_t> tpm_ {};
     };
 
@@ -133,18 +133,18 @@ namespace Models
 
 
   protected:
-    // The list of TPM time series metrics for model usage, returned in chronological order.
+    // The list of time-series TPM metrics for model usage. The usage at each time point is returned in chronological order.
     shared_ptr<vector<GetDataAgentTaskModelUsageMetricsResponseBody::Data>> data_ {};
-    // The error code returned when the request is abnormal.
+    // The error code, which is returned when a request exception occurs.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message, which is returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

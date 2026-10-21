@@ -164,10 +164,11 @@ namespace Models
     shared_ptr<string> customerAgentId_ {};
     // The data source.
     shared_ptr<string> dataset_ {};
+    // The data source information.
     shared_ptr<string> datasource_ {};
     // The description.
     shared_ptr<string> desc_ {};
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
     // The accuracy evaluation criteria. An empty value indicates the default criteria.
     shared_ptr<string> evaluationPrompt_ {};
@@ -179,7 +180,7 @@ namespace Models
     shared_ptr<int32_t> mode_ {};
     // The name of the test item.
     shared_ptr<string> name_ {};
-    // Specifies whether sessions are displayed after analysis. This parameter is not supported.
+    // Specifies whether to display sessions after analysis. This parameter is currently not supported.
     shared_ptr<bool> needDelete_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

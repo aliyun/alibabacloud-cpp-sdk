@@ -205,25 +205,26 @@ namespace Models
 
   protected:
     // The type of the custom agent. Valid values:
-    // - Default: The built-in custom agent. Each workspace can have at most one agent of this type, and it cannot be deleted.
-    // - Common: A regular custom agent.
+    // - Default: the system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
+    // - Common: a regular custom agent.
     shared_ptr<string> agentType_ {};
+    // The callback feature configuration.
     shared_ptr<string> callbackConfigShrink_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON character string format**.
-    // - General parameter description:
-    //   - tableFlag: Set to true to specify the data scope.
-    //   - scope: Set to personal as a fixed value.
-    //   - personal: The parameters for file and database types.
+    // The specified data scope, in **JSON character string format**.
+    // - General parameter descriptions
+    //   - tableFlag: true specifies the data scope.
+    //   - scope: personal is a fixed value.
+    //   - personal: the parameters for file and database types.
     // 
-    // **File type**: Pass parameters in the following format:
-    // - DataSourceType: Set to remote_data_center as a fixed value.
-    // - FileId: The file ID.
-    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: The table names returned by the ListDataCenterTable operation.
-    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: The current region.
+    // **File type**: pass parameters in the following format:
+    // - DataSourceType: remote_data_center is a fixed value.
+    // - FileId: the file ID.
+    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: the table names returned by the ListDataCenterTable operation.
+    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -243,17 +244,17 @@ namespace Models
     // }
     // ```
     // 
-    // **Database type**: Pass parameters in the following format:
-    // - DataSourceType: Set to database as a fixed value.
-    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
-    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
-    // - FileId: The instance name. (Deprecated)
-    // - DbName: The database name returned by the data center operation.
-    // - Database: The database name returned by the data center operation.
-    // - Tables: The table names returned by the data center operation.
-    // - TableIds: The table IDs returned by the data center operation.
-    // - Engine: The engine type, such as mysql or postgresql.
-    // - RegionId: The current region.
+    // **Database type**: pass parameters in the following format:
+    // - DataSourceType: database is a fixed value.
+    // - DmsInstanceId: the DMS instance ID returned by the data center API.
+    // - DmsDatabaseId: the DMS database ID returned by the data center API.
+    // - FileId: the instance name (**[Deprecated]**).
+    // - DbName: the database name returned by the data center API.
+    // - Database: the database name returned by the data center API.
+    // - Tables: the table names returned by the data center API.
+    // - TableIds: the table IDs returned by the data center API.
+    // - Engine: the database engine type, such as mysql or postgresql.
+    // - RegionId: the current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -281,16 +282,20 @@ namespace Models
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<string> executionConfigShrink_ {};
-    // The instructions. Maximum length: 10,000 characters.
+    // The instructions.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> instruction_ {};
-    // The knowledge. Maximum length: 10,000 characters.
+    // The knowledge.
+    // - Input limit: up to 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};
+    // The knowledge semantic configuration list.
     shared_ptr<string> knowledgeSemanticConfigListShrink_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
-    // The list of recommended questions. You can configure up to 10 recommended questions.
+    // The list of recommended questions.
+    // - You can configure up to 10 recommended questions.
     shared_ptr<string> recommendQuestionListShrink_ {};
     // The ID of the referenced historical session.
     shared_ptr<string> relatedSessionId_ {};

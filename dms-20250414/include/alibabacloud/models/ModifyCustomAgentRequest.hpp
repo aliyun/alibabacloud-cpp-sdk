@@ -113,7 +113,7 @@ namespace Models
 
 
     protected:
-      // The cron expression for scheduled execution.
+      // The cron expression for time-based scheduling.
       shared_ptr<string> cronExpression_ {};
       // The query for the scheduled task.
       shared_ptr<string> query_ {};
@@ -177,9 +177,15 @@ namespace Models
 
 
     protected:
+      // The DMS database ID.
       shared_ptr<string> dbId_ {};
+      // The DMS instance ID.
       shared_ptr<string> instanceId_ {};
+      // The knowledge UUID.
       shared_ptr<string> knowledgeUuid_ {};
+      // The knowledge semantic type. Valid values:
+      // - sql_template: SQL template.
+      // - ossie_model: Ossie semantic view.
       shared_ptr<string> type_ {};
     };
 
@@ -230,13 +236,13 @@ namespace Models
 
 
     protected:
-      // The access type. If this parameter is not specified, the default value is mcp. Valid values:
-      // - mcp: access through MCP. You must specify the McpServerId parameter.
-      // - dms_kb: access through a DMS knowledge base. You must specify the KbUuid parameter.
+      // The access type. If you do not specify this parameter, the default value is mcp. Valid values:
+      // - mcp: Access through MCP. You must pass the McpServerId parameter.
+      // - dms_kb: Access through DMS knowledge base. You must pass the KbUuid parameter.
       shared_ptr<string> accessType_ {};
       // The knowledge base ID.
       shared_ptr<string> kbUuid_ {};
-      // The MCP server ID.
+      // The ID of the MCP server.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -307,7 +313,7 @@ namespace Models
     protected:
       // Specifies whether to prohibit appending data sources in a session.
       shared_ptr<bool> forbiddenAppendDataSource_ {};
-      // Specifies whether to disable user prompts during the process.
+      // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
       // Specifies whether to skip the plan confirmation step.
       shared_ptr<bool> skipPlan_ {};
@@ -382,10 +388,15 @@ namespace Models
 
 
     protected:
+      // The invoke parameters for callback tool calling.
       shared_ptr<string> callbackArgs_ {};
+      // The prompt for generating invoke parameters for callback tool calling.
       shared_ptr<string> callbackPrompt_ {};
+      // The invoke timing for callback tool calling.
       shared_ptr<int32_t> callbackTime_ {};
+      // The callback tool identifier.
       shared_ptr<string> toolId_ {};
+      // The callback tool type.
       shared_ptr<string> type_ {};
     };
 
@@ -542,6 +553,7 @@ namespace Models
 
 
   protected:
+    // The callback feature configuration.
     shared_ptr<ModifyCustomAgentRequest::CallbackConfig> callbackConfig_ {};
     // The ID of the custom agent.
     // 
@@ -549,19 +561,19 @@ namespace Models
     shared_ptr<string> customAgentId_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON string format**.
-    // - General parameter description
+    // The specified data scope in **JSON character string format**.
+    // - General metric descriptions:
     //   - tableFlag: true indicates that a data scope is specified.
-    //   - scope: personal is a fixed value.
-    //   - personal: parameters for file and database types.
+    //   - scope: The fixed value personal.
+    //   - personal: The parameters for file and database types.
     // 
     // **File type**: Pass parameters in the following format:
-    // - DataSourceType: remote_data_center is a fixed value.
-    // - FileId: the file ID.
-    // - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
-    // - Tables: the table names returned by the ListDataCenterTable operation.
-    // - TableIds: the table IDs returned by the ListDataCenterTable operation.
-    // - RegionId: the current region.
+    // - DataSourceType: The fixed value remote_data_center.
+    // - FileId: The file ID.
+    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: The table names returned by the ListDataCenterTable operation.
+    // - TableIds: The table IDs returned by the ListDataCenterTable operation.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -582,16 +594,16 @@ namespace Models
     // ```
     // 
     // **Database type**: Pass parameters in the following format:
-    // - DataSourceType: database is a fixed value.
-    // - DmsInstanceId: the DMS instance ID returned by the data center API.
-    // - DmsDatabaseId: the DMS database ID returned by the data center API.
-    // - FileId: the instance name. (Deprecated)
-    // - DbName: the database name returned by the data center API.
-    // - Database: the database name returned by the data center API.
-    // - Tables: the table names returned by the data center API.
-    // - TableIds: the table IDs returned by the data center API.
-    // - Engine: the engine type, such as mysql or postgresql.
-    // - RegionId: the current region.
+    // - DataSourceType: The fixed value database.
+    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
+    // - FileId: The instance name. **[Deprecated]**
+    // - DbName: The database name returned by the data center operation.
+    // - Database: The database name returned by the data center operation.
+    // - Tables: The table names returned by the data center operation.
+    // - TableIds: The table IDs returned by the data center operation.
+    // - Engine: The DPI engine type (mysql or postgresql).
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -620,13 +632,14 @@ namespace Models
     // The execution configuration.
     shared_ptr<ModifyCustomAgentRequest::ExecutionConfig> executionConfig_ {};
     // The instructions.
-    // - Input limit: up to 10,000 characters.
+    // - Input limit: Maximum of 10,000 characters.
     shared_ptr<string> instruction_ {};
     // The knowledge.
-    // - Input limit: up to 10,000 characters.
+    // - Input limit: Maximum of 10,000 characters.
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
+    // The knowledge semantic configuration list.
     shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
@@ -638,18 +651,18 @@ namespace Models
     // The scheduled task configuration.
     shared_ptr<ModifyCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
     // The text report format.
-    // - Input limit: up to 10,000 characters.
+    //  - Input limit: Maximum of 10,000 characters.
     shared_ptr<string> textReportConfig_ {};
     // The list of user-specified skills.
     shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     // The web report format.
-    // - Input limit: up to 50,000 characters.
+    // - Input limit: Maximum of 50,000 characters.
     shared_ptr<string> webReportConfig_ {};
     // The web report theme. Valid values:
     // - default: Default.
     // - journal: Journal.
-    // - legacy: Classic.
-    // - neobrutalism: Stylized.
+    // - legacy: Legacy.
+    // - neobrutalism: Neobrutalism.
     // - infographic: Infographic.
     shared_ptr<string> webReportTheme_ {};
     // The workspace ID.

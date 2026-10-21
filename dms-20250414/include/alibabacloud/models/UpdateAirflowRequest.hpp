@@ -162,32 +162,35 @@ namespace Models
 
 
   protected:
-    // The unique ID of the Airflow instance.
+    // The unique key ID of the Airflow instance.
     // 
     // This parameter is required.
     shared_ptr<string> airflowId_ {};
     // The name of the Airflow instance.
     shared_ptr<string> airflowName_ {};
-    // The specifications of the Airflow instance.
+    // The specification description of the Airflow instance.
     shared_ptr<string> appSpec_ {};
-    // A client token to ensure request idempotence.
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The directory path where Airflow scans for DAGs.
+    // The DAG directory scanned by Airflow.
     shared_ptr<string> dagsDir_ {};
+    // The list of data mount information.
     shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
     // The description of the Airflow instance.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable serverless workers.
     shared_ptr<bool> enableServerless_ {};
+    // The timeout period for a worker to exit.
     shared_ptr<int32_t> gracefulShutdownTimeout_ {};
-    // The directory path where Airflow scans for plugins.
+    // The plugin directory scanned by Airflow.
     shared_ptr<string> pluginsDir_ {};
-    // The path to the requirements file for package dependencies.
+    // The installation file for package dependencies.
     shared_ptr<string> requirementFile_ {};
-    // The path to the startup script for the Airflow instance.
+    // The script loaded at startup of the Airflow instance.
     shared_ptr<string> startupFile_ {};
     // The number of worker nodes.
     shared_ptr<int32_t> workerServerlessReplicas_ {};
-    // The Data Management Service (DMS) workspace ID.
+    // The ID of the Data Management (DMS) workspace.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

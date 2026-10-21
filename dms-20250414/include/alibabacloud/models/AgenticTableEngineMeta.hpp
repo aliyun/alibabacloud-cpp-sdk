@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The checksum of the table metadata.
     shared_ptr<string> checksum_ {};
+    // The time when the table was created. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> createTime_ {};
+    // The data size of the table. Unit: bytes.
     shared_ptr<int64_t> dataBytes_ {};
+    // The character set encoding of the table.
     shared_ptr<string> encoding_ {};
+    // The storage engine of the table.
     shared_ptr<string> engine_ {};
+    // The full checksum of the table metadata.
     shared_ptr<string> fullChecksum_ {};
+    // The index size of the table. Unit: bytes.
     shared_ptr<int64_t> indexBytes_ {};
+    // The time when the last DDL operation was executed on the table. The format is yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> lastDdlTime_ {};
+    // The number of rows in the table.
     shared_ptr<int64_t> numRows_ {};
+    // The reference information of the table.
     shared_ptr<string> refInfo_ {};
+    // The storage capacity of the table. Unit: MB.
     shared_ptr<int64_t> storageCapacity_ {};
+    // The name of the schema to which the table belongs.
     shared_ptr<string> tableSchemaName_ {};
   };
 

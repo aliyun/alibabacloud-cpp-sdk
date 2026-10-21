@@ -289,6 +289,12 @@
 #include <alibabacloud/models/ListAgenticDatabaseRequest.hpp>
 #include <alibabacloud/models/ListAgenticDatabaseResponseBody.hpp>
 #include <alibabacloud/models/ListAgenticDatabaseResponse.hpp>
+#include <alibabacloud/models/ListAgenticGlobalSqlExecutionHistoriesRequest.hpp>
+#include <alibabacloud/models/ListAgenticGlobalSqlExecutionHistoriesResponseBody.hpp>
+#include <alibabacloud/models/ListAgenticGlobalSqlExecutionHistoriesResponse.hpp>
+#include <alibabacloud/models/ListAgenticSqlExecutionHistoriesRequest.hpp>
+#include <alibabacloud/models/ListAgenticSqlExecutionHistoriesResponseBody.hpp>
+#include <alibabacloud/models/ListAgenticSqlExecutionHistoriesResponse.hpp>
 #include <alibabacloud/models/ListAgenticTableBaseInfoRequest.hpp>
 #include <alibabacloud/models/ListAgenticTableBaseInfoResponseBody.hpp>
 #include <alibabacloud/models/ListAgenticTableBaseInfoResponse.hpp>

@@ -86,15 +86,16 @@ namespace Models
   protected:
     // Used only by the frontend.
     shared_ptr<string> callFrom_ {};
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
-    // The import type.
+    // The import type. Valid values:
     //   - FILE
     shared_ptr<string> importType_ {};
     // Used only by the frontend.
     shared_ptr<string> language_ {};
-    // The keyword for fuzzy match of databases.
+    // The keyword used for fuzzy search of databases.
     shared_ptr<string> searchKey_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -185,22 +185,24 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account ID of the parent account.
-      shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
+      shared_ptr<string> aliyunParentUid_ {};
+      // The Alibaba Cloud user ID.
       shared_ptr<string> aliyunUid_ {};
-      // The creator name.
+      // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
       // The skill description.
       shared_ptr<string> description_ {};
-      // Indicates whether the skill is available. Valid values: true and false.
+      // Indicates whether the skill is available. Valid values:
+      // - true: The skill is available.
+      // - false: The skill is not available.
       shared_ptr<int32_t> enabled_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The skill parsing error message.
-      // - When the skill status is INVALID, the parsing error message is returned.
+      // - This message is returned when the skill status is INVALID.
       shared_ptr<string> parseError_ {};
       // The region.
       shared_ptr<string> region_ {};
@@ -211,9 +213,9 @@ namespace Models
       // The skill name.
       shared_ptr<string> skillName_ {};
       // The skill status. Valid values:
-      // - INIT: Not ready.
-      // - ACTIVE: Active.
-      // - INVALID: Invalid.
+      // - INIT: The skill is not ready.
+      // - ACTIVE: The skill is active.
+      // - INVALID: The skill is invalid.
       shared_ptr<string> skillStatus_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -263,14 +265,14 @@ namespace Models
     shared_ptr<CreateDataAgentSkillMetaResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when a system-level request failure occurs.
+    // The error message returned when a system-level request fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.                                 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.                                 
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

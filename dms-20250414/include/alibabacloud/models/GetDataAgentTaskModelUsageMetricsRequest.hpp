@@ -87,13 +87,15 @@ namespace Models
 
 
   protected:
-    // The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+    // The start time of the query time range. The value is a UNIX timestamp in seconds. The recommended time range is up to one month.
     shared_ptr<string> beginTime_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended interval length is no longer than one month.
+    // The end time of the query time range. The value is a UNIX timestamp in seconds. The recommended time range is up to one month.
     shared_ptr<string> endTime_ {};
+    // The list of billing instance IDs to query.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The billing level.
     shared_ptr<string> payLevel_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The file ID.
+      // The ID of the file.
       shared_ptr<string> fileId_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
     shared_ptr<FileUploadCallbackResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.                                 
+    // - **true**: The request is successful.                                 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

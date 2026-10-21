@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether the field is auto-incremented.
     shared_ptr<bool> autoIncrement_ {};
+    // The defined length of the field.
     shared_ptr<int64_t> dataLength_ {};
+    // The precision of the numeric field.
     shared_ptr<int32_t> dataPrecision_ {};
+    // The scale of the numeric field, which is the number of decimal places.
     shared_ptr<int32_t> dataScale_ {};
+    // The default value of the field.
     shared_ptr<string> defaultValue_ {};
+    // The character set of the field.
     shared_ptr<string> encoding_ {};
+    // The additional information of the field, such as auto_increment.
     shared_ptr<string> extra_ {};
+    // Specifies whether the field is a generated column.
     shared_ptr<bool> generationColumn_ {};
+    // The calculation expression of the generated column.
     shared_ptr<string> generationExpression_ {};
+    // Specifies whether the field allows null values.
     shared_ptr<bool> nullable_ {};
   };
 

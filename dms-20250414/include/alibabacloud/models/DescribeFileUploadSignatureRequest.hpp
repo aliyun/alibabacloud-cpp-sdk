@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // The parameter used only by the frontend.
+    // For frontend use only.
     shared_ptr<string> callFrom_ {};
     // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

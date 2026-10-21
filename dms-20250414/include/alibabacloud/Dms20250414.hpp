@@ -213,7 +213,7 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
-       * @summary Creates a custom agent in a personal or shared workspace.
+       * @summary Creates a custom agent in a personal space or workspace.
        *
        * @param tmpReq CreateCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -222,7 +222,7 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom agent in a personal or shared workspace.
+       * @summary Creates a custom agent in a personal space or workspace.
        *
        * @param request CreateCustomAgentRequest
        * @return CreateCustomAgentResponse
@@ -650,7 +650,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +659,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Retrieves the detailed description of a custom agent based on the custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -820,7 +820,7 @@ namespace Dms20250414
       Models::DescribeSkillFileUploadSignatureResponse describeSkillFileUploadSignature(const Models::DescribeSkillFileUploadSignatureRequest &request);
 
       /**
-       * @summary Calls back after a file is uploaded.
+       * @summary Processes the file upload callback.
        *
        * @param request FileUploadCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +829,7 @@ namespace Dms20250414
       Models::FileUploadCallbackResponse fileUploadCallbackWithOptions(const Models::FileUploadCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls back after a file is uploaded.
+       * @summary Processes the file upload callback.
        *
        * @param request FileUploadCallbackRequest
        * @return FileUploadCallbackResponse
@@ -837,7 +837,9 @@ namespace Dms20250414
       Models::FileUploadCallbackResponse fileUploadCallback(const Models::FileUploadCallbackRequest &request);
 
       /**
-       * @summary Queries agent information by install token.
+       * @summary Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+       *
+       * @description Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
        *
        * @param request GetAgenticAgentByInstallTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +848,9 @@ namespace Dms20250414
       Models::GetAgenticAgentByInstallTokenResponse getAgenticAgentByInstallTokenWithOptions(const Models::GetAgenticAgentByInstallTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries agent information by install token.
+       * @summary Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+       *
+       * @description Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
        *
        * @param request GetAgenticAgentByInstallTokenRequest
        * @return GetAgenticAgentByInstallTokenResponse
@@ -1032,9 +1036,9 @@ namespace Dms20250414
       Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfo(const Models::GetDataAgentSubAccountInfoRequest &request);
 
       /**
-       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
        * @param tmpReq GetDataAgentTaskModelUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1043,9 +1047,9 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsageWithOptions(const Models::GetDataAgentTaskModelUsageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
        *
        * @param request GetDataAgentTaskModelUsageRequest
        * @return GetDataAgentTaskModelUsageResponse
@@ -1053,9 +1057,9 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsage(const Models::GetDataAgentTaskModelUsageRequest &request);
 
       /**
-       * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
        *
-       * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
        *
        * @param tmpReq GetDataAgentTaskModelUsageMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1064,9 +1068,9 @@ namespace Dms20250414
       Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetricsWithOptions(const Models::GetDataAgentTaskModelUsageMetricsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+       * @summary Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
        *
-       * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+       * @description Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
        *
        * @param request GetDataAgentTaskModelUsageMetricsRequest
        * @return GetDataAgentTaskModelUsageMetricsResponse
@@ -1093,7 +1097,7 @@ namespace Dms20250414
       Models::GetDataAgentThemeUploadSignatureResponse getDataAgentThemeUploadSignature(const Models::GetDataAgentThemeUploadSignatureRequest &request);
 
       /**
-       * @summary Retrieves the details of a collaborative workspace.
+       * @summary Queries the details of a workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1102,7 +1106,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfoWithOptions(const Models::GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a collaborative workspace.
+       * @summary Queries the details of a workspace.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @return GetDataAgentWorkspaceInfoResponse
@@ -1372,6 +1376,40 @@ namespace Dms20250414
       Models::ListAgenticDatabaseResponse listAgenticDatabase(const Models::ListAgenticDatabaseRequest &request);
 
       /**
+       * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       *
+       * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+       */
+      Models::ListAgenticGlobalSqlExecutionHistoriesResponse listAgenticGlobalSqlExecutionHistoriesWithOptions(const Models::ListAgenticGlobalSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       *
+       * @param request ListAgenticGlobalSqlExecutionHistoriesRequest
+       * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+       */
+      Models::ListAgenticGlobalSqlExecutionHistoriesResponse listAgenticGlobalSqlExecutionHistories(const Models::ListAgenticGlobalSqlExecutionHistoriesRequest &request);
+
+      /**
+       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       *
+       * @param request ListAgenticSqlExecutionHistoriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAgenticSqlExecutionHistoriesResponse
+       */
+      Models::ListAgenticSqlExecutionHistoriesResponse listAgenticSqlExecutionHistoriesWithOptions(const Models::ListAgenticSqlExecutionHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+       *
+       * @param request ListAgenticSqlExecutionHistoriesRequest
+       * @return ListAgenticSqlExecutionHistoriesResponse
+       */
+      Models::ListAgenticSqlExecutionHistoriesResponse listAgenticSqlExecutionHistories(const Models::ListAgenticSqlExecutionHistoriesRequest &request);
+
+      /**
        * @summary Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
        *
        * @param request ListAgenticTableBaseInfoRequest
@@ -1427,7 +1465,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
 
       /**
-       * @summary Lists all custom agents in personal and shared workspaces.
+       * @summary Lists all custom agents in personal and team workspaces.
        *
        * @param request ListCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1436,7 +1474,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all custom agents in personal and shared workspaces.
+       * @summary Lists all custom agents in personal and team workspaces.
        *
        * @param request ListCustomAgentRequest
        * @return ListCustomAgentResponse
@@ -2171,7 +2209,9 @@ namespace Dms20250414
       Models::UpdateAgenticDataSourceResponse updateAgenticDataSource(const Models::UpdateAgenticDataSourceRequest &request);
 
       /**
-       * @summary Updates the properties of an Airflow instance.
+       * @summary Updates the information of an Airflow instance.
+       *
+       * @description Creates an Airflow instance in a workspace.
        *
        * @param tmpReq UpdateAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2180,7 +2220,9 @@ namespace Dms20250414
       Models::UpdateAirflowResponse updateAirflowWithOptions(const Models::UpdateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the properties of an Airflow instance.
+       * @summary Updates the information of an Airflow instance.
+       *
+       * @description Creates an Airflow instance in a workspace.
        *
        * @param request UpdateAirflowRequest
        * @return UpdateAirflowResponse
@@ -2190,7 +2232,7 @@ namespace Dms20250414
       /**
        * @summary Updates the content of an accuracy test item.
        *
-       * @description Updates the content of an accuracy test item.
+       * @description Updates the accuracy test item.
        *
        * @param request UpdateDataAgentAccuracyTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2201,7 +2243,7 @@ namespace Dms20250414
       /**
        * @summary Updates the content of an accuracy test item.
        *
-       * @description Updates the content of an accuracy test item.
+       * @description Updates the accuracy test item.
        *
        * @param request UpdateDataAgentAccuracyTestRequest
        * @return UpdateDataAgentAccuracyTestResponse
