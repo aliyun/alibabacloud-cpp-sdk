@@ -51,6 +51,10 @@
 #include <alibabacloud/models/CreateIdentityProviderShrinkRequest.hpp>
 #include <alibabacloud/models/CreateIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/CreateIdentityProviderResponse.hpp>
+#include <alibabacloud/models/CreateImageCacheRequest.hpp>
+#include <alibabacloud/models/CreateImageCacheShrinkRequest.hpp>
+#include <alibabacloud/models/CreateImageCacheResponseBody.hpp>
+#include <alibabacloud/models/CreateImageCacheResponse.hpp>
 #include <alibabacloud/models/CreateManagedAgentRequest.hpp>
 #include <alibabacloud/models/CreateManagedAgentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateManagedAgentResponseBody.hpp>
@@ -112,6 +116,9 @@
 #include <alibabacloud/models/DeleteIdentityProviderRequest.hpp>
 #include <alibabacloud/models/DeleteIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/DeleteIdentityProviderResponse.hpp>
+#include <alibabacloud/models/DeleteImageCacheRequest.hpp>
+#include <alibabacloud/models/DeleteImageCacheResponseBody.hpp>
+#include <alibabacloud/models/DeleteImageCacheResponse.hpp>
 #include <alibabacloud/models/DeleteManagedAgentRequest.hpp>
 #include <alibabacloud/models/DeleteManagedAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteManagedAgentResponse.hpp>
@@ -192,6 +199,9 @@
 #include <alibabacloud/models/GetIdentityProviderRequest.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponseBody.hpp>
 #include <alibabacloud/models/GetIdentityProviderResponse.hpp>
+#include <alibabacloud/models/GetImageCacheRequest.hpp>
+#include <alibabacloud/models/GetImageCacheResponseBody.hpp>
+#include <alibabacloud/models/GetImageCacheResponse.hpp>
 #include <alibabacloud/models/GetManagedAgentRequest.hpp>
 #include <alibabacloud/models/GetManagedAgentResponseBody.hpp>
 #include <alibabacloud/models/GetManagedAgentResponse.hpp>
@@ -285,6 +295,9 @@
 #include <alibabacloud/models/ListIdentityProvidersRequest.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListIdentityProvidersResponse.hpp>
+#include <alibabacloud/models/ListImageCachesRequest.hpp>
+#include <alibabacloud/models/ListImageCachesResponseBody.hpp>
+#include <alibabacloud/models/ListImageCachesResponse.hpp>
 #include <alibabacloud/models/ListManagedAgentsRequest.hpp>
 #include <alibabacloud/models/ListManagedAgentsResponseBody.hpp>
 #include <alibabacloud/models/ListManagedAgentsResponse.hpp>
@@ -369,6 +382,10 @@
 #include <alibabacloud/models/ResetUserPasswordShrinkRequest.hpp>
 #include <alibabacloud/models/ResetUserPasswordResponseBody.hpp>
 #include <alibabacloud/models/ResetUserPasswordResponse.hpp>
+#include <alibabacloud/models/RetryImageCacheRequest.hpp>
+#include <alibabacloud/models/RetryImageCacheShrinkRequest.hpp>
+#include <alibabacloud/models/RetryImageCacheResponseBody.hpp>
+#include <alibabacloud/models/RetryImageCacheResponse.hpp>
 #include <alibabacloud/models/SearchMemoriesRequest.hpp>
 #include <alibabacloud/models/SearchMemoriesShrinkRequest.hpp>
 #include <alibabacloud/models/SearchMemoriesResponseBody.hpp>

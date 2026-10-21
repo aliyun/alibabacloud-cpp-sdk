@@ -133,20 +133,32 @@ namespace Models
 
     protected:
       // The ID of the ACR Enterprise instance.
+      // 
+      // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
       // The current attachment status of the policy for the target repository.
+      // 
+      // This parameter is required.
       shared_ptr<string> authorizationStatus_ {};
-      // The access prerequisite status. This does not indicate that the secret is ready.
+      // The access prerequisite status, which does not indicate Secret Ready.
+      // 
+      // This parameter is required.
       shared_ptr<string> eligibilityStatus_ {};
-      // The stable reason code for unauthorized or unmet conditions. This field is omitted when no reason exists.
+      // The stable reason code for unauthorized or unmet conditions. This field is omitted if no reason exists.
       shared_ptr<string> reasonCode_ {};
-      // The user-readable reason message. This field is omitted when no reason exists.
+      // The user-readable reason. This field is omitted if no reason exists.
       shared_ptr<string> reasonMessage_ {};
       // The name of the shared role selected by the backend. This field is not editable on the frontend.
+      // 
+      // This parameter is required.
       shared_ptr<string> roleName_ {};
       // The source of the shared role. This does not indicate that authorization is complete.
+      // 
+      // This parameter is required.
       shared_ptr<string> roleSource_ {};
       // The workspace ID.
+      // 
+      // This parameter is required.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -198,16 +210,28 @@ namespace Models
 
   protected:
     // The business status code.
+    // 
+    // This parameter is required.
     shared_ptr<string> code_ {};
     // The response data.
+    // 
+    // This parameter is required.
     shared_ptr<VerifyWorkspaceAcrRamAuthorizationResponseBody::Data> data_ {};
     // The HTTP status code.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
+    // 
+    // This parameter is required.
     shared_ptr<string> message_ {};
     // The request ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
+    // 
+    // This parameter is required.
     shared_ptr<bool> success_ {};
   };
 

@@ -105,14 +105,24 @@ namespace Models
 
     protected:
       // The ID of the ACR Enterprise instance.
+      // 
+      // This parameter is required.
       shared_ptr<string> acrInstanceId_ {};
       // The RAM authorization URL used to create or append target ACR permissions for the shared role.
+      // 
+      // This parameter is required.
       shared_ptr<string> authorizeUrl_ {};
-      // The shared role name selected by the backend. This field is not editable on the frontend.
+      // The name of the shared role selected by the backend. This field is not editable on the frontend.
+      // 
+      // This parameter is required.
       shared_ptr<string> roleName_ {};
       // The source of the shared role. This does not indicate that authorization is complete.
+      // 
+      // This parameter is required.
       shared_ptr<string> roleSource_ {};
       // The workspace ID.
+      // 
+      // This parameter is required.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -164,16 +174,28 @@ namespace Models
 
   protected:
     // The business status code.
+    // 
+    // This parameter is required.
     shared_ptr<string> code_ {};
     // The response data.
+    // 
+    // This parameter is required.
     shared_ptr<GetWorkspaceAcrRamAuthorizeUrlResponseBody::Data> data_ {};
     // The HTTP status code.
+    // 
+    // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
+    // 
+    // This parameter is required.
     shared_ptr<string> message_ {};
     // The request ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
+    // 
+    // This parameter is required.
     shared_ptr<bool> success_ {};
   };
 

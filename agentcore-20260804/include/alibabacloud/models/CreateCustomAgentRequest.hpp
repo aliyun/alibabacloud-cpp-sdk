@@ -44,10 +44,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(logging, logging_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(network, network_);
+        DARABONBA_PTR_TO_JSON(observability, observability_);
         DARABONBA_PTR_TO_JSON(ossMounts, ossMounts_);
         DARABONBA_PTR_TO_JSON(protocol, protocol_);
         DARABONBA_PTR_TO_JSON(roleArn, roleArn_);
         DARABONBA_PTR_TO_JSON(runtime, runtime_);
+        DARABONBA_PTR_TO_JSON(useImageCache, useImageCache_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(agenticFsMounts, agenticFsMounts_);
@@ -58,10 +60,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(logging, logging_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(network, network_);
+        DARABONBA_PTR_FROM_JSON(observability, observability_);
         DARABONBA_PTR_FROM_JSON(ossMounts, ossMounts_);
         DARABONBA_PTR_FROM_JSON(protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(roleArn, roleArn_);
         DARABONBA_PTR_FROM_JSON(runtime, runtime_);
+        DARABONBA_PTR_FROM_JSON(useImageCache, useImageCache_);
       };
       Body() = default ;
       Body(const Body &) = default ;
@@ -137,7 +141,7 @@ namespace Models
         protected:
           // The name of the HTTP request header used by the session policy. This parameter is required when type is set to ISOLATED_HEADER_FIELD and must be a valid HTTP request header name. Omit this parameter for other policies.
           shared_ptr<string> headerName_ {};
-          // The session policy type. Valid values: AFFINITY: session affinity; ISOLATED_HEADER_FIELD: associates sessions by using the request header specified by headerName. ISOLATED_COOKIE is not recommended. DISABLED is a compatibility option, and the response returns AFFINITY.
+          // The session policy type. Valid values: AFFINITY: session affinity. ISOLATED_HEADER_FIELD: uses the request header specified by headerName to associate sessions. ISOLATED_COOKIE: not recommended for now. DISABLED: compatibility option, and the response returns AFFINITY.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
@@ -208,17 +212,17 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. When runtime is provided, if this field is omitted, the default value is false.
+          // Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. When runtime is provided, if this field is omitted, the default value false is used.
           // 
           // This parameter is required.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of concurrent sessions for a single runtime instance. Valid values: 1 to 100. When runtime is provided, if this field is omitted, the default value is 100.
+          // The maximum number of concurrent sessions for a single runtime instance. Valid values: 1 to 100. When runtime is provided, if this field is omitted, the default value 100 is used.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of runtime instances. Valid values: 1 to 100. The value cannot be less than minSandboxCount. When runtime is provided, if this field is omitted, the default value is 10.
+          // The maximum number of runtime instances. Valid values: 1 to 100. The value cannot be less than minSandboxCount. When runtime is provided, if this field is omitted, the default value 10 is used.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of runtime instances. Valid values: 1 to 100. The value cannot be greater than maxSandboxCount. When runtime is provided, if this field is omitted, the default value is 1.
+          // The minimum number of runtime instances. Valid values: 1 to 100. The value cannot be greater than maxSandboxCount. When runtime is provided, if this field is omitted, the default value 1 is used.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The session idle timeout in seconds. Valid values: 60 to 86400. When runtime is provided, if this field is omitted, the default value is 600.
+          // The session idle timeout in seconds. Valid values: 60 to 86400. When runtime is provided, if this field is omitted, the default value 600 is used.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -359,7 +363,7 @@ namespace Models
 
 
         protected:
-          // The usage description of the current API path.
+          // The purpose description of the current API path.
           shared_ptr<string> description_ {};
           // The non-empty API path corresponding to the current protocol.
           // 
@@ -463,12 +467,44 @@ namespace Models
       protected:
         // The name of the OSS bucket. This parameter is required for each mount item. The name must be 3 to 63 characters in length and can contain only lowercase letters, digits, and hyphens. It cannot start or end with a hyphen.
         shared_ptr<string> bucketName_ {};
-        // The subdirectory under /mnt/oss/ in the container. This parameter is required for each mount item. Mount targets must not be duplicated or overlap in a parent-child relationship.
+        // The subdirectory under /mnt/oss/ in the container. This parameter is required for each mount item. Mount targets must not be duplicated or form parent-child overlaps.
         shared_ptr<string> mountPath_ {};
-        // The non-empty object directory prefix in the bucket, such as datasets/train. Leading and trailing forward slashes (/) are removed. Root directories are not supported. Do not use parent directory references.
+        // The non-empty object directory prefix in the bucket, such as datasets/train. Leading and trailing slashes (/) are removed. The root directory is not supported. Do not use parent directory traversal.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and false indicates read and write. If omitted, the default value is false.
+        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If this parameter is omitted, the default value is false.
         shared_ptr<bool> readOnly_ {};
+      };
+
+      class Observability : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Observability& obj) { 
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+        };
+        friend void from_json(const Darabonba::Json& j, Observability& obj) { 
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+        };
+        Observability() = default ;
+        Observability(const Observability &) = default ;
+        Observability(Observability &&) = default ;
+        Observability(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Observability() = default ;
+        Observability& operator=(const Observability &) = default ;
+        Observability& operator=(Observability &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enabled_ == nullptr; };
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline Observability& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      protected:
+        // Default value: true. If set to false, the platform Python probe is not loaded at runtime, and you must collect observability data yourself.
+        shared_ptr<bool> enabled_ {};
       };
 
       class Network : public Darabonba::Model {
@@ -520,7 +556,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value is required when configuring accessVpc. For this to take effect, the workspace must also allow VPC access.
+          // Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value must be provided when configuring accessVpc. For this to take effect, the workspace must also allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -552,7 +588,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow the agent to access the Internet. A Boolean value is required when configuring accessInternet. For this to take effect, the workspace must also allow Internet access.
+          // Specifies whether to allow the agent to access the Internet. A Boolean value must be provided when configuring accessInternet. For this to take effect, the workspace must also allow Internet access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -640,9 +676,9 @@ namespace Models
 
 
         protected:
-          // The name of the Simple Log Service Logstore that receives the agent logs.
+          // The name of the Simple Log Service Logstore that receives agent logs.
           shared_ptr<string> logstore_ {};
-          // The name of the Simple Log Service project that receives the agent logs.
+          // The name of the Simple Log Service project that receives agent logs.
           shared_ptr<string> project_ {};
         };
 
@@ -737,15 +773,15 @@ namespace Models
       protected:
         // This parameter does not currently take effect. Omit this parameter.
         shared_ptr<int32_t> healthyThreshold_ {};
-        // The interval between two health checks, in seconds. It must be a positive integer. If omitted, the default value is 10.
+        // The interval between two health checks, in seconds. It must be a positive integer. If this parameter is omitted, the default value is 10.
         shared_ptr<int32_t> intervalSeconds_ {};
-        // The HTTP health check path. It must start with a forward slash (/). If omitted, the default value is /healthz.
+        // The HTTP health check path. It must start with a forward slash (/). If this parameter is omitted, the default value is /healthz.
         shared_ptr<string> path_ {};
         // The port accessed for health checks. This parameter is required when configuring a health check. Valid values: 1 to 65535.
         shared_ptr<int32_t> port_ {};
-        // The timeout period for a single health check, in seconds. It must be a positive integer and less than intervalSeconds. If omitted, the default value is 2.
+        // The timeout period for a single health check, in seconds. It must be a positive integer and less than intervalSeconds. If this parameter is omitted, the default value is 2.
         shared_ptr<int32_t> timeoutSeconds_ {};
-        // The number of consecutive health check failures required to mark the instance as unhealthy. It must be a positive integer. If omitted, the default value is 3.
+        // The number of consecutive health check failures required to mark the agent as unhealthy. It must be a positive integer. If this parameter is omitted, the default value is 3.
         shared_ptr<int32_t> unhealthyThreshold_ {};
       };
 
@@ -999,11 +1035,11 @@ namespace Models
 
 
         protected:
-          // The startup entry point of the code package. Code package deployment is not currently supported. Omit this parameter.
+          // The startup entry point for the code package. Code package deployment is not currently supported. Omit this parameter.
           // 
           // This parameter is required.
           shared_ptr<string> entrypoint_ {};
-          // The language runtime identifier of the code package. Code package deployment is not currently supported. Omit this parameter.
+          // The language runtime identifier for the code package. Code package deployment is not currently supported. Omit this parameter.
           // 
           // This parameter is required.
           shared_ptr<string> languageRuntime_ {};
@@ -1107,20 +1143,20 @@ namespace Models
 
 
       protected:
-        // The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item. Mount targets must not be duplicated or overlap in a parent-child relationship.
+        // The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item. Mount targets must not be duplicated or overlap in parent-child relationships.
         shared_ptr<string> mountPath_ {};
         // The existing non-empty relative directory under the access point. This parameter is required for each mount item. Root directories, absolute paths, and parent directory references are not allowed.
         shared_ptr<string> path_ {};
-        // Specifies whether the mount is read-only. A value of true indicates read-only, and false indicates read and write. If omitted, the default value is false.
+        // Specifies whether the mount is read-only. A value of true indicates read-only, and a value of false indicates read and write. If this parameter is omitted, the default value is false.
         shared_ptr<bool> readOnly_ {};
-        // The access point domain name. This parameter is required for each mount item. Use the DomainName from the NAS ListAccessPoints response. Do not include the protocol, port, or path.
+        // The domain name of the access point. This parameter is required for each mount item. Use the DomainName from the NAS ListAccessPoints response. Do not include the protocol, port, or path.
         shared_ptr<string> server_ {};
       };
 
       virtual bool empty() const override { return this->agenticFsMounts_ == nullptr
         && this->artifact_ == nullptr && this->description_ == nullptr && this->environment_ == nullptr && this->healthCheck_ == nullptr && this->logging_ == nullptr
-        && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr && this->protocol_ == nullptr && this->roleArn_ == nullptr
-        && this->runtime_ == nullptr; };
+        && this->name_ == nullptr && this->network_ == nullptr && this->observability_ == nullptr && this->ossMounts_ == nullptr && this->protocol_ == nullptr
+        && this->roleArn_ == nullptr && this->runtime_ == nullptr && this->useImageCache_ == nullptr; };
       // agenticFsMounts Field Functions 
       bool hasAgenticFsMounts() const { return this->agenticFsMounts_ != nullptr;};
       void deleteAgenticFsMounts() { this->agenticFsMounts_ = nullptr;};
@@ -1189,6 +1225,15 @@ namespace Models
       inline Body& setNetwork(Body::Network && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
 
 
+      // observability Field Functions 
+      bool hasObservability() const { return this->observability_ != nullptr;};
+      void deleteObservability() { this->observability_ = nullptr;};
+      inline const Body::Observability & getObservability() const { DARABONBA_PTR_GET_CONST(observability_, Body::Observability) };
+      inline Body::Observability getObservability() { DARABONBA_PTR_GET(observability_, Body::Observability) };
+      inline Body& setObservability(const Body::Observability & observability) { DARABONBA_PTR_SET_VALUE(observability_, observability) };
+      inline Body& setObservability(Body::Observability && observability) { DARABONBA_PTR_SET_RVALUE(observability_, observability) };
+
+
       // ossMounts Field Functions 
       bool hasOssMounts() const { return this->ossMounts_ != nullptr;};
       void deleteOssMounts() { this->ossMounts_ = nullptr;};
@@ -1223,10 +1268,17 @@ namespace Models
       inline Body& setRuntime(Body::Runtime && runtime) { DARABONBA_PTR_SET_RVALUE(runtime_, runtime) };
 
 
+      // useImageCache Field Functions 
+      bool hasUseImageCache() const { return this->useImageCache_ != nullptr;};
+      void deleteUseImageCache() { this->useImageCache_ = nullptr;};
+      inline bool getUseImageCache() const { DARABONBA_PTR_GET_DEFAULT(useImageCache_, false) };
+      inline Body& setUseImageCache(bool useImageCache) { DARABONBA_PTR_SET_VALUE(useImageCache_, useImageCache) };
+
+
     protected:
-      // The list of additional AgenticFS mounts. The total number of AgenticFS and OSS mounts cannot exceed 10. If you omit this parameter or pass an empty array [] during creation, no additional mounts are configured. If you omit this parameter during an update, the original value is retained. If you pass an empty array [], the mounts are cleared. You cannot pass null.
+      // The list of additional AgenticFS mounts. The total number of AgenticFS mounts and ossMounts cannot exceed 10. If you omit this parameter or pass an empty array [] during creation, no additional mounts are configured. If you omit this parameter during an update, the original value is retained. If you pass an empty array [], the mounts are cleared. You cannot pass null.
       shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
-      // The deployment artifact configuration. Currently, only ACR container images are supported. Specify container and the service listening port port. Omit code.
+      // The deployment artifact configuration. Currently, only ACR container images are supported. Specify container and the service listening port in port, and omit code.
       // 
       // This parameter is required.
       shared_ptr<Body::Artifact> artifact_ {};
@@ -1234,28 +1286,32 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment variable configuration passed to the agent runtime process.
       shared_ptr<Body::Environment> environment_ {};
-      // The optional HTTP health check configuration. If this object is provided, port is required, and unspecified items use default values. If omitted during creation, no health check is configured. If this top-level field is omitted during an update, the original configuration is retained. If null is passed, the health check is removed.
+      // The optional HTTP health check configuration. If this object is provided, you must specify port. Unspecified items use default values. If omitted during creation, no health check is configured. If this top-level field is omitted during an update, the original configuration is retained. If null is passed, the health check is removed.
       shared_ptr<Body::HealthCheck> healthCheck_ {};
-      // The agent log delivery configuration. You can specify the Simple Log Service project and Logstore. After a successful creation or update, verify that logs are delivered properly.
+      // The agent log delivery configuration. You can specify the Simple Log Service project and Logstore. After a successful creation or update, verify whether logs are delivered properly.
       shared_ptr<Body::Logging> logging_ {};
       // The name of the custom agent. The length must be 1 to 128 characters after leading and trailing whitespace is removed. The name must be unique within the same workspace.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The network access configuration of the agent. If this object is provided, omitted access items are treated as allowed. The actual accessible range is still limited by the workspace network configuration. To retain the original restrictions during an update, specify both accessInternet and accessVpc.
+      // The network access configuration of the agent. If this object is provided, omitted access items are treated as allowed. The actual accessible scope is still limited by the workspace network configuration. To retain the original restrictions during an update, specify both accessInternet and accessVpc.
       shared_ptr<Body::Network> network_ {};
-      // The list of OSS mounts. The total number of OSS and AgenticFS mounts cannot exceed 10. For each item, you must specify bucketName, path, and mountPath. Mount targets must not be duplicated or overlap. The entire list is replaced during an update. Pass an empty array [] to clear the list.
+      // The high-code agent observability configuration.
+      shared_ptr<Body::Observability> observability_ {};
+      // The list of OSS mounts. A maximum of 10 items are allowed in total with agenticFsMounts. Each item must specify bucketName, path, and mountPath. Mount targets must not be duplicated or overlap with each other. When you update the agent, the entire list is replaced. Pass an empty array [] to clear the list.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
-      // The list of invocation protocols supported by the agent. Each item includes the protocol type and optional paths and request headers. When updating, replace the entire list.
+      // The list of invocation protocols supported by the agent. Each item includes the protocol type and optional paths and request headers. When you update the agent, the entire list is replaced.
       shared_ptr<vector<Body::Protocol>> protocol_ {};
       // The ARN of the RAM role used when the agent accesses user cloud resources. The role must have permissions to access the cloud resources.
       // 
       // This parameter is required.
       shared_ptr<string> roleArn_ {};
-      // The runtime configuration, including compute specifications, session policies, and an optional elastic policy. compute and sessionPolicy must be specified together.
+      // The runtime configuration, including compute specifications, session policies, and optional elastic policy. Both compute and sessionPolicy must be specified at the same time.
       // 
       // This parameter is required.
       shared_ptr<Body::Runtime> runtime_ {};
+      // Specifies whether to use the image cache. If omitted during creation, the default value is false. You can explicitly set it to true or false. The new contract rejects null and invalid types. Existing compatibility endpoints are processed according to migration agreements.
+      shared_ptr<bool> useImageCache_ {};
     };
 
     virtual bool empty() const override { return this->body_ == nullptr
@@ -1279,7 +1335,7 @@ namespace Models
   protected:
     // The JSON configuration of the custom agent. You must specify name, artifact, roleArn, and runtime.
     shared_ptr<CreateCustomAgentRequest::Body> body_ {};
-    // Idempotency is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
+    // Idempotence is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
     shared_ptr<string> clientToken_ {};
   };
 
