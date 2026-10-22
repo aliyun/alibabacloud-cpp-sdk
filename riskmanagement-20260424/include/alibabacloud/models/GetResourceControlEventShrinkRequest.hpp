@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // The language. Valid values:
+    // The language environment.
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - Chinese (default): **zh**
+    // - English: **en**
     shared_ptr<string> aliyunLang_ {};
-    // The alert event ID.
+    // The ID of the alert event.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The list of specified event IDs.
+    // The list of event IDs.
     shared_ptr<string> eventIdListShrink_ {};
   };
 

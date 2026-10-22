@@ -625,7 +625,7 @@ DownloadResourceControlEventsResponse Client::downloadResourceControlEvents(cons
 }
 
 /**
- * @summary Immediately ends a penetration test.
+ * @summary Immediately terminates a penetration test.
  *
  * @param request EndPenetrationTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -656,7 +656,7 @@ EndPenetrationTestResponse Client::endPenetrationTestWithOptions(const EndPenetr
 }
 
 /**
- * @summary Immediately ends a penetration test.
+ * @summary Immediately terminates a penetration test.
  *
  * @param request EndPenetrationTestRequest
  * @return EndPenetrationTestResponse
@@ -1656,6 +1656,84 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncident(const Quer
 }
 
 /**
+ * @summary 解封申请列表及分页信息
+ *
+ * @param request QueryForOperationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryForOperationResponse
+ */
+QueryForOperationResponse Client::queryForOperationWithOptions(const QueryForOperationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplyTimeEnd()) {
+    query["ApplyTimeEnd"] = request.getApplyTimeEnd();
+  }
+
+  if (!!request.hasApplyTimeStart()) {
+    query["ApplyTimeStart"] = request.getApplyTimeStart();
+  }
+
+  if (!!request.hasAssetType()) {
+    query["AssetType"] = request.getAssetType();
+  }
+
+  if (!!request.hasAuditTimeEnd()) {
+    query["AuditTimeEnd"] = request.getAuditTimeEnd();
+  }
+
+  if (!!request.hasAuditTimeStart()) {
+    query["AuditTimeStart"] = request.getAuditTimeStart();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasCustomerUid()) {
+    query["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasIp()) {
+    query["Ip"] = request.getIp();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryForOperation"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryForOperationResponse>();
+}
+
+/**
+ * @summary 解封申请列表及分页信息
+ *
+ * @param request QueryForOperationRequest
+ * @return QueryForOperationResponse
+ */
+QueryForOperationResponse Client::queryForOperation(const QueryForOperationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryForOperationWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the subscription status of the cloud security guide.
  *
  * @param request QueryGuideSubStatusRequest
@@ -1733,7 +1811,7 @@ QueryPenetrationTestDetailResponse Client::queryPenetrationTestDetail(const Quer
 }
 
 /**
- * @summary 查询渗透测试申请列表
+ * @summary Queries the list of penetration test applications.
  *
  * @param request QueryPenetrationTestListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1768,7 +1846,7 @@ QueryPenetrationTestListResponse Client::queryPenetrationTestListWithOptions(con
 }
 
 /**
- * @summary 查询渗透测试申请列表
+ * @summary Queries the list of penetration test applications.
  *
  * @param request QueryPenetrationTestListRequest
  * @return QueryPenetrationTestListResponse
@@ -2144,6 +2222,72 @@ SubmitApplyRecordResponse Client::submitApplyRecordWithOptions(const SubmitApply
 SubmitApplyRecordResponse Client::submitApplyRecord(const SubmitApplyRecordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitApplyRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交 TCP25端口免审解封申请
+ *
+ * @param request SubmitAutoAuditUnblockRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAutoAuditUnblockResponse
+ */
+SubmitAutoAuditUnblockResponse Client::submitAutoAuditUnblockWithOptions(const SubmitAutoAuditUnblockRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetList()) {
+    query["AssetList"] = request.getAssetList();
+  }
+
+  if (!!request.hasAuditor()) {
+    query["Auditor"] = request.getAuditor();
+  }
+
+  if (!!request.hasCustomerUid()) {
+    query["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasEmailType()) {
+    query["EmailType"] = request.getEmailType();
+  }
+
+  if (!!request.hasHasUnsubscribe()) {
+    query["HasUnsubscribe"] = request.getHasUnsubscribe();
+  }
+
+  if (!!request.hasSendCount()) {
+    query["SendCount"] = request.getSendCount();
+  }
+
+  if (!!request.hasUseDesc()) {
+    query["UseDesc"] = request.getUseDesc();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitAutoAuditUnblock"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAutoAuditUnblockResponse>();
+}
+
+/**
+ * @summary 提交 TCP25端口免审解封申请
+ *
+ * @param request SubmitAutoAuditUnblockRequest
+ * @return SubmitAutoAuditUnblockResponse
+ */
+SubmitAutoAuditUnblockResponse Client::submitAutoAuditUnblock(const SubmitAutoAuditUnblockRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAutoAuditUnblockWithOptions(request, runtime);
 }
 
 /**

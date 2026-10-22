@@ -105,6 +105,9 @@
 #include <alibabacloud/models/QueryAccountSafetyIncidentShrinkRequest.hpp>
 #include <alibabacloud/models/QueryAccountSafetyIncidentResponseBody.hpp>
 #include <alibabacloud/models/QueryAccountSafetyIncidentResponse.hpp>
+#include <alibabacloud/models/QueryForOperationRequest.hpp>
+#include <alibabacloud/models/QueryForOperationResponseBody.hpp>
+#include <alibabacloud/models/QueryForOperationResponse.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusRequest.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusResponseBody.hpp>
 #include <alibabacloud/models/QueryGuideSubStatusResponse.hpp>
@@ -131,6 +134,9 @@
 #include <alibabacloud/models/SubmitApplyRecordShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitApplyRecordResponseBody.hpp>
 #include <alibabacloud/models/SubmitApplyRecordResponse.hpp>
+#include <alibabacloud/models/SubmitAutoAuditUnblockRequest.hpp>
+#include <alibabacloud/models/SubmitAutoAuditUnblockResponseBody.hpp>
+#include <alibabacloud/models/SubmitAutoAuditUnblockResponse.hpp>
 #include <alibabacloud/models/SubmitPenetrationTestRequest.hpp>
 #include <alibabacloud/models/SubmitPenetrationTestResponseBody.hpp>
 #include <alibabacloud/models/SubmitPenetrationTestResponse.hpp>

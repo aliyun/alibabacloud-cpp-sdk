@@ -88,6 +88,7 @@ namespace Models
       class ApplyRecordList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ApplyRecordList& obj) { 
+          DARABONBA_PTR_TO_JSON(AnomalyHours, anomalyHours_);
           DARABONBA_PTR_TO_JSON(ApprovalReason, approvalReason_);
           DARABONBA_PTR_TO_JSON(EventTimeRecord, eventTimeRecord_);
           DARABONBA_PTR_TO_JSON(RejectReason, rejectReason_);
@@ -95,6 +96,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
         };
         friend void from_json(const Darabonba::Json& j, ApplyRecordList& obj) { 
+          DARABONBA_PTR_FROM_JSON(AnomalyHours, anomalyHours_);
           DARABONBA_PTR_FROM_JSON(ApprovalReason, approvalReason_);
           DARABONBA_PTR_FROM_JSON(EventTimeRecord, eventTimeRecord_);
           DARABONBA_PTR_FROM_JSON(RejectReason, rejectReason_);
@@ -278,31 +280,31 @@ namespace Models
 
 
         protected:
-          // The time when the alert ended.
+          // The end time of the alert.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertEndTime_ {};
-          // The time when the first alert was triggered.
+          // The time of the first alert.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertStartTime_ {};
-          // The time when the control action was lifted.
+          // The time when the restriction is lifted.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> antiPunishTime_ {};
           // The application time.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> applyTime_ {};
-          // The time when the alert was ignored.
+          // The time when the alert is ignored.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> ignoreAlertTime_ {};
-          // The time when the instance was shut down.
+          // The time when the instance is shut down.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> instanceCloseTime_ {};
-          // The time when the instance was scanned.
+          // The time when the instance is scanned.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> instanceScanTime_ {};
-          // The time of the latest detection.
+          // The time of the latest check.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> lastCheckTime_ {};
-          // The time when the mining alert was processed.
+          // The processing time of the mining alert.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> miningAlertProcessTime_ {};
           // The estimated shutdown time.
@@ -312,25 +314,111 @@ namespace Models
           // 
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> processTime_ {};
-          // The time when the control action ended.
+          // The end time of the restriction.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> punishEndTime_ {};
-          // The time when the control action started.
+          // The start time of the restriction.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> punishStartTime_ {};
           // The rejection time.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> rejectTime_ {};
-          // The removal time.
+          // The time when the restriction is removed.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> removeTime_ {};
-          // The time when the risk check succeeded.
+          // The time when the risk check succeeds.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> riskCheckSuccessTime_ {};
         };
 
-        virtual bool empty() const override { return this->approvalReason_ == nullptr
-        && this->eventTimeRecord_ == nullptr && this->rejectReason_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr; };
+        class AnomalyHours : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AnomalyHours& obj) { 
+            DARABONBA_PTR_TO_JSON(AbnormalBytes, abnormalBytes_);
+            DARABONBA_PTR_TO_JSON(AnomalyDesc, anomalyDesc_);
+            DARABONBA_PTR_TO_JSON(BaselineBytes, baselineBytes_);
+            DARABONBA_PTR_TO_JSON(Hour, hour_);
+            DARABONBA_PTR_TO_JSON(TrafRatio, trafRatio_);
+          };
+          friend void from_json(const Darabonba::Json& j, AnomalyHours& obj) { 
+            DARABONBA_PTR_FROM_JSON(AbnormalBytes, abnormalBytes_);
+            DARABONBA_PTR_FROM_JSON(AnomalyDesc, anomalyDesc_);
+            DARABONBA_PTR_FROM_JSON(BaselineBytes, baselineBytes_);
+            DARABONBA_PTR_FROM_JSON(Hour, hour_);
+            DARABONBA_PTR_FROM_JSON(TrafRatio, trafRatio_);
+          };
+          AnomalyHours() = default ;
+          AnomalyHours(const AnomalyHours &) = default ;
+          AnomalyHours(AnomalyHours &&) = default ;
+          AnomalyHours(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AnomalyHours() = default ;
+          AnomalyHours& operator=(const AnomalyHours &) = default ;
+          AnomalyHours& operator=(AnomalyHours &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->abnormalBytes_ == nullptr
+        && this->anomalyDesc_ == nullptr && this->baselineBytes_ == nullptr && this->hour_ == nullptr && this->trafRatio_ == nullptr; };
+          // abnormalBytes Field Functions 
+          bool hasAbnormalBytes() const { return this->abnormalBytes_ != nullptr;};
+          void deleteAbnormalBytes() { this->abnormalBytes_ = nullptr;};
+          inline int64_t getAbnormalBytes() const { DARABONBA_PTR_GET_DEFAULT(abnormalBytes_, 0L) };
+          inline AnomalyHours& setAbnormalBytes(int64_t abnormalBytes) { DARABONBA_PTR_SET_VALUE(abnormalBytes_, abnormalBytes) };
+
+
+          // anomalyDesc Field Functions 
+          bool hasAnomalyDesc() const { return this->anomalyDesc_ != nullptr;};
+          void deleteAnomalyDesc() { this->anomalyDesc_ = nullptr;};
+          inline string getAnomalyDesc() const { DARABONBA_PTR_GET_DEFAULT(anomalyDesc_, "") };
+          inline AnomalyHours& setAnomalyDesc(string anomalyDesc) { DARABONBA_PTR_SET_VALUE(anomalyDesc_, anomalyDesc) };
+
+
+          // baselineBytes Field Functions 
+          bool hasBaselineBytes() const { return this->baselineBytes_ != nullptr;};
+          void deleteBaselineBytes() { this->baselineBytes_ = nullptr;};
+          inline int64_t getBaselineBytes() const { DARABONBA_PTR_GET_DEFAULT(baselineBytes_, 0L) };
+          inline AnomalyHours& setBaselineBytes(int64_t baselineBytes) { DARABONBA_PTR_SET_VALUE(baselineBytes_, baselineBytes) };
+
+
+          // hour Field Functions 
+          bool hasHour() const { return this->hour_ != nullptr;};
+          void deleteHour() { this->hour_ = nullptr;};
+          inline string getHour() const { DARABONBA_PTR_GET_DEFAULT(hour_, "") };
+          inline AnomalyHours& setHour(string hour) { DARABONBA_PTR_SET_VALUE(hour_, hour) };
+
+
+          // trafRatio Field Functions 
+          bool hasTrafRatio() const { return this->trafRatio_ != nullptr;};
+          void deleteTrafRatio() { this->trafRatio_ = nullptr;};
+          inline double getTrafRatio() const { DARABONBA_PTR_GET_DEFAULT(trafRatio_, 0.0) };
+          inline AnomalyHours& setTrafRatio(double trafRatio) { DARABONBA_PTR_SET_VALUE(trafRatio_, trafRatio) };
+
+
+        protected:
+          // The traffic exceptions in bytes.
+          shared_ptr<int64_t> abnormalBytes_ {};
+          // The anomaly description.
+          shared_ptr<string> anomalyDesc_ {};
+          // The baseline traffic in bytes.
+          shared_ptr<int64_t> baselineBytes_ {};
+          // The anomaly hour.
+          shared_ptr<string> hour_ {};
+          // The traffic multiplier.
+          shared_ptr<double> trafRatio_ {};
+        };
+
+        virtual bool empty() const override { return this->anomalyHours_ == nullptr
+        && this->approvalReason_ == nullptr && this->eventTimeRecord_ == nullptr && this->rejectReason_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr; };
+        // anomalyHours Field Functions 
+        bool hasAnomalyHours() const { return this->anomalyHours_ != nullptr;};
+        void deleteAnomalyHours() { this->anomalyHours_ = nullptr;};
+        inline const vector<ApplyRecordList::AnomalyHours> & getAnomalyHours() const { DARABONBA_PTR_GET_CONST(anomalyHours_, vector<ApplyRecordList::AnomalyHours>) };
+        inline vector<ApplyRecordList::AnomalyHours> getAnomalyHours() { DARABONBA_PTR_GET(anomalyHours_, vector<ApplyRecordList::AnomalyHours>) };
+        inline ApplyRecordList& setAnomalyHours(const vector<ApplyRecordList::AnomalyHours> & anomalyHours) { DARABONBA_PTR_SET_VALUE(anomalyHours_, anomalyHours) };
+        inline ApplyRecordList& setAnomalyHours(vector<ApplyRecordList::AnomalyHours> && anomalyHours) { DARABONBA_PTR_SET_RVALUE(anomalyHours_, anomalyHours) };
+
+
         // approvalReason Field Functions 
         bool hasApprovalReason() const { return this->approvalReason_ != nullptr;};
         void deleteApprovalReason() { this->approvalReason_ = nullptr;};
@@ -369,21 +457,23 @@ namespace Models
 
 
       protected:
+        // The details of abnormal hours for CDN traffic exceptions.
+        shared_ptr<vector<ApplyRecordList::AnomalyHours>> anomalyHours_ {};
         // The reason for approval.
         shared_ptr<string> approvalReason_ {};
         // The time records related to the application.
         shared_ptr<ApplyRecordList::EventTimeRecord> eventTimeRecord_ {};
         // The reason for rejection.
         shared_ptr<string> rejectReason_ {};
-        // The remarks.
+        // The remark.
         shared_ptr<string> remark_ {};
-        // The task status. Valid values:
+        // The task status.
         // 
-        // - **Executing**: executing
-        // - **Removed**: removed
-        // - **Alerting**: alerting
-        // - **Ended**: ended
-        // - **Processed**: processed by the user and under platform review
+        // - **Executing**: In progress.
+        // - **Removed**: Removed.
+        // - **Alerting**: Alerting.
+        // - **Ended**: Ended.
+        // - **Processed**: Processed by the user and under platform review.
         shared_ptr<string> status_ {};
       };
 
@@ -499,15 +589,15 @@ namespace Models
 
 
     protected:
-      // The list of application records.
+      // The list of application record information.
       shared_ptr<vector<Data::ApplyRecordList>> applyRecordList_ {};
-      // The recommended action from the assistant.
+      // The handling suggestions from the assistant.
       shared_ptr<string> assistantTip_ {};
       // The blocked IP address.
       shared_ptr<string> blockIp_ {};
       // The traffic direction. Valid values:
-      // - **in**: inbound to the cloud. 
-      // - **out**: outbound from the cloud.
+      //  - **in**: Inbound to the cloud. 
+      // - **out**: Outbound from the cloud.
       shared_ptr<string> direction_ {};
       // The destination IP address.
       shared_ptr<string> dstIp_ {};
@@ -525,11 +615,11 @@ namespace Models
       shared_ptr<string> punishReason_ {};
       // The download URL of the penalty snapshot.
       shared_ptr<string> snapshotUrl_ {};
-      // The attack source IP address.
+      // The source IP address of the attack.
       shared_ptr<string> srcIp_ {};
       // The source port number.
       shared_ptr<string> srcPort_ {};
-      // The recommended action.
+      // The handling suggestions.
       shared_ptr<string> tip_ {};
     };
 
@@ -575,16 +665,16 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data list.
+    // The list of returned data.
     shared_ptr<GetResourceControlEventResponseBody::Data> data_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the call is successful.
     // 
-    // - **true**: The call was successful.
-    // - **false**: The call failed.
+    // - **true**: The call is successful.
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

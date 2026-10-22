@@ -98,7 +98,7 @@ namespace Models
         // The type of the asset. Valid values:
         // 
         // - **EIP**: The public IP address of a virtual private cloud (VPC).
-        // - **SLB**: load balancing
+        // - **SLB**: load balancing.
         // - **ECS**: The public IP address of an Elastic Compute Service (ECS) instance in the classic network.
         shared_ptr<string> assetType_ {};
         // The IP address of the asset.
@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The returned data.
+      // The response data.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -162,7 +162,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<SubmitPenetrationTestResponseBody::Data> data_ {};
     // The message.
     shared_ptr<string> message_ {};
@@ -170,9 +170,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The call status. Valid values:
     // 
-    // - **true**: The call succeeded.
-    // 
-    // - **false**: The call failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

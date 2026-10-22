@@ -106,8 +106,13 @@ namespace Models
 
 
       protected:
+        // The page number of the returned page.
+        // 
+        // > Default value: 1, which indicates the first page.
         shared_ptr<int32_t> currentPage_ {};
+        // The number of entries returned per page.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of events.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -195,12 +200,31 @@ namespace Models
 
 
       protected:
+        // The application time.
         shared_ptr<int64_t> applyTime_ {};
+        // The type of the asset. Valid values:
+        // 
+        // - **EIP**: Public IP address of a VPC.
+        // - **SLB**: Server Load Balancer (SLB) instance for load balancing.
+        // - **ECS**: Public IP address of an ECS instance in the classic network.
         shared_ptr<string> assetType_ {};
+        // The unique identity ID of the alerting event record.
+        // 
+        // > The data type of this field is Long. Precision loss may occur during the procedure to serialize or deserialize the numeric sequence. Make sure that the value does not exceed 9007199254740991.
         shared_ptr<int64_t> id_ {};
+        // The IP address of the asset.
         shared_ptr<string> ip_ {};
+        // The task status. Valid values:
+        // 
+        // - **early_end**: The user applied for early termination.
+        // - **expired**: The authorization expired.
+        // - **auditing**: Under review.
+        // - **approved**: Approved.
+        // - **rejected**: Rejected.
         shared_ptr<string> status_ {};
+        // The end time of the test.
         shared_ptr<int64_t> testEndDate_ {};
+        // The start date of the test.
         shared_ptr<int64_t> testStartDate_ {};
       };
 
@@ -225,7 +249,9 @@ namespace Models
 
 
     protected:
+      // The event data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -269,10 +295,21 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Successful.
+    // - **Other values (such as 400 and 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The query results.
     shared_ptr<QueryPenetrationTestListResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.                               
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

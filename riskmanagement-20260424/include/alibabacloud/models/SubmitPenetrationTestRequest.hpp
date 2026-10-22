@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // The list of assets.
+    // The asset list.
     // 
     // > The array supports a maximum of 50 IP addresses.
     shared_ptr<string> assetList_ {};
-    // Specifies whether a third-party testing service provider is used. Valid values:
+    // Specifies whether the test is performed by a third-party testing service provider. Valid values:
     // 
     // - true: Yes.
     // 
@@ -139,13 +139,13 @@ namespace Models
     shared_ptr<string> testEndDate_ {};
     // The source IP addresses used for the test.
     // 
-    // > A maximum of 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). 0.0.0.0 indicates that all IP addresses are allowed. CIDR blocks are not supported, such as 140.168.0.0/16.
+    // > A maximum of 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). 0.0.0.0 indicates that all IP addresses are allowed. CIDR blocks such as 140.168.0.0/16 are not supported.
     shared_ptr<string> testSourceIps_ {};
     // The start date of the test.
     shared_ptr<string> testStartDate_ {};
     // The test steps.
     // 
-    // > The content must not exceed 500 characters. Provide detailed information to facilitate the approval process.
+    // > The steps must not exceed 500 characters. Provide detailed information to facilitate the approval process.
     shared_ptr<string> testSteps_ {};
     // The email address of the third-party tester.
     shared_ptr<string> thirdpartyEmail_ {};

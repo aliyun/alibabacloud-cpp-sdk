@@ -174,7 +174,7 @@ namespace RiskManagement20260424
       Models::DownloadResourceControlEventsResponse downloadResourceControlEvents(const Models::DownloadResourceControlEventsRequest &request);
 
       /**
-       * @summary Immediately ends a penetration test.
+       * @summary Immediately terminates a penetration test.
        *
        * @param request EndPenetrationTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace RiskManagement20260424
       Models::EndPenetrationTestResponse endPenetrationTestWithOptions(const Models::EndPenetrationTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Immediately ends a penetration test.
+       * @summary Immediately terminates a penetration test.
        *
        * @param request EndPenetrationTestRequest
        * @return EndPenetrationTestResponse
@@ -514,6 +514,23 @@ namespace RiskManagement20260424
       Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncident(const Models::QueryAccountSafetyIncidentRequest &request);
 
       /**
+       * @summary 解封申请列表及分页信息
+       *
+       * @param request QueryForOperationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryForOperationResponse
+       */
+      Models::QueryForOperationResponse queryForOperationWithOptions(const Models::QueryForOperationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解封申请列表及分页信息
+       *
+       * @param request QueryForOperationRequest
+       * @return QueryForOperationResponse
+       */
+      Models::QueryForOperationResponse queryForOperation(const Models::QueryForOperationRequest &request);
+
+      /**
        * @summary Queries the subscription status of the cloud security guide.
        *
        * @param request QueryGuideSubStatusRequest
@@ -548,7 +565,7 @@ namespace RiskManagement20260424
       Models::QueryPenetrationTestDetailResponse queryPenetrationTestDetail(const Models::QueryPenetrationTestDetailRequest &request);
 
       /**
-       * @summary 查询渗透测试申请列表
+       * @summary Queries the list of penetration test applications.
        *
        * @param request QueryPenetrationTestListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +574,7 @@ namespace RiskManagement20260424
       Models::QueryPenetrationTestListResponse queryPenetrationTestListWithOptions(const Models::QueryPenetrationTestListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询渗透测试申请列表
+       * @summary Queries the list of penetration test applications.
        *
        * @param request QueryPenetrationTestListRequest
        * @return QueryPenetrationTestListResponse
@@ -648,6 +665,23 @@ namespace RiskManagement20260424
        * @return SubmitApplyRecordResponse
        */
       Models::SubmitApplyRecordResponse submitApplyRecord(const Models::SubmitApplyRecordRequest &request);
+
+      /**
+       * @summary 提交 TCP25端口免审解封申请
+       *
+       * @param request SubmitAutoAuditUnblockRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitAutoAuditUnblockResponse
+       */
+      Models::SubmitAutoAuditUnblockResponse submitAutoAuditUnblockWithOptions(const Models::SubmitAutoAuditUnblockRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交 TCP25端口免审解封申请
+       *
+       * @param request SubmitAutoAuditUnblockRequest
+       * @return SubmitAutoAuditUnblockResponse
+       */
+      Models::SubmitAutoAuditUnblockResponse submitAutoAuditUnblock(const Models::SubmitAutoAuditUnblockRequest &request);
 
       /**
        * @summary Submits a penetration test application.
