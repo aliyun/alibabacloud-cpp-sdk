@@ -106,8 +106,13 @@ namespace Models
 
 
       protected:
+        // The page number from which the query results are displayed.
+        // 
+        // > Default value: 1, which indicates that the query results are displayed from the first page.
         shared_ptr<int32_t> currentPage_ {};
+        // The number of entries to return on each page.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of events.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -250,18 +255,44 @@ namespace Models
 
 
       protected:
+        // The application time.
         shared_ptr<int64_t> applyTime_ {};
+        // The asset type. Valid values:
+        // 
+        // - **EIP**: VPC public IP address.
+        // - **SLB**: load balancing.
+        // - **ECS**: Public IP address in the classic network.
         shared_ptr<string> assetType_ {};
+        // The review remarks.
         shared_ptr<string> auditMemo_ {};
+        // The review time.
         shared_ptr<int64_t> auditTime_ {};
+        // The reviewer.
         shared_ptr<string> auditor_ {};
+        // The customer UID.
         shared_ptr<string> customerUid_ {};
+        // The type of the sent email.
         shared_ptr<string> emailType_ {};
+        // Specifies whether the email contains an unsubscribe option. Valid values:
+        // 
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> hasUnsubscribe_ {};
+        // The unique ID.
         shared_ptr<int64_t> id_ {};
+        // The IP address of the asset.
         shared_ptr<string> ip_ {};
+        // The description of the number of sent emails.
         shared_ptr<string> sendCount_ {};
+        // The task status. Valid values:
+        // 
+        // - **auditing**: Under review.
+        // - **approved**: Approved.
+        // - **rejected**: Rejected.
+        // - **effective**: Effective.
+        // - **ineffective**: Ineffective.
         shared_ptr<string> status_ {};
+        // The description.
         shared_ptr<string> useDesc_ {};
       };
 
@@ -286,7 +317,9 @@ namespace Models
 
 
     protected:
+      // The event data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -330,10 +363,18 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The query results.
     shared_ptr<QueryForOperationResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

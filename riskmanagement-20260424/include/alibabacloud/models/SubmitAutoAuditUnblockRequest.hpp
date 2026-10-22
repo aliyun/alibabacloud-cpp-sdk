@@ -94,12 +94,26 @@ namespace Models
 
 
   protected:
+    // The list of assets.
+    // 
+    // > The array supports up to 50 IP addresses.
     shared_ptr<string> assetList_ {};
+    // The auditor.
+    // 
+    // > You do not need to specify this parameter. It does not take effect.
     shared_ptr<string> auditor_ {};
+    // The customer UID.
     shared_ptr<string> customerUid_ {};
+    // The type of the email to send.
     shared_ptr<string> emailType_ {};
+    // Specifies whether the email includes an unsubscribe option.
+    // 
+    // - **true**: Included.
+    // - **false**: Not included.
     shared_ptr<bool> hasUnsubscribe_ {};
+    // The description of the number of emails to send.
     shared_ptr<string> sendCount_ {};
+    // The description.
     shared_ptr<string> useDesc_ {};
   };
 

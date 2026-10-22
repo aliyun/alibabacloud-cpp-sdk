@@ -514,7 +514,7 @@ namespace RiskManagement20260424
       Models::QueryAccountSafetyIncidentResponse queryAccountSafetyIncident(const Models::QueryAccountSafetyIncidentRequest &request);
 
       /**
-       * @summary 解封申请列表及分页信息
+       * @summary Queries the list of port unblocking applications and pagination information.
        *
        * @param request QueryForOperationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ namespace RiskManagement20260424
       Models::QueryForOperationResponse queryForOperationWithOptions(const Models::QueryForOperationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解封申请列表及分页信息
+       * @summary Queries the list of port unblocking applications and pagination information.
        *
        * @param request QueryForOperationRequest
        * @return QueryForOperationResponse
@@ -667,7 +667,7 @@ namespace RiskManagement20260424
       Models::SubmitApplyRecordResponse submitApplyRecord(const Models::SubmitApplyRecordRequest &request);
 
       /**
-       * @summary 提交 TCP25端口免审解封申请
+       * @summary Claims privileges.
        *
        * @param request SubmitAutoAuditUnblockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +676,7 @@ namespace RiskManagement20260424
       Models::SubmitAutoAuditUnblockResponse submitAutoAuditUnblockWithOptions(const Models::SubmitAutoAuditUnblockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交 TCP25端口免审解封申请
+       * @summary Claims privileges.
        *
        * @param request SubmitAutoAuditUnblockRequest
        * @return SubmitAutoAuditUnblockResponse

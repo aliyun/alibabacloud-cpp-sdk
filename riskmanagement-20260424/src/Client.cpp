@@ -1656,7 +1656,7 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncident(const Quer
 }
 
 /**
- * @summary 解封申请列表及分页信息
+ * @summary Queries the list of port unblocking applications and pagination information.
  *
  * @param request QueryForOperationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1723,7 +1723,7 @@ QueryForOperationResponse Client::queryForOperationWithOptions(const QueryForOpe
 }
 
 /**
- * @summary 解封申请列表及分页信息
+ * @summary Queries the list of port unblocking applications and pagination information.
  *
  * @param request QueryForOperationRequest
  * @return QueryForOperationResponse
@@ -2225,7 +2225,7 @@ SubmitApplyRecordResponse Client::submitApplyRecord(const SubmitApplyRecordReque
 }
 
 /**
- * @summary 提交 TCP25端口免审解封申请
+ * @summary Claims privileges.
  *
  * @param request SubmitAutoAuditUnblockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2280,7 +2280,7 @@ SubmitAutoAuditUnblockResponse Client::submitAutoAuditUnblockWithOptions(const S
 }
 
 /**
- * @summary 提交 TCP25端口免审解封申请
+ * @summary Claims privileges.
  *
  * @param request SubmitAutoAuditUnblockRequest
  * @return SubmitAutoAuditUnblockResponse

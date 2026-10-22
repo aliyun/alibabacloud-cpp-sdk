@@ -121,15 +121,37 @@ namespace Models
 
 
   protected:
+    // The end time of the application.
     shared_ptr<int64_t> applyTimeEnd_ {};
+    // The start time of the application.
     shared_ptr<int64_t> applyTimeStart_ {};
+    // The asset type. Valid values:
+    // 
+    // - **EIP**: VPC public IP address.
+    // - **SLB**: load balancing.
+    // - **ECS**: Public IP address in the classic network.
     shared_ptr<string> assetType_ {};
+    // The end time of the review.
     shared_ptr<int64_t> auditTimeEnd_ {};
+    // The start time of the review.
     shared_ptr<int64_t> auditTimeStart_ {};
+    // The current page number.
+    // 
+    // > Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
+    // The customer UID.
     shared_ptr<string> customerUid_ {};
+    // IP
     shared_ptr<string> ip_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The task status. Valid values:
+    // 
+    // - **auditing**: Under review.
+    // - **approved**: Approved.
+    // - **rejected**: Rejected.
+    // - **effective**: Effective.
+    // - **ineffective**: Ineffective.
     shared_ptr<string> status_ {};
   };
 
