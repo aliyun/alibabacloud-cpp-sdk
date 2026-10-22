@@ -503,7 +503,7 @@ namespace DataworksPublic20240518
        * @summary Creates a component.
        *
        * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
-       * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
+       * This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If the new Data Studio feature is not used, use the corresponding operation of the 2020-05-18 version.
        *
        * @param request CreateComponentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -515,7 +515,7 @@ namespace DataworksPublic20240518
        * @summary Creates a component.
        *
        * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
-       * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
+       * This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If the new Data Studio feature is not used, use the corresponding operation of the 2020-05-18 version.
        *
        * @param request CreateComponentRequest
        * @return CreateComponentResponse
@@ -1546,10 +1546,10 @@ namespace DataworksPublic20240518
       Models::CreateUdfFileResponse createUdfFile(const Models::CreateUdfFileRequest &request);
 
       /**
-       * @summary Creates a workflow in a specified directory in DataStudio.
+       * @summary Creates a workflow in a specified directory in Data Studio.
        *
        * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
-       * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
+       * This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio. If you do not use the new Data Studio, use the corresponding operation of the 2020-05-18 version.
        *
        * @param request CreateWorkflowDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1558,10 +1558,10 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowDefinitionResponse createWorkflowDefinitionWithOptions(const Models::CreateWorkflowDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow in a specified directory in DataStudio.
+       * @summary Creates a workflow in a specified directory in Data Studio.
        *
        * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
-       * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
+       * This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio. If you do not use the new Data Studio, use the corresponding operation of the 2020-05-18 version.
        *
        * @param request CreateWorkflowDefinitionRequest
        * @return CreateWorkflowDefinitionResponse
@@ -1571,7 +1571,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param tmpReq CreateWorkflowInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1582,7 +1582,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates a workflow instance based on configurations, such as a data backfill workflow instance.
        *
-       * @description You must purchase DataWorks Basic Edition or a later edition to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request CreateWorkflowInstancesRequest
        * @return CreateWorkflowInstancesResponse
@@ -1695,8 +1695,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a component.
        *
-       * @description <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
-       * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
+       * @description <notice>After a UDF function is deployed, it cannot be deleted. You must undeploy it before deleting it.</notice>
+       * This API operation belongs to the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If you do not use the new Data Studio feature, use the corresponding API operation of the 2020-05-18 version.
        *
        * @param request DeleteComponentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1707,8 +1707,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a component.
        *
-       * @description <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
-       * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
+       * @description <notice>After a UDF function is deployed, it cannot be deleted. You must undeploy it before deleting it.</notice>
+       * This API operation belongs to the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If you do not use the new Data Studio feature, use the corresponding API operation of the 2020-05-18 version.
        *
        * @param request DeleteComponentRequest
        * @return DeleteComponentResponse
@@ -3189,9 +3189,9 @@ namespace DataworksPublic20240518
       Models::GetCertificateResponse getCertificate(const Models::GetCertificateRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified column in a Data Map table.
+       * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
        *
        * @param request GetColumnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3200,9 +3200,9 @@ namespace DataworksPublic20240518
       Models::GetColumnResponse getColumnWithOptions(const Models::GetColumnRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified column in a Data Map table.
+       * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
        *
        * @param request GetColumnRequest
        * @return GetColumnResponse
@@ -4963,9 +4963,9 @@ namespace DataworksPublic20240518
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary Queries the column list of a specified table in DataWorks Data Map.
+       * @summary Queries the columns of a specified table in DataWorks Data Map.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
        *
        * @param request ListColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4974,9 +4974,9 @@ namespace DataworksPublic20240518
       Models::ListColumnsResponse listColumnsWithOptions(const Models::ListColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the column list of a specified table in DataWorks Data Map.
+       * @summary Queries the columns of a specified table in DataWorks Data Map.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
        *
        * @param request ListColumnsRequest
        * @return ListColumnsResponse
@@ -5976,10 +5976,10 @@ namespace DataworksPublic20240518
       Models::ListLineageRelationshipsResponse listLineageRelationships(const Models::ListLineageRelationshipsRequest &request);
 
       /**
-       * @summary Queries the list of upstream and downstream lineage entities for a given entity in DataWorks Data Map, with an option to include specific lineage relationship information.
+       * @summary Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
        *
-       * @description 1. You must purchase DataWorks Standard Edition or later to use this operation.
-       * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between entities.
+       * @description 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.
+       * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between the entities.
        *
        * @param request ListLineagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5988,10 +5988,10 @@ namespace DataworksPublic20240518
       Models::ListLineagesResponse listLineagesWithOptions(const Models::ListLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of upstream and downstream lineage entities for a given entity in DataWorks Data Map, with an option to include specific lineage relationship information.
+       * @summary Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
        *
-       * @description 1. You must purchase DataWorks Standard Edition or later to use this operation.
-       * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between entities.
+       * @description 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.
+       * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between the entities.
        *
        * @param request ListLineagesRequest
        * @return ListLineagesResponse
@@ -6420,7 +6420,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the details of workspace roles by paging.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this operation.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param tmpReq ListProjectRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6431,7 +6431,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the details of workspace roles by paging.
        *
-       * @description You must purchase DataWorks Basic Edition or later to use this operation.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request ListProjectRolesRequest
        * @return ListProjectRolesResponse
@@ -6804,7 +6804,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
        *
        * @param tmpReq ListTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6815,7 +6815,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this API.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse
@@ -7093,9 +7093,9 @@ namespace DataworksPublic20240518
       Models::MoveNodeResponse moveNode(const Models::MoveNodeRequest &request);
 
       /**
-       * @summary Moves a specified data development file resource to a specified data development folder.
+       * @summary Moves a specified Data Studio file resource to a specified Data Studio folder.
        *
-       * @description This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
+       * @description This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If you do not use the new Data Studio feature, use the corresponding operation in the 2020-05-18 version.
        *
        * @param request MoveResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7104,9 +7104,9 @@ namespace DataworksPublic20240518
       Models::MoveResourceResponse moveResourceWithOptions(const Models::MoveResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a specified data development file resource to a specified data development folder.
+       * @summary Moves a specified Data Studio file resource to a specified Data Studio folder.
        *
-       * @description This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
+       * @description This operation is part of the new Data Studio capabilities and applies only to workspaces that use the new Data Studio feature. If you do not use the new Data Studio feature, use the corresponding operation in the 2020-05-18 version.
        *
        * @param request MoveResourceRequest
        * @return MoveResourceResponse

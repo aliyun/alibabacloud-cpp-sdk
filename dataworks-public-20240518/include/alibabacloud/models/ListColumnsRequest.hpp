@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The comment. Fuzzy match is supported.
+    // The comment on the column. Fuzzy match is supported.
     shared_ptr<string> comment_ {};
-    // Specifies whether to return extended properties. Set this parameter to `true` to return extended properties or `false` to not return them.
+    // Specifies whether to return extended properties. If you set this parameter to `true`, extended properties are returned. If you set this parameter to `false`, extended properties are not returned.
     shared_ptr<bool> includeExtendedProperties_ {};
-    // The name. Fuzzy match is supported.
+    // The name of the column. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The sort direction. Default value: Asc. Valid values:
-    // - Asc: ascending order.
-    // - Desc: descending order.
+    // The sort order. Default value: Asc. Valid values:
+    // - Asc: Ascending order.
+    // - Desc: Descending order.
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The sort field. Default value: Position. Valid values:
-    // - Name: name.
-    // - Position: position.
+    // The field used for sorting. Default value: Position. Valid values:
+    // - Name: Name.
+    // - Position: Position.
     shared_ptr<string> sortBy_ {};
-    // The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+    // The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // This parameter is required.
     shared_ptr<string> tableId_ {};

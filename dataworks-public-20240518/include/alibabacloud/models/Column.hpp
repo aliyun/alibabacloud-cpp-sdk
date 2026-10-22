@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PrimaryKey, primaryKey_);
       DARABONBA_PTR_TO_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_TO_JSON(TableId, tableId_);
+      DARABONBA_PTR_TO_JSON(TechnicalMetadata, technicalMetadata_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, Column& obj) { 
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PrimaryKey, primaryKey_);
       DARABONBA_PTR_FROM_JSON(StatisticsInfos, statisticsInfos_);
       DARABONBA_PTR_FROM_JSON(TableId, tableId_);
+      DARABONBA_PTR_FROM_JSON(TechnicalMetadata, technicalMetadata_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     Column() = default ;
@@ -51,6 +53,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TechnicalMetadata : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TechnicalMetadata& obj) { 
+        DARABONBA_PTR_TO_JSON(Parameters, parameters_);
+      };
+      friend void from_json(const Darabonba::Json& j, TechnicalMetadata& obj) { 
+        DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
+      };
+      TechnicalMetadata() = default ;
+      TechnicalMetadata(const TechnicalMetadata &) = default ;
+      TechnicalMetadata(TechnicalMetadata &&) = default ;
+      TechnicalMetadata(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TechnicalMetadata() = default ;
+      TechnicalMetadata& operator=(const TechnicalMetadata &) = default ;
+      TechnicalMetadata& operator=(TechnicalMetadata &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->parameters_ == nullptr; };
+      // parameters Field Functions 
+      bool hasParameters() const { return this->parameters_ != nullptr;};
+      void deleteParameters() { this->parameters_ = nullptr;};
+      inline const map<string, string> & getParameters() const { DARABONBA_PTR_GET_CONST(parameters_, map<string, string>) };
+      inline map<string, string> getParameters() { DARABONBA_PTR_GET(parameters_, map<string, string>) };
+      inline TechnicalMetadata& setParameters(const map<string, string> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
+      inline TechnicalMetadata& setParameters(map<string, string> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
+
+
+    protected:
+      // The technical parameters of the column, where the key is the parameter name and the value is a string. Objects or arrays are represented as JSON strings.
+      shared_ptr<map<string, string>> parameters_ {};
+    };
+
     class BusinessMetadata : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const BusinessMetadata& obj) { 
@@ -91,15 +127,16 @@ namespace Models
 
 
     protected:
-      // The custom attribute values, where key is the custom attribute identifier and value is the attribute value list.
+      // The custom attribute values, where the key is the custom attribute identifier and the value is a list of attribute values.
       shared_ptr<map<string, vector<string>>> customAttributes_ {};
-      // The business description of the field. Currently, only MaxCompute, HMS (EMR cluster), and DLF types are supported.
+      // The business description of the column. Currently, only MaxCompute, HMS (EMR cluster), and DLF types are supported.
       shared_ptr<string> description_ {};
     };
 
     virtual bool empty() const override { return this->businessMetadata_ == nullptr
         && this->comment_ == nullptr && this->foreignKey_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->partitionKey_ == nullptr
-        && this->position_ == nullptr && this->primaryKey_ == nullptr && this->statisticsInfos_ == nullptr && this->tableId_ == nullptr && this->type_ == nullptr; };
+        && this->position_ == nullptr && this->primaryKey_ == nullptr && this->statisticsInfos_ == nullptr && this->tableId_ == nullptr && this->technicalMetadata_ == nullptr
+        && this->type_ == nullptr; };
     // businessMetadata Field Functions 
     bool hasBusinessMetadata() const { return this->businessMetadata_ != nullptr;};
     void deleteBusinessMetadata() { this->businessMetadata_ = nullptr;};
@@ -174,6 +211,15 @@ namespace Models
     inline Column& setTableId(string tableId) { DARABONBA_PTR_SET_VALUE(tableId_, tableId) };
 
 
+    // technicalMetadata Field Functions 
+    bool hasTechnicalMetadata() const { return this->technicalMetadata_ != nullptr;};
+    void deleteTechnicalMetadata() { this->technicalMetadata_ = nullptr;};
+    inline const Column::TechnicalMetadata & getTechnicalMetadata() const { DARABONBA_PTR_GET_CONST(technicalMetadata_, Column::TechnicalMetadata) };
+    inline Column::TechnicalMetadata getTechnicalMetadata() { DARABONBA_PTR_GET(technicalMetadata_, Column::TechnicalMetadata) };
+    inline Column& setTechnicalMetadata(const Column::TechnicalMetadata & technicalMetadata) { DARABONBA_PTR_SET_VALUE(technicalMetadata_, technicalMetadata) };
+    inline Column& setTechnicalMetadata(Column::TechnicalMetadata && technicalMetadata) { DARABONBA_PTR_SET_RVALUE(technicalMetadata_, technicalMetadata) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -186,87 +232,51 @@ namespace Models
     shared_ptr<Column::BusinessMetadata> businessMetadata_ {};
     // The comment.
     shared_ptr<string> comment_ {};
-    // Indicates whether the column is a foreign key. Currently, only MaxCompute is supported.
+    // Specifies whether the column is a foreign key. Currently, only the MaxCompute type is supported.
     shared_ptr<bool> foreignKey_ {};
     // The ID. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
+    // The format is `${EntityType}:${Instance ID or URL-encoded URL}:${Catalog ID}:${Database name}:${Schema name}:${Table name}:${Column name}`. Use an empty string as a placeholder for non-existent levels.
     // 
+    // > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For the MaxCompute type, the database name is the MaxCompute project name. Projects with the three-tier model enabled require the schema name. For projects without the three-tier model enabled, use an empty string as a placeholder for the schema name.
     // 
+    // > For the StarRocks type, the catalog ID is the catalog name. For the DLF type, the catalog ID is the catalog ID. Other types do not support the catalog level, and an empty string can be used as a placeholder.
     // 
-    // The format is `${EntityType}:${instance ID or encoded URL}:${DataCatalogIdentity}:${DatabaseName}:${SchemaName}:${TableName}:${ColumnName}`. Use an empty character as a placeholder for levels that do not exist.
-    // 
-    // 
-    // 
-    // 
-    // > For MaxCompute and DLF types, use an empty string as a placeholder for the instance ID. For MaxCompute, the database name is the MaxCompute project name. Projects with the three-layer model enabled must include the schema name. For projects without the three-layer model enabled, use an empty string as a placeholder for the schema name.
-    // 
-    // 
-    // 
-    // 
-    // > For StarRocks, the data catalog identifier is the catalog name. For DLF, the data catalog identifier is the catalog ID. Other types do not support the catalog level, and you can use an empty string as a placeholder.
-    // 
-    // 
-    // 
-    // 
-    // The following examples show the ID formats for several common types:
-    // 
-    // 
-    // 
+    // The following are the ID formats for several common types:
     // 
     // `maxcompute-column:::project_name:[schema_name]:table_name:column_name`
     // 
-    // 
-    // 
-    // 
     // `dlf-column::catalog_id:database_name::table_name:column_name`
-    // 
-    // 
-    // 
     // 
     // `hms-column:instance_id::database_name::table_name:column_name`
     // 
-    // 
-    // 
-    // 
     // `holo-column:instance_id::database_name:schema_name:table_name:column_name`
-    // 
-    // 
-    // 
     // 
     // `mysql-column:(instance_id|encoded_jdbc_url)::database_name::table_name:column_name`
     // 
-    // 
-    // 
-    // 
-    // > Where  
-    // > 
-    // > `instance_id`: The instance ID. This is required when the data source is registered in instance mode.  
-    // > 
-    // > `encoded_jdbc_url`: The URL-encoded JDBC connection string. This is required when the data source is registered by using a connection string.  
-    // > 
-    // > `catalog_id`: The DLF catalog ID.  
-    // > 
-    // > `project_name`: The MaxCompute project name.  
-    // > 
-    // > `database_name`: The database name.  
-    // > 
-    // > `schema_name`: The schema name. For MaxCompute, this is required only when the three-layer model is enabled for the project. If the three-layer model is not enabled, use an empty string as a placeholder.  
-    // > 
-    // > `table_name`: The table name.  
-    // > 
-    // > `column_name`: The column name.
+    // > Where:   
+    // `instance_id`: The instance ID, which is required when the data source is registered in instance mode.   
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered in connection string mode.   
+    // `catalog_id`: The DLF catalog ID.   
+    // `project_name`: The MaxCompute project name.   
+    // `database_name`: The database name.   
+    // `schema_name`: The schema name. For the MaxCompute type, this is required only if the three-tier model is enabled for the project. If it is not enabled, use an empty string as a placeholder.    
+    // `table_name`: The table name.   
+    // `column_name`: The column name.
     shared_ptr<string> id_ {};
     // The name.
     shared_ptr<string> name_ {};
-    // Indicates whether the column is a partition key.
+    // Specifies whether the column is a partition key.
     shared_ptr<bool> partitionKey_ {};
     // The position.
     shared_ptr<int32_t> position_ {};
-    // Indicates whether the column is a primary key. Currently, only MaxCompute is supported.
+    // Specifies whether the column is a primary key. Currently, only the MaxCompute type is supported.
     shared_ptr<bool> primaryKey_ {};
     shared_ptr<map<string, string>> statisticsInfos_ {};
-    // The table ID. For more information, see the `Table` object.
+    // The ID of the table. Refer to the Table object.
     shared_ptr<string> tableId_ {};
+    // The technical metadata.
+    shared_ptr<Column::TechnicalMetadata> technicalMetadata_ {};
     // The type.
     shared_ptr<string> type_ {};
   };

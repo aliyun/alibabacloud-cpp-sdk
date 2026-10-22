@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the data development file resource.
+    // The unique identifier of the Data Studio file resource.
     // 
     // >Notice: Before SDK version 8.0.0, this field is of the Long type. In SDK version 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK. The parameter is still returned based on the type defined in the SDK**. The type change may cause project compilation failures only when you upgrade the SDK across version 8.0.0. In this case, you must manually correct the data type.
     // 
@@ -69,7 +69,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};
-    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Configuration page to obtain the workspace ID.
     // 
     // This parameter specifies the DataWorks workspace for this API operation.
     // 

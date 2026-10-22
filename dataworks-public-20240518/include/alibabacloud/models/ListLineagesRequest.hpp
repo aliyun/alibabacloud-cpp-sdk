@@ -121,9 +121,9 @@ namespace Models
 
 
   protected:
-    // The destination entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The ID of the destination entity. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     shared_ptr<string> dstEntityId_ {};
-    // The destination entity name. Fuzzy match is supported.
+    // The name of the destination entity. Fuzzy matching is supported.
     shared_ptr<string> dstEntityName_ {};
     // Specifies whether to return lineage relationship information. Default value: false.
     shared_ptr<bool> needAttachRelationship_ {};
@@ -136,11 +136,11 @@ namespace Models
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> recentDays_ {};
-    // The sort field. Default value: Name. The entities are sorted by lineage entity name.
+    // The field used for sorting. Default value: Name. The entities are sorted by lineage entity name.
     shared_ptr<string> sortBy_ {};
-    // The source entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The ID of the source entity. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     shared_ptr<string> srcEntityId_ {};
-    // The source entity name. Fuzzy match is supported.
+    // The name of the source entity. Fuzzy matching is supported.
     shared_ptr<string> srcEntityName_ {};
   };
 
