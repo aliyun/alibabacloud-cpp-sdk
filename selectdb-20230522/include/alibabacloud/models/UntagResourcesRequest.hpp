@@ -80,19 +80,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the instances. This parameter takes effect only when you do not specify TagKey. The default value is false.
+    // Specifies whether to remove all tags from the instance. This parameter takes effect only when TagKey is not specified. Default value: false.
     shared_ptr<bool> all_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // An array of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // An array of tag keys.
+    // The list of tag keys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

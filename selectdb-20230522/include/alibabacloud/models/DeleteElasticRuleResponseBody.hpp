@@ -50,13 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the deletion is successful.
-    // 
-    // Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Indicates whether the rule was deleted.
     shared_ptr<bool> success_ {};
   };
 

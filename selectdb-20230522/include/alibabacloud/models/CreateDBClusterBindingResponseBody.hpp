@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
-      // The numeric ID.
+      // The numeric ID of the instance.
       shared_ptr<string> dbInstanceId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<CreateDBClusterBindingResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

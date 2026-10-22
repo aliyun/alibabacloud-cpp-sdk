@@ -123,10 +123,17 @@ namespace Models
 
 
       protected:
+        // The discount amount.
+        // 
+        // > This parameter is not applicable to the Chinese site.
         shared_ptr<string> canPromFee_ {};
+        // The description of the promotion rule.
         shared_ptr<string> optionCode_ {};
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // The coupon code.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -167,9 +174,11 @@ namespace Models
     protected:
       // The currency.
       shared_ptr<string> currency_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The unit price results of billable items.
       shared_ptr<map<string, string>> pricingRules_ {};
-      // The trade amount.
+      // The amount.
       shared_ptr<string> tradeAmount_ {};
     };
 

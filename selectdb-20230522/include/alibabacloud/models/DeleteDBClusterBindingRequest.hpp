@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The ID of Cluster 1.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of Cluster 2.
+    // The ID of the other cluster in the binding relationship.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterIdBak_ {};

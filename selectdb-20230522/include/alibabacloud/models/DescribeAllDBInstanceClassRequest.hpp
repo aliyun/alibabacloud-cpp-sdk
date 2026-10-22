@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // The SelectDB instance ID. This parameter is required when you create a cluster or change the specifications of a cluster.
     shared_ptr<string> DBInstanceId_ {};
     // The region ID.
     // 

@@ -101,8 +101,8 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The upgrade mode.
     // 
-    // - If this parameter is left empty, the upgrade is performed immediately.
-    // - If this parameter is set to 1, the upgrade is performed during the maintenance window.
+    // - If you leave this parameter empty, the upgrade is performed immediately.
+    // - If you set this parameter to 1, the upgrade is performed during the maintenance window.
     shared_ptr<string> switchTimeMode_ {};
   };
 

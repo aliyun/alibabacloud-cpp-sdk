@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

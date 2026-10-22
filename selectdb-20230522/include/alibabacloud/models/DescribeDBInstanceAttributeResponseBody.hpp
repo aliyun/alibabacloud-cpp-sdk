@@ -51,6 +51,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_TO_JSON(SubDomain, subDomain_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TdeAlgorithm, tdeAlgorithm_);
+      DARABONBA_PTR_TO_JSON(TdeEnabled, tdeEnabled_);
+      DARABONBA_PTR_TO_JSON(TdeMode, tdeMode_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VirtualClusterList, virtualClusterList_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -93,6 +96,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_FROM_JSON(SubDomain, subDomain_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TdeAlgorithm, tdeAlgorithm_);
+      DARABONBA_PTR_FROM_JSON(TdeEnabled, tdeEnabled_);
+      DARABONBA_PTR_FROM_JSON(TdeMode, tdeMode_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VirtualClusterList, virtualClusterList_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -206,7 +212,7 @@ namespace Models
       shared_ptr<string> activeClusterId_ {};
       // The name of the primary cluster.
       shared_ptr<string> activeClusterName_ {};
-      // The creation time of the instance.
+      // The creation time in ISO 8601 format with time zone information.
       shared_ptr<string> createdTime_ {};
       // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
@@ -217,6 +223,11 @@ namespace Models
       // The name of the standby cluster.
       shared_ptr<string> standbyClusterName_ {};
       // The status of the instance. Valid values:
+      // 
+      // - **CREATING**: The instance is being created.
+      // - **RUNNING**: The instance is running.
+      // - **DELETING**: The instance is being deleted.
+      // - **UPDATING**: The instance is being updated.
       shared_ptr<string> status_ {};
     };
 
@@ -260,7 +271,7 @@ namespace Models
     protected:
       // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -324,7 +335,7 @@ namespace Models
     protected:
       // The number of available IP addresses in the zone.
       shared_ptr<int64_t> availableIpCount_ {};
-      // The Classless Inter-Domain Routing block of the prefix list entry.
+      // The CIDR block information of the prefix list entry.
       shared_ptr<string> cidr_ {};
       // The list of vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
@@ -397,10 +408,15 @@ namespace Models
 
 
     protected:
+      // The name of the FE cluster.
       shared_ptr<string> dbClusterId_ {};
+      // The number of nodes in the FE cluster.
       shared_ptr<int64_t> nodeCount_ {};
+      // The number of CPU cores per node in the FE cluster.
       shared_ptr<int64_t> singleNodeCpuCores_ {};
+      // The memory size per node in the FE cluster. Unit: GB.
       shared_ptr<int64_t> singleNodeMemoryInGB_ {};
+      // The status of the FE cluster.
       shared_ptr<string> status_ {};
     };
 
@@ -640,18 +656,50 @@ namespace Models
       // The cache storage type.
       shared_ptr<string> cacheStorageType_ {};
       // The billing method of the cluster. Valid values:
+      // 
+      // - **Postpaid**: pay-as-you-go.
+      // 
+      // - **Prepaid**: subscription.
       shared_ptr<string> chargeType_ {};
       // The bound target cluster.
       shared_ptr<string> clusterBinding_ {};
-      // The number of cluster nodes. This parameter takes effect only in serverless mode.
+      // The number of nodes in the cluster. This parameter takes effect only in serverless mode.
       shared_ptr<int32_t> clusterNodeCount_ {};
-      // The cluster node type. This parameter takes effect only in serverless mode.
+      // The node type of the cluster. This parameter takes effect only in serverless mode.
       shared_ptr<string> clusterNodeType_ {};
       // The number of CPU cores.
       shared_ptr<int64_t> cpuCores_ {};
-      // The time when the cluster was created.
+      // The creation time of the cluster in ISO 8601 format with time zone information.
       shared_ptr<string> createdTime_ {};
       // The cluster specifications. Valid values:
+      // 
+      // - **selectdb.xlarge**: 4 cores and 16 GB memory
+      // 
+      // - **selectdb.2xlarge**: 8 cores and 32 GB memory
+      // 
+      // - **selectdb.4xlarge**: 16 cores and 64 GB memory
+      // 
+      // - **selectdb.8xlarge**: 32 cores and 128 GB memory
+      // 
+      // - **selectdb.16xlarge**: 64 cores and 256 GB memory
+      // 
+      // - **selectdb.24xlarge**: 96 cores and 384 GB memory
+      // 
+      // - **selectdb.32xlarge**: 128 cores and 512 GB memory
+      // 
+      // - **selectdb.g.xlarge**: 4 cores and 16 GB memory
+      // 
+      // - **selectdb.g.2xlarge**: 8 cores and 32 GB memory
+      // 
+      // - **selectdb.g.4xlarge**: 16 cores and 64 GB memory
+      // 
+      // - **selectdb.g.8xlarge**: 32 cores and 128 GB memory
+      // 
+      // - **selectdb.g.16xlarge**: 64 cores and 256 GB memory
+      // 
+      // - **selectdb.g.24xlarge**: 96 cores and 384 GB memory
+      // 
+      // - **selectdb.g.32xlarge**: 128 cores and 512 GB memory
       shared_ptr<string> dbClusterClass_ {};
       // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
@@ -661,19 +709,31 @@ namespace Models
       shared_ptr<string> dbInstanceName_ {};
       // The memory size.
       shared_ptr<int64_t> memory_ {};
-      // The modification time.
+      // The modification time in ISO 8601 format with time zone information.
       shared_ptr<string> modifiedTime_ {};
       // The performance level (PL).
       shared_ptr<string> performanceLevel_ {};
-      // The maximum value of the automatic scaling range for the instance RCU (RDS Capacity Unit).
+      // The maximum number of RDS Capacity Units (RCUs) for auto-scaling.
       shared_ptr<double> scaleMax_ {};
-      // The minimum value of the automatic scaling range for the instance RCU (RDS Capacity Unit).
+      // The minimum number of RDS Capacity Units (RCUs) for auto-scaling.
       shared_ptr<double> scaleMin_ {};
-      // Indicates whether the time-based elastic policy is enabled.
+      // Specifies whether the time-based elastic policy is enabled.
       shared_ptr<bool> scalingRulesEnable_ {};
-      // The start time of the cluster.
+      // The start time of the cluster in ISO 8601 format with time zone information.
       shared_ptr<string> startTime_ {};
       // The status of the cluster. Valid values:
+      // 
+      // - **CREATING**: The cluster is being created.
+      // 
+      // - **ACTIVATION**: The cluster is running.
+      // 
+      // - **RESOURCE_CHANGING**: The cluster specifications are being changed.
+      // 
+      // - **ORDER_PREPARING**: The order is being confirmed.
+      // 
+      // - **READONLY_RESOURCE_CHANGING**: The cluster resources are being changed and the instance is locked for writes.
+      // 
+      // - **DELETING**: The cluster is being deleted.
       shared_ptr<string> status_ {};
       // The subdomain.
       shared_ptr<string> subDomain_ {};
@@ -691,7 +751,8 @@ namespace Models
         && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr && this->objectStoreSize_ == nullptr
         && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr
         && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->tdeAlgorithm_ == nullptr && this->tdeEnabled_ == nullptr && this->tdeMode_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // canUpgradeVersionCommunityMap Field Functions 
     bool hasCanUpgradeVersionCommunityMap() const { return this->canUpgradeVersionCommunityMap_ != nullptr;};
     void deleteCanUpgradeVersionCommunityMap() { this->canUpgradeVersionCommunityMap_ = nullptr;};
@@ -958,6 +1019,27 @@ namespace Models
     inline DescribeDBInstanceAttributeResponseBody& setTags(vector<DescribeDBInstanceAttributeResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // tdeAlgorithm Field Functions 
+    bool hasTdeAlgorithm() const { return this->tdeAlgorithm_ != nullptr;};
+    void deleteTdeAlgorithm() { this->tdeAlgorithm_ = nullptr;};
+    inline string getTdeAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(tdeAlgorithm_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setTdeAlgorithm(string tdeAlgorithm) { DARABONBA_PTR_SET_VALUE(tdeAlgorithm_, tdeAlgorithm) };
+
+
+    // tdeEnabled Field Functions 
+    bool hasTdeEnabled() const { return this->tdeEnabled_ != nullptr;};
+    void deleteTdeEnabled() { this->tdeEnabled_ = nullptr;};
+    inline bool getTdeEnabled() const { DARABONBA_PTR_GET_DEFAULT(tdeEnabled_, false) };
+    inline DescribeDBInstanceAttributeResponseBody& setTdeEnabled(bool tdeEnabled) { DARABONBA_PTR_SET_VALUE(tdeEnabled_, tdeEnabled) };
+
+
+    // tdeMode Field Functions 
+    bool hasTdeMode() const { return this->tdeMode_ != nullptr;};
+    void deleteTdeMode() { this->tdeMode_ = nullptr;};
+    inline string getTdeMode() const { DARABONBA_PTR_GET_DEFAULT(tdeMode_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setTdeMode(string tdeMode) { DARABONBA_PTR_SET_VALUE(tdeMode_, tdeMode) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -989,17 +1071,23 @@ namespace Models
 
 
   protected:
+    // The community versions corresponding to the upgradable versions.
     shared_ptr<map<string, string>> canUpgradeVersionCommunityMap_ {};
-    // The list of versions to which the instance can be upgraded.
+    // The list of upgradable versions.
     shared_ptr<vector<string>> canUpgradeVersions_ {};
-    // The billing type of the instance. Valid values:
+    // The billing method of the instance. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
     shared_ptr<string> chargeType_ {};
+    // The community version corresponding to the current version.
     shared_ptr<string> communityVersion_ {};
     // The configuration template applied to the instance.
     shared_ptr<string> configPatternType_ {};
-    // The creation time of the instance.
+    // The creation time in ISO 8601 format with time zone information.
     shared_ptr<string> createTime_ {};
-    // The list of clusters that belong to the instance.
+    // The list of clusters to which the instance belongs.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::DBClusterList>> DBClusterList_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
@@ -1007,30 +1095,38 @@ namespace Models
     shared_ptr<string> deployScheme_ {};
     // The description of the instance.
     shared_ptr<string> description_ {};
-    // The database engine type.
+    // The database engine.
     shared_ptr<string> engine_ {};
     // The minor engine version of the instance.
     shared_ptr<string> engineMinorVersion_ {};
-    // The database engine version.
+    // The database version.
     shared_ptr<string> engineVersion_ {};
-    // The time when the instance expires.
+    // The time when the instance expires, in ISO 8601 format with time zone information.
     shared_ptr<string> expireTime_ {};
+    // The list of FE clusters.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::FEClusterList>> FEClusterList_ {};
-    // The time when the instance was last modified (for example, restarted or had public network access enabled). The time is in the yyyy-MM-ddTHH:mmZ format (UTC).
+    // The time when the instance was modified, such as restart or public network application. The time is in the yyyy-MM-ddTHH:mmZ format (UTC time).
     shared_ptr<string> gmtModified_ {};
+    // The list of Langfuse instance IDs associated with the SelectDB instance.
     shared_ptr<vector<string>> langfuseInstanceIds_ {};
-    // The lock mode of the instance. The value is **lock**, which indicates that the instance is automatically expired or has an overdue payment.
+    // The lock mode of the instance. A value of **lock** indicates that the instance is locked due to expiration or overdue payment.
     shared_ptr<int64_t> lockMode_ {};
     // The reason why the instance is locked.
     shared_ptr<string> lockReason_ {};
+    // The service status of the MCP Server.
     shared_ptr<string> MCPServerServiceStatus_ {};
-    // The end time of the maintenance window of the instance.
+    // Reserved parameter. This parameter is not returned and does not apply to the time format.
     shared_ptr<string> maintainEndtime_ {};
-    // The start time of the maintenance window of the instance.
+    // Reserved parameter. This parameter is not returned and does not apply to the time format.
     shared_ptr<string> maintainStarttime_ {};
     // The multi-zone configuration.
+    // 
+    // > 
+    // > - This parameter is valid when DeployScheme is set to multi_az.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::MultiZone>> multiZone_ {};
+    // The OTel collector bearer token.
     shared_ptr<string> OTelBearerToken_ {};
+    // The service status of the OTel collector and Grafana.
     shared_ptr<string> OTelGrafanaServiceStatus_ {};
     // The storage space.
     shared_ptr<int64_t> objectStoreSize_ {};
@@ -1038,22 +1134,46 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of CPU resources.
+    // The number of CPU cores.
     shared_ptr<int64_t> resourceCpu_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // Indicates whether the direct port connection feature is enabled for the VPC in which the instance resides.
+    // Indicates whether the port direct connection feature is enabled for the VPC where the current instance resides.
+    // 
+    // - A value of true indicates that the feature is enabled.
+    // - A value of false indicates that the feature is disabled.
     shared_ptr<string> secGroupConnValid_ {};
-    // Indicates whether the serverless feature is enabled for the instance.
+    // Indicates whether the serverless feature is enabled for the current instance.
+    // 
+    // - A value of true indicates that the feature is enabled.
+    // - A value of false indicates that the feature is disabled.
     shared_ptr<bool> serverless_ {};
     // The status of the instance. Valid values:
+    // 
+    // - **CREATING**: The instance is being created.
+    // 
+    // - **ACTIVE**: The instance is running.
+    // 
+    // - **RESOURCE_CHANGING**: The instance specifications are being changed.
+    // 
+    // - **ORDER_PREPARING**: The order is being confirmed.
+    // 
+    // - **READONLY_RESOURCE_CHANGING**: The resources are being changed and the instance is locked for writes.
+    // 
+    // - **DELETING**: The instance is being deleted.
     shared_ptr<string> status_ {};
-    // The storage size.
+    // The size of the storage space.
     shared_ptr<int64_t> storageSize_ {};
     // The zone.
     shared_ptr<string> subDomain_ {};
-    // The list of instance labels.
+    // The instance label list information.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::Tags>> tags_ {};
+    // The algorithm used for TDE on the instance.
+    shared_ptr<string> tdeAlgorithm_ {};
+    // Indicates whether TDE is enabled for the instance.
+    shared_ptr<bool> tdeEnabled_ {};
+    // The TDE mode of the instance.
+    shared_ptr<string> tdeMode_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
     // The list of virtual clusters.

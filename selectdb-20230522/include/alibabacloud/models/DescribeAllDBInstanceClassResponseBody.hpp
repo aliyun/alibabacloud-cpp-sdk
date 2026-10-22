@@ -116,7 +116,7 @@ namespace Models
 
 
     protected:
-      // The specification code.
+      // The instance type code.
       shared_ptr<string> classCode_ {};
       // The number of CPU cores.
       shared_ptr<int64_t> cpuCores_ {};
@@ -151,7 +151,7 @@ namespace Models
 
 
   protected:
-    // The list of instance specifications.
+    // The list of instance types.
     shared_ptr<vector<DescribeAllDBInstanceClassResponseBody::ClassCodeList>> classCodeList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

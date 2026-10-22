@@ -117,21 +117,21 @@ namespace Models
 
 
   protected:
-    // An array of slow query statistics, grouped by database.
+    // The slow query information by database.
     Darabonba::Json byDatabase_ {};
-    // An array of slow query statistics, grouped by time bucket.
+    // The slow query information by time bucket.
     Darabonba::Json byTimeBucket_ {};
-    // An array of slow query statistics, grouped by user.
+    // The slow query information by user.
     Darabonba::Json byUser_ {};
-    // The percentile statistics for query latency.
+    // The query latency percentile information.
     Darabonba::Json percentiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The summary of slow query statistics.
+    // The summary information.
     Darabonba::Json summary_ {};
-    // An array of detailed audit records for the top N slow queries.
+    // The audit information of the top N slow queries.
     Darabonba::Json topQueries_ {};
-    // An array of statistics for the top N slow queries, grouped by SQL digest. Available for kernel version 5.0 and later.
+    // The classification information of the top N slow query fingerprints. Supported by kernel version 5.0 and later.
     Darabonba::Json topSqlDigests_ {};
   };
 

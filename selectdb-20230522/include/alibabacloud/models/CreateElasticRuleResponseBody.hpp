@@ -105,13 +105,13 @@ namespace Models
 
 
     protected:
-      // The target compute resource specification for the cluster.
+      // The target compute resource rule of the cluster.
       shared_ptr<string> clusterClass_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // The start time of the time-based elastic scaling rule.
+      // The start time of the time-based elastic rule. The time is in the HH:mm format.
       shared_ptr<string> elasticRuleStartTime_ {};
       // The execution period.
       shared_ptr<string> executionPeriod_ {};

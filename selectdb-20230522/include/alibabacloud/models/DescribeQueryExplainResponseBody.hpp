@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The Explain result.
+    // The EXPLAIN result.
     shared_ptr<string> explainResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The SQL statement for which the execution plan is retrieved. Excessively long SQL statements in audit logs may be truncated.
+    // The SQL statement for which the execution plan is queried. Overly long SQL statements in audit logs may be truncated.
     shared_ptr<string> sql_ {};
   };
 

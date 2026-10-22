@@ -70,7 +70,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The Explain mode.
+    // The EXPLAIN mode.
     shared_ptr<string> mode_ {};
     // The query ID.
     shared_ptr<string> queryId_ {};

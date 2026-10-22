@@ -119,7 +119,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // An array of instance IDs.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
@@ -127,7 +127,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // An array of tags.
+    // The list of tags.
     // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

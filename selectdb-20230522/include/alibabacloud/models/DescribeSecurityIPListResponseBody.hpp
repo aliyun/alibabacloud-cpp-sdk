@@ -105,11 +105,11 @@ namespace Models
       // 
       // - ipv6 (not supported)
       shared_ptr<string> aecurityIPType_ {};
-      // The name of the whitelist.
+      // The name of the whitelist group.
       shared_ptr<string> groupName_ {};
-      // The tag of the whitelist.
+      // The group tag.
       shared_ptr<string> groupTag_ {};
-      // The IP addresses in the whitelist. Multiple IP addresses are separated by commas (,).
+      // The IP address whitelist of the instance. Multiple IP addresses are separated by commas (,).
       shared_ptr<string> securityIPList_ {};
       // The network type of the whitelist.
       shared_ptr<string> whitelistNetType_ {};
@@ -143,7 +143,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The details about each IP address whitelist returned.
+    // The list of whitelist groups.
     shared_ptr<vector<DescribeSecurityIPListResponseBody::GroupItems>> groupItems_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

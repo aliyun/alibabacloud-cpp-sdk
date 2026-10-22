@@ -132,17 +132,18 @@ namespace Models
   protected:
     // The reserved cache size.
     shared_ptr<string> cacheSize_ {};
+    // The number of cluster nodes. This parameter takes effect only in Serverless mode.
     shared_ptr<int32_t> clusterNodeCount_ {};
+    // The cluster node type. This parameter takes effect only in Serverless mode.
     shared_ptr<string> clusterNodeType_ {};
     // The cluster specifications. Valid values:
-    // 
-    // - **selectdb.xlarge**: 4 cores, 32 GB memory.
-    // - **selectdb.2xlarge**: 8 cores, 64 GB memory.
-    // - **selectdb.4xlarge**: 16 cores, 128 GB memory.
-    // - **selectdb.8xlarge**: 32 cores, 256 GB memory.
-    // - **selectdb.16xlarge**: 16 cores, 512 GB memory.
-    // - **selectdb.24xlarge**: 24 cores, 768 GB memory.
-    // - **selectdb.32xlarge**: 32 cores, 1024 GB memory.
+    // - **selectdb.xlarge**: 4 cores and 32 GB.
+    // - **selectdb.2xlarge**: 8 cores and 64 GB.
+    // - **selectdb.4xlarge**: 16 cores and 128 GB.
+    // - **selectdb.8xlarge**: 32 cores and 256 GB.
+    // - **selectdb.16xlarge**: 16 cores and 512 GB.
+    // - **selectdb.24xlarge**: 24 cores and 768 GB.
+    // - **selectdb.32xlarge**: 32 cores and 1024 GB.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterClass_ {};
@@ -154,14 +155,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database type. Set the value to selectdb.
+    // The database engine type. Set the value to selectdb.
     shared_ptr<string> engine_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The maximum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
     shared_ptr<double> scaleMax_ {};
+    // The minimum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
     shared_ptr<double> scaleMin_ {};
   };
 

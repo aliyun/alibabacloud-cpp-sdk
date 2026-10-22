@@ -142,7 +142,7 @@ namespace Models
   protected:
     // The elastic cache space.
     shared_ptr<int64_t> cacheSize_ {};
-    // The billing type.
+    // The billing method.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
@@ -162,6 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
+    // The coupon code.
     shared_ptr<string> promotionOptionNo_ {};
     // The quantity.
     // 

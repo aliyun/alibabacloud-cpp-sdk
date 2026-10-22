@@ -201,33 +201,28 @@ namespace Models
     shared_ptr<string> cacheSize_ {};
     // The billing method of the cluster. Valid values:
     // 
-    // - **Postpaid**: pay-as-you-go.
+    // - **Postpaid**: pay-as-you-go
     // 
-    // - **Prepaid**: subscription.
+    // - **Prepaid**: subscription
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
+    // The number of nodes in the cluster. This parameter takes effect only in Serverless mode.
     shared_ptr<int32_t> clusterNodeCount_ {};
+    // The node type of the cluster. This parameter takes effect only in Serverless mode.
     shared_ptr<string> clusterNodeType_ {};
-    // The instance type of the cluster. Valid values:
-    // 
-    // - **selectdb.xlarge**: 4 cores, 32 GB.
-    // 
-    // - **selectdb.2xlarge**: 8 cores, 64 GB.
-    // 
-    // - **selectdb.4xlarge**: 16 cores, 128 GB.
-    // 
-    // - **selectdb.8xlarge**: 32 cores, 256 GB.
-    // 
-    // - **selectdb.16xlarge**: 64 cores, 512 GB.
-    // 
-    // - **selectdb.24xlarge**: 96 cores, 768 GB.
-    // 
-    // - **selectdb.32xlarge**: 128 cores, 1024 GB.
+    // The cluster specifications. Valid values:
+    // - **selectdb.xlarge**: 4 cores and 32 GB memory
+    // - **selectdb.2xlarge**: 8 cores and 64 GB memory
+    // - **selectdb.4xlarge**: 16 cores and 128 GB memory
+    // - **selectdb.8xlarge**: 32 cores and 256 GB memory
+    // - **selectdb.16xlarge**: 64 cores and 512 GB memory
+    // - **selectdb.24xlarge**: 96 cores and 768 GB memory
+    // - **selectdb.32xlarge**: 128 cores and 1024 GB memory
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterClass_ {};
-    // The description of the cluster.
+    // The cluster description.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterDescription_ {};
@@ -235,34 +230,31 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine type.
+    // The database type.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The database version.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
-    // The billing cycle of the subscription cluster. Valid values:
+    // Specifies whether the subscription cluster is billed on a yearly or monthly basis. Valid values:
     // 
-    // - **Year**: The cluster is billed on a yearly basis.
-    // 
-    // - **Month**: The cluster is billed on a monthly basis.
-    // 
-    // > This parameter is required and takes effect only when **ChargeType** is set to **Prepaid**.
+    // - **Year**: yearly
+    // - **Month**: monthly
+    // > This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
     shared_ptr<string> period_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The maximum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
     shared_ptr<double> scaleMax_ {};
+    // The minimum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
     shared_ptr<double> scaleMin_ {};
-    // The subscription duration of the subscription cluster. Valid values:
-    // 
+    // Specifies the purchase duration of the subscription cluster. The unit is specified by Period: Year indicates years, and Month indicates months. Valid values:
     // - If Period is set to Year, valid values for UsedTime are 1, 2, 3, and 5.
-    // 
-    // - If Period is set to Month, the value of UsedTime can be an integer from 1 to 9.
-    // 
-    // > This parameter is required and takes effect only when ChargeType is set to Prepaid.
+    // - If Period is set to Month, valid values for UsedTime are 1 to 9.
+    // > This parameter takes effect and is required only when ChargeType is set to Prepaid.
     shared_ptr<string> usedTime_ {};
     // The vSwitch ID.
     // 

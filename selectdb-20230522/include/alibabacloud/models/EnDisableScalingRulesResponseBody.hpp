@@ -82,13 +82,7 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // Indicates whether the scheduled scaling policy is enabled.
-      // 
-      // Valid values:
-      // 
-      // - true
-      // 
-      // - false
+      // Indicates whether the time-based elastic scaling rule is enabled.
       shared_ptr<bool> scalingRulesEnable_ {};
     };
 
@@ -111,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<EnDisableScalingRulesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

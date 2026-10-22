@@ -113,11 +113,11 @@ namespace Models
 
 
   protected:
-    // The list of results.
+    // The result list.
     shared_ptr<vector<DescribeZonesResponseBody::Items>> items_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. If this parameter is empty, all results have been returned.
+    // The token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

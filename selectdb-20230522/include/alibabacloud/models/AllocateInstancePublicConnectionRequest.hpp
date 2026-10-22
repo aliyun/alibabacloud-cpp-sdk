@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The prefix of the endpoint. Set the parameter to the prefix of the value of **ConnectionString**.
+    // The prefix of the target endpoint, which is the prefix part of the **ConnectionString** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> connectionStringPrefix_ {};
@@ -83,11 +83,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type of the endpoint to be applied for. Set the value to Public.
+    // The network type of the new endpoint. Set the value to Public.
     // 
     // This parameter is required.
     shared_ptr<string> netType_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

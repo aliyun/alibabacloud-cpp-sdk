@@ -148,7 +148,7 @@ namespace Models
       protected:
         // The zone description.
         shared_ptr<string> description_ {};
-        // Indicates whether the VPC is disabled.
+        // Indicates whether the zone is disabled.
         shared_ptr<bool> disabled_ {};
         // The label.
         shared_ptr<string> label_ {};
@@ -158,9 +158,9 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The subdomain.
         shared_ptr<string> subDomain_ {};
-        // Indicates whether the VPC is enabled.
+        // Indicates whether VPC is enabled.
         shared_ptr<bool> vpcEnabled_ {};
-        // Indicates whether the virtual private cloud (VPC) is available.
+        // Indicates whether VPC is available.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -185,7 +185,7 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // An array of zones.
+      // The list of zones.
       shared_ptr<vector<RegionModelList::Zones>> zones_ {};
     };
 
@@ -208,7 +208,7 @@ namespace Models
 
 
   protected:
-    // An array of regions.
+    // The list of region data.
     shared_ptr<vector<DescribeRegionsResponseBody::RegionModelList>> regionModelList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

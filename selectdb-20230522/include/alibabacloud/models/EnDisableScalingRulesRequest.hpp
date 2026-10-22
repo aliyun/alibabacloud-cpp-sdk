@@ -92,20 +92,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The cloud service.
+    // The cloud service type.
     shared_ptr<string> product_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable the scheduled scaling policy.
-    // 
-    // Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Specifies whether the time-based elastic policy is enabled.
     // 
     // This parameter is required.
     shared_ptr<bool> scalingRulesEnable_ {};

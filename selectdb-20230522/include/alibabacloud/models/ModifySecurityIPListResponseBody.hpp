@@ -105,15 +105,15 @@ namespace Models
   protected:
     // The name of the instance.
     shared_ptr<string> DBInstanceName_ {};
-    // The name of the whitelist.
+    // The name of the whitelist group.
     shared_ptr<string> groupName_ {};
-    // The tag of the whitelist.
+    // The tag of the group.
     shared_ptr<string> groupTag_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IP addresses in the whitelist of the instance. Multiple IP addresses are separated by commas (,).
+    // The IP addresses in the whitelist of the instance. Separate multiple IP addresses with commas (,).
     shared_ptr<string> securityIPList_ {};
-    // The IP address type.
+    // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
     // The task ID.
     shared_ptr<int64_t> taskId_ {};

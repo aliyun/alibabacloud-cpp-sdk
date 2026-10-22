@@ -296,10 +296,15 @@ namespace Models
 
 
       protected:
+        // The name of the FE cluster.
         shared_ptr<string> dbClusterId_ {};
+        // The number of nodes in the FE cluster.
         shared_ptr<int64_t> nodeCount_ {};
+        // The number of CPU cores per node in the FE cluster.
         shared_ptr<int64_t> singleNodeCpuCores_ {};
+        // The memory per node in the FE cluster. Unit: GB.
         shared_ptr<int64_t> singleNodeMemoryInGB_ {};
+        // The status of the FE cluster.
         shared_ptr<string> status_ {};
       };
 
@@ -621,60 +626,54 @@ namespace Models
 
 
     protected:
-      // The instance edition. The default value is basic.
+      // The instance edition. Default value: basic.
       shared_ptr<string> category_ {};
       // The billing method of the instance. Valid values:
-      // 
       // - **Postpaid**: pay-as-you-go
-      // 
       // - **Prepaid**: subscription
       shared_ptr<string> chargeType_ {};
       // The total number of clusters.
       shared_ptr<int32_t> clusterCount_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The deployment mode of the instance:
-      // 
-      // - multi_az: zone-redundant storage.
-      // 
-      // - single_az: locally redundant storage.
+      // The deployment mode of the instance. Valid values:
+      // - multi_az: zone-redundant
+      // - single_az: locally redundant
       shared_ptr<string> deployScheme_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The database type.
+      // The database engine.
       shared_ptr<string> engine_ {};
       // The minor engine version of the instance.
       shared_ptr<string> engineMinorVersion_ {};
-      // The database version.
+      // The database engine version.
       shared_ptr<string> engineVersion_ {};
-      // The expiration time of the cluster.
-      // 
-      // > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, this parameter is empty.
+      // The expiration time of the cluster, in ISO 8601 format with time zone information.
+      // > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, an empty value is returned.
       shared_ptr<string> expireTime_ {};
+      // The list of FE clusters.
       shared_ptr<vector<Items::FEClusterList>> FEClusterList_ {};
       // The time when the task was created (GMT).
       shared_ptr<string> gmtCreated_ {};
-      // The time when the task was last modified (GMT).
+      // The time when the task was modified (GMT).
       shared_ptr<string> gmtModified_ {};
       // The instance usage type.
       shared_ptr<string> instanceUsedType_ {};
       // Indicates whether the instance is deleted. Valid values:
-      // 
       // - **true**: The instance is deleted.
-      // 
-      // - **false**: The instance is not deleted.
+      // - **fasle**: The instance is not deleted.
       shared_ptr<bool> isDeleted_ {};
       // The lock mode of the instance.
       shared_ptr<int64_t> lockMode_ {};
       // The reason why the instance is locked.
       shared_ptr<string> lockReason_ {};
-      // The timestamp that indicates the end of the maintenance window.
+      // The end timestamp of the maintenance window.
       shared_ptr<string> maintainEndTimeStr_ {};
-      // The end time of the maintenance window for the instance.
+      // A reserved parameter that is not currently returned. The time format does not apply.
       shared_ptr<string> maintainEndtime_ {};
-      // The timestamp that indicates the start of the maintenance window.
+      // The start timestamp of the maintenance window.
       shared_ptr<string> maintainStartTimeStr_ {};
-      // The start time of the maintenance window for the instance.
+      // A reserved parameter that is not currently returned. The time format does not apply.
       shared_ptr<string> maintainStarttime_ {};
       // The multi-zone configuration.
       shared_ptr<vector<Items::MultiZone>> multiZone_ {};
@@ -684,43 +683,42 @@ namespace Models
       shared_ptr<string> parentInstance_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The allocated CPU for the resource.
+      // The CPU resources.
       shared_ptr<int64_t> resourceCpu_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The memory size.
+      // The memory resources.
       shared_ptr<int64_t> resourceMemory_ {};
-      // The maximum number of RDS Capacity Units (RCUs) for the instance.
+      // The maximum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
       shared_ptr<int64_t> scaleMax_ {};
-      // The minimum number of RDS Capacity Units (RCUs) for the instance.
+      // The minimum number of RDS capacity units (RCUs) in the automatic scaling range of the instance.
       shared_ptr<int64_t> scaleMin_ {};
-      // This field is redundant.
+      // The redundant field.
       shared_ptr<int64_t> scaleReplica_ {};
       // Indicates whether the instance is a serverless instance.
       shared_ptr<bool> serverless_ {};
-      // The state of the instance. Valid values:
+      // The status of the instance. Valid values:
+      // - **CREATING**: Creating.
       // 
-      // - **CREATING**: The instance is being created.
+      // - **ACTIVATION**: Running.
       // 
-      // - **ACTIVATION**: The instance is running.
+      // - **RESOURCE_CHANGING**: Changing specifications.
       // 
-      // - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+      // - **ORDER_PREPARING**: Confirming the order.
       // 
-      // - **ORDER_PREPARING**: The order is being confirmed.
+      // - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for writing).
       // 
-      // - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
-      // 
-      // - **DELETING**: The instance is being deleted.
+      // - **DELETING**: Deleting.
       shared_ptr<string> status_ {};
       // The storage capacity.
       shared_ptr<int64_t> storageSize_ {};
-      // The storage class of the instance.
+      // The instance storage type.
       shared_ptr<string> storageType_ {};
-      // The list of tags of the instance.
+      // The instance tags.
       shared_ptr<vector<Items::Tags>> tags_ {};
       // The ID of the Prometheus monitoring cluster.
       shared_ptr<string> tenantClusterId_ {};
-      // The token for connecting to Prometheus monitoring.
+      // The access token for Prometheus monitoring.
       shared_ptr<string> tenantToken_ {};
       // The user account label for Prometheus monitoring.
       shared_ptr<string> tenantUserId_ {};
@@ -730,7 +728,7 @@ namespace Models
       shared_ptr<string> vswitchId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The connection address.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
     };
 
@@ -776,19 +774,16 @@ namespace Models
   protected:
     // The list of instance details.
     shared_ptr<vector<DescribeDBInstancesResponseBody::Items>> items_ {};
-    // The number of entries to return per page. Valid values:
-    // 
-    // - **30** (default value)
-    // 
+    // The number of entries per page. Valid values:
+    // - **30** (default)
     // - **50**
-    // 
     // - **100**
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page number.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

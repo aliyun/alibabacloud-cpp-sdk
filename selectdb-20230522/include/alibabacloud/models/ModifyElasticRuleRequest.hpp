@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The rule for computing resources of the required cluster.
+    // The target compute resource rule for the cluster.
     shared_ptr<string> clusterClass_ {};
     // The cluster ID.
     // 
@@ -122,15 +122,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The time when you want to execute the scheduled scaling rule.
+    // The start time of the time-based elastic rule. The time is in the HH:mm format.
     shared_ptr<string> elasticRuleStartTime_ {};
-    // The execution cycle.
-    // 
-    // Valid value:
-    // 
-    // - Day
+    // The execution period.
     shared_ptr<string> executionPeriod_ {};
-    // The cloud service.
+    // The cloud service type.
     shared_ptr<string> product_ {};
     // The region ID.
     // 
