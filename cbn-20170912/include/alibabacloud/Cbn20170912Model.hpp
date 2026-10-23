@@ -233,6 +233,9 @@
 #include <alibabacloud/models/DescribeTransitRouteTableAggregationDetailRequest.hpp>
 #include <alibabacloud/models/DescribeTransitRouteTableAggregationDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeTransitRouteTableAggregationDetailResponse.hpp>
+#include <alibabacloud/models/DescribeTransitRouterCapacityReservationsRequest.hpp>
+#include <alibabacloud/models/DescribeTransitRouterCapacityReservationsResponseBody.hpp>
+#include <alibabacloud/models/DescribeTransitRouterCapacityReservationsResponse.hpp>
 #include <alibabacloud/models/DetachCenChildInstanceRequest.hpp>
 #include <alibabacloud/models/DetachCenChildInstanceResponseBody.hpp>
 #include <alibabacloud/models/DetachCenChildInstanceResponse.hpp>
@@ -357,6 +360,10 @@
 #include <alibabacloud/models/ModifyTransitRouteTableAggregationShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyTransitRouteTableAggregationResponseBody.hpp>
 #include <alibabacloud/models/ModifyTransitRouteTableAggregationResponse.hpp>
+#include <alibabacloud/models/ModifyTransitRouterCapacityReservationsRequest.hpp>
+#include <alibabacloud/models/ModifyTransitRouterCapacityReservationsShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyTransitRouterCapacityReservationsResponseBody.hpp>
+#include <alibabacloud/models/ModifyTransitRouterCapacityReservationsResponse.hpp>
 #include <alibabacloud/models/ModifyTransitRouterCidrRequest.hpp>
 #include <alibabacloud/models/ModifyTransitRouterCidrResponseBody.hpp>
 #include <alibabacloud/models/ModifyTransitRouterCidrResponse.hpp>

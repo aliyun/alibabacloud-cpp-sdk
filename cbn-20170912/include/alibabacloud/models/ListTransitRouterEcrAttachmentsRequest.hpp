@@ -90,15 +90,15 @@ namespace Models
     protected:
       // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
       // 
       // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
       // 
-      // The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https:// `.
       // 
-      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
+      // Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -185,17 +185,17 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID.
+    // The Cloud Enterprise Network (CEN) instance ID. If you specify this parameter, you must also specify RegionId.
     shared_ptr<string> cenId_ {};
-    // The number of entries per page for a paged query. Default value: **20**.
+    // The number of entries to return per page. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values: 
-    // - If **NextToken** is empty, no next query exists. 
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token used to start the next query. Valid values: 
+    // - If **NextToken** is empty, no next query is available. 
+    // - If **NextToken** returns a value, the value is the token used to start the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the transit router instance.
+    // The region ID of the transit router. If you specify this parameter, you must also specify CenId.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
@@ -205,7 +205,7 @@ namespace Models
     // 
     // You can specify up to 20 tags at a time.
     shared_ptr<vector<ListTransitRouterEcrAttachmentsRequest::Tag>> tag_ {};
-    // The ECR connection ID.
+    // The ID of the ECR connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};

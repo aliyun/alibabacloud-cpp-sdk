@@ -155,9 +155,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether IGMP is enabled for the multicast domain.
+        // Specifies whether the Internet Group Management Protocol (IGMP) feature is enabled for the multicast domain.
         shared_ptr<string> igmpv2Support_ {};
-        // Indicates whether strict multicast source control is enabled for the multicast domain.
+        // Specifies whether the strict multicast source control feature is enabled for the multicast domain.
         shared_ptr<string> strictSourceControl_ {};
       };
 
@@ -248,7 +248,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<TransitRouterMulticastDomains::Tags>> tags_ {};
-      // The transit router instance ID.
+      // The ID of the transit router instance, which is used to forward traffic and manage routing.
       shared_ptr<string> transitRouterId_ {};
       // The description of the multicast domain.
       shared_ptr<string> transitRouterMulticastDomainDescription_ {};
@@ -298,16 +298,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
-    // 
-    // - If **NextToken** is empty, no next query exists.
+    // The token that is used for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is to be sent.
     // - If **NextToken** is returned, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The list of multicast domains.
     shared_ptr<vector<ListTransitRouterMulticastDomainsResponseBody::TransitRouterMulticastDomains>> transitRouterMulticastDomains_ {};

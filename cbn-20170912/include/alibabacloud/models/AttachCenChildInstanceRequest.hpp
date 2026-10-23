@@ -116,27 +116,27 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the network instance to attach.
+    // The ID of the network instance to be attached.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
     // The Alibaba Cloud account ID to which the network instance belongs.
     // 
-    // >This parameter is required if you want to attach a cross-account network instance.
+    // > This parameter is required if you want to load a cross-account network instance.
     shared_ptr<int64_t> childInstanceOwnerId_ {};
-    // The region of the network instance.
+    // The region ID of the network instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **VPC**: virtual private cloud.
+    // - **VPC**: VPC.
     // 
-    // - **VBR**: border router.
+    // - **VBR**: VBR.
     // 
-    // - **CCN**: Cloud Connect Network.
+    // - **CCN**: CCN.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
