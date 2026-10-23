@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // A unique token used to ensure the idempotence of the request. The client generates this value. It must be unique among different requests and cannot exceed 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // The name, index patterns, and configuration of the index template to be updated.
     shared_ptr<string> body_ {};
   };
 

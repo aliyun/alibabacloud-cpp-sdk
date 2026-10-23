@@ -224,14 +224,23 @@ namespace Models
 
 
         protected:
+          // The number of completed nodes in the sub-phase.
           shared_ptr<int32_t> completeNodeCount_ {};
+          // The end time of the sub-phase. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> endTime_ {};
+          // The exception information for the sub-phase.
           shared_ptr<string> exception_ {};
+          // The time elapsed for the sub-phase, in milliseconds.
           shared_ptr<int64_t> latencyMills_ {};
+          // The total number of nodes involved in the sub-phase.
           shared_ptr<int32_t> nodeCount_ {};
+          // The completion progress of the sub-phase, represented as a percentage string.
           shared_ptr<string> process_ {};
+          // The start time of the sub-phase. The value is a UNIX timestamp in milliseconds.
           shared_ptr<int64_t> startTime_ {};
+          // The current state of the sub-phase.
           shared_ptr<string> stateType_ {};
+          // The name of the sub-phase.
           shared_ptr<string> subState_ {};
         };
 
@@ -311,15 +320,25 @@ namespace Models
 
 
       protected:
+        // The number of completed nodes in the phase.
         shared_ptr<int32_t> completeNodeCount_ {};
+        // The end time of the phase. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
+        // The exception information for the phase.
         shared_ptr<string> exception_ {};
+        // The time elapsed for the phase, in milliseconds.
         shared_ptr<int64_t> latencyMills_ {};
+        // The total number of nodes involved in the phase.
         shared_ptr<int32_t> nodeCount_ {};
+        // The completion progress of the phase, represented as a percentage string.
         shared_ptr<string> process_ {};
+        // The start time of the phase. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
+        // The current state of the phase.
         shared_ptr<string> stateType_ {};
+        // The name of the phase.
         shared_ptr<string> subState_ {};
+        // The list of status details for the sub-phases included in the current phase.
         shared_ptr<vector<StatusInfo::SubStatusInfo>> subStatusInfo_ {};
       };
 
@@ -465,23 +484,38 @@ namespace Models
 
 
     protected:
+      // The name of the operation that triggered the change.
       shared_ptr<string> actionName_ {};
+      // The parameters used for the change.
       Darabonba::Json actionParams_ {};
       shared_ptr<vector<string>> actionResultAccessList_ {};
+      // The end time of the change. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // The ID of the Elasticsearch instance that was changed.
       shared_ptr<string> instanceId_ {};
+      // The instance information after the change, represented as a JSON string.
       shared_ptr<string> metaNow_ {};
+      // The instance information before the change, represented as a JSON string.
       shared_ptr<string> metaOld_ {};
+      // The ID of the Alibaba Cloud account to which the account that triggered the change belongs.
       shared_ptr<string> ownerId_ {};
+      // The progress of the change, represented as a percentage string.
       shared_ptr<string> process_ {};
+      // The field differences before and after the change.
       Darabonba::Json recordDiff_ {};
       shared_ptr<vector<string>> recordIds_ {};
+      // The ID of the request that triggered the change.
       shared_ptr<string> requestId_ {};
+      // The start time of the change. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
+      // The current state of the change.
       shared_ptr<string> stateType_ {};
+      // The list of status details for each phase of the change.
       shared_ptr<vector<Result::StatusInfo>> statusInfo_ {};
+      // The ID of the user that triggered the change.
       shared_ptr<string> userId_ {};
       shared_ptr<string> userInfo_ {};
+      // The type of the account that triggered the change.
       shared_ptr<string> userType_ {};
     };
 
@@ -504,7 +538,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of instance change records.
     shared_ptr<vector<ListActionRecordsResponseBody::Result>> result_ {};
   };
 

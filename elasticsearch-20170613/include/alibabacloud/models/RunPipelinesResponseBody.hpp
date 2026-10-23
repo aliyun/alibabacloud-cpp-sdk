@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned result:
+    // The result. Valid values:
     // 
-    // - true: The deployment was successful.
+    // - true: The deployment succeeded.
     // - false: The deployment failed.
     shared_ptr<bool> result_ {};
   };

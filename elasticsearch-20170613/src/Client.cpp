@@ -639,7 +639,7 @@ CreateComponentIndexResponse Client::createComponentIndex(const string &Instance
 /**
  * @summary Creates a data stream to manage a set of indexes.
  *
- * @description > The data stream name you create must correspond one-to-one with the index pattern in the index template, and the index template must have data stream enabled. For example, if the index pattern in the index template is ds-*, the corresponding data stream name should be ds-.
+ * @description > The name of the data stream that you create must exactly match the index pattern in the index template, and the data stream feature must be enabled for the index template. For example, if the index pattern in the index template is ds-*, the corresponding data stream name must be ds-.
  *
  * @param request CreateDataStreamRequest
  * @param headers map
@@ -675,7 +675,7 @@ CreateDataStreamResponse Client::createDataStreamWithOptions(const string &Insta
 /**
  * @summary Creates a data stream to manage a set of indexes.
  *
- * @description > The data stream name you create must correspond one-to-one with the index pattern in the index template, and the index template must have data stream enabled. For example, if the index pattern in the index template is ds-*, the corresponding data stream name should be ds-.
+ * @description > The name of the data stream that you create must exactly match the index pattern in the index template, and the data stream feature must be enabled for the index template. For example, if the index pattern in the index template is ds-*, the corresponding data stream name must be ds-.
  *
  * @param request CreateDataStreamRequest
  * @return CreateDataStreamResponse
@@ -687,7 +687,7 @@ CreateDataStreamResponse Client::createDataStream(const string &InstanceId, cons
 }
 
 /**
- * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, replaces it and increments the version.
+ * @summary Creates an index lifecycle policy. If the specified policy name already exists, the existing policy is replaced and its version is incremented.
  *
  * @param request CreateILMPolicyRequest
  * @param headers map
@@ -721,7 +721,7 @@ CreateILMPolicyResponse Client::createILMPolicyWithOptions(const string &Instanc
 }
 
 /**
- * @summary Creates an index lifecycle policy. If a policy with the specified name already exists, replaces it and increments the version.
+ * @summary Creates an index lifecycle policy. If the specified policy name already exists, the existing policy is replaced and its version is incremented.
  *
  * @param request CreateILMPolicyRequest
  * @return CreateILMPolicyResponse
@@ -941,7 +941,7 @@ CreatePipelinesResponse Client::createPipelines(const string &InstanceId, const 
 }
 
 /**
- * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
+ * @summary Creates a manual snapshot backup for a cluster.
  *
  * @param request CreateSnapshotRequest
  * @param headers map
@@ -975,7 +975,7 @@ CreateSnapshotResponse Client::createSnapshotWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Calls CreateSnapshot to manually create a snapshot backup of a cluster.
+ * @summary Creates a manual snapshot backup for a cluster.
  *
  * @param request CreateSnapshotRequest
  * @return CreateSnapshotResponse
@@ -1050,7 +1050,7 @@ CreateVpcEndpointResponse Client::createVpcEndpoint(const string &InstanceId, co
 }
 
 /**
- * @summary Takes specified zones offline when multiple zones are available, and migrates nodes from the offline zones to other zones.
+ * @summary Takes some zones offline when multiple zones are available, and migrates the nodes in the offlined zones to other zones.
  *
  * @param request DeactivateZonesRequest
  * @param headers map
@@ -1084,7 +1084,7 @@ DeactivateZonesResponse Client::deactivateZonesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Takes specified zones offline when multiple zones are available, and migrates nodes from the offline zones to other zones.
+ * @summary Takes some zones offline when multiple zones are available, and migrates the nodes in the offlined zones to other zones.
  *
  * @param request DeactivateZonesRequest
  * @return DeactivateZonesResponse
@@ -1741,7 +1741,7 @@ DescribeAckOperatorResponse Client::describeAckOperator(const string &ClusterId)
 }
 
 /**
- * @summary Retrieves the details of a collector instance.
+ * @summary Queries the details of a collector instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1766,7 +1766,7 @@ DescribeCollectorResponse Client::describeCollectorWithOptions(const string &Res
 }
 
 /**
- * @summary Retrieves the details of a collector instance.
+ * @summary Queries the details of a collector instance.
  *
  * @return DescribeCollectorResponse
  */
@@ -1898,7 +1898,7 @@ DescribeDeprecatedTemplateResponse Client::describeDeprecatedTemplate(const stri
 }
 
 /**
- * @summary Queries historical reports of intelligent O&M diagnostics.
+ * @summary Queries the historical reports of intelligent O&M.
  *
  * @param request DescribeDiagnoseReportRequest
  * @param headers map
@@ -1931,7 +1931,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReportWithOptions(const s
 }
 
 /**
- * @summary Queries historical reports of intelligent O&M diagnostics.
+ * @summary Queries the historical reports of intelligent O&M.
  *
  * @param request DescribeDiagnoseReportRequest
  * @return DescribeDiagnoseReportResponse
@@ -1943,7 +1943,7 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReport(const string &Inst
 }
 
 /**
- * @summary Calls DescribeDiagnosisSettings to retrieve the scenario settings of intelligent diagnosis and optimization.
+ * @summary Queries the scenario settings for intelligent O&M.
  *
  * @param request DescribeDiagnosisSettingsRequest
  * @param headers map
@@ -1976,7 +1976,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettingsWithOptions(c
 }
 
 /**
- * @summary Calls DescribeDiagnosisSettings to retrieve the scenario settings of intelligent diagnosis and optimization.
+ * @summary Queries the scenario settings for intelligent O&M.
  *
  * @param request DescribeDiagnosisSettingsRequest
  * @return DescribeDiagnosisSettingsResponse
@@ -1988,7 +1988,7 @@ DescribeDiagnosisSettingsResponse Client::describeDiagnosisSettings(const string
 }
 
 /**
- * @summary Retrieves dynamic metrics of a cluster.
+ * @summary Retrieves the dynamic metrics of a cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +2013,7 @@ DescribeDynamicSettingsResponse Client::describeDynamicSettingsWithOptions(const
 }
 
 /**
- * @summary Retrieves dynamic metrics of a cluster.
+ * @summary Retrieves the dynamic metrics of a cluster.
  *
  * @return DescribeDynamicSettingsResponse
  */
@@ -2106,7 +2106,7 @@ DescribeILMPolicyResponse Client::describeILMPolicy(const string &InstanceId, co
 }
 
 /**
- * @summary Returns information about an index template.
+ * @summary Retrieves information about an index template.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2131,7 +2131,7 @@ DescribeIndexTemplateResponse Client::describeIndexTemplateWithOptions(const str
 }
 
 /**
- * @summary Returns information about an index template.
+ * @summary Retrieves information about an index template.
  *
  * @return DescribeIndexTemplateResponse
  */
@@ -2697,7 +2697,7 @@ EstimatedLogstashRestartTimeResponse Client::estimatedLogstashRestartTime(const 
 }
 
 /**
- * @summary Retrieves the estimated time for an instance restart.
+ * @summary Retrieves the estimated restart time of an instance.
  *
  * @param request EstimatedRestartTimeRequest
  * @param headers map
@@ -2731,7 +2731,7 @@ EstimatedRestartTimeResponse Client::estimatedRestartTimeWithOptions(const strin
 }
 
 /**
- * @summary Retrieves the estimated time for an instance restart.
+ * @summary Retrieves the estimated restart time of an instance.
  *
  * @param request EstimatedRestartTimeRequest
  * @return EstimatedRestartTimeResponse
@@ -2743,7 +2743,7 @@ EstimatedRestartTimeResponse Client::estimatedRestartTime(const string &Instance
 }
 
 /**
- * @summary Retrieves index migration data information.
+ * @summary Retrieves the index migration data information.
  *
  * @param request GetClusterDataInformationRequest
  * @param headers map
@@ -2771,7 +2771,7 @@ GetClusterDataInformationResponse Client::getClusterDataInformationWithOptions(c
 }
 
 /**
- * @summary Retrieves index migration data information.
+ * @summary Retrieves the index migration data information.
  *
  * @param request GetClusterDataInformationRequest
  * @return GetClusterDataInformationResponse
@@ -2783,7 +2783,7 @@ GetClusterDataInformationResponse Client::getClusterDataInformation(const GetClu
 }
 
 /**
- * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+ * @summary Retrieves the elastic scaling rules for a cluster. Elastic nodes must be purchased when the instance is created.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2808,7 +2808,7 @@ GetElastictaskResponse Client::getElastictaskWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+ * @summary Retrieves the elastic scaling rules for a cluster. Elastic nodes must be purchased when the instance is created.
  *
  * @return GetElastictaskResponse
  */
@@ -2876,7 +2876,7 @@ GetEmonAlarmRecordStatisticsDistributeResponse Client::getEmonAlarmRecordStatist
 }
 
 /**
- * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
+ * @summary Retrieves the list of Grafana alerts.
  *
  * @param request GetEmonGrafanaAlertsRequest
  * @param headers map
@@ -2909,7 +2909,7 @@ GetEmonGrafanaAlertsResponse Client::getEmonGrafanaAlertsWithOptions(const strin
 }
 
 /**
- * @summary Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
+ * @summary Retrieves the list of Grafana alerts.
  *
  * @param request GetEmonGrafanaAlertsRequest
  * @return GetEmonGrafanaAlertsResponse
@@ -3011,7 +3011,7 @@ GetEmonMonitorDataResponse Client::getEmonMonitorData(const string &ProjectId, c
 }
 
 /**
- * @summary Retrieves keystore information.
+ * @summary Queries the keystore configurations of a specified Elasticsearch instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3036,7 +3036,7 @@ GetKeystoresResponse Client::getKeystoresWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary Retrieves keystore information.
+ * @summary Queries the keystore configurations of a specified Elasticsearch instance.
  *
  * @return GetKeystoresResponse
  */
@@ -3374,7 +3374,7 @@ InitModelResponse Client::initModel(const string &InstanceId, const InitModelReq
 /**
  * @summary Creates a service-linked role.
  *
- * @description > Before using a collector to collect logs from different data sources or performing cluster elastic scaling tasks (applicable to the China site), you must create a service-linked role.
+ * @description > To collect logs from different data sources by using a collector, or to perform cluster elastic scaling tasks (applicable to the China site), you must first authorize the creation of a service-linked role.
  *
  * @param request InitializeOperationRoleRequest
  * @param headers map
@@ -3410,7 +3410,7 @@ InitializeOperationRoleResponse Client::initializeOperationRoleWithOptions(const
 /**
  * @summary Creates a service-linked role.
  *
- * @description > Before using a collector to collect logs from different data sources or performing cluster elastic scaling tasks (applicable to the China site), you must create a service-linked role.
+ * @description > To collect logs from different data sources by using a collector, or to perform cluster elastic scaling tasks (applicable to the China site), you must first authorize the creation of a service-linked role.
  *
  * @param request InitializeOperationRoleRequest
  * @return InitializeOperationRoleResponse
@@ -3422,9 +3422,9 @@ InitializeOperationRoleResponse Client::initializeOperationRole(const Initialize
 }
 
 /**
- * @summary Installs Ack Operator on a specified Container Service cluster.
+ * @summary Installs the ACK Operator on a specified container service cluster.
  *
- * @description > Before installing a collector on an ACK cluster, call this operation to install Elasticsearch Operator on the target cluster.
+ * @description > Before installing a collector on an ACK cluster, you must call this operation to install the Elasticsearch Operator on the destination cluster.
  *
  * @param request InstallAckOperatorRequest
  * @param headers map
@@ -3458,9 +3458,9 @@ InstallAckOperatorResponse Client::installAckOperatorWithOptions(const string &C
 }
 
 /**
- * @summary Installs Ack Operator on a specified Container Service cluster.
+ * @summary Installs the ACK Operator on a specified container service cluster.
  *
- * @description > Before installing a collector on an ACK cluster, call this operation to install Elasticsearch Operator on the target cluster.
+ * @description > Before installing a collector on an ACK cluster, you must call this operation to install the Elasticsearch Operator on the destination cluster.
  *
  * @param request InstallAckOperatorRequest
  * @return InstallAckOperatorResponse
@@ -3472,7 +3472,7 @@ InstallAckOperatorResponse Client::installAckOperator(const string &ClusterId, c
 }
 
 /**
- * @summary Installs preset Kibana plug-ins. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
+ * @summary Installs preset Kibana plugins. The Kibana specifications must be at least 2 vCPUs and 4 GiB of memory.
  *
  * @param request InstallKibanaSystemPluginRequest
  * @param headers map
@@ -3506,7 +3506,7 @@ InstallKibanaSystemPluginResponse Client::installKibanaSystemPluginWithOptions(c
 }
 
 /**
- * @summary Installs preset Kibana plug-ins. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
+ * @summary Installs preset Kibana plugins. The Kibana specifications must be at least 2 vCPUs and 4 GiB of memory.
  *
  * @param request InstallKibanaSystemPluginRequest
  * @return InstallKibanaSystemPluginResponse
@@ -3521,7 +3521,7 @@ InstallKibanaSystemPluginResponse Client::installKibanaSystemPlugin(const string
  * @summary Installs system plugins for a specified Logstash instance.
  *
  * @description Before calling this operation, note the following:
- * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
+ * The plugins to be installed must be included in the [default system plugin list](https://help.aliyun.com/document_detail/139626.html) of Alibaba Cloud Logstash. External open-source plugins are not supported.
  *
  * @param request InstallLogstashSystemPluginRequest
  * @param headers map
@@ -3558,7 +3558,7 @@ InstallLogstashSystemPluginResponse Client::installLogstashSystemPluginWithOptio
  * @summary Installs system plugins for a specified Logstash instance.
  *
  * @description Before calling this operation, note the following:
- * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
+ * The plugins to be installed must be included in the [default system plugin list](https://help.aliyun.com/document_detail/139626.html) of Alibaba Cloud Logstash. External open-source plugins are not supported.
  *
  * @param request InstallLogstashSystemPluginRequest
  * @return InstallLogstashSystemPluginResponse
@@ -3570,7 +3570,7 @@ InstallLogstashSystemPluginResponse Client::installLogstashSystemPlugin(const st
 }
 
 /**
- * @summary Installs system plug-ins on an Elasticsearch instance.
+ * @summary Installs system plugins for an Elasticsearch instance.
  *
  * @param request InstallSystemPluginRequest
  * @param headers map
@@ -3604,7 +3604,7 @@ InstallSystemPluginResponse Client::installSystemPluginWithOptions(const string 
 }
 
 /**
- * @summary Installs system plug-ins on an Elasticsearch instance.
+ * @summary Installs system plugins for an Elasticsearch instance.
  *
  * @param request InstallSystemPluginRequest
  * @return InstallSystemPluginResponse
@@ -3616,9 +3616,13 @@ InstallSystemPluginResponse Client::installSystemPlugin(const string &InstanceId
 }
 
 /**
- * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+ * @summary Installs custom user plugins that have been uploaded to the Elasticsearch console.
  *
- * @description > The custom plugin installation feature is undergoing an internal upgrade and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
+ * @description > For instances with the basic management and control (v2) architecture, the custom plugin installation feature is suspended. Instances with the V3 architecture are not affected. If you urgently need to use this feature, submit a ticket.
+ * To install custom plugins, follow these steps:
+ * - Step 1: Call the PluginAnalysis operation to upload the plugin stored in OSS to the custom plugin repository. The plugin is then in the pending installation state.
+ * - Step 2: Call the ListUserPlugin operation to view the information about the plugins pending installation.
+ * - Step 3: Call the InstallUserPlugins operation to install the custom plugins. For the required input parameters of this operation, refer to the response of the ListUserPlugin operation.
  *
  * @param request InstallUserPluginsRequest
  * @param headers map
@@ -3652,9 +3656,13 @@ InstallUserPluginsResponse Client::installUserPluginsWithOptions(const string &I
 }
 
 /**
- * @summary Installs custom plugins that have been uploaded to the Elasticsearch console.
+ * @summary Installs custom user plugins that have been uploaded to the Elasticsearch console.
  *
- * @description > The custom plugin installation feature is undergoing an internal upgrade and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
+ * @description > For instances with the basic management and control (v2) architecture, the custom plugin installation feature is suspended. Instances with the V3 architecture are not affected. If you urgently need to use this feature, submit a ticket.
+ * To install custom plugins, follow these steps:
+ * - Step 1: Call the PluginAnalysis operation to upload the plugin stored in OSS to the custom plugin repository. The plugin is then in the pending installation state.
+ * - Step 2: Call the ListUserPlugin operation to view the information about the plugins pending installation.
+ * - Step 3: Call the InstallUserPlugins operation to install the custom plugins. For the required input parameters of this operation, refer to the response of the ListUserPlugin operation.
  *
  * @param request InstallUserPluginsRequest
  * @return InstallUserPluginsResponse
@@ -4050,7 +4058,7 @@ ListAckNamespacesResponse Client::listAckNamespaces(const string &ClusterId, con
 }
 
 /**
- * @summary Release notes Change details.
+ * @summary Queries change records and change details.
  *
  * @param request ListActionRecordsRequest
  * @param headers map
@@ -4111,7 +4119,7 @@ ListActionRecordsResponse Client::listActionRecordsWithOptions(const string &Ins
 }
 
 /**
- * @summary Release notes Change details.
+ * @summary Queries change records and change details.
  *
  * @param request ListActionRecordsRequest
  * @return ListActionRecordsResponse
@@ -4647,7 +4655,7 @@ ListDiagnoseIndicesResponse Client::listDiagnoseIndices(const string &InstanceId
 }
 
 /**
- * @summary Retrieves historical reports of intelligent O&M diagnostics.
+ * @summary Retrieves historical reports of intelligent O&M.
  *
  * @param request ListDiagnoseReportRequest
  * @param headers map
@@ -4704,7 +4712,7 @@ ListDiagnoseReportResponse Client::listDiagnoseReportWithOptions(const string &I
 }
 
 /**
- * @summary Retrieves historical reports of intelligent O&M diagnostics.
+ * @summary Retrieves historical reports of intelligent O&M.
  *
  * @param request ListDiagnoseReportRequest
  * @return ListDiagnoseReportResponse
@@ -4936,9 +4944,9 @@ ListDictsResponse Client::listDicts(const string &InstanceId, const ListDictsReq
 }
 
 /**
- * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
+ * @summary Queries a list of ECS instances in the VPC and vSwitch of the current user.
  *
- * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * @description >Notice:  Before you call this API operation, you must create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole system service roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
  *
  * @param request ListEcsInstancesRequest
  * @param headers map
@@ -4991,9 +4999,9 @@ ListEcsInstancesResponse Client::listEcsInstancesWithOptions(const ListEcsInstan
 }
 
 /**
- * @summary Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
+ * @summary Queries a list of ECS instances in the VPC and vSwitch of the current user.
  *
- * @description >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+ * @description >Notice:  Before you call this API operation, you must create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole system service roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
  *
  * @param request ListEcsInstancesRequest
  * @return ListEcsInstancesResponse
@@ -5204,7 +5212,7 @@ ListIndexTemplatesResponse Client::listIndexTemplates(const string &InstanceId, 
 }
 
 /**
- * @summary Retrieves a list of Elasticsearch instances.
+ * @summary Queries a list of Elasticsearch instances.
  *
  * @param request ListInstanceRequest
  * @param headers map
@@ -5281,7 +5289,7 @@ ListInstanceResponse Client::listInstanceWithOptions(const ListInstanceRequest &
 }
 
 /**
- * @summary Retrieves a list of Elasticsearch instances.
+ * @summary Queries a list of Elasticsearch instances.
  *
  * @param request ListInstanceRequest
  * @return ListInstanceResponse
@@ -5293,7 +5301,7 @@ ListInstanceResponse Client::listInstance(const ListInstanceRequest &request) {
 }
 
 /**
- * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
+ * @summary Queries the list of hardware O&M events triggered for an Elasticsearch cluster.
  *
  * @param tmpReq ListInstanceHistoryEventsRequest
  * @param headers map
@@ -5389,7 +5397,7 @@ ListInstanceHistoryEventsResponse Client::listInstanceHistoryEventsWithOptions(c
 }
 
 /**
- * @summary Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
+ * @summary Queries the list of hardware O&M events triggered for an Elasticsearch cluster.
  *
  * @param request ListInstanceHistoryEventsRequest
  * @return ListInstanceHistoryEventsResponse
@@ -5401,9 +5409,9 @@ ListInstanceHistoryEventsResponse Client::listInstanceHistoryEvents(const ListIn
 }
 
 /**
- * @summary Filters system indexes from the index list of a cluster.
+ * @summary Queries the list of indices in a cluster.
  *
- * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have indexing service enabled. We recommend that you use the Elasticsearch API to query index information. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
+ * @description The ListInstanceIndices operation applies only to Elasticsearch instances with the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
  *
  * @param request ListInstanceIndicesRequest
  * @param headers map
@@ -5456,9 +5464,9 @@ ListInstanceIndicesResponse Client::listInstanceIndicesWithOptions(const string 
 }
 
 /**
- * @summary Filters system indexes from the index list of a cluster.
+ * @summary Queries the list of indices in a cluster.
  *
- * @description The ListInstanceIndices operation is applicable only to Elasticsearch instances that have indexing service enabled. We recommend that you use the Elasticsearch API to query index information. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
+ * @description The ListInstanceIndices operation applies only to Elasticsearch instances with the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
  *
  * @param request ListInstanceIndicesRequest
  * @return ListInstanceIndicesResponse
@@ -5519,7 +5527,7 @@ ListKibanaPluginsResponse Client::listKibanaPlugins(const string &InstanceId, co
 }
 
 /**
- * @summary Queries the details of the Kibana private network connection.
+ * @summary Invokes ListKibanaPvlNetwork to query the details of Kibana private network access.
  *
  * @description This API operation supports only cloud-native instances.
  *
@@ -5546,7 +5554,7 @@ ListKibanaPvlNetworkResponse Client::listKibanaPvlNetworkWithOptions(const strin
 }
 
 /**
- * @summary Queries the details of the Kibana private network connection.
+ * @summary Invokes ListKibanaPvlNetwork to query the details of Kibana private network access.
  *
  * @description This API operation supports only cloud-native instances.
  *
@@ -5559,7 +5567,7 @@ ListKibanaPvlNetworkResponse Client::listKibanaPvlNetwork(const string &Instance
 }
 
 /**
- * @summary Displays the details of all or specified Logstash instances in a list.
+ * @summary Queries the details of all or specified Logstash instances.
  *
  * @param request ListLogstashRequest
  * @param headers map
@@ -5616,7 +5624,7 @@ ListLogstashResponse Client::listLogstashWithOptions(const ListLogstashRequest &
 }
 
 /**
- * @summary Displays the details of all or specified Logstash instances in a list.
+ * @summary Queries the details of all or specified Logstash instances.
  *
  * @param request ListLogstashRequest
  * @return ListLogstashResponse
@@ -5811,7 +5819,7 @@ ListNodesResponse Client::listNodes(const string &ResId, const ListNodesRequest 
 }
 
 /**
- * @summary Retrieves the pipeline list of a Logstash instance.
+ * @summary Retrieves the list of Logstash pipelines.
  *
  * @param request ListPipelineRequest
  * @param headers map
@@ -5852,7 +5860,7 @@ ListPipelineResponse Client::listPipelineWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary Retrieves the pipeline list of a Logstash instance.
+ * @summary Retrieves the list of Logstash pipelines.
  *
  * @param request ListPipelineRequest
  * @return ListPipelineResponse
@@ -6115,7 +6123,7 @@ ListSnapshotReposByInstanceIdResponse Client::listSnapshotReposByInstanceId(cons
 }
 
 /**
- * @summary Queries statistics on event records.
+ * @summary Aggregates event records.
  *
  * @param request ListStatsEventRecordsRequest
  * @param headers map
@@ -6164,7 +6172,7 @@ ListStatsEventRecordsResponse Client::listStatsEventRecordsWithOptions(const Lis
 }
 
 /**
- * @summary Queries statistics on event records.
+ * @summary Aggregates event records.
  *
  * @param request ListStatsEventRecordsRequest
  * @return ListStatsEventRecordsResponse
@@ -6343,7 +6351,7 @@ ListUserPluginResponse Client::listUserPlugin(const string &instanceId, const Li
 }
 
 /**
- * @summary Queries the endpoint status in the VPC of the service account.
+ * @summary Queries the status of endpoints in the VPC of the service account.
  *
  * @param request ListVpcEndpointsRequest
  * @param headers map
@@ -6380,7 +6388,7 @@ ListVpcEndpointsResponse Client::listVpcEndpointsWithOptions(const string &Insta
 }
 
 /**
- * @summary Queries the endpoint status in the VPC of the service account.
+ * @summary Queries the status of endpoints in the VPC of the service account.
  *
  * @param request ListVpcEndpointsRequest
  * @return ListVpcEndpointsResponse
@@ -6392,11 +6400,11 @@ ListVpcEndpointsResponse Client::listVpcEndpoints(const string &InstanceId, cons
 }
 
 /**
- * @summary Migrates nodes in a specified zone to a target zone.
+ * @summary Migrates nodes in a zone to a destination zone.
  *
- * @description When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, ensure the following:
- * - Your account has a zone with sufficient resources.
- *    After migrating nodes of the current specifications to another zone, you need to manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order (for example, between cn-hangzhou-e and cn-hangzhou-h, select cn-hangzhou-h).
+ * @description When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can migrate nodes to another zone to resolve the issue. Before you call this operation, make sure that the following requirements are met:
+ * - Your account has zones with sufficient resources.
+ *    After you migrate nodes of the current instance type to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to prevent cluster upgrade failures. Select a new zone whose letter suffix is later in alphabetical order. For example, if you choose between the cn-hangzhou-e and cn-hangzhou-h zones, select cn-hangzhou-h.
  * - The cluster is in a healthy state.
  *    You can run the `GET _cat/health?v` command to check the cluster health status.
  *
@@ -6432,11 +6440,11 @@ MigrateToOtherZoneResponse Client::migrateToOtherZoneWithOptions(const string &I
 }
 
 /**
- * @summary Migrates nodes in a specified zone to a target zone.
+ * @summary Migrates nodes in a zone to a destination zone.
  *
- * @description When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, ensure the following:
- * - Your account has a zone with sufficient resources.
- *    After migrating nodes of the current specifications to another zone, you need to manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order (for example, between cn-hangzhou-e and cn-hangzhou-h, select cn-hangzhou-h).
+ * @description When you upgrade an instance and encounter insufficient inventory for the instance type in the current zone, you can migrate nodes to another zone to resolve the issue. Before you call this operation, make sure that the following requirements are met:
+ * - Your account has zones with sufficient resources.
+ *    After you migrate nodes of the current instance type to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration process. Therefore, select a zone with sufficient resources to prevent cluster upgrade failures. Select a new zone whose letter suffix is later in alphabetical order. For example, if you choose between the cn-hangzhou-e and cn-hangzhou-h zones, select cn-hangzhou-h.
  * - The cluster is in a healthy state.
  *    You can run the `GET _cat/health?v` command to check the cluster health status.
  *
@@ -6450,7 +6458,7 @@ MigrateToOtherZoneResponse Client::migrateToOtherZone(const string &InstanceId, 
 }
 
 /**
- * @summary Updates the ECS instances on which a collector is installed.
+ * @summary Updates an ECS instance on which a collector is installed.
  *
  * @param request ModifyDeployMachineRequest
  * @param headers map
@@ -6484,7 +6492,7 @@ ModifyDeployMachineResponse Client::modifyDeployMachineWithOptions(const string 
 }
 
 /**
- * @summary Updates the ECS instances on which a collector is installed.
+ * @summary Updates an ECS instance on which a collector is installed.
  *
  * @param request ModifyDeployMachineRequest
  * @return ModifyDeployMachineResponse
@@ -6496,7 +6504,7 @@ ModifyDeployMachineResponse Client::modifyDeployMachine(const string &ResId, con
 }
 
 /**
- * @summary Updates the elastic scaling rules for a cluster.
+ * @summary Updates the elastic scaling rules of a cluster.
  *
  * @param request ModifyElastictaskRequest
  * @param headers map
@@ -6524,7 +6532,7 @@ ModifyElastictaskResponse Client::modifyElastictaskWithOptions(const string &Ins
 }
 
 /**
- * @summary Updates the elastic scaling rules for a cluster.
+ * @summary Updates the elastic scaling rules of a cluster.
  *
  * @param request ModifyElastictaskRequest
  * @return ModifyElastictaskResponse
@@ -6722,7 +6730,7 @@ ModifyWhiteIpsResponse Client::modifyWhiteIps(const string &InstanceId, const Mo
 }
 
 /**
- * @summary Modifies the resource group to which an instance belongs.
+ * @summary Modifies the resource group of an instance.
  *
  * @param request MoveResourceGroupRequest
  * @param headers map
@@ -6756,7 +6764,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const string &Ins
 }
 
 /**
- * @summary Modifies the resource group to which an instance belongs.
+ * @summary Modifies the resource group of an instance.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse
@@ -6868,7 +6876,7 @@ OpenHttpsResponse Client::openHttps(const string &InstanceId, const OpenHttpsReq
 }
 
 /**
- * @summary Uploads a custom plug-in to the plug-in library. After the upload, the plug-in is in the pending installation state.
+ * @summary Uploads a custom plugin to the plugin repository. After the upload, the plugin is in the pending installation state.
  *
  * @param request PluginAnalysisRequest
  * @param headers map
@@ -6902,7 +6910,7 @@ PluginAnalysisResponse Client::pluginAnalysisWithOptions(const string &instanceI
 }
 
 /**
- * @summary Uploads a custom plug-in to the plug-in library. After the upload, the plug-in is in the pending installation state.
+ * @summary Uploads a custom plugin to the plugin repository. After the upload, the plugin is in the pending installation state.
  *
  * @param request PluginAnalysisRequest
  * @return PluginAnalysisResponse
@@ -6914,7 +6922,7 @@ PluginAnalysisResponse Client::pluginAnalysis(const string &instanceId, const Pl
 }
 
 /**
- * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+ * @summary Sends a test alert message.
  *
  * @description > This API operation can be called up to 10 times per hour.
  *
@@ -6949,7 +6957,7 @@ PostEmonTryAlarmRuleResponse Client::postEmonTryAlarmRuleWithOptions(const strin
 }
 
 /**
- * @summary Sends a test alert message by calling PostEmonTryAlarmRule.
+ * @summary Sends a test alert message.
  *
  * @description > This API operation can be called up to 10 times per hour.
  *
@@ -7233,7 +7241,7 @@ RestartCollectorResponse Client::restartCollector(const string &ResId, const Res
 /**
  * @summary Restarts an Elasticsearch cluster.
  *
- * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restart. Node restart is classified into normal restart and blue-green restart.
+ * @description > After a restart, the instance enters the activating state. After the restart succeeds, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
  *
  * @param request RestartInstanceRequest
  * @param headers map
@@ -7273,7 +7281,7 @@ RestartInstanceResponse Client::restartInstanceWithOptions(const string &Instanc
 /**
  * @summary Restarts an Elasticsearch cluster.
  *
- * @description > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restart. Node restart is classified into normal restart and blue-green restart.
+ * @description > After a restart, the instance enters the activating state. After the restart succeeds, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
  *
  * @param request RestartInstanceRequest
  * @return RestartInstanceResponse
@@ -7691,7 +7699,7 @@ StopCollectorResponse Client::stopCollector(const string &ResId, const StopColle
 }
 
 /**
- * @summary Stops Logstash pipelines from running.
+ * @summary Stops Logstash pipelines.
  *
  * @param request StopPipelinesRequest
  * @param headers map
@@ -7725,7 +7733,7 @@ StopPipelinesResponse Client::stopPipelinesWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Stops Logstash pipelines from running.
+ * @summary Stops Logstash pipelines.
  *
  * @param request StopPipelinesRequest
  * @return StopPipelinesResponse
@@ -8005,7 +8013,7 @@ TurnOnZoneResponse Client::turnOnZone(const string &instanceId, const TurnOnZone
 }
 
 /**
- * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
+ * @summary Uninstalls Kibana node plug-ins from an Elasticsearch instance.
  *
  * @param request UninstallKibanaPluginRequest
  * @param headers map
@@ -8039,7 +8047,7 @@ UninstallKibanaPluginResponse Client::uninstallKibanaPluginWithOptions(const str
 }
 
 /**
- * @summary Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
+ * @summary Uninstalls Kibana node plug-ins from an Elasticsearch instance.
  *
  * @param request UninstallKibanaPluginRequest
  * @return UninstallKibanaPluginResponse
@@ -8051,7 +8059,7 @@ UninstallKibanaPluginResponse Client::uninstallKibanaPlugin(const string &Instan
 }
 
 /**
- * @summary Uninstalls installed plug-ins from a Logstash instance.
+ * @summary Uninstalls installed plugins from a Logstash instance.
  *
  * @param request UninstallLogstashPluginRequest
  * @param headers map
@@ -8085,7 +8093,7 @@ UninstallLogstashPluginResponse Client::uninstallLogstashPluginWithOptions(const
 }
 
 /**
- * @summary Uninstalls installed plug-ins from a Logstash instance.
+ * @summary Uninstalls installed plugins from a Logstash instance.
  *
  * @param request UninstallLogstashPluginRequest
  * @return UninstallLogstashPluginResponse
@@ -8277,7 +8285,7 @@ UpdateAdminPasswordResponse Client::updateAdminPassword(const string &InstanceId
 }
 
 /**
- * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
+ * @summary Updates the garbage collector configuration for a specified Elasticsearch instance.
  *
  * @param request UpdateAdvancedSettingRequest
  * @param headers map
@@ -8311,7 +8319,7 @@ UpdateAdvancedSettingResponse Client::updateAdvancedSettingWithOptions(const str
 }
 
 /**
- * @summary Changes the garbage collector configuration of a specified Elasticsearch instance.
+ * @summary Updates the garbage collector configuration for a specified Elasticsearch instance.
  *
  * @param request UpdateAdvancedSettingRequest
  * @return UpdateAdvancedSettingResponse
@@ -8323,12 +8331,12 @@ UpdateAdvancedSettingResponse Client::updateAdvancedSetting(const string &Instan
 }
 
 /**
- * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
+ * @summary Updates the dictionary of the AliNLP word segmentation plug-in (analysis-aliws).
  *
- * @description When calling this operation, note the following:
- * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary does not have the ORIGIN configuration, calling this operation will delete the dictionary file.
+ * @description When you call this operation, note the following items:
+ * - Instances of version 5.x do not support the AliNLP word segmentation plug-in.
+ * - If the dictionary file is stored in OSS, make sure that the OSS bucket is publicly readable.
+ * - If you do not specify ORIGIN for an uploaded dictionary, the dictionary file is deleted after you call this operation.
  *
  * @param request UpdateAliwsDictRequest
  * @param headers map
@@ -8362,12 +8370,12 @@ UpdateAliwsDictResponse Client::updateAliwsDictWithOptions(const string &Instanc
 }
 
 /**
- * @summary Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
+ * @summary Updates the dictionary of the AliNLP word segmentation plug-in (analysis-aliws).
  *
- * @description When calling this operation, note the following:
- * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary does not have the ORIGIN configuration, calling this operation will delete the dictionary file.
+ * @description When you call this operation, note the following items:
+ * - Instances of version 5.x do not support the AliNLP word segmentation plug-in.
+ * - If the dictionary file is stored in OSS, make sure that the OSS bucket is publicly readable.
+ * - If you do not specify ORIGIN for an uploaded dictionary, the dictionary file is deleted after you call this operation.
  *
  * @param request UpdateAliwsDictRequest
  * @return UpdateAliwsDictResponse
@@ -8381,7 +8389,7 @@ UpdateAliwsDictResponse Client::updateAliwsDict(const string &InstanceId, const 
 /**
  * @deprecated OpenAPI UpdateBlackIps is deprecated
  *
- * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
+ * @summary Updates the access blacklist of an Elasticsearch instance. **[Deprecated]**
  *
  * @param request UpdateBlackIpsRequest
  * @param headers map
@@ -8416,7 +8424,7 @@ UpdateBlackIpsResponse Client::updateBlackIpsWithOptions(const string &InstanceI
 /**
  * @deprecated OpenAPI UpdateBlackIps is deprecated
  *
- * @summary Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
+ * @summary Updates the access blacklist of an Elasticsearch instance. **[Deprecated]**
  *
  * @param request UpdateBlackIpsRequest
  * @return UpdateBlackIpsResponse
@@ -8474,7 +8482,7 @@ UpdateCollectorResponse Client::updateCollector(const string &ResId, const Updat
 }
 
 /**
- * @summary Calls UpdateCollectorName to modify the name of a collector.
+ * @summary Updates the name of a collector.
  *
  * @param request UpdateCollectorNameRequest
  * @param headers map
@@ -8508,7 +8516,7 @@ UpdateCollectorNameResponse Client::updateCollectorNameWithOptions(const string 
 }
 
 /**
- * @summary Calls UpdateCollectorName to modify the name of a collector.
+ * @summary Updates the name of a collector.
  *
  * @param request UpdateCollectorNameRequest
  * @return UpdateCollectorNameResponse
@@ -8624,7 +8632,7 @@ UpdateDescriptionResponse Client::updateDescription(const string &InstanceId, co
 }
 
 /**
- * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
+ * @summary Modifies the intelligent O&M scenario settings for a specified Elasticsearch instance.
  *
  * @param request UpdateDiagnosisSettingsRequest
  * @param headers map
@@ -8662,7 +8670,7 @@ UpdateDiagnosisSettingsResponse Client::updateDiagnosisSettingsWithOptions(const
 }
 
 /**
- * @summary Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
+ * @summary Modifies the intelligent O&M scenario settings for a specified Elasticsearch instance.
  *
  * @param request UpdateDiagnosisSettingsRequest
  * @return UpdateDiagnosisSettingsResponse
@@ -8676,9 +8684,9 @@ UpdateDiagnosisSettingsResponse Client::updateDiagnosisSettings(const string &In
 /**
  * @summary Updates the user dictionary of an Elasticsearch instance.
  *
- * @description When calling this operation, note the following:
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
+ * @description When you call this operation, take note of the following items:
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket is publicly readable.
+ * - If you do not specify the ORIGIN configuration for an already uploaded dictionary, the dictionary file is deleted after this operation is called.
  *
  * @param request UpdateDictRequest
  * @param headers map
@@ -8714,9 +8722,9 @@ UpdateDictResponse Client::updateDictWithOptions(const string &InstanceId, const
 /**
  * @summary Updates the user dictionary of an Elasticsearch instance.
  *
- * @description When calling this operation, note the following:
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
+ * @description When you call this operation, take note of the following items:
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket is publicly readable.
+ * - If you do not specify the ORIGIN configuration for an already uploaded dictionary, the dictionary file is deleted after this operation is called.
  *
  * @param request UpdateDictRequest
  * @return UpdateDictResponse
@@ -8728,7 +8736,7 @@ UpdateDictResponse Client::updateDict(const string &InstanceId, const UpdateDict
 }
 
 /**
- * @summary Modifies the dynamic configurations of a cluster.
+ * @summary Updates the dynamic configurations of a cluster.
  *
  * @param request UpdateDynamicSettingsRequest
  * @param headers map
@@ -8770,7 +8778,7 @@ UpdateDynamicSettingsResponse Client::updateDynamicSettingsWithOptions(const str
 }
 
 /**
- * @summary Modifies the dynamic configurations of a cluster.
+ * @summary Updates the dynamic configurations of a cluster.
  *
  * @param request UpdateDynamicSettingsRequest
  * @return UpdateDynamicSettingsResponse
@@ -8782,7 +8790,7 @@ UpdateDynamicSettingsResponse Client::updateDynamicSettings(const string &Instan
 }
 
 /**
- * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+ * @summary Updates the scenario-based configuration template for Elasticsearch.
  *
  * @param request UpdateExtendConfigRequest
  * @param headers map
@@ -8816,7 +8824,7 @@ UpdateExtendConfigResponse Client::updateExtendConfigWithOptions(const string &I
 }
 
 /**
- * @summary Modifies the scenario-based configuration template of an Elasticsearch instance.
+ * @summary Updates the scenario-based configuration template for Elasticsearch.
  *
  * @param request UpdateExtendConfigRequest
  * @return UpdateExtendConfigResponse
@@ -8830,7 +8838,8 @@ UpdateExtendConfigResponse Client::updateExtendConfig(const string &InstanceId, 
 /**
  * @summary Updates the extension file configuration of a Logstash instance.
  *
- * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
+ * @description When you call this operation, note the following:
+ * Currently, this operation only supports deleting Logstash extension files uploaded in the console. To add or modify extension files, use the console.
  *
  * @param request UpdateExtendfilesRequest
  * @param headers map
@@ -8866,7 +8875,8 @@ UpdateExtendfilesResponse Client::updateExtendfilesWithOptions(const string &Ins
 /**
  * @summary Updates the extension file configuration of a Logstash instance.
  *
- * @description When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
+ * @description When you call this operation, note the following:
+ * Currently, this operation only supports deleting Logstash extension files uploaded in the console. To add or modify extension files, use the console.
  *
  * @param request UpdateExtendfilesRequest
  * @return UpdateExtendfilesResponse
@@ -9023,7 +9033,7 @@ UpdateILMPolicyResponse Client::updateILMPolicy(const string &InstanceId, const 
 }
 
 /**
- * @summary Modifies the template configuration of an Elasticsearch instance.
+ * @summary Updates the template configuration of an Elasticsearch instance.
  *
  * @param request UpdateIndexTemplateRequest
  * @param headers map
@@ -9057,7 +9067,7 @@ UpdateIndexTemplateResponse Client::updateIndexTemplateWithOptions(const string 
 }
 
 /**
- * @summary Modifies the template configuration of an Elasticsearch instance.
+ * @summary Updates the template configuration of an Elasticsearch instance.
  *
  * @param request UpdateIndexTemplateRequest
  * @return UpdateIndexTemplateResponse
@@ -9069,16 +9079,16 @@ UpdateIndexTemplateResponse Client::updateIndexTemplate(const string &InstanceId
 }
 
 /**
- * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
+ * @summary Upgrades an Elasticsearch cluster by increasing the number of nodes and modifying roles, specifications, and disk configurations.
  *
  * @description When you call this operation, take note of the following items:
- * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
- * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
- * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
- * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
- *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
- *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
- * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
+ * - You cannot change the configuration when the instance status is activating, invalid, or freeze (inactive).
+ * - If the cluster load is excessively high, indexes do not have replicas, and a large number of write or query operations are performed during the procedure of an upgrade or when you decrease the quota, intermittent access timeouts may occur. Configure a retry mechanism in the client access logic before you change the cluster configuration to minimize the impact on your business.
+ * - You can change the configuration of only one type of node at a time. The node types include data nodes, dedicated master nodes, warm nodes, client nodes, Kibana nodes, and elastic nodes.
+ * - To ensure the health and stability of your cluster, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-core 2 GB specifications, 2-core 2 GB specifications for dedicated master nodes, and version 7.4 instances since May 2021. If you confirm that your purchased specifications are no longer available for sale, you must complete the following operations first:
+ *   - For 1-core 2 GB and 2-core 2 GB specifications, upgrade to the stable specifications available on the buy page in advance. For the specifications available on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
+ *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For more information about data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+ * For more precautions, see [Upgrade a cluster](https://help.aliyun.com/document_detail/96650.html) and [Downgrade a cluster](https://help.aliyun.com/document_detail/198887.html).
  *
  * @param request UpdateInstanceRequest
  * @param headers map
@@ -9109,6 +9119,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     body["elasticDataNodeConfiguration"] = request.getElasticDataNodeConfiguration();
   }
 
+  if (!!request.hasIndexNodeConfiguration()) {
+    body["indexNodeConfiguration"] = request.getIndexNodeConfiguration();
+  }
+
   if (!!request.hasInstanceCategory()) {
     body["instanceCategory"] = request.getInstanceCategory();
   }
@@ -9127,6 +9141,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 
   if (!!request.hasNodeSpec()) {
     body["nodeSpec"] = request.getNodeSpec();
+  }
+
+  if (!!request.hasSearchNodeConfiguration()) {
+    body["searchNodeConfiguration"] = request.getSearchNodeConfiguration();
   }
 
   if (!!request.hasUpdateType()) {
@@ -9157,16 +9175,16 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 }
 
 /**
- * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
+ * @summary Upgrades an Elasticsearch cluster by increasing the number of nodes and modifying roles, specifications, and disk configurations.
  *
  * @description When you call this operation, take note of the following items:
- * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
- * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
- * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
- * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
- *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
- *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
- * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
+ * - You cannot change the configuration when the instance status is activating, invalid, or freeze (inactive).
+ * - If the cluster load is excessively high, indexes do not have replicas, and a large number of write or query operations are performed during the procedure of an upgrade or when you decrease the quota, intermittent access timeouts may occur. Configure a retry mechanism in the client access logic before you change the cluster configuration to minimize the impact on your business.
+ * - You can change the configuration of only one type of node at a time. The node types include data nodes, dedicated master nodes, warm nodes, client nodes, Kibana nodes, and elastic nodes.
+ * - To ensure the health and stability of your cluster, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-core 2 GB specifications, 2-core 2 GB specifications for dedicated master nodes, and version 7.4 instances since May 2021. If you confirm that your purchased specifications are no longer available for sale, you must complete the following operations first:
+ *   - For 1-core 2 GB and 2-core 2 GB specifications, upgrade to the stable specifications available on the buy page in advance. For the specifications available on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
+ *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For more information about data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+ * For more precautions, see [Upgrade a cluster](https://help.aliyun.com/document_detail/96650.html) and [Downgrade a cluster](https://help.aliyun.com/document_detail/198887.html).
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -9298,7 +9316,7 @@ UpdateInstanceSettingsResponse Client::updateInstanceSettings(const string &Inst
 }
 
 /**
- * @summary Updates the keystore.
+ * @summary Adds, updates, or deletes the keystore configuration of a specified Elasticsearch instance.
  *
  * @param request UpdateKeystoresRequest
  * @param headers map
@@ -9341,7 +9359,7 @@ UpdateKeystoresResponse Client::updateKeystoresWithOptions(const string &Instanc
 }
 
 /**
- * @summary Updates the keystore.
+ * @summary Adds, updates, or deletes the keystore configuration of a specified Elasticsearch instance.
  *
  * @param request UpdateKeystoresRequest
  * @return UpdateKeystoresResponse
@@ -9695,7 +9713,8 @@ UpdateLogstashChargeTypeResponse Client::updateLogstashChargeType(const string &
 /**
  * @summary Modifies the name of a specified Logstash instance.
  *
- * @description When you invoke this operation, note the following: The instance name cannot be modified when the instance status is activating, invalid, or freeze (inactive).
+ * @description When you invoke this operation, note the following:
+ * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashDescriptionRequest
  * @param headers map
@@ -9736,7 +9755,8 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescriptionWithOptions(c
 /**
  * @summary Modifies the name of a specified Logstash instance.
  *
- * @description When you invoke this operation, note the following: The instance name cannot be modified when the instance status is activating, invalid, or freeze (inactive).
+ * @description When you invoke this operation, note the following:
+ * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashDescriptionRequest
  * @return UpdateLogstashDescriptionResponse
@@ -9750,7 +9770,8 @@ UpdateLogstashDescriptionResponse Client::updateLogstashDescription(const string
 /**
  * @summary Updates the configuration of a specified Logstash instance.
  *
- * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
+ * @description When you invoke this operation, note the following:
+ * You cannot update the information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashSettingsRequest
  * @param headers map
@@ -9786,7 +9807,8 @@ UpdateLogstashSettingsResponse Client::updateLogstashSettingsWithOptions(const s
 /**
  * @summary Updates the configuration of a specified Logstash instance.
  *
- * @description When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
+ * @description When you invoke this operation, note the following:
+ * You cannot update the information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdateLogstashSettingsRequest
  * @return UpdateLogstashSettingsResponse
@@ -9798,9 +9820,9 @@ UpdateLogstashSettingsResponse Client::updateLogstashSettings(const string &Inst
 }
 
 /**
- * @summary Modifies the pipeline management method of a specified Logstash instance.
+ * @summary Modifies the pipeline management mode of a specified Logstash instance.
  *
- * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
+ * @description > Pipeline management modes include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. This feature is available only through the API.
  *
  * @param request UpdatePipelineManagementConfigRequest
  * @param headers map
@@ -9859,9 +9881,9 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfigWit
 }
 
 /**
- * @summary Modifies the pipeline management method of a specified Logstash instance.
+ * @summary Modifies the pipeline management mode of a specified Logstash instance.
  *
- * @description > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
+ * @description > Pipeline management modes include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. This feature is available only through the API.
  *
  * @param request UpdatePipelineManagementConfigRequest
  * @return UpdatePipelineManagementConfigResponse
@@ -9873,7 +9895,7 @@ UpdatePipelineManagementConfigResponse Client::updatePipelineManagementConfig(co
 }
 
 /**
- * @summary Calls UpdatePipelines to update Logstash pipeline information.
+ * @summary Updates Logstash pipeline information.
  *
  * @param request UpdatePipelinesRequest
  * @param headers map
@@ -9911,7 +9933,7 @@ UpdatePipelinesResponse Client::updatePipelinesWithOptions(const string &Instanc
 }
 
 /**
- * @summary Calls UpdatePipelines to update Logstash pipeline information.
+ * @summary Updates Logstash pipeline information.
  *
  * @param request UpdatePipelinesRequest
  * @return UpdatePipelinesResponse
@@ -9925,12 +9947,12 @@ UpdatePipelinesResponse Client::updatePipelines(const string &InstanceId, const 
 /**
  * @summary Updates the VPC private network access whitelist of a specified instance.
  *
- * @description ## Before you begin
- * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
- * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
- *     - IP whitelist list: privateNetworkIpWhiteList
- *     - IP whitelist group: modifyMode, whiteIpGroup
- * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
+ * @description ## Precautions
+ * - When the instance status is activating, invalid, or inactive, you cannot update the VPC private network access whitelist of the instance.
+ * - You can update the whitelist by using an IP address whitelist or an IP address whitelist group. You cannot use both methods at the same time. Except for InstanceId and clientToken, the parameters supported by the two methods are different. Details:
+ *     - IP address whitelist: privateNetworkIpWhiteList
+ *     - IP address whitelist group: modifyMode and whiteIpGroup
+ * - You cannot configure private IP addresses in a public access whitelist, and you cannot configure public IP addresses in a private network access whitelist.
  *
  * @param request UpdatePrivateNetworkWhiteIpsRequest
  * @param headers map
@@ -9970,12 +9992,12 @@ UpdatePrivateNetworkWhiteIpsResponse Client::updatePrivateNetworkWhiteIpsWithOpt
 /**
  * @summary Updates the VPC private network access whitelist of a specified instance.
  *
- * @description ## Before you begin
- * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
- * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken):
- *     - IP whitelist list: privateNetworkIpWhiteList
- *     - IP whitelist group: modifyMode, whiteIpGroup
- * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
+ * @description ## Precautions
+ * - When the instance status is activating, invalid, or inactive, you cannot update the VPC private network access whitelist of the instance.
+ * - You can update the whitelist by using an IP address whitelist or an IP address whitelist group. You cannot use both methods at the same time. Except for InstanceId and clientToken, the parameters supported by the two methods are different. Details:
+ *     - IP address whitelist: privateNetworkIpWhiteList
+ *     - IP address whitelist group: modifyMode and whiteIpGroup
+ * - You cannot configure private IP addresses in a public access whitelist, and you cannot configure public IP addresses in a private network access whitelist.
  *
  * @param request UpdatePrivateNetworkWhiteIpsRequest
  * @return UpdatePrivateNetworkWhiteIpsResponse
@@ -9987,10 +10009,10 @@ UpdatePrivateNetworkWhiteIpsResponse Client::updatePrivateNetworkWhiteIps(const 
 }
 
 /**
- * @summary Enables or disables the public network address for a specified Elasticsearch instance.
+ * @summary Enables or disables the public endpoint of a specified Elasticsearch instance.
  *
- * @description When you invoke this operation, note the following:
- * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+ * @description Note the following when you invoke this operation:
+ * You cannot update the information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdatePublicNetworkRequest
  * @param headers map
@@ -10024,10 +10046,10 @@ UpdatePublicNetworkResponse Client::updatePublicNetworkWithOptions(const string 
 }
 
 /**
- * @summary Enables or disables the public network address for a specified Elasticsearch instance.
+ * @summary Enables or disables the public endpoint of a specified Elasticsearch instance.
  *
- * @description When you invoke this operation, note the following:
- * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+ * @description Note the following when you invoke this operation:
+ * You cannot update the information when the instance status is activating, invalid, or freeze (inactive).
  *
  * @param request UpdatePublicNetworkRequest
  * @return UpdatePublicNetworkResponse
@@ -10039,14 +10061,14 @@ UpdatePublicNetworkResponse Client::updatePublicNetwork(const string &InstanceId
 }
 
 /**
- * @summary Updates the public network access whitelist of a specified Elasticsearch instance.
+ * @summary Updates the public IP address whitelist of a specified Elasticsearch instance.
  *
- * @description ## Before you begin
- * - You cannot update the public access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
- * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken). The details are as follows:   
- *     - IP whitelist list: publicIpWhitelist
- *     - IP whitelist group: modifyMode, whiteIpGroup
- * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
+ * @description ## Precautions
+ * - You cannot update the public IP address access whitelist of an instance when the instance status is activating, invalid, or inactive.
+ * - You can update the whitelist by using an IP address whitelist or an IP address whitelist group. You cannot use both methods at the same time. Except for InstanceId and clientToken, the parameters supported by the two methods are different. The details are as follows:   
+ *     - IP address whitelist: publicIpWhitelist
+ *     - IP address whitelist group: modifyMode and whiteIpGroup
+ * - You cannot configure private IP addresses in a public network access whitelist, and you cannot configure public IP addresses in a private network access whitelist.
  *
  * @param request UpdatePublicWhiteIpsRequest
  * @param headers map
@@ -10084,14 +10106,14 @@ UpdatePublicWhiteIpsResponse Client::updatePublicWhiteIpsWithOptions(const strin
 }
 
 /**
- * @summary Updates the public network access whitelist of a specified Elasticsearch instance.
+ * @summary Updates the public IP address whitelist of a specified Elasticsearch instance.
  *
- * @description ## Before you begin
- * - You cannot update the public access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
- * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters (except for InstanceId and clientToken). The details are as follows:   
- *     - IP whitelist list: publicIpWhitelist
- *     - IP whitelist group: modifyMode, whiteIpGroup
- * - The public access whitelist does not support private IP addresses, and the internal-facing access whitelist does not support public IP addresses.
+ * @description ## Precautions
+ * - You cannot update the public IP address access whitelist of an instance when the instance status is activating, invalid, or inactive.
+ * - You can update the whitelist by using an IP address whitelist or an IP address whitelist group. You cannot use both methods at the same time. Except for InstanceId and clientToken, the parameters supported by the two methods are different. The details are as follows:   
+ *     - IP address whitelist: publicIpWhitelist
+ *     - IP address whitelist group: modifyMode and whiteIpGroup
+ * - You cannot configure private IP addresses in a public network access whitelist, and you cannot configure public IP addresses in a private network access whitelist.
  *
  * @param request UpdatePublicWhiteIpsRequest
  * @return UpdatePublicWhiteIpsResponse
@@ -10103,7 +10125,7 @@ UpdatePublicWhiteIpsResponse Client::updatePublicWhiteIps(const string &Instance
 }
 
 /**
- * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
+ * @summary Enables or disables the write high-availability feature for a cluster. This feature is currently supported only for instances in the China (Beijing) region.
  *
  * @param request UpdateReadWritePolicyRequest
  * @param headers map
@@ -10137,7 +10159,7 @@ UpdateReadWritePolicyResponse Client::updateReadWritePolicyWithOptions(const str
 }
 
 /**
- * @summary Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
+ * @summary Enables or disables the write high-availability feature for a cluster. This feature is currently supported only for instances in the China (Beijing) region.
  *
  * @param request UpdateReadWritePolicyRequest
  * @return UpdateReadWritePolicyResponse
@@ -10191,9 +10213,9 @@ UpdateSnapshotSettingResponse Client::updateSnapshotSetting(const string &Instan
 /**
  * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description When calling this operation, note the following:
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
+ * @description When you call this operation, take note of the following items:
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket is publicly readable.
+ * - If an uploaded dictionary is not configured with ORIGIN, the dictionary file is deleted after you call this operation.
  *
  * @param request UpdateSynonymsDictsRequest
  * @param headers map
@@ -10229,9 +10251,9 @@ UpdateSynonymsDictsResponse Client::updateSynonymsDictsWithOptions(const string 
 /**
  * @summary Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
  *
- * @description When calling this operation, note the following:
- * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
- * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
+ * @description When you call this operation, take note of the following items:
+ * - If the dictionary file is sourced from OSS, ensure that the OSS bucket is publicly readable.
+ * - If an uploaded dictionary is not configured with ORIGIN, the dictionary file is deleted after you call this operation.
  *
  * @param request UpdateSynonymsDictsRequest
  * @return UpdateSynonymsDictsResponse
@@ -10425,9 +10447,9 @@ UpdateXpackMonitorConfigResponse Client::updateXpackMonitorConfig(const string &
 }
 
 /**
- * @summary Upgrades the version of an Elasticsearch instance. This operation supports major version upgrades and kernel version upgrades.
+ * @summary Upgrades the version of an Elasticsearch instance, supporting version upgrades and kernel version upgrades.
  *
- * @description > The instance version upgrade feature currently supports only upgrading from version 5.5.3 to 5.6.16, from version 5.6.16 to 6.3.2, and from version 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
+ * @description > The instance version upgrade feature currently only supports upgrades from version 5.5.3 to 5.6.16, from 5.6.16 to 6.3.2, and from 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade versions](https://help.aliyun.com/document_detail/148786.html).
  *
  * @param request UpgradeEngineVersionRequest
  * @param headers map
@@ -10482,9 +10504,9 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersionWithOptions(const strin
 }
 
 /**
- * @summary Upgrades the version of an Elasticsearch instance. This operation supports major version upgrades and kernel version upgrades.
+ * @summary Upgrades the version of an Elasticsearch instance, supporting version upgrades and kernel version upgrades.
  *
- * @description > The instance version upgrade feature currently supports only upgrading from version 5.5.3 to 5.6.16, from version 5.6.16 to 6.3.2, and from version 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
+ * @description > The instance version upgrade feature currently only supports upgrades from version 5.5.3 to 5.6.16, from 5.6.16 to 6.3.2, and from 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade versions](https://help.aliyun.com/document_detail/148786.html).
  *
  * @param request UpgradeEngineVersionRequest
  * @return UpgradeEngineVersionResponse
@@ -10496,7 +10518,7 @@ UpgradeEngineVersionResponse Client::upgradeEngineVersion(const string &Instance
 }
 
 /**
- * @summary Queries whether a minor engine version upgrade is available.
+ * @summary Queries whether an upgradable engine version is available for a specified Elasticsearch instance and retrieves the version information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -10521,7 +10543,7 @@ UpgradeInfoResponse Client::upgradeInfoWithOptions(const string &instanceId, con
 }
 
 /**
- * @summary Queries whether a minor engine version upgrade is available.
+ * @summary Queries whether an upgradable engine version is available for a specified Elasticsearch instance and retrieves the version information.
  *
  * @return UpgradeInfoResponse
  */
@@ -10738,9 +10760,9 @@ ValidateTransferableNodesResponse Client::validateTransferableNodes(const string
  * @summary Creates an Elasticsearch instance.
  *
  * @description ### Precautions
- * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
- * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
- * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
+ * - Before you call this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Billing rules of Alibaba Cloud Elasticsearch](https://help.aliyun.com/document_detail/260947.html).
+ * - You must pass real-name verification before you create an instance. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+ * - You do not need to specify a zone when you create an instance. By default, the instance is deployed in the same zone as the selected VPC.
  *
  * @param request CreateInstanceRequest
  * @param headers map
@@ -10773,6 +10795,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasEsVersion()) {
     body["esVersion"] = request.getEsVersion();
+  }
+
+  if (!!request.hasIndexNodeConfiguration()) {
+    body["indexNodeConfiguration"] = request.getIndexNodeConfiguration();
   }
 
   if (!!request.hasInstanceCategory()) {
@@ -10811,6 +10837,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     body["resourceGroupId"] = request.getResourceGroupId();
   }
 
+  if (!!request.hasSearchNodeConfiguration()) {
+    body["searchNodeConfiguration"] = request.getSearchNodeConfiguration();
+  }
+
   if (!!request.hasTags()) {
     body["tags"] = request.getTags();
   }
@@ -10846,9 +10876,9 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
  * @summary Creates an Elasticsearch instance.
  *
  * @description ### Precautions
- * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
- * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
- * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
+ * - Before you call this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Billing rules of Alibaba Cloud Elasticsearch](https://help.aliyun.com/document_detail/260947.html).
+ * - You must pass real-name verification before you create an instance. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+ * - You do not need to specify a zone when you create an instance. By default, the instance is deployed in the same zone as the selected VPC.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse

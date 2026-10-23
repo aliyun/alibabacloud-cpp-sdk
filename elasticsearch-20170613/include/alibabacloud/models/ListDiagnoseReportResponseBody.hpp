@@ -145,11 +145,17 @@ namespace Models
 
 
       protected:
+        // The description of the diagnostic conclusion.
         shared_ptr<string> desc_ {};
+        // The diagnostic details. This field is empty if details are not requested.
         Darabonba::Json detail_ {};
+        // The code of the diagnostic item.
         shared_ptr<string> item_ {};
+        // The name of the diagnostic item.
         shared_ptr<string> name_ {};
+        // The health status of the diagnostic item. Valid values: GREEN, YELLOW, and RED.
         shared_ptr<string> state_ {};
+        // The handling suggestion.
         shared_ptr<string> suggest_ {};
       };
 
@@ -252,8 +258,8 @@ namespace Models
           // The type of the diagnostic result. Valid values:
           // 
           // - TEXT: text description
-          // - CONSOLE_API: console-triggered
-          // - ES_API: API-triggered
+          // - CONSOLE_API: triggered by the console
+          // - ES_API: triggered by the API
           shared_ptr<string> type_ {};
         };
 
@@ -364,19 +370,21 @@ namespace Models
     protected:
       // The timestamp when the report was created.
       shared_ptr<int64_t> createTime_ {};
-      // The list of diagnostic items in the report.
+      // The list of diagnostic item information in the report.
       shared_ptr<vector<Result::DiagnoseItems>> diagnoseItems_ {};
+      // The diagnostic mode. Valid values: RULE and AGENT.
       shared_ptr<string> diagnosisMode_ {};
       // The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
       shared_ptr<string> health_ {};
-      // The instance ID of the diagnosed instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The list of diagnostic item details. This list may be empty if details are not requested.
       shared_ptr<vector<Result::Items>> items_ {};
       // The report ID.
       shared_ptr<string> reportId_ {};
       // The diagnostic status. Valid values: SUCCESS, FAILED, and RUNNING.
       shared_ptr<string> state_ {};
-      // The trigger method of the health diagnostics. Valid values:
+      // The trigger method for health diagnostics. Valid values:
       // 
       // - SYSTEM: automatically triggered by the system
       // - INNER: internally triggered
@@ -412,7 +420,7 @@ namespace Models
 
 
     protected:
-      // The total number of records returned.
+      // The total number of returned records.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 
@@ -448,7 +456,7 @@ namespace Models
     shared_ptr<ListDiagnoseReportResponseBody::Headers> headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<vector<ListDiagnoseReportResponseBody::Result>> result_ {};
   };
 

@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The instance name. Fuzzy match is supported. For example, if you search for an instance named abc, instances named abc, abcde, xyabc, and xabcy may all be returned.
+    // The name of the instance. Fuzzy match is supported. For example, if you search for instances named abc, the system may return all instances whose names are abc, abcde, xyabc, or xabcy.
     shared_ptr<string> description_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The page number of the instance list. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The number of entries per page in Settings for paging. Default value: 20.
+    // The number of entries per page in a paging query. Default value: 20.
     shared_ptr<int32_t> size_ {};
     // The instance tags.
     shared_ptr<string> tags_ {};
-    // The instance version.
+    // The version of the instance.
     shared_ptr<string> version_ {};
   };
 

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The page number of the list.
+    // The page number.
     // 
-    // Minimum value: 1. Default value: 1.
+    // Starting value: 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page for a paged query. Default value: 20.
+    // The number of entries to return on each page. Default value: 20.
     shared_ptr<int32_t> size_ {};
   };
 

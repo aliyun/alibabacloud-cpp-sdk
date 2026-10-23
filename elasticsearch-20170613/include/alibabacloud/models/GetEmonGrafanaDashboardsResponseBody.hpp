@@ -72,9 +72,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the Grafana dashboard list is retrieved. Valid values:
+    // Indicates whether the list of Grafana dashboards is successfully retrieved. Valid values:
     // 
-    // - true: The list is retrieved.
+    // - true: The retrieval succeeded.
     // - false: The retrieval failed.
     shared_ptr<bool> success_ {};
   };

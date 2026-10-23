@@ -93,10 +93,10 @@ namespace Models
       // The name of the uploaded file.
       shared_ptr<string> name_ {};
       // The source type of the dictionary file. Valid values:
-      // - OSS: uses OSS open storage.
+      // - OSS: uses OSS public storage.
       // - ORIGIN: retains the previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
-      // The dictionary type. Valid values: ALI_WS (AliNLP tokenizer).
+      // The dictionary type. Valid value: ALI_WS (AliNLP word segmentation).
       shared_ptr<string> type_ {};
     };
 

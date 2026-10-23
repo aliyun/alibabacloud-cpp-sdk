@@ -116,15 +116,15 @@ namespace Models
 
 
     protected:
-      // The real-time metric monitoring data. Format: `{timestamp:data}`.
+      // The real-time metric monitoring data. The format is `{timestamp:data}`.
       Darabonba::Json dps_ {};
-      // The completeness of time series data points in the metric query result. A value of 1.0 indicates 100% completeness.
+      // The completeness of the time series curve data points in the result returned by the metric query. A value of 1.0 indicates 100% completeness.
       shared_ptr<float> integrity_ {};
-      // The timestamp when the request reaches the server. This is used for troubleshooting.
+      // The timestamp when the request reaches the server. This parameter is used for troubleshooting.
       shared_ptr<int64_t> messageWatermark_ {};
       // The metric name.
       shared_ptr<string> metric_ {};
-      // If the queries contain wildcards, the result includes multiple matching time series data sequences. The summary is the aggregation of the values across these time series at each time point, based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
+      // If the queries contain wildcards, the result includes multiple matched time series data records. The summary is the aggregation of the value sets of these time series at each time point based on the aggregator type provided in the query. Currently, only the avg aggregation method is supported.
       shared_ptr<float> summary_ {};
       // The query tags.
       Darabonba::Json tags_ {};
@@ -170,7 +170,7 @@ namespace Models
 
 
   protected:
-    // The request status code.
+    // The status code of the request.
     shared_ptr<string> code_ {};
     // The request result.
     shared_ptr<string> message_ {};
@@ -178,9 +178,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<vector<GetEmonMonitorDataResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // - true: The request was successful.
-    // - false: The request failed.
+    // Specifies whether the request is successful. Valid values:
+    // - true: Successful.
+    // - false: Unsuccessful.
     shared_ptr<bool> success_ {};
   };
 

@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // 可用区信息，如: cn-hangzhou-i
+      // The zone information, such as cn-hangzhou-i.
       shared_ptr<string> vsArea_ {};
       // vswitchId
       shared_ptr<string> vswitchId_ {};
@@ -153,19 +153,21 @@ namespace Models
 
 
   protected:
+    // The number of load balancing instances in a single zone. This parameter is supported only for the HP_ALILB type.
     shared_ptr<int32_t> lbReplica_ {};
+    // The list of vSwitch and load balancing configurations for each zone in the Network Load Balancer (NLB) architecture.
     shared_ptr<vector<NetworkConfig::LoadBalanceConfig>> loadBalanceConfig_ {};
     // The load balancing type. Default value: DEFAULT.
     shared_ptr<string> loadBalanceType_ {};
-    // The network type. Only Virtual Private Cloud (VPC) is supported.
+    // The network type. Only VPC is supported.
     shared_ptr<string> type_ {};
     // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the network.
+    // The ID of the zone to which the network belongs.
     shared_ptr<string> vsArea_ {};
     // The vSwitch ID.
     shared_ptr<string> vswitchId_ {};
-    // The IP whitelist group configuration. You do not need to set this parameter when you call the createInstance operation to create an instance because the setting does not take effect during instance creation. Use a separate API operation to configure whitelists for different roles.
+    // The IP whitelist group configuration. You do not need to specify this parameter when creating an instance, and it does not take effect during instance creation. You must use a separate API operation to configure whitelists for different roles.
     shared_ptr<vector<WhiteIpGroup>> whiteIpGroupList_ {};
   };
 

@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The restart parameters, including the restart type, target nodes, blue-green deployment options, and concurrency settings.
     shared_ptr<string> body_ {};
     // Specifies whether to forcibly restart the instance. Default value: false.
     shared_ptr<bool> force_ {};

@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The file name, source, and OSS file information of the AliNLP word segmentation dictionary.
     shared_ptr<string> body_ {};
-    // A unique token used to ensure the idempotence of the request. The client generates this value. It must be unique across different requests and cannot exceed 64 ASCII characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

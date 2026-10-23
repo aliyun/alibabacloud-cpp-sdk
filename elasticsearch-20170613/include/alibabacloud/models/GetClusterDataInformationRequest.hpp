@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The cluster type, access endpoint, and index to be queried.
     shared_ptr<string> body_ {};
   };
 

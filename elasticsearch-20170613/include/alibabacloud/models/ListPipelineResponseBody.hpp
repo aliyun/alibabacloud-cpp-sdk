@@ -90,17 +90,16 @@ namespace Models
 
 
     protected:
-      // The time when the pipeline was created.
+      // The time when the pipeline was created. The format is YYYY-MM-DDTHH:mm:ss.SSSZ, where the trailing Z indicates UTC.
       shared_ptr<string> gmtCreatedTime_ {};
-      // The time when the pipeline was last updated.
+      // The time when the pipeline was updated. The format is YYYY-MM-DDTHH:mm:ss.SSSZ, where the trailing Z indicates UTC.
       shared_ptr<string> gmtUpdateTime_ {};
-      // The pipeline ID.
+      // The ID of the pipeline.
       shared_ptr<string> pipelineId_ {};
-      // The pipeline status. Valid values:
-      // 
-      // - NOT_DEPLOYED: not deployed.
-      // - RUNNING: running.
-      // - DELETED: deleted. This status is not displayed in the console.
+      // The status of the pipeline. Valid values:
+      // - NOT_DEPLOYED: not deployed
+      // - RUNNING: running
+      // - DELETED: deleted (this status is not displayed in the console)
       shared_ptr<string> pipelineStatus_ {};
     };
 
@@ -166,9 +165,9 @@ namespace Models
   protected:
     // The response headers.
     shared_ptr<ListPipelineResponseBody::Headers> headers_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<vector<ListPipelineResponseBody::Result>> result_ {};
   };
 

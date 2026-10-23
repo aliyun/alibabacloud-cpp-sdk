@@ -62,9 +62,11 @@ namespace Models
 
 
   protected:
+    // The response headers of this call.
     Darabonba::Json headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The names of the Logstash plugins uninstalled by this request.
     shared_ptr<vector<string>> result_ {};
   };
 

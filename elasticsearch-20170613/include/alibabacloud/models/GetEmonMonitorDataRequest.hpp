@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The Grafana metric monitoring query conditions, including the query start time, metric expression, and metric query list.
     shared_ptr<string> body_ {};
   };
 

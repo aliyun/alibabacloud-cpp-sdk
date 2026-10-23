@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the lifecycle policy created by the request.
+    // The name of the created lifecycle policy returned in the response.
     shared_ptr<string> result_ {};
   };
 

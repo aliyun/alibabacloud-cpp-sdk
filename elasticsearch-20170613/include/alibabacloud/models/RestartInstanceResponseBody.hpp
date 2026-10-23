@@ -143,22 +143,22 @@ namespace Models
 
 
       protected:
-        // The size of the dictionary file, in bytes.
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
         // The name of the dictionary file.
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage (the OSS bucket must be publicly readable)
-        // - ORIGIN: open-source Elasticsearch
-        // - UPLOAD: uploaded file
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+        // - ORIGIN: Open-source Elasticsearch.
+        // - UPLOAD: Uploaded file.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword
-        // - MAIN: main dictionary
-        // - SYNONYMS: synonym dictionary
-        // - ALI_WS: Alibaba dictionary
+        // - STOP: Stopwords.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba Cloud dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
 
 
       protected:
-        // The storage size of the node, in GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -273,11 +273,11 @@ namespace Models
 
 
       protected:
-        // The network type. Only Virtual Private Cloud (VPC) is supported.
+        // The network type. Only VPC is supported.
         shared_ptr<string> type_ {};
         // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The zone where the instance is deployed.
+        // The zone where the instance resides.
         shared_ptr<string> vsArea_ {};
         // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
@@ -341,7 +341,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node, in GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
@@ -407,7 +407,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node, in GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -471,22 +471,22 @@ namespace Models
 
 
       protected:
-        // The size of the dictionary file, in bytes.
+        // The size of the dictionary file. Unit: bytes.
         shared_ptr<int64_t> fileSize_ {};
         // The name of the dictionary file.
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage (the OSS bucket must be publicly readable)
-        // - ORIGIN: open-source Elasticsearch
-        // - UPLOAD: uploaded file
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+        // - ORIGIN: Open-source Elasticsearch.
+        // - UPLOAD: Uploaded file.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword
-        // - MAIN: main dictionary
-        // - SYNONYMS: synonym dictionary
-        // - ALI_WS: Alibaba dictionary
+        // - STOP: Stopwords.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba Cloud dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -641,50 +641,48 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // The time when the instance was created. The time is displayed in UTC and formatted in accordance with ISO 8601.
       shared_ptr<string> createdAt_ {};
       // The instance name.
       shared_ptr<string> description_ {};
-      // The IK dictionary configuration.
+      // The IK dictionary configurations.
       shared_ptr<vector<Result::DictList>> dictList_ {};
-      // The internal network access address of the instance.
+      // The internal endpoint of the instance.
       shared_ptr<string> domain_ {};
-      // The instance version.
+      // The Elasticsearch version of the instance.
       shared_ptr<string> esVersion_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The Kibana node configuration.
+      // The Kibana node configurations.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      // The public network access address of Kibana.
+      // The Kibana public network access address.
       shared_ptr<string> kibanaDomain_ {};
       // The public port of Kibana.
       shared_ptr<int32_t> kibanaPort_ {};
-      // The master node configuration.
+      // The dedicated master node configurations.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
-      // The network configuration.
+      // The network configurations.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
       // The number of data nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The data node configuration.
+      // The data node configurations.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The billing method of the instance.
-      // 
-      // Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
+      // The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
       shared_ptr<string> paymentType_ {};
       // The public network access address.
       shared_ptr<string> publicDomain_ {};
-      // The public network port.
+      // The public port.
       shared_ptr<int32_t> publicPort_ {};
-      // The status of the instance. Valid values:
+      // The state of the instance. Valid values:
       // 
       // - **active**: Normal.
-      // - **activating**: Taking effect.
+      // - **activating**: Activating.
       // - **inactive**: Frozen.
       // - **invalid**: Invalid.
       shared_ptr<string> status_ {};
-      // The synonym dictionary configuration.
+      // The synonym dictionary configurations.
       shared_ptr<vector<Result::SynonymsDicts>> synonymsDicts_ {};
-      // The time when the instance was last updated.
+      // The time when the instance was last updated. The time is displayed in UTC and formatted in accordance with ISO 8601.
       shared_ptr<string> updatedAt_ {};
     };
 

@@ -127,41 +127,41 @@ namespace Models
 
 
     protected:
-      // The time when the index list was queried.
+      // The creation time of the index, in ISO 8601 format and UTC time.
       shared_ptr<string> createTime_ {};
       // The health status of the index. Valid values:
       // 
-      // - green: Healthy.
+      // - green: healthy.
       // 
-      // - yellow: Warning.
+      // - yellow: warning.
       // 
-      // - red: Abnormal.
+      // - red: unhealthy.
       shared_ptr<string> health_ {};
       // The full lifecycle status of the index.
       shared_ptr<string> ilmExplain_ {};
-      // This parameter is deprecated and can be ignored.
+      // **[Deprecated]** This parameter is deprecated and can be ignored.
       shared_ptr<string> isManaged_ {};
-      // The index management status. Valid values:
+      // The management status of the index. Valid values:
       // 
-      // - following: Managed.
+      // - following: managed.
       // 
-      // - closing: Being unmanaged.
+      // - closing: unmanaging.
       // 
-      // - closed: Not managed.
+      // - closed: unmanaged.
       shared_ptr<string> managedStatus_ {};
       // The index name.
       shared_ptr<string> name_ {};
       // The current storage lifecycle phase. Valid values:
       // 
-      // - warm: Warm phase.
+      // - warm: the warm phase.
       // 
-      // - cold: Cold phase.
+      // - cold: the cold phase.
       // 
-      // - hot: Hot phase.
+      // - hot: the hot phase.
       // 
-      // - delete: Delete phase.
+      // - delete: the delete phase.
       // 
-      // > If this value is empty, the index is not managed by a lifecycle policy.
+      // An empty value indicates that the index is not managed by a lifecycle policy.
       shared_ptr<string> phase_ {};
       // The total storage space occupied by the index. Unit: bytes.
       shared_ptr<int64_t> size_ {};
@@ -223,13 +223,13 @@ namespace Models
 
 
     protected:
-      // The total number of managed indexes in the cloud.
+      // The total number of indices in cloud-managed storage.
       shared_ptr<int32_t> xManagedCount_ {};
-      // The total size of managed indexes in the cloud. Unit: bytes.
+      // The total size of indices in cloud-managed storage. Unit: bytes.
       shared_ptr<int64_t> xManagedStorageSize_ {};
-      // The total number of OpenStore cold-phase indexes.
+      // The total number of OpenStore cold-phase indices.
       shared_ptr<int32_t> xOSSCount_ {};
-      // The total size of OpenStore cold-phase indexes for the instance. Unit: bytes.
+      // The total size of OpenStore cold-phase indices for the instance. Unit: bytes.
       shared_ptr<int64_t> xOSSStorageSize_ {};
     };
 
@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<ListInstanceIndicesResponseBody::Headers> headers_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The index list details.
+    // The details of the index list.
     shared_ptr<vector<ListInstanceIndicesResponseBody::Result>> result_ {};
   };
 

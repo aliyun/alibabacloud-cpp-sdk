@@ -18,10 +18,12 @@
 #include <alibabacloud/models/WarmNodeConfiguration.hpp>
 #include <alibabacloud/models/ZoneInfo.hpp>
 #include <alibabacloud/models/Elasticsearch.hpp>
+#include <alibabacloud/models/IndexNodeConfiguration.hpp>
 #include <alibabacloud/models/Logstash.hpp>
 #include <alibabacloud/models/MigrationJob.hpp>
 #include <alibabacloud/models/NodeInfo.hpp>
 #include <alibabacloud/models/PaymentInfo.hpp>
+#include <alibabacloud/models/SearchNodeConfiguration.hpp>
 #include <alibabacloud/models/ResultSpecInfoMapValue.hpp>
 #include <alibabacloud/models/ActivateZonesRequest.hpp>
 #include <alibabacloud/models/ActivateZonesResponseBody.hpp>

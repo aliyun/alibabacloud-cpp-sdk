@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The data stream name.
+      // The name of the data stream.
       shared_ptr<string> name_ {};
     };
 

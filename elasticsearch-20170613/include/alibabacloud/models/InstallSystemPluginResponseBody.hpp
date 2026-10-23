@@ -53,6 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The names of the Elasticsearch plugins installed in this request.
     shared_ptr<vector<string>> result_ {};
   };
 

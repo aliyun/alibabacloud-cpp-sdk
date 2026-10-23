@@ -53,6 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The names of the Kibana plug-ins uninstalled in the current request.
     shared_ptr<vector<string>> result_ {};
   };
 

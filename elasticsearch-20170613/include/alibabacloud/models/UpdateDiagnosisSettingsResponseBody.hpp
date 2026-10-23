@@ -50,9 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // Indicates whether the update was successful. Valid values:
     // 
-    // - true: The update was successful.
+    // - true: The update succeeded.
     // - false: The update failed.
     shared_ptr<bool> result_ {};
   };

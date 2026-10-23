@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The result of updating the dynamic configurations of the cluster. A value of true indicates that the update was successful, and a value of false indicates that the update failed.
     shared_ptr<bool> result_ {};
   };
 

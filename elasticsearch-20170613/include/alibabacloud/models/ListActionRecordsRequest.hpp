@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // Filters records by the name of the change operation. Separate multiple names with commas.
     shared_ptr<string> actionNames_ {};
+    // The upper bound of the query range for the change start time. The value is a UNIX timestamp in milliseconds. If you do not specify this parameter, the current time is used.
     shared_ptr<int64_t> endTime_ {};
+    // The display type of change records. Default value: ACTION_RECORD.
     shared_ptr<string> filter_ {};
+    // The page number of the returned results.
     shared_ptr<int32_t> page_ {};
+    // Filters records by the ID of the request that triggered the change.
     shared_ptr<string> requestId_ {};
+    // The number of records returned per page.
     shared_ptr<int32_t> size_ {};
+    // The lower bound of the query range for the change start time. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // Filters records by the ID of the user that triggered the change.
     shared_ptr<string> userId_ {};
   };
 

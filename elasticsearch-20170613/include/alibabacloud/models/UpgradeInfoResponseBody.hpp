@@ -134,19 +134,19 @@ namespace Models
 
 
       protected:
-        // The current repo version.
+        // The current repository version.
         shared_ptr<string> curRepoVersion_ {};
-        // The repo version available for upgrade.
+        // The upgradable repository version.
         shared_ptr<string> updateRepoVersion_ {};
-        // Indicates whether an upgradeable version is available.
+        // Indicates whether an upgradable version is available.
         shared_ptr<bool> upgrade_ {};
         // The current kernel version.
         shared_ptr<string> curApackVersion_ {};
         // The current Elasticsearch version.
         shared_ptr<string> curEsVersion_ {};
-        // The kernel version available for upgrade.
+        // The upgradable kernel version.
         shared_ptr<string> upgradeApackVersion_ {};
-        // The Elasticsearch version available for upgrade.
+        // The upgradable Elasticsearch version.
         shared_ptr<string> upgradeEsVersion_ {};
       };
 

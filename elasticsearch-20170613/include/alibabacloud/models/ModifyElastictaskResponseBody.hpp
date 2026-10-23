@@ -120,14 +120,15 @@ namespace Models
 
 
       protected:
-        // The trigger cycle, specified as a Quartz Cron expression.
+        // The trigger cycle, specified by a Quartz cron expression.
         shared_ptr<string> cronExpression_ {};
-        // The number of elastic data nodes during off-peak hours.
+        // The target number of elastic data nodes during off-peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
         // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};
+        // The list of target index names for the elastic scaling task. Wildcards are supported.
         shared_ptr<vector<string>> targetIndices_ {};
-        // The cause. Valid values: crontab, which indicates scheduled triggering.
+        // The Cause. Valid value: crontab, which indicates scheduled triggering.
         shared_ptr<string> triggerType_ {};
       };
 
@@ -198,14 +199,15 @@ namespace Models
 
 
       protected:
-        // The trigger cycle, specified as a Quartz Cron expression.
+        // The trigger cycle, specified by a Quartz cron expression.
         shared_ptr<string> cronExpression_ {};
-        // The number of elastic data nodes during peak hours.
+        // The target number of elastic data nodes during peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
         // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};
+        // The list of target index names for the elastic scaling task. Wildcards are supported.
         shared_ptr<vector<string>> targetIndices_ {};
-        // The cause. The value is fixed as crontab, which indicates scheduled triggering.
+        // The Cause. The value is fixed to crontab, which indicates scheduled triggering.
         shared_ptr<string> triggerType_ {};
       };
 
@@ -230,9 +232,9 @@ namespace Models
 
 
     protected:
-      // The elastic node scale-out rule.
+      // The scale-out rules for elastic nodes.
       shared_ptr<Result::ElasticExpansionTask> elasticExpansionTask_ {};
-      // The elastic node scale-in rule.
+      // The scale-in rules for elastic nodes.
       shared_ptr<Result::ElasticShrinkTask> elasticShrinkTask_ {};
     };
 

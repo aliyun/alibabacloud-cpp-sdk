@@ -176,11 +176,11 @@ namespace Models
 
 
           protected:
-            // The suggested action.
+            // The recommended actions.
             shared_ptr<vector<string>> suggestActions_ {};
-            // The text of the suggested action.
+            // The text of the recommended action.
             shared_ptr<string> suggestText_ {};
-            // The type of the suggested action.
+            // The type of the recommended action.
             shared_ptr<string> suggestType_ {};
           };
 
@@ -246,19 +246,19 @@ namespace Models
 
 
         protected:
-          // The suggested action.
+          // The recommended actions.
           shared_ptr<ShowContent::ActionSuggest> actionSuggest_ {};
           // The event description.
           shared_ptr<string> desc_ {};
           // The event status.
           shared_ptr<string> eventStatus_ {};
-          // The time when the event occurred.
+          // The time when the event occurred. The time is in the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> eventTime_ {};
-          // The end time of the O&M execution for the event.
+          // The end time of the O&M execution for the event. The time is in the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> executeFinishTime_ {};
-          // The start time of the O&M execution for the event.
+          // The start time of the O&M execution for the event. The time is in the YYYY-MM-DD HH:mm:ss format.
           shared_ptr<string> executeStartTime_ {};
-          // The instance ID of the instance on which the event occurred.
+          // The instance ID where the event occurred.
           shared_ptr<string> instanceId_ {};
           // The execution ID of the cluster change.
           shared_ptr<string> opsChangeId_ {};
@@ -355,7 +355,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether automatic alerting is enabled.
+        // Indicates whether automatic alerting is triggered.
         shared_ptr<bool> autoAlarm_ {};
         // The display name of the event.
         shared_ptr<string> displayName_ {};
@@ -367,9 +367,9 @@ namespace Models
         shared_ptr<bool> mustOps_ {};
         // The product type of the event.
         shared_ptr<string> product_ {};
-        // The scheduled execution time.
+        // The scheduled execution time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> scheduleExecuteTime_ {};
-        // The scheduled end time.
+        // The scheduled end time of the execution. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> scheduleFinishTime_ {};
         // The event content.
         shared_ptr<ResultItem::ShowContent> showContent_ {};
@@ -400,7 +400,7 @@ namespace Models
 
 
     protected:
-      // The returned content.
+      // The response content.
       shared_ptr<vector<Result::ResultItem>> result_ {};
       // The total number of records.
       shared_ptr<string> total_ {};
@@ -427,7 +427,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The result.
     shared_ptr<ListEventRecordsResponseBody::Result> result_ {};
   };
 

@@ -143,14 +143,14 @@ namespace Models
       protected:
         // The disk size of the node.
         shared_ptr<int32_t> disk_ {};
-        // Indicates whether cloud disk encryption is enabled. Valid values:
+        // Specifies whether cloud disk encryption is used. Valid values:
         // 
-        // - true: Enabled.
-        // - false: Disabled.
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> diskEncryption_ {};
         // The disk type of the node.
         shared_ptr<string> diskType_ {};
-        // The node specification.
+        // The specifications of the node.
         shared_ptr<string> spec_ {};
       };
 
@@ -210,11 +210,11 @@ namespace Models
 
 
       protected:
-        // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+        // The network type. Only VPC is supported.
         shared_ptr<string> type_ {};
         // The VPC ID.
         shared_ptr<string> vpcId_ {};
-        // The zone in which the instance resides.
+        // The zone where the instance is deployed.
         shared_ptr<string> vsArea_ {};
         // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
@@ -313,9 +313,9 @@ namespace Models
 
 
       protected:
-        // The zone status. Valid values:
+        // The status of the zone. Valid values:
         // 
-        // - ISOLATION: offline.
+        // - ISOLATION: Offline.
         // - NORMAL: Normal.
         shared_ptr<string> status_ {};
         // The zone ID.
@@ -512,25 +512,27 @@ namespace Models
 
 
     protected:
+      // The extended configurations of the Logstash instance.
       shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The instance tags.
+      // The instance labels.
       shared_ptr<vector<Result::Tags>> tags_ {};
       // The zone information.
       shared_ptr<vector<Result::ZoneInfos>> zoneInfos_ {};
-      // The instance configuration information.
+      // The configuration information of the instance.
       Darabonba::Json config_ {};
       // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> description_ {};
+      // The time when the instance expires. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The access information of the nodes.
       shared_ptr<vector<Result::EndpointList>> endpointList_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The network configuration.
+      // The network configurations.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
       // The number of nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
@@ -538,19 +540,19 @@ namespace Models
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - prepaid: subscription
-      // - postpaid: pay-as-you-go
+      // - prepaid: Subscription.
+      // - postpaid: Pay-as-you-go.
       shared_ptr<string> paymentType_ {};
       // The status of the instance. Valid values:
       // 
       // - active: Normal.
-      // - activating: Taking effect.
+      // - activating: Activating.
       // - inactive: Frozen.
-      // - invalid: Expired.
+      // - invalid: Invalid.
       shared_ptr<string> status_ {};
       // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
-      // The instance version.
+      // The version of the instance.
       shared_ptr<string> version_ {};
       // The ID of the VPC to which the instance belongs.
       shared_ptr<string> vpcInstanceId_ {};

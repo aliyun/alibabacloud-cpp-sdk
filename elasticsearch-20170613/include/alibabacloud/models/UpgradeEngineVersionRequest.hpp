@@ -96,13 +96,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether to install or uninstall the plug-in. A value of true indicates install, and a value of false indicates uninstall.
+      // Specifies whether to install or uninstall the plug-in. Valid values:
+      // 
+      // - true: Installs the plug-in.
+      // - false: Uninstalls the plug-in.
       shared_ptr<string> enable_ {};
-      // The fileVersion of the plug-in. Refer to the response of ListUserPlugin.
+      // The file version of the plug-in. For more information, see the response of ListUserPlugin.
       shared_ptr<string> fileVersion_ {};
-      // The plug-in name.
+      // The name of the plug-in.
       shared_ptr<string> name_ {};
-      // The Elasticsearch version for the plug-in, such as 7.16.2.
+      // The Elasticsearch version corresponding to the plug-in, such as 7.16.2.
       shared_ptr<string> version_ {};
     };
 
@@ -153,28 +156,29 @@ namespace Models
 
 
   protected:
+    // The list of plug-in configurations to install or uninstall during the version upgrade.
     shared_ptr<vector<UpgradeEngineVersionRequest::Plugins>> plugins_ {};
     // The upgrade type. Valid values:
     // 
-    // - engineVersion (default): major engine version upgrade.
-    // - aliVersion: kernel version upgrade.
+    // - engineVersion: Major engine version upgrade. This is the default value.
+    // - aliVersion: Kernel version upgrade.
     shared_ptr<string> type_ {};
     // The version after the upgrade. If type is set to engineVersion, the value is the instance version, such as 6.7. If type is set to aliVersion, the value is the kernel version, such as ali1.2.0.
     shared_ptr<string> version_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can generate the token on the client side. The token must be unique across different requests and can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a pre-upgrade check. Valid values:
     // 
-    // - true: performs a check.
-    // - false (default): does not perform a check.
+    // - true: Performs the check.
+    // - false: Does not perform the check. This is the default value.
     // 
-    // >Warning:  The version upgrade check involves checks on cluster YML, plug-in configurations, cluster status, indexes, and resources. Perform a pre-upgrade check before upgrading. Otherwise, upgrade issues may occur.
+    // >Warning:  The version upgrade check includes checks on the cluster YML file, plug-in configurations, cluster status, indexes, and resources. Perform a pre-upgrade check before the upgrade to prevent upgrade issues.
     shared_ptr<bool> dryRun_ {};
     // The update strategy. Valid values:
     // 
-    // - blue_green: blue-green deployment.
-    // - normal: in-place update.
-    // - intelligent: intelligent update.
+    // - blue_green: Blue-green deployment.
+    // - normal: In-place update.
+    // - intelligent: Intelligent update.
     shared_ptr<string> updateStrategy_ {};
   };
 

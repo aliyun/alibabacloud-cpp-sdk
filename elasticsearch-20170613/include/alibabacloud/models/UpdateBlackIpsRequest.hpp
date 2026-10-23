@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. Use different values for different requests.
     shared_ptr<string> clientToken_ {};
   };
 

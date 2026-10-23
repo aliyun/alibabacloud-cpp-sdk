@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // The plug-in description.
+      // The plugin description.
       shared_ptr<string> description_ {};
-      // The plug-in version.
+      // The plugin version.
       shared_ptr<string> elasticsearchVersion_ {};
-      // The plug-in name.
+      // The plugin name.
       shared_ptr<string> name_ {};
-      // The security policy of the plug-in.
+      // The security policy of the plugin.
       shared_ptr<string> securityPolicy_ {};
-      // The plug-in version.
+      // The plugin version.
       shared_ptr<string> version_ {};
     };
 

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
-    // The idempotence parameter.
+    // The client token that is used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
+    // The region ID of the Elasticsearch instance.
     shared_ptr<string> regionId_ {};
+    // The dynamic configurations of the cluster to be updated. Specify a JSON object where the keys are configuration item names and the values are configuration values.
     shared_ptr<string> body_ {};
+    // The effective mode for dynamic configurations. Valid values:
+    // - persistent: persistent configurations.
+    // - transient: temporary configurations, which become invalid after the cluster is restarted.
     shared_ptr<string> mode_ {};
   };
 

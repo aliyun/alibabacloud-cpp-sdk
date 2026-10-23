@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The aliases configuration.
+        // The aliases.
         shared_ptr<string> aliases_ {};
-        // The mappings configuration.
+        // The mappings.
         shared_ptr<string> mappings_ {};
-        // The settings configuration.
+        // The settings.
         shared_ptr<string> settings_ {};
       };
 
@@ -173,10 +173,11 @@ namespace Models
       // 
       // Default value: false.
       shared_ptr<bool> dataStream_ {};
-      // The lifecycle policy name.
+      // The life epoch Policy Name.
       shared_ptr<string> ilmPolicy_ {};
+      // The list of index name patterns that match this index template.
       shared_ptr<vector<string>> indexPatterns_ {};
-      // The index template name.
+      // The name of the index template.
       shared_ptr<string> indexTemplate_ {};
       // The priority.
       shared_ptr<int32_t> priority_ {};
@@ -205,7 +206,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The index template details.
+    // The details of the index template.
     shared_ptr<DescribeIndexTemplateResponseBody::Result> result_ {};
   };
 

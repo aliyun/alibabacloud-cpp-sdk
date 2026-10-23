@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The public IP address access whitelist.
       shared_ptr<vector<string>> publicIpWhitelist_ {};
     };
 

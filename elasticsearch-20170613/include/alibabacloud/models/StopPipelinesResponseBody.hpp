@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
     // - true: The pipelines are stopped successfully.
-    // - false: The pipelines failed to be stopped.
+    // - false: The pipelines fail to stop.
     shared_ptr<bool> result_ {};
   };
 

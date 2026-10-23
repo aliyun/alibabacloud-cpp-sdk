@@ -149,15 +149,15 @@ namespace Models
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage (the OSS bucket must be publicly readable).
-        // - ORIGIN: retains the previously uploaded dictionary.
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+        // - ORIGIN: The previously uploaded dictionary is retained.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword.
-        // - MAIN: main dictionary.
-        // - SYNONYMS: synonym dictionary.
-        // - ALI_WS: Alibaba dictionary.
+        // - STOP: Stopword dictionary.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba Cloud dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -208,7 +208,7 @@ namespace Models
 
 
       protected:
-        // The storage space size of the node. Unit: GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -340,7 +340,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage space size of the node. Unit: GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -406,7 +406,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage space size of the node. Unit: GB.
+        // The storage space of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -476,15 +476,15 @@ namespace Models
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage (the OSS bucket must be publicly readable).
-        // - ORIGIN: retains the previously uploaded dictionary.
+        // - OSS: Object Storage Service (OSS). Make sure that the OSS bucket is publicly readable.
+        // - ORIGIN: The previously uploaded dictionary is retained.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword.
-        // - MAIN: main dictionary.
-        // - SYNONYMS: synonym dictionary.
-        // - ALI_WS: Alibaba dictionary.
+        // - STOP: Stopword dictionary.
+        // - MAIN: Main dictionary.
+        // - SYNONYMS: Synonym dictionary.
+        // - ALI_WS: Alibaba Cloud dictionary.
         shared_ptr<string> type_ {};
       };
 
@@ -639,51 +639,51 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // The time when the instance was created. The time follows the YYYY-MM-DDTHH:mm:ss.SSSZ format, where Z indicates UTC.
       shared_ptr<string> createdAt_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> description_ {};
-      // The IK dictionary configuration.
+      // The IK dictionary configurations.
       shared_ptr<vector<Result::DictList>> dictList_ {};
-      // The internal network access address of the instance.
+      // The internal endpoint of the instance.
       shared_ptr<string> domain_ {};
-      // The instance version.
+      // The version of the instance.
       shared_ptr<string> esVersion_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The Kibana node configuration.
+      // The Kibana node configurations.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
       // The Kibana public network access address.
       shared_ptr<string> kibanaDomain_ {};
-      // The Kibana public network port.
+      // The public port of Kibana.
       shared_ptr<int32_t> kibanaPort_ {};
-      // The master node configuration.
+      // The master node configurations.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
-      // The network configuration.
+      // The network configurations.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
       // The number of data nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The data node configuration.
+      // The data node configurations.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - prepaid: subscription.
-      // - postpaid: pay-as-you-go.
+      // - prepaid: Subscription.
+      // - postpaid: Pay-as-you-go.
       shared_ptr<string> paymentType_ {};
       // The public network access address.
       shared_ptr<string> publicDomain_ {};
-      // The public network port.
+      // The public port.
       shared_ptr<int32_t> publicPort_ {};
       // The status of the instance. Valid values:
       // 
       // - active: Normal.
-      // - activating: Taking effect.
+      // - activating: Activating.
       // - inactive: Frozen.
       // - invalid: Invalid.
       shared_ptr<string> status_ {};
-      // The synonym dictionary configuration.
+      // The synonym dictionary configurations.
       shared_ptr<vector<Result::SynonymsDicts>> synonymsDicts_ {};
-      // The time when the instance was last updated.
+      // The time when the instance was last updated. The time follows the YYYY-MM-DDTHH:mm:ss.SSSZ format, where Z indicates UTC.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -708,7 +708,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The result.
     shared_ptr<MoveResourceGroupResponseBody::Result> result_ {};
   };
 

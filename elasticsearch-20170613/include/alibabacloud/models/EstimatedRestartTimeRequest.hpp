@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The restart parameters, such as the restart method, target nodes, and blue-green deployment, represented as a JSON string.
     shared_ptr<string> body_ {};
-    // Specifies whether to forcibly restart the instance. Default value: false.
+    // Specifies whether to force a restart. Default value: false.
     shared_ptr<bool> force_ {};
   };
 

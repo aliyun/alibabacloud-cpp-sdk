@@ -53,6 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of custom user plugins submitted for installation.
     shared_ptr<vector<string>> result_ {};
   };
 

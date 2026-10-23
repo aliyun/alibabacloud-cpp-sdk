@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<EstimatedLogstashRestartTimeResponseBody::Result> result_ {};
   };
 

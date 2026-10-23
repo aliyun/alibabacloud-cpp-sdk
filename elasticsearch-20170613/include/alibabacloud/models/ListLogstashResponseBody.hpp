@@ -135,14 +135,13 @@ namespace Models
       protected:
         // The disk size of the node.
         shared_ptr<int32_t> disk_ {};
-        // Indicates whether disk encryption is enabled. Valid values:
-        // 
-        // - true: Enabled.
-        // - false: Disabled.
+        // Specifies whether disk encryption is enabled. Valid values:
+        // - true: enabled.
+        // - false: disabled.
         shared_ptr<bool> diskEncryption_ {};
         // The disk type.
         shared_ptr<string> diskType_ {};
-        // The instance specification.
+        // The instance type.
         shared_ptr<string> spec_ {};
       };
 
@@ -202,13 +201,13 @@ namespace Models
 
 
       protected:
-        // The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+        // The network type. Only VPC is supported.
         shared_ptr<string> type_ {};
-        // The VPC ID.
+        // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
-        // The zone where the instance resides.
+        // The zone where the instance is deployed.
         shared_ptr<string> vsArea_ {};
-        // The vSwitch ID.
+        // The ID of the vSwitch.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -362,25 +361,33 @@ namespace Models
       shared_ptr<vector<Result::Tags>> tags_ {};
       // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> description_ {};
+      // The expiration time of the subscription instance.
       shared_ptr<int64_t> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The network configuration.
+      // The network configurations.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
       // The number of nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The configuration information of data nodes.
+      // The configurations of the data node.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
-      // The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
+      // The billing method of the instance. Valid values:
+      // - prepaid: subscription.
+      // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
+      // The ID of the resource group to which the Logstash instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The instance status. Valid values: active (Normal), activating (taking effect), inactive (frozen), and invalid (expired).
+      // The status of the instance. Valid values:
+      // - active: normal.
+      // - activating: activating.
+      // - inactive: frozen.
+      // - invalid: invalid.
       shared_ptr<string> status_ {};
       // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
-      // The instance version. Currently, only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
+      // The version of the instance. Only 6.7.0_with_X-Pack and 7.4.0_with_X-Pack are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -444,9 +451,9 @@ namespace Models
 
 
   protected:
-    // The request header information.
+    // The request headers.
     shared_ptr<ListLogstashResponseBody::Headers> headers_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The list of instances returned by the current request.
     shared_ptr<vector<ListLogstashResponseBody::Result>> result_ {};

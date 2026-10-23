@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // The list of custom plugins to install.
+    // The list of custom plugins.
     shared_ptr<string> body_ {};
+    // Specifies whether to forcibly install custom user plugins. Default value: false. Instances with the legacy architecture do not support forced installation.
     shared_ptr<bool> force_ {};
   };
 

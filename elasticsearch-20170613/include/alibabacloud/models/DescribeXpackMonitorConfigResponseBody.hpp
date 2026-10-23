@@ -102,13 +102,14 @@ namespace Models
 
     protected:
       // Indicates whether X-Pack monitoring is enabled. Valid values:
-      // 
       // - true: Enabled.
-      // - false: Not enabled.
+      // - false: Disabled.
       shared_ptr<bool> enable_ {};
+      // The list of access endpoints for the Elasticsearch instance associated with X-Pack monitoring.
       shared_ptr<vector<string>> endpoints_ {};
-      // The instance ID of the Elasticsearch instance associated with X-Pack monitoring.
+      // The Elasticsearch instance ID associated with X-Pack monitoring.
       shared_ptr<string> esInstanceId_ {};
+      // The list of Kibana-managed pipelines associated with X-Pack monitoring.
       shared_ptr<vector<string>> pipelineIds_ {};
       // The username used to access the Elasticsearch instance associated with X-Pack monitoring.
       shared_ptr<string> userName_ {};
@@ -133,7 +134,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<DescribeXpackMonitorConfigResponseBody::Result> result_ {};

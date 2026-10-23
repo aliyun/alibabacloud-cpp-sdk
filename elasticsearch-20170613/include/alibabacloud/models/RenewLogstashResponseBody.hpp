@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The result of the operation. Valid values:
     // 
-    // - true: The renewal was successful.
+    // - true: The renewal succeeded.
     // - false: The renewal failed.
     shared_ptr<bool> result_ {};
   };

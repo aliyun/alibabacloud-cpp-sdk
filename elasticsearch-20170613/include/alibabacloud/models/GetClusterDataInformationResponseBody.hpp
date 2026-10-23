@@ -124,12 +124,15 @@ namespace Models
 
 
       protected:
+        // The fields corresponding to the index mapping.
         shared_ptr<vector<string>> fields_ {};
+        // The list of indexes in the cluster.
         shared_ptr<vector<string>> indices_ {};
         // The mapping configuration of the cluster.
         shared_ptr<string> mapping_ {};
         // The settings configuration of the cluster.
         shared_ptr<string> settings_ {};
+        // The type of the specified index.
         shared_ptr<vector<string>> typeName_ {};
       };
 

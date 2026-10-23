@@ -94,10 +94,10 @@ namespace Models
       shared_ptr<string> name_ {};
       // The source type of the dictionary file. Valid values:
       // 
-      // - OSS: OSS open storage.
+      // - OSS: OSS.
       // - ORIGIN: retains the previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
-      // The dictionary type. Valid values: SYNONYMS (synonym).
+      // The dictionary type. Valid value: SYNONYMS (synonyms).
       shared_ptr<string> type_ {};
     };
 

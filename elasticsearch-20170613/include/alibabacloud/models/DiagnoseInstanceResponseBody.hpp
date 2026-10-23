@@ -137,11 +137,17 @@ namespace Models
 
 
       protected:
+        // The description of the diagnostic conclusion.
         shared_ptr<string> desc_ {};
+        // The diagnostic details. This parameter is empty if details are not required.
         Darabonba::Json detail_ {};
+        // The code of the diagnostic item.
         shared_ptr<string> item_ {};
+        // The name of the diagnostic item.
         shared_ptr<string> name_ {};
+        // The health status of the diagnostic item. Valid values: GREEN, YELLOW, and RED.
         shared_ptr<string> state_ {};
+        // The handling suggestion.
         shared_ptr<string> suggest_ {};
       };
 
@@ -194,9 +200,11 @@ namespace Models
     protected:
       // The timestamp when the diagnostic report was generated.
       shared_ptr<int64_t> createTime_ {};
+      // The diagnostic mode. Valid values: RULE and AGENT.
       shared_ptr<string> diagnosisMode_ {};
       // The instance ID of the diagnosed instance.
       shared_ptr<string> instanceId_ {};
+      // The list of diagnostic item details. This parameter may be empty if details are not required.
       shared_ptr<vector<Result::Items>> items_ {};
       // The report ID.
       shared_ptr<string> reportId_ {};

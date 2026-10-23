@@ -118,14 +118,19 @@ namespace Models
 
 
     protected:
+      // Indicates whether intelligent diagnostics is authorized to access the Elasticsearch API.
       shared_ptr<bool> authorizationStatus_ {};
+      // The maximum number of diagnostic executions allowed per day.
       shared_ptr<int32_t> dailyLimit_ {};
+      // Indicates whether daily scheduled diagnostics are enabled.
       shared_ptr<bool> dailyScheduleEnabled_ {};
+      // The running mode of intelligent diagnostics, such as AGENT.
       shared_ptr<string> diagnosisMode_ {};
-      // The common scenarios of intelligent diagnosis and optimization.
+      // The common scenarios for intelligent O&M.
       shared_ptr<string> scene_ {};
+      // The list of identifiers for the selected intelligent diagnostics items.
       shared_ptr<vector<string>> selectedItems_ {};
-      // The UNIX timestamp when the intelligent diagnosis and optimization common scenarios were last updated.
+      // The UNIX timestamp when the common scenarios for intelligent O&M were last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 

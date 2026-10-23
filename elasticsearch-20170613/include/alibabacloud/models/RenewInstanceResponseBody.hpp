@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The renewal was successful.
+    // - true: The renewal succeeded.
     // - false: The renewal failed.
     shared_ptr<bool> result_ {};
   };

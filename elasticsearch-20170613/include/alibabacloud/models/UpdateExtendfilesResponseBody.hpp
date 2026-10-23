@@ -83,7 +83,7 @@ namespace Models
       shared_ptr<int64_t> fileSize_ {};
       // The name of the extension file.
       shared_ptr<string> name_ {};
-      // The source of the extension file. Only ORIGIN (retained original extension file) is supported.
+      // The source of the extension file. Only ORIGIN is supported, which indicates the original extension file to be retained.
       shared_ptr<string> sourceType_ {};
     };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The information about the test alert rule, notification method, and message recipients.
     shared_ptr<string> body_ {};
   };
 

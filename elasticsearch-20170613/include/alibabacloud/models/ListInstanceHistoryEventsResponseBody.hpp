@@ -147,16 +147,16 @@ namespace Models
     protected:
       // The ECS instance ID.
       shared_ptr<string> ecsId_ {};
-      // The event creation time.
+      // The creation time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> eventCreateTime_ {};
       // The event status. Valid values:
       // - FAILED: failed
       // - EXECUTED: executed
       // - EXECUTING: executing
       shared_ptr<string> eventCycleStatus_ {};
-      // The event execution time.
+      // The execution time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> eventExecuteTime_ {};
-      // The event completion time.
+      // The completion time of the event. The time is displayed in UTC and follows the ISO 8601 standard.
       shared_ptr<string> eventFinashTime_ {};
       // The event level. Valid values:
       // - INFO: information
@@ -164,18 +164,18 @@ namespace Models
       // - CRITICAL: critical
       shared_ptr<string> eventLevel_ {};
       // The event type. Valid values:
-      // - ECS:AUTO_RESTART: ECS node automatic restart.
-      // - Instance:InstanceFailure.Reboot:Executed: ECS instance restart completed (ECS instance error).
-      // - Instance:InstanceFailure.Reboot:Executing: ECS instance restart started (instance error).
-      // - Instance:SystemFailure.Reboot:Executed: ECS instance restart completed (system error).
-      // - Instance:SystemFailure.Reboot:Executing: ECS instance restart started (system error).
-      // - Instance:SystemFailure.Reboot:Failed: ECS instance restart failed (system error).
+      // - ECS:AUTO_RESTART: The ECS node is automatically restarted.
+      // - Instance:InstanceFailure.Reboot:Executed: The restart of the ECS instance is complete due to an instance error.
+      // - Instance:InstanceFailure.Reboot:Executing: The restart of the ECS instance starts due to an instance error.
+      // - Instance:SystemFailure.Reboot:Executed: The restart of the ECS instance is complete due to a system error.
+      // - Instance:SystemFailure.Reboot:Executing: The restart of the ECS instance starts due to a system error.
+      // - Instance:SystemFailure.Reboot:Failed: The restart of the ECS instance fails due to a system error.
       shared_ptr<string> eventType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The IP address of the node that generated the event.
       shared_ptr<string> nodeIP_ {};
-      // The region ID where the event occurred.
+      // The ID of the region where the event occurred.
       shared_ptr<string> regionId_ {};
     };
 
@@ -264,7 +264,7 @@ namespace Models
   protected:
     // The response headers.
     shared_ptr<ListInstanceHistoryEventsResponseBody::Headers> headers_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned results.
     shared_ptr<vector<ListInstanceHistoryEventsResponseBody::Result>> result_ {};

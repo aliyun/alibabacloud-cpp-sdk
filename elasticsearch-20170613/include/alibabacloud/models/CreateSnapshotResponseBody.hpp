@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The manual snapshot backup is successful.
+    // - true: The manual snapshot backup succeeded.
     // - false: The manual snapshot backup failed.
     shared_ptr<bool> result_ {};
   };

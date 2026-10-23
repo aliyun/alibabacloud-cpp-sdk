@@ -96,7 +96,7 @@ namespace Models
   protected:
     // Specifies whether to display the details of diagnostic items.
     shared_ptr<bool> detail_ {};
-    // The end timestamp of the query. Unit: milliseconds.
+    // The end timestamp for the query. Unit: milliseconds.
     // - Minimum value: 1000000000000
     // - Maximum value: 2000000000000
     // 
@@ -114,14 +114,14 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The number of reports per page. Default value: 10. Minimum value: 1. Maximum value: 500.
     shared_ptr<int32_t> size_ {};
-    // The start timestamp of the query. Unit: milliseconds.
+    // The start timestamp for the query. Unit: milliseconds.
     // 
     // - Minimum value: 1000000000000
     // - Maximum value: 2000000000000
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
-    // The trigger method of the health diagnostics. Valid values:
+    // The trigger method for health diagnostics. Valid values:
     // 
     // - SYSTEM (default): automatically triggered by the system
     // - INNER: internally triggered

@@ -182,21 +182,21 @@ namespace Models
 
 
     protected:
-      // The time when the Kibana private network connection was created.
+      // The time when the Kibana private network connection was created. The time follows the ISO 8601 standard and is displayed in UTC.
       shared_ptr<string> createTime_ {};
       // The endpoint ID.
       shared_ptr<string> endpointId_ {};
       // The endpoint name.
       shared_ptr<string> endpointName_ {};
       // The endpoint status. Valid values:
-      // 
-      // - Disconnected: disconnected
-      // - Connected: connected
+      // - Disconnected: Not connected.
+      // - Connected: Connected.
       shared_ptr<string> endpointStatus_ {};
+      // Indicates whether the security group is a managed security group.
       shared_ptr<bool> managedSecurityGroup_ {};
-      // The Kibana private network connection ID.
+      // The ID of the Kibana private network connection.
       shared_ptr<string> pvlId_ {};
-      // The list of security groups.
+      // The security groups.
       shared_ptr<vector<string>> securityGroups_ {};
       // The vSwitch and zone information.
       shared_ptr<vector<Result::VSwitchIdsZone>> vSwitchIdsZone_ {};

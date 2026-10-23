@@ -75,11 +75,13 @@ namespace Models
 
 
   protected:
+    // The end time of the statistical window. The value is a UNIX timestamp in seconds. This parameter must be specified together with startTime and must be later than the start time.
     shared_ptr<int64_t> endTime_ {};
     // The event type.
     shared_ptr<string> eventType_ {};
     // The event level.
     shared_ptr<string> level_ {};
+    // The start time of the statistical window. The value is a UNIX timestamp in seconds. This parameter must be specified together with endTime.
     shared_ptr<int64_t> startTime_ {};
     // The event status.
     shared_ptr<string> status_ {};

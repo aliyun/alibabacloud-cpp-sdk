@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // This GET operation does not require a request body.
     shared_ptr<string> body_ {};
   };
 

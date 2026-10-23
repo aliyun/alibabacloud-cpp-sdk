@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The language of the response. Default value: en.
+    // Specifies the language of the response. Default value: en.
     shared_ptr<string> lang_ {};
   };
 

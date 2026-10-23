@@ -4,11 +4,13 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ClientNodeConfiguration.hpp>
 #include <alibabacloud/models/ElasticDataNodeConfiguration.hpp>
+#include <alibabacloud/models/IndexNodeConfiguration.hpp>
 #include <alibabacloud/models/KibanaNodeConfiguration.hpp>
 #include <alibabacloud/models/MasterNodeConfiguration.hpp>
 #include <alibabacloud/models/NetworkConfig.hpp>
 #include <alibabacloud/models/NodeSpec.hpp>
 #include <alibabacloud/models/PaymentInfo.hpp>
+#include <alibabacloud/models/SearchNodeConfiguration.hpp>
 #include <vector>
 #include <alibabacloud/models/WarmNodeConfiguration.hpp>
 using namespace std;
@@ -27,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(elasticDataNodeConfiguration, elasticDataNodeConfiguration_);
       DARABONBA_PTR_TO_JSON(esAdminPassword, esAdminPassword_);
       DARABONBA_PTR_TO_JSON(esVersion, esVersion_);
+      DARABONBA_PTR_TO_JSON(indexNodeConfiguration, indexNodeConfiguration_);
       DARABONBA_PTR_TO_JSON(instanceCategory, instanceCategory_);
       DARABONBA_PTR_TO_JSON(kibanaConfiguration, kibanaConfiguration_);
       DARABONBA_PTR_TO_JSON(masterConfiguration, masterConfiguration_);
@@ -36,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(paymentInfo, paymentInfo_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(searchNodeConfiguration, searchNodeConfiguration_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(warmNodeConfiguration, warmNodeConfiguration_);
       DARABONBA_PTR_TO_JSON(zoneCount, zoneCount_);
@@ -47,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(elasticDataNodeConfiguration, elasticDataNodeConfiguration_);
       DARABONBA_PTR_FROM_JSON(esAdminPassword, esAdminPassword_);
       DARABONBA_PTR_FROM_JSON(esVersion, esVersion_);
+      DARABONBA_PTR_FROM_JSON(indexNodeConfiguration, indexNodeConfiguration_);
       DARABONBA_PTR_FROM_JSON(instanceCategory, instanceCategory_);
       DARABONBA_PTR_FROM_JSON(kibanaConfiguration, kibanaConfiguration_);
       DARABONBA_PTR_FROM_JSON(masterConfiguration, masterConfiguration_);
@@ -56,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(paymentInfo, paymentInfo_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(searchNodeConfiguration, searchNodeConfiguration_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(warmNodeConfiguration, warmNodeConfiguration_);
       DARABONBA_PTR_FROM_JSON(zoneCount, zoneCount_);
@@ -110,17 +116,17 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance.
+      // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // The tag value of the instance.
+      // The value of the tag.
       shared_ptr<string> tagValue_ {};
     };
 
     virtual bool empty() const override { return this->clientNodeConfiguration_ == nullptr
-        && this->description_ == nullptr && this->elasticDataNodeConfiguration_ == nullptr && this->esAdminPassword_ == nullptr && this->esVersion_ == nullptr && this->instanceCategory_ == nullptr
-        && this->kibanaConfiguration_ == nullptr && this->masterConfiguration_ == nullptr && this->networkConfig_ == nullptr && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr
-        && this->paymentInfo_ == nullptr && this->paymentType_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->warmNodeConfiguration_ == nullptr
-        && this->zoneCount_ == nullptr && this->clientToken_ == nullptr; };
+        && this->description_ == nullptr && this->elasticDataNodeConfiguration_ == nullptr && this->esAdminPassword_ == nullptr && this->esVersion_ == nullptr && this->indexNodeConfiguration_ == nullptr
+        && this->instanceCategory_ == nullptr && this->kibanaConfiguration_ == nullptr && this->masterConfiguration_ == nullptr && this->networkConfig_ == nullptr && this->nodeAmount_ == nullptr
+        && this->nodeSpec_ == nullptr && this->paymentInfo_ == nullptr && this->paymentType_ == nullptr && this->resourceGroupId_ == nullptr && this->searchNodeConfiguration_ == nullptr
+        && this->tags_ == nullptr && this->warmNodeConfiguration_ == nullptr && this->zoneCount_ == nullptr && this->clientToken_ == nullptr; };
     // clientNodeConfiguration Field Functions 
     bool hasClientNodeConfiguration() const { return this->clientNodeConfiguration_ != nullptr;};
     void deleteClientNodeConfiguration() { this->clientNodeConfiguration_ = nullptr;};
@@ -158,6 +164,15 @@ namespace Models
     void deleteEsVersion() { this->esVersion_ = nullptr;};
     inline string getEsVersion() const { DARABONBA_PTR_GET_DEFAULT(esVersion_, "") };
     inline CreateInstanceRequest& setEsVersion(string esVersion) { DARABONBA_PTR_SET_VALUE(esVersion_, esVersion) };
+
+
+    // indexNodeConfiguration Field Functions 
+    bool hasIndexNodeConfiguration() const { return this->indexNodeConfiguration_ != nullptr;};
+    void deleteIndexNodeConfiguration() { this->indexNodeConfiguration_ = nullptr;};
+    inline const IndexNodeConfiguration & getIndexNodeConfiguration() const { DARABONBA_PTR_GET_CONST(indexNodeConfiguration_, IndexNodeConfiguration) };
+    inline IndexNodeConfiguration getIndexNodeConfiguration() { DARABONBA_PTR_GET(indexNodeConfiguration_, IndexNodeConfiguration) };
+    inline CreateInstanceRequest& setIndexNodeConfiguration(const IndexNodeConfiguration & indexNodeConfiguration) { DARABONBA_PTR_SET_VALUE(indexNodeConfiguration_, indexNodeConfiguration) };
+    inline CreateInstanceRequest& setIndexNodeConfiguration(IndexNodeConfiguration && indexNodeConfiguration) { DARABONBA_PTR_SET_RVALUE(indexNodeConfiguration_, indexNodeConfiguration) };
 
 
     // instanceCategory Field Functions 
@@ -233,6 +248,15 @@ namespace Models
     inline CreateInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // searchNodeConfiguration Field Functions 
+    bool hasSearchNodeConfiguration() const { return this->searchNodeConfiguration_ != nullptr;};
+    void deleteSearchNodeConfiguration() { this->searchNodeConfiguration_ = nullptr;};
+    inline const SearchNodeConfiguration & getSearchNodeConfiguration() const { DARABONBA_PTR_GET_CONST(searchNodeConfiguration_, SearchNodeConfiguration) };
+    inline SearchNodeConfiguration getSearchNodeConfiguration() { DARABONBA_PTR_GET(searchNodeConfiguration_, SearchNodeConfiguration) };
+    inline CreateInstanceRequest& setSearchNodeConfiguration(const SearchNodeConfiguration & searchNodeConfiguration) { DARABONBA_PTR_SET_VALUE(searchNodeConfiguration_, searchNodeConfiguration) };
+    inline CreateInstanceRequest& setSearchNodeConfiguration(SearchNodeConfiguration && searchNodeConfiguration) { DARABONBA_PTR_SET_RVALUE(searchNodeConfiguration_, searchNodeConfiguration) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -272,7 +296,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The elastic node configuration.
     shared_ptr<ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
-    // The access password of the instance. The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (!@#$%^&*()_+-=). The password must be 8 to 32 characters in length.
+    // The access password of the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include !@#$%^&*()_+-=.
     // 
     // This parameter is required.
     shared_ptr<string> esAdminPassword_ {};
@@ -286,24 +310,26 @@ namespace Models
     // - 5.6_with_X-Pack
     // - 5.5.3_with_X-Pack
     // 
-    // > The versions listed above may not include all versions supported by Elasticsearch instances. Call the [GetRegionConfiguration](https://help.aliyun.com/document_detail/254099.html) operation to view the actual supported versions.
+    // > The preceding versions may not include all versions supported by Elasticsearch instances. To view the actual supported versions, call the [GetRegionConfiguration](https://help.aliyun.com/document_detail/254099.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> esVersion_ {};
+    // The index node configuration. Only instances with the AI engine type support index node configuration.
+    shared_ptr<IndexNodeConfiguration> indexNodeConfiguration_ {};
     // The edition type. Valid values:
-    // - x-pack: Creates a commercial edition instance, or a kernel-enhanced edition instance without Indexing Service or OpenStore enabled.
-    // - IS: Creates a kernel-enhanced edition instance with Indexing Service or OpenStore enabled.
+    // - x-pack: Creates a Commercial Edition instance, or an Advanced Edition instance with Indexing Service and OpenStore disabled.
+    // - IS: Creates an Advanced Edition instance with Indexing Service or OpenStore enabled.
     shared_ptr<string> instanceCategory_ {};
     // The Kibana node configuration.
     // 
-    // > We strongly recommend that you enable Kibana nodes.
+    // > Enable the Kibana node.
     shared_ptr<KibanaNodeConfiguration> kibanaConfiguration_ {};
     // The dedicated master node configuration.
-    // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call createInstance to create an instance with next-generation cloud disk-based dedicated master nodes, specify the instance family followed by the `.new` suffix. For example, elasticsearch.sn1ne.large.new.
+    // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based dedicated master node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
     shared_ptr<MasterNodeConfiguration> masterConfiguration_ {};
     // The network configuration.
     // 
-    // > You cannot specify an IP whitelist when creating an instance.
+    // > You cannot specify an IP address whitelist when you create an instance.
     // 
     // This parameter is required.
     shared_ptr<NetworkConfig> networkConfig_ {};
@@ -313,9 +339,9 @@ namespace Models
     shared_ptr<int32_t> nodeAmount_ {};
     // The data node configuration.
     // 
-    // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call createInstance to create an instance with next-generation cloud disk-based data nodes, specify the instance family followed by the `.new` suffix. For example, elasticsearch.sn1ne.large.new.
+    // > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based data node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
     shared_ptr<NodeSpec> nodeSpec_ {};
-    // The billing details of the subscription instance. This parameter is required when you create a subscription instance.
+    // The payment details of the subscription instance. This parameter is required when you create a subscription instance.
     shared_ptr<PaymentInfo> paymentInfo_ {};
     // The billing method. Valid values:
     // 
@@ -324,13 +350,15 @@ namespace Models
     shared_ptr<string> paymentType_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The instance tags.
+    // The query node configuration. Only instances with the AI engine type support query node configuration.
+    shared_ptr<SearchNodeConfiguration> searchNodeConfiguration_ {};
+    // The instance label group.
     shared_ptr<vector<CreateInstanceRequest::Tags>> tags_ {};
-    // The cold data node configuration.
+    // The warm data node configuration.
     shared_ptr<WarmNodeConfiguration> warmNodeConfiguration_ {};
     // The number of zones for the instance. Valid values: 1, 2, and 3. Default value: 1.
     shared_ptr<int32_t> zoneCount_ {};
-    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

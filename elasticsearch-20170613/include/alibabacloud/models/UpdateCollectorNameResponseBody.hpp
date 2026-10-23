@@ -158,9 +158,9 @@ namespace Models
 
 
         protected:
-          // The status of the collector on the ECS instance. Valid values: **heartOk** (normal heartbeat), **heartLost** (abnormal heartbeat), **uninstalled** (not installed), and **failed** (installation failed).
+          // The status of each collector on the ECS instance. Valid values: **heartOk** (heartbeat normal), **heartLost** (heartbeat abnormal), **uninstalled** (not installed), and **failed** (installation failed).
           shared_ptr<string> agentStatus_ {};
-          // The list of ECS machine IDs.
+          // The IDs of the ECS instances.
           shared_ptr<string> instanceId_ {};
         };
 
@@ -273,40 +273,41 @@ namespace Models
       protected:
         // The configuration type. Valid values:
         // 
-        // - collectorTargetInstance: the collector Output.
-        // - collectorDeployMachine: the machine on which the collector is deployed.
-        // - collectorElasticsearchForKibana: the Elasticsearch instance that supports Kibana Dashboard.
+        // - collectorTargetInstance: the output of the collector
+        // - collectorDeployMachine: the machine where the collector is deployed
+        // - collectorElasticsearchForKibana: the information about the Elasticsearch instance that supports Kibana Dashboard
         shared_ptr<string> configType_ {};
-        // Indicates whether Monitoring is enabled. Displayed when **configType** is **collectorTargetInstance** and **instanceType** is **elasticsearch**. Valid values:
+        // Specifies whether to enable monitoring. This parameter is displayed when **configType** is set to **collectorTargetInstance** and **instanceType** is set to **elasticsearch**. Valid values:
         // 
-        // - true: Enabled.
-        // - false: Not enabled.
+        // - true: enables monitoring.
+        // - false: disables monitoring.
         shared_ptr<bool> enableMonitoring_ {};
-        // The machine group ID. Displayed when **configType** is **collectorDeployMachine**.
+        // The ID of the machine group. This parameter is displayed when **configType** is set to **collectorDeployMachine**.
         shared_ptr<string> groupId_ {};
-        // The internal-facing access address of Kibana on the private network after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
+        // The internal-facing access address of Kibana on the private network after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
         shared_ptr<string> host_ {};
+        // The access endpoints of the instance specified by the collector output. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
         shared_ptr<vector<string>> hosts_ {};
-        // The instance ID associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
+        // Instance ID of the instance associated with the collector. If **configType** is set to **collectorTargetInstance**, this parameter indicates instance ID of the instance specified by the collector output. If **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**, this parameter indicates instance ID of the ACK cluster.
         shared_ptr<string> instanceId_ {};
-        // The type of instance specified in the collector Output. Valid values: elasticsearch and logstash. Displayed when **configType** is **collectorTargetInstance**.
+        // The type of the instance specified by the collector output. Valid values: elasticsearch and logstash. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
         shared_ptr<string> instanceType_ {};
-        // The public network access address of Kibana after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
+        // The public network access address of Kibana after Kibana Dashboard is enabled. This parameter is displayed when **configType** is set to **collectorElasticsearchForKibana**.
         shared_ptr<string> kibanaHost_ {};
-        // The list of ECS machines on which the collector is deployed. Displayed when **configType** is **collectorDeployMachines** and **type** is **ECSInstanceId**.
+        // The information about the ECS instances where the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ECSInstanceId**.
         shared_ptr<vector<ExtendConfigs::Machines>> machines_ {};
         // The transmission protocol. Valid values: **HTTP** and **HTTPS**.
         shared_ptr<string> protocol_ {};
-        // The number of pods that are successfully collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
+        // The number of pods from which data is successfully collected in the ACK cluster. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
         shared_ptr<string> successPodsCount_ {};
-        // The total number of pods collected in the ACK cluster. Displayed when **configType** is **collectorDeployMachines** and **type** is **ACKCluster**.
+        // The total number of pods from which data is collected in the ACK cluster. This parameter is displayed when **configType** is set to **collectorDeployMachines** and **type** is set to **ACKCluster**.
         shared_ptr<string> totalPodsCount_ {};
-        // The type of machine on which the collector is deployed. Displayed when **configType** is **collectorDeployMachine**. Valid values:
+        // The type of the machine where the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
         // 
-        // - ECSInstanceId: ECS instance.
-        // - ACKCluster: Container Kubernetes cluster.
+        // - ECSInstanceId: ECS instance
+        // - ACKCluster: Container Service for Kubernetes (ACK) cluster
         shared_ptr<string> type_ {};
-        // The username used to access the instance specified in the collector Output. Default value: elastic. Displayed when **configType** is **collectorTargetInstance** or **collectorElasticsearchForKibana**.
+        // The username used to access the instance specified by the collector output. Default value: elastic. This parameter is displayed when **configType** is set to **collectorTargetInstance** or **collectorElasticsearchForKibana**.
         shared_ptr<string> userName_ {};
       };
 
@@ -348,9 +349,9 @@ namespace Models
 
 
       protected:
-        // The file content.
+        // The content of the file.
         shared_ptr<string> content_ {};
-        // The file name.
+        // The name of the file.
         shared_ptr<string> fileName_ {};
       };
 
@@ -456,36 +457,37 @@ namespace Models
 
 
     protected:
+      // The collection path of Filebeat. This parameter is displayed when the collector is deployed on an ECS instance.
       shared_ptr<vector<string>> collectorPaths_ {};
       // The configuration file information of the collector.
       shared_ptr<vector<Result::Configs>> configs_ {};
-      // Indicates whether the collector is validated and created. Valid values:
+      // Specifies whether to verify and update the collector. Valid values:
       // 
-      // - true: Only validated, not updated.
-      // - false: Validated and updated.
+      // - true: only verifies the request without updating the collector.
+      // - false: verifies and updates the collector.
       shared_ptr<bool> dryRun_ {};
       // The extended configurations of the collector.
       shared_ptr<vector<Result::ExtendConfigs>> extendConfigs_ {};
-      // The time when the collector was created.
+      // The time when the collector was created. The time is in the YYYY-MM-DDTHH:mm:ss.SSS+HHMM format, where the suffix indicates the time zone offset.
       shared_ptr<string> gmtCreatedTime_ {};
-      // The time when the collector was last updated.
+      // The time when the collector was updated. The time is in the YYYY-MM-DDTHH:mm:ss.SSS+HHMM format, where the suffix indicates the time zone offset.
       shared_ptr<string> gmtUpdateTime_ {};
-      // The collector name.
+      // The name of the collector.
       shared_ptr<string> name_ {};
-      // The account ID.
+      // The ID of the account.
       shared_ptr<string> ownerId_ {};
-      // The collector instance ID.
+      // The instance ID of the collector.
       shared_ptr<string> resId_ {};
-      // The collector type. Valid values: fileBeat, metricBeat, heartBeat, and audiBeat.
+      // The type of the collector. Valid values: fileBeat, metricBeat, heartBeat, and audiBeat.
       shared_ptr<string> resType_ {};
-      // The collector version. The supported versions depend on the type of machine on which the collector is deployed:
+      // The version of the collector. The supported versions vary based on the type of the machine where the collector is deployed. Valid values:
       // 
       // - ECS: 6.8.5_with_community
       // - ACK: 6.8.13_with_community
       shared_ptr<string> resVersion_ {};
-      // The collector status. Valid values: activing (taking effect) and active (active).
+      // The status of the collector. Valid values: activing (activating) and active (activated).
       shared_ptr<string> status_ {};
-      // The ID of the VPC where the collector resides.
+      // The ID of the virtual private cloud (VPC) where the collector resides.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -508,7 +510,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The returned result.
     shared_ptr<UpdateCollectorNameResponseBody::Result> result_ {};

@@ -42,12 +42,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(domain, domain_);
         DARABONBA_PTR_TO_JSON(esVersion, esVersion_);
+        DARABONBA_PTR_TO_JSON(indexNodeConfiguration, indexNodeConfiguration_);
         DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(kibanaConfiguration, kibanaConfiguration_);
         DARABONBA_PTR_TO_JSON(masterConfiguration, masterConfiguration_);
         DARABONBA_PTR_TO_JSON(nodeAmount, nodeAmount_);
         DARABONBA_PTR_TO_JSON(nodeSpec, nodeSpec_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
+        DARABONBA_PTR_TO_JSON(searchNodeConfiguration, searchNodeConfiguration_);
         DARABONBA_PTR_TO_JSON(status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
@@ -55,12 +57,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(domain, domain_);
         DARABONBA_PTR_FROM_JSON(esVersion, esVersion_);
+        DARABONBA_PTR_FROM_JSON(indexNodeConfiguration, indexNodeConfiguration_);
         DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(kibanaConfiguration, kibanaConfiguration_);
         DARABONBA_PTR_FROM_JSON(masterConfiguration, masterConfiguration_);
         DARABONBA_PTR_FROM_JSON(nodeAmount, nodeAmount_);
         DARABONBA_PTR_FROM_JSON(nodeSpec, nodeSpec_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
+        DARABONBA_PTR_FROM_JSON(searchNodeConfiguration, searchNodeConfiguration_);
         DARABONBA_PTR_FROM_JSON(status, status_);
       };
       Result() = default ;
@@ -74,6 +78,83 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SearchNodeConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SearchNodeConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(amount, amount_);
+          DARABONBA_PTR_TO_JSON(disk, disk_);
+          DARABONBA_PTR_TO_JSON(diskType, diskType_);
+          DARABONBA_PTR_TO_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_TO_JSON(spec, spec_);
+        };
+        friend void from_json(const Darabonba::Json& j, SearchNodeConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(amount, amount_);
+          DARABONBA_PTR_FROM_JSON(disk, disk_);
+          DARABONBA_PTR_FROM_JSON(diskType, diskType_);
+          DARABONBA_PTR_FROM_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_FROM_JSON(spec, spec_);
+        };
+        SearchNodeConfiguration() = default ;
+        SearchNodeConfiguration(const SearchNodeConfiguration &) = default ;
+        SearchNodeConfiguration(SearchNodeConfiguration &&) = default ;
+        SearchNodeConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SearchNodeConfiguration() = default ;
+        SearchNodeConfiguration& operator=(const SearchNodeConfiguration &) = default ;
+        SearchNodeConfiguration& operator=(SearchNodeConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->amount_ == nullptr
+        && this->disk_ == nullptr && this->diskType_ == nullptr && this->performanceLevel_ == nullptr && this->spec_ == nullptr; };
+        // amount Field Functions 
+        bool hasAmount() const { return this->amount_ != nullptr;};
+        void deleteAmount() { this->amount_ = nullptr;};
+        inline int32_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
+        inline SearchNodeConfiguration& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+        // disk Field Functions 
+        bool hasDisk() const { return this->disk_ != nullptr;};
+        void deleteDisk() { this->disk_ = nullptr;};
+        inline int32_t getDisk() const { DARABONBA_PTR_GET_DEFAULT(disk_, 0) };
+        inline SearchNodeConfiguration& setDisk(int32_t disk) { DARABONBA_PTR_SET_VALUE(disk_, disk) };
+
+
+        // diskType Field Functions 
+        bool hasDiskType() const { return this->diskType_ != nullptr;};
+        void deleteDiskType() { this->diskType_ = nullptr;};
+        inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+        inline SearchNodeConfiguration& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
+
+
+        // performanceLevel Field Functions 
+        bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+        void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+        inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+        inline SearchNodeConfiguration& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+        // spec Field Functions 
+        bool hasSpec() const { return this->spec_ != nullptr;};
+        void deleteSpec() { this->spec_ = nullptr;};
+        inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+        inline SearchNodeConfiguration& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
+
+
+      protected:
+        // The number of nodes.
+        shared_ptr<int32_t> amount_ {};
+        // The disk size.
+        shared_ptr<int32_t> disk_ {};
+        // The disk type, such as cloud_essd.
+        shared_ptr<string> diskType_ {};
+        // The disk performance level (PL), such as PL0.
+        shared_ptr<string> performanceLevel_ {};
+        // The node specifications.
+        shared_ptr<string> spec_ {};
+      };
+
       class NodeSpec : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NodeSpec& obj) { 
@@ -121,7 +202,7 @@ namespace Models
 
 
       protected:
-        // The storage size of the node. Unit: GB.
+        // The storage space size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Valid values:
         // 
@@ -190,7 +271,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node. Unit: GB.
+        // The storage space size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
@@ -256,7 +337,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node.
+        // The storage space size of the node.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. You can ignore this parameter.
         shared_ptr<string> diskType_ {};
@@ -264,9 +345,87 @@ namespace Models
         shared_ptr<string> spec_ {};
       };
 
+      class IndexNodeConfiguration : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const IndexNodeConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(amount, amount_);
+          DARABONBA_PTR_TO_JSON(disk, disk_);
+          DARABONBA_PTR_TO_JSON(diskType, diskType_);
+          DARABONBA_PTR_TO_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_TO_JSON(spec, spec_);
+        };
+        friend void from_json(const Darabonba::Json& j, IndexNodeConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(amount, amount_);
+          DARABONBA_PTR_FROM_JSON(disk, disk_);
+          DARABONBA_PTR_FROM_JSON(diskType, diskType_);
+          DARABONBA_PTR_FROM_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_FROM_JSON(spec, spec_);
+        };
+        IndexNodeConfiguration() = default ;
+        IndexNodeConfiguration(const IndexNodeConfiguration &) = default ;
+        IndexNodeConfiguration(IndexNodeConfiguration &&) = default ;
+        IndexNodeConfiguration(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~IndexNodeConfiguration() = default ;
+        IndexNodeConfiguration& operator=(const IndexNodeConfiguration &) = default ;
+        IndexNodeConfiguration& operator=(IndexNodeConfiguration &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->amount_ == nullptr
+        && this->disk_ == nullptr && this->diskType_ == nullptr && this->performanceLevel_ == nullptr && this->spec_ == nullptr; };
+        // amount Field Functions 
+        bool hasAmount() const { return this->amount_ != nullptr;};
+        void deleteAmount() { this->amount_ = nullptr;};
+        inline int32_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
+        inline IndexNodeConfiguration& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+        // disk Field Functions 
+        bool hasDisk() const { return this->disk_ != nullptr;};
+        void deleteDisk() { this->disk_ = nullptr;};
+        inline int32_t getDisk() const { DARABONBA_PTR_GET_DEFAULT(disk_, 0) };
+        inline IndexNodeConfiguration& setDisk(int32_t disk) { DARABONBA_PTR_SET_VALUE(disk_, disk) };
+
+
+        // diskType Field Functions 
+        bool hasDiskType() const { return this->diskType_ != nullptr;};
+        void deleteDiskType() { this->diskType_ = nullptr;};
+        inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+        inline IndexNodeConfiguration& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
+
+
+        // performanceLevel Field Functions 
+        bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+        void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+        inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+        inline IndexNodeConfiguration& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+        // spec Field Functions 
+        bool hasSpec() const { return this->spec_ != nullptr;};
+        void deleteSpec() { this->spec_ = nullptr;};
+        inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+        inline IndexNodeConfiguration& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
+
+
+      protected:
+        // The number of nodes.
+        shared_ptr<int32_t> amount_ {};
+        // The disk size.
+        shared_ptr<int32_t> disk_ {};
+        // The disk type, such as cloud_essd.
+        shared_ptr<string> diskType_ {};
+        // The disk performance level (PL), such as PL0.
+        shared_ptr<string> performanceLevel_ {};
+        // The node specifications.
+        shared_ptr<string> spec_ {};
+      };
+
       virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->description_ == nullptr && this->domain_ == nullptr && this->esVersion_ == nullptr && this->instanceId_ == nullptr && this->kibanaConfiguration_ == nullptr
-        && this->masterConfiguration_ == nullptr && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr && this->status_ == nullptr; };
+        && this->description_ == nullptr && this->domain_ == nullptr && this->esVersion_ == nullptr && this->indexNodeConfiguration_ == nullptr && this->instanceId_ == nullptr
+        && this->kibanaConfiguration_ == nullptr && this->masterConfiguration_ == nullptr && this->nodeAmount_ == nullptr && this->nodeSpec_ == nullptr && this->paymentType_ == nullptr
+        && this->searchNodeConfiguration_ == nullptr && this->status_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -293,6 +452,15 @@ namespace Models
       void deleteEsVersion() { this->esVersion_ = nullptr;};
       inline string getEsVersion() const { DARABONBA_PTR_GET_DEFAULT(esVersion_, "") };
       inline Result& setEsVersion(string esVersion) { DARABONBA_PTR_SET_VALUE(esVersion_, esVersion) };
+
+
+      // indexNodeConfiguration Field Functions 
+      bool hasIndexNodeConfiguration() const { return this->indexNodeConfiguration_ != nullptr;};
+      void deleteIndexNodeConfiguration() { this->indexNodeConfiguration_ = nullptr;};
+      inline const Result::IndexNodeConfiguration & getIndexNodeConfiguration() const { DARABONBA_PTR_GET_CONST(indexNodeConfiguration_, Result::IndexNodeConfiguration) };
+      inline Result::IndexNodeConfiguration getIndexNodeConfiguration() { DARABONBA_PTR_GET(indexNodeConfiguration_, Result::IndexNodeConfiguration) };
+      inline Result& setIndexNodeConfiguration(const Result::IndexNodeConfiguration & indexNodeConfiguration) { DARABONBA_PTR_SET_VALUE(indexNodeConfiguration_, indexNodeConfiguration) };
+      inline Result& setIndexNodeConfiguration(Result::IndexNodeConfiguration && indexNodeConfiguration) { DARABONBA_PTR_SET_RVALUE(indexNodeConfiguration_, indexNodeConfiguration) };
 
 
       // instanceId Field Functions 
@@ -343,6 +511,15 @@ namespace Models
       inline Result& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
+      // searchNodeConfiguration Field Functions 
+      bool hasSearchNodeConfiguration() const { return this->searchNodeConfiguration_ != nullptr;};
+      void deleteSearchNodeConfiguration() { this->searchNodeConfiguration_ = nullptr;};
+      inline const Result::SearchNodeConfiguration & getSearchNodeConfiguration() const { DARABONBA_PTR_GET_CONST(searchNodeConfiguration_, Result::SearchNodeConfiguration) };
+      inline Result::SearchNodeConfiguration getSearchNodeConfiguration() { DARABONBA_PTR_GET(searchNodeConfiguration_, Result::SearchNodeConfiguration) };
+      inline Result& setSearchNodeConfiguration(const Result::SearchNodeConfiguration & searchNodeConfiguration) { DARABONBA_PTR_SET_VALUE(searchNodeConfiguration_, searchNodeConfiguration) };
+      inline Result& setSearchNodeConfiguration(Result::SearchNodeConfiguration && searchNodeConfiguration) { DARABONBA_PTR_SET_RVALUE(searchNodeConfiguration_, searchNodeConfiguration) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -351,14 +528,16 @@ namespace Models
 
 
     protected:
-      // The time when the instance was created.
+      // The time when the instance was created. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard.
       shared_ptr<string> createdAt_ {};
       // The instance name.
       shared_ptr<string> description_ {};
-      // The internal-facing access domain name of the instance for private network access.
+      // The internal-facing access domain name of the instance on the private network.
       shared_ptr<string> domain_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
+      // The index node configuration. This parameter is supported only by AI engine instances.
+      shared_ptr<Result::IndexNodeConfiguration> indexNodeConfiguration_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The Kibana node configuration.
@@ -371,14 +550,16 @@ namespace Models
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - prepaid: Subscription.
-      // - postpaid: Pay-as-you-go.
+      // - prepaid: subscription.
+      // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
+      // The search node configuration. This parameter is supported only by AI engine instances.
+      shared_ptr<Result::SearchNodeConfiguration> searchNodeConfiguration_ {};
       // The status of the instance. Valid values:
       // 
       // - active: Normal.
-      // - activating: Taking effect.
-      // - inactive: Frozen.
+      // - activating: Activating.
+      // - inactive: Inactive.
       // - invalid: Invalid.
       shared_ptr<string> status_ {};
     };

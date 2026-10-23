@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The VPC private network access whitelist.
       shared_ptr<vector<string>> privateNetworkIpWhiteList_ {};
     };
 

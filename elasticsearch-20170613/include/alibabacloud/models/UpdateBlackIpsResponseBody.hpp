@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The list of IP addresses in the access blacklist of the Elasticsearch instance.
       shared_ptr<vector<string>> esIPBlacklist_ {};
     };
 
@@ -84,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The updated access blacklist information.
     shared_ptr<UpdateBlackIpsResponseBody::Result> result_ {};
   };
 

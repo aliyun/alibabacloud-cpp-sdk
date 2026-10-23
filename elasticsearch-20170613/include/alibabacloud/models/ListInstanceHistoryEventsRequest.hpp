@@ -94,16 +94,14 @@ namespace Models
 
 
     protected:
-      // Specifies whether to sort in descending order. Valid values:
-      // 
-      // - true (default): yes
-      // - false: no
+      // Specifies whether to sort the results in descending order. Valid values:
+      // - true: Sorts the results in descending order. This is the default value.
+      // - false: Sorts the results in ascending order.
       shared_ptr<bool> desc_ {};
-      // The field by which the results are sorted. Valid values:
-      // 
-      // - event_time: event creation time
-      // - event_execute_start_time: event execution time
-      // - event_execute_finish_time: event completion time
+      // The field by which to sort the returned results. Valid values:
+      // - event_time: the creation time of the event
+      // - event_execute_start_time: the execution time of the event
+      // - event_execute_finish_time: the completion time of the event
       shared_ptr<string> sortField_ {};
     };
 
@@ -220,19 +218,19 @@ namespace Models
   protected:
     // The request body parameters.
     shared_ptr<vector<ListInstanceHistoryEventsRequest::Body>> body_ {};
-    // The end time for querying by event creation time. Specify a timestamp in milliseconds.
+    // The end time for querying events by creation time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventCreateEndTime_ {};
-    // The start time for querying by event creation time. Specify a timestamp in milliseconds.
+    // The start time for querying events by creation time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventCreateStartTime_ {};
     // The lifecycle status object of the event.
     shared_ptr<vector<string>> eventCycleStatus_ {};
-    // The end time for querying by event execution time. Specify a timestamp in milliseconds.
+    // The end time for querying events by execution time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventExecuteEndTime_ {};
-    // The start time for querying by event execution time. Specify a timestamp in milliseconds.
+    // The start time for querying events by execution time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventExecuteStartTime_ {};
-    // The end time for querying by event completion time. Specify a timestamp in milliseconds.
+    // The end time for querying events by completion time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventFinashEndTime_ {};
-    // The start time for querying by event completion time. Specify a timestamp in milliseconds.
+    // The start time for querying events by completion time. The value is a timestamp in milliseconds.
     shared_ptr<string> eventFinashStartTime_ {};
     // The event level.
     shared_ptr<vector<string>> eventLevel_ {};
