@@ -98,13 +98,13 @@ namespace Models
 
 
     protected:
-      // The extended parameters as a JSON string.
+      // The JSON string of extended parameters.
       shared_ptr<string> extraParams_ {};
       // The maximum number of execution steps.
       shared_ptr<int32_t> maxSteps_ {};
-      // The list of skill IDs, up to 1. Written to aim_task_config.run_config when the scheduled task is created and read when the callback is delivered.
+      // The list of skill IDs. You can specify up to 1 skill ID. The value is written to aim_task_config.run_config when the scheduled task is created and read when the callback is delivered.
       shared_ptr<vector<string>> skills_ {};
-      // The timeout in seconds.
+      // The timeout period in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
     };
 
@@ -169,7 +169,7 @@ namespace Models
     shared_ptr<int32_t> maxExecutions_ {};
     // The run configuration.
     shared_ptr<CreateScheduledTaskRequest::RunConfig> runConfig_ {};
-    // The task name.
+    // The name of the task.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

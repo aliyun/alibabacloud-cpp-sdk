@@ -78,17 +78,17 @@ namespace Models
 
 
   protected:
-    // The channel type for running the command.
+    // The channel type used to execute the command.
     shared_ptr<string> agentType_ {};
-    // The content of the command.
+    // The command content.
     shared_ptr<string> commandContent_ {};
-    // The encoding method for the command content (`CommandContent`). This value is not case-sensitive.
+    // The encoding method of the command content (`CommandContent`). This parameter is case-insensitive.
     // 
-    // > An invalid value defaults to `PlainText`.
+    // > If the specified value is not within the valid values, it is processed as `PlainText`.
     shared_ptr<string> contentEncoding_ {};
-    // A list of instance IDs. You can specify up to 50 instances per request.
+    // The list of instance IDs. A single request supports up to 50 instances.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The execution timeout in seconds. The command times out if it does not complete within this period. Defaults to 60 seconds.
+    // The timeout period. Unit: seconds. If the command is not completed within this period, the command execution status is set to timeout. If this parameter is not specified, the default value is 60 seconds.
     shared_ptr<int64_t> timeout_ {};
   };
 

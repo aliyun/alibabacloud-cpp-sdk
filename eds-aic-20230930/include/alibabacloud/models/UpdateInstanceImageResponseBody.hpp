@@ -93,7 +93,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The child task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -116,7 +118,9 @@ namespace Models
 
 
     protected:
+      // The child tasks.
       shared_ptr<vector<Tasks::ChildTasks>> childTasks_ {};
+      // The parent task ID.
       shared_ptr<string> parentTaskId_ {};
     };
 
@@ -150,6 +154,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
+    // The task information.
     shared_ptr<UpdateInstanceImageResponseBody::Tasks> tasks_ {};
   };
 

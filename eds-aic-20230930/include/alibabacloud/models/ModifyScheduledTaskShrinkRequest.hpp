@@ -112,13 +112,13 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The run configuration.
     shared_ptr<string> runConfigShrink_ {};
-    // The scheduled task ID.
+    // The ID of the scheduled task.
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // Switches the status. Valid values: ACTIVE and DISABLED.
+    // The status toggle. Valid values: ACTIVE and DISABLED.
     shared_ptr<string> status_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
     // The CAS version number.
     // 

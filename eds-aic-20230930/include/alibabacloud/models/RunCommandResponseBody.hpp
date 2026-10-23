@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // The instance-level child task ID.
       shared_ptr<string> childTaskId_ {};
+      // The cloud phone instance ID.
       shared_ptr<string> instanceId_ {};
+      // The command execution ID.
       shared_ptr<string> invokeId_ {};
     };
 
@@ -121,11 +124,13 @@ namespace Models
 
 
   protected:
-    // The command execution ID. Use this ID to query the execution result.
+    // The command execution ID. You can use this ID to query the command execution result.
     shared_ptr<string> invokeId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of command execution information for each cloud phone instance.
     shared_ptr<vector<RunCommandResponseBody::RunCommandInfos>> runCommandInfos_ {};
+    // The batch task ID.
     shared_ptr<string> taskId_ {};
   };
 

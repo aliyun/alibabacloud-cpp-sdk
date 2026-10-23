@@ -89,13 +89,15 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The instance group IDs.
+    // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
+    // The redirect URL to the payment success page.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The renewal duration.
+    // Specifies the renewal duration. The unit is specified by the PeriodUnit parameter.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal duration specified by `Period`. Default value: Month.
+    // The unit of the renewal duration, which is the unit of the Period parameter. Default value: Month.
     shared_ptr<string> periodUnit_ {};
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

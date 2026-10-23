@@ -132,21 +132,23 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Default value: false.
     shared_ptr<bool> autoPay_ {};
+    // The display settings.
     shared_ptr<string> displayConfig_ {};
     // The downstream bandwidth throttling. Unit: Mbit/s.
     shared_ptr<int32_t> downBandwidthLimit_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The cloud phone matrix ID.
+    // The ID of the cloud phone matrix.
     shared_ptr<string> nodeId_ {};
-    // The number of cloud phone instances. You can call [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) to query the maximum and minimum instance count limits.
+    // The number of cloud phone instances. You can call the [DescribeSpec](https://help.aliyun.com/document_detail/2807299.html) operation to query the maximum and minimum limits on the number of instances.
     shared_ptr<int32_t> phoneCount_ {};
-    // The device storage size. Valid range: 10 GiB to 4000 GiB. If this parameter is left empty, the original size is retained.
+    // The local storage size. Valid values: 10 to 4000. Unit: GiB. If this parameter is left empty, the original size is retained.
     shared_ptr<int32_t> phoneDataVolume_ {};
-    // The promotional activity ID.
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
-    // The shared storage size. Unit: GiB.
+    // The size of the shared storage. Unit: GiB.
     shared_ptr<int32_t> shareDataVolume_ {};
+    // The size of the swap space.
     shared_ptr<int32_t> swapSize_ {};
     // The upstream bandwidth throttling. Unit: Mbit/s.
     shared_ptr<int32_t> upBandwidthLimit_ {};

@@ -142,11 +142,11 @@ namespace Models
 
 
     protected:
-      // The list of batch delivery results for instance scheduled tasks.
+      // The list of batch delivery results for the scheduled tasks of instances.
       shared_ptr<vector<Tasks::InstanceResults>> instanceResults_ {};
-      // The scheduled task ID.
+      // The ID of the scheduled task.
       shared_ptr<string> scheduledId_ {};
-      // The task configuration ID.
+      // The ID of the task configuration.
       shared_ptr<string> taskConfigId_ {};
     };
 
@@ -190,9 +190,9 @@ namespace Models
 
 
   protected:
-    // The API status code.
+    // The status code of the API operation.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The message returned by the API operation.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The quota limit.
+      // The credit limit.
       shared_ptr<int64_t> creditLimit_ {};
-      // The period of the current credit.
+      // The time dimension for the current credit.
       shared_ptr<string> limitPeriod_ {};
     };
 
@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<string> agentVersion_ {};
     // Specifies whether to apply the configuration to all instances.
     shared_ptr<bool> applyToAll_ {};
-    // The credit limit configuration. Subsequent quota configurations overwrite previous ones.
+    // The credit limit configuration. Subsequent configurations overwrite previous ones.
     shared_ptr<vector<ModifyJVSInstanceRequest::CreditConfig>> creditConfig_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud phone instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -137,14 +137,23 @@ namespace Models
   protected:
     // The connection mode.
     shared_ptr<string> connectionMode_ {};
-    // The ID of the user to whom the cloud phone instance is assigned.
+    // The ID of the assigned user. If you do not specify this parameter, the system user assigned in the background is used to obtain the ticket.
+    // 
+    // <props="china">
+    // The usage of this parameter varies based on the Cloud Phone edition and the instance streaming mode:
+    // 
+    // - Cloud Phone Instance Edition or Cloud Phone Matrix Edition (preemptive mode): You can obtain a `Ticket` only by using the same `EnduserId`.
+    // - Cloud Phone Matrix Edition (collaborative mode): You can pass different `EnduserId` values to obtain `Ticket` values and stream for different users (up to 5) at the same time. You can pass only one `EnduserId` at a time.
+    // 
+    // > You can define the instance streaming mode by using the `StreamMode` parameter of the `ModifyCloudPhoneNode` operation.
     shared_ptr<string> endUserId_ {};
-    // The ID of the instance group.
+    // The instance group ID.
     shared_ptr<string> instanceGroupId_ {};
-    // The IDs of the cloud phone instances. You can specify 1 to 100 IDs of cloud phone instances.
+    // The list of Cloud Phone instance IDs. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The instance connection task, which is used to query whether the ticket retrieval task is completed.
+    // The instance connection tasks. This parameter is used to query whether the ticket retrieval task is completed.
     shared_ptr<vector<BatchGetAcpConnectionTicketRequest::InstanceTasks>> instanceTasks_ {};
+    // The list of custom connection ports.
     shared_ptr<vector<string>> ports_ {};
   };
 

@@ -267,27 +267,25 @@ namespace Models
       // - FAILED: The task failed.
       // - TIMEOUT: The task execution timed out.
       shared_ptr<string> currentStatus_ {};
-      // The source of the digest. Valid values:
-      // - PROMPT_AUTO: Automatically generated.
-      // - RESULT_AUTO: Refined from the result.
-      // - USER: Edited by the user.
+      // The source of the digest. Valid values: PROMPT_AUTO (automatically generated), RESULT_AUTO (refined from the result), and USER (edited by the user).
       shared_ptr<string> digestSource_ {};
       // The ID of the mobile node.
       shared_ptr<string> instanceId_ {};
+      // The reason for the task status.
       shared_ptr<string> reason_ {};
       // The time when the task was created, in ISO 8601 format.
       shared_ptr<string> runningAt_ {};
       // The number of executed steps.
       shared_ptr<string> steps_ {};
-      // The task digest text, with a maximum of 25 characters.
+      // The task digest text, up to 25 characters in length.
       shared_ptr<string> taskDigest_ {};
-      // The time consumed by the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
+      // The duration of the task. This field is returned only when CurrentStatus is FAILED or COMPLETED.
       shared_ptr<string> taskDuration_ {};
       // The globally unique task ID.
       shared_ptr<string> taskId_ {};
-      // The node task result (desired state). This field is returned only when CurrentStatus is COMPLETED or FAILED.
+      // The task result (desired state) of the node. This field is returned only when CurrentStatus is COMPLETED or FAILED.
       shared_ptr<string> taskResult_ {};
-      // The user instruction in natural language based on which the agent performs operations.
+      // The user prompt in natural language that instructs the agent to perform operations.
       shared_ptr<string> userPrompt_ {};
     };
 

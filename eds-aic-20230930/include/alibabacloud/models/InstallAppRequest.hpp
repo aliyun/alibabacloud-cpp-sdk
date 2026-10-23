@@ -64,11 +64,11 @@ namespace Models
 
 
   protected:
-    // The application IDs.
+    // The list of application IDs.
     shared_ptr<vector<string>> appIdList_ {};
-    // The instance group IDs.
+    // The list of instance groups.
     shared_ptr<vector<string>> instanceGroupIdList_ {};
-    // The instance IDs.
+    // The list of instances.
     shared_ptr<vector<string>> instanceIdList_ {};
   };
 

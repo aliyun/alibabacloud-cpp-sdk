@@ -134,20 +134,23 @@ namespace Models
 
 
     protected:
-      // The ID of the delivery group.
+      // The delivery group ID.
       shared_ptr<string> appInstanceGroupId_ {};
+      // The physical instance ID.
       shared_ptr<string> appInstanceId_ {};
+      // The error cause.
       shared_ptr<string> errorCode_ {};
-      // The ID of the cloud phone instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The persistent session ID.
       shared_ptr<string> persistentAppInstanceId_ {};
-      // The port used for establishing a connection.
+      // The connection port.
       shared_ptr<int32_t> port_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The state of the task. If FINISHED is returned, it indicates that a value can be retrieved from the Ticket field. If the returned value is not FINISHED, you still need to use this operation to query the Ticket generation result by using TaskId.
+      // The task status. A value of FINISHED indicates that you can obtain the ticket from the Ticket field. Otherwise, you must use the TaskId to call this operation and query the ticket generation result.
       shared_ptr<string> taskStatus_ {};
-      // The ticket used to connect to the cloud phone instance.
+      // The ticket used to connect to the user instance.
       shared_ptr<string> ticket_ {};
     };
 
@@ -170,9 +173,9 @@ namespace Models
 
 
   protected:
-    // The results of the instance connection tasks.
+    // The instance connection task results.
     shared_ptr<vector<BatchGetAcpConnectionTicketResponseBody::InstanceConnectionModels>> instanceConnectionModels_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

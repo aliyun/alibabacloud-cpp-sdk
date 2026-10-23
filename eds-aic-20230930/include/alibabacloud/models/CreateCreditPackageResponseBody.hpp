@@ -87,12 +87,13 @@ namespace Models
 
 
   protected:
-    // The ID of the credit top-up package.
+    // The ID of the credit package.
     shared_ptr<string> creditPackageId_ {};
+    // The IDs of the credit packages created in this request.
     shared_ptr<vector<string>> creditPackageIds_ {};
-    // The effective period of the credit top-up package. The time format is YYYY-MM-DD HH:mm:ss.
+    // The effective time of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> effectiveTime_ {};
-    // The expiration time of the credit top-up package. The time format is YYYY-MM-DD HH:mm:ss.
+    // The expiration time of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> expiredTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

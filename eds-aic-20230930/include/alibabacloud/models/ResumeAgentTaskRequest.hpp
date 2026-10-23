@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The custom input content in the clarification answer.
       shared_ptr<string> customValue_ {};
+      // The ID of the clarification item.
       shared_ptr<string> id_ {};
+      // The list of selected option IDs in the clarification answer.
       shared_ptr<vector<string>> selectedIds_ {};
     };
 
@@ -125,13 +128,15 @@ namespace Models
 
 
   protected:
-    // The additional prompt to append. This parameter takes effect only when the task is passively paused, such as when the task is paused and waiting for user confirmation.
+    // The additional prompt. This parameter takes effect only when the task is passively paused, such as pausing to wait for user confirmation.
     shared_ptr<string> additionalPrompt_ {};
+    // The list of clarification answers submitted when resuming the task.
     shared_ptr<vector<ResumeAgentTaskRequest::ClarificationAnswers>> clarificationAnswers_ {};
     // The list of task IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> taskIds_ {};
+    // The ID of the tool invoke to resume.
     shared_ptr<string> toolCallId_ {};
   };
 

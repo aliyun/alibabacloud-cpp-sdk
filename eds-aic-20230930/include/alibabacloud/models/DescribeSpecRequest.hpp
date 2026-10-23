@@ -123,9 +123,9 @@ namespace Models
     shared_ptr<string> matrixSpec_ {};
     // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position from which the query starts. If you leave this parameter empty, the query starts from the beginning.
+    // The token that specifies the position from which to start reading. An empty value indicates that the reading starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The purchase mode for cloud phones.
+    // The purchasing mode of the cloud phone.
     shared_ptr<string> saleMode_ {};
     // The list of specification IDs.
     shared_ptr<vector<string>> specIds_ {};

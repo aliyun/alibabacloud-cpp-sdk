@@ -133,20 +133,21 @@ namespace Models
 
 
     protected:
-      // The number of available credits in the current credit boost package.
+      // The number of available credits in the current credit package.
       shared_ptr<string> availableCredits_ {};
+      // The creation time. The time is in UTC and follows the ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The ID of the credit boost package.
+      // The ID of the credit package.
       shared_ptr<string> creditPackageId_ {};
-      // The status of the credit boost package.
+      // The status of the credit package.
       shared_ptr<string> creditPackageStatus_ {};
-      // The effective period of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
+      // The effective period of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> effectiveTime_ {};
-      // The number of consumed credits in the current credit boost package.
+      // The number of consumed credits in the current credit package.
       shared_ptr<string> exhaustedCredits_ {};
-      // The expiration time of the credit boost package. The time format is YYYY-MM-DD HH:mm:ss.
+      // The expiration time of the credit package. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> expiredTime_ {};
-      // The total number of credits in the current credit boost package.
+      // The total number of credits in the current credit package.
       shared_ptr<string> totalCredits_ {};
     };
 
@@ -197,11 +198,11 @@ namespace Models
 
 
   protected:
-    // The information about the credit boost packages.
+    // The credit package information.
     shared_ptr<vector<DescribeCreditPackageResponseBody::CreditsPackageInfos>> creditsPackageInfos_ {};
     // Indicates whether this is the first purchase.
     shared_ptr<bool> isFirstPurchase_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of available credits.
     shared_ptr<string> totalAvailableCredits_ {};

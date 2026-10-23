@@ -75,6 +75,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResolutionHeight, resolutionHeight_);
         DARABONBA_PTR_TO_JSON(ResolutionWidth, resolutionWidth_);
         DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
+        DARABONBA_PTR_TO_JSON(SingleInstanceMode, singleInstanceMode_);
         DARABONBA_PTR_TO_JSON(SystemVersion, systemVersion_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -117,6 +118,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResolutionHeight, resolutionHeight_);
         DARABONBA_PTR_FROM_JSON(ResolutionWidth, resolutionWidth_);
         DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
+        DARABONBA_PTR_FROM_JSON(SingleInstanceMode, singleInstanceMode_);
         DARABONBA_PTR_FROM_JSON(SystemVersion, systemVersion_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -282,7 +284,7 @@ namespace Models
         protected:
           // The instance ID.
           shared_ptr<string> instanceId_ {};
-          // The ID of the Internet bandwidth throttling rule (applies only to premium bandwidth).
+          // The ID of the Internet bandwidth throttling rule. This rule applies only to premium bandwidth.
           shared_ptr<string> qosRuleId_ {};
         };
 
@@ -305,9 +307,9 @@ namespace Models
 
 
       protected:
-        // The Internet bandwidth throttling rules bound to the instances.
+        // The information about the Internet bandwidth throttling rules bound to the instance.
         shared_ptr<vector<BindQosRules::InstanceQosRule>> instanceQosRule_ {};
-        // The total number of Internet bandwidth throttling rules for the instance group.
+        // The total number of Internet bandwidth throttling rules bound to the instance group.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -319,7 +321,7 @@ namespace Models
         && this->instanceGroupSpec_ == nullptr && this->instanceGroupSpecDescribe_ == nullptr && this->instanceGroupStatus_ == nullptr && this->ipv6Bandwidth_ == nullptr && this->memory_ == nullptr
         && this->networkType_ == nullptr && this->numberOfInstances_ == nullptr && this->officeSiteId_ == nullptr && this->packageId_ == nullptr && this->policyGroupId_ == nullptr
         && this->regionId_ == nullptr && this->renderingType_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->saleMode_ == nullptr
-        && this->systemVersion_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->singleInstanceMode_ == nullptr && this->systemVersion_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
       // appInstanceGroupId Field Functions 
       bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
       void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -576,6 +578,13 @@ namespace Models
       inline InstanceGroupModel& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
 
 
+      // singleInstanceMode Field Functions 
+      bool hasSingleInstanceMode() const { return this->singleInstanceMode_ != nullptr;};
+      void deleteSingleInstanceMode() { this->singleInstanceMode_ = nullptr;};
+      inline bool getSingleInstanceMode() const { DARABONBA_PTR_GET_DEFAULT(singleInstanceMode_, false) };
+      inline InstanceGroupModel& setSingleInstanceMode(bool singleInstanceMode) { DARABONBA_PTR_SET_VALUE(singleInstanceMode_, singleInstanceMode) };
+
+
       // systemVersion Field Functions 
       bool hasSystemVersion() const { return this->systemVersion_ != nullptr;};
       void deleteSystemVersion() { this->systemVersion_ = nullptr;};
@@ -607,29 +616,30 @@ namespace Models
 
 
     protected:
-      // The delivery group ID.
+      // The ID of the delivery group.
       shared_ptr<string> appInstanceGroupId_ {};
       // The architecture type.
       shared_ptr<string> architectureType_ {};
       // The number of available instances.
+      // 
       // > Available indicates that the instance status is neither Deleting nor Deleted.
       shared_ptr<int32_t> availableInstanceAmount_ {};
       // The ID of the bandwidth plan.
       shared_ptr<string> bandwidthPackageId_ {};
       // The status of the bandwidth plan.
       // Valid values:
-      // - Creating: creating
-      // - Releasing: releasing
-      // - InUse: in use
-      // - Failed: failed
-      // - Expired: expired
-      // - Available: available and unbound, billing in progress
+      // - Creating: The bandwidth plan is being created.
+      // - Releasing: The bandwidth plan is being released.
+      // - InUse: The bandwidth plan is in use.
+      // - Failed: The operation failed.
+      // - Expired: The bandwidth plan has expired.
+      // - Available: The bandwidth plan is unbound and being billed.
       shared_ptr<string> bandwidthPackageStatus_ {};
       // The type of the bandwidth plan.
       shared_ptr<string> bandwidthPackageType_ {};
-      // The Internet bandwidth throttling rules for the instance group.
+      // The information about the Internet bandwidth throttling rules bound to the instance group.
       shared_ptr<InstanceGroupModel::BindQosRules> bindQosRules_ {};
-      // The order source. CLOUDPHONE indicates AI Cloud Phone.
+      // The order source. A value of CLOUDPHONE indicates AI Cloud Phone.
       shared_ptr<string> channel_ {};
       // The billing method.
       shared_ptr<string> chargeType_ {};
@@ -637,7 +647,7 @@ namespace Models
       shared_ptr<string> cpu_ {};
       // The disk information.
       shared_ptr<vector<InstanceGroupModel::Disks>> disks_ {};
-      // > This parameter is not available for public use.
+      // > This parameter is not publicly available.
       shared_ptr<bool> enableIpv6_ {};
       // The cause of the creation failure.
       shared_ptr<string> errorCode_ {};
@@ -647,36 +657,37 @@ namespace Models
       shared_ptr<string> gmtExpired_ {};
       // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The image ID.
+      // The ID of the image.
       shared_ptr<string> imageId_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
       // The list of installed applications.
       shared_ptr<string> installedAppList_ {};
-      // The ID of the instance group.
+      // The instance group ID.
       shared_ptr<string> instanceGroupId_ {};
       // The name of the instance group.
       shared_ptr<string> instanceGroupName_ {};
-      // The instance group specifications.
+      // The specifications of the instance group.
       shared_ptr<string> instanceGroupSpec_ {};
       // The description of the instance group specifications.
       shared_ptr<string> instanceGroupSpecDescribe_ {};
       // The status of the instance group.
       shared_ptr<string> instanceGroupStatus_ {};
-      // > This parameter is not available for public use.
+      // > This parameter is not publicly available.
       shared_ptr<int32_t> ipv6Bandwidth_ {};
       // The memory size.
       shared_ptr<int32_t> memory_ {};
       // The network type of the instance.
-      // > Currently, this field is returned only for instance groups in the standard network.
+      // 
+      // > This field is returned only for instance groups in the standard network.
       shared_ptr<string> networkType_ {};
       // The number of instances in the instance group.
       shared_ptr<string> numberOfInstances_ {};
       // The network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The ID of the plan package for the AI Cloud Phone.
+      // The ID of the plan for the AI Cloud Phone.
       shared_ptr<string> packageId_ {};
-      // The ID of the policy.
+      // The policy ID.
       shared_ptr<string> policyGroupId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -688,11 +699,13 @@ namespace Models
       shared_ptr<int32_t> resolutionWidth_ {};
       // The sales mode.
       shared_ptr<string> saleMode_ {};
+      // Indicates whether the single-instance mode is enabled.
+      shared_ptr<bool> singleInstanceMode_ {};
       // The system version.
       shared_ptr<string> systemVersion_ {};
       // The tag information.
       shared_ptr<vector<InstanceGroupModel::Tags>> tags_ {};
-      // The vSwitch ID in the VPC.
+      // The ID of the vSwitch in the VPC.
       shared_ptr<string> vSwitchId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -733,7 +746,7 @@ namespace Models
   protected:
     // The details of the instance group.
     shared_ptr<vector<DescribeAndroidInstanceGroupsResponseBody::InstanceGroupModel>> instanceGroupModel_ {};
-    // The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
+    // The token that indicates the position of the current read. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

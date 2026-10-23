@@ -358,67 +358,77 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Default value: false.
     shared_ptr<bool> autoRenew_ {};
+    // The bandwidth plan ID.
     shared_ptr<string> bandwidthPackageId_ {};
+    // The bandwidth type.
     shared_ptr<string> bandwidthPackageType_ {};
-    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions where cloud phone instances can be purchased.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where cloud phones are available.
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
+    // The channel cookie, which is passed through to the sales system when an order is placed.
     shared_ptr<string> channelCookie_ {};
-    // The billing type.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The client token that is used to ensure the idempotence of the request and prevent repeated submissions. The value cannot exceed 100 characters in length.
+    // The client token that is used to ensure the idempotence of the request and prevent duplicate requests. The token can be up to 100 characters in length.
     shared_ptr<string> clientToken_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available to the public.
     shared_ptr<bool> enableIpv6_ {};
     // Specifies whether to enable GPU acceleration.
     shared_ptr<bool> gpuAcceleration_ {};
-    // The image ID. You can call [DescribeImageList](~~DescribeImageList~~) to query the list of cloud phone images.
+    // The image ID. You can call the [DescribeImageList](~~DescribeImageList~~) operation to query the image list for cloud phones.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The instance group name.
+    // The name of the instance group.
     // 
-    // > The instance group name cannot exceed 30 characters in length. It must start with an uppercase letter, lowercase letter, or Chinese character. It cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // > The name can be up to 30 characters in length. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain only Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> instanceGroupName_ {};
-    // The instance group specification. You can call [DescribeSpec](~~DescribeSpec~~) to query the specifications available for cloud phone instances.
+    // The specifications of the instance group. You can call the [DescribeSpec](~~DescribeSpec~~) operation to query the available specifications for cloud phones.
     // 
     // This parameter is required.
     shared_ptr<string> instanceGroupSpec_ {};
+    // The instance version. A value of basic indicates a Wuying cloud phone instance, and a value of EnterpriseAi indicates a JVS Mobile instance.
     shared_ptr<string> instanceVersion_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available to the public.
     shared_ptr<int32_t> ipv6Bandwidth_ {};
-    // The key pair ID. If you specify a valid key pair ID when creating an instance group, the key pair is bound to all instances that are successfully created, without the need to call the bindng operation again.
+    // The key pair ID. When creating an instance group, if you specify a valid key pair ID, the key pair is bound to all successfully created instances, and you do not need to call the binding API operation again.
     // 
-    // > Binding a key pair during scale-out is not supported.
+    // > Binding key pairs during scale-out is not supported.
     shared_ptr<string> keyPairId_ {};
+    // The network and bandwidth plan configurations of the instance group.
     shared_ptr<string> networkInfoShrink_ {};
+    // The network type of the instance.
     shared_ptr<string> networkType_ {};
     // The number of instances in the instance group. Maximum value: 100.
     shared_ptr<int32_t> numberOfInstances_ {};
     // The network ID.
     // 
-    // - To create a shared network instance: the network ID is optional. Specify the network ID of the **Shared Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no shared network exists in the console, you can leave this parameter empty. A shared network is automatically created when the instance group is created.
+    // - To create a shared network instance: The network ID is optional. Enter the network ID of the **Shared Network** type on the [Cloud Phone Console > Network](https://wya.wuying.aliyun.com/network) page. If no shared network is available in the console, you can leave this parameter empty, and automatic creation of a shared network is triggered when the instance group is created.
     // 
-    // - To create a VPC network instance: the network ID is required. Specify the network ID of the **VPC Network** type on the [Cloud Phone console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC network exists in the console, create a network first.
+    // - To create a VPC network instance: The network ID is required. Enter the network ID of the **VPC Network** type on the [Cloud Phone Console > Network](https://wya.wuying.aliyun.com/network) page. If no VPC network is available in the console, you must create a network first.
     shared_ptr<string> officeSiteId_ {};
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallBackUrl_ {};
     // The subscription duration of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration.
     shared_ptr<string> periodUnit_ {};
-    // The policy ID. You can call [ListPolicyGroups](~~ListPolicyGroups~~) to query the list of policies.
+    // The policy ID. You can call the [ListPolicyGroups](~~ListPolicyGroups~~) operation to query the policy list.
     shared_ptr<string> policyGroupId_ {};
+    // The promotion activity ID.
     shared_ptr<string> promotionId_ {};
+    // The sales mode.
     shared_ptr<string> saleMode_ {};
+    // The streaming mode of the instances in the instance group. If this parameter is not specified, the default mode is preemptive mode.
     shared_ptr<int32_t> streamMode_ {};
     // The tags of the resource.
     shared_ptr<vector<CreateAndroidInstanceGroupShrinkRequest::Tag>> tag_ {};
-    // The vSwitch ID. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) to query the list of vSwitches.
+    // The vSwitch ID. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query the vSwitch list.
     // 
-    // - To create a shared network instance: leave this parameter empty.
+    // - To create a shared network instance: Leave this parameter empty.
     // 
-    // - To create a VPC network instance: the vSwitch ID is required. The specified vSwitch is used to create the instance.
+    // - To create a VPC network instance: The vSwitch ID is required. This vSwitch is used to create the instance.
     shared_ptr<string> vSwitchId_ {};
   };
 

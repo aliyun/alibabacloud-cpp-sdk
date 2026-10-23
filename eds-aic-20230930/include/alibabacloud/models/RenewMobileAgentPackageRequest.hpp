@@ -109,31 +109,29 @@ namespace Models
     // Specifies whether to enable automatic payment. Valid values:
     // 
     // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-    // - **false** (default): Only an order is generated. No payment is made.
+    // - **false** (default): Only an order is generated and no payment is deducted.
     // 
     // 
     // 
     // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the Elastic Cloud Phone console to complete the payment.
+    // > If the balance of your payment method is insufficient, set this parameter to false to generate an unpaid order. You can log on to the Wuying Cloud Phone console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Default value: false.
     shared_ptr<bool> autoRenew_ {};
-    // The idempotence key.
+    // The idempotency key.
     shared_ptr<string> clientToken_ {};
     // The list of resource plan IDs.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
-    // The redirect URL after a successful payment.
+    // The redirect URL for the payment success page.
     shared_ptr<string> paidCallbackUrl_ {};
-    // The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`.
+    // The subscription duration of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The unit of the duration for which you want to purchase the resource.
-    // 
-    // Valid values:
-    // - **Month**: month.
-    // - **Year**: year.
+    // The unit of the subscription duration of the resource. Valid values:
+    // - **Month**: Month.
+    // - **Year**: Year.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the promotional campaign.
+    // The ID of the promotion.
     shared_ptr<string> promotionId_ {};
   };
 

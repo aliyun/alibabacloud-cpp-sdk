@@ -83,7 +83,7 @@ namespace Models
     protected:
       // The application ID.
       shared_ptr<string> appId_ {};
-      // The subtask ID.
+      // The child task ID.
       shared_ptr<string> childTaskId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // A list of subtasks.
+    // The child task information.
     shared_ptr<vector<UninstallAppResponseBody::ChildTaskInfo>> childTaskInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

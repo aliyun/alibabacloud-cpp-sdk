@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The child task objects.
+    // The child task information.
     shared_ptr<vector<InstallAppResponseBody::ChildTaskInfo>> childTaskInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

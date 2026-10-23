@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The ID of the Internet Shared Bandwidth.
       shared_ptr<string> bandwidthPackageId_ {};
+      // The bandwidth plan order ID.
       shared_ptr<string> bandwidthPackageOrderId_ {};
     };
 
@@ -174,6 +176,7 @@ namespace Models
     shared_ptr<vector<string>> instanceGroupIds_ {};
     // The instance group information.
     shared_ptr<vector<CreateAndroidInstanceGroupResponseBody::InstanceGroupInfos>> instanceGroupInfos_ {};
+    // The bandwidth plan order information.
     shared_ptr<CreateAndroidInstanceGroupResponseBody::NetworkPackageOrderModel> networkPackageOrderModel_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};

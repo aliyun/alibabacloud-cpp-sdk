@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TaskIds, taskIds_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCreditDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentTypes, agentTypes_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TaskIds, taskIds_);
     };
     DescribeCreditDetailRequest() = default ;
     DescribeCreditDetailRequest(const DescribeCreditDetailRequest &) = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentTypes_ == nullptr
         && this->endTime_ == nullptr && this->instanceIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->taskIds_ == nullptr; };
     // agentTypes Field Functions 
     bool hasAgentTypes() const { return this->agentTypes_ != nullptr;};
     void deleteAgentTypes() { this->agentTypes_ = nullptr;};
@@ -118,25 +120,36 @@ namespace Models
     inline DescribeCreditDetailRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // taskIds Field Functions 
+    bool hasTaskIds() const { return this->taskIds_ != nullptr;};
+    void deleteTaskIds() { this->taskIds_ = nullptr;};
+    inline const vector<string> & getTaskIds() const { DARABONBA_PTR_GET_CONST(taskIds_, vector<string>) };
+    inline vector<string> getTaskIds() { DARABONBA_PTR_GET(taskIds_, vector<string>) };
+    inline DescribeCreditDetailRequest& setTaskIds(const vector<string> & taskIds) { DARABONBA_PTR_SET_VALUE(taskIds_, taskIds) };
+    inline DescribeCreditDetailRequest& setTaskIds(vector<string> && taskIds) { DARABONBA_PTR_SET_RVALUE(taskIds_, taskIds) };
+
+
   protected:
-    // The agent types. This parameter is used to filter credit change details by agent type.
+    // The list of agent types. This parameter is used to filter credit change details by agent type.
     shared_ptr<vector<string>> agentTypes_ {};
-    // The end time. The value is a UNIX timestamp in milliseconds.
+    // The end time. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The maximum number of entries to return for this query.
+    // The maximum number of entries to return for this request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The package IDs.
+    // The list of package IDs.
     shared_ptr<vector<string>> packageIds_ {};
     // The page number. Default value: 1.
     shared_ptr<string> pageNum_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The start time. The value is a UNIX timestamp in milliseconds.
+    // The start time. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The list of task IDs. This parameter is used to filter credit details by task.
+    shared_ptr<vector<string>> taskIds_ {};
   };
 
   } // namespace Models

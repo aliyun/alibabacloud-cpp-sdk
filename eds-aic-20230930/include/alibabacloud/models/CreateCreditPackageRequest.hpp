@@ -96,23 +96,22 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
-    // - **false** (default): Generates an order without deducting payment.
+    // - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+    // - **false** (default): generates an unpaid order without deducting fees.
     // 
-    // 
-    // 
-    // 
-    // > If the balance of your payment method is insufficient, set this parameter to false. An unpaid order is generated. You can log on to the WUYING Cloud Phone console to complete the payment.
+    // > If the balance of your payment method is insufficient, you can change the Settings of this parameter to false to generate an unpaid order. Then, you can log on to the WUYING Cloud Phone console to complete the payment.
     shared_ptr<bool> autoPay_ {};
+    // The channel cookie. This parameter is passed through to the sales system when you place an order.
     shared_ptr<string> channelCookie_ {};
     // The number of credits.
     shared_ptr<string> creditAmount_ {};
+    // The number of credit packages to purchase.
     shared_ptr<string> packageAmount_ {};
-    // The subscription duration of the purchased resource. The unit is specified by PeriodUnit.
+    // The subscription period of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration for the purchased resource. Valid values:
-    // - **Month**: Month.
-    // - **Year**: Year.
+    // The unit of the subscription period. Valid values:
+    // - **Month**: months.
+    // - **Year**: years.
     shared_ptr<string> periodUnit_ {};
     // The ID of the promotion.
     shared_ptr<string> promotionId_ {};

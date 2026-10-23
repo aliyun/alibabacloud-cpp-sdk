@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -202,23 +204,27 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method. Only subscription is supported.
+    // The billing method. Only the subscription billing method is supported.
     shared_ptr<string> chargeType_ {};
-    // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
+    // The maximum number of entries to return per page in a paging query. Maximum value: 100. Default value: 20.
     shared_ptr<string> maxResults_ {};
-    // The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can include the returned NextToken in the next request to continue the query.
+    // The pagination token for the next query. If a query does not return all results, the returned NextToken is not empty. You can use the returned NextToken in a subsequent query to obtain more results.
     shared_ptr<string> nextToken_ {};
-    // The list of cloud phone matrix IDs.
+    // The IDs of the cloud phone matrices.
     shared_ptr<vector<string>> nodeIds_ {};
     // The name of the cloud phone matrix.
     shared_ptr<string> nodeName_ {};
+    // The list of names used to filter cloud phone matrices.
     shared_ptr<vector<string>> nodeNameList_ {};
     // The specifications of the cloud phone matrix.
     shared_ptr<string> serverType_ {};
+    // The field used for sorting. A value of CreationTime indicates the creation time, and a value of ExpiredTime indicates the expiration time.
     shared_ptr<string> sortKey_ {};
+    // The sort order. A value of ASC indicates ascending order, and a value of DESC indicates descending order.
     shared_ptr<string> sortType_ {};
     // The status of the cloud phone matrix.
     shared_ptr<string> status_ {};
+    // The tags of the node.
     shared_ptr<vector<DescribeCloudPhoneNodesRequest::Tags>> tags_ {};
   };
 

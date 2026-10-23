@@ -95,10 +95,10 @@ namespace Models
 
     protected:
       // The tag key. You can specify 1 to 20 tag keys.
-      // >Notice: A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // >Notice: The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
       shared_ptr<string> key_ {};
       // The tag value.
-      // >Notice: A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // >Notice: The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -212,21 +212,20 @@ namespace Models
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
     // The billing method.
-    // [_single.params.ChargeType.enum. PrePaid]Subscription.
     shared_ptr<string> chargeType_ {};
-    // The IDs of the instance groups.
+    // The list of instance group IDs.
     shared_ptr<vector<string>> instanceGroupIds_ {};
-    // The name of the instance group. Fuzzy match is supported.
+    // The instance group name. Fuzzy match is supported.
     shared_ptr<string> instanceGroupName_ {};
     // The instance version. A value of basic indicates a Wuying Cloud Phone instance, and a value of EnterpriseAi indicates a JVS Mobile instance.
     shared_ptr<string> instanceVersion_ {};
     // The ID of the key pair.
     shared_ptr<string> keyPairId_ {};
-    // The maximum number of entries to return on each page in a paging query. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that indicates the starting position for the query. If this parameter is left empty, the query starts from the beginning.
+    // The pagination token that specifies the starting position of the query. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The ID of the policy.
+    // The policy ID.
     shared_ptr<string> policyGroupId_ {};
     // The purchase mode of the cloud phone.
     shared_ptr<string> saleMode_ {};

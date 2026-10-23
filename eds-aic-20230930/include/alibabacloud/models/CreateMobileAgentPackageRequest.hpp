@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Amount, amount_);
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(CreditAmount, creditAmount_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(CreditAmount, creditAmount_);
@@ -105,9 +107,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->amount_ == nullptr
-        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bizRegionId_ == nullptr && this->channelCookie_ == nullptr && this->creditAmount_ == nullptr
-        && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->packageSpecId_ == nullptr
-        && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->tag_ == nullptr; };
+        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bandwidthPackageId_ == nullptr && this->bizRegionId_ == nullptr && this->channelCookie_ == nullptr
+        && this->creditAmount_ == nullptr && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr
+        && this->packageSpecId_ == nullptr && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr
+        && this->tag_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -127,6 +130,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateMobileAgentPackageRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // bandwidthPackageId Field Functions 
+    bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
+    void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
+    inline string getBandwidthPackageId() const { DARABONBA_PTR_GET_DEFAULT(bandwidthPackageId_, "") };
+    inline CreateMobileAgentPackageRequest& setBandwidthPackageId(string bandwidthPackageId) { DARABONBA_PTR_SET_VALUE(bandwidthPackageId_, bandwidthPackageId) };
 
 
     // bizRegionId Field Functions 
@@ -227,13 +237,13 @@ namespace Models
     shared_ptr<string> amount_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
-    // - **false** (default): Only an order is generated and no payment is deducted.
+    // - **true**: Automatic payment. You must ensure that your account balance is sufficient.
+    // - **false** (default): Generates an order without deducting fees.
     // 
     // 
     // 
     // 
-    // > If the balance of your payment method is insufficient, you can set this parameter to false. In this case, an unpaid order is generated, and you can log on to the WUYING Cloud Phone console to complete the payment.
+    // > If your payment method has an insufficient balance, you can set this parameter to false. An unpaid order will be generated, and you can log on to the WUYING Cloud Phone console to pay the order.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
@@ -241,6 +251,8 @@ namespace Models
     // * **true**: Yes.
     // * **false** (default): No.
     shared_ptr<bool> autoRenew_ {};
+    // The bandwidth package ID, which is used to associate an existing bandwidth package when creating an instance. The value must be prefixed with np- and followed by lowercase letters and digits. The bandwidth package must be an AI premium bandwidth package (CBWP_ECD) that belongs to the current account. If this parameter is left empty, the default bandwidth package allocation logic applies.
+    shared_ptr<string> bandwidthPackageId_ {};
     // The region where the instance resides. Only cn-hangzhou is supported.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> channelCookie_ {};
@@ -259,9 +271,9 @@ namespace Models
     shared_ptr<string> paidCallbackUrl_ {};
     // The subscription duration of the resource. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration of the resource. Valid values:
-    // - **Month**: Month.
-    // - **Year**: Year.
+    // The unit of the subscription duration. Valid values:
+    // - **Month**: Months.
+    // - **Year**: Years.
     shared_ptr<string> periodUnit_ {};
     // The promotion ID.
     shared_ptr<string> promotionId_ {};

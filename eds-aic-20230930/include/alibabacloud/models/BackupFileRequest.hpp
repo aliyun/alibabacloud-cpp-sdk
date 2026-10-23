@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> androidInstanceIdList_ {};
@@ -138,22 +138,22 @@ namespace Models
     shared_ptr<bool> backupAll_ {};
     // The name of the backup file.
     shared_ptr<string> backupFileName_ {};
-    // The upload URL for the backup file.
-    // 
-    // > If you upload the file to an OSS bucket, call the DescribeBuckets operation to get the bucketName. Then, select a key from ossObjectList. The key represents the folder path in the OSS bucket. Combine these values into the format `oss://${bucketName}/${key}`.
+    // The upload path of the backup file.
+    // > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucketName, and select ossObjectList to obtain the key. The key is the folder path in the OSS bucket. Concatenate them into `oss://${bucketName}/${key}`.
     // 
     // This parameter is required.
     shared_ptr<string> backupFilePath_ {};
     // The description of the backup file.
     shared_ptr<string> description_ {};
+    // The list of file paths in the Android container to exclude from the backup.
     shared_ptr<vector<string>> excludeSourceFilePathList_ {};
-    // A list of application package names to back up.
+    // The list of application package names to back up.
     shared_ptr<vector<string>> sourceAppList_ {};
-    // A list of file paths to back up.
+    // The list of file paths to back up.
     shared_ptr<vector<string>> sourceFilePathList_ {};
-    // The domain name of the upload URL.
+    // The domain name of the backup endpoint.
     // 
-    // > If you upload the file to an OSS bucket, call the DescribeBuckets operation to obtain the bucket information. If the cloud phone and the bucket are in the same region, use the value of the intranetEndpoint field. If they are in different regions, use the value of the extranetEndpoint field.
+    // > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucket. If the cloud phone and the bucket are in the same region, obtain the intranetEndpoint field. If they are in different regions, obtain the extranetEndpoint field.
     shared_ptr<string> uploadEndpoint_ {};
     // The backup type.
     shared_ptr<string> uploadType_ {};

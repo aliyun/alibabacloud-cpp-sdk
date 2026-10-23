@@ -69,12 +69,13 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> androidInstanceIds_ {};
-    // Specifies whether to forcefully reboot the instances. If a Cloud Phone instance cannot be shut down because of system or network errors, you can force a reboot. This operation may cause data loss.
+    // Specifies whether to force a restart. You can force a restart if a cloud phone cannot be shut down due to system or network exceptions. Unsaved data may be lost.
     shared_ptr<bool> forceStop_ {};
+    // Specifies whether to skip parameter validation. A value of true indicates that validation is skipped. If the value is false or not specified, validation is performed.
     shared_ptr<bool> ignoreParamValidation_ {};
-    // The sales mode. This parameter is deprecated.
+    // **[Deprecated]** The sales mode.
     shared_ptr<string> saleMode_ {};
   };
 

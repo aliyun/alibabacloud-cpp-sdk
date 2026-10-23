@@ -174,7 +174,7 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // > This parameter is not yet available for public use.
+    // > This parameter is not publicly available.
     shared_ptr<string> imagePackageType_ {};
     // The image type.
     // 
@@ -182,9 +182,9 @@ namespace Models
     shared_ptr<string> imageType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
-    // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
+    // The maximum number of entries to return per page during paging in a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The position from which the read operation starts. An empty value indicates that the read operation starts from the beginning.
+    // The token that specifies the starting position for the query. If this parameter is empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The status of the image.
     shared_ptr<string> status_ {};

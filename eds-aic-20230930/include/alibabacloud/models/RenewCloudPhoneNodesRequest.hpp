@@ -103,16 +103,16 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // The list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};
-    // The redirect URL for the payment success page.
+    // The redirect URL after a successful payment.
     shared_ptr<string> paidCallBackUrl_ {};
-    // The subscription period. The unit is specified by PeriodUnit.
+    // The subscription period of the resource. The unit is specified by PeriodUnit.
     // 
     // - If PeriodUnit is set to **year**, the only valid value is 1.
     // - If PeriodUnit is set to **month**, valid values are 1, 2, 3, and 6.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription period.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the promotion.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
   };
 

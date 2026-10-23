@@ -208,22 +208,25 @@ namespace Models
     protected:
       // The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> expiredAt_ {};
-      // The list of node instance IDs.
+      // The node instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
-      // The credit quota of the package.
+      // The package credit quota.
       shared_ptr<string> packageCredit_ {};
       // The package ID.
       shared_ptr<string> packageId_ {};
-      // The package specifications.
+      // The package specification.
       shared_ptr<string> packageSpec_ {};
+      // The name of the package specification.
       shared_ptr<string> packageSpecName_ {};
       // The package status.
       shared_ptr<string> packageStatus_ {};
+      // The end time of the package period.
       shared_ptr<string> periodEndTime_ {};
+      // The start time of the package period.
       shared_ptr<string> periodStartTime_ {};
       // The tags.
       shared_ptr<vector<PackageList::Tags>> tags_ {};
-      // The number of used credits.
+      // The number of credits used.
       shared_ptr<string> usedCredit_ {};
     };
 
@@ -269,7 +272,7 @@ namespace Models
   protected:
     // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The message returned by the API operation.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The list of packages.
     shared_ptr<vector<DescribeMobileAgentPackageResponseBody::PackageList>> packageList_ {};

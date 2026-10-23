@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // The extended parameter JSON string.
+      // The JSON string of extended parameters.
       shared_ptr<string> extraParams_ {};
       // The maximum number of execution steps.
       shared_ptr<int32_t> maxSteps_ {};
-      // The list of skill IDs. A maximum of 1 skill ID is supported. The value overwrites aim_task_config.run_config after modification.
+      // The list of skill IDs. You can specify up to one skill ID. The value overwrites aim_task_config.run_config after the modification.
       shared_ptr<vector<string>> skills_ {};
-      // The timeout period, in seconds.
+      // The timeout period in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
     };
 
@@ -182,13 +182,13 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The run configuration.
     shared_ptr<ModifyScheduledTaskRequest::RunConfig> runConfig_ {};
-    // The scheduled task ID.
+    // The ID of the scheduled task.
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // Switches the status. Valid values: ACTIVE and DISABLED.
+    // The status toggle. Valid values: ACTIVE and DISABLED.
     shared_ptr<string> status_ {};
-    // The task name.
+    // The name of the task.
     shared_ptr<string> taskName_ {};
     // The CAS version number.
     // 

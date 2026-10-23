@@ -142,11 +142,11 @@ namespace Models
 
 
     protected:
-      // The list of batch delivery results for instance scheduled tasks.
+      // The list of results for batch delivery of scheduled tasks to instances.
       shared_ptr<vector<Tasks::InstanceResults>> instanceResults_ {};
       // The updated CAS version number.
       shared_ptr<int32_t> newVersion_ {};
-      // The scheduled task ID.
+      // The ID of the scheduled task.
       shared_ptr<string> scheduledId_ {};
     };
 
@@ -192,11 +192,11 @@ namespace Models
   protected:
     // The API status code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of modification results.
+    // The list of update results.
     shared_ptr<vector<ModifyScheduledTaskResponseBody::Tasks>> tasks_ {};
     // The total number of records.
     shared_ptr<int32_t> totalCount_ {};

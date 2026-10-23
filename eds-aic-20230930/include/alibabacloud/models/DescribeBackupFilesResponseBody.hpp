@@ -258,15 +258,15 @@ namespace Models
       shared_ptr<string> androidInstanceId_ {};
       // The name of the instance.
       shared_ptr<string> androidInstanceName_ {};
-      // Specifies whether the backup is a full-device backup.
+      // Specifies whether the backup is a full device backup.
       shared_ptr<bool> backupAll_ {};
       // The ID of the backup file.
       shared_ptr<string> backupFileId_ {};
       // The name of the backup file.
       shared_ptr<string> backupFileName_ {};
-      // The directory where the backup file is saved.
+      // The directory where the backup file is stored.
       shared_ptr<string> backupFilePath_ {};
-      // The order source. A value of CLOUDPHONE indicates AI cloud phone.
+      // The order source. CLOUDPHONE indicates AI cloud phone.
       shared_ptr<string> channel_ {};
       // The description of the backup file.
       shared_ptr<string> description_ {};
@@ -284,7 +284,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The list of package names of the backed-up applications.
       shared_ptr<vector<string>> sourceAppInfoList_ {};
-      // The list of directories of the source backup files.
+      // The list of directories for the source backup files.
       shared_ptr<vector<string>> sourceFilePathList_ {};
       // The status of the backup file.
       shared_ptr<string> status_ {};
@@ -338,13 +338,13 @@ namespace Models
 
 
   protected:
-    // The list of returned result objects.
+    // The list of returned results.
     shared_ptr<vector<DescribeBackupFilesResponseBody::Data>> data_ {};
-    // The maximum number of entries returned in this query.
+    // The maximum number of entries returned in the current call.
     shared_ptr<string> maxResults_ {};
-    // The token that specifies the position from which the next query starts. An empty value indicates that all data has been read.
+    // The token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The unique ID of the request. If you encounter any issues, provide this request ID to the technical support team for troubleshooting.
+    // The unique ID of the request. If you encounter any issues, provide this request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

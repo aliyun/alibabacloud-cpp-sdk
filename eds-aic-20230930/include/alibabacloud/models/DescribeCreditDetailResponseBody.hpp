@@ -239,13 +239,13 @@ namespace Models
       protected:
         // The agent type. This field is populated only when you query by a single agent type.
         shared_ptr<string> agentType_ {};
-        // The API key name.
+        // The name of the API key.
         shared_ptr<string> apiKeyName_ {};
         // The number of cached tokens.
         shared_ptr<int64_t> cachedTokens_ {};
         // The time when the change occurred. The time is in UTC and follows the ISO 8601 standard.
         shared_ptr<string> changeTime_ {};
-        // The credit change amount.
+        // The amount of credit change.
         shared_ptr<string> creditChange_ {};
         // The task description.
         shared_ptr<string> description_ {};
@@ -328,9 +328,9 @@ namespace Models
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total number of detail records.
       shared_ptr<int32_t> totalCount_ {};
-      // The total credit change.
+      // The total amount of credit change.
       shared_ptr<string> totalCreditChange_ {};
     };
 
@@ -353,7 +353,7 @@ namespace Models
 
 
   protected:
-    // The returned data object.
+    // The response object.
     shared_ptr<DescribeCreditDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

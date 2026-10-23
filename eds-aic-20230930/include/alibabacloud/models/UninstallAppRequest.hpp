@@ -64,11 +64,11 @@ namespace Models
 
 
   protected:
-    // A list of application IDs.
+    // The list of application IDs.
     shared_ptr<vector<string>> appIdList_ {};
-    // A list of instance group IDs. You must specify either this parameter or `InstanceIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
+    // The list of instance group IDs. You must specify either this parameter or the InstanceIdList parameter. If both parameters are specified, only the InstanceGroupIdList parameter takes effect.
     shared_ptr<vector<string>> instanceGroupIdList_ {};
-    // A list of instance IDs. You must specify either this parameter or `InstanceGroupIdList`. If you specify both, only `InstanceGroupIdList` takes precedence.
+    // The list of instance IDs. You must specify either this parameter or the InstanceGroupIdList parameter. If both parameters are specified, only the InstanceGroupIdList parameter takes effect.
     shared_ptr<vector<string>> instanceIdList_ {};
   };
 

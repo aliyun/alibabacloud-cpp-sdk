@@ -195,11 +195,17 @@ namespace Models
 
 
       protected:
+        // The skill description.
         shared_ptr<string> description_ {};
+        // The skill icon URL.
         shared_ptr<string> iconUrl_ {};
+        // The skill installation time.
         shared_ptr<string> installedAt_ {};
+        // The skill ID.
         shared_ptr<string> skillId_ {};
+        // The skill name.
         shared_ptr<string> skillName_ {};
+        // The skill type.
         shared_ptr<string> skillType_ {};
       };
 
@@ -241,7 +247,7 @@ namespace Models
 
 
       protected:
-        // The limit value.
+        // The credit limit.
         shared_ptr<int64_t> creditLimit_ {};
         // The limit period.
         shared_ptr<string> limitPeriod_ {};
@@ -285,7 +291,9 @@ namespace Models
 
 
       protected:
+        // The AI Engine version upgrade status.
         shared_ptr<string> upgradeStatus_ {};
+        // The AI Engine version number.
         shared_ptr<string> version_ {};
       };
 
@@ -371,13 +379,15 @@ namespace Models
 
 
     protected:
+      // The AI Engine version and upgrade status.
       shared_ptr<Data::AgentVersion> agentVersion_ {};
       // The creation time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> createTime_ {};
-      // The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
+      // The credit limit configuration. If multiple configurations are delivered, the subsequent configurations overwrite the previous ones.
       shared_ptr<vector<Data::CreditConfig>> creditConfig_ {};
       // The expiration time. The time is in UTC and follows the ISO 8601 standard.
       shared_ptr<string> expireTime_ {};
+      // The list of skills installed on the instance.
       shared_ptr<vector<Data::InstalledSkills>> installedSkills_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -387,7 +397,7 @@ namespace Models
       shared_ptr<string> modifyTime_ {};
       // The instance status.
       shared_ptr<string> status_ {};
-      // The used credit.
+      // The used credits.
       shared_ptr<vector<Data::UsedCredit>> usedCredit_ {};
     };
 
@@ -442,8 +452,9 @@ namespace Models
     shared_ptr<vector<DescribeJVSInstanceResponseBody::Data>> data_ {};
     // The maximum number of results returned in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the starting position for the next query. An empty value indicates that the query starts from the beginning.
+    // The token that indicates the starting position of the current query. If this parameter is empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The number of pending upgrades.
     shared_ptr<int32_t> pendingUpgradeCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

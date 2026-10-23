@@ -165,7 +165,7 @@ namespace Models
       shared_ptr<string> specStatus_ {};
       // The specification type.
       shared_ptr<string> specType_ {};
-      // The system cloud disk size. Unit: GB.
+      // The size of the system cloud disk. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -202,7 +202,7 @@ namespace Models
 
 
   protected:
-    // The token that indicates the position up to which the data is retrieved. An empty value indicates that all data has been retrieved.
+    // The token that specifies the position to which the current call has read. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

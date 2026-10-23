@@ -86,7 +86,7 @@ namespace Models
 
 
     protected:
-      // The ID of the Mobile node, such as acp-xxx.
+      // The Mobile node ID, such as acp-xxx.
       shared_ptr<string> instanceId_ {};
       // The session ID. Tasks with the same session ID share the context, such as ses-260702-21b****.
       shared_ptr<string> sessionId_ {};
@@ -122,7 +122,7 @@ namespace Models
 
 
     protected:
-      // The list of skill IDs. You can specify up to 10 skill IDs. Only the first skill ID is passed through when the command is delivered. All skill IDs are stored in the task_skill_relation table for reverse lookup.
+      // The list of skill IDs. A maximum of 10 skills are supported. Only the first skill ID is passed through when the command is delivered. All skill IDs are stored in the task_skill_relation table for reverse lookup.
       shared_ptr<vector<string>> skills_ {};
     };
 
@@ -206,25 +206,25 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the Mobile node resides.
+    // The region ID of the Mobile node.
     shared_ptr<string> bizRegionId_ {};
     // The list of Mobile node IDs. A single request supports up to 100 nodes.
     shared_ptr<vector<string>> instanceIds_ {};
     // The maximum number of execution steps for the task to prevent infinite loops. Valid values: 50 to 1000. Default value: 50.
     shared_ptr<int32_t> maxSteps_ {};
-    // The runtime configuration that contains the runtime parameters such as skills for the current task.
+    // The runtime configuration that carries the runtime parameters such as skills for the current task.
     shared_ptr<RunAgentTaskRequest::RunConfig> runConfig_ {};
-    // Specifies whether to save the task artifacts to your OSS.
+    // Specifies whether to write the task artifacts to the user\\"s OSS.
     shared_ptr<bool> saveArtifacts_ {};
-    // The ID of the scheduling plan. When specified, the execute record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling aggregation dimension.
+    // The scheduling plan ID. If specified, the execute record is associated with the corresponding scheduled node to facilitate aggregate query by scheduling dimension aggregation.
     shared_ptr<string> scheduleId_ {};
-    // The list of targets. Each element is an object that contains an InstanceId and a SessionId.
+    // The Targets array. Each element is an object that contains InstanceId and SessionId.
     shared_ptr<vector<RunAgentTaskRequest::Targets>> targets_ {};
-    // The ID of the task configuration. This parameter is used to trigger a task with the specified configuration.
+    // The task configuration ID used to trigger a task with the specified configuration.
     shared_ptr<string> taskConfigId_ {};
-    // The timeout period of the task in seconds. Valid values: 300 to 3600. Default value: 3600.
+    // The timeout period for the task in seconds. Valid values: 300 to 3600. Default value: 3600.
     shared_ptr<int32_t> timeoutSeconds_ {};
-    // The user prompt in natural language. The agent performs operations based on this prompt.
+    // The user prompt in natural language based on which the agent performs operations.
     shared_ptr<string> userPrompt_ {};
   };
 

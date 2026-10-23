@@ -99,7 +99,7 @@ namespace Models
     shared_ptr<int32_t> maxExecutions_ {};
     // The run configuration.
     shared_ptr<string> runConfigShrink_ {};
-    // The task name.
+    // The name of the task.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

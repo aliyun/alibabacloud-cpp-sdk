@@ -268,7 +268,7 @@ namespace Models
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The image distribution region information. The key is the region and the value is the distribution information.
+      // The image distribution information by region. The key is the region, and the value is the distribution information.
       shared_ptr<map<string, DataImageRegionDistributeMapValue>> imageRegionDistributeMap_ {};
       // The list of available regions.
       shared_ptr<vector<string>> imageRegionList_ {};
@@ -323,7 +323,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<DescribeImageListResponseBody::Data>> data_ {};
-    // The position from which the current call returns the read data. An empty value indicates that all data has been read.
+    // The token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

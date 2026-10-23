@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> androidInstanceId_ {};
     // The name of the instance. Fuzzy match is supported.
     shared_ptr<string> androidInstanceName_ {};
-    // Specifies whether the backup is a full-device backup.
+    // Specifies whether the backup is a full device backup.
     shared_ptr<bool> backupAll_ {};
     // The ID of the backup file.
     shared_ptr<string> backupFileId_ {};
@@ -179,11 +179,11 @@ namespace Models
     shared_ptr<string> endUserId_ {};
     // The ID of the instance group.
     shared_ptr<string> instanceGroupId_ {};
-    // The maximum number of entries per page for a paging query. Valid values: 1 to 100. Default value: 10.
+    // The maximum number of entries to return per page in a paging query. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that specifies the position from which the query starts. If this parameter is left empty, the query starts from the beginning.
+    // The token that specifies the starting position of the query. An empty value indicates that the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The sales mode. Valid values: Instance (cloud phone instance mode) and Node (cloud phone matrix mode).
+    // The sales mode. Instance indicates the cloud phone instance mode, and Node indicates the cloud phone matrix mode.
     shared_ptr<string> saleMode_ {};
     // The start time to query backup files. Specify the time in the YYYY-MM-DD HH:mm:ss format.
     shared_ptr<string> startTime_ {};

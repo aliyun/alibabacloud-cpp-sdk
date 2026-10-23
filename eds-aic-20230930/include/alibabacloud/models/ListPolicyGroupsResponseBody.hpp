@@ -159,7 +159,7 @@ namespace Models
       protected:
         // The watermark font color. Valid values: 0 to 16777215.
         shared_ptr<int32_t> watermarkColor_ {};
-        // The custom watermark content. The value can be up to 10 characters in length and does not support emoji characters.
+        // The custom watermark content. The length cannot exceed 10 characters, and emoji characters are not supported.
         shared_ptr<string> watermarkCustomText_ {};
         // The watermark font size. Valid values: 10 to 20.
         shared_ptr<int32_t> watermarkFontSize_ {};
@@ -360,19 +360,19 @@ namespace Models
       protected:
         // Indicates whether a transparent proxy is manually configured.
         shared_ptr<string> customProxy_ {};
-        // The proxy IP address of the transparent proxy. The value must be in IPv4 format.
+        // The transparent proxy IP address. The format is an IPv4 address.
         shared_ptr<string> hostAddr_ {};
-        // Indicates whether network redirection is enabled. After this feature is enabled, traffic is redirected to the client-side network by default.
+        // Indicates whether network redirection is enabled. If enabled, traffic is redirected to the client-side network by default.
         shared_ptr<string> netRedirect_ {};
-        // The port of the transparent proxy. Valid values: 1 to 65535.
+        // The transparent proxy port. Valid values: 1 to 65535.
         shared_ptr<string> port_ {};
-        // The proxy password. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
+        // The proxy password. The length ranges from 1 to 256 characters. Chinese characters and whitespace characters are not allowed.
         shared_ptr<string> proxyPassword_ {};
         // The proxy protocol type.
         shared_ptr<string> proxyType_ {};
-        // The proxy username. The value must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
+        // The proxy username. The length ranges from 1 to 256 characters. Chinese characters and whitespace characters are not allowed.
         shared_ptr<string> proxyUserName_ {};
-        // The list of proxy rules.
+        // The proxy rule list.
         shared_ptr<vector<NetRedirectPolicy::Rules>> rules_ {};
       };
 
@@ -441,10 +441,15 @@ namespace Models
 
 
       protected:
+        // The access policy rule ID.
         shared_ptr<int64_t> accessPolicyRuleId_ {};
+        // The CIDR IP address block to which the rule applies.
         shared_ptr<string> cidrIp_ {};
+        // The description of the access policy rule.
         shared_ptr<string> description_ {};
+        // The access policy action. ALLOW indicates that access is allowed, and DENY indicates that access is denied.
         shared_ptr<string> policy_ {};
+        // The priority of the access policy rule.
         shared_ptr<int32_t> priority_ {};
       };
 
@@ -559,20 +564,21 @@ namespace Models
 
 
     protected:
+      // The list of access policy rules.
       shared_ptr<vector<PolicyGroupModel::AccessPolicies>> accessPolicies_ {};
       // Indicates whether local camera redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
-      // The clipboard permission.
+      // The clipboard permissions.
       shared_ptr<string> clipboard_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The file transfer policy for the HTML5 client.
+      // The HTML5 client file transfer policy.
       shared_ptr<string> html5FileTransfer_ {};
-      // The local disk mapping permission.
+      // The local disk mapping permissions.
       shared_ptr<string> localDrive_ {};
       // The locked resolution.
       shared_ptr<string> lockResolution_ {};
-      // The network redirection settings.
+      // The network redirection.
       shared_ptr<PolicyGroupModel::NetRedirectPolicy> netRedirectPolicy_ {};
       // The policy ID.
       shared_ptr<string> policyGroupId_ {};
@@ -580,11 +586,11 @@ namespace Models
       shared_ptr<string> policyGroupName_ {};
       // The resources associated with the policy.
       shared_ptr<PolicyGroupModel::PolicyRelatedResources> policyRelatedResources_ {};
-      // The height of the resolution.
+      // The resolution height.
       shared_ptr<int32_t> sessionResolutionHeight_ {};
-      // The width of the resolution.
+      // The resolution width.
       shared_ptr<int32_t> sessionResolutionWidth_ {};
-      // The screen watermark settings.
+      // The screen watermark.
       shared_ptr<PolicyGroupModel::Watermark> watermark_ {};
     };
 
@@ -621,7 +627,7 @@ namespace Models
 
 
   protected:
-    // The pagination token that indicates the position up to which data has been read in the current call. An empty value indicates that all data has been read.
+    // The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The policy information.
     shared_ptr<vector<ListPolicyGroupsResponseBody::PolicyGroupModel>> policyGroupModel_ {};

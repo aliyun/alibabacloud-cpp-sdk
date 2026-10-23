@@ -147,7 +147,7 @@ namespace Models
 
 
       protected:
-        // The extra parameters.
+        // The extended parameters.
         shared_ptr<string> extraParams_ {};
         // The maximum number of steps.
         shared_ptr<int32_t> maxSteps_ {};
@@ -275,7 +275,7 @@ namespace Models
       shared_ptr<string> cronExpression_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModified_ {};
       // The list of bound instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
@@ -358,13 +358,13 @@ namespace Models
 
 
   protected:
-    // The status code of the operation.
+    // The API status code.
     shared_ptr<string> code_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
-    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+    // The token that specifies the starting position for the current read operation. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

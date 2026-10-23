@@ -112,15 +112,15 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
+    // The token that specifies the starting position for the current read operation. An empty value indicates that the read operation starts from the beginning.
     shared_ptr<string> nextToken_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters by scheduled task IDs.
+    // The filter for scheduled task IDs.
     shared_ptr<vector<string>> scheduledIds_ {};
-    // Filters by status: ACTIVE/DISABLED.
+    // The status filter. Valid values: ACTIVE, DISABLED.
     shared_ptr<string> status_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
