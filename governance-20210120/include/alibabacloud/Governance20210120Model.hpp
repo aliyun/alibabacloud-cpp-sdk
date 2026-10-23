@@ -28,6 +28,9 @@
 #include <alibabacloud/models/GetEnrolledAccountRequest.hpp>
 #include <alibabacloud/models/GetEnrolledAccountResponseBody.hpp>
 #include <alibabacloud/models/GetEnrolledAccountResponse.hpp>
+#include <alibabacloud/models/GetGovernanceServiceStatusRequest.hpp>
+#include <alibabacloud/models/GetGovernanceServiceStatusResponseBody.hpp>
+#include <alibabacloud/models/GetGovernanceServiceStatusResponse.hpp>
 #include <alibabacloud/models/ListAccountFactoryBaselineItemsRequest.hpp>
 #include <alibabacloud/models/ListAccountFactoryBaselineItemsResponseBody.hpp>
 #include <alibabacloud/models/ListAccountFactoryBaselineItemsResponse.hpp>
