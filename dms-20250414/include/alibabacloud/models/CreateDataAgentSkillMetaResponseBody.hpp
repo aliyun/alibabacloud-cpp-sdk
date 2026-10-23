@@ -185,24 +185,21 @@ namespace Models
 
 
     protected:
-      // The Alibaba Cloud account ID.
+      // The ID of the parent Alibaba Cloud account.
       shared_ptr<string> aliyunParentUid_ {};
-      // The Alibaba Cloud user ID.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
       // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
       // The skill description.
       shared_ptr<string> description_ {};
-      // Indicates whether the skill is available. Valid values:
-      // - true: The skill is available.
-      // - false: The skill is not available.
+      // Indicates whether the skill is available. Valid values: true and false.
       shared_ptr<int32_t> enabled_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The update time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The skill parsing error message.
-      // - This message is returned when the skill status is INVALID.
+      // The error message for skill parsing. This message is returned when the skill status is INVALID.
       shared_ptr<string> parseError_ {};
       // The region.
       shared_ptr<string> region_ {};

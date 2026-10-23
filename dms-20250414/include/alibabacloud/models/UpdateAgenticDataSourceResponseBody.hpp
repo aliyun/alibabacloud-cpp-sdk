@@ -284,16 +284,16 @@ namespace Models
       // The masked value of the password or token. The actual value is not returned.
       shared_ptr<string> authPassword_ {};
       // The authentication method. Valid values:
-      // - -1: No authentication required.
-      // - 0: Username and password.
-      // - 1: Password only.
-      // - 2: Password-free.
+      // - -1: no authentication required
+      // - 0: username and password
+      // - 1: password only
+      // - 2: password-free
       shared_ptr<int32_t> authType_ {};
       // The name of the metadata catalog associated with the data source.
       shared_ptr<string> catalogName_ {};
       // The registration method of the data source. Valid values:
-      // - INSTANCE_ID: Select an existing cloud instance.
-      // - HOST_PORT: Register by endpoint and port.
+      // - INSTANCE_ID: select an existing cloud instance
+      // - HOST_PORT: register by endpoint and port
       shared_ptr<string> createMode_ {};
       // The unique identifier of the data source.
       shared_ptr<string> dataSourceUuid_ {};
@@ -310,11 +310,11 @@ namespace Models
       // The ID of the cloud resource instance. This parameter may be empty for data sources registered by endpoint.
       shared_ptr<string> instanceResourceId_ {};
       // The source of the data source. Valid values:
-      // - RDS: ApsaraDB instance.
-      // - PUBLIC_OWN: Self-managed database on the Internet.
-      // - ECS_OWN: Self-managed database on an ECS instance.
-      // - GATEWAY: Connected through Database Gateway.
-      // - VPC_IDC: Connected through a VPC or IDC.
+      // - RDS: ApsaraDB instance
+      // - PUBLIC_OWN: self-managed database on the Internet
+      // - ECS_OWN: self-managed database on an ECS instance
+      // - GATEWAY: connected through Database Gateway
+      // - VPC_IDC: connected through a VPC or IDC
       shared_ptr<string> instanceSource_ {};
       // The name of the KMS-managed credential. This parameter is empty if KMS is not used. This is sensitive information.
       shared_ptr<string> kmsSecret_ {};
@@ -326,23 +326,23 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<string> resourceAccountId_ {};
-      // The ARN of the RAM role used to access the data source. This parameter is empty if role-based authorization is not used.
+      // The ARN of the RAM role used to access the data source. This parameter is empty if role authorization is not used.
       shared_ptr<string> roleArn_ {};
       // The name of the connection target. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, this indicates the database name. For ORACLE, this indicates the SID or service name. For POLARDB_ORACLE, this indicates the SID. For MAXCOMPUTE, this indicates the project. For other types, this parameter is usually empty.
       shared_ptr<string> schema_ {};
       // The status of the data source. Valid values:
-      // - 0: Normal.
-      // - -1: Deleted.
-      // - -2: Disabled.
+      // - 0: normal
+      // - -1: deleted
+      // - -2: disabled
       shared_ptr<int32_t> state_ {};
       // Specifies whether to use the cloud instance name as the data source name. Valid values:
-      // - 1: Yes.
-      // - 0: No.
+      // - 1: yes
+      // - 0: no
       shared_ptr<int32_t> syncAlias_ {};
       // The SSL settings. Valid values:
-      // - 1: Enabled.
-      // - 0: Disabled.
-      // - -1: Use default settings.
+      // - 1: enabled
+      // - 0: disabled
+      // - -1: default settings
       shared_ptr<int32_t> useSsl_ {};
     };
 
@@ -392,7 +392,7 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message returned if the call fails. This parameter is empty if the call is successful.
     shared_ptr<string> errorMessage_ {};
-    // The request ID, which is used to trace the call.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};

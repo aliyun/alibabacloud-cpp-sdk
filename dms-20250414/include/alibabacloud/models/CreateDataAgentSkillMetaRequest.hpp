@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateDataAgentSkillMetaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(SkillId, skillId_);
       DARABONBA_PTR_TO_JSON(SkillName, skillName_);
       DARABONBA_PTR_TO_JSON(UploadLocation, uploadLocation_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataAgentSkillMetaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
       DARABONBA_PTR_FROM_JSON(SkillName, skillName_);
       DARABONBA_PTR_FROM_JSON(UploadLocation, uploadLocation_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->skillName_ == nullptr && this->uploadLocation_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->skillId_ == nullptr && this->skillName_ == nullptr && this->uploadLocation_ == nullptr && this->workspaceId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDataAgentSkillMetaRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // skillId Field Functions 
+    bool hasSkillId() const { return this->skillId_ != nullptr;};
+    void deleteSkillId() { this->skillId_ = nullptr;};
+    inline string getSkillId() const { DARABONBA_PTR_GET_DEFAULT(skillId_, "") };
+    inline CreateDataAgentSkillMetaRequest& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
 
 
     // skillName Field Functions 
@@ -66,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The skill description.
-    // - Optional. If not specified, the system parses the ZIP package specified by UploadLocation to obtain the skill description.
+    // The skill description. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill description.
     shared_ptr<string> description_ {};
-    // The skill name.
-    // - Optional. If not specified, the system parses the ZIP package specified by UploadLocation to obtain the skill name.
+    // The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill and replaces the original skill content. Note: The name of the original skill and the newly uploaded skill must be identical.
+    shared_ptr<string> skillId_ {};
+    // The skill name. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill name.
     shared_ptr<string> skillName_ {};
-    // The full path to the uploaded skill ZIP file.
-    // - Format: Concatenate the file name to the UploadDir value returned by the DescribeSkillFileUploadSignature operation.
+    // The full path for the skill ZIP file upload.
+    // - Format: The UploadDir field returned by the DescribeSkillFileUploadSignature operation concatenated with the file name.
     // - Example: ${UploadDir}/${Filename}
     shared_ptr<string> uploadLocation_ {};
     // The workspace ID.

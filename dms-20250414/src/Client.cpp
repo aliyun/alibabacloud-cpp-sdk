@@ -1170,6 +1170,10 @@ CreateDataAgentSkillMetaResponse Client::createDataAgentSkillMetaWithOptions(con
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
   if (!!request.hasSkillName()) {
     query["SkillName"] = request.getSkillName();
   }
@@ -6862,13 +6866,13 @@ SearchAgenticDatabaseResponse Client::searchAgenticDatabase(const SearchAgenticD
 }
 
 /**
- * @summary Sends a user message to a specified session or cancels a session.
+ * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
- * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
+ * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+ * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the content of a previous user message.
+ * - `quoted_message` can be used to quote previous user messages.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6973,13 +6977,13 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 }
 
 /**
- * @summary Sends a user message to a specified session or cancels a session.
+ * @summary Sends a user message to a specified session or cancels the session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
- * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
+ * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+ * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
- * - `quoted_message` can be used to quote the content of a previous user message.
+ * - `quoted_message` can be used to quote previous user messages.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -7402,7 +7406,7 @@ TestAgenticDataSourceConnectionResponse Client::testAgenticDataSourceConnection(
 /**
  * @summary Updates the connection, authentication, or display information of an existing data source.
  *
- * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+ * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
  *
  * @param request UpdateAgenticDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7511,7 +7515,7 @@ UpdateAgenticDataSourceResponse Client::updateAgenticDataSourceWithOptions(const
 /**
  * @summary Updates the connection, authentication, or display information of an existing data source.
  *
- * @description Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+ * @description Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
  *
  * @param request UpdateAgenticDataSourceRequest
  * @return UpdateAgenticDataSourceResponse
