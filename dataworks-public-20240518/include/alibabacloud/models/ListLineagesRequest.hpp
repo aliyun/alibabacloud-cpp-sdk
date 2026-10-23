@@ -121,26 +121,27 @@ namespace Models
 
 
   protected:
-    // The ID of the destination entity. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The destination entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     shared_ptr<string> dstEntityId_ {};
-    // The name of the destination entity. Fuzzy matching is supported.
+    // The destination entity name. Fuzzy matching is supported.
     shared_ptr<string> dstEntityName_ {};
     // Specifies whether to return lineage relationship information. Default value: false.
     shared_ptr<bool> needAttachRelationship_ {};
     // The sort order. Default value: Asc. Valid values:
-    // - Asc: ascending order
-    // - Desc: descending order
+    // - Asc: Ascending order.
+    // - Desc: Descending order.
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Queries the lineage relationships that take effect within the specified number of recent calendar days. Valid values: 1 to 30. For example, 1 indicates starting from midnight of the current day, and 7 indicates starting from midnight 6 days ago. If this parameter is not specified, the system filters the data based on the configured lineage validity period.
     shared_ptr<int32_t> recentDays_ {};
-    // The field used for sorting. Default value: Name. The entities are sorted by lineage entity name.
+    // The sort field. Default value: Name. The entities are sorted by lineage entity name.
     shared_ptr<string> sortBy_ {};
-    // The ID of the source entity. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // The source entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     shared_ptr<string> srcEntityId_ {};
-    // The name of the source entity. Fuzzy matching is supported.
+    // The source entity name. Fuzzy matching is supported.
     shared_ptr<string> srcEntityName_ {};
   };
 

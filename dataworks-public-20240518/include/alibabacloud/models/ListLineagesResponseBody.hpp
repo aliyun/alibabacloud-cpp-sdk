@@ -155,9 +155,9 @@ namespace Models
 
 
     protected:
-      // The list of lineage information.
+      // The lineage information list.
       shared_ptr<vector<PagingInfo::Lineages>> lineages_ {};
-      // The page number of the returned data, which is used for pagination.
+      // The requested page number, which is used for pagination.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
@@ -191,7 +191,7 @@ namespace Models
 
 
   protected:
-    // The pagination result.
+    // The pagination information.
     shared_ptr<ListLineagesResponseBody::PagingInfo> pagingInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

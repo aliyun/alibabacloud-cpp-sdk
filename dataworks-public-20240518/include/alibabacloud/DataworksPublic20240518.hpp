@@ -3191,7 +3191,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request GetColumnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3202,7 +3202,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Retrieves the details of a specified column in a DataWorks Data Map table.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or a later edition to use this operation.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request GetColumnRequest
        * @return GetColumnResponse
@@ -4965,7 +4965,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the columns of a specified table in DataWorks Data Map.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request ListColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4976,7 +4976,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Queries the columns of a specified table in DataWorks Data Map.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this API.
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request ListColumnsRequest
        * @return ListColumnsResponse
@@ -5976,7 +5976,7 @@ namespace DataworksPublic20240518
       Models::ListLineageRelationshipsResponse listLineageRelationships(const Models::ListLineageRelationshipsRequest &request);
 
       /**
-       * @summary Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
+       * @summary Queries the upstream and downstream lineage entities for a specified entity in Data Map, with an option to include detailed lineage relationship information.
        *
        * @description 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.
        * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between the entities.
@@ -5988,7 +5988,7 @@ namespace DataworksPublic20240518
       Models::ListLineagesResponse listLineagesWithOptions(const Models::ListLineagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the upstream and downstream lineage entities of a given entity in DataWorks Data Map. You can specify whether to include detailed lineage relationship information.
+       * @summary Queries the upstream and downstream lineage entities for a specified entity in Data Map, with an option to include detailed lineage relationship information.
        *
        * @description 1. You must purchase DataWorks Standard Edition or a more advanced edition to use this operation.
        * 2. This operation queries the upstream and downstream entities of the current entity and the lineage relationships between the entities.
