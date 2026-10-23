@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID（可选过滤；不传 = 全部空间）
+    // The collaboration workspace ID. This parameter is optional and used for filtering. If this parameter is not specified, all workspaces are included.
     shared_ptr<string> collaborationGroupId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

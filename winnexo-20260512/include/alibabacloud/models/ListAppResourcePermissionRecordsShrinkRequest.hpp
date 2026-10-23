@@ -121,29 +121,29 @@ namespace Models
 
 
   protected:
-    // 主体 ID 筛选
+    // The grantee ID filter.
     shared_ptr<string> granteeId_ {};
-    // 跨租户 USER 所属租户筛选
+    // The tenant ID filter for cross-tenant users.
     shared_ptr<string> granteeTenantId_ {};
-    // 主体类型筛选
+    // The grantee type filter.
     shared_ptr<string> granteeType_ {};
-    // 页码
+    // The page number.
     shared_ptr<int64_t> page_ {};
-    // 每页条数
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 权限点筛选
+    // The permission filter.
     shared_ptr<string> permissionsShrink_ {};
-    // 应用键或其子路径
+    // The application key or its subpath.
     // 
     // This parameter is required.
     shared_ptr<string> resourceKeyPrefix_ {};
-    // 资源所属租户 ID；省略为调用人当前租户
+    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
     shared_ptr<string> resourceTenantId_ {};
-    // 固定为 APP_RESOURCE
+    // The resource type. Set this parameter to APP_RESOURCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

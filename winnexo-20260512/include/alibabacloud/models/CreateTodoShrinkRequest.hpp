@@ -103,29 +103,29 @@ namespace Models
 
 
   protected:
-    // 处理人平台用户ID列表（1~100，去重后生效）
+    // The list of platform user IDs of the assignees. You can specify 1 to 100 IDs. Duplicate IDs are automatically removed.
     // 
     // This parameter is required.
     shared_ptr<string> assigneeUserIdsShrink_ {};
-    // 协作空间 ID（可选）
+    // The ID of the collaboration workspace. This parameter is optional.
     shared_ptr<string> collaborationGroupId_ {};
-    // 优先级
+    // The priority.
     shared_ptr<string> priority_ {};
-    // 问题清单（1~N）
+    // The list of questions.
     // 
     // This parameter is required.
     shared_ptr<string> questionsShrink_ {};
-    // 来源上下文（原样透传落库，不校验）
+    // The source context. The value is passed through and stored in the database as-is without validation.
     // 
     // This parameter is required.
     shared_ptr<string> sourceContextShrink_ {};
-    // 待办来源（仅 OPEN_API）
+    // The source of the to-do item. Only OPEN_API is supported.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 待办标题（≤200 字）
+    // The title of the to-do item. The maximum length is 200 characters.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

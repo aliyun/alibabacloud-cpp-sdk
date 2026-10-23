@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 目标用户是否拥有该资源权限
+    // Indicates whether the target user has the permission on the resource.
     shared_ptr<bool> allowed_ {};
-    // 业务状态码；成功为 200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述；成功时为空
+    // The error description. This field is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // 目标权限点
+    // The target permission.
     shared_ptr<string> permission_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 首段为 APP 应用键的点分资源键
+    // The dot-separated resource key. The first segment is the APP application key.
     shared_ptr<string> resourceKey_ {};
-    // 固定为 APP_RESOURCE
+    // The resource type. Set the value to APP_RESOURCE.
     shared_ptr<string> resourceType_ {};
   };
 

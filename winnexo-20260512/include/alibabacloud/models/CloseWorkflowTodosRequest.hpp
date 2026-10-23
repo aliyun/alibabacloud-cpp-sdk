@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID（命中范围限定该空间内）
+    // The ID of the collaborative workspace. The match scope is limited to this workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 工作流 ID（run 粒度）
+    // The workflow ID at the run level.
     // 
     // This parameter is required.
     shared_ptr<string> sourceWorkflowId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

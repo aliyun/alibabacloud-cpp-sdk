@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // 检查项
+    // The check items.
     // 
     // This parameter is required.
     shared_ptr<string> checksShrink_ {};
-    // 资源所属租户 ID；省略为调用人当前租户
+    // The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
     shared_ptr<string> resourceTenantId_ {};
-    // 目标平台用户 ID
+    // The ID of the target platform user.
     shared_ptr<int64_t> targetUserId_ {};
-    // 目标用户所属租户；跨租户目标必填
+    // The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
     shared_ptr<string> targetUserTenantId_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

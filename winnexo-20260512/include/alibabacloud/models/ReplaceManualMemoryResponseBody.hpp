@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为 200，失败时为对应错误码
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 保存后的手动记忆完整内容；清空成功时为空字符串
+    // The complete content of the manual memory after it is saved. If the memory is successfully cleared, an empty string is returned.
     shared_ptr<string> content_ {};
-    // 错误描述；成功时为空字符串，失败时返回具体原因
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID，用于定位本次调用
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

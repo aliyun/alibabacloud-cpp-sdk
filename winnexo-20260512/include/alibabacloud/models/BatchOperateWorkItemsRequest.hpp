@@ -78,21 +78,21 @@ namespace Models
 
 
   protected:
-    // 批量动作
+    // The batch action.
     // 
     // This parameter is required.
     shared_ptr<string> action_ {};
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 幂等键
+    // The idempotency key.
     // 
     // This parameter is required.
     shared_ptr<string> idempotencyKey_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 目标工作项 ID 列表（1~100 个）
+    // The IDs of the target work items. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> workItemIds_ {};

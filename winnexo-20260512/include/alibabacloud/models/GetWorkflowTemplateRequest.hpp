@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, GetWorkflowTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
     };
     GetWorkflowTemplateRequest() = default ;
     GetWorkflowTemplateRequest(const GetWorkflowTemplateRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->templateId_ == nullptr && this->tenantId_ == nullptr; };
+        && this->templateId_ == nullptr && this->tenantId_ == nullptr && this->version_ == nullptr; };
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -56,17 +58,26 @@ namespace Models
     inline GetWorkflowTemplateRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline GetWorkflowTemplateRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 模板 ID
+    // The ID of the template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
+    // The version number of the template to read. The format is a lowercase v followed by a positive integer, such as v1. If not specified, the effective version is used. If no effective version exists, the latest version is used.
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

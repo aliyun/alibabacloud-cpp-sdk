@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 待处理数量（PENDING 主状态）
+    // The number of pending items with the primary status of PENDING.
     shared_ptr<int64_t> pendingCount_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 未读数量（处理人 readAt 为空）
+    // The number of unread items where the readAt field of the handler is empty.
     shared_ptr<int64_t> unreadCount_ {};
   };
 

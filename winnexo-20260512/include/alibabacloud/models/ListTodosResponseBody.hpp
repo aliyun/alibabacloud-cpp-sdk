@@ -237,41 +237,41 @@ namespace Models
 
 
     protected:
-      // 处理人数量
+      // The number of assignees.
       shared_ptr<int64_t> assigneeCount_ {};
-      // 完成时间（北京时间 YYYY-MM-DD HH:mm:ss）
+      // The completion time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
       shared_ptr<string> completedAt_ {};
-      // 完成人用户ID；未完成为空
+      // The user ID of the user who completed the item. This field is empty if the item is not completed.
       shared_ptr<string> completedByUserId_ {};
-      // 完成人姓名；未完成为空
+      // The name of the user who completed the item. This field is empty if the item is not completed.
       shared_ptr<string> completedByUserName_ {};
-      // 创建时间（北京时间 YYYY-MM-DD HH:mm:ss）
+      // The creation time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
       shared_ptr<string> gmtCreate_ {};
-      // 最后修改时间（北京时间 YYYY-MM-DD HH:mm:ss）
+      // The last modification time in the YYYY-MM-DD HH:mm:ss format (UTC+8).
       shared_ptr<string> gmtModified_ {};
-      // 调用者是否已读
+      // Indicates whether the caller has read the item.
       shared_ptr<bool> isRead_ {};
-      // 发出该待办的 assistant 消息ID；无会话来源为空
+      // The message ID of the assistant that sent the to-do item. This field is empty if there is no conversation source.
       shared_ptr<string> messageId_ {};
-      // 调用者的处理人行状态
+      // The action status of the caller as an assignee.
       shared_ptr<string> myAssigneeStatus_ {};
-      // 调用者的列表展示状态
+      // The list display status for the caller.
       shared_ptr<string> myDisplayState_ {};
-      // 优先级
+      // The priority.
       shared_ptr<string> priority_ {};
-      // 问题数量
+      // The number of questions.
       shared_ptr<int64_t> questionCount_ {};
-      // 问题摘要列表
+      // The list of question summaries.
       shared_ptr<vector<string>> questionSummaries_ {};
-      // 来源上下文（创建时原样透传）
+      // The source context. This context is passed through as-is during creation.
       Darabonba::Json sourceContext_ {};
-      // 待办来源类型
+      // The source type of the to-do item.
       shared_ptr<string> sourceType_ {};
-      // 待办主状态
+      // The primary status of the to-do item.
       shared_ptr<string> status_ {};
-      // 待办标题
+      // The to-do title.
       shared_ptr<string> title_ {};
-      // 待办ID
+      // The to-do ID.
       shared_ptr<string> todoId_ {};
     };
 
@@ -351,25 +351,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 是否还有更多数据
+    // Indicates whether more data is available.
     shared_ptr<bool> hasMore_ {};
-    // 当前页待办列表
+    // The list of to-do items on the current page.
     shared_ptr<vector<ListTodosResponseBody::Items>> items_ {};
-    // 本次生效的单页最大返回数量
+    // The effective maximum number of entries to return per page for the current request.
     shared_ptr<int64_t> maxResults_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 下一页翻页令牌；无更多数据时为空字符串
+    // The pagination token for the next page. This field is an empty string if no more data is available.
     shared_ptr<string> nextToken_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 生效单页条数
+    // The effective number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 筛选条件下可见总数
+    // The total number of visible items under the filter conditions.
     shared_ptr<int64_t> total_ {};
   };
 

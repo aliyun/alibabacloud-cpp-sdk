@@ -208,19 +208,19 @@ namespace Models
 
 
     protected:
-      // 附件ID
+      // The attachment ID.
       shared_ptr<string> attachmentId_ {};
-      // 内容类型
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // 附件访问入口（OpenAPI 302 前置）
+      // The attachment access entry (OpenAPI 302 pre-redirect).
       shared_ptr<string> refUrl_ {};
-      // 附件资源ID
+      // The attachment resource ID.
       shared_ptr<string> resourceId_ {};
-      // 附件资源类型
+      // The attachment resource type.
       shared_ptr<string> resourceKind_ {};
-      // 附件大小(字节)
+      // The attachment size, in bytes.
       shared_ptr<int64_t> sizeBytes_ {};
-      // 附件标题
+      // The attachment title.
       shared_ptr<string> title_ {};
     };
 
@@ -580,101 +580,101 @@ namespace Models
 
 
   protected:
-    // 验收标准
+    // The acceptance criteria.
     shared_ptr<string> acceptanceCriteria_ {};
-    // 已应用的状态版本
+    // The applied status version.
     shared_ptr<int64_t> appliedStatusVersion_ {};
-    // 输入附件列表
+    // The list of input attachments.
     shared_ptr<vector<ResumeWorkItemResponseBody::Attachments>> attachments_ {};
-    // 业务状态（七态）
+    // The business status (seven states).
     shared_ptr<string> businessStatus_ {};
-    // 调用者是否可删除
+    // Indicates whether the caller can delete this item.
     shared_ptr<bool> canDelete_ {};
-    // 调用者是否可管理
+    // Indicates whether the caller can manage this item.
     shared_ptr<bool> canManage_ {};
-    // 是否可独立调整可见范围
+    // Indicates whether the visibility scope can be adjusted independently.
     shared_ptr<bool> canManageVisibility_ {};
-    // 调用者是否可重命名
+    // Indicates whether the caller can rename this item.
     shared_ptr<bool> canRename_ {};
-    // 业务状态码；成功为200
+    // The business status code. 200 indicates success.
     shared_ptr<string> code_ {};
-    // 协作空间ID
+    // The collaboration space ID.
     shared_ptr<string> collaborationGroupId_ {};
-    // 协作人用户ID列表
+    // The list of collaborator user IDs.
     shared_ptr<vector<int64_t>> collaboratorUserIds_ {};
-    // 关联会话ID
+    // The associated conversation ID.
     shared_ptr<string> conversationId_ {};
-    // 创建时间(ISO8601)
+    // The creation time, in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // 创建人用户ID
+    // The user ID of the creator.
     shared_ptr<int64_t> createdByUserId_ {};
-    // 创建来源：DEFAULT/TASK
+    // The creation source. Valid values: DEFAULT, TASK.
     shared_ptr<string> creationType_ {};
-    // 当前物理计划ID
+    // The current physical plan ID.
     shared_ptr<string> currentPlanId_ {};
-    // 当前修订号
+    // The current revision number.
     shared_ptr<int64_t> currentRevision_ {};
-    // 当前运行ID
+    // The current run ID.
     shared_ptr<string> currentRunId_ {};
-    // 当前运行序号
+    // The current run sequence number.
     shared_ptr<int64_t> currentRunSeq_ {};
-    // 当前步骤名称
+    // The current step name.
     shared_ptr<string> currentStepName_ {};
-    // 描述
+    // The description.
     shared_ptr<string> description_ {};
-    // 输入快照版本
+    // The input snapshot version.
     shared_ptr<int64_t> inputVersion_ {};
-    // 工作项类型
+    // The work item type.
     shared_ptr<string> itemType_ {};
-    // 最近进入处理中的时间(ISO8601)
+    // The most recent time the item entered processing state, in ISO 8601 format.
     shared_ptr<string> lastProcessingAt_ {};
-    // 是否为兼容期自由探索话题
+    // Indicates whether this is a legacy free-exploration topic.
     shared_ptr<bool> legacyTopic_ {};
-    // 可见成员用户ID列表
+    // The list of visible member user IDs.
     shared_ptr<vector<int64_t>> memberUserIds_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 修改时间(ISO8601)
+    // The modification time, in ISO 8601 format.
     shared_ptr<string> modifiedAt_ {};
-    // 负责人用户ID
+    // The owner user ID.
     shared_ptr<int64_t> ownerUserId_ {};
-    // 调用者个人置顶状态
+    // Indicates whether the caller has pinned this item.
     shared_ptr<bool> pinned_ {};
-    // 优先级
+    // The priority.
     shared_ptr<string> priority_ {};
-    // 已完成进度
+    // The completed progress.
     shared_ptr<int64_t> progressCompleted_ {};
-    // 总进度
+    // The total progress.
     shared_ptr<int64_t> progressTotal_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 任务执行ID
+    // The task execution ID.
     shared_ptr<string> sourceExecutionId_ {};
-    // 任务来源ID
+    // The task source ID.
     shared_ptr<string> sourceTaskId_ {};
-    // 任务来源名称
+    // The task source name.
     shared_ptr<string> sourceTaskName_ {};
-    // 任务触发键
+    // The task trigger key.
     shared_ptr<string> sourceTriggerKey_ {};
-    // 任务来源类型
+    // The task source type.
     shared_ptr<string> sourceType_ {};
-    // 标题
+    // The title.
     shared_ptr<string> title_ {};
-    // 任务触发时区
+    // The task trigger time zone.
     shared_ptr<string> triggerTimezone_ {};
-    // 任务触发时间(ISO8601)
+    // The task trigger time, in ISO 8601 format.
     shared_ptr<string> triggeredAt_ {};
-    // 乐观版本号
+    // The optimistic version number.
     shared_ptr<int64_t> version_ {};
-    // 可见范围
+    // The visibility scope.
     shared_ptr<string> visibility_ {};
-    // 可见范围来源：SELF/TASK/TEMPLATE
+    // The visibility scope source. Valid values: SELF, TASK, TEMPLATE.
     shared_ptr<string> visibilitySource_ {};
-    // 工作项ID
+    // The work item ID.
     shared_ptr<string> workItemId_ {};
-    // Workflow四态投影
+    // The workflow four-state projection.
     shared_ptr<string> workflowStatus_ {};
-    // 绑定的工作流模板ID列表
+    // The list of bound workflow template IDs.
     shared_ptr<vector<string>> workflowTemplateIds_ {};
   };
 

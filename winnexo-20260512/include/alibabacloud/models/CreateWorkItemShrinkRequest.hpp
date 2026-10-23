@@ -140,35 +140,35 @@ namespace Models
 
 
   protected:
-    // 验收标准
+    // The acceptance criteria.
     shared_ptr<string> acceptanceCriteria_ {};
-    // 输入附件稳定引用
+    // The stable references of the input attachments.
     shared_ptr<string> attachmentsShrink_ {};
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 协作人用户ID列表
+    // The list of user IDs of the collaborators.
     shared_ptr<string> collaboratorUserIdsShrink_ {};
-    // 关联会话ID
+    // The ID of the associated conversation.
     shared_ptr<string> conversationId_ {};
-    // 工作项描述
+    // The description of the work item.
     shared_ptr<string> description_ {};
-    // 工作项类型；仅接受 WORKFLOW
+    // The type of the work item. Only WORKFLOW is supported.
     // 
     // This parameter is required.
     shared_ptr<string> itemType_ {};
-    // 负责人用户ID；缺省为调用者本人
+    // The user ID of the owner. If this parameter is not specified, the ID of the caller is used.
     shared_ptr<int64_t> ownerUserId_ {};
-    // 排产优先级
+    // The scheduling priority.
     shared_ptr<string> priority_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项标题
+    // The title of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // 绑定的工作流模板ID列表
+    // The list of IDs of the bound workflow templates.
     shared_ptr<string> workflowTemplateIdsShrink_ {};
   };
 

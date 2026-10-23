@@ -13,11 +13,13 @@ namespace Models
   class CreateWorkflowTemplateShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateWorkflowTemplateShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(action, action_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_TO_JSON(definition, definitionShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkflowTemplateShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(action, action_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_PTR_FROM_JSON(definition, definitionShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->definitionShrink_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->definitionShrink_ == nullptr && this->tenantId_ == nullptr; };
+    // action Field Functions 
+    bool hasAction() const { return this->action_ != nullptr;};
+    void deleteAction() { this->action_ = nullptr;};
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline CreateWorkflowTemplateShrinkRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -57,15 +66,17 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID
+    // The write action. Valid values: SAVE: Saves the template as a draft without taking effect. SUBMIT: Saves and submits the template and sets it as the only effective version. Default value: SUBMIT.
+    shared_ptr<string> action_ {};
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 完整模板定义 JSON（name/description/steps）
+    // The complete JSON definition of the template, including name, description, and steps.
     // 
     // This parameter is required.
     shared_ptr<string> definitionShrink_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

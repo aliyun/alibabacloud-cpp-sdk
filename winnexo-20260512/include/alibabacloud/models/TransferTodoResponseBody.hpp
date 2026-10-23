@@ -76,9 +76,9 @@ namespace Models
 
 
     protected:
-      // 处理结果：CREATED/REVIVED/ALREADY_PENDING
+      // The processing result. Valid values: CREATED, REVIVED, and ALREADY_PENDING.
       shared_ptr<string> result_ {};
-      // 目标用户ID
+      // The ID of the target user.
       shared_ptr<string> userId_ {};
     };
 
@@ -122,15 +122,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 逐目标处理结果
+    // The processing results for each target.
     shared_ptr<vector<TransferTodoResponseBody::Targets>> targets_ {};
-    // 待办ID
+    // The ID of the to-do task.
     shared_ptr<string> todoId_ {};
   };
 

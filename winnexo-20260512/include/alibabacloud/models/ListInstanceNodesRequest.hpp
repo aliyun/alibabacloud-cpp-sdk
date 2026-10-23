@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 协作空间ID
+    // The collaboration workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 物理工作流实例ID（planId）
+    // The physical workflow instance ID (planId).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 租户ID，缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

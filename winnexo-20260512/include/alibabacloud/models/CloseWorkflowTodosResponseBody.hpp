@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 关闭条数（幂等重复调用为 0）
+    // The number of closed to-do items. The value is 0 for idempotent repeated calls.
     shared_ptr<int64_t> cancelledCount_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 工作流 ID（原样回显）
+    // The workflow ID, returned as provided.
     shared_ptr<string> sourceWorkflowId_ {};
   };
 

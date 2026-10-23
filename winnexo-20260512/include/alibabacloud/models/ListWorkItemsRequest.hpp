@@ -137,29 +137,29 @@ namespace Models
 
 
   protected:
-    // 业务状态筛选（七态）
+    // The business statuses used for filtering.
     shared_ptr<vector<string>> businessStatuses_ {};
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 工作项类型筛选
+    // The work item types used for filtering.
     shared_ptr<vector<string>> itemTypes_ {};
-    // 标题/描述模糊搜索关键词
+    // The keyword for fuzzy search in the title or description.
     shared_ptr<string> keyword_ {};
-    // 单页最大返回数量（1~100）；传入时优先于 pageSize
+    // The maximum number of entries to return per page. Valid values: 1 to 100. This parameter takes precedence over pageSize if both are specified.
     shared_ptr<int64_t> maxResults_ {};
-    // 翻页令牌，取上次响应返回的 nextToken；传入时优先于 page
+    // The pagination token. Obtain the token from the nextToken parameter in the previous response. This parameter takes precedence over page if both are specified.
     shared_ptr<string> nextToken_ {};
-    // 页码；传入 nextToken 时忽略
+    // The page number. This parameter is ignored if nextToken is specified.
     shared_ptr<int64_t> page_ {};
-    // 每页条数（1~100）
+    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // 优先级筛选
+    // The priorities used for filtering.
     shared_ptr<vector<string>> priorities_ {};
-    // 个人范围筛选
+    // The personal scope used for filtering.
     shared_ptr<string> scope_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -112,33 +112,33 @@ namespace Models
 
 
   protected:
-    // Workflow 必填验收标准
+    // The required acceptance criteria for the workflow.
     // 
     // This parameter is required.
     shared_ptr<string> acceptanceCriteria_ {};
-    // 空间内唯一需求编号，重复请求幂等
+    // The unique requirement ID in the workspace. Repeated requests are idempotent.
     // 
     // This parameter is required.
     shared_ptr<string> businessId_ {};
-    // 协作空间 ID
+    // The collaboration workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 外部发起人展示标签
+    // The display label of the external initiator.
     shared_ptr<string> initiator_ {};
-    // 工作项优先级
+    // The work item priority.
     shared_ptr<string> priority_ {};
-    // 工作流模板 ID，最多 64 字符
+    // The workflow template ID. Maximum length: 64 characters.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. This is a common parameter explicitly passed by using --tenant-id in winnexo-cli.
     shared_ptr<string> tenantId_ {};
-    // 需求标题
+    // The requirement title.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // 业务变量对象，tags 可为字符串标签列表
+    // The business variable object. The tags field can be a list of string tags.
     shared_ptr<string> variablesShrink_ {};
   };
 

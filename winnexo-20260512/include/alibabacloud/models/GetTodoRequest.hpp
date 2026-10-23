@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // assistant 消息ID（按消息反查多条）
+    // The ID of the assistant message. This parameter is used to query multiple to-do items by message.
     shared_ptr<string> messageId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 待办ID（单条查询）
+    // The ID of the to-do item (get).
     shared_ptr<string> todoId_ {};
-    // 工作项ID（按来源反查多条）
+    // The ID of the work item. This parameter is used to query multiple to-do items by source.
     shared_ptr<string> workItemId_ {};
   };
 

@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 物理实例ID
+    // The physical instance ID.
     shared_ptr<string> instanceId_ {};
-    // 终止后状态
+    // The status after termination.
     shared_ptr<string> instanceStatus_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 状态版本
+    // The state version.
     shared_ptr<int64_t> stateVersion_ {};
-    // 终止成功为 true；失败通过 Code 和 Message 返回
+    // Indicates whether the termination was successful. A value of true indicates success. If the termination fails, the error code and message are returned.
     shared_ptr<bool> terminated_ {};
   };
 

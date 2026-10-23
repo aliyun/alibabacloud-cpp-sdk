@@ -130,29 +130,29 @@ namespace Models
 
 
   protected:
-    // 业务状态筛选（七态）
+    // The business status filter (seven states).
     shared_ptr<string> businessStatusesShrink_ {};
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 翻页游标，取上次响应的 nextCursor
+    // The pagination cursor. Use the nextCursor value from the previous response.
     shared_ptr<string> cursor_ {};
-    // 工作项类型筛选
+    // The work item type filter.
     shared_ptr<string> itemTypesShrink_ {};
-    // 标题/描述模糊搜索关键词
+    // The keyword for fuzzy search in the title or description.
     shared_ptr<string> keyword_ {};
-    // 单页条数（1~100）
+    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // 优先级筛选
+    // The priority filter.
     shared_ptr<string> prioritiesShrink_ {};
-    // 个人范围筛选
+    // The personal scope filter.
     shared_ptr<string> scope_ {};
-    // 来源任务ID；指定时返回该任务平铺子项
+    // The ID of the source task. If specified, the flat sub-items of the task are returned.
     shared_ptr<string> sourceTaskId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 视图：FLAT 平铺 / TREE 任务分组
+    // The view type. Valid values: FLAT (flat view) and TREE (task grouping).
     shared_ptr<string> view_ {};
   };
 

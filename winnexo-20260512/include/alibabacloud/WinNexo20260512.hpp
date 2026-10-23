@@ -52,9 +52,9 @@ namespace WinNexo20260512
       Models::AddUserGroupMembersResponse addUserGroupMembers(const Models::AddUserGroupMembersRequest &request);
 
       /**
-       * @summary BatchCancelTodos
+       * @summary Cancels to-do items in batches.
        *
-       * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+       * @description Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
        *
        * @param tmpReq BatchCancelTodosRequest
        * @param headers map
@@ -64,9 +64,9 @@ namespace WinNexo20260512
       Models::BatchCancelTodosResponse batchCancelTodosWithOptions(const Models::BatchCancelTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary BatchCancelTodos
+       * @summary Cancels to-do items in batches.
        *
-       * @description 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+       * @description Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
        *
        * @param request BatchCancelTodosRequest
        * @return BatchCancelTodosResponse
@@ -74,9 +74,9 @@ namespace WinNexo20260512
       Models::BatchCancelTodosResponse batchCancelTodos(const Models::BatchCancelTodosRequest &request);
 
       /**
-       * @summary BatchOperateWorkItems
+       * @summary Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
        *
-       * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+       * @description Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
        *
        * @param tmpReq BatchOperateWorkItemsRequest
        * @param headers map
@@ -86,9 +86,9 @@ namespace WinNexo20260512
       Models::BatchOperateWorkItemsResponse batchOperateWorkItemsWithOptions(const Models::BatchOperateWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary BatchOperateWorkItems
+       * @summary Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
        *
-       * @description 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+       * @description Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
        *
        * @param request BatchOperateWorkItemsRequest
        * @return BatchOperateWorkItemsResponse
@@ -118,9 +118,9 @@ namespace WinNexo20260512
       Models::BatchRemoveOperatingObjectFavoritesResponse batchRemoveOperatingObjectFavorites(const Models::BatchRemoveOperatingObjectFavoritesRequest &request);
 
       /**
-       * @summary CancelTodo
+       * @summary Cancels a to-do item.
        *
-       * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+       * @description Cancels a to-do item. If the to-do item specified by todoId is not found, a 404 error is returned. If workItemId is used, the system makes a best-effort attempt to cancel to-do items in batches.
        *
        * @param request CancelTodoRequest
        * @param headers map
@@ -130,9 +130,9 @@ namespace WinNexo20260512
       Models::CancelTodoResponse cancelTodoWithOptions(const Models::CancelTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CancelTodo
+       * @summary Cancels a to-do item.
        *
-       * @description 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+       * @description Cancels a to-do item. If the to-do item specified by todoId is not found, a 404 error is returned. If workItemId is used, the system makes a best-effort attempt to cancel to-do items in batches.
        *
        * @param request CancelTodoRequest
        * @return CancelTodoResponse
@@ -140,9 +140,9 @@ namespace WinNexo20260512
       Models::CancelTodoResponse cancelTodo(const Models::CancelTodoRequest &request);
 
       /**
-       * @summary 检查应用内资源权限
+       * @summary Checks resource permissions within an application.
        *
-       * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+       * @description Requires the APP/VIEW permission to check your own permissions and the APP/MANAGE permission to check permissions on behalf of others.
        *
        * @param request CheckAppResourcePermissionRequest
        * @param headers map
@@ -152,9 +152,9 @@ namespace WinNexo20260512
       Models::CheckAppResourcePermissionResponse checkAppResourcePermissionWithOptions(const Models::CheckAppResourcePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查应用内资源权限
+       * @summary Checks resource permissions within an application.
        *
-       * @description 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+       * @description Requires the APP/VIEW permission to check your own permissions and the APP/MANAGE permission to check permissions on behalf of others.
        *
        * @param request CheckAppResourcePermissionRequest
        * @return CheckAppResourcePermissionResponse
@@ -162,9 +162,9 @@ namespace WinNexo20260512
       Models::CheckAppResourcePermissionResponse checkAppResourcePermission(const Models::CheckAppResourcePermissionRequest &request);
 
       /**
-       * @summary 批量检查应用内资源权限
+       * @summary Checks resource permissions within applications in batches.
        *
-       * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+       * @description After authenticating each application in the batch, reuses the constant-time query of the service.
        *
        * @param tmpReq CheckAppResourcePermissionsBatchRequest
        * @param headers map
@@ -174,9 +174,9 @@ namespace WinNexo20260512
       Models::CheckAppResourcePermissionsBatchResponse checkAppResourcePermissionsBatchWithOptions(const Models::CheckAppResourcePermissionsBatchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量检查应用内资源权限
+       * @summary Checks resource permissions within applications in batches.
        *
-       * @description 整批逐应用鉴权后，复用 service 的常数级查询。
+       * @description After authenticating each application in the batch, reuses the constant-time query of the service.
        *
        * @param request CheckAppResourcePermissionsBatchRequest
        * @return CheckAppResourcePermissionsBatchResponse
@@ -202,9 +202,9 @@ namespace WinNexo20260512
       Models::CheckHealthResponse checkHealth(const Models::CheckHealthRequest &request);
 
       /**
-       * @summary 按类型或全部清空自动记忆
+       * @summary Clears automatic memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal or specified writing workspace memory based on the authenticated user. The workspace mode inherits the permissions of active members.
        *
        * @param request ClearAutoMemoryRequest
        * @param headers map
@@ -214,9 +214,9 @@ namespace WinNexo20260512
       Models::ClearAutoMemoryResponse clearAutoMemoryWithOptions(const Models::ClearAutoMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按类型或全部清空自动记忆
+       * @summary Clears automatic memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal or specified writing workspace memory based on the authenticated user. The workspace mode inherits the permissions of active members.
        *
        * @param request ClearAutoMemoryRequest
        * @return ClearAutoMemoryResponse
@@ -246,9 +246,9 @@ namespace WinNexo20260512
       Models::ClearOperatingObjectFavoritesResponse clearOperatingObjectFavorites(const Models::ClearOperatingObjectFavoritesRequest &request);
 
       /**
-       * @summary CloseWorkflowTodos
+       * @summary Closes workflow to-do items in batches.
        *
-       * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+       * @description Closes to-do items in batches by workflow. This operation matches all PENDING to-do items for the specified workflow run in the workspace and is idempotent.
        *
        * @param request CloseWorkflowTodosRequest
        * @param headers map
@@ -258,9 +258,9 @@ namespace WinNexo20260512
       Models::CloseWorkflowTodosResponse closeWorkflowTodosWithOptions(const Models::CloseWorkflowTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CloseWorkflowTodos
+       * @summary Closes workflow to-do items in batches.
        *
-       * @description 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+       * @description Closes to-do items in batches by workflow. This operation matches all PENDING to-do items for the specified workflow run in the workspace and is idempotent.
        *
        * @param request CloseWorkflowTodosRequest
        * @return CloseWorkflowTodosResponse
@@ -268,9 +268,9 @@ namespace WinNexo20260512
       Models::CloseWorkflowTodosResponse closeWorkflowTodos(const Models::CloseWorkflowTodosRequest &request);
 
       /**
-       * @summary CountTodos
+       * @summary Retrieves the to-do badge statistics.
        *
-       * @description 统计当前用户的待办角标（待处理数与未读数）
+       * @description Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
        *
        * @param request CountTodosRequest
        * @param headers map
@@ -280,9 +280,9 @@ namespace WinNexo20260512
       Models::CountTodosResponse countTodosWithOptions(const Models::CountTodosRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CountTodos
+       * @summary Retrieves the to-do badge statistics.
        *
-       * @description 统计当前用户的待办角标（待处理数与未读数）
+       * @description Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
        *
        * @param request CountTodosRequest
        * @return CountTodosResponse
@@ -372,20 +372,19 @@ namespace WinNexo20260512
       Models::CreateCustomOrgResponse createCustomOrg(const Models::CreateCustomOrgRequest &request);
 
       /**
-       * @summary 创建语义图谱并绑定数据源
+       * @summary Creates a semantic graph and associates a data source.
        *
-       * @description OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
-       *     内容编辑走个人草稿接口，正式发布走产品控制台。
-       *     业务编排：
-       *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
-       *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
-       *        不写 history、不触发 runtime 重建
-       *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
-       *     错误码：
-       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-       *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
-       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
-       *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+       * @description Creates a semantic graph through OpenAPI by synchronously creating a placeholder record with version 0.0.0 and associates a data source during creation.
+       * You can edit content through the personal draft API and officially publish it through the product console.
+       * Workflow:
+       * 1. Verifies permissions. Personal tokens verify semantic management permissions. Deployment or system-level tokens are also allowed.
+       * 2. Synchronously writes an active placeholder record to the database with schemaVersion fixed to 0.0.0 and associates the data source. History is not recorded, and runtime reconstruction is not triggered.
+       * 3. You can subsequently edit the graph content through personal drafts and officially publish it in the console.
+       * Error codes:
+       * - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+       * - ERR.GraphSchema.GraphNameDuplicated: The graph name already exists.
+       * - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicated.
+       * - ERR.GraphDataSource.*: The data source does not exist or is not an RDB type and cannot be associated.
        *
        * @param request CreateGraphRequest
        * @param headers map
@@ -395,20 +394,19 @@ namespace WinNexo20260512
       Models::CreateGraphResponse createGraphWithOptions(const Models::CreateGraphRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建语义图谱并绑定数据源
+       * @summary Creates a semantic graph and associates a data source.
        *
-       * @description OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
-       *     内容编辑走个人草稿接口，正式发布走产品控制台。
-       *     业务编排：
-       *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
-       *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
-       *        不写 history、不触发 runtime 重建
-       *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
-       *     错误码：
-       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-       *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
-       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
-       *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+       * @description Creates a semantic graph through OpenAPI by synchronously creating a placeholder record with version 0.0.0 and associates a data source during creation.
+       * You can edit content through the personal draft API and officially publish it through the product console.
+       * Workflow:
+       * 1. Verifies permissions. Personal tokens verify semantic management permissions. Deployment or system-level tokens are also allowed.
+       * 2. Synchronously writes an active placeholder record to the database with schemaVersion fixed to 0.0.0 and associates the data source. History is not recorded, and runtime reconstruction is not triggered.
+       * 3. You can subsequently edit the graph content through personal drafts and officially publish it in the console.
+       * Error codes:
+       * - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+       * - ERR.GraphSchema.GraphNameDuplicated: The graph name already exists.
+       * - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicated.
+       * - ERR.GraphDataSource.*: The data source does not exist or is not an RDB type and cannot be associated.
        *
        * @param request CreateGraphRequest
        * @return CreateGraphResponse
@@ -1382,9 +1380,9 @@ namespace WinNexo20260512
       Models::CreateTenantDirectoryResponse createTenantDirectory(const Models::CreateTenantDirectoryRequest &request);
 
       /**
-       * @summary CreateTodo
+       * @summary Creates a to-do item.
        *
-       * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+       * @description Creates a to-do item. The sourceType parameter only accepts OPEN_API. The existence of assignees is not verified, and the caller must ensure the correct mapping.
        *
        * @param tmpReq CreateTodoRequest
        * @param headers map
@@ -1394,9 +1392,9 @@ namespace WinNexo20260512
       Models::CreateTodoResponse createTodoWithOptions(const Models::CreateTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateTodo
+       * @summary Creates a to-do item.
        *
-       * @description 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+       * @description Creates a to-do item. The sourceType parameter only accepts OPEN_API. The existence of assignees is not verified, and the caller must ensure the correct mapping.
        *
        * @param request CreateTodoRequest
        * @return CreateTodoResponse
@@ -1504,9 +1502,9 @@ namespace WinNexo20260512
       Models::CreateUserWithGroupsResponse createUserWithGroups(const Models::CreateUserWithGroupsRequest &request);
 
       /**
-       * @summary CreateWorkItem
+       * @summary Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
        *
-       * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+       * @description Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
        *
        * @param tmpReq CreateWorkItemRequest
        * @param headers map
@@ -1516,9 +1514,9 @@ namespace WinNexo20260512
       Models::CreateWorkItemResponse createWorkItemWithOptions(const Models::CreateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateWorkItem
+       * @summary Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
        *
-       * @description 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+       * @description Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
        *
        * @param request CreateWorkItemRequest
        * @return CreateWorkItemResponse
@@ -1526,9 +1524,9 @@ namespace WinNexo20260512
       Models::CreateWorkItemResponse createWorkItem(const Models::CreateWorkItemRequest &request);
 
       /**
-       * @summary 幂等创建工作流实例
+       * @summary Creates a work item idempotently by business ID in a specified collaboration workspace, starts an actual run based on a workflow template, and returns the logical instance and the current execution view.
        *
-       * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+       * @description Combines creation and scheduling without bypassing work item permissions or run admission.
        *
        * @param tmpReq CreateWorkflowInstanceRequest
        * @param headers map
@@ -1538,9 +1536,9 @@ namespace WinNexo20260512
       Models::CreateWorkflowInstanceResponse createWorkflowInstanceWithOptions(const Models::CreateWorkflowInstanceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 幂等创建工作流实例
+       * @summary Creates a work item idempotently by business ID in a specified collaboration workspace, starts an actual run based on a workflow template, and returns the logical instance and the current execution view.
        *
-       * @description 组合既有创建与排产，不旁路工作项权限或运行准入。
+       * @description Combines creation and scheduling without bypassing work item permissions or run admission.
        *
        * @param request CreateWorkflowInstanceRequest
        * @return CreateWorkflowInstanceResponse
@@ -1548,9 +1546,9 @@ namespace WinNexo20260512
       Models::CreateWorkflowInstanceResponse createWorkflowInstance(const Models::CreateWorkflowInstanceRequest &request);
 
       /**
-       * @summary CreateWorkflowTemplate
+       * @summary Creates a new workflow template. Templates with the same name are not overwritten.
        *
-       * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+       * @description Creates a new workflow template. Templates with the same name are not overwritten.
        *
        * @param tmpReq CreateWorkflowTemplateRequest
        * @param headers map
@@ -1560,9 +1558,9 @@ namespace WinNexo20260512
       Models::CreateWorkflowTemplateResponse createWorkflowTemplateWithOptions(const Models::CreateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateWorkflowTemplate
+       * @summary Creates a new workflow template. Templates with the same name are not overwritten.
        *
-       * @description 有效成员保存全新工作流模板；同名模板不会覆盖
+       * @description Creates a new workflow template. Templates with the same name are not overwritten.
        *
        * @param request CreateWorkflowTemplateRequest
        * @return CreateWorkflowTemplateResponse
@@ -1570,9 +1568,31 @@ namespace WinNexo20260512
       Models::CreateWorkflowTemplateResponse createWorkflowTemplate(const Models::CreateWorkflowTemplateRequest &request);
 
       /**
-       * @summary 批量删除应用内资源权限
+       * @summary Creates a draft of a workflow template.
        *
-       * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+       * @description Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+       *
+       * @param request CreateWorkflowTemplateDraftVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkflowTemplateDraftVersionResponse
+       */
+      Models::CreateWorkflowTemplateDraftVersionResponse createWorkflowTemplateDraftVersionWithOptions(const Models::CreateWorkflowTemplateDraftVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a draft of a workflow template.
+       *
+       * @description Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+       *
+       * @param request CreateWorkflowTemplateDraftVersionRequest
+       * @return CreateWorkflowTemplateDraftVersionResponse
+       */
+      Models::CreateWorkflowTemplateDraftVersionResponse createWorkflowTemplateDraftVersion(const Models::CreateWorkflowTemplateDraftVersionRequest &request);
+
+      /**
+       * @summary Deletes multiple resource permissions within an application.
+       *
+       * @description Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
        *
        * @param tmpReq DeleteAppResourcePermissionsRequest
        * @param headers map
@@ -1582,9 +1602,9 @@ namespace WinNexo20260512
       Models::DeleteAppResourcePermissionsResponse deleteAppResourcePermissionsWithOptions(const Models::DeleteAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除应用内资源权限
+       * @summary Deletes multiple resource permissions within an application.
        *
-       * @description 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+       * @description Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
        *
        * @param request DeleteAppResourcePermissionsRequest
        * @return DeleteAppResourcePermissionsResponse
@@ -1684,9 +1704,9 @@ namespace WinNexo20260512
       Models::DeleteTenantDirectoryResponse deleteTenantDirectory(const Models::DeleteTenantDirectoryRequest &request);
 
       /**
-       * @summary DeleteWorkItem
+       * @summary Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
        *
-       * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+       * @description Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
        *
        * @param request DeleteWorkItemRequest
        * @param headers map
@@ -1696,9 +1716,9 @@ namespace WinNexo20260512
       Models::DeleteWorkItemResponse deleteWorkItemWithOptions(const Models::DeleteWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteWorkItem
+       * @summary Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
        *
-       * @description 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+       * @description Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
        *
        * @param request DeleteWorkItemRequest
        * @return DeleteWorkItemResponse
@@ -1706,9 +1726,9 @@ namespace WinNexo20260512
       Models::DeleteWorkItemResponse deleteWorkItem(const Models::DeleteWorkItemRequest &request);
 
       /**
-       * @summary DeleteWorkflowTemplate
+       * @summary Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
        *
-       * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+       * @description Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
        *
        * @param request DeleteWorkflowTemplateRequest
        * @param headers map
@@ -1718,14 +1738,36 @@ namespace WinNexo20260512
       Models::DeleteWorkflowTemplateResponse deleteWorkflowTemplateWithOptions(const Models::DeleteWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteWorkflowTemplate
+       * @summary Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
        *
-       * @description 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+       * @description Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
        *
        * @param request DeleteWorkflowTemplateRequest
        * @return DeleteWorkflowTemplateResponse
        */
       Models::DeleteWorkflowTemplateResponse deleteWorkflowTemplate(const Models::DeleteWorkflowTemplateRequest &request);
+
+      /**
+       * @summary Deletes a specified version of a workflow template.
+       *
+       * @description Deletes a specified version of a workflow template as a workspace administrator. Only inactive versions can be deleted. The system denies requests to delete the active version or the last version of the template with a 409 error. After deletion, the list of remaining versions is returned.
+       *
+       * @param request DeleteWorkflowTemplateVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkflowTemplateVersionResponse
+       */
+      Models::DeleteWorkflowTemplateVersionResponse deleteWorkflowTemplateVersionWithOptions(const Models::DeleteWorkflowTemplateVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified version of a workflow template.
+       *
+       * @description Deletes a specified version of a workflow template as a workspace administrator. Only inactive versions can be deleted. The system denies requests to delete the active version or the last version of the template with a 409 error. After deletion, the list of remaining versions is returned.
+       *
+       * @param request DeleteWorkflowTemplateVersionRequest
+       * @return DeleteWorkflowTemplateVersionResponse
+       */
+      Models::DeleteWorkflowTemplateVersionResponse deleteWorkflowTemplateVersion(const Models::DeleteWorkflowTemplateVersionRequest &request);
 
       /**
        * @summary Disables an API token.
@@ -1800,9 +1842,9 @@ namespace WinNexo20260512
       Models::EnableTokenResponse enableToken(const Models::EnableTokenRequest &request);
 
       /**
-       * @summary ExportWorkflowTemplate
+       * @summary Exports a simplified template definition that can be re-imported by valid members.
        *
-       * @description 有效成员导出可回流导入的精简模板定义
+       * @description Exports a simplified template definition that can be re-imported by valid members.
        *
        * @param request ExportWorkflowTemplateRequest
        * @param headers map
@@ -1812,9 +1854,9 @@ namespace WinNexo20260512
       Models::ExportWorkflowTemplateResponse exportWorkflowTemplateWithOptions(const Models::ExportWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ExportWorkflowTemplate
+       * @summary Exports a simplified template definition that can be re-imported by valid members.
        *
-       * @description 有效成员导出可回流导入的精简模板定义
+       * @description Exports a simplified template definition that can be re-imported by valid members.
        *
        * @param request ExportWorkflowTemplateRequest
        * @return ExportWorkflowTemplateResponse
@@ -1822,9 +1864,9 @@ namespace WinNexo20260512
       Models::ExportWorkflowTemplateResponse exportWorkflowTemplate(const Models::ExportWorkflowTemplateRequest &request);
 
       /**
-       * @summary GenerateWorkflowTemplateDraft
+       * @summary Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
        *
-       * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+       * @description Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
        *
        * @param tmpReq GenerateWorkflowTemplateDraftRequest
        * @param headers map
@@ -1834,9 +1876,9 @@ namespace WinNexo20260512
       Models::GenerateWorkflowTemplateDraftResponse generateWorkflowTemplateDraftWithOptions(const Models::GenerateWorkflowTemplateDraftRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GenerateWorkflowTemplateDraft
+       * @summary Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
        *
-       * @description 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+       * @description Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
        *
        * @param request GenerateWorkflowTemplateDraftRequest
        * @return GenerateWorkflowTemplateDraftResponse
@@ -1844,9 +1886,9 @@ namespace WinNexo20260512
       Models::GenerateWorkflowTemplateDraftResponse generateWorkflowTemplateDraft(const Models::GenerateWorkflowTemplateDraftRequest &request);
 
       /**
-       * @summary GetAgentWorkLog
+       * @summary Queries the operation logs of a workflow agent.
        *
-       * @description 查询工作流 Agent 工作日志
+       * @description Queries the operation logs of a workflow agent.
        *
        * @param request GetAgentWorkLogRequest
        * @param headers map
@@ -1856,9 +1898,9 @@ namespace WinNexo20260512
       Models::GetAgentWorkLogResponse getAgentWorkLogWithOptions(const Models::GetAgentWorkLogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetAgentWorkLog
+       * @summary Queries the operation logs of a workflow agent.
        *
-       * @description 查询工作流 Agent 工作日志
+       * @description Queries the operation logs of a workflow agent.
        *
        * @param request GetAgentWorkLogRequest
        * @return GetAgentWorkLogResponse
@@ -2106,9 +2148,9 @@ namespace WinNexo20260512
       Models::GetKnowledgeBaseSourceResponse getKnowledgeBaseSource(const Models::GetKnowledgeBaseSourceRequest &request);
 
       /**
-       * @summary 查询自动记忆拾取开关
+       * @summary Queries the automatic memory collection switch.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal or specified collaborative writing workspace memories based on the authenticated user. The workspace mode follows the permissions of active members.
        *
        * @param request GetMemoryAutoExtractionSwitchRequest
        * @param headers map
@@ -2118,9 +2160,9 @@ namespace WinNexo20260512
       Models::GetMemoryAutoExtractionSwitchResponse getMemoryAutoExtractionSwitchWithOptions(const Models::GetMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自动记忆拾取开关
+       * @summary Queries the automatic memory collection switch.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal or specified collaborative writing workspace memories based on the authenticated user. The workspace mode follows the permissions of active members.
        *
        * @param request GetMemoryAutoExtractionSwitchRequest
        * @return GetMemoryAutoExtractionSwitchResponse
@@ -2128,9 +2170,9 @@ namespace WinNexo20260512
       Models::GetMemoryAutoExtractionSwitchResponse getMemoryAutoExtractionSwitch(const Models::GetMemoryAutoExtractionSwitchRequest &request);
 
       /**
-       * @summary 查询个人或协作空间记忆详情
+       * @summary Queries the details of a memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memories or memories of a specified writing workspace based on the authenticated user. The workspace mode inherits the permissions of active members.
        *
        * @param request GetMemoryDetailRequest
        * @param headers map
@@ -2140,9 +2182,9 @@ namespace WinNexo20260512
       Models::GetMemoryDetailResponse getMemoryDetailWithOptions(const Models::GetMemoryDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询个人或协作空间记忆详情
+       * @summary Queries the details of a memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memories or memories of a specified writing workspace based on the authenticated user. The workspace mode inherits the permissions of active members.
        *
        * @param request GetMemoryDetailRequest
        * @return GetMemoryDetailResponse
@@ -2150,9 +2192,9 @@ namespace WinNexo20260512
       Models::GetMemoryDetailResponse getMemoryDetail(const Models::GetMemoryDetailRequest &request);
 
       /**
-       * @summary GetNodeDetail
+       * @summary Queries the details of an instance node.
        *
-       * @description 查询实例节点完整详情
+       * @description Queries the complete details of an instance node.
        *
        * @param request GetNodeDetailRequest
        * @param headers map
@@ -2162,9 +2204,9 @@ namespace WinNexo20260512
       Models::GetNodeDetailResponse getNodeDetailWithOptions(const Models::GetNodeDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetNodeDetail
+       * @summary Queries the details of an instance node.
        *
-       * @description 查询实例节点完整详情
+       * @description Queries the complete details of an instance node.
        *
        * @param request GetNodeDetailRequest
        * @return GetNodeDetailResponse
@@ -2432,9 +2474,9 @@ namespace WinNexo20260512
       Models::GetSourceUploadSignatureResponse getSourceUploadSignature(const Models::GetSourceUploadSignatureRequest &request);
 
       /**
-       * @summary GetTodo
+       * @summary Queries to-do items.
        *
-       * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+       * @description Queries to-do items without triggering the read status side effect. You must specify one of the following parameters: todoId, workItemId, or messageId. The priority order is todoId > workItemId > messageId.
        *
        * @param request GetTodoRequest
        * @param headers map
@@ -2444,9 +2486,9 @@ namespace WinNexo20260512
       Models::GetTodoResponse getTodoWithOptions(const Models::GetTodoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetTodo
+       * @summary Queries to-do items.
        *
-       * @description 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+       * @description Queries to-do items without triggering the read status side effect. You must specify one of the following parameters: todoId, workItemId, or messageId. The priority order is todoId > workItemId > messageId.
        *
        * @param request GetTodoRequest
        * @return GetTodoResponse
@@ -2454,9 +2496,9 @@ namespace WinNexo20260512
       Models::GetTodoResponse getTodo(const Models::GetTodoRequest &request);
 
       /**
-       * @summary GetTodoDetail
+       * @summary Queries the processing details of a to-do item.
        *
-       * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+       * @description Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
        *
        * @param request GetTodoDetailRequest
        * @param headers map
@@ -2466,9 +2508,9 @@ namespace WinNexo20260512
       Models::GetTodoDetailResponse getTodoDetailWithOptions(const Models::GetTodoDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetTodoDetail
+       * @summary Queries the processing details of a to-do item.
        *
-       * @description 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+       * @description Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
        *
        * @param request GetTodoDetailRequest
        * @return GetTodoDetailResponse
@@ -2686,9 +2728,9 @@ namespace WinNexo20260512
       Models::GetUserInfoResponse getUserInfo(const Models::GetUserInfoRequest &request);
 
       /**
-       * @summary GetWorkItem
+       * @summary Retrieves the details of a work item visible to valid members in the current collaboration space.
        *
-       * @description 有效成员读取当前空间可见工作项详情
+       * @description Retrieves the details of a work item visible to valid members in the current collaboration space.
        *
        * @param request GetWorkItemRequest
        * @param headers map
@@ -2698,9 +2740,9 @@ namespace WinNexo20260512
       Models::GetWorkItemResponse getWorkItemWithOptions(const Models::GetWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetWorkItem
+       * @summary Retrieves the details of a work item visible to valid members in the current collaboration space.
        *
-       * @description 有效成员读取当前空间可见工作项详情
+       * @description Retrieves the details of a work item visible to valid members in the current collaboration space.
        *
        * @param request GetWorkItemRequest
        * @return GetWorkItemResponse
@@ -2708,9 +2750,9 @@ namespace WinNexo20260512
       Models::GetWorkItemResponse getWorkItem(const Models::GetWorkItemRequest &request);
 
       /**
-       * @summary GetWorkItemArtifactAccess
+       * @summary Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
        *
-       * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+       * @description Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
        *
        * @param request GetWorkItemArtifactAccessRequest
        * @param headers map
@@ -2720,9 +2762,9 @@ namespace WinNexo20260512
       Models::GetWorkItemArtifactAccessResponse getWorkItemArtifactAccessWithOptions(const Models::GetWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetWorkItemArtifactAccess
+       * @summary Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
        *
-       * @description 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+       * @description Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
        *
        * @param request GetWorkItemArtifactAccessRequest
        * @return GetWorkItemArtifactAccessResponse
@@ -2730,9 +2772,9 @@ namespace WinNexo20260512
       Models::GetWorkItemArtifactAccessResponse getWorkItemArtifactAccess(const Models::GetWorkItemArtifactAccessRequest &request);
 
       /**
-       * @summary GetWorkItemAttachmentAccess
+       * @summary Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
        *
-       * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+       * @description Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
        *
        * @param request GetWorkItemAttachmentAccessRequest
        * @param headers map
@@ -2742,9 +2784,9 @@ namespace WinNexo20260512
       Models::GetWorkItemAttachmentAccessResponse getWorkItemAttachmentAccessWithOptions(const Models::GetWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetWorkItemAttachmentAccess
+       * @summary Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
        *
-       * @description 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+       * @description Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
        *
        * @param request GetWorkItemAttachmentAccessRequest
        * @return GetWorkItemAttachmentAccessResponse
@@ -2752,9 +2794,9 @@ namespace WinNexo20260512
       Models::GetWorkItemAttachmentAccessResponse getWorkItemAttachmentAccess(const Models::GetWorkItemAttachmentAccessRequest &request);
 
       /**
-       * @summary 查询工作流实例详情
+       * @summary Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
        *
-       * @description 以当前成员和工作项可见性读取实例。
+       * @description Retrieves the instance based on the current member and work item visibility.
        *
        * @param request GetWorkflowInstanceRequest
        * @param headers map
@@ -2764,9 +2806,9 @@ namespace WinNexo20260512
       Models::GetWorkflowInstanceResponse getWorkflowInstanceWithOptions(const Models::GetWorkflowInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询工作流实例详情
+       * @summary Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
        *
-       * @description 以当前成员和工作项可见性读取实例。
+       * @description Retrieves the instance based on the current member and work item visibility.
        *
        * @param request GetWorkflowInstanceRequest
        * @return GetWorkflowInstanceResponse
@@ -2774,9 +2816,9 @@ namespace WinNexo20260512
       Models::GetWorkflowInstanceResponse getWorkflowInstance(const Models::GetWorkflowInstanceRequest &request);
 
       /**
-       * @summary GetWorkflowTemplate
+       * @summary Retrieves the current configuration of a workflow template in a collaboration workspace.
        *
-       * @description 有效成员读取协作空间工作流模板当前配置
+       * @description Retrieves the current configuration of a workflow template in a collaboration workspace.
        *
        * @param request GetWorkflowTemplateRequest
        * @param headers map
@@ -2786,9 +2828,9 @@ namespace WinNexo20260512
       Models::GetWorkflowTemplateResponse getWorkflowTemplateWithOptions(const Models::GetWorkflowTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetWorkflowTemplate
+       * @summary Retrieves the current configuration of a workflow template in a collaboration workspace.
        *
-       * @description 有效成员读取协作空间工作流模板当前配置
+       * @description Retrieves the current configuration of a workflow template in a collaboration workspace.
        *
        * @param request GetWorkflowTemplateRequest
        * @return GetWorkflowTemplateResponse
@@ -2830,9 +2872,9 @@ namespace WinNexo20260512
       Models::GrantAgentUsersResponse grantAgentUsers(const Models::GrantAgentUsersRequest &request);
 
       /**
-       * @summary ImportWorkflowTemplate
+       * @summary Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
        *
-       * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+       * @description Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
        *
        * @param tmpReq ImportWorkflowTemplateRequest
        * @param headers map
@@ -2842,9 +2884,9 @@ namespace WinNexo20260512
       Models::ImportWorkflowTemplateResponse importWorkflowTemplateWithOptions(const Models::ImportWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ImportWorkflowTemplate
+       * @summary Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
        *
-       * @description 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+       * @description Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
        *
        * @param request ImportWorkflowTemplateRequest
        * @return ImportWorkflowTemplateResponse
@@ -3000,9 +3042,9 @@ namespace WinNexo20260512
       Models::ListAliDingMinutesResponse listAliDingMinutes(const Models::ListAliDingMinutesRequest &request);
 
       /**
-       * @summary 查询应用内全部原始资源授权
+       * @summary Queries the resource authorization records within an application.
        *
-       * @description APP/MANAGE 授权后按安全应用前缀分页。
+       * @description Pages results by secure application prefix after APP/MANAGE authorization.
        *
        * @param tmpReq ListAppResourcePermissionRecordsRequest
        * @param headers map
@@ -3012,9 +3054,9 @@ namespace WinNexo20260512
       Models::ListAppResourcePermissionRecordsResponse listAppResourcePermissionRecordsWithOptions(const Models::ListAppResourcePermissionRecordsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用内全部原始资源授权
+       * @summary Queries the resource authorization records within an application.
        *
-       * @description APP/MANAGE 授权后按安全应用前缀分页。
+       * @description Pages results by secure application prefix after APP/MANAGE authorization.
        *
        * @param request ListAppResourcePermissionRecordsRequest
        * @return ListAppResourcePermissionRecordsResponse
@@ -3022,9 +3064,9 @@ namespace WinNexo20260512
       Models::ListAppResourcePermissionRecordsResponse listAppResourcePermissionRecords(const Models::ListAppResourcePermissionRecordsRequest &request);
 
       /**
-       * @summary 查询用户应用内有效资源权限
+       * @summary Queries the valid resource permissions of a user within an application.
        *
-       * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+       * @description An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
        *
        * @param tmpReq ListAppResourceUserPermissionsRequest
        * @param headers map
@@ -3034,9 +3076,9 @@ namespace WinNexo20260512
       Models::ListAppResourceUserPermissionsResponse listAppResourceUserPermissionsWithOptions(const Models::ListAppResourceUserPermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户应用内有效资源权限
+       * @summary Queries the valid resource permissions of a user within an application.
        *
-       * @description 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+       * @description An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
        *
        * @param request ListAppResourceUserPermissionsRequest
        * @return ListAppResourceUserPermissionsResponse
@@ -3344,9 +3386,9 @@ namespace WinNexo20260512
       Models::ListGroupDirectoryResponse listGroupDirectory(const Models::ListGroupDirectoryRequest &request);
 
       /**
-       * @summary ListInstanceNodes
+       * @summary Queries the node list of an instance.
        *
-       * @description 查询实例节点列表
+       * @description Queries the node list of an instance.
        *
        * @param request ListInstanceNodesRequest
        * @param headers map
@@ -3356,9 +3398,9 @@ namespace WinNexo20260512
       Models::ListInstanceNodesResponse listInstanceNodesWithOptions(const Models::ListInstanceNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListInstanceNodes
+       * @summary Queries the node list of an instance.
        *
-       * @description 查询实例节点列表
+       * @description Queries the node list of an instance.
        *
        * @param request ListInstanceNodesRequest
        * @return ListInstanceNodesResponse
@@ -3418,16 +3460,11 @@ namespace WinNexo20260512
       Models::ListOperatingObjectFavoritesResponse listOperatingObjectFavorites(const Models::ListOperatingObjectFavoritesRequest &request);
 
       /**
-       * @summary Queries the output list of the current user. Filtering by conditions and pagination are supported.
+       * @summary Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
        *
-       * @description ## Operation description
-       * - This API operation queries the output list of the current logged-in user.
-       * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-       * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-       * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-       * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
-       * - Results are sorted by update time in descending order by default.
-       * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
+       * @description If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
+       * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
+       * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
        *
        * @param tmpReq ListOutputFilesRequest
        * @param headers map
@@ -3437,16 +3474,11 @@ namespace WinNexo20260512
       Models::ListOutputFilesResponse listOutputFilesWithOptions(const Models::ListOutputFilesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the output list of the current user. Filtering by conditions and pagination are supported.
+       * @summary Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
        *
-       * @description ## Operation description
-       * - This API operation queries the output list of the current logged-in user.
-       * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-       * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-       * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-       * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
-       * - Results are sorted by update time in descending order by default.
-       * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
+       * @description If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
+       * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
+       * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
        *
        * @param request ListOutputFilesRequest
        * @return ListOutputFilesResponse
@@ -3636,9 +3668,9 @@ namespace WinNexo20260512
       Models::ListTenantDirectoryResponse listTenantDirectory(const Models::ListTenantDirectoryRequest &request);
 
       /**
-       * @summary ListTodos
+       * @summary Performs a paging query on the to-do list.
        *
-       * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+       * @description Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
        *
        * @param tmpReq ListTodosRequest
        * @param headers map
@@ -3648,9 +3680,9 @@ namespace WinNexo20260512
       Models::ListTodosResponse listTodosWithOptions(const Models::ListTodosRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListTodos
+       * @summary Performs a paging query on the to-do list.
        *
-       * @description 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+       * @description Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
        *
        * @param request ListTodosRequest
        * @return ListTodosResponse
@@ -3836,9 +3868,9 @@ namespace WinNexo20260512
       Models::ListVisibleKnowledgeBasesResponse listVisibleKnowledgeBases(const Models::ListVisibleKnowledgeBasesRequest &request);
 
       /**
-       * @summary ListWorkItemArtifacts
+       * @summary Lists all historical artifacts of a work item accessible to authorized members.
        *
-       * @description 有效成员列出有权访问工作项的全部历史产物
+       * @description Lists all historical artifacts of a work item accessible to authorized members.
        *
        * @param request ListWorkItemArtifactsRequest
        * @param headers map
@@ -3848,9 +3880,9 @@ namespace WinNexo20260512
       Models::ListWorkItemArtifactsResponse listWorkItemArtifactsWithOptions(const Models::ListWorkItemArtifactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListWorkItemArtifacts
+       * @summary Lists all historical artifacts of a work item accessible to authorized members.
        *
-       * @description 有效成员列出有权访问工作项的全部历史产物
+       * @description Lists all historical artifacts of a work item accessible to authorized members.
        *
        * @param request ListWorkItemArtifactsRequest
        * @return ListWorkItemArtifactsResponse
@@ -3858,9 +3890,9 @@ namespace WinNexo20260512
       Models::ListWorkItemArtifactsResponse listWorkItemArtifacts(const Models::ListWorkItemArtifactsRequest &request);
 
       /**
-       * @summary ListWorkItems
+       * @summary Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
        *
-       * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       * @description Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
        *
        * @param tmpReq ListWorkItemsRequest
        * @param headers map
@@ -3870,9 +3902,9 @@ namespace WinNexo20260512
       Models::ListWorkItemsResponse listWorkItemsWithOptions(const Models::ListWorkItemsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListWorkItems
+       * @summary Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
        *
-       * @description 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       * @description Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
        *
        * @param request ListWorkItemsRequest
        * @return ListWorkItemsResponse
@@ -3880,9 +3912,9 @@ namespace WinNexo20260512
       Models::ListWorkItemsResponse listWorkItems(const Models::ListWorkItemsRequest &request);
 
       /**
-       * @summary 分页筛选工作流实例
+       * @summary Queries workflow instances visible to the current invoker in a specified collaboration space through a paged query, and supports paging and filtering by status, external requirement ID, initiator, keyword, and sorting conditions.
        *
-       * @description 复用详情投影，避免工作项列表与实例状态混用。
+       * @description Reuses detail projections to avoid mixing work item lists with instance statuses.
        *
        * @param request ListWorkflowInstancesRequest
        * @param headers map
@@ -3892,9 +3924,9 @@ namespace WinNexo20260512
       Models::ListWorkflowInstancesResponse listWorkflowInstancesWithOptions(const Models::ListWorkflowInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页筛选工作流实例
+       * @summary Queries workflow instances visible to the current invoker in a specified collaboration space through a paged query, and supports paging and filtering by status, external requirement ID, initiator, keyword, and sorting conditions.
        *
-       * @description 复用详情投影，避免工作项列表与实例状态混用。
+       * @description Reuses detail projections to avoid mixing work item lists with instance statuses.
        *
        * @param request ListWorkflowInstancesRequest
        * @return ListWorkflowInstancesResponse
@@ -3902,9 +3934,31 @@ namespace WinNexo20260512
       Models::ListWorkflowInstancesResponse listWorkflowInstances(const Models::ListWorkflowInstancesRequest &request);
 
       /**
-       * @summary ListWorkflowTemplates
+       * @summary Queries the versions of a workflow template.
        *
-       * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       * @description Queries all versions of a workflow template for active members. Returns draft and submitted versions in descending order by version number, and marks the unique effective version.
+       *
+       * @param request ListWorkflowTemplateVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowTemplateVersionsResponse
+       */
+      Models::ListWorkflowTemplateVersionsResponse listWorkflowTemplateVersionsWithOptions(const Models::ListWorkflowTemplateVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the versions of a workflow template.
+       *
+       * @description Queries all versions of a workflow template for active members. Returns draft and submitted versions in descending order by version number, and marks the unique effective version.
+       *
+       * @param request ListWorkflowTemplateVersionsRequest
+       * @return ListWorkflowTemplateVersionsResponse
+       */
+      Models::ListWorkflowTemplateVersionsResponse listWorkflowTemplateVersions(const Models::ListWorkflowTemplateVersionsRequest &request);
+
+      /**
+       * @summary Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+       *
+       * @description Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
        *
        * @param request ListWorkflowTemplatesRequest
        * @param headers map
@@ -3914,9 +3968,9 @@ namespace WinNexo20260512
       Models::ListWorkflowTemplatesResponse listWorkflowTemplatesWithOptions(const Models::ListWorkflowTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListWorkflowTemplates
+       * @summary Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
        *
-       * @description 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+       * @description Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
        *
        * @param request ListWorkflowTemplatesRequest
        * @return ListWorkflowTemplatesResponse
@@ -3924,9 +3978,9 @@ namespace WinNexo20260512
       Models::ListWorkflowTemplatesResponse listWorkflowTemplates(const Models::ListWorkflowTemplatesRequest &request);
 
       /**
-       * @summary MarkTodosRead
+       * @summary Marks to-do items as read.
        *
-       * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+       * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
        *
        * @param tmpReq MarkTodosReadRequest
        * @param headers map
@@ -3936,9 +3990,9 @@ namespace WinNexo20260512
       Models::MarkTodosReadResponse markTodosReadWithOptions(const Models::MarkTodosReadRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary MarkTodosRead
+       * @summary Marks to-do items as read.
        *
-       * @description 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+       * @description Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
        *
        * @param request MarkTodosReadRequest
        * @return MarkTodosReadResponse
@@ -4074,9 +4128,9 @@ namespace WinNexo20260512
       Models::OfflineAnnouncementResponse offlineAnnouncement(const Models::OfflineAnnouncementRequest &request);
 
       /**
-       * @summary PauseWorkItem
+       * @summary Pauses the entire workflow bound to a work item for active members.
        *
-       * @description 有效成员暂停工作项绑定的整个 Workflow
+       * @description Pauses the entire workflow bound to a work item for active members.
        *
        * @param request PauseWorkItemRequest
        * @param headers map
@@ -4086,9 +4140,9 @@ namespace WinNexo20260512
       Models::PauseWorkItemResponse pauseWorkItemWithOptions(const Models::PauseWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary PauseWorkItem
+       * @summary Pauses the entire workflow bound to a work item for active members.
        *
-       * @description 有效成员暂停工作项绑定的整个 Workflow
+       * @description Pauses the entire workflow bound to a work item for active members.
        *
        * @param request PauseWorkItemRequest
        * @return PauseWorkItemResponse
@@ -4270,9 +4324,9 @@ namespace WinNexo20260512
       Models::QuerySyncResultResponse querySyncResult(const Models::QuerySyncResultRequest &request);
 
       /**
-       * @summary QueryWorkItemFeed
+       * @summary Queries the grouped view of the work item feed for active members with server-side cursor pagination.
        *
-       * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+       * @description Queries the grouped view of the work item feed for active members with server-side cursor pagination.
        *
        * @param tmpReq QueryWorkItemFeedRequest
        * @param headers map
@@ -4282,9 +4336,9 @@ namespace WinNexo20260512
       Models::QueryWorkItemFeedResponse queryWorkItemFeedWithOptions(const Models::QueryWorkItemFeedRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary QueryWorkItemFeed
+       * @summary Queries the grouped view of the work item feed for active members with server-side cursor pagination.
        *
-       * @description 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+       * @description Queries the grouped view of the work item feed for active members with server-side cursor pagination.
        *
        * @param request QueryWorkItemFeedRequest
        * @return QueryWorkItemFeedResponse
@@ -4326,9 +4380,9 @@ namespace WinNexo20260512
       Models::RecommendNextActionsResponse recommendNextActions(const Models::RecommendNextActionsRequest &request);
 
       /**
-       * @summary 批量注册应用内资源权限
+       * @summary Registers in-app resource permissions in bulk.
        *
-       * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+       * @description Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
        *
        * @param tmpReq RegisterAppResourcePermissionsRequest
        * @param headers map
@@ -4338,9 +4392,9 @@ namespace WinNexo20260512
       Models::RegisterAppResourcePermissionsResponse registerAppResourcePermissionsWithOptions(const Models::RegisterAppResourcePermissionsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量注册应用内资源权限
+       * @summary Registers in-app resource permissions in bulk.
        *
-       * @description 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+       * @description Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
        *
        * @param request RegisterAppResourcePermissionsRequest
        * @return RegisterAppResourcePermissionsResponse
@@ -4590,9 +4644,9 @@ namespace WinNexo20260512
       Models::ReplaceKnowledgeBaseSourceFileResponse replaceKnowledgeBaseSourceFile(const Models::ReplaceKnowledgeBaseSourceFileRequest &request);
 
       /**
-       * @summary 覆盖或清空手动记忆
+       * @summary Overwrites or clears manual memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memory or the memory of a specified writing workspace based on the authenticated user. Workspace mode inherits the permissions of active members.
        *
        * @param request ReplaceManualMemoryRequest
        * @param headers map
@@ -4602,9 +4656,9 @@ namespace WinNexo20260512
       Models::ReplaceManualMemoryResponse replaceManualMemoryWithOptions(const Models::ReplaceManualMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 覆盖或清空手动记忆
+       * @summary Overwrites or clears manual memory.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memory or the memory of a specified writing workspace based on the authenticated user. Workspace mode inherits the permissions of active members.
        *
        * @param request ReplaceManualMemoryRequest
        * @return ReplaceManualMemoryResponse
@@ -4672,9 +4726,9 @@ namespace WinNexo20260512
       Models::ReplaceSourceFileResponse replaceSourceFile(const Models::ReplaceSourceFileRequest &request);
 
       /**
-       * @summary RerunNodeAI
+       * @summary Reruns a workflow node.
        *
-       * @description 重跑失败的工作流节点
+       * @description Reruns a failed workflow node.
        *
        * @param request RerunNodeAIRequest
        * @param headers map
@@ -4684,9 +4738,9 @@ namespace WinNexo20260512
       Models::RerunNodeAIResponse rerunNodeAIWithOptions(const Models::RerunNodeAIRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary RerunNodeAI
+       * @summary Reruns a workflow node.
        *
-       * @description 重跑失败的工作流节点
+       * @description Reruns a failed workflow node.
        *
        * @param request RerunNodeAIRequest
        * @return RerunNodeAIResponse
@@ -4770,9 +4824,9 @@ namespace WinNexo20260512
       Models::ResetTokenResponse resetToken(const Models::ResetTokenRequest &request);
 
       /**
-       * @summary ResolveWorkItemArtifactAccess
+       * @summary Retrieves the short-term signed download URL for a work item artifact.
        *
-       * @description 有效成员解析工作项产物短期签名下载地址
+       * @description Retrieves the short-term signed download URL for a work item artifact.
        *
        * @param request ResolveWorkItemArtifactAccessRequest
        * @param headers map
@@ -4782,9 +4836,9 @@ namespace WinNexo20260512
       Models::ResolveWorkItemArtifactAccessResponse resolveWorkItemArtifactAccessWithOptions(const Models::ResolveWorkItemArtifactAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ResolveWorkItemArtifactAccess
+       * @summary Retrieves the short-term signed download URL for a work item artifact.
        *
-       * @description 有效成员解析工作项产物短期签名下载地址
+       * @description Retrieves the short-term signed download URL for a work item artifact.
        *
        * @param request ResolveWorkItemArtifactAccessRequest
        * @return ResolveWorkItemArtifactAccessResponse
@@ -4792,9 +4846,9 @@ namespace WinNexo20260512
       Models::ResolveWorkItemArtifactAccessResponse resolveWorkItemArtifactAccess(const Models::ResolveWorkItemArtifactAccessRequest &request);
 
       /**
-       * @summary ResolveWorkItemAttachmentAccess
+       * @summary Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
        *
-       * @description 有效成员解析工作项输入附件短期预览地址
+       * @description Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
        *
        * @param request ResolveWorkItemAttachmentAccessRequest
        * @param headers map
@@ -4804,9 +4858,9 @@ namespace WinNexo20260512
       Models::ResolveWorkItemAttachmentAccessResponse resolveWorkItemAttachmentAccessWithOptions(const Models::ResolveWorkItemAttachmentAccessRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ResolveWorkItemAttachmentAccess
+       * @summary Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
        *
-       * @description 有效成员解析工作项输入附件短期预览地址
+       * @description Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
        *
        * @param request ResolveWorkItemAttachmentAccessRequest
        * @return ResolveWorkItemAttachmentAccessResponse
@@ -4814,9 +4868,9 @@ namespace WinNexo20260512
       Models::ResolveWorkItemAttachmentAccessResponse resolveWorkItemAttachmentAccess(const Models::ResolveWorkItemAttachmentAccessRequest &request);
 
       /**
-       * @summary ResumeWorkItem
+       * @summary Resumes work items from the current plan pause point as an effective member.
        *
-       * @description 有效成员从当前 Plan 暂停点恢复工作项
+       * @description Resumes work items from the current plan pause point as an effective member.
        *
        * @param request ResumeWorkItemRequest
        * @param headers map
@@ -4826,9 +4880,9 @@ namespace WinNexo20260512
       Models::ResumeWorkItemResponse resumeWorkItemWithOptions(const Models::ResumeWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ResumeWorkItem
+       * @summary Resumes work items from the current plan pause point as an effective member.
        *
-       * @description 有效成员从当前 Plan 暂停点恢复工作项
+       * @description Resumes work items from the current plan pause point as an effective member.
        *
        * @param request ResumeWorkItemRequest
        * @return ResumeWorkItemResponse
@@ -5212,9 +5266,9 @@ namespace WinNexo20260512
       Models::SaveOutputFileToResourceResponse saveOutputFileToResource(const Models::SaveOutputFileToResourceRequest &request);
 
       /**
-       * @summary ScheduleWorkItem
+       * @summary Idempotently schedules work items for valid members and materializes a fixed plan.
        *
-       * @description 有效成员幂等排产工作项并物化固定 Plan
+       * @description Idempotently schedules work items for valid members and materializes a fixed plan.
        *
        * @param request ScheduleWorkItemRequest
        * @param headers map
@@ -5224,9 +5278,9 @@ namespace WinNexo20260512
       Models::ScheduleWorkItemResponse scheduleWorkItemWithOptions(const Models::ScheduleWorkItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ScheduleWorkItem
+       * @summary Idempotently schedules work items for valid members and materializes a fixed plan.
        *
-       * @description 有效成员幂等排产工作项并物化固定 Plan
+       * @description Idempotently schedules work items for valid members and materializes a fixed plan.
        *
        * @param request ScheduleWorkItemRequest
        * @return ScheduleWorkItemResponse
@@ -5234,12 +5288,12 @@ namespace WinNexo20260512
       Models::ScheduleWorkItemResponse scheduleWorkItem(const Models::ScheduleWorkItemRequest &request);
 
       /**
-       * @summary Winnexo 轻量工作台搜索阿里钉群聊。
+       * @summary Searches for DingTalk group chats in the Winnexo lightweight workspace.
        *
-       * @description ## 请求说明
-       * - 仅供 Winnexo 轻量工作台使用。
-       * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
-       * - 响应不包含 DWS 原始对象。
+       * @description ## Request description
+       * - Available only for the Winnexo lightweight workspace.
+       * - Searches for DingTalk group chats visible to the current platform user by keyword in a paginated manner.
+       * - The response does not include DWS raw objects.
        *
        * @param request SearchAliDingGroupChatsRequest
        * @param headers map
@@ -5249,12 +5303,12 @@ namespace WinNexo20260512
       Models::SearchAliDingGroupChatsResponse searchAliDingGroupChatsWithOptions(const Models::SearchAliDingGroupChatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Winnexo 轻量工作台搜索阿里钉群聊。
+       * @summary Searches for DingTalk group chats in the Winnexo lightweight workspace.
        *
-       * @description ## 请求说明
-       * - 仅供 Winnexo 轻量工作台使用。
-       * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
-       * - 响应不包含 DWS 原始对象。
+       * @description ## Request description
+       * - Available only for the Winnexo lightweight workspace.
+       * - Searches for DingTalk group chats visible to the current platform user by keyword in a paginated manner.
+       * - The response does not include DWS raw objects.
        *
        * @param request SearchAliDingGroupChatsRequest
        * @return SearchAliDingGroupChatsResponse
@@ -5336,9 +5390,9 @@ namespace WinNexo20260512
       Models::SendChatMessageResponse sendChatMessage(const Models::SendChatMessageRequest &request);
 
       /**
-       * @summary SetWorkItemPinned
+       * @summary Sets the personal pin status of a work item for a valid member.
        *
-       * @description 有效成员设置工作项个人置顶
+       * @description Sets the personal pin status of a work item for a valid member.
        *
        * @param request SetWorkItemPinnedRequest
        * @param headers map
@@ -5348,14 +5402,36 @@ namespace WinNexo20260512
       Models::SetWorkItemPinnedResponse setWorkItemPinnedWithOptions(const Models::SetWorkItemPinnedRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SetWorkItemPinned
+       * @summary Sets the personal pin status of a work item for a valid member.
        *
-       * @description 有效成员设置工作项个人置顶
+       * @description Sets the personal pin status of a work item for a valid member.
        *
        * @param request SetWorkItemPinnedRequest
        * @return SetWorkItemPinnedResponse
        */
       Models::SetWorkItemPinnedResponse setWorkItemPinned(const Models::SetWorkItemPinnedRequest &request);
+
+      /**
+       * @summary Sets the effective version of a workflow.
+       *
+       * @description The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+       *
+       * @param request SetWorkflowTemplateEffectiveVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetWorkflowTemplateEffectiveVersionResponse
+       */
+      Models::SetWorkflowTemplateEffectiveVersionResponse setWorkflowTemplateEffectiveVersionWithOptions(const Models::SetWorkflowTemplateEffectiveVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the effective version of a workflow.
+       *
+       * @description The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+       *
+       * @param request SetWorkflowTemplateEffectiveVersionRequest
+       * @return SetWorkflowTemplateEffectiveVersionResponse
+       */
+      Models::SetWorkflowTemplateEffectiveVersionResponse setWorkflowTemplateEffectiveVersion(const Models::SetWorkflowTemplateEffectiveVersionRequest &request);
 
       /**
        * @summary Stops conversation generation.
@@ -5410,9 +5486,9 @@ namespace WinNexo20260512
       Models::StreamChatMessageResponse streamChatMessage(const string &messageId, const Models::StreamChatMessageRequest &request);
 
       /**
-       * @summary SubmitTodo
+       * @summary Submits answers for a to-do item.
        *
-       * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+       * @description Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
        *
        * @param tmpReq SubmitTodoRequest
        * @param headers map
@@ -5422,9 +5498,9 @@ namespace WinNexo20260512
       Models::SubmitTodoResponse submitTodoWithOptions(const Models::SubmitTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SubmitTodo
+       * @summary Submits answers for a to-do item.
        *
-       * @description 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+       * @description Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
        *
        * @param request SubmitTodoRequest
        * @return SubmitTodoResponse
@@ -5470,9 +5546,9 @@ namespace WinNexo20260512
       Models::SyncOrgStructureResponse syncOrgStructure(const Models::SyncOrgStructureRequest &request);
 
       /**
-       * @summary TerminateInstance
+       * @summary Terminates a workflow instance.
        *
-       * @description 终止当前工作流实例
+       * @description Terminates the current workflow instance.
        *
        * @param request TerminateInstanceRequest
        * @param headers map
@@ -5482,9 +5558,9 @@ namespace WinNexo20260512
       Models::TerminateInstanceResponse terminateInstanceWithOptions(const Models::TerminateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary TerminateInstance
+       * @summary Terminates a workflow instance.
        *
-       * @description 终止当前工作流实例
+       * @description Terminates the current workflow instance.
        *
        * @param request TerminateInstanceRequest
        * @return TerminateInstanceResponse
@@ -5582,9 +5658,9 @@ namespace WinNexo20260512
       Models::TranscribeChatVoiceResponse transcribeChatVoiceAdvance(const Models::TranscribeChatVoiceAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary TransferTodo
+       * @summary Reassigns a to-do task.
        *
-       * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+       * @description Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
        *
        * @param tmpReq TransferTodoRequest
        * @param headers map
@@ -5594,9 +5670,9 @@ namespace WinNexo20260512
       Models::TransferTodoResponse transferTodoWithOptions(const Models::TransferTodoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary TransferTodo
+       * @summary Reassigns a to-do task.
        *
-       * @description 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+       * @description Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
        *
        * @param request TransferTodoRequest
        * @return TransferTodoResponse
@@ -5876,9 +5952,9 @@ namespace WinNexo20260512
       Models::UpdateKnowledgeBaseSourceTagsResponse updateKnowledgeBaseSourceTags(const Models::UpdateKnowledgeBaseSourceTagsRequest &request);
 
       /**
-       * @summary 更新自动记忆拾取开关
+       * @summary Updates the automatic memory collection toggle.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memories or memories of a specified collaborative writing workspace based on the authenticated user. In workspace mode, the permissions of active members are applied.
        *
        * @param request UpdateMemoryAutoExtractionSwitchRequest
        * @param headers map
@@ -5888,9 +5964,9 @@ namespace WinNexo20260512
       Models::UpdateMemoryAutoExtractionSwitchResponse updateMemoryAutoExtractionSwitchWithOptions(const Models::UpdateMemoryAutoExtractionSwitchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自动记忆拾取开关
+       * @summary Updates the automatic memory collection toggle.
        *
-       * @description 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+       * @description Manages personal memories or memories of a specified collaborative writing workspace based on the authenticated user. In workspace mode, the permissions of active members are applied.
        *
        * @param request UpdateMemoryAutoExtractionSwitchRequest
        * @return UpdateMemoryAutoExtractionSwitchResponse
@@ -6070,9 +6146,9 @@ namespace WinNexo20260512
       Models::UpdateUserInfoResponse updateUserInfo(const Models::UpdateUserInfoRequest &request);
 
       /**
-       * @summary UpdateWorkItem
+       * @summary Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
        *
-       * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+       * @description Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
        *
        * @param tmpReq UpdateWorkItemRequest
        * @param headers map
@@ -6082,9 +6158,9 @@ namespace WinNexo20260512
       Models::UpdateWorkItemResponse updateWorkItemWithOptions(const Models::UpdateWorkItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpdateWorkItem
+       * @summary Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
        *
-       * @description 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+       * @description Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
        *
        * @param request UpdateWorkItemRequest
        * @return UpdateWorkItemResponse
@@ -6092,9 +6168,9 @@ namespace WinNexo20260512
       Models::UpdateWorkItemResponse updateWorkItem(const Models::UpdateWorkItemRequest &request);
 
       /**
-       * @summary UpdateWorkflowTemplate
+       * @summary Overwrites and updates a workflow template. The last save takes effect.
        *
-       * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+       * @description Overwrites and updates a workflow template. The last save takes effect.
        *
        * @param tmpReq UpdateWorkflowTemplateRequest
        * @param headers map
@@ -6104,9 +6180,9 @@ namespace WinNexo20260512
       Models::UpdateWorkflowTemplateResponse updateWorkflowTemplateWithOptions(const Models::UpdateWorkflowTemplateRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpdateWorkflowTemplate
+       * @summary Overwrites and updates a workflow template. The last save takes effect.
        *
-       * @description 有效成员整体覆盖更新工作流模板；最后一次保存生效
+       * @description Overwrites and updates a workflow template. The last save takes effect.
        *
        * @param request UpdateWorkflowTemplateRequest
        * @return UpdateWorkflowTemplateResponse

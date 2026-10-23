@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 本次是否新创建 Plan
+    // Indicates whether a new plan is created in this request.
     shared_ptr<bool> created_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 物理计划ID
+    // The ID of the physical plan.
     shared_ptr<string> planId_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 修订号
+    // The revision number.
     shared_ptr<int64_t> revision_ {};
-    // 运行ID
+    // The run ID.
     shared_ptr<string> runId_ {};
-    // 运行序号
+    // The run sequence number.
     shared_ptr<int64_t> runSeq_ {};
-    // 工作项ID
+    // The ID of the work item.
     shared_ptr<string> workItemId_ {};
   };
 

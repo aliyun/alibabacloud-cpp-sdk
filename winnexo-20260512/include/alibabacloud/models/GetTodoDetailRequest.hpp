@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 待办ID
+    // The ID of the to-do item.
     // 
     // This parameter is required.
     shared_ptr<string> todoId_ {};

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(code, code_);
       DARABONBA_PTR_TO_JSON(createdByUserId, createdByUserId_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(effectiveVersion, effectiveVersion_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(message, message_);
@@ -24,11 +25,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(steps, steps_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
+      DARABONBA_PTR_TO_JSON(version, version_);
+      DARABONBA_PTR_TO_JSON(versionStatus, versionStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ImportWorkflowTemplateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(createdByUserId, createdByUserId_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(effectiveVersion, effectiveVersion_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(message, message_);
@@ -36,6 +40,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(steps, steps_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
+      DARABONBA_PTR_FROM_JSON(versionStatus, versionStatus_);
     };
     ImportWorkflowTemplateResponseBody() = default ;
     ImportWorkflowTemplateResponseBody(const ImportWorkflowTemplateResponseBody &) = default ;
@@ -59,6 +65,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(reviewerUserIds, reviewerUserIds_);
         DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
         DARABONBA_PTR_TO_JSON(specification, specification_);
+        DARABONBA_PTR_TO_JSON(specificationJson, specificationJson_);
         DARABONBA_PTR_TO_JSON(stepId, stepId_);
       };
       friend void from_json(const Darabonba::Json& j, Steps& obj) { 
@@ -70,6 +77,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(reviewerUserIds, reviewerUserIds_);
         DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
         DARABONBA_PTR_FROM_JSON(specification, specification_);
+        DARABONBA_PTR_FROM_JSON(specificationJson, specificationJson_);
         DARABONBA_PTR_FROM_JSON(stepId, stepId_);
       };
       Steps() = default ;
@@ -85,7 +93,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->modelMode_ == nullptr
         && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewerUserIds_ == nullptr
-        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->stepId_ == nullptr; };
+        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
       // modelMode Field Functions 
       bool hasModelMode() const { return this->modelMode_ != nullptr;};
       void deleteModelMode() { this->modelMode_ = nullptr;};
@@ -144,6 +152,15 @@ namespace Models
       inline Steps& setSpecification(string specification) { DARABONBA_PTR_SET_VALUE(specification_, specification) };
 
 
+      // specificationJson Field Functions 
+      bool hasSpecificationJson() const { return this->specificationJson_ != nullptr;};
+      void deleteSpecificationJson() { this->specificationJson_ = nullptr;};
+      inline const vector<Darabonba::Json> & getSpecificationJson() const { DARABONBA_PTR_GET_CONST(specificationJson_, vector<Darabonba::Json>) };
+      inline vector<Darabonba::Json> getSpecificationJson() { DARABONBA_PTR_GET(specificationJson_, vector<Darabonba::Json>) };
+      inline Steps& setSpecificationJson(const vector<Darabonba::Json> & specificationJson) { DARABONBA_PTR_SET_VALUE(specificationJson_, specificationJson) };
+      inline Steps& setSpecificationJson(vector<Darabonba::Json> && specificationJson) { DARABONBA_PTR_SET_RVALUE(specificationJson_, specificationJson) };
+
+
       // stepId Field Functions 
       bool hasStepId() const { return this->stepId_ != nullptr;};
       void deleteStepId() { this->stepId_ = nullptr;};
@@ -152,29 +169,34 @@ namespace Models
 
 
     protected:
-      // 模型档位
+      // The model tier.
       shared_ptr<string> modelMode_ {};
-      // 步骤名称
+      // The step name.
       shared_ptr<string> name_ {};
-      // 智能体负责人名称
+      // The name of the responsible agent.
       shared_ptr<string> ownerAgentName_ {};
-      // 负责人类型：MEMBER 人工 / AGENT 智能体
+      // The type of the responsible party. Valid values:
+      // - MEMBER: human.
+      // - AGENT: agent.
       shared_ptr<string> ownerType_ {};
-      // 人工负责人用户ID
+      // The user ID of the human responsible party.
       shared_ptr<int64_t> ownerUserId_ {};
-      // 审核人用户ID列表
+      // The list of user IDs for the reviewers.
       shared_ptr<vector<int64_t>> reviewerUserIds_ {};
-      // 步骤顺序
+      // The step order.
       shared_ptr<int64_t> sortOrder_ {};
-      // 步骤处理说明
+      // The processing instructions for the step.
       shared_ptr<string> specification_ {};
-      // 步骤ID
+      // The structured array of processing instructions for the step. This array supports text, mention, skill, app, files, and web_search types. All fragment fields and nested attachments are preserved exactly as returned by the backend.
+      shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
+      // The step ID.
       shared_ptr<string> stepId_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->createdByUserId_ == nullptr && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->message_ == nullptr
-        && this->name_ == nullptr && this->requestId_ == nullptr && this->steps_ == nullptr && this->templateId_ == nullptr; };
+        && this->createdByUserId_ == nullptr && this->description_ == nullptr && this->effectiveVersion_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
+        && this->message_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->steps_ == nullptr && this->templateId_ == nullptr
+        && this->version_ == nullptr && this->versionStatus_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -194,6 +216,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ImportWorkflowTemplateResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // effectiveVersion Field Functions 
+    bool hasEffectiveVersion() const { return this->effectiveVersion_ != nullptr;};
+    void deleteEffectiveVersion() { this->effectiveVersion_ = nullptr;};
+    inline string getEffectiveVersion() const { DARABONBA_PTR_GET_DEFAULT(effectiveVersion_, "") };
+    inline ImportWorkflowTemplateResponseBody& setEffectiveVersion(string effectiveVersion) { DARABONBA_PTR_SET_VALUE(effectiveVersion_, effectiveVersion) };
 
 
     // gmtCreate Field Functions 
@@ -247,27 +276,50 @@ namespace Models
     inline ImportWorkflowTemplateResponseBody& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline ImportWorkflowTemplateResponseBody& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    // versionStatus Field Functions 
+    bool hasVersionStatus() const { return this->versionStatus_ != nullptr;};
+    void deleteVersionStatus() { this->versionStatus_ = nullptr;};
+    inline string getVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(versionStatus_, "") };
+    inline ImportWorkflowTemplateResponseBody& setVersionStatus(string versionStatus) { DARABONBA_PTR_SET_VALUE(versionStatus_, versionStatus) };
+
+
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 创建人用户ID
+    // The user ID of the creator.
     shared_ptr<int64_t> createdByUserId_ {};
-    // 模板描述
+    // The template description.
     shared_ptr<string> description_ {};
-    // 创建时间(ISO8601)
+    // The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items. Importing a template always creates a v1 draft, so this field is empty.
+    shared_ptr<string> effectiveVersion_ {};
+    // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // 修改时间(ISO8601)
+    // The modification time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 模板名称
+    // The template name.
     shared_ptr<string> name_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 有序步骤
+    // The ordered steps.
     shared_ptr<vector<ImportWorkflowTemplateResponseBody::Steps>> steps_ {};
-    // 模板ID
+    // The template ID.
     shared_ptr<string> templateId_ {};
+    // The version number generated by this import.
+    shared_ptr<string> version_ {};
+    // The version status. Valid values:
+    // - DRAFT: draft.
+    // - SUBMITTED: submitted.
+    // The status is always set to DRAFT for imported templates.
+    shared_ptr<string> versionStatus_ {};
   };
 
   } // namespace Models

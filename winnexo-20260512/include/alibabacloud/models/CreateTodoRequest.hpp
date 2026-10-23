@@ -128,13 +128,13 @@ namespace Models
 
 
       protected:
-        // 选项补充说明
+        // The supplementary description of the option.
         shared_ptr<string> description_ {};
-        // 选项文案（引用键）
+        // The option text. This is a reference key.
         // 
         // This parameter is required.
         shared_ptr<string> label_ {};
-        // 是否推荐
+        // Specifies whether the option is recommended.
         shared_ptr<bool> recommended_ {};
       };
 
@@ -214,29 +214,29 @@ namespace Models
 
 
     protected:
-      // 是否允许自定义输入
+      // Specifies whether custom input is allowed.
       shared_ptr<bool> allowCustom_ {};
-      // 自定义输入项文案
+      // The text for the custom input item.
       shared_ptr<string> customLabel_ {};
-      // 自定义输入长度上限
+      // The maximum length of the custom input.
       shared_ptr<int64_t> customMaxLength_ {};
-      // 自定义输入占位符
+      // The placeholder for the custom input.
       shared_ptr<string> customPlaceholder_ {};
-      // TEXT 题长度上限
+      // The maximum length for text questions.
       shared_ptr<int64_t> maxLength_ {};
-      // 作答形态：SINGLE_CHOICE/MULTI_CHOICE/TEXT
+      // The response mode. Valid values: SINGLE_CHOICE, MULTI_CHOICE, and TEXT.
       // 
       // This parameter is required.
       shared_ptr<string> mode_ {};
-      // 问题的选项列表；选择题必填，每项含选项文案（label）、补充说明（description）与是否推荐（recommended）
+      // The list of options for the question. This parameter is required for choice questions. Each option includes the option text (label), supplementary description (description), and whether it is recommended (recommended).
       shared_ptr<vector<Questions::Options>> options_ {};
-      // TEXT 题占位符
+      // The placeholder for text questions.
       shared_ptr<string> placeholder_ {};
-      // 问题正文（引用键，清单内唯一）
+      // The question text. This is a reference key and must be unique within the list.
       // 
       // This parameter is required.
       shared_ptr<string> question_ {};
-      // 是否必答
+      // Specifies whether the question is required.
       shared_ptr<bool> required_ {};
     };
 
@@ -306,29 +306,29 @@ namespace Models
 
 
   protected:
-    // 处理人平台用户ID列表（1~100，去重后生效）
+    // The list of platform user IDs of the assignees. You can specify 1 to 100 IDs. Duplicate IDs are automatically removed.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> assigneeUserIds_ {};
-    // 协作空间 ID（可选）
+    // The ID of the collaboration workspace. This parameter is optional.
     shared_ptr<string> collaborationGroupId_ {};
-    // 优先级
+    // The priority.
     shared_ptr<string> priority_ {};
-    // 问题清单（1~N）
+    // The list of questions.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateTodoRequest::Questions>> questions_ {};
-    // 来源上下文（原样透传落库，不校验）
+    // The source context. The value is passed through and stored in the database as-is without validation.
     // 
     // This parameter is required.
     Darabonba::Json sourceContext_ {};
-    // 待办来源（仅 OPEN_API）
+    // The source of the to-do item. Only OPEN_API is supported.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 待办标题（≤200 字）
+    // The title of the to-do item. The maximum length is 200 characters.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

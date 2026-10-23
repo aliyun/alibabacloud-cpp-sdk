@@ -254,7 +254,7 @@ namespace Models
           shared_ptr<string> description_ {};
           // The file name.
           shared_ptr<string> name_ {};
-          // The file path (OSS object key).
+          // The file location. It is compatible with file URLs and legacy OSS object keys. The specific value is derived from the output registration information.
           shared_ptr<string> path_ {};
           // The file type, such as .pdf or .md.
           shared_ptr<string> type_ {};
@@ -318,7 +318,7 @@ namespace Models
 
 
         protected:
-          // The email body.
+          // The email content.
           shared_ptr<string> body_ {};
           // The content type, such as MARKDOWN, JSONML, or HTML.
           shared_ptr<string> contentType_ {};
@@ -444,19 +444,19 @@ namespace Models
 
 
       protected:
-        // The creation time in ISO 8601 format.
+        // The creation time of the output detail, serialized from a backend datetime value into an ISO 8601 string, with time zone information returned along with the original value.
         shared_ptr<string> createTime_ {};
-        // The email information. This field is present only when the output type is email.
+        // The email information, present when the type is email.
         shared_ptr<OutputItems::EmailInfo> emailInfo_ {};
-        // The file information. This field is present only when the output type is file.
+        // The file information, present when the type is file.
         shared_ptr<OutputItems::FileInfo> fileInfo_ {};
-        // The database creation time in ISO 8601 format.
+        // The creation time of the output or detail, serialized from a backend datetime value into an ISO 8601 string, with time zone information returned along with the original value.
         shared_ptr<string> gmtCreate_ {};
-        // The database update time in ISO 8601 format.
+        // The update time of the output or detail, serialized from a backend datetime value into an ISO 8601 string, with time zone information returned along with the original value.
         shared_ptr<string> gmtModified_ {};
         // The output name.
         shared_ptr<string> itemName_ {};
-        // The type of the output item. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
+        // The output item type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
         shared_ptr<string> itemType_ {};
         // The internationalized display name of the output detail type.
         shared_ptr<string> itemTypeDisplayName_ {};
@@ -466,11 +466,11 @@ namespace Models
         shared_ptr<string> outputItemId_ {};
         // Indicates whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // The share token. This field is present only when sharing is enabled. You can use this token to access the public share preview endpoint.
+        // The share token, present when sharing is enabled. You can use this token to access the public share preview API.
         shared_ptr<string> shareToken_ {};
         // The skill output ID.
         shared_ptr<string> skillOutputId_ {};
-        // The slides information. This field is present only when the output type is slides.
+        // The slide deck information, present when the type is slide deck.
         shared_ptr<OutputItems::SlidesInfo> slidesInfo_ {};
         // The task execution ID.
         shared_ptr<string> taskExecutionId_ {};
@@ -559,27 +559,27 @@ namespace Models
 
 
     protected:
-      // The session ID.
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The creation time in ISO 8601 format.
+      // The creation time of the output or detail, serialized from a backend datetime value into an ISO 8601 string, with time zone information returned along with the original value.
       shared_ptr<string> gmtCreate_ {};
-      // The update time in ISO 8601 format.
+      // The update time of the output or detail, serialized from a backend datetime value into an ISO 8601 string, with time zone information returned along with the original value.
       shared_ptr<string> gmtModified_ {};
       // The output name.
       shared_ptr<string> name_ {};
-      // The name of the digital employee (operating object).
+      // The name of the digital worker (operating object).
       shared_ptr<string> operatingObjectName_ {};
       // The output ID.
       shared_ptr<string> outputId_ {};
       // The output detail list.
       shared_ptr<vector<Items::OutputItems>> outputItems_ {};
-      // The output type. Valid values: `conversation/skill/task`.
+      // The output type: `conversation/skill/task`.
       shared_ptr<string> outputType_ {};
-      // The internationalized display name of the output type.
+      // The localized display name of the output type.
       shared_ptr<string> outputTypeDisplayName_ {};
       // The skill output ID.
       shared_ptr<string> skillOutputId_ {};
-      // The node ID.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -642,15 +642,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // The output list.
     shared_ptr<vector<ListOutputFilesResponseBody::Items>> items_ {};
-    // The prompt message.
+    // The message.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
-    // The number of entries per page.
+    // The number of items per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request trace ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of outputs that meet the specified conditions.
+    // The total number of matching outputs.
     shared_ptr<int64_t> total_ {};
   };
 

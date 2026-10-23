@@ -157,17 +157,17 @@ namespace Models
 
 
       protected:
-        // 处理时间（北京时间）；未处理为空
+        // The processing time in UTC+8. This field is empty if the item is unprocessed.
         shared_ptr<string> actedAt_ {};
-        // 处理人来源：ORIGINAL/TRANSFERRED
+        // The source of the assignee. Valid values: ORIGINAL and TRANSFERRED.
         shared_ptr<string> assigneeSource_ {};
-        // 处理人用户ID
+        // The user ID of the assignee.
         shared_ptr<string> assigneeUserId_ {};
-        // 已读时间（北京时间）；未读为空
+        // The read time in UTC+8. This field is empty if the item is unread.
         shared_ptr<string> readAt_ {};
-        // 处理人行状态
+        // The action status of the assignee.
         shared_ptr<string> status_ {};
-        // 转出人用户ID；仅转办产生
+        // The user ID of the person who transferred the task. This field is populated only when the task is transferred.
         shared_ptr<string> transferredFromUserId_ {};
       };
 
@@ -282,33 +282,33 @@ namespace Models
 
 
     protected:
-      // 全部处理人
+      // The assignees.
       shared_ptr<vector<Todos::Assignees>> assignees_ {};
-      // 完成时间（北京时间）
+      // The completion time in UTC+8.
       shared_ptr<string> completedAt_ {};
-      // 完成人用户ID
+      // The user ID of the person who completed the to-do item.
       shared_ptr<string> completedByUserId_ {};
-      // 创建时间（北京时间）
+      // The creation time in UTC+8.
       shared_ptr<string> gmtCreate_ {};
-      // 最后修改时间（北京时间）
+      // The last modification time in UTC+8.
       shared_ptr<string> gmtModified_ {};
-      // assistant 消息ID；无会话来源为空
+      // The ID of the assistant message. This field is empty if there is no conversation source.
       shared_ptr<string> messageId_ {};
-      // 优先级
+      // The priority.
       shared_ptr<string> priority_ {};
-      // 问题清单（JSONB 原样）
+      // The list of questions in the original JSONB format.
       Darabonba::Json questions_ {};
-      // 作答内容（JSONB 原样）
+      // The response content in the original JSONB format.
       Darabonba::Json resultPayload_ {};
-      // 来源上下文（原样透传）
+      // The source context passed through in its original format.
       Darabonba::Json sourceContext_ {};
-      // 待办主状态
+      // The primary status of the to-do item.
       shared_ptr<string> status_ {};
-      // 待办摘要
+      // The summary of the to-do item.
       shared_ptr<string> summary_ {};
-      // 待办标题
+      // The title of the to-do item.
       shared_ptr<string> title_ {};
-      // 待办ID
+      // The ID of the to-do item.
       shared_ptr<string> todoId_ {};
     };
 
@@ -354,15 +354,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // todoId 查询时的单条结果（其余查询为空）；字段集同 getTodoDetail 平铺结构
+    // The single result returned when you query by todoId. This field is empty for other query types. The field set is the same as the flattened structure of getTodoDetail.
     Darabonba::Json todo_ {};
-    // workItemId/messageId 查询时的多条结果（todoId 查询为空）
+    // The multiple results returned when you query by workItemId or messageId. This field is empty for todoId queries.
     shared_ptr<vector<GetTodoResponseBody::Todos>> todos_ {};
   };
 

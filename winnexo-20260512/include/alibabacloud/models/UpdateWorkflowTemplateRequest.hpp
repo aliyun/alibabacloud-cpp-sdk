@@ -13,16 +13,24 @@ namespace Models
   class UpdateWorkflowTemplateRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateWorkflowTemplateRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(action, action_);
       DARABONBA_PTR_TO_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_ANY_TO_JSON(definition, definition_);
+      DARABONBA_PTR_TO_JSON(sourceVersion, sourceVersion_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(version, version_);
+      DARABONBA_PTR_TO_JSON(versionDescription, versionDescription_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateWorkflowTemplateRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(action, action_);
       DARABONBA_PTR_FROM_JSON(collaborationGroupId, collaborationGroupId_);
       DARABONBA_ANY_FROM_JSON(definition, definition_);
+      DARABONBA_PTR_FROM_JSON(sourceVersion, sourceVersion_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
+      DARABONBA_PTR_FROM_JSON(versionDescription, versionDescription_);
     };
     UpdateWorkflowTemplateRequest() = default ;
     UpdateWorkflowTemplateRequest(const UpdateWorkflowTemplateRequest &) = default ;
@@ -35,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->collaborationGroupId_ == nullptr
-        && this->definition_ == nullptr && this->templateId_ == nullptr && this->tenantId_ == nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && this->collaborationGroupId_ == nullptr && this->definition_ == nullptr && this->sourceVersion_ == nullptr && this->templateId_ == nullptr && this->tenantId_ == nullptr
+        && this->version_ == nullptr && this->versionDescription_ == nullptr; };
+    // action Field Functions 
+    bool hasAction() const { return this->action_ != nullptr;};
+    void deleteAction() { this->action_ = nullptr;};
+    inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+    inline UpdateWorkflowTemplateRequest& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
     // collaborationGroupId Field Functions 
     bool hasCollaborationGroupId() const { return this->collaborationGroupId_ != nullptr;};
     void deleteCollaborationGroupId() { this->collaborationGroupId_ = nullptr;};
@@ -53,6 +69,13 @@ namespace Models
     inline UpdateWorkflowTemplateRequest& setDefinition(Darabonba::Json && definition) { DARABONBA_SET_RVALUE(definition_, definition) };
 
 
+    // sourceVersion Field Functions 
+    bool hasSourceVersion() const { return this->sourceVersion_ != nullptr;};
+    void deleteSourceVersion() { this->sourceVersion_ = nullptr;};
+    inline string getSourceVersion() const { DARABONBA_PTR_GET_DEFAULT(sourceVersion_, "") };
+    inline UpdateWorkflowTemplateRequest& setSourceVersion(string sourceVersion) { DARABONBA_PTR_SET_VALUE(sourceVersion_, sourceVersion) };
+
+
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -67,21 +90,46 @@ namespace Models
     inline UpdateWorkflowTemplateRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline UpdateWorkflowTemplateRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+    // versionDescription Field Functions 
+    bool hasVersionDescription() const { return this->versionDescription_ != nullptr;};
+    void deleteVersionDescription() { this->versionDescription_ = nullptr;};
+    inline string getVersionDescription() const { DARABONBA_PTR_GET_DEFAULT(versionDescription_, "") };
+    inline UpdateWorkflowTemplateRequest& setVersionDescription(string versionDescription) { DARABONBA_PTR_SET_VALUE(versionDescription_, versionDescription) };
+
+
   protected:
-    // 协作空间 ID
+    // The write action. Valid values:
+    // - SAVE: Saves the template as a draft without taking effect.
+    // - SUBMIT: Saves and submits the template, setting it as the only effective version.
+    // Default value: SUBMIT.
+    shared_ptr<string> action_ {};
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 完整模板定义 JSON（整体覆盖）
+    // The complete JSON definition of the template to overwrite the existing one.
     // 
     // This parameter is required.
     Darabonba::Json definition_ {};
-    // 模板 ID
+    // The submitted version number on which the new version is based. This parameter is mutually exclusive with the version parameter. If not specified, the current effective version is used as the fallback.
+    shared_ptr<string> sourceVersion_ {};
+    // The ID of the template.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
+    // The draft template version number to write. The format is a lowercase v followed by a positive integer, such as v1. Submitted versions cannot be written. If not specified, a new version is generated.
+    shared_ptr<string> version_ {};
+    // The version description. The maximum length is 500 characters. When writing a draft, if this parameter is not specified or is null, the original value is retained. An empty string clears the value.
+    shared_ptr<string> versionDescription_ {};
   };
 
   } // namespace Models

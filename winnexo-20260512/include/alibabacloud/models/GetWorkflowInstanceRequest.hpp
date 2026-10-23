@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 稳定逻辑实例 ID
+    // The stable logical instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // 租户ID，公共参数；winnexo-cli 通过 --tenant-id 显式传入
+    // The tenant ID. This is a common parameter. If you use winnexo-cli, pass this parameter explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

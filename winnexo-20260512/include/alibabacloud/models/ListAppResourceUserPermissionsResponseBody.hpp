@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // 实际存储且有效的权限点
+      // The stored and valid permission points.
       shared_ptr<vector<string>> permissions_ {};
-      // 资源键
+      // The resource key.
       shared_ptr<string> resourceKey_ {};
-      // 资源类型
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -154,19 +154,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为 200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 当前页资源与权限
+    // The resources and permissions on the current page.
     shared_ptr<vector<ListAppResourceUserPermissionsResponseBody::Items>> items_ {};
-    // 错误描述；成功时为空
+    // The error description. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // 页码
+    // The page number.
     shared_ptr<int64_t> page_ {};
-    // 每页条数
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 总资源数
+    // The total number of resources.
     shared_ptr<int64_t> total_ {};
   };
 

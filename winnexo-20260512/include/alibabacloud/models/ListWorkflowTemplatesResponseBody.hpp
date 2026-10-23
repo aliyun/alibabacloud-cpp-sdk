@@ -52,7 +52,10 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(effectiveVersion, effectiveVersion_);
         DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
+        DARABONBA_PTR_TO_JSON(latestVersion, latestVersion_);
+        DARABONBA_PTR_TO_JSON(latestVersionStatus, latestVersionStatus_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(ownerCount, ownerCount_);
         DARABONBA_PTR_TO_JSON(reviewStepCount, reviewStepCount_);
@@ -61,7 +64,10 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(effectiveVersion, effectiveVersion_);
         DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
+        DARABONBA_PTR_FROM_JSON(latestVersion, latestVersion_);
+        DARABONBA_PTR_FROM_JSON(latestVersionStatus, latestVersionStatus_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(ownerCount, ownerCount_);
         DARABONBA_PTR_FROM_JSON(reviewStepCount, reviewStepCount_);
@@ -80,8 +86,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->gmtModified_ == nullptr && this->name_ == nullptr && this->ownerCount_ == nullptr && this->reviewStepCount_ == nullptr && this->stepCount_ == nullptr
-        && this->templateId_ == nullptr; };
+        && this->effectiveVersion_ == nullptr && this->gmtModified_ == nullptr && this->latestVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->name_ == nullptr
+        && this->ownerCount_ == nullptr && this->reviewStepCount_ == nullptr && this->stepCount_ == nullptr && this->templateId_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -89,11 +95,32 @@ namespace Models
       inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // effectiveVersion Field Functions 
+      bool hasEffectiveVersion() const { return this->effectiveVersion_ != nullptr;};
+      void deleteEffectiveVersion() { this->effectiveVersion_ = nullptr;};
+      inline string getEffectiveVersion() const { DARABONBA_PTR_GET_DEFAULT(effectiveVersion_, "") };
+      inline Items& setEffectiveVersion(string effectiveVersion) { DARABONBA_PTR_SET_VALUE(effectiveVersion_, effectiveVersion) };
+
+
       // gmtModified Field Functions 
       bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
       void deleteGmtModified() { this->gmtModified_ = nullptr;};
       inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
       inline Items& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
+
+
+      // latestVersion Field Functions 
+      bool hasLatestVersion() const { return this->latestVersion_ != nullptr;};
+      void deleteLatestVersion() { this->latestVersion_ = nullptr;};
+      inline string getLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(latestVersion_, "") };
+      inline Items& setLatestVersion(string latestVersion) { DARABONBA_PTR_SET_VALUE(latestVersion_, latestVersion) };
+
+
+      // latestVersionStatus Field Functions 
+      bool hasLatestVersionStatus() const { return this->latestVersionStatus_ != nullptr;};
+      void deleteLatestVersionStatus() { this->latestVersionStatus_ = nullptr;};
+      inline string getLatestVersionStatus() const { DARABONBA_PTR_GET_DEFAULT(latestVersionStatus_, "") };
+      inline Items& setLatestVersionStatus(string latestVersionStatus) { DARABONBA_PTR_SET_VALUE(latestVersionStatus_, latestVersionStatus) };
 
 
       // name Field Functions 
@@ -132,19 +159,27 @@ namespace Models
 
 
     protected:
-      // 模板描述
+      // The description of the template.
       shared_ptr<string> description_ {};
-      // 最近修改时间(ISO8601)
+      // The current effective version number. An empty value indicates that only a draft exists and the template cannot be used for work items.
+      shared_ptr<string> effectiveVersion_ {};
+      // The time when the template was last modified. The time is in the ISO 8601 standard.
       shared_ptr<string> gmtModified_ {};
-      // 模板名称
+      // The latest version number.
+      shared_ptr<string> latestVersion_ {};
+      // The status of the latest version. Valid values:
+      // - DRAFT: Draft. The version contains uncommitted edits.
+      // - SUBMITTED: Submitted.
+      shared_ptr<string> latestVersionStatus_ {};
+      // The name of the template.
       shared_ptr<string> name_ {};
-      // 去重后的负责人数量
+      // The number of unique owners.
       shared_ptr<int64_t> ownerCount_ {};
-      // 配置了审核人的步骤数
+      // The number of steps configured with reviewers.
       shared_ptr<int64_t> reviewStepCount_ {};
-      // 步骤数
+      // The number of steps.
       shared_ptr<int64_t> stepCount_ {};
-      // 模板ID
+      // The ID of the template.
       shared_ptr<string> templateId_ {};
     };
 
@@ -224,25 +259,25 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 是否还有更多数据
+    // Indicates whether more data is available.
     shared_ptr<bool> hasMore_ {};
-    // 当前页模板摘要列表
+    // The list of template summaries on the current page.
     shared_ptr<vector<ListWorkflowTemplatesResponseBody::Items>> items_ {};
-    // 本次生效的单页最大返回数量
+    // The maximum number of entries returned per page in the current request.
     shared_ptr<int64_t> maxResults_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 下一页翻页令牌；无更多数据时为空字符串
+    // The pagination token for the next page. An empty string indicates that no more data is available.
     shared_ptr<string> nextToken_ {};
-    // 当前页码
+    // The current page number.
     shared_ptr<int64_t> page_ {};
-    // 生效单页条数
+    // The number of entries per page in the current request.
     shared_ptr<int64_t> pageSize_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 筛选条件下可见总数
+    // The total number of visible entries that match the filter conditions.
     shared_ptr<int64_t> total_ {};
   };
 

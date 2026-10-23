@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 标记后剩余未读数
+    // The number of unread to-do items remaining after the operation.
     shared_ptr<int64_t> unreadCount_ {};
-    // 本次标记条数
+    // The number of to-do items marked as read in this request.
     shared_ptr<int64_t> updatedCount_ {};
   };
 

@@ -164,11 +164,11 @@ namespace Models
 
 
       protected:
-        // 选项补充说明
+        // The supplementary description of the option.
         shared_ptr<string> description_ {};
-        // 选项文案（引用键）
+        // The option text (reference key).
         shared_ptr<string> label_ {};
-        // 是否推荐
+        // Indicates whether the option is recommended.
         shared_ptr<bool> recommended_ {};
       };
 
@@ -248,25 +248,25 @@ namespace Models
 
 
     protected:
-      // 是否允许自定义输入
+      // Indicates whether custom input is allowed.
       shared_ptr<bool> allowCustom_ {};
-      // 自定义输入项文案
+      // The text for the custom input field.
       shared_ptr<string> customLabel_ {};
-      // 自定义输入长度上限
+      // The maximum length for custom input.
       shared_ptr<int64_t> customMaxLength_ {};
-      // 自定义输入占位符
+      // The placeholder for custom input.
       shared_ptr<string> customPlaceholder_ {};
-      // TEXT 题长度上限
+      // The maximum length for text questions.
       shared_ptr<int64_t> maxLength_ {};
-      // 作答形态：SINGLE_CHOICE/MULTI_CHOICE/TEXT
+      // The response mode. Valid values: SINGLE_CHOICE, MULTI_CHOICE, and TEXT.
       shared_ptr<string> mode_ {};
-      // 选项（选择类必有）
+      // The options. This field is required for choice questions.
       shared_ptr<vector<Questions::Options>> options_ {};
-      // TEXT 题占位符
+      // The placeholder for text questions.
       shared_ptr<string> placeholder_ {};
-      // 问题正文（引用键）
+      // The question text (reference key).
       shared_ptr<string> question_ {};
-      // 是否必答
+      // Indicates whether the question is required.
       shared_ptr<bool> required_ {};
     };
 
@@ -344,17 +344,17 @@ namespace Models
 
 
     protected:
-      // 处理时间（北京时间）；未处理为空
+      // The action time in UTC+8. This field is empty if the item is not processed.
       shared_ptr<string> actedAt_ {};
-      // 处理人来源：ORIGINAL/TRANSFERRED
+      // The source of the assignee. Valid values: ORIGINAL and TRANSFERRED.
       shared_ptr<string> assigneeSource_ {};
-      // 处理人用户ID
+      // The user ID of the assignee.
       shared_ptr<string> assigneeUserId_ {};
-      // 已读时间（北京时间）；未读为空
+      // The read time in UTC+8. This field is empty if the item is unread.
       shared_ptr<string> readAt_ {};
-      // 处理人行状态
+      // The action status of the assignee.
       shared_ptr<string> status_ {};
-      // 转出人用户ID；仅转办产生
+      // The user ID of the user who transferred the task. This field is populated only when the task is transferred.
       shared_ptr<string> transferredFromUserId_ {};
     };
 
@@ -559,57 +559,57 @@ namespace Models
 
 
   protected:
-    // 处理人数量
+    // The number of assignees.
     shared_ptr<int64_t> assigneeCount_ {};
-    // 全部处理人
+    // All assignees.
     shared_ptr<vector<GetTodoDetailResponseBody::Assignees>> assignees_ {};
-    // 附件策略（当前版本附件不落库）
+    // The attachment policy. Attachments are not stored in the database in the current version.
     Darabonba::Json attachmentPolicy_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 完成时间（北京时间 YYYY-MM-DD HH:mm:ss）
+    // The completion time in UTC+8 (YYYY-MM-DD HH:mm:ss).
     shared_ptr<string> completedAt_ {};
-    // 完成人用户ID；未完成为空
+    // The user ID of the user who completed the item. This field is empty if the item is not completed.
     shared_ptr<string> completedByUserId_ {};
-    // 完成人姓名；未完成为空
+    // The name of the user who completed the item. This field is empty if the item is not completed.
     shared_ptr<string> completedByUserName_ {};
-    // 创建时间（北京时间 YYYY-MM-DD HH:mm:ss）
+    // The creation time in UTC+8 (YYYY-MM-DD HH:mm:ss).
     shared_ptr<string> gmtCreate_ {};
-    // 最后修改时间（北京时间 YYYY-MM-DD HH:mm:ss）
+    // The last modification time in UTC+8 (YYYY-MM-DD HH:mm:ss).
     shared_ptr<string> gmtModified_ {};
-    // 调用者是否已读
+    // Indicates whether the caller has read the item.
     shared_ptr<bool> isRead_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 发出该待办的 assistant 消息ID；无会话来源为空
+    // The ID of the assistant message that generated the to-do item. This field is empty if there is no conversation source.
     shared_ptr<string> messageId_ {};
-    // 调用者的处理人行状态
+    // The action status of the caller as the assignee.
     shared_ptr<string> myAssigneeStatus_ {};
-    // 调用者的列表展示状态
+    // The list display status for the caller.
     shared_ptr<string> myDisplayState_ {};
-    // 调用者权限（canSubmit/canTransfer）
+    // The permissions of the caller, such as canSubmit and canTransfer.
     Darabonba::Json myPermissions_ {};
-    // 优先级
+    // The priority.
     shared_ptr<string> priority_ {};
-    // 问题清单（结构化投影）
+    // The list of questions (structured projection).
     shared_ptr<vector<GetTodoDetailResponseBody::Questions>> questions_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 作答内容（JSONB 原样；未提交为空对象缺省）
+    // The response content in JSONB format as-is. Defaults to an empty object if not submitted.
     Darabonba::Json resultPayload_ {};
-    // 来源上下文（创建时原样透传）
+    // The source context. This context is passed through as-is during creation.
     Darabonba::Json sourceContext_ {};
-    // 待办来源类型
+    // The source type of the to-do item.
     shared_ptr<string> sourceType_ {};
-    // 工作流ID（sourceType=WORKFLOW 时必有）
+    // The workflow ID. This field is required when sourceType is set to WORKFLOW.
     shared_ptr<string> sourceWorkflowId_ {};
-    // 待办主状态
+    // The primary status of the to-do item.
     shared_ptr<string> status_ {};
-    // 待办摘要
+    // The summary of the to-do item.
     shared_ptr<string> summary_ {};
-    // 待办标题
+    // The title of the to-do item.
     shared_ptr<string> title_ {};
-    // 待办ID
+    // The ID of the to-do item.
     shared_ptr<string> todoId_ {};
   };
 

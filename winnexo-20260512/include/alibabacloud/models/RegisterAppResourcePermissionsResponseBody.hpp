@@ -166,29 +166,29 @@ namespace Models
 
 
     protected:
-      // 创建时间
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // 到期时间
+      // The expiration time.
       shared_ptr<string> expireAt_ {};
-      // 授权人平台用户 ID
+      // The platform user ID of the grantor.
       shared_ptr<string> grantedBy_ {};
-      // 主体 ID
+      // The principal ID.
       shared_ptr<string> granteeId_ {};
-      // 主体名称
+      // The principal name.
       shared_ptr<string> granteeName_ {};
-      // 跨租户 USER 所属租户
+      // The tenant to which the cross-tenant USER belongs.
       shared_ptr<string> granteeTenantId_ {};
-      // 主体类型
+      // The principal type.
       shared_ptr<string> granteeType_ {};
-      // 权限点
+      // The permission.
       shared_ptr<string> permission_ {};
-      // 权限记录 ID
+      // The permission record ID.
       shared_ptr<int64_t> permissionId_ {};
-      // 资源键
+      // The resource key.
       shared_ptr<string> resourceKey_ {};
-      // 资源类型
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // 更新时间
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -225,13 +225,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为 200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述；成功时为空
+    // The error message. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // 新建或幂等命中的权限记录
+    // The newly created or idempotently matched permission records.
     shared_ptr<vector<RegisterAppResourcePermissionsResponseBody::Records>> records_ {};
-    // 请求追踪 ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

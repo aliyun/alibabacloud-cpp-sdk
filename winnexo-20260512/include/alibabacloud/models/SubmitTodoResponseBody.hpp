@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 完成时间（ISO8601 UTC；与其他北京时间格式化字段格式不同）
+    // The completion time in ISO 8601 UTC format. Note that this format differs from other time fields formatted in UTC+8.
     shared_ptr<string> completedAt_ {};
-    // 完成人用户ID
+    // The user ID of the user who completed the item.
     shared_ptr<string> completedByUserId_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 提交后状态（恒为 COMPLETED）
+    // The status after submission. This value is always COMPLETED.
     shared_ptr<string> status_ {};
-    // 待办ID
+    // The ID of the to-do item.
     shared_ptr<string> todoId_ {};
   };
 

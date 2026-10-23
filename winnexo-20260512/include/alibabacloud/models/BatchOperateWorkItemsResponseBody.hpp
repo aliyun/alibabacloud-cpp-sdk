@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // 跳过或失败原因
+      // The reason for skipping or failure.
       shared_ptr<string> reason_ {};
-      // 是否执行成功
+      // Indicates whether the execution was successful.
       shared_ptr<bool> success_ {};
-      // 工作项ID
+      // The ID of the work item.
       shared_ptr<string> workItemId_ {};
     };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 逐项结果，顺序与请求一致
+    // The results for each item. The order of the results matches the order of the items in the request.
     shared_ptr<vector<BatchOperateWorkItemsResponseBody::Items>> items_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 跳过或失败数量
+    // The number of skipped or failed operations.
     shared_ptr<int64_t> skipped_ {};
-    // 成功数量
+    // The number of successful operations.
     shared_ptr<int64_t> succeeded_ {};
   };
 

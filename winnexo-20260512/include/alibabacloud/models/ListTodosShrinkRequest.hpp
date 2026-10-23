@@ -140,29 +140,29 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID（可选过滤；不传 = 全部空间）
+    // The collaboration workspace ID. This is an optional filter. If not specified, items from all workspaces are returned.
     shared_ptr<string> collaborationGroupId_ {};
-    // 标题/摘要模糊搜索关键词
+    // The keyword for fuzzy search in the title or summary.
     shared_ptr<string> keyword_ {};
-    // 单页最大返回数量（1~100）；传入时优先于 pageSize
+    // The maximum number of entries to return per page. Valid values: 1 to 100. This parameter takes precedence over pageSize if both are specified.
     shared_ptr<int64_t> maxResults_ {};
-    // 翻页令牌，取上次响应返回的 nextToken；传入时优先于 page
+    // The pagination token. Use the nextToken value returned in the previous response. This parameter takes precedence over page if both are specified.
     shared_ptr<string> nextToken_ {};
-    // 页码；传入 nextToken 时忽略
+    // The page number. This parameter is ignored if nextToken is specified.
     shared_ptr<int64_t> page_ {};
-    // 每页条数（1~100）
+    // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // 优先级筛选（HIGH/MEDIUM/LOW）
+    // The priority filter. Valid values: HIGH, MEDIUM, and LOW.
     shared_ptr<string> prioritiesShrink_ {};
-    // 读取状态筛选（UNREAD/READ，按处理人 readAt 判定）
+    // The read status filter. Valid values: UNREAD and READ. The status is determined by the readAt field of the assignee.
     shared_ptr<string> readStatusShrink_ {};
-    // 排序方式
+    // The sorting method.
     shared_ptr<string> sortBy_ {};
-    // 待办类型筛选（WORKFLOW/OPEN_API）
+    // The to-do type filter. Valid values: WORKFLOW and OPEN_API.
     shared_ptr<string> sourceTypesShrink_ {};
-    // 待办状态筛选（PENDING/COMPLETED/CANCELLED）
+    // The to-do status filter. Valid values: PENDING, COMPLETED, and CANCELLED.
     shared_ptr<string> statusesShrink_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

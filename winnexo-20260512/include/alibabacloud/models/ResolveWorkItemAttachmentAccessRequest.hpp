@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // 附件 ID
+    // The ID of the attachment.
     // 
     // This parameter is required.
     shared_ptr<string> attachmentId_ {};
-    // 协作空间 ID
+    // The ID of the collaboration workspace.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项 ID
+    // The ID of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> workItemId_ {};

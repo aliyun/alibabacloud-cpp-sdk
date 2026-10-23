@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 实际作废条数（幂等重复调用为 0）
+    // The actual number of canceled items. The value is 0 for idempotent repeated calls.
     shared_ptr<int64_t> cancelledCount_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

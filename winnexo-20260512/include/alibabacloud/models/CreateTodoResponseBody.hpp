@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // 处理人用户ID
+      // The user ID of the assignee.
       shared_ptr<string> assigneeUserId_ {};
-      // 处理人行状态
+      // The processing status of the assignee.
       shared_ptr<string> status_ {};
     };
 
@@ -141,19 +141,19 @@ namespace Models
 
 
   protected:
-    // 处理人列表
+    // The list of assignees.
     shared_ptr<vector<CreateTodoResponseBody::Assignees>> assignees_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 创建时间（ISO8601 带时区；与列表/详情的北京时间格式串不同）
+    // The creation time in ISO 8601 format with a time zone. This format differs from the UTC+8 format string used in the list and details.
     shared_ptr<string> gmtCreate_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 待办状态
+    // The status of the to-do item.
     shared_ptr<string> status_ {};
-    // 新建待办ID
+    // The ID of the created to-do item.
     shared_ptr<string> todoId_ {};
   };
 

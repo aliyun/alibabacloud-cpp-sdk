@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 附件短期预览地址，过期前可直接 GET
+    // The short-term preview URL of the attachment. You can send a GET request to this URL before it expires.
     shared_ptr<string> accessUrl_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 地址过期时间(ISO8601)
+    // The expiration time of the URL in ISO 8601 format.
     shared_ptr<string> expiresAt_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为 200
+    // The business status code. The value 200 indicates success.
     shared_ptr<string> code_ {};
-    // 删除的权限记录数
+    // The number of deleted permission records.
     shared_ptr<int64_t> deletedCount_ {};
-    // 错误描述；成功时为空
+    // The error message. This field is empty if the request is successful.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

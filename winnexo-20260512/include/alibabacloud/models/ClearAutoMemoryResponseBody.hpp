@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 本次成功删除的自动记忆文件数量；无可清空记忆时为 0
+    // The number of automatic memory files successfully deleted in this request. The value is 0 if no memory is available to be cleared.
     shared_ptr<int64_t> clearedCount_ {};
-    // 业务状态码；成功为 200，失败时为对应错误码
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述；成功时为空字符串，失败时返回具体原因
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID，用于定位本次调用
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 本次清空的自动记忆类型；取值为 user、feedback、reference、project 或 all
+    // The type of automatic memory cleared in this request. Valid values: user, feedback, reference, project, and all.
     shared_ptr<string> type_ {};
   };
 

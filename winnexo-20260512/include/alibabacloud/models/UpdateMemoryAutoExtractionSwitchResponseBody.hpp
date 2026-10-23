@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 本次同步清空的自动记忆文件数量；未清空或无可清空记忆时为 0
+    // The number of automatic memory files cleared in this synchronous operation. The value is 0 if no files are cleared or no memories are available to be cleared.
     shared_ptr<int64_t> clearedCount_ {};
-    // 业务状态码；成功为 200，失败时为对应错误码
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 更新后的自动记忆拾取开关状态；true 为开启，false 为关闭
+    // The updated status of the automatic memory collection toggle. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled.
     shared_ptr<bool> enabled_ {};
-    // 错误描述；成功时为空字符串，失败时返回具体原因
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID，用于定位本次调用
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

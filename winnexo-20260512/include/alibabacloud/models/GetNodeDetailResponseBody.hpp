@@ -134,15 +134,15 @@ namespace Models
 
 
     protected:
-      // 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+      // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
       shared_ptr<string> action_ {};
-      // 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+      // The saved original record content. Tool invocation and artifact metadata are JSON strings.
       shared_ptr<string> detail_ {};
-      // 该条工作记录耗时，单位毫秒；产物记录为0
+      // The time taken for this work record, in milliseconds. The value is 0 for artifact records.
       shared_ptr<int64_t> duration_ {};
-      // 所属节点key（nodeKey），不是会话ID
+      // The key of the parent node, not the conversation ID.
       shared_ptr<string> nodeId_ {};
-      // 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+      // The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
       shared_ptr<string> timestamp_ {};
     };
 
@@ -222,17 +222,17 @@ namespace Models
 
 
     protected:
-      // 登记产物ID；仅来自结果摘要的产物可能为空
+      // The registered artifact ID. This parameter may be empty for artifacts derived only from the result summary.
       shared_ptr<string> artifactId_ {};
-      // 产物在节点结果中的唯一key
+      // The unique key of the artifact in the node result.
       shared_ptr<string> artifactKey_ {};
-      // 产物稳定引用，包含kind、id、url；登记产物URL为重新鉴权入口，可为空
+      // The stable reference of the artifact, including kind, id, and url. The URL of a registered artifact is a re-authentication entry point and can be empty.
       shared_ptr<map<string, string>> ref_ {};
-      // 产物摘要，不含inline正文
+      // The artifact summary, excluding inline content.
       shared_ptr<string> summary_ {};
-      // 产物展示标题
+      // The display title of the artifact.
       shared_ptr<string> title_ {};
-      // 产物类型
+      // The artifact type.
       shared_ptr<string> type_ {};
     };
 
@@ -328,15 +328,15 @@ namespace Models
 
 
       protected:
-        // 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+        // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
         shared_ptr<string> action_ {};
-        // 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+        // The saved original record content. Tool invocation and artifact metadata are JSON strings.
         shared_ptr<string> detail_ {};
-        // 该条工作记录耗时，单位毫秒；产物记录为0
+        // The time taken for this work record, in milliseconds. The value is 0 for artifact records.
         shared_ptr<int64_t> duration_ {};
-        // 所属节点key（nodeKey），不是会话ID
+        // The key of the parent node, not the conversation ID.
         shared_ptr<string> nodeId_ {};
-        // 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+        // The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -405,15 +405,15 @@ namespace Models
 
 
       protected:
-        // 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+        // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
         shared_ptr<string> action_ {};
-        // 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+        // The saved original record content. Tool invocation and artifact metadata are JSON strings.
         shared_ptr<string> detail_ {};
-        // 该条工作记录耗时，单位毫秒；产物记录为0
+        // The time taken for this work record, in milliseconds. The value is 0 for artifact records.
         shared_ptr<int64_t> duration_ {};
-        // 所属节点key（nodeKey），不是会话ID
+        // The key of the parent node, not the conversation ID.
         shared_ptr<string> nodeId_ {};
-        // 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+        // The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -482,15 +482,15 @@ namespace Models
 
 
       protected:
-        // 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+        // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
         shared_ptr<string> action_ {};
-        // 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+        // The saved original record content. Tool invocation and artifact metadata are JSON strings.
         shared_ptr<string> detail_ {};
-        // 该条工作记录耗时，单位毫秒；产物记录为0
+        // The time taken for this work record, in milliseconds. The value is 0 for artifact records.
         shared_ptr<int64_t> duration_ {};
-        // 所属节点key（nodeKey），不是会话ID
+        // The key of the parent node, not the conversation ID.
         shared_ptr<string> nodeId_ {};
-        // 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+        // The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -559,15 +559,15 @@ namespace Models
 
 
       protected:
-        // 记录类型：THINK、REPLY、TOOL_CALL、SKILL_CALL或ARTIFACT
+        // The record type. Valid values: THINK, REPLY, TOOL_CALL, SKILL_CALL, or ARTIFACT.
         shared_ptr<string> action_ {};
-        // 已保存的原始记录内容；工具调用与产物元数据为JSON字符串
+        // The saved original record content. Tool invocation and artifact metadata are JSON strings.
         shared_ptr<string> detail_ {};
-        // 该条工作记录耗时，单位毫秒；产物记录为0
+        // The time taken for this work record, in milliseconds. The value is 0 for artifact records.
         shared_ptr<int64_t> duration_ {};
-        // 所属节点key（nodeKey），不是会话ID
+        // The key of the parent node, not the conversation ID.
         shared_ptr<string> nodeId_ {};
-        // 记录事件时间，ISO-8601格式；源记录无时间时为空字符串
+        // The time when the event is recorded, in ISO-8601 format. This is an empty string if the source record has no time.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -647,17 +647,17 @@ namespace Models
 
 
       protected:
-        // 登记产物ID；仅来自结果摘要的产物可能为空
+        // The registered artifact ID. This parameter may be empty for artifacts derived only from the result summary.
         shared_ptr<string> artifactId_ {};
-        // 产物在节点结果中的唯一key
+        // The unique key of the artifact in the node result.
         shared_ptr<string> artifactKey_ {};
-        // 产物稳定引用，包含kind、id、url；登记产物URL为重新鉴权入口，可为空
+        // The stable reference of the artifact, including kind, id, and url. The URL of a registered artifact is a re-authentication entry point and can be empty.
         shared_ptr<map<string, string>> ref_ {};
-        // 产物摘要，不含inline正文
+        // The artifact summary, excluding inline content.
         shared_ptr<string> summary_ {};
-        // 产物展示标题
+        // The display title of the artifact.
         shared_ptr<string> title_ {};
-        // 产物类型
+        // The artifact type.
         shared_ptr<string> type_ {};
       };
 
@@ -709,15 +709,15 @@ namespace Models
 
 
     protected:
-      // 节点产物摘要与稳定引用，与顶层artifacts一致；无产物时为空列表
+      // The artifacts: saved node work records and artifacts.
       shared_ptr<vector<AgentWorkProcess::Artifacts>> artifacts_ {};
-      // 已保存的回复记录，action为REPLY；无记录时为空列表
+      // The replies: saved node work records and artifacts.
       shared_ptr<vector<AgentWorkProcess::Replies>> replies_ {};
-      // 已保存的技能调用记录，action为SKILL_CALL；无记录时为空列表
+      // The skill calls: saved node work records and artifacts.
       shared_ptr<vector<AgentWorkProcess::SkillCalls>> skillCalls_ {};
-      // 已保存的思考记录，action为THINK；无记录时为空列表
+      // The thoughts: saved node work records and artifacts.
       shared_ptr<vector<AgentWorkProcess::Thoughts>> thoughts_ {};
-      // 已保存的工具调用记录，action为TOOL_CALL；无记录时为空列表
+      // The tool calls: saved node work records and artifacts.
       shared_ptr<vector<AgentWorkProcess::ToolCalls>> toolCalls_ {};
     };
 
@@ -877,45 +877,45 @@ namespace Models
 
 
   protected:
-    // 按思考、技能、工具、回复和产物分组的实际工作过程
+    // The actual work process grouped by thoughts, skills, tools, replies, and artifacts.
     shared_ptr<GetNodeDetailResponseBody::AgentWorkProcess> agentWorkProcess_ {};
-    // 已保存的节点产物摘要与稳定引用，不包含inline正文；无产物时为空列表
+    // The artifacts: saved node work records and artifacts.
     shared_ptr<vector<GetNodeDetailResponseBody::Artifacts>> artifacts_ {};
-    // 节点执行尝试序号
+    // The sequence number of the node execution attempt.
     shared_ptr<int64_t> attemptSeq_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 节点会话ID，未创建时为空
+    // The node conversation ID. This parameter is empty if no conversation is created.
     shared_ptr<string> conversationId_ {};
-    // 当前节点会话是否可以继续输入
+    // Indicates whether the current node conversation can continue to receive input.
     shared_ptr<bool> conversationWritable_ {};
-    // 节点负责人展示名称，未知时为空
+    // The display name of the node owner. This parameter is empty if the owner is unknown.
     shared_ptr<string> handler_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 节点 key（nodeKey）
+    // The node key.
     shared_ptr<string> nodeId_ {};
-    // 节点展示名称，与节点列表同源
+    // The display name of the node, which shares the same source as the node list.
     shared_ptr<string> nodeName_ {};
-    // 节点类型，返回实际枚举
+    // The node type. The actual enum value is returned.
     shared_ptr<string> nodeType_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
-    // 节点结果摘要，不含inline正文
+    // The node result summary, excluding inline content.
     Darabonba::Json result_ {};
-    // 是否有待派发续轮
+    // Indicates whether there are pending follow-up turns to be dispatched.
     shared_ptr<bool> resumePending_ {};
-    // 节点AI工作记录时间线，与GetAgentWorkLog同源，duration单位毫秒；无记录时为空列表
+    // The run log: saved node work records and artifacts.
     shared_ptr<vector<GetNodeDetailResponseBody::RunLog>> runLog_ {};
     // stateVersion
     shared_ptr<int64_t> stateVersion_ {};
-    // 节点运行状态，返回实际枚举
+    // The node running status. The actual enum value is returned.
     shared_ptr<string> status_ {};
-    // 当前节点关联的待办ID列表，元素为待办ID字符串
+    // The list of to-do IDs associated with the current node.
     shared_ptr<vector<string>> todoIds_ {};
-    // 当前尝试的对话轮序号
+    // The sequence number of the conversation turn in the current attempt.
     shared_ptr<int64_t> turnSeq_ {};
-    // 节点等待原因，未等待时为空
+    // The reason why the node is waiting. This parameter is empty if the node is not waiting.
     shared_ptr<string> waitType_ {};
   };
 

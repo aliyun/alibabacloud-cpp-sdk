@@ -134,11 +134,11 @@ namespace Models
 
 
       protected:
-        // 产物ID
+        // The artifact ID.
         shared_ptr<string> id_ {};
-        // 引用类型
+        // The reference data type.
         shared_ptr<string> kind_ {};
-        // OpenAPI 产物访问入口
+        // The OpenAPI artifact access endpoint.
         shared_ptr<string> url_ {};
       };
 
@@ -261,37 +261,37 @@ namespace Models
 
 
     protected:
-      // 产物ID
+      // The artifact ID.
       shared_ptr<string> artifactId_ {};
-      // 产物键
+      // The artifact key.
       shared_ptr<string> artifactKey_ {};
-      // 节点尝试序号
+      // The node attempt sequence number.
       shared_ptr<int64_t> attemptSeq_ {};
-      // 内容类型
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // 创建时间(ISO8601)
+      // The creation time in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
-      // 节点键
+      // The node key.
       shared_ptr<string> nodeKey_ {};
-      // 计划ID
+      // The plan ID.
       shared_ptr<string> planId_ {};
-      // 引用信息
+      // The reference information.
       shared_ptr<Items::Ref> ref_ {};
-      // 运行ID
+      // The run ID.
       shared_ptr<string> runId_ {};
-      // 内容SHA-256
+      // The SHA-256 hash of the content.
       shared_ptr<string> sha256_ {};
-      // 产物大小(字节)
+      // The artifact size in bytes.
       shared_ptr<int64_t> sizeBytes_ {};
-      // 产物摘要
+      // The artifact summary.
       shared_ptr<string> summary_ {};
-      // 产物标题
+      // The artifact title.
       shared_ptr<string> title_ {};
-      // 会话轮次序号
+      // The session turn sequence number.
       shared_ptr<int64_t> turnSeq_ {};
-      // 产物类型
+      // The artifact type.
       shared_ptr<string> type_ {};
-      // 工作项ID
+      // The work item ID.
       shared_ptr<string> workItemId_ {};
     };
 
@@ -335,15 +335,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 历史产物列表
+    // The list of historical artifacts.
     shared_ptr<vector<ListWorkItemArtifactsResponseBody::Items>> items_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 返回产物数量
+    // The total number of returned artifacts.
     shared_ptr<int64_t> totalCount_ {};
   };
 

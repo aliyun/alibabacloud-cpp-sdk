@@ -128,21 +128,21 @@ namespace Models
 
 
     protected:
-      // 内容类型
+      // The content type.
       shared_ptr<string> contentType_ {};
-      // 附件引用地址
+      // The reference URL of the attachment.
       shared_ptr<string> refUrl_ {};
-      // 附件资源ID
+      // The resource ID of the attachment.
       // 
       // This parameter is required.
       shared_ptr<string> resourceId_ {};
-      // 附件资源类型
+      // The resource type of the attachment.
       // 
       // This parameter is required.
       shared_ptr<string> resourceKind_ {};
-      // 附件大小(字节)，上限 20MB
+      // The size of the attachment in bytes. The maximum size is 20 MB.
       shared_ptr<int64_t> sizeBytes_ {};
-      // 附件标题
+      // The title of the attachment.
       shared_ptr<string> title_ {};
     };
 
@@ -248,39 +248,39 @@ namespace Models
 
 
   protected:
-    // 验收标准
+    // The acceptance criteria.
     shared_ptr<string> acceptanceCriteria_ {};
-    // 输入附件稳定引用
+    // The stable references for the attachments.
     shared_ptr<vector<UpdateWorkItemRequest::Attachments>> attachments_ {};
-    // 协作空间 ID
+    // The ID of the collaboration space.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 协作人用户ID列表
+    // The list of user IDs of the collaborators.
     shared_ptr<vector<int64_t>> collaboratorUserIds_ {};
-    // 关联会话ID
+    // The ID of the associated conversation.
     shared_ptr<string> conversationId_ {};
-    // 工作项描述
+    // The description of the work item.
     shared_ptr<string> description_ {};
-    // 乐观版本号，取上次响应的 version
+    // The optimistic version number. Obtain this value from the version field in the previous response.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expectedVersion_ {};
-    // 负责人用户ID；缺省为调用者本人
+    // The user ID of the owner. If not specified, the user ID of the caller is used.
     shared_ptr<int64_t> ownerUserId_ {};
-    // 排产优先级
+    // The scheduling priority.
     shared_ptr<string> priority_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项标题
+    // The title of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};
-    // 工作项 ID
+    // The ID of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> workItemId_ {};
-    // 绑定的工作流模板ID列表；未传保持既有绑定，空数组清空
+    // The list of bound workflow template IDs. If not specified, the existing bindings are retained. If an empty array is provided, the bindings are cleared.
     shared_ptr<vector<string>> workflowTemplateIds_ {};
   };
 

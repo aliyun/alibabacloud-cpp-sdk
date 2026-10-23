@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // 作废条数
+    // The number of canceled to-do items.
     shared_ptr<int64_t> cancelledCount_ {};
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 作废后状态
+    // The status after cancellation.
     shared_ptr<string> status_ {};
-    // 作废的待办ID（按 workItemId 定位时为空）
+    // The ID of the canceled to-do item. This parameter is empty if the to-do item is located by workItemId.
     shared_ptr<string> todoId_ {};
   };
 

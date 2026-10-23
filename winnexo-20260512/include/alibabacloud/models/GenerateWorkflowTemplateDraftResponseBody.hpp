@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(reviewerUserIds, reviewerUserIds_);
           DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
           DARABONBA_PTR_TO_JSON(specification, specification_);
+          DARABONBA_PTR_TO_JSON(specificationJson, specificationJson_);
           DARABONBA_PTR_TO_JSON(stepId, stepId_);
         };
         friend void from_json(const Darabonba::Json& j, Steps& obj) { 
@@ -81,6 +82,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(reviewerUserIds, reviewerUserIds_);
           DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
           DARABONBA_PTR_FROM_JSON(specification, specification_);
+          DARABONBA_PTR_FROM_JSON(specificationJson, specificationJson_);
           DARABONBA_PTR_FROM_JSON(stepId, stepId_);
         };
         Steps() = default ;
@@ -96,7 +98,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->modelMode_ == nullptr
         && this->name_ == nullptr && this->ownerAgentName_ == nullptr && this->ownerType_ == nullptr && this->ownerUserId_ == nullptr && this->reviewerUserIds_ == nullptr
-        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->stepId_ == nullptr; };
+        && this->sortOrder_ == nullptr && this->specification_ == nullptr && this->specificationJson_ == nullptr && this->stepId_ == nullptr; };
         // modelMode Field Functions 
         bool hasModelMode() const { return this->modelMode_ != nullptr;};
         void deleteModelMode() { this->modelMode_ = nullptr;};
@@ -155,6 +157,15 @@ namespace Models
         inline Steps& setSpecification(string specification) { DARABONBA_PTR_SET_VALUE(specification_, specification) };
 
 
+        // specificationJson Field Functions 
+        bool hasSpecificationJson() const { return this->specificationJson_ != nullptr;};
+        void deleteSpecificationJson() { this->specificationJson_ = nullptr;};
+        inline const vector<Darabonba::Json> & getSpecificationJson() const { DARABONBA_PTR_GET_CONST(specificationJson_, vector<Darabonba::Json>) };
+        inline vector<Darabonba::Json> getSpecificationJson() { DARABONBA_PTR_GET(specificationJson_, vector<Darabonba::Json>) };
+        inline Steps& setSpecificationJson(const vector<Darabonba::Json> & specificationJson) { DARABONBA_PTR_SET_VALUE(specificationJson_, specificationJson) };
+        inline Steps& setSpecificationJson(vector<Darabonba::Json> && specificationJson) { DARABONBA_PTR_SET_RVALUE(specificationJson_, specificationJson) };
+
+
         // stepId Field Functions 
         bool hasStepId() const { return this->stepId_ != nullptr;};
         void deleteStepId() { this->stepId_ = nullptr;};
@@ -163,23 +174,25 @@ namespace Models
 
 
       protected:
-        // 模型档位
+        // The model tier.
         shared_ptr<string> modelMode_ {};
-        // 步骤名称
+        // The name of the step.
         shared_ptr<string> name_ {};
-        // 智能体负责人名称
+        // The name of the responsible agent.
         shared_ptr<string> ownerAgentName_ {};
-        // 负责人类型：MEMBER 人工 / AGENT 智能体
+        // The type of the owner. Valid values: MEMBER: Human. AGENT: Agent.
         shared_ptr<string> ownerType_ {};
-        // 人工负责人用户ID
+        // The user ID of the human owner.
         shared_ptr<int64_t> ownerUserId_ {};
-        // 审核人用户ID列表
+        // The list of user IDs of the reviewers.
         shared_ptr<vector<int64_t>> reviewerUserIds_ {};
-        // 步骤顺序
+        // The order of the step.
         shared_ptr<int64_t> sortOrder_ {};
-        // 步骤处理说明
+        // The processing instructions for the step.
         shared_ptr<string> specification_ {};
-        // 步骤ID
+        // The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as returned by the backend.
+        shared_ptr<vector<Darabonba::Json>> specificationJson_ {};
+        // The ID of the step.
         shared_ptr<string> stepId_ {};
       };
 
@@ -209,11 +222,11 @@ namespace Models
 
 
     protected:
-      // 模板描述
+      // The description of the template.
       shared_ptr<string> description_ {};
-      // 模板名称
+      // The name of the template.
       shared_ptr<string> name_ {};
-      // 有序步骤
+      // The ordered steps.
       shared_ptr<vector<Draft::Steps>> steps_ {};
     };
 
@@ -250,13 +263,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 生成的非持久化模板草稿
+    // The generated non-persistent template draft.
     shared_ptr<GenerateWorkflowTemplateDraftResponseBody::Draft> draft_ {};
-    // 错误描述
+    // The error description.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request tracking ID.
     shared_ptr<string> requestId_ {};
   };
 

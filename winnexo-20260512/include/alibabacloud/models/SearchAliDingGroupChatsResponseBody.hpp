@@ -96,13 +96,17 @@ namespace Models
 
 
     protected:
-      // 阿里钉群聊 ID
+      // The conversation ID. This ID is typically used for JSSDK.
       shared_ptr<string> chatId_ {};
-      // 会话类型
+      // The conversation type. Valid values:
+      // - **0**: one-on-one chat.
+      // - **1**: group chat.
+      // 
+      // > For a one-on-one chat, you do not need to specify **openConversationId**. Specify the employee ID in **receiverUserIdList**. For a one-on-one chat between two users, specify the employee ID of either user. For a one-on-one chat between a user and a bot, specify the employee ID of the user.
       shared_ptr<string> conversationType_ {};
-      // 当前用户是否开启免打扰
+      // Indicates whether the current user has enabled the Do Not Disturb mode.
       shared_ptr<bool> muted_ {};
-      // 群聊标题
+      // The title of the scheduled meeting.
       shared_ptr<string> title_ {};
     };
 
@@ -153,16 +157,17 @@ namespace Models
 
 
   protected:
-    // 业务状态码
+    // The status code.
     shared_ptr<string> code_ {};
-    // 是否还有下一页
+    // Indicates whether more pages are available.
     shared_ptr<bool> hasMore_ {};
+    // The user group tree node information.
     shared_ptr<vector<SearchAliDingGroupChatsResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // 下一页分页游标，末页为空
+    // The starting cursor for the next page.
     shared_ptr<string> nextCursor_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

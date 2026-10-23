@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 可选节点 key
+    // The optional node key.
     shared_ptr<string> nodeId_ {};
-    // 页码，从 1 开始
+    // The page number. Pages start from 1.
     shared_ptr<int64_t> page_ {};
-    // 每页条数，最大 100
+    // The number of entries per page. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // 租户ID，缺省使用调用方默认租户
+    // The tenant ID. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项ID
+    // The work item ID.
     // 
     // This parameter is required.
     shared_ptr<string> workItemId_ {};

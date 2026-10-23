@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 产物短期签名下载地址，过期前可直接 GET
+    // The short-term signed download URL of the artifact. You can send a GET request directly to this URL before it expires.
     shared_ptr<string> downloadUrl_ {};
-    // 地址过期时间(ISO8601)
+    // The expiration time of the URL in ISO 8601 format.
     shared_ptr<string> expiresAt_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
   };
 

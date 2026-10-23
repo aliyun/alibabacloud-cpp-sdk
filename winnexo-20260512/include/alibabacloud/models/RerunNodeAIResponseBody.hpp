@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // 业务状态码；成功为200
+    // The business status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // 物理实例ID
+    // The physical instance ID.
     shared_ptr<string> instanceId_ {};
-    // 错误描述
+    // The error message.
     shared_ptr<string> message_ {};
-    // 已安排重跑的节点 key
+    // The key of the node scheduled for rerun.
     shared_ptr<string> nodeId_ {};
-    // 请求追踪ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 重跑事实接受为 true，不表示 AI 已完成；失败通过 Code 和 Message 返回
+    // Indicates whether the rerun request is accepted. A value of true indicates that the rerun is accepted, but does not mean that the AI has completed the task. Failures are returned through the Code and Message fields.
     shared_ptr<bool> rerunAccepted_ {};
-    // 状态版本
+    // The state version.
     shared_ptr<int64_t> stateVersion_ {};
   };
 

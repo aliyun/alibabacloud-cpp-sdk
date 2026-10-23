@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // 协作空间 ID
+    // The ID of the collaboration space.
     // 
     // This parameter is required.
     shared_ptr<string> collaborationGroupId_ {};
-    // 租户ID，公共参数；缺省时使用调用方默认租户
+    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
-    // 工作项 ID
+    // The ID of the work item.
     // 
     // This parameter is required.
     shared_ptr<string> workItemId_ {};

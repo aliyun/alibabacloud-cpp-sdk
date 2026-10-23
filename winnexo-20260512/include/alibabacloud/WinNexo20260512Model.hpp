@@ -192,6 +192,9 @@
 #include <alibabacloud/models/CreateWorkflowTemplateShrinkRequest.hpp>
 #include <alibabacloud/models/CreateWorkflowTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkflowTemplateResponse.hpp>
+#include <alibabacloud/models/CreateWorkflowTemplateDraftVersionRequest.hpp>
+#include <alibabacloud/models/CreateWorkflowTemplateDraftVersionResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkflowTemplateDraftVersionResponse.hpp>
 #include <alibabacloud/models/DeleteAppResourcePermissionsRequest.hpp>
 #include <alibabacloud/models/DeleteAppResourcePermissionsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteAppResourcePermissionsResponseBody.hpp>
@@ -211,6 +214,9 @@
 #include <alibabacloud/models/DeleteWorkflowTemplateRequest.hpp>
 #include <alibabacloud/models/DeleteWorkflowTemplateResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkflowTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteWorkflowTemplateVersionRequest.hpp>
+#include <alibabacloud/models/DeleteWorkflowTemplateVersionResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkflowTemplateVersionResponse.hpp>
 #include <alibabacloud/models/DisableTokenRequest.hpp>
 #include <alibabacloud/models/DisableTokenResponseBody.hpp>
 #include <alibabacloud/models/DisableTokenResponse.hpp>
@@ -454,6 +460,9 @@
 #include <alibabacloud/models/ListWorkflowInstancesRequest.hpp>
 #include <alibabacloud/models/ListWorkflowInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkflowInstancesResponse.hpp>
+#include <alibabacloud/models/ListWorkflowTemplateVersionsRequest.hpp>
+#include <alibabacloud/models/ListWorkflowTemplateVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListWorkflowTemplateVersionsResponse.hpp>
 #include <alibabacloud/models/ListWorkflowTemplatesRequest.hpp>
 #include <alibabacloud/models/ListWorkflowTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkflowTemplatesResponse.hpp>
@@ -612,6 +621,9 @@
 #include <alibabacloud/models/SetWorkItemPinnedRequest.hpp>
 #include <alibabacloud/models/SetWorkItemPinnedResponseBody.hpp>
 #include <alibabacloud/models/SetWorkItemPinnedResponse.hpp>
+#include <alibabacloud/models/SetWorkflowTemplateEffectiveVersionRequest.hpp>
+#include <alibabacloud/models/SetWorkflowTemplateEffectiveVersionResponseBody.hpp>
+#include <alibabacloud/models/SetWorkflowTemplateEffectiveVersionResponse.hpp>
 #include <alibabacloud/models/StopChatMessageRequest.hpp>
 #include <alibabacloud/models/StopChatMessageResponseBody.hpp>
 #include <alibabacloud/models/StopChatMessageResponse.hpp>
