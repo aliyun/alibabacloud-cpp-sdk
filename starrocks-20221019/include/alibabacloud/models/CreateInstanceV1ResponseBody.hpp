@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<CreateInstanceV1ResponseBody::Data> data_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

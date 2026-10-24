@@ -277,17 +277,17 @@ namespace Models
 
 
     protected:
-      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+      // The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
       shared_ptr<int32_t> cu_ {};
       // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
-      // The local SSD instance type. This parameter does not need to be set for the Observer node group.
+      // The instance specification for local SSDs. You do not need to specify this parameter for the Observer compute group.
       shared_ptr<string> localStorageInstanceType_ {};
       // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
-      // The specification type of the node group. Only standard is supported.
+      // The specification type of the compute group. Only standard is supported.
       shared_ptr<string> specType_ {};
-      // The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
+      // The performance level (PL) of the cloud disk. Only PL1 is supported, which delivers up to 50,000 random read/write IOPS per disk.
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
@@ -388,17 +388,17 @@ namespace Models
 
 
     protected:
-      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+      // The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
       shared_ptr<int32_t> cu_ {};
       // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
-      // The local SSD instance type. This parameter does not need to be set for the FE node group.
+      // The local SSD instance type. You do not need to set this parameter for FE compute groups.
       shared_ptr<string> localStorageInstanceType_ {};
       // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
-      // The specification type of the node group. Only standard is supported.
+      // The specification type of the compute group. Only standard is supported.
       shared_ptr<string> specType_ {};
-      // The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
+      // The performance level (PL) of the cloud disk. Only pl1 is supported, where a single disk delivers up to 50,000 random read/write IOPS.
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
@@ -499,17 +499,28 @@ namespace Models
 
 
     protected:
-      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is set to memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory. If SpecType is set to the memory-enhanced instance family, 1 CU equals 1 vCPU and 8 GiB of memory.
       shared_ptr<int32_t> cu_ {};
       // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
-      // The local SSD instance type of the node group. This parameter takes effect only when the instance is ECS-based and SpecType is set to local SSD or large-scale storage.
+      // The local SSD instance type of the node group. This parameter is valid only when the instance is based on ECS and SpecType is set to localSSD or bigData.
       shared_ptr<string> localStorageInstanceType_ {};
       // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
-      // The specification type of the node group. Valid values:
+      // The instance family category of the compute group. Valid values:
+      // 
+      // - standard: Standard.
+      // - localSSD: Local SSD.
+      // - bigData: Large storage.
+      // - ramEnhanced: Memory-enhanced instance family.
+      // - networkEnhanced: Network-enhanced.
       shared_ptr<string> specType_ {};
       // The performance level (PL) of the cloud disk. Valid values:
+      // 
+      // - pl0: A single disk delivers up to 10,000 random read/write IOPS.
+      // - pl1: A single disk delivers up to 50,000 random read/write IOPS.
+      // - pl2: A single disk delivers up to 100,000 random read/write IOPS.
+      // - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
@@ -545,7 +556,7 @@ namespace Models
 
 
     protected:
-      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
+      // The number of compute units (CUs). A CU is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory.
       shared_ptr<int32_t> cu_ {};
     };
 
@@ -801,39 +812,37 @@ namespace Models
 
 
   protected:
-    // The administrator password of the instance.
+    // The password of the instance administrator.
     // 
     // This parameter is required.
     shared_ptr<string> adminPassword_ {};
     // The agent compute group.
     shared_ptr<CreateInstanceV1Request::AgentNodeGroup> agentNodeGroup_ {};
-    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
-    // 
-    // Valid values:
-    // - true: Automatic payment.
-    // - false: No automatic payment.
+    // Specifies whether automatic payment is enabled for all products specified in the Products parameter. Valid values:
+    // - true: Enables automatic payment.
+    // - false: Disables automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. This parameter takes effect only when payType is set to PrePaid. Auto-renewal is disabled by default.
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when PayType is set to PrePaid. Default value: false.
     shared_ptr<bool> autoRenew_ {};
-    // The BE or CN node group information.
+    // The information about the BE or CN compute groups.
     shared_ptr<vector<CreateInstanceV1Request::BackendNodeGroups>> backendNodeGroups_ {};
-    // Ensures the idempotence of the request. Generate a unique parameter value from your client. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The name of the DLF Catalog.
+    // The name of the DLF catalog.
     shared_ptr<string> dlfCatalogName_ {};
-    // The type of the DLF Catalog. Valid values: paimon and iceberg.
+    // The type of the DLF catalog, such as paimon or iceberg.
     shared_ptr<string> dlfCatalogType_ {};
-    // The subscription duration. This parameter takes effect only when payType is set to PrePaid.
+    // The subscription duration. This parameter takes effect only when PayType is set to PrePaid.
     shared_ptr<int32_t> duration_ {};
-    // Specifies whether to enable the AI Center. Default value: false.
+    // Specifies whether to enable the AI center. Default value: false.
     shared_ptr<bool> enableAiFunction_ {};
     // Specifies whether to enable disaster recovery.
     shared_ptr<bool> enableMultiAz_ {};
     // Specifies whether to enable encryption.
     shared_ptr<bool> encrypted_ {};
-    // The FE node group information.
+    // The information about the FE node groups.
     shared_ptr<vector<CreateInstanceV1Request::FrontendNodeGroups>> frontendNodeGroups_ {};
-    // The gateway type. Valid values: Slb and Privatezone.
+    // The gateway type. Generally, the value is Slb or Privatezone.
     shared_ptr<string> gatewayType_ {};
     // The instance name.
     // 
@@ -841,21 +850,21 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The KMS key ID.
     shared_ptr<string> kmsKeyId_ {};
-    // The username of the associated Resource Access Management (RAM) user or the name of the associated RAM role.
+    // The username of the associated Resource Access Management (RAM) user or the name of the RAM role.
     shared_ptr<string> linkedRamUserName_ {};
-    // The Observer node group information. Specify this parameter only when you need to enable multi-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
+    // The information about the Observer compute group. Specify this parameter only when you need to enable multi-zone disaster recovery. The configuration of the Observer compute group must be consistent with the specifications of the FE node group.
     shared_ptr<vector<CreateInstanceV1Request::ObserverNodeGroups>> observerNodeGroups_ {};
     // The name of the role used for password-free access to OSS.
     shared_ptr<string> ossAccessingRoleName_ {};
-    // The instance edition:
+    // The instance edition. Valid values:
     // <ul>
-    // <li>  Entry edition (trial).</li>
-    // <li> Standard edition (official).</li>
+    // <li>trial: Trial Edition.</li>
+    // <li>official: Standard Edition.</li>
     // </ul>
     // 
     // This parameter is required.
     shared_ptr<string> packageType_ {};
-    // The billing method. Valid values:
+    // The billing method of the instance. Valid values:
     // <ol>
     // <li>prePaid: subscription.</li>
     // <li>postPaid: pay-as-you-go.</li>
@@ -863,16 +872,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
-    // The unit of the subscription duration. Valid values:
+    // The unit of the billing cycle. Valid values:
     // <ul>
     // <li>Month</li>
     // <li>Year</li>
     // </ul>
-    // This parameter takes effect only when payType is set to PrePaid.
+    // This parameter takes effect only when PayType is set to PrePaid.
     shared_ptr<string> pricingCycle_ {};
-    // The RAM authentication type. Valid values:
-    // - RS: Resource Access Management (RAM) user.
-    // - RR: RAM role.
+    // The RAM authentication type. A value of RS indicates a Resource Access Management (RAM) user, and a value of RR indicates a RAM role.
     shared_ptr<string> principalType_ {};
     // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
@@ -884,14 +891,15 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The running mode of the cluster. Valid values:
-    // 
-    // - shared_nothing: compute-storage coupled.
-    // - shared_data: compute-storage decoupled.
+    // The run mode of the cluster. Valid values:
+    // <ul>
+    // <li>shared_nothing: shared-nothing architecture.</li>
+    // <li>shared_data: shared-data architecture.</li>
+    // </ul>
     // 
     // This parameter is required.
     shared_ptr<string> runMode_ {};
-    // The instance tags.
+    // The tags of the instance.
     shared_ptr<vector<CreateInstanceV1Request::Tags>> tags_ {};
     // The vSwitch and zone information.
     shared_ptr<vector<CreateInstanceV1Request::VSwitches>> vSwitches_ {};
@@ -899,7 +907,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};
-    // VPC ID。
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

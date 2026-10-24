@@ -84,14 +84,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
-    // - true: Automatic payment.
-    // - false: No automatic payment.
+    // Specifies whether to automatically pay for all products specified in the Products parameter. Valid values:
+    // - true: Enables automatic payment.
+    // - false: Disables automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to use the fast restart mode. Default value: false.
+    // Specifies whether to restart in fast restart mode. Default value: false.
     // 
-    // - true: Restarts compute nodes in the fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
-    // - false: Restarts compute nodes in the rolling restart mode.
+    // Valid values:
+    // - true: Restarts the compute nodes in fast restart mode. The compute nodes are restarted in multiple batches. Nodes within the same batch are restarted in parallel, and batches execute sequentially.
+    // - false: Restarts the compute nodes in rolling restart mode.
     shared_ptr<bool> fastMode_ {};
     // The instance ID.
     // 

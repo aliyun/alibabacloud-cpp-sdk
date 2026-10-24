@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The configuration item name.
     shared_ptr<string> configKey_ {};
+    // The configuration type.
     shared_ptr<string> configType_ {};
+    // The configuration item value.
     shared_ptr<string> configValue_ {};
+    // The compute group ID, which is required only when the parameter is exclusive to the compute group. In other scenarios, leave it empty or set it to the cluster ID.
     shared_ptr<string> nodeGroupId_ {};
   };
 

@@ -126,7 +126,7 @@ namespace Models
 
 
       protected:
-        // The price for purchasing Elastic Computing Service (ECS) servers of a specific configuration in bulk. Valid values: 1 to 1000.
+        // Queries the price for bulk purchasing Elastic Computing Service servers with a specific configuration. Valid values: 1 to 1000.
         // 
         // Default value: 1.
         shared_ptr<float> amount_ {};
@@ -247,13 +247,13 @@ namespace Models
 
 
       protected:
-        // The price reduction information.
+        // The price reduction ratio.
         shared_ptr<float> cheapRate_ {};
-        // The total list price after the price reduction.
+        // The total official website price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
-        // Indicates whether to display the price reduction.
+        // Indicates whether the price reduction margin is displayed.
         shared_ptr<bool> isShow_ {};
-        // The original total list price.
+        // The original total official website price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -409,19 +409,19 @@ namespace Models
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // The price reduction information.
+      // The price reduction ratio.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
-      // The discount amount, which is the original amount minus the payable amount (including coupon deductions).
+      // The discount amount, which is calculated by subtracting the payable amount on the bill (including the coupon deduction amount) from the original amount.
       shared_ptr<float> discountAmount_ {};
       // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
-      // The original amount, which is the catalog price multiplied by the billable usage.
+      // The original price, which is calculated by multiplying the list price by the billable usage.
       shared_ptr<float> originalAmount_ {};
       // The returned data structure.
       shared_ptr<vector<Data::Rules>> rules_ {};
-      // The discounted price based on the list price discount.
+      // The discount price based on the official website discount.
       shared_ptr<float> standDiscountPrice_ {};
-      // The list discount price.
+      // The official website discount price.
       shared_ptr<float> standPrice_ {};
       // The transaction amount.
       shared_ptr<float> tradeAmount_ {};
@@ -494,7 +494,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

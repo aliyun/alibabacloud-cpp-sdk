@@ -68,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UseComputeNode, useComputeNode_);
         DARABONBA_PTR_TO_JSON(supportCompactionService, supportCompactionService_);
         DARABONBA_PTR_TO_JSON(supportCompactionServiceWhiteList, supportCompactionServiceWhiteList_);
+        DARABONBA_PTR_TO_JSON(supportLoadBasedAutoScaling, supportLoadBasedAutoScaling_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ConsoleControlRestart, consoleControlRestart_);
@@ -91,6 +92,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(UseComputeNode, useComputeNode_);
         DARABONBA_PTR_FROM_JSON(supportCompactionService, supportCompactionService_);
         DARABONBA_PTR_FROM_JSON(supportCompactionServiceWhiteList, supportCompactionServiceWhiteList_);
+        DARABONBA_PTR_FROM_JSON(supportLoadBasedAutoScaling, supportLoadBasedAutoScaling_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -107,7 +109,8 @@ namespace Models
         && this->enableManageMv_ == nullptr && this->fullManagedSecurityGroup_ == nullptr && this->mountDlfMetaToken_ == nullptr && this->supportAddConfigTypes_ == nullptr && this->supportBackup_ == nullptr
         && this->supportCreateAgent_ == nullptr && this->supportCreateNonStandardNodeGroup_ == nullptr && this->supportEed_ == nullptr && this->supportEnableAi_ == nullptr && this->supportEnableSSL_ == nullptr
         && this->supportFastModeModifyConfig_ == nullptr && this->supportFastModeModifyResource_ == nullptr && this->supportFastRestart_ == nullptr && this->supportFeGateway_ == nullptr && this->supportHostAlias_ == nullptr
-        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr && this->supportCompactionServiceWhiteList_ == nullptr; };
+        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr && this->supportCompactionServiceWhiteList_ == nullptr
+        && this->supportLoadBasedAutoScaling_ == nullptr; };
       // consoleControlRestart Field Functions 
       bool hasConsoleControlRestart() const { return this->consoleControlRestart_ != nullptr;};
       void deleteConsoleControlRestart() { this->consoleControlRestart_ = nullptr;};
@@ -257,52 +260,61 @@ namespace Models
       inline Data& setSupportCompactionServiceWhiteList(bool supportCompactionServiceWhiteList) { DARABONBA_PTR_SET_VALUE(supportCompactionServiceWhiteList_, supportCompactionServiceWhiteList) };
 
 
+      // supportLoadBasedAutoScaling Field Functions 
+      bool hasSupportLoadBasedAutoScaling() const { return this->supportLoadBasedAutoScaling_ != nullptr;};
+      void deleteSupportLoadBasedAutoScaling() { this->supportLoadBasedAutoScaling_ = nullptr;};
+      inline bool getSupportLoadBasedAutoScaling() const { DARABONBA_PTR_GET_DEFAULT(supportLoadBasedAutoScaling_, false) };
+      inline Data& setSupportLoadBasedAutoScaling(bool supportLoadBasedAutoScaling) { DARABONBA_PTR_SET_VALUE(supportLoadBasedAutoScaling_, supportLoadBasedAutoScaling) };
+
+
     protected:
-      // Whether the restart process can be controlled from the console.
+      // Indicates whether the restart process can be controlled from the console.
       shared_ptr<bool> consoleControlRestart_ {};
-      // Whether materialized views can be managed.
+      // Indicates whether materialized view management is supported.
       shared_ptr<bool> enableManageMv_ {};
-      // Whether managed security groups are supported.
+      // Indicates whether fully managed security groups are supported.
       shared_ptr<bool> fullManagedSecurityGroup_ {};
-      // Whether DLF meta tokens can be mounted.
+      // Indicates whether mounting DLF meta tokens is supported.
       shared_ptr<bool> mountDlfMetaToken_ {};
-      // A list of new configuration types.
+      // The list of added configuration types.
       shared_ptr<vector<string>> supportAddConfigTypes_ {};
-      // Whether data backup is supported.
+      // Specifies whether data backup is supported. Valid values:
       // 
-      // - **1**: Supports data backup.
-      // 
-      // - **2**: Does not support data backup.
+      // - **1**: Data backup is supported.
+      // - **2**: Data backup is not supported.
       shared_ptr<bool> supportBackup_ {};
-      // Whether agents can be created.
+      // Indicates whether agent creation is supported.
       shared_ptr<bool> supportCreateAgent_ {};
-      // Whether compute groups with specifications other than `standard` can be created.
+      // Indicates whether compute groups of non-standard specifications can be created.
       shared_ptr<bool> supportCreateNonStandardNodeGroup_ {};
-      // Whether elastic ephemeral disks are supported.
+      // Indicates whether elastic ephemeral disks are supported.
       shared_ptr<bool> supportEed_ {};
-      // Whether the AI function is supported.
+      // Indicates whether AI functions are supported.
       shared_ptr<bool> supportEnableAi_ {};
-      // Whether SSL can be enabled.
+      // Indicates whether SSL can be enabled.
       shared_ptr<bool> supportEnableSSL_ {};
-      // Whether fast restart is supported for configuration changes.
+      // Indicates whether fast restart is supported during configuration changes.
       shared_ptr<bool> supportFastModeModifyConfig_ {};
-      // Whether resources can be modified by using fast restart.
+      // Indicates whether resources can be modified by using fast restart.
       shared_ptr<bool> supportFastModeModifyResource_ {};
-      // Whether fast restart is supported.
+      // Indicates whether fast restart is supported.
       shared_ptr<bool> supportFastRestart_ {};
-      // Whether the FE gateway is supported.
+      // Indicates whether FE gateways are supported.
       shared_ptr<bool> supportFeGateway_ {};
-      // Whether custom domain names are supported.
+      // Indicates whether custom domain names are supported.
       shared_ptr<bool> supportHostAlias_ {};
-      // Whether the time zone can be modified.
+      // Indicates whether the time zone can be modified.
       shared_ptr<bool> supportModifyTimezone_ {};
-      // Whether observers can be deployed across multiple availability zones (AZs).
+      // Indicates whether multi-zone deployment of Observers is supported.
       shared_ptr<bool> supportMultiAZ_ {};
-      // Whether the instance uses compute nodes (CNs).
+      // Indicates whether compute nodes are used.
       shared_ptr<bool> useComputeNode_ {};
+      // Specifies whether the compaction service is supported.
       shared_ptr<bool> supportCompactionService_ {};
-      // Whether the Compaction Service allowlist feature is supported.
+      // Specifies whether the compaction service whitelist feature is supported.
       shared_ptr<bool> supportCompactionServiceWhiteList_ {};
+      // Specifies whether load-based auto scaling rules can be created. This is determined based on the featureEnabled field, the canary release status of the resource owner UID, and the mode, version, architecture, and plan. It does not indicate whether existing rules continue to be executed.
+      shared_ptr<bool> supportLoadBasedAutoScaling_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -367,7 +379,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<GetInstanceFeatureGateResponseBody::Data> data_ {};
@@ -379,7 +391,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of instances.
     shared_ptr<int32_t> total_ {};

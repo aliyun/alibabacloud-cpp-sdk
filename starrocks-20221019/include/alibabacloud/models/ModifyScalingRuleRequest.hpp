@@ -13,6 +13,7 @@ namespace Models
   class ModifyScalingRuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyScalingRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NewTriggerType, newTriggerType_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(OldTriggerType, oldTriggerType_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScalingRuleId, scalingRuleId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyScalingRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NewTriggerType, newTriggerType_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(OldTriggerType, oldTriggerType_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->newTriggerType_ == nullptr
-        && this->nodeGroupId_ == nullptr && this->oldTriggerType_ == nullptr && this->rule_ == nullptr && this->scalingRuleId_ == nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->newTriggerType_ == nullptr && this->nodeGroupId_ == nullptr && this->oldTriggerType_ == nullptr && this->rule_ == nullptr && this->scalingRuleId_ == nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline ModifyScalingRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // newTriggerType Field Functions 
     bool hasNewTriggerType() const { return this->newTriggerType_ != nullptr;};
     void deleteNewTriggerType() { this->newTriggerType_ = nullptr;};
@@ -75,23 +84,25 @@ namespace Models
 
 
   protected:
-    // New trigger type.
+    // The instance ID.
+    shared_ptr<string> instanceId_ {};
+    // The new trigger type.
     // 
     // This parameter is required.
     shared_ptr<string> newTriggerType_ {};
-    // Compute group ID.
+    // The ID of the compute group.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // Old trigger type.
+    // The original trigger type.
     // 
     // This parameter is required.
     shared_ptr<string> oldTriggerType_ {};
-    // Rule content.
+    // The content of the rule.
     // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
-    // ID of the scaling rule to modify.
+    // The ID of the scaling rule to be modified.
     // 
     // This parameter is required.
     shared_ptr<string> scalingRuleId_ {};

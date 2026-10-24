@@ -163,9 +163,9 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> clusterId_ {};
-    // The page number for paging. Default value: 1.
+    // The page number for a paged query. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Default value: 10.
+    // The number of entries per page for a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The compute group type. Valid values:
     // 
@@ -175,7 +175,7 @@ namespace Models
     // - OBSERVER
     // - AGENT
     shared_ptr<string> componentType_ {};
-    // **[Deprecated]** The instance ID. This parameter is deprecated.
+    // **[Deprecated]** The instance ID.
     shared_ptr<string> instanceId_ {};
     // The list of compute group IDs to query.
     shared_ptr<vector<string>> nodeGroupIds_ {};
@@ -186,23 +186,23 @@ namespace Models
     // - UNPAID: Unpaid.
     // - PAID: Paid.
     // - CREATING_FAILED: Creation failed.
-    // - CREATING: Being created.
+    // - CREATING: Creating.
     // - RUNNING: Running.
-    // - MODIFYING_CONFIG: Configuration being modified.
-    // - MODIFYING_TIMEZONE: Time zone being modified.
-    // - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
-    // - ELASTIC_SCALING_IN: Elastic scale-in in progress.
-    // - SCALING_OUT: Scale-out in progress.
+    // - MODIFYING_CONFIG: Modifying configurations.
+    // - MODIFYING_TIMEZONE: Modifying the time zone.
+    // - ELASTIC_SCALING_OUT: Elastically scaling out.
+    // - ELASTIC_SCALING_IN: Elastically scaling in.
+    // - SCALING_OUT: Scaling out.
     // - RESTARTING: Restarting.
-    // - SCALING_IN: Scale-in in progress.
+    // - SCALING_IN: Scaling in.
     // - SCALING_UP: Scaling up.
     // - SCALING_DOWN: Scaling down.
     // - UPGRADING: Upgrading.
     // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
     // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
-    // - SWITCH_AZ: Switching zone.
+    // - SWITCH_AZ: Switching the zone.
     // - DISABLE: Disabled.
-    // - DELETING: Being deleted.
+    // - DELETING: Deleting.
     // - DELETED: Deleted.
     shared_ptr<string> status_ {};
     // The list of tags.

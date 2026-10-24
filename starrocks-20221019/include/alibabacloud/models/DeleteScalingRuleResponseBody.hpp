@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Access denied details.
+    // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
-    // Version number that you can upgrade to.
+    // The upgradable version number.
     shared_ptr<bool> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

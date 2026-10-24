@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Evaluation dimension.
+    // The evaluation dimension.
     shared_ptr<string> dimension_ {};
-    // Instance ID.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The page number for paged queries. The default value is 1.
+    // The page number for paging. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of authorized entries displayed per page for paged queries. The default value is 10, and the maximum value is 50.
+    // The number of authorization entries returned per page when paging. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // Report time.
+    // The report date in the YYYY-MM-DD format.
     shared_ptr<string> reportDate_ {};
-    // Status collection.
+    // The status collection.
     shared_ptr<string> statuses_ {};
   };
 

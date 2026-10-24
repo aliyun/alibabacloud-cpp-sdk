@@ -458,9 +458,9 @@ namespace Models
       // - onECS: Deployed on ECS.
       // - onBareMetal: Deployed on a bare metal resource pool.
       shared_ptr<string> architecture_ {};
-      // The creation time of the compute group.
+      // The creation time of the compute group. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> beginTime_ {};
-      // The instance ID associated with the bill. For default compute groups (FE compute group and the default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
+      // The instance ID corresponding to the bill. For the default compute groups (the FE compute group and the default BE compute group), the value of this field is the instance ID. Otherwise, the value is the compute group ID.
       shared_ptr<string> billingInstanceId_ {};
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
@@ -472,9 +472,9 @@ namespace Models
       // - OBSERVER
       // - AGENT
       shared_ptr<string> componentType_ {};
-      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU equals 1 vCPU and 4 GiB of memory. If SpecType is set to the memory-enhanced instance family, 1 CU equals 1 vCPU and 8 GiB of memory.
       shared_ptr<int32_t> cu_ {};
-      // Indicates whether this is the default compute group.
+      // Indicates whether the compute group is the default compute group.
       shared_ptr<bool> defaultGroup_ {};
       // The compute group description.
       shared_ptr<string> description_ {};
@@ -486,29 +486,29 @@ namespace Models
       shared_ptr<bool> enablePublicNetwork_ {};
       // The compute group endpoint.
       shared_ptr<string> endpoint_ {};
-      // The expiration time of the compute group.
+      // The expiration time of the compute group. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
       // The HTTP port of the compute group.
       shared_ptr<int32_t> httpPort_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The local SSD instance type of the node group. This value is meaningful only when the deployment is based on ECS instances and SpecType is local SSD or large-scale storage.
+      // The local SSD instance specification of the node group. This value is valid only when the instance is based on ECS and SpecType is localSSD or bigData.
       shared_ptr<string> localStorageInstanceType_ {};
-      // The ratio of memory size to the number of CUs. The value is 8 when SpecType is memory-enhanced instance family, and 4 for other specification types.
+      // The ratio of memory size to the number of CUs. The value is 8 when SpecType is the memory-enhanced instance family, and 4 for other specification types.
       shared_ptr<int32_t> memoryCpuRatio_ {};
       // The compute group ID.
       shared_ptr<string> nodeGroupId_ {};
       // The compute group name.
       shared_ptr<string> nodeGroupName_ {};
-      // The information about nodes in the compute group.
+      // The information about the nodes contained in the compute group.
       shared_ptr<vector<Data::NodeInfo>> nodeInfo_ {};
-      // The billing type:
+      // The billing method. Valid values:
       // <ol>
       // <li>Subscription (prePaid).</li>
       // <li>Pay-as-you-go (postPaid).</li>
       // </ol>
       shared_ptr<string> payType_ {};
-      // The public network address. This field has a value only when EnablePublicNetwork is set to true.
+      // The public IP address. This parameter has a value only when EnablePublicNetwork is set to true.
       shared_ptr<string> publicAddress_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -518,9 +518,9 @@ namespace Models
       shared_ptr<int64_t> runningTime_ {};
       // The compute group specification type. Valid values:
       // 
-      // - standard: Standard.
+      // - standard: Standard Edition.
       // - localSSD: Local SSD.
-      // - bigData: Large-scale storage.
+      // - bigData: Large-capacity storage.
       // - ramEnhanced: Memory-enhanced instance family.
       // - networkEnhanced: Network-enhanced.
       shared_ptr<string> specType_ {};
@@ -529,31 +529,31 @@ namespace Models
       // - UNPAID: Unpaid.
       // - PAID: Paid.
       // - CREATING_FAILED: Creation failed.
-      // - CREATING: Being created.
+      // - CREATING: Creating.
       // - RUNNING: Running.
-      // - MODIFYING_CONFIG: Configuration being modified.
-      // - MODIFYING_TIMEZONE: Time zone being modified.
-      // - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
-      // - ELASTIC_SCALING_IN: Elastic scale-in in progress.
-      // - SCALING_OUT: Scale-out in progress.
+      // - MODIFYING_CONFIG: Modifying configurations.
+      // - MODIFYING_TIMEZONE: Modifying the time zone.
+      // - ELASTIC_SCALING_OUT: Elastically scaling out.
+      // - ELASTIC_SCALING_IN: Elastically scaling in.
+      // - SCALING_OUT: Scaling out.
       // - RESTARTING: Restarting.
-      // - SCALING_IN: Scale-in in progress.
+      // - SCALING_IN: Scaling in.
       // - SCALING_UP: Scaling up.
       // - SCALING_DOWN: Scaling down.
       // - UPGRADING: Upgrading.
       // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
       // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
-      // - SWITCH_AZ: Switching zone.
+      // - SWITCH_AZ: Switching the zone.
       // - DISABLE: Disabled.
-      // - DELETING: Being deleted.
+      // - DELETING: Deleting.
       // - DELETED: Deleted.
       shared_ptr<string> status_ {};
       // The performance level (PL) of the cloud disk. Valid values:
       // 
-      // - pl0: Maximum random read/write IOPS of 10,000 per disk.
-      // - pl1: Maximum random read/write IOPS of 50,000 per disk.
-      // - pl2: Maximum random read/write IOPS of 100,000 per disk.
-      // - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
+      // - pl0: Up to 10,000 random read/write IOPS per disk.
+      // - pl1: Up to 50,000 random read/write IOPS per disk.
+      // - pl2: Up to 100,000 random read/write IOPS per disk.
+      // - pl3: Up to 1,000,000 random read/write IOPS per disk.
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
@@ -627,7 +627,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<vector<DescribeNodeGroupsResponseBody::Data>> data_ {};
@@ -639,9 +639,9 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of query results.
+    // The total number of returned entries.
     shared_ptr<int32_t> total_ {};
   };
 

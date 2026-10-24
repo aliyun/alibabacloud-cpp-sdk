@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
-    // The data returned.
+    // The returned result.
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

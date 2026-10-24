@@ -180,17 +180,17 @@ namespace Models
         shared_ptr<string> dataBase_ {};
         // The snapshot ID.
         shared_ptr<string> detail_ {};
-        // The task end time.
+        // The task end time. The time is a UNIX timestamp in seconds.
         shared_ptr<int64_t> finishedTime_ {};
-        // The data size in GiB.
+        // The data size. Unit: GiB.
         shared_ptr<int64_t> size_ {};
         // The snapshot name.
         shared_ptr<string> snapshotName_ {};
-        // The task start date.
+        // The task start time. The time is a UNIX timestamp in seconds.
         shared_ptr<int64_t> startTime_ {};
-        // The backup job status.
+        // The backup task status.
         shared_ptr<string> status_ {};
-        // The data table name.
+        // The table name.
         shared_ptr<string> table_ {};
       };
 
@@ -368,49 +368,38 @@ namespace Models
 
 
         protected:
-          // The compute group type. Includes the following values:
+          // The compute group type. Valid values:
           // 
           // - FE
-          // 
           // - BE
-          // 
           // - CN
-          // 
           // - OBSERVER
-          // 
           // - AGENT
           shared_ptr<string> componentType_ {};
-          // The number of CUs. A CU (Compute Unit) is the basic unit of measurement for the service. 1 CU equals 1 CPU core + 4 GiB memory. If SpecType is memory-enhanced instance family, 1 CU equals 1 CPU core + 8 GiB memory.
+          // The number of CUs. A CU (compute unit) is the basic billing unit of the service. 1 CU = 1 vCPU + 4 GiB of memory. Only when SpecType is set to the memory-enhanced instance family, 1 CU = 1 vCPU + 8 GiB of memory.
           shared_ptr<int32_t> cu_ {};
           // The number of disks.
           shared_ptr<string> diskNumber_ {};
-          // The node group\\"s local SSD instance type. This value is only meaningful for ECS instances where SpecType is local SSD or large-capacity storage.
+          // The local SSD instance specification of the node group. This value is valid only when the instance is based on ECS and SpecType is set to local SSD or large-capacity storage.
           shared_ptr<string> localStorageInstanceType_ {};
           // The number of nodes.
           shared_ptr<string> residentNodeNumber_ {};
-          // The compute group specification type. Includes the following types:
+          // The specification type of the compute group. Valid values:
           // 
-          // - standard: Standard Edition.
-          // 
-          // - localSSD: Local SSD.
-          // 
-          // - bigData: Large-capacity storage.
-          // 
-          // - ramEnhanced: Memory-enhanced instance family.
-          // 
-          // - networkEnhanced: Network-enhanced.
+          // - standard: standard edition
+          // - localSSD: local SSD
+          // - bigData: large-capacity storage
+          // - ramEnhanced: memory-enhanced instance family
+          // - networkEnhanced: network-enhanced
           shared_ptr<string> specType_ {};
-          // The performance level (PL) of the cloud disk. Includes the following values:
+          // The performance level (PL) of the cloud disk. Valid values:
           // 
-          // - pl0: Maximum random read/write IOPS of 10,000 per disk.
-          // 
-          // - pl1: Maximum random read/write IOPS of 50,000 per disk.
-          // 
-          // - pl2: Maximum random read/write IOPS of 100,000 per disk.
-          // 
-          // - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
+          // - pl0: A single disk delivers up to 10,000 random read/write IOPS.
+          // - pl1: A single disk delivers up to 50,000 random read/write IOPS.
+          // - pl2: A single disk delivers up to 100,000 random read/write IOPS.
+          // - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
           shared_ptr<string> storagePerformanceLevel_ {};
-          // The storage size in GiB.
+          // The storage size. Unit: GiB.
           shared_ptr<int32_t> storageSize_ {};
         };
 
@@ -502,23 +491,17 @@ namespace Models
         shared_ptr<string> regionId_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The cluster\\"s running mode:
-        // 
-        // - Shared-nothing.
-        // 
-        // - Shared-data.
+        // The running mode of the cluster. Valid values:
+        // - shared_nothing: integrated storage and computing
+        // - shared_data: disaggregated storage and computing
         shared_ptr<string> runMode_ {};
-        // The compute group specification type. Includes the following types:
+        // The specification type of the compute group. Valid values:
         // 
-        // - standard: Standard Edition.
-        // 
-        // - localSSD: Local SSD.
-        // 
-        // - bigData: Large-capacity storage.
-        // 
-        // - ramEnhanced: Memory-enhanced instance family.
-        // 
-        // - networkEnhanced: Network-enhanced.
+        // - standard: standard edition
+        // - localSSD: local SSD
+        // - bigData: large-capacity storage
+        // - ramEnhanced: memory-enhanced instance family
+        // - networkEnhanced: network-enhanced
         shared_ptr<string> specType_ {};
         // The tag information.
         shared_ptr<vector<InstanceSnapshot::Tags>> tags_ {};
@@ -621,21 +604,20 @@ namespace Models
 
 
     protected:
-      // The end time of this backup.
+      // The end time of the current backup. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> backupFinishedTime_ {};
-      // The start time of this backup.
+      // The start time of the current backup. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> backupStartTime_ {};
       // The backup task ID.
       shared_ptr<string> backupTaskId_ {};
-      // The backup type:
+      // The backup type. Valid values:
       // 
-      // - **0**: Fast backup.
-      // 
-      // - **1**: Consistent backup.
+      // - **0**: quick backup
+      // - **1**: consistent backup
       shared_ptr<string> backupType_ {};
       // The task description.
       shared_ptr<string> description_ {};
-      // The expiration time of the backup data.
+      // The expiration time of the backup data. The time is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expireTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -643,9 +625,9 @@ namespace Models
       shared_ptr<Data::InstanceSnapshot> instanceSnapshot_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The cloud disk size in GiB.
+      // The cloud disk size. Unit: GiB.
       shared_ptr<int64_t> size_ {};
-      // The backup job status.
+      // The backup task status.
       shared_ptr<string> status_ {};
       // The list of backup subtasks.
       shared_ptr<vector<Data::SubTasks>> subTasks_ {};
@@ -712,11 +694,11 @@ namespace Models
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
-    // The HTTP request status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of query results.
     shared_ptr<int32_t> total_ {};

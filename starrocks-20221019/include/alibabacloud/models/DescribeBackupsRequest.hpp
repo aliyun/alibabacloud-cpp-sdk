@@ -107,17 +107,17 @@ namespace Models
     shared_ptr<string> backupTaskId_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The query page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paged query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
     // The list of statuses.
     shared_ptr<string> statuses_ {};
-    // The end time for querying backup jobs.
+    // The end time of the backup task query. The time is a UNIX timestamp in seconds.
     shared_ptr<int64_t> timePeriodEndTime_ {};
-    // The start time for querying backup jobs.
+    // The start time of the backup task query. The time is a UNIX timestamp in seconds.
     shared_ptr<int64_t> timePeriodStartTime_ {};
   };
 

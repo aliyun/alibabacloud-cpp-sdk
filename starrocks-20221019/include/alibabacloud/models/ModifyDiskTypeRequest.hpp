@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
-    // - true: Automatic payment is enabled.
-    // - false: Automatic payment is disabled.
+    // Specifies whether to automatically pay for all products specified in the Products parameter. Valid values:
+    // - true: Automatic payment.
+    // - false: Manual payment.
     shared_ptr<bool> autoPay_ {};
     // The instance ID.
     // 
@@ -102,7 +102,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetDiskType_ {};
-    // The target disk performance level.
+    // The target disk performance.
     // 
     // This parameter is required.
     shared_ptr<string> targetPerformanceLevel_ {};

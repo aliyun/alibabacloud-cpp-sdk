@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
-    // - true: Automatic payment.
-    // - false: No automatic payment.
+    // Specifies whether automatic payment is enabled for all products specified in the Products parameter. Valid values:
+    // - true: automatic payment.
+    // - false: no automatic payment.
     shared_ptr<bool> autoPay_ {};
     // The instance ID.
     // 

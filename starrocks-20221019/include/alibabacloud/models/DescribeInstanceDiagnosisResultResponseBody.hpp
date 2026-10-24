@@ -183,29 +183,29 @@ namespace Models
 
 
     protected:
-      // Best Practices.
+      // The best practices.
       shared_ptr<string> bestPractice_ {};
-      // Diagnosis item description.
+      // The diagnosis item description.
       shared_ptr<string> description_ {};
-      // Evaluation dimension.
+      // The evaluation dimension.
       shared_ptr<string> dimension_ {};
-      // Evaluation time.
+      // The evaluation time.
       shared_ptr<int64_t> evaluationTime_ {};
-      // Full score for the evaluation item.
+      // The full score of the evaluation item.
       shared_ptr<double> fullScore_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Evaluation item introduction.
+      // The evaluation item introduction.
       shared_ptr<string> introduction_ {};
-      // Evaluation item ID.
+      // The evaluation item ID.
       shared_ptr<string> itemId_ {};
-      // Evaluation item name.
+      // The evaluation item name.
       shared_ptr<string> itemName_ {};
-      // Report date.
+      // The report date in the YYYY-MM-DD format.
       shared_ptr<string> reportDate_ {};
-      // Diagnosis score.
+      // The diagnosis score.
       shared_ptr<double> score_ {};
-      // Status list.
+      // The status list. Valid values:
       // 
       // - healthy
       // 
@@ -215,7 +215,7 @@ namespace Models
       // 
       // - critical
       shared_ptr<string> status_ {};
-      // Diagnosis suggestion.
+      // The diagnosis suggestion.
       shared_ptr<string> suggestion_ {};
     };
 
@@ -283,19 +283,19 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
-    // Returned data.
+    // The returned data.
     shared_ptr<vector<DescribeInstanceDiagnosisResultResponseBody::Data>> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP request status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // Total number of query results.
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

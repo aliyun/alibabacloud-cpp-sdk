@@ -144,39 +144,39 @@ namespace Models
 
 
       protected:
-        // The action performed. Valid values:
+        // The modification type. Valid values:
         // 
-        // - `MODIFY`
+        // - MODIFY
         // 
-        // - `ADD`
+        // - ADD
         // 
-        // - `DELETE`
+        // - DELETE
         shared_ptr<string> action_ {};
-        // The new value.
+        // The value after the modification.
         shared_ptr<string> after_ {};
-        // The previous value.
+        // The value before the modification.
         shared_ptr<string> before_ {};
         // The name of the configuration item.
         shared_ptr<string> configKey_ {};
         // The configuration type. Valid values:
         // 
-        // - `FE`
+        // - FE
         // 
-        // - `BE`
+        // - BE
         // 
-        // - `core-site.xml`
+        // - core-site.xml
         // 
-        // - `hdfs-site.xml`
+        // - hdfs-site.xml
         // 
-        // - `kerberos.keytab`
+        // - kerberos.keytab
         // 
-        // - `krb5.conf`
+        // - krb5.conf
         // 
-        // - `jindosdk.cfg`
+        // - jindosdk.cfg
         // 
-        // - `hadoop-env.sh`
+        // - hadoop-env.sh
         // 
-        // - `hive-site.xml`
+        // - hive-site.xml
         shared_ptr<string> configType_ {};
       };
 
@@ -227,7 +227,7 @@ namespace Models
 
 
       protected:
-        // The effective status on the node.
+        // The effective status.
         shared_ptr<string> effectStatus_ {};
         // The compute group ID.
         shared_ptr<string> nodeGroupId_ {};
@@ -306,23 +306,23 @@ namespace Models
 
 
     protected:
-      // Details about the effect of the configuration change.
+      // The details of the configuration history.
       shared_ptr<vector<Data::ConfigHistoryEffectDetails>> configHistoryEffectDetails_ {};
       // The configuration history ID.
       shared_ptr<string> configHistoryId_ {};
-      // A list of configuration mementos.
+      // The records of configuration values before and after the modification.
       shared_ptr<vector<Data::ConfigMementos>> configMementos_ {};
       // The effective status.
       shared_ptr<string> effectStatus_ {};
       // Indicates whether the configuration modification has taken effect.
       shared_ptr<bool> effected_ {};
-      // The modification time.
+      // The time when the configuration was modified.
       shared_ptr<int64_t> gmtCreate_ {};
       // The ID of the user who modified the configuration.
       shared_ptr<string> operatorId_ {};
-      // The reason for the configuration modification.
+      // The reason for modifying the configuration.
       shared_ptr<string> reason_ {};
-      // Indicates whether the change was a rollback.
+      // Indicates whether the operation is a configuration rollback.
       shared_ptr<bool> rollback_ {};
     };
 
@@ -388,7 +388,7 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The details of the permission check failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<vector<DescribeConfigHistoryResponseBody::Data>> data_ {};
@@ -400,7 +400,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int32_t> total_ {};

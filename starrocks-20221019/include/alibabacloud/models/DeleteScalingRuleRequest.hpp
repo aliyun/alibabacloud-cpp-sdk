@@ -13,11 +13,13 @@ namespace Models
   class DeleteScalingRuleRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteScalingRuleRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(ScalingRuleId, scalingRuleId_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteScalingRuleRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(ScalingRuleId, scalingRuleId_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->nodeGroupId_ == nullptr
-        && this->scalingRuleId_ == nullptr && this->triggerType_ == nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->nodeGroupId_ == nullptr && this->scalingRuleId_ == nullptr && this->triggerType_ == nullptr; };
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline DeleteScalingRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // nodeGroupId Field Functions 
     bool hasNodeGroupId() const { return this->nodeGroupId_ != nullptr;};
     void deleteNodeGroupId() { this->nodeGroupId_ = nullptr;};
@@ -57,15 +66,17 @@ namespace Models
 
 
   protected:
-    // Compute group ID.
+    // The instance ID.
+    shared_ptr<string> instanceId_ {};
+    // The node group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // ID of the scaling rule to delete.
+    // The ID of the scaling rule to be deleted.
     // 
     // This parameter is required.
     shared_ptr<string> scalingRuleId_ {};
-    // Trigger type.
+    // The trigger type.
     // 
     // This parameter is required.
     shared_ptr<string> triggerType_ {};

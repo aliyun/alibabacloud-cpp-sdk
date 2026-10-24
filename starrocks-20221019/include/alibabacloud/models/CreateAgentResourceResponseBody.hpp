@@ -77,9 +77,9 @@ namespace Models
 
 
     protected:
-      // Compute group ID.
+      // The compute group ID.
       shared_ptr<string> nodeGroupId_ {};
-      // Order ID.
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // Returned data.
+    // The returned data.
     shared_ptr<CreateAgentResourceResponseBody::Data> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP request status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

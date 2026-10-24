@@ -140,9 +140,9 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The returned data.
+    // The response data.
     shared_ptr<ModifyCuPreCheckResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};

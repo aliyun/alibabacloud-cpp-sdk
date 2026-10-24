@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // Filters the results by the effective status of the configuration.
+    // The effective status.
     shared_ptr<string> effectStatuses_ {};
-    // The end time for the query, specified as a Unix timestamp in milliseconds.
+    // The end time of the modification history. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to return the total number of configuration history records.
+    // Specifies whether to return all configurations.
     shared_ptr<bool> needTotal_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is 10.
+    // The number of entries per page in a paging query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time for the query, specified as a Unix timestamp in milliseconds.
+    // The start time of the modification history. The time is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

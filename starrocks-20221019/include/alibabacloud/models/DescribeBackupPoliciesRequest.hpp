@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the region where the instance resides.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
   };
 
