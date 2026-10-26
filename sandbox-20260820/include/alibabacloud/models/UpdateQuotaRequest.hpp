@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request parameters for updating the quota configuration.
     shared_ptr<Quota> body_ {};
   };
 

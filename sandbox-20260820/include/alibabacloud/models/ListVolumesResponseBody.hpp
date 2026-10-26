@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The maximum number of entries per page used in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. A value of success indicates a successful request.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page, which is used for subsequent queries.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of storage volumes.
     shared_ptr<vector<E2BVolume>> volumes_ {};
   };
 

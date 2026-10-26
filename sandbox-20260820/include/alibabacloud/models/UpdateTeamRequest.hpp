@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request parameters for updating a team.
     shared_ptr<UpdateTeamInput> body_ {};
   };
 

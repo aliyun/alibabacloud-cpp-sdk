@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The ID of the destination Container Registry Enterprise instance. This field does not inherit the instance ID from the source image.
+    // The ID of the destination Container Registry Enterprise instance. This field does not inherit the instance ID of the source image.
     shared_ptr<string> acrInstanceId_ {};
-    // Specifies whether to enable the image replication action. Required when this action block is included.
+    // Specifies whether to enable the image replication action. This parameter is required when this action block is passed.
     shared_ptr<bool> enabled_ {};
-    // The destination image address to push to. If not specified, the service derives a new tag under the repository where the source image resides.
+    // The destination image address for the push operation. If this parameter is not provided, the service derives a new tag in the repository where the source image is located.
     shared_ptr<string> image_ {};
-    // The credentials, TLS, and network configuration required to access the destination image repository.
+    // The credentials, TLS settings, and network configurations required to access the destination image repository.
     shared_ptr<CreateTemplateRegistryConfig> registryConfig_ {};
-    // The type of the destination image repository. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), acree (Container Registry Enterprise Edition). If not specified, the type is inferred from the destination image address.
+    // The type of the destination image repository. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), and acree (Container Registry Enterprise Edition). By default, the value is derived from the destination image address.
     shared_ptr<string> registryType_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request struct for updating a template. Specify only the fields to be updated.
     shared_ptr<PublicUpdateTemplateInput> body_ {};
+    // The team ID.
     shared_ptr<string> teamID_ {};
   };
 

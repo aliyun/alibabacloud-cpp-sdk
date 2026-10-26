@@ -127,15 +127,15 @@ namespace Models
     shared_ptr<string> image_ {};
     // The operating system type of the second-generation sandbox. Valid values: linux-amd64, android-36-osworld, and windows-osworld.
     shared_ptr<string> osType_ {};
-    // The sandbox readiness probe command. A successful execution indicates that the sandbox is ready to accept requests. This parameter is supported only for first-generation sandboxes.
+    // The readiness probe command for the sandbox. A successful execution indicates that the sandbox is ready to receive requests. This parameter is supported only by first-generation sandboxes.
     shared_ptr<string> readyCommand_ {};
-    // The credential, TLS, and network configuration required to access the source image repository.
+    // The credentials, TLS, and network configurations required to access the source image repository.
     shared_ptr<CreateTemplateRegistryConfig> registryConfig_ {};
-    // The image repository type. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), and acree (Container Registry Enterprise Edition). If not specified, the type is inferred from the image address.
+    // The type of the image repository. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), and acree (Container Registry Enterprise Edition). The default value is inferred from the image address.
     shared_ptr<string> registryType_ {};
-    // The startup command for the sandbox container. This parameter is supported only for first-generation sandboxes.
+    // The startup command for the sandbox container. This parameter is supported only by first-generation sandboxes.
     shared_ptr<string> startCommand_ {};
-    // The list of custom build instructions. This is not supported in the current version. Passing a non-empty list returns an error.
+    // The list of custom build steps.
     shared_ptr<vector<CreateTemplateStep>> steps_ {};
   };
 

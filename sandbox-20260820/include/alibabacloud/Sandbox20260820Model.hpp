@@ -68,11 +68,13 @@
 #include <alibabacloud/models/PublicUpdateTemplateEnvdInjectAction.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateBuildConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateLogConfig.hpp>
+#include <alibabacloud/models/PublicUpdateTemplateStep.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateSandboxConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateVPCConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRuntimeConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateInput.hpp>
 #include <alibabacloud/models/Quota.hpp>
+#include <alibabacloud/models/SandboxLifecycleEvent.hpp>
 #include <alibabacloud/models/UpdateApiKeyInput.hpp>
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateTeamInput.hpp>

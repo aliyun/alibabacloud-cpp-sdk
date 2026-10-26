@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Leave this parameter empty for the first request. To query the next page, specify the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

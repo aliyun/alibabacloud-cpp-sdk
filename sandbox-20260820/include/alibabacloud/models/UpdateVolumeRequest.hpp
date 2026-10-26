@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The request parameters for updating the storage volume.
     shared_ptr<UpdateVolumeInput> body_ {};
+    // The ID of the team to which the storage volume belongs.
     shared_ptr<string> teamID_ {};
   };
 

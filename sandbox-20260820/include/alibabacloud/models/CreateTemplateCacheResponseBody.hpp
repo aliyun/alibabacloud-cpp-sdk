@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The error code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The template cache object.
     shared_ptr<PublicTemplateCache> templateCache_ {};
   };
 

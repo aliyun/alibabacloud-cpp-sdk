@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The response code. The value is 200 for a successful request.
     shared_ptr<string> code_ {};
+    // The value of maxResults specified in the request. This field is returned only if a positive integer is specified for maxResults in the request.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. The value is success for a successful request.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page, which can be used for subsequent queries.
     shared_ptr<string> nextToken_ {};
+    // The list of quota configurations.
     shared_ptr<vector<Quota>> quotas_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

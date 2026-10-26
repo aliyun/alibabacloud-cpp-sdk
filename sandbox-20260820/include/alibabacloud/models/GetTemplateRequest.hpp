@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The team ID.
     shared_ptr<string> teamID_ {};
   };
 

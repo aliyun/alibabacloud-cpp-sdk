@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_PUBLICUPDATETEMPLATESANDBOXCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRegistryConfig.hpp>
+#include <vector>
+#include <alibabacloud/models/PublicUpdateTemplateStep.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_TO_JSON(registryType, registryType_);
       DARABONBA_PTR_TO_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_TO_JSON(steps, steps_);
     };
     friend void from_json(const Darabonba::Json& j, PublicUpdateTemplateSandboxConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(acrInstanceId, acrInstanceId_);
@@ -32,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(registryConfig, registryConfig_);
       DARABONBA_PTR_FROM_JSON(registryType, registryType_);
       DARABONBA_PTR_FROM_JSON(startCommand, startCommand_);
+      DARABONBA_PTR_FROM_JSON(steps, steps_);
     };
     PublicUpdateTemplateSandboxConfig() = default ;
     PublicUpdateTemplateSandboxConfig(const PublicUpdateTemplateSandboxConfig &) = default ;
@@ -46,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrInstanceId_ == nullptr
         && this->generation_ == nullptr && this->image_ == nullptr && this->osType_ == nullptr && this->readyCommand_ == nullptr && this->registryConfig_ == nullptr
-        && this->registryType_ == nullptr && this->startCommand_ == nullptr; };
+        && this->registryType_ == nullptr && this->startCommand_ == nullptr && this->steps_ == nullptr; };
     // acrInstanceId Field Functions 
     bool hasAcrInstanceId() const { return this->acrInstanceId_ != nullptr;};
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
@@ -105,23 +109,34 @@ namespace Models
     inline PublicUpdateTemplateSandboxConfig& setStartCommand(string startCommand) { DARABONBA_PTR_SET_VALUE(startCommand_, startCommand) };
 
 
+    // steps Field Functions 
+    bool hasSteps() const { return this->steps_ != nullptr;};
+    void deleteSteps() { this->steps_ = nullptr;};
+    inline const vector<PublicUpdateTemplateStep> & getSteps() const { DARABONBA_PTR_GET_CONST(steps_, vector<PublicUpdateTemplateStep>) };
+    inline vector<PublicUpdateTemplateStep> getSteps() { DARABONBA_PTR_GET(steps_, vector<PublicUpdateTemplateStep>) };
+    inline PublicUpdateTemplateSandboxConfig& setSteps(const vector<PublicUpdateTemplateStep> & steps) { DARABONBA_PTR_SET_VALUE(steps_, steps) };
+    inline PublicUpdateTemplateSandboxConfig& setSteps(vector<PublicUpdateTemplateStep> && steps) { DARABONBA_PTR_SET_RVALUE(steps_, steps) };
+
+
   protected:
-    // The ID of the Container Registry Enterprise instance.
+    // The ID of the ACR Enterprise instance.
     shared_ptr<string> acrInstanceId_ {};
-    // The sandbox generation. A value of 1 indicates rund, and a value of 2 indicates micro.
+    // The sandbox generation. Valid values: 1: rund. 2: micro.
     shared_ptr<int32_t> generation_ {};
     // The image address.
     shared_ptr<string> image_ {};
     // The operating system type.
     shared_ptr<string> osType_ {};
-    // The readiness probe command for the micro sandbox. Only the second generation supports this parameter.
+    // The readiness probe command for the micro sandbox. This command is supported only by the second generation.
     shared_ptr<string> readyCommand_ {};
     // The image repository configuration.
     shared_ptr<PublicUpdateTemplateRegistryConfig> registryConfig_ {};
     // The image repository type.
     shared_ptr<string> registryType_ {};
-    // The startup command for the micro sandbox. Only the second generation supports this parameter.
+    // The startup command for the micro sandbox. This command is supported only by the second generation.
     shared_ptr<string> startCommand_ {};
+    // The list of custom build steps. If you do not specify this parameter, the original steps are retained. If you pass an empty array, the steps are cleared.
+    shared_ptr<vector<PublicUpdateTemplateStep>> steps_ {};
   };
 
   } // namespace Models

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the team to which the storage volume belongs.
     shared_ptr<string> teamID_ {};
   };
 

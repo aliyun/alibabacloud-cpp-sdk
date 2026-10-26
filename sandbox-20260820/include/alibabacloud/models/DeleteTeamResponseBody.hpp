@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The response code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

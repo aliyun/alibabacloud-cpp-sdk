@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETTEMPLATERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETTEMPLATERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/PublicTemplateRuntimeConfig.hpp>
 #include <alibabacloud/models/PublicTemplateStatus.hpp>
 using namespace std;
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_TO_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_TO_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
+      DARABONBA_PTR_FROM_JSON(resourceTags, resourceTags_);
       DARABONBA_PTR_FROM_JSON(runtimeConfig, runtimeConfig_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
@@ -51,9 +54,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResourceTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceTags& obj) { 
+        DARABONBA_PTR_TO_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(tagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(tagValue, tagValue_);
+      };
+      ResourceTags() = default ;
+      ResourceTags(const ResourceTags &) = default ;
+      ResourceTags(ResourceTags &&) = default ;
+      ResourceTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceTags() = default ;
+      ResourceTags& operator=(const ResourceTags &) = default ;
+      ResourceTags& operator=(ResourceTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline ResourceTags& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline ResourceTags& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> tagKey_ {};
+      // The tag value.
+      shared_ptr<string> tagValue_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
         && this->createdTime_ == nullptr && this->message_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr && this->resourceGroupID_ == nullptr
-        && this->runtimeConfig_ == nullptr && this->status_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr; };
+        && this->resourceTags_ == nullptr && this->runtimeConfig_ == nullptr && this->status_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr
+        && this->templateID_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -96,6 +144,15 @@ namespace Models
     inline GetTemplateResponseBody& setResourceGroupID(string resourceGroupID) { DARABONBA_PTR_SET_VALUE(resourceGroupID_, resourceGroupID) };
 
 
+    // resourceTags Field Functions 
+    bool hasResourceTags() const { return this->resourceTags_ != nullptr;};
+    void deleteResourceTags() { this->resourceTags_ = nullptr;};
+    inline const vector<GetTemplateResponseBody::ResourceTags> & getResourceTags() const { DARABONBA_PTR_GET_CONST(resourceTags_, vector<GetTemplateResponseBody::ResourceTags>) };
+    inline vector<GetTemplateResponseBody::ResourceTags> getResourceTags() { DARABONBA_PTR_GET(resourceTags_, vector<GetTemplateResponseBody::ResourceTags>) };
+    inline GetTemplateResponseBody& setResourceTags(const vector<GetTemplateResponseBody::ResourceTags> & resourceTags) { DARABONBA_PTR_SET_VALUE(resourceTags_, resourceTags) };
+    inline GetTemplateResponseBody& setResourceTags(vector<GetTemplateResponseBody::ResourceTags> && resourceTags) { DARABONBA_PTR_SET_RVALUE(resourceTags_, resourceTags) };
+
+
     // runtimeConfig Field Functions 
     bool hasRuntimeConfig() const { return this->runtimeConfig_ != nullptr;};
     void deleteRuntimeConfig() { this->runtimeConfig_ = nullptr;};
@@ -136,16 +193,29 @@ namespace Models
 
 
   protected:
+    // The error code. The value is 200 if the request is successful.
     shared_ptr<string> code_ {};
+    // The creation time in UTC.
     shared_ptr<string> createdTime_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The name of the template.
     shared_ptr<string> name_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The resource tags.
+    shared_ptr<vector<GetTemplateResponseBody::ResourceTags>> resourceTags_ {};
+    // The runtime configuration of the template.
     shared_ptr<PublicTemplateRuntimeConfig> runtimeConfig_ {};
+    // The status of the template.
     shared_ptr<PublicTemplateStatus> status_ {};
+    // The team ID.
     shared_ptr<string> teamID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
+    // The unique identifier of the template.
     shared_ptr<string> templateID_ {};
   };
 

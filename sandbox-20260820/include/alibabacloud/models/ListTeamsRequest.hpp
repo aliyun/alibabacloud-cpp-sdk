@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1. Valid values: 1 to 10000.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of teams to return on each page. Default value: 10. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters teams by plan specifications. Valid values: eco (Economy), std (Standard), pro (Professional), and ent (Enterprise).
     shared_ptr<string> plan_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
   };
 

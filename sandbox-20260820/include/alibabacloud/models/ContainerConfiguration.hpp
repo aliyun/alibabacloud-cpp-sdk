@@ -71,9 +71,9 @@ namespace Models
 
 
     protected:
-      // The logon password or access token for the image repository. Stored with server-side encryption and not returned in plaintext when queried.
+      // The logon password or access token for the image repository. The value is encrypted and stored on the server, and plaintext is not returned in query responses.
       shared_ptr<string> password_ {};
-      // The username for logging on to the image repository.
+      // The logon username for the image repository.
       shared_ptr<string> username_ {};
     };
 
@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The instance ID of the Container Registry Enterprise instance. Required when registryType is set to acree.
+    // The ID of the Container Registry Enterprise instance. This parameter is required when registryType is set to acree.
     shared_ptr<string> acrInstanceId_ {};
-    // The base image address of the sandbox.
+    // The address of the sandbox base image.
     shared_ptr<string> image_ {};
-    // The repository access credentials used to pull the image. Not required when using a public image.
+    // The repository access credentials used to pull images. You do not need to configure this parameter when you use public images.
     shared_ptr<ContainerConfiguration::RegistryCredential> registryCredential_ {};
   };
 

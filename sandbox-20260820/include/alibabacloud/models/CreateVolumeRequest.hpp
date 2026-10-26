@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request parameters for creating a storage volume.
     shared_ptr<CreateVolumeInput> body_ {};
   };
 

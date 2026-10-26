@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the team to which the quota belongs.
     shared_ptr<string> tagValue_ {};
   };
 

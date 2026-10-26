@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The response message. The value is success if the request is successful.
     shared_ptr<string> message_ {};
+    // The page number of the current query.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for the current query.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of teams.
     shared_ptr<vector<E2BTeam>> teams_ {};
+    // The total number of teams that meet the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

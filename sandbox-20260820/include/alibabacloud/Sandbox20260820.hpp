@@ -21,7 +21,7 @@ namespace Sandbox20260820
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建 ApiKey
+       * @summary Creates an API key.
        *
        * @param request CreateApiKeyRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Sandbox20260820
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 ApiKey
+       * @summary Creates an API key.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -39,7 +39,7 @@ namespace Sandbox20260820
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
-       * @summary 创建 Team
+       * @summary Creates a team.
        *
        * @param request CreateTeamRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace Sandbox20260820
       Models::CreateTeamResponse createTeamWithOptions(const Models::CreateTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 Team
+       * @summary Creates a team.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse
@@ -57,7 +57,7 @@ namespace Sandbox20260820
       Models::CreateTeamResponse createTeam(const Models::CreateTeamRequest &request);
 
       /**
-       * @summary 创建 Template
+       * @summary Creates a template.
        *
        * @param request CreateTemplateRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace Sandbox20260820
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 Template
+       * @summary Creates a template.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -75,7 +75,7 @@ namespace Sandbox20260820
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
-       * @summary 创建模板缓存
+       * @summary Creates a template cache.
        *
        * @param request CreateTemplateCacheRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace Sandbox20260820
       Models::CreateTemplateCacheResponse createTemplateCacheWithOptions(const Models::CreateTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板缓存
+       * @summary Creates a template cache.
        *
        * @param request CreateTemplateCacheRequest
        * @return CreateTemplateCacheResponse
@@ -93,7 +93,7 @@ namespace Sandbox20260820
       Models::CreateTemplateCacheResponse createTemplateCache(const Models::CreateTemplateCacheRequest &request);
 
       /**
-       * @summary 创建 Volume
+       * @summary Creates a storage volume.
        *
        * @param request CreateVolumeRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace Sandbox20260820
       Models::CreateVolumeResponse createVolumeWithOptions(const Models::CreateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 Volume
+       * @summary Creates a storage volume.
        *
        * @param request CreateVolumeRequest
        * @return CreateVolumeResponse
@@ -111,7 +111,7 @@ namespace Sandbox20260820
       Models::CreateVolumeResponse createVolume(const Models::CreateVolumeRequest &request);
 
       /**
-       * @summary 删除 ApiKey 
+       * @summary Deletes a specified API key.
        *
        * @param request DeleteApiKeyRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace Sandbox20260820
       Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const string &apiKeyID, const Models::DeleteApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 ApiKey 
+       * @summary Deletes a specified API key.
        *
        * @param request DeleteApiKeyRequest
        * @return DeleteApiKeyResponse
@@ -129,7 +129,7 @@ namespace Sandbox20260820
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyID, const Models::DeleteApiKeyRequest &request);
 
       /**
-       * @summary 删除 quota 配置
+       * @summary Deletes the quota configuration for a specified team.
        *
        * @param request DeleteQuotaRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace Sandbox20260820
       Models::DeleteQuotaResponse deleteQuotaWithOptions(const Models::DeleteQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 quota 配置
+       * @summary Deletes the quota configuration for a specified team.
        *
        * @param request DeleteQuotaRequest
        * @return DeleteQuotaResponse
@@ -147,7 +147,7 @@ namespace Sandbox20260820
       Models::DeleteQuotaResponse deleteQuota(const Models::DeleteQuotaRequest &request);
 
       /**
-       * @summary 删除 Team
+       * @summary Deletes a specified team.
        *
        * @param request DeleteTeamRequest
        * @param headers map
@@ -157,7 +157,7 @@ namespace Sandbox20260820
       Models::DeleteTeamResponse deleteTeamWithOptions(const string &teamID, const Models::DeleteTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 Team
+       * @summary Deletes a specified team.
        *
        * @param request DeleteTeamRequest
        * @return DeleteTeamResponse
@@ -165,7 +165,7 @@ namespace Sandbox20260820
       Models::DeleteTeamResponse deleteTeam(const string &teamID, const Models::DeleteTeamRequest &request);
 
       /**
-       * @summary 删除 Template
+       * @summary Deletes a template.
        *
        * @param request DeleteTemplateRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace Sandbox20260820
       Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateID, const Models::DeleteTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 Template
+       * @summary Deletes a template.
        *
        * @param request DeleteTemplateRequest
        * @return DeleteTemplateResponse
@@ -183,7 +183,7 @@ namespace Sandbox20260820
       Models::DeleteTemplateResponse deleteTemplate(const string &templateID, const Models::DeleteTemplateRequest &request);
 
       /**
-       * @summary 删除模板缓存
+       * @summary Deletes the template cache.
        *
        * @param request DeleteTemplateCacheRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace Sandbox20260820
       Models::DeleteTemplateCacheResponse deleteTemplateCacheWithOptions(const string &templateID, const Models::DeleteTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模板缓存
+       * @summary Deletes the template cache.
        *
        * @param request DeleteTemplateCacheRequest
        * @return DeleteTemplateCacheResponse
@@ -201,7 +201,7 @@ namespace Sandbox20260820
       Models::DeleteTemplateCacheResponse deleteTemplateCache(const string &templateID, const Models::DeleteTemplateCacheRequest &request);
 
       /**
-       * @summary 删除 Volume 
+       * @summary Deletes a specified storage volume.
        *
        * @param request DeleteVolumeRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace Sandbox20260820
       Models::DeleteVolumeResponse deleteVolumeWithOptions(const string &volumeID, const Models::DeleteVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 Volume 
+       * @summary Deletes a specified storage volume.
        *
        * @param request DeleteVolumeRequest
        * @return DeleteVolumeResponse
@@ -219,7 +219,7 @@ namespace Sandbox20260820
       Models::DeleteVolumeResponse deleteVolume(const string &volumeID, const Models::DeleteVolumeRequest &request);
 
       /**
-       * @summary 查看 ApiKey
+       * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApiKeyRequest
        * @param headers map
@@ -229,7 +229,7 @@ namespace Sandbox20260820
       Models::DescribeApiKeyResponse describeApiKeyWithOptions(const string &apiKeyID, const Models::DescribeApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看 ApiKey
+       * @summary Queries the details of a specified API key.
        *
        * @param request DescribeApiKeyRequest
        * @return DescribeApiKeyResponse
@@ -237,7 +237,7 @@ namespace Sandbox20260820
       Models::DescribeApiKeyResponse describeApiKey(const string &apiKeyID, const Models::DescribeApiKeyRequest &request);
 
       /**
-       * @summary 获取 quota 配置
+       * @summary Queries the quota configuration of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @param headers map
@@ -247,7 +247,7 @@ namespace Sandbox20260820
       Models::DescribeQuotaResponse describeQuotaWithOptions(const Models::DescribeQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 quota 配置
+       * @summary Queries the quota configuration of a specified team.
        *
        * @param request DescribeQuotaRequest
        * @return DescribeQuotaResponse
@@ -255,7 +255,7 @@ namespace Sandbox20260820
       Models::DescribeQuotaResponse describeQuota(const Models::DescribeQuotaRequest &request);
 
       /**
-       * @summary 查询模板缓存
+       * @summary Queries the template cache.
        *
        * @param request DescribeTemplateCacheRequest
        * @param headers map
@@ -265,7 +265,7 @@ namespace Sandbox20260820
       Models::DescribeTemplateCacheResponse describeTemplateCacheWithOptions(const string &templateID, const Models::DescribeTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模板缓存
+       * @summary Queries the template cache.
        *
        * @param request DescribeTemplateCacheRequest
        * @return DescribeTemplateCacheResponse
@@ -273,7 +273,7 @@ namespace Sandbox20260820
       Models::DescribeTemplateCacheResponse describeTemplateCache(const string &templateID, const Models::DescribeTemplateCacheRequest &request);
 
       /**
-       * @summary 获取Team详情
+       * @summary Queries the details of a specified team.
        *
        * @param request GetTeamRequest
        * @param headers map
@@ -283,7 +283,7 @@ namespace Sandbox20260820
       Models::GetTeamResponse getTeamWithOptions(const string &teamID, const Models::GetTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Team详情
+       * @summary Queries the details of a specified team.
        *
        * @param request GetTeamRequest
        * @return GetTeamResponse
@@ -291,7 +291,7 @@ namespace Sandbox20260820
       Models::GetTeamResponse getTeam(const string &teamID, const Models::GetTeamRequest &request);
 
       /**
-       * @summary 查询 Template
+       * @summary Queries a template.
        *
        * @param request GetTemplateRequest
        * @param headers map
@@ -301,7 +301,7 @@ namespace Sandbox20260820
       Models::GetTemplateResponse getTemplateWithOptions(const string &templateID, const Models::GetTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 Template
+       * @summary Queries a template.
        *
        * @param request GetTemplateRequest
        * @return GetTemplateResponse
@@ -309,7 +309,7 @@ namespace Sandbox20260820
       Models::GetTemplateResponse getTemplate(const string &templateID, const Models::GetTemplateRequest &request);
 
       /**
-       * @summary 查看 Volume
+       * @summary Queries the details of a specified storage volume.
        *
        * @param request GetVolumeRequest
        * @param headers map
@@ -319,7 +319,7 @@ namespace Sandbox20260820
       Models::GetVolumeResponse getVolumeWithOptions(const string &volumeID, const Models::GetVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看 Volume
+       * @summary Queries the details of a specified storage volume.
        *
        * @param request GetVolumeRequest
        * @return GetVolumeResponse
@@ -327,7 +327,7 @@ namespace Sandbox20260820
       Models::GetVolumeResponse getVolume(const string &volumeID, const Models::GetVolumeRequest &request);
 
       /**
-       * @summary 分页查询 ApiKey
+       * @summary Queries the list of API keys by using paging.
        *
        * @param request ListApiKeysRequest
        * @param headers map
@@ -337,7 +337,7 @@ namespace Sandbox20260820
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询 ApiKey
+       * @summary Queries the list of API keys by using paging.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -345,7 +345,7 @@ namespace Sandbox20260820
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary 查询 quota 配置
+       * @summary Performs a paging query on the quota configurations for the current account.
        *
        * @param request ListQuotaRequest
        * @param headers map
@@ -355,7 +355,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuotaWithOptions(const Models::ListQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 quota 配置
+       * @summary Performs a paging query on the quota configurations for the current account.
        *
        * @param request ListQuotaRequest
        * @return ListQuotaResponse
@@ -363,7 +363,7 @@ namespace Sandbox20260820
       Models::ListQuotaResponse listQuota(const Models::ListQuotaRequest &request);
 
       /**
-       * @summary 查询 Team 列表
+       * @summary Queries the list of teams by using paging.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -373,7 +373,7 @@ namespace Sandbox20260820
       Models::ListTeamsResponse listTeamsWithOptions(const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 Team 列表
+       * @summary Queries the list of teams by using paging.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -381,7 +381,7 @@ namespace Sandbox20260820
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary 分页查询模板缓存
+       * @summary Performs a paging query of template caches.
        *
        * @param request ListTemplateCacheRequest
        * @param headers map
@@ -391,7 +391,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCacheWithOptions(const Models::ListTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询模板缓存
+       * @summary Performs a paging query of template caches.
        *
        * @param request ListTemplateCacheRequest
        * @return ListTemplateCacheResponse
@@ -399,7 +399,7 @@ namespace Sandbox20260820
       Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
-       * @summary 分页查询 Template
+       * @summary Performs a paged query on the template list by using paging.
        *
        * @param request ListTemplatesRequest
        * @param headers map
@@ -409,7 +409,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询 Template
+       * @summary Performs a paged query on the template list by using paging.
        *
        * @param request ListTemplatesRequest
        * @return ListTemplatesResponse
@@ -417,7 +417,7 @@ namespace Sandbox20260820
       Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
 
       /**
-       * @summary 分页查询 Volumes
+       * @summary Queries a list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @param headers map
@@ -427,7 +427,7 @@ namespace Sandbox20260820
       Models::ListVolumesResponse listVolumesWithOptions(const Models::ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询 Volumes
+       * @summary Queries a list of storage volumes by using paging.
        *
        * @param request ListVolumesRequest
        * @return ListVolumesResponse
@@ -435,7 +435,7 @@ namespace Sandbox20260820
       Models::ListVolumesResponse listVolumes(const Models::ListVolumesRequest &request);
 
       /**
-       * @summary 重置 ApiKey 
+       * @summary Resets a specified API key.
        *
        * @param request ResetApiKeyRequest
        * @param headers map
@@ -445,7 +445,7 @@ namespace Sandbox20260820
       Models::ResetApiKeyResponse resetApiKeyWithOptions(const string &apiKeyID, const Models::ResetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置 ApiKey 
+       * @summary Resets a specified API key.
        *
        * @param request ResetApiKeyRequest
        * @return ResetApiKeyResponse
@@ -453,7 +453,7 @@ namespace Sandbox20260820
       Models::ResetApiKeyResponse resetApiKey(const string &apiKeyID, const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary 更新 ApiKey
+       * @summary Updates the configuration of a specified API key.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -463,7 +463,7 @@ namespace Sandbox20260820
       Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyID, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 ApiKey
+       * @summary Updates the configuration of a specified API key.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse
@@ -471,7 +471,7 @@ namespace Sandbox20260820
       Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyID, const Models::UpdateApiKeyRequest &request);
 
       /**
-       * @summary 更新 quota 配置
+       * @summary Updates the quota configuration.
        *
        * @param request UpdateQuotaRequest
        * @param headers map
@@ -481,7 +481,7 @@ namespace Sandbox20260820
       Models::UpdateQuotaResponse updateQuotaWithOptions(const Models::UpdateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 quota 配置
+       * @summary Updates the quota configuration.
        *
        * @param request UpdateQuotaRequest
        * @return UpdateQuotaResponse
@@ -489,7 +489,7 @@ namespace Sandbox20260820
       Models::UpdateQuotaResponse updateQuota(const Models::UpdateQuotaRequest &request);
 
       /**
-       * @summary 更新 Team
+       * @summary Updates the information of a specified team.
        *
        * @param request UpdateTeamRequest
        * @param headers map
@@ -499,7 +499,7 @@ namespace Sandbox20260820
       Models::UpdateTeamResponse updateTeamWithOptions(const string &teamID, const Models::UpdateTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Team
+       * @summary Updates the information of a specified team.
        *
        * @param request UpdateTeamRequest
        * @return UpdateTeamResponse
@@ -507,7 +507,7 @@ namespace Sandbox20260820
       Models::UpdateTeamResponse updateTeam(const string &teamID, const Models::UpdateTeamRequest &request);
 
       /**
-       * @summary 更新 Template
+       * @summary Updates a template.
        *
        * @param request UpdateTemplateRequest
        * @param headers map
@@ -517,7 +517,7 @@ namespace Sandbox20260820
       Models::UpdateTemplateResponse updateTemplateWithOptions(const string &templateID, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Template
+       * @summary Updates a template.
        *
        * @param request UpdateTemplateRequest
        * @return UpdateTemplateResponse
@@ -525,7 +525,7 @@ namespace Sandbox20260820
       Models::UpdateTemplateResponse updateTemplate(const string &templateID, const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary 更新 Volume
+       * @summary Updates the configuration of a specified storage volume.
        *
        * @param request UpdateVolumeRequest
        * @param headers map
@@ -535,7 +535,7 @@ namespace Sandbox20260820
       Models::UpdateVolumeResponse updateVolumeWithOptions(const string &volumeID, const Models::UpdateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Volume
+       * @summary Updates the configuration of a specified storage volume.
        *
        * @param request UpdateVolumeRequest
        * @return UpdateVolumeResponse

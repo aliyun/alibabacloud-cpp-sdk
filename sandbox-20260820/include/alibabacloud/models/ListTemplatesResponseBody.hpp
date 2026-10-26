@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The error code. The value 200 indicates success.
     shared_ptr<string> code_ {};
+    // The maximum number of entries per page returned in the current response.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of template objects.
     shared_ptr<vector<PublicTemplate>> templates_ {};
   };
 

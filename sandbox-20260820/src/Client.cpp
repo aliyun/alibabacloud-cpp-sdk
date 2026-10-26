@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建 ApiKey
+ * @summary Creates an API key.
  *
  * @param request CreateApiKeyRequest
  * @param headers map
@@ -65,7 +65,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary 创建 ApiKey
+ * @summary Creates an API key.
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -77,7 +77,7 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary 创建 Team
+ * @summary Creates a team.
  *
  * @param request CreateTeamRequest
  * @param headers map
@@ -105,7 +105,7 @@ CreateTeamResponse Client::createTeamWithOptions(const CreateTeamRequest &reques
 }
 
 /**
- * @summary 创建 Team
+ * @summary Creates a team.
  *
  * @param request CreateTeamRequest
  * @return CreateTeamResponse
@@ -117,7 +117,7 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
 }
 
 /**
- * @summary 创建 Template
+ * @summary Creates a template.
  *
  * @param request CreateTemplateRequest
  * @param headers map
@@ -145,7 +145,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
- * @summary 创建 Template
+ * @summary Creates a template.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -157,7 +157,7 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
- * @summary 创建模板缓存
+ * @summary Creates a template cache.
  *
  * @param request CreateTemplateCacheRequest
  * @param headers map
@@ -185,7 +185,7 @@ CreateTemplateCacheResponse Client::createTemplateCacheWithOptions(const CreateT
 }
 
 /**
- * @summary 创建模板缓存
+ * @summary Creates a template cache.
  *
  * @param request CreateTemplateCacheRequest
  * @return CreateTemplateCacheResponse
@@ -197,7 +197,7 @@ CreateTemplateCacheResponse Client::createTemplateCache(const CreateTemplateCach
 }
 
 /**
- * @summary 创建 Volume
+ * @summary Creates a storage volume.
  *
  * @param request CreateVolumeRequest
  * @param headers map
@@ -225,7 +225,7 @@ CreateVolumeResponse Client::createVolumeWithOptions(const CreateVolumeRequest &
 }
 
 /**
- * @summary 创建 Volume
+ * @summary Creates a storage volume.
  *
  * @param request CreateVolumeRequest
  * @return CreateVolumeResponse
@@ -237,7 +237,7 @@ CreateVolumeResponse Client::createVolume(const CreateVolumeRequest &request) {
 }
 
 /**
- * @summary 删除 ApiKey 
+ * @summary Deletes a specified API key.
  *
  * @param request DeleteApiKeyRequest
  * @param headers map
@@ -264,7 +264,7 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const string &apiKeyID, con
 }
 
 /**
- * @summary 删除 ApiKey 
+ * @summary Deletes a specified API key.
  *
  * @param request DeleteApiKeyRequest
  * @return DeleteApiKeyResponse
@@ -276,7 +276,7 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyID, const DeleteAp
 }
 
 /**
- * @summary 删除 quota 配置
+ * @summary Deletes the quota configuration for a specified team.
  *
  * @param request DeleteQuotaRequest
  * @param headers map
@@ -309,7 +309,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const DeleteQuotaRequest &req
 }
 
 /**
- * @summary 删除 quota 配置
+ * @summary Deletes the quota configuration for a specified team.
  *
  * @param request DeleteQuotaRequest
  * @return DeleteQuotaResponse
@@ -321,7 +321,7 @@ DeleteQuotaResponse Client::deleteQuota(const DeleteQuotaRequest &request) {
 }
 
 /**
- * @summary 删除 Team
+ * @summary Deletes a specified team.
  *
  * @param request DeleteTeamRequest
  * @param headers map
@@ -348,7 +348,7 @@ DeleteTeamResponse Client::deleteTeamWithOptions(const string &teamID, const Del
 }
 
 /**
- * @summary 删除 Team
+ * @summary Deletes a specified team.
  *
  * @param request DeleteTeamRequest
  * @return DeleteTeamResponse
@@ -360,7 +360,7 @@ DeleteTeamResponse Client::deleteTeam(const string &teamID, const DeleteTeamRequ
 }
 
 /**
- * @summary 删除 Template
+ * @summary Deletes a template.
  *
  * @param request DeleteTemplateRequest
  * @param headers map
@@ -393,7 +393,7 @@ DeleteTemplateResponse Client::deleteTemplateWithOptions(const string &templateI
 }
 
 /**
- * @summary 删除 Template
+ * @summary Deletes a template.
  *
  * @param request DeleteTemplateRequest
  * @return DeleteTemplateResponse
@@ -405,7 +405,7 @@ DeleteTemplateResponse Client::deleteTemplate(const string &templateID, const De
 }
 
 /**
- * @summary 删除模板缓存
+ * @summary Deletes the template cache.
  *
  * @param request DeleteTemplateCacheRequest
  * @param headers map
@@ -438,7 +438,7 @@ DeleteTemplateCacheResponse Client::deleteTemplateCacheWithOptions(const string 
 }
 
 /**
- * @summary 删除模板缓存
+ * @summary Deletes the template cache.
  *
  * @param request DeleteTemplateCacheRequest
  * @return DeleteTemplateCacheResponse
@@ -450,7 +450,7 @@ DeleteTemplateCacheResponse Client::deleteTemplateCache(const string &templateID
 }
 
 /**
- * @summary 删除 Volume 
+ * @summary Deletes a specified storage volume.
  *
  * @param request DeleteVolumeRequest
  * @param headers map
@@ -483,7 +483,7 @@ DeleteVolumeResponse Client::deleteVolumeWithOptions(const string &volumeID, con
 }
 
 /**
- * @summary 删除 Volume 
+ * @summary Deletes a specified storage volume.
  *
  * @param request DeleteVolumeRequest
  * @return DeleteVolumeResponse
@@ -495,7 +495,7 @@ DeleteVolumeResponse Client::deleteVolume(const string &volumeID, const DeleteVo
 }
 
 /**
- * @summary 查看 ApiKey
+ * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApiKeyRequest
  * @param headers map
@@ -522,7 +522,7 @@ DescribeApiKeyResponse Client::describeApiKeyWithOptions(const string &apiKeyID,
 }
 
 /**
- * @summary 查看 ApiKey
+ * @summary Queries the details of a specified API key.
  *
  * @param request DescribeApiKeyRequest
  * @return DescribeApiKeyResponse
@@ -534,7 +534,7 @@ DescribeApiKeyResponse Client::describeApiKey(const string &apiKeyID, const Desc
 }
 
 /**
- * @summary 获取 quota 配置
+ * @summary Queries the quota configuration of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @param headers map
@@ -567,7 +567,7 @@ DescribeQuotaResponse Client::describeQuotaWithOptions(const DescribeQuotaReques
 }
 
 /**
- * @summary 获取 quota 配置
+ * @summary Queries the quota configuration of a specified team.
  *
  * @param request DescribeQuotaRequest
  * @return DescribeQuotaResponse
@@ -579,7 +579,7 @@ DescribeQuotaResponse Client::describeQuota(const DescribeQuotaRequest &request)
 }
 
 /**
- * @summary 查询模板缓存
+ * @summary Queries the template cache.
  *
  * @param request DescribeTemplateCacheRequest
  * @param headers map
@@ -612,7 +612,7 @@ DescribeTemplateCacheResponse Client::describeTemplateCacheWithOptions(const str
 }
 
 /**
- * @summary 查询模板缓存
+ * @summary Queries the template cache.
  *
  * @param request DescribeTemplateCacheRequest
  * @return DescribeTemplateCacheResponse
@@ -624,7 +624,7 @@ DescribeTemplateCacheResponse Client::describeTemplateCache(const string &templa
 }
 
 /**
- * @summary 获取Team详情
+ * @summary Queries the details of a specified team.
  *
  * @param request GetTeamRequest
  * @param headers map
@@ -651,7 +651,7 @@ GetTeamResponse Client::getTeamWithOptions(const string &teamID, const GetTeamRe
 }
 
 /**
- * @summary 获取Team详情
+ * @summary Queries the details of a specified team.
  *
  * @param request GetTeamRequest
  * @return GetTeamResponse
@@ -663,7 +663,7 @@ GetTeamResponse Client::getTeam(const string &teamID, const GetTeamRequest &requ
 }
 
 /**
- * @summary 查询 Template
+ * @summary Queries a template.
  *
  * @param request GetTemplateRequest
  * @param headers map
@@ -696,7 +696,7 @@ GetTemplateResponse Client::getTemplateWithOptions(const string &templateID, con
 }
 
 /**
- * @summary 查询 Template
+ * @summary Queries a template.
  *
  * @param request GetTemplateRequest
  * @return GetTemplateResponse
@@ -708,7 +708,7 @@ GetTemplateResponse Client::getTemplate(const string &templateID, const GetTempl
 }
 
 /**
- * @summary 查看 Volume
+ * @summary Queries the details of a specified storage volume.
  *
  * @param request GetVolumeRequest
  * @param headers map
@@ -741,7 +741,7 @@ GetVolumeResponse Client::getVolumeWithOptions(const string &volumeID, const Get
 }
 
 /**
- * @summary 查看 Volume
+ * @summary Queries the details of a specified storage volume.
  *
  * @param request GetVolumeRequest
  * @return GetVolumeResponse
@@ -753,7 +753,7 @@ GetVolumeResponse Client::getVolume(const string &volumeID, const GetVolumeReque
 }
 
 /**
- * @summary 分页查询 ApiKey
+ * @summary Queries the list of API keys by using paging.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -810,7 +810,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary 分页查询 ApiKey
+ * @summary Queries the list of API keys by using paging.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -822,7 +822,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary 查询 quota 配置
+ * @summary Performs a paging query on the quota configurations for the current account.
  *
  * @param request ListQuotaRequest
  * @param headers map
@@ -859,7 +859,7 @@ ListQuotaResponse Client::listQuotaWithOptions(const ListQuotaRequest &request, 
 }
 
 /**
- * @summary 查询 quota 配置
+ * @summary Performs a paging query on the quota configurations for the current account.
  *
  * @param request ListQuotaRequest
  * @return ListQuotaResponse
@@ -871,7 +871,7 @@ ListQuotaResponse Client::listQuota(const ListQuotaRequest &request) {
 }
 
 /**
- * @summary 查询 Team 列表
+ * @summary Queries the list of teams by using paging.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -920,7 +920,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &request, 
 }
 
 /**
- * @summary 查询 Team 列表
+ * @summary Queries the list of teams by using paging.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -932,7 +932,7 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
- * @summary 分页查询模板缓存
+ * @summary Performs a paging query of template caches.
  *
  * @param request ListTemplateCacheRequest
  * @param headers map
@@ -981,7 +981,7 @@ ListTemplateCacheResponse Client::listTemplateCacheWithOptions(const ListTemplat
 }
 
 /**
- * @summary 分页查询模板缓存
+ * @summary Performs a paging query of template caches.
  *
  * @param request ListTemplateCacheRequest
  * @return ListTemplateCacheResponse
@@ -993,7 +993,7 @@ ListTemplateCacheResponse Client::listTemplateCache(const ListTemplateCacheReque
 }
 
 /**
- * @summary 分页查询 Template
+ * @summary Performs a paged query on the template list by using paging.
  *
  * @param request ListTemplatesRequest
  * @param headers map
@@ -1034,7 +1034,7 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
 }
 
 /**
- * @summary 分页查询 Template
+ * @summary Performs a paged query on the template list by using paging.
  *
  * @param request ListTemplatesRequest
  * @return ListTemplatesResponse
@@ -1046,7 +1046,7 @@ ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request)
 }
 
 /**
- * @summary 分页查询 Volumes
+ * @summary Queries a list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @param headers map
@@ -1107,7 +1107,7 @@ ListVolumesResponse Client::listVolumesWithOptions(const ListVolumesRequest &req
 }
 
 /**
- * @summary 分页查询 Volumes
+ * @summary Queries a list of storage volumes by using paging.
  *
  * @param request ListVolumesRequest
  * @return ListVolumesResponse
@@ -1119,7 +1119,7 @@ ListVolumesResponse Client::listVolumes(const ListVolumesRequest &request) {
 }
 
 /**
- * @summary 重置 ApiKey 
+ * @summary Resets a specified API key.
  *
  * @param request ResetApiKeyRequest
  * @param headers map
@@ -1146,7 +1146,7 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyID, const
 }
 
 /**
- * @summary 重置 ApiKey 
+ * @summary Resets a specified API key.
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -1158,7 +1158,7 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyID, const ResetApiKe
 }
 
 /**
- * @summary 更新 ApiKey
+ * @summary Updates the configuration of a specified API key.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -1186,7 +1186,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyID, con
 }
 
 /**
- * @summary 更新 ApiKey
+ * @summary Updates the configuration of a specified API key.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse
@@ -1198,7 +1198,7 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyID, const UpdateAp
 }
 
 /**
- * @summary 更新 quota 配置
+ * @summary Updates the quota configuration.
  *
  * @param request UpdateQuotaRequest
  * @param headers map
@@ -1226,7 +1226,7 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const UpdateQuotaRequest &req
 }
 
 /**
- * @summary 更新 quota 配置
+ * @summary Updates the quota configuration.
  *
  * @param request UpdateQuotaRequest
  * @return UpdateQuotaResponse
@@ -1238,7 +1238,7 @@ UpdateQuotaResponse Client::updateQuota(const UpdateQuotaRequest &request) {
 }
 
 /**
- * @summary 更新 Team
+ * @summary Updates the information of a specified team.
  *
  * @param request UpdateTeamRequest
  * @param headers map
@@ -1266,7 +1266,7 @@ UpdateTeamResponse Client::updateTeamWithOptions(const string &teamID, const Upd
 }
 
 /**
- * @summary 更新 Team
+ * @summary Updates the information of a specified team.
  *
  * @param request UpdateTeamRequest
  * @return UpdateTeamResponse
@@ -1278,7 +1278,7 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
 }
 
 /**
- * @summary 更新 Template
+ * @summary Updates a template.
  *
  * @param request UpdateTemplateRequest
  * @param headers map
@@ -1312,7 +1312,7 @@ UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateI
 }
 
 /**
- * @summary 更新 Template
+ * @summary Updates a template.
  *
  * @param request UpdateTemplateRequest
  * @return UpdateTemplateResponse
@@ -1324,7 +1324,7 @@ UpdateTemplateResponse Client::updateTemplate(const string &templateID, const Up
 }
 
 /**
- * @summary 更新 Volume
+ * @summary Updates the configuration of a specified storage volume.
  *
  * @param request UpdateVolumeRequest
  * @param headers map
@@ -1358,7 +1358,7 @@ UpdateVolumeResponse Client::updateVolumeWithOptions(const string &volumeID, con
 }
 
 /**
- * @summary 更新 Volume
+ * @summary Updates the configuration of a specified storage volume.
  *
  * @param request UpdateVolumeRequest
  * @return UpdateVolumeResponse

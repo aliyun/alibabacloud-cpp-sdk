@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request parameters for creating a team.
     shared_ptr<CreateTeamInput> body_ {};
   };
 

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request parameters for creating an API key.
     shared_ptr<CreateApiKeyInput> body_ {};
   };
 

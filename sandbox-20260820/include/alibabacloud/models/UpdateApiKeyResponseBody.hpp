@@ -93,11 +93,17 @@ namespace Models
 
 
   protected:
+    // The API key information.
     shared_ptr<ApiKey> apiKey_ {};
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The list of IP blacklist rules.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The list of IP address whitelist rules.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
+    // The response message. A value of success indicates a successful request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

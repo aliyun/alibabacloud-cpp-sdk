@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The response message. A value of success indicates that the request is successful.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The storage volume information.
     shared_ptr<E2BVolume> volume_ {};
   };
 

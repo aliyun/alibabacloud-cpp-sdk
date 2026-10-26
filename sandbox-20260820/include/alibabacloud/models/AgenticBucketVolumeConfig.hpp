@@ -81,9 +81,9 @@ namespace Models
     shared_ptr<string> bucketName_ {};
     // The path of the mounted OSS bucket.
     shared_ptr<string> bucketPath_ {};
-    // The OSS endpoint address.
+    // The OSS endpoint.
     shared_ptr<string> endpoint_ {};
-    // Specifies whether the mount directory has read-only access permissions after the OSS bucket is mounted. Valid values:
+    // Specifies whether the access permissions of the mounted directory are read-only after the OSS bucket is mounted. Valid values:
     // - true: Read-only.
     // - false: Read and write.
     shared_ptr<bool> readOnly_ {};
